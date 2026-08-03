@@ -20,7 +20,6 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
   const gallery =
     species.gallery.length > 0 ? species.gallery : [species.image];
   const primary = gallery[0];
-  const habitatImage = gallery[1] ?? gallery[0] ?? species.image;
 
   return (
     <div className="min-h-screen bg-background">
@@ -124,36 +123,6 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
                 </div>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-ink py-24 text-ink-foreground lg:py-32">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-10">
-          <Reveal>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[32px]">
-              <Image
-                src={habitatImage}
-                alt={`${species.commonName} — ჰაბიტატი`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
-            </div>
-          </Reveal>
-          <div>
-            <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink-muted">
-                ჰაბიტატი
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] text-white">
-                სად ცხოვრობს
-              </h2>
-              <p className="mt-7 text-[16px] leading-relaxed text-white/75 sm:text-[17px]">
-                {species.habitat}
-              </p>
-            </Reveal>
           </div>
         </div>
       </section>
