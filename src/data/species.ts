@@ -532,8 +532,21 @@ export const images = {
   cta: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
 };
 
+export const featuredSpeciesIds = [
+  "vipera-dinniki",
+  "macrovipera-lebetina",
+  "vipera-kaznakovi",
+  "vipera-ammodytes",
+] as const;
+
 export function getSpeciesById(id: string) {
   return species.find((item) => item.id === id);
+}
+
+export function getFeaturedSpecies() {
+  return featuredSpeciesIds
+    .map((id) => getSpeciesById(id))
+    .filter((item): item is Species => Boolean(item));
 }
 
 export function dangerClass(danger: DangerLevel) {

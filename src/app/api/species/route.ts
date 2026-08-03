@@ -1,7 +1,7 @@
-import { species } from "@/data/species";
+import { getFeaturedSpecies } from "@/data/species";
 
 export async function GET() {
-  const list = species.map((item) => ({
+  const list = getFeaturedSpecies().map((item) => ({
     id: item.id,
     commonName: item.commonName,
     scientificName: item.scientificName,

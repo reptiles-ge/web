@@ -1,6 +1,10 @@
 import { JsonLd } from "@/components/JsonLd";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
-import { getSpeciesById, species } from "@/data/species";
+import {
+  featuredSpeciesIds,
+  getFeaturedSpecies,
+  getSpeciesById,
+} from "@/data/species";
 import {
   absoluteImageUrl,
   absoluteUrl,
@@ -14,7 +18,7 @@ type PageProps = {
 };
 
 export function generateStaticParams() {
-  return species.map((item) => ({ id: item.id }));
+  return featuredSpeciesIds.map((id) => ({ id }));
 }
 
 export async function generateMetadata({
@@ -86,7 +90,9 @@ export default async function SpeciesPage({ params }: PageProps) {
     notFound();
   }
 
-  const related = species.filter((entry) => entry.id !== item.id).slice(0, 3);
+  const related = getFeaturedSpecies()
+    .filter((entry) => entry.id !== item.id)
+    .slice(0, 3);
   const pageUrl = absoluteUrl(`/species/${item.id}`);
   const ogImage = absoluteUrl(`/species/${item.id}/opengraph-image`);
   const galleryImages = item.gallery

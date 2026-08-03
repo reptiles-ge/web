@@ -2,11 +2,12 @@
 
 import { Reveal } from "@/components/Reveal";
 import { SpeciesCard } from "@/components/SpeciesCard";
-import { species } from "@/data/species";
+import { getFeaturedSpecies } from "@/data/species";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export function SpeciesCarousel() {
+  const featured = getFeaturedSpecies();
   const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -40,10 +41,11 @@ export function SpeciesCarousel() {
               რჩეული
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.02]">
-              ექვსი სახეობა, რომელიც უნდა იცოდე
+              ოთხი სახეობა, რომელიც უნდა იცოდე
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              გადაღებული ველურ ბუნებაში. დამოწმებული ბიოლოგების მიერ.
+              საქართველოსა და კავკასიის გველგესლები — ველში გადაღებული და
+              მეცნიერულად დამოწმებული.
             </p>
           </Reveal>
           <Reveal className="flex items-center gap-3" delay={120}>
@@ -77,7 +79,7 @@ export function SpeciesCarousel() {
         className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 lg:px-10"
       >
         <div className="hidden shrink-0 lg:block lg:w-[calc((100vw-1400px)/2)]" />
-        {species.map((item) => (
+        {featured.map((item) => (
           <div key={item.id} className="snap-start">
             <SpeciesCard species={item} />
           </div>
