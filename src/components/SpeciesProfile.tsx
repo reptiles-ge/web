@@ -5,7 +5,7 @@ import {
   dangerLabels,
   type Species,
 } from "@/data/species";
-import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowLeft, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ type SpeciesProfileProps = {
   related: Species[];
 };
 
-export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
+export function SpeciesProfile({ species }: SpeciesProfileProps) {
   const gallery =
     species.gallery.length > 0 ? species.gallery : [species.image];
   const primary = gallery[0];
@@ -184,6 +184,7 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
         </div>
       </section>
 
+      {/*
       {related.length > 0 && (
         <section className="border-t border-border bg-background pb-28 pt-8 lg:pb-36">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -239,6 +240,7 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
           </div>
         </section>
       )}
+      */}
 
       <footer className="border-t border-border bg-background py-10">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-6 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-10">
