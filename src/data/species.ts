@@ -54,9 +54,9 @@ export const species: Species[] = [
     image: "/images/vipera-dinnik.png",
     gallery: [
       "/images/vipera-dinnik.png",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
+      "/images/vipera-dinnik-2.png",
+      "/images/vipera-dinnik-3.png",
+      "/images/vipera-dinnik-4.png",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "კავკასიონის მთები" },
