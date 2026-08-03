@@ -127,8 +127,6 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
         </div>
       </section>
 
-      <SpeciesGallery images={gallery} name={species.commonName} />
-
       <section className="bg-surface py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
@@ -158,6 +156,8 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
           </div>
         </div>
       </section>
+
+      <SpeciesGallery images={gallery} name={species.commonName} />
 
       <section className="bg-background py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
