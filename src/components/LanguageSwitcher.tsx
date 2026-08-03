@@ -4,8 +4,8 @@ import { Globe } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const languages = [
-  { code: "en", label: "English" },
   { code: "ka", label: "ქართული" },
+  { code: "en", label: "English" },
 ] as const;
 
 type LanguageSwitcherProps = {
@@ -14,7 +14,7 @@ type LanguageSwitcherProps = {
 
 export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState<(typeof languages)[number]["code"]>("en");
+  const [lang, setLang] = useState<(typeof languages)[number]["code"]>("ka");
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     <div className="relative" ref={rootRef}>
       <button
         type="button"
-        aria-label="Change language"
+        aria-label="ენის შეცვლა"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
         className={`flex items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${buttonClass}`}
