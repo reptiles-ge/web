@@ -14,6 +14,7 @@
   --ink-foreground: #f2f5f1;
   --ink-muted: #8a958c;
   --surface: #e9eee6;
+  --beta-banner-height: 0px;
 }
 
 @theme inline {

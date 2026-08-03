@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { BetaBanner } from "@/components/BetaBanner";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -79,6 +80,7 @@ export default function RootLayout({
       className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">
+        <BetaBanner />
         {children}
         <Analytics />
         <GoogleAnalytics gaId="G-7TTKJPY059" />

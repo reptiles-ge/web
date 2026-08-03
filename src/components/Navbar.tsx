@@ -23,7 +23,10 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header
+      className="fixed inset-x-0 z-50"
+      style={{ top: "var(--beta-banner-height, 0px)" }}
+    >
       <div
         className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 transition-all duration-500 lg:px-10 ${
           scrolled ? "py-3" : "py-5"

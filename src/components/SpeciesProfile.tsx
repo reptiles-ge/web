@@ -23,7 +23,10 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header
+        className="fixed inset-x-0 z-50"
+        style={{ top: "var(--beta-banner-height, 0px)" }}
+      >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 lg:px-10">
           <div
             className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full"
