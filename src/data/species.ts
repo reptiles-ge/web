@@ -59,6 +59,8 @@ export const species: Species[] = [
       "/images/vipera-dinnik-2.png",
       "/images/vipera-dinnik-3.png",
       "/images/vipera-dinnik-4.png",
+      "/images/vipera-dinnik-5.png",
+      "/images/vipera-dinnik-6.png",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დიდი კავკასიონი" },
