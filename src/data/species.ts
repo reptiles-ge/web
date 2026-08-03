@@ -58,15 +58,15 @@ export const species: Species[] = [
     conservation:
       "IUCN Red List-ის მიხედვით მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საფრთხეებს შორისაა სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა. შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში.",
     danger: "Moderate",
-    image: "/images/vipera-dinnik.png",
-    mobileImage: "/images/vipera-cover-on-mobile.png",
+    image: "/images/vipera-dinnik.jpg",
+    mobileImage: "/images/vipera-cover-on-mobile.jpg",
     gallery: [
-      "/images/vipera-dinnik.png",
+      "/images/vipera-dinnik.jpg",
+      "/images/vipera-dinnik-6.png",
       "/images/vipera-dinnik-2.png",
       "/images/vipera-dinnik-3.png",
       "/images/vipera-dinnik-4.png",
       "/images/vipera-dinnik-5.png",
-      "/images/vipera-dinnik-6.png",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დიდი კავკასიონი" },
@@ -128,10 +128,10 @@ export const species: Species[] = [
     mobileImage: "/images/macrovipera-lebetina-mobile.jpg",
     gallery: [
       "/images/macrovipera-lebetina.jpg",
-      "/images/macrovipera-lebetina-2.jpg",
-      "/images/macrovipera-lebetina-3.jpg",
-      "/images/macrovipera-lebetina-4.jpg",
       "/images/macrovipera-lebetina-5.jpg",
+      "/images/macrovipera-lebetina-3.jpg",
+      "/images/macrovipera-lebetina-2.jpg",
+      "/images/macrovipera-lebetina-4.jpg",
       "/images/macrovipera-lebetina-6.jpg",
     ],
     stats: [
@@ -200,11 +200,11 @@ export const species: Species[] = [
     gallery: [
       "/images/vipera-kaznakovi.jpg",
       "/images/vipera-kaznakovi-2.jpg",
+      "/images/vipera-kaznakovi-7.png",
       "/images/vipera-kaznakovi-3.jpg",
       "/images/vipera-kaznakovi-4.jpg",
       "/images/vipera-kaznakovi-5.jpg",
       "/images/vipera-kaznakovi-6.jpg",
-      "/images/vipera-kaznakovi-7.png",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დას. კავკასია" },
@@ -528,7 +528,7 @@ export const species: Species[] = [
 
 export const images = {
   hero: "/images/hero-img.png",
-  detail: "/images/vipera-dinnik.png",
+  detail: "/images/vipera-dinnik.jpg",
   cta: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
 };
 

@@ -8,17 +8,20 @@ type SpeciesCardProps = {
 };
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
+  const cover = species.mobileImage ?? species.image;
+
   return (
     <Link
       href={`/species/${species.id}`}
       className="group relative block h-[560px] w-[320px] shrink-0 overflow-hidden rounded-[28px] bg-ink sm:w-[380px]"
     >
       <Image
-        src={species.image}
+        src={cover}
         alt={`${species.commonName} — ${species.scientificName}`}
         fill
-        sizes="380px"
-        className="object-cover"
+        quality={90}
+        sizes="(max-width: 640px) 320px, 380px"
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
       <div className="absolute inset-x-5 top-5 flex justify-end">
