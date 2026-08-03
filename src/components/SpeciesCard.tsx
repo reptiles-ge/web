@@ -1,6 +1,7 @@
 import { dangerClass, dangerLabels, type Species } from "@/data/species";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type SpeciesCardProps = {
   species: Species;
@@ -8,7 +9,10 @@ type SpeciesCardProps = {
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
   return (
-    <article className="group relative h-[560px] w-[320px] shrink-0 overflow-hidden rounded-[28px] bg-ink sm:w-[380px]">
+    <Link
+      href={`/species/${species.id}`}
+      className="group relative block h-[560px] w-[320px] shrink-0 overflow-hidden rounded-[28px] bg-ink sm:w-[380px]"
+    >
       <Image
         src={species.image}
         alt={`${species.commonName} — ${species.scientificName}`}
@@ -49,6 +53,6 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
