@@ -47,10 +47,7 @@ export function Navbar() {
             scrolled ? "text-foreground" : "text-white"
           }`}
         >
-          Repti
-          <span className={scrolled ? "text-primary" : "text-white/60"}>
-            les
-          </span>
+          Reptiles
         </a>
         <nav className="hidden items-center gap-9 md:flex">
           {links.map((link) => (

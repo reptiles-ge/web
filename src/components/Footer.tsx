@@ -27,7 +27,7 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             <p className="font-display text-[20px] font-semibold tracking-tight">
-              Repti<span className="text-primary">les</span>
+              Reptiles
             </p>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
               ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია.
