@@ -4,7 +4,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#species", label: "სახეობები" },
+  // { href: "#species", label: "სახეობები" },
   { href: "#why", label: "ატლასი" },
   { href: "#identify", label: "იდენტიფიკაცია" },
   { href: "#detail", label: "შესახებ" },
@@ -49,7 +49,7 @@ export function Navbar() {
         >
           Repti
           <span className={scrolled ? "text-primary" : "text-white/60"}>
-            Verse
+            les
           </span>
         </a>
         <nav className="hidden items-center gap-9 md:flex">

@@ -54,7 +54,7 @@ export function SpeciesCarousel() {
               type="button"
               aria-label="წინა სახეობა"
               onClick={() => scrollByCard(-1)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
             >
               <ArrowLeft className="size-4" />
             </button>
@@ -62,7 +62,7 @@ export function SpeciesCarousel() {
               type="button"
               aria-label="შემდეგი სახეობა"
               onClick={() => scrollByCard(1)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
             >
               <ArrowRight className="size-4" />
             </button>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const sora = Sora({
@@ -15,23 +16,55 @@ const notoSansGeorgian = Noto_Sans_Georgian({
 });
 
 export const metadata: Metadata = {
-  title: "ReptiVerse — აღმოაჩინე დედამიწის უძველესი არსებები",
-  description:
-    "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე ათასობით სახეობა მეცნიერებით, ფოტოგრაფიითა და AI იდენტიფიკაციით.",
+  metadataBase: new URL(getMetadataBase()),
+  title: {
+    default: siteConfig.title,
+    template: `%s — ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: absoluteUrl("/") }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "science",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "ReptiVerse — აღმოაჩინე დედამიწის უძველესი არსებები",
-    description:
-      "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე ათასობით სახეობა მეცნიერებით, ფოტოგრაფიითა და AI იდენტიფიკაციით.",
     type: "website",
-    locale: "ka_GE",
+    locale: siteConfig.locale,
+    url: absoluteUrl("/"),
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "ReptiVerse — აღმოაჩინე დედამიწის უძველესი არსებები",
-    description:
-      "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე ათასობით სახეობა მეცნიერებით, ფოტოგრაფიითა და AI იდენტიფიკაციით.",
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
 };
+
+function getMetadataBase() {
+  return absoluteUrl("/");
+}
 
 export default function RootLayout({
   children,
@@ -40,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="ka"
+      lang={siteConfig.language}
       className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">{children}</body>

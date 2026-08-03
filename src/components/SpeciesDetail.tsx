@@ -1,16 +1,10 @@
-"use client";
-
 import { Reveal } from "@/components/Reveal";
-import { images } from "@/data/species";
+import { getSpeciesById, images } from "@/data/species";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-const stats = [
-  { label: "ჰაბიტატი", value: "კავკასიონის მთები" },
-  { label: "სიგრძე", value: "40–60 სმ" },
-  { label: "შხამი", value: "საშუალო" },
-  { label: "კონსერვაცია", value: "დაცული სახეობა" },
-];
+const featured = getSpeciesById("vipera")!;
 
 export function SpeciesDetail() {
   return (
@@ -39,16 +33,16 @@ export function SpeciesDetail() {
               Vipera <span className="font-light italic">dinniki</span>
             </h2>
             <p className="mt-7 max-w-lg text-balance-tight text-[19px] leading-snug text-white/80 sm:text-[22px]">
-              კავკასიონის ერთ-ერთი ყველაზე იშვიათი გველგესლა.
+              დიდი კავკასიონის ენდემური შხამიანი გველგესლა.
             </p>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              1,500 მეტრზე მაღლა ალპურ მდელოებსა და კლდოვან ფერდობებზე ცხოვრობს.
-              დინიკის გველგესლა წლის უმეტეს ნაწილს ქვების ქვეშ ატარებს. მისი
-              პოპულაცია რამდენიმე იზოლირებულ ქედზეა დანაწევრებული.
+              ცხოვრობს დაახლოებით 1,500–2,800 მეტრზე — ტყის ზედა ზონაში,
+              სუბალპურ მდელოებსა და კლდოვან ადგილებში. არეალი ფრაგმენტირებულია;
+              IUCN-ის მიხედვით სახეობა მოწყვლადია.
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10">
-            {stats.map((stat, index) => (
+            {featured.stats.slice(0, 4).map((stat, index) => (
               <Reveal key={stat.label} delay={index * 80} className="bg-ink">
                 <div className="p-6 lg:p-8">
                   <p className="text-[10px] tracking-[0.22em] text-ink-muted">
@@ -62,15 +56,15 @@ export function SpeciesDetail() {
             ))}
           </div>
           <Reveal delay={200}>
-            <a
-              href="#species"
+            <Link
+              href="/species/vipera"
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
-              <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-white">
+              <span className="border-b border-white/30 pb-1 group-hover:border-white">
                 სრული პროფილის ნახვა
               </span>
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+              <ArrowUpRight className="size-4" />
+            </Link>
           </Reveal>
         </div>
       </div>
