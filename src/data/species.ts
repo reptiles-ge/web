@@ -205,7 +205,7 @@ export const species: Species[] = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Vipera_kaznakovi_%281%29.jpg/1920px-Vipera_kaznakovi_%281%29.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Vipera_kaznakovi_%282%29.jpg/1920px-Vipera_kaznakovi_%282%29.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Vipera_kaznakovi_%283%29.jpg/1920px-Vipera_kaznakovi_%283%29.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Pelias_kaznakovi%2C_female_%28Mt._Mosya%2C_Russia%29.png/1600px-Pelias_kaznakovi%2C_female_%28Mt._Mosya%2C_Russia%29.png",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Vipera_kaznakovi_%284%29.jpg/1920px-Vipera_kaznakovi_%284%29.jpg",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დას. კავკასია" },
