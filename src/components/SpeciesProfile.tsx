@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
+import { SpeciesGallery } from "@/components/SpeciesGallery";
 import {
   dangerClass,
   dangerLabels,
@@ -16,7 +17,10 @@ type SpeciesProfileProps = {
 };
 
 export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
-  const [primary, ...rest] = species.gallery;
+  const gallery =
+    species.gallery.length > 0 ? species.gallery : [species.image];
+  const primary = gallery[0];
+  const habitatImage = gallery[1] ?? gallery[0] ?? species.image;
 
   return (
     <div className="min-h-screen bg-background">
@@ -129,7 +133,7 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[32px]">
               <Image
-                src={rest[0] ?? species.image}
+                src={habitatImage}
                 alt={`${species.commonName} — ჰაბიტატი`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -153,6 +157,8 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
           </div>
         </div>
       </section>
+
+      <SpeciesGallery images={gallery} name={species.commonName} />
 
       <section className="bg-surface py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

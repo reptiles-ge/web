@@ -51,11 +51,12 @@ export const species: Species[] = [
     conservation:
       "IUCN-ის მიხედვით სახეობა მოწყვლადია (Vulnerable). მთავარი საფრთხეებია ჰაბიტატის დანაწევრება, კლიმატის დათბობა და ადამიანის ზეწოლა მაღალმთიან ზონებში. საქართველოში დაცული სახეობაა.",
     danger: "Moderate",
-    image: "/images/vipera-dinniki.png",
+    image: "/images/vipera-dinnik.png",
     gallery: [
       "/images/vipera-dinnik.png",
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "კავკასიონის მთები" },
@@ -96,6 +97,8 @@ export const species: Species[] = [
     gallery: [
       "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ინდონეზიის კუნძულები" },
@@ -135,6 +138,8 @@ export const species: Species[] = [
     gallery: [
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ამაზონის აუზი" },
@@ -174,6 +179,8 @@ export const species: Species[] = [
     gallery: [
       "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მადაგასკარი" },
@@ -213,6 +220,8 @@ export const species: Species[] = [
     gallery: [
       "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ტროპიკული ტყე" },
@@ -252,6 +261,8 @@ export const species: Species[] = [
     gallery: [
       "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ტროპიკული ოკეანეები" },
@@ -271,7 +282,7 @@ export const species: Species[] = [
 
 export const images = {
   hero: "/images/hero-img.png",
-  detail: "/images/vipera-dinniki.png",
+  detail: "/images/vipera-dinnik.png",
   cta: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
 };
 
