@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/species/vipera",
+        destination: "/species/vipera-dinniki",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -34,7 +34,7 @@ export const dangerLabels: Record<DangerLevel, string> = {
 
 export const species: Species[] = [
   {
-    id: "vipera",
+    id: "vipera-dinniki",
     commonName: "დინიკის გველგესლა",
     scientificName: "Vipera dinniki",
     genus: "Vipera",

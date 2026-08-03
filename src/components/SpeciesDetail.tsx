@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const featured = getSpeciesById("vipera")!;
+const featured = getSpeciesById("vipera-dinniki")!;
 
 export function SpeciesDetail() {
   return (
@@ -57,7 +57,7 @@ export function SpeciesDetail() {
           </div>
           <Reveal delay={200}>
             <Link
-              href="/species/vipera"
+              href="/species/vipera-dinniki"
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
               <span className="border-b border-white/30 pb-1 group-hover:border-white">
