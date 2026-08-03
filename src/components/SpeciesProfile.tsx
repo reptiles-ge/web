@@ -113,7 +113,7 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
                 delay={index * 60}
                 className="bg-background"
               >
-                <div className="p-6 transition-colors duration-500 hover:bg-card lg:p-8">
+                <div className="p-6 lg:p-8">
                   <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
                     {stat.label}
                   </p>
@@ -220,7 +220,7 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
                       alt={item.commonName}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-6">

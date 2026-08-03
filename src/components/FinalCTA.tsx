@@ -27,10 +27,10 @@ export function FinalCTA() {
           </p>
           <a
             href="#species"
-            className="group mt-12 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[14px] font-medium text-ink transition-transform duration-300 hover:scale-[1.03]"
+            className="mt-12 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[14px] font-medium text-ink"
           >
             დაიწყე აღმოჩენა
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="size-4" />
           </a>
         </Reveal>
       </div>

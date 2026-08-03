@@ -1,28 +1,9 @@
-"use client";
-
 import { Reveal } from "@/components/Reveal";
 import { species } from "@/data/species";
 import { CloudUpload, Sparkles } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export function AIUploadPreview() {
-  const [scanTop, setScanTop] = useState(20);
-
-  useEffect(() => {
-    const start = performance.now();
-    let frame = 0;
-
-    function animate(now: number) {
-      const t = ((now - start) % 3200) / 3200;
-      setScanTop(18 + t * 64);
-      frame = requestAnimationFrame(animate);
-    }
-
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
   return (
     <section
       id="identify"
@@ -44,8 +25,8 @@ export function AIUploadPreview() {
         </Reveal>
         <div className="mx-auto mt-20 grid max-w-5xl gap-6 md:grid-cols-2">
           <Reveal>
-            <div className="group flex h-full min-h-[380px] flex-col items-center justify-center rounded-[32px] border border-dashed border-border bg-card/60 p-10 text-center transition-colors duration-500 hover:border-primary/50">
-              <div className="flex size-16 items-center justify-center rounded-3xl bg-secondary text-muted-foreground transition-colors duration-500 group-hover:bg-primary/10 group-hover:text-primary">
+            <div className="flex h-full min-h-[380px] flex-col items-center justify-center rounded-[32px] border border-dashed border-border bg-card/60 p-10 text-center hover:border-primary/50">
+              <div className="flex size-16 items-center justify-center rounded-3xl bg-secondary text-muted-foreground">
                 <CloudUpload className="size-6" strokeWidth={1.5} />
               </div>
               <p className="mt-8 text-[19px] font-medium">ჩააგდე ფოტო აქ</p>
@@ -59,7 +40,7 @@ export function AIUploadPreview() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={120}>
+          <Reveal>
             <div className="relative h-full min-h-[380px] overflow-hidden rounded-[32px] bg-ink p-8">
               <Image
                 src={species[0].image}
@@ -69,10 +50,6 @@ export function AIUploadPreview() {
                 className="object-cover opacity-45"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
-              <div
-                className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
-                style={{ top: `${scanTop}%` }}
-              />
               <div className="relative flex h-full flex-col justify-between">
                 <div className="flex items-center gap-2 text-[11px] tracking-[0.22em] text-white/60">
                   <Sparkles className="size-3.5 text-gold" />
@@ -93,8 +70,7 @@ export function AIUploadPreview() {
                   </div>
                   <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/15">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-primary to-gold"
-                      style={{ width: "94%" }}
+                      className="h-full w-[94%] rounded-full bg-gradient-to-r from-primary to-gold"
                     />
                   </div>
                 </div>

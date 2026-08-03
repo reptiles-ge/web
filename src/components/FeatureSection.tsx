@@ -42,8 +42,8 @@ export function FeatureSection() {
                 delay={index * 100}
                 className="bg-background"
               >
-                <div className="group h-full p-9 transition-colors duration-500 hover:bg-card lg:p-12">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110">
+                <div className="h-full p-9 lg:p-12">
+                  <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="size-5" strokeWidth={1.5} />
                   </div>
                   <h3 className="mt-9 font-display text-[24px] font-medium leading-tight lg:text-[28px]">
@@ -52,7 +52,7 @@ export function FeatureSection() {
                   <p className="mt-4 max-w-xs text-[15px] leading-relaxed text-muted-foreground">
                     {feature.description}
                   </p>
-                  <div className="mt-10 h-px w-10 bg-gold transition-all duration-500 group-hover:w-20" />
+                  <div className="mt-10 h-px w-10 bg-gold" />
                 </div>
               </Reveal>
             );

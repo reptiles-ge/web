@@ -62,10 +62,10 @@ export function SpeciesDetail() {
               href="/species/vipera"
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
-              <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-white">
+              <span className="border-b border-white/30 pb-1 group-hover:border-white">
                 სრული პროფილის ნახვა
               </span>
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="size-4" />
             </Link>
           </Reveal>
         </div>

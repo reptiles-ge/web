@@ -92,10 +92,10 @@ export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
                           ? "100vw"
                           : "(max-width: 768px) 50vw, 33vw"
                       }
-                      className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
-                    <span className="absolute bottom-4 left-4 font-display text-[13px] text-white/0 transition-colors duration-500 group-hover:text-white/80">
+                      className="object-cover"
+                  />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
+                    <span className="absolute bottom-4 left-4 font-display text-[13px] text-white/0 group-hover:text-white/80">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </button>
@@ -117,7 +117,7 @@ export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
           <button
             type="button"
             onClick={() => setActive(null)}
-            className="absolute right-5 top-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+            className="absolute right-5 top-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
             aria-label="დახურვა"
           >
             <X className="size-5" />
@@ -135,7 +135,7 @@ export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
                       : (current - 1 + photos.length) % photos.length,
                   );
                 }}
-                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 transition-colors hover:bg-white/10 hover:text-white sm:left-6"
+                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
                 aria-label="წინა ფოტო"
               >
                 <ChevronLeft className="size-5" />
@@ -148,7 +148,7 @@ export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
                     current === null ? null : (current + 1) % photos.length,
                   );
                 }}
-                className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 transition-colors hover:bg-white/10 hover:text-white sm:right-6"
+                className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
                 aria-label="შემდეგი ფოტო"
               >
                 <ChevronRight className="size-5" />
