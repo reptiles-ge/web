@@ -87,9 +87,6 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
             <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
               {species.commonName}
             </h1>
-            <p className="mt-3 font-display text-[clamp(1.1rem,2vw,1.5rem)] font-light italic text-white/55">
-              {species.scientificName}
-            </p>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
               {species.description}
             </p>
