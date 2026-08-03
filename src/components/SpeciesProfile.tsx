@@ -84,10 +84,7 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
         <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/50">
-              {species.family} · {species.genus}
-            </p>
-            <h1 className="mt-4 max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
+            <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
               {species.commonName}
             </h1>
             <p className="mt-3 font-display text-[clamp(1.1rem,2vw,1.5rem)] font-light italic text-white/55">
