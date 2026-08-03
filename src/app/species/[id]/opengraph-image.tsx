@@ -14,6 +14,9 @@ const ogFiles: Record<string, string> = {
   "vipera-ammodytes": "vipera-ammodytes.jpg",
   "vipera-kaznakovi": "vipera-kaznakovi.jpg",
   "pseudopus-apodus": "pseudopus-apodus.jpg",
+  "coronella-austriaca": "coronella-austriaca.jpg",
+  "elaphe-urartica": "elaphe-urartica.jpg",
+  "natrix-tessellata": "natrix-tessellata.jpg",
 };
 
 export default async function Image({

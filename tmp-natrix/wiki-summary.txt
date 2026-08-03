@@ -1,0 +1,3 @@
+Title: Dice snake
+Description: Species of snake
+Extract: The dice snake or water snake is a Eurasian nonvenomous snake in the family Colubridae, subfamily Natricinae. Its average length is 1.0–1.3 m (39–51 in). Body color may vary from greyish green to brownish or almost black, with dark spots on the back. The belly is sometimes vividly coloured in yellow or orange, with black spots, very similar to dice, hence the name.

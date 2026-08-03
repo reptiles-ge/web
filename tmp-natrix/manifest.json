@@ -1,0 +1,103 @@
+{
+  "species": "Natrix tessellata",
+  "mappings": [
+    {
+      "public": "public/images/natrix-tessellata.jpg",
+      "source": "wm-Natrix_tessellata_Nacionalni_park_Plitvička_jezera.jpg",
+      "role": "hero",
+      "dims": [
+        2400,
+        1600
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-mobile.jpg",
+      "source": "wm-20130608_Plitvice_Lakes_National_Park_050.jpg",
+      "role": "mobile",
+      "dims": [
+        1200,
+        1600
+      ]
+    },
+    {
+      "public": "public/images/og/natrix-tessellata.jpg",
+      "source": "wm-Natrix_tessellata_Nacionalni_park_Plitvička_jezera.jpg",
+      "role": "og",
+      "dims": [
+        1200,
+        630
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-2.jpg",
+      "source": "wm-Würfelnatter_Natrix_Tessellata_3.jpg",
+      "role": "gallery-2",
+      "dims": [
+        2200,
+        1467
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-3.jpg",
+      "source": "wm-2017-05-21_Würfelnatter_at_Nahe_River_shore_BME_WiTi_08.jpg",
+      "role": "gallery-3",
+      "dims": [
+        2200,
+        1467
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-4.jpg",
+      "source": "wm-Dice_snake_Natrix_tessellata_Nera_River_Gorges_Banat_Mountains_SW_Romania_345706.jpg",
+      "role": "gallery-4",
+      "dims": [
+        2200,
+        1434
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-5.jpg",
+      "source": "wm-Natrix_tessellata_1.jpg",
+      "role": "gallery-5",
+      "dims": [
+        2200,
+        1434
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-6.jpg",
+      "source": "wm-Ammoudi_Schlange_01.jpg",
+      "role": "gallery-6",
+      "dims": [
+        2200,
+        1651
+      ]
+    },
+    {
+      "public": "public/images/natrix-tessellata-7.jpg",
+      "source": "wm-Colubridae-_Natrix_tessellata_Dice_Snake_Tessellated_Watersnake_juvenile.jpg",
+      "role": "gallery-7",
+      "dims": [
+        2200,
+        1467
+      ]
+    }
+  ],
+  "notes": {
+    "hero": "Plitvice Lakes (Nacionalni park Plitvička jezera) — clear dice snake in iconic karst-lake habitat; strong landscape hero.",
+    "mobile": "Plitvice Lakes 050 portrait — vertical wild snake; cropped to 1200x1600 to match site mobile heroes.",
+    "gallery": "Variety: Lahn river high-res, Nahe river shore basking, Nera River Romania, sharp close-up, Ammoudi coastal Crete, juvenile on Don River.",
+    "skipped": "Aquarium (Hul), shed skins, taxidermy, maps, non-Natrix misfiles; Physignathus/water dragon never used.",
+    "also_downloaded_not_used": [
+      "wm-Würfelnatter_Natrix_Tessellata_2.jpg",
+      "wm-Natrix_tessellata_TK_2021-04-22_1.jpg",
+      "wm-Würfelnatter_an_der_Nahe.JPG",
+      "wm-Plitvice_-_panoramio_17_.jpg",
+      "wm-Natrix_tessellata_30577276378_.jpg",
+      "wm-Couleuvre_tessellée_Natrix_tessellata_Laurenti_1768_DSC_3347-p_48841501421_.jpg",
+      "inat-272262735.jpg",
+      "inat-229193968.jpg",
+      "inat-167011667.jpg"
+    ]
+  }
+}
