@@ -46,7 +46,7 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
         </div>
       </header>
 
-      <section className="relative h-[100svh] w-full overflow-hidden bg-ink">
+      <section className="relative h-[70svh] min-h-[420px] w-full overflow-hidden bg-ink lg:h-[75svh]">
         <Image
           src={primary ?? species.image}
           alt={species.commonName}
@@ -57,21 +57,21 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/25 to-black/90" />
         <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 lg:px-10 lg:pb-24">
+        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/50">
               {species.family} · {species.genus}
             </p>
-            <h1 className="mt-5 max-w-4xl font-display text-balance-tight text-[clamp(2.6rem,7vw,5.8rem)] font-semibold leading-[0.98] text-white">
+            <h1 className="mt-4 max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
               {species.commonName}
             </h1>
-            <p className="mt-4 font-display text-[clamp(1.2rem,2.5vw,1.75rem)] font-light italic text-white/55">
+            <p className="mt-3 font-display text-[clamp(1.1rem,2vw,1.5rem)] font-light italic text-white/55">
               {species.scientificName}
             </p>
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/70 sm:text-[17px]">
+            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
               {species.description}
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <span className="inline-flex items-center gap-1.5 text-[13px] text-white/55">
                 <MapPin className="size-3.5" />
                 {species.location}
@@ -83,12 +83,6 @@ export function SpeciesProfile({ species, related }: SpeciesProfileProps) {
               </span>
             </div>
           </Reveal>
-        </div>
-        <div className="absolute inset-x-0 bottom-6 z-10 flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/35">
-            გაიცანი უკეთ
-          </span>
-          <div className="h-7 w-px animate-pulse bg-gradient-to-b from-white/50 to-transparent" />
         </div>
       </section>
 
