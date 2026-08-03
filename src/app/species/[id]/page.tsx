@@ -56,11 +56,20 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title,
       description,
+      images: [
+        {
+          url: absoluteUrl(`/species/${item.id}/opengraph-image`),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [absoluteUrl(`/species/${item.id}/opengraph-image`)],
     },
     robots: {
       index: true,

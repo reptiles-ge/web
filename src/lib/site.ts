@@ -12,6 +12,8 @@ export const siteConfig = {
     "გველგესლა",
     "Vipera dinniki",
     "დინიკის გველგესლა",
+    "გიურზა",
+    "Macrovipera lebetina",
     "ენციკლოპედია",
     "ბიოლოგია",
     "კონსერვაცია",
