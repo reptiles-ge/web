@@ -1,4 +1,3 @@
-import { AIUploadPreview } from "@/components/AIUploadPreview";
 import { FeatureSection } from "@/components/FeatureSection";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
@@ -71,7 +70,6 @@ export default function Home() {
         <SpeciesCarousel />
         <SpeciesDetail />
         <FeatureSection />
-        <AIUploadPreview />
         <FinalCTA />
       </main>
       <Footer />

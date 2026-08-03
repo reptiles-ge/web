@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 
 const links = [
   { href: "#species", label: "სახეობები" },
-  { href: "#why", label: "ატლასი" },
-  { href: "#identify", label: "იდენტიფიკაცია" },
   { href: "#detail", label: "შესახებ" },
+  { href: "#why", label: "ატლასი" },
 ];
 
 export function Navbar() {

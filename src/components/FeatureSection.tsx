@@ -1,11 +1,11 @@
 import { Reveal } from "@/components/Reveal";
-import { Earth, FlaskConical, ScanLine } from "lucide-react";
+import { Camera, Earth, FlaskConical } from "lucide-react";
 
 const features = [
   {
-    title: "AI იდენტიფიკაცია",
-    description: "ატვირთე ფოტო და გაიგე სახეობა.",
-    icon: ScanLine,
+    title: "საველე ფოტოგრაფია",
+    description: "სახეობები გადაღებულია ბუნებრივ ჰაბიტატში.",
+    icon: Camera,
   },
   {
     title: "გლობალური ატლასი",

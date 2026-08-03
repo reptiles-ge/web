@@ -1,5 +1,5 @@
 import { images } from "@/data/species";
-import { ArrowRight, ScanLine } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 export function Hero() {
@@ -28,8 +28,8 @@ export function Hero() {
           აღმოაჩინე დედამიწის უძველესი არსებები
         </h1>
         <p className="mt-4 max-w-lg text-balance-tight text-[15px] leading-relaxed text-white/70">
-          შეისწავლე ათასობით ქვეწარმავალი მეცნიერებით, ფოტოგრაფიითა და
-          ტექნოლოგიით.
+          შეისწავლე ქვეწარმავლები მეცნიერებითა და ველში გადაღებული
+          ფოტოგრაფიით.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
           <a
@@ -40,11 +40,10 @@ export function Hero() {
             <ArrowRight className="size-4" />
           </a>
           <a
-            href="#identify"
+            href="#detail"
             className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-[14px] font-medium text-white/90 backdrop-blur-md hover:border-white/50 hover:bg-white/10"
           >
-            <ScanLine className="size-4" />
-            ქვეწარმავლის იდენტიფიკაცია
+            მეტი გველგესლაზე
           </a>
         </div>
       </div>
