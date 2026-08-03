@@ -1,4 +1,3 @@
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 
 const columns = [
@@ -33,9 +32,6 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
               ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია.
             </p>
-            <div className="mt-7">
-              <LanguageSwitcher />
-            </div>
           </div>
           {columns.map((column) => (
             <div key={column.title}>

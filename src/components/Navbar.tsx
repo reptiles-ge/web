@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { useEffect, useState } from "react";
 
@@ -66,19 +65,16 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher variant={scrolled ? "light" : "dark"} />
-          <a
-            href="#species"
-            className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all sm:inline-flex ${
-              scrolled
-                ? "bg-primary text-white hover:bg-primary/90"
-                : "bg-white/90 text-ink hover:bg-white"
-            }`}
-          >
-            აღმოაჩინე
-          </a>
-        </div>
+        <a
+          href="#species"
+          className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all sm:inline-flex ${
+            scrolled
+              ? "bg-primary text-white hover:bg-primary/90"
+              : "bg-white/90 text-ink hover:bg-white"
+          }`}
+        >
+          აღმოაჩინე
+        </a>
       </div>
     </header>
   );
