@@ -33,12 +33,12 @@ export function SpeciesDetail() {
               Vipera <span className="font-light italic">dinniki</span>
             </h2>
             <p className="mt-7 max-w-lg text-balance-tight text-[19px] leading-snug text-white/80 sm:text-[22px]">
-              კავკასიონის ერთ-ერთი ყველაზე იშვიათი გველგესლა.
+              დიდი კავკასიონის ენდემური შხამიანი გველგესლა.
             </p>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              1,500 მეტრზე მაღლა ალპურ მდელოებსა და კლდოვან ფერდობებზე ცხოვრობს.
-              დინიკის გველგესლა წლის უმეტეს ნაწილს ქვების ქვეშ ატარებს. მისი
-              პოპულაცია რამდენიმე იზოლირებულ ქედზეა დანაწევრებული.
+              ცხოვრობს დაახლოებით 1,500–2,800 მეტრზე — ტყის ზედა ზონაში,
+              სუბალპურ მდელოებსა და კლდოვან ადგილებში. არეალი ფრაგმენტირებულია;
+              IUCN-ის მიხედვით სახეობა მოწყვლადია.
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10">
