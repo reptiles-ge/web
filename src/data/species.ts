@@ -197,8 +197,7 @@ export const species: Species[] = [
     danger: "Moderate",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg/1920px-Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg",
-    mobileImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Caucasus_viper.jpg/1280px-Caucasus_viper.jpg",
+    mobileImage: "/images/vipera-kaznakovi-mobile.jpg",
     gallery: [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg/1920px-Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Caucasus_viper.jpg/1920px-Caucasus_viper.jpg",
