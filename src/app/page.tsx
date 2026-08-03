@@ -1,3 +1,10 @@
+import { redirect } from "next/navigation";
+
+export default function Home() {
+  redirect("/species/vipera-dinniki");
+}
+
+/*
 import { AIUploadPreview } from "@/components/AIUploadPreview";
 import { FeatureSection } from "@/components/FeatureSection";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -78,3 +85,4 @@ export default function Home() {
     </div>
   );
 }
+*/
