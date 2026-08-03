@@ -1,5 +1,11 @@
+import { JsonLd } from "@/components/JsonLd";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
-import { fetchSpeciesDetail } from "@/lib/species-api";
+import { getSpeciesById, species } from "@/data/species";
+import {
+  absoluteImageUrl,
+  absoluteUrl,
+  siteConfig,
+} from "@/lib/site";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -7,40 +13,120 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
-export const dynamic = "force-dynamic";
+export function generateStaticParams() {
+  return species.map((item) => ({ id: item.id }));
+}
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const data = await fetchSpeciesDetail(id);
+  const item = getSpeciesById(id);
 
-  if (!data) {
-    return { title: "სახეობა ვერ მოიძებნა — Reptiles" };
+  if (!item) {
+    return {
+      title: "სახეობა ვერ მოიძებნა",
+      robots: { index: false, follow: false },
+    };
   }
 
-  const { species: item } = data;
+  const title = `${item.commonName} (${item.scientificName})`;
+  const description = item.overview.slice(0, 160);
+  const url = absoluteUrl(`/species/${item.id}`);
 
   return {
-    title: `${item.commonName} — Reptiles`,
-    description: item.description,
+    title: item.commonName,
+    description,
+    keywords: [
+      item.commonName,
+      item.scientificName,
+      item.genus,
+      item.family,
+      item.location,
+      "ქვეწარმავლები",
+      siteConfig.name,
+    ],
+    alternates: {
+      canonical: `/species/${item.id}`,
+    },
     openGraph: {
-      title: `${item.commonName} (${item.scientificName})`,
-      description: item.description,
-      images: [item.image],
+      type: "article",
+      locale: siteConfig.locale,
+      url,
+      siteName: siteConfig.name,
+      title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
 
 export default async function SpeciesPage({ params }: PageProps) {
   const { id } = await params;
-  const data = await fetchSpeciesDetail(id);
+  const item = getSpeciesById(id);
 
-  if (!data) {
+  if (!item) {
     notFound();
   }
 
+  const related = species.filter((entry) => entry.id !== item.id).slice(0, 3);
+  const pageUrl = absoluteUrl(`/species/${item.id}`);
+  const ogImage = absoluteUrl(`/species/${item.id}/opengraph-image`);
+  const galleryImages = item.gallery
+    .filter((src) => src !== item.image)
+    .slice(0, 3)
+    .map(absoluteImageUrl);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${item.commonName} (${item.scientificName})`,
+    description: item.description,
+    image: [ogImage, ...galleryImages],
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/icon"),
+      },
+    },
+    inLanguage: siteConfig.language,
+    about: {
+      "@type": "Taxon",
+      name: item.scientificName,
+      alternateName: item.commonName,
+      taxonRank: "Species",
+      parentTaxon: {
+        "@type": "Taxon",
+        name: item.genus,
+        taxonRank: "Genus",
+      },
+    },
+  };
+
   return (
-    <SpeciesProfile species={data.species} related={data.related} />
+    <>
+      <JsonLd data={jsonLd} />
+      <SpeciesProfile species={item} related={related} />
+    </>
   );
 }

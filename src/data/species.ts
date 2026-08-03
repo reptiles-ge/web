@@ -20,6 +20,7 @@ export type Species = {
   conservation: string;
   danger: DangerLevel;
   image: string;
+  mobileImage?: string;
   gallery: string[];
   stats: SpeciesStat[];
   facts: string[];
@@ -52,6 +53,7 @@ export const species: Species[] = [
       "IUCN Red List-ის მიხედვით მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საფრთხეებს შორისაა სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა. შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში.",
     danger: "Moderate",
     image: "/images/vipera-dinnik.png",
+    mobileImage: "/images/vipera-cover-on-mobile.png",
     gallery: [
       "/images/vipera-dinnik.png",
       "/images/vipera-dinnik-2.png",

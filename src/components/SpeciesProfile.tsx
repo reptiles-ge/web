@@ -49,15 +49,37 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
         </div>
       </header>
 
+      <main>
       <section className="relative h-[70svh] min-h-[420px] w-full overflow-hidden bg-ink lg:h-[75svh]">
-        <Image
-          src={primary ?? species.image}
-          alt={species.commonName}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        {species.mobileImage ? (
+          <>
+            <Image
+              src={species.mobileImage}
+              alt={species.commonName}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover lg:hidden"
+            />
+            <Image
+              src={primary ?? species.image}
+              alt={species.commonName}
+              fill
+              priority
+              sizes="100vw"
+              className="hidden object-cover lg:block"
+            />
+          </>
+        ) : (
+          <Image
+            src={primary ?? species.image}
+            alt={species.commonName}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/25 to-black/90" />
         <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
@@ -243,6 +265,7 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
         </section>
       )}
       */}
+      </main>
 
       <footer className="border-t border-border bg-background py-10">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-6 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-10">
