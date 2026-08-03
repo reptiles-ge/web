@@ -204,6 +204,7 @@ export const species: Species[] = [
       "/images/vipera-kaznakovi-4.jpg",
       "/images/vipera-kaznakovi-5.jpg",
       "/images/vipera-kaznakovi-6.jpg",
+      "/images/vipera-kaznakovi-7.png",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დას. კავკასია" },
