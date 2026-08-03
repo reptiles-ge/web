@@ -66,3 +66,15 @@ body {
   backdrop-filter: blur(18px) saturate(140%);
   border: 1px solid color-mix(in oklab, white 14%, transparent);
 }
+
+.species-carousel-track {
+  padding-left: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
+  scroll-padding-left: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
+}
+
+@media (min-width: 1024px) {
+  .species-carousel-track {
+    padding-left: max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem));
+    scroll-padding-left: max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem));
+  }
+}

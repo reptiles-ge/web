@@ -76,9 +76,8 @@ export function SpeciesCarousel() {
       </div>
       <div
         ref={trackRef}
-        className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 lg:px-10"
+        className="species-carousel-track no-scrollbar mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 pr-6 lg:pr-10"
       >
-        <div className="hidden shrink-0 lg:block lg:w-[calc((100vw-1400px)/2)]" />
         {featured.map((item) => (
           <div key={item.id} className="snap-start">
             <SpeciesCard species={item} />
