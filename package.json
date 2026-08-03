@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:unused": "node scripts/remove-unused-images.js",
+    "images:unused:delete": "node scripts/remove-unused-images.js --delete"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.12",
