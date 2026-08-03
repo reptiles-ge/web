@@ -1,5 +1,3 @@
-"use client";
-
 import { Reveal } from "@/components/Reveal";
 import { getSpeciesById, images } from "@/data/species";
 import { ArrowUpRight } from "lucide-react";

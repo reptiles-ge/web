@@ -1,5 +1,3 @@
-"use client";
-
 import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
 import { ArrowRight } from "lucide-react";

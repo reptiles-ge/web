@@ -1,5 +1,3 @@
-"use client";
-
 import { Reveal } from "@/components/Reveal";
 import { Earth, FlaskConical, ScanLine } from "lucide-react";
 

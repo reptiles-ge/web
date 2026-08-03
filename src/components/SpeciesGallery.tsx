@@ -93,7 +93,7 @@ export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
                           : "(max-width: 768px) 50vw, 33vw"
                       }
                       className="object-cover"
-                  />
+                    />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
                     <span className="absolute bottom-4 left-4 font-display text-[13px] text-white/0 group-hover:text-white/80">
                       {String(index + 1).padStart(2, "0")}
