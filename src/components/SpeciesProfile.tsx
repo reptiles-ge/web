@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/Reveal";
+import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import {
   dangerClass,
@@ -201,6 +202,10 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
           </ol>
         </div>
       </section>
+
+      {species.faq && species.faq.length > 0 ? (
+        <SpeciesFaqSection items={species.faq} name={species.commonName} />
+      ) : null}
 
       {/*
       {related.length > 0 && (

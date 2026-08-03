@@ -132,9 +132,25 @@ export default async function SpeciesPage({ params }: PageProps) {
     },
   };
 
+  const faqJsonLd =
+    item.faq && item.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: item.faq.map((entry) => ({
+            "@type": "Question",
+            name: entry.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: entry.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <JsonLd data={faqJsonLd ? [jsonLd, faqJsonLd] : jsonLd} />
       <SpeciesProfile species={item} related={related} />
     </>
   );
