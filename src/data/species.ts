@@ -195,16 +195,15 @@ export const species: Species[] = [
     conservation:
       "IUCN Red List-ის მიხედვით გადაშენების საფრთხეშია (Endangered); პოპულაცია მცირდება. შეტანილია საქართველოს წითელ ნუსხაში და ბერნის კონვენციის II დანართში (მკაცრად დაცული). მთავარი საფრთხეებია ჰაბიტატის განადგურება (ტურიზმი, ურბანიზაცია, სოფლის მეურნეობა, კაშხლები თურქეთში), უკანონო შეგროვება შინაურ ცხოველთა ვაჭრობისთვის და ადამიანის მიერ განზრახ ან შემთხვევით მოკვლა. სანაპირო პოპულაციების ნაწილი უკვე გაქრა.",
     danger: "Moderate",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg/1920px-Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg",
+    image: "/images/vipera-kaznakovi.jpg",
     mobileImage: "/images/vipera-kaznakovi-mobile.jpg",
     gallery: [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg/1920px-Kaukasusotter_%28Vipera_kaznakovi%29_K%C3%B6rperansicht.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Caucasus_viper.jpg/1920px-Caucasus_viper.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Vipera_kaznakovi_%281%29.jpg/1920px-Vipera_kaznakovi_%281%29.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Vipera_kaznakovi_%282%29.jpg/1920px-Vipera_kaznakovi_%282%29.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Vipera_kaznakovi_%283%29.jpg/1920px-Vipera_kaznakovi_%283%29.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Vipera_kaznakovi_%284%29.jpg/1920px-Vipera_kaznakovi_%284%29.jpg",
+      "/images/vipera-kaznakovi.jpg",
+      "/images/vipera-kaznakovi-2.jpg",
+      "/images/vipera-kaznakovi-3.jpg",
+      "/images/vipera-kaznakovi-4.jpg",
+      "/images/vipera-kaznakovi-5.jpg",
+      "/images/vipera-kaznakovi-6.jpg",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დას. კავკასია" },
