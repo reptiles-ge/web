@@ -16,13 +16,13 @@ export async function generateMetadata({
   const data = await fetchSpeciesDetail(id);
 
   if (!data) {
-    return { title: "სახეობა ვერ მოიძებნა — ReptiVerse" };
+    return { title: "სახეობა ვერ მოიძებნა — Reptiles" };
   }
 
   const { species: item } = data;
 
   return {
-    title: `${item.commonName} — ReptiVerse`,
+    title: `${item.commonName} — Reptiles`,
     description: item.description,
     openGraph: {
       title: `${item.commonName} (${item.scientificName})`,

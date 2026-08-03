@@ -27,7 +27,7 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             <p className="font-display text-[20px] font-semibold tracking-tight">
-              Repti<span className="text-primary">Verse</span>
+              Repti<span className="text-primary">les</span>
             </p>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
               ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია.
@@ -58,7 +58,7 @@ export function Footer() {
         </div>
         <div className="mt-20 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>
-            © {new Date().getFullYear()} ReptiVerse. ყველა უფლება დაცულია.
+            © {new Date().getFullYear()} Reptiles. ყველა უფლება დაცულია.
           </span>
           <span className="tracking-wide">ცნობისმოყვარეებისთვის.</span>
         </div>

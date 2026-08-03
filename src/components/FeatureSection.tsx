@@ -25,7 +25,7 @@ export function FeatureSection() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <Reveal>
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-            რატომ ReptiVerse
+            რატომ Reptiles
           </p>
           <h2 className="mt-6 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,5vw,4.25rem)] leading-[1.02]">
             ვაკავშირებთ ადამიანებს ქვეწარმავლების ფარულ სამყაროსთან.
