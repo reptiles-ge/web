@@ -49,9 +49,6 @@ export function SpeciesCarousel() {
             </p>
           </Reveal>
           <Reveal className="flex items-center gap-3" delay={120}>
-            <span className="mr-2 hidden text-[11px] uppercase tracking-[0.2em] text-muted-foreground lg:inline">
-              გადაათრიე შესასწავლად
-            </span>
             <button
               type="button"
               aria-label="წინა სახეობა"
