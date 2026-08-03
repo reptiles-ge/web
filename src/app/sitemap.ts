@@ -5,6 +5,7 @@ const featured = [
   "vipera-dinniki",
   "macrovipera-lebetina",
   "vipera-kaznakovi",
+  "vipera-ammodytes",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
