@@ -7,9 +7,5 @@ type RevealProps = {
 };
 
 export function Reveal({ children, className }: RevealProps) {
-  if (className) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return <>{children}</>;
+  return <div className={className}>{children}</div>;
 }
