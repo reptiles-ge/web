@@ -5,7 +5,7 @@ import {
   dangerLabels,
   type Species,
 } from "@/data/species";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,6 +37,7 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
           >
             Repti<span className="text-white/60">les</span>
           </Link>
+          {/*
           <Link
             href="/#species"
             className="inline-flex items-center gap-2 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
@@ -44,6 +45,7 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
             <ArrowLeft className="size-3.5" />
             სახეობები
           </Link>
+          */}
         </div>
       </header>
 
