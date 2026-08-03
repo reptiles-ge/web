@@ -1,5 +1,5 @@
 import { SpeciesProfile } from "@/components/SpeciesProfile";
-import { getSpeciesById, species } from "@/data/species";
+import { fetchSpeciesDetail } from "@/lib/species-api";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -7,19 +7,19 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
-export function generateStaticParams() {
-  return species.map((item) => ({ id: item.id }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const item = getSpeciesById(id);
+  const data = await fetchSpeciesDetail(id);
 
-  if (!item) {
+  if (!data) {
     return { title: "სახეობა ვერ მოიძებნა — ReptiVerse" };
   }
+
+  const { species: item } = data;
 
   return {
     title: `${item.commonName} — ReptiVerse`,
@@ -34,13 +34,13 @@ export async function generateMetadata({
 
 export default async function SpeciesPage({ params }: PageProps) {
   const { id } = await params;
-  const item = getSpeciesById(id);
+  const data = await fetchSpeciesDetail(id);
 
-  if (!item) {
+  if (!data) {
     notFound();
   }
 
-  const related = species.filter((s) => s.id !== item.id).slice(0, 3);
-
-  return <SpeciesProfile species={item} related={related} />;
+  return (
+    <SpeciesProfile species={data.species} related={data.related} />
+  );
 }
