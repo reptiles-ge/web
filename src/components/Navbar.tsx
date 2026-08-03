@@ -1,6 +1,7 @@
 "use client";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Logo } from "@/components/Logo";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -26,7 +27,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 transition-all duration-500 lg:px-10 ${
-          scrolled ? "py-4" : "py-6"
+          scrolled ? "py-3" : "py-5"
         }`}
       >
         <div
@@ -40,13 +41,15 @@ export function Navbar() {
             borderBottom: "1px solid var(--border)",
           }}
         />
-        <a
-          href="#top"
-          className={`font-display text-[17px] font-semibold tracking-tight transition-colors ${
-            scrolled ? "text-foreground" : "text-white"
-          }`}
-        >
-          Reptiles
+        <a href="#top" className="relative z-10 transition-opacity hover:opacity-90">
+          <Logo
+            size={44}
+            priority
+            showWordmark
+            wordmarkClassName={`text-[17px] transition-colors ${
+              scrolled ? "text-foreground" : "text-white"
+            }`}
+          />
         </a>
         <nav className="hidden items-center gap-9 md:flex">
           {links.map((link) => (

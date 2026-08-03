@@ -1,3 +1,4 @@
+import { Logo } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
@@ -32,11 +33,13 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
               backdropFilter: "blur(20px) saturate(140%)",
             }}
           />
-          <Link
-            href="/"
-            className="font-display text-[17px] font-semibold tracking-tight text-white"
-          >
-            Reptiles
+          <Link href="/" className="transition-opacity hover:opacity-90">
+            <Logo
+              size={44}
+              priority
+              showWordmark
+              wordmarkClassName="text-[17px] text-white"
+            />
           </Link>
           {/*
           <Link
@@ -268,8 +271,8 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
 
       <footer className="border-t border-border bg-background py-10">
         <div className="mx-auto flex max-w-[1400px] flex-col gap-3 px-6 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-10">
-          <Link href="/" className="font-display text-[15px] font-semibold text-foreground">
-            Reptiles
+          <Link href="/" className="transition-opacity hover:opacity-90">
+            <Logo size={36} showWordmark wordmarkClassName="text-[15px] text-foreground" />
           </Link>
           <span>© {new Date().getFullYear()} Reptiles</span>
         </div>

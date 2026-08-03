@@ -1,4 +1,5 @@
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Logo } from "@/components/Logo";
 
 const columns = [
   {
@@ -26,9 +27,9 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
-            <p className="font-display text-[20px] font-semibold tracking-tight">
-              Reptiles
-            </p>
+            <a href="#top" className="inline-flex transition-opacity hover:opacity-90">
+              <Logo size={56} showWordmark wordmarkClassName="text-[20px]" />
+            </a>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
               ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია.
             </p>
