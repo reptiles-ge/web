@@ -13,6 +13,7 @@ const ogFiles: Record<string, string> = {
   "macrovipera-lebetina": "macrovipera-lebetina.jpg",
   "vipera-ammodytes": "vipera-ammodytes.jpg",
   "vipera-kaznakovi": "vipera-kaznakovi.jpg",
+  "pseudopus-apodus": "pseudopus-apodus.jpg",
 };
 
 export default async function Image({

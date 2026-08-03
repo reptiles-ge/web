@@ -18,6 +18,8 @@ export const siteConfig = {
     "Vipera kaznakovi",
     "ცხვირრქოსანი გველგესლა",
     "Vipera ammodytes",
+    "გველხოკერა",
+    "Pseudopus apodus",
     "ენციკლოპედია",
     "ბიოლოგია",
     "კონსერვაცია",

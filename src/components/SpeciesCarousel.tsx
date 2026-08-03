@@ -41,10 +41,10 @@ export function SpeciesCarousel() {
               რჩეული
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.02]">
-              ოთხი სახეობა, რომელიც უნდა იცოდე
+              ხუთი სახეობა, რომელიც უნდა იცოდე
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              საქართველოსა და კავკასიის გველგესლები — ველში გადაღებული და
+              საქართველოსა და კავკასიის ქვეწარმავლები — ველში გადაღებული და
               მეცნიერულად დამოწმებული.
             </p>
           </Reveal>
