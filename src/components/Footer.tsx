@@ -2,16 +2,21 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const columns = [
   {
-    title: "Explore",
-    links: ["Species", "Atlas", "Collections", "Field notes"],
+    title: "აღმოჩენა",
+    links: ["სახეობები", "ატლასი", "კოლექციები", "საველე ჩანაწერები"],
   },
   {
-    title: "Science",
-    links: ["Methodology", "Contributors", "Data sources", "Conservation"],
+    title: "მეცნიერება",
+    links: [
+      "მეთოდოლოგია",
+      "კონტრიბუტორები",
+      "მონაცემთა წყაროები",
+      "კონსერვაცია",
+    ],
   },
   {
-    title: "Company",
-    links: ["About", "Press", "Contact", "Privacy"],
+    title: "კომპანია",
+    links: ["შესახებ", "პრესა", "კონტაქტი", "კონფიდენციალობა"],
   },
 ];
 
@@ -25,7 +30,7 @@ export function Footer() {
               Repti<span className="text-primary">Verse</span>
             </p>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
-              A digital encyclopedia of reptiles and amphibians.
+              ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია.
             </p>
             <div className="mt-7">
               <LanguageSwitcher />
@@ -33,7 +38,7 @@ export function Footer() {
           </div>
           {columns.map((column) => (
             <div key={column.title}>
-              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] tracking-[0.22em] text-muted-foreground">
                 {column.title}
               </p>
               <ul className="mt-5 space-y-3">
@@ -52,8 +57,10 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-20 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} ReptiVerse. All rights reserved.</span>
-          <span className="tracking-wide">Made for the curious.</span>
+          <span>
+            © {new Date().getFullYear()} ReptiVerse. ყველა უფლება დაცულია.
+          </span>
+          <span className="tracking-wide">ცნობისმოყვარეებისთვის.</span>
         </div>
       </div>
     </footer>

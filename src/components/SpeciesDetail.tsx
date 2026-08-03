@@ -6,10 +6,10 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
-  { label: "Habitat", value: "Caucasus Mountains" },
-  { label: "Length", value: "40–60 cm" },
-  { label: "Venom", value: "Moderate" },
-  { label: "Conservation", value: "Protected species" },
+  { label: "ჰაბიტატი", value: "კავკასიონის მთები" },
+  { label: "სიგრძე", value: "40–60 სმ" },
+  { label: "შხამი", value: "საშუალო" },
+  { label: "კონსერვაცია", value: "დაცული სახეობა" },
 ];
 
 export function SpeciesDetail() {
@@ -22,7 +22,7 @@ export function SpeciesDetail() {
         <div className="relative aspect-[4/5] overflow-hidden rounded-[32px]">
           <Image
             src={images.detail}
-            alt="Close-up portrait of a viper's head"
+            alt="გველგესლის თავის მსხვილი პორტრეტი"
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="scale-110 object-cover"
@@ -33,25 +33,25 @@ export function SpeciesDetail() {
         <div>
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink-muted">
-              Species preview
+              სახეობის მიმოხილვა
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5.4vw,4.5rem)] font-semibold leading-[1] text-white">
               Vipera <span className="font-light italic">dinniki</span>
             </h2>
             <p className="mt-7 max-w-lg text-balance-tight text-[19px] leading-snug text-white/80 sm:text-[22px]">
-              One of the rarest vipers of the Caucasus mountains.
+              კავკასიონის ერთ-ერთი ყველაზე იშვიათი გველგესლა.
             </p>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              Living above 1,500 metres in alpine meadows and rocky slopes,
-              Dinnik&apos;s viper spends most of the year hidden beneath stone.
-              Its population is fragmented across a handful of isolated ranges.
+              1,500 მეტრზე მაღლა ალპურ მდელოებსა და კლდოვან ფერდობებზე ცხოვრობს.
+              დინიკის გველგესლა წლის უმეტეს ნაწილს ქვების ქვეშ ატარებს. მისი
+              პოპულაცია რამდენიმე იზოლირებულ ქედზეა დანაწევრებული.
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10">
             {stats.map((stat, index) => (
               <Reveal key={stat.label} delay={index * 80} className="bg-ink">
                 <div className="p-6 lg:p-8">
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-ink-muted">
+                  <p className="text-[10px] tracking-[0.22em] text-ink-muted">
                     {stat.label}
                   </p>
                   <p className="mt-3 font-display text-[20px] font-medium leading-tight text-white lg:text-[24px]">
@@ -67,7 +67,7 @@ export function SpeciesDetail() {
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
               <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-white">
-                Open full profile
+                სრული პროფილის ნახვა
               </span>
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>

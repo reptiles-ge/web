@@ -1,4 +1,4 @@
-import { dangerClass, type Species } from "@/data/species";
+import { dangerClass, dangerLabels, type Species } from "@/data/species";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 
@@ -38,13 +38,13 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
             {species.description}
           </p>
           <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
-            <span className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-              Danger level
+            <span className="text-[10px] tracking-[0.18em] text-white/40">
+              საფრთხის დონე
             </span>
             <span
-              className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${dangerClass(species.danger)}`}
+              className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${dangerClass(species.danger)}`}
             >
-              {species.danger}
+              {dangerLabels[species.danger]}
             </span>
           </div>
         </div>

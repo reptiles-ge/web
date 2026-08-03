@@ -4,10 +4,10 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#species", label: "Species" },
-  { href: "#why", label: "Atlas" },
-  { href: "#identify", label: "Identify" },
-  { href: "#detail", label: "About" },
+  { href: "#species", label: "სახეობები" },
+  { href: "#why", label: "ატლასი" },
+  { href: "#identify", label: "იდენტიფიკაცია" },
+  { href: "#detail", label: "შესახებ" },
 ];
 
 export function Navbar() {
@@ -77,7 +77,7 @@ export function Navbar() {
                 : "bg-white/90 text-ink hover:bg-white"
             }`}
           >
-            Explore
+            აღმოაჩინე
           </a>
         </div>
       </div>

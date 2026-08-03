@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Sora } from "next/font/google";
+import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -8,27 +8,28 @@ const sora = Sora({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+const notoSansGeorgian = Noto_Sans_Georgian({
+  variable: "--font-noto-georgian",
+  subsets: ["georgian"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "ReptiVerse — Discover Earth's Ancient Creatures",
+  title: "ReptiVerse — აღმოაჩინე დედამიწის უძველესი არსებები",
   description:
-    "A digital encyclopedia of reptiles and amphibians. Explore thousands of species through science, photography, and AI identification.",
+    "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე ათასობით სახეობა მეცნიერებით, ფოტოგრაფიითა და AI იდენტიფიკაციით.",
   openGraph: {
-    title: "ReptiVerse — Discover Earth's Ancient Creatures",
+    title: "ReptiVerse — აღმოაჩინე დედამიწის უძველესი არსებები",
     description:
-      "A digital encyclopedia of reptiles and amphibians. Explore thousands of species through science, photography, and AI identification.",
+      "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე ათასობით სახეობა მეცნიერებით, ფოტოგრაფიითა და AI იდენტიფიკაციით.",
     type: "website",
+    locale: "ka_GE",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ReptiVerse — Discover Earth's Ancient Creatures",
+    title: "ReptiVerse — აღმოაჩინე დედამიწის უძველესი არსებები",
     description:
-      "A digital encyclopedia of reptiles and amphibians. Explore thousands of species through science, photography, and AI identification.",
+      "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე ათასობით სახეობა მეცნიერებით, ფოტოგრაფიითა და AI იდენტიფიკაციით.",
   },
 };
 
@@ -38,7 +39,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${manrope.variable} h-full antialiased`}>
+    <html
+      lang="ka"
+      className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
+    >
       <body className="min-h-full font-sans">{children}</body>
     </html>
   );

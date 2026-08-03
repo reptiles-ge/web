@@ -62,7 +62,7 @@ export function Hero() {
       >
         <Image
           src={images.hero}
-          alt="Viper coiled on a mossy rock in a misty mountain gorge"
+          alt="გველგესლა ხავსიან კლდეზე ნისლიან მთის ხეობაში"
           fill
           priority
           sizes="100vw"
@@ -96,21 +96,21 @@ export function Hero() {
         }}
       >
         <p className="mb-7 text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
-          A digital encyclopedia of reptiles & amphibians
+          ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია
         </p>
         <h1 className="font-display max-w-5xl text-balance-tight text-[clamp(2.6rem,7.2vw,6.2rem)] font-semibold leading-[0.98] text-white">
-          Discover Earth&apos;s Ancient Creatures
+          აღმოაჩინე დედამიწის უძველესი არსებები
         </h1>
         <p className="mt-7 max-w-xl text-balance-tight text-[15px] leading-relaxed text-white/70 sm:text-[17px]">
-          Explore thousands of reptiles through science, photography, and
-          technology.
+          შეისწავლე ათასობით ქვეწარმავალი მეცნიერებით, ფოტოგრაფიითა და
+          ტექნოლოგიით.
         </p>
         <div className="mt-12 flex flex-col items-center gap-3 sm:flex-row">
           <a
             href="#species"
             className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-transform duration-300 hover:scale-[1.03]"
           >
-            Explore Species
+            სახეობების ნახვა
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
@@ -118,13 +118,13 @@ export function Hero() {
             className="group inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-[14px] font-medium text-white/90 backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/10"
           >
             <ScanLine className="size-4" />
-            Identify a Reptile
+            ქვეწარმავლის იდენტიფიკაცია
           </a>
         </div>
       </div>
       <div className="absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3">
         <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">
-          Scroll
+          გადაადგილე
         </span>
         <div className="h-8 w-px animate-pulse bg-gradient-to-b from-white/60 to-transparent" />
       </div>

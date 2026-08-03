@@ -37,22 +37,22 @@ export function SpeciesCarousel() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              Featured
+              რჩეული
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.02]">
-              Six species worth knowing
+              ექვსი სახეობა, რომელიც უნდა იცოდე
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              Photographed in the wild. Verified by biologists.
+              გადაღებული ველურ ბუნებაში. დამოწმებული ბიოლოგების მიერ.
             </p>
           </Reveal>
           <Reveal className="flex items-center gap-3" delay={120}>
             <span className="mr-2 hidden text-[11px] uppercase tracking-[0.2em] text-muted-foreground lg:inline">
-              Drag to explore
+              გადაათრიე შესასწავლად
             </span>
             <button
               type="button"
-              aria-label="Previous species"
+              aria-label="წინა სახეობა"
               onClick={() => scrollByCard(-1)}
               className="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
             >
@@ -60,7 +60,7 @@ export function SpeciesCarousel() {
             </button>
             <button
               type="button"
-              aria-label="Next species"
+              aria-label="შემდეგი სახეობა"
               onClick={() => scrollByCard(1)}
               className="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
             >
