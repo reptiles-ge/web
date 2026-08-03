@@ -106,7 +106,7 @@ export default async function SpeciesPage({ params }: PageProps) {
       url: absoluteUrl("/"),
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/icon"),
+        url: absoluteUrl("/images/logo.png"),
       },
     },
     inLanguage: siteConfig.language,

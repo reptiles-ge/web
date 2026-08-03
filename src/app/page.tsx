@@ -58,7 +58,7 @@ const organizationJsonLd = {
   name: siteConfig.name,
   url: absoluteUrl("/"),
   description: siteConfig.description,
-  logo: absoluteUrl("/icon"),
+  logo: absoluteUrl("/images/logo.png"),
 };
 
 export default function Home() {
