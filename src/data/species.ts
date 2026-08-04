@@ -242,7 +242,10 @@ export const species: Species[] = [
     gallery: [
       { src: "https://cdn.reptiles.ge/vipera-kaznakovi.webp" },
       { src: "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp" },
-      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp" },
+      {
+        src: "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp",
+        credit: { photographer: "საბა თოდუა" },
+      },
       { src: "https://cdn.reptiles.ge/vipera-kaznakovi-3.webp" },
       { src: "https://cdn.reptiles.ge/vipera-kaznakovi-4.webp" },
       { src: "https://cdn.reptiles.ge/vipera-kaznakovi-5.webp" },
