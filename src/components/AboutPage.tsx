@@ -7,11 +7,9 @@ import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import { editorDisplayName, siteConfig } from "@/lib/site";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useState } from "react";
 
 const SOURCE_LINKS = [
   {
@@ -28,11 +26,10 @@ const SOURCE_LINKS = [
   },
 ];
 
-export function AboutPage({ hasPortrait = false }: { hasPortrait?: boolean }) {
+const PILLARS = ["discover", "understand", "protect"] as const;
+
+export function AboutPage() {
   const t = useTranslations("about");
-  const locale = useLocale();
-  const editorName = editorDisplayName(locale);
-  const [portraitFailed, setPortraitFailed] = useState(!hasPortrait);
 
   return (
     <div className="min-h-screen bg-background">
@@ -109,56 +106,50 @@ export function AboutPage({ hasPortrait = false }: { hasPortrait?: boolean }) {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-              <Reveal>
-                <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[28px] bg-ink lg:mx-0">
-                  {!portraitFailed ? (
-                    <Image
-                      src={siteConfig.editor.image}
-                      alt={t("editorPhotoAlt", { name: editorName })}
-                      fill
-                      sizes="(max-width: 1024px) 340px, 28vw"
-                      className="object-cover"
-                      onError={() => setPortraitFailed(true)}
-                    />
-                  ) : (
-                    <div
-                      className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/25 via-ink to-ink"
-                      aria-hidden
-                    >
-                      <span className="font-display text-[4.5rem] font-semibold tracking-tight text-white/80">
-                        {siteConfig.editor.initials}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </Reveal>
-
+            <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
               <Reveal>
                 <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
-                  {t("editorEyebrow")}
+                  {t("companyEyebrow")}
                 </p>
                 <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] font-semibold leading-[1.05] text-foreground">
-                  {editorName}
+                  {t("companyTitle")}
                 </h2>
-                <p className="mt-3 text-[15px] font-medium text-primary">
-                  {t("editorRole")}
-                </p>
-                <div className="mt-6 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
-                  <p>{t("editorBio1", { name: editorName })}</p>
-                  <p>{t("editorBio2")}</p>
-                  <p>{t("editorBio3")}</p>
+              </Reveal>
+              <Reveal>
+                <div className="space-y-5 text-[15px] leading-[1.75] text-muted-foreground">
+                  <p>{t("companyBody1")}</p>
+                  <p>{t("companyBody2")}</p>
+                  <p>{t("companyBody3")}</p>
                 </div>
-                <a
-                  href={`mailto:${siteConfig.editor.email}`}
-                  className="group mt-8 inline-flex max-w-full items-center gap-3"
+                <Link
+                  href="/contact"
+                  className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium text-foreground transition-colors hover:text-primary"
                 >
-                  <span className="truncate border-b border-foreground/20 pb-1 text-[15px] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
-                    {siteConfig.editor.email}
+                  <span className="border-b border-foreground/20 pb-1 transition-colors group-hover:border-primary">
+                    {t("contributeCta")}
                   </span>
                   <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-                </a>
+                </Link>
               </Reveal>
+            </div>
+
+            <div className="mt-16 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-3 lg:mt-20">
+              {PILLARS.map((pillar, index) => (
+                <div
+                  key={pillar}
+                  className="bg-card px-6 py-8 sm:px-8 sm:py-10"
+                >
+                  <span className="font-display text-[13px] font-medium tracking-[0.2em] text-primary">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-5 font-display text-[1.35rem] font-semibold leading-tight text-foreground">
+                    {t(`pillars.${pillar}.title`)}
+                  </h3>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+                    {t(`pillars.${pillar}.body`)}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -13,9 +13,9 @@ import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import {
   absoluteUrl,
-  editorPersonJsonLd,
   localeAlternates,
   localePath,
+  organizationJsonLd,
   siteConfig,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
@@ -73,7 +73,6 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "site" });
-  const tEditor = await getTranslations({ locale, namespace: "about" });
   const homeUrl = absoluteUrl(localePath(locale, "/"));
   const description = t("description");
   const stats = getAtlasStats();
@@ -85,11 +84,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     url: homeUrl,
     description,
     inLanguage: locale,
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    publisher: organizationJsonLd({ description }),
     potentialAction: {
       "@type": "SearchAction",
       target: `${homeUrl}?q={search_term_string}`,
@@ -97,16 +92,9 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     },
   };
 
-  const organizationJsonLd = {
+  const organizationJsonLdData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: absoluteUrl("/"),
-    description,
-    logo: "https://cdn.reptiles.ge/logo.webp",
-    founder: editorPersonJsonLd(locale, tEditor("editorRole"), {
-      includeImage: true,
-    }),
+    ...organizationJsonLd({ description }),
   };
 
   const datasetJsonLd = {
@@ -118,12 +106,8 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         : "საქართველოს ქვეწარმავლების ატლასი",
     description,
     url: homeUrl,
-    creator: editorPersonJsonLd(locale, tEditor("editorRole")),
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    creator: organizationJsonLd({ description }),
+    publisher: organizationJsonLd({ description }),
     spatialCoverage: {
       "@type": "Place",
       name: locale === "en" ? "Georgia" : "საქართველო",
@@ -151,7 +135,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
 
   return (
     <div className="min-h-screen bg-background">
-      <JsonLd data={[websiteJsonLd, organizationJsonLd, datasetJsonLd]} />
+      <JsonLd data={[websiteJsonLd, organizationJsonLdData, datasetJsonLd]} />
       <Navbar />
       <main>
         <Hero />

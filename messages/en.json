@@ -228,33 +228,47 @@
   },
   "contact": {
     "metaTitle": "Contact",
-    "metaDescription": "Get in touch with Reptiles — questions or corrections.",
+    "metaDescription": "Get in touch with Reptiles — questions, corrections, and partnerships.",
     "back": "Home",
     "brand": "Reptiles",
     "title": "Contact",
-    "body": "Have a question or spotted a mistake — write me.",
+    "body": "Questions, corrections, or partnership ideas — reach out through the atlas team.",
+    "aboutCta": "About Reptiles",
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "about": {
     "metaTitle": "About",
-    "metaDescription": "About Reptiles.ge — editorial leadership, methodology, and sources behind Georgia’s bilingual reptile atlas.",
+    "metaDescription": "About Reptiles — the company behind Georgia’s bilingual reptile atlas: mission, methodology, and cited sources.",
     "back": "Home",
     "brand": "Reptiles",
-    "eyebrow": "About the atlas",
-    "title": "A citeable atlas of Georgia’s reptiles",
-    "subtitle": "Species profiles, range maps, and field photography — curated with clear sources for hikers, students, and researchers.",
+    "eyebrow": "About the company",
+    "title": "Building the definitive atlas of Georgia’s reptiles",
+    "subtitle": "A long-term knowledge platform — species profiles, regional maps, and field photography for hikers, students, researchers, and travelers.",
     "heroImageAlt": "Misty Caucasus ridge at dusk",
-    "editorEyebrow": "Editorial lead",
-    "editorRole": "Editor",
-    "editorPhotoAlt": "Portrait of {name}",
-    "editorBio1": "Editorial leadership for Reptiles.ge is provided by {name}. Species accounts are curated from established biodiversity sources and updated as taxonomy and conservation data change.",
-    "editorBio2": "The focus is Georgia and the Caucasus — bilingual profiles with identification notes, regional range, and photography chosen for field usefulness.",
-    "editorBio3": "Profiles cite IUCN assessments, GBIF, the Reptile Database, and peer-reviewed herpetological literature so every page stays accountable and reviewable.",
+    "companyEyebrow": "Who we are",
+    "companyTitle": "Reptiles is a biodiversity knowledge company",
+    "companyBody1": "We build a bilingual digital atlas of reptiles of Georgia and the Caucasus — designed to be citeable, field-useful, and ready to scale into a global biodiversity platform.",
+    "companyBody2": "Our work connects science with public understanding: clear identification, regional context, venom risk, and conservation status — without noise or speculation.",
+    "companyBody3": "Every profile is curated against established biodiversity sources and updated as taxonomy, Red List status, and field evidence change.",
+    "pillars": {
+      "discover": {
+        "title": "Discover",
+        "body": "Explore species and regions through photography, maps, and structured profiles built for real identification."
+      },
+      "understand": {
+        "title": "Understand",
+        "body": "Learn habitat, behavior, risk, and conservation with sources you can verify — not folklore."
+      },
+      "protect": {
+        "title": "Protect",
+        "body": "Better knowledge reduces fear and harm. Accurate field context supports safer encounters and conservation."
+      }
+    },
     "methodEyebrow": "How we work",
-    "methodTitle": "Methodology & sources",
+    "methodTitle": "Standards & sources",
     "methodLead": "Each profile combines taxonomic identity, Georgia-relevant habitat and behavior, conservation status, identification traits, and FAQs.",
-    "methodCardTitle": "Editorial review",
-    "methodCardBody": "Accounts are reviewed as new literature and Red List changes appear. Corrections from the field are welcomed and checked against published sources.",
+    "methodCardTitle": "Scientific review",
+    "methodCardBody": "Accounts are reviewed as new literature and Red List changes appear. Field corrections are welcomed and checked against published sources.",
     "sourcesCardTitle": "Cited sources",
     "sourcesCardBody": "Primary references include IUCN Red List assessments, GBIF occurrence data, the Reptile Database, and peer-reviewed papers linked on each species page.",
     "photosCardTitle": "Photography",
@@ -264,9 +278,9 @@
       "gbif": "GBIF",
       "reptileDb": "Reptile Database"
     },
-    "contributeEyebrow": "Contribute",
+    "contributeEyebrow": "Collaborate",
     "contributeTitle": "Corrections and field notes",
-    "contributeBody": "Spotted a range update, misidentification, or better photo credit? Send a note — editorial review keeps the atlas accurate.",
+    "contributeBody": "Spotted a range update, misidentification, or better photo credit? Contact us — review keeps the atlas accurate.",
     "contributeCta": "Contact"
   },
   "site": {
@@ -395,9 +409,9 @@
     "sourcesBody": "Primary references include IUCN Red List assessments, GBIF, the Reptile Database, and peer-reviewed herpetological literature cited on each species page.",
     "photosTitle": "Photography",
     "photosBody": "Images are selected for identification value and field context. Credits appear on species pages when photographer attribution is available.",
-    "contributorsTitle": "Editorial lead",
-    "contributorsBody": "Editorial leadership for Reptiles.ge is provided by {name}. Species accounts are curated from established sources and updated as taxonomy and conservation data change.",
-    "contributorsLink": "About the editor"
+    "contributorsTitle": "The organization",
+    "contributorsBody": "Reptiles is building a bilingual, citeable atlas of Georgia’s reptiles — curated from established biodiversity sources and updated as taxonomy and conservation data change.",
+    "contributorsLink": "About Reptiles"
   },
   "venomousSnakes": {
     "metaTitle": "Venomous snakes in Georgia — species, risk, identification",

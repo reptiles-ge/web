@@ -3,12 +3,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
 import {
   absoluteUrl,
-  editorPersonJsonLd,
   localeAlternates,
   localePath,
+  organizationJsonLd,
   siteConfig,
 } from "@/lib/site";
-import { editorPortraitExists } from "@/lib/editorPortrait";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -62,7 +61,6 @@ export default async function Contact({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "contact" });
-  const tAbout = await getTranslations({ locale, namespace: "about" });
   const url = absoluteUrl(localePath(locale, "/contact"));
 
   const contactJsonLd = {
@@ -76,8 +74,8 @@ export default async function Contact({ params }: Props) {
       name: siteConfig.name,
       url: absoluteUrl("/"),
     },
-    mainEntity: editorPersonJsonLd(locale, tAbout("editorRole"), {
-      includeImage: editorPortraitExists(),
+    mainEntity: organizationJsonLd({
+      description: t("metaDescription"),
     }),
   };
 

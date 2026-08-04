@@ -4,7 +4,6 @@ export const siteConfig = {
   title: "Reptiles — საქართველოს ქვეწარმავლების ატლასი",
   description:
     "აღმოაჩინე, გაიგე და დაიცავი საქართველოს ქვეწარმავლები. ორენოვანი ციფრული ატლასი სახეობების პროფილებით, რეგიონალური რუკებით, შხამიანი გველების გიდითა და ველის ფოტოგრაფიით.",
-  email: "nika@shamiladze.com",
   locale: "ka_GE",
   language: "ka",
   keywords: [
@@ -35,15 +34,6 @@ export const siteConfig = {
     "venomous snakes Georgia",
     "Reptiles",
   ],
-  editor: {
-    name: "Nika Shamiladze",
-    nameKa: "ნიკა შამილაძე",
-    initials: "NS",
-    email: "nika@shamiladze.com",
-    image: "/images/editor/nika-shamiladze.jpg",
-    path: "/about",
-    sameAs: [] as readonly string[],
-  },
 } as const;
 
 export function getSiteUrl() {
@@ -111,32 +101,14 @@ export function localeAlternates(locale: string, path = "/") {
   };
 }
 
-export function editorDisplayName(locale: string) {
-  return locale === "ka" ? siteConfig.editor.nameKa : siteConfig.editor.name;
-}
-
-export function editorPersonJsonLd(
-  locale: string,
-  jobTitle: string,
-  options?: { includeImage?: boolean },
-): Record<string, unknown> {
-  const { editor } = siteConfig;
-  const personUrl = absoluteUrl(localePath(locale, editor.path));
-  const includeImage = options?.includeImage !== false;
-
+export function organizationJsonLd(options?: {
+  description?: string;
+}): Record<string, unknown> {
   return {
-    "@type": "Person",
-    name: editorDisplayName(locale),
-    alternateName: locale === "ka" ? editor.name : editor.nameKa,
-    jobTitle,
-    email: editor.email,
-    url: personUrl,
-    ...(includeImage ? { image: absoluteImageUrl(editor.image) } : {}),
-    worksFor: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
-    ...(editor.sameAs.length > 0 ? { sameAs: [...editor.sameAs] } : {}),
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
+    logo: `${CDN_BASE}/logo.webp`,
+    ...(options?.description ? { description: options.description } : {}),
   };
 }

@@ -11,12 +11,11 @@ import {
   absoluteImageUrl,
   absoluteUrl,
   cdnOgImageUrl,
-  editorPersonJsonLd,
   localeAlternates,
   localePath,
+  organizationJsonLd,
   siteConfig,
 } from "@/lib/site";
-import { editorPortraitExists } from "@/lib/editorPortrait";
 import {
   speciesMetaDescription,
   speciesMetaTitle,
@@ -163,7 +162,7 @@ export default async function SpeciesPage({ params }: PageProps) {
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 
-  const tAbout = await getTranslations({ locale, namespace: "about" });
+  const org = organizationJsonLd();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -179,13 +178,9 @@ export default async function SpeciesPage({ params }: PageProps) {
     },
     mainEntity: taxon,
     about: taxon,
-    author: editorPersonJsonLd(locale, tAbout("editorRole"), {
-      includeImage: editorPortraitExists(),
-    }),
+    author: org,
     publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
+      ...org,
       logo: {
         "@type": "ImageObject",
         url: "https://cdn.reptiles.ge/logo.webp",

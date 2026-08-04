@@ -52,11 +52,11 @@ export const metadata: Metadata = {
   keywords: [...siteConfig.keywords],
   authors: [
     {
-      name: siteConfig.editor.name,
-      url: absoluteUrl(siteConfig.editor.path),
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
     },
   ],
-  creator: siteConfig.editor.name,
+  creator: siteConfig.name,
   publisher: siteConfig.name,
   category: "science",
   openGraph: {

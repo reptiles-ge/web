@@ -1,12 +1,11 @@
 import { AboutPage } from "@/components/AboutPage";
 import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
-import { editorPortraitExists } from "@/lib/editorPortrait";
 import {
   absoluteUrl,
-  editorPersonJsonLd,
   localeAlternates,
   localePath,
+  organizationJsonLd,
   siteConfig,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "about" });
   const title = t("metaTitle");
   const description = t("metaDescription");
-  const pagePath = siteConfig.editor.path;
+  const pagePath = "/about";
   const url = absoluteUrl(localePath(locale, pagePath));
   const alternates = localeAlternates(locale, pagePath);
 
@@ -62,11 +61,7 @@ export default async function About({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "about" });
-  const url = absoluteUrl(localePath(locale, siteConfig.editor.path));
-  const hasPortrait = editorPortraitExists();
-  const person = editorPersonJsonLd(locale, t("editorRole"), {
-    includeImage: hasPortrait,
-  });
+  const url = absoluteUrl(localePath(locale, "/about"));
 
   const aboutJsonLd = {
     "@context": "https://schema.org",
@@ -79,14 +74,16 @@ export default async function About({ params }: Props) {
       name: siteConfig.name,
       url: absoluteUrl("/"),
     },
-    mainEntity: person,
+    mainEntity: organizationJsonLd({
+      description: t("metaDescription"),
+    }),
     inLanguage: locale,
   };
 
   return (
     <>
       <JsonLd data={aboutJsonLd} />
-      <AboutPage hasPortrait={hasPortrait} />
+      <AboutPage />
     </>
   );
 }

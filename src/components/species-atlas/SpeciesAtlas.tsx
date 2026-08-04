@@ -31,7 +31,6 @@ import { getCatalogSpecies, images, type Species } from "@/data/species";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
-import { editorDisplayName } from "@/lib/site";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -745,9 +744,7 @@ export function SpeciesAtlas({
                 <TrustCard title={t("photosTitle")} body={t("photosBody")} />
                 <TrustCard
                   title={t("contributorsTitle")}
-                  body={t("contributorsBody", {
-                    name: editorDisplayName(locale),
-                  })}
+                  body={t("contributorsBody")}
                   href="/about"
                   linkLabel={t("contributorsLink")}
                 />
