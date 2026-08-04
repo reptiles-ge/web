@@ -125,15 +125,15 @@ export function ContactPage() {
               transition={{ duration: 0.6, delay: 0.38, ease }}
               className="mt-12"
             >
-              <Link
-                href="/about"
-                className="group inline-flex items-center gap-2 text-[15px] font-medium text-foreground transition-colors hover:text-primary"
+              <a
+                href="mailto:nika@shamiladze.com"
+                className="group inline-flex max-w-full items-center gap-3"
               >
-                <span className="border-b border-foreground/20 pb-1 transition-colors group-hover:border-primary">
-                  {t("aboutCta")}
+                <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
+                  nika@shamiladze.com
                 </span>
                 <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-              </Link>
+              </a>
             </motion.div>
           </div>
         </main>
