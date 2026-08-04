@@ -55,18 +55,6 @@ export type Species = {
 
 export const defaultSpeciesSources: SpeciesSource[] = [
   {
-    name: "IUCN Red List",
-    url: "https://www.iucnredlist.org/",
-  },
-  {
-    name: "GBIF",
-    url: "https://www.gbif.org/",
-  },
-  {
-    name: "The Reptile Database",
-    url: "https://reptile-database.reptarium.cz/",
-  },
-  {
     name: "Scientific publications",
   },
 ];

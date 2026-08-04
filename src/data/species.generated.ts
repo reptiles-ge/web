@@ -100,15 +100,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/157284/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/5959617"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Coronella&species=austriaca"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Smooth_snake"
       },
       {
         "name": "Scientific publications"
@@ -212,15 +216,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/164595/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/2457240"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Dolichophis&species=schmidti"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Dolichophis_schmidti"
       },
       {
         "name": "Scientific publications"
@@ -323,16 +331,16 @@ export const species: Species[] = [
     "updatedAt": "2026-08-04",
     "sources": [
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
-      },
-      {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/10287547"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Elaphe&species=urartica"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Elaphe_urartica"
       },
       {
         "name": "Scientific publications"
@@ -435,16 +443,16 @@ export const species: Species[] = [
     "updatedAt": "2026-08-04",
     "sources": [
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
-      },
-      {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/2146584"
       },
       {
-        "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "name": "World Spider Catalog",
+        "url": "https://wsc.nmbe.ch/spec-data/26418/Hogna_radiata"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hogna_radiata"
       },
       {
         "name": "Scientific publications"
@@ -548,15 +556,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/67662588/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/9799308"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lampropeltis&species=getula"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Lampropeltis_getula"
       },
       {
         "name": "Scientific publications"
@@ -657,15 +669,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/157295/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/2444716"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Macrovipera&species=lebetinus"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Macrovipera_lebetinus"
       },
       {
         "name": "Scientific publications"
@@ -769,15 +785,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/157256/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/6161327"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Natrix&species=tessellata"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Dice_snake"
       },
       {
         "name": "Scientific publications"
@@ -881,15 +901,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/157277/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/5223135"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Platyceps&species=najadum"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Platyceps_najadum"
       },
       {
         "name": "Scientific publications"
@@ -993,15 +1017,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/157263/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/2468350"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Pseudopus&species=apodus"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sheltopusik"
       },
       {
         "name": "Scientific publications"
@@ -1141,15 +1169,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/157258/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/2457466"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Telescopus&species=fallax"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/European_cat_snake"
       },
       {
         "name": "Scientific publications"
@@ -1250,15 +1282,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/62255/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/2444308"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=ammodytes"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Vipera_ammodytes"
       },
       {
         "name": "Scientific publications"
@@ -1361,15 +1397,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/23001/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/5960888"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=dinniki"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Vipera_dinniki"
       },
       {
         "name": "Scientific publications"
@@ -1476,15 +1516,19 @@ export const species: Species[] = [
     "sources": [
       {
         "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "url": "https://www.iucnredlist.org/details/22990/0"
       },
       {
         "name": "GBIF",
-        "url": "https://www.gbif.org/"
+        "url": "https://www.gbif.org/species/5960856"
       },
       {
         "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/"
+        "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=kaznakovi"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Vipera_kaznakovi"
       },
       {
         "name": "Scientific publications"
