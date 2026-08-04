@@ -3,6 +3,7 @@
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { Reveal } from "@/components/Reveal";
 import type { GalleryImage } from "@/data/species";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -11,17 +12,22 @@ import { useEffect, useState } from "react";
 type SpeciesGalleryProps = {
   images: GalleryImage[];
   name: string;
+  scientificName: string;
+  location: string;
   tone?: "background" | "surface";
 };
 
 export function SpeciesGallery({
   images,
   name,
+  scientificName,
+  location,
   tone = "background",
 }: SpeciesGalleryProps) {
   const t = useTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
   const [active, setActive] = useState<number | null>(null);
+  const imageAlt = speciesImageAlt(name, scientificName, location);
 
   useEffect(() => {
     if (active === null) return;
@@ -96,11 +102,11 @@ export function SpeciesGallery({
                     className={`group relative block w-full overflow-hidden rounded-[24px] bg-ink text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
                       featured ? "aspect-[16/10]" : "aspect-[4/5]"
                     }`}
-                    aria-label={`${name} — ${t("photo")} ${index + 1}`}
+                    aria-label={imageAlt}
                   >
                     <Image
                       src={photo.src}
-                      alt={`${name} — ${t("photo")} ${index + 1}`}
+                      alt={imageAlt}
                       fill
                       sizes={
                         featured
@@ -179,7 +185,7 @@ export function SpeciesGallery({
             <div className="relative min-h-0 flex-1">
               <Image
                 src={activePhoto.src}
-                alt={`${name} — ${t("photo")} ${active + 1}`}
+                alt={imageAlt}
                 fill
                 sizes="92vw"
                 className="object-contain"

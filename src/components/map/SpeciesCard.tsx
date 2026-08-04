@@ -2,6 +2,7 @@
 
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -44,7 +45,11 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-secondary">
         <Image
           src={cover}
-          alt={`${species.commonName} — ${species.scientificName}`}
+          alt={speciesImageAlt(
+            species.commonName,
+            species.scientificName,
+            species.location,
+          )}
           fill
           loading="lazy"
           sizes="72px"

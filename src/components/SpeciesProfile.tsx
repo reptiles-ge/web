@@ -19,6 +19,7 @@ import {
 } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { formatContentDate } from "@/lib/formatDate";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -59,6 +60,11 @@ export function SpeciesProfile({
     species.imageCredit,
     primary?.credit,
   );
+  const imageAlt = speciesImageAlt(
+    species.commonName,
+    species.scientificName,
+    species.location,
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -97,7 +103,7 @@ export function SpeciesProfile({
             <>
               <Image
                 src={species.mobileImage}
-                alt={species.commonName}
+                alt={imageAlt}
                 fill
                 priority
                 sizes="100vw"
@@ -105,7 +111,7 @@ export function SpeciesProfile({
               />
               <Image
                 src={primary?.src ?? species.image}
-                alt={species.commonName}
+                alt={imageAlt}
                 fill
                 priority
                 sizes="100vw"
@@ -115,7 +121,7 @@ export function SpeciesProfile({
           ) : (
             <Image
               src={primary?.src ?? species.image}
-              alt={species.commonName}
+              alt={imageAlt}
               fill
               priority
               sizes="100vw"
@@ -205,6 +211,8 @@ export function SpeciesProfile({
         <SpeciesGallery
           images={gallery}
           name={species.commonName}
+          scientificName={species.scientificName}
+          location={species.location}
           tone="surface"
         />
 
@@ -301,7 +309,11 @@ export function SpeciesProfile({
                     >
                       <Image
                         src={item.mobileImage ?? item.image}
-                        alt={item.commonName}
+                        alt={speciesImageAlt(
+                          item.commonName,
+                          item.scientificName,
+                          item.location,
+                        )}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"

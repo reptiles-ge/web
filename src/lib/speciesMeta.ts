@@ -12,6 +12,14 @@ export function speciesMetaTitle(
   return `${commonName} (${scientificName}) — ${intent}`;
 }
 
+export function speciesImageAlt(
+  commonName: string,
+  scientificName: string,
+  location: string,
+) {
+  return `${commonName} (${scientificName}) ${location}`;
+}
+
 export function speciesMetaDescription(overview: string, cta: string) {
   const lead = firstSentence(overview);
   return `${lead} ${cta}`.trim();

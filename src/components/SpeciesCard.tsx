@@ -3,6 +3,7 @@
 import { SpeciesDanger } from "@/components/SpeciesDanger";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 
@@ -20,7 +21,11 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
     >
       <Image
         src={cover}
-        alt={`${species.commonName} — ${species.scientificName}`}
+        alt={speciesImageAlt(
+          species.commonName,
+          species.scientificName,
+          species.location,
+        )}
         fill
         quality={90}
         sizes="(max-width: 640px) 320px, 380px"
