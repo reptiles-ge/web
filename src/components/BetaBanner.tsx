@@ -28,7 +28,7 @@ function getServerSnapshot() {
 
 function readDismissed() {
   try {
-    return sessionStorage.getItem(STORAGE_KEY) === "1";
+    return localStorage.getItem(STORAGE_KEY) === "1";
   } catch {
     return false;
   }
@@ -41,7 +41,7 @@ if (typeof window !== "undefined") {
 function dismissBanner() {
   dismissed = true;
   try {
-    sessionStorage.setItem(STORAGE_KEY, "1");
+    localStorage.setItem(STORAGE_KEY, "1");
   } catch {
     /* ignore */
   }
