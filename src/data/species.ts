@@ -12,6 +12,11 @@ export type SpeciesFaq = {
   answer: string;
 };
 
+export type SpeciesIdentification = {
+  summary: string;
+  traits: string[];
+};
+
 export type PhotoCredit = {
   photographer: string;
   url?: string;
@@ -48,6 +53,7 @@ export type Species = {
   gallery: GalleryImage[];
   stats: SpeciesStat[];
   facts: string[];
+  identification?: SpeciesIdentification;
   faq?: SpeciesFaq[];
   updatedAt: string;
   sources: SpeciesSource[];
@@ -70,6 +76,7 @@ export type SpeciesTranslation = {
   conservation: string;
   stats: SpeciesStat[];
   facts: string[];
+  identification?: SpeciesIdentification;
   faq?: SpeciesFaq[];
 };
 

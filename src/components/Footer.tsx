@@ -1,7 +1,10 @@
 "use client";
 
 import { Logo } from "@/components/Logo";
+import { Link } from "@/i18n/navigation";
 import { useMessages, useTranslations } from "next-intl";
+
+const contactHrefs = new Set(["კონტაქტი", "Contact"]);
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -32,12 +35,21 @@ export function Footer() {
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#top"
-                      className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    >
-                      {link}
-                    </a>
+                    {contactHrefs.has(link) ? (
+                      <Link
+                        href="/contact"
+                        className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                      >
+                        {link}
+                      </Link>
+                    ) : (
+                      <a
+                        href="#top"
+                        className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                      >
+                        {link}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

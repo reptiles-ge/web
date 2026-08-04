@@ -74,6 +74,16 @@ export const species: Species[] = [
       "კვერცხცოცხლადმშობია: ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი.",
       "გვარის სახელი Coronella ლათინურად „პატარა გვირგვინს“ ნიშნავს — თავზე ხშირად ჩანს გვირგვინისებრი მუქი ნახატი."
     ],
+    "identification": {
+      "summary": "სპილენძა უვნებელი ანკარასებრია, მაგრამ შეფერილობით ხშირად გველგესლას ჰგავს. ამოცნობისთვის შეხედე ქერცლებს, გუგას და თავის ნახატს — არა მხოლოდ ფერს.",
+      "traits": [
+        "ქერცლები გლუვია (არა კილური) — გველგესლასგან განსხვავებით.",
+        "თვალის გუგა მრგვალია; შხამიან გველგესლებს ვერტიკალური გუგა აქვთ.",
+        "თავზე ხშირად ჩანს გვირგვინისებრი მუქი ნახატი (გვარის სახელი Coronella).",
+        "შეფერილობა სპილენძისფერი ან მოწითალოა; სიგრძე დაახლოებით 60–80 სმ.",
+        "მალულია და უპირატესობას ანიჭებს მთისწინეთს, ტყის პირებსა და ქვიან ადგილებს."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა სპილენძა ადამიანისთვის?",
@@ -190,6 +200,16 @@ export const species: Species[] = [
       "უშხამოა და ადამიანისთვის უვნებელი — მიუხედავად სწრაფი რეაქციისა და თავდაცვითი ქცევისა.",
       "საქართველოში დაფიქსირდა ერთ-ერთი ყველაზე დიდი ზამთრის აგრეგაცია — ერთ თავშესაფარში 100-ზე მეტი ინდივიდი."
     ],
+    "identification": {
+      "summary": "წითელმუცელა მცურავი აღმოსავლეთ საქართველოს სწრაფი, უშხამო მცურავია. მთავარი ნიშანი მუცლის ფერია — ის კასპიურ მცურავსაც განასხვავებს.",
+      "traits": [
+        "მუცელი წითელი ან ნარინჯისფერია — სახეობის მთავარი ამოცნობის ნიშანი.",
+        "ზრდასრულებს ზურგი ხშირად ერთგვაროვანი მოწითალო/სპილენძისფერია; ახალგაზრდები უფრო ლაქებიანია.",
+        "სხეული გამხდარი და სწრაფია; სიგრძე დაახლოებით 1–1.5 მ.",
+        "გუგა მრგვალია; შხამი არ აქვს.",
+        "გვხვდება აღმოსავლეთ საქართველოს მშრალ, ქვიან და ბალახოვან ლანდშაფტებში."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა წითელმუცელა მცურავი ადამიანისთვის?",
@@ -306,6 +326,16 @@ export const species: Species[] = [
       "შხამი არ აქვს — მსხვერპლს ახრჩობს; ადამიანისთვის უვნებელია.",
       "საქართველოში დადასტურებულია კახეთში, დედოფლისწყაროს მუნიციპალიტეტსა და თბილისის მიდამოებში."
     ],
+    "identification": {
+      "summary": "ურარტუს მცურავი უვნებელი ლაქებიანი მცურავია აღმოსავლეთ საქართველოდან. გარეგნულად E. sauromates-ს ჰგავს — ამოცნობაში გეოგრაფიაც მნიშვნელოვანია.",
+      "traits": [
+        "ზურგზე 50–65 მომრგვალებული ყავისფერი ან შავი ლაქაა მოყვითალო/მოთეთრო ფონზე.",
+        "თავი შედარებით დიდია; ცხვირის პროფილი ხშირად ოდნავ მოკაუჭებულია.",
+        "თავის ზედა ნაწილი მუქია; გუგა მრგვალია.",
+        "სიგრძე დაახლოებით 0.8–1.2 მ; უშხამოა.",
+        "საქართველოში — აღმოსავლეთ ტრანსკავკასია (კახეთი და მიმდებარე მშრალი ზონები)."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა ურარტუს მცურავი ადამიანისთვის?",
@@ -418,6 +448,16 @@ export const species: Species[] = [
       "საქართველოსა და კავკასიაში დადასტურებულია — მშრალი, თბილი ჰაბიტატების მკვიდრი.",
       "ადამიანისთვის სამედიცინოდ უმნიშვნელოა; ნაკბენი იშვიათია და ჩვეულებრივ მსუბუქი ადგილობრივი რეაქციით შემოიფარგლება."
     ],
+    "identification": {
+      "summary": "სხივოვანი მგლის ობობა დიდი, დღის აქტიური მონადირეა მშრალ ადგილებში. სახელი radiata პროსომის სხივურ ნახატს უკავშირდება.",
+      "traits": [
+        "პროსომაზე ღია შუა ზოლიდან გამომავალი სხივური/რადიალური ნახატი ჩანს.",
+        "სხეულის სიგრძე დაახლოებით 9–25 მმ — რეგიონის ერთ-ერთი დიდი მგლის ობობა.",
+        "დღის აქტიურია; ქსელს არ აშენებს ნადირობისთვის — აქტიურად მონადირეობს.",
+        "უპირატესობას ანიჭებს მშრალ სტეპს, ბალახოვან და ღია ადგილებს.",
+        "ადამიანისთვის უვნებელია — შხამი სუსტია და სამედიცინო მნიშვნელობა არ აქვს."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა სხივოვანი მგლის ობობა ადამიანისთვის?",
@@ -530,6 +570,16 @@ export const species: Species[] = [
       "ნახატი ჯაჭვისებრია — შავ ფონზე თეთრი ან მოყვითალო განივი ზოლები; აქედან მოდის სახელი chain kingsnake.",
       "კვერცხისმდებია: დებს დაახლოებით 3–24 კვერცხს; ინკუბაცია დაახლოებით 60–75 დღეა."
     ],
+    "identification": {
+      "summary": "აღმოსავლური მეფე გველი უვნებელი ჯაჭვური მეფე გველია. ამოცნობის გასაღებია მბზინავი შავი სასწორები და თეთრ-ყვითელი ჯაჭვისებრი ზოლები.",
+      "traits": [
+        "სასწორები გლუვი და მბზინავია (Lampropeltis — „მბზინავი ფარი“).",
+        "შავ ფონზე თეთრი ან ყვითელი ჯაჭვისებრი განივი ზოლებია.",
+        "სიგრძე დაახლოებით 90–122 სმ; გუგა მრგვალია.",
+        "უშხამოა — კონსტრიქტორია; ცნობილია შხამიანი გველების ჭამით.",
+        "ბუნებრივი არეალი აშშ-ის სამხრეთ-აღმოსავლეთია — საქართველოში ადგილობრივი სახეობა არ არის."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა აღმოსავლური მეფე გველი ადამიანისთვის?",
@@ -643,6 +693,16 @@ export const species: Species[] = [
       "შხამი ჰემოტოქსიურია: აზიანებს სისხლის წითელ უჯრედებსა და სისხლძარღვებს; მკურნალობაში გამოიყენება შრატი „ანტიგიურზა“.",
       "ადგილობრივი სახელი „გიურზა“ კავკასიასა და შუა აზიაშია გავრცელებული; ინგლისურად ხშირად Blunt-nosed ან Levantine viper ეწოდება."
     ],
+    "identification": {
+      "summary": "გიურზა საქართველოს ყველაზე დიდი და საშიში შხამიანი გველია. ამოიცანი ზომით, თავის ფორმით, ჰაბიტატით და იმით, რომ კვერცხისმდებია — მაღალმთიანი დინიკისგან განსხვავებით.",
+      "traits": [
+        "დიდი სხეულია — სიგრძე დაახლოებით 1–1.5 მ; თავი ფართო და სამკუთხაა.",
+        "გუგა ვერტიკალურია; ქერცლები კილურია — ტიპური გველგესლა.",
+        "გვხვდება აღმოსავლეთ საქართველოს მშრალ დაბლობებსა და ქვიან ფერდობებზე (დაახლ. 0–1,500 მ).",
+        "კვერცხისმდებია — დინიკის გველგესლა ცოცხლადმშობია და მაღალმთაშია.",
+        "შხამი ძალიან საშიშია; ნაკბენისას საჭიროა დაუყოვნებელი სამედიცინო დახმარება."
+      ]
+    },
     "faq": [
       {
         "question": "რამდენად საშიშია გიურზას ნაკბენი?",
@@ -759,6 +819,16 @@ export const species: Species[] = [
       "საქართველოში ფართოდაა გავრცელებული და თითქმის ყველა ტიპის წყლის ჰაბიტატში გვხვდება.",
       "დიეტის უმეტესობა თევზია; ამფიბიებსაც იჭერს — ერთ-ერთი ყველაზე წყლისმოყვარე გველია რეგიონში."
     ],
+    "identification": {
+      "summary": "წყლის ანკარა უშხამო, ნახევრადწყლის გველია. ამოიცანი კუბიკური ლაქებითა და წყალთან მჭიდრო კავშირით — ჩვეულებრივი ანკარასგანაც განსხვავდება.",
+      "traits": [
+        "ზურგზე კუბიკური („ჭადრაკის“) ლაქებია — სახელი tessellata აქედან მოდის.",
+        "ხშირად იბანაობს ან მზეზე თბება ნაპირზე, ქვებზე და წყალზე გადახრილ ტოტებზე.",
+        "გუგა მრგვალია; შხამი არ აქვს — უვნებელია.",
+        "სიგრძე დაახლოებით 1–1.3 მ; თავი შედარებით ვიწროა გველგესლასთან შედარებით.",
+        "საქართველოში უფრო ხშირია ნახევრადმშრალ რეგიონებში, ვიდრე ჩვეულებრივი ანკარა (Natrix natrix)."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა წყლის ანკარა ადამიანისთვის?",
@@ -875,6 +945,16 @@ export const species: Species[] = [
       "უშხამოა და ადამიანისთვის უვნებელი — მიუხედავად სისწრაფისა და თავდაცვითი ქცევისა.",
       "საქართველოში დაფიქსირებულია სხვა უშხამო მცურავებთან ერთად — მათ შორის წითელმუცელა მცურავის ზამთრის თავშესაფრებში."
     ],
+    "identification": {
+      "summary": "წენგოსფერი მცურავი უშხამო, ძალიან გამხდარი და სწრაფი მცურავია. კისრის ოცელებიანი ლაქები მთავარი ამოცნობის ნიშანია.",
+      "traits": [
+        "კისერზე მუქი, ღია კიდეებიანი ლაქები (ოცელები) ჩანს — სახეობის საკვანძო ნიშანი.",
+        "სხეული ძალიან გამხდარია; შეფერილობა წენგოსფერი ან ზეთისხილისფერია.",
+        "გუგა მრგვალია — შხამიანი გველგესლების ვერტიკალური გუგისგან განსხვავებით.",
+        "სიგრძე დაახლოებით 70–100 სმ; ერთ-ერთი ყველაზე სწრაფი მცურავია რეგიონში.",
+        "გვხვდება აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან ჰაბიტატებში."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა წენგოსფერი მცურავი ადამიანისთვის?",
@@ -991,6 +1071,16 @@ export const species: Species[] = [
       "საქართველოში თითქმის ყველგან გვხვდება და ზოგჯერ 2,000 მ სიმაღლემდე ადის.",
       "საყვარელი საკვებია ლოკოკინები და შლაკები — ამიტომ ნოტიო ამინდში უფრო ხშირად ჩანს."
     ],
+    "identification": {
+      "summary": "გველხოკერა გველი არ არის — უფეხო ხვლიკია. ამოიცანი ქუთუთოებით, ყურის ხვრელებითა და გვერდითი ნაოჭით.",
+      "traits": [
+        "აქვს მოძრავი ქუთუთოები — გველებს ქუთუთოები არ აქვთ.",
+        "გარე ყურის ხვრელები ჩანს თავის გვერდზე.",
+        "გვერდზე კანის ღრმა ნაოჭი (ლატერალური ღარი) გადის სხეულის გასწვრივ.",
+        "კლოაკასთან ზოგჯერ ჩანს უკანა კიდურების რუდიმენტები.",
+        "სიგრძე დაახლოებით 1–1.35 მ; უშხამოა და საქართველოში ფართოდაა გავრცელებული."
+      ]
+    },
     "faq": [
       {
         "question": "გველხოკერა გველია თუ ხვლიკი?",
@@ -1143,6 +1233,16 @@ export const species: Species[] = [
       "კავკასიური ქვესახეობის (T. f. iberus) ტიპის ლოკალობა თბილისია — სახელი iberus ძველ ქართულ იბერიას უკავშირდება და არა პირენეების ნახევარკუნძულს.",
       "ბინდისა და ღამის მონადირეა — დღისით იმალება, საღამოსა და ღამით ხვლიკებსა და გეკონებს იჭერს."
     ],
+    "identification": {
+      "summary": "კატისთვალა ბინდისა და ღამის გველია ვერტიკალური გუგით. სახელი სწორედ თვალის ფორმიდან მოდის — დღის მცურავებისგან განსხვავებით.",
+      "traits": [
+        "დიდი თვალები ვერტიკალური გუგით (დღისით ვიწრო ნაპრალად იკუმშება).",
+        "აქტიურია საღამოსა და ღამით; დღისით იმალება ქვების ქვეშ ან ნაპრალებში.",
+        "უშხამოა ადამიანისთვის — უკანა კბილებიანი, მაგრამ ეფექტური დაშხამვა თითქმის შეუძლებელია.",
+        "სიგრძე დაახლოებით 60–100 სმ; სხეული გამხდარია.",
+        "გვხვდება აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან ადგილებში."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა კატისთვალა ადამიანისთვის?",
@@ -1256,6 +1356,16 @@ export const species: Species[] = [
       "შხამი შეიცავს ჰემოტოქსიურ კომპონენტებსა და პრესინაფსურ ნეიროტოქსინებს (ამოდიტოქსინები).",
       "საქართველოში იშვიათია და შეტანილია წითელ წიგნში; გვხვდება მესხეთ–თრიალეთის მთიანეთში."
     ],
+    "identification": {
+      "summary": "ცხვირრქოსანი გველგესლა ევროპის ერთ-ერთი ყველაზე საშიში გველგესლაა. მთავარი ნიშანი ცხვირზე რქისებრი წარმონაქმნია — საქართველოში იშვიათია.",
+      "traits": [
+        "ცხვირზე რქისებრი წარმონაქმნი 9–20 წვრილი ქერცლისგან — სახეობის საკვანძო ნიშანი.",
+        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი ფართოა.",
+        "სიგრძე დაახლოებით 60–85 სმ; შხამი ძალიან საშიშია.",
+        "საქართველოში მცირე კავკასიონთანაა დაკავშირებული და იშვიათია.",
+        "დინიკისა და კავკასიური გველგესლასგან რქა და გეოგრაფია განასხვავებს."
+      ]
+    },
     "faq": [
       {
         "question": "რამდენად საშიშია ცხვირრქოსანი გველგესლას ნაკბენი?",
@@ -1375,6 +1485,16 @@ export const species: Species[] = [
       "არეალი მკვეთრად ფრაგმენტირებულია; IUCN სტატუსი — მოწყვლადი (Vulnerable).",
       "გავრცელებულია დიდი კავკასიონის ქედზე — რუსეთში, საქართველოსა და აზერბაიჯანში."
     ],
+    "identification": {
+      "summary": "დინიკის გველგესლა დიდი კავკასიონის მაღალმთიანი, შხამიანი სახეობაა. ამოიცანი ზომით, ჰაბიტატის სიმაღლით და იმით, რომ ცოცხლადმშობია — გიურზასგან განსხვავებით.",
+      "traits": [
+        "შედარებით პატარაა — სიგრძე დაახლოებით 40–50 სმ.",
+        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი სამკუთხაა.",
+        "გვხვდება დიდი კავკასიონის მაღალმთაში — დაახლოებით 1,500–2,800 მ.",
+        "ცოცხლადმშობია; გიურზა უფრო დიდია, კვერცხისმდებია და დაბლობებზეა.",
+        "შხამიანია (საშუალო რისკი); ნაკბენისას საჭიროა სამედიცინო დახმარება."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა დინიკის გველგესლა ადამიანისთვის?",
@@ -1490,6 +1610,16 @@ export const species: Species[] = [
       "ცოცხლადმშობია — შემოდგომაზე ბადებს 5–10 ნაშიერს; ამიტომ დედის დაღუპვა მთელ ნაყოფსაც ანადგურებს.",
       "IUCN სტატუსი — გადაშენების საფრთხეში (Endangered); შეტანილია საქართველოს წითელ ნუსხაში."
     ],
+    "identification": {
+      "summary": "კავკასიური გველგესლა დასავლეთ კავკასიისა და კოლხური ტყეების ენდემური შხამიანი სახეობაა. ამოიცანი ჰაბიტატით (დაბალი სიმაღლე, ნოტიო დასავლეთი) და ზომით.",
+      "traits": [
+        "სიგრძე დაახლოებით 45–65 სმ — დინიკზე ოდნავ დიდი, გიურზაზე გაცილებით პატარა.",
+        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი ფართოა.",
+        "გვხვდება დასავლეთ კავკასიაში — კოლხურ ტყეებსა და შავი ზღვის სანაპიროზე (დაახლ. 0–1,000 მ).",
+        "დინიკისგან განსხვავებით დაბალ და ნოტიო ჰაბიტატშია, არა მაღალმთის სუბალპში.",
+        "შხამიანია; IUCN სტატუსი — საფრთხეში (Endangered)."
+      ]
+    },
     "faq": [
       {
         "question": "საშიშია თუ არა კავკასიური გველგესლა ადამიანისთვის?",
@@ -1579,6 +1709,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It is ovoviviparous: young are born live, usually 2–15 individuals.",
       "The genus name Coronella means \"little crown\" in Latin — a crown-like dark pattern is often visible on its head."
     ],
+    "identification": {
+      "summary": "The smooth snake is a harmless colubrid often mistaken for a viper because of its coloring. Check the scales, pupil, and head pattern — not color alone.",
+      "traits": [
+        "Scales are smooth (not keeled), unlike vipers.",
+        "The pupil is round; venomous vipers have a vertical pupil.",
+        "A crown-like dark pattern is often visible on the head (genus name Coronella).",
+        "Coloring is copper to reddish; length is roughly 60–80 cm.",
+        "It is secretive and favors foothills, forest edges, and rocky cover."
+      ]
+    },
     "faq": [
       {
         "question": "Is the smooth snake dangerous to humans?",
@@ -1643,6 +1783,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It is non-venomous and harmless to humans — despite its speed and defensive behavior.",
       "One of the largest winter aggregations in Georgia was recorded for this species — over 100 individuals in a single shelter."
     ],
+    "identification": {
+      "summary": "The red-bellied racer is a fast, non-venomous snake of eastern Georgia. Belly color is the key field mark and separates it from the Caspian racer.",
+      "traits": [
+        "The belly is red to orange — the species’ main identification trait.",
+        "Adults often have a fairly uniform reddish or copper back; juveniles are more blotched.",
+        "The body is slender and fast; length is roughly 1–1.5 m.",
+        "The pupil is round; it has no venom.",
+        "It lives in dry, rocky, and grassy landscapes of eastern Georgia."
+      ]
+    },
     "faq": [
       {
         "question": "Is the red-bellied racer dangerous to humans?",
@@ -1707,6 +1857,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It has no venom — it kills prey by constriction; it is harmless to humans.",
       "In Georgia it has been confirmed in Kakheti, the Dedoplistsqaro municipality, and around Tbilisi."
     ],
+    "identification": {
+      "summary": "The Urartian ratsnake is a harmless spotted ratsnake of eastern Georgia. It looks much like E. sauromates — geography matters for identification.",
+      "traits": [
+        "The back has about 50–65 rounded brown or black blotches on a yellowish or whitish ground.",
+        "The head is relatively large; the snout profile is often slightly hooked.",
+        "The top of the head is dark; the pupil is round.",
+        "Length is roughly 0.8–1.2 m; it is non-venomous.",
+        "In Georgia it occurs in eastern Transcaucasia (Kakheti and nearby dry zones)."
+      ]
+    },
     "faq": [
       {
         "question": "Is the Urartian ratsnake dangerous to humans?",
@@ -1771,6 +1931,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Documented in Georgia and the Caucasus — a resident of dry, warm habitats.",
       "Medically insignificant to humans; bites are rare and usually cause only mild local reaction."
     ],
+    "identification": {
+      "summary": "The radiated wolf spider is a large, day-active hunter of dry habitats. The name radiata refers to the radial pattern on the carapace.",
+      "traits": [
+        "A pale midline on the carapace with radiating lines is the key field mark.",
+        "Body length is roughly 9–25 mm — one of the larger wolf spiders in the region.",
+        "It is diurnal and does not use a capture web — it hunts actively.",
+        "It prefers dry steppe, grassy cover, and open ground.",
+        "It is harmless to humans — venom is mild and medically insignificant."
+      ]
+    },
     "faq": [
       {
         "question": "Is the radiated wolf spider dangerous to humans?",
@@ -1835,6 +2005,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Its pattern is chain-like — white or yellowish crossbands on a black ground; hence the name chain kingsnake.",
       "It is egg-laying: clutches are roughly 3–24 eggs; incubation lasts about 60–75 days."
     ],
+    "identification": {
+      "summary": "The eastern kingsnake is a harmless chain kingsnake. Glossy black scales and white-to-yellow chain bands are the key marks.",
+      "traits": [
+        "Scales are smooth and glossy (Lampropeltis means “shiny shield”).",
+        "White or yellow chain-like crossbands mark a black ground color.",
+        "Length is roughly 90–122 cm; the pupil is round.",
+        "It is non-venomous — a constrictor known for eating venomous snakes.",
+        "Its native range is the southeastern United States — not a native Georgian species."
+      ]
+    },
     "faq": [
       {
         "question": "Is the eastern kingsnake dangerous to humans?",
@@ -1899,6 +2079,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Its venom is hemotoxic: it damages red blood cells and blood vessels; the antivenom \"Anti-Gyurza\" is used in treatment.",
       "The local name \"gyurza\" is used across the Caucasus and Central Asia; in English it is often called the Blunt-nosed or Levantine viper."
     ],
+    "identification": {
+      "summary": "The Levantine viper is Georgia’s largest and most dangerous venomous snake. Size, head shape, habitat, and egg-laying separate it from highland Dinnik’s viper.",
+      "traits": [
+        "It is large — roughly 1–1.5 m — with a broad, triangular head.",
+        "The pupil is vertical and the scales are keeled — a typical viper.",
+        "It occurs in dry lowlands and rocky slopes of eastern Georgia (about 0–1,500 m).",
+        "It lays eggs — Dinnik’s viper is live-bearing and lives in the high mountains.",
+        "Venom is highly dangerous; a bite needs immediate medical care."
+      ]
+    },
     "faq": [
       {
         "question": "How dangerous is a Levantine viper's bite?",
@@ -1963,6 +2153,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It is widespread in Georgia and found in almost every type of water habitat.",
       "Most of its diet is fish; it also catches amphibians — one of the most water-loving snakes in the region."
     ],
+    "identification": {
+      "summary": "The dice snake is a harmless, semi-aquatic colubrid. Checkered blotches and a strong link to water are the main cues — and help separate it from the grass snake.",
+      "traits": [
+        "The back has checkered (“dice-like”) blotches — the source of the name tessellata.",
+        "It often swims or basks on banks, stones, and overhanging branches.",
+        "The pupil is round; it has no venom and is harmless.",
+        "Length is roughly 1–1.3 m; the head is narrower than a viper’s.",
+        "In Georgia it is more common in semi-arid regions than the grass snake (Natrix natrix)."
+      ]
+    },
     "faq": [
       {
         "question": "Is the dice snake dangerous to humans?",
@@ -2027,6 +2227,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It is non-venomous and harmless to humans — despite its speed and defensive displays.",
       "In Georgia it has been recorded alongside other non-venomous racers — including in winter shelters of the red-bellied racer."
     ],
+    "identification": {
+      "summary": "Dahl’s whip snake is a non-venomous, extremely slender, fast racer. Pale-edged neck ocelli are the main identification mark.",
+      "traits": [
+        "Dark, pale-edged spots (ocelli) on the neck are the key field mark.",
+        "The body is very slender; color is olive to buckthorn-tan.",
+        "The pupil is round — unlike the vertical pupil of venomous vipers.",
+        "Length is roughly 70–100 cm; it is one of the fastest racers in the region.",
+        "It occurs in dry, rocky habitats of eastern and southern Georgia."
+      ]
+    },
     "faq": [
       {
         "question": "Is Dahl's whip snake dangerous to humans?",
@@ -2091,6 +2301,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It occurs almost everywhere in Georgia and sometimes ranges up to 2,000 m elevation.",
       "Its favorite food is snails and slugs — so it is seen more often in wet weather."
     ],
+    "identification": {
+      "summary": "The European glass lizard is not a snake — it is a legless lizard. Identify it by eyelids, ear openings, and a lateral fold.",
+      "traits": [
+        "It has movable eyelids — snakes do not.",
+        "External ear openings are visible on the side of the head.",
+        "A deep lateral skin fold runs along the body.",
+        "Hind-limb rudiments may be visible near the cloaca.",
+        "Length is roughly 1–1.35 m; it is non-venomous and widespread in Georgia."
+      ]
+    },
     "faq": [
       {
         "question": "Is the European glass lizard a snake or a lizard?",
@@ -2155,6 +2375,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "The type locality of the Caucasian subspecies (T. f. iberus) is Tbilisi — iberus refers to ancient Caucasian Iberia, not the Iberian Peninsula.",
       "It is a dusk-and-night hunter — it hides by day and takes lizards and geckos after dark."
     ],
+    "identification": {
+      "summary": "The European cat snake is a crepuscular and nocturnal snake with a vertical pupil. The name comes from the eye shape — unlike most day-active racers.",
+      "traits": [
+        "Large eyes with a vertical pupil that closes to a slit in daylight.",
+        "Active at dusk and night; hides under stones or in crevices by day.",
+        "Harmless to humans — rear-fanged, but effective envenomation of people is almost impossible.",
+        "Length is roughly 60–100 cm; the body is slender.",
+        "It occurs in dry, rocky habitats of eastern and southern Georgia."
+      ]
+    },
     "faq": [
       {
         "question": "Is the European cat snake dangerous to humans?",
@@ -2219,6 +2449,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Its venom contains hemotoxic components and presynaptic neurotoxins (ammodytoxins).",
       "It is rare in Georgia and listed in the Red Data Book; found in the Meskheti-Trialeti highlands."
     ],
+    "identification": {
+      "summary": "The nose-horned viper is one of Europe’s most dangerous vipers. The horn-like snout growth is the key mark — and it is rare in Georgia.",
+      "traits": [
+        "A horn-like snout of 9–20 small scales is the diagnostic trait.",
+        "The pupil is vertical, scales are keeled, and the head is broad.",
+        "Length is roughly 60–85 cm; venom is highly dangerous.",
+        "In Georgia it is linked to the Lesser Caucasus and is rare.",
+        "The horn and geography separate it from Dinnik’s and Caucasus vipers."
+      ]
+    },
     "faq": [
       {
         "question": "How dangerous is a nose-horned viper's bite?",
@@ -2283,6 +2523,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Its range is severely fragmented; IUCN status — Vulnerable.",
       "Distributed along the Greater Caucasus range — in Russia, Georgia, and Azerbaijan."
     ],
+    "identification": {
+      "summary": "Dinnik’s viper is a venomous highland species of the Greater Caucasus. Size, elevation, and live birth separate it from the Levantine viper.",
+      "traits": [
+        "It is relatively small — roughly 40–50 cm long.",
+        "The pupil is vertical, scales are keeled, and the head is triangular.",
+        "It lives in the Greater Caucasus highlands at about 1,500–2,800 m.",
+        "It is live-bearing; the Levantine viper is larger, egg-laying, and lowland.",
+        "It is venomous (moderate risk); a bite needs medical care."
+      ]
+    },
     "faq": [
       {
         "question": "Is Dinnik's viper dangerous to humans?",
@@ -2343,6 +2593,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "It is ovoviviparous — it bears 5–10 young in autumn; the loss of the mother therefore destroys the entire brood.",
       "IUCN status — Endangered; it is listed in Georgia's Red List."
     ],
+    "identification": {
+      "summary": "The Caucasus viper is a venomous endemic of the western Caucasus and Colchic forests. Habitat (low elevation, humid west) and size are the main cues.",
+      "traits": [
+        "Length is roughly 45–65 cm — a bit larger than Dinnik’s, far smaller than the Levantine viper.",
+        "The pupil is vertical, scales are keeled, and the head is broad.",
+        "It occurs in the western Caucasus — Colchic forests and the Black Sea coast (about 0–1,000 m).",
+        "Unlike Dinnik’s viper it lives in low, humid habitat, not the high subalpine zone.",
+        "It is venomous; IUCN status is Endangered."
+      ]
+    },
     "faq": [
       {
         "question": "Is the Caucasus viper dangerous to humans?",

@@ -9,6 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
+import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -215,6 +216,13 @@ export function SpeciesProfile({
           location={species.location}
           tone="surface"
         />
+
+        {species.identification ? (
+          <SpeciesIdentification
+            name={species.commonName}
+            identification={species.identification}
+          />
+        ) : null}
 
         <SpeciesRangeMap
           speciesId={species.id}

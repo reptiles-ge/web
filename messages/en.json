@@ -106,6 +106,8 @@
     "readLess": "Show less",
     "facts": "Interesting facts",
     "factsTitle": "What you should know",
+    "identification": "Identification",
+    "identificationTitle": "How to identify {name}",
     "gallery": "Gallery",
     "galleryTitle": "in photos",
     "photo": "Photo",
@@ -147,6 +149,28 @@
     "emptyPreview": "Data coming soon",
     "emptyTitle": "No records yet",
     "emptyBody": "Species data for this region has not been added yet. It will appear here soon."
+  },
+  "contact": {
+    "metaTitle": "Contact",
+    "metaDescription": "Write to the person behind Reptiles — corrections, ideas, or just hello.",
+    "back": "Home",
+    "brand": "Reptiles",
+    "title": "Write to me",
+    "body": "I build this site on my own. If you spot a mistake, have an idea, or just want to say something — write me. I'll gladly read it.",
+    "emailLabel": "Email",
+    "replyNote": "I usually reply within a few days.",
+    "topicsLabel": "Or pick a topic",
+    "topics": {
+      "mistake": "Report a mistake",
+      "idea": "Idea or note",
+      "hello": "Just hello"
+    },
+    "subjects": {
+      "mistake": "Site mistake",
+      "idea": "Idea / note",
+      "hello": "Hello"
+    },
+    "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "site": {
     "title": "Reptiles — Discover Earth's oldest living creatures",

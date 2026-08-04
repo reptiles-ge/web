@@ -14,6 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     });
 
+    entries.push({
+      url: absoluteUrl(localePath(locale, "/contact")),
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    });
+
     for (const id of catalogSpeciesIds) {
       entries.push({
         url: absoluteUrl(localePath(locale, `/species/${id}`)),

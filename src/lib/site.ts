@@ -4,6 +4,7 @@ export const siteConfig = {
   title: "Reptiles — აღმოაჩინე დედამიწის უძველესი არსებები",
   description:
     "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე სახეობები მეცნიერებითა და ველში გადაღებული ფოტოგრაფიით.",
+  email: "hello@reptiles.ge",
   locale: "ka_GE",
   language: "ka",
   keywords: [

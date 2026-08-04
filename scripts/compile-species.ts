@@ -8,6 +8,7 @@ import {
   type PhotoCredit,
   type Species,
   type SpeciesFaq,
+  type SpeciesIdentification,
   type SpeciesSource,
   type SpeciesStat,
 } from "../src/data/species";
@@ -36,6 +37,7 @@ type SpeciesFrontmatter = {
   gallery: GalleryImage[];
   stats: SpeciesStat[];
   facts: string[];
+  identification?: SpeciesIdentification;
   faq?: SpeciesFaq[];
   updatedAt?: string;
   sources?: SpeciesSource[];
@@ -105,6 +107,7 @@ function readSpeciesMdx(
     gallery: fm.gallery ?? [],
     stats: fm.stats ?? [],
     facts: fm.facts ?? [],
+    ...(fm.identification ? { identification: fm.identification } : {}),
     ...(fm.faq ? { faq: fm.faq } : {}),
     updatedAt: options?.updatedAt ?? fm.updatedAt ?? toIsoDate(new Date()),
     sources:
@@ -127,6 +130,7 @@ function toTranslation(item: Species) {
     conservation: item.conservation,
     stats: item.stats,
     facts: item.facts,
+    ...(item.identification ? { identification: item.identification } : {}),
     ...(item.faq ? { faq: item.faq } : {}),
   };
 }
