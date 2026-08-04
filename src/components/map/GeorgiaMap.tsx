@@ -5,6 +5,7 @@ import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
 import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
 import { regions, type Region as RegionData } from "@/data/regions";
+import { useRouter } from "@/i18n/navigation";
 import {
   useCallback,
   useId,
@@ -18,13 +19,16 @@ type GeorgiaMapProps = {
   className?: string;
   highlightedIds?: string[];
   interactive?: boolean;
+  selectionMode?: "panel" | "navigate";
 };
 
 export function GeorgiaMap({
   className,
   highlightedIds = [],
   interactive = true,
+  selectionMode = "panel",
 }: GeorgiaMapProps) {
+  const router = useRouter();
   const reactId = useId();
   const glowFilterId = `map-region-glow-${reactId.replace(/:/g, "")}`;
   const seaGradientId = `map-sea-${reactId.replace(/:/g, "")}`;
@@ -40,13 +44,14 @@ export function GeorgiaMap({
     [highlightedIds],
   );
   const hasHighlights = highlightedSet.size > 0;
+  const usePanel = interactive && selectionMode === "panel";
 
   const selectedRegion = useMemo(
     () =>
-      interactive
+      usePanel
         ? (regions.find((region) => region.id === selectedId) ?? null)
         : null,
-    [interactive, selectedId],
+    [usePanel, selectedId],
   );
 
   const hoveredRegion = useMemo(
@@ -66,9 +71,13 @@ export function GeorgiaMap({
   const handleSelect = useCallback(
     (id: string) => {
       if (!interactive) return;
+      if (selectionMode === "navigate") {
+        router.push(`/regions/${id}`);
+        return;
+      }
       setSelectedId(id);
     },
-    [interactive],
+    [interactive, selectionMode, router],
   );
 
   const handleClose = useCallback(() => {
@@ -142,11 +151,11 @@ export function GeorgiaMap({
             {regions.map((region: RegionData) => {
               const isHighlighted = highlightedSet.has(region.id);
               const isSelected =
-                isHighlighted || (interactive && selectedId === region.id);
+                isHighlighted || (usePanel && selectedId === region.id);
               const isDimmed =
                 (hasHighlights ||
                   Boolean(hoveredId) ||
-                  (interactive && Boolean(selectedId))) &&
+                  (usePanel && Boolean(selectedId))) &&
                 !isSelected &&
                 hoveredId !== region.id;
 
@@ -172,7 +181,7 @@ export function GeorgiaMap({
         ) : null}
       </div>
 
-      {interactive ? (
+      {usePanel ? (
         <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
       ) : null}
     </>

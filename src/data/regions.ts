@@ -250,3 +250,32 @@ export function localizeRegionText(
 ): string {
   return locale === "en" ? text.en : text.ka;
 }
+
+export function getRegionVenomousSpecies(region: Region): Species[] {
+  return getRegionSpecies(region).filter(
+    (item) => item.danger === "High" || item.danger === "Moderate",
+  );
+}
+
+export function getCatalogRegionStats() {
+  const speciesIds = new Set<string>();
+  let venomous = 0;
+  for (const region of regions) {
+    for (const id of region.speciesIds) {
+      if (speciesIds.has(id)) continue;
+      speciesIds.add(id);
+      const species = getSpeciesById(id);
+      if (
+        species &&
+        (species.danger === "High" || species.danger === "Moderate")
+      ) {
+        venomous += 1;
+      }
+    }
+  }
+  return {
+    regionCount: regions.length,
+    speciesCount: speciesIds.size,
+    venomousCount: venomous,
+  };
+}
