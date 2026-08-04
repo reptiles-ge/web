@@ -59,7 +59,7 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
           <motion.button
             type="button"
             aria-label={t("close")}
-            className="fixed inset-0 z-40 bg-ink/35 backdrop-blur-[2px] dark:bg-black/50"
+            className="fixed inset-0 z-40 bg-ink/35 backdrop-blur-[2px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -85,9 +85,9 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
                 : { opacity: 0, y: "100%" }
             }
             transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 bottom-0 z-50 flex max-h-[86svh] flex-col rounded-t-[28px] border border-border bg-card shadow-[0_-24px_60px_-36px_rgba(14,20,17,0.5)] dark:border-white/10 dark:bg-[#121714] lg:inset-y-0 lg:right-0 lg:left-auto lg:max-h-none lg:w-full lg:max-w-[440px] lg:rounded-none lg:border-l lg:border-t-0 lg:shadow-[-24px_0_60px_-40px_rgba(14,20,17,0.45)]"
+            className="fixed inset-x-0 bottom-0 z-50 flex max-h-[86svh] flex-col rounded-t-[28px] border border-border bg-card shadow-[0_-24px_60px_-36px_rgba(14,20,17,0.5)] lg:inset-y-0 lg:right-0 lg:left-auto lg:max-h-none lg:w-full lg:max-w-[440px] lg:rounded-none lg:border-l lg:border-t-0 lg:shadow-[-24px_0_60px_-40px_rgba(14,20,17,0.45)]"
           >
-            <div className="mx-auto mt-3 h-1 w-10 shrink-0 rounded-full bg-border dark:bg-white/15 lg:hidden" />
+            <div className="mx-auto mt-3 h-1 w-10 shrink-0 rounded-full bg-border lg:hidden" />
             <PanelContent
               region={region}
               species={species}
@@ -118,7 +118,7 @@ function PanelContent({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col pt-2 lg:pt-0">
-      <div className="flex items-start justify-between gap-4 border-b border-border/80 px-6 py-5 dark:border-white/10">
+      <div className="flex items-start justify-between gap-4 border-b border-border/80 px-6 py-5">
         <div>
           <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
             {t("regionLabel")}
@@ -133,7 +133,7 @@ function PanelContent({
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground dark:border-white/12 dark:hover:border-white/25"
+          className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
           aria-label={t("close")}
         >
           <X className="size-4" />
@@ -195,7 +195,7 @@ function PanelContent({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: 0.1 }}
-            className="mt-6 flex flex-col items-center rounded-[24px] border border-dashed border-border bg-secondary/40 px-6 py-12 text-center dark:border-white/12 dark:bg-white/[0.03]"
+            className="mt-6 flex flex-col items-center rounded-[24px] border border-dashed border-border bg-secondary/40 px-6 py-12 text-center"
           >
             <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <Leaf className="size-5" strokeWidth={1.5} />

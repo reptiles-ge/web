@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (@media (prefers-color-scheme: dark));
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #f4f6f2;
@@ -28,31 +28,29 @@
   --map-explorer-to: #f7f8f4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f1411;
-    --foreground: #e8eee6;
-    --card: #161c18;
-    --secondary: #1e2621;
-    --muted-foreground: #9aa69c;
-    --primary: #6fad88;
-    --border: #2a342e;
-    --destructive: #e07a6c;
-    --gold: #d4b05c;
-    --ink: #060908;
-    --ink-foreground: #eef3ec;
-    --ink-muted: #8a958c;
-    --surface: #141a16;
-    --map-region: #3d5c48;
-    --map-region-active: #6fad88;
-    --map-region-dim: #24332a;
-    --map-stroke: #1a221d;
-    --map-stroke-active: #cfe6d6;
-    --map-sea-from: #152019;
-    --map-sea-to: #1a241e;
-    --map-explorer-from: #101612;
-    --map-explorer-to: #0f1411;
-  }
+.dark {
+  --background: #0f1411;
+  --foreground: #e8eee6;
+  --card: #161c18;
+  --secondary: #1e2621;
+  --muted-foreground: #9aa69c;
+  --primary: #6fad88;
+  --border: #2a342e;
+  --destructive: #e07a6c;
+  --gold: #d4b05c;
+  --ink: #060908;
+  --ink-foreground: #eef3ec;
+  --ink-muted: #8a958c;
+  --surface: #141a16;
+  --map-region: #3d5c48;
+  --map-region-active: #6fad88;
+  --map-region-dim: #24332a;
+  --map-stroke: #1a221d;
+  --map-stroke-active: #cfe6d6;
+  --map-sea-from: #152019;
+  --map-sea-to: #1a241e;
+  --map-explorer-from: #101612;
+  --map-explorer-to: #0f1411;
 }
 
 @theme inline {
@@ -75,7 +73,6 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light dark;
 }
 
 body {
@@ -177,9 +174,7 @@ input[type="search"]::-webkit-search-results-decoration {
   mix-blend-mode: multiply;
 }
 
-@media (prefers-color-scheme: dark) {
-  .map-explorer-texture {
-    opacity: 0.28;
-    mix-blend-mode: soft-light;
-  }
+.dark .map-explorer-texture {
+  opacity: 0.28;
+  mix-blend-mode: soft-light;
 }

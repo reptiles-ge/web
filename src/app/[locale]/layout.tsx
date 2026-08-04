@@ -1,4 +1,8 @@
 import { BetaBanner } from "@/components/BetaBanner";
+import {
+  ThemeProvider,
+  themeInitScript,
+} from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -89,11 +93,17 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full font-sans">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
         <NextIntlClientProvider messages={messages}>
-          <BetaBanner />
-          {children}
+          <ThemeProvider>
+            <BetaBanner />
+            {children}
+          </ThemeProvider>
         </NextIntlClientProvider>
         <Analytics />
         <GoogleAnalytics gaId="G-7TTKJPY059" />

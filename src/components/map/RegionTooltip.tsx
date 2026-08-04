@@ -31,7 +31,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 6, scale: 0.97 }}
           transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-none absolute z-20 hidden max-w-[240px] rounded-2xl border border-border/80 bg-card/95 px-4 py-3.5 shadow-[0_18px_40px_-24px_rgba(14,20,17,0.55)] backdrop-blur-md md:block dark:border-white/10 dark:bg-[#161c18]/95 dark:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.65)]"
+          className="pointer-events-none absolute z-20 hidden max-w-[240px] rounded-2xl border border-border/80 bg-card/95 px-4 py-3.5 shadow-[0_18px_40px_-24px_rgba(14,20,17,0.55)] backdrop-blur-md md:block"
           style={{
             left: position.x,
             top: position.y,
@@ -45,7 +45,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
             {t("speciesCount", { count: region.speciesIds.length })}
           </p>
           {species.length > 0 ? (
-            <ul className="mt-2.5 space-y-1 border-t border-border/70 pt-2.5 dark:border-white/10">
+            <ul className="mt-2.5 space-y-1 border-t border-border/70 pt-2.5">
               {species.map((item) => (
                 <li
                   key={item.id}
@@ -56,7 +56,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
               ))}
             </ul>
           ) : (
-            <p className="mt-2.5 border-t border-border/70 pt-2.5 text-[12px] text-muted-foreground dark:border-white/10">
+            <p className="mt-2.5 border-t border-border/70 pt-2.5 text-[12px] text-muted-foreground">
               {t("emptyPreview")}
             </p>
           )}

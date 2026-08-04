@@ -39,7 +39,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
   return (
     <Link
       href={`/species/${species.id}`}
-      className="group flex gap-3.5 rounded-2xl border border-border/80 bg-background/70 p-3 transition-all duration-300 hover:border-primary/35 hover:bg-background hover:shadow-[0_12px_28px_-20px_rgba(47,107,79,0.45)] dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-primary/40 dark:hover:bg-white/[0.05]"
+      className="group flex gap-3.5 rounded-2xl border border-border/80 bg-background/70 p-3 transition-all duration-300 hover:border-primary/35 hover:bg-background hover:shadow-[0_12px_28px_-20px_rgba(47,107,79,0.45)]"
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-secondary">
         <Image

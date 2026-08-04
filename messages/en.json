@@ -19,6 +19,10 @@
     "ka": "ქართული",
     "en": "English"
   },
+  "theme": {
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode"
+  },
   "beta": {
     "text": "This site is in beta testing",
     "dismiss": "Dismiss banner"

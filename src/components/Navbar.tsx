@@ -3,6 +3,7 @@
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -77,12 +78,13 @@ export function Navbar() {
         </nav>
         <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
           <SpeciesSearch variant={chromeVariant} />
+          <ThemeToggle variant={chromeVariant} />
           <LanguageSwitcher variant={chromeVariant} />
           <a
             href="#species"
             className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex ${
               scrolled
-                ? "bg-primary text-white hover:bg-primary/90"
+                ? "bg-primary text-white hover:bg-primary/90 dark:text-ink"
                 : "bg-white/90 text-ink hover:bg-white"
             }`}
           >

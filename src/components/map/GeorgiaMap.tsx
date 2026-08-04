@@ -69,7 +69,7 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
           viewBox={GEORGIA_MAP_VIEWBOX}
           role="img"
           aria-label="Georgia"
-          className="h-auto w-full select-none drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)] dark:drop-shadow-[0_28px_50px_-30px_rgba(0,0,0,0.75)]"
+          className="h-auto w-full select-none drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)]"
         >
           <defs>
             <filter

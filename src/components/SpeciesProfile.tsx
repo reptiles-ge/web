@@ -9,6 +9,7 @@ import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   resolvePhotoCredit,
   type GalleryImage,
@@ -81,6 +82,7 @@ export function SpeciesProfile({
           </Link>
           <div className="flex items-center justify-end gap-2.5 sm:gap-3">
             <SpeciesSearch variant="dark" />
+            <ThemeToggle variant="dark" />
             <LanguageSwitcher variant="dark" />
           </div>
         </div>
