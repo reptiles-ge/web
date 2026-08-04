@@ -25,14 +25,14 @@ export async function HomeRegions() {
   const featured = pickFeaturedRegions();
 
   return (
-    <section className="bg-background pb-24 lg:pb-32">
+    <section className="bg-background pt-20 pb-24 lg:pt-28 lg:pb-36">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.35rem)] font-semibold leading-[1.1]">
+            <h2 className="mt-5 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.35rem)] font-semibold leading-[1.1]">
               {t("title")}
             </h2>
           </div>
@@ -45,7 +45,7 @@ export async function HomeRegions() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-3 lg:mt-12">
+        <div className="mt-14 grid gap-6 sm:grid-cols-3 lg:mt-16">
           {featured.map((region) => {
             const name = localizeRegionText(region.name, locale);
             const description = localizeRegionText(region.description, locale);
