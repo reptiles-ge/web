@@ -151,5 +151,11 @@
   "site": {
     "title": "Reptiles — Discover Earth's oldest living creatures",
     "description": "A digital encyclopedia of reptiles and amphibians. Explore species through science and photography captured in the wild."
+  },
+  "speciesMeta": {
+    "notFound": "Species not found",
+    "titleIntentVenomous": "range, venom, photos",
+    "titleIntentHarmless": "range, photos, harmless",
+    "descriptionCta": "See photos, Georgia range map, size, habitat, and key facts."
   }
 }

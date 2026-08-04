@@ -15,8 +15,12 @@ import {
   localePath,
   siteConfig,
 } from "@/lib/site";
+import {
+  speciesMetaDescription,
+  speciesMetaTitle,
+} from "@/lib/speciesMeta";
 import { hasLocale } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -42,23 +46,33 @@ export async function generateMetadata({
   }
 
   const locale = localeParam as AppLocale;
+  const t = await getTranslations({ locale, namespace: "speciesMeta" });
   const raw = getSpeciesById(id);
 
   if (!raw) {
     return {
-      title: locale === "en" ? "Species not found" : "სახეობა ვერ მოიძებნა",
+      title: t("notFound"),
       robots: { index: false, follow: false },
     };
   }
 
   const item = localizeSpecies(raw, locale);
-  const title = `${item.commonName} (${item.scientificName})`;
-  const description = item.overview.slice(0, 160);
+  const title = speciesMetaTitle(
+    item.commonName,
+    item.scientificName,
+    raw.danger,
+    t("titleIntentVenomous"),
+    t("titleIntentHarmless"),
+  );
+  const description = speciesMetaDescription(
+    item.overview,
+    t("descriptionCta"),
+  );
   const path = `/species/${item.id}`;
   const url = absoluteUrl(localePath(locale, path));
 
   return {
-    title: item.commonName,
+    title,
     description,
     keywords: [
       item.commonName,
@@ -66,7 +80,7 @@ export async function generateMetadata({
       item.genus,
       item.family,
       item.location,
-      "ქვეწარმავლები",
+      locale === "en" ? "reptiles" : "ქვეწარმავლები",
       siteConfig.name,
     ],
     alternates: localeAlternates(locale, path),
