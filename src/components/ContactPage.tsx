@@ -18,6 +18,36 @@ export function ContactPage() {
 
   return (
     <div className="relative min-h-svh bg-background text-foreground">
+      <header
+        className="absolute inset-x-0 z-30"
+        style={{ top: "var(--beta-banner-height, 0px)" }}
+      >
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-5 lg:px-10">
+          <Link href="/" className="shrink-0 transition-opacity hover:opacity-90">
+            <Logo
+              size={44}
+              priority
+              showWordmark
+              wordmarkClassName="hidden text-[17px] text-white sm:inline"
+            />
+          </Link>
+          <div className="flex items-center justify-end gap-2.5 sm:gap-3">
+            <div className="lg:hidden">
+              <ThemeToggle variant="dark" />
+            </div>
+            <div className="hidden lg:block">
+              <ThemeToggle variant="light" />
+            </div>
+            <div className="lg:hidden">
+              <LanguageSwitcher variant="dark" />
+            </div>
+            <div className="hidden lg:block">
+              <LanguageSwitcher variant="light" />
+            </div>
+          </div>
+        </div>
+      </header>
+
       <div className="grid min-h-svh lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative min-h-[44svh] overflow-hidden bg-ink lg:min-h-svh">
           <motion.div
@@ -36,27 +66,9 @@ export function ContactPage() {
             />
           </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-black/5 to-black/35 lg:bg-gradient-to-r lg:from-black/30 lg:via-black/5 lg:to-transparent" />
-
-          <div
-            className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 lg:px-10"
-            style={{ paddingTop: "calc(1.25rem + var(--beta-banner-height, 0px))" }}
-          >
-            <Link href="/" className="transition-opacity hover:opacity-90">
-              <Logo
-                size={44}
-                priority
-                showWordmark
-                wordmarkClassName="hidden text-[17px] text-white sm:inline"
-              />
-            </Link>
-            <div className="flex items-center gap-2.5 lg:hidden">
-              <ThemeToggle variant="dark" />
-              <LanguageSwitcher variant="dark" />
-            </div>
-          </div>
         </div>
 
-        <main className="relative flex flex-col bg-background">
+        <main className="relative flex flex-col justify-center bg-background">
           <div
             className="pointer-events-none absolute inset-0"
             aria-hidden
@@ -66,74 +78,64 @@ export function ContactPage() {
             }}
           />
 
-          <div
-            className="relative z-10 hidden items-center justify-end gap-2.5 px-10 pt-5 lg:flex xl:px-16"
-            style={{ paddingTop: "calc(1.25rem + var(--beta-banner-height, 0px))" }}
-          >
-            <ThemeToggle variant="light" />
-            <LanguageSwitcher variant="light" />
-          </div>
-
-          <div className="relative z-10 flex flex-1 items-center">
-            <div className="mx-auto w-full max-w-lg px-6 py-14 sm:px-10 lg:px-14 lg:py-20 xl:px-20">
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.55, delay: 0.05, ease }}
+          <div className="relative z-10 mx-auto w-full max-w-lg px-6 py-14 sm:px-10 lg:px-14 lg:py-24 xl:px-20">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.05, ease }}
+            >
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 text-[13px] text-muted-foreground transition-colors hover:text-foreground"
               >
-                <Link
-                  href="/"
-                  className="inline-flex items-center gap-2 text-[13px] text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <ArrowLeft className="size-3.5" />
-                  {t("back")}
-                </Link>
-              </motion.div>
+                <ArrowLeft className="size-3.5" />
+                {t("back")}
+              </Link>
+            </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.12, ease }}
-                className="mt-12 font-display text-[clamp(2.8rem,8vw,4.25rem)] font-semibold leading-[0.95] tracking-tight"
-              >
-                {t("brand")}
-              </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.12, ease }}
+              className="mt-12 font-display text-[clamp(2.8rem,8vw,4.25rem)] font-semibold leading-[0.95] tracking-tight"
+            >
+              {t("brand")}
+            </motion.p>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease }}
-                className="mt-5 font-display text-[clamp(1.45rem,3.5vw,1.9rem)] font-medium leading-snug text-foreground/75"
-              >
-                {t("title")}
-              </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease }}
+              className="mt-5 font-display text-[clamp(1.45rem,3.5vw,1.9rem)] font-medium leading-snug text-foreground/75"
+            >
+              {t("title")}
+            </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.28, ease }}
-                className="mt-7 max-w-[34ch] text-[15px] leading-relaxed text-muted-foreground"
-              >
-                {t("body")}
-              </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.28, ease }}
+              className="mt-7 max-w-[34ch] text-[15px] leading-relaxed text-muted-foreground"
+            >
+              {t("body")}
+            </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.38, ease }}
-                className="mt-12"
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.38, ease }}
+              className="mt-12"
+            >
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="group inline-flex max-w-full items-center gap-3"
               >
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="group inline-flex max-w-full items-center gap-3"
-                >
-                  <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
-                    {siteConfig.email}
-                  </span>
-                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-                </a>
-              </motion.div>
-            </div>
+                <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
+                  {siteConfig.email}
+                </span>
+                <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+              </a>
+            </motion.div>
           </div>
         </main>
       </div>
