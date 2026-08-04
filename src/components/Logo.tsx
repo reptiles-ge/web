@@ -18,7 +18,7 @@ export function Logo({
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <Image
-        src="/images/logo.png"
+        src="https://cdn.reptiles.ge/logo.webp"
         alt="Reptiles"
         width={size}
         height={size}

@@ -124,15 +124,15 @@ export const species: Species[] = [
     conservation:
       "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოშიც LC სტატუსი აქვს. საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ურბანიზაცია, გადაჭარბებული ძოვება და ადამიანის დევნა. მღრღნელების რეგულირებით სასარგებლოა ეკოსისტემისთვის.",
     danger: "High",
-    image: "/images/macrovipera-lebetina.jpg",
-    mobileImage: "/images/macrovipera-lebetina-mobile.jpg",
+    image: "https://cdn.reptiles.ge/macrovipera-lebetina.webp",
+    mobileImage: "https://cdn.reptiles.ge/macrovipera-lebetina-mobile.webp",
     gallery: [
-      "/images/macrovipera-lebetina.jpg",
-      "/images/macrovipera-lebetina-5.jpg",
-      "/images/macrovipera-lebetina-3.jpg",
-      "/images/macrovipera-lebetina-2.jpg",
-      "/images/macrovipera-lebetina-4.jpg",
-      "/images/macrovipera-lebetina-6.jpg",
+      "https://cdn.reptiles.ge/macrovipera-lebetina.webp",
+      "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp",
+      "https://cdn.reptiles.ge/macrovipera-lebetina-3.webp",
+      "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp",
+      "https://cdn.reptiles.ge/macrovipera-lebetina-4.webp",
+      "https://cdn.reptiles.ge/macrovipera-lebetina-6.webp",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "აღმ. საქართველო" },
@@ -887,7 +887,7 @@ export const species: Species[] = [
 ];
 
 export const images = {
-  hero: "/images/hero-img.png",
+  hero: "https://cdn.reptiles.ge/hero-img.webp",
   detail: "https://cdn.reptiles.ge/vipera-dinnik.webp",
   cta: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
 };

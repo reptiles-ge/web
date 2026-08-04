@@ -57,7 +57,7 @@ const organizationJsonLd = {
   name: siteConfig.name,
   url: absoluteUrl("/"),
   description: siteConfig.description,
-  logo: absoluteUrl("/images/logo.png"),
+  logo: "https://cdn.reptiles.ge/logo.webp",
 };
 
 export default function Home() {

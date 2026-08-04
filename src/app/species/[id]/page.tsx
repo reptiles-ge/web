@@ -121,7 +121,7 @@ export default async function SpeciesPage({ params }: PageProps) {
       url: absoluteUrl("/"),
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/images/logo.png"),
+        url: "https://cdn.reptiles.ge/logo.webp",
       },
     },
     inLanguage: siteConfig.language,
