@@ -1,22 +1,29 @@
+"use client";
+
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
-import {
-  dangerClass,
-  dangerLabels,
-  type Species,
-} from "@/data/species";
+import { dangerClass, type Species } from "@/data/species";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useMemo } from "react";
 
 type SpeciesProfileProps = {
   species: Species;
   related: Species[];
 };
 
-export function SpeciesProfile({ species }: SpeciesProfileProps) {
+export function SpeciesProfile({ species: rawSpecies }: SpeciesProfileProps) {
+  const { locale, t } = useLocale();
+  const species = useMemo(
+    () => localizeSpecies(rawSpecies, locale),
+    [rawSpecies, locale],
+  );
   const gallery =
     species.gallery.length > 0 ? species.gallery : [species.image];
   const primary = gallery[0];
@@ -44,15 +51,7 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
               wordmarkClassName="text-[17px] text-white"
             />
           </Link>
-          {/*
-          <Link
-            href="/#species"
-            className="inline-flex items-center gap-2 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
-          >
-            <ArrowLeft className="size-3.5" />
-            სახეობები
-          </Link>
-          */}
+          <LanguageSwitcher variant="dark" />
         </div>
       </header>
 
@@ -105,7 +104,7 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
               <span
                 className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] ${dangerClass(species.danger)}`}
               >
-                {dangerLabels[species.danger]}
+                {t.danger[species.danger]}
               </span>
             </div>
           </Reveal>
@@ -117,10 +116,10 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
           <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                მიმოხილვა
+                {t.profile.overview}
               </p>
               <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                ვინ არის {species.commonName}?
+                {t.profile.whoIs} {species.commonName}?
               </h2>
             </Reveal>
             <Reveal delay={100}>
@@ -154,17 +153,17 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              ბიოლოგია
+              {t.profile.biology}
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              კვება, ქცევა და გამრავლება
+              {t.profile.biologyTitle}
             </h2>
           </Reveal>
           <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
             {[
-              { title: "კვება", body: species.diet },
-              { title: "ქცევა", body: species.behavior },
-              { title: "კონსერვაცია", body: species.conservation },
+              { title: t.profile.diet, body: species.diet },
+              { title: t.profile.behavior, body: species.behavior },
+              { title: t.profile.conservation, body: species.conservation },
             ].map((block, index) => (
               <Reveal key={block.title} delay={index * 100}>
                 <div className="h-px w-12 bg-gold" />
@@ -186,10 +185,10 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              საინტერესო ფაქტები
+              {t.profile.facts}
             </p>
             <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              რა უნდა იცოდე
+              {t.profile.factsTitle}
             </h2>
           </Reveal>
           <ol className="mt-14 space-y-0">
@@ -212,64 +211,6 @@ export function SpeciesProfile({ species }: SpeciesProfileProps) {
       {species.faq && species.faq.length > 0 ? (
         <SpeciesFaqSection items={species.faq} name={species.commonName} />
       ) : null}
-
-      {/*
-      {related.length > 0 && (
-        <section className="border-t border-border bg-background pb-28 pt-8 lg:pb-36">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <div className="flex items-end justify-between gap-6">
-                <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                    სხვა სახეობები
-                  </p>
-                  <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]">
-                    გააგრძელე აღმოჩენა
-                  </h2>
-                </div>
-                <Link
-                  href="/#species"
-                  className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
-                >
-                  ყველა სახეობა
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
-              </div>
-            </Reveal>
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((item, index) => (
-                <Reveal key={item.id} delay={index * 80}>
-                  <Link
-                    href={`/species/${item.id}`}
-                    className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.commonName}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6">
-                      <p className="text-[12px] italic text-white/50">
-                        {item.scientificName}
-                      </p>
-                      <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
-                        {item.commonName}
-                      </h3>
-                      <p className="mt-2 text-[12px] text-white/50">
-                        {item.location}
-                      </p>
-                    </div>
-                  </Link>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-      */}
       </main>
 
       <footer className="border-t border-border bg-background py-10">

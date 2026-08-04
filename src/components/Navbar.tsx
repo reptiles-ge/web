@@ -1,16 +1,19 @@
 "use client";
 
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { useEffect, useState } from "react";
 
-const links = [
-  { href: "#species", label: "სახეობები" },
-  { href: "#detail", label: "შესახებ" },
-  { href: "#why", label: "ატლასი" },
-];
-
 export function Navbar() {
+  const { t } = useLocale();
   const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { href: "#species", label: t.nav.species },
+    { href: "#detail", label: t.nav.about },
+    { href: "#why", label: t.nav.atlas },
+  ];
 
   useEffect(() => {
     function onScroll() {
@@ -68,16 +71,19 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <a
-          href="#species"
-          className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all sm:inline-flex ${
-            scrolled
-              ? "bg-primary text-white hover:bg-primary/90"
-              : "bg-white/90 text-ink hover:bg-white"
-          }`}
-        >
-          აღმოაჩინე
-        </a>
+        <div className="relative z-10 flex items-center gap-3">
+          <LanguageSwitcher variant={scrolled ? "light" : "dark"} />
+          <a
+            href="#species"
+            className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all sm:inline-flex ${
+              scrolled
+                ? "bg-primary text-white hover:bg-primary/90"
+                : "bg-white/90 text-ink hover:bg-white"
+            }`}
+          >
+            {t.nav.discover}
+          </a>
+        </div>
       </div>
     </header>
   );

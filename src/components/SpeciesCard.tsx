@@ -1,4 +1,7 @@
-import { dangerClass, dangerLabels, type Species } from "@/data/species";
+"use client";
+
+import { dangerClass, type Species } from "@/data/species";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +11,7 @@ type SpeciesCardProps = {
 };
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
+  const { t } = useLocale();
   const cover = species.mobileImage ?? species.image;
 
   return (
@@ -46,12 +50,12 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           </p>
           <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
             <span className="text-[10px] tracking-[0.18em] text-white/40">
-              საფრთხის დონე
+              {t.card.dangerLevel}
             </span>
             <span
               className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${dangerClass(species.danger)}`}
             >
-              {dangerLabels[species.danger]}
+              {t.danger[species.danger]}
             </span>
           </div>
         </div>

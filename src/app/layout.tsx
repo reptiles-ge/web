@@ -3,6 +3,7 @@ import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { BetaBanner } from "@/components/BetaBanner";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ const sora = Sora({
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   variable: "--font-noto-georgian",
-  subsets: ["georgian"],
+  subsets: ["georgian", "latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
@@ -80,8 +81,10 @@ export default function RootLayout({
       className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">
-        <BetaBanner />
-        {children}
+        <LocaleProvider>
+          <BetaBanner />
+          {children}
+        </LocaleProvider>
         <Analytics />
         <GoogleAnalytics gaId="G-7TTKJPY059" />
       </body>

@@ -1,21 +1,61 @@
 "use client";
 
+import { useLocale } from "@/i18n/LocaleProvider";
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 const STORAGE_KEY = "reptiles-beta-banner-dismissed";
 
-export function BetaBanner() {
-  const [visible, setVisible] = useState(false);
+let dismissed = false;
+const listeners = new Set<() => void>();
 
-  useEffect(() => {
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
-    } catch {
-      /* ignore */
-    }
-    setVisible(true);
-  }, []);
+function emit() {
+  listeners.forEach((listener) => listener());
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function getSnapshot() {
+  return dismissed;
+}
+
+function getServerSnapshot() {
+  return true;
+}
+
+function readDismissed() {
+  try {
+    return sessionStorage.getItem(STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+if (typeof window !== "undefined") {
+  dismissed = readDismissed();
+}
+
+function dismissBanner() {
+  dismissed = true;
+  try {
+    sessionStorage.setItem(STORAGE_KEY, "1");
+  } catch {
+    /* ignore */
+  }
+  emit();
+}
+
+export function BetaBanner() {
+  const { t } = useLocale();
+  const isDismissed = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+  const visible = !isDismissed;
 
   useEffect(() => {
     const root = document.documentElement;
@@ -29,15 +69,6 @@ export function BetaBanner() {
     };
   }, [visible]);
 
-  function dismiss() {
-    setVisible(false);
-    try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch {
-      /* ignore */
-    }
-  }
-
   if (!visible) return null;
 
   return (
@@ -49,12 +80,12 @@ export function BetaBanner() {
         <span className="mr-2 inline-block rounded-sm bg-gold/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-gold">
           Beta
         </span>
-        საიტი ბეტა ტესტირების რეჟიმშია
+        {t.beta.text}
       </p>
       <button
         type="button"
-        onClick={dismiss}
-        aria-label="ბანერის დახურვა"
+        onClick={dismissBanner}
+        aria-label={t.beta.dismiss}
         className="absolute right-3 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-white/10 hover:text-ink-foreground sm:right-5"
       >
         <X className="size-3.5" strokeWidth={2} />

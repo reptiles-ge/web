@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/components/Reveal";
 import type { SpeciesFaq } from "@/data/species";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 
@@ -11,6 +12,7 @@ type SpeciesFaqSectionProps = {
 };
 
 export function SpeciesFaqSection({ items, name }: SpeciesFaqSectionProps) {
+  const { t } = useLocale();
   const [open, setOpen] = useState<number | null>(0);
 
   if (items.length === 0) return null;
@@ -21,14 +23,15 @@ export function SpeciesFaqSection({ items, name }: SpeciesFaqSectionProps) {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              კითხვები
+              {t.profile.faq}
             </p>
             <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              ხშირად დასმული კითხვები
+              {t.profile.faqTitle}
             </h2>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              მოკლე პასუხები {name}-თან დაკავშირებულ ყველაზე მნიშვნელოვან
-              კითხვებზე.
+              {t.profile.faqIntroBefore}
+              {name}
+              {t.profile.faqIntroAfter}
             </p>
           </Reveal>
 

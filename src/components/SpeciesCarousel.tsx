@@ -3,11 +3,17 @@
 import { Reveal } from "@/components/Reveal";
 import { SpeciesCard } from "@/components/SpeciesCard";
 import { getFeaturedSpecies } from "@/data/species";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export function SpeciesCarousel() {
-  const featured = getFeaturedSpecies();
+  const { locale, t } = useLocale();
+  const featured = useMemo(
+    () => getFeaturedSpecies().map((item) => localizeSpecies(item, locale)),
+    [locale],
+  );
   const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -38,20 +44,19 @@ export function SpeciesCarousel() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              რჩეული
+              {t.carousel.eyebrow}
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.02]">
-              სახეობები, რომლებიც უნდა იცოდე
+              {t.carousel.title}
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              საქართველოსა და კავკასიის ქვეწარმავლები — ველში გადაღებული და
-              მეცნიერულად დამოწმებული.
+              {t.carousel.subtitle}
             </p>
           </Reveal>
           <Reveal className="flex items-center gap-3" delay={120}>
             <button
               type="button"
-              aria-label="წინა სახეობა"
+              aria-label={t.carousel.prev}
               onClick={() => scrollByCard(-1)}
               className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
             >
@@ -59,7 +64,7 @@ export function SpeciesCarousel() {
             </button>
             <button
               type="button"
-              aria-label="შემდეგი სახეობა"
+              aria-label={t.carousel.next}
               onClick={() => scrollByCard(1)}
               className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
             >

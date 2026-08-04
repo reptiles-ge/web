@@ -1,12 +1,21 @@
+"use client";
+
 import { Reveal } from "@/components/Reveal";
 import { getSpeciesById, images } from "@/data/species";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-const featured = getSpeciesById("vipera-dinniki")!;
+import { useMemo } from "react";
 
 export function SpeciesDetail() {
+  const { locale, t } = useLocale();
+  const featured = useMemo(() => {
+    const base = getSpeciesById("vipera-dinniki")!;
+    return localizeSpecies(base, locale);
+  }, [locale]);
+
   return (
     <section
       id="detail"
@@ -16,7 +25,7 @@ export function SpeciesDetail() {
         <div className="relative aspect-[4/5] overflow-hidden rounded-[32px]">
           <Image
             src={images.detail}
-            alt="გველგესლის თავის მსხვილი პორტრეტი"
+            alt={t.detail.imageAlt}
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="scale-110 object-cover"
@@ -27,18 +36,16 @@ export function SpeciesDetail() {
         <div>
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink-muted">
-              სახეობის მიმოხილვა
+              {t.detail.eyebrow}
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5.4vw,4.5rem)] font-semibold leading-[1] text-white">
               Vipera <span className="font-light italic">dinniki</span>
             </h2>
             <p className="mt-7 max-w-lg text-balance-tight text-[19px] leading-snug text-white/80 sm:text-[22px]">
-              დიდი კავკასიონის ენდემური შხამიანი გველგესლა.
+              {t.detail.lead}
             </p>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              ცხოვრობს დაახლოებით 1,500–2,800 მეტრზე — ტყის ზედა ზონაში,
-              სუბალპურ მდელოებსა და კლდოვან ადგილებში. არეალი ფრაგმენტირებულია;
-              IUCN-ის მიხედვით სახეობა მოწყვლადია.
+              {t.detail.body}
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10">
@@ -61,7 +68,7 @@ export function SpeciesDetail() {
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
               <span className="border-b border-white/30 pb-1 group-hover:border-white">
-                სრული პროფილის ნახვა
+                {t.detail.viewProfile}
               </span>
               <ArrowUpRight className="size-4" />
             </Link>
