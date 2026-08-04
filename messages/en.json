@@ -152,24 +152,11 @@
   },
   "contact": {
     "metaTitle": "Contact",
-    "metaDescription": "Write to the person behind Reptiles — corrections, ideas, or just hello.",
+    "metaDescription": "Get in touch with Reptiles — questions or corrections.",
     "back": "Home",
     "brand": "Reptiles",
-    "title": "Write to me",
-    "body": "I build this site on my own. If you spot a mistake, have an idea, or just want to say something — write me. I'll gladly read it.",
-    "emailLabel": "Email",
-    "replyNote": "I usually reply within a few days.",
-    "topicsLabel": "Or pick a topic",
-    "topics": {
-      "mistake": "Report a mistake",
-      "idea": "Idea or note",
-      "hello": "Just hello"
-    },
-    "subjects": {
-      "mistake": "Site mistake",
-      "idea": "Idea / note",
-      "hello": "Hello"
-    },
+    "title": "Contact",
+    "body": "Have a question or spotted a mistake — write me.",
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "site": {
