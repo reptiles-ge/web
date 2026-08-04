@@ -680,7 +680,7 @@ export function SpeciesAtlas({
               </p>
             </Reveal>
             <div className="mt-12 lg:mt-16">
-              <GeorgiaMap selectionMode="panel" />
+              <GeorgiaMap selectionMode="navigate" />
             </div>
             <div className="mt-10 flex justify-center">
               <Link
