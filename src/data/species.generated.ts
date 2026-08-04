@@ -1501,54 +1501,54 @@ export const species: Species[] = [
     "behavior": "დღისით აქტიურია; კლდოვან ნაშალებში გადაადგილდება ოპტიმალური სხეულის ტემპერატურის (დაახლ. 26–28 °C) შესანარჩუნებლად. ცოცხლადმშობია: შეწყვილება მაისში, პირველი გაზაფხულის გამოცვლის შემდეგ; ნაშიერები იბადებიან სექტემბერ–ოქტომბრის დასაწყისში — ჩვეულებრივ 4–8 ინდივიდი, სიგრძით დაახლ. 15–18 სმ. იზამთრებს ქვების სიღრმეში.",
     "conservation": "IUCN Red List-ის მიხედვით კრიტიკულად საფრთხის ქვეშაა (CR B1ab(ii,iii)+2ab(ii,iii)): გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია და ჰაბიტატი მცირდება. მთავარი საფრთხეებია გადაჭარბებული ძოვება და სათიბი. სომხეთში ჰაბიტატის დიდი ნაწილი ართვის ტბის ეროვნულ პარკში შედის.",
     "danger": "Moderate",
-    "image": "/images/vipera-darevskii.jpg",
+    "image": "https://cdn.reptiles.ge/vipera-darevskii.jpg",
     "imageCredit": {
       "photographer": "Boris S. Tuniyev",
       "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
     },
-    "mobileImage": "/images/vipera-darevskii-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Boris S. Tuniyev",
       "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
     },
     "gallery": [
       {
-        "src": "/images/vipera-darevskii.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii.jpg",
         "credit": {
           "photographer": "Boris S. Tuniyev",
           "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
         }
       },
       {
-        "src": "/images/vipera-darevskii-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-2.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://commons.wikimedia.org/wiki/File:Darevsky%27s_Viper.jpg"
         }
       },
       {
-        "src": "/images/vipera-darevskii-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-3.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://commons.wikimedia.org/wiki/File:P_darevskii_male.jpg"
         }
       },
       {
-        "src": "/images/vipera-darevskii-4.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-4.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/observations/52914"
         }
       },
       {
-        "src": "/images/vipera-darevskii-5.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-5.jpg",
         "credit": {
           "photographer": "Boris S. Tuniyev",
           "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
         }
       },
       {
-        "src": "/images/vipera-darevskii-6.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-6.jpg",
         "credit": {
           "photographer": "Boris S. Tuniyev",
           "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
