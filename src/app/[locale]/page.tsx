@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { HomeKnowledge } from "@/components/HomeKnowledge";
 import { HomeProof } from "@/components/HomeProof";
 import { HomeRegions } from "@/components/HomeRegions";
+import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
 import { Navbar } from "@/components/Navbar";
@@ -144,7 +145,9 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <HomeRegions />
         <HomeKnowledge />
         <SpeciesDetail />
+        <HomeSeo />
         <FinalCTA />
+
       </main>
     </div>
   );

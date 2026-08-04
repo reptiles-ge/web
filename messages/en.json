@@ -93,6 +93,17 @@
       "eyebrow": "Place matters",
       "title": "Start with three regions of Georgia",
       "imageAlt": "{name} — regional landscape"
+    },
+    "seo": {
+      "eyebrow": "Digital atlas",
+      "title": "Georgia’s reptiles in one place",
+      "p1": "Reptiles.ge is a bilingual digital atlas of reptiles in Georgia — for hikers, students, researchers, and travelers. The goal is field-ready knowledge: identification, habitat, region, and safer encounters.",
+      "p2": "Explore curated species profiles with field photography, regional maps across twelve administrative units, and a venomous-snake guide for medically significant species. The atlas grows over time — new profiles, sources, and updates land in the same structure.",
+      "links": {
+        "species": "Species atlas",
+        "venomous": "Venomous snakes of Georgia",
+        "regions": "Regional atlas"
+      }
     }
   },
   "footer": {
