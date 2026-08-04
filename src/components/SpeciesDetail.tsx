@@ -30,7 +30,7 @@ export function SpeciesDetail() {
             alt={t("imageAlt")}
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
-            className="object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.03]"
+            className="object-cover object-[center_35%] transition-transform duration-[1.4s] ease-out hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
         </div>

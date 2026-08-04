@@ -98,7 +98,7 @@ export const dangerLabels: Record<DangerLevel, string> = {
 
 export const images = {
   hero: "https://cdn.reptiles.ge/hero-img.webp",
-  detail: "https://cdn.reptiles.ge/vipera-dinnik.webp",
+  detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
 };
 
