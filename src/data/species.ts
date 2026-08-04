@@ -743,32 +743,16 @@ export const species: Species[] = [
     conservation:
       "გლობალურად ფართოდაა გავრცელებული და ხშირია ხმელთაშუაზღვისპირეთსა და კავკასიაში; ცალკე IUCN შეფასება ფართოდ არ გამოიყენება. მთავარი საფრთხეები ადგილობრივია — ჰაბიტატის გარდაქმნა და უმიზეზო განადგურება შიშის გამო. ეკოსისტემისთვის სასარგებლოა როგორც მწერების მტაცებელი.",
     danger: "Harmless",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Hogna_radiata%2C_Roquebrun_02.jpg/1280px-Hogna_radiata%2C_Roquebrun_02.jpg",
-    mobileImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Hogna_radiata_female_in_her_hideout.jpg/1280px-Hogna_radiata_female_in_her_hideout.jpg",
+    image: "https://cdn.reptiles.ge/hogna-radiata.webp",
+    mobileImage: "https://cdn.reptiles.ge/hogna-radiata-mobile.webp",
     gallery: [
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Hogna_radiata%2C_Roquebrun_02.jpg/1280px-Hogna_radiata%2C_Roquebrun_02.jpg",
-      },
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hogna_radiata_01_03.jpg/1280px-Hogna_radiata_01_03.jpg",
-      },
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Hogna_radiata_Poreta_02.jpg/1280px-Hogna_radiata_Poreta_02.jpg",
-      },
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Hogna_radiata_female_with_eggsac.jpg/1280px-Hogna_radiata_female_with_eggsac.jpg",
-      },
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Female_hogna_radiata_carrying_her_young_on_her_back.jpg/1280px-Female_hogna_radiata_carrying_her_young_on_her_back.jpg",
-      },
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Eyes_of_Hogna_radiata.jpg/1280px-Eyes_of_Hogna_radiata.jpg",
-      },
-      {
-        src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Hogna_radiata_with_spiderlings_02.jpg/1280px-Hogna_radiata_with_spiderlings_02.jpg",
-      },
+      { src: "https://cdn.reptiles.ge/hogna-radiata.webp" },
+      { src: "https://cdn.reptiles.ge/hogna-radiata-2.webp" },
+      { src: "https://cdn.reptiles.ge/hogna-radiata-3.webp" },
+      { src: "https://cdn.reptiles.ge/hogna-radiata-4.webp" },
+      { src: "https://cdn.reptiles.ge/hogna-radiata-5.webp" },
+      { src: "https://cdn.reptiles.ge/hogna-radiata-6.webp" },
+      { src: "https://cdn.reptiles.ge/hogna-radiata-7.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მშრალი სტეპი, ბალახი" },
