@@ -279,10 +279,27 @@
     "description": "Discover, understand, and protect Georgia’s reptiles. A bilingual digital atlas with species profiles, regional range maps, venomous snake guides, and field photography."
   },
   "notFound": {
-    "title": "Page not found",
-    "body": "This page does not exist or has been moved.",
+    "eyebrow": "Lost in the atlas",
+    "title": "This path isn’t on the map",
+    "body": "The page may have moved, or the link is outdated. Continue through the atlas — species, regions, or the venomous guide.",
     "home": "Back to home",
-    "species": "Browse species"
+    "species": "Species",
+    "regions": "Explore by region",
+    "imageAlt": "Misty Caucasus ridge at dusk",
+    "paths": {
+      "species": {
+        "eyebrow": "Catalog",
+        "title": "Species atlas"
+      },
+      "regions": {
+        "eyebrow": "Geography",
+        "title": "Regions of Georgia"
+      },
+      "venomous": {
+        "eyebrow": "Safety",
+        "title": "Venomous snakes"
+      }
+    }
   },
   "speciesMeta": {
     "notFound": "Species not found",

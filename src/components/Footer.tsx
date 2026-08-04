@@ -9,7 +9,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
@@ -26,12 +26,21 @@ export function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale() as AppLocale;
   const pathname = usePathname();
+  const [hidden, setHidden] = useState(pathname === "/contact");
   const venomous = useMemo(
     () => getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),
     [locale],
   );
 
-  if (pathname === "/contact") {
+  useEffect(() => {
+    if (pathname === "/contact") {
+      setHidden(true);
+      return;
+    }
+    setHidden(Boolean(document.querySelector("[data-hide-footer]")));
+  }, [pathname]);
+
+  if (hidden) {
     return null;
   }
 
