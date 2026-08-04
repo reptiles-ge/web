@@ -256,6 +256,168 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "elaphe-dione",
+    "commonName": "სახეებიანი მცურავი",
+    "scientificName": "Elaphe dione",
+    "genus": "Elaphe",
+    "family": "Colubridae",
+    "location": "საქართველო — მშრალი ზონები",
+    "description": "უშხამო, ნახატიანი მცურავი სტეპებისა და მშრალი ლანდშაფტებისა — საქართველოში უპირატესად მშრალ ჰაბიტატებში; უვნებელია.",
+    "overview": "სახეებიანი მცურავი (Elaphe dione) ანკარასებრთა ოჯახის უშხამო მცურავია. აღწერა პალასმა 1773 წელს გააკეთა; სახელი უკავშირდება ბერძნულ მითოლოგიურ ფიგურა დიონეს (აფროდიტეს დედა). გავრცელების არეალი ერთ-ერთი ყველაზე ფართოა გვარ Elaphe-ში — აღმოსავლეთ უკრაინიდან ცენტრალური აზიის გავლით მონღოლეთამდე, ჩრდილოეთ ჩინეთამდე და კორეამდე; ასევე გვხვდება საქართველოში, აზერბაიჯანსა და ჩრდილოეთ ირანში. საქართველოში უპირატესად მშრალი კლიმატის ჰაბიტატებს ანიჭებს უპირატესობას; ბოლო წლების დაკვირვებებმა (მათ შორის სოციალური ქსელების ჩანაწერებმა) არეალის ცოდნა მნიშვნელოვნად გააფართოვა. სიგრძე ჩვეულებრივ დაახლოებით 0.7–1.2 მ-ია. IUCN-ის მიხედვით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern).",
+    "habitat": "ევრიტოპული სახეობაა: ბინადრობს სტეპებში, ბუჩქნარებში, მშრალ და ღია ტყეებში, კლდოვან ადგილებში, ნახევრადუდაბნოებში, ჭალების პირას და შეცვლილ ლანდშაფტშიც. ვერტიკალურად აღწევს ზღვის დონიდან დაახლოებით 3,580 მ-მდე. საქართველოში დამოკიდებულია შედარებით მშრალ კლიმატზე — უფრო ხშირია აღმოსავლეთსა და სამხრეთის მშრალ ზონებში; შესაფერის ჰაბიტატებში დასავლეთშიც აღინიშნა. თავშესაფარს ეძებს მღრღნელების სოროებში, ქვების ქვეშ, ფესვებსა და ნიადაგის ნაპრალებში.",
+    "diet": "იკვებება მღრღნელებით, პატარა ფრინველებით, ბარტყებითა და ფრინველის კვერცხებით; აგრეთვე ხვლიკებით; იშვიათად ამფიბიებით, წვრილი თევზითა და მწერებით. მსხვერპლს ახრჩობს (კონსტრიქტორი); შხამი არ აქვს. კარგი მთამსვლელია და მოცურავეა — ხშირად ადის ბუჩქებსა და ხეებზე ბუდეების მოსანახულებლად.",
+    "behavior": "უმეტესად დღის აქტიურია; ამინდისა და სეზონის მიხედვით შეიძლება საღამოსაც გამოჩნდეს. მშვიდი და ფრთხილია — საფრთხისას უპირატესად გაქცევას ცდილობს. ზურგი ნაცრისფერი, მოყავისფრო ან მოყვითალოა მუქი განივი ლაქებით; ხშირად ჩანს ოთხი უფრო ღია გრძივი ზოლი. თავზე დამახასიათებელი მუქი ნახატია, თვალში გამავალი მუქი ზოლით; გუგა მრგვალია. კვერცხისმდებია: შეწყვილება გაზაფხულზეა, დედალი ივლის–აგვისტოში დებს ჩვეულებრივ 3–15 კვერცხს (ზოგჯერ 24-მდე); ნაშიერები დამოუკიდებლად იჩეკებიან.",
+    "conservation": "IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და სახეობა ადაპტირებადი. დასავლეთ კიდეზე (მაგ. უკრაინაში) ლოკალურად უფრო იშვიათი და დაცულია. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
+    "danger": "Harmless",
+    "image": "/images/elaphe-dione.jpg",
+    "imageCredit": {
+      "photographer": "Yishen Xiao",
+      "url": "https://www.inaturalist.org/observations/126914440"
+    },
+    "mobileImage": "/images/elaphe-dione-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Dmitry Dubikovskiy",
+      "url": "https://www.inaturalist.org/observations/274585553"
+    },
+    "gallery": [
+      {
+        "src": "/images/elaphe-dione.jpg",
+        "credit": {
+          "photographer": "Yishen Xiao",
+          "url": "https://www.inaturalist.org/observations/126914440"
+        }
+      },
+      {
+        "src": "/images/elaphe-dione-2.jpg",
+        "credit": {
+          "photographer": "Zinogre",
+          "url": "https://www.inaturalist.org/observations/140744748"
+        }
+      },
+      {
+        "src": "/images/elaphe-dione-3.jpg",
+        "credit": {
+          "photographer": "Сергей Грабчак",
+          "url": "https://www.inaturalist.org/observations/246917579"
+        }
+      },
+      {
+        "src": "/images/elaphe-dione-4.jpg",
+        "credit": {
+          "photographer": "Irina Maslova",
+          "url": "https://www.inaturalist.org/observations/255645652"
+        }
+      },
+      {
+        "src": "/images/elaphe-dione-5.jpg",
+        "credit": {
+          "photographer": "Моховинка",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg"
+        }
+      },
+      {
+        "src": "/images/elaphe-dione-6.jpg",
+        "credit": {
+          "photographer": "fisheyes",
+          "url": "https://www.inaturalist.org/observations/166546598"
+        }
+      },
+      {
+        "src": "/images/elaphe-dione-7.jpg",
+        "credit": {
+          "photographer": "svetlanaagafonova",
+          "url": "https://www.inaturalist.org/observations/97425149"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "მშრალი ზონები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 0.7–1.2 მ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "Least Concern"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "0–3,580 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "სახელი dione ბერძნული მითოლოგიიდან მოდის — დიონე აფროდიტეს დედად ითვლება (Pallas, 1773).",
+      "გვარ Elaphe-ში ერთ-ერთი ყველაზე ფართოდ გავრცელებული სახეობაა — ევრაზიის სტეპებიდან შორეულ აღმოსავლეთამდე.",
+      "შხამი არ აქვს — მსხვერპლს ახრჩობს; ადამიანისთვის უვნებელია.",
+      "საქართველოში არეალის ცოდნა ბოლო წლებში მნიშვნელოვნად გაფართოვდა — მათ შორის მოყვარულთა და სოციალური ქსელების ჩანაწერებით."
+    ],
+    "identification": {
+      "summary": "სახეებიანი მცურავი უშხამო, ნახატიანი მცურავია მშრალი ჰაბიტატებისა. დამახასიათებელია ლაქებიანი ზურგი და ხშირად ოთხი გრძივი ზოლი.",
+      "traits": [
+        "ზურგი ნაცრისფერი/მოყავისფროა მუქი განივი ლაქებით; ხშირად ჩანს ოთხი გრძივი ზოლი.",
+        "თავზე მუქი ნახატია; თვალში გამავალი მუქი ზოლი; გუგა მრგვალია.",
+        "სიგრძე დაახლოებით 0.7–1.2 მ; უშხამოა — მსხვერპლს ახრჩობს.",
+        "კარგად ადის და ცურავს; ბუდეებსაც ნახულობს.",
+        "საქართველოში — უპირატესად მშრალი აღმოსავლეთი და სამხრეთი."
+      ]
+    },
+    "faq": [
+      {
+        "question": "საშიშია თუ არა სახეებიანი მცურავი ადამიანისთვის?",
+        "answer": "არა — უვნებელია. შხამი არ აქვს და მსხვერპლს მხოლოდ შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის; ადამიანს თავს არ ესხმის."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "უპირატესად მშრალი კლიმატის ჰაბიტატებში — აღმოსავლეთსა და სამხრეთში (კახეთი, ქვემო და შიდა ქართლი, სამცხე–ჯავახეთი და მიმდებარე მშრალი ზონები). შესაფერის ადგილებში დასავლეთშიც აღინიშნა."
+      },
+      {
+        "question": "რით განსხვავდება ურარტუს მცურავისგან (Elaphe urartica)?",
+        "answer": "E. dione უფრო პატარაა და სხვა ნახატი აქვს — ხშირად ოთხი გრძივი ზოლი და წვრილი განივი ლაქები; E. urartica უფრო დიდია, მსხვილი მომრგვალებული ლაქებით მოყვითალო/მოთეთრო ფონზე. გეოგრაფიაც ეხმარება ამოცნობას."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "მღრღნელებს, პატარა ფრინველებს, ბარტყებსა და კვერცხებს; აგრეთვე ხვლიკებს. კარგად ადის ხეებსა და ბუჩქებზე ბუდეების მოსანახულებლად."
+      },
+      {
+        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი ივლის–აგვისტოში დებს ჩვეულებრივ 3–15 კვერცხს (ზოგჯერ 24-მდე). ნაშიერები დამოუკიდებლად იჩეკებიან."
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/details/157275/0"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/species/2458400"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Elaphe&species=dione"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Steppe_rat_snake"
+      },
+      {
+        "name": "Scientific publications"
+      }
+    ]
+  },
+  {
     "id": "elaphe-urartica",
     "commonName": "ურარტუს მცურავი",
     "scientificName": "Elaphe urartica",
@@ -1326,6 +1488,157 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "vipera-darevskii",
+    "commonName": "დარევსკის გველგესლა",
+    "scientificName": "Vipera darevskii",
+    "genus": "Vipera",
+    "family": "Viperidae",
+    "location": "სამცხე — ჯავახეთი",
+    "description": "კრიტიკულად საფრთხის ქვეშ მყოფი მაღალმთიანი გველგესლა — ჯავახეთის ქედის, ერუშეთისა და ახალციხის მაღლობის ენდემი.",
+    "overview": "დარევსკის გველგესლა (Vipera darevskii) პატარა, შხამიანი მაღალმთიანი სახეობაა. გავრცელებულია ჩრდილო-დასავლეთ სომხეთში, ჩრდილო-აღმოსავლეთ თურქეთსა და სამხრეთ საქართველოში — ჯავახეთის ქედზე, მადათაფასთან, ერუშეთის მთებსა და ახალციხის მაღლობზე. ცხოვრობს სუბალპურ და ალპურ მდელოებზე კლდოვან ნაშალებში, ძირითადად 2,300–3,000 მ სიმაღლეზე. სახელი ეწოდა ჰერპეტოლოგ ილია სერგეევიჩ დარევსკის პატივსაცემად. IUCN-ის მიხედვით კრიტიკულად საფრთხის ქვეშაა (Critically Endangered): არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები, პოპულაცია მკვეთრად ფრაგმენტირებულია.",
+    "habitat": "უპირატესობას ანიჭებს მაღალმთიან მორენებსა და კლდოვან ამონაკვეთებს ალპურ ბალახოვან საფარში — განსაკუთრებით სამხრეთისა და სამხრეთ-აღმოსავლეთის თბილ ფერდობებს. ქვების ნაშალები იძლევა ზამთრის თავშესაფარს, დღიურ ბუნაგსა და საკვებს (კლდის ხვლიკები, მღრღნელები). საქართველოში — ჯავახეთის ქედი, მადათაფა, ერუშეთი, ახალციხის მაღლობი; ვერტიკალურად დაახლოებით 2,300–3,000 მ. ჰაბიტატი ცივი და ნოტიოა: საშუალო წლიური ნალექი დაახლოებით 1,000 მმ.",
+    "diet": "იკვებება ხვლიკებით (განსაკუთრებით Darevskia valentini), მცირე მღრღნელებით (Microtus) და ორთოპტერებით. ახალგაზრდები — ახალშობილი კლდის ხვლიკებითა და მცირე მწერებით. ნადირობს ჩასაფრებით; შხამით ანეიტრალებს მსხვერპლს.",
+    "behavior": "დღისით აქტიურია; კლდოვან ნაშალებში გადაადგილდება ოპტიმალური სხეულის ტემპერატურის (დაახლ. 26–28 °C) შესანარჩუნებლად. ცოცხლადმშობია: შეწყვილება მაისში, პირველი გაზაფხულის გამოცვლის შემდეგ; ნაშიერები იბადებიან სექტემბერ–ოქტომბრის დასაწყისში — ჩვეულებრივ 4–8 ინდივიდი, სიგრძით დაახლ. 15–18 სმ. იზამთრებს ქვების სიღრმეში.",
+    "conservation": "IUCN Red List-ის მიხედვით კრიტიკულად საფრთხის ქვეშაა (CR B1ab(ii,iii)+2ab(ii,iii)): გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია და ჰაბიტატი მცირდება. მთავარი საფრთხეებია გადაჭარბებული ძოვება და სათიბი. სომხეთში ჰაბიტატის დიდი ნაწილი ართვის ტბის ეროვნულ პარკში შედის.",
+    "danger": "Moderate",
+    "image": "/images/vipera-darevskii.jpg",
+    "imageCredit": {
+      "photographer": "Boris S. Tuniyev",
+      "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+    },
+    "mobileImage": "/images/vipera-darevskii-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Boris S. Tuniyev",
+      "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+    },
+    "gallery": [
+      {
+        "src": "/images/vipera-darevskii.jpg",
+        "credit": {
+          "photographer": "Boris S. Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-2.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://commons.wikimedia.org/wiki/File:Darevsky%27s_Viper.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-3.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://commons.wikimedia.org/wiki/File:P_darevskii_male.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-4.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://www.inaturalist.org/observations/52914"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-5.jpg",
+        "credit": {
+          "photographer": "Boris S. Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-6.jpg",
+        "credit": {
+          "photographer": "Boris S. Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ჯავახეთი · ერუშეთი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 26–42 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "შხამიანი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "კრიტიკული (CR)"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "2,300–3,000 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Viperidae"
+      }
+    ],
+    "facts": [
+      "სახელი ეწოდა ჰერპეტოლოგ ილია სერგეევიჩ დარევსკის პატივსაცემად.",
+      "ცოცხლადმშობია — ნაშიერები იბადებიან სექტემბერ–ოქტომბერში, ჩვეულებრივ 4–8 ინდივიდი.",
+      "ერთ-ერთი ყველაზე იშვიათი გველგესლა კავკასიაში; IUCN სტატუსი — კრიტიკულად საფრთხის ქვეშ (CR).",
+      "საქართველოში დადასტურებულია ჯავახეთის ქედზე, ერუშეთსა და ახალციხის მაღლობზე — მათ შორის მთა გუმბათთან."
+    ],
+    "identification": {
+      "summary": "დარევსკის გველგესლა პატარა, მაღალმთიანი შხამიანი სახეობაა. ამოიცანი ზომით, ზიგზაგური ზურგის ნახატითა და 2,300 მ-ზე მაღალი კლდოვანი ჰაბიტატით — ცხვირრქოსანისა და დინიკისგან განსხვავებით.",
+      "traits": [
+        "ძალიან პატარაა — მდედრი მაქს. დაახლ. 42 სმ, მამრი უფრო მცირე.",
+        "ზურგზე ღია ყავისფერი ან ნაცრისფერი ფონი მუქი ზიგზაგით; გვერდებზე მცირე ლაქების რიგი.",
+        "სქესობრივი დიმორფიზმი გამოხატულია: მამრები უფრო კონტრასტული და ღიაა, მდედრები — მოყავისფრო.",
+        "გვხვდება მხოლოდ ჯავახეთ–ერუშეთის მაღალმთაში, დაახლ. 2,300–3,000 მ — არა დიდ კავკასიონზე.",
+        "შხამიანია (საშუალო რისკი); ნაკბენი მტკივნეულია და იწვევს შეშუპებას — საჭიროა სამედიცინო დახმარება."
+      ]
+    },
+    "faq": [
+      {
+        "question": "საშიშია თუ არა დარევსკის გველგესლა ადამიანისთვის?",
+        "answer": "შხამიანია, თუმცა საფრთხის დონე საშუალოდ ფასდება. ნაკბენი მტკივნეულია და იწვევს ადგილობრივ შეშუპებას; ზრდასრული ადამიანისთვის ჩვეულებრივ სიცოცხლისთვის საშიშად არ ითვლება, მაგრამ მაინც საჭიროა დაუყოვნებელი სამედიცინო დახმარება."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "სამცხე–ჯავახეთში — ჯავახეთის ქედზე, მადათაფასთან, ერუშეთის მთებსა და ახალციხის მაღლობზე, დაახლოებით 2,300–3,000 მეტრზე. არეალი მკვეთრად ფრაგმენტირებულია და ძალიან შეზღუდულია."
+      },
+      {
+        "question": "რით განსხვავდება დინიკის გველგესლასგან?",
+        "answer": "დარევსკის გველგესლა უფრო პატარაა და გვხვდება მცირე კავკასიონის სამხრეთ მაღალმთაში (ჯავახეთი–ერუშეთი). დინიკის გველგესლა დიდი კავკასიონის სახეობაა და უფრო ფართო, თუმცა მაინც ფრაგმენტირებული არეალით გამოირჩევა."
+      },
+      {
+        "question": "რატომ არის კრიტიკულად საფრთხის ქვეშ?",
+        "answer": "გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია. გადაჭარბებული ძოვება და ჰაბიტატის დეგრადაცია პოპულაციას ამცირებს."
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/details/23000/0"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/species/5960852"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=darevskii"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Vipera_darevskii"
+      },
+      {
+        "name": "Scientific publications"
+      }
+    ]
+  },
+  {
     "id": "vipera-dinniki",
     "commonName": "დინიკის გველგესლა",
     "scientificName": "Vipera dinniki",
@@ -1578,6 +1891,176 @@ export const species: Species[] = [
         "name": "Scientific publications"
       }
     ]
+  },
+  {
+    "id": "vipera-renardi",
+    "commonName": "ველის გველგესლა",
+    "scientificName": "Vipera renardi",
+    "genus": "Vipera",
+    "family": "Viperidae",
+    "location": "ჯავახეთი და კახეთი",
+    "description": "პატარა, შხამიანი სტეპის გველგესლა — საქართველოში იშვიათია; გვხვდება ღია სტეპებსა და მთისწინეთში.",
+    "overview": "ველის გველგესლა (Vipera renardi), იგივე აღმოსავლური სტეპის გველგესლა, გველგესლასებრთა ოჯახის შხამიანი სახეობაა ursinii–renardi კომპლექსიდან. გავრცელებულია სამხრეთ-აღმოსავლეთ ევროპიდან ცენტრალურ აზიამდე; IUCN-ის მიხედვით მოიცავს ტრანსკავკასიურ პოპულაციებსაც — სომხეთს, აზერბაიჯანსა და საქართველოს. საქართველოში აღდგენილია ჯავახეთისა და ერუშეთის პლატოებზე (ხშირად V. r. eriwanensis / სამხრეთის სტეპის გველგესლა) და აღმოსავლეთში — შირაქის პლატოსა და დედოფლისწყაროს მიმდებარედ (შემახის ჯგუფი / kakhetiensis). სახეობა შედარებით პატარაა (დაახლ. 40–60 სმ), ზურგზე აქვს მუქი ზიგზაგი და უპირატესობას ანიჭებს ღია სტეპურ ჰაბიტატებს. ევროპის რეგიონულ შეფასებაში მოწყვლადია (Vulnerable) ჰაბიტატის დაკარგვის გამო.",
+    "habitat": "უპირატესობას ანიჭებს ღია სტეპს, მდელოებს, ბუჩქნარსა და კლდოვან მთისწინეთს — ხშირად კარგად დრენირებულ ფერდობებსა და ნახევრადმშრალ ზონებს. საქართველოში — სამცხე–ჯავახეთში (ჯავახეთისა და ერუშეთის პლატოები, სტიპა-სტეპი) და კახეთში (შირაქის პლატო, დედოფლისწყარო, ხორნაბუჯის მიმდებარე, არწივისხეობის მთისწინეთი). ვერტიკალურად გვხვდება დაახლოებით 0–2,500 მ-მდე; აღმოსავლეთ საქართველოს პოპულაციები უმეტესად დაბალ და საშუალო სიმაღლეზეა, ჯავახეთში კი უფრო მაღალ სტეპურ პლატოებზე.",
+    "diet": "ursinii–renardi კომპლექსისთვის დამახასიათებელია ორთოპტერებით კვება — კალიებითა და მწერებით; აგრეთვე ხვლიკებითა და მცირე მღრღნელებით. ახალგაზრდები უფრო მცირე უხერხემლოებსა და ხვლიკებს ნადირობენ. ნადირობს ჩასაფრებით; შხამით ანეიტრალებს მსხვერპლს.",
+    "behavior": "აქტიურია თბილ სეზონზე — საქართველოსა და აზერბაიჯანში დაახლოებით აპრილიდან ოქტომბრამდე. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში ჩრდილსა და ბუჩქნარს ეძებს. იზამთრებს ნაპრალებსა და ქვების ქვეშ. ცოცხლადმშობია (ოვოვივიპარია): ორსულობა დაახლოებით 3 თვეა; ნაშიერები იბადებიან ივლის–აგვისტოში (ზოგჯერ 10–17 ინდივიდამდე).",
+    "conservation": "ევროპის რეგიონულ IUCN შეფასებაში მოწყვლადია (Vulnerable) — ბოლო სამ თაობაში ჰაბიტატის 30%-ზე მეტი დაკარგვა და გაგრძელებული ფრაგმენტაცია. მთავარი საფრთხეა სტეპისა და მდელოების გადაქცევა ინტენსიურ მიწათმოქმედებად და გადაძოვებად. საქართველოში იშვიათია; აღმოსავლეთის პოპულაციები 75-წლიანი ხარვეზის შემდეგ ხელახლა დადასტურდა. სასარგებლოა მწერებისა და მღრღნელების რეგულირებით.",
+    "danger": "Moderate",
+    "image": "/images/vipera-renardi.jpg",
+    "imageCredit": {
+      "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+      "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg"
+    },
+    "mobileImage": "/images/vipera-renardi-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+      "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1b.jpg"
+    },
+    "gallery": [
+      {
+        "src": "/images/vipera-renardi.jpg",
+        "credit": {
+          "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+          "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-renardi-2.jpg",
+        "credit": {
+          "photographer": "Daor1009",
+          "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi_Volgograd.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-renardi-3.jpg",
+        "credit": {
+          "photographer": "Vitalii Petrochenko",
+          "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi._Khortitsa.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-renardi-4.jpg",
+        "credit": {
+          "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+          "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_2a.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-renardi-5.jpg",
+        "credit": {
+          "photographer": "Matvey",
+          "url": "https://commons.wikimedia.org/wiki/File:Juvenile_Vipera_renardi_retreating.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-renardi-6.jpg",
+        "credit": {
+          "photographer": "Vitalii Petrochenko",
+          "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi._Gulajpole.jpg"
+        }
+      },
+      {
+        "src": "/images/vipera-renardi-7.jpg",
+        "credit": {
+          "photographer": "Boris Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_eriwanensis,_female_(Mt._Kysyrdag,_Turkey).png"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ჯავახეთი / კახეთი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 40–60 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "შხამიანი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "მოწყვლადი (VU)"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "0–2,500 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Viperidae"
+      }
+    ],
+    "facts": [
+      "სახელი renardi ეწოდა რუსი ნატურალისტის შარლ (კარლ) რენარის (1809–1886) პატივსაცემად.",
+      "ursinii–renardi კომპლექსის გველგესლები ხშირად ორთოპტერებით იკვებებიან — ეს გველგესლებს შორის იშვიათი სპეციალიზაციაა.",
+      "საქართველოში აღმოსავლური პოპულაციები 2010-იან წლებში ხელახლა აღმოაჩინეს 75-წლიანი ხარვეზის შემდეგ (Tuniyev et al., 2018).",
+      "ტაქსონომია დინამიკურია: ტრანსკავკასიური ფორმები ხშირად V. r. eriwanensis ან ცალკე სახეობებად (Pelias eriwanensis / shemakhensis) განიხილება; ეს ატლასი მიჰყვება IUCN-ის ფართო კონცეფციას."
+    ],
+    "identification": {
+      "summary": "ველის გველგესლა პატარა, შხამიანი სტეპის სახეობაა. ამოიცანი ზომით, ზიგზაგიანი ზურგითა და ღია სტეპური ჰაბიტატით — საქართველოში იშვიათია.",
+      "traits": [
+        "შედარებით პატარაა — სიგრძე დაახლოებით 40–60 სმ.",
+        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი ფართოა.",
+        "ზურგზე მუქი ზიგზაგი ან ლაქების მწკრივი ღია ფონზე.",
+        "საქართველოში დაკავშირებულია ჯავახეთ–ერუშეთის პლატოებთან და კახეთის სტეპთან.",
+        "გიურზასგან განსხვავდება ზომითა და ჰაბიტატით; ცხვირრქოსანს რქა არ აქვს."
+      ]
+    },
+    "faq": [
+      {
+        "question": "რამდენად საშიშია ველის გველგესლას ნაკბენი?",
+        "answer": "შხამიანია, თუმცა საშიშროება საშუალოდ ფასდება — უფრო სუსტია გიურზასა და ცხვირრქოსანთან შედარებით. მაინც საჭიროა დაუყოვნებელი სამედიცინო დახმარება; გველი თავს ესხმის მხოლოდ საფრთხის შეგრძნებისას."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "იშვიათად — სამცხე–ჯავახეთში (ჯავახეთისა და ერუშეთის პლატოები) და კახეთში (შირაქის პლატო, დედოფლისწყაროსა და ხორნაბუჯის მიმდებარე). ღია სტეპური და მთისწინეთის ჰაბიტატებია საკვანძო."
+      },
+      {
+        "question": "რით განსხვავდება გიურზასა და ცხვირრქოსანი გველგესლასგან?",
+        "answer": "ველის გველგესლა უფრო პატარაა (დაახლ. 40–60 სმ) და ღია სტეპს ანიჭებს უპირატესობას. გიურზა დიდია, კვერცხისმდებია და აღმოსავლეთის მშრალ დაბლობებზეა. ცხვირრქოსანს ცხვირზე რქისებრი წარმონაქმნი აქვს და მცირე კავკასიონის მთიანეთთანაა დაკავშირებული."
+      },
+      {
+        "question": "ცოცხლად შობს თუ კვერცხებს დებს?",
+        "answer": "ცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ივლის–აგვისტოში; ორსულობა დაახლოებით სამი თვეა."
+      },
+      {
+        "question": "რატომ არის მოწყვლადი?",
+        "answer": "სტეპისა და მდელოების ინტენსიური ათვისება და გადაძოვება ანადგურებს მის ჰაბიტატს; არეალი ფრაგმენტირდება. ევროპის IUCN შეფასებით Vulnerableა; საქართველოში პოპულაციები მცირე და იშვიათია."
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/species/157268/5066267"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/species/8568628"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=renardi"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Vipera_renardi"
+      },
+      {
+        "name": "Tuniyev et al. 2018 — Rediscovery of the steppe viper in Georgia",
+        "url": "https://doi.org/10.31610/trudyzin/2018.322.2.87"
+      },
+      {
+        "name": "Mebert et al. 2025 — Steppe vipers of Western Asia",
+        "url": "https://www.herpconbio.org/Volume_20/Issue_2/Mebert_etal_2025a.pdf"
+      },
+      {
+        "name": "Scientific publications"
+      }
+    ]
   }
 ];
 
@@ -1727,6 +2210,80 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 5–11 eggs; young hatch independently."
+      }
+    ]
+  },
+  "elaphe-dione": {
+    "commonName": "Steppe ratsnake",
+    "location": "Georgia — dry zones",
+    "description": "A harmless patterned ratsnake of steppes and dry landscapes — in Georgia mostly in drier habitats; non-venomous.",
+    "overview": "The steppe ratsnake (Elaphe dione), also called Dione's ratsnake, is a harmless colubrid. Pallas described it in 1773; the name refers to the Greek mythological figure Dione (mother of Aphrodite). It has one of the widest ranges in the genus Elaphe — from eastern Ukraine across Central Asia to Mongolia, northern China, and Korea; also Georgia, Azerbaijan, and northern Iran. In Georgia it prefers relatively dry habitats; recent records (including social-media sightings) have substantially improved knowledge of its range. Length is usually about 0.7–1.2 m. Globally it is Least Concern on the IUCN Red List.",
+    "habitat": "It is eurytopic: it lives in steppes, shrubland, dry and open woodland, rocky areas, semi-deserts, wetland edges, and disturbed landscapes. Vertically it occurs from sea level to about 3,580 m. In Georgia it depends on a reasonably dry climate — more often in the east and south; it has also been noted in suitable western habitats. It shelters in rodent burrows, under rocks, among roots, and in soil crevices.",
+    "diet": "It feeds on rodents, small birds, nestlings, and bird eggs; also lizards; occasionally amphibians, small fish, and insects. It kills prey by constriction and has no venom. It climbs well and swims readily — often ascending shrubs and trees to raid nests.",
+    "behavior": "It is mostly diurnal; depending on weather and season it may also appear in the evening. It is calm and cautious — when threatened it prefers to flee. The back is grey, brownish, or yellowish with dark transverse blotches; four paler longitudinal stripes are often visible. The head has a distinctive dark pattern and a dark stripe through the eye; the pupil is round. It is egg-laying: mating is in spring, and the female lays usually 3–15 eggs in July–August (sometimes up to 24); young hatch independently.",
+    "conservation": "Globally it is Least Concern on the IUCN Red List — the range is broad and the species is adaptable. At the western edge (e.g. Ukraine) it is locally rarer and protected. Local threats include habitat conversion, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by reducing rodent numbers.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Dry zones"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 0.7–1.2 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern"
+      },
+      {
+        "label": "Elevation",
+        "value": "0–3,580 m"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "The name dione comes from Greek mythology — Dione is regarded as the mother of Aphrodite (Pallas, 1773).",
+      "It is one of the most widely distributed Elaphe species — from Eurasian steppes to the Far East.",
+      "It has no venom — it constricts prey; it is harmless to humans.",
+      "Knowledge of its range in Georgia has expanded substantially in recent years — including from citizen and social-media records."
+    ],
+    "identification": {
+      "summary": "The steppe ratsnake is a harmless patterned ratsnake of dry habitats. Look for a blotched back and often four longitudinal stripes.",
+      "traits": [
+        "The back is grey/brownish with dark transverse blotches; four longitudinal stripes are often present.",
+        "The head has a dark pattern; a dark stripe runs through the eye; the pupil is round.",
+        "Length is roughly 0.7–1.2 m; it is non-venomous — it constricts prey.",
+        "It climbs and swims well; it also raids nests.",
+        "In Georgia — mainly the dry east and south."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the steppe ratsnake dangerous to humans?",
+        "answer": "No — it is harmless. It has no venom and kills prey only by constriction. When threatened it prefers to flee; it does not attack humans."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "Mainly in dry-climate habitats — in the east and south (Kakheti, Kvemo and Shida Kartli, Samtskhe–Javakheti and nearby dry zones). It has also been noted in suitable western sites."
+      },
+      {
+        "question": "How does it differ from the Urartian ratsnake (Elaphe urartica)?",
+        "answer": "E. dione is smaller with a different pattern — often four longitudinal stripes and finer transverse blotches; E. urartica is larger, with bold rounded blotches on a yellowish/whitish ground. Geography also helps identification."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Rodents, small birds, nestlings, and eggs; also lizards. It climbs trees and shrubs well to raid nests."
+      },
+      {
+        "question": "Does it lay eggs or give live birth?",
+        "answer": "It is egg-laying. Mating is in spring; the female lays usually 3–15 eggs in July–August (sometimes up to 24). Young hatch independently."
       }
     ]
   },
@@ -2322,6 +2879,76 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "vipera-darevskii": {
+    "commonName": "Darevsky's viper",
+    "location": "Samtskhe — Javakheti",
+    "description": "A critically endangered highland viper endemic to the Javakheti Ridge, Erusheti Mountains, and Akhaltsikhe Highland.",
+    "overview": "Darevsky's viper (Vipera darevskii) is a small venomous montane species of northwestern Armenia, northeastern Turkey, and southern Georgia — on the Javakheti Ridge, near Madatapa, in the Erusheti Mountains, and on the Akhaltsikhe Highland. It lives in subalpine and alpine meadows among rocky scree, mainly at 2,300–3,000 m. It is named after herpetologist Ilya Sergeyevich Darevsky. The IUCN lists it as Critically Endangered: extent of occurrence under 100 km², area of occupancy under 10 km², and a severely fragmented population.",
+    "habitat": "Prefers high-mountain moraines and bedrock outcrops in alpine grassland — especially warm south- and southeast-facing slopes. Rock deposits provide hibernation dens, daily shelter, and prey (rock lizards, small rodents). In Georgia — Javakheti Ridge, Madatapa, Erusheti, Akhaltsikhe Highland; roughly 2,300–3,000 m elevation. The climate is cold and humid, with about 1,000 mm average annual precipitation.",
+    "diet": "Feeds on lizards (especially Darevskia valentini), small rodents (Microtus), and orthopterans. Juveniles take newborn rock lizards and small insects. It hunts by ambush and subdues prey with venom.",
+    "behavior": "Diurnal; it moves within rocky deposits to keep an optimal body temperature of about 26–28 °C. Ovoviviparous: mating in May after the first spring shed; young are born in September to early October — usually 4–8 individuals, about 15–18 cm long. It hibernates deep in rock piles.",
+    "conservation": "Critically Endangered on the IUCN Red List (CR B1ab(ii,iii)+2ab(ii,iii)): extent of occurrence under 100 km², area of occupancy under 10 km²; population fragmented and habitat declining. Main threats are overgrazing and mowing. In Armenia much of the habitat lies within Lake Arpi National Park.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Javakheti · Erusheti"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 26–42 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "Venomous"
+      },
+      {
+        "label": "Conservation",
+        "value": "Critically Endangered (CR)"
+      },
+      {
+        "label": "Elevation",
+        "value": "2,300–3,000 m"
+      },
+      {
+        "label": "Family",
+        "value": "Viperidae"
+      }
+    ],
+    "facts": [
+      "Named in honor of herpetologist Ilya Sergeyevich Darevsky.",
+      "Ovoviviparous — young are born in September–October, usually 4–8 individuals.",
+      "One of the rarest vipers in the Caucasus; IUCN status — Critically Endangered (CR).",
+      "In Georgia it is confirmed on the Javakheti Ridge, Erusheti, and the Akhaltsikhe Highland — including Mt. Gumbati."
+    ],
+    "identification": {
+      "summary": "Darevsky’s viper is a tiny highland venomous species. Size, zigzag pattern, and rocky habitat above 2,300 m separate it from the nose-horned and Dinnik’s vipers.",
+      "traits": [
+        "It is very small — females to about 42 cm, males smaller.",
+        "Light brown to grey dorsum with a dark zigzag; a row of small dark blotches on each flank.",
+        "Strong sexual dimorphism: males are brighter and more contrasting; females are browner.",
+        "Restricted to the Javakheti–Erusheti highlands at about 2,300–3,000 m — not the Greater Caucasus.",
+        "Venomous (moderate risk); a bite is painful and causes swelling — seek medical care."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is Darevsky's viper dangerous to humans?",
+        "answer": "It is venomous, though danger is rated moderate. A bite is painful and causes local swelling; it is generally not considered life-threatening for adult humans, but immediate medical attention is still required."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "In Samtskhe–Javakheti — on the Javakheti Ridge, near Madatapa, in the Erusheti Mountains, and on the Akhaltsikhe Highland, at roughly 2,300–3,000 meters. The range is severely fragmented and very limited."
+      },
+      {
+        "question": "How does it differ from Dinnik's viper?",
+        "answer": "Darevsky's viper is smaller and occupies the southern highlands of the Lesser Caucasus (Javakheti–Erusheti). Dinnik's viper is a Greater Caucasus species with a wider, though still fragmented, range."
+      },
+      {
+        "question": "Why is it critically endangered?",
+        "answer": "Its extent of occurrence is under 100 km² and area of occupancy under 10 km²; the population is fragmented. Overgrazing and habitat degradation are reducing numbers."
+      }
+    ]
+  },
   "vipera-dinniki": {
     "commonName": "Dinnik's viper",
     "location": "Greater Caucasus",
@@ -2463,6 +3090,80 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it give live birth or lay eggs?",
         "answer": "It is ovoviviparous. Mating occurs in spring; in autumn, in August–September, it bears 5–10 young."
+      }
+    ]
+  },
+  "vipera-renardi": {
+    "commonName": "Eastern steppe viper",
+    "location": "Javakheti and Kakheti",
+    "description": "A small venomous steppe viper — rare in Georgia; found in open steppes and foothills.",
+    "overview": "The eastern steppe viper (Vipera renardi), also called Renard's viper, is a venomous member of the viper family in the ursinii–renardi complex. It ranges from south-eastern Europe into Central Asia; IUCN also includes Transcaucasian populations in Armenia, Azerbaijan, and Georgia. In Georgia it occurs on the Javakheti and Erusheti plateaus (often treated as V. r. eriwanensis / southern steppe viper) and in the east around the Shiraki Plateau and Dedoplistskaro (Shemakha group / kakhetiensis). It is relatively small (about 40–60 cm), with a dark dorsal zigzag, and prefers open steppe habitats. The European regional IUCN assessment lists it as Vulnerable due to habitat loss.",
+    "habitat": "It prefers open steppe, meadows, scrub, and rocky foothills — often well-drained slopes and semi-arid zones. In Georgia — in Samtskhe–Javakheti (Javakheti and Erusheti plateaus, Stipa steppe) and Kakheti (Shiraki Plateau, Dedoplistskaro, near Khornabuji, and the Artsivis Kheoba foothills). Vertically it occurs from roughly 0–2,500 m; eastern Georgian populations are mostly at low to mid elevations, while Javakheti records are on higher steppe plateaus.",
+    "diet": "Members of the ursinii–renardi complex often feed on orthopterans — grasshoppers and related insects — as well as lizards and small rodents. Juveniles hunt smaller invertebrates and lizards. It hunts by ambush and subdues prey with venom.",
+    "behavior": "Active in the warm season — in Georgia and Azerbaijan roughly from April to early October. In spring and autumn it is often diurnal; in summer heat it seeks shade and scrub. It hibernates in crevices and under stones. It is ovoviviparous: pregnancy lasts about three months; young are born in July– August (sometimes up to 10–17 individuals).",
+    "conservation": "Listed as Vulnerable in the European regional IUCN assessment — over 30% habitat loss across the last three generations and ongoing fragmentation. The main threat is conversion of steppe and meadows to intensive agriculture and overgrazing. It is rare in Georgia; eastern populations were reconfirmed after a 75-year gap. It benefits ecosystems by regulating insects and rodents.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Javakheti / Kakheti"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 40–60 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "Venomous"
+      },
+      {
+        "label": "Conservation",
+        "value": "Vulnerable (VU)"
+      },
+      {
+        "label": "Elevation",
+        "value": "0–2,500 m"
+      },
+      {
+        "label": "Family",
+        "value": "Viperidae"
+      }
+    ],
+    "facts": [
+      "The name renardi honors Russian naturalist Charles (Karl) Renard (1809–1886).",
+      "Vipers in the ursinii–renardi complex often specialize on orthopterans — an unusual diet among vipers.",
+      "Eastern Georgian populations were rediscovered in the 2010s after a 75-year gap (Tuniyev et al., 2018).",
+      "Taxonomy is fluid: Transcaucasian forms are often treated as V. r. eriwanensis or as separate taxa (Pelias eriwanensis / shemakhensis); this atlas follows the broader IUCN concept."
+    ],
+    "identification": {
+      "summary": "The eastern steppe viper is a small venomous steppe species. Size, a dorsal zigzag, and open steppe habitat are the main cues — and it is rare in Georgia.",
+      "traits": [
+        "Relatively small — length roughly 40–60 cm.",
+        "The pupil is vertical; scales are keeled; the head is broad.",
+        "A dark zigzag or row of blotches on a pale dorsum.",
+        "In Georgia it is tied to the Javakheti–Erusheti plateaus and Kakheti steppe.",
+        "Smaller and more steppe-bound than the Levantine viper; lacks the nose-horn of V. ammodytes."
+      ]
+    },
+    "faq": [
+      {
+        "question": "How dangerous is an eastern steppe viper's bite?",
+        "answer": "It is venomous, though danger is rated moderate — milder than the Levantine or nose-horned viper. Immediate medical attention is still required; the snake bites mainly when it feels threatened."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "Rarely — in Samtskhe–Javakheti (Javakheti and Erusheti plateaus) and Kakheti (Shiraki Plateau, around Dedoplistskaro and Khornabuji). Open steppe and foothill habitats are key."
+      },
+      {
+        "question": "How does it differ from the Levantine and nose-horned vipers?",
+        "answer": "The steppe viper is smaller (about 40–60 cm) and prefers open steppe. The Levantine viper is large, egg-laying, and lives in dry eastern lowlands. The nose-horned viper has a snout horn and is linked to the Lesser Caucasus highlands."
+      },
+      {
+        "question": "Does it give live birth or lay eggs?",
+        "answer": "It is ovoviviparous — young are born in July–August; pregnancy lasts about three months."
+      },
+      {
+        "question": "Why is it Vulnerable?",
+        "answer": "Intensive conversion and overgrazing of steppe and meadows destroy its habitat and fragment the range. The European IUCN assessment lists it as Vulnerable; Georgian populations are small and scarce."
       }
     ]
   }

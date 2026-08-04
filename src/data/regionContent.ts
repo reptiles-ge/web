@@ -207,13 +207,14 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   "samtskhe-javakheti": {
     biome: { ka: "ვულკანური პლატო", en: "Volcanic plateau" },
     overview: {
-      ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ უფრო ხშირია ცხვირრქოსანი გველგესლა და სწრაფი მცურავები.",
-      en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — nose-horned viper and agile racers are more typical.",
+      ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ გვხვდება ცხვირრქოსანი და კრიტიკულად საფრთხის ქვეშ მყოფი დარევსკის გველგესლა, აგრეთვე სწრაფი მცურავები.",
+      en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — nose-horned viper, critically endangered Darevsky’s viper, and agile racers occur here.",
     },
     habitats: [
       { ka: "ვულკანური პლატოები", en: "Volcanic plateaus" },
       { ka: "მთის ტბები", en: "Highland lakes" },
       { ka: "მშრალი მთისწინეთი", en: "Dry foothills" },
+      { ka: "სუბალპური კლდოვანი ფერდობები", en: "Subalpine rocky slopes" },
     ],
     relatedIds: ["adjara", "imereti", "kvemo-kartli", "shida-kartli"],
     faq: [
@@ -223,8 +224,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which venomous snakes occur in Samtskhe-Javakheti?",
         },
         answer: {
-          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) შხამიანია. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია.",
-          en: "Nose-horned viper (Vipera ammodytes) is venomous. Most other listed species are harmless.",
+          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes), დარევსკის გველგესლა (Vipera darevskii) და ველის გველგესლა (Vipera renardi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
+          en: "Nose-horned viper (Vipera ammodytes), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
         },
       },
     ],

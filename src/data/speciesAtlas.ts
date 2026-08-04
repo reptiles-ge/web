@@ -33,6 +33,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["mountain", "grassland"],
   },
+  "vipera-darevskii": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "vipera-renardi": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
   "coronella-austriaca": {
     group: "snake",
     habitats: ["forest", "mountain", "grassland"],
@@ -40,6 +48,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "elaphe-urartica": {
     group: "snake",
     habitats: ["grassland", "forest"],
+  },
+  "elaphe-dione": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
   },
   "natrix-tessellata": {
     group: "snake",

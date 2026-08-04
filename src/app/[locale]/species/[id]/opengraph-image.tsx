@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { cdnOgImageUrl } from "@/lib/site";
 
 export const alt = "ქართული გველგესლები — Reptiles";
@@ -5,9 +7,17 @@ export const size = {
   width: 1200,
   height: 630,
 };
-export const contentType = "image/webp";
+export const contentType = "image/jpeg";
 
-const ogSpeciesIds = new Set([
+const localOgSpeciesIds = new Set([
+  "natrix-natrix",
+  "telescopus-fallax",
+  "elaphe-dione",
+  "vipera-darevskii",
+  "vipera-renardi",
+]);
+
+const cdnOgSpeciesIds = new Set([
   "vipera-dinniki",
   "macrovipera-lebetina",
   "vipera-ammodytes",
@@ -25,7 +35,20 @@ export default async function Image({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const speciesId = ogSpeciesIds.has(id) ? id : "vipera-dinniki";
+
+  if (localOgSpeciesIds.has(id)) {
+    const buffer = await readFile(
+      join(process.cwd(), "public/images/og", `${id}.jpg`),
+    );
+    return new Response(buffer, {
+      headers: {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=31536000, immutable",
+      },
+    });
+  }
+
+  const speciesId = cdnOgSpeciesIds.has(id) ? id : "vipera-dinniki";
   const response = await fetch(cdnOgImageUrl(speciesId), {
     next: { revalidate: 60 * 60 * 24 * 30 },
   });

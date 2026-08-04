@@ -22,10 +22,17 @@ export const siteConfig = {
     "Vipera kaznakovi",
     "ცხვირრქოსანი გველგესლა",
     "Vipera ammodytes",
+    "დარევსკის გველგესლა",
+    "Vipera darevskii",
+    "ველის გველგესლა",
+    "Vipera renardi",
+    "სტეპის გველგესლა",
     "გველხოკერა",
     "Pseudopus apodus",
     "წენგოსფერი მცურავი",
     "Platyceps najadum",
+    "სახეებიანი მცურავი",
+    "Elaphe dione",
     "კატისთვალა",
     "Telescopus fallax",
     "ბიოლოგია",
@@ -72,6 +79,21 @@ const CDN_BASE = "https://cdn.reptiles.ge";
 
 export function cdnOgImageUrl(speciesId: string) {
   return `${CDN_BASE}/og/${speciesId}.webp`;
+}
+
+const localOgSpeciesIds = new Set([
+  "natrix-natrix",
+  "telescopus-fallax",
+  "elaphe-dione",
+  "vipera-darevskii",
+  "vipera-renardi",
+]);
+
+export function speciesOgImageUrl(speciesId: string) {
+  if (localOgSpeciesIds.has(speciesId)) {
+    return absoluteUrl(`/images/og/${speciesId}.jpg`);
+  }
+  return cdnOgImageUrl(speciesId);
 }
 
 export function localePath(locale: string, path = "/") {

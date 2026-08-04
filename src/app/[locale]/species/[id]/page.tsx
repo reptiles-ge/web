@@ -10,11 +10,11 @@ import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteImageUrl,
   absoluteUrl,
-  cdnOgImageUrl,
   localeAlternates,
   localePath,
   organizationJsonLd,
   siteConfig,
+  speciesOgImageUrl,
 } from "@/lib/site";
 import {
   speciesMetaDescription,
@@ -98,7 +98,7 @@ export async function generateMetadata({
       publishedTime: raw.updatedAt,
       images: [
         {
-          url: cdnOgImageUrl(item.id),
+          url: speciesOgImageUrl(item.id),
           width: 1200,
           height: 630,
           alt: title,
@@ -109,7 +109,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [cdnOgImageUrl(item.id)],
+      images: [speciesOgImageUrl(item.id)],
     },
     robots: {
       index: true,
@@ -138,7 +138,7 @@ export default async function SpeciesPage({ params }: PageProps) {
     .slice(0, 3);
 
   const pageUrl = absoluteUrl(localePath(locale, `/species/${item.id}`));
-  const ogImage = cdnOgImageUrl(item.id);
+  const ogImage = speciesOgImageUrl(item.id);
   const galleryImages = item.gallery
     .map((photo) => photo.src)
     .filter((src) => src !== item.image)
