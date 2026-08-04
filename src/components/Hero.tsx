@@ -1,4 +1,5 @@
 import { images } from "@/data/species";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -31,13 +32,13 @@ export async function Hero() {
           {t("subtitle")}
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
-          <a
-            href="#species"
+          <Link
+            href="/species"
             className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-ink"
           >
             {t("viewSpecies")}
             <ArrowRight className="size-4" />
-          </a>
+          </Link>
           <a
             href="#detail"
             className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-[14px] font-medium text-white/90 backdrop-blur-md hover:border-white/50 hover:bg-white/10"

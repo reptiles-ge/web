@@ -3,15 +3,17 @@
 import { Reveal } from "@/components/Reveal";
 import { SpeciesCard } from "@/components/SpeciesCard";
 import { getFeaturedSpecies } from "@/data/species";
+import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export function SpeciesCarousel() {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("carousel");
+  const tAtlas = useTranslations("speciesAtlas");
   const featured = useMemo(
     () => getFeaturedSpecies().map((item) => localizeSpecies(item, locale)),
     [locale],
@@ -55,7 +57,14 @@ export function SpeciesCarousel() {
               {t("subtitle")}
             </p>
           </Reveal>
-          <Reveal className="flex items-center gap-3" delay={120}>
+          <Reveal className="flex flex-wrap items-center gap-3" delay={120}>
+            <Link
+              href="/species"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+            >
+              {tAtlas("breadcrumbSpecies")}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
             <button
               type="button"
               aria-label={t("prev")}

@@ -152,7 +152,7 @@ export function SpeciesProfile({
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <Link
-                href="/#species"
+                href="/species"
                 className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
               >
                 <ArrowLeft className="size-3.5" aria-hidden="true" />
@@ -295,7 +295,7 @@ export function SpeciesProfile({
                     </h2>
                   </div>
                   <Link
-                    href="/#species"
+                    href="/species"
                     className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
                   >
                     {t("allSpecies")}

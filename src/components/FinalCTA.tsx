@@ -2,6 +2,7 @@
 
 import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -28,13 +29,13 @@ export function FinalCTA() {
           <p className="mx-auto mt-7 max-w-md text-[15px] leading-relaxed text-white/60">
             {t("subtitle")}
           </p>
-          <a
-            href="#species"
+          <Link
+            href="/species"
             className="mt-12 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-[14px] font-medium text-ink"
           >
             {t("button")}
             <ArrowRight className="size-4" />
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

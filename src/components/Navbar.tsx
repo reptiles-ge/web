@@ -13,8 +13,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { href: "#species", label: t("species") },
-    { href: "#atlas", label: t("atlas") },
+    { href: "/species", label: t("species") },
+    { href: "/regions", label: t("atlas") },
     { href: "#detail", label: t("about") },
   ];
 
@@ -61,26 +61,32 @@ export function Navbar() {
           />
         </Link>
         <nav className="relative z-10 hidden items-center gap-9 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`text-[13px] font-medium tracking-wide transition-colors ${
-                scrolled
-                  ? "text-foreground/70 hover:text-foreground"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const className = `text-[13px] font-medium tracking-wide transition-colors ${
+              scrolled
+                ? "text-foreground/70 hover:text-foreground"
+                : "text-white/70 hover:text-white"
+            }`;
+            if (link.href.startsWith("#")) {
+              return (
+                <a key={link.href} href={link.href} className={className}>
+                  {link.label}
+                </a>
+              );
+            }
+            return (
+              <Link key={link.href} href={link.href} className={className}>
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
         <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
           <SpeciesSearch variant={chromeVariant} />
           <ThemeToggle variant={chromeVariant} />
           <LanguageSwitcher variant={chromeVariant} />
-          <a
-            href="#species"
+          <Link
+            href="/species"
             className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex ${
               scrolled
                 ? "bg-primary text-white hover:bg-primary/90 dark:text-ink"
@@ -88,7 +94,7 @@ export function Navbar() {
             }`}
           >
             {t("discover")}
-          </a>
+          </Link>
         </div>
       </div>
     </header>

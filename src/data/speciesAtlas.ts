@@ -1,0 +1,276 @@
+import { regions, getRegionsForSpecies } from "@/data/regions";
+import {
+  getCatalogSpecies,
+  type DangerLevel,
+  type Species,
+} from "@/data/species";
+
+export type AnimalGroup = "snake" | "lizard" | "turtle" | "amphibian";
+
+export type HabitatTag = "forest" | "mountain" | "wetland" | "grassland";
+
+export type AtlasDangerFilter = "all" | "venomous" | "harmless";
+
+export type SpeciesAtlasMeta = {
+  group: AnimalGroup;
+  habitats: HabitatTag[];
+};
+
+export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
+  "vipera-dinniki": {
+    group: "snake",
+    habitats: ["mountain", "forest"],
+  },
+  "macrovipera-lebetina": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "vipera-kaznakovi": {
+    group: "snake",
+    habitats: ["forest", "mountain", "wetland"],
+  },
+  "vipera-ammodytes": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "coronella-austriaca": {
+    group: "snake",
+    habitats: ["forest", "mountain", "grassland"],
+  },
+  "elaphe-urartica": {
+    group: "snake",
+    habitats: ["grassland", "forest"],
+  },
+  "natrix-tessellata": {
+    group: "snake",
+    habitats: ["wetland"],
+  },
+  "natrix-natrix": {
+    group: "snake",
+    habitats: ["wetland", "forest"],
+  },
+  "dolichophis-schmidti": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "platyceps-najadum": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "telescopus-fallax": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "pseudopus-apodus": {
+    group: "lizard",
+    habitats: ["grassland", "forest", "mountain"],
+  },
+};
+
+export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
+  return (
+    speciesAtlasMeta[id] ?? {
+      group: "snake",
+      habitats: ["forest"],
+    }
+  );
+}
+
+export function isVenomousDanger(danger: DangerLevel) {
+  return danger === "High" || danger === "Moderate";
+}
+
+export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
+  const urls = new Set<string>();
+  for (const item of catalog) {
+    if (item.image) urls.add(item.image);
+    if (item.mobileImage) urls.add(item.mobileImage);
+    for (const photo of item.gallery) {
+      urls.add(photo.src);
+    }
+  }
+  return urls.size;
+}
+
+export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
+  const byGroup: Record<AnimalGroup, number> = {
+    snake: 0,
+    lizard: 0,
+    turtle: 0,
+    amphibian: 0,
+  };
+
+  for (const item of catalog) {
+    byGroup[getSpeciesAtlasMeta(item.id).group] += 1;
+  }
+
+  const updatedDates = catalog
+    .map((item) => item.updatedAt)
+    .filter(Boolean)
+    .sort();
+
+  return {
+    total: catalog.length,
+    snakes: byGroup.snake,
+    lizards: byGroup.lizard,
+    turtles: byGroup.turtle,
+    amphibians: byGroup.amphibian,
+    regions: regions.length,
+    photos: getAtlasPhotoCount(catalog),
+    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
+    lastUpdated: updatedDates.at(-1) ?? null,
+  };
+}
+
+export function getRecentlyUpdatedSpecies(limit = 4) {
+  return [...getCatalogSpecies()]
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+    .slice(0, limit);
+}
+
+export function getAtlasPhotographers(catalog: Species[] = getCatalogSpecies()) {
+  const names = new Set<string>();
+  for (const item of catalog) {
+    if (item.imageCredit?.photographer) {
+      names.add(item.imageCredit.photographer);
+    }
+    if (item.mobileImageCredit?.photographer) {
+      names.add(item.mobileImageCredit.photographer);
+    }
+    for (const photo of item.gallery) {
+      if (photo.credit?.photographer) {
+        names.add(photo.credit.photographer);
+      }
+    }
+  }
+  return [...names].sort((a, b) => a.localeCompare(b));
+}
+
+export type AtlasFilters = {
+  group: AnimalGroup | "all";
+  danger: AtlasDangerFilter;
+  habitat: HabitatTag | "all";
+  region: string | "all";
+  query: string;
+};
+
+export const defaultAtlasFilters: AtlasFilters = {
+  group: "all",
+  danger: "all",
+  habitat: "all",
+  region: "all",
+  query: "",
+};
+
+export function filterAtlasSpecies(
+  catalog: Array<Species & { searchText?: string }>,
+  filters: AtlasFilters,
+): Species[] {
+  const q = filters.query.trim().toLowerCase();
+
+  return catalog.filter((item) => {
+    const meta = getSpeciesAtlasMeta(item.id);
+
+    if (filters.group !== "all" && meta.group !== filters.group) {
+      return false;
+    }
+
+    if (filters.danger === "venomous" && !isVenomousDanger(item.danger)) {
+      return false;
+    }
+    if (filters.danger === "harmless" && isVenomousDanger(item.danger)) {
+      return false;
+    }
+
+    if (
+      filters.habitat !== "all" &&
+      !meta.habitats.includes(filters.habitat)
+    ) {
+      return false;
+    }
+
+    if (filters.region !== "all") {
+      const inRegion = getRegionsForSpecies(item.id).some(
+        (region) => region.id === filters.region,
+      );
+      if (!inRegion) return false;
+    }
+
+    if (q) {
+      const haystack =
+        item.searchText ??
+        [
+          item.commonName,
+          item.scientificName,
+          item.genus,
+          item.family,
+          item.location,
+          item.description,
+        ]
+          .join(" ")
+          .toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+
+    return true;
+  });
+}
+
+export function parseAtlasFilters(
+  input: Record<string, string | string[] | undefined>,
+): AtlasFilters {
+  const read = (key: string) => {
+    const value = input[key];
+    return typeof value === "string" ? value : Array.isArray(value) ? value[0] : undefined;
+  };
+
+  const group = read("type");
+  const danger = read("danger");
+  const habitat = read("habitat");
+  const region = read("region");
+  const query = read("q") ?? "";
+
+  const groups: Array<AnimalGroup | "all"> = [
+    "all",
+    "snake",
+    "lizard",
+    "turtle",
+    "amphibian",
+  ];
+  const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];
+  const habitats: Array<HabitatTag | "all"> = [
+    "all",
+    "forest",
+    "mountain",
+    "wetland",
+    "grassland",
+  ];
+
+  return {
+    group: groups.includes(group as AnimalGroup | "all")
+      ? (group as AnimalGroup | "all")
+      : "all",
+    danger: dangers.includes(danger as AtlasDangerFilter)
+      ? (danger as AtlasDangerFilter)
+      : "all",
+    habitat: habitats.includes(habitat as HabitatTag | "all")
+      ? (habitat as HabitatTag | "all")
+      : "all",
+    region:
+      region &&
+      (region === "all" || regions.some((item) => item.id === region))
+        ? region
+        : "all",
+    query,
+  };
+}
+
+export function atlasFiltersToSearchParams(filters: AtlasFilters) {
+  const params = new URLSearchParams();
+  if (filters.group !== "all") params.set("type", filters.group);
+  if (filters.danger !== "all") params.set("danger", filters.danger);
+  if (filters.habitat !== "all") params.set("habitat", filters.habitat);
+  if (filters.region !== "all") params.set("region", filters.region);
+  if (filters.query.trim()) params.set("q", filters.query.trim());
+  return params;
+}

@@ -45,13 +45,15 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
             {t("speciesCount", { count: region.speciesIds.length })}
           </p>
           {species.length > 0 ? (
-            <ul className="mt-2.5 space-y-1 border-t border-border/70 pt-2.5">
+            <ul className="mt-2.5 space-y-1.5 border-t border-border/70 pt-2.5">
               {species.map((item) => (
-                <li
-                  key={item.id}
-                  className="truncate text-[12px] italic leading-snug text-foreground/70"
-                >
-                  {item.scientificName}
+                <li key={item.id} className="leading-snug">
+                  <p className="truncate text-[12px] font-medium text-foreground/80">
+                    {item.commonName}
+                  </p>
+                  <p className="truncate text-[11px] italic text-muted-foreground">
+                    {item.scientificName}
+                  </p>
                 </li>
               ))}
             </ul>
