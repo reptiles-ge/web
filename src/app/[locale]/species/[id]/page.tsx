@@ -1,7 +1,7 @@
 import { JsonLd } from "@/components/JsonLd";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import {
-  featuredSpeciesIds,
+  catalogSpeciesIds,
   getFeaturedSpecies,
   getSpeciesById,
 } from "@/data/species";
@@ -26,7 +26,7 @@ type PageProps = {
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
-    featuredSpeciesIds.map((id) => ({ locale, id })),
+    catalogSpeciesIds.map((id) => ({ locale, id })),
   );
 }
 

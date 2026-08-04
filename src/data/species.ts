@@ -1054,11 +1054,15 @@ export const featuredSpeciesIds = [
   "macrovipera-lebetina",
   "vipera-kaznakovi",
   "vipera-ammodytes",
-  "pseudopus-apodus",
   "coronella-austriaca",
   "elaphe-urartica",
   "natrix-tessellata",
   "dolichophis-schmidti",
+] as const;
+
+export const catalogSpeciesIds = [
+  ...featuredSpeciesIds,
+  "pseudopus-apodus",
   "hogna-radiata",
 ] as const;
 
@@ -1068,6 +1072,12 @@ export function getSpeciesById(id: string) {
 
 export function getFeaturedSpecies() {
   return featuredSpeciesIds
+    .map((id) => getSpeciesById(id))
+    .filter((item): item is Species => Boolean(item));
+}
+
+export function getCatalogSpecies() {
+  return catalogSpeciesIds
     .map((id) => getSpeciesById(id))
     .filter((item): item is Species => Boolean(item));
 }
