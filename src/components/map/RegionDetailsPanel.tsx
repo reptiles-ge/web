@@ -5,9 +5,10 @@ import type { Region } from "@/data/regions";
 import { getRegionSpecies, localizeRegionText } from "@/data/regions";
 import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { AnimatePresence, motion } from "framer-motion";
-import { Leaf, X } from "lucide-react";
+import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
@@ -129,6 +130,13 @@ function PanelContent({
           >
             {localizeRegionText(region.name, locale)}
           </h2>
+          <Link
+            href={`/regions/${region.id}`}
+            className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+          >
+            {t("viewRegion")}
+            <ArrowUpRight className="size-3.5" />
+          </Link>
         </div>
         <button
           type="button"

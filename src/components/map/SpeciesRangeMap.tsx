@@ -3,6 +3,7 @@
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
+import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
@@ -30,10 +31,6 @@ export function SpeciesRangeMap({
   );
 
   if (highlightedIds.length === 0) return null;
-
-  const regionNames = rangeRegions
-    .map((region) => localizeRegionText(region.name, locale))
-    .join(locale === "ka" ? " · " : " · ");
 
   return (
     <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
@@ -63,9 +60,26 @@ export function SpeciesRangeMap({
           />
         </div>
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-[13px] leading-relaxed tracking-wide text-muted-foreground/90">
-          {regionNames}
-        </p>
+        <nav
+          aria-label={t("rangeRegionsLabel")}
+          className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-x-1 gap-y-2"
+        >
+          {rangeRegions.map((region, index) => (
+            <span key={region.id} className="inline-flex items-center">
+              {index > 0 ? (
+                <span className="mr-1 text-muted-foreground/50" aria-hidden>
+                  ·
+                </span>
+              ) : null}
+              <Link
+                href={`/regions/${region.id}`}
+                className="text-[13px] leading-relaxed tracking-wide text-muted-foreground transition-colors hover:text-primary"
+              >
+                {localizeRegionText(region.name, locale)}
+              </Link>
+            </span>
+          ))}
+        </nav>
       </div>
     </section>
   );
