@@ -10,6 +10,7 @@ import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
+import { SpeciesSources } from "@/components/SpeciesSources";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   resolvePhotoCredit,
@@ -17,6 +18,7 @@ import {
   type Species,
 } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { formatContentDate } from "@/lib/formatDate";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -146,6 +148,9 @@ export function SpeciesProfile({
               <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
                 {species.commonName}
               </h1>
+              <p className="mt-3 font-display text-[15px] italic tracking-wide text-white/55 sm:text-[17px]">
+                {species.scientificName}
+              </p>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
                 {species.description}
               </p>
@@ -156,6 +161,12 @@ export function SpeciesProfile({
                 </span>
                 <SpeciesDanger level={species.danger} variant="hero" />
               </div>
+              <p className="mt-5 text-[12px] tracking-wide text-white/40">
+                {t("lastUpdated")}{" "}
+                <time dateTime={species.updatedAt}>
+                  {formatContentDate(species.updatedAt, locale)}
+                </time>
+              </p>
             </Reveal>
           </div>
         </section>
@@ -256,6 +267,8 @@ export function SpeciesProfile({
         {species.faq && species.faq.length > 0 ? (
           <SpeciesFaqSection items={species.faq} name={species.commonName} />
         ) : null}
+
+        <SpeciesSources sources={species.sources} />
 
         {related.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">

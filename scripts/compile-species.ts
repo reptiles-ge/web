@@ -1,13 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import type {
-  DangerLevel,
-  GalleryImage,
-  PhotoCredit,
-  Species,
-  SpeciesFaq,
-  SpeciesStat,
+import {
+  defaultSpeciesSources,
+  type DangerLevel,
+  type GalleryImage,
+  type PhotoCredit,
+  type Species,
+  type SpeciesFaq,
+  type SpeciesSource,
+  type SpeciesStat,
 } from "../src/data/species";
 
 const contentRoot = path.join(process.cwd(), "src/content/species");
@@ -35,9 +37,43 @@ type SpeciesFrontmatter = {
   stats: SpeciesStat[];
   facts: string[];
   faq?: SpeciesFaq[];
+  updatedAt?: string;
+  sources?: SpeciesSource[];
 };
 
-function readSpeciesMdx(filePath: string): Species {
+function toIsoDate(value: Date): string {
+  return value.toISOString().slice(0, 10);
+}
+
+function resolveUpdatedAt(
+  frontmatterDate: string | undefined,
+  filePaths: string[],
+): string {
+  if (frontmatterDate) {
+    const parsed = new Date(frontmatterDate);
+    if (Number.isNaN(parsed.getTime())) {
+      throw new Error(`Invalid updatedAt date: ${frontmatterDate}`);
+    }
+    return toIsoDate(parsed);
+  }
+
+  let latest = 0;
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) continue;
+    latest = Math.max(latest, fs.statSync(filePath).mtimeMs);
+  }
+
+  if (latest === 0) {
+    throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
+  }
+
+  return toIsoDate(new Date(latest));
+}
+
+function readSpeciesMdx(
+  filePath: string,
+  options?: { updatedAt?: string; sources?: SpeciesSource[] },
+): Species {
   const raw = fs.readFileSync(filePath, "utf8");
   const { data } = matter(raw);
   const fm = data as SpeciesFrontmatter;
@@ -70,6 +106,12 @@ function readSpeciesMdx(filePath: string): Species {
     stats: fm.stats ?? [],
     facts: fm.facts ?? [],
     ...(fm.faq ? { faq: fm.faq } : {}),
+    updatedAt: options?.updatedAt ?? fm.updatedAt ?? toIsoDate(new Date()),
+    sources:
+      options?.sources ??
+      (fm.sources && fm.sources.length > 0
+        ? fm.sources
+        : defaultSpeciesSources),
   };
 }
 
@@ -110,14 +152,21 @@ for (const id of ids) {
     throw new Error(`Missing ka.mdx for species: ${id}`);
   }
 
-  const ka = readSpeciesMdx(kaPath);
+  const rawKa = matter(fs.readFileSync(kaPath, "utf8")).data as SpeciesFrontmatter;
+  const updatedAt = resolveUpdatedAt(rawKa.updatedAt, [kaPath, enPath]);
+  const sources =
+    rawKa.sources && rawKa.sources.length > 0
+      ? rawKa.sources
+      : defaultSpeciesSources;
+
+  const ka = readSpeciesMdx(kaPath, { updatedAt, sources });
   if (ka.id !== id) {
     throw new Error(`Folder/id mismatch: folder=${id} frontmatter=${ka.id}`);
   }
   species.push(ka);
 
   if (fs.existsSync(enPath)) {
-    speciesEn[id] = toTranslation(readSpeciesMdx(enPath));
+    speciesEn[id] = toTranslation(readSpeciesMdx(enPath, { updatedAt, sources }));
   }
 }
 

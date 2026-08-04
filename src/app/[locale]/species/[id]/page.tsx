@@ -77,6 +77,7 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title,
       description,
+      modifiedTime: raw.updatedAt,
       images: [
         {
           url: cdnOgImageUrl(item.id),
@@ -132,6 +133,7 @@ export default async function SpeciesPage({ params }: PageProps) {
     headline: `${item.commonName} (${item.scientificName})`,
     description: item.description,
     image: [ogImage, ...galleryImages],
+    dateModified: raw.updatedAt,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": pageUrl,
@@ -150,6 +152,18 @@ export default async function SpeciesPage({ params }: PageProps) {
         url: "https://cdn.reptiles.ge/logo.webp",
       },
     },
+    citation: raw.sources.map((source) =>
+      source.url
+        ? {
+            "@type": "CreativeWork",
+            name: source.name,
+            url: source.url,
+          }
+        : {
+            "@type": "CreativeWork",
+            name: source.name,
+          },
+    ),
     inLanguage: locale,
     about: {
       "@type": "Taxon",

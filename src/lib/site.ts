@@ -27,6 +27,8 @@ export const siteConfig = {
     "Eastern kingsnake",
     "წენგოსფერი მცურავი",
     "Platyceps najadum",
+    "კატისთვალა",
+    "Telescopus fallax",
     "ენციკლოპედია",
     "ბიოლოგია",
     "კონსერვაცია",

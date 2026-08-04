@@ -95,6 +95,24 @@ export const species: Species[] = [
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი."
       }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
+      }
     ]
   },
   {
@@ -188,6 +206,24 @@ export const species: Species[] = [
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 5–11 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   },
@@ -283,6 +319,24 @@ export const species: Species[] = [
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი დებს რამდენიმე კვერცხს (ჩვეულებრივ დაახლოებით 4–16). ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
+      }
     ]
   },
   {
@@ -376,6 +430,24 @@ export const species: Species[] = [
       {
         "question": "როგორ მრავლდება?",
         "answer": "შეწყვილება შემოდგომაზეა. მდედრი კვერცხის კოკონს არაღრმა თავშესაფარში აკეთებს; ახალგაზრდები ზამთარს დედასთან ატარებენ (ხშირად ზურგზე) და გაზაფხულზე იფანტებიან."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   },
@@ -471,6 +543,24 @@ export const species: Species[] = [
         "question": "როგორ მრავლდება?",
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დებს დაახლოებით 3–24 კვერცხს, რომლებიც დაახლოებით 60–75 დღეში იჩეკება."
       }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
+      }
     ]
   },
   {
@@ -561,6 +651,24 @@ export const species: Species[] = [
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   },
@@ -656,6 +764,24 @@ export const species: Species[] = [
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. შეწყვილება მარტ–მაისშია; ივლისში დებს დაახლოებით 10–30 კვერცხს, ნაშიერები იჩეკებიან სექტემბრის დასაწყისში."
       }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
+      }
     ]
   },
   {
@@ -749,6 +875,24 @@ export const species: Species[] = [
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   },
@@ -844,6 +988,172 @@ export const species: Species[] = [
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. ჩვეულებრივ დებს დაახლოებით 8–10 კვერცხს (საქართველოში ხშირად ივნის–ივლისში); ნაშიერები იჩეკებიან დაახლოებით 45–55 დღეში."
       }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
+      }
+    ]
+  },
+  {
+    "id": "telescopus-fallax",
+    "commonName": "კატისთვალა",
+    "scientificName": "Telescopus fallax",
+    "genus": "Telescopus",
+    "family": "Colubridae",
+    "location": "აღმოსავლეთ და სამხრეთ საქართველო",
+    "description": "ბინდისა და ღამის უკანა კბილებიანი გველი ვერტიკალური გუგით — კატის თვალს მოგვაგონებს; ადამიანისთვის უვნებელი, მშრალი ქვიანი ადგილების მკვიდრი.",
+    "overview": "კატისთვალა (Telescopus fallax) Colubridae ოჯახის უკანა კბილებიანი (ოპისტოგლიფური) სახეობაა — ინგლისურად European / Mediterranean cat snake. აღწერა ფრიდრიხ ლუდვიგ ფლაიშმანმა 1831 წელს (თავდაპირველად Tarbophis fallax); ტიპის ლოკალობა — დალმაცია და ისტრია. გავრცელებულია სამხრეთ-აღმოსავლეთ ევროპიდან დასავლეთ აზიამდე — ბალკანები, თურქეთი, ახლო აღმოსავლეთი და კავკასია. საქართველოში ცნობილია აღმოსავლეთისა და სამხრეთის მშრალ ლანდშაფტებში; კავკასიურ ქვესახეობას (T. f. iberus) ტიპის ლოკალობად აქვს თბილისი („Tiflis“). სახელი მოდის ვერტიკალური, კატისებრი გუგიდან. სიგრძე ჩვეულებრივ დაახლ. 60–100 სმ (მაქსიმუმი ~1 მ). IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
+    "habitat": "უპირატესობას ანიჭებს მშრალ, ქვიან და კლდოვან ადგილებს: ქვიან ფერდობებს, კლდის ნაპრალებს, ბუჩქნარს, ღია ტყის პირებს, ნანგრევებსა და ქვის ღობეებს — ზღვის დონიდან დაახლოებით 2,000 მ-მდე. საქართველოში უფრო ხშირია აღმოსავლეთისა და სამხრეთის ქსეროფიტულ ჰაბიტატებში. დღისით იმალება ქვების ქვეშ, ნაპრალებში ან ხის ქერქის ქვეშ; კარგად ცოცავს კლდეებსა და კედლებზე.",
+    "diet": "ძირითადად ხვლიკებითა და გეკონებით იკვებება; აგრეთვე იჭერს სხვა მცირე გველებს, ფრინველის ბარტყებსა და მცირე ძუძუმწოვრებს. მსხვერპლს სხეულის რგოლებით აფიქსირებს და უკანა შხამიანი კბილებით ასუსტებს — შხამი ნადირობისთვისაა და ადამიანისთვის პრაქტიკულად უვნებელია.",
+    "behavior": "ბინდისა და ღამის აქტიურია — დღისით იმალება, საღამოსა და ღამით ნადირობს. დამახასიათებელია დიდი თვალები ვერტიკალური გუგით (დღისით ვიწრო ნაპრალად იკუმშება). საფრთხისას უპირატესად გარბის ან იმალება; ადამიანისთვის უვნებელია — უკანა კბილების მდებარეობა ადამიანის ეფექტურ დაშხამვას თითქმის შეუძლებელს ხდის. კვერცხისმდებია: დედალი დებს დაახლოებით 4–12 კვერცხს (ლიტერატურაში ხშირად 6–9).",
+    "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — არეგულირებს ხვლიკებისა და მცირე მღრღნელების რაოდენობას.",
+    "danger": "Harmless",
+    "image": "/images/telescopus-fallax.jpg",
+    "imageCredit": {
+      "photographer": "Benny Trapp",
+      "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
+    },
+    "mobileImage": "/images/telescopus-fallax-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Maurice Flesier",
+      "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_on_the_Olive_tree.jpg"
+    },
+    "gallery": [
+      {
+        "src": "/images/telescopus-fallax.jpg",
+        "credit": {
+          "photographer": "Benny Trapp",
+          "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-2.jpg",
+        "credit": {
+          "photographer": "Terry Caselli",
+          "url": "https://commons.wikimedia.org/wiki/File:Cat_Snake_(Telescopus_Fallax).jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-3.jpg",
+        "credit": {
+          "photographer": "Jeffrey Sciberras",
+          "url": "https://commons.wikimedia.org/wiki/File:Mediterranean_Cat_Snake.jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-4.jpg",
+        "credit": {
+          "photographer": "Berkay353",
+          "url": "https://commons.wikimedia.org/wiki/File:Kedig%C3%B6zl%C3%BCy%C4%B1lan.jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-5.jpg",
+        "credit": {
+          "photographer": "Ryan van Huyssteen",
+          "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_282392348.jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-6.jpg",
+        "credit": {
+          "photographer": "Christian Formosa",
+          "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_(with_prey).jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-7.jpg",
+        "credit": {
+          "photographer": "Kiril Kapustin",
+          "url": "https://commons.wikimedia.org/wiki/File:Teleskopus_fallax_20.JPG"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "მშრალი ქვიანი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 60–100 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "უკანა კბილები — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "0–2,000 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "სახელი კატისთვალა მოდის ვერტიკალური გუგიდან — დღისით ის კატის თვალივით ვიწრო ნაპრალად იკუმშება.",
+      "უკანა კბილებიანი შხამი აქვს, მაგრამ ადამიანისთვის უვნებელია — კბილები პირის უკანაა და ეფექტურ დაშხამვას თითქმის შეუძლებელს ხდის.",
+      "კავკასიური ქვესახეობის (T. f. iberus) ტიპის ლოკალობა თბილისია — სახელი iberus ძველ ქართულ იბერიას უკავშირდება და არა პირენეების ნახევარკუნძულს.",
+      "ბინდისა და ღამის მონადირეა — დღისით იმალება, საღამოსა და ღამით ხვლიკებსა და გეკონებს იჭერს."
+    ],
+    "faq": [
+      {
+        "question": "საშიშია თუ არა კატისთვალა ადამიანისთვის?",
+        "answer": "არა — ადამიანისთვის უვნებელია. უკანა კბილებიანი შხამი აქვს, მაგრამ კბილები პირის უკანაა და ადამიანის ეფექტურ დაშხამვას თითქმის შეუძლებელს ხდის; შხამი ძირითადად მცირე მსხვერპლისთვისაა."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან ლანდშაფტებში — კახეთში, ქართლში, სამცხე–ჯავახეთსა და მსგავს ჰაბიტატებში. ვერტიკალურად გვხვდება ზღვის დონიდან დაახლოებით 2,000 მ-მდე."
+      },
+      {
+        "question": "რატომ ჰქვია კატისთვალა?",
+        "answer": "თვალის გუგა სინათლეზე ვერტიკალურად იკუმშება და კატისას მოგვაგონებს — აქედან მოდის როგორც ქართული, ისე ინგლისური სახელი (cat snake)."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად ხვლიკებსა და გეკონებს; აგრეთვე მცირე გველებს, ფრინველის ბარტყებსა და მცირე ძუძუმწოვრებს. ნადირობს ბინდსა და ღამით."
+      },
+      {
+        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 4–12 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
+      }
     ]
   },
   {
@@ -934,6 +1244,24 @@ export const species: Species[] = [
       {
         "question": "რატომ არის დაცული საქართველოში?",
         "answer": "გლობალურად IUCN სტატუსი Least Concern-ია, მაგრამ საქართველოში იშვიათია, პოპულაციები ფრაგმენტირებულია და შეტანილია წითელ წიგნში. მთავარი საფრთხეებია ჰაბიტატის გარდაქმნა და ადამიანის ზეწოლა."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   },
@@ -1027,6 +1355,24 @@ export const species: Species[] = [
       {
         "question": "რატომ არის მოწყვლადი სახეობა?",
         "answer": "არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია. სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა პოპულაციას ამცირებს; შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   },
@@ -1124,6 +1470,24 @@ export const species: Species[] = [
       {
         "question": "ცოცხლად შობს თუ კვერცხებს დებს?",
         "answer": "ცოცხლადმშობია. შეწყვილება გაზაფხულზეა; შემოდგომაზე, აგვისტო–სექტემბერში, ბადებს 5–10 ნაშიერს."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/"
+      },
+      {
+        "name": "Scientific publications"
       }
     ]
   }
@@ -1703,6 +2067,70 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. It usually lays roughly 8–10 eggs (in Georgia often in June–July); young hatch in roughly 45–55 days."
+      }
+    ]
+  },
+  "telescopus-fallax": {
+    "commonName": "European cat snake",
+    "location": "Eastern and southern Georgia",
+    "description": "A crepuscular and nocturnal rear-fanged snake with a vertical, cat-like pupil — native to dry, rocky landscapes.",
+    "overview": "The European cat snake (Telescopus fallax), also called the Mediterranean cat snake, is a rear-fanged (opisthoglyphous) species of the family Colubridae. It was described by Friedrich Ludwig Fleischmann in 1831 (originally as Tarbophis fallax); the type locality is Dalmatia and Istria. It ranges from southeastern Europe across western Asia — the Balkans, Turkey, the Middle East, and the Caucasus. In Georgia it is known from the dry landscapes of the east and south; the Caucasian subspecies (T. f. iberus) has its type locality at Tbilisi (“Tiflis”). The name refers to the vertical, cat-like pupil. Length is usually about 60–100 cm (up to roughly 1 m). It is classified as Least Concern by the IUCN.",
+    "habitat": "It favors dry, rocky terrain: stony slopes, rock crevices, scrub, open woodland edges, ruins, and dry-stone walls — from sea level to roughly 2,000 m. In Georgia it is more often found in the xeric habitats of the east and south. By day it shelters under stones, in crevices, or under bark; it climbs rocks and walls well.",
+    "diet": "It feeds mainly on lizards and geckos; it also takes other small snakes, nestling birds, and small mammals. It pins prey with body loops and subdues it with rear fangs — the venom is for hunting and is practically harmless to humans.",
+    "behavior": "It is crepuscular and nocturnal — it hides by day and hunts at dusk and at night. Distinctive large eyes have a vertical pupil (a narrow slit in bright light). When threatened it prefers to flee or hide; it is harmless to humans — the rear position of the fangs makes an effective envenoming bite almost impossible. It is egg-laying: females lay roughly 4–12 eggs (often 6–9 in the literature).",
+    "conservation": "Classified as Least Concern on the IUCN Red List. In Europe it is listed on Annex II of the Bern Convention and Annex IV of the EU Habitats Directive. Local threats include habitat conversion, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by regulating lizards and small rodents.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Dry rocky terrain"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 60–100 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "Rear-fanged — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Elevation",
+        "value": "0–2,000 m"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "The name cat snake comes from the vertical pupil — in daylight it contracts to a narrow slit like a cat’s eye.",
+      "It has rear-fanged venom, but it is harmless to humans — the fangs sit at the back of the mouth and make an effective bite almost impossible.",
+      "The type locality of the Caucasian subspecies (T. f. iberus) is Tbilisi — iberus refers to ancient Caucasian Iberia, not the Iberian Peninsula.",
+      "It is a dusk-and-night hunter — it hides by day and takes lizards and geckos after dark."
+    ],
+    "faq": [
+      {
+        "question": "Is the European cat snake dangerous to humans?",
+        "answer": "No — it is harmless to humans. It has rear-fanged venom, but the fangs sit at the back of the mouth and make an effective envenoming bite almost impossible; the venom is mainly for small prey."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "In the dry, rocky landscapes of the east and south — Kakheti, Kartli, Samtskhe–Javakheti, and similar habitats. Vertically it occurs from sea level to roughly 2,000 m."
+      },
+      {
+        "question": "Why is it called a cat snake?",
+        "answer": "In bright light the pupil contracts vertically and resembles a cat’s eye — the source of both the Georgian name კატისთვალა and the English name cat snake."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly lizards and geckos; also small snakes, nestling birds, and small mammals. It hunts at dusk and at night."
+      },
+      {
+        "question": "Does it lay eggs or give live birth?",
+        "answer": "It is egg-laying. The female lays roughly 4–12 eggs, and young hatch independently."
       }
     ]
   },

@@ -122,7 +122,11 @@
     "allSpecies": "All species",
     "range": "Distribution",
     "rangeTitle": "Where {name} lives in Georgia",
-    "rangeSubtitle": "Highlighted regions show where this species has been recorded."
+    "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
+    "lastUpdated": "Last updated",
+    "sourcesEyebrow": "References",
+    "sourcesTitle": "Sources & References",
+    "sourcesNote": "Species profiles are compiled from peer-reviewed literature and established biodiversity databases, and are reviewed as new taxonomic and conservation data become available."
   },
 
   "danger": {

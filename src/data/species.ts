@@ -22,6 +22,11 @@ export type GalleryImage = {
   credit?: PhotoCredit;
 };
 
+export type SpeciesSource = {
+  name: string;
+  url?: string;
+};
+
 export type Species = {
   id: string;
   commonName: string;
@@ -44,7 +49,27 @@ export type Species = {
   stats: SpeciesStat[];
   facts: string[];
   faq?: SpeciesFaq[];
+  updatedAt: string;
+  sources: SpeciesSource[];
 };
+
+export const defaultSpeciesSources: SpeciesSource[] = [
+  {
+    name: "IUCN Red List",
+    url: "https://www.iucnredlist.org/",
+  },
+  {
+    name: "GBIF",
+    url: "https://www.gbif.org/",
+  },
+  {
+    name: "The Reptile Database",
+    url: "https://reptile-database.reptarium.cz/",
+  },
+  {
+    name: "Scientific publications",
+  },
+];
 
 export type SpeciesTranslation = {
   commonName: string;
@@ -92,6 +117,7 @@ export const featuredSpeciesIds = [
   "natrix-tessellata",
   "dolichophis-schmidti",
   "platyceps-najadum",
+  "telescopus-fallax",
 ] as const;
 
 export const catalogSpeciesIds = [
