@@ -196,7 +196,13 @@ export const regions: Region[] = [
       ka: "ქალაქის მიმდებარე ხეობები, პარკები და მდინარის პირას არსებული ჰაბიტატები იშვიათად, მაგრამ მაინც მასპინძლობს რეპტილიებს.",
       en: "Suburban valleys, parks, and riverside habitats occasionally host reptiles within the capital.",
     },
-    speciesIds: ["macrovipera-lebetina"],
+    speciesIds: [
+      "macrovipera-lebetina",
+      "dolichophis-schmidti",
+      "pseudopus-apodus",
+      "coronella-austriaca",
+      "natrix-tessellata",
+    ],
     path: georgiaRegionPaths.tbilisi,
   },
 ];
