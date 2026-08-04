@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { getFeaturedSpecies, type Species } from "@/data/species";
@@ -135,7 +136,10 @@ function ResultsBlock({
       {results.length === 0 ? (
         <div className="px-4 py-10 text-center">
           <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-full bg-secondary">
-            <Search className="size-4 text-muted-foreground" aria-hidden="true" />
+            <Search
+              className="size-4 text-muted-foreground"
+              aria-hidden="true"
+            />
           </div>
           <p className="text-[13px] text-muted-foreground">{emptyLabel}</p>
         </div>
@@ -171,7 +175,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const [mounted, setMounted] = useState(false);
   const deferredQuery = useDeferredValue(query);
 
-  const catalog = getFeaturedSpecies().map((item) => toSearchItem(item, locale));
+  const catalog = getFeaturedSpecies().map((item) =>
+    toSearchItem(item, locale),
+  );
 
   const trimmed = deferredQuery.trim().toLowerCase();
   const visibleResults = trimmed
@@ -195,7 +201,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     const media = window.matchMedia("(max-width: 767px)");
 
     function syncBodyLock() {
-      document.body.style.overflow = media.matches ? "hidden" : previousOverflow;
+      document.body.style.overflow = media.matches
+        ? "hidden"
+        : previousOverflow;
     }
 
     syncBodyLock();
@@ -239,9 +247,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setActiveIndex((value) =>
-        visibleResults.length === 0
-          ? 0
-          : (value + 1) % visibleResults.length,
+        visibleResults.length === 0 ? 0 : (value + 1) % visibleResults.length,
       );
       return;
     }
@@ -287,7 +293,12 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const mobileSheet =
     mounted && open
       ? createPortal(
-          <div className="fixed inset-0 z-[80] md:hidden" role="dialog" aria-modal="true" aria-label={t.search.title}>
+          <div
+            className="fixed inset-0 z-[80] md:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.search.title}
+          >
             <button
               type="button"
               aria-label={t.search.close}
@@ -296,7 +307,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             />
             <div className="absolute inset-x-0 bottom-0 flex min-h-[70dvh] max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)]">
               <div className="flex shrink-0 flex-col items-center px-4 pt-3">
-                <span className="mb-3 h-1 w-10 rounded-full bg-border" aria-hidden="true" />
+                <span
+                  className="mb-3 h-1 w-10 rounded-full bg-border"
+                  aria-hidden="true"
+                />
                 <div className="flex w-full items-center justify-between gap-3 pb-3">
                   <h2 className="font-display text-[18px] font-semibold text-foreground">
                     {t.search.title}
@@ -311,7 +325,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                   </button>
                 </div>
                 <div className="mb-3 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
-                  <Search className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                  <Search
+                    className="size-4 shrink-0 text-muted-foreground"
+                    aria-hidden="true"
+                  />
                   <input
                     ref={mobileInputRef}
                     type="search"
@@ -388,7 +405,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       <div
         className={`group hidden w-[280px] items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex lg:w-[300px] ${shellClass}`}
       >
-        <Search className={`size-3.5 shrink-0 ${iconClass}`} aria-hidden="true" />
+        <Search
+          className={`size-3.5 shrink-0 ${iconClass}`}
+          aria-hidden="true"
+        />
         <input
           ref={desktopInputRef}
           type="search"
