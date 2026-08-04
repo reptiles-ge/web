@@ -67,6 +67,7 @@ export type Messages = {
     };
   };
   profile: {
+    back: string;
     overview: string;
     whoIs: string;
     biology: string;
@@ -82,11 +83,11 @@ export type Messages = {
     close: string;
     prevPhoto: string;
     nextPhoto: string;
-      faq: string;
-      faqTitle: string;
-      faqIntroBefore: string;
-      faqIntroAfter: string;
-    };
+    faq: string;
+    faqTitle: string;
+    faqIntroBefore: string;
+    faqIntroAfter: string;
+  };
   danger: {
     Harmless: string;
     Moderate: string;
@@ -191,6 +192,7 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     profile: {
+      back: "ყველა სახეობა",
       overview: "მიმოხილვა",
       whoIs: "ვინ არის",
       biology: "ბიოლოგია",
@@ -309,6 +311,7 @@ export const messages: Record<Locale, Messages> = {
       },
     },
     profile: {
+      back: "All species",
       overview: "Overview",
       whoIs: "Who is",
       biology: "Biology",

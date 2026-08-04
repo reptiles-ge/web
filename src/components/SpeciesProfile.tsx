@@ -8,7 +8,7 @@ import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { dangerClass, type Species } from "@/data/species";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import { MapPin } from "lucide-react";
+import { ArrowLeft, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
@@ -90,6 +90,13 @@ export function SpeciesProfile({ species: rawSpecies }: SpeciesProfileProps) {
         <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <Reveal>
+            <Link
+              href="/#species"
+              className="mb-6 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white"
+            >
+              <ArrowLeft className="size-3.5" aria-hidden="true" />
+              {t.profile.back}
+            </Link>
             <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
               {species.commonName}
             </h1>
