@@ -17,29 +17,201 @@ export type SpeciesAtlasMeta = {
 };
 
 export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
-  "vipera-dinniki": {
-    group: "snake",
+  "mertensiella-caucasica": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "lissotriton-lantzi": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "ommatotriton-ophryticus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "triturus-karelinii": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "pelobates-syriacus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "pelodytes-caucasicus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "bufotes-viridis": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "bufo-verrucosissimus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "hyla-orientalis": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "hyla-savignyi": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "rana-macrocnemis": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "pelophylax-ridibundus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "testudo-graeca": {
+    group: "turtle",
+    habitats: ["grassland"],
+  },
+  "emys-orbicularis": {
+    group: "turtle",
+    habitats: ["wetland"],
+  },
+  "trachemys-scripta": {
+    group: "turtle",
+    habitats: ["wetland"],
+  },
+  "mauremys-caspica": {
+    group: "turtle",
+    habitats: ["wetland"],
+  },
+  "tenuidactylus-caspius": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
+  },
+  "anguis-colchica": {
+    group: "lizard",
+    habitats: ["grassland", "forest", "mountain"],
+  },
+  "pseudopus-apodus": {
+    group: "lizard",
+    habitats: ["grassland", "forest", "mountain"],
+  },
+  "paralaudakia-caucasia": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
+  },
+  "eumeces-schneiderii": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
+  },
+  "ablepharus-pannonicus": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
+  },
+  "eremias-velox": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "eremias-arguta": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "ophisops-elegans": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "lacerta-agilis": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "lacerta-strigata": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "lacerta-media": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "phoenicolacerta-laevis": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "darevskia-adjarica": {
+    group: "lizard",
     habitats: ["mountain", "forest"],
   },
-  "macrovipera-lebetina": {
-    group: "snake",
-    habitats: ["grassland", "mountain"],
+  "darevskia-alpina": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
   },
-  "vipera-kaznakovi": {
-    group: "snake",
-    habitats: ["forest", "mountain", "wetland"],
+  "darevskia-armeniaca": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
   },
-  "vipera-ammodytes": {
-    group: "snake",
-    habitats: ["mountain", "grassland"],
+  "darevskia-brauneri": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
   },
-  "vipera-darevskii": {
-    group: "snake",
-    habitats: ["mountain", "grassland"],
+  "darevskia-caucasica": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
   },
-  "vipera-renardi": {
+  "darevskia-clarkorum": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-daghestanica": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-dahli": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-derjugini": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-mixta": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-portschinskii": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-praticola": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-pontica": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-obscura": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-raddei": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-valentini": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "xerotyphlops-vermicularis": {
     group: "snake",
-    habitats: ["grassland", "mountain"],
+    habitats: ["grassland"],
+  },
+  "eryx-jaculus": {
+    group: "snake",
+    habitats: ["grassland"],
+  },
+  "natrix-natrix": {
+    group: "snake",
+    habitats: ["wetland", "forest"],
+  },
+  "natrix-tessellata": {
+    group: "snake",
+    habitats: ["wetland"],
   },
   "coronella-austriaca": {
     group: "snake",
@@ -53,15 +225,23 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
-  "natrix-tessellata": {
+  "zamenis-longissimus": {
     group: "snake",
-    habitats: ["wetland"],
+    habitats: ["forest"],
   },
-  "natrix-natrix": {
+  "zamenis-hohenackeri": {
     group: "snake",
-    habitats: ["wetland", "forest"],
+    habitats: ["grassland", "mountain"],
   },
   "dolichophis-schmidti": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "dolichophis-caspius": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "hemorrhois-ravergieri": {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
@@ -69,13 +249,45 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
+  "eirenis-modestus": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "eirenis-collaris": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
   "telescopus-fallax": {
     group: "snake",
     habitats: ["mountain", "grassland"],
   },
-  "pseudopus-apodus": {
-    group: "lizard",
-    habitats: ["grassland", "forest", "mountain"],
+  "malpolon-insignitus": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "macrovipera-lebetina": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "vipera-renardi": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "vipera-kaznakovi": {
+    group: "snake",
+    habitats: ["forest", "mountain", "wetland"],
+  },
+  "vipera-dinniki": {
+    group: "snake",
+    habitats: ["mountain", "forest"],
+  },
+  "vipera-darevskii": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "vipera-ammodytes": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
   },
 };
 

@@ -4,6 +4,346 @@ import type { Species, SpeciesTranslation } from "./species";
 
 export const species: Species[] = [
   {
+    "id": "ablepharus-pannonicus",
+    "commonName": "შიშველთვალა სცინკი",
+    "scientificName": "Ablepharus pannonicus",
+    "genus": "Ablepharus",
+    "family": "Scincidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "შიშველთვალა სცინკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "შიშველთვალა სცინკი (Ablepharus pannonicus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Lichtenstein, 1823.\n"
+    ],
+    "identification": {
+      "summary": "შიშველთვალა სცინკი (Ablepharus pannonicus), ოჯახი Scincidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Scincidae\n",
+        "Lichtenstein, 1823\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Ablepharus pannonicus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Ablepharus pannonicus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Ablepharus&species=pannonicus"
+      }
+    ]
+  },
+  {
+    "id": "anguis-colchica",
+    "commonName": "კოლხური ბოხმეჭა",
+    "scientificName": "Anguis colchica",
+    "genus": "Anguis",
+    "family": "Anguidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კოლხური ბოხმეჭა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კოლხური ბოხმეჭა (Anguis colchica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Anguidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Nordmann, 1840.\n"
+    ],
+    "identification": {
+      "summary": "კოლხური ბოხმეჭა (Anguis colchica), ოჯახი Anguidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Anguidae\n",
+        "Nordmann, 1840\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Anguis colchica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Anguis colchica კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Anguis colchica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Anguis&species=colchica"
+      }
+    ]
+  },
+  {
+    "id": "bufo-verrucosissimus",
+    "commonName": "კავკასიური გომბეშო",
+    "scientificName": "Bufo verrucosissimus",
+    "genus": "Bufo",
+    "family": "Bufonidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური გომბეშო — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კავკასიური გომბეშო (Bufo verrucosissimus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Pallas, 1814.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური გომბეშო (Bufo verrucosissimus), ოჯახი Bufonidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Bufonidae\n",
+        "Pallas, 1814\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Bufo verrucosissimus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Bufo verrucosissimus კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Bufo verrucosissimus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Bufo&where-species=verrucosissimus"
+      }
+    ]
+  },
+  {
+    "id": "bufotes-viridis",
+    "commonName": "მწვანე გომბეშო",
+    "scientificName": "Bufotes viridis",
+    "genus": "Bufotes",
+    "family": "Bufonidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მწვანე გომბეშო — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "მწვანე გომბეშო (Bufotes viridis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Laurenti, 1768.\n"
+    ],
+    "identification": {
+      "summary": "მწვანე გომბეშო (Bufotes viridis), ოჯახი Bufonidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Bufonidae\n",
+        "Laurenti, 1768\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Bufotes viridis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Bufotes viridis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Bufotes&where-species=viridis"
+      }
+    ]
+  },
+  {
     "id": "coronella-austriaca",
     "commonName": "სპილენძა",
     "scientificName": "Coronella austriaca",
@@ -106,8 +446,12 @@ export const species: Species[] = [
         "answer": "კვერცხცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157284/0"
@@ -119,13 +463,1441 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Coronella&species=austriaca"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-adjarica",
+    "commonName": "აჭარული კლდის ხვლიკი",
+    "scientificName": "Darevskia adjarica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "აჭარული კლდის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აჭარული კლდის ხვლიკი (Darevskia adjarica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Smooth_snake"
+        "label": "სიგრძე",
+        "value": "See species account"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Darevsky & Eiselt, 1980.\n"
+    ],
+    "identification": {
+      "summary": "აჭარული კლდის ხვლიკი (Darevskia adjarica), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky & Eiselt, 1980\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia adjarica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia adjarica კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia adjarica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=adjarica"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-alpina",
+    "commonName": "აფხაზეთის კლდის ხვლიკი",
+    "scientificName": "Darevskia alpina",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "აფხაზეთის კლდის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აფხაზეთის კლდის ხვლიკი (Darevskia alpina) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Darevsky, 1967.\n"
+    ],
+    "identification": {
+      "summary": "აფხაზეთის კლდის ხვლიკი (Darevskia alpina), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky, 1967\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia alpina საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia alpina კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia alpina შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=alpina"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-armeniaca",
+    "commonName": "სომხური კლდის ხვლიკი",
+    "scientificName": "Darevskia armeniaca",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "სომხური კლდის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "სომხური კლდის ხვლიკი (Darevskia armeniaca) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "სომხური კლდის ხვლიკი (Darevskia armeniaca), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia armeniaca საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia armeniaca შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=armeniaca"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-brauneri",
+    "commonName": "ბრაუნერის კლდის ხვლიკი",
+    "scientificName": "Darevskia brauneri",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ბრაუნერის კლდის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "ბრაუნერის კლდის ხვლიკი (Darevskia brauneri) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "ბრაუნერის კლდის ხვლიკი (Darevskia brauneri), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia brauneri საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia brauneri კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia brauneri შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=brauneri"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-caucasica",
+    "commonName": "კავკასიონის ხვლიკი",
+    "scientificName": "Darevskia caucasica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიონის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კავკასიონის ხვლიკი (Darevskia caucasica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიონის ხვლიკი (Darevskia caucasica), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia caucasica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia caucasica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=caucasica"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-clarkorum",
+    "commonName": "ლაზური ხვლიკი",
+    "scientificName": "Darevskia clarkorum",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ლაზური ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ლაზური ხვლიკი (Darevskia clarkorum) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Darevsky & Vedmederja, 1977.\n"
+    ],
+    "identification": {
+      "summary": "ლაზური ხვლიკი (Darevskia clarkorum), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky & Vedmederja, 1977\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia clarkorum საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia clarkorum შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=clarkorum"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-daghestanica",
+    "commonName": "დაღესტნური ხვლიკი",
+    "scientificName": "Darevskia daghestanica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "დაღესტნური ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "დაღესტნური ხვლიკი (Darevskia daghestanica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Darevsky, 1967.\n"
+    ],
+    "identification": {
+      "summary": "დაღესტნური ხვლიკი (Darevskia daghestanica), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky, 1967\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia daghestanica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia daghestanica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=daghestanica"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-dahli",
+    "commonName": "დალის ხვლიკი",
+    "scientificName": "Darevskia dahli",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "დალის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "დალის ხვლიკი (Darevskia dahli) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Darevsky, 1957.\n"
+    ],
+    "identification": {
+      "summary": "დალის ხვლიკი (Darevskia dahli), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky, 1957\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia dahli საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia dahli შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=dahli"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-derjugini",
+    "commonName": "კავკასიური ტყის ხვლიკი",
+    "scientificName": "Darevskia derjugini",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური ტყის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კავკასიური ტყის ხვლიკი (Darevskia derjugini) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Nikolsky, 1898.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური ტყის ხვლიკი (Darevskia derjugini), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Nikolsky, 1898\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia derjugini საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia derjugini შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=derjugini"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-mixta",
+    "commonName": "კოლხური კლდის ხვლიკი",
+    "scientificName": "Darevskia mixta",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კოლხური კლდის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კოლხური კლდის ხვლიკი (Darevskia mixta) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "კოლხური კლდის ხვლიკი (Darevskia mixta), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia mixta საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia mixta შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=mixta"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-obscura",
+    "commonName": "მესხური კლდის ხვლიკი",
+    "scientificName": "Darevskia obscura",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მესხური კლდის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "მესხური კლდის ხვლიკი (Darevskia obscura) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Lantz & Cyrén, 1936.\n"
+    ],
+    "identification": {
+      "summary": "მესხური კლდის ხვლიკი (Darevskia obscura), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Lantz & Cyrén, 1936\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia obscura საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia obscura კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia obscura შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=obscura"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-pontica",
+    "commonName": "კოლხური მდელოს ხვლიკი",
+    "scientificName": "Darevskia pontica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კოლხური მდელოს ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კოლხური მდელოს ხვლიკი (Darevskia pontica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Lantz & Cyrén, 1918.\n"
+    ],
+    "identification": {
+      "summary": "კოლხური მდელოს ხვლიკი (Darevskia pontica), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Lantz & Cyrén, 1918\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia pontica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia pontica კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia pontica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=pontica"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-portschinskii",
+    "commonName": "მტკვრის ხვლიკი",
+    "scientificName": "Darevskia portschinskii",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მტკვრის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "მტკვრის ხვლიკი (Darevskia portschinskii) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Kessler, 1878.\n"
+    ],
+    "identification": {
+      "summary": "მტკვრის ხვლიკი (Darevskia portschinskii), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Kessler, 1878\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia portschinskii საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia portschinskii შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=portschinskii"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-praticola",
+    "commonName": "მდელოს ხვლიკი",
+    "scientificName": "Darevskia praticola",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მდელოს ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "მდელოს ხვლიკი (Darevskia praticola) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Eversmann, 1834.\n"
+    ],
+    "identification": {
+      "summary": "მდელოს ხვლიკი (Darevskia praticola), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Eversmann, 1834\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia praticola საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia praticola შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=praticola"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-raddei",
+    "commonName": "რადეს ხვლიკი",
+    "scientificName": "Darevskia raddei",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "რადეს ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "რადეს ხვლიკი (Darevskia raddei) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Boettger, 1892.\n"
+    ],
+    "identification": {
+      "summary": "რადეს ხვლიკი (Darevskia raddei), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Boettger, 1892\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia raddei საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia raddei შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=raddei"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-valentini",
+    "commonName": "ვალენტინის ხვლიკი",
+    "scientificName": "Darevskia valentini",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ვალენტინის ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ვალენტინის ხვლიკი (Darevskia valentini) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Boettger, 1892.\n"
+    ],
+    "identification": {
+      "summary": "ვალენტინის ხვლიკი (Darevskia valentini), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Boettger, 1892\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia valentini საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia valentini შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=valentini"
+      }
+    ]
+  },
+  {
+    "id": "dolichophis-caspius",
+    "commonName": "ყვითელმუცელა მცურავი",
+    "scientificName": "Dolichophis caspius",
+    "genus": "Dolichophis",
+    "family": "Colubridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ყვითელმუცელა მცურავი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "ყვითელმუცელა მცურავი (Dolichophis caspius) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "ხვლიკები და წვრილი ხერხემლიანები",
+    "behavior": "სწრაფი დღის მცურავი; უშხამო.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "Often over 1.5 m"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Gmelin, 1789.\n"
+    ],
+    "identification": {
+      "summary": "ყვითელმუცელა მცურავი (Dolichophis caspius), ოჯახი Colubridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Colubridae\n",
+        "Gmelin, 1789\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Dolichophis caspius საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Dolichophis caspius კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Dolichophis caspius შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Dolichophis&species=caspius"
       }
     ]
   },
@@ -232,8 +2004,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 5–11 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/164595/0"
@@ -245,13 +2021,172 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Dolichophis&species=schmidti"
+      }
+    ]
+  },
+  {
+    "id": "eirenis-collaris",
+    "commonName": "საყელოიანი ეირენისი",
+    "scientificName": "Eirenis collaris",
+    "genus": "Eirenis",
+    "family": "Colubridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "საყელოიანი ეირენისი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "საყელოიანი ეირენისი (Eirenis collaris) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "წვრილი უხერხემლოები",
+    "behavior": "ფარული ქვებისა და ნაგვის ქვეშ.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Dolichophis_schmidti"
+        "label": "სიგრძე",
+        "value": "Usually under 50 cm"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Ménétriés, 1832.\n"
+    ],
+    "identification": {
+      "summary": "საყელოიანი ეირენისი (Eirenis collaris), ოჯახი Colubridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Colubridae\n",
+        "Ménétriés, 1832\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eirenis collaris საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Eirenis collaris შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eirenis&species=collaris"
+      }
+    ]
+  },
+  {
+    "id": "eirenis-modestus",
+    "commonName": "წყნარი ეირენისი",
+    "scientificName": "Eirenis modestus",
+    "genus": "Eirenis",
+    "family": "Colubridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "წყნარი ეირენისი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "წყნარი ეირენისი (Eirenis modestus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "მწერები და წვრილი უხერხემლოები",
+    "behavior": "ფარული ქვების ქვეშ.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "Usually under 60 cm"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Martin, 1838.\n"
+    ],
+    "identification": {
+      "summary": "წყნარი ეირენისი (Eirenis modestus), ოჯახი Colubridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Colubridae\n",
+        "Martin, 1838\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eirenis modestus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Eirenis modestus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eirenis&species=modestus"
       }
     ]
   },
@@ -397,6 +2332,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157275/0"
       },
@@ -407,13 +2346,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Elaphe&species=dione"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Steppe_rat_snake"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -520,8 +2452,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი დებს რამდენიმე კვერცხს (ჩვეულებრივ დაახლოებით 4–16). ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "GBIF",
         "url": "https://www.gbif.org/species/10287547"
@@ -529,20 +2465,1021 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Elaphe&species=urartica"
+      }
+    ]
+  },
+  {
+    "id": "emys-orbicularis",
+    "commonName": "ჭაობის კუ",
+    "scientificName": "Emys orbicularis",
+    "genus": "Emys",
+    "family": "Emydidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ჭაობის კუ — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ჭაობის კუ (Emys orbicularis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "მტკნარი წყლის ჭაობები, ტბორები და ნელი წყლები საქართველოში — Tarkhnishvili et al. (2026).",
+    "diet": "წყლის უხერხემლოები, მცენარეული მასალა და წვრილი მსხვერპლი.",
+    "behavior": "დღის გათბობა და აქტივობა სახეობის მიხედვით.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Elaphe_urartica"
+        "label": "სიგრძე",
+        "value": "See species account"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "ჭაობის კუ (Emys orbicularis), ოჯახი Emydidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Emydidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Emys orbicularis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Emys orbicularis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Emys&species=orbicularis"
+      }
+    ]
+  },
+  {
+    "id": "eremias-arguta",
+    "commonName": "ფერადი ფსვენი",
+    "scientificName": "Eremias arguta",
+    "genus": "Eremias",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ფერადი ფსვენი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ფერადი ფსვენი (Eremias arguta) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Pallas, 1773.\n"
+    ],
+    "identification": {
+      "summary": "ფერადი ფსვენი (Eremias arguta), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Pallas, 1773\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eremias arguta საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Eremias arguta შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eremias&species=arguta"
+      }
+    ]
+  },
+  {
+    "id": "eremias-velox",
+    "commonName": "მარდი ფსვენი",
+    "scientificName": "Eremias velox",
+    "genus": "Eremias",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მარდი ფსვენი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "მარდი ფსვენი (Eremias velox) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Pallas, 1771.\n"
+    ],
+    "identification": {
+      "summary": "მარდი ფსვენი (Eremias velox), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Pallas, 1771\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eremias velox საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Eremias velox შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eremias&species=velox"
+      }
+    ]
+  },
+  {
+    "id": "eryx-jaculus",
+    "commonName": "დასავლური მახრჩობელა",
+    "scientificName": "Eryx jaculus",
+    "genus": "Eryx",
+    "family": "Boidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "დასავლური მახრჩობელა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "დასავლური მახრჩობელა (Eryx jaculus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "წვრილი ხვლიკები და მღრღნელები",
+    "behavior": "მიწაში ბურღავს; ძირითადად ბინდისა და ღამის აქტივობა.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "Usually under 80 cm"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Boidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "დასავლური მახრჩობელა (Eryx jaculus), ოჯახი Boidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Boidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eryx jaculus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Eryx jaculus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eryx&species=jaculus"
+      }
+    ]
+  },
+  {
+    "id": "eumeces-schneiderii",
+    "commonName": "გრძელფეხა სცინკი",
+    "scientificName": "Eumeces schneiderii",
+    "genus": "Eumeces",
+    "family": "Scincidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "გრძელფეხა სცინკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "გრძელფეხა სცინკი (Eumeces schneiderii) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Daudin, 1802.\n"
+    ],
+    "identification": {
+      "summary": "გრძელფეხა სცინკი (Eumeces schneiderii), ოჯახი Scincidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Scincidae\n",
+        "Daudin, 1802\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eumeces schneiderii საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Eumeces schneiderii შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eumeces&species=schneiderii"
+      }
+    ]
+  },
+  {
+    "id": "hemorrhois-ravergieri",
+    "commonName": "ნაირფერი მცურავი",
+    "scientificName": "Hemorrhois ravergieri",
+    "genus": "Hemorrhois",
+    "family": "Colubridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ნაირფერი მცურავი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ნაირფერი მცურავი (Hemorrhois ravergieri) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "ხვლიკები და წვრილი ხერხემლიანები",
+    "behavior": "დღისით აქტიური და მოქნილი.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "Typically under 1.2 m"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Ménétriés, 1832.\n"
+    ],
+    "identification": {
+      "summary": "ნაირფერი მცურავი (Hemorrhois ravergieri), ოჯახი Colubridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Colubridae\n",
+        "Ménétriés, 1832\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Hemorrhois ravergieri საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Hemorrhois ravergieri შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Hemorrhois&species=ravergieri"
+      }
+    ]
+  },
+  {
+    "id": "hyla-orientalis",
+    "commonName": "აღმოსავლური ვასაკა",
+    "scientificName": "Hyla orientalis",
+    "genus": "Hyla",
+    "family": "Hylidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "აღმოსავლური ვასაკა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აღმოსავლური ვასაკა (Hyla orientalis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Bedriaga, 1890.\n"
+    ],
+    "identification": {
+      "summary": "აღმოსავლური ვასაკა (Hyla orientalis), ოჯახი Hylidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Hylidae\n",
+        "Bedriaga, 1890\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Hyla orientalis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Hyla orientalis კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Hyla orientalis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Hyla&where-species=orientalis"
+      }
+    ]
+  },
+  {
+    "id": "hyla-savignyi",
+    "commonName": "მცირეაზიური ვასაკა",
+    "scientificName": "Hyla savignyi",
+    "genus": "Hyla",
+    "family": "Hylidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მცირეაზიური ვასაკა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "მცირეაზიური ვასაკა (Hyla savignyi) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Audouin, 1827.\n"
+    ],
+    "identification": {
+      "summary": "მცირეაზიური ვასაკა (Hyla savignyi), ოჯახი Hylidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Hylidae\n",
+        "Audouin, 1827\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Hyla savignyi საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Hyla savignyi შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Hyla&where-species=savignyi"
+      }
+    ]
+  },
+  {
+    "id": "lacerta-agilis",
+    "commonName": "მარდი ხვლიკი",
+    "scientificName": "Lacerta agilis",
+    "genus": "Lacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "მარდი ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "მარდი ხვლიკი (Lacerta agilis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "მარდი ხვლიკი (Lacerta agilis), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lacerta agilis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Lacerta agilis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=agilis"
+      }
+    ]
+  },
+  {
+    "id": "lacerta-media",
+    "commonName": "კავკასიური მწვანე ხვლიკი",
+    "scientificName": "Lacerta media",
+    "genus": "Lacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური მწვანე ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კავკასიური მწვანე ხვლიკი (Lacerta media) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Lantz & Cyrén, 1920.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური მწვანე ხვლიკი (Lacerta media), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Lantz & Cyrén, 1920\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lacerta media საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Lacerta media კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Lacerta media შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=media"
+      }
+    ]
+  },
+  {
+    "id": "lacerta-strigata",
+    "commonName": "ზოლიანი ხვლიკი",
+    "scientificName": "Lacerta strigata",
+    "genus": "Lacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ზოლიანი ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ზოლიანი ხვლიკი (Lacerta strigata) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Eichwald, 1831.\n"
+    ],
+    "identification": {
+      "summary": "ზოლიანი ხვლიკი (Lacerta strigata), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Eichwald, 1831\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lacerta strigata საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Lacerta strigata შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=strigata"
+      }
+    ]
+  },
+  {
+    "id": "lissotriton-lantzi",
+    "commonName": "კავკასიური ჩვეულებრივი ტრიტონი",
+    "scientificName": "Lissotriton lantzi",
+    "genus": "Lissotriton",
+    "family": "Salamandridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური ჩვეულებრივი ტრიტონი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კავკასიური ჩვეულებრივი ტრიტონი (Lissotriton lantzi) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Wolterstorff, 1914.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური ჩვეულებრივი ტრიტონი (Lissotriton lantzi), ოჯახი Salamandridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Salamandridae\n",
+        "Wolterstorff, 1914\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lissotriton lantzi საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Lissotriton lantzi კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Lissotriton lantzi შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Lissotriton&where-species=lantzi"
       }
     ]
   },
   {
     "id": "macrovipera-lebetina",
     "commonName": "გიურზა",
-    "scientificName": "Macrovipera lebetina",
+    "scientificName": "Macrovipera lebetinus",
     "genus": "Macrovipera",
     "family": "Viperidae",
     "location": "აღმოსავლეთ საქართველო",
@@ -636,8 +3573,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157295/0"
@@ -649,13 +3590,259 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Macrovipera&species=lebetinus"
+      }
+    ]
+  },
+  {
+    "id": "malpolon-insignitus",
+    "commonName": "აღმოსავლური ხვლიკიჭამია გველი",
+    "scientificName": "Malpolon insignitus",
+    "genus": "Malpolon",
+    "family": "Psammophiidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "აღმოსავლური ხვლიკიჭამია გველი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026). ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აღმოსავლური ხვლიკიჭამია გველი (Malpolon insignitus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. Tarkhnishvili et al. (2026) კანდიდატ სახეობის სტატუსს ანიჭებს დამატებითი ინტეგრაციული ვალიდაციის მოლოდინში. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "ძირითადად ხვლიკები",
+    "behavior": "დღის უკანა შხამკბილებიანი მონადირე.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Moderate",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Macrovipera_lebetinus"
+        "label": "სიგრძე",
+        "value": "Often over 1.5 m"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "Mild (rear-fanged)"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Psammophiidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: candidate.\n",
+      "ავტორი: Geoffroy Saint-Hilaire, 1827.\n"
+    ],
+    "identification": {
+      "summary": "აღმოსავლური ხვლიკიჭამია გველი (Malpolon insignitus), ოჯახი Psammophiidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Psammophiidae\n",
+        "Geoffroy Saint-Hilaire, 1827\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Malpolon insignitus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "რატომ არის Malpolon insignitus კანდიდატი სახეობა?\n",
+        "answer": "Tarkhnishvili et al. (2026) კანდიდატ სტატუსს იყენებს, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Malpolon insignitus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Moderate. შხამი: Mild (rear-fanged).\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Malpolon&species=insignitus"
+      }
+    ]
+  },
+  {
+    "id": "mauremys-caspica",
+    "commonName": "კასპიური კუ",
+    "scientificName": "Mauremys caspica",
+    "genus": "Mauremys",
+    "family": "Geoemydidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კასპიური კუ — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კასპიური კუ (Mauremys caspica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "მტკნარი წყლის ჭაობები, ტბორები და ნელი წყლები საქართველოში — Tarkhnishvili et al. (2026).",
+    "diet": "წყლის უხერხემლოები, მცენარეული მასალა და წვრილი მსხვერპლი.",
+    "behavior": "დღის გათბობა და აქტივობა სახეობის მიხედვით.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Geoemydidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Gmelin, 1774.\n"
+    ],
+    "identification": {
+      "summary": "კასპიური კუ (Mauremys caspica), ოჯახი Geoemydidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Geoemydidae\n",
+        "Gmelin, 1774\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Mauremys caspica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Mauremys caspica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Mauremys&species=caspica"
+      }
+    ]
+  },
+  {
+    "id": "mertensiella-caucasica",
+    "commonName": "კავკასიური სალამანდრა",
+    "scientificName": "Mertensiella caucasica",
+    "genus": "Mertensiella",
+    "family": "Salamandridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური სალამანდრა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კავკასიური სალამანდრა (Mertensiella caucasica) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Waga, 1876.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური სალამანდრა (Mertensiella caucasica), ოჯახი Salamandridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Salamandridae\n",
+        "Waga, 1876\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Mertensiella caucasica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Mertensiella caucasica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Mertensiella&where-species=caucasica"
       }
     ]
   },
@@ -798,8 +3985,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას — ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/14368/0"
@@ -811,13 +4002,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Natrix&species=natrix"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Grass_snake"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -924,8 +4108,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება მარტ–მაისშია; ივლისში დებს დაახლოებით 10–30 კვერცხს, ნაშიერები იჩეკებიან სექტემბრის დასაწყისში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157256/0"
@@ -937,13 +4125,592 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Natrix&species=tessellata"
+      }
+    ]
+  },
+  {
+    "id": "ommatotriton-ophryticus",
+    "commonName": "კავკასიური ტრიტონი",
+    "scientificName": "Ommatotriton ophryticus",
+    "genus": "Ommatotriton",
+    "family": "Salamandridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური ტრიტონი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კავკასიური ტრიტონი (Ommatotriton ophryticus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Dice_snake"
+        "label": "სიგრძე",
+        "value": "See species account"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Berthold, 1846.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური ტრიტონი (Ommatotriton ophryticus), ოჯახი Salamandridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Salamandridae\n",
+        "Berthold, 1846\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Ommatotriton ophryticus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Ommatotriton ophryticus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Ommatotriton&where-species=ophryticus"
+      }
+    ]
+  },
+  {
+    "id": "ophisops-elegans",
+    "commonName": "კოხტა გველთავა",
+    "scientificName": "Ophisops elegans",
+    "genus": "Ophisops",
+    "family": "Lacertidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კოხტა გველთავა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კოხტა გველთავა (Ophisops elegans) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Ménétriés, 1832.\n"
+    ],
+    "identification": {
+      "summary": "კოხტა გველთავა (Ophisops elegans), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Ménétriés, 1832\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Ophisops elegans საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Ophisops elegans შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Ophisops&species=elegans"
+      }
+    ]
+  },
+  {
+    "id": "paralaudakia-caucasia",
+    "commonName": "ჯოჯო",
+    "scientificName": "Paralaudakia caucasia",
+    "genus": "Paralaudakia",
+    "family": "Agamidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ჯოჯო — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ჯოჯო (Paralaudakia caucasia) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Agamidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Eichwald, 1831.\n"
+    ],
+    "identification": {
+      "summary": "ჯოჯო (Paralaudakia caucasia), ოჯახი Agamidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Agamidae\n",
+        "Eichwald, 1831\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Paralaudakia caucasia საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Paralaudakia caucasia შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Paralaudakia&species=caucasia"
+      }
+    ]
+  },
+  {
+    "id": "pelobates-syriacus",
+    "commonName": "სირიული მყვარი",
+    "scientificName": "Pelobates syriacus",
+    "genus": "Pelobates",
+    "family": "Pelobatidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "სირიული მყვარი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "სირიული მყვარი (Pelobates syriacus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Pelobatidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Boettger, 1889.\n"
+    ],
+    "identification": {
+      "summary": "სირიული მყვარი (Pelobates syriacus), ოჯახი Pelobatidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Pelobatidae\n",
+        "Boettger, 1889\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Pelobates syriacus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Pelobates syriacus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Pelobates&where-species=syriacus"
+      }
+    ]
+  },
+  {
+    "id": "pelodytes-caucasicus",
+    "commonName": "კავკასიური ჯვარულა",
+    "scientificName": "Pelodytes caucasicus",
+    "genus": "Pelodytes",
+    "family": "Pelodytidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური ჯვარულა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კავკასიური ჯვარულა (Pelodytes caucasicus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Pelodytidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Boulenger, 1896.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური ჯვარულა (Pelodytes caucasicus), ოჯახი Pelodytidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Pelodytidae\n",
+        "Boulenger, 1896\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Pelodytes caucasicus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Pelodytes caucasicus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Pelodytes&where-species=caucasicus"
+      }
+    ]
+  },
+  {
+    "id": "pelophylax-ridibundus",
+    "commonName": "ტბორის ბაყაყი",
+    "scientificName": "Pelophylax ridibundus",
+    "genus": "Pelophylax",
+    "family": "Ranidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ტბორის ბაყაყი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ტბორის ბაყაყი (Pelophylax ridibundus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Pallas, 1771.\n"
+    ],
+    "identification": {
+      "summary": "ტბორის ბაყაყი (Pelophylax ridibundus), ოჯახი Ranidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Ranidae\n",
+        "Pallas, 1771\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Pelophylax ridibundus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Pelophylax ridibundus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Pelophylax&where-species=ridibundus"
+      }
+    ]
+  },
+  {
+    "id": "phoenicolacerta-laevis",
+    "commonName": "ლიბანური ხვლიკი",
+    "scientificName": "Phoenicolacerta laevis",
+    "genus": "Phoenicolacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო — შემოტანილი (Tarkhnishvili et al. 2026)",
+    "description": "შემოტანილი ლიბანური ხვლიკი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ლიბანური ხვლიკი (Phoenicolacerta laevis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. საქართველოში შემოტანილ სახეობადაა მითითებული (Tarkhnishvili et al. 2026). გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). შემოტანილი პოპულაცია.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (introduced).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Gray, 1838.\n"
+    ],
+    "identification": {
+      "summary": "ლიბანური ხვლიკი (Phoenicolacerta laevis), ოჯახი Lacertidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Lacertidae\n",
+        "Gray, 1838\n",
+        "Checklist-confirmed Georgia taxon\n",
+        "Introduced in Georgia\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Phoenicolacerta laevis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Phoenicolacerta laevis საქართველოს ადგილობრივი სახეობა?\n",
+        "answer": "არა. Tarkhnishvili et al. (2026) მას საქართველოში შემოტანილად მიიჩნევს.\n"
+      },
+      {
+        "question": "არის თუ არა Phoenicolacerta laevis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Phoenicolacerta&species=laevis"
       }
     ]
   },
@@ -1050,8 +4817,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157277/0"
@@ -1063,13 +4834,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Platyceps&species=najadum"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Platyceps_najadum"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1176,8 +4940,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. ჩვეულებრივ დებს დაახლოებით 8–10 კვერცხს (საქართველოში ხშირად ივნის–ივლისში); ნაშიერები იჩეკებიან დაახლოებით 45–55 დღეში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157263/0"
@@ -1189,13 +4957,89 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Pseudopus&species=apodus"
+      }
+    ]
+  },
+  {
+    "id": "rana-macrocnemis",
+    "commonName": "კავკასიური მურა ბაყაყი",
+    "scientificName": "Rana macrocnemis",
+    "genus": "Rana",
+    "family": "Ranidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კავკასიური მურა ბაყაყი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კავკასიური მურა ბაყაყი (Rana macrocnemis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sheltopusik"
+        "label": "სიგრძე",
+        "value": "See species account"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Boulenger, 1885.\n"
+    ],
+    "identification": {
+      "summary": "კავკასიური მურა ბაყაყი (Rana macrocnemis), ოჯახი Ranidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Ranidae\n",
+        "Boulenger, 1885\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Rana macrocnemis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Rana macrocnemis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Rana&where-species=macrocnemis"
       }
     ]
   },
@@ -1338,8 +5182,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 4–12 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157258/0"
@@ -1351,13 +5199,343 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Telescopus&species=fallax"
+      }
+    ]
+  },
+  {
+    "id": "tenuidactylus-caspius",
+    "commonName": "კასპიური გეკონი",
+    "scientificName": "Tenuidactylus caspius",
+    "genus": "Tenuidactylus",
+    "family": "Gekkonidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კასპიური გეკონი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კასპიური გეკონი (Tenuidactylus caspius) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "სახეობისთვის დამახასიათებელი საკვები (უხერხემლოები და/ან წვრილი ხერხემლიანები).",
+    "behavior": "აქტივობა ტემპერატურასა და სეზონს მიჰყვება; იხილეთ Tarkhnishvili et al. 2026.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/European_cat_snake"
+        "label": "სიგრძე",
+        "value": "See species account"
       },
       {
-        "name": "Scientific publications"
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Gekkonidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Eichwald, 1831.\n"
+    ],
+    "identification": {
+      "summary": "კასპიური გეკონი (Tenuidactylus caspius), ოჯახი Gekkonidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Gekkonidae\n",
+        "Eichwald, 1831\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Tenuidactylus caspius საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Tenuidactylus caspius შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Tenuidactylus&species=caspius"
+      }
+    ]
+  },
+  {
+    "id": "testudo-graeca",
+    "commonName": "ხმელთაშუაზღვეთის კუ",
+    "scientificName": "Testudo graeca",
+    "genus": "Testudo",
+    "family": "Testudinidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ხმელთაშუაზღვეთის კუ — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ხმელთაშუაზღვეთის კუ (Testudo graeca) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ხმელეთის მშრალი და ნახევრად ღია ჰაბიტატები საქართველოში — Tarkhnishvili et al. (2026).",
+    "diet": "ძირითადად მცენარეული საკვები.",
+    "behavior": "დღის გათბობა და აქტივობა სახეობის მიხედვით.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Testudinidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "ხმელთაშუაზღვეთის კუ (Testudo graeca), ოჯახი Testudinidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Testudinidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Testudo graeca საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Testudo graeca შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Testudo&species=graeca"
+      }
+    ]
+  },
+  {
+    "id": "trachemys-scripta",
+    "commonName": "წითელყურა კუ",
+    "scientificName": "Trachemys scripta",
+    "genus": "Trachemys",
+    "family": "Emydidae",
+    "location": "საქართველო — შემოტანილი (Tarkhnishvili et al. 2026)",
+    "description": "შემოტანილი წითელყურა კუ — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "წითელყურა კუ (Trachemys scripta) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. საქართველოში შემოტანილ სახეობადაა მითითებული (Tarkhnishvili et al. 2026). გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "მტკნარი წყლის ჭაობები, ტბორები და ნელი წყლები საქართველოში — Tarkhnishvili et al. (2026). გაშვებული/შემოტანილი პოპულაციები.",
+    "diet": "წყლის უხერხემლოები, მცენარეული მასალა და წვრილი მსხვერპლი.",
+    "behavior": "დღის გათბობა და აქტივობა სახეობის მიხედვით.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). შემოტანილია; ადგილობრივი ფაუნის ნაწილი არ არის.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (introduced).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Thunberg, 1792.\n"
+    ],
+    "identification": {
+      "summary": "წითელყურა კუ (Trachemys scripta), ოჯახი Emydidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Emydidae\n",
+        "Thunberg, 1792\n",
+        "Checklist-confirmed Georgia taxon\n",
+        "Introduced in Georgia\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Trachemys scripta საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Trachemys scripta საქართველოს ადგილობრივი სახეობა?\n",
+        "answer": "არა. Tarkhnishvili et al. (2026) მას საქართველოში შემოტანილად მიიჩნევს.\n"
+      },
+      {
+        "question": "არის თუ არა Trachemys scripta შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Trachemys&species=scripta"
+      }
+    ]
+  },
+  {
+    "id": "triturus-karelinii",
+    "commonName": "კარელინის სავარცხლიანი ტრიტონი",
+    "scientificName": "Triturus karelinii",
+    "genus": "Triturus",
+    "family": "Salamandridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "კარელინის სავარცხლიანი ტრიტონი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "კარელინის სავარცხლიანი ტრიტონი (Triturus karelinii) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "წყლისა და ტენიან ჰაბიტატებთან დაკავშირებული გარემო საქართველოში — Tarkhnishvili et al. (2026) ანგარიშებისა და რუკების მიხედვით.",
+    "diet": "უხერხემლოები და სახეობისთვის დამახასიათებელი წვრილი მსხვერპლი.",
+    "behavior": "აქტივობა და გამრავლება სეზონურ ტენიანობასა და ტემპერატურას მიჰყვება; იხილეთ ჩეკლისტის ანგარიში.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026). კონსერვაციის სტატუსი — IUCN და ეროვნული შეფასებები.",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "See species account"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Strauch, 1870.\n"
+    ],
+    "identification": {
+      "summary": "კარელინის სავარცხლიანი ტრიტონი (Triturus karelinii), ოჯახი Salamandridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Salamandridae\n",
+        "Strauch, 1870\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Triturus karelinii საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Triturus karelinii შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Triturus&where-species=karelinii"
       }
     ]
   },
@@ -1461,8 +5639,12 @@ export const species: Species[] = [
         "answer": "გლობალურად IUCN სტატუსი Least Concern-ია, მაგრამ საქართველოში იშვიათია, პოპულაციები ფრაგმენტირებულია და შეტანილია წითელ წიგნში. მთავარი საფრთხეებია ჰაბიტატის გარდაქმნა და ადამიანის ზეწოლა."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/62255/0"
@@ -1474,13 +5656,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=ammodytes"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_ammodytes"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1615,6 +5790,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/23000/0"
       },
@@ -1625,13 +5804,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=darevskii"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_darevskii"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1737,8 +5909,12 @@ export const species: Species[] = [
         "answer": "არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია. სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა პოპულაციას ამცირებს; შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/23001/0"
@@ -1750,13 +5926,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=dinniki"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_dinniki"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1863,8 +6032,12 @@ export const species: Species[] = [
         "answer": "ცოცხლადმშობია. შეწყვილება გაზაფხულზეა; შემოდგომაზე, აგვისტო–სექტემბერში, ბადებს 5–10 ნაშიერს."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/22990/0"
@@ -1876,13 +6049,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=kaznakovi"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_kaznakovi"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -2028,6 +6194,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/species/157268/5066267"
       },
@@ -2040,25 +6210,511 @@ export const species: Species[] = [
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=renardi"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_renardi"
-      },
-      {
         "name": "Tuniyev et al. 2018 — Rediscovery of the steppe viper in Georgia",
         "url": "https://doi.org/10.31610/trudyzin/2018.322.2.87"
       },
       {
         "name": "Mebert et al. 2025 — Steppe vipers of Western Asia",
         "url": "https://www.herpconbio.org/Volume_20/Issue_2/Mebert_etal_2025a.pdf"
+      }
+    ]
+  },
+  {
+    "id": "xerotyphlops-vermicularis",
+    "commonName": "გველბრუცა",
+    "scientificName": "Xerotyphlops vermicularis",
+    "genus": "Xerotyphlops",
+    "family": "Typhlopidae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "გველბრუცა — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "გველბრუცა (Xerotyphlops vermicularis) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "ჭიანჭველები, ტერმიტები და ნიადაგის უხერხემლოები",
+    "behavior": "მიწისქვეშა და ფარული; ზედაპირზე იშვიათად ჩანს.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
       },
       {
-        "name": "Scientific publications"
+        "label": "სიგრძე",
+        "value": "Up to about 40 cm"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Typhlopidae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Merrem, 1820.\n"
+    ],
+    "identification": {
+      "summary": "გველბრუცა (Xerotyphlops vermicularis), ოჯახი Typhlopidae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Typhlopidae\n",
+        "Merrem, 1820\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Xerotyphlops vermicularis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Xerotyphlops vermicularis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Xerotyphlops&species=vermicularis"
+      }
+    ]
+  },
+  {
+    "id": "zamenis-hohenackeri",
+    "commonName": "ამიერკავკასიური მცურავი",
+    "scientificName": "Zamenis hohenackeri",
+    "genus": "Zamenis",
+    "family": "Colubridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ამიერკავკასიური მცურავი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ამიერკავკასიური მცურავი (Zamenis hohenackeri) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "წვრილი ძუძუმწოვრები, ფრინველები და ხვლიკები",
+    "behavior": "დღისით აქტიური; იყენებს კლდოვან თავშესაფარს.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "Typically under 1.2 m"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Strauch, 1873.\n"
+    ],
+    "identification": {
+      "summary": "ამიერკავკასიური მცურავი (Zamenis hohenackeri), ოჯახი Colubridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Colubridae\n",
+        "Strauch, 1873\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Zamenis hohenackeri საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Zamenis hohenackeri შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Zamenis&species=hohenackeri"
+      }
+    ]
+  },
+  {
+    "id": "zamenis-longissimus",
+    "commonName": "ესკულაპის მცურავი",
+    "scientificName": "Zamenis longissimus",
+    "genus": "Zamenis",
+    "family": "Colubridae",
+    "location": "საქართველო (Tarkhnishvili et al. 2026)",
+    "description": "ესკულაპის მცურავი — დაფიქსირებულია საქართველოში (Tarkhnishvili et al. 2026).",
+    "overview": "ესკულაპის მცურავი (Zamenis longissimus) საქართველოში დაფიქსირებულია ეროვნულ ანოტირებულ ჩეკლისტში (Tarkhnishvili et al. 2026), რომელიც აერთიანებს მოლეკულურ, მორფოლოგიურ და ბიოგეოგრაფიულ მტკიცებულებებს და ციტირებს ისტორიულ და თანამედროვე ჩანაწერებს. გვერდი მხოლოდ ჩეკლისტით დადასტურებულ გავრცელებასა და სტანდარტულ ბიოლოგიურ თავისებურებებს აჯამებს; დეტალური რეგიონული გავრცელება არ არის გამოგონილი.",
+    "habitat": "ჰაბიტატები საქართველოსთვის აღწერილია Tarkhnishvili et al. (2026) ჩეკლისტში. რეგიონები არ არის გამოგონილი ჩეკლისტის რუკებისა და ციტირებული ჩანაწერების გარეშე.",
+    "diet": "წვრილი ძუძუმწოვრები და ფრინველები",
+    "behavior": "დღისით აქტიური მცოცავი; უშხამო.",
+    "conservation": "საქართველოში დაფიქსირებულია (Tarkhnishvili et al. 2026).",
+    "danger": "Harmless",
+    "image": "/images/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "იხ. ჩეკლისტი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "Often 1–1.5 m"
+      },
+      {
+        "label": "შხამი",
+        "value": "None"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN / ეროვნული მონაცემები"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "იხ. Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "შეტანილია Tarkhnishvili et al. 2026 ჩეკლისტში საქართველოს ტაქსონად (confirmed).\n",
+      "ტაქსონომიური სანდოობა ჩეკლისტში: biologically_confirmed.\n",
+      "ავტორი: Laurenti, 1768.\n"
+    ],
+    "identification": {
+      "summary": "ესკულაპის მცურავი (Zamenis longissimus), ოჯახი Colubridae. იდენტიფიკაცია უნდა ეყრდნობოდეს გადამოწმებულ ფოტოებსა და რეგიონულ გასაღებებს.",
+      "traits": [
+        "Colubridae\n",
+        "Laurenti, 1768\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Zamenis longissimus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის იმ 68 ამფიბიისა და რეპტილიის სახეობაში, რომლებიც საქართველოდან ფორმალურადაა დაფიქსირებული Tarkhnishvili et al. (2026) მიხედვით.\n"
+      },
+      {
+        "question": "არის თუ არა Zamenis longissimus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: None.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Fauna of Russia (historical Georgia records)"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Zamenis&species=longissimus"
       }
     ]
   }
 ];
 
 export const speciesEn: Record<string, SpeciesTranslation> = {
+  "ablepharus-pannonicus": {
+    "commonName": "Asian Snake-Eyed Skink",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Asian Snake-Eyed Skink — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Asian Snake-Eyed Skink (Ablepharus pannonicus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Lichtenstein, 1823.\n"
+    ],
+    "identification": {
+      "summary": "Asian Snake-Eyed Skink (Ablepharus pannonicus), family Scincidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Scincidae\n",
+        "Lichtenstein, 1823\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Ablepharus pannonicus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Ablepharus pannonicus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "anguis-colchica": {
+    "commonName": "Colchis Slow Worm",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Colchis Slow Worm — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Colchis Slow Worm (Anguis colchica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Anguidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Nordmann, 1840.\n"
+    ],
+    "identification": {
+      "summary": "Colchis Slow Worm (Anguis colchica), family Anguidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Anguidae\n",
+        "Nordmann, 1840\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Anguis colchica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Anguis colchica marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Anguis colchica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "bufo-verrucosissimus": {
+    "commonName": "Caucasian Toad",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Toad — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Caucasian Toad (Bufo verrucosissimus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Pallas, 1814.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Toad (Bufo verrucosissimus), family Bufonidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Bufonidae\n",
+        "Pallas, 1814\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Bufo verrucosissimus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Bufo verrucosissimus marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Bufo verrucosissimus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "bufotes-viridis": {
+    "commonName": "Green Toad",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Green Toad — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Green Toad (Bufotes viridis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Laurenti, 1768.\n"
+    ],
+    "identification": {
+      "summary": "Green Toad (Bufotes viridis), family Bufonidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Bufonidae\n",
+        "Laurenti, 1768\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Bufotes viridis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Bufotes viridis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
   "coronella-austriaca": {
     "commonName": "Smooth snake",
     "location": "Georgia — foothills and mountains",
@@ -2133,6 +6789,1033 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "darevskia-adjarica": {
+    "commonName": "Ajarian Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Ajarian Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Ajarian Rock Lizard (Darevskia adjarica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Darevsky & Eiselt, 1980.\n"
+    ],
+    "identification": {
+      "summary": "Ajarian Rock Lizard (Darevskia adjarica), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky & Eiselt, 1980\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia adjarica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Darevskia adjarica marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Darevskia adjarica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-alpina": {
+    "commonName": "Alpine Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Alpine Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Alpine Rock Lizard (Darevskia alpina) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Darevsky, 1967.\n"
+    ],
+    "identification": {
+      "summary": "Alpine Rock Lizard (Darevskia alpina), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky, 1967\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia alpina occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Darevskia alpina marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Darevskia alpina venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-armeniaca": {
+    "commonName": "Armenian Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Armenian Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Armenian Rock Lizard (Darevskia armeniaca) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "Armenian Rock Lizard (Darevskia armeniaca), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia armeniaca occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia armeniaca venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-brauneri": {
+    "commonName": "Brauner's Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Brauner's Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Brauner's Rock Lizard (Darevskia brauneri) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "Brauner's Rock Lizard (Darevskia brauneri), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia brauneri occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Darevskia brauneri marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Darevskia brauneri venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-caucasica": {
+    "commonName": "Caucasian Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caucasian Rock Lizard (Darevskia caucasica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Rock Lizard (Darevskia caucasica), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia caucasica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia caucasica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-clarkorum": {
+    "commonName": "Clark's Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Clark's Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Clark's Rock Lizard (Darevskia clarkorum) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Darevsky & Vedmederja, 1977.\n"
+    ],
+    "identification": {
+      "summary": "Clark's Rock Lizard (Darevskia clarkorum), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky & Vedmederja, 1977\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia clarkorum occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia clarkorum venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-daghestanica": {
+    "commonName": "Daghestanian Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Daghestanian Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Daghestanian Rock Lizard (Darevskia daghestanica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Darevsky, 1967.\n"
+    ],
+    "identification": {
+      "summary": "Daghestanian Rock Lizard (Darevskia daghestanica), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky, 1967\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia daghestanica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia daghestanica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-dahli": {
+    "commonName": "Dahl's Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Dahl's Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Dahl's Rock Lizard (Darevskia dahli) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Darevsky, 1957.\n"
+    ],
+    "identification": {
+      "summary": "Dahl's Rock Lizard (Darevskia dahli), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Darevsky, 1957\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia dahli occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia dahli venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-derjugini": {
+    "commonName": "Derjugin's Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Derjugin's Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Derjugin's Lizard (Darevskia derjugini) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Nikolsky, 1898.\n"
+    ],
+    "identification": {
+      "summary": "Derjugin's Lizard (Darevskia derjugini), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Nikolsky, 1898\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia derjugini occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia derjugini venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-mixta": {
+    "commonName": "Mixed Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Mixed Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Mixed Rock Lizard (Darevskia mixta) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Méhely, 1909.\n"
+    ],
+    "identification": {
+      "summary": "Mixed Rock Lizard (Darevskia mixta), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Méhely, 1909\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia mixta occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia mixta venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-obscura": {
+    "commonName": "Obscure Rock Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Obscure Rock Lizard — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Obscure Rock Lizard (Darevskia obscura) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Lantz & Cyrén, 1936.\n"
+    ],
+    "identification": {
+      "summary": "Obscure Rock Lizard (Darevskia obscura), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Lantz & Cyrén, 1936\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia obscura occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Darevskia obscura marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Darevskia obscura venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-pontica": {
+    "commonName": "Pontic Meadow Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Pontic Meadow Lizard — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Pontic Meadow Lizard (Darevskia pontica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Lantz & Cyrén, 1918.\n"
+    ],
+    "identification": {
+      "summary": "Pontic Meadow Lizard (Darevskia pontica), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Lantz & Cyrén, 1918\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia pontica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Darevskia pontica marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Darevskia pontica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-portschinskii": {
+    "commonName": "Portschinsky's Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Portschinsky's Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Portschinsky's Lizard (Darevskia portschinskii) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Kessler, 1878.\n"
+    ],
+    "identification": {
+      "summary": "Portschinsky's Lizard (Darevskia portschinskii), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Kessler, 1878\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia portschinskii occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia portschinskii venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-praticola": {
+    "commonName": "Meadow Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Meadow Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Meadow Lizard (Darevskia praticola) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Eversmann, 1834.\n"
+    ],
+    "identification": {
+      "summary": "Meadow Lizard (Darevskia praticola), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Eversmann, 1834\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia praticola occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia praticola venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-raddei": {
+    "commonName": "Radde's Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Radde's Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Radde's Lizard (Darevskia raddei) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Boettger, 1892.\n"
+    ],
+    "identification": {
+      "summary": "Radde's Lizard (Darevskia raddei), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Boettger, 1892\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia raddei occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia raddei venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "darevskia-valentini": {
+    "commonName": "Valentin's Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Valentin's Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Valentin's Lizard (Darevskia valentini) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Boettger, 1892.\n"
+    ],
+    "identification": {
+      "summary": "Valentin's Lizard (Darevskia valentini), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Boettger, 1892\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia valentini occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Darevskia valentini venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "dolichophis-caspius": {
+    "commonName": "Caspian Whip Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caspian Whip Snake — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Caspian Whip Snake (Dolichophis caspius) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Lizards and small vertebrates",
+    "behavior": "Fast diurnal racer; non-venomous.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Often over 1.5 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Gmelin, 1789.\n"
+    ],
+    "identification": {
+      "summary": "Caspian Whip Snake (Dolichophis caspius), family Colubridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Colubridae\n",
+        "Gmelin, 1789\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Dolichophis caspius occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Dolichophis caspius marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Dolichophis caspius venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
   "dolichophis-schmidti": {
     "commonName": "Red-bellied racer",
     "location": "Eastern Georgia",
@@ -2204,6 +7887,124 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 5–11 eggs; young hatch independently."
+      }
+    ]
+  },
+  "eirenis-collaris": {
+    "commonName": "Collared Dwarf Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Collared Dwarf Snake — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Collared Dwarf Snake (Eirenis collaris) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Small invertebrates",
+    "behavior": "Secretive under rocks and debris.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 50 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Ménétriés, 1832.\n"
+    ],
+    "identification": {
+      "summary": "Collared Dwarf Snake (Eirenis collaris), family Colubridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Colubridae\n",
+        "Ménétriés, 1832\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eirenis collaris occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Eirenis collaris venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "eirenis-modestus": {
+    "commonName": "Ring-headed Dwarf Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Ring-headed Dwarf Snake — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Ring-headed Dwarf Snake (Eirenis modestus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Insects and small invertebrates",
+    "behavior": "Secretive under stones.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 60 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Martin, 1838.\n"
+    ],
+    "identification": {
+      "summary": "Ring-headed Dwarf Snake (Eirenis modestus), family Colubridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Colubridae\n",
+        "Martin, 1838\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eirenis modestus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Eirenis modestus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
       }
     ]
   },
@@ -2355,6 +8156,726 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "emys-orbicularis": {
+    "commonName": "European Pond Turtle",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "European Pond Turtle — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "European Pond Turtle (Emys orbicularis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Freshwater wetlands, ponds and slow waters in Georgia per Tarkhnishvili et al. (2026).",
+    "diet": "Aquatic invertebrates, plant matter and other small prey.",
+    "behavior": "Diurnal basking and aquatic or terrestrial activity depending on species.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "European Pond Turtle (Emys orbicularis), family Emydidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Emydidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Emys orbicularis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Emys orbicularis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "eremias-arguta": {
+    "commonName": "Steppe-Runner",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Steppe-Runner — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Steppe-Runner (Eremias arguta) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Pallas, 1773.\n"
+    ],
+    "identification": {
+      "summary": "Steppe-Runner (Eremias arguta), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Pallas, 1773\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eremias arguta occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Eremias arguta venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "eremias-velox": {
+    "commonName": "Rapid Racerunner",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Rapid Racerunner — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Rapid Racerunner (Eremias velox) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Pallas, 1771.\n"
+    ],
+    "identification": {
+      "summary": "Rapid Racerunner (Eremias velox), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Pallas, 1771\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eremias velox occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Eremias velox venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "eryx-jaculus": {
+    "commonName": "Javelin Sand Boa",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Javelin Sand Boa — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Javelin Sand Boa (Eryx jaculus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Small lizards and rodents",
+    "behavior": "Burrowing constrictor; mostly crepuscular or nocturnal.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 80 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Boidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "Javelin Sand Boa (Eryx jaculus), family Boidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Boidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eryx jaculus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Eryx jaculus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "eumeces-schneiderii": {
+    "commonName": "Schneider's Skink",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Schneider's Skink — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Schneider's Skink (Eumeces schneiderii) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Daudin, 1802.\n"
+    ],
+    "identification": {
+      "summary": "Schneider's Skink (Eumeces schneiderii), family Scincidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Scincidae\n",
+        "Daudin, 1802\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eumeces schneiderii occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Eumeces schneiderii venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "hemorrhois-ravergieri": {
+    "commonName": "Spotted Whip Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Spotted Whip Snake — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Spotted Whip Snake (Hemorrhois ravergieri) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Lizards and small vertebrates",
+    "behavior": "Diurnal and agile.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 1.2 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Ménétriés, 1832.\n"
+    ],
+    "identification": {
+      "summary": "Spotted Whip Snake (Hemorrhois ravergieri), family Colubridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Colubridae\n",
+        "Ménétriés, 1832\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Hemorrhois ravergieri occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Hemorrhois ravergieri venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "hyla-orientalis": {
+    "commonName": "Eastern Treefrog",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Eastern Treefrog — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Eastern Treefrog (Hyla orientalis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Bedriaga, 1890.\n"
+    ],
+    "identification": {
+      "summary": "Eastern Treefrog (Hyla orientalis), family Hylidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Hylidae\n",
+        "Bedriaga, 1890\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Hyla orientalis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Hyla orientalis marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Hyla orientalis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "hyla-savignyi": {
+    "commonName": "Yellow-Lemon Treefrog",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Yellow-Lemon Treefrog — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Yellow-Lemon Treefrog (Hyla savignyi) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Audouin, 1827.\n"
+    ],
+    "identification": {
+      "summary": "Yellow-Lemon Treefrog (Hyla savignyi), family Hylidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Hylidae\n",
+        "Audouin, 1827\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Hyla savignyi occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Hyla savignyi venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "lacerta-agilis": {
+    "commonName": "Sand Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Sand Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Sand Lizard (Lacerta agilis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "Sand Lizard (Lacerta agilis), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lacerta agilis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Lacerta agilis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "lacerta-media": {
+    "commonName": "Caucasian Green Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Green Lizard — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Caucasian Green Lizard (Lacerta media) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Lantz & Cyrén, 1920.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Green Lizard (Lacerta media), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Lantz & Cyrén, 1920\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lacerta media occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Lacerta media marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Lacerta media venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "lacerta-strigata": {
+    "commonName": "Striped Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Striped Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Striped Lizard (Lacerta strigata) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Eichwald, 1831.\n"
+    ],
+    "identification": {
+      "summary": "Striped Lizard (Lacerta strigata), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Eichwald, 1831\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lacerta strigata occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Lacerta strigata venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "lissotriton-lantzi": {
+    "commonName": "Caucasian Smooth Newt",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Smooth Newt — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Caucasian Smooth Newt (Lissotriton lantzi) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Wolterstorff, 1914.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Smooth Newt (Lissotriton lantzi), family Salamandridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Salamandridae\n",
+        "Wolterstorff, 1914\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lissotriton lantzi occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Lissotriton lantzi marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Lissotriton lantzi venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
   "macrovipera-lebetina": {
     "commonName": "Levantine viper",
     "location": "Eastern Georgia",
@@ -2426,6 +8947,187 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in April–May; it lays roughly 15–20 eggs in late summer, and young hatch in 35–45 days."
+      }
+    ]
+  },
+  "malpolon-insignitus": {
+    "commonName": "Eastern Montpellier Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Eastern Montpellier Snake — recorded from Georgia (Tarkhnishvili et al. 2026). Candidate species status in the checklist.",
+    "overview": "Eastern Montpellier Snake (Malpolon insignitus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Tarkhnishvili et al. (2026) assign candidate species status pending further integrative validation. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Primarily lizards",
+    "behavior": "Diurnal rear-fanged hunter with keen vision.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Often over 1.5 m"
+      },
+      {
+        "label": "Venom",
+        "value": "Mild (rear-fanged)"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Psammophiidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: candidate.\n",
+      "Authority: Geoffroy Saint-Hilaire, 1827.\n"
+    ],
+    "identification": {
+      "summary": "Eastern Montpellier Snake (Malpolon insignitus), family Psammophiidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Psammophiidae\n",
+        "Geoffroy Saint-Hilaire, 1827\n",
+        "Candidate species (Tarkhnishvili et al. 2026)\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Malpolon insignitus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Why is Malpolon insignitus marked as a candidate species?\n",
+        "answer": "Tarkhnishvili et al. (2026) use candidate status when species rank is not yet fully validated by contact-zone and multi-marker evidence.\n"
+      },
+      {
+        "question": "Is Malpolon insignitus venomous?\n",
+        "answer": "Danger classification on this site: Moderate. Venom note: Mild (rear-fanged).\n"
+      }
+    ]
+  },
+  "mauremys-caspica": {
+    "commonName": "Caspian Turtle",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caspian Turtle — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caspian Turtle (Mauremys caspica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Freshwater wetlands, ponds and slow waters in Georgia per Tarkhnishvili et al. (2026).",
+    "diet": "Aquatic invertebrates, plant matter and other small prey.",
+    "behavior": "Diurnal basking and aquatic or terrestrial activity depending on species.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Geoemydidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Gmelin, 1774.\n"
+    ],
+    "identification": {
+      "summary": "Caspian Turtle (Mauremys caspica), family Geoemydidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Geoemydidae\n",
+        "Gmelin, 1774\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Mauremys caspica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Mauremys caspica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "mertensiella-caucasica": {
+    "commonName": "Caucasian Salamander",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Salamander — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caucasian Salamander (Mertensiella caucasica) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Waga, 1876.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Salamander (Mertensiella caucasica), family Salamandridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Salamandridae\n",
+        "Waga, 1876\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Mertensiella caucasica occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Mertensiella caucasica venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
       }
     ]
   },
@@ -2577,6 +9279,424 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "ommatotriton-ophryticus": {
+    "commonName": "Northern Banded Newt",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Northern Banded Newt — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Northern Banded Newt (Ommatotriton ophryticus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Berthold, 1846.\n"
+    ],
+    "identification": {
+      "summary": "Northern Banded Newt (Ommatotriton ophryticus), family Salamandridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Salamandridae\n",
+        "Berthold, 1846\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Ommatotriton ophryticus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Ommatotriton ophryticus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "ophisops-elegans": {
+    "commonName": "Snake-Eyed Lizard",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Snake-Eyed Lizard — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Snake-Eyed Lizard (Ophisops elegans) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Ménétriés, 1832.\n"
+    ],
+    "identification": {
+      "summary": "Snake-Eyed Lizard (Ophisops elegans), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Ménétriés, 1832\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Ophisops elegans occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Ophisops elegans venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "paralaudakia-caucasia": {
+    "commonName": "Caucasian Agama",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Agama — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caucasian Agama (Paralaudakia caucasia) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Agamidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Eichwald, 1831.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Agama (Paralaudakia caucasia), family Agamidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Agamidae\n",
+        "Eichwald, 1831\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Paralaudakia caucasia occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Paralaudakia caucasia venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "pelobates-syriacus": {
+    "commonName": "Eastern Spadefoot",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Eastern Spadefoot — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Eastern Spadefoot (Pelobates syriacus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Pelobatidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Boettger, 1889.\n"
+    ],
+    "identification": {
+      "summary": "Eastern Spadefoot (Pelobates syriacus), family Pelobatidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Pelobatidae\n",
+        "Boettger, 1889\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Pelobates syriacus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Pelobates syriacus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "pelodytes-caucasicus": {
+    "commonName": "Caucasian Parsley Frog",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Parsley Frog — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caucasian Parsley Frog (Pelodytes caucasicus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Pelodytidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Boulenger, 1896.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Parsley Frog (Pelodytes caucasicus), family Pelodytidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Pelodytidae\n",
+        "Boulenger, 1896\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Pelodytes caucasicus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Pelodytes caucasicus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "pelophylax-ridibundus": {
+    "commonName": "Marsh Frog",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Marsh Frog — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Marsh Frog (Pelophylax ridibundus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Pallas, 1771.\n"
+    ],
+    "identification": {
+      "summary": "Marsh Frog (Pelophylax ridibundus), family Ranidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Ranidae\n",
+        "Pallas, 1771\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Pelophylax ridibundus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Pelophylax ridibundus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "phoenicolacerta-laevis": {
+    "commonName": "Lebanon Lizard",
+    "location": "Georgia — introduced (Tarkhnishvili et al. 2026)",
+    "description": "Introduced Lebanon Lizard recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Lebanon Lizard (Phoenicolacerta laevis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Listed as an introduced species in Georgia (Tarkhnishvili et al. 2026). This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Introduced population.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (introduced).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Gray, 1838.\n"
+    ],
+    "identification": {
+      "summary": "Lebanon Lizard (Phoenicolacerta laevis), family Lacertidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Lacertidae\n",
+        "Gray, 1838\n",
+        "Checklist-confirmed Georgia taxon\n",
+        "Introduced in Georgia\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Phoenicolacerta laevis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Phoenicolacerta laevis native to Georgia?\n",
+        "answer": "No. Tarkhnishvili et al. (2026) list it as introduced in Georgia.\n"
+      },
+      {
+        "question": "Is Phoenicolacerta laevis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
   "platyceps-najadum": {
     "commonName": "Dahl's whip snake",
     "location": "Eastern and southern Georgia",
@@ -2725,6 +9845,65 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "rana-macrocnemis": {
+    "commonName": "Caucasian Brown Frog",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caucasian Brown Frog — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caucasian Brown Frog (Rana macrocnemis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Boulenger, 1885.\n"
+    ],
+    "identification": {
+      "summary": "Caucasian Brown Frog (Rana macrocnemis), family Ranidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Ranidae\n",
+        "Boulenger, 1885\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Rana macrocnemis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Rana macrocnemis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
   "telescopus-fallax": {
     "commonName": "European cat snake",
     "location": "Eastern and southern Georgia",
@@ -2796,6 +9975,247 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 4–12 eggs, and young hatch independently."
+      }
+    ]
+  },
+  "tenuidactylus-caspius": {
+    "commonName": "Caspian Thick-toed Gecko",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Caspian Thick-toed Gecko — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Caspian Thick-toed Gecko (Tenuidactylus caspius) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Prey typical of the species (invertebrates and/or small vertebrates).",
+    "behavior": "Activity patterns follow temperature and season; see Tarkhnishvili et al. 2026.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Gekkonidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Eichwald, 1831.\n"
+    ],
+    "identification": {
+      "summary": "Caspian Thick-toed Gecko (Tenuidactylus caspius), family Gekkonidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Gekkonidae\n",
+        "Eichwald, 1831\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Tenuidactylus caspius occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Tenuidactylus caspius venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "testudo-graeca": {
+    "commonName": "Mediterranean Tortoise",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Mediterranean Tortoise — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Mediterranean Tortoise (Testudo graeca) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Terrestrial dry and semi-open habitats in Georgia as mapped by Tarkhnishvili et al. (2026).",
+    "diet": "Primarily plant material.",
+    "behavior": "Diurnal basking and aquatic or terrestrial activity depending on species.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Testudinidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Linnaeus, 1758.\n"
+    ],
+    "identification": {
+      "summary": "Mediterranean Tortoise (Testudo graeca), family Testudinidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Testudinidae\n",
+        "Linnaeus, 1758\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Testudo graeca occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Testudo graeca venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "trachemys-scripta": {
+    "commonName": "Pond Slider",
+    "location": "Georgia — introduced (Tarkhnishvili et al. 2026)",
+    "description": "Introduced Pond Slider recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Pond Slider (Trachemys scripta) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. Listed as an introduced species in Georgia (Tarkhnishvili et al. 2026). This page summarizes only checklist-supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Freshwater wetlands, ponds and slow waters in Georgia per Tarkhnishvili et al. (2026). Captive-released / introduced populations.",
+    "diet": "Aquatic invertebrates, plant matter and other small prey.",
+    "behavior": "Diurnal basking and aquatic or terrestrial activity depending on species.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Introduced; not a native component of the fauna.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (introduced).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Thunberg, 1792.\n"
+    ],
+    "identification": {
+      "summary": "Pond Slider (Trachemys scripta), family Emydidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Emydidae\n",
+        "Thunberg, 1792\n",
+        "Checklist-confirmed Georgia taxon\n",
+        "Introduced in Georgia\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Trachemys scripta occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Trachemys scripta native to Georgia?\n",
+        "answer": "No. Tarkhnishvili et al. (2026) list it as introduced in Georgia.\n"
+      },
+      {
+        "question": "Is Trachemys scripta venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "triturus-karelinii": {
+    "commonName": "Eastern Crested Newt",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Eastern Crested Newt — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Eastern Crested Newt (Triturus karelinii) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Aquatic and terrestrial wetland-associated habitats as summarized for Georgia in Tarkhnishvili et al. (2026); regional detail follows that checklist’s maps and accounts.",
+    "diet": "Invertebrates and other small prey typical of the species.",
+    "behavior": "Activity and breeding follow seasonal moisture and temperature regimes; see checklist account.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026). Conservation status should be taken from IUCN and national assessments where available.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "See species account"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Strauch, 1870.\n"
+    ],
+    "identification": {
+      "summary": "Eastern Crested Newt (Triturus karelinii), family Salamandridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Salamandridae\n",
+        "Strauch, 1870\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Triturus karelinii occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Triturus karelinii venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
       }
     ]
   },
@@ -3158,6 +10578,183 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Why is it Vulnerable?",
         "answer": "Intensive conversion and overgrazing of steppe and meadows destroy its habitat and fragment the range. The European IUCN assessment lists it as Vulnerable; Georgian populations are small and scarce."
+      }
+    ]
+  },
+  "xerotyphlops-vermicularis": {
+    "commonName": "European Blind Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "European Blind Snake — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "European Blind Snake (Xerotyphlops vermicularis) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Ants, termites and soil invertebrates",
+    "behavior": "Fossorial and secretive; rarely seen on the surface.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Up to about 40 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Typhlopidae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Merrem, 1820.\n"
+    ],
+    "identification": {
+      "summary": "European Blind Snake (Xerotyphlops vermicularis), family Typhlopidae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Typhlopidae\n",
+        "Merrem, 1820\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Xerotyphlops vermicularis occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Xerotyphlops vermicularis venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "zamenis-hohenackeri": {
+    "commonName": "Transcaucasian Ratsnake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Transcaucasian Ratsnake — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Transcaucasian Ratsnake (Zamenis hohenackeri) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Small mammals, birds and lizards",
+    "behavior": "Diurnal; uses rocky cover.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 1.2 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Strauch, 1873.\n"
+    ],
+    "identification": {
+      "summary": "Transcaucasian Ratsnake (Zamenis hohenackeri), family Colubridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Colubridae\n",
+        "Strauch, 1873\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Zamenis hohenackeri occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Zamenis hohenackeri venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
+      }
+    ]
+  },
+  "zamenis-longissimus": {
+    "commonName": "Aesculapian Snake",
+    "location": "Georgia (Tarkhnishvili et al. 2026)",
+    "description": "Aesculapian Snake — recorded from Georgia (Tarkhnishvili et al. 2026).",
+    "overview": "Aesculapian Snake (Zamenis longissimus) is recorded from Georgia in the annotated national checklist of Tarkhnishvili et al. (2026), which synthesizes molecular, morphological and biogeographic evidence and cites historical and recent Georgian records. This page summarizes only checklist- supported occurrence and standard natural-history traits; fine-scale regional distribution is not invented beyond published sources.",
+    "habitat": "Habitats documented for Georgia in Tarkhnishvili et al. (2026). Administrative regions are not inferred beyond the checklist maps and cited records.",
+    "diet": "Small mammals and birds",
+    "behavior": "Diurnal climber; non-venomous.",
+    "conservation": "Recorded in Georgia (Tarkhnishvili et al. 2026).",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "See checklist"
+      },
+      {
+        "label": "Length",
+        "value": "Often 1–1.5 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN / national data"
+      },
+      {
+        "label": "Elevation",
+        "value": "See Tarkhnishvili et al. 2026"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "Included in Tarkhnishvili et al. 2026 as a Georgia-recorded taxon (confirmed).\n",
+      "Taxonomic confidence in the checklist: biologically confirmed.\n",
+      "Authority: Laurenti, 1768.\n"
+    ],
+    "identification": {
+      "summary": "Aesculapian Snake (Zamenis longissimus), family Colubridae. Identification should follow verified photographs and regional keys.",
+      "traits": [
+        "Colubridae\n",
+        "Laurenti, 1768\n",
+        "Checklist-confirmed Georgia taxon\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Zamenis longissimus occur in Georgia?\n",
+        "answer": "Yes. It is included among the 68 amphibian and reptile species formally recorded from Georgia by Tarkhnishvili et al. (2026).\n"
+      },
+      {
+        "question": "Is Zamenis longissimus venomous?\n",
+        "answer": "Danger classification on this site: Harmless. Venom note: None.\n"
       }
     ]
   }
