@@ -1,6 +1,7 @@
-import { ContactPage } from "@/components/ContactPage";
+import { AboutPage } from "@/components/AboutPage";
 import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
+import { editorPortraitExists } from "@/lib/editorPortrait";
 import {
   absoluteUrl,
   editorPersonJsonLd,
@@ -8,7 +9,6 @@ import {
   localePath,
   siteConfig,
 } from "@/lib/site";
-import { editorPortraitExists } from "@/lib/editorPortrait";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) return {};
 
-  const t = await getTranslations({ locale, namespace: "contact" });
+  const t = await getTranslations({ locale, namespace: "about" });
   const title = t("metaTitle");
   const description = t("metaDescription");
-  const path = "/contact";
-  const url = absoluteUrl(localePath(locale, path));
-  const alternates = localeAlternates(locale, path);
+  const pagePath = siteConfig.editor.path;
+  const url = absoluteUrl(localePath(locale, pagePath));
+  const alternates = localeAlternates(locale, pagePath);
 
   return {
     title,
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Contact({ params }: Props) {
+export default async function About({ params }: Props) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -61,13 +61,16 @@ export default async function Contact({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "contact" });
-  const tAbout = await getTranslations({ locale, namespace: "about" });
-  const url = absoluteUrl(localePath(locale, "/contact"));
+  const t = await getTranslations({ locale, namespace: "about" });
+  const url = absoluteUrl(localePath(locale, siteConfig.editor.path));
+  const hasPortrait = editorPortraitExists();
+  const person = editorPersonJsonLd(locale, t("editorRole"), {
+    includeImage: hasPortrait,
+  });
 
-  const contactJsonLd = {
+  const aboutJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
+    "@type": "AboutPage",
     name: `${t("metaTitle")} — ${siteConfig.name}`,
     description: t("metaDescription"),
     url,
@@ -76,15 +79,14 @@ export default async function Contact({ params }: Props) {
       name: siteConfig.name,
       url: absoluteUrl("/"),
     },
-    mainEntity: editorPersonJsonLd(locale, tAbout("editorRole"), {
-      includeImage: editorPortraitExists(),
-    }),
+    mainEntity: person,
+    inLanguage: locale,
   };
 
   return (
     <>
-      <JsonLd data={contactJsonLd} />
-      <ContactPage />
+      <JsonLd data={aboutJsonLd} />
+      <AboutPage hasPortrait={hasPortrait} />
     </>
   );
 }

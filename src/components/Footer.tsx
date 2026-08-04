@@ -11,7 +11,9 @@ import { useLocale, useTranslations } from "next-intl";
 
 const siteLinks = [
   { href: "/species" as const, labelKey: "species" as const },
+  { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
   { href: "/regions" as const, labelKey: "regions" as const },
+  { href: "/about" as const, labelKey: "about" as const },
   { href: "/#atlas" as const, labelKey: "atlas" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
 ];

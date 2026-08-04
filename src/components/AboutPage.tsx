@@ -1,0 +1,242 @@
+"use client";
+
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Logo } from "@/components/Logo";
+import { Reveal } from "@/components/Reveal";
+import { SpeciesSearch } from "@/components/SpeciesSearch";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { images } from "@/data/species";
+import { Link } from "@/i18n/navigation";
+import { editorDisplayName, siteConfig } from "@/lib/site";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
+import { useState } from "react";
+
+const SOURCE_LINKS = [
+  {
+    key: "iucn" as const,
+    href: "https://www.iucnredlist.org/",
+  },
+  {
+    key: "gbif" as const,
+    href: "https://www.gbif.org/",
+  },
+  {
+    key: "reptileDb" as const,
+    href: "https://reptile-database.reptarium.cz/",
+  },
+];
+
+export function AboutPage({ hasPortrait = false }: { hasPortrait?: boolean }) {
+  const t = useTranslations("about");
+  const locale = useLocale();
+  const editorName = editorDisplayName(locale);
+  const [portraitFailed, setPortraitFailed] = useState(!hasPortrait);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <header
+        className="fixed inset-x-0 z-50"
+        style={{ top: "var(--beta-banner-height, 0px)" }}
+      >
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-5 lg:px-10">
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full"
+            style={{
+              background: "color-mix(in oklab, var(--ink) 55%, transparent)",
+              backdropFilter: "blur(20px) saturate(140%)",
+            }}
+          />
+          <Link href="/" className="shrink-0 transition-opacity hover:opacity-90">
+            <Logo
+              size={44}
+              priority
+              showWordmark
+              wordmarkClassName="hidden text-[17px] text-white sm:inline"
+            />
+          </Link>
+          <div className="flex items-center justify-end gap-2.5 sm:gap-3">
+            <SpeciesSearch variant="dark" />
+            <ThemeToggle variant="dark" />
+            <LanguageSwitcher variant="dark" />
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section
+          className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
+          style={{
+            paddingTop: "calc(var(--beta-banner-height, 0px) + 7rem)",
+          }}
+        >
+          <Image
+            src={images.cta}
+            alt={t("heroImageAlt")}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
+
+          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <Link
+                href="/"
+                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
+              >
+                <ArrowLeft className="size-3.5" />
+                {t("back")}
+              </Link>
+              <p className="font-display text-[clamp(2.4rem,6vw,3.75rem)] font-semibold leading-none tracking-tight text-white">
+                {t("brand")}
+              </p>
+              <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+                {t("eyebrow")}
+              </p>
+              <h1 className="mt-3 max-w-3xl font-display text-balance-tight text-[clamp(1.75rem,4.5vw,3.25rem)] font-semibold leading-[1.08] text-white sm:mt-4">
+                {t("title")}
+              </h1>
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
+                {t("subtitle")}
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+              <Reveal>
+                <div className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-[28px] bg-ink lg:mx-0">
+                  {!portraitFailed ? (
+                    <Image
+                      src={siteConfig.editor.image}
+                      alt={t("editorPhotoAlt", { name: editorName })}
+                      fill
+                      sizes="(max-width: 1024px) 340px, 28vw"
+                      className="object-cover"
+                      onError={() => setPortraitFailed(true)}
+                    />
+                  ) : (
+                    <div
+                      className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/25 via-ink to-ink"
+                      aria-hidden
+                    >
+                      <span className="font-display text-[4.5rem] font-semibold tracking-tight text-white/80">
+                        {siteConfig.editor.initials}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                  {t("editorEyebrow")}
+                </p>
+                <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] font-semibold leading-[1.05] text-foreground">
+                  {editorName}
+                </h2>
+                <p className="mt-3 text-[15px] font-medium text-primary">
+                  {t("editorRole")}
+                </p>
+                <div className="mt-6 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+                  <p>{t("editorBio1", { name: editorName })}</p>
+                  <p>{t("editorBio2")}</p>
+                  <p>{t("editorBio3")}</p>
+                </div>
+                <a
+                  href={`mailto:${siteConfig.editor.email}`}
+                  className="group mt-8 inline-flex max-w-full items-center gap-3"
+                >
+                  <span className="truncate border-b border-foreground/20 pb-1 text-[15px] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
+                    {siteConfig.editor.email}
+                  </span>
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                </a>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-surface/60 py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                {t("methodEyebrow")}
+              </p>
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+                {t("methodTitle")}
+              </h2>
+              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                {t("methodLead")}
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid gap-6 sm:grid-cols-3">
+              <MethodCard title={t("methodCardTitle")} body={t("methodCardBody")} />
+              <MethodCard title={t("sourcesCardTitle")} body={t("sourcesCardBody")} />
+              <MethodCard title={t("photosCardTitle")} body={t("photosCardBody")} />
+            </div>
+
+            <ul className="mt-10 flex flex-wrap gap-3">
+              {SOURCE_LINKS.map((source) => (
+                <li key={source.key}>
+                  <a
+                    href={source.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                  >
+                    {t(`sources.${source.key}`)}
+                    <ArrowUpRight className="size-3.5 opacity-60" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[860px] px-6 text-center lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                {t("contributeEyebrow")}
+              </p>
+              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+                {t("contributeTitle")}
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+                {t("contributeBody")}
+              </p>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[13px] font-medium text-white transition-colors hover:bg-primary/90 dark:text-ink"
+              >
+                {t("contributeCta")}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function MethodCard({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
+      <h3 className="font-display text-[1.15rem] font-semibold text-foreground">
+        {title}
+      </h3>
+      <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+        {body}
+      </p>
+    </div>
+  );
+}

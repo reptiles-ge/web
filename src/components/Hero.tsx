@@ -39,12 +39,12 @@ export async function Hero() {
             {t("viewSpecies")}
             <ArrowRight className="size-4" />
           </Link>
-          <a
-            href="#detail"
+          <Link
+            href="/venomous-snakes"
             className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-[14px] font-medium text-white/90 backdrop-blur-md hover:border-white/50 hover:bg-white/10"
           >
             {t("moreAboutViper")}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

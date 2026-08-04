@@ -80,6 +80,24 @@ export function isVenomousDanger(danger: DangerLevel) {
   return danger === "High" || danger === "Moderate";
 }
 
+const venomousDangerOrder: Record<DangerLevel, number> = {
+  High: 0,
+  Moderate: 1,
+  Harmless: 2,
+};
+
+export function getVenomousCatalogSpecies(
+  catalog: Species[] = getCatalogSpecies(),
+) {
+  return catalog
+    .filter((item) => isVenomousDanger(item.danger))
+    .sort(
+      (a, b) =>
+        venomousDangerOrder[a.danger] - venomousDangerOrder[b.danger] ||
+        a.scientificName.localeCompare(b.scientificName),
+    );
+}
+
 export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
   const urls = new Set<string>();
   for (const item of catalog) {

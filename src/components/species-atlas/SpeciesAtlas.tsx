@@ -31,6 +31,7 @@ import { getCatalogSpecies, images, type Species } from "@/data/species";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { editorDisplayName } from "@/lib/site";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -95,24 +96,24 @@ function AnimatedValue({
 
 function HeroPathway({
   onClick,
+  href,
   eyebrow,
   title,
   meta,
   delay = 0,
 }: {
-  onClick: () => void;
+  onClick?: () => void;
+  href?: string;
   eyebrow: string;
   title: string;
   meta: string;
   delay?: number;
 }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5"
-      style={{ animationDelay: `${delay}ms` }}
-    >
+  const className =
+    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
+  const style = { animationDelay: `${delay}ms` };
+  const content = (
+    <>
       <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/40">
         {eyebrow}
       </span>
@@ -123,6 +124,20 @@ function HeroPathway({
         {meta}
         <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className={className} style={style}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button type="button" onClick={onClick} className={className} style={style}>
+      {content}
     </button>
   );
 }
@@ -397,14 +412,7 @@ export function SpeciesAtlas({
                       count: stats.venomous,
                     })}
                     meta={t("stats.pathwayExplore")}
-                    onClick={() => {
-                      setFilters({
-                        ...defaultAtlasFilters,
-                        danger: "venomous",
-                        query: filters.query,
-                      });
-                      scrollToExplorer();
-                    }}
+                    href="/venomous-snakes"
                   />
                   {stats.lizards > 0 ? (
                     <HeroPathway
@@ -737,7 +745,11 @@ export function SpeciesAtlas({
                 <TrustCard title={t("photosTitle")} body={t("photosBody")} />
                 <TrustCard
                   title={t("contributorsTitle")}
-                  body={t("contributorsBody")}
+                  body={t("contributorsBody", {
+                    name: editorDisplayName(locale),
+                  })}
+                  href="/about"
+                  linkLabel={t("contributorsLink")}
                 />
               </div>
             </div>
@@ -831,7 +843,17 @@ function RecentSpeciesRow({ species }: { species: Species }) {
   );
 }
 
-function TrustCard({ title, body }: { title: string; body: string }) {
+function TrustCard({
+  title,
+  body,
+  href,
+  linkLabel,
+}: {
+  title: string;
+  body: string;
+  href?: "/about";
+  linkLabel?: string;
+}) {
   return (
     <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
       <h3 className="font-display text-[1.15rem] font-semibold text-foreground">
@@ -840,6 +862,15 @@ function TrustCard({ title, body }: { title: string; body: string }) {
       <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
         {body}
       </p>
+      {href && linkLabel ? (
+        <Link
+          href={href}
+          className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+        >
+          {linkLabel}
+          <ArrowUpRight className="size-3.5" />
+        </Link>
+      ) : null}
     </div>
   );
 }
@@ -909,6 +940,13 @@ function SeoAuthoritySection() {
                 </Link>
               </li>
             </ul>
+            <Link
+              href="/venomous-snakes"
+              className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-medium text-primary transition-colors hover:text-primary/80"
+            >
+              {t("seo.venomousGuideCta")}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
           </section>
 
           <section>

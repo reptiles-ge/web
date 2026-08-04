@@ -35,6 +35,8 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -48,8 +50,13 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [...siteConfig.keywords],
-  authors: [{ name: siteConfig.name, url: absoluteUrl("/") }],
-  creator: siteConfig.name,
+  authors: [
+    {
+      name: siteConfig.editor.name,
+      url: absoluteUrl(siteConfig.editor.path),
+    },
+  ],
+  creator: siteConfig.editor.name,
   publisher: siteConfig.name,
   category: "science",
   openGraph: {

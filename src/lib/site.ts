@@ -12,6 +12,8 @@ export const siteConfig = {
     "საქართველო",
     "კავკასია",
     "ატლასი",
+    "შხამიანი გველები საქართველოში",
+    "შხამიანი გველები",
     "გველგესლა",
     "Vipera dinniki",
     "დინიკის გველგესლა",
@@ -30,8 +32,18 @@ export const siteConfig = {
     "ბიოლოგია",
     "კონსერვაცია",
     "Georgia reptiles",
+    "venomous snakes Georgia",
     "Reptiles",
   ],
+  editor: {
+    name: "Nika Shamiladze",
+    nameKa: "ნიკა შამილაძე",
+    initials: "NS",
+    email: "nika@shamiladze.com",
+    image: "/images/editor/nika-shamiladze.jpg",
+    path: "/about",
+    sameAs: [] as readonly string[],
+  },
 } as const;
 
 export function getSiteUrl() {
@@ -96,5 +108,35 @@ export function localeAlternates(locale: string, path = "/") {
       en,
       "x-default": ka,
     },
+  };
+}
+
+export function editorDisplayName(locale: string) {
+  return locale === "ka" ? siteConfig.editor.nameKa : siteConfig.editor.name;
+}
+
+export function editorPersonJsonLd(
+  locale: string,
+  jobTitle: string,
+  options?: { includeImage?: boolean },
+): Record<string, unknown> {
+  const { editor } = siteConfig;
+  const personUrl = absoluteUrl(localePath(locale, editor.path));
+  const includeImage = options?.includeImage !== false;
+
+  return {
+    "@type": "Person",
+    name: editorDisplayName(locale),
+    alternateName: locale === "ka" ? editor.name : editor.nameKa,
+    jobTitle,
+    email: editor.email,
+    url: personUrl,
+    ...(includeImage ? { image: absoluteImageUrl(editor.image) } : {}),
+    worksFor: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
+    },
+    ...(editor.sameAs.length > 0 ? { sameAs: [...editor.sameAs] } : {}),
   };
 }

@@ -15,7 +15,7 @@ export function Navbar() {
   const links = [
     { href: "/species", label: t("species") },
     { href: "/regions", label: t("atlas") },
-    { href: "#detail", label: t("about") },
+    { href: "/about", label: t("about") },
   ];
 
   useEffect(() => {

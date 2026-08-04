@@ -24,6 +24,8 @@ type PageProps = {
   params: Promise<{ locale: string; id: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     regions.map((region) => ({ locale, id: region.id })),

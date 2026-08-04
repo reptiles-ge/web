@@ -11,10 +11,12 @@ import {
   absoluteImageUrl,
   absoluteUrl,
   cdnOgImageUrl,
+  editorPersonJsonLd,
   localeAlternates,
   localePath,
   siteConfig,
 } from "@/lib/site";
+import { editorPortraitExists } from "@/lib/editorPortrait";
 import {
   speciesMetaDescription,
   speciesMetaTitle,
@@ -27,6 +29,8 @@ import { notFound } from "next/navigation";
 type PageProps = {
   params: Promise<{ locale: string; id: string }>;
 };
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -159,6 +163,8 @@ export default async function SpeciesPage({ params }: PageProps) {
     ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 
+  const tAbout = await getTranslations({ locale, namespace: "about" });
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -173,11 +179,9 @@ export default async function SpeciesPage({ params }: PageProps) {
     },
     mainEntity: taxon,
     about: taxon,
-    author: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    author: editorPersonJsonLd(locale, tAbout("editorRole"), {
+      includeImage: editorPortraitExists(),
+    }),
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
