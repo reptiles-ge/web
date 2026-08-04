@@ -41,7 +41,7 @@ export function AtlasSpeciesCard({
 
   return (
     <article
-      className="group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-card ring-1 ring-border/70 transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(14,20,17,0.55)]"
+      className="group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-card ring-1 ring-border/70 transition-shadow duration-500 hover:shadow-[0_28px_60px_-40px_rgba(14,20,17,0.55)]"
       style={{
         animationDelay: `${Math.min(index, 12) * 40}ms`,
       }}
