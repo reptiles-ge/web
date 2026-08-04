@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { getFeaturedSpecies, type Species } from "@/data/species";
+import { getCatalogSpecies, type Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import { useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -178,7 +178,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const [mounted, setMounted] = useState(false);
   const deferredQuery = useDeferredValue(query);
 
-  const catalog = getFeaturedSpecies().map((item) =>
+  const catalog = getCatalogSpecies().map((item) =>
     toSearchItem(item, locale),
   );
 
