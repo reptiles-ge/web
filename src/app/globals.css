@@ -68,6 +68,45 @@ body {
   border: 1px solid color-mix(in oklab, white 14%, transparent);
 }
 
+@keyframes search-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes search-sheet-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes search-sheet-in {
+  from {
+    opacity: 0.96;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+  display: none;
+}
+
 .species-carousel-track {
   padding-left: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
   scroll-padding-left: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));

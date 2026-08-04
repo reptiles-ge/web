@@ -7,6 +7,15 @@ export type Messages = {
     atlas: string;
     discover: string;
   };
+  search: {
+    placeholder: string;
+    noResults: string;
+    featured: string;
+    clear: string;
+    open: string;
+    close: string;
+    title: string;
+  };
   language: {
     switch: string;
     ka: string;
@@ -113,6 +122,15 @@ export const messages: Record<Locale, Messages> = {
       about: "შესახებ",
       atlas: "ატლასი",
       discover: "აღმოაჩინე",
+    },
+    search: {
+      placeholder: "მოძებნე სახეობა…",
+      noResults: "სახეობა ვერ მოიძებნა",
+      featured: "რჩეული სახეობები",
+      clear: "გასუფთავება",
+      open: "სახეობის ძებნა",
+      close: "დახურვა",
+      title: "ძებნა",
     },
     language: {
       switch: "ენის შეცვლა",
@@ -244,6 +262,15 @@ export const messages: Record<Locale, Messages> = {
       about: "About",
       atlas: "Atlas",
       discover: "Discover",
+    },
+    search: {
+      placeholder: "Search species…",
+      noResults: "No species found",
+      featured: "Featured species",
+      clear: "Clear",
+      open: "Search species",
+      close: "Close",
+      title: "Search",
     },
     language: {
       switch: "Change language",

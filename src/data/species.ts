@@ -414,7 +414,7 @@ export const species: Species[] = [
     mobileImage: "/images/coronella-austriaca-mobile.jpg",
     gallery: [
       "/images/coronella-austriaca.jpg",
-      "/images/coronella-austriaca-2.jpg",
+      "https://cdn.reptiles.ge/coronella-austriaca-2.webp",
       "/images/coronella-austriaca-3.jpg",
       "/images/coronella-austriaca-4.jpg",
       "/images/coronella-austriaca-5.jpg",

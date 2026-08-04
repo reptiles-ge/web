@@ -2,6 +2,7 @@
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
+import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { useEffect, useState } from "react";
 
@@ -25,13 +26,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const chromeVariant = scrolled ? "light" : "dark";
+
   return (
     <header
       className="fixed inset-x-0 z-50"
       style={{ top: "var(--beta-banner-height, 0px)" }}
     >
       <div
-        className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 transition-all duration-500 lg:px-10 ${
+        className={`mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 transition-all duration-500 lg:px-10 ${
           scrolled ? "py-3" : "py-5"
         }`}
       >
@@ -46,17 +49,17 @@ export function Navbar() {
             borderBottom: "1px solid var(--border)",
           }}
         />
-        <a href="#top" className="relative z-10 transition-opacity hover:opacity-90">
+        <a href="#top" className="relative z-10 shrink-0 transition-opacity hover:opacity-90">
           <Logo
             size={44}
             priority
             showWordmark
-            wordmarkClassName={`text-[17px] transition-colors ${
+            wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
               scrolled ? "text-foreground" : "text-white"
             }`}
           />
         </a>
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="relative z-10 hidden items-center gap-9 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -71,11 +74,12 @@ export function Navbar() {
             </a>
           ))}
         </nav>
-        <div className="relative z-10 flex items-center gap-3">
-          <LanguageSwitcher variant={scrolled ? "light" : "dark"} />
+        <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
+          <SpeciesSearch variant={chromeVariant} />
+          <LanguageSwitcher variant={chromeVariant} />
           <a
             href="#species"
-            className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all sm:inline-flex ${
+            className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex ${
               scrolled
                 ? "bg-primary text-white hover:bg-primary/90"
                 : "bg-white/90 text-ink hover:bg-white"
