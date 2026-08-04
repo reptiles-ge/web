@@ -226,7 +226,18 @@
     "empty": "Species data for this region has not been added yet.",
     "notFound": "Region not found",
     "regionMetaTitle": "{name} — snakes and reptiles of the region",
-    "regionMetaDescription": "Reptiles recorded in {name}, Georgia — {count, plural, one {# species} other {# species}}, map, habitats, and venomous species. See profiles on reptiles.ge."
+    "regionMetaDescription": "Reptiles recorded in {name}, Georgia — {count, plural, one {# species} other {# species}}, map, habitats, and venomous species. See profiles on reptiles.ge.",
+    "seo": {
+      "eyebrow": "From place to fauna",
+      "title": "How the regional atlas works",
+      "p1": "In Georgia, reptile assemblages shift with place: Colchic forests and the western coast, the Greater Caucasus high belt, and the arid basins of the east each support different species. The regional atlas turns that gradient into a practical path — pick a place on the map or in the list and see what is recorded there.",
+      "p2": "Each region page brings together a local species list, short habitat notes, safety context for venomous snakes, and a map. When a species catches your eye, open its full profile; when risk matters, use the venomous-snake guide.",
+      "links": {
+        "species": "Species atlas",
+        "venomous": "Venomous snakes of Georgia",
+        "home": "Main atlas"
+      }
+    }
   },
   "contact": {
     "metaTitle": "Contact",

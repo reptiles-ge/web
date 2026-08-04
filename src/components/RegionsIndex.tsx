@@ -123,6 +123,52 @@ export function RegionsIndex() {
             </ul>
           </div>
         </section>
+
+        <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                {t("seo.eyebrow")}
+              </p>
+              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+                {t("seo.title")}
+              </h2>
+              <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+                <p>{t("seo.p1")}</p>
+                <p>{t("seo.p2")}</p>
+              </div>
+              <ul className="mt-8 max-w-3xl space-y-2 border-l-2 border-primary/25 pl-4">
+                <li>
+                  <Link
+                    href="/species"
+                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {t("seo.links.species")}
+                    <ArrowUpRight className="size-3.5 opacity-50" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/venomous-snakes"
+                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {t("seo.links.venomous")}
+                    <ArrowUpRight className="size-3.5 opacity-50" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/"
+                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {t("seo.links.home")}
+                    <ArrowUpRight className="size-3.5 opacity-50" />
+                  </Link>
+                </li>
+              </ul>
+            </Reveal>
+          </div>
+        </section>
       </main>
     </div>
   );
