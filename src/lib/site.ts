@@ -20,6 +20,8 @@ export const siteConfig = {
     "Vipera ammodytes",
     "გველხოკერა",
     "Pseudopus apodus",
+    "სხივოვანი მგლის ობობა",
+    "Hogna radiata",
     "ენციკლოპედია",
     "ბიოლოგია",
     "კონსერვაცია",
