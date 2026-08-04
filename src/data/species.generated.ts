@@ -903,6 +903,136 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "platyceps-najadum",
+    "commonName": "წენგოსფერი მცურავი",
+    "scientificName": "Platyceps najadum",
+    "genus": "Platyceps",
+    "family": "Colubridae",
+    "location": "აღმოსავლეთ და სამხრეთ საქართველო",
+    "description": "უშხამო, ძალიან გამხდარი მცურავი — კისერზე მუქი, ღია კიდეებიანი ლაქებითა და წენგოსფერი ან ზეთისხილისფერი სხეულით; მშრალი ქვიანი ადგილების მკვიდრი.",
+    "overview": "წენგოსფერი მცურავი (Platyceps najadum) Colubridae ოჯახის უშხამო, სწრაფი სახეობაა — ინგლისურად Dahl’s whip snake ან slender whip snake. აღწერა კარლ აიხვალდმა 1831 წელს (თავდაპირველად Tyria najadum); ტიპის ლოკალობა — ბაქო. გავრცელებულია ბალკანებიდან კავკასიამდე და ახლო აღმოსავლეთამდე — მათ შორის საქართველოში, სომხეთში, აზერბაიჯანსა და სამხრეთ რუსეთში; კავკასიასა და მცირე აზიაში ნომინალური ქვესახეობაა (P. n. najadum). სხეული ძალიან გამხდარი და მათრახისებრია; ზრდასრულები იშვიათად აღემატებიან 1 მ-ს (ჩვეულებრივ დაახლ. 70–100 სმ; მაქსიმუმი ლიტერატურაში ~1.3–1.4 მ). კისერზე დამახასიათებელია მუქი, ღია კიდეებით შემოხაზული ლაქები (ოცელები), რომლებიც უკან მცირდება; ზურგი ზეთისხილისფერი, რუხი ან წენგოსფერი–მოყავისფროა. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
+    "habitat": "უპირატესობას ანიჭებს მშრალ და ქსეროფიტულ ლანდშაფტებს: ქვიან ფერდობებს, კლდოვან ამონაკვეთებს, ბუჩქნარს, ტყის პირებს, მდელოებსა და სასოფლო-სამეურნეო ადგილებს — ზღვის დონიდან დაახლოებით 2,000 მ-მდე. საქართველოში უფრო ხშირია აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან და ბალახოვან ჰაბიტატებში; ხშირად ჩანს გზებთან და ღია ადგილებში. თავშესაფრად იყენებს ქვების ნაპრალებსა და კლდის ღრმულებს.",
+    "diet": "ძირითადად ხვლიკებით იკვებება; აგრეთვე იჭერს მცირე ძუძუმწოვრებს, ფრინველებსა და სხვა გველებს. შხამი არ აქვს — მსხვერპლს სისწრაფითა და სიზუსტით იჭერს; დიდ მსხვერპლს სხეულის რგოლებითაც აფიქსირებს.",
+    "behavior": "დღის აქტიურია — ერთ-ერთი ყველაზე სწრაფი და მოძრავი მცურავია რეგიონში. საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება თავი აიწიოს და პირი გააღოს, თუმცა ადამიანისთვის უვნებელია. კვერცხისმდებია: შეწყვილება ჩვეულებრივ აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს (ივნის–ივლისი). კისრის ოცელებიანი ნახატი და მრგვალი გუგა მთავარი ამოცნობის ნიშნებია და შხამიანი გველგესლებისგან განასხვავებს.",
+    "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ინტენსიური სოფლის მეურნეობა, ტყის ხანძრები, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს ხვლიკებისა და მცირე მღრღნელების რაოდენობას.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/platyceps-najadum.webp",
+    "imageCredit": {
+      "photographer": "Benny Trapp",
+      "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Schlanknatter_Platyceps_najadum.JPG"
+    },
+    "mobileImage": "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
+    "mobileImageCredit": {
+      "photographer": "Ryan van Huyssteen",
+      "url": "https://www.inaturalist.org/observations/163280840"
+    },
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum.webp",
+        "credit": {
+          "photographer": "Benny Trapp",
+          "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Schlanknatter_Platyceps_najadum.JPG"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-2.webp",
+        "credit": {
+          "photographer": "DinaKuzia",
+          "url": "https://commons.wikimedia.org/wiki/File:Platyceps_najadum_Makrigoas.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-3.webp",
+        "credit": {
+          "photographer": "Chalki25",
+          "url": "https://commons.wikimedia.org/wiki/File:Snake_in_Evros_mountains.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-4.webp",
+        "credit": {
+          "photographer": "Mirela",
+          "url": "https://www.inaturalist.org/observations/382862190"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-5.webp",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/250549785"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-6.webp",
+        "credit": {
+          "photographer": "Donsky",
+          "url": "https://www.inaturalist.org/observations/372539358"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-7.webp",
+        "credit": {
+          "photographer": "Kiril Kapustin",
+          "url": "https://commons.wikimedia.org/wiki/File:Coluber_najadum_in_Bulgaria.jpg"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "მშრალი ქვიანი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 70–100 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "0–2,000 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "კისერზე მუქი, ღია კიდეებიანი ლაქები (ოცელები) სახეობის მთავარი ამოცნობის ნიშანია.",
+      "სხეული იმდენად გამხდარია, რომ ინგლისური სახელიც whip snake — „მათრახისებრი გველი“ — აქედან მოდის.",
+      "უშხამოა და ადამიანისთვის უვნებელი — მიუხედავად სისწრაფისა და თავდაცვითი ქცევისა.",
+      "საქართველოში დაფიქსირებულია სხვა უშხამო მცურავებთან ერთად — მათ შორის წითელმუცელა მცურავის ზამთრის თავშესაფრებში."
+    ],
+    "faq": [
+      {
+        "question": "საშიშია თუ არა წენგოსფერი მცურავი ადამიანისთვის?",
+        "answer": "არა — უშხამოა და ადამიანისთვის უვნებელი. სწრაფია და საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება პირი გააღოს, მაგრამ რეალურ საფრთხეს არ წარმოადგენს."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "ძირითადად აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან და ბალახოვან ლანდშაფტებში — ქართლში, კახეთში, სამცხე–ჯავახეთსა და მსგავს ჰაბიტატებში. ვერტიკალურად გვხვდება ზღვის დონიდან დაახლოებით 2,000 მ-მდე."
+      },
+      {
+        "question": "რით გამოირჩევა სხვა მცურავებისგან?",
+        "answer": "კისერზე აქვს მუქი, ღია კიდეებით შემოხაზული ლაქები, სხეული ძალიან გამხდარია, გუგა მრგვალია. წითელმუცელა მცურავს (Dolichophis schmidti) აქვს წითელი ან ნარინჯისფერი მუცელი და უფრო მასიურია; გველგესლებს — კილური ქერცლები და ვერტიკალური გუგა."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად ხვლიკებს; აგრეთვე მცირე ძუძუმწოვრებს, ფრინველებსა და სხვა გველებს. შხამი არ აქვს — ნადირობს სისწრაფით."
+      },
+      {
+        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
+      }
+    ]
+  },
+  {
     "id": "pseudopus-apodus",
     "commonName": "გველხოკერა",
     "scientificName": "Pseudopus apodus",
@@ -1950,6 +2080,70 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in March–May; in July it lays roughly 10–30 eggs, and young hatch in early September."
+      }
+    ]
+  },
+  "platyceps-najadum": {
+    "commonName": "Dahl's whip snake",
+    "location": "Eastern and southern Georgia",
+    "description": "A non-venomous, extremely slender racer with dark pale-edged neck spots and an olive to buckthorn-tan body — native to dry, rocky landscapes.",
+    "overview": "Dahl's whip snake (Platyceps najadum), also called the slender whip snake, is a non-venomous, fast species of the family Colubridae. It was described by Karl Eichwald in 1831 (originally as Tyria najadum); the type locality is Baku. It ranges from the Balkans across the Caucasus and into the Middle East — including Georgia, Armenia, Azerbaijan, and southern Russia; the nominotypical subspecies (P. n. najadum) occurs in the Caucasus and Asia Minor. The body is very slender and whip-like; adults rarely exceed 1 m (usually about 70–100 cm; maxima of roughly 1.3–1.4 m are reported). The neck bears distinctive dark spots with pale borders (ocelli) that fade posteriorly; the dorsum is olive, grey, or buckthorn–brown. It is classified as Least Concern by the IUCN.",
+    "habitat": "It favors dry and xeric landscapes: rocky slopes, outcrops, scrub, woodland edges, meadows, and agricultural land — from sea level to roughly 2,000 m. In Georgia it is more often found in the dry, rocky, and grassy habitats of the east and south; it is frequently seen near roads and in open terrain. It shelters in rock crevices and stone rubble.",
+    "diet": "It feeds mainly on lizards; it also takes small mammals, birds, and other snakes. It has no venom — it catches prey with speed and precision and may pin larger prey with body loops.",
+    "behavior": "It is diurnal — one of the fastest, most agile racers in the region. When threatened it prefers to flee; if cornered it may raise its head and gape, but it remains harmless to humans. It is egg-laying: mating usually occurs in April–May; females lay roughly 3–16 eggs (June–July). The neck ocelli and round pupil are key identification traits and help separate it from venomous vipers.",
+    "conservation": "Classified as Least Concern on the IUCN Red List. In Europe it is listed on Annex II of the Bern Convention and Annex IV of the EU Habitats Directive. Local threats include habitat conversion, intensive agriculture, wildfires, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by reducing lizards and small rodents.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Dry rocky terrain"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 70–100 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Elevation",
+        "value": "0–2,000 m"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "The dark pale-edged neck spots (ocelli) are the main identification mark of the species.",
+      "The body is so slender that the English name whip snake comes from that whip-like build.",
+      "It is non-venomous and harmless to humans — despite its speed and defensive displays.",
+      "In Georgia it has been recorded alongside other non-venomous racers — including in winter shelters of the red-bellied racer."
+    ],
+    "faq": [
+      {
+        "question": "Is Dahl's whip snake dangerous to humans?",
+        "answer": "No — it is non-venomous and harmless to humans. It is fast and prefers to flee when threatened; if cornered it may gape, but it poses no real danger."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "Mainly in the dry, rocky, and grassy landscapes of the east and south — Kartli, Kakheti, Samtskhe–Javakheti, and similar habitats. Vertically it occurs from sea level to roughly 2,000 m."
+      },
+      {
+        "question": "How does it differ from other racers?",
+        "answer": "It has dark pale-edged neck spots, a very slender body, and a round pupil. The red-bellied racer (Dolichophis schmidti) has a red or orange belly and a more robust build; vipers have keeled scales and a vertical pupil."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly lizards; also small mammals, birds, and other snakes. It has no venom — it hunts with speed."
+      },
+      {
+        "question": "Does it lay eggs or give live birth?",
+        "answer": "It is egg-laying. Mating is in April–May; the female lays roughly 3–16 eggs, and young hatch independently."
       }
     ]
   },

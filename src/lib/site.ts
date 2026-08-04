@@ -25,6 +25,8 @@ export const siteConfig = {
     "აღმოსავლური მეფე გველი",
     "Lampropeltis getula",
     "Eastern kingsnake",
+    "წენგოსფერი მცურავი",
+    "Platyceps najadum",
     "ენციკლოპედია",
     "ბიოლოგია",
     "კონსერვაცია",

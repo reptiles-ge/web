@@ -91,6 +91,7 @@ export const featuredSpeciesIds = [
   "elaphe-urartica",
   "natrix-tessellata",
   "dolichophis-schmidti",
+  "platyceps-najadum",
 ] as const;
 
 export const catalogSpeciesIds = [
