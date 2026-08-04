@@ -301,7 +301,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
                           href={`/regions/${item.id}`}
                           className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
                         >
-                          <div className="flex items-start justify-between gap-3">
+                          <div className="flex min-h-[3.4rem] items-start justify-between gap-3">
                             <h3 className="font-display text-[22px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
                               {localizeRegionText(item.name, locale)}
                             </h3>
