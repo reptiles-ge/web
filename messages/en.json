@@ -137,6 +137,7 @@
     "title": "Regions of Georgia",
     "subtitle": "Explore reptiles by place — map, habitats, and species profiles in one calm field guide.",
     "heroImageAlt": "Misty Caucasus ridge at dusk",
+    "regionHeroAlt": "{name} — regional landscape",
     "back": "Atlas",
     "allRegions": "All regions",
     "statRegions": "{count} regions",

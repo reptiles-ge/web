@@ -110,6 +110,7 @@ export const featuredSpeciesIds = [
   "coronella-austriaca",
   "elaphe-urartica",
   "natrix-tessellata",
+  "natrix-natrix",
   "dolichophis-schmidti",
   "platyceps-najadum",
   "telescopus-fallax",

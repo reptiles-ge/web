@@ -10,6 +10,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   getRegionContent,
 } from "@/data/regionContent";
+import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
   getRegionSpecies,
@@ -68,8 +69,8 @@ export function RegionProfile({ region }: RegionProfileProps) {
     [content.faq, locale],
   );
 
-  const hero = species[0];
-  const heroSrc = hero?.mobileImage ?? hero?.image;
+  const heroSrc = getRegionHeroImage(region.id);
+  const heroAlt = t("regionHeroAlt", { name });
 
   return (
     <div className="min-h-screen bg-background">
@@ -103,24 +104,14 @@ export function RegionProfile({ region }: RegionProfileProps) {
 
       <main>
         <section className="relative h-[70svh] min-h-[440px] w-full overflow-hidden bg-ink lg:h-[75svh]">
-          {heroSrc ? (
-            <Image
-              src={heroSrc}
-              alt={
-                hero
-                  ? speciesImageAlt(
-                      hero.commonName,
-                      hero.scientificName,
-                      hero.location,
-                    )
-                  : name
-              }
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
-          ) : null}
+          <Image
+            src={heroSrc}
+            alt={heroAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 

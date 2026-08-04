@@ -34,8 +34,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes occur in Abkhazia?",
         },
         answer: {
-          ka: "რეგიონში დაფიქსირებულია კავკასიური და დინიკის გველგესლები, წყლის ანკარა, სპილენძა და გველხოკერა. ზუსტი სია იცვლება ჰაბიტატისა და სიმაღლის მიხედვით.",
-          en: "Recorded taxa include Caucasian and Dinnik’s vipers, dice snake, smooth snake, and European glass lizard. Exact lists vary by habitat and elevation.",
+          ka: "რეგიონში დაფიქსირებულია კავკასიური და დინიკის გველგესლები, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზუსტი სია იცვლება ჰაბიტატისა და სიმაღლის მიხედვით.",
+          en: "Recorded taxa include Caucasian and Dinnik’s vipers, grass snake and dice snake, smooth snake, and European glass lizard. Exact lists vary by habitat and elevation.",
         },
       },
       {
@@ -69,8 +69,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes live in Samegrelo?",
         },
         answer: {
-          ka: "დაბლობსა და ტენიან ზონაში უფრო ხშირია კავკასიური გველგესლა, წყლის ანკარა, სპილენძა და გველხოკერა. მაღალმთაში სპექტრი იცვლება.",
-          en: "In humid lowlands, Caucasian viper, dice snake, smooth snake, and glass lizard are more typical. The suite changes at higher elevations.",
+          ka: "დაბლობსა და ტენიან ზონაში უფრო ხშირია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. მაღალმთაში სპექტრი იცვლება.",
+          en: "In humid lowlands, Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard are more typical. The suite changes at higher elevations.",
         },
       },
     ],
@@ -93,8 +93,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Are there venomous snakes in Guria?",
         },
         answer: {
-          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. წყლის ანკარა და სპილენძა უვნებელია ადამიანისთვის.",
-          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous. Dice snake and smooth snake are harmless to humans.",
+          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. ჩვეულებრივი და წყლის ანკარა და სპილენძა უვნებელია ადამიანისთვის.",
+          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous. Grass snake, dice snake, and smooth snake are harmless to humans.",
         },
       },
     ],
@@ -102,8 +102,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   adjara: {
     biome: { ka: "კოლხური · სანაპირო", en: "Colchic · coastal" },
     overview: {
-      ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი ჰერპეტოლოგიური ზონაა. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო ქმნის გარემოს, სადაც კავკასიური გველგესლა, წყლის ანკარა, სპილენძა და გველხოკერა ერთმანეთს ემთხვევა. აღმოსავლეთის მშრალი ზონის სახეობები აქ თითქმის არ გვხვდება.",
-      en: "Adjara is one of western Georgia’s most humid herpetological zones. Subtropical forests, mountain valleys, and the Black Sea coast bring together Caucasian viper, dice snake, smooth snake, and glass lizard. Eastern arid-zone taxa are largely absent.",
+      ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი ჰერპეტოლოგიური ზონაა. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო ქმნის გარემოს, სადაც კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა ერთმანეთს ემთხვევა. აღმოსავლეთის მშრალი ზონის სახეობები აქ თითქმის არ გვხვდება.",
+      en: "Adjara is one of western Georgia’s most humid herpetological zones. Subtropical forests, mountain valleys, and the Black Sea coast bring together Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard. Eastern arid-zone taxa are largely absent.",
     },
     habitats: [
       { ka: "ნოტიო სუბტროპიკული ტყეები", en: "Humid subtropical forests" },
@@ -118,8 +118,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes live in Adjara?",
         },
         answer: {
-          ka: "აჭარაში დაფიქსირებულია კავკასიური გველგესლა, წყლის ანკარა, სპილენძა და გველხოკერა. სია ეფუძნება რეგიონულ ჩანაწერებს და შეიძლება განახლდეს ახალი დაკვირვებებით.",
-          en: "Adjara records include Caucasian viper, dice snake, smooth snake, and European glass lizard. Lists are based on regional records and may grow with new observations.",
+          ka: "აჭარაში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. სია ეფუძნება რეგიონულ ჩანაწერებს და შეიძლება განახლდეს ახალი დაკვირვებებით.",
+          en: "Adjara records include Caucasian viper, grass snake and dice snake, smooth snake, and European glass lizard. Lists are based on regional records and may grow with new observations.",
         },
       },
       {
@@ -173,8 +173,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes occur in Imereti?",
         },
         answer: {
-          ka: "ჩანაწერებშია კავკასიური გველგესლა, სპილენძა, წყლის ანკარა, გველხოკერა და ურარტუს მცურავი.",
-          en: "Records include Caucasian viper, smooth snake, dice snake, glass lizard, and Urartian ratsnake.",
+          ka: "ჩანაწერებშია კავკასიური გველგესლა, სპილენძა, ჩვეულებრივი და წყლის ანკარა, გველხოკერა და ურარტუს მცურავი.",
+          en: "Records include Caucasian viper, smooth snake, grass snake and dice snake, glass lizard, and Urartian ratsnake.",
         },
       },
     ],
