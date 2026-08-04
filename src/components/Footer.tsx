@@ -2,6 +2,7 @@
 
 import { Logo } from "@/components/Logo";
 import { TopGeCounter } from "@/components/TopGeCounter";
+import { localizeRegionText, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -25,8 +26,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1.8fr]">
-          <div>
+        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_1.3fr_1.6fr]">
+          <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex transition-opacity hover:opacity-90">
               <Logo size={56} showWordmark wordmarkClassName="text-[20px]" />
             </Link>
@@ -46,6 +47,23 @@ export function Footer() {
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                   >
                     {t(link.labelKey)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[11px] tracking-[0.22em] text-muted-foreground">
+              {t("regions")}
+            </p>
+            <ul className="mt-5 space-y-3">
+              {regions.map((region) => (
+                <li key={region.id}>
+                  <Link
+                    href={`/regions/${region.id}`}
+                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                  >
+                    {localizeRegionText(region.name, locale)}
                   </Link>
                 </li>
               ))}
