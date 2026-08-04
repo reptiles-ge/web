@@ -11,7 +11,7 @@ export function MapExplorer() {
   return (
     <section
       id="atlas"
-      className="map-explorer relative overflow-hidden py-24 lg:py-36"
+      className="map-explorer relative overflow-hidden py-24 lg:pb-16 lg:pt-36"
     >
       <div className="pointer-events-none absolute inset-0 map-explorer-texture" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />

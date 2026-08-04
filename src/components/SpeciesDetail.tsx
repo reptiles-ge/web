@@ -30,10 +30,9 @@ export function SpeciesDetail() {
             alt={t("imageAlt")}
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
-            className="scale-110 object-cover"
-            style={{ transform: "translateY(-6%) scale(1.1)" }}
+            className="object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.03]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
         </div>
         <div>
           <Reveal>
@@ -43,6 +42,7 @@ export function SpeciesDetail() {
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5.4vw,4.5rem)] font-semibold leading-[1] text-white">
               Vipera <span className="font-light italic">dinniki</span>
             </h2>
+            <p className="mt-3 text-[15px] text-white/55">{featured.commonName}</p>
             <p className="mt-7 max-w-lg text-balance-tight text-[19px] leading-snug text-white/80 sm:text-[22px]">
               {t("lead")}
             </p>
@@ -51,17 +51,15 @@ export function SpeciesDetail() {
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10">
-            {featured.stats.slice(0, 4).map((stat, index) => (
-              <Reveal key={stat.label} delay={index * 80} className="bg-ink">
-                <div className="p-6 lg:p-8">
-                  <p className="text-[10px] tracking-[0.22em] text-ink-muted">
-                    {stat.label}
-                  </p>
-                  <p className="mt-3 font-display text-[20px] font-medium leading-tight text-white lg:text-[24px]">
-                    {stat.value}
-                  </p>
-                </div>
-              </Reveal>
+            {featured.stats.slice(0, 4).map((stat) => (
+              <div key={stat.label} className="bg-ink p-6 lg:p-8">
+                <p className="text-[10px] tracking-[0.22em] text-ink-muted">
+                  {stat.label}
+                </p>
+                <p className="mt-3 font-display text-[20px] font-medium leading-tight text-white lg:text-[24px]">
+                  {stat.value}
+                </p>
+              </div>
             ))}
           </div>
           <Reveal delay={200}>
@@ -69,7 +67,7 @@ export function SpeciesDetail() {
               href="/species/vipera-dinniki"
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
-              <span className="border-b border-white/30 pb-1 group-hover:border-white">
+              <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-white">
                 {t("viewProfile")}
               </span>
               <ArrowUpRight className="size-4" />

@@ -43,14 +43,14 @@ export function SpeciesCarousel() {
   }
 
   return (
-    <section id="species" className="relative bg-background py-28 lg:py-40">
+    <section id="species" className="relative bg-background py-24 lg:py-36">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.02]">
+            <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] font-semibold leading-[1.02]">
               {t("title")}
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -69,7 +69,7 @@ export function SpeciesCarousel() {
               type="button"
               aria-label={t("prev")}
               onClick={() => scrollByCard(-1)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
             >
               <ArrowLeft className="size-4" />
             </button>
@@ -77,14 +77,17 @@ export function SpeciesCarousel() {
               type="button"
               aria-label={t("next")}
               onClick={() => scrollByCard(1)}
-              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
+              className="flex size-11 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary"
             >
               <ArrowRight className="size-4" />
             </button>
           </Reveal>
         </div>
         <div className="mt-8 h-px w-full bg-border">
-          <div className="h-px bg-primary" style={{ width: `${progress}%` }} />
+          <div
+            className="h-px bg-primary transition-[width] duration-150 ease-out"
+            style={{ width: `${progress}%` }}
+          />
         </div>
       </div>
       <div

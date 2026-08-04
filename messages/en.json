@@ -28,16 +28,18 @@
     "dismiss": "Dismiss banner"
   },
   "hero": {
-    "title": "Atlas of Georgia’s reptiles",
-    "subtitle": "Explore species through science, range maps, and photography captured in the field.",
-    "viewSpecies": "Browse species",
+    "brand": "Reptiles",
+    "title": "Discover the hidden reptiles of Georgia",
+    "subtitle": "A living digital atlas — scientifically curated species profiles, regional range maps, and field photography from the Caucasus.",
+    "viewSpecies": "Explore species",
+    "exploreRegions": "Explore by region",
     "moreAboutViper": "Venomous snakes",
     "imageAlt": "A viper on a mossy rock in a misty mountain valley"
   },
   "carousel": {
-    "eyebrow": "Featured",
-    "title": "Species you should know",
-    "subtitle": "Reptiles of Georgia and the Caucasus — photographed in the field and scientifically verified.",
+    "eyebrow": "Species discovery",
+    "title": "A biological database you can explore",
+    "subtitle": "Scientific names, risk levels, habitats, and field photography — built as a premium atlas, not a checklist.",
     "prev": "Previous species",
     "next": "Next species"
   },
@@ -45,17 +47,66 @@
     "dangerLevel": "Risk to humans"
   },
   "detail": {
-    "eyebrow": "Species spotlight",
+    "eyebrow": "Endemic spotlight",
     "lead": "An endemic venomous viper of the Greater Caucasus.",
     "body": "It lives at roughly 1,500–2,800 meters — in the upper forest zone, subalpine meadows, and rocky terrain. Its range is fragmented; IUCN lists the species as Vulnerable.",
     "viewProfile": "View full profile",
     "imageAlt": "Close-up portrait of a viper's head"
   },
   "cta": {
-    "title": "Meet the reptiles of Georgia.",
-    "subtitle": "A curated atlas — species profiles, maps, and photography in one calm place.",
+    "eyebrow": "Begin exploring",
+    "title": "Enter the atlas of Georgia’s reptiles.",
+    "subtitle": "From mountain vipers to wetland snakes — profiles, maps, and photography in one calm place.",
     "button": "Open the atlas",
+    "secondary": "Venomous snakes",
     "imageAlt": "Misty Caucasus ridge at dusk"
+  },
+  "home": {
+    "proof": {
+      "aria": "Atlas at a glance",
+      "species": "Species",
+      "regions": "Regions",
+      "venomous": "Venomous",
+      "photos": "Photos"
+    },
+    "knowledge": {
+      "eyebrow": "Knowledge hub",
+      "title": "Guides that grow with the atlas",
+      "subtitle": "Structured pathways for identification, safety, and regional discovery — built for search, study, and the field.",
+      "venomous": {
+        "title": "Venomous snakes of Georgia",
+        "body": "Four medically significant vipers — risk levels, identification traits, and safe encounter practice.",
+        "cta": "Open safety guide"
+      },
+      "atlas": {
+        "title": "Species atlas",
+        "body": "Browse snakes and lizards with filters for habitat, region, and risk — a living catalog for Georgia.",
+        "cta": "Browse the catalog"
+      },
+      "regions": {
+        "title": "Explore by region",
+        "body": "From Colchic forests to arid east — map Georgia’s reptiles by place, habitat, and local species.",
+        "cta": "Open regional atlas"
+      }
+    },
+    "living": {
+      "eyebrow": "Living atlas",
+      "title": "Field photography and fresh knowledge",
+      "subtitle": "Profiles refresh with new text, taxonomy notes, and photography — a citeable atlas that keeps moving.",
+      "aboutCta": "About the atlas",
+      "updatedOn": "Updated {date}",
+      "methodTitle": "Methodology",
+      "methodBody": "Each profile combines taxonomic identity, Georgia-relevant habitat and behavior notes, conservation status, identification traits, and FAQs.",
+      "sourcesTitle": "Sources",
+      "sourcesBody": "Accounts reference IUCN Red List, GBIF, the Reptile Database, and peer-reviewed herpetological literature cited on each species page.",
+      "photosTitle": "Photography",
+      "photosBody": "Images are selected for identification value and field context. Credits appear on species pages when attribution is available."
+    },
+    "regions": {
+      "eyebrow": "Place matters",
+      "title": "Start with three regions of Georgia",
+      "imageAlt": "{name} — regional landscape"
+    }
   },
   "footer": {
     "tagline": "A digital atlas of reptiles of Georgia and the Caucasus.",
@@ -117,10 +168,10 @@
     "High": "High risk"
   },
   "map": {
-    "eyebrow": "Regional atlas",
-    "title": "Explore Georgia’s reptiles by region",
-    "subtitle": "Select a region to discover which species live there — calm, scientific, and visual.",
-    "hint": "Hover or tap a region — or open the full atlas",
+    "eyebrow": "Georgia’s biodiversity",
+    "title": "Explore reptiles across every region",
+    "subtitle": "Georgia’s short geographic span holds mountain endemics, Colchic forest vipers, wetland snakes, and arid-east specialists. Tap a region to begin.",
+    "hint": "Hover or tap a region — or open the full regional atlas",
     "speciesCount": "{count, plural, =0 {No species recorded} one {# species} other {# species}}",
     "species": "Species",
     "regionLabel": "Region",
@@ -220,7 +271,7 @@
   },
   "site": {
     "title": "Reptiles — Atlas of Georgia’s reptiles",
-    "description": "A digital atlas of reptiles of Georgia and the Caucasus. Species profiles, range maps, and photography captured in the field."
+    "description": "Discover, understand, and protect Georgia’s reptiles. A bilingual digital atlas with species profiles, regional range maps, venomous snake guides, and field photography."
   },
   "notFound": {
     "title": "Page not found",

@@ -1,13 +1,19 @@
 import { FinalCTA } from "@/components/FinalCTA";
 import { Hero } from "@/components/Hero";
+import { HomeKnowledge } from "@/components/HomeKnowledge";
+import { HomeLiving } from "@/components/HomeLiving";
+import { HomeProof } from "@/components/HomeProof";
+import { HomeRegions } from "@/components/HomeRegions";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
 import { Navbar } from "@/components/Navbar";
 import { SpeciesCarousel } from "@/components/SpeciesCarousel";
 import { SpeciesDetail } from "@/components/SpeciesDetail";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import {
   absoluteUrl,
+  editorPersonJsonLd,
   localeAlternates,
   localePath,
   siteConfig,
@@ -16,6 +22,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import type { ReactElement } from "react";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -57,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Home({ params }: Props) {
+export default async function Home({ params }: Props): Promise<ReactElement> {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -66,8 +73,10 @@ export default async function Home({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "site" });
+  const tEditor = await getTranslations({ locale, namespace: "about" });
   const homeUrl = absoluteUrl(localePath(locale, "/"));
   const description = t("description");
+  const stats = getAtlasStats();
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -95,17 +104,64 @@ export default async function Home({ params }: Props) {
     url: absoluteUrl("/"),
     description,
     logo: "https://cdn.reptiles.ge/logo.webp",
+    founder: editorPersonJsonLd(locale, tEditor("editorRole"), {
+      includeImage: true,
+    }),
+  };
+
+  const datasetJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name:
+      locale === "en"
+        ? "Atlas of reptiles of Georgia"
+        : "საქართველოს ქვეწარმავლების ატლასი",
+    description,
+    url: homeUrl,
+    creator: editorPersonJsonLd(locale, tEditor("editorRole")),
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
+    },
+    spatialCoverage: {
+      "@type": "Place",
+      name: locale === "en" ? "Georgia" : "საქართველო",
+    },
+    variableMeasured: [
+      {
+        "@type": "PropertyValue",
+        name: locale === "en" ? "Species profiles" : "სახეობების პროფილები",
+        value: stats.total,
+      },
+      {
+        "@type": "PropertyValue",
+        name: locale === "en" ? "Regions" : "რეგიონები",
+        value: stats.regions,
+      },
+      {
+        "@type": "PropertyValue",
+        name: locale === "en" ? "Venomous species" : "შხამიანი სახეობები",
+        value: stats.venomous,
+      },
+    ],
+    isAccessibleForFree: true,
+    inLanguage: [locale === "en" ? "en" : "ka", locale === "en" ? "ka" : "en"],
   };
 
   return (
     <div className="min-h-screen bg-background">
-      <JsonLd data={[websiteJsonLd, organizationJsonLd]} />
+      <JsonLd data={[websiteJsonLd, organizationJsonLd, datasetJsonLd]} />
       <Navbar />
       <main>
         <Hero />
+        <HomeProof />
         <SpeciesCarousel />
         <MapExplorer />
+        <HomeRegions />
+        <HomeKnowledge />
         <SpeciesDetail />
+        <HomeLiving />
         <FinalCTA />
       </main>
     </div>
