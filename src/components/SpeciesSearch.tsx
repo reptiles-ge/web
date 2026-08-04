@@ -294,7 +294,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
               className="absolute inset-0 bg-ink/55 backdrop-blur-[2px] animate-[search-sheet-backdrop-in_220ms_ease-out]"
               onClick={closeSearch}
             />
-            <div className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)]">
+            <div className="absolute inset-x-0 bottom-0 flex min-h-[70dvh] max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)]">
               <div className="flex shrink-0 flex-col items-center px-4 pt-3">
                 <span className="mb-3 h-1 w-10 rounded-full bg-border" aria-hidden="true" />
                 <div className="flex w-full items-center justify-between gap-3 pb-3">
