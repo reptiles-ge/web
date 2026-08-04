@@ -13,18 +13,18 @@ export async function HomeSeo() {
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[860px] px-6 lg:px-10">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
           {t("eyebrow")}
         </p>
-        <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+        <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
           {t("title")}
         </h2>
-        <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+        <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
           <p>{t("p1")}</p>
           <p>{t("p2")}</p>
         </div>
-        <ul className="mt-8 space-y-2 border-l-2 border-primary/25 pl-4">
+        <ul className="mt-8 max-w-3xl space-y-2 border-l-2 border-primary/25 pl-4">
           {hubs.map((hub) => (
             <li key={hub.key}>
               <Link
