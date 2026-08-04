@@ -26,9 +26,6 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/25 to-black/85" />
       <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_20%,transparent_35%,rgba(0,0,0,0.6)_100%)]" />
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center px-6 text-center lg:px-10">
-        <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
-          {t("eyebrow")}
-        </p>
         <h1 className="font-display max-w-4xl text-balance-tight text-[clamp(2.1rem,5.4vw,4.25rem)] font-semibold leading-[1.02] text-white">
           {t("title")}
         </h1>
