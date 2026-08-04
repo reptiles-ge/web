@@ -121,6 +121,7 @@ export default async function SpeciesPage({ params }: PageProps) {
   const pageUrl = absoluteUrl(localePath(locale, `/species/${item.id}`));
   const ogImage = cdnOgImageUrl(item.id);
   const galleryImages = item.gallery
+    .map((photo) => photo.src)
     .filter((src) => src !== item.image)
     .slice(0, 3)
     .map(absoluteImageUrl);

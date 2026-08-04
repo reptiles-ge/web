@@ -3,12 +3,17 @@
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
+import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
-import { type Species } from "@/data/species";
+import {
+  resolvePhotoCredit,
+  type GalleryImage,
+  type Species,
+} from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -36,9 +41,20 @@ export function SpeciesProfile({
     () => rawRelated.map((item) => localizeSpecies(item, locale)),
     [rawRelated, locale],
   );
-  const gallery =
-    species.gallery.length > 0 ? species.gallery : [species.image];
+  const gallery: GalleryImage[] =
+    species.gallery.length > 0
+      ? species.gallery
+      : [{ src: species.image, credit: species.imageCredit }];
   const primary = gallery[0];
+  const heroCredit = resolvePhotoCredit(
+    species.imageCredit,
+    primary?.credit,
+  );
+  const mobileHeroCredit = resolvePhotoCredit(
+    species.mobileImageCredit,
+    species.imageCredit,
+    primary?.credit,
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -83,7 +99,7 @@ export function SpeciesProfile({
                 className="object-cover lg:hidden"
               />
               <Image
-                src={primary ?? species.image}
+                src={primary?.src ?? species.image}
                 alt={species.commonName}
                 fill
                 priority
@@ -93,7 +109,7 @@ export function SpeciesProfile({
             </>
           ) : (
             <Image
-              src={primary ?? species.image}
+              src={primary?.src ?? species.image}
               alt={species.commonName}
               fill
               priority
@@ -103,6 +119,18 @@ export function SpeciesProfile({
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/25 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
+          <div
+            className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
+            style={{ top: "calc(var(--beta-banner-height, 0px) + 5.75rem)" }}
+          >
+            <PhotoCreditCaption credit={heroCredit} variant="hero" />
+          </div>
+          <div
+            className="pointer-events-none absolute right-6 z-[5] lg:hidden"
+            style={{ top: "calc(var(--beta-banner-height, 0px) + 5.25rem)" }}
+          >
+            <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
+          </div>
           <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
             <Reveal>
               <Link

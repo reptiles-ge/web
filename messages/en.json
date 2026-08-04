@@ -124,6 +124,7 @@
     "gallery": "Gallery",
     "galleryTitle": "in photos",
     "photo": "Photo",
+    "photoCredit": "Photo:",
     "close": "Close",
     "prevPhoto": "Previous photo",
     "nextPhoto": "Next photo",

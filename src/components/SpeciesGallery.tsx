@@ -1,13 +1,15 @@
 "use client";
 
+import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { Reveal } from "@/components/Reveal";
-import { useTranslations } from "next-intl";
+import type { GalleryImage } from "@/data/species";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type SpeciesGalleryProps = {
-  images: string[];
+  images: GalleryImage[];
   name: string;
   tone?: "background" | "surface";
 };
@@ -18,7 +20,7 @@ export function SpeciesGallery({
   tone = "background",
 }: SpeciesGalleryProps) {
   const t = useTranslations("profile");
-  const photos = images.filter(Boolean);
+  const photos = images.filter((item) => Boolean(item.src));
   const [active, setActive] = useState<number | null>(null);
 
   useEffect(() => {
@@ -52,6 +54,8 @@ export function SpeciesGallery({
 
   if (photos.length === 0) return null;
 
+  const activePhoto = active !== null ? photos[active] : null;
+
   return (
     <>
       <section
@@ -78,11 +82,11 @@ export function SpeciesGallery({
                   : "grid-cols-2 md:grid-cols-3"
             }`}
           >
-            {photos.map((src, index) => {
+            {photos.map((photo, index) => {
               const featured = photos.length >= 3 && index === 0;
               return (
                 <Reveal
-                  key={`${src}-${index}`}
+                  key={`${photo.src}-${index}`}
                   delay={index * 70}
                   className={featured ? "col-span-2 md:col-span-3" : undefined}
                 >
@@ -95,7 +99,7 @@ export function SpeciesGallery({
                     aria-label={`${name} — ${t("photo")} ${index + 1}`}
                   >
                     <Image
-                      src={src}
+                      src={photo.src}
                       alt={`${name} — ${t("photo")} ${index + 1}`}
                       fill
                       sizes={
@@ -106,9 +110,10 @@ export function SpeciesGallery({
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
-                    <span className="absolute bottom-4 left-4 font-display text-[13px] text-white/0 group-hover:text-white/80">
+                    <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
                       {String(index + 1).padStart(2, "0")}
                     </span>
+                    <PhotoCreditCaption credit={photo.credit} variant="thumb" />
                   </button>
                 </Reveal>
               );
@@ -117,7 +122,7 @@ export function SpeciesGallery({
         </div>
       </section>
 
-      {active !== null && (
+      {active !== null && activePhoto ? (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92"
           role="dialog"
@@ -168,24 +173,31 @@ export function SpeciesGallery({
           )}
 
           <div
-            className="relative mx-auto h-[72svh] w-[min(92vw,1100px)]"
+            className="relative mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
             onClick={(event) => event.stopPropagation()}
           >
-            <Image
-              src={photos[active]}
-              alt={`${name} — ${t("photo")} ${active + 1}`}
-              fill
-              sizes="92vw"
-              className="object-contain"
-              priority
-            />
+            <div className="relative min-h-0 flex-1">
+              <Image
+                src={activePhoto.src}
+                alt={`${name} — ${t("photo")} ${active + 1}`}
+                fill
+                sizes="92vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
+              <PhotoCreditCaption
+                credit={activePhoto.credit}
+                variant="lightbox"
+              />
+              <p className="text-[12px] tracking-[0.2em] text-white/35">
+                {active + 1} / {photos.length}
+              </p>
+            </div>
           </div>
-
-          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[12px] tracking-[0.2em] text-white/45">
-            {active + 1} / {photos.length}
-          </p>
         </div>
-      )}
+      ) : null}
     </>
   );
 }

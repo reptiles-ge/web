@@ -10,6 +10,16 @@ export type SpeciesFaq = {
   answer: string;
 };
 
+export type PhotoCredit = {
+  photographer: string;
+  url?: string;
+};
+
+export type GalleryImage = {
+  src: string;
+  credit?: PhotoCredit;
+};
+
 export type Species = {
   id: string;
   commonName: string;
@@ -25,12 +35,24 @@ export type Species = {
   conservation: string;
   danger: DangerLevel;
   image: string;
+  imageCredit?: PhotoCredit;
   mobileImage?: string;
-  gallery: string[];
+  mobileImageCredit?: PhotoCredit;
+  gallery: GalleryImage[];
   stats: SpeciesStat[];
   facts: string[];
   faq?: SpeciesFaq[];
 };
+
+export function gallerySrcs(gallery: GalleryImage[]): string[] {
+  return gallery.map((item) => item.src);
+}
+
+export function resolvePhotoCredit(
+  ...credits: Array<PhotoCredit | undefined>
+): PhotoCredit | undefined {
+  return credits.find(Boolean);
+}
 
 export const dangerLabels: Record<DangerLevel, string> = {
   Harmless: "უვნებელი",
@@ -59,14 +81,34 @@ export const species: Species[] = [
       "IUCN Red List-ის მიხედვით მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საფრთხეებს შორისაა სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა. შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში.",
     danger: "Moderate",
     image: "https://cdn.reptiles.ge/vipera-dinnik.webp",
+    imageCredit: {
+      photographer: "Guram Iremashvili",
+    },
     mobileImage: "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
+    mobileImageCredit: {
+      photographer: "Guram Iremashvili",
+    },
     gallery: [
-      "https://cdn.reptiles.ge/vipera-dinnik.webp",
-      "https://cdn.reptiles.ge/vipera-dinnik-6.webp",
-      "https://cdn.reptiles.ge/vipera-dinnik-2.webp",
-      "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
-      "https://cdn.reptiles.ge/vipera-dinnik-4.webp",
-      "https://cdn.reptiles.ge/vipera-dinnik-5.webp",
+      {
+        src: "https://cdn.reptiles.ge/vipera-dinnik.webp",
+      },
+      {
+        src: "https://cdn.reptiles.ge/vipera-dinnik-6.webp",
+      },
+      {
+        src: "https://cdn.reptiles.ge/vipera-dinnik-2.webp",
+        credit: { photographer: "Guram Iremashvili" },
+      },
+      {
+        src: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+      },
+      {
+        src: "https://cdn.reptiles.ge/vipera-dinnik-4.webp",
+      },
+      {
+        src: "https://cdn.reptiles.ge/vipera-dinnik-5.webp",
+        credit: { photographer: "Matthieu Berroneau" },
+      },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დიდი კავკასიონი" },
@@ -127,12 +169,12 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/macrovipera-lebetina.webp",
     mobileImage: "https://cdn.reptiles.ge/macrovipera-lebetina-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/macrovipera-lebetina.webp",
-      "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp",
-      "https://cdn.reptiles.ge/macrovipera-lebetina-3.webp",
-      "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp",
-      "https://cdn.reptiles.ge/macrovipera-lebetina-4.webp",
-      "https://cdn.reptiles.ge/macrovipera-lebetina-6.webp",
+      { src: "https://cdn.reptiles.ge/macrovipera-lebetina.webp" },
+      { src: "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp" },
+      { src: "https://cdn.reptiles.ge/macrovipera-lebetina-3.webp" },
+      { src: "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp" },
+      { src: "https://cdn.reptiles.ge/macrovipera-lebetina-4.webp" },
+      { src: "https://cdn.reptiles.ge/macrovipera-lebetina-6.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "აღმ. საქართველო" },
@@ -198,13 +240,13 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/vipera-kaznakovi.webp",
     mobileImage: "https://cdn.reptiles.ge/vipera-kaznakovi-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/vipera-kaznakovi.webp",
-      "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp",
-      "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp",
-      "https://cdn.reptiles.ge/vipera-kaznakovi-3.webp",
-      "https://cdn.reptiles.ge/vipera-kaznakovi-4.webp",
-      "https://cdn.reptiles.ge/vipera-kaznakovi-5.webp",
-      "https://cdn.reptiles.ge/vipera-kaznakovi-6.webp",
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-3.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-4.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-5.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-kaznakovi-6.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დას. კავკასია" },
@@ -270,12 +312,12 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/vipera-ammodytes.webp",
     mobileImage: "https://cdn.reptiles.ge/vipera-ammodytes-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/vipera-ammodytes.webp",
-      "https://cdn.reptiles.ge/vipera-ammodytes-2.webp",
-      "https://cdn.reptiles.ge/vipera-ammodytes-3.webp",
-      "https://cdn.reptiles.ge/vipera-ammodytes-4.webp",
-      "https://cdn.reptiles.ge/vipera-ammodytes-5.webp",
-      "https://cdn.reptiles.ge/vipera-ammodytes-6.webp",
+      { src: "https://cdn.reptiles.ge/vipera-ammodytes.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-ammodytes-2.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-ammodytes-3.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-ammodytes-4.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-ammodytes-5.webp" },
+      { src: "https://cdn.reptiles.ge/vipera-ammodytes-6.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მცირე კავკასიონი" },
@@ -341,13 +383,13 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/pseudopus-apodus.webp",
     mobileImage: "https://cdn.reptiles.ge/pseudopus-apodus-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/pseudopus-apodus.webp",
-      "https://cdn.reptiles.ge/pseudopus-apodus-2.webp",
-      "https://cdn.reptiles.ge/pseudopus-apodus-3.webp",
-      "https://cdn.reptiles.ge/pseudopus-apodus-4.webp",
-      "https://cdn.reptiles.ge/pseudopus-apodus-5.webp",
-      "https://cdn.reptiles.ge/pseudopus-apodus-6.webp",
-      "https://cdn.reptiles.ge/pseudopus-apodus-7.webp",
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus.webp" },
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus-2.webp" },
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus-3.webp" },
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus-4.webp" },
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus-5.webp" },
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus-6.webp" },
+      { src: "https://cdn.reptiles.ge/pseudopus-apodus-7.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "საქართველო — ფართოდ" },
@@ -413,13 +455,13 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/coronella-austriaca.webp",
     mobileImage: "https://cdn.reptiles.ge/coronella-austriaca-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/coronella-austriaca.webp",
-      "https://cdn.reptiles.ge/coronella-austriaca-2.webp",
-      "https://cdn.reptiles.ge/coronella-austriaca-3.webp",
-      "https://cdn.reptiles.ge/coronella-austriaca-4.webp",
-      "https://cdn.reptiles.ge/coronella-austriaca-5.webp",
-      "https://cdn.reptiles.ge/coronella-austriaca-6.webp",
-      "https://cdn.reptiles.ge/coronella-austriaca-7.webp",
+      { src: "https://cdn.reptiles.ge/coronella-austriaca.webp" },
+      { src: "https://cdn.reptiles.ge/coronella-austriaca-2.webp" },
+      { src: "https://cdn.reptiles.ge/coronella-austriaca-3.webp" },
+      { src: "https://cdn.reptiles.ge/coronella-austriaca-4.webp" },
+      { src: "https://cdn.reptiles.ge/coronella-austriaca-5.webp" },
+      { src: "https://cdn.reptiles.ge/coronella-austriaca-6.webp" },
+      { src: "https://cdn.reptiles.ge/coronella-austriaca-7.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მთისწინეთი–ალპი" },
@@ -485,13 +527,13 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/elaphe-urartica.webp",
     mobileImage: "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/elaphe-urartica.webp",
-      "https://cdn.reptiles.ge/elaphe-urartica-2.webp",
-      "https://cdn.reptiles.ge/elaphe-urartica-3.webp",
-      "https://cdn.reptiles.ge/elaphe-urartica-4.webp",
-      "https://cdn.reptiles.ge/elaphe-urartica-5.webp",
-      "https://cdn.reptiles.ge/elaphe-urartica-6.webp",
-      "https://cdn.reptiles.ge/elaphe-urartica-7.webp",
+      { src: "https://cdn.reptiles.ge/elaphe-urartica.webp" },
+      { src: "https://cdn.reptiles.ge/elaphe-urartica-2.webp" },
+      { src: "https://cdn.reptiles.ge/elaphe-urartica-3.webp" },
+      { src: "https://cdn.reptiles.ge/elaphe-urartica-4.webp" },
+      { src: "https://cdn.reptiles.ge/elaphe-urartica-5.webp" },
+      { src: "https://cdn.reptiles.ge/elaphe-urartica-6.webp" },
+      { src: "https://cdn.reptiles.ge/elaphe-urartica-7.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "აღმ. საქართველო" },
@@ -557,13 +599,13 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/natrix-tessellata.webp",
     mobileImage: "https://cdn.reptiles.ge/natrix-tessellata-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/natrix-tessellata.webp",
-      "https://cdn.reptiles.ge/natrix-tessellata-4.webp",
-      "https://cdn.reptiles.ge/natrix-tessellata-2.webp",
-      "https://cdn.reptiles.ge/natrix-tessellata-5.webp",
-      "https://cdn.reptiles.ge/natrix-tessellata-3.webp",
-      "https://cdn.reptiles.ge/natrix-tessellata-6.webp",
-      "https://cdn.reptiles.ge/natrix-tessellata-7.webp",
+      { src: "https://cdn.reptiles.ge/natrix-tessellata.webp" },
+      { src: "https://cdn.reptiles.ge/natrix-tessellata-4.webp" },
+      { src: "https://cdn.reptiles.ge/natrix-tessellata-2.webp" },
+      { src: "https://cdn.reptiles.ge/natrix-tessellata-5.webp" },
+      { src: "https://cdn.reptiles.ge/natrix-tessellata-3.webp" },
+      { src: "https://cdn.reptiles.ge/natrix-tessellata-6.webp" },
+      { src: "https://cdn.reptiles.ge/natrix-tessellata-7.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მდინარეები, ტბები" },
@@ -629,13 +671,13 @@ export const species: Species[] = [
     image: "https://cdn.reptiles.ge/dolichophis-schmidti.webp",
     mobileImage: "https://cdn.reptiles.ge/dolichophis-schmidti-mobile.webp",
     gallery: [
-      "https://cdn.reptiles.ge/dolichophis-schmidti.webp",
-      "https://cdn.reptiles.ge/dolichophis-schmidti-2.webp",
-      "https://cdn.reptiles.ge/dolichophis-schmidti-3.webp",
-      "https://cdn.reptiles.ge/dolichophis-schmidti-4.webp",
-      "https://cdn.reptiles.ge/dolichophis-schmidti-5.webp",
-      "https://cdn.reptiles.ge/dolichophis-schmidti-6.webp",
-      "https://cdn.reptiles.ge/dolichophis-schmidti-7.webp",
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti.webp" },
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti-2.webp" },
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti-3.webp" },
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti-4.webp" },
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti-5.webp" },
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti-6.webp" },
+      { src: "https://cdn.reptiles.ge/dolichophis-schmidti-7.webp" },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "აღმ. საქართველო" },
@@ -701,10 +743,18 @@ export const species: Species[] = [
     image:
       "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1024&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      {
+        src: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ინდონეზიის კუნძულები" },
@@ -742,10 +792,18 @@ export const species: Species[] = [
     image:
       "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1024&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      {
+        src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ამაზონის აუზი" },
@@ -783,10 +841,18 @@ export const species: Species[] = [
     image:
       "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1024&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      {
+        src: "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მადაგასკარი" },
@@ -824,10 +890,18 @@ export const species: Species[] = [
     image:
       "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1024&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      {
+        src: "https://images.unsplash.com/photo-1496074732535-1023808c2951?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1504450874802-0ba0bcd9e6b2?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ტროპიკული ტყე" },
@@ -865,10 +939,18 @@ export const species: Species[] = [
     image:
       "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1024&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      {
+        src: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551244072-5d12893278ab?auto=format&fit=crop&w=1200&q=80",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+      },
     ],
     stats: [
       { label: "ჰაბიტატი", value: "ტროპიკული ოკეანეები" },
