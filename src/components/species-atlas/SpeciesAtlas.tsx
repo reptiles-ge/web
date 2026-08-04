@@ -59,14 +59,12 @@ const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
   "grassland",
 ];
 
-function AnimatedStat({
+function AnimatedValue({
   value,
-  label,
-  delay = 0,
+  className,
 }: {
   value: number;
-  label: string;
-  delay?: number;
+  className?: string;
 }) {
   const [display, setDisplay] = useState(0);
 
@@ -85,23 +83,48 @@ function AnimatedStat({
         }
       }
       frame = window.requestAnimationFrame(tick);
-    }, delay);
+    }, 120);
 
     return () => {
       window.clearTimeout(timeout);
       window.cancelAnimationFrame(frame);
     };
-  }, [value, delay]);
+  }, [value]);
 
+  return <span className={className}>{display}</span>;
+}
+
+function HeroPathway({
+  onClick,
+  eyebrow,
+  title,
+  meta,
+  delay = 0,
+}: {
+  onClick: () => void;
+  eyebrow: string;
+  title: string;
+  meta: string;
+  delay?: number;
+}) {
   return (
-    <div className="min-w-[7.5rem] rounded-2xl border border-white/12 bg-white/5 px-4 py-3.5 backdrop-blur-md sm:min-w-[8.5rem]">
-      <p className="font-display text-[1.65rem] font-semibold tabular-nums leading-none text-white sm:text-[1.85rem]">
-        {display}
-      </p>
-      <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.18em] text-white/50">
-        {label}
-      </p>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      className="group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5"
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/40">
+        {eyebrow}
+      </span>
+      <span className="mt-3 font-display text-[1.35rem] font-semibold leading-tight text-white sm:text-[1.5rem]">
+        {title}
+      </span>
+      <span className="mt-2 flex items-center gap-1.5 text-[13px] text-white/55 transition-colors group-hover:text-white/80">
+        {meta}
+        <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      </span>
+    </button>
   );
 }
 
@@ -145,6 +168,13 @@ function LensRow({
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2">{children}</div>
     </div>
   );
+}
+
+function scrollToExplorer() {
+  document.getElementById("explorer")?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }
 
 export function SpeciesAtlas({
@@ -326,42 +356,101 @@ export function SpeciesAtlas({
                 {t("subtitle")}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3">
-                <AnimatedStat
-                  value={stats.total}
-                  label={t("stats.total")}
-                  delay={0}
-                />
-                <AnimatedStat
-                  value={stats.snakes}
-                  label={t("stats.snakes")}
-                  delay={80}
-                />
-                <AnimatedStat
-                  value={stats.lizards}
-                  label={t("stats.lizards")}
-                  delay={140}
-                />
-                <AnimatedStat
-                  value={stats.turtles}
-                  label={t("stats.turtles")}
-                  delay={200}
-                />
-                <AnimatedStat
-                  value={stats.amphibians}
-                  label={t("stats.amphibians")}
-                  delay={260}
-                />
-                <AnimatedStat
-                  value={stats.regions}
-                  label={t("stats.regions")}
-                  delay={320}
-                />
-                <AnimatedStat
-                  value={stats.photos}
-                  label={t("stats.photos")}
-                  delay={380}
-                />
+              <div className="mt-10 max-w-4xl sm:mt-12">
+                <div className="flex flex-wrap items-end gap-x-4 gap-y-2 border-b border-white/12 pb-5">
+                  <p className="font-display text-[clamp(3rem,8vw,4.75rem)] font-semibold leading-none tracking-tight text-white">
+                    <AnimatedValue value={stats.total} />
+                  </p>
+                  <div className="pb-1.5">
+                    <p className="text-[13px] font-medium text-white/80 sm:text-[14px]">
+                      {t("stats.catalogTitle")}
+                    </p>
+                    <p className="mt-1 text-[12px] text-white/45">
+                      {t("stats.catalogMeta", {
+                        photos: stats.photos,
+                        regions: stats.regions,
+                      })}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.28em] text-white/40">
+                  {t("stats.pathwaysLabel")}
+                </p>
+
+                <div className="mt-3 flex gap-2.5 overflow-x-auto pb-1 no-scrollbar sm:mt-4 sm:flex-wrap sm:gap-3 sm:overflow-visible">
+                  <HeroPathway
+                    delay={0}
+                    eyebrow={t("groups.snake")}
+                    title={t("stats.pathwaySnakesTitle", {
+                      count: stats.snakes,
+                    })}
+                    meta={t("stats.pathwayExplore")}
+                    onClick={() => {
+                      setFilters({
+                        ...defaultAtlasFilters,
+                        group: "snake",
+                        query: filters.query,
+                      });
+                      scrollToExplorer();
+                    }}
+                  />
+                  <HeroPathway
+                    delay={60}
+                    eyebrow={t("stats.pathwayRisk")}
+                    title={t("stats.pathwayVenomousTitle", {
+                      count: stats.venomous,
+                    })}
+                    meta={t("stats.pathwayExplore")}
+                    onClick={() => {
+                      setFilters({
+                        ...defaultAtlasFilters,
+                        danger: "venomous",
+                        query: filters.query,
+                      });
+                      scrollToExplorer();
+                    }}
+                  />
+                  {stats.lizards > 0 ? (
+                    <HeroPathway
+                      delay={120}
+                      eyebrow={t("groups.lizard")}
+                      title={t("stats.pathwayLizardsTitle", {
+                        count: stats.lizards,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      onClick={() => {
+                        setFilters({
+                          ...defaultAtlasFilters,
+                          group: "lizard",
+                          query: filters.query,
+                        });
+                        scrollToExplorer();
+                      }}
+                    />
+                  ) : null}
+                  <Link
+                    href="/regions"
+                    className="group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5"
+                  >
+                    <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/40">
+                      {t("stats.pathwayPlace")}
+                    </span>
+                    <span className="mt-3 font-display text-[1.35rem] font-semibold leading-tight text-white sm:text-[1.5rem]">
+                      {t("stats.pathwayRegionsTitle", {
+                        count: stats.regions,
+                      })}
+                    </span>
+                    <span className="mt-2 flex items-center gap-1.5 text-[13px] text-white/55 transition-colors group-hover:text-white/80">
+                      {t("stats.pathwayMap")}
+                      <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                </div>
+
+                <p className="mt-5 max-w-xl text-[13px] leading-relaxed text-white/40">
+                  {t("stats.expandingNote")}
+                </p>
               </div>
             </Reveal>
           </div>
