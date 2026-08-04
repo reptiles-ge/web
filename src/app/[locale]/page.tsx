@@ -1,4 +1,3 @@
-import { FeatureSection } from "@/components/FeatureSection";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
@@ -108,7 +107,6 @@ export default async function Home({ params }: Props) {
         <SpeciesCarousel />
         <MapExplorer />
         <SpeciesDetail />
-        <FeatureSection />
         <FinalCTA />
       </main>
       <Footer />

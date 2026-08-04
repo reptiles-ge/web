@@ -51,24 +51,6 @@
     "viewProfile": "View full profile",
     "imageAlt": "Close-up portrait of a viper's head"
   },
-  "features": {
-    "eyebrow": "Why Reptiles",
-    "title": "Connecting people to the hidden world of reptiles.",
-    "items": {
-      "photography": {
-        "title": "Field photography",
-        "description": "Species photographed in their natural habitats."
-      },
-      "atlas": {
-        "title": "Global atlas",
-        "description": "Explore reptiles from around the world."
-      },
-      "science": {
-        "title": "Scientific knowledge",
-        "description": "Learn from verified biological data."
-      }
-    }
-  },
   "cta": {
     "title": "Discover the world's most fascinating creatures.",
     "subtitle": "Thousands of species. One calm, beautiful place to learn about them.",
