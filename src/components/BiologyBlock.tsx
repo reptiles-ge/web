@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/i18n/LocaleProvider";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 type BiologyBlockProps = {
@@ -12,7 +12,7 @@ type BiologyBlockProps = {
 const PREVIEW_LENGTH = 140;
 
 export function BiologyBlock({ title, body }: BiologyBlockProps) {
-  const { t } = useLocale();
+  const t = useTranslations("profile");
   const needsExpand = body.length > PREVIEW_LENGTH;
   const [open, setOpen] = useState(false);
 
@@ -33,7 +33,7 @@ export function BiologyBlock({ title, body }: BiologyBlockProps) {
           onClick={() => setOpen((value) => !value)}
           className="mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80"
         >
-          {open ? t.profile.readLess : t.profile.readMore}
+          {open ? t("readLess") : t("readMore")}
         </button>
       ) : null}
     </div>

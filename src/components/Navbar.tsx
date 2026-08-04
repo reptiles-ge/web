@@ -3,17 +3,18 @@
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
-import { useLocale } from "@/i18n/LocaleProvider";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 export function Navbar() {
-  const { t } = useLocale();
+  const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { href: "#species", label: t.nav.species },
-    { href: "#detail", label: t.nav.about },
-    { href: "#why", label: t.nav.atlas },
+    { href: "#species", label: t("species") },
+    { href: "#detail", label: t("about") },
+    { href: "#why", label: t("atlas") },
   ];
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export function Navbar() {
             borderBottom: "1px solid var(--border)",
           }}
         />
-        <a href="#top" className="relative z-10 shrink-0 transition-opacity hover:opacity-90">
+        <Link href="/" className="relative z-10 shrink-0 transition-opacity hover:opacity-90">
           <Logo
             size={44}
             priority
@@ -58,7 +59,7 @@ export function Navbar() {
               scrolled ? "text-foreground" : "text-white"
             }`}
           />
-        </a>
+        </Link>
         <nav className="relative z-10 hidden items-center gap-9 md:flex">
           {links.map((link) => (
             <a
@@ -85,7 +86,7 @@ export function Navbar() {
                 : "bg-white/90 text-ink hover:bg-white"
             }`}
           >
-            {t.nav.discover}
+            {t("discover")}
           </a>
         </div>
       </div>

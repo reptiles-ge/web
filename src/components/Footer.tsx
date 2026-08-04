@@ -1,14 +1,15 @@
 "use client";
 
 import { Logo } from "@/components/Logo";
-import { useLocale } from "@/i18n/LocaleProvider";
+import { useMessages, useTranslations } from "next-intl";
 
 export function Footer() {
-  const { t } = useLocale();
+  const t = useTranslations("footer");
+  const messages = useMessages();
   const columns = [
-    t.footer.columns.discover,
-    t.footer.columns.science,
-    t.footer.columns.company,
+    messages.footer.columns.discover,
+    messages.footer.columns.science,
+    messages.footer.columns.company,
   ];
 
   return (
@@ -20,7 +21,7 @@ export function Footer() {
               <Logo size={56} showWordmark wordmarkClassName="text-[20px]" />
             </a>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
-              {t.footer.tagline}
+              {t("tagline")}
             </p>
           </div>
           {columns.map((column) => (
@@ -45,9 +46,9 @@ export function Footer() {
         </div>
         <div className="mt-20 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>
-            © {new Date().getFullYear()} Reptiles. {t.footer.rights}
+            © {new Date().getFullYear()} Reptiles. {t("rights")}
           </span>
-          <span className="tracking-wide">{t.footer.forCurious}</span>
+          <span className="tracking-wide">{t("forCurious")}</span>
         </div>
       </div>
     </footer>

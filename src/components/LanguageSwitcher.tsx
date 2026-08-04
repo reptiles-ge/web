@@ -1,16 +1,20 @@
 "use client";
 
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing, type AppLocale } from "@/i18n/routing";
 import { Globe } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-import { useLocale } from "@/i18n/LocaleProvider";
-import { locales, type Locale } from "@/i18n/types";
 
 type LanguageSwitcherProps = {
   variant?: "light" | "dark";
 };
 
 export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
-  const { locale, setLocale, t } = useLocale();
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("language");
+  const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -30,16 +34,16 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       ? "border-white/20 text-white/80 hover:bg-white/10 hover:text-white"
       : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground";
 
-  const labels: Record<Locale, string> = {
-    ka: t.language.ka,
-    en: t.language.en,
+  const labels: Record<AppLocale, string> = {
+    ka: t("ka"),
+    en: t("en"),
   };
 
   return (
     <div className="relative" ref={rootRef}>
       <button
         type="button"
-        aria-label={t.language.switch}
+        aria-label={t("switch")}
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
         className={`flex items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${buttonClass}`}
@@ -49,7 +53,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       </button>
       {open ? (
         <div className="absolute right-0 top-full z-50 mt-2 min-w-[140px] overflow-hidden rounded-2xl border border-border bg-card py-1 shadow-lg">
-          {locales.map((code) => (
+          {routing.locales.map((code) => (
             <button
               key={code}
               type="button"
@@ -59,7 +63,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
                   : "text-foreground/80"
               }`}
               onClick={() => {
-                setLocale(code);
+                router.replace(pathname, { locale: code });
                 setOpen(false);
               }}
             >

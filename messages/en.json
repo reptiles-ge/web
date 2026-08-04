@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "species": "Species",
+    "about": "About",
+    "atlas": "Atlas",
+    "discover": "Discover"
+  },
+  "search": {
+    "placeholder": "Search species…",
+    "noResults": "No species found",
+    "featured": "Featured species",
+    "clear": "Clear",
+    "open": "Search species",
+    "close": "Close",
+    "title": "Search"
+  },
+  "language": {
+    "switch": "Change language",
+    "ka": "ქართული",
+    "en": "English"
+  },
+  "beta": {
+    "text": "This site is in beta testing",
+    "dismiss": "Dismiss banner"
+  },
+  "hero": {
+    "eyebrow": "A digital encyclopedia of reptiles and amphibians",
+    "title": "Discover Earth's oldest living creatures",
+    "subtitle": "Explore reptiles through science and photography captured in the wild.",
+    "viewSpecies": "Browse species",
+    "moreAboutViper": "More about vipers",
+    "imageAlt": "A viper on a mossy rock in a misty mountain valley"
+  },
+  "carousel": {
+    "eyebrow": "Featured",
+    "title": "Species you should know",
+    "subtitle": "Reptiles of Georgia and the Caucasus — photographed in the field and scientifically verified.",
+    "prev": "Previous species",
+    "next": "Next species"
+  },
+  "card": {
+    "dangerLevel": "Risk to humans"
+  },
+  "detail": {
+    "eyebrow": "Species spotlight",
+    "lead": "An endemic venomous viper of the Greater Caucasus.",
+    "body": "It lives at roughly 1,500–2,800 meters — in the upper forest zone, subalpine meadows, and rocky terrain. Its range is fragmented; IUCN lists the species as Vulnerable.",
+    "viewProfile": "View full profile",
+    "imageAlt": "Close-up portrait of a viper's head"
+  },
+  "features": {
+    "eyebrow": "Why Reptiles",
+    "title": "Connecting people to the hidden world of reptiles.",
+    "items": {
+      "photography": {
+        "title": "Field photography",
+        "description": "Species photographed in their natural habitats."
+      },
+      "atlas": {
+        "title": "Global atlas",
+        "description": "Explore reptiles from around the world."
+      },
+      "science": {
+        "title": "Scientific knowledge",
+        "description": "Learn from verified biological data."
+      }
+    }
+  },
+  "cta": {
+    "title": "Discover the world's most fascinating creatures.",
+    "subtitle": "Thousands of species. One calm, beautiful place to learn about them.",
+    "button": "Start exploring",
+    "imageAlt": "Misty Caucasus ridge at dusk"
+  },
+  "footer": {
+    "tagline": "A digital encyclopedia of reptiles and amphibians.",
+    "rights": "All rights reserved.",
+    "forCurious": "For the curious.",
+    "columns": {
+      "discover": {
+        "title": "Discover",
+        "links": [
+          "Species",
+          "Atlas",
+          "Collections",
+          "Field notes"
+        ]
+      },
+      "science": {
+        "title": "Science",
+        "links": [
+          "Methodology",
+          "Contributors",
+          "Data sources",
+          "Conservation"
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "links": [
+          "About",
+          "Press",
+          "Contact",
+          "Privacy"
+        ]
+      }
+    }
+  },
+  "profile": {
+    "back": "All species",
+    "overview": "Overview",
+    "whoIs": "Who is",
+    "atAGlance": "At a glance",
+    "atAGlanceTitle": "Key facts in one look",
+    "biology": "Biology",
+    "biologyTitle": "Diet, behavior, and conservation",
+    "diet": "Diet",
+    "behavior": "Behavior",
+    "conservation": "Conservation",
+    "readMore": "Read more",
+    "readLess": "Show less",
+    "facts": "Interesting facts",
+    "factsTitle": "What you should know",
+    "gallery": "Gallery",
+    "galleryTitle": "in photos",
+    "photo": "Photo",
+    "close": "Close",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "faq": "Questions",
+    "faqTitle": "Frequently asked questions",
+    "faqIntroBefore": "Short answers to the most important questions about ",
+    "faqIntroAfter": ".",
+    "related": "Other species",
+    "relatedTitle": "Keep exploring",
+    "allSpecies": "All species"
+  },
+  "danger": {
+    "Harmless": "Harmless",
+    "Moderate": "Moderate risk",
+    "High": "High risk"
+  },
+  "site": {
+    "title": "Reptiles — Discover Earth's oldest living creatures",
+    "description": "A digital encyclopedia of reptiles and amphibians. Explore species through science and photography captured in the wild."
+  }
+}

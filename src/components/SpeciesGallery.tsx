@@ -1,7 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { useLocale } from "@/i18n/LocaleProvider";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ export function SpeciesGallery({
   name,
   tone = "background",
 }: SpeciesGalleryProps) {
-  const { t } = useLocale();
+  const t = useTranslations("profile");
   const photos = images.filter(Boolean);
   const [active, setActive] = useState<number | null>(null);
 
@@ -62,10 +62,10 @@ export function SpeciesGallery({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t.profile.gallery}
+              {t("gallery")}
             </p>
             <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {name} {t.profile.galleryTitle}
+              {name} {t("galleryTitle")}
             </h2>
           </Reveal>
 
@@ -92,11 +92,11 @@ export function SpeciesGallery({
                     className={`group relative block w-full overflow-hidden rounded-[24px] bg-ink text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
                       featured ? "aspect-[16/10]" : "aspect-[4/5]"
                     }`}
-                    aria-label={`${name} — ${t.profile.photo} ${index + 1}`}
+                    aria-label={`${name} — ${t("photo")} ${index + 1}`}
                   >
                     <Image
                       src={src}
-                      alt={`${name} — ${t.profile.photo} ${index + 1}`}
+                      alt={`${name} — ${t("photo")} ${index + 1}`}
                       fill
                       sizes={
                         featured
@@ -122,14 +122,14 @@ export function SpeciesGallery({
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92"
           role="dialog"
           aria-modal="true"
-          aria-label={t.profile.gallery}
+          aria-label={t("gallery")}
           onClick={() => setActive(null)}
         >
           <button
             type="button"
             onClick={() => setActive(null)}
             className="absolute right-5 top-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
-            aria-label={t.profile.close}
+            aria-label={t("close")}
           >
             <X className="size-5" />
           </button>
@@ -147,7 +147,7 @@ export function SpeciesGallery({
                   );
                 }}
                 className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
-                aria-label={t.profile.prevPhoto}
+                aria-label={t("prevPhoto")}
               >
                 <ChevronLeft className="size-5" />
               </button>
@@ -160,7 +160,7 @@ export function SpeciesGallery({
                   );
                 }}
                 className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
-                aria-label={t.profile.nextPhoto}
+                aria-label={t("nextPhoto")}
               >
                 <ChevronRight className="size-5" />
               </button>
@@ -173,7 +173,7 @@ export function SpeciesGallery({
           >
             <Image
               src={photos[active]}
-              alt={`${name} — ${t.profile.photo} ${active + 1}`}
+              alt={`${name} — ${t("photo")} ${active + 1}`}
               fill
               sizes="92vw"
               className="object-contain"

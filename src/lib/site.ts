@@ -64,3 +64,30 @@ const CDN_BASE = "https://cdn.reptiles.ge";
 export function cdnOgImageUrl(speciesId: string) {
   return `${CDN_BASE}/og/${speciesId}.webp`;
 }
+
+export function localePath(locale: string, path = "/") {
+  const normalized =
+    !path || path === "/"
+      ? "/"
+      : path.startsWith("/")
+        ? path
+        : `/${path}`;
+
+  if (locale === "ka") return normalized;
+  if (normalized === "/") return `/${locale}`;
+  return `/${locale}${normalized}`;
+}
+
+export function localeAlternates(locale: string, path = "/") {
+  const ka = absoluteUrl(localePath("ka", path));
+  const en = absoluteUrl(localePath("en", path));
+
+  return {
+    canonical: absoluteUrl(localePath(locale, path)),
+    languages: {
+      ka,
+      en,
+      "x-default": ka,
+    },
+  };
+}

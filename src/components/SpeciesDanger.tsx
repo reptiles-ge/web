@@ -1,8 +1,8 @@
 "use client";
 
 import type { DangerLevel } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
 import { Shield } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type SpeciesDangerProps = {
   level: DangerLevel;
@@ -36,10 +36,11 @@ function levelTone(level: DangerLevel) {
 }
 
 export function SpeciesDanger({ level, variant = "hero" }: SpeciesDangerProps) {
-  const { t } = useLocale();
+  const tCard = useTranslations("card");
+  const tDanger = useTranslations("danger");
   const tone = levelTone(level);
-  const label = t.card.dangerLevel;
-  const value = t.danger[level];
+  const label = tCard("dangerLevel");
+  const value = tDanger(level);
 
   if (variant === "card") {
     return (

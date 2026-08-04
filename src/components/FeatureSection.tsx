@@ -1,25 +1,25 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { useLocale } from "@/i18n/LocaleProvider";
 import { Camera, Earth, FlaskConical } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function FeatureSection() {
-  const { t } = useLocale();
+  const t = useTranslations("features");
   const features = [
     {
-      title: t.features.items.photography.title,
-      description: t.features.items.photography.description,
+      title: t("items.photography.title"),
+      description: t("items.photography.description"),
       icon: Camera,
     },
     {
-      title: t.features.items.atlas.title,
-      description: t.features.items.atlas.description,
+      title: t("items.atlas.title"),
+      description: t("items.atlas.description"),
       icon: Earth,
     },
     {
-      title: t.features.items.science.title,
-      description: t.features.items.science.description,
+      title: t("items.science.title"),
+      description: t("items.science.description"),
       icon: FlaskConical,
     },
   ];
@@ -29,10 +29,10 @@ export function FeatureSection() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <Reveal>
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-            {t.features.eyebrow}
+            {t("eyebrow")}
           </p>
           <h2 className="mt-6 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,5vw,4.25rem)] leading-[1.02]">
-            {t.features.title}
+            {t("title")}
           </h2>
         </Reveal>
         <div className="mt-20 grid gap-px overflow-hidden rounded-[32px] bg-border md:grid-cols-3">

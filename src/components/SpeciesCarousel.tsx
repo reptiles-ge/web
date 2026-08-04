@@ -3,13 +3,15 @@
 import { Reveal } from "@/components/Reveal";
 import { SpeciesCard } from "@/components/SpeciesCard";
 import { getFeaturedSpecies } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import type { AppLocale } from "@/i18n/routing";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export function SpeciesCarousel() {
-  const { locale, t } = useLocale();
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("carousel");
   const featured = useMemo(
     () => getFeaturedSpecies().map((item) => localizeSpecies(item, locale)),
     [locale],
@@ -44,19 +46,19 @@ export function SpeciesCarousel() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t.carousel.eyebrow}
+              {t("eyebrow")}
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] leading-[1.02]">
-              {t.carousel.title}
+              {t("title")}
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              {t.carousel.subtitle}
+              {t("subtitle")}
             </p>
           </Reveal>
           <Reveal className="flex items-center gap-3" delay={120}>
             <button
               type="button"
-              aria-label={t.carousel.prev}
+              aria-label={t("prev")}
               onClick={() => scrollByCard(-1)}
               className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
             >
@@ -64,7 +66,7 @@ export function SpeciesCarousel() {
             </button>
             <button
               type="button"
-              aria-label={t.carousel.next}
+              aria-label={t("next")}
               onClick={() => scrollByCard(1)}
               className="flex size-11 items-center justify-center rounded-full border border-border text-foreground hover:bg-secondary"
             >

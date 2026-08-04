@@ -2,9 +2,9 @@
 
 import { SpeciesDanger } from "@/components/SpeciesDanger";
 import type { Species } from "@/data/species";
+import { Link } from "@/i18n/navigation";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 type SpeciesCardProps = {
   species: Species;

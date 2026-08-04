@@ -1,20 +1,28 @@
 import { featuredSpeciesIds } from "@/data/species";
-import { absoluteUrl } from "@/lib/site";
+import { routing } from "@/i18n/routing";
+import { absoluteUrl, localePath } from "@/lib/site";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: absoluteUrl("/"),
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const locale of routing.locales) {
+    entries.push({
+      url: absoluteUrl(localePath(locale, "/")),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-    },
-    ...featuredSpeciesIds.map((id) => ({
-      url: absoluteUrl(`/species/${id}`),
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    })),
-  ];
+    });
+
+    for (const id of featuredSpeciesIds) {
+      entries.push({
+        url: absoluteUrl(localePath(locale, `/species/${id}`)),
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.9,
+      });
+    }
+  }
+
+  return entries;
 }

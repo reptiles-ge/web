@@ -9,11 +9,12 @@ import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { type Species } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 
 type SpeciesProfileProps = {
@@ -25,7 +26,8 @@ export function SpeciesProfile({
   species: rawSpecies,
   related: rawRelated,
 }: SpeciesProfileProps) {
-  const { locale, t } = useLocale();
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("profile");
   const species = useMemo(
     () => localizeSpecies(rawSpecies, locale),
     [rawSpecies, locale],
@@ -108,7 +110,7 @@ export function SpeciesProfile({
                 className="mb-6 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white"
               >
                 <ArrowLeft className="size-3.5" aria-hidden="true" />
-                {t.profile.back}
+                {t("back")}
               </Link>
               <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
                 {species.commonName}
@@ -131,10 +133,10 @@ export function SpeciesProfile({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t.profile.atAGlance}
+                {t("atAGlance")}
               </p>
               <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t.profile.atAGlanceTitle}
+                {t("atAGlanceTitle")}
               </h2>
             </Reveal>
             <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
@@ -168,10 +170,10 @@ export function SpeciesProfile({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t.profile.facts}
+                {t("facts")}
               </p>
               <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t.profile.factsTitle}
+                {t("factsTitle")}
               </h2>
             </Reveal>
             <ol className="mt-12 space-y-0">
@@ -195,17 +197,17 @@ export function SpeciesProfile({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t.profile.biology}
+                {t("biology")}
               </p>
               <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t.profile.biologyTitle}
+                {t("biologyTitle")}
               </h2>
             </Reveal>
             <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
               {[
-                { title: t.profile.diet, body: species.diet },
-                { title: t.profile.behavior, body: species.behavior },
-                { title: t.profile.conservation, body: species.conservation },
+                { title: t("diet"), body: species.diet },
+                { title: t("behavior"), body: species.behavior },
+                { title: t("conservation"), body: species.conservation },
               ].map((block, index) => (
                 <Reveal key={block.title} delay={index * 100}>
                   <BiologyBlock title={block.title} body={block.body} />
@@ -226,17 +228,17 @@ export function SpeciesProfile({
                 <div className="flex items-end justify-between gap-6">
                   <div>
                     <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                      {t.profile.related}
+                      {t("related")}
                     </p>
                     <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]">
-                      {t.profile.relatedTitle}
+                      {t("relatedTitle")}
                     </h2>
                   </div>
                   <Link
                     href="/#species"
                     className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
                   >
-                    {t.profile.allSpecies}
+                    {t("allSpecies")}
                     <ArrowUpRight className="size-3.5" />
                   </Link>
                 </div>

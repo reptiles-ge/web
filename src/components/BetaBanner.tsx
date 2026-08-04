@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "@/i18n/LocaleProvider";
+import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import { useEffect, useSyncExternalStore } from "react";
 
@@ -49,7 +49,7 @@ function dismissBanner() {
 }
 
 export function BetaBanner() {
-  const { t } = useLocale();
+  const t = useTranslations("beta");
   const isDismissed = useSyncExternalStore(
     subscribe,
     getSnapshot,
@@ -80,12 +80,12 @@ export function BetaBanner() {
         <span className="mr-2 inline-block rounded-sm bg-gold/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-gold">
           Beta
         </span>
-        {t.beta.text}
+        {t("text")}
       </p>
       <button
         type="button"
         onClick={dismissBanner}
-        aria-label={t.beta.dismiss}
+        aria-label={t("dismiss")}
         className="absolute right-3 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-white/10 hover:text-ink-foreground sm:right-5"
       >
         <X className="size-3.5" strokeWidth={2} />

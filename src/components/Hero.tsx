@@ -1,12 +1,12 @@
 "use client";
 
 import { images } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export function Hero() {
-  const { t } = useLocale();
+  const t = useTranslations("hero");
 
   return (
     <section
@@ -16,7 +16,7 @@ export function Hero() {
       <div className="absolute inset-0">
         <Image
           src={images.hero}
-          alt={t.hero.imageAlt}
+          alt={t("imageAlt")}
           fill
           priority
           sizes="100vw"
@@ -27,27 +27,27 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_20%,transparent_35%,rgba(0,0,0,0.6)_100%)]" />
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center px-6 text-center lg:px-10">
         <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
-          {t.hero.eyebrow}
+          {t("eyebrow")}
         </p>
         <h1 className="font-display max-w-4xl text-balance-tight text-[clamp(2.1rem,5.4vw,4.25rem)] font-semibold leading-[1.02] text-white">
-          {t.hero.title}
+          {t("title")}
         </h1>
         <p className="mt-4 max-w-lg text-balance-tight text-[15px] leading-relaxed text-white/70">
-          {t.hero.subtitle}
+          {t("subtitle")}
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row">
           <a
             href="#species"
             className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-[14px] font-medium text-ink"
           >
-            {t.hero.viewSpecies}
+            {t("viewSpecies")}
             <ArrowRight className="size-4" />
           </a>
           <a
             href="#detail"
             className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-[14px] font-medium text-white/90 backdrop-blur-md hover:border-white/50 hover:bg-white/10"
           >
-            {t.hero.moreAboutViper}
+            {t("moreAboutViper")}
           </a>
         </div>
       </div>

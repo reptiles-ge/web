@@ -2,15 +2,17 @@
 
 import { Reveal } from "@/components/Reveal";
 import { getSpeciesById, images } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
+import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { useMemo } from "react";
 
 export function SpeciesDetail() {
-  const { locale, t } = useLocale();
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("detail");
   const featured = useMemo(() => {
     const base = getSpeciesById("vipera-dinniki")!;
     return localizeSpecies(base, locale);
@@ -25,7 +27,7 @@ export function SpeciesDetail() {
         <div className="relative aspect-[4/5] overflow-hidden rounded-[32px]">
           <Image
             src={images.detail}
-            alt={t.detail.imageAlt}
+            alt={t("imageAlt")}
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="scale-110 object-cover"
@@ -36,16 +38,16 @@ export function SpeciesDetail() {
         <div>
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-ink-muted">
-              {t.detail.eyebrow}
+              {t("eyebrow")}
             </p>
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5.4vw,4.5rem)] font-semibold leading-[1] text-white">
               Vipera <span className="font-light italic">dinniki</span>
             </h2>
             <p className="mt-7 max-w-lg text-balance-tight text-[19px] leading-snug text-white/80 sm:text-[22px]">
-              {t.detail.lead}
+              {t("lead")}
             </p>
             <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-ink-muted">
-              {t.detail.body}
+              {t("body")}
             </p>
           </Reveal>
           <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10">
@@ -68,7 +70,7 @@ export function SpeciesDetail() {
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
               <span className="border-b border-white/30 pb-1 group-hover:border-white">
-                {t.detail.viewProfile}
+                {t("viewProfile")}
               </span>
               <ArrowUpRight className="size-4" />
             </Link>

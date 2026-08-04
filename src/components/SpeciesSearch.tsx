@@ -2,11 +2,12 @@
 "use client";
 
 import { getFeaturedSpecies, type Species } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
+import type { AppLocale } from "@/i18n/routing";
+import { useRouter } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { MapPin, Search, X } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import {
   startTransition,
   useDeferredValue,
@@ -26,7 +27,7 @@ type SearchItem = Species & {
   searchText: string;
 };
 
-function toSearchItem(raw: Species, locale: "ka" | "en"): SearchItem {
+function toSearchItem(raw: Species, locale: AppLocale): SearchItem {
   const localized = localizeSpecies(raw, locale);
   const ka = localizeSpecies(raw, "ka");
   const en = localizeSpecies(raw, "en");
@@ -162,7 +163,9 @@ function ResultsBlock({
 }
 
 export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
-  const { locale, t } = useLocale();
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("search");
+  const tNav = useTranslations("nav");
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const desktopInputRef = useRef<HTMLInputElement>(null);
@@ -288,7 +291,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     ? "placeholder:text-white/40"
     : "placeholder:text-muted-foreground/70";
 
-  const resultsTitle = trimmed ? t.nav.species : t.search.featured;
+  const resultsTitle = trimmed ? tNav("species") : t("featured");
 
   const mobileSheet =
     mounted && open
@@ -297,11 +300,11 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             className="fixed inset-0 z-[80] md:hidden"
             role="dialog"
             aria-modal="true"
-            aria-label={t.search.title}
+            aria-label={t("title")}
           >
             <button
               type="button"
-              aria-label={t.search.close}
+              aria-label={t("close")}
               className="absolute inset-0 bg-ink/55 backdrop-blur-[2px] animate-[search-sheet-backdrop-in_220ms_ease-out]"
               onClick={closeSearch}
             />
@@ -313,11 +316,11 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                 />
                 <div className="flex w-full items-center justify-between gap-3 pb-3">
                   <h2 className="font-display text-[18px] font-semibold text-foreground">
-                    {t.search.title}
+                    {t("title")}
                   </h2>
                   <button
                     type="button"
-                    aria-label={t.search.close}
+                    aria-label={t("close")}
                     onClick={closeSearch}
                     className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
                   >
@@ -342,8 +345,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                         ? `${mobileListId}-option-${visibleResults[activeIndex].id}`
                         : undefined
                     }
-                    aria-label={t.search.open}
-                    placeholder={t.search.placeholder}
+                    aria-label={t("open")}
+                    placeholder={t("placeholder")}
                     autoComplete="off"
                     enterKeyHint="search"
                     onChange={(event) => {
@@ -356,7 +359,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                   {query ? (
                     <button
                       type="button"
-                      aria-label={t.search.clear}
+                      aria-label={t("clear")}
                       onClick={() => {
                         setQuery("");
                         mobileInputRef.current?.focus();
@@ -379,7 +382,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                   title={resultsTitle}
                   results={visibleResults}
                   activeIndex={activeIndex}
-                  emptyLabel={t.search.noResults}
+                  emptyLabel={t("noResults")}
                   onHover={setActiveIndex}
                   onSelect={goToSpecies}
                 />
@@ -394,7 +397,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     <div className="relative shrink-0" ref={rootRef}>
       <button
         type="button"
-        aria-label={t.search.open}
+        aria-label={t("open")}
         aria-expanded={open}
         onClick={() => setOpen(true)}
         className={`flex size-10 items-center justify-center rounded-full border transition-colors md:hidden ${iconButtonClass}`}
@@ -422,8 +425,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
               ? `${listId}-option-${visibleResults[activeIndex].id}`
               : undefined
           }
-          aria-label={t.search.open}
-          placeholder={t.search.placeholder}
+          aria-label={t("open")}
+          placeholder={t("placeholder")}
           autoComplete="off"
           onFocus={() => setOpen(true)}
           onBlur={(event) => {
@@ -442,7 +445,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         {query ? (
           <button
             type="button"
-            aria-label={t.search.clear}
+            aria-label={t("clear")}
             tabIndex={-1}
             onMouseDown={(event) => event.preventDefault()}
             onClick={() => {
@@ -473,7 +476,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
               title={resultsTitle}
               results={visibleResults}
               activeIndex={activeIndex}
-              emptyLabel={t.search.noResults}
+              emptyLabel={t("noResults")}
               onHover={setActiveIndex}
               onSelect={goToSpecies}
             />

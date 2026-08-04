@@ -5,39 +5,57 @@ import {
   getFeaturedSpecies,
   getSpeciesById,
 } from "@/data/species";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteImageUrl,
   absoluteUrl,
   cdnOgImageUrl,
+  localeAlternates,
+  localePath,
   siteConfig,
 } from "@/lib/site";
+import { hasLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type PageProps = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 };
 
 export function generateStaticParams() {
-  return featuredSpeciesIds.map((id) => ({ id }));
+  return routing.locales.flatMap((locale) =>
+    featuredSpeciesIds.map((id) => ({ locale, id })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const item = getSpeciesById(id);
-
-  if (!item) {
+  const { locale: localeParam, id } = await params;
+  if (!hasLocale(routing.locales, localeParam)) {
     return {
-      title: "სახეობა ვერ მოიძებნა",
+      title: "Species not found",
       robots: { index: false, follow: false },
     };
   }
 
+  const locale = localeParam as AppLocale;
+  const raw = getSpeciesById(id);
+
+  if (!raw) {
+    return {
+      title: locale === "en" ? "Species not found" : "სახეობა ვერ მოიძებნა",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const item = localizeSpecies(raw, locale);
   const title = `${item.commonName} (${item.scientificName})`;
   const description = item.overview.slice(0, 160);
-  const url = absoluteUrl(`/species/${item.id}`);
+  const path = `/species/${item.id}`;
+  const url = absoluteUrl(localePath(locale, path));
 
   return {
     title: item.commonName,
@@ -51,12 +69,10 @@ export async function generateMetadata({
       "ქვეწარმავლები",
       siteConfig.name,
     ],
-    alternates: {
-      canonical: `/species/${item.id}`,
-    },
+    alternates: localeAlternates(locale, path),
     openGraph: {
       type: "article",
-      locale: siteConfig.locale,
+      locale: locale === "en" ? "en_US" : siteConfig.locale,
       url,
       siteName: siteConfig.name,
       title,
@@ -84,17 +100,25 @@ export async function generateMetadata({
 }
 
 export default async function SpeciesPage({ params }: PageProps) {
-  const { id } = await params;
-  const item = getSpeciesById(id);
-
-  if (!item) {
+  const { locale: localeParam, id } = await params;
+  if (!hasLocale(routing.locales, localeParam)) {
     notFound();
   }
 
+  const locale = localeParam as AppLocale;
+  setRequestLocale(locale);
+
+  const raw = getSpeciesById(id);
+  if (!raw) {
+    notFound();
+  }
+
+  const item = localizeSpecies(raw, locale);
   const related = getFeaturedSpecies()
-    .filter((entry) => entry.id !== item.id)
+    .filter((entry) => entry.id !== raw.id)
     .slice(0, 3);
-  const pageUrl = absoluteUrl(`/species/${item.id}`);
+
+  const pageUrl = absoluteUrl(localePath(locale, `/species/${item.id}`));
   const ogImage = cdnOgImageUrl(item.id);
   const galleryImages = item.gallery
     .filter((src) => src !== item.image)
@@ -125,7 +149,7 @@ export default async function SpeciesPage({ params }: PageProps) {
         url: "https://cdn.reptiles.ge/logo.webp",
       },
     },
-    inLanguage: siteConfig.language,
+    inLanguage: locale,
     about: {
       "@type": "Taxon",
       name: item.scientificName,
@@ -158,7 +182,7 @@ export default async function SpeciesPage({ params }: PageProps) {
   return (
     <>
       <JsonLd data={faqJsonLd ? [jsonLd, faqJsonLd] : jsonLd} />
-      <SpeciesProfile species={item} related={related} />
+      <SpeciesProfile species={raw} related={related} />
     </>
   );
 }
