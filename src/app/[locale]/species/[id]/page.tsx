@@ -92,6 +92,7 @@ export async function generateMetadata({
       title,
       description,
       modifiedTime: raw.updatedAt,
+      publishedTime: raw.updatedAt,
       images: [
         {
           url: cdnOgImageUrl(item.id),
@@ -141,17 +142,37 @@ export default async function SpeciesPage({ params }: PageProps) {
     .slice(0, 3)
     .map(absoluteImageUrl);
 
+  const sameAs = raw.sources
+    .map((source) => source.url)
+    .filter((url): url is string => Boolean(url));
+
+  const taxon = {
+    "@type": "Taxon",
+    name: item.scientificName,
+    alternateName: item.commonName,
+    taxonRank: "Species",
+    parentTaxon: {
+      "@type": "Taxon",
+      name: item.genus,
+      taxonRank: "Genus",
+    },
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: `${item.commonName} (${item.scientificName})`,
     description: item.description,
     image: [ogImage, ...galleryImages],
+    datePublished: raw.updatedAt,
     dateModified: raw.updatedAt,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": pageUrl,
     },
+    mainEntity: taxon,
+    about: taxon,
     author: {
       "@type": "Organization",
       name: siteConfig.name,
@@ -179,17 +200,6 @@ export default async function SpeciesPage({ params }: PageProps) {
           },
     ),
     inLanguage: locale,
-    about: {
-      "@type": "Taxon",
-      name: item.scientificName,
-      alternateName: item.commonName,
-      taxonRank: "Species",
-      parentTaxon: {
-        "@type": "Taxon",
-        name: item.genus,
-        taxonRank: "Genus",
-      },
-    },
   };
 
   const faqJsonLd =
