@@ -95,16 +95,15 @@ export const regions: Region[] = [
   },
   {
     id: "racha",
-    name: { ka: "რაჭა — ლეჩხუმი — ქვემო სვანეთი", en: "Racha — Lechkhumi — Kvemo Svaneti" },
+    name: {
+      ka: "რაჭა — ლეჩხუმი — ქვემო სვანეთი",
+      en: "Racha — Lechkhumi — Kvemo Svaneti",
+    },
     description: {
       ka: "მაღალმთიანი ტყეები, სუბალპური მდელოები და კლდოვანი ხეობები — იდეალური გარემო მთის სახეობებისთვის.",
       en: "High-mountain forests, subalpine meadows, and rocky gorges — ideal for montane species.",
     },
-    speciesIds: [
-      "vipera-dinniki",
-      "coronella-austriaca",
-      "natrix-tessellata",
-    ],
+    speciesIds: ["vipera-dinniki", "coronella-austriaca", "natrix-tessellata"],
     path: georgiaRegionPaths.racha,
   },
   {
@@ -197,7 +196,7 @@ export const regions: Region[] = [
       ka: "ქალაქის მიმდებარე ხეობები, პარკები და მდინარის პირას არსებული ჰაბიტატები იშვიათად, მაგრამ მაინც მასპინძლობს რეპტილიებს.",
       en: "Suburban valleys, parks, and riverside habitats occasionally host reptiles within the capital.",
     },
-    speciesIds: [],
+    speciesIds: ["macrovipera-lebetina"],
     path: georgiaRegionPaths.tbilisi,
   },
 ];
