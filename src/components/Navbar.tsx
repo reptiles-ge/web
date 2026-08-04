@@ -54,7 +54,6 @@ export function Navbar() {
         <Link href="/" className="relative z-10 shrink-0 transition-opacity hover:opacity-90">
           <Logo
             size={44}
-            priority
             showWordmark
             wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
               scrolled ? "text-foreground" : "text-white"
