@@ -1,6 +1,11 @@
 "use client";
 
 import { AtlasSpeciesCard } from "@/components/species-atlas/AtlasSpeciesCard";
+import {
+  AtlasFilterButton,
+  AtlasFilterSheet,
+  countAtlasFacets,
+} from "@/components/species-atlas/AtlasFilterSheet";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
@@ -27,10 +32,10 @@ import { getCatalogSpecies, images, type Species } from "@/data/species";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
-import { useDeferredValue, useEffect, useMemo, useState, type ReactNode } from "react";
-import { ArrowUpRight, Search, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
 
 type SpeciesAtlasProps = {
   initialFilters?: AtlasFilters;
@@ -100,28 +105,45 @@ function AnimatedStat({
   );
 }
 
-function FilterChip({
+function LensOption({
   active,
   onClick,
   children,
 }: {
   active: boolean;
   onClick: () => void;
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`rounded-full px-3.5 py-2 text-[12px] font-medium tracking-wide transition-colors ${
+      className={`text-[14px] transition-colors ${
         active
-          ? "bg-primary text-white dark:text-ink"
-          : "bg-secondary text-foreground/75 hover:bg-secondary/80 hover:text-foreground"
+          ? "font-medium text-foreground"
+          : "text-muted-foreground hover:text-foreground"
       }`}
     >
       {children}
     </button>
+  );
+}
+
+function LensRow({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
+      <p className="w-24 shrink-0 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:pt-0.5">
+        {label}
+      </p>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">{children}</div>
+    </div>
   );
 }
 
@@ -134,6 +156,7 @@ export function SpeciesAtlas({
   const pathname = usePathname();
 
   const [filters, setFilters] = useState<AtlasFilters>(initialFilters);
+  const [filterOpen, setFilterOpen] = useState(false);
   const deferredQuery = useDeferredValue(filters.query);
 
   const catalog = useMemo(
@@ -183,6 +206,22 @@ export function SpeciesAtlas({
     [catalog, activeFilters],
   );
 
+  const groupCounts = useMemo(() => {
+    const counts: Record<AnimalGroup | "all", number> = {
+      all: catalog.length,
+      snake: 0,
+      lizard: 0,
+      turtle: 0,
+      amphibian: 0,
+    };
+    for (const item of catalog) {
+      counts[getSpeciesAtlasMeta(item.id).group] += 1;
+    }
+    return counts;
+  }, [catalog]);
+
+  const facetCount = countAtlasFacets(filters);
+
   useEffect(() => {
     const params = atlasFiltersToSearchParams(filters);
     const next = params.toString();
@@ -206,11 +245,7 @@ export function SpeciesAtlas({
   }
 
   const hasActiveFilters =
-    filters.group !== "all" ||
-    filters.danger !== "all" ||
-    filters.habitat !== "all" ||
-    filters.region !== "all" ||
-    filters.query.trim().length > 0;
+    facetCount > 0 || filters.query.trim().length > 0;
 
   const comingSoonGroups: AnimalGroup[] = [];
   if (filters.group === "turtle" || filters.group === "amphibian") {
@@ -338,82 +373,131 @@ export function SpeciesAtlas({
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                <div className="max-w-2xl">
-                  <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
-                    {t("explorerEyebrow")}
-                  </p>
-                  <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.05] text-foreground">
-                    {t("explorerTitle")}
-                  </h2>
-                  <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-                    {t("explorerSubtitle")}
-                  </p>
-                </div>
-                <p className="text-[13px] text-muted-foreground" aria-live="polite">
-                  {t("resultsCount", { count: filtered.length })}
+              <div className="max-w-2xl">
+                <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                  {t("explorerEyebrow")}
+                </p>
+                <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.05] text-foreground">
+                  {t("explorerTitle")}
+                </h2>
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+                  {t("explorerSubtitle")}
                 </p>
               </div>
             </Reveal>
 
-            <div className="mt-10 space-y-6 lg:mt-12">
-              <div className="relative max-w-xl">
-                <Search
-                  className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-                  aria-hidden="true"
+            <div className="mt-10 lg:mt-12">
+              <div className="flex items-center gap-3">
+                <label className="relative min-w-0 flex-1">
+                  <span className="sr-only">{t("searchPlaceholder")}</span>
+                  <Search
+                    className="pointer-events-none absolute left-0 top-1/2 size-4 -translate-y-1/2 text-muted-foreground md:left-0"
+                    aria-hidden="true"
+                  />
+                  <input
+                    type="search"
+                    value={filters.query}
+                    onChange={(event) =>
+                      updateFilter("query", event.target.value)
+                    }
+                    placeholder={t("searchPlaceholder")}
+                    className="w-full border-0 border-b border-border bg-transparent py-3 pl-7 pr-8 text-[15px] text-foreground outline-none transition-[border-color] placeholder:text-muted-foreground/70 focus:border-foreground"
+                  />
+                  {filters.query ? (
+                    <button
+                      type="button"
+                      onClick={() => updateFilter("query", "")}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                      aria-label={t("clearSearch")}
+                    >
+                      <X className="size-3.5" />
+                    </button>
+                  ) : null}
+                </label>
+                <AtlasFilterButton
+                  count={facetCount}
+                  onClick={() => setFilterOpen(true)}
                 />
-                <input
-                  type="search"
-                  value={filters.query}
-                  onChange={(event) =>
-                    updateFilter("query", event.target.value)
-                  }
-                  placeholder={t("searchPlaceholder")}
-                  className="w-full rounded-full border border-border bg-card py-3.5 pl-11 pr-11 text-[14px] text-foreground outline-none transition-[border-color,box-shadow] placeholder:text-muted-foreground focus:border-primary/40 focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
-                  aria-label={t("searchPlaceholder")}
-                />
-                {filters.query ? (
+              </div>
+
+              <div className="mt-4 flex items-center justify-between gap-3 md:mt-6">
+                <p className="text-[13px] text-muted-foreground" aria-live="polite">
+                  {t("resultsCount", { count: filtered.length })}
+                </p>
+                {hasActiveFilters ? (
                   <button
                     type="button"
-                    onClick={() => updateFilter("query", "")}
-                    className="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                    aria-label={t("clearSearch")}
+                    onClick={resetFilters}
+                    className="text-[13px] font-medium text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline"
                   >
-                    <X className="size-3.5" />
+                    {t("resetFilters")}
                   </button>
                 ) : null}
               </div>
 
-              <div className="space-y-4">
-                <FilterRow label={t("filters.type")}>
-                  {GROUP_OPTIONS.map((group) => (
-                    <FilterChip
-                      key={group}
-                      active={filters.group === group}
-                      onClick={() => updateFilter("group", group)}
-                    >
-                      {group === "all"
-                        ? t("filters.all")
-                        : t(`groups.${group}`)}
-                    </FilterChip>
-                  ))}
-                </FilterRow>
+              <div className="mt-8 hidden md:block">
+                <div
+                  role="tablist"
+                  aria-label={t("filters.type")}
+                  className="flex gap-6 overflow-x-auto no-scrollbar sm:gap-8"
+                >
+                  {GROUP_OPTIONS.map((group) => {
+                    const active = filters.group === group;
+                    const count = groupCounts[group];
+                    return (
+                      <button
+                        key={group}
+                        type="button"
+                        role="tab"
+                        aria-selected={active}
+                        onClick={() => updateFilter("group", group)}
+                        className={`group/tab relative shrink-0 pb-4 transition-colors ${
+                          active
+                            ? "text-foreground"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        <span className="font-display text-[1.15rem] font-semibold tracking-tight sm:text-[1.35rem]">
+                          {group === "all"
+                            ? t("filters.allSpecies")
+                            : t(`groups.${group}`)}
+                        </span>
+                        <span
+                          className={`ml-2 align-top text-[12px] tabular-nums ${
+                            active ? "text-primary" : "text-muted-foreground/70"
+                          }`}
+                        >
+                          {count}
+                        </span>
+                        <span
+                          className={`absolute inset-x-0 bottom-0 h-px transition-colors ${
+                            active
+                              ? "bg-foreground"
+                              : "bg-transparent group-hover/tab:bg-border"
+                          }`}
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
 
-                <FilterRow label={t("filters.danger")}>
+                <div className="border-t border-border" />
+
+                <LensRow label={t("filters.danger")}>
                   {DANGER_OPTIONS.map((danger) => (
-                    <FilterChip
+                    <LensOption
                       key={danger}
                       active={filters.danger === danger}
                       onClick={() => updateFilter("danger", danger)}
                     >
                       {t(`danger.${danger}`)}
-                    </FilterChip>
+                    </LensOption>
                   ))}
-                </FilterRow>
+                </LensRow>
 
-                <FilterRow label={t("filters.habitat")}>
+                <LensRow label={t("filters.habitat")}>
                   {HABITAT_OPTIONS.map((habitat) => (
-                    <FilterChip
+                    <LensOption
                       key={habitat}
                       active={filters.habitat === habitat}
                       onClick={() => updateFilter("habitat", habitat)}
@@ -421,40 +505,46 @@ export function SpeciesAtlas({
                       {habitat === "all"
                         ? t("filters.all")
                         : t(`habitats.${habitat}`)}
-                    </FilterChip>
+                    </LensOption>
                   ))}
-                </FilterRow>
+                </LensRow>
 
-                <FilterRow label={t("filters.region")}>
-                  <FilterChip
-                    active={filters.region === "all"}
-                    onClick={() => updateFilter("region", "all")}
-                  >
-                    {t("filters.allRegions")}
-                  </FilterChip>
-                  {regions.map((region) => (
-                    <FilterChip
-                      key={region.id}
-                      active={filters.region === region.id}
-                      onClick={() => updateFilter("region", region.id)}
+                <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
+                  <p className="w-24 shrink-0 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:pt-0.5">
+                    {t("filters.region")}
+                  </p>
+                  <label className="relative inline-flex min-w-[12rem] items-center">
+                    <select
+                      value={filters.region}
+                      onChange={(event) =>
+                        updateFilter("region", event.target.value)
+                      }
+                      className="w-full cursor-pointer appearance-none border-0 bg-transparent py-0 pr-7 text-[14px] font-medium text-foreground outline-none"
+                      aria-label={t("filters.region")}
                     >
-                      {localizeRegionText(region.name, locale)}
-                    </FilterChip>
-                  ))}
-                </FilterRow>
+                      <option value="all">{t("filters.allRegions")}</option>
+                      {regions.map((region) => (
+                        <option key={region.id} value={region.id}>
+                          {localizeRegionText(region.name, locale)}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      className="pointer-events-none absolute right-0 size-3.5 text-muted-foreground"
+                      aria-hidden="true"
+                    />
+                  </label>
+                </div>
               </div>
-
-              {hasActiveFilters ? (
-                <button
-                  type="button"
-                  onClick={resetFilters}
-                  className="inline-flex items-center gap-2 text-[13px] font-medium text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <X className="size-3.5" />
-                  {t("resetFilters")}
-                </button>
-              ) : null}
             </div>
+
+            <AtlasFilterSheet
+              open={filterOpen}
+              filters={filters}
+              locale={locale}
+              onClose={() => setFilterOpen(false)}
+              onApply={setFilters}
+            />
 
             {filtered.length > 0 ? (
               <ul className="mt-12 grid gap-6 sm:grid-cols-2 sm:gap-7 xl:grid-cols-3 xl:gap-8">
@@ -579,23 +669,6 @@ export function SpeciesAtlas({
           </div>
         </section>
       </main>
-    </div>
-  );
-}
-
-function FilterRow({
-  label,
-  children,
-}: {
-  label: string;
-  children: ReactNode;
-}) {
-  return (
-    <div>
-      <p className="mb-2.5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-        {label}
-      </p>
-      <div className="flex flex-wrap gap-2">{children}</div>
     </div>
   );
 }
