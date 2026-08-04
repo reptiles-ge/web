@@ -168,12 +168,6 @@ export function SpeciesProfile({
                 </span>
                 <SpeciesDanger level={species.danger} variant="hero" />
               </div>
-              <p className="mt-5 text-[12px] tracking-wide text-white/40">
-                {t("lastUpdated")}{" "}
-                <time dateTime={species.updatedAt}>
-                  {formatContentDate(species.updatedAt, locale)}
-                </time>
-              </p>
             </Reveal>
           </div>
         </section>
@@ -209,12 +203,39 @@ export function SpeciesProfile({
           </div>
         </section>
 
+        <section className="bg-surface py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                {t("overview")}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+                {t("whoIs")} {species.commonName}
+              </h2>
+              <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
+                {species.overview}
+              </p>
+              <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
+                {t("lastUpdated")}{" "}
+                <time dateTime={species.updatedAt}>
+                  {formatContentDate(species.updatedAt, locale)}
+                </time>
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         <SpeciesGallery
           images={gallery}
           name={species.commonName}
           scientificName={species.scientificName}
           location={species.location}
-          tone="surface"
+          tone="background"
+        />
+
+        <SpeciesRangeMap
+          speciesId={species.id}
+          speciesName={species.commonName}
         />
 
         {species.identification ? (
@@ -223,38 +244,6 @@ export function SpeciesProfile({
             identification={species.identification}
           />
         ) : null}
-
-        <SpeciesRangeMap
-          speciesId={species.id}
-          speciesName={species.commonName}
-        />
-
-        <section className="bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("facts")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t("factsTitle")}
-              </h2>
-            </Reveal>
-            <ol className="mt-12 space-y-0">
-              {species.facts.map((fact, index) => (
-                <Reveal key={fact} delay={index * 80}>
-                  <li className="grid grid-cols-[auto_1fr] gap-6 border-t border-border py-7 lg:gap-10 lg:py-9">
-                    <span className="font-display text-[28px] font-light text-primary/40 lg:text-[36px]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <p className="max-w-2xl self-center text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-                      {fact}
-                    </p>
-                  </li>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </section>
 
         <section className="bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
