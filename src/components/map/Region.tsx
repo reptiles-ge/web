@@ -10,6 +10,8 @@ type RegionProps = {
   isHovered: boolean;
   isSelected: boolean;
   isDimmed: boolean;
+  interactive?: boolean;
+  glowFilterId?: string;
   onHover: (id: string | null) => void;
   onSelect: (id: string) => void;
 };
@@ -19,6 +21,8 @@ export function Region({
   isHovered,
   isSelected,
   isDimmed,
+  interactive = true,
+  glowFilterId = "map-region-glow",
   onHover,
   onSelect,
 }: RegionProps) {
@@ -28,21 +32,26 @@ export function Region({
   return (
     <motion.path
       d={region.path}
-      role="button"
-      tabIndex={0}
+      role={interactive ? "button" : undefined}
+      tabIndex={interactive ? 0 : undefined}
       aria-label={localizeRegionText(region.name, locale)}
-      aria-pressed={isSelected}
-      onMouseEnter={() => onHover(region.id)}
-      onMouseLeave={() => onHover(null)}
-      onFocus={() => onHover(region.id)}
-      onBlur={() => onHover(null)}
-      onClick={() => onSelect(region.id)}
-      onKeyDown={(event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          onSelect(region.id);
-        }
-      }}
+      aria-pressed={interactive ? isSelected : undefined}
+      onMouseEnter={interactive ? () => onHover(region.id) : undefined}
+      onMouseLeave={interactive ? () => onHover(null) : undefined}
+      onFocus={interactive ? () => onHover(region.id) : undefined}
+      onBlur={interactive ? () => onHover(null) : undefined}
+      onClick={interactive ? () => onSelect(region.id) : undefined}
+      onKeyDown={
+        interactive
+          ? (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                onSelect(region.id);
+              }
+            }
+          : undefined
+      }
+      pointerEvents={interactive ? undefined : "none"}
       initial={false}
       animate={{
         fill: active
@@ -52,12 +61,10 @@ export function Region({
             : "var(--map-region)",
         stroke: active ? "var(--map-stroke-active)" : "var(--map-stroke)",
         strokeWidth: active ? 1.6 : 0.9,
-        filter: active
-          ? "url(#map-region-glow)"
-          : "none",
+        filter: active ? `url(#${glowFilterId})` : "none",
       }}
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-      className="cursor-pointer outline-none focus-visible:stroke-[2.2px]"
+      className={`outline-none ${interactive ? "cursor-pointer focus-visible:stroke-[2.2px]" : "cursor-default"}`}
       style={{
         transformOrigin: "center",
         opacity: isDimmed && !active ? 0.55 : 1,

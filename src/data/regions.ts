@@ -206,6 +206,10 @@ export function getRegionById(id: string) {
   return regions.find((region) => region.id === id);
 }
 
+export function getRegionsForSpecies(speciesId: string): Region[] {
+  return regions.filter((region) => region.speciesIds.includes(speciesId));
+}
+
 export function getRegionSpecies(region: Region): Species[] {
   return region.speciesIds
     .map((id) => getSpeciesById(id))

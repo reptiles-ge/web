@@ -4,3 +4,4 @@ export { Region } from "@/components/map/Region";
 export { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
 export { RegionTooltip } from "@/components/map/RegionTooltip";
 export { SpeciesCard } from "@/components/map/SpeciesCard";
+export { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";

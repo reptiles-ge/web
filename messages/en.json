@@ -137,8 +137,12 @@
     "faqIntroAfter": ".",
     "related": "Other species",
     "relatedTitle": "Keep exploring",
-    "allSpecies": "All species"
+    "allSpecies": "All species",
+    "range": "Distribution",
+    "rangeTitle": "Where {name} lives in Georgia",
+    "rangeSubtitle": "Highlighted regions show where this species has been recorded."
   },
+
   "danger": {
     "Harmless": "Harmless",
     "Moderate": "Moderate risk",

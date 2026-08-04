@@ -917,64 +917,28 @@ export const species: Species[] = [
     "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ინტენსიური სოფლის მეურნეობა, ტყის ხანძრები, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს ხვლიკებისა და მცირე მღრღნელების რაოდენობას.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/platyceps-najadum.webp",
-    "imageCredit": {
-      "photographer": "Benny Trapp",
-      "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Schlanknatter_Platyceps_najadum.JPG"
-    },
     "mobileImage": "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
-    "mobileImageCredit": {
-      "photographer": "Ryan van Huyssteen",
-      "url": "https://www.inaturalist.org/observations/163280840"
-    },
     "gallery": [
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum.webp",
-        "credit": {
-          "photographer": "Benny Trapp",
-          "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Schlanknatter_Platyceps_najadum.JPG"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum-2.webp",
-        "credit": {
-          "photographer": "DinaKuzia",
-          "url": "https://commons.wikimedia.org/wiki/File:Platyceps_najadum_Makrigoas.jpg"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-2.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum-3.webp",
-        "credit": {
-          "photographer": "Chalki25",
-          "url": "https://commons.wikimedia.org/wiki/File:Snake_in_Evros_mountains.jpg"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-3.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum-4.webp",
-        "credit": {
-          "photographer": "Mirela",
-          "url": "https://www.inaturalist.org/observations/382862190"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-4.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum-5.webp",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/250549785"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-5.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum-6.webp",
-        "credit": {
-          "photographer": "Donsky",
-          "url": "https://www.inaturalist.org/observations/372539358"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-6.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/platyceps-najadum-7.webp",
-        "credit": {
-          "photographer": "Kiril Kapustin",
-          "url": "https://commons.wikimedia.org/wiki/File:Coluber_najadum_in_Bulgaria.jpg"
-        }
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-7.webp"
       }
     ],
     "stats": [

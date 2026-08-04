@@ -3,6 +3,7 @@
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
+import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesDanger } from "@/components/SpeciesDanger";
@@ -189,6 +190,11 @@ export function SpeciesProfile({
             </div>
           </div>
         </section>
+
+        <SpeciesRangeMap
+          speciesId={species.id}
+          speciesName={species.commonName}
+        />
 
         <SpeciesGallery
           images={gallery}

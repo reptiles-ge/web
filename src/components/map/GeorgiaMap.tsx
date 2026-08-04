@@ -7,6 +7,7 @@ import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
 import { regions, type Region as RegionData } from "@/data/regions";
 import {
   useCallback,
+  useId,
   useMemo,
   useRef,
   useState,
@@ -15,9 +16,18 @@ import {
 
 type GeorgiaMapProps = {
   className?: string;
+  highlightedIds?: string[];
+  interactive?: boolean;
 };
 
-export function GeorgiaMap({ className }: GeorgiaMapProps) {
+export function GeorgiaMap({
+  className,
+  highlightedIds = [],
+  interactive = true,
+}: GeorgiaMapProps) {
+  const reactId = useId();
+  const glowFilterId = `map-region-glow-${reactId.replace(/:/g, "")}`;
+  const seaGradientId = `map-sea-${reactId.replace(/:/g, "")}`;
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -25,9 +35,18 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
     null,
   );
 
+  const highlightedSet = useMemo(
+    () => new Set(highlightedIds),
+    [highlightedIds],
+  );
+  const hasHighlights = highlightedSet.size > 0;
+
   const selectedRegion = useMemo(
-    () => regions.find((region) => region.id === selectedId) ?? null,
-    [selectedId],
+    () =>
+      interactive
+        ? (regions.find((region) => region.id === selectedId) ?? null)
+        : null,
+    [interactive, selectedId],
   );
 
   const hoveredRegion = useMemo(
@@ -35,20 +54,29 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
     [hoveredId],
   );
 
-  const handleHover = useCallback((id: string | null) => {
-    setHoveredId(id);
-    if (!id) setTooltipPos(null);
-  }, []);
+  const handleHover = useCallback(
+    (id: string | null) => {
+      if (!interactive) return;
+      setHoveredId(id);
+      if (!id) setTooltipPos(null);
+    },
+    [interactive],
+  );
 
-  const handleSelect = useCallback((id: string) => {
-    setSelectedId(id);
-  }, []);
+  const handleSelect = useCallback(
+    (id: string) => {
+      if (!interactive) return;
+      setSelectedId(id);
+    },
+    [interactive],
+  );
 
   const handleClose = useCallback(() => {
     setSelectedId(null);
   }, []);
 
   function updateTooltipFromEvent(event: MouseEvent<HTMLDivElement>) {
+    if (!interactive) return;
     const container = containerRef.current;
     if (!container || !hoveredId) return;
     const rect = container.getBoundingClientRect();
@@ -63,7 +91,7 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
       <div
         ref={containerRef}
         className={`relative mx-auto w-full max-w-[920px] ${className ?? ""}`}
-        onMouseMove={updateTooltipFromEvent}
+        onMouseMove={interactive ? updateTooltipFromEvent : undefined}
       >
         <svg
           viewBox={GEORGIA_MAP_VIEWBOX}
@@ -73,7 +101,7 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
         >
           <defs>
             <filter
-              id="map-region-glow"
+              id={glowFilterId}
               x="-20%"
               y="-20%"
               width="140%"
@@ -94,7 +122,7 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            <linearGradient id="map-sea" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id={seaGradientId} x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="var(--map-sea-from)" />
               <stop offset="100%" stopColor="var(--map-sea-to)" />
             </linearGradient>
@@ -105,34 +133,48 @@ export function GeorgiaMap({ className }: GeorgiaMapProps) {
             y="0"
             width="1000"
             height="510"
-            fill="url(#map-sea)"
+            fill={`url(#${seaGradientId})`}
             rx="28"
             opacity="0.35"
           />
 
           <g>
-            {regions.map((region: RegionData) => (
-              <Region
-                key={region.id}
-                region={region}
-                isHovered={hoveredId === region.id}
-                isSelected={selectedId === region.id}
-                isDimmed={
-                  Boolean(hoveredId || selectedId) &&
-                  hoveredId !== region.id &&
-                  selectedId !== region.id
-                }
-                onHover={handleHover}
-                onSelect={handleSelect}
-              />
-            ))}
+            {regions.map((region: RegionData) => {
+              const isHighlighted = highlightedSet.has(region.id);
+              const isSelected =
+                isHighlighted || (interactive && selectedId === region.id);
+              const isDimmed =
+                (hasHighlights ||
+                  Boolean(hoveredId) ||
+                  (interactive && Boolean(selectedId))) &&
+                !isSelected &&
+                hoveredId !== region.id;
+
+              return (
+                <Region
+                  key={region.id}
+                  region={region}
+                  isHovered={hoveredId === region.id}
+                  isSelected={isSelected}
+                  isDimmed={isDimmed}
+                  interactive={interactive}
+                  glowFilterId={glowFilterId}
+                  onHover={handleHover}
+                  onSelect={handleSelect}
+                />
+              );
+            })}
           </g>
         </svg>
 
-        <RegionTooltip region={hoveredRegion} position={tooltipPos} />
+        {interactive ? (
+          <RegionTooltip region={hoveredRegion} position={tooltipPos} />
+        ) : null}
       </div>
 
-      <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
+      {interactive ? (
+        <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
+      ) : null}
     </>
   );
 }
