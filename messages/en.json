@@ -301,7 +301,6 @@
     "sourcesBody": "Primary references include IUCN Red List assessments, GBIF, the Reptile Database, and peer-reviewed herpetological literature cited on each species page.",
     "photosTitle": "Photography",
     "photosBody": "Images are selected for identification value and field context. Credits appear on species pages when photographer attribution is available.",
-    "photosBodyNamed": "Featured photographers in the current catalog include {names}. Full credits appear on individual species pages.",
     "contributorsTitle": "Contributors",
     "contributorsBody": "Editorial work and product development are led by the Reptiles.ge team. Corrections and field observations are welcome via the contact page."
   }

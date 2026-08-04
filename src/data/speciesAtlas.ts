@@ -128,24 +128,6 @@ export function getRecentlyUpdatedSpecies(limit = 4) {
     .slice(0, limit);
 }
 
-export function getAtlasPhotographers(catalog: Species[] = getCatalogSpecies()) {
-  const names = new Set<string>();
-  for (const item of catalog) {
-    if (item.imageCredit?.photographer) {
-      names.add(item.imageCredit.photographer);
-    }
-    if (item.mobileImageCredit?.photographer) {
-      names.add(item.mobileImageCredit.photographer);
-    }
-    for (const photo of item.gallery) {
-      if (photo.credit?.photographer) {
-        names.add(photo.credit.photographer);
-      }
-    }
-  }
-  return [...names].sort((a, b) => a.localeCompare(b));
-}
-
 export type AtlasFilters = {
   group: AnimalGroup | "all";
   danger: AtlasDangerFilter;

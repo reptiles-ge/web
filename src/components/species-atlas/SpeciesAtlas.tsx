@@ -16,7 +16,6 @@ import {
   atlasFiltersToSearchParams,
   defaultAtlasFilters,
   filterAtlasSpecies,
-  getAtlasPhotographers,
   getAtlasStats,
   getRecentlyUpdatedSpecies,
   getSpeciesAtlasMeta,
@@ -214,10 +213,6 @@ export function SpeciesAtlas({
     [locale],
   );
   const stats = useMemo(() => getAtlasStats(getCatalogSpecies()), []);
-  const photographers = useMemo(
-    () => getAtlasPhotographers(getCatalogSpecies()),
-    [],
-  );
   const recent = useMemo(
     () =>
       getRecentlyUpdatedSpecies(4).map((item) =>
@@ -739,16 +734,7 @@ export function SpeciesAtlas({
               <div className="grid gap-6 sm:grid-cols-2">
                 <TrustCard title={t("methodTitle")} body={t("methodBody")} />
                 <TrustCard title={t("sourcesTitle")} body={t("sourcesBody")} />
-                <TrustCard
-                  title={t("photosTitle")}
-                  body={
-                    photographers.length > 0
-                      ? t("photosBodyNamed", {
-                          names: photographers.join(", "),
-                        })
-                      : t("photosBody")
-                  }
-                />
+                <TrustCard title={t("photosTitle")} body={t("photosBody")} />
                 <TrustCard
                   title={t("contributorsTitle")}
                   body={t("contributorsBody")}
