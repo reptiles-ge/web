@@ -1,12 +1,10 @@
-"use client";
-
 import { images } from "@/data/species";
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export function Hero() {
-  const t = useTranslations("hero");
+export async function Hero() {
+  const t = await getTranslations("hero");
 
   return (
     <section
@@ -18,7 +16,7 @@ export function Hero() {
           src={images.hero}
           alt={t("imageAlt")}
           fill
-          priority
+          preload
           sizes="100vw"
           className="object-cover"
         />
