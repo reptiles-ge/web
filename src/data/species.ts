@@ -58,15 +58,15 @@ export const species: Species[] = [
     conservation:
       "IUCN Red List-ის მიხედვით მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საფრთხეებს შორისაა სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა. შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში.",
     danger: "Moderate",
-    image: "/images/vipera-dinnik.jpg",
-    mobileImage: "/images/vipera-cover-on-mobile.jpg",
+    image: "https://cdn.reptiles.ge/vipera-dinnik.webp",
+    mobileImage: "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
     gallery: [
-      "/images/vipera-dinnik.jpg",
-      "/images/vipera-dinnik-6.png",
-      "/images/vipera-dinnik-2.png",
-      "/images/vipera-dinnik-3.png",
-      "/images/vipera-dinnik-4.png",
-      "/images/vipera-dinnik-5.png",
+      "https://cdn.reptiles.ge/vipera-dinnik.webp",
+      "https://cdn.reptiles.ge/vipera-dinnik-6.webp",
+      "https://cdn.reptiles.ge/vipera-dinnik-2.webp",
+      "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+      "https://cdn.reptiles.ge/vipera-dinnik-4.webp",
+      "https://cdn.reptiles.ge/vipera-dinnik-5.webp",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "დიდი კავკასიონი" },
@@ -888,7 +888,7 @@ export const species: Species[] = [
 
 export const images = {
   hero: "/images/hero-img.png",
-  detail: "/images/vipera-dinnik.jpg",
+  detail: "https://cdn.reptiles.ge/vipera-dinnik.webp",
   cta: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
 };
 
