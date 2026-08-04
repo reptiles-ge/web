@@ -191,15 +191,15 @@ export function SpeciesProfile({
           </div>
         </section>
 
-        <SpeciesRangeMap
-          speciesId={species.id}
-          speciesName={species.commonName}
-        />
-
         <SpeciesGallery
           images={gallery}
           name={species.commonName}
           tone="surface"
+        />
+
+        <SpeciesRangeMap
+          speciesId={species.id}
+          speciesName={species.commonName}
         />
 
         <section className="bg-background py-20 lg:py-28">
