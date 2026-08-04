@@ -70,11 +70,15 @@ export type Messages = {
     back: string;
     overview: string;
     whoIs: string;
+    atAGlance: string;
+    atAGlanceTitle: string;
     biology: string;
     biologyTitle: string;
     diet: string;
     behavior: string;
     conservation: string;
+    readMore: string;
+    readLess: string;
     facts: string;
     factsTitle: string;
     gallery: string;
@@ -87,6 +91,9 @@ export type Messages = {
     faqTitle: string;
     faqIntroBefore: string;
     faqIntroAfter: string;
+    related: string;
+    relatedTitle: string;
+    allSpecies: string;
   };
   danger: {
     Harmless: string;
@@ -195,11 +202,15 @@ export const messages: Record<Locale, Messages> = {
       back: "ყველა სახეობა",
       overview: "მიმოხილვა",
       whoIs: "ვინ არის",
+      atAGlance: "სწრაფი მიმოხილვა",
+      atAGlanceTitle: "მთავარი მონაცემები ერთ შეხედვით",
       biology: "ბიოლოგია",
-      biologyTitle: "კვება, ქცევა და გამრავლება",
+      biologyTitle: "კვება, ქცევა და კონსერვაცია",
       diet: "კვება",
       behavior: "ქცევა",
       conservation: "კონსერვაცია",
+      readMore: "მეტის წაკითხვა",
+      readLess: "ნაკლების ჩვენება",
       facts: "საინტერესო ფაქტები",
       factsTitle: "რა უნდა იცოდე",
       gallery: "გალერეა",
@@ -212,6 +223,9 @@ export const messages: Record<Locale, Messages> = {
       faqTitle: "ხშირად დასმული კითხვები",
       faqIntroBefore: "მოკლე პასუხები ",
       faqIntroAfter: "-თან დაკავშირებულ ყველაზე მნიშვნელოვან კითხვებზე.",
+      related: "სხვა სახეობები",
+      relatedTitle: "გააგრძელე აღმოჩენა",
+      allSpecies: "ყველა სახეობა",
     },
     danger: {
       Harmless: "უვნებელი",
@@ -314,11 +328,15 @@ export const messages: Record<Locale, Messages> = {
       back: "All species",
       overview: "Overview",
       whoIs: "Who is",
+      atAGlance: "At a glance",
+      atAGlanceTitle: "Key facts in one look",
       biology: "Biology",
-      biologyTitle: "Diet, behavior, and reproduction",
+      biologyTitle: "Diet, behavior, and conservation",
       diet: "Diet",
       behavior: "Behavior",
       conservation: "Conservation",
+      readMore: "Read more",
+      readLess: "Show less",
       facts: "Interesting facts",
       factsTitle: "What you should know",
       gallery: "Gallery",
@@ -331,6 +349,9 @@ export const messages: Record<Locale, Messages> = {
       faqTitle: "Frequently asked questions",
       faqIntroBefore: "Short answers to the most important questions about ",
       faqIntroAfter: ".",
+      related: "Other species",
+      relatedTitle: "Keep exploring",
+      allSpecies: "All species",
     },
     danger: {
       Harmless: "Harmless",

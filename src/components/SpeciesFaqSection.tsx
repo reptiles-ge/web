@@ -18,7 +18,7 @@ export function SpeciesFaqSection({ items, name }: SpeciesFaqSectionProps) {
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-surface py-24 lg:py-32">
+    <section className="bg-background py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>

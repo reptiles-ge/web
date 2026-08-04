@@ -9,9 +9,14 @@ import { useEffect, useState } from "react";
 type SpeciesGalleryProps = {
   images: string[];
   name: string;
+  tone?: "background" | "surface";
 };
 
-export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
+export function SpeciesGallery({
+  images,
+  name,
+  tone = "background",
+}: SpeciesGalleryProps) {
   const { t } = useLocale();
   const photos = images.filter(Boolean);
   const [active, setActive] = useState<number | null>(null);
@@ -49,7 +54,11 @@ export function SpeciesGallery({ images, name }: SpeciesGalleryProps) {
 
   return (
     <>
-      <section className="bg-background py-24 lg:py-32">
+      <section
+        className={`py-24 lg:py-32 ${
+          tone === "surface" ? "bg-surface" : "bg-background"
+        }`}
+      >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
