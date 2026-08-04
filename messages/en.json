@@ -89,19 +89,6 @@
         "cta": "Open regional atlas"
       }
     },
-    "living": {
-      "eyebrow": "Living atlas",
-      "title": "Field photography and fresh knowledge",
-      "subtitle": "Profiles refresh with new text, taxonomy notes, and photography — a citeable atlas that keeps moving.",
-      "aboutCta": "About the atlas",
-      "updatedOn": "Updated {date}",
-      "methodTitle": "Methodology",
-      "methodBody": "Each profile combines taxonomic identity, Georgia-relevant habitat and behavior notes, conservation status, identification traits, and FAQs.",
-      "sourcesTitle": "Sources",
-      "sourcesBody": "Accounts reference IUCN Red List, GBIF, the Reptile Database, and peer-reviewed herpetological literature cited on each species page.",
-      "photosTitle": "Photography",
-      "photosBody": "Images are selected for identification value and field context. Credits appear on species pages when attribution is available."
-    },
     "regions": {
       "eyebrow": "Place matters",
       "title": "Start with three regions of Georgia",

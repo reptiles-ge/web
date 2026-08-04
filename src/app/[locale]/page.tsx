@@ -1,7 +1,6 @@
 import { FinalCTA } from "@/components/FinalCTA";
 import { Hero } from "@/components/Hero";
 import { HomeKnowledge } from "@/components/HomeKnowledge";
-import { HomeLiving } from "@/components/HomeLiving";
 import { HomeProof } from "@/components/HomeProof";
 import { HomeRegions } from "@/components/HomeRegions";
 import { JsonLd } from "@/components/JsonLd";
@@ -145,7 +144,6 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <HomeRegions />
         <HomeKnowledge />
         <SpeciesDetail />
-        <HomeLiving />
         <FinalCTA />
       </main>
     </div>
