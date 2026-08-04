@@ -1,4 +1,5 @@
 import { BetaBanner } from "@/components/BetaBanner";
+import { Footer } from "@/components/Footer";
 import {
   ThemeProvider,
   themeInitScript,
@@ -105,6 +106,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <ThemeProvider>
             <BetaBanner />
             {children}
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
         <Analytics />
