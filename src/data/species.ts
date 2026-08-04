@@ -810,64 +810,28 @@ export const species: Species[] = [
       "IUCN Red List-ზე ნაკლებად საფრთხის ქვეშაა (Least Concern). მიუხედავად ამისა, სამხრეთ-აღმოსავლეთის ზოგ პოპულაციაში შემცირებაა დაფიქსირებული — ჰაბიტატის ფრაგმენტაცია, გზებზე დაღუპვა, ადამიანის მიერ დევნა, ინვაზიური ცეცხლოვანი ჭიანჭველები და ადგილობრივად გადაჭარბებული შეგროვება. ჯორჯიასა და სამხრეთ კაროლინაში კანონითაა დაცული. ეკოსისტემისთვის სასარგებლოა როგორც მღრღნელებისა და შხამიანი გველების მტაცებელი.",
     danger: "Harmless",
     image: "https://cdn.reptiles.ge/lampropeltis-getula.webp",
-    imageCredit: {
-      photographer: "Riley Stanton",
-      url: "https://commons.wikimedia.org/wiki/File:Lampropeltis_getula_Stanton_1.jpg",
-    },
     mobileImage: "https://cdn.reptiles.ge/lampropeltis-getula-mobile.webp",
-    mobileImageCredit: {
-      photographer: "Virginia State Parks",
-      url: "https://commons.wikimedia.org/wiki/File:%22Neptune%22_-_King_Snake_(7851313768).jpg",
-    },
     gallery: [
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula.webp",
-        credit: {
-          photographer: "Riley Stanton",
-          url: "https://commons.wikimedia.org/wiki/File:Lampropeltis_getula_Stanton_1.jpg",
-        },
       },
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula-2.webp",
-        credit: {
-          photographer: "MH Herpetology",
-          url: "https://commons.wikimedia.org/wiki/File:Eastern_kingsnake_(Lampropeltis_getula).jpg",
-        },
       },
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula-mobile.webp",
-        credit: {
-          photographer: "Virginia State Parks",
-          url: "https://commons.wikimedia.org/wiki/File:%22Neptune%22_-_King_Snake_(7851313768).jpg",
-        },
       },
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula-3.webp",
-        credit: {
-          photographer: "Smithsonian Environmental Research Center",
-          url: "https://commons.wikimedia.org/wiki/File:Lampropeltis_getula_SERC_06-13-13_(12749982695).jpg",
-        },
       },
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula-4.webp",
-        credit: {
-          photographer: "NPS Photo",
-          url: "https://commons.wikimedia.org/wiki/File:Non-venomous_snakes_of_Russell_Cave_(1c28993e-a595-41ea-a187-a9b2103c8836).JPG",
-        },
       },
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula-5.webp",
-        credit: {
-          photographer: "Lambique",
-          url: "https://commons.wikimedia.org/wiki/File:Juvenile_Lampropeltis_getula_getula_(Eastern_King_Snake).jpg",
-        },
       },
       {
         src: "https://cdn.reptiles.ge/lampropeltis-getula-6.webp",
-        credit: {
-          photographer: "Riley Stanton",
-          url: "https://commons.wikimedia.org/wiki/File:Lampropeltis_getula_Stanton_2.jpg",
-        },
       },
     ],
     stats: [
