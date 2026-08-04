@@ -187,7 +187,6 @@ export const regions: Region[] = [
       "dolichophis-schmidti",
       "natrix-tessellata",
       "pseudopus-apodus",
-      "hogna-radiata",
       "platyceps-najadum",
       "telescopus-fallax",
     ],

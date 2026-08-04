@@ -118,8 +118,6 @@ export const featuredSpeciesIds = [
 export const catalogSpeciesIds = [
   ...featuredSpeciesIds,
   "pseudopus-apodus",
-  "hogna-radiata",
-  "lampropeltis-getula",
 ] as const;
 
 export { species };

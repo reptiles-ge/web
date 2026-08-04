@@ -61,35 +61,11 @@
     "tagline": "A digital encyclopedia of reptiles and amphibians.",
     "rights": "All rights reserved.",
     "forCurious": "For the curious.",
-    "columns": {
-      "discover": {
-        "title": "Discover",
-        "links": [
-          "Species",
-          "Atlas",
-          "Collections",
-          "Field notes"
-        ]
-      },
-      "science": {
-        "title": "Science",
-        "links": [
-          "Methodology",
-          "Contributors",
-          "Data sources",
-          "Conservation"
-        ]
-      },
-      "company": {
-        "title": "Company",
-        "links": [
-          "About",
-          "Press",
-          "Contact",
-          "Privacy"
-        ]
-      }
-    }
+    "siteTitle": "Site",
+    "species": "Species",
+    "atlas": "Atlas",
+    "contact": "Contact",
+    "quickLinks": "Quick links"
   },
   "profile": {
     "back": "All species",
