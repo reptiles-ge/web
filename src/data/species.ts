@@ -81,13 +81,7 @@ export const species: Species[] = [
       "IUCN Red List-ის მიხედვით მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საფრთხეებს შორისაა სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა. შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში.",
     danger: "Moderate",
     image: "https://cdn.reptiles.ge/vipera-dinnik.webp",
-    imageCredit: {
-      photographer: "Guram Iremashvili",
-    },
     mobileImage: "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
-    mobileImageCredit: {
-      photographer: "Guram Iremashvili",
-    },
     gallery: [
       {
         src: "https://cdn.reptiles.ge/vipera-dinnik.webp",
