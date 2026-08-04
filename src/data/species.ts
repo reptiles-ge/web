@@ -267,15 +267,15 @@ export const species: Species[] = [
     conservation:
       "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოში იშვიათი სახეობაა და შეტანილია წითელ წიგნში; პოპულაციები ფრაგმენტირებულია. საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ადამიანის დევნა და ადგილობრივი ზეწოლა. ეკოსისტემისთვის სასარგებლოა მღრღნელების რეგულირებით.",
     danger: "High",
-    image: "/images/vipera-ammodytes.jpg",
-    mobileImage: "/images/vipera-ammodytes-mobile.jpg",
+    image: "https://cdn.reptiles.ge/vipera-ammodytes.webp",
+    mobileImage: "https://cdn.reptiles.ge/vipera-ammodytes-mobile.webp",
     gallery: [
-      "/images/vipera-ammodytes.jpg",
-      "/images/vipera-ammodytes-2.jpg",
-      "/images/vipera-ammodytes-3.jpg",
-      "/images/vipera-ammodytes-4.jpg",
-      "/images/vipera-ammodytes-5.jpg",
-      "/images/vipera-ammodytes-6.jpg",
+      "https://cdn.reptiles.ge/vipera-ammodytes.webp",
+      "https://cdn.reptiles.ge/vipera-ammodytes-2.webp",
+      "https://cdn.reptiles.ge/vipera-ammodytes-3.webp",
+      "https://cdn.reptiles.ge/vipera-ammodytes-4.webp",
+      "https://cdn.reptiles.ge/vipera-ammodytes-5.webp",
+      "https://cdn.reptiles.ge/vipera-ammodytes-6.webp",
     ],
     stats: [
       { label: "ჰაბიტატი", value: "მცირე კავკასიონი" },
