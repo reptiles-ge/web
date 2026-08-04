@@ -69,8 +69,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes live in Samegrelo?",
         },
         answer: {
-          ka: "დაბლობსა და ტენიან ზონაში უფრო ხშირია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. მაღალმთაში სპექტრი იცვლება.",
-          en: "In humid lowlands, Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard are more typical. The suite changes at higher elevations.",
+          ka: "დაბლობსა და ტენიან ზონაში უფრო ხშირია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზემო სვანეთის მაღალმთაში გვხვდება დინიკის გველგესლა.",
+          en: "In humid lowlands, Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard are more typical. In high Zemo Svaneti, Dinnik’s viper occurs.",
         },
       },
     ],
@@ -118,8 +118,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes live in Adjara?",
         },
         answer: {
-          ka: "აჭარაში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. სია ეფუძნება რეგიონულ ჩანაწერებს და შეიძლება განახლდეს ახალი დაკვირვებებით.",
-          en: "Adjara records include Caucasian viper, grass snake and dice snake, smooth snake, and European glass lizard. Lists are based on regional records and may grow with new observations.",
+          ka: "აჭარაში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა; მცირე კავკასიონის მთიანეთში (შუახევის მიმართულებით) — ცხვირრქოსანი გველგესლა. სია ეფუძნება რეგიონულ ჩანაწერებს და შეიძლება განახლდეს ახალი დაკვირვებებით.",
+          en: "Adjara records include Caucasian viper, grass snake and dice snake, smooth snake, and European glass lizard; in the Lesser Caucasus (toward Shuakhevi) — nose-horned viper. Lists are based on regional records and may grow with new observations.",
         },
       },
       {
@@ -128,8 +128,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Are there venomous snakes in Adjara?",
         },
         answer: {
-          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. სხვა ჩამოთვლილი სახეობები ადამიანისთვის უვნებელია, თუმცა ყველა გველს სიფრთხილით მოეკიდეთ.",
-          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous. Other listed species are harmless to humans, but treat every snake with caution.",
+          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია; მთიან აჭარაში იშვიათად გვხვდება ცხვირრქოსანი გველგესლა (Vipera ammodytes). სხვა ჩამოთვლილი სახეობები ადამიანისთვის უვნებელია, თუმცა ყველა გველს სიფრთხილით მოეკიდეთ.",
+          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous; in highland Adjara the nose-horned viper (Vipera ammodytes) occurs rarely. Other listed species are harmless to humans, but treat every snake with caution.",
         },
       },
       {
@@ -173,8 +173,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes occur in Imereti?",
         },
         answer: {
-          ka: "ჩანაწერებშია კავკასიური გველგესლა, სპილენძა, ჩვეულებრივი და წყლის ანკარა, გველხოკერა და ურარტუს მცურავი.",
-          en: "Records include Caucasian viper, smooth snake, grass snake and dice snake, glass lizard, and Urartian ratsnake.",
+          ka: "ჩანაწერებშია კავკასიური გველგესლა, სპილენძა, ჩვეულებრივი და წყლის ანკარა და გველხოკერა.",
+          en: "Records include Caucasian viper, smooth snake, grass snake and dice snake, and glass lizard.",
         },
       },
     ],
@@ -207,8 +207,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   "samtskhe-javakheti": {
     biome: { ka: "ვულკანური პლატო", en: "Volcanic plateau" },
     overview: {
-      ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ გვხვდება ცხვირრქოსანი და კრიტიკულად საფრთხის ქვეშ მყოფი დარევსკის გველგესლა, აგრეთვე სწრაფი მცურავები.",
-      en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — nose-horned viper, critically endangered Darevsky’s viper, and agile racers occur here.",
+      ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ გვხვდება ცხვირრქოსანი, დარევსკის და ველის გველგესლები; ბორჯომის ხეობაში — კავკასიური გველგესლა.",
+      en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — nose-horned, Darevsky’s, and steppe vipers occur here; Caucasian viper is recorded in the Borjomi gorge.",
     },
     habitats: [
       { ka: "ვულკანური პლატოები", en: "Volcanic plateaus" },
@@ -224,8 +224,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which venomous snakes occur in Samtskhe-Javakheti?",
         },
         answer: {
-          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes), დარევსკის გველგესლა (Vipera darevskii) და ველის გველგესლა (Vipera renardi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
-          en: "Nose-horned viper (Vipera ammodytes), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
+          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes), დარევსკის გველგესლა (Vipera darevskii), ველის გველგესლა (Vipera renardi) და ბორჯომის ხეობაში კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
+          en: "Nose-horned viper (Vipera ammodytes), Darevsky’s viper (Vipera darevskii), steppe viper (Vipera renardi), and in the Borjomi gorge Caucasian viper (Vipera kaznakovi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
         },
       },
     ],
@@ -249,8 +249,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes occur in Shida Kartli?",
         },
         answer: {
-          ka: "ჩანაწერებშია ცხვირრქოსანი გველგესლა, ურარტუს მცურავი, წითელმუცელა მცურავი, წყლის ანკარა, გველხოკერა, წენგოსფერი მცურავი და კატისთვალა.",
-          en: "Records include nose-horned viper, Urartian ratsnake, red-bellied racer, dice snake, glass lizard, Dahl’s whip snake, and cat snake.",
+          ka: "ჩანაწერებშია ცხვირრქოსანი გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
+          en: "Records include nose-horned viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
         },
       },
     ],
@@ -299,8 +299,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Does Levantine viper occur in Kvemo Kartli?",
         },
         answer: {
-          ka: "დიახ — Macrovipera lebetina შხამიანია და აღმოსავლეთის მშრალ/ნახევრად მშრალ ჰაბიტატებს უკავშირდება. დაიცავით მანძილი.",
-          en: "Yes — Macrovipera lebetina is venomous and tied to eastern dry and semi-arid habitats. Keep your distance.",
+          ka: "დიახ — Macrovipera lebetina შხამიანია და აღმოსავლეთის მშრალ/ნახევრად მშრალ ჰაბიტატებს უკავშირდება; თრიალეთის მთიანეთში გვხვდება ცხვირრქოსანი გველგესლა (Vipera ammodytes). დაიცავით მანძილი.",
+          en: "Yes — Macrovipera lebetina is venomous and tied to eastern dry and semi-arid habitats; nose-horned viper (Vipera ammodytes) occurs in the Trialeti highlands. Keep your distance.",
         },
       },
     ],
@@ -324,8 +324,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which venomous snakes live in Kakheti?",
         },
         answer: {
-          ka: "გიურზა (Macrovipera lebetina) შხამიანია. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
-          en: "Levantine viper (Macrovipera lebetina) is venomous. Most other listed species are harmless, but correct identification still matters.",
+          ka: "გიურზა (Macrovipera lebetina) და ველის გველგესლა (Vipera renardi) შხამიანია. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
+          en: "Levantine viper (Macrovipera lebetina) and steppe viper (Vipera renardi) are venomous. Most other listed species are harmless, but correct identification still matters.",
         },
       },
       {
@@ -334,8 +334,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes occur in Kakheti?",
         },
         answer: {
-          ka: "ჩანაწერებშია გიურზა, ურარტუს მცურავი, წითელმუცელა მცურავი, წყლის ანკარა, გველხოკერა, წენგოსფერი მცურავი და კატისთვალა.",
-          en: "Records include Levantine viper, Urartian ratsnake, red-bellied racer, dice snake, glass lizard, Dahl’s whip snake, and cat snake.",
+          ka: "ჩანაწერებშია გიურზა, ველის გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
+          en: "Records include Levantine viper, steppe viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
         },
       },
       {
@@ -353,8 +353,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   tbilisi: {
     biome: { ka: "ურბანული · მტკვარი", en: "Urban · Mtkvari" },
     overview: {
-      ka: "თბილისში რეპტილიები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. აქ შეიძლება შეხვდეთ გიურზას, წითელმუცელა მცურავს, გველხოკერას და სხვა სახეობებს. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია.",
-      en: "In Tbilisi, reptiles occur mainly in suburban valleys, parks, and riverside habitats — not dense city centers. Levantine viper, red-bellied racer, glass lizard, and others may appear. Urban encounters are uncommon but real.",
+      ka: "თბილისში რეპტილიები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. აქ შეიძლება შეხვდეთ გიურზას, ცხვირრქოსან გველგესლას, წითელმუცელა მცურავს, გველხოკერას და სხვა სახეობებს. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია.",
+      en: "In Tbilisi, reptiles occur mainly in suburban valleys, parks, and riverside habitats — not dense city centers. Levantine viper, nose-horned viper, red-bellied racer, glass lizard, and others may appear. Urban encounters are uncommon but real.",
     },
     habitats: [
       { ka: "გარეუბნის ხეობები", en: "Suburban valleys" },
@@ -369,8 +369,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which snakes live in Tbilisi?",
         },
         answer: {
-          ka: "ჩანაწერებშია გიურზა, წითელმუცელა მცურავი, გველხოკერა, სპილენძა, წყლის ანკარა და კატისთვალა — ძირითადად გარეუბნებსა და მდინარის პირას.",
-          en: "Records include Levantine viper, red-bellied racer, glass lizard, smooth snake, dice snake, and cat snake — mainly in suburbs and riverside areas.",
+          ka: "ჩანაწერებშია გიურზა, ცხვირრქოსანი გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა — ძირითადად გარეუბნებსა და მდინარის პირას.",
+          en: "Records include Levantine viper, nose-horned viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard — mainly in suburbs and riverside areas.",
         },
       },
       {
@@ -379,8 +379,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Are snakes in Tbilisi dangerous?",
         },
         answer: {
-          ka: "გიურზა შხამიანია. სხვები უვნებელია. თუ გველი ნახეთ — არ შეეხოთ, გადადგით ნაბიჯი უკან და საჭიროების შემთხვევაში დაუკავშირდით შესაბამის სამსახურებს.",
-          en: "Levantine viper is venomous; others are harmless. If you see a snake — do not touch it, step back, and contact appropriate services if needed.",
+          ka: "გიურზა და ცხვირრქოსანი გველგესლა შხამიანია. სხვები უვნებელია. თუ გველი ნახეთ — არ შეეხოთ, გადადგით ნაბიჯი უკან და საჭიროების შემთხვევაში დაუკავშირდით შესაბამის სამსახურებს.",
+          en: "Levantine viper and nose-horned viper are venomous; others are harmless. If you see a snake — do not touch it, step back, and contact appropriate services if needed.",
         },
       },
       {
