@@ -3,7 +3,6 @@ import {
   ThemeProvider,
   themeInitScript,
 } from "@/components/ThemeProvider";
-import { TopGeCounter } from "@/components/TopGeCounter";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -110,7 +109,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         </NextIntlClientProvider>
         <Analytics />
         <GoogleAnalytics gaId="G-7TTKJPY059" />
-        <TopGeCounter />
       </body>
     </html>
   );
