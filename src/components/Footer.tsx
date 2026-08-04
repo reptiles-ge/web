@@ -3,18 +3,22 @@
 import { Logo } from "@/components/Logo";
 import { TopGeCounter } from "@/components/TopGeCounter";
 import { localizeRegionText, regions } from "@/data/regions";
-import { getCatalogSpecies } from "@/data/species";
+import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { Link, usePathname } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { useMemo } from "react";
 
-const siteLinks = [
+const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
-  { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
   { href: "/regions" as const, labelKey: "regions" as const },
+  { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
+];
+
+const companyLinks = [
   { href: "/about" as const, labelKey: "about" as const },
-  { href: "/#atlas" as const, labelKey: "atlas" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
 ];
 
@@ -22,8 +26,9 @@ export function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale() as AppLocale;
   const pathname = usePathname();
-  const species = getCatalogSpecies().map((item) =>
-    localizeSpecies(item, locale),
+  const venomous = useMemo(
+    () => getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),
+    [locale],
   );
 
   if (pathname === "/contact") {
@@ -31,23 +36,31 @@ export function Footer() {
   }
 
   return (
-    <footer className="border-t border-border bg-background py-20">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.9fr_1.3fr_1.6fr]">
-          <div className="sm:col-span-2 lg:col-span-1">
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.35fr_0.85fr_0.85fr] lg:gap-16">
+          <div>
             <Link href="/" className="inline-flex transition-opacity hover:opacity-90">
-              <Logo size={56} showWordmark wordmarkClassName="text-[20px]" />
+              <Logo size={52} showWordmark wordmarkClassName="text-[19px]" />
             </Link>
-            <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("tagline")}
             </p>
+            <Link
+              href="/species"
+              className="group mt-7 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+            >
+              {t("exploreCta")}
+              <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
           </div>
+
           <div>
-            <p className="text-[11px] tracking-[0.22em] text-muted-foreground">
-              {t("siteTitle")}
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              {t("exploreTitle")}
             </p>
             <ul className="mt-5 space-y-3">
-              {siteLinks.map((link) => (
+              {exploreLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -59,16 +72,76 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
           <div>
-            <p className="text-[11px] tracking-[0.22em] text-muted-foreground">
-              {t("regions")}
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              {t("companyTitle")}
             </p>
             <ul className="mt-5 space-y-3">
+              {companyLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                  >
+                    {t(link.labelKey)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 grid gap-10 border-t border-border pt-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-14">
+          <div>
+            <div className="flex items-end justify-between gap-4">
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                {t("venomousTitle")}
+              </p>
+              <Link
+                href="/venomous-snakes"
+                className="text-[12px] font-medium text-primary transition-opacity hover:opacity-80"
+              >
+                {t("venomousAll")}
+              </Link>
+            </div>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {venomous.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    href={`/species/${item.id}`}
+                    className="group block rounded-2xl border border-border/80 bg-card px-4 py-3.5 transition-colors hover:border-primary/25"
+                  >
+                    <p className="text-[11px] italic text-muted-foreground">
+                      {item.scientificName}
+                    </p>
+                    <p className="mt-1 text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
+                      {item.commonName}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="flex items-end justify-between gap-4">
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                {t("regionsTitle")}
+              </p>
+              <Link
+                href="/regions"
+                className="text-[12px] font-medium text-primary transition-opacity hover:opacity-80"
+              >
+                {t("regionsAll")}
+              </Link>
+            </div>
+            <ul className="mt-5 columns-2 gap-x-8 sm:columns-3">
               {regions.map((region) => (
-                <li key={region.id}>
+                <li key={region.id} className="mb-2.5 break-inside-avoid">
                   <Link
                     href={`/regions/${region.id}`}
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                    className="text-[13px] text-foreground/75 transition-colors hover:text-primary"
                   >
                     {localizeRegionText(region.name, locale)}
                   </Link>
@@ -76,25 +149,9 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          <div>
-            <p className="text-[11px] tracking-[0.22em] text-muted-foreground">
-              {t("quickLinks")}
-            </p>
-            <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {species.map((item) => (
-                <li key={item.id}>
-                  <Link
-                    href={`/species/${item.id}`}
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                  >
-                    {item.commonName}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
-        <div className="mt-20 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {new Date().getFullYear()} Reptiles. {t("rights")}
           </span>

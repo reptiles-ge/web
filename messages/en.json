@@ -96,17 +96,21 @@
     }
   },
   "footer": {
-    "tagline": "A digital atlas of reptiles of Georgia and the Caucasus.",
+    "tagline": "A bilingual digital atlas of Georgia’s reptiles — species profiles, regional maps, and field photography.",
     "rights": "All rights reserved.",
     "forCurious": "For the curious.",
-    "siteTitle": "Site",
-    "species": "Species",
+    "exploreTitle": "Explore",
+    "companyTitle": "Company",
+    "exploreCta": "Open the atlas",
+    "species": "Species atlas",
     "venomous": "Venomous snakes",
-    "atlas": "Atlas",
     "regions": "Regions",
     "about": "About",
     "contact": "Contact",
-    "quickLinks": "Quick links"
+    "venomousTitle": "Venomous species",
+    "venomousAll": "Safety guide",
+    "regionsTitle": "Regions of Georgia",
+    "regionsAll": "All regions"
   },
   "profile": {
     "back": "All species",
