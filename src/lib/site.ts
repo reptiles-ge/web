@@ -1,15 +1,17 @@
 export const siteConfig = {
   name: "Reptiles",
   shortName: "Reptiles",
-  title: "Reptiles — აღმოაჩინე დედამიწის უძველესი არსებები",
+  title: "Reptiles — საქართველოს ქვეწარმავლების ატლასი",
   description:
-    "ქვეწარმავლებისა და ამფიბიების ციფრული ენციკლოპედია. შეისწავლე სახეობები მეცნიერებითა და ველში გადაღებული ფოტოგრაფიით.",
+    "საქართველოსა და კავკასიის ქვეწარმავლების ციფრული ატლასი. სახეობების პროფილები, გავრცელების რუკები და ველში გადაღებული ფოტოგრაფია.",
   email: "nika@shamiladze.com",
   locale: "ka_GE",
   language: "ka",
   keywords: [
     "ქვეწარმავლები",
-    "ამფიბიები",
+    "საქართველო",
+    "კავკასია",
+    "ატლასი",
     "გველგესლა",
     "Vipera dinniki",
     "დინიკის გველგესლა",
@@ -25,9 +27,9 @@ export const siteConfig = {
     "Platyceps najadum",
     "კატისთვალა",
     "Telescopus fallax",
-    "ენციკლოპედია",
     "ბიოლოგია",
     "კონსერვაცია",
+    "Georgia reptiles",
     "Reptiles",
   ],
 } as const;

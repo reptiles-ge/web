@@ -28,8 +28,8 @@
     "dismiss": "Dismiss banner"
   },
   "hero": {
-    "title": "Discover Earth's oldest living creatures",
-    "subtitle": "Explore reptiles through science and photography captured in the wild.",
+    "title": "Atlas of Georgia’s reptiles",
+    "subtitle": "Explore species through science, range maps, and photography captured in the field.",
     "viewSpecies": "Browse species",
     "moreAboutViper": "More about vipers",
     "imageAlt": "A viper on a mossy rock in a misty mountain valley"
@@ -52,13 +52,13 @@
     "imageAlt": "Close-up portrait of a viper's head"
   },
   "cta": {
-    "title": "Discover the world's most fascinating creatures.",
-    "subtitle": "Thousands of species. One calm, beautiful place to learn about them.",
-    "button": "Start exploring",
+    "title": "Meet the reptiles of Georgia.",
+    "subtitle": "A curated atlas — species profiles, maps, and photography in one calm place.",
+    "button": "Open the atlas",
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "footer": {
-    "tagline": "A digital encyclopedia of reptiles and amphibians.",
+    "tagline": "A digital atlas of reptiles of Georgia and the Caucasus.",
     "rights": "All rights reserved.",
     "forCurious": "For the curious.",
     "siteTitle": "Site",
@@ -183,8 +183,8 @@
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "site": {
-    "title": "Reptiles — Discover Earth's oldest living creatures",
-    "description": "A digital encyclopedia of reptiles and amphibians. Explore species through science and photography captured in the wild."
+    "title": "Reptiles — Atlas of Georgia’s reptiles",
+    "description": "A digital atlas of reptiles of Georgia and the Caucasus. Species profiles, range maps, and photography captured in the field."
   },
   "speciesMeta": {
     "notFound": "Species not found",
