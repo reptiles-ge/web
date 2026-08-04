@@ -19,12 +19,14 @@ const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   variable: "--font-noto-georgian",
   subsets: ["georgian", "latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 type Props = {
