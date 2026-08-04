@@ -4,7 +4,7 @@ import { Logo } from "@/components/Logo";
 import { TopGeCounter } from "@/components/TopGeCounter";
 import { localizeRegionText, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
@@ -21,9 +21,14 @@ const siteLinks = [
 export function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale() as AppLocale;
+  const pathname = usePathname();
   const species = getCatalogSpecies().map((item) =>
     localizeSpecies(item, locale),
   );
+
+  if (pathname === "/contact") {
+    return null;
+  }
 
   return (
     <footer className="border-t border-border bg-background py-20">
