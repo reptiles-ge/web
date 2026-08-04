@@ -1906,61 +1906,61 @@ export const species: Species[] = [
     "behavior": "აქტიურია თბილ სეზონზე — საქართველოსა და აზერბაიჯანში დაახლოებით აპრილიდან ოქტომბრამდე. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში ჩრდილსა და ბუჩქნარს ეძებს. იზამთრებს ნაპრალებსა და ქვების ქვეშ. ცოცხლადმშობია (ოვოვივიპარია): ორსულობა დაახლოებით 3 თვეა; ნაშიერები იბადებიან ივლის–აგვისტოში (ზოგჯერ 10–17 ინდივიდამდე).",
     "conservation": "ევროპის რეგიონულ IUCN შეფასებაში მოწყვლადია (Vulnerable) — ბოლო სამ თაობაში ჰაბიტატის 30%-ზე მეტი დაკარგვა და გაგრძელებული ფრაგმენტაცია. მთავარი საფრთხეა სტეპისა და მდელოების გადაქცევა ინტენსიურ მიწათმოქმედებად და გადაძოვებად. საქართველოში იშვიათია; აღმოსავლეთის პოპულაციები 75-წლიანი ხარვეზის შემდეგ ხელახლა დადასტურდა. სასარგებლოა მწერებისა და მღრღნელების რეგულირებით.",
     "danger": "Moderate",
-    "image": "/images/vipera-renardi.jpg",
+    "image": "https://cdn.reptiles.ge/vipera-renardi.jpg",
     "imageCredit": {
       "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
       "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg"
     },
-    "mobileImage": "/images/vipera-renardi-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/vipera-renardi-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
       "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1b.jpg"
     },
     "gallery": [
       {
-        "src": "/images/vipera-renardi.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi.jpg",
         "credit": {
           "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
           "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg"
         }
       },
       {
-        "src": "/images/vipera-renardi-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi-2.jpg",
         "credit": {
           "photographer": "Daor1009",
           "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi_Volgograd.jpg"
         }
       },
       {
-        "src": "/images/vipera-renardi-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi-3.jpg",
         "credit": {
           "photographer": "Vitalii Petrochenko",
           "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi._Khortitsa.jpg"
         }
       },
       {
-        "src": "/images/vipera-renardi-4.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi-4.jpg",
         "credit": {
           "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
           "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_2a.jpg"
         }
       },
       {
-        "src": "/images/vipera-renardi-5.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi-5.jpg",
         "credit": {
           "photographer": "Matvey",
           "url": "https://commons.wikimedia.org/wiki/File:Juvenile_Vipera_renardi_retreating.jpg"
         }
       },
       {
-        "src": "/images/vipera-renardi-6.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi-6.jpg",
         "credit": {
           "photographer": "Vitalii Petrochenko",
           "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi._Gulajpole.jpg"
         }
       },
       {
-        "src": "/images/vipera-renardi-7.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-renardi-7.jpg",
         "credit": {
           "photographer": "Boris Tuniyev",
           "url": "https://commons.wikimedia.org/wiki/File:Pelias_eriwanensis,_female_(Mt._Kysyrdag,_Turkey).png"
