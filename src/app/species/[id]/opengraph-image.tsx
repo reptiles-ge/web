@@ -17,6 +17,7 @@ const ogFiles: Record<string, string> = {
   "coronella-austriaca": "coronella-austriaca.jpg",
   "elaphe-urartica": "elaphe-urartica.jpg",
   "natrix-tessellata": "natrix-tessellata.jpg",
+  "dolichophis-schmidti": "dolichophis-schmidti.jpg",
 };
 
 export default async function Image({
