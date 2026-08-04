@@ -6,7 +6,6 @@ import { HomeRegions } from "@/components/HomeRegions";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
-import { Navbar } from "@/components/Navbar";
 import { SpeciesCarousel } from "@/components/SpeciesCarousel";
 import { SpeciesDetail } from "@/components/SpeciesDetail";
 import { getAtlasStats } from "@/data/speciesAtlas";
@@ -136,7 +135,6 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   return (
     <div className="min-h-screen bg-background">
       <JsonLd data={[websiteJsonLd, organizationJsonLdData, datasetJsonLd]} />
-      <Navbar />
       <main>
         <Hero />
         <HomeProof />

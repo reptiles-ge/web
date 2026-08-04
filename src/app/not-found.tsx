@@ -1,3 +1,5 @@
+import { BetaBanner } from "@/components/BetaBanner";
+import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
@@ -20,6 +22,8 @@ export default async function RootNotFound() {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <BetaBanner />
+      <Navbar />
       <NotFoundContent />
     </NextIntlClientProvider>
   );

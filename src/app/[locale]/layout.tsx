@@ -1,6 +1,7 @@
 import { BetaBanner } from "@/components/BetaBanner";
 import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -31,6 +32,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider messages={messages}>
       <DocumentLang locale={locale} />
       <BetaBanner />
+      <Navbar />
       {children}
       <Footer />
       <Analytics />

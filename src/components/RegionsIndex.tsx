@@ -1,11 +1,7 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { Logo } from "@/components/Logo";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
-import { SpeciesSearch } from "@/components/SpeciesSearch";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getCatalogRegionStats,
@@ -27,34 +23,6 @@ export function RegionsIndex() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header
-        className="fixed inset-x-0 z-50"
-        style={{ top: "var(--beta-banner-height, 0px)" }}
-      >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-5 lg:px-10">
-          <div
-            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full"
-            style={{
-              background: "color-mix(in oklab, var(--ink) 55%, transparent)",
-              backdropFilter: "blur(20px) saturate(140%)",
-            }}
-          />
-          <Link href="/" className="shrink-0 transition-opacity hover:opacity-90">
-            <Logo
-              size={44}
-              priority
-              showWordmark
-              wordmarkClassName="hidden text-[17px] text-white sm:inline"
-            />
-          </Link>
-          <div className="flex items-center justify-end gap-2.5 sm:gap-3">
-            <SpeciesSearch variant="dark" />
-            <ThemeToggle variant="dark" />
-            <LanguageSwitcher variant="dark" />
-          </div>
-        </div>
-      </header>
-
       <main>
         <section
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"

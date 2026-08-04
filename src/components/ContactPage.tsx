@@ -1,8 +1,5 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { Logo } from "@/components/Logo";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
@@ -17,36 +14,6 @@ export function ContactPage() {
 
   return (
     <div className="relative min-h-svh bg-background text-foreground">
-      <header
-        className="absolute inset-x-0 z-30"
-        style={{ top: "var(--beta-banner-height, 0px)" }}
-      >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 py-5 lg:px-10">
-          <Link href="/" className="shrink-0 transition-opacity hover:opacity-90">
-            <Logo
-              size={44}
-              priority
-              showWordmark
-              wordmarkClassName="hidden text-[17px] text-white sm:inline"
-            />
-          </Link>
-          <div className="flex items-center justify-end gap-2.5 sm:gap-3">
-            <div className="lg:hidden">
-              <ThemeToggle variant="dark" />
-            </div>
-            <div className="hidden lg:block">
-              <ThemeToggle variant="light" />
-            </div>
-            <div className="lg:hidden">
-              <LanguageSwitcher variant="dark" />
-            </div>
-            <div className="hidden lg:block">
-              <LanguageSwitcher variant="light" />
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div className="grid min-h-svh lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative min-h-[44svh] overflow-hidden bg-ink lg:min-h-svh">
           <motion.div
@@ -77,8 +44,12 @@ export function ContactPage() {
             }}
           />
 
-          <div className="relative z-10 mx-auto w-full max-w-lg px-6 py-14 sm:px-10 lg:px-14 lg:py-24 xl:px-20">
-            <motion.div
+          <div
+            className="relative z-10 mx-auto w-full max-w-lg px-6 py-14 sm:px-10 lg:px-14 lg:py-24 xl:px-20"
+            style={{
+              paddingTop: "calc(var(--beta-banner-height, 0px) + 5.5rem)",
+            }}
+          >            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05, ease }}

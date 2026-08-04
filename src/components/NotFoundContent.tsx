@@ -1,4 +1,3 @@
-import { Logo } from "@/components/Logo";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -32,30 +31,12 @@ export async function NotFoundContent() {
         <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_20%,transparent_10%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
-      <header
-        className="relative z-10"
-        style={{ paddingTop: "calc(var(--beta-banner-height, 0px) + 1.25rem)" }}
-      >
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 lg:px-10">
-          <Link href="/" className="transition-opacity hover:opacity-90">
-            <Logo
-              size={44}
-              priority
-              showWordmark
-              wordmarkClassName="hidden text-[17px] text-white sm:inline"
-            />
-          </Link>
-          <Link
-            href="/species"
-            className="text-[13px] font-medium text-white/70 transition-colors hover:text-white"
-          >
-            {t("species")}
-          </Link>
-        </div>
-      </header>
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-center px-6 py-16 lg:px-10 lg:py-24">
-        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] font-semibold leading-none tracking-tight text-white/[0.08]">
+      <div
+        className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-center px-6 py-16 lg:px-10 lg:py-24"
+        style={{
+          paddingTop: "calc(var(--beta-banner-height, 0px) + 6rem)",
+        }}
+      >        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] font-semibold leading-none tracking-tight text-white/[0.08]">
           404
         </p>
 

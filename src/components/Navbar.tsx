@@ -4,13 +4,25 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
+function hasDarkHeroTop(pathname: string) {
+  if (pathname === "/contact") return false;
+  if (pathname === "/") return true;
+  if (pathname === "/about") return true;
+  if (pathname === "/venomous-snakes") return true;
+  if (pathname === "/species" || pathname.startsWith("/species/")) return true;
+  if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
+  return false;
+}
+
 export function Navbar() {
   const t = useTranslations("nav");
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const darkHero = hasDarkHeroTop(pathname);
+  const [scrolled, setScrolled] = useState(!darkHero);
 
   const links = [
     { href: "/species", label: t("species") },
@@ -19,6 +31,11 @@ export function Navbar() {
   ];
 
   useEffect(() => {
+    if (!darkHero) {
+      setScrolled(true);
+      return;
+    }
+
     function onScroll() {
       setScrolled(window.scrollY > 40);
     }
@@ -26,7 +43,7 @@ export function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [darkHero, pathname]);
 
   const chromeVariant = scrolled ? "light" : "dark";
 
@@ -54,6 +71,7 @@ export function Navbar() {
         <Link href="/" className="relative z-10 shrink-0 transition-opacity hover:opacity-90">
           <Logo
             size={44}
+            priority
             showWordmark
             wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
               scrolled ? "text-foreground" : "text-white"
@@ -67,13 +85,6 @@ export function Navbar() {
                 ? "text-foreground/70 hover:text-foreground"
                 : "text-white/70 hover:text-white"
             }`;
-            if (link.href.startsWith("#")) {
-              return (
-                <a key={link.href} href={link.href} className={className}>
-                  {link.label}
-                </a>
-              );
-            }
             return (
               <Link key={link.href} href={link.href} className={className}>
                 {link.label}
