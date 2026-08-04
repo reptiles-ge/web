@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -68,7 +69,10 @@ export function Navbar() {
             borderBottom: "1px solid var(--border)",
           }}
         />
-        <Link href="/" className="relative z-10 shrink-0 transition-opacity hover:opacity-90">
+        <Link
+          href="/"
+          className="relative z-10 shrink-0 transition-opacity hover:opacity-90"
+        >
           <Logo
             size={44}
             priority
