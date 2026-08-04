@@ -99,7 +99,13 @@ export function SpeciesProfile({
       </header>
 
       <main>
-        <section className="relative h-[70svh] min-h-[420px] w-full overflow-hidden bg-ink lg:h-[75svh]">
+        <section
+          className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
+          style={{
+            paddingTop:
+              "calc(var(--beta-banner-height, 0px) + 7rem)",
+          }}
+        >
           {species.mobileImage ? (
             <>
               <Image
@@ -143,25 +149,25 @@ export function SpeciesProfile({
           >
             <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
           </div>
-          <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <Link
                 href="/#species"
-                className="mb-6 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white"
+                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
               >
                 <ArrowLeft className="size-3.5" aria-hidden="true" />
                 {t("back")}
               </Link>
-              <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.5rem)] font-semibold leading-[0.98] text-white">
+              <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.5rem)] font-semibold leading-[1.08] text-white">
                 {species.commonName}
               </h1>
               <p className="mt-3 font-display text-[15px] italic tracking-wide text-white/55 sm:text-[17px]">
                 {species.scientificName}
               </p>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
                 {species.description}
               </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
                   <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
                   {species.location}

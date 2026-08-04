@@ -56,7 +56,13 @@ export function RegionsIndex() {
       </header>
 
       <main>
-        <section className="relative h-[58svh] min-h-[380px] w-full overflow-hidden bg-ink lg:h-[62svh]">
+        <section
+          className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
+          style={{
+            paddingTop:
+              "calc(var(--beta-banner-height, 0px) + 7rem)",
+          }}
+        >
           <Image
             src={images.cta}
             alt={t("heroImageAlt")}
@@ -68,11 +74,11 @@ export function RegionsIndex() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
-          <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <Link
                 href="/#atlas"
-                className="mb-6 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white"
+                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
               >
                 <ArrowLeft className="size-3.5" />
                 {t("back")}
@@ -80,13 +86,13 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-4 max-w-3xl font-display text-balance-tight text-[clamp(2.4rem,6vw,4.5rem)] font-semibold leading-[0.98] text-white">
+              <h1 className="mt-3 max-w-3xl font-display text-balance-tight text-[clamp(1.95rem,5.5vw,4.5rem)] font-semibold leading-[1.08] text-white sm:mt-4">
                 {t("title")}
               </h1>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:text-[16px]">
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
                 {t("subtitle")}
               </p>
-              <div className="mt-8 flex flex-wrap gap-2.5">
+              <div className="mt-6 flex flex-wrap gap-2.5 sm:mt-8">
                 <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
                   {t("statRegions", { count: stats.regionCount })}
                 </span>

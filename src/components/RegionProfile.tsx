@@ -103,7 +103,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
       </header>
 
       <main>
-        <section className="relative h-[70svh] min-h-[440px] w-full overflow-hidden bg-ink lg:h-[75svh]">
+        <section
+          className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
+          style={{
+            paddingTop:
+              "calc(var(--beta-banner-height, 0px) + 7rem)",
+          }}
+        >
           <Image
             src={heroSrc}
             alt={heroAlt}
@@ -115,11 +121,11 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
-          <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <nav
                 aria-label="Breadcrumb"
-                className="mb-6 flex flex-wrap items-center gap-2 text-[13px] text-white/45"
+                className="mb-4 flex flex-wrap items-center gap-2 text-[13px] text-white/45 sm:mb-6"
               >
                 <Link
                   href="/regions"
@@ -134,13 +140,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
                 {t("regionEyebrow")}
               </p>
-              <h1 className="mt-4 max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.2rem)] font-semibold leading-[0.98] text-white">
+              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.2rem)] font-semibold leading-[1.08] text-white sm:mt-4">
                 {t("regionTitle", { name, nameIn })}
               </h1>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
+              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
                 {overview}
               </p>
-              <div className="mt-7 flex flex-wrap items-center gap-2.5">
+              <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7">
                 <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
                   {biome}
                 </span>
