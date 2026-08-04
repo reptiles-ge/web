@@ -29,6 +29,7 @@ export const regions: Region[] = [
       "vipera-kaznakovi",
       "vipera-dinniki",
       "natrix-tessellata",
+      "natrix-natrix",
       "coronella-austriaca",
       "pseudopus-apodus",
     ],
@@ -48,6 +49,7 @@ export const regions: Region[] = [
     speciesIds: [
       "vipera-kaznakovi",
       "natrix-tessellata",
+      "natrix-natrix",
       "pseudopus-apodus",
       "coronella-austriaca",
     ],
@@ -64,6 +66,7 @@ export const regions: Region[] = [
     speciesIds: [
       "vipera-kaznakovi",
       "natrix-tessellata",
+      "natrix-natrix",
       "coronella-austriaca",
       "pseudopus-apodus",
     ],
@@ -80,6 +83,7 @@ export const regions: Region[] = [
     speciesIds: [
       "vipera-kaznakovi",
       "natrix-tessellata",
+      "natrix-natrix",
       "coronella-austriaca",
       "pseudopus-apodus",
     ],
@@ -97,6 +101,7 @@ export const regions: Region[] = [
       "vipera-kaznakovi",
       "coronella-austriaca",
       "natrix-tessellata",
+      "natrix-natrix",
       "pseudopus-apodus",
       "elaphe-urartica",
     ],
@@ -116,7 +121,12 @@ export const regions: Region[] = [
       ka: "მაღალმთიანი ტყეები, სუბალპური მდელოები და კლდოვანი ხეობები — იდეალური გარემო მთის სახეობებისთვის.",
       en: "High-mountain forests, subalpine meadows, and rocky gorges — ideal for montane species.",
     },
-    speciesIds: ["vipera-dinniki", "coronella-austriaca", "natrix-tessellata"],
+    speciesIds: [
+      "vipera-dinniki",
+      "coronella-austriaca",
+      "natrix-tessellata",
+      "natrix-natrix",
+    ],
     path: georgiaRegionPaths.racha,
   },
   {
@@ -131,6 +141,7 @@ export const regions: Region[] = [
       "vipera-ammodytes",
       "coronella-austriaca",
       "natrix-tessellata",
+      "natrix-natrix",
       "pseudopus-apodus",
       "platyceps-najadum",
       "telescopus-fallax",
@@ -168,6 +179,7 @@ export const regions: Region[] = [
       "vipera-dinniki",
       "coronella-austriaca",
       "natrix-tessellata",
+      "natrix-natrix",
       "elaphe-urartica",
     ],
     path: georgiaRegionPaths["mtskheta-mtianeti"],
@@ -249,4 +261,33 @@ export function localizeRegionText(
   locale: string,
 ): string {
   return locale === "en" ? text.en : text.ka;
+}
+
+export function getRegionVenomousSpecies(region: Region): Species[] {
+  return getRegionSpecies(region).filter(
+    (item) => item.danger === "High" || item.danger === "Moderate",
+  );
+}
+
+export function getCatalogRegionStats() {
+  const speciesIds = new Set<string>();
+  let venomous = 0;
+  for (const region of regions) {
+    for (const id of region.speciesIds) {
+      if (speciesIds.has(id)) continue;
+      speciesIds.add(id);
+      const species = getSpeciesById(id);
+      if (
+        species &&
+        (species.danger === "High" || species.danger === "Moderate")
+      ) {
+        venomous += 1;
+      }
+    }
+  }
+  return {
+    regionCount: regions.length,
+    speciesCount: speciesIds.size,
+    venomousCount: venomous,
+  };
 }

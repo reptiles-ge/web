@@ -2,14 +2,11 @@
 
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
-import { regions, localizeRegionText } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 export function MapExplorer() {
   const t = useTranslations("map");
-  const locale = useLocale() as AppLocale;
 
   return (
     <section
@@ -33,33 +30,12 @@ export function MapExplorer() {
         </Reveal>
 
         <div className="mt-14 lg:mt-20">
-          <GeorgiaMap />
+          <GeorgiaMap selectionMode="navigate" />
         </div>
 
         <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground/80">
           {t("hint")}
         </p>
-
-        <nav
-          aria-label={t("allRegions")}
-          className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-1 gap-y-2"
-        >
-          {regions.map((region, index) => (
-            <span key={region.id} className="inline-flex items-center">
-              {index > 0 ? (
-                <span className="mr-1 text-muted-foreground/40" aria-hidden>
-                  ·
-                </span>
-              ) : null}
-              <Link
-                href={`/regions/${region.id}`}
-                className="text-[13px] tracking-wide text-muted-foreground transition-colors hover:text-primary"
-              >
-                {localizeRegionText(region.name, locale)}
-              </Link>
-            </span>
-          ))}
-        </nav>
 
         <div className="mt-6 text-center">
           <Link

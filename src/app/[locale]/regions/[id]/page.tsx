@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { RegionProfile } from "@/components/RegionProfile";
+import { getRegionContent } from "@/data/regionContent";
 import {
   getRegionById,
   getRegionSpecies,
@@ -53,6 +54,7 @@ export async function generateMetadata({
 
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
+  const content = getRegionContent(region.id);
   const title = t("regionMetaTitle", { name, nameIn });
   const description = t("regionMetaDescription", {
     name,
@@ -60,22 +62,24 @@ export async function generateMetadata({
     count: region.speciesIds.length,
   });
   const path = `/regions/${region.id}`;
-  const url = absoluteUrl(localePath(locale, path));
 
   return {
     title,
     description,
     keywords: [
       name,
+      nameIn,
       locale === "en" ? "Georgia reptiles" : "საქართველოს ქვეწარმავლები",
       locale === "en" ? "snakes" : "გველები",
+      locale === "en" ? "venomous snakes" : "შხამიანი გველები",
+      localizeRegionText(content.biome, locale),
       siteConfig.name,
     ],
     alternates: localeAlternates(locale, path),
     openGraph: {
       type: "article",
       locale: locale === "en" ? "en_US" : siteConfig.locale,
-      url,
+      url: absoluteUrl(localePath(locale, path)),
       siteName: siteConfig.name,
       title,
       description,
@@ -107,9 +111,10 @@ export default async function RegionPage({ params }: PageProps) {
   }
 
   const t = await getTranslations({ locale, namespace: "regions" });
+  const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const description = localizeRegionText(region.description, locale);
+  const overview = localizeRegionText(content.overview, locale);
   const pageUrl = absoluteUrl(localePath(locale, `/regions/${region.id}`));
   const species = getRegionSpecies(region).map((item) =>
     localizeSpecies(item, locale),
@@ -119,11 +124,7 @@ export default async function RegionPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: t("regionMetaTitle", { name, nameIn }),
-    description: t("regionMetaDescription", {
-      name,
-      nameIn,
-      count: species.length,
-    }),
+    description: overview,
     url: pageUrl,
     isPartOf: {
       "@type": "WebSite",
@@ -133,7 +134,7 @@ export default async function RegionPage({ params }: PageProps) {
     about: {
       "@type": "Place",
       name,
-      description,
+      description: overview,
       containedInPlace: {
         "@type": "Country",
         name: locale === "en" ? "Georgia" : "საქართველო",
@@ -177,9 +178,31 @@ export default async function RegionPage({ params }: PageProps) {
     ],
   };
 
+  const faqJsonLd =
+    content.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: content.faq.map((entry) => ({
+            "@type": "Question",
+            name: localizeRegionText(entry.question, locale),
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: localizeRegionText(entry.answer, locale),
+            },
+          })),
+        }
+      : null;
+
   return (
     <>
-      <JsonLd data={[jsonLd, breadcrumbJsonLd]} />
+      <JsonLd
+        data={
+          faqJsonLd
+            ? [jsonLd, breadcrumbJsonLd, faqJsonLd]
+            : [jsonLd, breadcrumbJsonLd]
+        }
+      />
       <RegionProfile region={region} />
     </>
   );

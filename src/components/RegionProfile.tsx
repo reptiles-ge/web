@@ -3,21 +3,30 @@
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { SpeciesCard as MapSpeciesCard } from "@/components/map/SpeciesCard";
 import { Reveal } from "@/components/Reveal";
+import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import {
+  getRegionContent,
+} from "@/data/regionContent";
+import { getRegionHeroImage } from "@/data/regionImages";
+import {
+  getRegionById,
   getRegionSpecies,
+  getRegionVenomousSpecies,
   localizeRegionText,
   type Region,
 } from "@/data/regions";
+import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { speciesImageAlt } from "@/lib/speciesMeta";
+import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 type RegionProfileProps = {
   region: Region;
@@ -26,14 +35,42 @@ type RegionProfileProps = {
 export function RegionProfile({ region }: RegionProfileProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("regions");
+  const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const description = localizeRegionText(region.description, locale);
+  const overview = localizeRegionText(content.overview, locale);
+  const biome = localizeRegionText(content.biome, locale);
+
   const species = useMemo(
     () =>
       getRegionSpecies(region).map((item) => localizeSpecies(item, locale)),
     [region, locale],
   );
+  const venomous = useMemo(
+    () =>
+      getRegionVenomousSpecies(region).map((item) =>
+        localizeSpecies(item, locale),
+      ),
+    [region, locale],
+  );
+  const related = useMemo(
+    () =>
+      content.relatedIds
+        .map((id) => getRegionById(id))
+        .filter((item): item is Region => Boolean(item)),
+    [content.relatedIds],
+  );
+  const faq = useMemo(
+    () =>
+      content.faq.map((item) => ({
+        question: localizeRegionText(item.question, locale),
+        answer: localizeRegionText(item.answer, locale),
+      })),
+    [content.faq, locale],
+  );
+
+  const heroSrc = getRegionHeroImage(region.id);
+  const heroAlt = t("regionHeroAlt", { name });
 
   return (
     <div className="min-h-screen bg-background">
@@ -45,10 +82,8 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <div
             className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full"
             style={{
-              background:
-                "color-mix(in oklab, var(--background) 78%, transparent)",
+              background: "color-mix(in oklab, var(--ink) 55%, transparent)",
               backdropFilter: "blur(20px) saturate(140%)",
-              borderBottom: "1px solid var(--border)",
             }}
           />
           <Link href="/" className="shrink-0 transition-opacity hover:opacity-90">
@@ -56,94 +91,352 @@ export function RegionProfile({ region }: RegionProfileProps) {
               size={44}
               priority
               showWordmark
-              wordmarkClassName="hidden text-[17px] text-foreground sm:inline"
+              wordmarkClassName="hidden text-[17px] text-white sm:inline"
             />
           </Link>
           <div className="flex items-center justify-end gap-2.5 sm:gap-3">
-            <SpeciesSearch variant="light" />
-            <ThemeToggle variant="light" />
-            <LanguageSwitcher variant="light" />
+            <SpeciesSearch variant="dark" />
+            <ThemeToggle variant="dark" />
+            <LanguageSwitcher variant="dark" />
           </div>
         </div>
       </header>
 
-      <main className="relative overflow-hidden pt-[calc(7.5rem+var(--beta-banner-height,0px))]">
-        <div
-          className="pointer-events-none absolute inset-0 map-explorer-texture opacity-50"
-          aria-hidden="true"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_45%_at_50%_0%,color-mix(in_oklab,var(--primary)_11%,transparent),transparent_65%)]" />
+      <main>
+        <section className="relative h-[70svh] min-h-[440px] w-full overflow-hidden bg-ink lg:h-[75svh]">
+          <Image
+            src={heroSrc}
+            alt={heroAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/92" />
+          <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
-        <div className="relative mx-auto max-w-[1400px] px-6 pb-20 lg:px-10 lg:pb-28">
-          <Reveal>
-            <Link
-              href="/regions"
-              className="inline-flex items-center gap-2 text-[13px] text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <ArrowLeft className="size-3.5" />
-              {t("allRegions")}
-            </Link>
-            <p className="mt-10 text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
-              {t("regionEyebrow")}
-            </p>
-            <h1 className="mt-5 max-w-3xl font-display text-balance-tight text-[clamp(2.2rem,5vw,3.75rem)] font-semibold leading-[1.05] text-foreground">
-              {t("regionTitle", { name, nameIn })}
-            </h1>
-            <p className="mt-5 max-w-2xl text-balance-tight text-[15px] leading-relaxed text-muted-foreground">
-              {description}
-            </p>
-          </Reveal>
-
-          <div className="mt-14 lg:mt-16">
-            <GeorgiaMap
-              highlightedIds={[region.id]}
-              interactive={false}
-            />
-          </div>
-        </div>
-
-        <section className="relative border-t border-border bg-surface py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("speciesEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05] text-foreground">
-                {t("speciesTitle", { name, nameIn })}
-              </h2>
-              <p className="mt-4 text-[14px] text-muted-foreground">
-                {t("speciesCount", { count: species.length })}
-              </p>
-            </Reveal>
-
-            {species.length > 0 ? (
-              <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {species.map((item, index) => (
-                  <li key={item.id}>
-                    <Reveal delay={index * 50}>
-                      <MapSpeciesCard species={item} />
-                    </Reveal>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-10 max-w-md text-[14px] leading-relaxed text-muted-foreground">
-                {t("empty")}
-              </p>
-            )}
-
-            <Reveal className="mt-14">
-              <Link
-                href="/regions"
-                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+              <nav
+                aria-label="Breadcrumb"
+                className="mb-6 flex flex-wrap items-center gap-2 text-[13px] text-white/45"
               >
-                {t("browseRegions")}
-                <ArrowUpRight className="size-3.5" />
-              </Link>
+                <Link
+                  href="/regions"
+                  className="inline-flex items-center gap-2 font-medium transition-colors hover:text-white"
+                >
+                  <ArrowLeft className="size-3.5" />
+                  {t("allRegions")}
+                </Link>
+                <span aria-hidden>/</span>
+                <span className="text-white/70">{name}</span>
+              </nav>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+                {t("regionEyebrow")}
+              </p>
+              <h1 className="mt-4 max-w-4xl font-display text-balance-tight text-[clamp(2.2rem,5.5vw,4.2rem)] font-semibold leading-[0.98] text-white">
+                {t("regionTitle", { name, nameIn })}
+              </h1>
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
+                {overview}
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-2.5">
+                <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
+                  {biome}
+                </span>
+                <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
+                  {t("speciesCount", { count: species.length })}
+                </span>
+                {venomous.length > 0 ? (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-destructive/30 bg-destructive/15 px-3.5 py-2 text-[12px] text-[#f0a399] backdrop-blur-md">
+                    <Shield className="size-3.5" />
+                    {t("venomousCount", { count: venomous.length })}
+                  </span>
+                ) : null}
+              </div>
             </Reveal>
           </div>
         </section>
+
+        <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
+          <div
+            className="pointer-events-none absolute inset-0 map-explorer-texture"
+            aria-hidden="true"
+          />
+          <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                {t("rangeEyebrow")}
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                {t("rangeTitle", { name })}
+              </h2>
+            </Reveal>
+            <div className="mt-12 lg:mt-14">
+              <GeorgiaMap
+                highlightedIds={[region.id]}
+                interactive={false}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {t("habitatsEyebrow")}
+                </p>
+                <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+                  {t("habitatsTitle")}
+                </h2>
+                <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                  {localizeRegionText(region.description, locale)}
+                </p>
+              </Reveal>
+              <ul className="space-y-0 divide-y divide-border border-y border-border">
+                {content.habitats.map((habitat, index) => (
+                  <Reveal key={habitat.ka} delay={index * 50}>
+                    <li className="flex items-baseline justify-between gap-6 py-5">
+                      <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
+                        {localizeRegionText(habitat, locale)}
+                      </span>
+                      <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </li>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-surface py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <div className="flex items-end justify-between gap-6">
+                <div>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                    {t("speciesEyebrow")}
+                  </p>
+                  <h2 className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                    {t("speciesTitle", { name, nameIn })}
+                  </h2>
+                </div>
+                <p className="hidden text-[13px] text-muted-foreground sm:block">
+                  {t("speciesCount", { count: species.length })}
+                </p>
+              </div>
+            </Reveal>
+
+            {species.length > 0 ? (
+              <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {species.map((item, index) => (
+                  <Reveal key={item.id} delay={index * 60}>
+                    <PhotoSpeciesCard species={item} />
+                  </Reveal>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-10 text-[14px] text-muted-foreground">{t("empty")}</p>
+            )}
+          </div>
+        </section>
+
+        {venomous.length > 0 ? (
+          <section className="bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {t("venomousEyebrow")}
+                </p>
+                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                  {t("venomousTitle", { nameIn, name })}
+                </h2>
+                <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+                  {t("venomousBody")}
+                </p>
+              </Reveal>
+              <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {venomous.map((item, index) => (
+                  <Reveal key={item.id} delay={index * 60}>
+                    <PhotoSpeciesCard species={item} showDanger />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {faq.length > 0 ? (
+          <RegionFaqSection items={faq} name={name} nameIn={nameIn} />
+        ) : null}
+
+        {related.length > 0 ? (
+          <section className="border-t border-border bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {t("relatedEyebrow")}
+                </p>
+                <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.05]">
+                  {t("relatedTitle")}
+                </h2>
+              </Reveal>
+              <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {related.map((item, index) => {
+                  const relatedContent = getRegionContent(item.id);
+                  return (
+                    <li key={item.id}>
+                      <Reveal delay={index * 50}>
+                        <Link
+                          href={`/regions/${item.id}`}
+                          className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
+                        >
+                          <div className="flex items-start justify-between gap-3">
+                            <h3 className="font-display text-[22px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                              {localizeRegionText(item.name, locale)}
+                            </h3>
+                            <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                          </div>
+                          <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                            {localizeRegionText(relatedContent.biome, locale)}
+                          </p>
+                          <p className="mt-3 text-[13px] text-muted-foreground">
+                            {t("speciesCount", {
+                              count: item.speciesIds.length,
+                            })}
+                          </p>
+                        </Link>
+                      </Reveal>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+        ) : null}
       </main>
     </div>
   );
 }
+
+function PhotoSpeciesCard({
+  species,
+  showDanger = false,
+}: {
+  species: Species;
+  showDanger?: boolean;
+}) {
+  return (
+    <Link
+      href={`/species/${species.id}`}
+      className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
+    >
+      <Image
+        src={species.mobileImage ?? species.image}
+        alt={speciesImageAlt(
+          species.commonName,
+          species.scientificName,
+          species.location,
+        )}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-6">
+        <p className="text-[12px] italic text-white/50">
+          {species.scientificName}
+        </p>
+        <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
+          {species.commonName}
+        </h3>
+        {showDanger ? (
+          <div className="mt-3">
+            <SpeciesDanger level={species.danger} variant="hero" />
+          </div>
+        ) : (
+          <p className="mt-2 text-[12px] text-white/50">{species.location}</p>
+        )}
+      </div>
+    </Link>
+  );
+}
+
+function RegionFaqSection({
+  items,
+  name,
+  nameIn,
+}: {
+  items: { question: string; answer: string }[];
+  name: string;
+  nameIn: string;
+}) {
+  const t = useTranslations("regions");
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <section className="bg-surface py-24 lg:py-32">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+          <Reveal>
+            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              {t("faqEyebrow")}
+            </p>
+            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+              {t("faqTitle")}
+            </h2>
+            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
+              {t("faqIntro", { name, nameIn })}
+            </p>
+          </Reveal>
+          <div>
+            {items.map((item, index) => {
+              const isOpen = open === index;
+              return (
+                <Reveal key={item.question} delay={index * 60}>
+                  <div className="border-t border-border last:border-b">
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      onClick={() => setOpen(isOpen ? null : index)}
+                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                    >
+                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                        {item.question}
+                      </span>
+                      <span
+                        className={`mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300 ${
+                          isOpen
+                            ? "rotate-45 bg-ink text-ink-foreground"
+                            : "text-foreground"
+                        }`}
+                      >
+                        <Plus className="size-4" strokeWidth={1.75} />
+                      </span>
+                    </button>
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                          {item.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+

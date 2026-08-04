@@ -501,6 +501,168 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "natrix-natrix",
+    "commonName": "ჩვეულებრივი ანკარა",
+    "scientificName": "Natrix natrix",
+    "genus": "Natrix",
+    "family": "Colubridae",
+    "location": "საქართველო — ნოტიო დასავლეთი",
+    "description": "უშხამო, ნახევრადწყლის გველი ყვითელი „საყელოთი“ — ჭაობების, ტბებისა და ტენიანი ტყეების მკვიდრი; უვნებელია.",
+    "overview": "ჩვეულებრივი ანკარა (Natrix natrix) ანკარასებრთა ოჯახის უშხამო, ნახევრადწყლის გველია. აღმოსავლური ანკარას სახეობა (Eastern grass snake) გავრცელებულია ჩრდილოეთ და აღმოსავლეთ ევროპიდან დასავლეთ აზიამდე — მათ შორის საქართველოში, სომხეთში, აზერბაიჯანსა და თურქეთში. საქართველოში განსაკუთრებით ხშირია ნოტიო დასავლეთში (კოლხეთის დაბლობი, აჭარა, გურია, სამეგრელო, აფხაზეთი, იმერეთი), სადაც ხშირად აღემატება წყლის ანკარას (Natrix tessellata); მშრალ აღმოსავლეთში უფრო იშვიათია. ვერტიკალურად აღწევს დაახლოებით 2,350 მ-მდე (მესხეთის ქედი). დამახასიათებელია ყვითელი ან თეთრი „საყელო“ თავის უკან — აქედან მოდის ინგლისური სახელი ringed snake. ადრე აღწერილი „დიდთავა ანკარა“ (Natrix megalocephala) დღეს N. natrix-ის სინონიმად ითვლება. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
+    "habitat": "უპირატესობას ანიჭებს ნოტიო ჰაბიტატებს: ჭაობები, ჭალები, ტბები, ნაკადულები, ტენიანი ტყეები და მდინარის პირას არსებული მდელოები. წყლის ანკარასთან შედარებით უფრო ჩრდილოვან, გრილ და ტენიან ადგილებს ირჩევს; N. tessellata უფრო ღია, კლდოვან და ნახევრადმშრალ სანაპიროებს ანიჭებს უპირატესობას. საქართველოში კოლხურ ტყეებში შეიძლება ხეებზეც ავიდეს მზეზე თბობისა და ხის ბაყაყებზე სანადიროდ. გვხვდება აგრეთვე ბაღებში, პარკებსა და სასოფლო-სამეურნეო ლანდშაფტში, თუ ამფიბიების საკმარისი მარაგი აქვს.",
+    "diet": "ძირითადად ამფიბიებით იკვებება — ბაყაყებით, გომბეშოებითა და ლიფსიტებით; თევზსაც იჭერს, მაგრამ ნაკლებად, ვიდრე წყლის ანკარა. მსხვერპლს ცოცხლად ყლაპავს. ნადირობს წყალში და ნაპირთან; ზოგჯერ ტყეში შორსაც მიდის გომბეშოების საძებნელად.",
+    "behavior": "აქტიურია თბილ სეზონზე, ძირითადად დღისით; ცხელ ღამეებში შეიძლება ღამითაც გადაადგილდეს. ზამთრობს ოქტომბრიდან აპრილამდე სოროებში, ნაპრალებსა და დამპალ მცენარეულობაში. შეწყვილება ჩვეულებრივ გაზაფხულზეა — ამ დროს შეიძლება რამდენიმე მამრი ერთ მდედრს გარს შემოერტყას. კვერცხისმდებია: ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას (დამპალი მცენარეულობა, კომპოსტი, ნაპირის ნიადაგი); ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე. საფრთხისას გამოყოფს უსიამოვნო სუნის მქონე სეკრეტს კლოაკიდან, თავს გველგესლასავით აბრტყელებს ან „თამაშობს მკვდარს“ (თანატოზი) — ხშირად ენა გარეთ გამოშვებული და პირი ღია.",
+    "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს ნოტიო დასავლეთში ადგილობრივად ჩვეულებრივია. გლობალურად ფართოდაა გავრცელებული, თუმცა ზოგ რეგიონში ჭაობების დაშრობა, წყლის დაბინძურება, სასოფლო-სამეურნეო ინტენსიფიკაცია, გზებზე დაღუპვა და დევნა ადგილობრივ პოპულაციებს ამცირებს. დაცულია ბერნის კონვენციის III დანართით.",
+    "danger": "Harmless",
+    "image": "/images/natrix-natrix.jpg",
+    "imageCredit": {
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:Grass_snake_(Natrix_natrix)_Pieniny.jpg"
+    },
+    "mobileImage": "/images/natrix-natrix-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Darius Bauzys",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Grass_Snake_-_Natrix_natrix.jpg"
+    },
+    "gallery": [
+      {
+        "src": "/images/natrix-natrix.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:Grass_snake_(Natrix_natrix)_Pieniny.jpg"
+        }
+      },
+      {
+        "src": "/images/natrix-natrix-2.jpg",
+        "credit": {
+          "photographer": "Andreas Eichler",
+          "url": "https://commons.wikimedia.org/wiki/File:2017.07.17.-17-Tiefer_See_oder_Grubensee-Storkow_(Mark)--Ringelnatter.jpg"
+        }
+      },
+      {
+        "src": "/images/natrix-natrix-3.jpg",
+        "credit": {
+          "photographer": "George Chernilevsky",
+          "url": "https://commons.wikimedia.org/wiki/File:Natrix_Natrix_head_2009_G2.jpg"
+        }
+      },
+      {
+        "src": "/images/natrix-natrix-4.jpg",
+        "credit": {
+          "photographer": "Esquilo",
+          "url": "https://commons.wikimedia.org/wiki/File:Snok_%C3%A4ter_padda.jpg"
+        }
+      },
+      {
+        "src": "/images/natrix-natrix-5.jpg",
+        "credit": {
+          "photographer": "Vít Kršul",
+          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_obojkov%C3%A1_-_Natrix_natrix.jpg"
+        }
+      },
+      {
+        "src": "/images/natrix-natrix-6.jpg",
+        "credit": {
+          "photographer": "GT1976",
+          "url": "https://commons.wikimedia.org/wiki/File:2019-04-25_(176)_Natrix_natrix_(grass_snake)_with_length_about_one_meter_at_Haltgraben,_Frankenfels,_Austria.jpg"
+        }
+      },
+      {
+        "src": "/images/natrix-natrix-7.jpg",
+        "credit": {
+          "photographer": "Isiwal",
+          "url": "https://commons.wikimedia.org/wiki/File:Natrix_natrix-1479.jpg"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ჭაობები, ტბები, ტყე"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 0.8–1.2 მ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "0–2,350 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "უშხამოა — ადამიანისთვის უვნებელი; საფრთხისას სუნიან სეკრეტს გამოყოფს ან „მკვდარს თამაშობს“.",
+      "ყვითელი საყელო თავის უკან ყველაზე საიმედო ველური ნიშანია — წყლის ანკარას კუბიკური ლაქებისგან განსხვავებით.",
+      "დასავლეთ საქართველოში ხშირად ათეულობით ანკარა მოდის ერთ წყლის ანკარაზე — ტენიანობა და ამფიბიების სიმრავლე გადამწყვეტია.",
+      "დიეტის უმეტესობა ამფიბიებია; თევზს ნაკლებად ეყრდნობა, ვიდრე წყლის ანკარა."
+    ],
+    "identification": {
+      "summary": "ჩვეულებრივი ანკარა უშხამო, ნახევრადწყლის გველია. ამოიცანი ყვითელი „საყელოთი“ თავის უკან და ნოტიო ჰაბიტატით — წყლის ანკარასგანაც განსხვავდება.",
+      "traits": [
+        "თავის უკან ხშირად აქვს ყვითელი, თეთრი ან კრემისფერი „საყელო“ — ringed snake სახელი აქედან მოდის.",
+        "ზურგი მომწვანო, რუხი ან მოყავისფროა; ზოგჯერ თითქმის შავი (მელანისტური) ფორმებიც გვხვდება, განსაკუთრებით კოლხეთში.",
+        "გუგა მრგვალია; შხამი არ აქვს — უვნებელია.",
+        "სიგრძე ჩვეულებრივ 0.8–1.2 მ, იშვიათად 1.5 მ-მდე; თავი ოდნავ გამოყოფილია ტანისგან.",
+        "საქართველოში უფრო ხშირია ნოტიო დასავლეთში, ვიდრე წყლის ანკარა (Natrix tessellata), რომელიც ნახევრადმშრალ ადგილებს ანიჭებს უპირატესობას."
+      ]
+    },
+    "faq": [
+      {
+        "question": "საშიშია თუ არა ჩვეულებრივი ანკარა ადამიანისთვის?",
+        "answer": "არა — უშხამოა და ადამიანისთვის უვნებელია. საფრთხისას შეიძლება უსიამოვნო სუნის სეკრეტი გამოყოს ან „მკვდარი“ თამაშობდეს, მაგრამ რეალურ საფრთხეს არ წარმოადგენს."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "ძირითადად ნოტიო დასავლეთში — აფხაზეთი, სამეგრელო, გურია, აჭარა, იმერეთი და რაჭა; აგრეთვე მთის ტენიან ხეობებში, მათ შორის მესხეთის ქედზე 2,350 მ-მდე. აღმოსავლეთის მშრალ ზონაში უფრო იშვიათია, ვიდრე წყლის ანკარა."
+      },
+      {
+        "question": "რით განსხვავდება წყლის ანკარასგან?",
+        "answer": "ჩვეულებრივ ანკარას ხშირად აქვს ყვითელი „საყელო“ თავის უკან და უპირატესობას ანიჭებს ნოტიო, ჩრდილოვან ჰაბიტატებს; იკვებება ძირითადად ამფიბიებით. წყლის ანკარას აქვს კუბიკური/შახმატური ლაქები, უფრო მჭიდროდაა მიბმული წყალთან და საქართველოში უფრო ხშირია ნახევრადმშრალ ადგილებში; დიეტის უმეტესობა თევზია."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად ბაყაყებს, გომბეშოებსა და ლიფსიტებს; თევზსაც იჭერს, მაგრამ ნაკლებად, ვიდრე წყლის ანკარა. მსხვერპლს ცოცხლად ყლაპავს."
+      },
+      {
+        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას — ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე."
+      }
+    ],
+    "updatedAt": "2026-08-04",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/details/14368/0"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/species/2457465"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Natrix&species=natrix"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Grass_snake"
+      },
+      {
+        "name": "Scientific publications"
+      }
+    ]
+  },
+  {
     "id": "natrix-tessellata",
     "commonName": "წყლის ანკარა",
     "scientificName": "Natrix tessellata",
@@ -1713,6 +1875,80 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in April–May; it lays roughly 15–20 eggs in late summer, and young hatch in 35–45 days."
+      }
+    ]
+  },
+  "natrix-natrix": {
+    "commonName": "Grass snake",
+    "location": "Georgia — humid west",
+    "description": "A non-venomous, semi-aquatic snake with a yellow \"collar\" — an inhabitant of wetlands, lakes, and damp forests; harmless.",
+    "overview": "The grass snake (Natrix natrix) is a non-venomous, semi-aquatic colubrid — the eastern grass snake of Europe and western Asia, including Georgia, Armenia, Azerbaijan, and Turkey. In Georgia it is especially common in the humid west (Colchis lowlands, Adjara, Guria, Samegrelo, Abkhazia, Imereti), where it often outnumbers the dice snake (Natrix tessellata); it is scarcer in the dry east. Vertically it reaches about 2,350 m (Meskheti Range). A yellow or white \"collar\" behind the head is characteristic — the source of the name ringed snake. The formerly described \"big-headed grass snake\" (Natrix megalocephala) is now treated as a synonym of N. natrix. It is classified as Least Concern by the IUCN.",
+    "habitat": "It prefers damp habitats: marshes, floodplains, lakes, streams, humid forests, and riverside meadows. Compared with the dice snake it chooses cooler, shadier, wetter sites; N. tessellata favors more open, rocky, semi-arid shores. In Georgia’s Colchic forests it may climb trees to bask and hunt treefrogs. It also occurs in gardens, parks, and farmland where amphibians are plentiful.",
+    "diet": "It feeds mainly on amphibians — frogs, toads, and tadpoles; it also takes fish, but less than the dice snake. It swallows prey alive. It hunts in water and along the shore; sometimes it travels inland through woodland in search of toads.",
+    "behavior": "Active in the warm season, mostly by day; on hot nights it may move after dark. It hibernates from about October to April in burrows, crevices, and rotting vegetation. Mating usually occurs in spring — several males may coil around one female. It is egg-laying: in summer it lays roughly 8–40 eggs in a moist, warm spot (rotting vegetation, compost, bank soil); young hatch in late summer or early autumn. When threatened it releases a foul-smelling cloacal secretion, flattens its head like a viper, or feigns death (thanatosis) — often with the tongue out and mouth open.",
+    "conservation": "Classified as Least Concern on the IUCN Red List. It is locally common in humid western Georgia. It is widespread globally, though in some regions wetland drainage, water pollution, intensive agriculture, road mortality, and persecution reduce local populations. It is listed on Appendix III of the Bern Convention.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Marshes, lakes, forest"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 0.8–1.2 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Elevation",
+        "value": "0–2,350 m"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "It is non-venomous and harmless to humans; when threatened it releases a foul-smelling secretion or \"plays dead.\"",
+      "The yellow collar behind the head is the most reliable field mark — unlike the checkered blotches of the dice snake.",
+      "In western Georgia dozens of grass snakes may be seen for every dice snake — humidity and amphibian abundance are decisive.",
+      "Most of its diet is amphibians; it relies on fish less than the dice snake."
+    ],
+    "identification": {
+      "summary": "The grass snake is a harmless, semi-aquatic colubrid. A yellow \"collar\" behind the head and damp habitats are the main cues — and help separate it from the dice snake.",
+      "traits": [
+        "Behind the head there is often a yellow, white, or cream \"collar\" — the source of the name ringed snake.",
+        "The back is greenish, grey, or brown; nearly black (melanistic) forms also occur, especially in Colchis.",
+        "The pupil is round; it has no venom and is harmless.",
+        "Length is usually 0.8–1.2 m, rarely to 1.5 m; the head is slightly distinct from the body.",
+        "In Georgia it is more common in the humid west than the dice snake (Natrix tessellata), which favors semi-arid areas."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the grass snake dangerous to humans?",
+        "answer": "No — it is non-venomous and harmless to humans. When threatened it may release a foul-smelling secretion or \"play dead,\" but it poses no real danger."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "Mainly in the humid west — Abkhazia, Samegrelo, Guria, Adjara, Imereti, and Racha; also in damp mountain valleys, including up to 2,350 m on the Meskheti Range. In the dry east it is scarcer than the dice snake."
+      },
+      {
+        "question": "How does it differ from the dice snake?",
+        "answer": "The grass snake often has a yellow \"collar\" behind the head and prefers damp, shady habitats; it feeds mainly on amphibians. The dice snake has checkered, dice-like blotches, is more tightly bound to water, and in Georgia is more common in semi-arid areas; most of its diet is fish."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly frogs, toads, and tadpoles; it also takes fish, but less than the dice snake. It swallows prey alive."
+      },
+      {
+        "question": "Does it lay eggs or give live birth?",
+        "answer": "It is egg-laying. Mating occurs in spring; in summer it lays roughly 8–40 eggs in a moist, warm spot — young hatch in late summer or early autumn."
       }
     ]
   },
