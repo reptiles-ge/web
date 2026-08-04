@@ -141,6 +141,20 @@
     "Moderate": "Moderate risk",
     "High": "High risk"
   },
+  "map": {
+    "eyebrow": "Regional atlas",
+    "title": "Explore Georgia’s reptiles by region",
+    "subtitle": "Select a region to discover which species live there — calm, scientific, and visual.",
+    "hint": "Hover or tap a region to explore",
+    "speciesCount": "{count, plural, =0 {No species recorded} one {# species} other {# species}}",
+    "species": "Species",
+    "regionLabel": "Region",
+    "close": "Close",
+    "viewSpecies": "View species profile",
+    "emptyPreview": "Data coming soon",
+    "emptyTitle": "No records yet",
+    "emptyBody": "Species data for this region has not been added yet. It will appear here soon."
+  },
   "site": {
     "title": "Reptiles — Discover Earth's oldest living creatures",
     "description": "A digital encyclopedia of reptiles and amphibians. Explore species through science and photography captured in the wild."

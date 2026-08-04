@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
 :root {
   --background: #f4f6f2;
   --foreground: #1a211c;
@@ -15,6 +17,42 @@
   --ink-muted: #8a958c;
   --surface: #e9eee6;
   --beta-banner-height: 0px;
+  --map-region: #8faa84;
+  --map-region-active: #3f7a57;
+  --map-region-dim: #c5d4bc;
+  --map-stroke: #f7faf5;
+  --map-stroke-active: #eef6f0;
+  --map-sea-from: #d7e4d4;
+  --map-sea-to: #e8efe4;
+  --map-explorer-from: #eef3ea;
+  --map-explorer-to: #f7f8f4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f1411;
+    --foreground: #e8eee6;
+    --card: #161c18;
+    --secondary: #1e2621;
+    --muted-foreground: #9aa69c;
+    --primary: #6fad88;
+    --border: #2a342e;
+    --destructive: #e07a6c;
+    --gold: #d4b05c;
+    --ink: #060908;
+    --ink-foreground: #eef3ec;
+    --ink-muted: #8a958c;
+    --surface: #141a16;
+    --map-region: #3d5c48;
+    --map-region-active: #6fad88;
+    --map-region-dim: #24332a;
+    --map-stroke: #1a221d;
+    --map-stroke-active: #cfe6d6;
+    --map-sea-from: #152019;
+    --map-sea-to: #1a241e;
+    --map-explorer-from: #101612;
+    --map-explorer-to: #0f1411;
+  }
 }
 
 @theme inline {
@@ -37,6 +75,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
@@ -116,5 +155,31 @@ input[type="search"]::-webkit-search-results-decoration {
   .species-carousel-track {
     padding-left: max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem));
     scroll-padding-left: max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem));
+  }
+}
+
+.map-explorer {
+  background:
+    linear-gradient(
+      180deg,
+      var(--map-explorer-from) 0%,
+      var(--map-explorer-to) 100%
+    );
+}
+
+.map-explorer-texture {
+  opacity: 0.45;
+  background-image:
+    radial-gradient(circle at 18% 22%, color-mix(in oklab, var(--primary) 8%, transparent) 0 18%, transparent 42%),
+    radial-gradient(circle at 82% 18%, color-mix(in oklab, var(--gold) 7%, transparent) 0 14%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  background-size: auto, auto, 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  .map-explorer-texture {
+    opacity: 0.28;
+    mix-blend-mode: soft-light;
   }
 }

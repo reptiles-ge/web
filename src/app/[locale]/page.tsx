@@ -3,6 +3,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
+import { MapExplorer } from "@/components/map/MapExplorer";
 import { Navbar } from "@/components/Navbar";
 import { SpeciesCarousel } from "@/components/SpeciesCarousel";
 import { SpeciesDetail } from "@/components/SpeciesDetail";
@@ -105,6 +106,7 @@ export default async function Home({ params }: Props) {
       <main>
         <Hero />
         <SpeciesCarousel />
+        <MapExplorer />
         <SpeciesDetail />
         <FeatureSection />
         <FinalCTA />

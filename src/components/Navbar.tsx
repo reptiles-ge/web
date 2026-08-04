@@ -13,8 +13,8 @@ export function Navbar() {
 
   const links = [
     { href: "#species", label: t("species") },
+    { href: "#atlas", label: t("atlas") },
     { href: "#detail", label: t("about") },
-    { href: "#why", label: t("atlas") },
   ];
 
   useEffect(() => {
