@@ -8,6 +8,7 @@ import {
 import {
   absoluteImageUrl,
   absoluteUrl,
+  cdnOgImageUrl,
   siteConfig,
 } from "@/lib/site";
 import type { Metadata } from "next";
@@ -62,7 +63,7 @@ export async function generateMetadata({
       description,
       images: [
         {
-          url: absoluteUrl(`/species/${item.id}/opengraph-image`),
+          url: cdnOgImageUrl(item.id),
           width: 1200,
           height: 630,
           alt: title,
@@ -73,7 +74,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [absoluteUrl(`/species/${item.id}/opengraph-image`)],
+      images: [cdnOgImageUrl(item.id)],
     },
     robots: {
       index: true,
@@ -94,7 +95,7 @@ export default async function SpeciesPage({ params }: PageProps) {
     .filter((entry) => entry.id !== item.id)
     .slice(0, 3);
   const pageUrl = absoluteUrl(`/species/${item.id}`);
-  const ogImage = absoluteUrl(`/species/${item.id}/opengraph-image`);
+  const ogImage = cdnOgImageUrl(item.id);
   const galleryImages = item.gallery
     .filter((src) => src !== item.image)
     .slice(0, 3)

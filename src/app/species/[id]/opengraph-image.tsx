@@ -1,24 +1,23 @@
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { cdnOgImageUrl } from "@/lib/site";
 
 export const alt = "ქართული გველგესლები — Reptiles";
 export const size = {
   width: 1200,
   height: 630,
 };
-export const contentType = "image/jpeg";
+export const contentType = "image/webp";
 
-const ogFiles: Record<string, string> = {
-  "vipera-dinniki": "vipera-dinniki.jpg",
-  "macrovipera-lebetina": "macrovipera-lebetina.jpg",
-  "vipera-ammodytes": "vipera-ammodytes.jpg",
-  "vipera-kaznakovi": "vipera-kaznakovi.jpg",
-  "pseudopus-apodus": "pseudopus-apodus.jpg",
-  "coronella-austriaca": "coronella-austriaca.jpg",
-  "elaphe-urartica": "elaphe-urartica.jpg",
-  "natrix-tessellata": "natrix-tessellata.jpg",
-  "dolichophis-schmidti": "dolichophis-schmidti.jpg",
-};
+const ogSpeciesIds = new Set([
+  "vipera-dinniki",
+  "macrovipera-lebetina",
+  "vipera-ammodytes",
+  "vipera-kaznakovi",
+  "pseudopus-apodus",
+  "coronella-austriaca",
+  "elaphe-urartica",
+  "natrix-tessellata",
+  "dolichophis-schmidti",
+]);
 
 export default async function Image({
   params,
@@ -26,15 +25,20 @@ export default async function Image({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const speciesId = ogSpeciesIds.has(id) ? id : "vipera-dinniki";
+  const response = await fetch(cdnOgImageUrl(speciesId), {
+    next: { revalidate: 60 * 60 * 24 * 30 },
+  });
 
-  const file = ogFiles[id] ?? "vipera-dinniki.jpg";
-  const buffer = await readFile(
-    join(process.cwd(), "public/images/og", file),
-  );
+  if (!response.ok) {
+    throw new Error(`Failed to load OG image for ${speciesId}`);
+  }
 
-  return new Response(new Uint8Array(buffer), {
+  const buffer = await response.arrayBuffer();
+
+  return new Response(buffer, {
     headers: {
-      "Content-Type": "image/jpeg",
+      "Content-Type": "image/webp",
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
