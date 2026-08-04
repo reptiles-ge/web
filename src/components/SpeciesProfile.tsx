@@ -3,9 +3,10 @@
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
+import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
-import { dangerClass, type Species } from "@/data/species";
+import { type Species } from "@/data/species";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { ArrowLeft, MapPin } from "lucide-react";
@@ -103,16 +104,12 @@ export function SpeciesProfile({ species: rawSpecies }: SpeciesProfileProps) {
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/70 sm:text-[16px]">
               {species.description}
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <span className="inline-flex items-center gap-1.5 text-[13px] text-white/55">
-                <MapPin className="size-3.5" />
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
+                <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
                 {species.location}
               </span>
-              <span
-                className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] ${dangerClass(species.danger)}`}
-              >
-                {t.danger[species.danger]}
-              </span>
+              <SpeciesDanger level={species.danger} variant="hero" />
             </div>
           </Reveal>
         </div>

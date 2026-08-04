@@ -1,7 +1,7 @@
 "use client";
 
-import { dangerClass, type Species } from "@/data/species";
-import { useLocale } from "@/i18n/LocaleProvider";
+import { SpeciesDanger } from "@/components/SpeciesDanger";
+import type { Species } from "@/data/species";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,7 +11,6 @@ type SpeciesCardProps = {
 };
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
-  const { t } = useLocale();
   const cover = species.mobileImage ?? species.image;
 
   return (
@@ -48,16 +47,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           <p className="mt-4 max-h-0 overflow-hidden text-[13px] leading-relaxed text-white/70 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
             {species.description}
           </p>
-          <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
-            <span className="text-[10px] tracking-[0.18em] text-white/40">
-              {t.card.dangerLevel}
-            </span>
-            <span
-              className={`rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${dangerClass(species.danger)}`}
-            >
-              {t.danger[species.danger]}
-            </span>
-          </div>
+          <SpeciesDanger level={species.danger} variant="card" />
         </div>
       </div>
     </Link>

@@ -134,7 +134,7 @@ export const messages: Record<Locale, Messages> = {
       next: "შემდეგი სახეობა",
     },
     card: {
-      dangerLevel: "საფრთხის დონე",
+      dangerLevel: "ადამიანისთვის რისკი",
     },
     detail: {
       eyebrow: "სახეობის მიმოხილვა",
@@ -215,8 +215,8 @@ export const messages: Record<Locale, Messages> = {
     },
     danger: {
       Harmless: "უვნებელი",
-      Moderate: "საშუალო",
-      High: "მაღალი",
+      Moderate: "საშუალო რისკი",
+      High: "მაღალი რისკი",
     },
     site: {
       title: "Reptiles — აღმოაჩინე დედამიწის უძველესი არსებები",
@@ -258,7 +258,7 @@ export const messages: Record<Locale, Messages> = {
       next: "Next species",
     },
     card: {
-      dangerLevel: "Threat level",
+      dangerLevel: "Risk to humans",
     },
     detail: {
       eyebrow: "Species spotlight",
@@ -334,8 +334,8 @@ export const messages: Record<Locale, Messages> = {
     },
     danger: {
       Harmless: "Harmless",
-      Moderate: "Moderate",
-      High: "High",
+      Moderate: "Moderate risk",
+      High: "High risk",
     },
     site: {
       title: "Reptiles — Discover Earth's oldest living creatures",
