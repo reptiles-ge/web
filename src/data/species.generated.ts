@@ -1185,44 +1185,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-dahli.jpg",
-    "imageCredit": {
-      "photographer": "Igor Balashov",
-      "url": "https://www.inaturalist.org/observations/91501385"
-    },
-    "mobileImage": "/images/darevskia-dahli-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Kseniia Marianna Prondzynska",
-      "url": "https://www.inaturalist.org/observations/287684485"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-dahli.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-dahli-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-dahli.jpg",
-        "credit": {
-          "photographer": "Igor Balashov",
-          "url": "https://www.inaturalist.org/observations/91501385"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-dahli.jpg"
       },
       {
-        "src": "/images/darevskia-dahli-mobile.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/287684485"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-dahli-2.jpg"
       },
       {
-        "src": "/images/darevskia-dahli-2.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/305324105"
-        }
-      },
-      {
-        "src": "/images/darevskia-dahli-3.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/305324113"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-dahli-3.jpg"
       }
     ],
     "stats": [
