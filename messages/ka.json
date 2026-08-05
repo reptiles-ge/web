@@ -4,7 +4,9 @@
     "about": "შესახებ",
     "atlas": "ატლასი",
     "discover": "აღმოაჩინე",
-    "snakes": "გველები"
+    "snakes": "გველები",
+    "openMenu": "მენიუს გახსნა",
+    "closeMenu": "მენიუს დახურვა"
   },
   "search": {
     "placeholder": "მოძებნე სახეობა…",

@@ -6,8 +6,9 @@ import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link, usePathname } from "@/i18n/navigation";
+import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 function hasDarkHeroTop(pathname: string) {
   if (pathname === "/contact") return false;
@@ -32,13 +33,15 @@ export function Navbar() {
   const pathname = usePathname();
   const darkHero = hasDarkHeroTop(pathname);
   const [scrolled, setScrolled] = useState(!darkHero);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuId = useId();
 
   const links = [
     { href: "/species", label: t("species") },
     { href: "/snakes", label: t("snakes") },
     { href: "/regions", label: t("atlas") },
     { href: "/about", label: t("about") },
-  ];
+  ] as const;
 
   useEffect(() => {
     if (!darkHero) {
@@ -55,18 +58,39 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [darkHero, pathname]);
 
-  const chromeVariant = scrolled ? "light" : "dark";
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setMenuOpen(false);
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
+
+  const chromeVariant = menuOpen || scrolled ? "light" : "dark";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={`mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 transition-all duration-500 lg:px-10 ${
-          scrolled ? "py-3" : "py-5"
+          scrolled || menuOpen ? "py-3" : "py-5"
         }`}
       >
         <div
           className={`pointer-events-none absolute inset-x-0 top-0 -z-10 h-full transition-opacity duration-500 ${
-            scrolled ? "opacity-100" : "opacity-0"
+            scrolled || menuOpen ? "opacity-100" : "opacity-0"
           }`}
           style={{
             background:
@@ -78,13 +102,14 @@ export function Navbar() {
         <Link
           href="/"
           className="relative z-10 shrink-0 transition-opacity hover:opacity-90"
+          onClick={() => setMenuOpen(false)}
         >
           <Logo
             size={44}
             priority
             showWordmark
             wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
-              scrolled ? "text-foreground" : "text-white"
+              scrolled || menuOpen ? "text-foreground" : "text-white"
             }`}
           />
         </Link>
@@ -116,7 +141,73 @@ export function Navbar() {
           >
             {t("discover")}
           </Link>
+          <button
+            type="button"
+            className={`inline-flex size-10 items-center justify-center rounded-full transition-colors md:hidden ${
+              scrolled || menuOpen
+                ? "text-foreground hover:bg-foreground/5"
+                : "text-white hover:bg-white/10"
+            }`}
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? (
+              <X className="size-5" strokeWidth={1.75} />
+            ) : (
+              <Menu className="size-5" strokeWidth={1.75} />
+            )}
+          </button>
         </div>
+      </div>
+
+      <div
+        id={menuId}
+        className={`md:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+      >
+        <button
+          type="button"
+          aria-label={t("closeMenu")}
+          className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 ${
+            menuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setMenuOpen(false)}
+        />
+        <nav
+          aria-label={t("openMenu")}
+          className={`fixed inset-x-0 top-[4.25rem] z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-[28px] border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)] ${
+            menuOpen
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-2 opacity-0"
+          }`}
+        >
+          <ul className="space-y-1">
+            {links.map((link, index) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
+                >
+                  <span className="font-display text-[1.35rem] font-semibold text-foreground">
+                    {link.label}
+                  </span>
+                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/species"
+            onClick={() => setMenuOpen(false)}
+            className="mt-5 flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+          >
+            {t("discover")}
+          </Link>
+        </nav>
       </div>
     </header>
   );

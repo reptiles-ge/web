@@ -4,7 +4,9 @@
     "about": "About",
     "atlas": "Atlas",
     "discover": "Discover",
-    "snakes": "Snakes"
+    "snakes": "Snakes",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "search": {
     "placeholder": "Search species…",
