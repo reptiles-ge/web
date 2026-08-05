@@ -365,6 +365,7 @@
     "filterClear": "გასუფთავება",
     "filterApply": "შენახვა",
     "resultsCount": "{count, plural, =0 {სახეობა ვერ მოიძებნა} one {# სახეობა} other {# სახეობა}}",
+    "showingCount": "ნაჩვენებია {shown} / {total}",
     "resetFilters": "ყველას ჩვენება",
     "filters": {
       "type": "ტიპი",

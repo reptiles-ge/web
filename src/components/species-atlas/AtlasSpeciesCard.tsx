@@ -21,12 +21,14 @@ type AtlasSpeciesCardProps = {
   species: Species;
   locale: AppLocale;
   index?: number;
+  eager?: boolean;
 };
 
 export function AtlasSpeciesCard({
   species,
   locale,
   index = 0,
+  eager = false,
 }: AtlasSpeciesCardProps) {
   const t = useTranslations("speciesAtlas");
   const meta = getSpeciesAtlasMeta(species.id);
@@ -67,7 +69,10 @@ export function AtlasSpeciesCard({
               species.location,
             )}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            priority={eager}
+            loading={eager ? "eager" : "lazy"}
+            quality={78}
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
         ) : (

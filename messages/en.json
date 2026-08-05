@@ -365,6 +365,7 @@
     "filterClear": "Clear",
     "filterApply": "Save",
     "resultsCount": "{count, plural, =0 {No matching species} one {# species} other {# species}}",
+    "showingCount": "Showing {shown} of {total}",
     "resetFilters": "Show all",
     "filters": {
       "type": "Type",

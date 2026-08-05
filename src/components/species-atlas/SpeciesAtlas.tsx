@@ -1,11 +1,11 @@
 "use client";
 
-import { AtlasSpeciesCard } from "@/components/species-atlas/AtlasSpeciesCard";
 import {
   AtlasFilterButton,
   AtlasFilterSheet,
   countAtlasFacets,
 } from "@/components/species-atlas/AtlasFilterSheet";
+import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -606,17 +606,7 @@ export function SpeciesAtlas({
             />
 
             {filtered.length > 0 ? (
-              <ul className="mt-12 grid gap-6 sm:grid-cols-2 sm:gap-7 xl:grid-cols-3 xl:gap-8">
-                {filtered.map((species, index) => (
-                  <li key={species.id}>
-                    <AtlasSpeciesCard
-                      species={species}
-                      locale={locale}
-                      index={index}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <AtlasSpeciesGrid species={filtered} locale={locale} />
             ) : (
               <ComingSoonPanel
                 group={

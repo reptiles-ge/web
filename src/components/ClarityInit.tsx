@@ -5,8 +5,16 @@ import { useEffect } from "react";
 
 const CLARITY_PROJECT_ID = "xxq0wlze2q";
 
+declare global {
+  interface Window {
+    __reptilesClarityInit?: boolean;
+  }
+}
+
 export function ClarityInit() {
   useEffect(() => {
+    if (window.__reptilesClarityInit) return;
+    window.__reptilesClarityInit = true;
     Clarity.init(CLARITY_PROJECT_ID);
   }, []);
 
