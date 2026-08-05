@@ -2703,40 +2703,33 @@ export const species: Species[] = [
     "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
     "conservation": "საქართველოში დაფიქსირებულია. ბევრ კუს სახეობას მსოფლიოში ჰაბიტატის დაკარგვა და ამოღება ემუქრება.",
     "danger": "Harmless",
-    "image": "/images/emys-orbicularis.jpg",
+    "image": "https://cdn.reptiles.ge/emys-orbicularis.jpg",
     "imageCredit": {
       "photographer": "Полина Яковлевна Нехаева (Лихачева)",
       "url": "https://www.inaturalist.org/observations/18780442"
     },
-    "mobileImage": "/images/emys-orbicularis-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/emys-orbicularis-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Mohammad Amin Ghaffari",
       "url": "https://www.inaturalist.org/observations/298113621"
     },
     "gallery": [
       {
-        "src": "/images/emys-orbicularis.jpg",
+        "src": "https://cdn.reptiles.ge/emys-orbicularis.jpg",
         "credit": {
           "photographer": "Полина Яковлевна Нехаева (Лихачева)",
           "url": "https://www.inaturalist.org/observations/18780442"
         }
       },
       {
-        "src": "/images/emys-orbicularis-mobile.jpg",
-        "credit": {
-          "photographer": "Mohammad Amin Ghaffari",
-          "url": "https://www.inaturalist.org/observations/298113621"
-        }
-      },
-      {
-        "src": "/images/emys-orbicularis-2.jpg",
+        "src": "https://cdn.reptiles.ge/emys-orbicularis-2.jpg",
         "credit": {
           "photographer": "Almantas Kulbis",
           "url": "https://www.inaturalist.org/observations/4474575"
         }
       },
       {
-        "src": "/images/emys-orbicularis-3.jpg",
+        "src": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
         "credit": {
           "photographer": "joepon",
           "url": "https://www.inaturalist.org/observations/370280848"
@@ -2821,40 +2814,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/eremias-arguta.jpg",
+    "image": "https://cdn.reptiles.ge/eremias-arguta.jpg",
     "imageCredit": {
       "photographer": "Nikita Sevastianov",
       "url": "https://www.inaturalist.org/observations/41042387"
     },
-    "mobileImage": "/images/eremias-arguta-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Aurélien Grimaud",
       "url": "https://www.inaturalist.org/observations/318012787"
     },
     "gallery": [
       {
-        "src": "/images/eremias-arguta.jpg",
+        "src": "https://cdn.reptiles.ge/eremias-arguta.jpg",
         "credit": {
           "photographer": "Nikita Sevastianov",
           "url": "https://www.inaturalist.org/observations/41042387"
         }
       },
       {
-        "src": "/images/eremias-arguta-mobile.jpg",
-        "credit": {
-          "photographer": "Aurélien Grimaud",
-          "url": "https://www.inaturalist.org/observations/318012787"
-        }
-      },
-      {
-        "src": "/images/eremias-arguta-2.jpg",
+        "src": "https://cdn.reptiles.ge/eremias-arguta-2.jpg",
         "credit": {
           "photographer": "Наталья Бешко",
           "url": "https://www.inaturalist.org/observations/93553764"
         }
       },
       {
-        "src": "/images/eremias-arguta-3.jpg",
+        "src": "https://cdn.reptiles.ge/eremias-arguta-3.jpg",
         "credit": {
           "photographer": "Eugene Popov",
           "url": "https://www.inaturalist.org/observations/11997409"
@@ -2939,40 +2925,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/eremias-velox.jpg",
+    "image": "https://cdn.reptiles.ge/eremias-velox.jpg",
     "imageCredit": {
       "photographer": "Вячеслав Юсупов",
       "url": "https://www.inaturalist.org/observations/19103415"
     },
-    "mobileImage": "/images/eremias-velox-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eremias-velox-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Koray Öğreten",
       "url": "https://www.inaturalist.org/observations/375543401"
     },
     "gallery": [
       {
-        "src": "/images/eremias-velox.jpg",
+        "src": "https://cdn.reptiles.ge/eremias-velox.jpg",
         "credit": {
           "photographer": "Вячеслав Юсупов",
           "url": "https://www.inaturalist.org/observations/19103415"
         }
       },
       {
-        "src": "/images/eremias-velox-mobile.jpg",
-        "credit": {
-          "photographer": "Koray Öğreten",
-          "url": "https://www.inaturalist.org/observations/375543401"
-        }
-      },
-      {
-        "src": "/images/eremias-velox-2.jpg",
+        "src": "https://cdn.reptiles.ge/eremias-velox-2.jpg",
         "credit": {
           "photographer": "Mohammad Amin Ghaffari",
           "url": "https://www.inaturalist.org/observations/68975387"
         }
       },
       {
-        "src": "/images/eremias-velox-3.jpg",
+        "src": "https://cdn.reptiles.ge/eremias-velox-3.jpg",
         "credit": {
           "photographer": "Derek Dohler",
           "url": "https://www.inaturalist.org/observations/109527"
