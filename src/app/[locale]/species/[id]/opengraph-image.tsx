@@ -1,6 +1,10 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { cdnOgImageUrl } from "@/lib/site";
+import {
+  cdnOgImageUrl,
+  cdnOgSpeciesIds,
+  localOgSpeciesIds,
+} from "@/lib/site";
 
 export const alt = "ქართული გველგესლები — Reptiles";
 export const size = {
@@ -9,26 +13,26 @@ export const size = {
 };
 export const contentType = "image/jpeg";
 
-const localOgSpeciesIds = new Set([
-  "natrix-natrix",
-  "telescopus-fallax",
-  "elaphe-dione",
-  "vipera-darevskii",
-  "vipera-renardi",
-  "vipera-transcaucasiana",
-  "zamenis-longissimus",
-]);
+async function readLocalImage(relativePath: string) {
+  try {
+    const buffer = await readFile(join(process.cwd(), "public", relativePath));
+    return buffer;
+  } catch {
+    return null;
+  }
+}
 
-const cdnOgSpeciesIds = new Set([
-  "vipera-dinniki",
-  "macrovipera-lebetina",
-  "vipera-kaznakovi",
-  "pseudopus-apodus",
-  "coronella-austriaca",
-  "elaphe-urartica",
-  "natrix-tessellata",
-  "dolichophis-schmidti",
-]);
+async function fetchCdnOg(speciesId: string) {
+  const response = await fetch(cdnOgImageUrl(speciesId), {
+    next: { revalidate: 60 * 60 * 24 * 30 },
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+
+  return Buffer.from(await response.arrayBuffer());
+}
 
 export default async function Image({
   params,
@@ -38,10 +42,32 @@ export default async function Image({
   const { id } = await params;
 
   if (localOgSpeciesIds.has(id)) {
-    const buffer = await readFile(
-      join(process.cwd(), "public/images/og", `${id}.jpg`),
-    );
-    return new Response(buffer, {
+    const buffer = await readLocalImage(`images/og/${id}.jpg`);
+    if (buffer) {
+      return new Response(buffer, {
+        headers: {
+          "Content-Type": "image/jpeg",
+          "Cache-Control": "public, max-age=31536000, immutable",
+        },
+      });
+    }
+  }
+
+  if (cdnOgSpeciesIds.has(id)) {
+    const buffer = await fetchCdnOg(id);
+    if (buffer) {
+      return new Response(buffer, {
+        headers: {
+          "Content-Type": "image/webp",
+          "Cache-Control": "public, max-age=31536000, immutable",
+        },
+      });
+    }
+  }
+
+  const localHero = await readLocalImage(`images/${id}.jpg`);
+  if (localHero) {
+    return new Response(localHero, {
       headers: {
         "Content-Type": "image/jpeg",
         "Cache-Control": "public, max-age=31536000, immutable",
@@ -49,18 +75,12 @@ export default async function Image({
     });
   }
 
-  const speciesId = cdnOgSpeciesIds.has(id) ? id : "vipera-dinniki";
-  const response = await fetch(cdnOgImageUrl(speciesId), {
-    next: { revalidate: 60 * 60 * 24 * 30 },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to load OG image for ${speciesId}`);
+  const fallback = await fetchCdnOg("vipera-dinniki");
+  if (!fallback) {
+    throw new Error(`Failed to load OG image for ${id}`);
   }
 
-  const buffer = await response.arrayBuffer();
-
-  return new Response(buffer, {
+  return new Response(fallback, {
     headers: {
       "Content-Type": "image/webp",
       "Cache-Control": "public, max-age=31536000, immutable",

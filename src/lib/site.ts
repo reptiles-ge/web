@@ -84,20 +84,51 @@ export function cdnOgImageUrl(speciesId: string) {
   return `${CDN_BASE}/og/${speciesId}.webp`;
 }
 
-const localOgSpeciesIds = new Set([
+export const localOgSpeciesIds = new Set([
   "natrix-natrix",
   "telescopus-fallax",
   "elaphe-dione",
   "vipera-darevskii",
   "vipera-renardi",
+  "vipera-transcaucasiana",
   "zamenis-longissimus",
 ]);
 
-export function speciesOgImageUrl(speciesId: string) {
+export const cdnOgSpeciesIds = new Set([
+  "vipera-dinniki",
+  "macrovipera-lebetina",
+  "vipera-kaznakovi",
+  "pseudopus-apodus",
+  "coronella-austriaca",
+  "elaphe-urartica",
+  "natrix-tessellata",
+  "dolichophis-schmidti",
+  "platyceps-najadum",
+]);
+
+const missingHeroSpeciesIds = new Set([
+  "darevskia-alpina",
+  "darevskia-valentini",
+  "dolichophis-caspius",
+]);
+
+export function speciesOgImageUrl(
+  speciesId: string,
+  fallbackImageSrc?: string,
+) {
   if (localOgSpeciesIds.has(speciesId)) {
     return absoluteUrl(`/images/og/${speciesId}.jpg`);
   }
-  return cdnOgImageUrl(speciesId);
+  if (cdnOgSpeciesIds.has(speciesId)) {
+    return cdnOgImageUrl(speciesId);
+  }
+  if (fallbackImageSrc?.startsWith("/")) {
+    return absoluteUrl(fallbackImageSrc);
+  }
+  if (fallbackImageSrc && !missingHeroSpeciesIds.has(speciesId)) {
+    return absoluteImageUrl(fallbackImageSrc);
+  }
+  return cdnOgImageUrl("vipera-dinniki");
 }
 
 export function localePath(locale: string, path = "/") {

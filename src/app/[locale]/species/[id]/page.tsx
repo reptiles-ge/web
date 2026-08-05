@@ -98,7 +98,7 @@ export async function generateMetadata({
       publishedTime: raw.updatedAt,
       images: [
         {
-          url: speciesOgImageUrl(item.id),
+          url: speciesOgImageUrl(item.id, item.image),
           width: 1200,
           height: 630,
           alt: title,
@@ -109,7 +109,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [speciesOgImageUrl(item.id)],
+      images: [speciesOgImageUrl(item.id, item.image)],
     },
     robots: {
       index: true,
@@ -136,7 +136,7 @@ export default async function SpeciesPage({ params }: PageProps) {
   const related = getRelatedSpecies(raw.id);
 
   const pageUrl = absoluteUrl(localePath(locale, `/species/${item.id}`));
-  const ogImage = speciesOgImageUrl(item.id);
+  const ogImage = speciesOgImageUrl(item.id, item.image);
   const galleryImages = item.gallery
     .map((photo) => photo.src)
     .filter((src) => src !== item.image)
