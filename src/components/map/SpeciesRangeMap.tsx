@@ -1,7 +1,6 @@
 "use client";
 
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -41,7 +40,7 @@ export function SpeciesRangeMap({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
             {t("range")}
           </p>
@@ -51,7 +50,7 @@ export function SpeciesRangeMap({
           <p className="mx-auto mt-5 max-w-lg text-balance-tight text-[15px] leading-relaxed text-muted-foreground">
             {t("rangeSubtitle")}
           </p>
-        </Reveal>
+        </div>
 
         <div className="mt-14 lg:mt-16">
           <GeorgiaMap

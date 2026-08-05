@@ -3,7 +3,6 @@
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesDanger } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
@@ -150,61 +149,51 @@ export function SpeciesProfile({
             </div>
           ) : null}
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <Link
-                href="/species"
-                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
-              >
-                <ArrowLeft className="size-3.5" aria-hidden="true" />
-                {t("back")}
-              </Link>
-              <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.5rem)] font-semibold leading-[1.08] text-white">
-                {species.commonName}
-              </h1>
-              <p className="mt-3 font-display text-[15px] italic tracking-wide text-white/55 sm:text-[17px]">
-                {species.scientificName}
-              </p>
-              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
-                {species.description}
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
-                  <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
-                  {species.location}
-                </span>
-                <SpeciesDanger level={species.danger} variant="hero" />
-              </div>
-            </Reveal>
+            <Link
+              href="/species"
+              className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
+            >
+              <ArrowLeft className="size-3.5" aria-hidden="true" />
+              {t("back")}
+            </Link>
+            <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.5rem)] font-semibold leading-[1.08] text-white">
+              {species.commonName}
+            </h1>
+            <p className="mt-3 font-display text-[15px] italic tracking-wide text-white/55 sm:text-[17px]">
+              {species.scientificName}
+            </p>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
+              {species.description}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
+                <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
+                {species.location}
+              </span>
+              <SpeciesDanger level={species.danger} variant="hero" />
+            </div>
           </div>
         </section>
 
         {displayStats.length > 0 ? (
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {t("atAGlance")}
-                </p>
-                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                  {t("atAGlanceTitle")}
-                </h2>
-              </Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                {t("atAGlance")}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+                {t("atAGlanceTitle")}
+              </h2>
               <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
-                {displayStats.map((stat, index) => (
-                  <Reveal
-                    key={stat.label}
-                    delay={index * 60}
-                    className="bg-background"
-                  >
-                    <div className="p-6 lg:p-8">
-                      <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
-                        {stat.label}
-                      </p>
-                      <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
-                        {stat.value}
-                      </p>
-                    </div>
-                  </Reveal>
+                {displayStats.map((stat) => (
+                  <div key={stat.label} className="bg-background p-6 lg:p-8">
+                    <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
+                      {stat.label}
+                    </p>
+                    <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
+                      {stat.value}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -213,23 +202,21 @@ export function SpeciesProfile({
 
         <section className="bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("overview")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t("whoIs")} {species.commonName}
-              </h2>
-              <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-                {species.overview}
-              </p>
-              <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
-                {t("lastUpdated")}{" "}
-                <time dateTime={species.updatedAt}>
-                  {formatContentDate(species.updatedAt, locale)}
-                </time>
-              </p>
-            </Reveal>
+            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              {t("overview")}
+            </p>
+            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+              {t("whoIs")} {species.commonName}
+            </h2>
+            <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
+              {species.overview}
+            </p>
+            <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
+              {t("lastUpdated")}{" "}
+              <time dateTime={species.updatedAt}>
+                {formatContentDate(species.updatedAt, locale)}
+              </time>
+            </p>
           </div>
         </section>
 
@@ -258,14 +245,12 @@ export function SpeciesProfile({
         {biologyBlocks.length > 0 ? (
           <section className="bg-surface py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {t("biology")}
-                </p>
-                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                  {t("biologyTitle")}
-                </h2>
-              </Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                {t("biology")}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+                {t("biologyTitle")}
+              </h2>
               <div
                 className={`mt-14 grid gap-12 md:gap-10 ${
                   biologyBlocks.length >= 3
@@ -275,10 +260,12 @@ export function SpeciesProfile({
                       : "md:grid-cols-1"
                 }`}
               >
-                {biologyBlocks.map((block, index) => (
-                  <Reveal key={block.title} delay={index * 100}>
-                    <BiologyBlock title={block.title} body={block.body} />
-                  </Reveal>
+                {biologyBlocks.map((block) => (
+                  <BiologyBlock
+                    key={block.title}
+                    title={block.title}
+                    body={block.body}
+                  />
                 ))}
               </div>
             </div>
@@ -294,27 +281,25 @@ export function SpeciesProfile({
         {related.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
-                <div className="flex items-end justify-between gap-6">
-                  <div>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                      {t("related")}
-                    </p>
-                    <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]">
-                      {t("relatedTitle")}
-                    </h2>
-                  </div>
-                  <Link
-                    href="/species"
-                    className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
-                  >
-                    {t("allSpecies")}
-                    <ArrowUpRight className="size-3.5" />
-                  </Link>
+              <div className="flex items-end justify-between gap-6">
+                <div>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                    {t("related")}
+                  </p>
+                  <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]">
+                    {t("relatedTitle")}
+                  </h2>
                 </div>
-              </Reveal>
+                <Link
+                  href="/species"
+                  className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
+                >
+                  {t("allSpecies")}
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+              </div>
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((item, index) => {
+                {related.map((item) => {
                   const cover =
                     item.mobileImage && !isPlaceholderMedia(item.mobileImage)
                       ? item.mobileImage
@@ -322,43 +307,42 @@ export function SpeciesProfile({
                         ? item.image
                         : null;
                   return (
-                    <Reveal key={item.id} delay={index * 80}>
-                      <Link
-                        href={`/species/${item.id}`}
-                        className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
-                      >
-                        {cover ? (
-                          <Image
-                            src={cover}
-                            alt={speciesImageAlt(
-                              item.commonName,
-                              item.scientificName,
-                              item.location,
-                            )}
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                          />
-                        ) : (
-                          <div
-                            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
-                            aria-hidden="true"
-                          />
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                        <div className="absolute inset-x-0 bottom-0 p-6">
-                          <p className="text-[12px] italic text-white/50">
-                            {item.scientificName}
-                          </p>
-                          <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
-                            {item.commonName}
-                          </h3>
-                          <p className="mt-2 text-[12px] text-white/50">
-                            {item.location}
-                          </p>
-                        </div>
-                      </Link>
-                    </Reveal>
+                    <Link
+                      key={item.id}
+                      href={`/species/${item.id}`}
+                      className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
+                    >
+                      {cover ? (
+                        <Image
+                          src={cover}
+                          alt={speciesImageAlt(
+                            item.commonName,
+                            item.scientificName,
+                            item.location,
+                          )}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
+                          aria-hidden="true"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-6">
+                        <p className="text-[12px] italic text-white/50">
+                          {item.scientificName}
+                        </p>
+                        <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
+                          {item.commonName}
+                        </h3>
+                        <p className="mt-2 text-[12px] text-white/50">
+                          {item.location}
+                        </p>
+                      </div>
+                    </Link>
                   );
                 })}
               </div>

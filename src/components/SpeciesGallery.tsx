@@ -1,7 +1,6 @@
 "use client";
 
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { Reveal } from "@/components/Reveal";
 import type { GalleryImage } from "@/data/species";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -70,14 +69,12 @@ export function SpeciesGallery({
         }`}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("gallery")}
-            </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {name} {t("galleryTitle")}
-            </h2>
-          </Reveal>
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            {t("gallery")}
+          </p>
+          <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+            {name} {t("galleryTitle")}
+          </h2>
 
           <div
             className={`mt-14 grid gap-3 sm:gap-4 ${
@@ -91,37 +88,34 @@ export function SpeciesGallery({
             {photos.map((photo, index) => {
               const featured = photos.length >= 3 && index === 0;
               return (
-                <Reveal
+                <button
                   key={`${photo.src}-${index}`}
-                  delay={index * 70}
-                  className={featured ? "col-span-2 md:col-span-3" : undefined}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  className={`group relative block w-full overflow-hidden rounded-[24px] bg-ink text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
+                    featured
+                      ? "col-span-2 aspect-[16/10] md:col-span-3"
+                      : "aspect-[4/5]"
+                  }`}
+                  aria-label={imageAlt}
                 >
-                  <button
-                    type="button"
-                    onClick={() => setActive(index)}
-                    className={`group relative block w-full overflow-hidden rounded-[24px] bg-ink text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
-                      featured ? "aspect-[16/10]" : "aspect-[4/5]"
-                    }`}
-                    aria-label={imageAlt}
-                  >
-                    <Image
-                      src={photo.src}
-                      alt={imageAlt}
-                      fill
-                      sizes={
-                        featured
-                          ? "100vw"
-                          : "(max-width: 768px) 50vw, 33vw"
-                      }
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
-                    <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <PhotoCreditCaption credit={photo.credit} variant="thumb" />
-                  </button>
-                </Reveal>
+                  <Image
+                    src={photo.src}
+                    alt={imageAlt}
+                    fill
+                    sizes={
+                      featured
+                        ? "100vw"
+                        : "(max-width: 768px) 50vw, 33vw"
+                    }
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
+                  <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <PhotoCreditCaption credit={photo.credit} variant="thumb" />
+                </button>
               );
             })}
           </div>
