@@ -13,6 +13,7 @@ declare global {
 
 export function ClarityInit() {
   useEffect(() => {
+    if (process.env.NODE_ENV !== "production") return;
     if (window.__reptilesClarityInit) return;
     window.__reptilesClarityInit = true;
     Clarity.init(CLARITY_PROJECT_ID);

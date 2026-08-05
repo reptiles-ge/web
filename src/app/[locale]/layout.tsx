@@ -28,6 +28,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const isProd = process.env.NODE_ENV === "production";
 
   return (
     <NextIntlClientProvider messages={messages}>
@@ -37,8 +38,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Footer />
       <Analytics />
       <SpeedInsights />
-      <GoogleAnalytics gaId="G-7TTKJPY059" />
-      <ClarityInit />
+      {isProd ? <GoogleAnalytics gaId="G-7TTKJPY059" /> : null}
+      {isProd ? <ClarityInit /> : null}
     </NextIntlClientProvider>
   );
 }
