@@ -1739,44 +1739,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-praticola.jpg",
-    "imageCredit": {
-      "photographer": "Mojtaba Vosough Rouhani",
-      "url": "https://www.inaturalist.org/observations/13108005"
-    },
-    "mobileImage": "/images/darevskia-praticola-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Gennadiy Okatov",
-      "url": "https://www.inaturalist.org/observations/208842694"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-praticola.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-praticola-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-praticola.jpg",
-        "credit": {
-          "photographer": "Mojtaba Vosough Rouhani",
-          "url": "https://www.inaturalist.org/observations/13108005"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-praticola.jpg"
       },
       {
-        "src": "/images/darevskia-praticola-mobile.jpg",
-        "credit": {
-          "photographer": "Gennadiy Okatov",
-          "url": "https://www.inaturalist.org/observations/208842694"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-praticola-2.jpg"
       },
       {
-        "src": "/images/darevskia-praticola-2.jpg",
-        "credit": {
-          "photographer": "yuppiy",
-          "url": "https://www.inaturalist.org/observations/30157219"
-        }
-      },
-      {
-        "src": "/images/darevskia-praticola-3.jpg",
-        "credit": {
-          "photographer": "Radovan Víta",
-          "url": "https://www.inaturalist.org/observations/271044071"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-praticola-3.jpg"
       }
     ],
     "stats": [
