@@ -30,20 +30,22 @@ export function SpeciesIdentification({
           </p>
         </Reveal>
 
-        <ol className="mt-12 space-y-0">
-          {identification.traits.map((trait, index) => (
-            <Reveal key={trait} delay={index * 70}>
-              <li className="grid grid-cols-[auto_1fr] gap-6 border-t border-border py-7 lg:gap-10 lg:py-9">
-                <span className="font-display text-[28px] font-light text-primary/40 lg:text-[36px]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="max-w-2xl self-center text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-                  {trait}
-                </p>
-              </li>
-            </Reveal>
-          ))}
-        </ol>
+        {identification.traits.length > 0 ? (
+          <ol className="mt-12 space-y-0">
+            {identification.traits.map((trait, index) => (
+              <Reveal key={trait} delay={index * 70}>
+                <li className="grid grid-cols-[auto_1fr] gap-6 border-t border-border py-7 lg:gap-10 lg:py-9">
+                  <span className="font-display text-[28px] font-light text-primary/40 lg:text-[36px]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="max-w-2xl self-center text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
+                    {trait}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        ) : null}
       </div>
     </section>
   );

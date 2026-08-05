@@ -4,6 +4,378 @@ import type { Species, SpeciesTranslation } from "./species";
 
 export const species: Species[] = [
   {
+    "id": "ablepharus-pannonicus",
+    "commonName": "შიშველთვალა სცინკი",
+    "scientificName": "Ablepharus pannonicus",
+    "genus": "Ablepharus",
+    "family": "Scincidae",
+    "location": "საქართველო",
+    "description": "შიშველთვალა სცინკი — დაფიქსირებულია საქართველოში.",
+    "overview": "შიშველთვალა სცინკი (Ablepharus pannonicus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ფხვიერი ნიადაგი, ფოთლების საფარი, ქვები და მშრალი ღია ჰაბიტატები.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ხშირად ფარულია; ბევრი სცინკი სწრაფად მოძრაობს ფოთლოვან საფარში ან ქვების ქვეშ.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ablepharus-pannonicus-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 15 სმ-მდე საერთო სიგრძე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ შიშველთვალა სცინკი.",
+      "traits": [
+        "გლუვი მბზინავი ქერცლები სცინკებისთვის დამახასიათებელი.\n",
+        "ზოგ ტაქსონში კიდურები შემცირებულია; Ablepharus-ს გველისებრი თვალის იერი აქვს.\n",
+        "პატარაა და ადვილად გამოსატოვებელი.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Ablepharus pannonicus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Ablepharus pannonicus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება შიშველთვალა სცინკი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Ablepharus&species=pannonicus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "anguis-colchica",
+    "commonName": "ბოხმეჭა",
+    "scientificName": "Anguis colchica",
+    "genus": "Anguis",
+    "family": "Anguidae",
+    "location": "საქართველო",
+    "description": "ბოხმეჭა — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "ბოხმეჭა (Anguis colchica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ტყის პირას, მდელოები, ბაღები და ტენიანი თავშესაფარი ფოთლებით ან ბალახით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ფარული უკიდურო ან თითქმის უკიდურო ხვლიკები; ხშირად მორებისა და დაფების ქვეშ.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/anguis-colchica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/anguis-colchica-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/anguis-colchica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/anguis-colchica-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ხშირად 30–50 სმ საერთო სიგრძე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Anguidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ბოხმეჭა.",
+      "traits": [
+        "გველისებრი სხეული, მაგრამ ხვლიკის თავის ქერცლებითა და ქუთუთოებით.\n",
+        "მოძრაობს გვერდითი ტალღებით; გველი არ არის.\n",
+        "უშხამოა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Anguis colchica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Anguis colchica კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Anguis colchica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ბოხმეჭა?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Anguis&species=colchica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "bufo-verrucosissimus",
+    "commonName": "კავკასიური გომბეშო",
+    "scientificName": "Bufo verrucosissimus",
+    "genus": "Bufo",
+    "family": "Bufonidae",
+    "location": "საქართველო",
+    "description": "კავკასიური გომბეშო — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კავკასიური გომბეშო (Bufo verrucosissimus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/bufo-verrucosissimus.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/bufo-verrucosissimus-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური გომბეშო.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Bufo verrucosissimus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Bufo verrucosissimus კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Bufo verrucosissimus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური გომბეშო?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Bufo&where-species=verrucosissimus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "bufotes-viridis",
+    "commonName": "მწვანე გომბეშო",
+    "scientificName": "Bufotes viridis",
+    "genus": "Bufotes",
+    "family": "Bufonidae",
+    "location": "საქართველო",
+    "description": "მწვანე გომბეშო — დაფიქსირებულია საქართველოში.",
+    "overview": "მწვანე გომბეშო (Bufotes viridis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/bufotes-viridis.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/bufotes-viridis-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მწვანე გომბეშო.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Bufotes viridis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Bufotes viridis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მწვანე გომბეშო?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Bufotes&where-species=viridis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
     "id": "coronella-austriaca",
     "commonName": "სპილენძა",
     "scientificName": "Coronella austriaca",
@@ -130,8 +502,12 @@ export const species: Species[] = [
         "answer": "კვერცხცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157284/0"
@@ -143,13 +519,1901 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Coronella&species=austriaca"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-adjarica",
+    "commonName": "აჭარული კლდის ხვლიკი",
+    "scientificName": "Darevskia adjarica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო — სამხრეთ-დასავლეთი საქართველო",
+    "description": "აჭარული კლდის ხვლიკი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აჭარული კლდის ხვლიკი (Darevskia adjarica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/darevskia-adjarica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-adjarica-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica.jpg"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Smooth_snake"
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica-2.jpg"
       },
       {
-        "name": "Scientific publications"
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ აჭარული კლდის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia adjarica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia adjarica კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia adjarica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება აჭარული კლდის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=adjarica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-alpina",
+    "commonName": "აფხაზეთის კლდის ხვლიკი",
+    "scientificName": "Darevskia alpina",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო — აფხაზეთი / დასავლეთი დიდი კავკასიონის მაღალმთიანი",
+    "description": "აფხაზეთის კლდის ხვლიკი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აფხაზეთის კლდის ხვლიკი (Darevskia alpina) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/darevskia-alpina.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-alpina-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-alpina.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-alpina-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-alpina-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ აფხაზეთის კლდის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia alpina საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia alpina კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia alpina შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება აფხაზეთის კლდის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=alpina"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-armeniaca",
+    "commonName": "სომხური კლდის ხვლიკი",
+    "scientificName": "Darevskia armeniaca",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "სომხური კლდის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "სომხური კლდის ხვლიკი (Darevskia armeniaca) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/darevskia-armeniaca.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-armeniaca-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ სომხური კლდის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia armeniaca საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia armeniaca შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება სომხური კლდის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=armeniaca"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-brauneri",
+    "commonName": "ბრაუნერის კლდის ხვლიკი",
+    "scientificName": "Darevskia brauneri",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "ბრაუნერის კლდის ხვლიკი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "ბრაუნერის კლდის ხვლიკი (Darevskia brauneri) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/darevskia-brauneri.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-brauneri-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ბრაუნერის კლდის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia brauneri საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia brauneri კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia brauneri შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ბრაუნერის კლდის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=brauneri"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-caucasica",
+    "commonName": "კავკასიონის ხვლიკი",
+    "scientificName": "Darevskia caucasica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "კავკასიონის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "კავკასიონის ხვლიკი (Darevskia caucasica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/darevskia-caucasica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-caucasica-mobile.jpg",
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica-3.jpg"
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიონის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia caucasica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia caucasica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიონის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=caucasica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-clarkorum",
+    "commonName": "ლაზური ხვლიკი",
+    "scientificName": "Darevskia clarkorum",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო — სამხრეთ-დასავლეთის მთის ტყეები",
+    "description": "ლაზური ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "ლაზური ხვლიკი (Darevskia clarkorum) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-clarkorum.jpg",
+    "imageCredit": {
+      "photographer": "Szymon Bzoma",
+      "url": "https://www.inaturalist.org/observations/184839889"
+    },
+    "mobileImage": "/images/darevskia-clarkorum-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Gökhan EREN",
+      "url": "https://www.inaturalist.org/observations/220117301"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-clarkorum.jpg",
+        "credit": {
+          "photographer": "Szymon Bzoma",
+          "url": "https://www.inaturalist.org/observations/184839889"
+        }
+      },
+      {
+        "src": "/images/darevskia-clarkorum-mobile.jpg",
+        "credit": {
+          "photographer": "Gökhan EREN",
+          "url": "https://www.inaturalist.org/observations/220117301"
+        }
+      },
+      {
+        "src": "/images/darevskia-clarkorum-2.jpg",
+        "credit": {
+          "photographer": "saulechev",
+          "url": "https://www.inaturalist.org/observations/118166336"
+        }
+      },
+      {
+        "src": "/images/darevskia-clarkorum-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/121404384"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ლაზური ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia clarkorum საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia clarkorum შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ლაზური ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=clarkorum"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-daghestanica",
+    "commonName": "დაღესტნური ხვლიკი",
+    "scientificName": "Darevskia daghestanica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "დაღესტნური ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "დაღესტნური ხვლიკი (Darevskia daghestanica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-daghestanica.jpg",
+    "imageCredit": {
+      "photographer": "Марина Горбунова-Ëлкина",
+      "url": "https://www.inaturalist.org/observations/310055994"
+    },
+    "mobileImage": "/images/darevskia-daghestanica-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "giorgi_iankoshvili",
+      "url": "https://www.inaturalist.org/observations/244893149"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-daghestanica.jpg",
+        "credit": {
+          "photographer": "Марина Горбунова-Ëлкина",
+          "url": "https://www.inaturalist.org/observations/310055994"
+        }
+      },
+      {
+        "src": "/images/darevskia-daghestanica-mobile.jpg",
+        "credit": {
+          "photographer": "giorgi_iankoshvili",
+          "url": "https://www.inaturalist.org/observations/244893149"
+        }
+      },
+      {
+        "src": "/images/darevskia-daghestanica-2.jpg",
+        "credit": {
+          "photographer": "Дауд Арсанукаев",
+          "url": "https://www.inaturalist.org/observations/79774166"
+        }
+      },
+      {
+        "src": "/images/darevskia-daghestanica-3.jpg",
+        "credit": {
+          "photographer": "Марина Горбунова-Ëлкина",
+          "url": "https://www.inaturalist.org/observations/310055993"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ დაღესტნური ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia daghestanica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia daghestanica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება დაღესტნური ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=daghestanica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-dahli",
+    "commonName": "დალის ხვლიკი",
+    "scientificName": "Darevskia dahli",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "დალის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "დალის ხვლიკი (Darevskia dahli) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-dahli.jpg",
+    "imageCredit": {
+      "photographer": "Igor Balashov",
+      "url": "https://www.inaturalist.org/observations/91501385"
+    },
+    "mobileImage": "/images/darevskia-dahli-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/287684485"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-dahli.jpg",
+        "credit": {
+          "photographer": "Igor Balashov",
+          "url": "https://www.inaturalist.org/observations/91501385"
+        }
+      },
+      {
+        "src": "/images/darevskia-dahli-mobile.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/287684485"
+        }
+      },
+      {
+        "src": "/images/darevskia-dahli-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/305324105"
+        }
+      },
+      {
+        "src": "/images/darevskia-dahli-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/305324113"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ დალის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia dahli საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia dahli შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება დალის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=dahli"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-derjugini",
+    "commonName": "კავკასიური ტყის ხვლიკი",
+    "scientificName": "Darevskia derjugini",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "კავკასიური ტყის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "კავკასიური ტყის ხვლიკი (Darevskia derjugini) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-derjugini.jpg",
+    "imageCredit": {
+      "photographer": "Edouard Veuillet",
+      "url": "https://www.inaturalist.org/observations/180244951"
+    },
+    "mobileImage": "/images/darevskia-derjugini-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "lelyare2005",
+      "url": "https://www.inaturalist.org/observations/172291711"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-derjugini.jpg",
+        "credit": {
+          "photographer": "Edouard Veuillet",
+          "url": "https://www.inaturalist.org/observations/180244951"
+        }
+      },
+      {
+        "src": "/images/darevskia-derjugini-mobile.jpg",
+        "credit": {
+          "photographer": "lelyare2005",
+          "url": "https://www.inaturalist.org/observations/172291711"
+        }
+      },
+      {
+        "src": "/images/darevskia-derjugini-2.jpg",
+        "credit": {
+          "photographer": "Michael Hayes",
+          "url": "https://www.inaturalist.org/observations/383231300"
+        }
+      },
+      {
+        "src": "/images/darevskia-derjugini-3.jpg",
+        "credit": {
+          "photographer": "p_stipticus",
+          "url": "https://www.inaturalist.org/observations/99729990"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური ტყის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia derjugini საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia derjugini შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური ტყის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=derjugini"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-mixta",
+    "commonName": "კოლხური კლდის ხვლიკი",
+    "scientificName": "Darevskia mixta",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "კოლხური კლდის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "კოლხური კლდის ხვლიკი (Darevskia mixta) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-mixta.jpg",
+    "imageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/147324674"
+    },
+    "mobileImage": "/images/darevskia-mixta-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Leonid A. Neymark",
+      "url": "https://www.inaturalist.org/observations/64964491"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-mixta.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/147324674"
+        }
+      },
+      {
+        "src": "/images/darevskia-mixta-mobile.jpg",
+        "credit": {
+          "photographer": "Leonid A. Neymark",
+          "url": "https://www.inaturalist.org/observations/64964491"
+        }
+      },
+      {
+        "src": "/images/darevskia-mixta-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/145425233"
+        }
+      },
+      {
+        "src": "/images/darevskia-mixta-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/156724117"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კოლხური კლდის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia mixta საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia mixta შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კოლხური კლდის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=mixta"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-obscura",
+    "commonName": "მესხური კლდის ხვლიკი",
+    "scientificName": "Darevskia obscura",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "მესხური კლდის ხვლიკი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "მესხური კლდის ხვლიკი (Darevskia obscura) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-obscura.jpg",
+    "imageCredit": {
+      "photographer": "Sandro Kiladze",
+      "url": "https://www.inaturalist.org/observations/176415405"
+    },
+    "mobileImage": "/images/darevskia-obscura-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Sandro Kiladze",
+      "url": "https://www.inaturalist.org/observations/176415516"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-obscura.jpg",
+        "credit": {
+          "photographer": "Sandro Kiladze",
+          "url": "https://www.inaturalist.org/observations/176415405"
+        }
+      },
+      {
+        "src": "/images/darevskia-obscura-mobile.jpg",
+        "credit": {
+          "photographer": "Sandro Kiladze",
+          "url": "https://www.inaturalist.org/observations/176415516"
+        }
+      },
+      {
+        "src": "/images/darevskia-obscura-2.jpg",
+        "credit": {
+          "photographer": "Sandro Kiladze",
+          "url": "https://www.inaturalist.org/observations/176415465"
+        }
+      },
+      {
+        "src": "/images/darevskia-obscura-3.jpg",
+        "credit": {
+          "photographer": "lzazadze",
+          "url": "https://www.inaturalist.org/observations/86843077"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მესხური კლდის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia obscura საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia obscura კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia obscura შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მესხური კლდის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=obscura"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-pontica",
+    "commonName": "კოლხური მდელოს ხვლიკი",
+    "scientificName": "Darevskia pontica",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "კოლხური მდელოს ხვლიკი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კოლხური მდელოს ხვლიკი (Darevskia pontica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-pontica.jpg",
+    "imageCredit": {
+      "photographer": "Gennadiy Okatov",
+      "url": "https://www.inaturalist.org/observations/208842694"
+    },
+    "mobileImage": "/images/darevskia-pontica-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "yuppiy",
+      "url": "https://www.inaturalist.org/observations/30157219"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-pontica.jpg",
+        "credit": {
+          "photographer": "Gennadiy Okatov",
+          "url": "https://www.inaturalist.org/observations/208842694"
+        }
+      },
+      {
+        "src": "/images/darevskia-pontica-mobile.jpg",
+        "credit": {
+          "photographer": "yuppiy",
+          "url": "https://www.inaturalist.org/observations/30157219"
+        }
+      },
+      {
+        "src": "/images/darevskia-pontica-2.jpg",
+        "credit": {
+          "photographer": "Radovan Víta",
+          "url": "https://www.inaturalist.org/observations/271044071"
+        }
+      },
+      {
+        "src": "/images/darevskia-pontica-3.jpg",
+        "credit": {
+          "photographer": "Saturn Ermolinsky",
+          "url": "https://www.inaturalist.org/observations/81861224"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კოლხური მდელოს ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia pontica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Darevskia pontica კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia pontica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კოლხური მდელოს ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=pontica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-portschinskii",
+    "commonName": "მტკვრის ხვლიკი",
+    "scientificName": "Darevskia portschinskii",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "მტკვრის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "მტკვრის ხვლიკი (Darevskia portschinskii) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-portschinskii.jpg",
+    "imageCredit": {
+      "photographer": "Axel Gosseries",
+      "url": "https://www.inaturalist.org/observations/181252728"
+    },
+    "mobileImage": "/images/darevskia-portschinskii-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Axel Gosseries",
+      "url": "https://www.inaturalist.org/observations/181253119"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-portschinskii.jpg",
+        "credit": {
+          "photographer": "Axel Gosseries",
+          "url": "https://www.inaturalist.org/observations/181252728"
+        }
+      },
+      {
+        "src": "/images/darevskia-portschinskii-mobile.jpg",
+        "credit": {
+          "photographer": "Axel Gosseries",
+          "url": "https://www.inaturalist.org/observations/181253119"
+        }
+      },
+      {
+        "src": "/images/darevskia-portschinskii-2.jpg",
+        "credit": {
+          "photographer": "Axel Gosseries",
+          "url": "https://www.inaturalist.org/observations/181253328"
+        }
+      },
+      {
+        "src": "/images/darevskia-portschinskii-3.jpg",
+        "credit": {
+          "photographer": "Axel Gosseries",
+          "url": "https://www.inaturalist.org/observations/181252918"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მტკვრის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia portschinskii საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia portschinskii შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მტკვრის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=portschinskii"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-praticola",
+    "commonName": "მდელოს ხვლიკი",
+    "scientificName": "Darevskia praticola",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "მდელოს ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "მდელოს ხვლიკი (Darevskia praticola) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-praticola.jpg",
+    "imageCredit": {
+      "photographer": "Mojtaba Vosough Rouhani",
+      "url": "https://www.inaturalist.org/observations/13108005"
+    },
+    "mobileImage": "/images/darevskia-praticola-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Gennadiy Okatov",
+      "url": "https://www.inaturalist.org/observations/208842694"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-praticola.jpg",
+        "credit": {
+          "photographer": "Mojtaba Vosough Rouhani",
+          "url": "https://www.inaturalist.org/observations/13108005"
+        }
+      },
+      {
+        "src": "/images/darevskia-praticola-mobile.jpg",
+        "credit": {
+          "photographer": "Gennadiy Okatov",
+          "url": "https://www.inaturalist.org/observations/208842694"
+        }
+      },
+      {
+        "src": "/images/darevskia-praticola-2.jpg",
+        "credit": {
+          "photographer": "yuppiy",
+          "url": "https://www.inaturalist.org/observations/30157219"
+        }
+      },
+      {
+        "src": "/images/darevskia-praticola-3.jpg",
+        "credit": {
+          "photographer": "Radovan Víta",
+          "url": "https://www.inaturalist.org/observations/271044071"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მდელოს ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia praticola საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia praticola შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მდელოს ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=praticola"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-raddei",
+    "commonName": "რადეს ხვლიკი",
+    "scientificName": "Darevskia raddei",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "რადეს ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "რადეს ხვლიკი (Darevskia raddei) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-raddei.jpg",
+    "imageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/199095963"
+    },
+    "mobileImage": "/images/darevskia-raddei-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "tvp",
+      "url": "https://www.inaturalist.org/observations/15614643"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-raddei.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/199095963"
+        }
+      },
+      {
+        "src": "/images/darevskia-raddei-mobile.jpg",
+        "credit": {
+          "photographer": "tvp",
+          "url": "https://www.inaturalist.org/observations/15614643"
+        }
+      },
+      {
+        "src": "/images/darevskia-raddei-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/265811885"
+        }
+      },
+      {
+        "src": "/images/darevskia-raddei-3.jpg",
+        "credit": {
+          "photographer": "Julie",
+          "url": "https://www.inaturalist.org/observations/7114470"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ რადეს ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia raddei საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia raddei შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება რადეს ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=raddei"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "darevskia-valentini",
+    "commonName": "ვალენტინის ხვლიკი",
+    "scientificName": "Darevskia valentini",
+    "genus": "Darevskia",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "ვალენტინის ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "ვალენტინის ხვლიკი (Darevskia valentini) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ამონაკვეთები, კლდეები, ქვის კედლები და ღია მთის ან მთისწინა ფერდობები.",
+    "diet": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/darevskia-valentini.jpg",
+    "imageCredit": {
+      "photographer": "Mihrinur bahar",
+      "url": "https://www.inaturalist.org/observations/378783722"
+    },
+    "mobileImage": "/images/darevskia-valentini-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Leonid A. Neymark",
+      "url": "https://www.inaturalist.org/observations/239167219"
+    },
+    "gallery": [
+      {
+        "src": "/images/darevskia-valentini.jpg",
+        "credit": {
+          "photographer": "Mihrinur bahar",
+          "url": "https://www.inaturalist.org/observations/378783722"
+        }
+      },
+      {
+        "src": "/images/darevskia-valentini-mobile.jpg",
+        "credit": {
+          "photographer": "Leonid A. Neymark",
+          "url": "https://www.inaturalist.org/observations/239167219"
+        }
+      },
+      {
+        "src": "/images/darevskia-valentini-2.jpg",
+        "credit": {
+          "photographer": "Jacek Pietruszewski",
+          "url": "https://www.inaturalist.org/observations/170898628"
+        }
+      },
+      {
+        "src": "/images/darevskia-valentini-3.jpg",
+        "credit": {
+          "photographer": "emanon",
+          "url": "https://www.inaturalist.org/observations/329065586"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 8 სმ-მდე სხეული (კუდით დამატებით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ვალენტინის ხვლიკი.",
+      "traits": [
+        "პატარა ლაცერტიდი ხვლიკი; ბევრი Darevskia სახეობა მსგავსია და საჭიროებს ყურადღებით შედარებას.\n",
+        "ხშირად კლდეებსა და ქვის ზედაპირებთანაა დაკავშირებული.\n",
+        "კავკასიაში იდენტიფიკაცია რეგიონული გასაღებებითა და გადამოწმებული ფოტოებით უნდა მოხდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Darevskia valentini საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Darevskia valentini შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ვალენტინის ხვლიკი?\n",
+        "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=valentini"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "dolichophis-caspius",
+    "commonName": "ყვითელმუცელა მცურავი",
+    "scientificName": "Dolichophis caspius",
+    "genus": "Dolichophis",
+    "family": "Colubridae",
+    "location": "საქართველო",
+    "description": "ყვითელმუცელა მცურავი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "ყვითელმუცელა მცურავი (Dolichophis caspius) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, კლდოვანი ფერდობები ან ტყის პირას — სახეობის მიხედვით.",
+    "diet": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.",
+    "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/dolichophis-caspius.jpg",
+    "imageCredit": {
+      "photographer": "Aleksandr Popov / Александр Попов",
+      "url": "https://www.inaturalist.org/observations/37424541"
+    },
+    "mobileImage": "/images/dolichophis-caspius-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Дима Журавлёв",
+      "url": "https://www.inaturalist.org/observations/102809016"
+    },
+    "gallery": [
+      {
+        "src": "/images/dolichophis-caspius.jpg",
+        "credit": {
+          "photographer": "Aleksandr Popov / Александр Попов",
+          "url": "https://www.inaturalist.org/observations/37424541"
+        }
+      },
+      {
+        "src": "/images/dolichophis-caspius-mobile.jpg",
+        "credit": {
+          "photographer": "Дима Журавлёв",
+          "url": "https://www.inaturalist.org/observations/102809016"
+        }
+      },
+      {
+        "src": "/images/dolichophis-caspius-2.jpg",
+        "credit": {
+          "photographer": "Ekaterina Borovskaya",
+          "url": "https://www.inaturalist.org/observations/182597249"
+        }
+      },
+      {
+        "src": "/images/dolichophis-caspius-3.jpg",
+        "credit": {
+          "photographer": "Kevin Chen",
+          "url": "https://www.inaturalist.org/observations/367505275"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ხშირად 1 მ ან მეტი"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ყვითელმუცელა მცურავი.",
+      "traits": [
+        "დიდი ან საშუალო კოლუბრიდი (Dolichophis caspius).\n",
+        "მრგვალი გუგები; უშხამო (ამ საიტზე — უვნებელი, თუ სხვაგვარად არაა მითითებული).\n",
+        "ხშირად სწრაფი და დღისით აქტიური.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Dolichophis caspius საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Dolichophis caspius კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Dolichophis caspius შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ყვითელმუცელა მცურავი?\n",
+        "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Dolichophis&species=caspius"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
@@ -256,8 +2520,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 5–11 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/164595/0"
@@ -269,13 +2537,242 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Dolichophis&species=schmidti"
+      }
+    ]
+  },
+  {
+    "id": "eirenis-collaris",
+    "commonName": "საყელოიანი ეირენისი",
+    "scientificName": "Eirenis collaris",
+    "genus": "Eirenis",
+    "family": "Colubridae",
+    "location": "საქართველო",
+    "description": "საყელოიანი ეირენისი — დაფიქსირებულია საქართველოში.",
+    "overview": "საყელოიანი ეირენისი (Eirenis collaris) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ქვიანი ფერდობები და მშრალი ღია ჰაბიტატები თავშესაფრით ქვების ქვეშ.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.",
+    "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/eirenis-collaris.jpg",
+    "imageCredit": {
+      "photographer": "Edouard Veuillet",
+      "url": "https://www.inaturalist.org/observations/180251559"
+    },
+    "mobileImage": "/images/eirenis-collaris-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Елена Полякова",
+      "url": "https://www.inaturalist.org/observations/380246593"
+    },
+    "gallery": [
+      {
+        "src": "/images/eirenis-collaris.jpg",
+        "credit": {
+          "photographer": "Edouard Veuillet",
+          "url": "https://www.inaturalist.org/observations/180251559"
+        }
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Dolichophis_schmidti"
+        "src": "/images/eirenis-collaris-mobile.jpg",
+        "credit": {
+          "photographer": "Елена Полякова",
+          "url": "https://www.inaturalist.org/observations/380246593"
+        }
       },
       {
-        "name": "Scientific publications"
+        "src": "/images/eirenis-collaris-2.jpg",
+        "credit": {
+          "photographer": "leylanglr",
+          "url": "https://www.inaturalist.org/observations/117441231"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-3.jpg",
+        "credit": {
+          "photographer": "reisegali",
+          "url": "https://www.inaturalist.org/observations/221678518"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 60 სმ-მდე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ საყელოიანი ეირენისი.",
+      "traits": [
+        "პატარა გამხდარი კოლუბრიდი.\n",
+        "Eirenis-ში ხშირად მუქი საყელო ან თავის ნიშანია.\n",
+        "ფარული ქვების ქვეშ.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eirenis collaris საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Eirenis collaris შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება საყელოიანი ეირენისი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eirenis&species=collaris"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "eirenis-modestus",
+    "commonName": "წყნარი ეირენისი",
+    "scientificName": "Eirenis modestus",
+    "genus": "Eirenis",
+    "family": "Colubridae",
+    "location": "საქართველო",
+    "description": "წყნარი ეირენისი — დაფიქსირებულია საქართველოში.",
+    "overview": "წყნარი ეირენისი (Eirenis modestus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ქვიანი ფერდობები და მშრალი ღია ჰაბიტატები თავშესაფრით ქვების ქვეშ.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.",
+    "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/eirenis-modestus.jpg",
+    "imageCredit": {
+      "photographer": "Roberto Sindaco",
+      "url": "https://www.inaturalist.org/observations/105717471"
+    },
+    "mobileImage": "/images/eirenis-modestus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Titouan Roguet",
+      "url": "https://www.inaturalist.org/observations/183208028"
+    },
+    "gallery": [
+      {
+        "src": "/images/eirenis-modestus.jpg",
+        "credit": {
+          "photographer": "Roberto Sindaco",
+          "url": "https://www.inaturalist.org/observations/105717471"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-mobile.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/183208028"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-2.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://www.inaturalist.org/observations/54925"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-3.jpg",
+        "credit": {
+          "photographer": "brechtheusequin",
+          "url": "https://www.inaturalist.org/observations/345956305"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 60 სმ-მდე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ წყნარი ეირენისი.",
+      "traits": [
+        "პატარა გამხდარი კოლუბრიდი.\n",
+        "Eirenis-ში ხშირად მუქი საყელო ან თავის ნიშანია.\n",
+        "ფარული ქვების ქვეშ.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eirenis modestus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Eirenis modestus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება წყნარი ეირენისი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eirenis&species=modestus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
@@ -421,6 +2918,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157275/0"
       },
@@ -431,13 +2932,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Elaphe&species=dione"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Steppe_rat_snake"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -544,8 +3038,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი დებს რამდენიმე კვერცხს (ჩვეულებრივ დაახლოებით 4–16). ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "GBIF",
         "url": "https://www.gbif.org/species/10287547"
@@ -553,20 +3051,1441 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Elaphe&species=urartica"
+      }
+    ]
+  },
+  {
+    "id": "emys-orbicularis",
+    "commonName": "ჭაობის კუ",
+    "scientificName": "Emys orbicularis",
+    "genus": "Emys",
+    "family": "Emydidae",
+    "location": "საქართველო",
+    "description": "ჭაობის კუ — დაფიქსირებულია საქართველოში.",
+    "overview": "ჭაობის კუ (Emys orbicularis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ტბორები, ტბები, ნელი მდინარეები და ჭაობები.",
+    "diet": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.",
+    "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
+    "conservation": "საქართველოში დაფიქსირებულია. ბევრ კუს სახეობას მსოფლიოში ჰაბიტატის დაკარგვა და ამოღება ემუქრება.",
+    "danger": "Harmless",
+    "image": "/images/emys-orbicularis.jpg",
+    "imageCredit": {
+      "photographer": "Полина Яковлевна Нехаева (Лихачева)",
+      "url": "https://www.inaturalist.org/observations/18780442"
+    },
+    "mobileImage": "/images/emys-orbicularis-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Mohammad Amin Ghaffari",
+      "url": "https://www.inaturalist.org/observations/298113621"
+    },
+    "gallery": [
+      {
+        "src": "/images/emys-orbicularis.jpg",
+        "credit": {
+          "photographer": "Полина Яковлевна Нехаева (Лихачева)",
+          "url": "https://www.inaturalist.org/observations/18780442"
+        }
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Elaphe_urartica"
+        "src": "/images/emys-orbicularis-mobile.jpg",
+        "credit": {
+          "photographer": "Mohammad Amin Ghaffari",
+          "url": "https://www.inaturalist.org/observations/298113621"
+        }
       },
       {
-        "name": "Scientific publications"
+        "src": "/images/emys-orbicularis-2.jpg",
+        "credit": {
+          "photographer": "Almantas Kulbis",
+          "url": "https://www.inaturalist.org/observations/4474575"
+        }
+      },
+      {
+        "src": "/images/emys-orbicularis-3.jpg",
+        "credit": {
+          "photographer": "joepon",
+          "url": "https://www.inaturalist.org/observations/370280848"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ხმელეთი / მტკნარი წყალი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ნიჟარა ჩვეულებრივ 15–30 სმ სახეობის მიხედვით"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ჭაობის კუ.",
+      "traits": [
+        "მტკნარი წყლის კუ უფრო ბრტყელი ნიჟარით, ვიდრე სახმელეთო კუებს.\n",
+        "ხშირად ნაპირზე და მორებზე თბება.\n",
+        "ბევრ წყლის სახეობას ცურვისთვის დაფრთხილი თათები აქვს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Emys orbicularis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Emys orbicularis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ჭაობის კუ?\n",
+        "answer": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Emys&species=orbicularis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "eremias-arguta",
+    "commonName": "ფერადი ფსვენი",
+    "scientificName": "Eremias arguta",
+    "genus": "Eremias",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "ფერადი ფსვენი — დაფიქსირებულია საქართველოში.",
+    "overview": "ფერადი ფსვენი (Eremias arguta) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/eremias-arguta.jpg",
+    "imageCredit": {
+      "photographer": "Nikita Sevastianov",
+      "url": "https://www.inaturalist.org/observations/41042387"
+    },
+    "mobileImage": "/images/eremias-arguta-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Aurélien Grimaud",
+      "url": "https://www.inaturalist.org/observations/318012787"
+    },
+    "gallery": [
+      {
+        "src": "/images/eremias-arguta.jpg",
+        "credit": {
+          "photographer": "Nikita Sevastianov",
+          "url": "https://www.inaturalist.org/observations/41042387"
+        }
+      },
+      {
+        "src": "/images/eremias-arguta-mobile.jpg",
+        "credit": {
+          "photographer": "Aurélien Grimaud",
+          "url": "https://www.inaturalist.org/observations/318012787"
+        }
+      },
+      {
+        "src": "/images/eremias-arguta-2.jpg",
+        "credit": {
+          "photographer": "Наталья Бешко",
+          "url": "https://www.inaturalist.org/observations/93553764"
+        }
+      },
+      {
+        "src": "/images/eremias-arguta-3.jpg",
+        "credit": {
+          "photographer": "Eugene Popov",
+          "url": "https://www.inaturalist.org/observations/11997409"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ფერადი ფსვენი.",
+      "traits": [
+        "ფერადი ფსვენი ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eremias arguta საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Eremias arguta შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ფერადი ფსვენი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eremias&species=arguta"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "eremias-velox",
+    "commonName": "მარდი ფსვენი",
+    "scientificName": "Eremias velox",
+    "genus": "Eremias",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "მარდი ფსვენი — დაფიქსირებულია საქართველოში.",
+    "overview": "მარდი ფსვენი (Eremias velox) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/eremias-velox.jpg",
+    "imageCredit": {
+      "photographer": "Вячеслав Юсупов",
+      "url": "https://www.inaturalist.org/observations/19103415"
+    },
+    "mobileImage": "/images/eremias-velox-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Koray Öğreten",
+      "url": "https://www.inaturalist.org/observations/375543401"
+    },
+    "gallery": [
+      {
+        "src": "/images/eremias-velox.jpg",
+        "credit": {
+          "photographer": "Вячеслав Юсупов",
+          "url": "https://www.inaturalist.org/observations/19103415"
+        }
+      },
+      {
+        "src": "/images/eremias-velox-mobile.jpg",
+        "credit": {
+          "photographer": "Koray Öğreten",
+          "url": "https://www.inaturalist.org/observations/375543401"
+        }
+      },
+      {
+        "src": "/images/eremias-velox-2.jpg",
+        "credit": {
+          "photographer": "Mohammad Amin Ghaffari",
+          "url": "https://www.inaturalist.org/observations/68975387"
+        }
+      },
+      {
+        "src": "/images/eremias-velox-3.jpg",
+        "credit": {
+          "photographer": "Derek Dohler",
+          "url": "https://www.inaturalist.org/observations/109527"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მარდი ფსვენი.",
+      "traits": [
+        "მარდი ფსვენი ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eremias velox საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Eremias velox შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მარდი ფსვენი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eremias&species=velox"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "eryx-jaculus",
+    "commonName": "დასავლური მახრჩობელა",
+    "scientificName": "Eryx jaculus",
+    "genus": "Eryx",
+    "family": "Boidae",
+    "location": "საქართველო",
+    "description": "დასავლური მახრჩობელა — დაფიქსირებულია საქართველოში.",
+    "overview": "დასავლური მახრჩობელა (Eryx jaculus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ქვიშიანი და ფხვიერი ნიადაგები მშრალ ღია ადგილებში.",
+    "diet": "წვრილი ხვლიკები და მღრღნელები; კლავს მოხრჩობით.",
+    "behavior": "ძირითადად ბინდის/ღამის მიწისმთხრელი.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/eryx-jaculus.jpg",
+    "imageCredit": {
+      "photographer": "Alexandru Buzatu",
+      "url": "https://www.inaturalist.org/observations/129650363"
+    },
+    "mobileImage": "/images/eryx-jaculus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Tom Kirschey",
+      "url": "https://www.inaturalist.org/observations/21226800"
+    },
+    "gallery": [
+      {
+        "src": "/images/eryx-jaculus.jpg",
+        "credit": {
+          "photographer": "Alexandru Buzatu",
+          "url": "https://www.inaturalist.org/observations/129650363"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-mobile.jpg",
+        "credit": {
+          "photographer": "Tom Kirschey",
+          "url": "https://www.inaturalist.org/observations/21226800"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-2.jpg",
+        "credit": {
+          "photographer": "Leonid A. Neymark",
+          "url": "https://www.inaturalist.org/observations/50042883"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-3.jpg",
+        "credit": {
+          "photographer": "Roberto Sindaco",
+          "url": "https://www.inaturalist.org/observations/619071"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 80 სმ-მდე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Boidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ დასავლური მახრჩობელა.",
+      "traits": [
+        "მოკლე მსხვილი სხეული და ბლაგვი კუდის წვერი.\n",
+        "პატარა თვალები; მახრჩობელას იერი.\n",
+        "უშხამო მახრჩობელი.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eryx jaculus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Eryx jaculus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება დასავლური მახრჩობელა?\n",
+        "answer": "წვრილი ხვლიკები და მღრღნელები; კლავს მოხრჩობით.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eryx&species=jaculus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "eumeces-schneiderii",
+    "commonName": "გრძელფეხა სცინკი",
+    "scientificName": "Eumeces schneiderii",
+    "genus": "Eumeces",
+    "family": "Scincidae",
+    "location": "საქართველო",
+    "description": "გრძელფეხა სცინკი — დაფიქსირებულია საქართველოში.",
+    "overview": "გრძელფეხა სცინკი (Eumeces schneiderii) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ფხვიერი ნიადაგი, ფოთლების საფარი, ქვები და მშრალი ღია ჰაბიტატები.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ხშირად ფარულია; ბევრი სცინკი სწრაფად მოძრაობს ფოთლოვან საფარში ან ქვების ქვეშ.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/eumeces-schneiderii.jpg",
+    "imageCredit": {
+      "photographer": "Vojtěch Víta",
+      "url": "https://www.inaturalist.org/observations/146024985"
+    },
+    "mobileImage": "/images/eumeces-schneiderii-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "רעות בן אלישר",
+      "url": "https://www.inaturalist.org/observations/26596742"
+    },
+    "gallery": [
+      {
+        "src": "/images/eumeces-schneiderii.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/146024985"
+        }
+      },
+      {
+        "src": "/images/eumeces-schneiderii-mobile.jpg",
+        "credit": {
+          "photographer": "רעות בן אלישר",
+          "url": "https://www.inaturalist.org/observations/26596742"
+        }
+      },
+      {
+        "src": "/images/eumeces-schneiderii-2.jpg",
+        "credit": {
+          "photographer": "Julien Renoult",
+          "url": "https://www.inaturalist.org/observations/9521266"
+        }
+      },
+      {
+        "src": "/images/eumeces-schneiderii-3.jpg",
+        "credit": {
+          "photographer": "Edouard Veuillet",
+          "url": "https://www.inaturalist.org/observations/180253623"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ 15 სმ-მდე საერთო სიგრძე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ გრძელფეხა სცინკი.",
+      "traits": [
+        "გლუვი მბზინავი ქერცლები სცინკებისთვის დამახასიათებელი.\n",
+        "ზოგ ტაქსონში კიდურები შემცირებულია; Ablepharus-ს გველისებრი თვალის იერი აქვს.\n",
+        "პატარაა და ადვილად გამოსატოვებელი.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Eumeces schneiderii საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Eumeces schneiderii შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება გრძელფეხა სცინკი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Eumeces&species=schneiderii"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "hemorrhois-ravergieri",
+    "commonName": "ნაირფერი მცურავი",
+    "scientificName": "Hemorrhois ravergieri",
+    "genus": "Hemorrhois",
+    "family": "Colubridae",
+    "location": "საქართველო",
+    "description": "ნაირფერი მცურავი — დაფიქსირებულია საქართველოში.",
+    "overview": "ნაირფერი მცურავი (Hemorrhois ravergieri) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, კლდოვანი ფერდობები ან ტყის პირას — სახეობის მიხედვით.",
+    "diet": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.",
+    "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/hemorrhois-ravergieri.jpg",
+    "imageCredit": {
+      "photographer": "hossein_nabizadeh",
+      "url": "https://www.inaturalist.org/observations/132460931"
+    },
+    "mobileImage": "/images/hemorrhois-ravergieri-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Azan Khan",
+      "url": "https://www.inaturalist.org/observations/130364933"
+    },
+    "gallery": [
+      {
+        "src": "/images/hemorrhois-ravergieri.jpg",
+        "credit": {
+          "photographer": "hossein_nabizadeh",
+          "url": "https://www.inaturalist.org/observations/132460931"
+        }
+      },
+      {
+        "src": "/images/hemorrhois-ravergieri-mobile.jpg",
+        "credit": {
+          "photographer": "Azan Khan",
+          "url": "https://www.inaturalist.org/observations/130364933"
+        }
+      },
+      {
+        "src": "/images/hemorrhois-ravergieri-2.jpg",
+        "credit": {
+          "photographer": "Kudaibergen Amirekul",
+          "url": "https://www.inaturalist.org/observations/123060778"
+        }
+      },
+      {
+        "src": "/images/hemorrhois-ravergieri-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/181209834"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ხშირად 1 მ ან მეტი"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ნაირფერი მცურავი.",
+      "traits": [
+        "დიდი ან საშუალო კოლუბრიდი (Hemorrhois ravergieri).\n",
+        "მრგვალი გუგები; უშხამო (ამ საიტზე — უვნებელი, თუ სხვაგვარად არაა მითითებული).\n",
+        "ხშირად სწრაფი და დღისით აქტიური.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Hemorrhois ravergieri საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Hemorrhois ravergieri შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ნაირფერი მცურავი?\n",
+        "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Hemorrhois&species=ravergieri"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "hyla-orientalis",
+    "commonName": "აღმოსავლური ვასაკა",
+    "scientificName": "Hyla orientalis",
+    "genus": "Hyla",
+    "family": "Hylidae",
+    "location": "საქართველო",
+    "description": "აღმოსავლური ვასაკა — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აღმოსავლური ვასაკა (Hyla orientalis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/hyla-orientalis.jpg",
+    "imageCredit": {
+      "photographer": "SteveM4560",
+      "url": "https://www.inaturalist.org/observations/185404031"
+    },
+    "mobileImage": "/images/hyla-orientalis-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "SteveM4560",
+      "url": "https://www.inaturalist.org/observations/183468484"
+    },
+    "gallery": [
+      {
+        "src": "/images/hyla-orientalis.jpg",
+        "credit": {
+          "photographer": "SteveM4560",
+          "url": "https://www.inaturalist.org/observations/185404031"
+        }
+      },
+      {
+        "src": "/images/hyla-orientalis-mobile.jpg",
+        "credit": {
+          "photographer": "SteveM4560",
+          "url": "https://www.inaturalist.org/observations/183468484"
+        }
+      },
+      {
+        "src": "/images/hyla-orientalis-2.jpg",
+        "credit": {
+          "photographer": "SteveM4560",
+          "url": "https://www.inaturalist.org/observations/184358994"
+        }
+      },
+      {
+        "src": "/images/hyla-orientalis-3.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/184035964"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ აღმოსავლური ვასაკა.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Hyla orientalis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Hyla orientalis კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Hyla orientalis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება აღმოსავლური ვასაკა?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Hyla&where-species=orientalis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "hyla-savignyi",
+    "commonName": "მცირეაზიური ვასაკა",
+    "scientificName": "Hyla savignyi",
+    "genus": "Hyla",
+    "family": "Hylidae",
+    "location": "საქართველო",
+    "description": "მცირეაზიური ვასაკა — დაფიქსირებულია საქართველოში.",
+    "overview": "მცირეაზიური ვასაკა (Hyla savignyi) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/hyla-savignyi.jpg",
+    "imageCredit": {
+      "photographer": "Parham Beyhaghi",
+      "url": "https://www.inaturalist.org/observations/3641910"
+    },
+    "mobileImage": "/images/hyla-savignyi-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Mehmet Çelik",
+      "url": "https://www.inaturalist.org/observations/146410607"
+    },
+    "gallery": [
+      {
+        "src": "/images/hyla-savignyi.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/3641910"
+        }
+      },
+      {
+        "src": "/images/hyla-savignyi-mobile.jpg",
+        "credit": {
+          "photographer": "Mehmet Çelik",
+          "url": "https://www.inaturalist.org/observations/146410607"
+        }
+      },
+      {
+        "src": "/images/hyla-savignyi-2.jpg",
+        "credit": {
+          "photographer": "leuli",
+          "url": "https://www.inaturalist.org/observations/186726539"
+        }
+      },
+      {
+        "src": "/images/hyla-savignyi-3.jpg",
+        "credit": {
+          "photographer": "מלאכי גבעון",
+          "url": "https://www.inaturalist.org/observations/214749047"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მცირეაზიური ვასაკა.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Hyla savignyi საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Hyla savignyi შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მცირეაზიური ვასაკა?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Hyla&where-species=savignyi"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "lacerta-agilis",
+    "commonName": "მარდი ხვლიკი",
+    "scientificName": "Lacerta agilis",
+    "genus": "Lacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "მარდი ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "მარდი ხვლიკი (Lacerta agilis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/lacerta-agilis.jpg",
+    "imageCredit": {
+      "photographer": "zaharozaur",
+      "url": "https://www.inaturalist.org/observations/204166502"
+    },
+    "mobileImage": "/images/lacerta-agilis-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Andrzej Oleksa",
+      "url": "https://www.inaturalist.org/observations/47606873"
+    },
+    "gallery": [
+      {
+        "src": "/images/lacerta-agilis.jpg",
+        "credit": {
+          "photographer": "zaharozaur",
+          "url": "https://www.inaturalist.org/observations/204166502"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-mobile.jpg",
+        "credit": {
+          "photographer": "Andrzej Oleksa",
+          "url": "https://www.inaturalist.org/observations/47606873"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-2.jpg",
+        "credit": {
+          "photographer": "Lennart Hudel",
+          "url": "https://www.inaturalist.org/observations/32430817"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-3.jpg",
+        "credit": {
+          "photographer": "Kamilya Medeubaeva",
+          "url": "https://www.inaturalist.org/observations/275472082"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ მარდი ხვლიკი.",
+      "traits": [
+        "მარდი ხვლიკი ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lacerta agilis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Lacerta agilis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება მარდი ხვლიკი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=agilis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "lacerta-media",
+    "commonName": "კავკასიური მწვანე ხვლიკი",
+    "scientificName": "Lacerta media",
+    "genus": "Lacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "კავკასიური მწვანე ხვლიკი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კავკასიური მწვანე ხვლიკი (Lacerta media) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/lacerta-media.jpg",
+    "imageCredit": {
+      "photographer": "reisegali",
+      "url": "https://www.inaturalist.org/observations/212425978"
+    },
+    "mobileImage": "/images/lacerta-media-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Dr. Fabio Mao Valletta",
+      "url": "https://www.inaturalist.org/observations/134144756"
+    },
+    "gallery": [
+      {
+        "src": "/images/lacerta-media.jpg",
+        "credit": {
+          "photographer": "reisegali",
+          "url": "https://www.inaturalist.org/observations/212425978"
+        }
+      },
+      {
+        "src": "/images/lacerta-media-mobile.jpg",
+        "credit": {
+          "photographer": "Dr. Fabio Mao Valletta",
+          "url": "https://www.inaturalist.org/observations/134144756"
+        }
+      },
+      {
+        "src": "/images/lacerta-media-2.jpg",
+        "credit": {
+          "photographer": "Yaman Omran",
+          "url": "https://www.inaturalist.org/observations/68053814"
+        }
+      },
+      {
+        "src": "/images/lacerta-media-3.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/240512685"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური მწვანე ხვლიკი.",
+      "traits": [
+        "კავკასიური მწვანე ხვლიკი ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lacerta media საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Lacerta media კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Lacerta media შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური მწვანე ხვლიკი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=media"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "lacerta-strigata",
+    "commonName": "ზოლიანი ხვლიკი",
+    "scientificName": "Lacerta strigata",
+    "genus": "Lacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "ზოლიანი ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "ზოლიანი ხვლიკი (Lacerta strigata) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/lacerta-strigata.jpg",
+    "imageCredit": {
+      "photographer": "hossein_nabizadeh",
+      "url": "https://www.inaturalist.org/observations/106854529"
+    },
+    "mobileImage": "/images/lacerta-strigata-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Natiq",
+      "url": "https://www.inaturalist.org/observations/310036164"
+    },
+    "gallery": [
+      {
+        "src": "/images/lacerta-strigata.jpg",
+        "credit": {
+          "photographer": "hossein_nabizadeh",
+          "url": "https://www.inaturalist.org/observations/106854529"
+        }
+      },
+      {
+        "src": "/images/lacerta-strigata-mobile.jpg",
+        "credit": {
+          "photographer": "Natiq",
+          "url": "https://www.inaturalist.org/observations/310036164"
+        }
+      },
+      {
+        "src": "/images/lacerta-strigata-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/267329456"
+        }
+      },
+      {
+        "src": "/images/lacerta-strigata-3.jpg",
+        "credit": {
+          "photographer": "fotis-samaritakis",
+          "url": "https://www.inaturalist.org/observations/296332469"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ზოლიანი ხვლიკი.",
+      "traits": [
+        "ზოლიანი ხვლიკი ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lacerta strigata საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Lacerta strigata შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ზოლიანი ხვლიკი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=strigata"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "lissotriton-lantzi",
+    "commonName": "კავკასიური ჩვეულებრივი ტრიტონი",
+    "scientificName": "Lissotriton lantzi",
+    "genus": "Lissotriton",
+    "family": "Salamandridae",
+    "location": "საქართველო",
+    "description": "კავკასიური ჩვეულებრივი ტრიტონი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "კავკასიური ჩვეულებრივი ტრიტონი (Lissotriton lantzi) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "გრილი ტენიანი ტყეები, ნაკადულები და მთის ჭაობები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/lissotriton-lantzi.jpg",
+    "imageCredit": {
+      "photographer": "roman2013",
+      "url": "https://www.inaturalist.org/observations/339319517"
+    },
+    "mobileImage": "/images/lissotriton-lantzi-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Елена Солодовник",
+      "url": "https://www.inaturalist.org/observations/346762987"
+    },
+    "gallery": [
+      {
+        "src": "/images/lissotriton-lantzi.jpg",
+        "credit": {
+          "photographer": "roman2013",
+          "url": "https://www.inaturalist.org/observations/339319517"
+        }
+      },
+      {
+        "src": "/images/lissotriton-lantzi-mobile.jpg",
+        "credit": {
+          "photographer": "Елена Солодовник",
+          "url": "https://www.inaturalist.org/observations/346762987"
+        }
+      },
+      {
+        "src": "/images/lissotriton-lantzi-2.jpg",
+        "credit": {
+          "photographer": "Александр Гончаров",
+          "url": "https://www.inaturalist.org/observations/107759763"
+        }
+      },
+      {
+        "src": "/images/lissotriton-lantzi-3.jpg",
+        "credit": {
+          "photographer": "Oleg Kosterin",
+          "url": "https://www.inaturalist.org/observations/120609170"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური ჩვეულებრივი ტრიტონი.",
+      "traits": [
+        "კუდიანი ამფიბია (სალამანდრა/ტრიტონი).\n",
+        "გლუვი ტენიანი კანი; ოთხი კიდური.\n",
+        "ლარვები წყლისაა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Lissotriton lantzi საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Lissotriton lantzi კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Lissotriton lantzi შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური ჩვეულებრივი ტრიტონი?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Lissotriton&where-species=lantzi"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
   {
     "id": "macrovipera-lebetina",
     "commonName": "გიურზა",
-    "scientificName": "Macrovipera lebetina",
+    "scientificName": "Macrovipera lebetinus",
     "genus": "Macrovipera",
     "family": "Viperidae",
     "location": "აღმოსავლეთ საქართველო",
@@ -660,8 +4579,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157295/0"
@@ -673,13 +4596,364 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Macrovipera&species=lebetinus"
+      }
+    ]
+  },
+  {
+    "id": "malpolon-insignitus",
+    "commonName": "აღმოსავლური ხვლიკიჭამია გველი",
+    "scientificName": "Malpolon insignitus",
+    "genus": "Malpolon",
+    "family": "Psammophiidae",
+    "location": "საქართველო",
+    "description": "აღმოსავლური ხვლიკიჭამია გველი — დაფიქსირებულია საქართველოში. ჩეკლისტში კანდიდატი სახეობაა.",
+    "overview": "აღმოსავლური ხვლიკიჭამია გველი (Malpolon insignitus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტი მას კანდიდატ სახეობად განიხილავს. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია მშრალი და ხმელთაშუაზღვიური ტიპის ლანდშაფტები.",
+    "diet": "ძირითადად ხვლიკები; აგრეთვე სხვა წვრილი ხერხემლიანები.",
+    "behavior": "დღის მონადირე კარგი მხედველობით; უკანა შხამკბილებიანი.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Moderate",
+    "image": "/images/malpolon-insignitus.jpg",
+    "imageCredit": {
+      "photographer": "Gert Jan Verspui",
+      "url": "https://www.inaturalist.org/observations/38427068"
+    },
+    "mobileImage": "/images/malpolon-insignitus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Valia Pavlou",
+      "url": "https://www.inaturalist.org/observations/93273384"
+    },
+    "gallery": [
+      {
+        "src": "/images/malpolon-insignitus.jpg",
+        "credit": {
+          "photographer": "Gert Jan Verspui",
+          "url": "https://www.inaturalist.org/observations/38427068"
+        }
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Macrovipera_lebetinus"
+        "src": "/images/malpolon-insignitus-mobile.jpg",
+        "credit": {
+          "photographer": "Valia Pavlou",
+          "url": "https://www.inaturalist.org/observations/93273384"
+        }
       },
       {
-        "name": "Scientific publications"
+        "src": "/images/malpolon-insignitus-2.jpg",
+        "credit": {
+          "photographer": "Manuel Raab",
+          "url": "https://www.inaturalist.org/observations/282195814"
+        }
+      },
+      {
+        "src": "/images/malpolon-insignitus-3.jpg",
+        "credit": {
+          "photographer": "michelemenegon",
+          "url": "https://www.inaturalist.org/observations/206241534"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ხშირად 1.5 მ-ზე მეტი"
+      },
+      {
+        "label": "შხამი",
+        "value": "მსუბუქი (უკანა შხამკბილები)"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Psammophiidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ აღმოსავლური ხვლიკიჭამია გველი.",
+      "traits": [
+        "დიდი მყარი ფსამოფიიდი.\n",
+        "გამორჩეული წარბები / „გაბრაზებული“ იერი.\n",
+        "უკანა შხამკბილებიანი — ადამიანისთვის ჩვეულებრივ მსუბუქი, მაგრამ ნაკბენი სერიოზულად უნდა შეფასდეს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Malpolon insignitus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "რატომ არის Malpolon insignitus კანდიდატი სახეობა?\n",
+        "answer": "კანდიდატ სტატუსს იყენებენ, როცა სახეობრივი რანგი ჯერ სრულად არ არის ვალიდირებული კონტაქტური ზონისა და მრავალმარკერული მტკიცებულებებით.\n"
+      },
+      {
+        "question": "არის თუ არა Malpolon insignitus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Moderate. შხამი: მსუბუქი (უკანა შხამკბილები).\n"
+      },
+      {
+        "question": "რითი იკვებება აღმოსავლური ხვლიკიჭამია გველი?\n",
+        "answer": "ძირითადად ხვლიკები; აგრეთვე სხვა წვრილი ხერხემლიანები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Malpolon&species=insignitus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "mauremys-caspica",
+    "commonName": "კასპიური კუ",
+    "scientificName": "Mauremys caspica",
+    "genus": "Mauremys",
+    "family": "Geoemydidae",
+    "location": "საქართველო",
+    "description": "კასპიური კუ — დაფიქსირებულია საქართველოში.",
+    "overview": "კასპიური კუ (Mauremys caspica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ტბორები, ტბები, ნელი მდინარეები და ჭაობები.",
+    "diet": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.",
+    "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
+    "conservation": "საქართველოში დაფიქსირებულია. ბევრ კუს სახეობას მსოფლიოში ჰაბიტატის დაკარგვა და ამოღება ემუქრება.",
+    "danger": "Harmless",
+    "image": "/images/mauremys-caspica.jpg",
+    "imageCredit": {
+      "photographer": "pedroluna_wildlife",
+      "url": "https://www.inaturalist.org/observations/165887582"
+    },
+    "mobileImage": "/images/mauremys-caspica-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Dorit Mandil",
+      "url": "https://www.inaturalist.org/observations/291398011"
+    },
+    "gallery": [
+      {
+        "src": "/images/mauremys-caspica.jpg",
+        "credit": {
+          "photographer": "pedroluna_wildlife",
+          "url": "https://www.inaturalist.org/observations/165887582"
+        }
+      },
+      {
+        "src": "/images/mauremys-caspica-mobile.jpg",
+        "credit": {
+          "photographer": "Dorit Mandil",
+          "url": "https://www.inaturalist.org/observations/291398011"
+        }
+      },
+      {
+        "src": "/images/mauremys-caspica-2.jpg",
+        "credit": {
+          "photographer": "Rubén",
+          "url": "https://www.inaturalist.org/observations/107253848"
+        }
+      },
+      {
+        "src": "/images/mauremys-caspica-3.jpg",
+        "credit": {
+          "photographer": "Fundación Tierra Ibérica",
+          "url": "https://www.inaturalist.org/observations/13171016"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ხმელეთი / მტკნარი წყალი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ნიჟარა ჩვეულებრივ 15–30 სმ სახეობის მიხედვით"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Geoemydidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კასპიური კუ.",
+      "traits": [
+        "მტკნარი წყლის კუ უფრო ბრტყელი ნიჟარით, ვიდრე სახმელეთო კუებს.\n",
+        "ხშირად ნაპირზე და მორებზე თბება.\n",
+        "ბევრ წყლის სახეობას ცურვისთვის დაფრთხილი თათები აქვს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Mauremys caspica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Mauremys caspica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კასპიური კუ?\n",
+        "answer": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Mauremys&species=caspica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "mertensiella-caucasica",
+    "commonName": "კავკასიური სალამანდრა",
+    "scientificName": "Mertensiella caucasica",
+    "genus": "Mertensiella",
+    "family": "Salamandridae",
+    "location": "საქართველო — მცირე კავკასიონის დასავლეთის ენდემი",
+    "description": "კავკასიური სალამანდრა — დაფიქსირებულია საქართველოში.",
+    "overview": "კავკასიური სალამანდრა (Mertensiella caucasica) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "გრილი ტენიანი ტყეები, ნაკადულები და მთის ჭაობები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/mertensiella-caucasica.jpg",
+    "imageCredit": {
+      "photographer": "david_broek",
+      "url": "https://www.inaturalist.org/observations/383087185"
+    },
+    "mobileImage": "/images/mertensiella-caucasica-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "david_broek",
+      "url": "https://www.inaturalist.org/observations/383087171"
+    },
+    "gallery": [
+      {
+        "src": "/images/mertensiella-caucasica.jpg",
+        "credit": {
+          "photographer": "david_broek",
+          "url": "https://www.inaturalist.org/observations/383087185"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-mobile.jpg",
+        "credit": {
+          "photographer": "david_broek",
+          "url": "https://www.inaturalist.org/observations/383087171"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva",
+          "url": "https://www.inaturalist.org/observations/379840528"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-3.jpg",
+        "credit": {
+          "photographer": "Nikita Tiunov",
+          "url": "https://www.inaturalist.org/observations/379240890"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური სალამანდრა.",
+      "traits": [
+        "კუდიანი ამფიბია (სალამანდრა/ტრიტონი).\n",
+        "გლუვი ტენიანი კანი; ოთხი კიდური.\n",
+        "ლარვები წყლისაა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Mertensiella caucasica საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Mertensiella caucasica შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური სალამანდრა?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Mertensiella&where-species=caucasica"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
@@ -822,8 +5096,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას — ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/14368/0"
@@ -835,13 +5113,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Natrix&species=natrix"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Grass_snake"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -948,8 +5219,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება მარტ–მაისშია; ივლისში დებს დაახლოებით 10–30 კვერცხს, ნაშიერები იჩეკებიან სექტემბრის დასაწყისში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157256/0"
@@ -961,13 +5236,836 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Natrix&species=tessellata"
+      }
+    ]
+  },
+  {
+    "id": "ommatotriton-ophryticus",
+    "commonName": "კავკასიური ტრიტონი",
+    "scientificName": "Ommatotriton ophryticus",
+    "genus": "Ommatotriton",
+    "family": "Salamandridae",
+    "location": "საქართველო",
+    "description": "კავკასიური ტრიტონი — დაფიქსირებულია საქართველოში.",
+    "overview": "კავკასიური ტრიტონი (Ommatotriton ophryticus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "გრილი ტენიანი ტყეები, ნაკადულები და მთის ჭაობები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/ommatotriton-ophryticus.jpg",
+    "imageCredit": {
+      "photographer": "Sergey Lednev",
+      "url": "https://www.inaturalist.org/observations/29435958"
+    },
+    "mobileImage": "/images/ommatotriton-ophryticus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Wouter Beukema",
+      "url": "https://www.inaturalist.org/observations/233706355"
+    },
+    "gallery": [
+      {
+        "src": "/images/ommatotriton-ophryticus.jpg",
+        "credit": {
+          "photographer": "Sergey Lednev",
+          "url": "https://www.inaturalist.org/observations/29435958"
+        }
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Dice_snake"
+        "src": "/images/ommatotriton-ophryticus-mobile.jpg",
+        "credit": {
+          "photographer": "Wouter Beukema",
+          "url": "https://www.inaturalist.org/observations/233706355"
+        }
       },
       {
-        "name": "Scientific publications"
+        "src": "/images/ommatotriton-ophryticus-2.jpg",
+        "credit": {
+          "photographer": "Tom Kirschey",
+          "url": "https://www.inaturalist.org/observations/139881596"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-3.jpg",
+        "credit": {
+          "photographer": "Wouter Beukema",
+          "url": "https://www.inaturalist.org/observations/199109327"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური ტრიტონი.",
+      "traits": [
+        "კუდიანი ამფიბია (სალამანდრა/ტრიტონი).\n",
+        "გლუვი ტენიანი კანი; ოთხი კიდური.\n",
+        "ლარვები წყლისაა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Ommatotriton ophryticus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Ommatotriton ophryticus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური ტრიტონი?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Ommatotriton&where-species=ophryticus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "ophisops-elegans",
+    "commonName": "კოხტა გველთავა",
+    "scientificName": "Ophisops elegans",
+    "genus": "Ophisops",
+    "family": "Lacertidae",
+    "location": "საქართველო",
+    "description": "კოხტა გველთავა — დაფიქსირებულია საქართველოში.",
+    "overview": "კოხტა გველთავა (Ophisops elegans) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/ophisops-elegans.jpg",
+    "imageCredit": {
+      "photographer": "mustafa gökmen",
+      "url": "https://www.inaturalist.org/observations/61378800"
+    },
+    "mobileImage": "/images/ophisops-elegans-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "epistemophagus",
+      "url": "https://www.inaturalist.org/observations/213090312"
+    },
+    "gallery": [
+      {
+        "src": "/images/ophisops-elegans.jpg",
+        "credit": {
+          "photographer": "mustafa gökmen",
+          "url": "https://www.inaturalist.org/observations/61378800"
+        }
+      },
+      {
+        "src": "/images/ophisops-elegans-mobile.jpg",
+        "credit": {
+          "photographer": "epistemophagus",
+          "url": "https://www.inaturalist.org/observations/213090312"
+        }
+      },
+      {
+        "src": "/images/ophisops-elegans-2.jpg",
+        "credit": {
+          "photographer": "Mehmet Baran",
+          "url": "https://www.inaturalist.org/observations/301910088"
+        }
+      },
+      {
+        "src": "/images/ophisops-elegans-3.jpg",
+        "credit": {
+          "photographer": "Roberto Sindaco",
+          "url": "https://www.inaturalist.org/observations/105683433"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კოხტა გველთავა.",
+      "traits": [
+        "კოხტა გველთავა ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Ophisops elegans საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Ophisops elegans შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კოხტა გველთავა?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Ophisops&species=elegans"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "paralaudakia-caucasia",
+    "commonName": "ჯოჯო",
+    "scientificName": "Paralaudakia caucasia",
+    "genus": "Paralaudakia",
+    "family": "Agamidae",
+    "location": "საქართველო",
+    "description": "ჯოჯო — დაფიქსირებულია საქართველოში.",
+    "overview": "ჯოჯო (Paralaudakia caucasia) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "კლდოვანი ფერდობები და მშრალი ღია ჰაბიტატები.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/paralaudakia-caucasia.jpg",
+    "imageCredit": {
+      "photographer": "Геннадий",
+      "url": "https://www.inaturalist.org/observations/119628986"
+    },
+    "mobileImage": "/images/paralaudakia-caucasia-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Titouan Roguet",
+      "url": "https://www.inaturalist.org/observations/182026571"
+    },
+    "gallery": [
+      {
+        "src": "/images/paralaudakia-caucasia.jpg",
+        "credit": {
+          "photographer": "Геннадий",
+          "url": "https://www.inaturalist.org/observations/119628986"
+        }
+      },
+      {
+        "src": "/images/paralaudakia-caucasia-mobile.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/182026571"
+        }
+      },
+      {
+        "src": "/images/paralaudakia-caucasia-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/241671168"
+        }
+      },
+      {
+        "src": "/images/paralaudakia-caucasia-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/241671169"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "საშუალო ზომის ხვლიკი"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Agamidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ჯოჯო.",
+      "traits": [
+        "მყარი აღამიდი ხვლიკი სამკუთხა თავით.\n",
+        "ხშირად გამორჩეულ ქვებზე თბება.\n",
+        "საფრთხისას შეიძლება სხეული გაბეროს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Paralaudakia caucasia საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Paralaudakia caucasia შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ჯოჯო?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Paralaudakia&species=caucasia"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "pelobates-syriacus",
+    "commonName": "სირიული მყვარი",
+    "scientificName": "Pelobates syriacus",
+    "genus": "Pelobates",
+    "family": "Pelobatidae",
+    "location": "საქართველო",
+    "description": "სირიული მყვარი — დაფიქსირებულია საქართველოში.",
+    "overview": "სირიული მყვარი (Pelobates syriacus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/pelobates-syriacus.jpg",
+    "imageCredit": {
+      "photographer": "Titouan Roguet",
+      "url": "https://www.inaturalist.org/observations/182161519"
+    },
+    "mobileImage": "/images/pelobates-syriacus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Jan Ebr &amp; Ivana Ebrová",
+      "url": "https://www.inaturalist.org/observations/123372073"
+    },
+    "gallery": [
+      {
+        "src": "/images/pelobates-syriacus.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/182161519"
+        }
+      },
+      {
+        "src": "/images/pelobates-syriacus-mobile.jpg",
+        "credit": {
+          "photographer": "Jan Ebr &amp; Ivana Ebrová",
+          "url": "https://www.inaturalist.org/observations/123372073"
+        }
+      },
+      {
+        "src": "/images/pelobates-syriacus-2.jpg",
+        "credit": {
+          "photographer": "Jonathan Ben Simon",
+          "url": "https://www.inaturalist.org/observations/152407529"
+        }
+      },
+      {
+        "src": "/images/pelobates-syriacus-3.jpg",
+        "credit": {
+          "photographer": "Craig Robson",
+          "url": "https://www.inaturalist.org/observations/268758632"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Pelobatidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ სირიული მყვარი.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Pelobates syriacus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Pelobates syriacus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება სირიული მყვარი?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Pelobates&where-species=syriacus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "pelodytes-caucasicus",
+    "commonName": "კავკასიური ჯვარულა",
+    "scientificName": "Pelodytes caucasicus",
+    "genus": "Pelodytes",
+    "family": "Pelodytidae",
+    "location": "საქართველო",
+    "description": "კავკასიური ჯვარულა — დაფიქსირებულია საქართველოში.",
+    "overview": "კავკასიური ჯვარულა (Pelodytes caucasicus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/pelodytes-caucasicus.jpg",
+    "imageCredit": {
+      "photographer": "Alexander A. Fomichev",
+      "url": "https://www.inaturalist.org/observations/95240537"
+    },
+    "mobileImage": "/images/pelodytes-caucasicus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Alexander Shienok",
+      "url": "https://www.inaturalist.org/observations/206587705"
+    },
+    "gallery": [
+      {
+        "src": "/images/pelodytes-caucasicus.jpg",
+        "credit": {
+          "photographer": "Alexander A. Fomichev",
+          "url": "https://www.inaturalist.org/observations/95240537"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-mobile.jpg",
+        "credit": {
+          "photographer": "Alexander Shienok",
+          "url": "https://www.inaturalist.org/observations/206587705"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-2.jpg",
+        "credit": {
+          "photographer": "Tom Kirschey",
+          "url": "https://www.inaturalist.org/observations/136609538"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-3.jpg",
+        "credit": {
+          "photographer": "Екатерина Следкова",
+          "url": "https://www.inaturalist.org/observations/131563046"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Pelodytidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური ჯვარულა.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Pelodytes caucasicus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Pelodytes caucasicus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური ჯვარულა?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Pelodytes&where-species=caucasicus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "pelophylax-ridibundus",
+    "commonName": "ტბორის ბაყაყი",
+    "scientificName": "Pelophylax ridibundus",
+    "genus": "Pelophylax",
+    "family": "Ranidae",
+    "location": "საქართველო",
+    "description": "ტბორის ბაყაყი — დაფიქსირებულია საქართველოში.",
+    "overview": "ტბორის ბაყაყი (Pelophylax ridibundus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/pelophylax-ridibundus.jpg",
+    "imageCredit": {
+      "photographer": "Manuel Ruedi",
+      "url": "https://www.inaturalist.org/observations/83801849"
+    },
+    "mobileImage": "/images/pelophylax-ridibundus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Константин",
+      "url": "https://www.inaturalist.org/observations/274684194"
+    },
+    "gallery": [
+      {
+        "src": "/images/pelophylax-ridibundus.jpg",
+        "credit": {
+          "photographer": "Manuel Ruedi",
+          "url": "https://www.inaturalist.org/observations/83801849"
+        }
+      },
+      {
+        "src": "/images/pelophylax-ridibundus-mobile.jpg",
+        "credit": {
+          "photographer": "Константин",
+          "url": "https://www.inaturalist.org/observations/274684194"
+        }
+      },
+      {
+        "src": "/images/pelophylax-ridibundus-2.jpg",
+        "credit": {
+          "photographer": "Геннадий Дякин",
+          "url": "https://www.inaturalist.org/observations/353611251"
+        }
+      },
+      {
+        "src": "/images/pelophylax-ridibundus-3.jpg",
+        "credit": {
+          "photographer": "Jakob Fahr",
+          "url": "https://www.inaturalist.org/observations/32436838"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ტბორის ბაყაყი.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Pelophylax ridibundus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Pelophylax ridibundus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ტბორის ბაყაყი?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Pelophylax&where-species=ridibundus"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "phoenicolacerta-laevis",
+    "commonName": "ლიბანური ხვლიკი",
+    "scientificName": "Phoenicolacerta laevis",
+    "genus": "Phoenicolacerta",
+    "family": "Lacertidae",
+    "location": "საქართველო — შემოტანილი (შავი ზღვის სანაპიროს პოპულაცია)",
+    "description": "შემოტანილი ლიბანური ხვლიკი — დაფიქსირებულია საქართველოში.",
+    "overview": "ლიბანური ხვლიკი (Phoenicolacerta laevis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. საქართველოში შემოტანილია. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, ტყის პირას ან ქვიშიანი/სტეპური ჰაბიტატები სახეობის მიხედვით.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
+    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/phoenicolacerta-laevis.jpg",
+    "imageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/148101091"
+    },
+    "mobileImage": "/images/phoenicolacerta-laevis-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Siegfried Troidl",
+      "url": "https://www.inaturalist.org/observations/17764372"
+    },
+    "gallery": [
+      {
+        "src": "/images/phoenicolacerta-laevis.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/148101091"
+        }
+      },
+      {
+        "src": "/images/phoenicolacerta-laevis-mobile.jpg",
+        "credit": {
+          "photographer": "Siegfried Troidl",
+          "url": "https://www.inaturalist.org/observations/17764372"
+        }
+      },
+      {
+        "src": "/images/phoenicolacerta-laevis-2.jpg",
+        "credit": {
+          "photographer": "kardelen",
+          "url": "https://www.inaturalist.org/observations/216098606"
+        }
+      },
+      {
+        "src": "/images/phoenicolacerta-laevis-3.jpg",
+        "credit": {
+          "photographer": "Siegfried Troidl",
+          "url": "https://www.inaturalist.org/observations/17764346"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სხეულის სიგრძე სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ლიბანური ხვლიკი.",
+      "traits": [
+        "ლიბანური ხვლიკი ლაცერტიდი ხვლიკია; თავისა და სხეულის ნახატი შეადარეთ რეგიონის მსგავს სახეობებს.\n",
+        "დღისით აქტიური და ჩვეულებრივ სწრაფი.\n",
+        "გამოიყენეთ რეგიონული გასაღებები — კავკასიაში რამდენიმე ლაცერტიდი ემთხვევა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Phoenicolacerta laevis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Phoenicolacerta laevis ადგილობრივი?\n",
+        "answer": "არა — ჩეკლისტში შემოტანილადაა მითითებული.\n"
+      },
+      {
+        "question": "არის თუ არა Phoenicolacerta laevis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ლიბანური ხვლიკი?\n",
+        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Phoenicolacerta&species=laevis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
@@ -1074,8 +6172,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157277/0"
@@ -1087,13 +6189,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Platyceps&species=najadum"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Platyceps_najadum"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1200,8 +6295,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. ჩვეულებრივ დებს დაახლოებით 8–10 კვერცხს (საქართველოში ხშირად ივნის–ივლისში); ნაშიერები იჩეკებიან დაახლოებით 45–55 დღეში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157263/0"
@@ -1213,13 +6312,124 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Pseudopus&species=apodus"
+      }
+    ]
+  },
+  {
+    "id": "rana-macrocnemis",
+    "commonName": "კავკასიური მურა ბაყაყი",
+    "scientificName": "Rana macrocnemis",
+    "genus": "Rana",
+    "family": "Ranidae",
+    "location": "საქართველო",
+    "description": "კავკასიური მურა ბაყაყი — დაფიქსირებულია საქართველოში.",
+    "overview": "კავკასიური მურა ბაყაყი (Rana macrocnemis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ჭაობები, ტბორები, ტენიანი ტყეები ან გამრავლების წყალთან ახლოს ღია ჰაბიტატები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/rana-macrocnemis.jpg",
+    "imageCredit": {
+      "photographer": "evgeniy_57",
+      "url": "https://www.inaturalist.org/observations/343953167"
+    },
+    "mobileImage": "/images/rana-macrocnemis-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Tim",
+      "url": "https://www.inaturalist.org/observations/316069520"
+    },
+    "gallery": [
+      {
+        "src": "/images/rana-macrocnemis.jpg",
+        "credit": {
+          "photographer": "evgeniy_57",
+          "url": "https://www.inaturalist.org/observations/343953167"
+        }
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sheltopusik"
+        "src": "/images/rana-macrocnemis-mobile.jpg",
+        "credit": {
+          "photographer": "Tim",
+          "url": "https://www.inaturalist.org/observations/316069520"
+        }
       },
       {
-        "name": "Scientific publications"
+        "src": "/images/rana-macrocnemis-2.jpg",
+        "credit": {
+          "photographer": "Tereza Bohatá",
+          "url": "https://www.inaturalist.org/observations/357114699"
+        }
+      },
+      {
+        "src": "/images/rana-macrocnemis-3.jpg",
+        "credit": {
+          "photographer": "Jan Ebr &amp; Ivana Ebrová",
+          "url": "https://www.inaturalist.org/observations/53501993"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კავკასიური მურა ბაყაყი.",
+      "traits": [
+        "ზრდასრულობაში უკუდო ამფიბია.\n",
+        "ტენიანი კანი; ბევრ ბაყაყს გრძელი უკანა ფეხები აქვს.\n",
+        "გამრავლების სეზონში ბევრი ანურა ყვირის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Rana macrocnemis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Rana macrocnemis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კავკასიური მურა ბაყაყი?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Rana&where-species=macrocnemis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
@@ -1362,8 +6572,12 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 4–12 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/157258/0"
@@ -1375,13 +6589,482 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Telescopus&species=fallax"
+      }
+    ]
+  },
+  {
+    "id": "tenuidactylus-caspius",
+    "commonName": "კასპიური გეკონი",
+    "scientificName": "Tenuidactylus caspius",
+    "genus": "Tenuidactylus",
+    "family": "Gekkonidae",
+    "location": "საქართველო — ბუნებრივი არეალი უკიდურეს სამხრეთ-აღმოსავლეთში; აგრეთვე სინანთროპული პოპულაციები აღმოსავლეთის დასახლებებში და დაფიქსირებულია ქუთაისსა და სოხუმში",
+    "description": "პატარა ღამის გეკონი საქართველოდან — ბუნებრივი არეალი უკიდურეს სამხრეთ- აღმოსავლეთში, აგრეთვე ზოგიერთ დასახლებაში.",
+    "overview": "კასპიური გეკონი (Tenuidactylus caspius) პატარა მცოცავი გეკონია, დადასტურებული საქართველოში ჩეკლისტით. ბუნებრივი არეალი უკიდურეს სამხრეთ-აღმოსავლეთშია; აღნიშნულია სინანთროპული პოპულაციები აღმოსავლეთის დასახლებებში და ჩანაწერები ქუთაისსა და სოხუმში. ბიოლოგიურად დადასტურებული სახეობაა; ღამით იკვებება წვრილი ფეხსახსრიანებით.",
+    "habitat": "კლდოვანი და ურბანული კედლები, ქვის გროვები და მშრალი ღია ჰაბიტატები; საქართველოში ბუნებრივი არეალი უკიდურესი სამხრეთ-აღმოსავლეთია, დამატებითი სინანთროპული კოლონიებით ქალაქებში.",
+    "diet": "ღამის მწერიჭამია — ძირითადად წვრილი ფეხსახსრიანები.",
+    "behavior": "ძირითადად ღამის/ბინდის გეკონი; ცოცავს ვერტიკალურ ზედაპირებზე და დღისით ნაპრალებში იმალება.",
+    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "danger": "Harmless",
+    "image": "/images/tenuidactylus-caspius.jpg",
+    "imageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/178731019"
+    },
+    "mobileImage": "/images/tenuidactylus-caspius-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "wcwhjj",
+      "url": "https://www.inaturalist.org/observations/132243305"
+    },
+    "gallery": [
+      {
+        "src": "/images/tenuidactylus-caspius.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/178731019"
+        }
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/European_cat_snake"
+        "src": "/images/tenuidactylus-caspius-mobile.jpg",
+        "credit": {
+          "photographer": "wcwhjj",
+          "url": "https://www.inaturalist.org/observations/132243305"
+        }
       },
       {
-        "name": "Scientific publications"
+        "src": "/images/tenuidactylus-caspius-2.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/183207302"
+        }
+      },
+      {
+        "src": "/images/tenuidactylus-caspius-3.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/182328292"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "კლდოვანი / ღია ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 10–12 სმ სხეული (გრძელი კუდით)"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Gekkonidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კასპიური გეკონი.",
+      "traits": [
+        "პატარა გეკონი მარცვლოვანი ზურგის ქერცლებითა და ვერტიკალური გუგებით.\n",
+        "თითები გაფართოებულია უხეშ ვერტიკალურ ზედაპირებზე საცოცავად.\n",
+        "ხშირად კედლებზე და ქვებზე ჩანს ბინდის შემდეგ.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Tenuidactylus caspius საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Tenuidactylus caspius შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კასპიური გეკონი?\n",
+        "answer": "ღამის მწერიჭამია — ძირითადად წვრილი ფეხსახსრიანები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Tenuidactylus&species=caspius"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "testudo-graeca",
+    "commonName": "ხმელთაშუაზღვეთის კუ",
+    "scientificName": "Testudo graeca",
+    "genus": "Testudo",
+    "family": "Testudinidae",
+    "location": "საქართველო — T. g. ibera გავრცელებულია აღმოსავლეთ საქართველოში; T. g. nikolskii აღწერილია დასავლეთ საქართველოდან და იშვიათად ითვლება",
+    "description": "ხმელთაშუაზღვეთის კუ — დაფიქსირებულია საქართველოში.",
+    "overview": "ხმელთაშუაზღვეთის კუ (Testudo graeca) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "მშრალი მდელოები, ბუჩქნარი და ღია მთისწინეთი; ქვესახეობები განსხვავდება აღმოსავლეთ და დასავლეთ საქართველოში.",
+    "diet": "ძირითადად ბალახისმჭამელი — ბალახები, ბალახოვანი მცენარეები და სხვა მცენარეული საკვები.",
+    "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
+    "conservation": "საქართველოში დაფიქსირებულია. ბევრ კუს სახეობას მსოფლიოში ჰაბიტატის დაკარგვა და ამოღება ემუქრება.",
+    "danger": "Harmless",
+    "image": "/images/testudo-graeca.jpg",
+    "imageCredit": {
+      "photographer": "Serge Larin",
+      "url": "https://www.inaturalist.org/observations/18922293"
+    },
+    "mobileImage": "/images/testudo-graeca-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Cristina Florentina Alistar",
+      "url": "https://www.inaturalist.org/observations/12352082"
+    },
+    "gallery": [
+      {
+        "src": "/images/testudo-graeca.jpg",
+        "credit": {
+          "photographer": "Serge Larin",
+          "url": "https://www.inaturalist.org/observations/18922293"
+        }
+      },
+      {
+        "src": "/images/testudo-graeca-mobile.jpg",
+        "credit": {
+          "photographer": "Cristina Florentina Alistar",
+          "url": "https://www.inaturalist.org/observations/12352082"
+        }
+      },
+      {
+        "src": "/images/testudo-graeca-2.jpg",
+        "credit": {
+          "photographer": "Molnár Ábel Péter",
+          "url": "https://www.inaturalist.org/observations/169566740"
+        }
+      },
+      {
+        "src": "/images/testudo-graeca-3.jpg",
+        "credit": {
+          "photographer": "Cuora",
+          "url": "https://www.inaturalist.org/observations/96663399"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ხმელეთი / მტკნარი წყალი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ნიჟარა ჩვეულებრივ 30 სმ-მდე"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Testudinidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ხმელთაშუაზღვეთის კუ.",
+      "traits": [
+        "მაღალი გუმბათისებრი სახმელეთო კუის ნიჟარა.\n",
+        "რქოვანი ნისკარტი; კბილები არ აქვს.\n",
+        "ნელა მოძრაობს ხმელეთზე — მტკნარი წყლის კუ არ არის.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Testudo graeca საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Testudo graeca შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ხმელთაშუაზღვეთის კუ?\n",
+        "answer": "ძირითადად ბალახისმჭამელი — ბალახები, ბალახოვანი მცენარეები და სხვა მცენარეული საკვები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Testudo&species=graeca"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "trachemys-scripta",
+    "commonName": "წითელყურა კუ",
+    "scientificName": "Trachemys scripta",
+    "genus": "Trachemys",
+    "family": "Emydidae",
+    "location": "საქართველო — შემოტანილი / გაშვებული",
+    "description": "შემოტანილი წითელყურა კუ — დაფიქსირებულია საქართველოში.",
+    "overview": "წითელყურა კუ (Trachemys scripta) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. საქართველოში შემოტანილია. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ტბორები, ტბები, ნელი მდინარეები და ჭაობები.",
+    "diet": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.",
+    "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
+    "conservation": "შემოტანილია საქართველოში. შეიძლება კონკურენცია გაუწიოს ადგილობრივ წყლის კუებს.",
+    "danger": "Harmless",
+    "image": "/images/trachemys-scripta.jpg",
+    "imageCredit": {
+      "photographer": "Nelson Wisnik",
+      "url": "https://www.inaturalist.org/observations/18808638"
+    },
+    "mobileImage": "/images/trachemys-scripta-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Ed Hass",
+      "url": "https://www.inaturalist.org/observations/150135337"
+    },
+    "gallery": [
+      {
+        "src": "/images/trachemys-scripta.jpg",
+        "credit": {
+          "photographer": "Nelson Wisnik",
+          "url": "https://www.inaturalist.org/observations/18808638"
+        }
+      },
+      {
+        "src": "/images/trachemys-scripta-mobile.jpg",
+        "credit": {
+          "photographer": "Ed Hass",
+          "url": "https://www.inaturalist.org/observations/150135337"
+        }
+      },
+      {
+        "src": "/images/trachemys-scripta-2.jpg",
+        "credit": {
+          "photographer": "Laura Clark",
+          "url": "https://www.inaturalist.org/observations/4571829"
+        }
+      },
+      {
+        "src": "/images/trachemys-scripta-3.jpg",
+        "credit": {
+          "photographer": "bwood708",
+          "url": "https://www.inaturalist.org/observations/54804571"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ხმელეთი / მტკნარი წყალი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ნიჟარა ჩვეულებრივ 15–30 სმ სახეობის მიხედვით"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ წითელყურა კუ.",
+      "traits": [
+        "მტკნარი წყლის კუ უფრო ბრტყელი ნიჟარით, ვიდრე სახმელეთო კუებს.\n",
+        "ხშირად ნაპირზე და მორებზე თბება.\n",
+        "ბევრ წყლის სახეობას ცურვისთვის დაფრთხილი თათები აქვს.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Trachemys scripta საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Trachemys scripta ადგილობრივი?\n",
+        "answer": "არა — ჩეკლისტში შემოტანილადაა მითითებული.\n"
+      },
+      {
+        "question": "არის თუ არა Trachemys scripta შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება წითელყურა კუ?\n",
+        "answer": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Trachemys&species=scripta"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "triturus-karelinii",
+    "commonName": "კარელინის სავარცხლიანი ტრიტონი",
+    "scientificName": "Triturus karelinii",
+    "genus": "Triturus",
+    "family": "Salamandridae",
+    "location": "საქართველო",
+    "description": "კარელინის სავარცხლიანი ტრიტონი — დაფიქსირებულია საქართველოში.",
+    "overview": "კარელინის სავარცხლიანი ტრიტონი (Triturus karelinii) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "გრილი ტენიანი ტყეები, ნაკადულები და მთის ჭაობები.",
+    "diet": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.",
+    "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
+    "danger": "Harmless",
+    "image": "/images/triturus-karelinii.jpg",
+    "imageCredit": {
+      "photographer": "Parham Beyhaghi",
+      "url": "https://www.inaturalist.org/observations/4757157"
+    },
+    "mobileImage": "/images/triturus-karelinii-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Parham Beyhaghi",
+      "url": "https://www.inaturalist.org/observations/260349446"
+    },
+    "gallery": [
+      {
+        "src": "/images/triturus-karelinii.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/4757157"
+        }
+      },
+      {
+        "src": "/images/triturus-karelinii-mobile.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/260349446"
+        }
+      },
+      {
+        "src": "/images/triturus-karelinii-2.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/260349445"
+        }
+      },
+      {
+        "src": "/images/triturus-karelinii-3.jpg",
+        "credit": {
+          "photographer": "Nikita Tiunov",
+          "url": "https://www.inaturalist.org/observations/129655447"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტენიანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ზომა სახეობის მიხედვითაა"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ კარელინის სავარცხლიანი ტრიტონი.",
+      "traits": [
+        "კუდიანი ამფიბია (სალამანდრა/ტრიტონი).\n",
+        "გლუვი ტენიანი კანი; ოთხი კიდური.\n",
+        "ლარვები წყლისაა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Triturus karelinii საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Triturus karelinii შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება კარელინის სავარცხლიანი ტრიტონი?\n",
+        "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "AmphibiaWeb",
+        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Triturus&where-species=karelinii"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   },
@@ -1516,6 +7199,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/23000/0"
       },
@@ -1526,13 +7213,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=darevskii"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_darevskii"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1638,8 +7318,12 @@ export const species: Species[] = [
         "answer": "არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია. სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა პოპულაციას ამცირებს; შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/23001/0"
@@ -1651,13 +7335,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=dinniki"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_dinniki"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1794,8 +7471,12 @@ export const species: Species[] = [
         "answer": "ცოცხლადმშობია. შეწყვილება გაზაფხულზეა; შემოდგომაზე, აგვისტო–სექტემბერში, ბადებს 5–10 ნაშიერს."
       }
     ],
-    "updatedAt": "2026-08-04",
+    "updatedAt": "2026-08-05",
     "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
       {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/details/22990/0"
@@ -1807,13 +7488,6 @@ export const species: Species[] = [
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=kaznakovi"
-      },
-      {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_kaznakovi"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -1959,6 +7633,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/species/157268/5066267"
       },
@@ -1971,19 +7649,12 @@ export const species: Species[] = [
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=renardi"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_renardi"
-      },
-      {
         "name": "Tuniyev et al. 2018 — Rediscovery of the steppe viper in Georgia",
         "url": "https://doi.org/10.31610/trudyzin/2018.322.2.87"
       },
       {
         "name": "Mebert et al. 2025 — Steppe vipers of Western Asia",
         "url": "https://www.herpconbio.org/Volume_20/Issue_2/Mebert_etal_2025a.pdf"
-      },
-      {
-        "name": "Scientific publications"
       }
     ]
   },
@@ -2126,6 +7797,10 @@ export const species: Species[] = [
     "updatedAt": "2026-08-05",
     "sources": [
       {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
         "name": "IUCN Red List",
         "url": "https://www.iucnredlist.org/species/164708/114549008"
       },
@@ -2147,170 +7822,590 @@ export const species: Species[] = [
     ]
   },
   {
-    "id": "zamenis-longissimus",
-    "commonName": "ესკულაპის მცურავი",
-    "scientificName": "Zamenis longissimus",
-    "genus": "Zamenis",
-    "family": "Colubridae",
-    "location": "დასავლეთ საქართველო; ლაგოდეხი",
-    "description": "უშხამო, გრძელი და მოქნილი მცურავი ტყეებისა და მთისწინეთისა — საქართველოში უმეტესად დასავლეთში; უვნებელია.",
-    "overview": "ესკულაპის მცურავი (Zamenis longissimus), ასევე გრძელი მცურავი, ანკარასებრთა ოჯახის უშხამო მცურავია. სახელი უკავშირდება ანტიკურ ესკულაპეს (ასკლეპიოსის) კვერთხს — მედიცინის სიმბოლოს; ადრე იყო Elaphe longissima. გავრცელებულია სამხრეთ-დასავლეთ და ცენტრალურ ევროპაში, ბალკანეთში, მცირე აზიის ნაწილში და შავი ზღვის აღმოსავლეთ სანაპიროს ენკლავში — თურქეთიდან საქართველოსა და სამხრეთ რუსეთამდე. საქართველოში ფართოდაა დასავლეთ ნახევარში (შავი ზღვის სანაპირო და კავკასიონის მთისწინეთი); იზოლირებული პოპულაცია აღინიშნა ჩრდილო-აღმოსავლეთში, ლაგოდეხის მიდამოებში. არ გვხვდება იმ ზონებში, სადაც საშუალო წლიური ნალექი დაახლოებით 800 მმ-ზე ნაკლებია. სიგრძე ჩვეულებრივ 1.0–1.5 მ-ია; იშვიათად აღემატება 2 მ-ს. IUCN-ის მიხედვით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოში შეტანილია წითელ წიგნში.",
-    "habitat": "უპირატესობას ანიჭებს ტყეებს, ტყის პირას, ბუჩქნარს, მზიან მთის ფერდობებსა და ძველ ნაგებობებს — ქვის კედლებს, ფუღუროებს, ხის გროვებს. კარგი მთამსვლელია და ხშირად ადის ხეებზე. ვერტიკალურად საქართველოში აღწევს დაახლოებით 2,000 მ-მდე. მშრალ აღმოსავლეთ სტეპებში თითქმის არ გვხვდება; დასავლეთის ნოტიო კოლხური ლანდშაფტი და მთისწინეთი მისთვის უფრო ხელსაყრელია.",
-    "diet": "იკვებება წვრილი ხერხემლიანებით — უმეტესად მღრღნელებით; აგრეთვე პატარა ფრინველებით, ბარტყებითა და კვერცხებით, ზოგჯერ ხვლიკებით. მსხვერპლს ახრჩობს (კონსტრიქტორი); შხამი არ აქვს. ნადირობს მიწაზე და ხეებზე.",
-    "behavior": "უმეტესად დღის აქტიურია; თბილ ამინდში შეიძლება საღამოსაც გამოჩნდეს. მშვიდი და ფრთხილია — საფრთხისას უპირატესად გაქცევას ცდილობს. ზრდასრული ხშირად ერთგვაროვანი ზეთისხილისფერი, მოყავისფრო ან მოყვითალო-ბრინჯაოსფერია; ქერცლების კიდეებზე ხშირად ჩანს თეთრი წერტილები. ახალგაზრდებს უფრო გამოკვეთილი ლაქებიანი ნახატი აქვთ. თავი შედარებით ვიწროა, გუგა მრგვალია; კისრის გვერდზე ხშირად ჩანს მოყვითალო ლაქა. კვერცხისმდებია: ივნის–ივლისის დასაწყისში დებს ჩვეულებრივ 4–10 კვერცხს ფხვიერ მიწაში ან ფოთლის ნაგვში; ნაშიერები აგვისტო–სექტემბერში იჩეკებიან.",
-    "conservation": "IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და პოპულაცია დიდია. თუმცა ლოკალურად შეიძლება იკლოს ჰაბიტატის გარდაქმნის, გზებზე დაღუპვისა და შხამიან გველთან აღრევის გამო მოკვლის შედეგად. საქართველოში შეტანილია წითელ წიგნში. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
+    "id": "xerotyphlops-vermicularis",
+    "commonName": "გველბრუცა",
+    "scientificName": "Xerotyphlops vermicularis",
+    "genus": "Xerotyphlops",
+    "family": "Typhlopidae",
+    "location": "საქართველო",
+    "description": "გველბრუცა — დაფიქსირებულია საქართველოში.",
+    "overview": "გველბრუცა (Xerotyphlops vermicularis) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ფხვიერი ნიადაგი და მიწისქვეშა გვირაბები მშრალ ღია ლანდშაფტებში.",
+    "diet": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი.",
+    "behavior": "მიწისქვეშა; ზედაპირზე იშვიათად ჩანს.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
-    "image": "/images/zamenis-longissimus.jpg",
+    "image": "/images/xerotyphlops-vermicularis.jpg",
     "imageCredit": {
-      "photographer": "Baptried",
-      "url": "https://commons.wikimedia.org/wiki/File:Couleuvre_d'esculape.jpg"
+      "photographer": "mobinkargarfard",
+      "url": "https://www.inaturalist.org/observations/134999100"
     },
-    "mobileImage": "/images/zamenis-longissimus-mobile.jpg",
+    "mobileImage": "/images/xerotyphlops-vermicularis-mobile.jpg",
     "mobileImageCredit": {
-      "photographer": "Gowthaman k.a",
-      "url": "https://commons.wikimedia.org/wiki/File:Ratsnake.jpg"
+      "photographer": "Валерия Ковалева",
+      "url": "https://www.inaturalist.org/observations/280192435"
     },
     "gallery": [
       {
-        "src": "/images/zamenis-longissimus.jpg",
+        "src": "/images/xerotyphlops-vermicularis.jpg",
         "credit": {
-          "photographer": "Baptried",
-          "url": "https://commons.wikimedia.org/wiki/File:Couleuvre_d'esculape.jpg"
+          "photographer": "mobinkargarfard",
+          "url": "https://www.inaturalist.org/observations/134999100"
         }
       },
       {
-        "src": "/images/zamenis-longissimus-2.jpg",
+        "src": "/images/xerotyphlops-vermicularis-mobile.jpg",
         "credit": {
-          "photographer": "Philipp Pavelka",
-          "url": "https://www.inaturalist.org/observations/25489275"
+          "photographer": "Валерия Ковалева",
+          "url": "https://www.inaturalist.org/observations/280192435"
         }
       },
       {
-        "src": "/images/zamenis-longissimus-3.jpg",
+        "src": "/images/xerotyphlops-vermicularis-2.jpg",
         "credit": {
-          "photographer": "Fab5669",
-          "url": "https://commons.wikimedia.org/wiki/File:Bois_de_l'Huisserie_06.jpg"
+          "photographer": "vil05",
+          "url": "https://www.inaturalist.org/observations/212917577"
         }
       },
       {
-        "src": "/images/zamenis-longissimus-4.jpg",
+        "src": "/images/xerotyphlops-vermicularis-3.jpg",
         "credit": {
-          "photographer": "SomlaiT",
-          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg"
-        }
-      },
-      {
-        "src": "/images/zamenis-longissimus-5.jpg",
-        "credit": {
-          "photographer": "Hildegarda von Hildegardenburg",
-          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG"
-        }
-      },
-      {
-        "src": "/images/zamenis-longissimus-6.jpg",
-        "credit": {
-          "photographer": "Lubor Ferenc",
-          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg"
-        }
-      },
-      {
-        "src": "/images/zamenis-longissimus-7.jpg",
-        "credit": {
-          "photographer": "Zerocool.marko",
-          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg"
+          "photographer": "hossein_nabizadeh",
+          "url": "https://www.inaturalist.org/observations/106927503"
         }
       }
     ],
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "დას. საქართველო"
+        "value": "ღია / კლდოვანი ჰაბიტატები"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 1–1.5 მ"
+        "value": "ჩვეულებრივ 40 სმ-მდე"
       },
       {
         "label": "შხამი",
-        "value": "არა — უვნებელი"
+        "value": "არა"
       },
       {
         "label": "კონსერვაცია",
-        "value": "Least Concern"
+        "value": "იხ. IUCN"
       },
       {
-        "label": "სიმაღლე",
-        "value": "0–2,000 მ"
+        "label": "ოჯახი",
+        "value": "Typhlopidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ გველბრუცა.",
+      "traits": [
+        "პაწაწინა ჭიასავითი ბრმა გველი მბზინავი ქერცლებით.\n",
+        "თვალები შემცირებულია მუქ ლაქებამდე ქერცლების ქვეშ.\n",
+        "უშხამოა.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Xerotyphlops vermicularis საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Xerotyphlops vermicularis შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება გველბრუცა?\n",
+        "answer": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Xerotyphlops&species=vermicularis"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "zamenis-hohenackeri",
+    "commonName": "ამიერკავკასიური მცურავი",
+    "scientificName": "Zamenis hohenackeri",
+    "genus": "Zamenis",
+    "family": "Colubridae",
+    "location": "საქართველო",
+    "description": "ამიერკავკასიური მცურავი — დაფიქსირებულია საქართველოში.",
+    "overview": "ამიერკავკასიური მცურავი (Zamenis hohenackeri) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, კლდოვანი ფერდობები ან ტყის პირას — სახეობის მიხედვით.",
+    "diet": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.",
+    "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/zamenis-hohenackeri.jpg",
+    "imageCredit": {
+      "photographer": "Alexandre Roux",
+      "url": "https://www.inaturalist.org/observations/316040531"
+    },
+    "mobileImage": "/images/zamenis-hohenackeri-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Mariya",
+      "url": "https://www.inaturalist.org/observations/220051753"
+    },
+    "gallery": [
+      {
+        "src": "/images/zamenis-hohenackeri.jpg",
+        "credit": {
+          "photographer": "Alexandre Roux",
+          "url": "https://www.inaturalist.org/observations/316040531"
+        }
+      },
+      {
+        "src": "/images/zamenis-hohenackeri-mobile.jpg",
+        "credit": {
+          "photographer": "Mariya",
+          "url": "https://www.inaturalist.org/observations/220051753"
+        }
+      },
+      {
+        "src": "/images/zamenis-hohenackeri-2.jpg",
+        "credit": {
+          "photographer": "גלית משה",
+          "url": "https://www.inaturalist.org/observations/13033404"
+        }
+      },
+      {
+        "src": "/images/zamenis-hohenackeri-3.jpg",
+        "credit": {
+          "photographer": "Wouter Beukema",
+          "url": "https://www.inaturalist.org/observations/199114081"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ხშირად 1 მ ან მეტი"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
       },
       {
         "label": "ოჯახი",
         "value": "Colubridae"
       }
     ],
-    "facts": [
-      "სახელი უკავშირდება ესკულაპეს კვერთხს — ანტიკურ მედიცინის სიმბოლოს, რომელზეც გველია შემოხვეული.",
-      "ადრე ერქვა Elaphe longissima; დღეს გვარ Zamenis-შია (Utiger და სხვ., 2002).",
-      "შხამი არ აქვს — მსხვერპლს ახრჩობს; ადამიანისთვის უვნებელია.",
-      "საქართველოში არ გვხვდება იმ ადგილებში, სადაც საშუალო წლიური ნალექი დაახლოებით 800 მმ-ზე ნაკლებია (Tarkhnishvili და სხვ.)."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "ესკულაპის მცურავი უშხამო, გლუვქერცლიანი მცურავია. ზრდასრული ხშირად ერთგვაროვანი ზეთისხილისფერია; კარგად ადის ხეებზე.",
+      "summary": "როგორ ამოვიცნოთ ამიერკავკასიური მცურავი.",
       "traits": [
-        "ზურგი ზეთისხილისფერი, მოყავისფრო ან ბრინჯაოსფერია; ქერცლებზე ხშირად თეთრი წერტილებია.",
-        "თავი ვიწროა; კისრის გვერდზე ხშირად მოყვითალო ლაქა; გუგა მრგვალია.",
-        "სიგრძე დაახლოებით 1–1.5 მ; უშხამოა — მსხვერპლს ახრჩობს.",
-        "შესანიშნავი მთამსვლელია — ხშირად ჩანს ხეებსა და ბუჩქებზე.",
-        "საქართველოში — უმეტესად დასავლეთი და კავკასიონის მთისწინეთი; აგრეთვე ლაგოდეხის მიდამოები."
+        "დიდი ან საშუალო კოლუბრიდი (Zamenis hohenackeri).\n",
+        "მრგვალი გუგები; უშხამო (ამ საიტზე — უვნებელი, თუ სხვაგვარად არაა მითითებული).\n",
+        "ხშირად სწრაფი და დღისით აქტიური.\n"
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა ესკულაპის მცურავი ადამიანისთვის?",
-        "answer": "არა — უვნებელია. შხამი არ აქვს და მსხვერპლს მხოლოდ შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის; ადამიანს თავს არ ესხმის."
+        "question": "გვხვდება თუ არა Zamenis hohenackeri საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "უმეტესად დასავლეთში — აფხაზეთი, სამეგრელო, გურია, აჭარა, იმერეთი, რაჭა და კავკასიონის მთისწინეთი შავი ზღვის სანაპიროს გასწვრივ. იზოლირებული პოპულაცია აღინიშნა ჩრდილო-აღმოსავლეთში, ლაგოდეხის მიდამოებში. მშრალ აღმოსავლეთ სტეპებში თითქმის არ გვხვდება."
+        "question": "არის თუ არა Zamenis hohenackeri შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
       },
       {
-        "question": "რით განსხვავდება ანკარასგან (Natrix)?",
-        "answer": "ანკარა (Natrix natrix / N. tessellata) ნახევრადწყლის გველია — ხშირად ყვითელი „საყელოთი“ ან კუბიკური ლაქებით და უფრო მჭიდროდაა მიბმული წყალთან. ესკულაპის მცურავი უფრო გრძელი და მოქნილი ტყის მცურავია, ერთგვაროვანი ზეთისხილისფერი შეფერილობით და შესანიშნავი მთამსვლელი თვისებებით; იკვებება ძირითადად მღრღნელებითა და ფრინველებით."
-      },
-      {
-        "question": "რას ჭამს?",
-        "answer": "მღრღნელებს, პატარა ფრინველებს, ბარტყებსა და კვერცხებს; ზოგჯერ ხვლიკებს. კარგად ადის ხეებზე ბუდეების მოსანახულებლად."
-      },
-      {
-        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხისმდებია. ივნის–ივლისის დასაწყისში დებს ჩვეულებრივ 4–10 კვერცხს; ნაშიერები აგვისტო–სექტემბერში იჩეკებიან."
+        "question": "რითი იკვებება ამიერკავკასიური მცურავი?\n",
+        "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
       }
     ],
     "updatedAt": "2026-08-05",
     "sources": [
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/157274/0"
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/2458538"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Zamenis&species=hohenackeri"
+      },
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
+      }
+    ]
+  },
+  {
+    "id": "zamenis-longissimus",
+    "commonName": "ესკულაპის მცურავი",
+    "scientificName": "Zamenis longissimus",
+    "genus": "Zamenis",
+    "family": "Colubridae",
+    "location": "საქართველო",
+    "description": "ესკულაპის მცურავი — დაფიქსირებულია საქართველოში.",
+    "overview": "ესკულაპის მცურავი (Zamenis longissimus) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
+    "habitat": "ღია ადგილები, ბუჩქნარი, კლდოვანი ფერდობები ან ტყის პირას — სახეობის მიხედვით.",
+    "diet": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.",
+    "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
+    "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
+    "danger": "Harmless",
+    "image": "/images/zamenis-longissimus.jpg",
+    "imageCredit": {
+      "photographer": "Wolfgang Wüster",
+      "url": "https://www.inaturalist.org/observations/19465840"
+    },
+    "mobileImage": "/images/zamenis-longissimus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Daniel Iversen",
+      "url": "https://www.inaturalist.org/observations/28676867"
+    },
+    "gallery": [
+      {
+        "src": "/images/zamenis-longissimus.jpg",
+        "credit": {
+          "photographer": "Wolfgang Wüster",
+          "url": "https://www.inaturalist.org/observations/19465840"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-mobile.jpg",
+        "credit": {
+          "photographer": "Daniel Iversen",
+          "url": "https://www.inaturalist.org/observations/28676867"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-2.jpg",
+        "credit": {
+          "photographer": "Manuel Raab",
+          "url": "https://www.inaturalist.org/observations/184736285"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-3.jpg",
+        "credit": {
+          "photographer": "Philipp Pavelka",
+          "url": "https://www.inaturalist.org/observations/25489275"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია / კლდოვანი ჰაბიტატები"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ხშირად 1 მ ან მეტი"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "იხ. IUCN"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "როგორ ამოვიცნოთ ესკულაპის მცურავი.",
+      "traits": [
+        "დიდი ან საშუალო კოლუბრიდი (Zamenis longissimus).\n",
+        "მრგვალი გუგები; უშხამო (ამ საიტზე — უვნებელი, თუ სხვაგვარად არაა მითითებული).\n",
+        "ხშირად სწრაფი და დღისით აქტიური.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა Zamenis longissimus საქართველოში?\n",
+        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+      },
+      {
+        "question": "არის თუ არა Zamenis longissimus შხამიანი?\n",
+        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+      },
+      {
+        "question": "რითი იკვებება ესკულაპის მცურავი?\n",
+        "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
+        "url": "https://doi.org/10.3897/caucasiana.5.e189214"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Zamenis&species=longissimus"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Aesculapian_snake"
-      },
-      {
-        "name": "Scientific publications"
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/"
       }
     ]
   }
 ];
 
 export const speciesEn: Record<string, SpeciesTranslation> = {
+  "ablepharus-pannonicus": {
+    "commonName": "Asian Snake-Eyed Skink",
+    "location": "Georgia",
+    "description": "Asian Snake-Eyed Skink — recorded from Georgia.",
+    "overview": "Asian Snake-Eyed Skink (Ablepharus pannonicus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Loose soil, leaf litter, stones and dry open habitats.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Often secretive; many skinks move quickly through litter or under stones.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 15 cm total length"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Asian Snake-Eyed Skink.",
+      "traits": [
+        "Smooth shiny scales typical of skinks.\n",
+        "Reduced limbs in some taxa; Ablepharus has a snake-eyed appearance.\n",
+        "Small and easily overlooked.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Ablepharus pannonicus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Ablepharus pannonicus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the asian snake-eyed skink eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "anguis-colchica": {
+    "commonName": "Colchis Slow Worm",
+    "location": "Georgia",
+    "description": "Colchis Slow Worm — recorded from Georgia. Candidate species.",
+    "overview": "Colchis Slow Worm (Anguis colchica) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Forest edges, meadows, gardens and humid cover with leaf litter or grass.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Secretive legless or nearly legless lizards; often under logs and boards.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Often 30–50 cm total length"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Anguidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Colchis Slow Worm.",
+      "traits": [
+        "Snake-like body but with lizard head scales and eyelids.\n",
+        "Moves with lateral undulation; not a snake.\n",
+        "Harmless.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Anguis colchica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Anguis colchica a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Anguis colchica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the colchis slow worm eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "bufo-verrucosissimus": {
+    "commonName": "Caucasian Toad",
+    "location": "Georgia",
+    "description": "Caucasian Toad — recorded from Georgia. Candidate species.",
+    "overview": "Caucasian Toad (Bufo verrucosissimus) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Toad.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Bufo verrucosissimus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Bufo verrucosissimus a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Bufo verrucosissimus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian toad eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "bufotes-viridis": {
+    "commonName": "Green Toad",
+    "location": "Georgia",
+    "description": "Green Toad — recorded from Georgia.",
+    "overview": "Green Toad (Bufotes viridis) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Bufonidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Green Toad.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Bufotes viridis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Bufotes viridis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the green toad eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
   "coronella-austriaca": {
     "commonName": "Smooth snake",
     "location": "Georgia — foothills and mountains",
@@ -2385,6 +8480,965 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "darevskia-adjarica": {
+    "commonName": "Ajarian Rock Lizard",
+    "location": "Georgia — southwestern Georgia",
+    "description": "Ajarian Rock Lizard — recorded from Georgia. Candidate species.",
+    "overview": "Ajarian Rock Lizard (Darevskia adjarica) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Ajarian Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia adjarica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Darevskia adjarica a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Darevskia adjarica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the ajarian rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-alpina": {
+    "commonName": "Alpine Rock Lizard",
+    "location": "Georgia — Abkhazia / western Greater Caucasus highlands",
+    "description": "Alpine Rock Lizard — recorded from Georgia. Candidate species.",
+    "overview": "Alpine Rock Lizard (Darevskia alpina) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Alpine Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia alpina occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Darevskia alpina a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Darevskia alpina venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the alpine rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-armeniaca": {
+    "commonName": "Armenian Rock Lizard",
+    "location": "Georgia",
+    "description": "Armenian Rock Lizard — recorded from Georgia.",
+    "overview": "Armenian Rock Lizard (Darevskia armeniaca) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Armenian Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia armeniaca occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia armeniaca venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the armenian rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-brauneri": {
+    "commonName": "Brauner's Rock Lizard",
+    "location": "Georgia",
+    "description": "Brauner's Rock Lizard — recorded from Georgia. Candidate species.",
+    "overview": "Brauner's Rock Lizard (Darevskia brauneri) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Brauner's Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia brauneri occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Darevskia brauneri a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Darevskia brauneri venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the brauner's rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-caucasica": {
+    "commonName": "Caucasian Rock Lizard",
+    "location": "Georgia",
+    "description": "Caucasian Rock Lizard — recorded from Georgia.",
+    "overview": "Caucasian Rock Lizard (Darevskia caucasica) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia caucasica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia caucasica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-clarkorum": {
+    "commonName": "Clark's Rock Lizard",
+    "location": "Georgia — southwestern mountain forests",
+    "description": "Clark's Rock Lizard — recorded from Georgia.",
+    "overview": "Clark's Rock Lizard (Darevskia clarkorum) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Clark's Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia clarkorum occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia clarkorum venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the clark's rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-daghestanica": {
+    "commonName": "Daghestanian Rock Lizard",
+    "location": "Georgia",
+    "description": "Daghestanian Rock Lizard — recorded from Georgia.",
+    "overview": "Daghestanian Rock Lizard (Darevskia daghestanica) is recorded from Georgia in. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Daghestanian Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia daghestanica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia daghestanica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the daghestanian rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-dahli": {
+    "commonName": "Dahl's Rock Lizard",
+    "location": "Georgia",
+    "description": "Dahl's Rock Lizard — recorded from Georgia.",
+    "overview": "Dahl's Rock Lizard (Darevskia dahli) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Dahl's Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia dahli occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia dahli venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the dahl's rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-derjugini": {
+    "commonName": "Derjugin's Lizard",
+    "location": "Georgia",
+    "description": "Derjugin's Lizard — recorded from Georgia.",
+    "overview": "Derjugin's Lizard (Darevskia derjugini) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Derjugin's Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia derjugini occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia derjugini venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the derjugin's lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-mixta": {
+    "commonName": "Mixed Rock Lizard",
+    "location": "Georgia",
+    "description": "Mixed Rock Lizard — recorded from Georgia.",
+    "overview": "Mixed Rock Lizard (Darevskia mixta) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Mixed Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia mixta occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia mixta venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the mixed rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-obscura": {
+    "commonName": "Obscure Rock Lizard",
+    "location": "Georgia",
+    "description": "Obscure Rock Lizard — recorded from Georgia. Candidate species.",
+    "overview": "Obscure Rock Lizard (Darevskia obscura) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Obscure Rock Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia obscura occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Darevskia obscura a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Darevskia obscura venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the obscure rock lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-pontica": {
+    "commonName": "Pontic Meadow Lizard",
+    "location": "Georgia",
+    "description": "Pontic Meadow Lizard — recorded from Georgia. Candidate species.",
+    "overview": "Pontic Meadow Lizard (Darevskia pontica) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Pontic Meadow Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia pontica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Darevskia pontica a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Darevskia pontica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the pontic meadow lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-portschinskii": {
+    "commonName": "Portschinsky's Lizard",
+    "location": "Georgia",
+    "description": "Portschinsky's Lizard — recorded from Georgia.",
+    "overview": "Portschinsky's Lizard (Darevskia portschinskii) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Portschinsky's Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia portschinskii occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia portschinskii venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the portschinsky's lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-praticola": {
+    "commonName": "Meadow Lizard",
+    "location": "Georgia",
+    "description": "Meadow Lizard — recorded from Georgia.",
+    "overview": "Meadow Lizard (Darevskia praticola) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Meadow Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia praticola occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia praticola venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the meadow lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-raddei": {
+    "commonName": "Radde's Lizard",
+    "location": "Georgia",
+    "description": "Radde's Lizard — recorded from Georgia.",
+    "overview": "Radde's Lizard (Darevskia raddei) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Radde's Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia raddei occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia raddei venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the radde's lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "darevskia-valentini": {
+    "commonName": "Valentin's Lizard",
+    "location": "Georgia",
+    "description": "Valentin's Lizard — recorded from Georgia.",
+    "overview": "Valentin's Lizard (Darevskia valentini) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky outcrops, cliffs, stone walls and open montane or foothill slopes.",
+    "diet": "Mostly small invertebrates, especially insects and spiders.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Typically under 8 cm SVL (plus tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Valentin's Lizard.",
+      "traits": [
+        "Small lacertid lizard; many Darevskia species are similar and need careful comparison.\n",
+        "Often associated with rocks and stone surfaces.\n",
+        "Identification in the Caucasus should use regional keys and verified photos.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Darevskia valentini occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Darevskia valentini venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the valentin's lizard eat?\n",
+        "answer": "Mostly small invertebrates, especially insects and spiders.\n"
+      }
+    ]
+  },
+  "dolichophis-caspius": {
+    "commonName": "Caspian Whip Snake",
+    "location": "Georgia",
+    "description": "Caspian Whip Snake — recorded from Georgia. Candidate species.",
+    "overview": "Caspian Whip Snake (Dolichophis caspius) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open country, scrub, rocky slopes or woodland edges depending on species.",
+    "diet": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.",
+    "behavior": "Activity pattern varies from diurnal hunters to secretive fossorial or nocturnal species.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Often 1 m or longer"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caspian Whip Snake.",
+      "traits": [
+        "Large or medium colubrid (Dolichophis caspius).\n",
+        "Round pupils; non-venomous (danger: harmless on this site unless noted).\n",
+        "Often fast and diurnal.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Dolichophis caspius occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Dolichophis caspius a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Dolichophis caspius venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caspian whip snake eat?\n",
+        "answer": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.\n"
+      }
+    ]
+  },
   "dolichophis-schmidti": {
     "commonName": "Red-bellied racer",
     "location": "Eastern Georgia",
@@ -2456,6 +9510,116 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 5–11 eggs; young hatch independently."
+      }
+    ]
+  },
+  "eirenis-collaris": {
+    "commonName": "Collared Dwarf Snake",
+    "location": "Georgia",
+    "description": "Collared Dwarf Snake — recorded from Georgia.",
+    "overview": "Collared Dwarf Snake (Eirenis collaris) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Stony slopes and dry open habitats with cover under rocks.",
+    "diet": "Mostly insects and other small invertebrates.",
+    "behavior": "Activity pattern varies from diurnal hunters to secretive fossorial or nocturnal species.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 60 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Collared Dwarf Snake.",
+      "traits": [
+        "Small slender colubrid.\n",
+        "Often a dark collar or head marking in Eirenis.\n",
+        "Secretive under stones.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eirenis collaris occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Eirenis collaris venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the collared dwarf snake eat?\n",
+        "answer": "Mostly insects and other small invertebrates.\n"
+      }
+    ]
+  },
+  "eirenis-modestus": {
+    "commonName": "Ring-headed Dwarf Snake",
+    "location": "Georgia",
+    "description": "Ring-headed Dwarf Snake — recorded from Georgia.",
+    "overview": "Ring-headed Dwarf Snake (Eirenis modestus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Stony slopes and dry open habitats with cover under rocks.",
+    "diet": "Mostly insects and other small invertebrates.",
+    "behavior": "Activity pattern varies from diurnal hunters to secretive fossorial or nocturnal species.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 60 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Ring-headed Dwarf Snake.",
+      "traits": [
+        "Small slender colubrid.\n",
+        "Often a dark collar or head marking in Eirenis.\n",
+        "Secretive under stones.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eirenis modestus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Eirenis modestus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the ring-headed dwarf snake eat?\n",
+        "answer": "Mostly insects and other small invertebrates.\n"
       }
     ]
   },
@@ -2607,6 +9771,678 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "emys-orbicularis": {
+    "commonName": "European Pond Turtle",
+    "location": "Georgia",
+    "description": "European Pond Turtle — recorded from Georgia.",
+    "overview": "European Pond Turtle (Emys orbicularis) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Ponds, lakes, slow rivers and wetlands.",
+    "diet": "Varies by species — from mostly herbivorous tortoises to omnivorous freshwater turtles.",
+    "behavior": "Diurnal basking is common in aquatic turtles; tortoises are terrestrial and often most active in warm weather.",
+    "conservation": "Recorded in Georgia. Many turtles face habitat loss and collection pressure worldwide.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Terrestrial / freshwater"
+      },
+      {
+        "label": "Length",
+        "value": "Shell typically 15–30 cm depending on species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise European Pond Turtle.",
+      "traits": [
+        "Freshwater turtle with a flatter shell than tortoises.\n",
+        "Often basks on banks and logs.\n",
+        "Webbed feet in many aquatic species.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Emys orbicularis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Emys orbicularis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the european pond turtle eat?\n",
+        "answer": "Varies by species — from mostly herbivorous tortoises to omnivorous freshwater turtles.\n"
+      }
+    ]
+  },
+  "eremias-arguta": {
+    "commonName": "Steppe-Runner",
+    "location": "Georgia",
+    "description": "Steppe-Runner — recorded from Georgia.",
+    "overview": "Steppe-Runner (Eremias arguta) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Steppe-Runner.",
+      "traits": [
+        "Steppe-Runner is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eremias arguta occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Eremias arguta venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the steppe-runner eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "eremias-velox": {
+    "commonName": "Rapid Racerunner",
+    "location": "Georgia",
+    "description": "Rapid Racerunner — recorded from Georgia.",
+    "overview": "Rapid Racerunner (Eremias velox) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Rapid Racerunner.",
+      "traits": [
+        "Rapid Racerunner is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eremias velox occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Eremias velox venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the rapid racerunner eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "eryx-jaculus": {
+    "commonName": "Javelin Sand Boa",
+    "location": "Georgia",
+    "description": "Javelin Sand Boa — recorded from Georgia.",
+    "overview": "Javelin Sand Boa (Eryx jaculus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Sandy and loose soils in dry open country.",
+    "diet": "Small lizards and rodents; kills by constriction.",
+    "behavior": "Mostly crepuscular/nocturnal burrower.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 80 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Boidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Javelin Sand Boa.",
+      "traits": [
+        "Short stout body and blunt tail tip.\n",
+        "Small eyes; sand-boa look.\n",
+        "Non-venomous constrictor.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eryx jaculus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Eryx jaculus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the javelin sand boa eat?\n",
+        "answer": "Small lizards and rodents; kills by constriction.\n"
+      }
+    ]
+  },
+  "eumeces-schneiderii": {
+    "commonName": "Schneider's Skink",
+    "location": "Georgia",
+    "description": "Schneider's Skink — recorded from Georgia.",
+    "overview": "Schneider's Skink (Eumeces schneiderii) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Loose soil, leaf litter, stones and dry open habitats.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Often secretive; many skinks move quickly through litter or under stones.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Usually under 15 cm total length"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Scincidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Schneider's Skink.",
+      "traits": [
+        "Smooth shiny scales typical of skinks.\n",
+        "Reduced limbs in some taxa; Ablepharus has a snake-eyed appearance.\n",
+        "Small and easily overlooked.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Eumeces schneiderii occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Eumeces schneiderii venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the schneider's skink eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "hemorrhois-ravergieri": {
+    "commonName": "Spotted Whip Snake",
+    "location": "Georgia",
+    "description": "Spotted Whip Snake — recorded from Georgia.",
+    "overview": "Spotted Whip Snake (Hemorrhois ravergieri) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open country, scrub, rocky slopes or woodland edges depending on species.",
+    "diet": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.",
+    "behavior": "Activity pattern varies from diurnal hunters to secretive fossorial or nocturnal species.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Often 1 m or longer"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Spotted Whip Snake.",
+      "traits": [
+        "Large or medium colubrid (Hemorrhois ravergieri).\n",
+        "Round pupils; non-venomous (danger: harmless on this site unless noted).\n",
+        "Often fast and diurnal.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Hemorrhois ravergieri occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Hemorrhois ravergieri venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the spotted whip snake eat?\n",
+        "answer": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.\n"
+      }
+    ]
+  },
+  "hyla-orientalis": {
+    "commonName": "Eastern Treefrog",
+    "location": "Georgia",
+    "description": "Eastern Treefrog — recorded from Georgia. Candidate species.",
+    "overview": "Eastern Treefrog (Hyla orientalis) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Eastern Treefrog.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Hyla orientalis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Hyla orientalis a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Hyla orientalis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the eastern treefrog eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "hyla-savignyi": {
+    "commonName": "Yellow-Lemon Treefrog",
+    "location": "Georgia",
+    "description": "Yellow-Lemon Treefrog — recorded from Georgia.",
+    "overview": "Yellow-Lemon Treefrog (Hyla savignyi) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Hylidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Yellow-Lemon Treefrog.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Hyla savignyi occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Hyla savignyi venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the yellow-lemon treefrog eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "lacerta-agilis": {
+    "commonName": "Sand Lizard",
+    "location": "Georgia",
+    "description": "Sand Lizard — recorded from Georgia.",
+    "overview": "Sand Lizard (Lacerta agilis) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Sand Lizard.",
+      "traits": [
+        "Sand Lizard is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lacerta agilis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Lacerta agilis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the sand lizard eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "lacerta-media": {
+    "commonName": "Caucasian Green Lizard",
+    "location": "Georgia",
+    "description": "Caucasian Green Lizard — recorded from Georgia. Candidate species.",
+    "overview": "Caucasian Green Lizard (Lacerta media) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Green Lizard.",
+      "traits": [
+        "Caucasian Green Lizard is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lacerta media occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Lacerta media a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Lacerta media venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian green lizard eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "lacerta-strigata": {
+    "commonName": "Striped Lizard",
+    "location": "Georgia",
+    "description": "Striped Lizard — recorded from Georgia.",
+    "overview": "Striped Lizard (Lacerta strigata) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Striped Lizard.",
+      "traits": [
+        "Striped Lizard is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lacerta strigata occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Lacerta strigata venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the striped lizard eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "lissotriton-lantzi": {
+    "commonName": "Caucasian Smooth Newt",
+    "location": "Georgia",
+    "description": "Caucasian Smooth Newt — recorded from Georgia. Candidate species.",
+    "overview": "Caucasian Smooth Newt (Lissotriton lantzi) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Cool moist forests, streams and mountain wetlands.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Smooth Newt.",
+      "traits": [
+        "Tailed amphibian (salamander/newt).\n",
+        "Smooth moist skin; four limbs.\n",
+        "Larvae are aquatic.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Lissotriton lantzi occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Lissotriton lantzi a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Lissotriton lantzi venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian smooth newt eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
   "macrovipera-lebetina": {
     "commonName": "Levantine viper",
     "location": "Eastern Georgia",
@@ -2678,6 +10514,175 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in April–May; it lays roughly 15–20 eggs in late summer, and young hatch in 35–45 days."
+      }
+    ]
+  },
+  "malpolon-insignitus": {
+    "commonName": "Eastern Montpellier Snake",
+    "location": "Georgia",
+    "description": "Eastern Montpellier Snake — recorded from Georgia. Candidate species.",
+    "overview": "Eastern Montpellier Snake (Malpolon insignitus) is recorded from Georgia. It is treated as a candidate species pending further integrative validation. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open dry habitats and Mediterranean-type landscapes.",
+    "diet": "Primarily lizards; also other small vertebrates.",
+    "behavior": "Diurnal hunter with good vision; rear-fanged.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Often over 1.5 m"
+      },
+      {
+        "label": "Venom",
+        "value": "Mild (rear-fanged)"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Psammophiidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Eastern Montpellier Snake.",
+      "traits": [
+        "Large robust psammophiid.\n",
+        "Prominent brows / “angry” look.\n",
+        "Rear-fanged — medically mild for humans but treat bites seriously.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Malpolon insignitus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Why is Malpolon insignitus a candidate species?\n",
+        "answer": "Candidate status is used when species rank still needs contact-zone and multi-marker validation.\n"
+      },
+      {
+        "question": "Is Malpolon insignitus venomous?\n",
+        "answer": "Site classification: Moderate. Venom: Mild (rear-fanged).\n"
+      },
+      {
+        "question": "What does the eastern montpellier snake eat?\n",
+        "answer": "Primarily lizards; also other small vertebrates.\n"
+      }
+    ]
+  },
+  "mauremys-caspica": {
+    "commonName": "Caspian Turtle",
+    "location": "Georgia",
+    "description": "Caspian Turtle — recorded from Georgia.",
+    "overview": "Caspian Turtle (Mauremys caspica) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Ponds, lakes, slow rivers and wetlands.",
+    "diet": "Varies by species — from mostly herbivorous tortoises to omnivorous freshwater turtles.",
+    "behavior": "Diurnal basking is common in aquatic turtles; tortoises are terrestrial and often most active in warm weather.",
+    "conservation": "Recorded in Georgia. Many turtles face habitat loss and collection pressure worldwide.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Terrestrial / freshwater"
+      },
+      {
+        "label": "Length",
+        "value": "Shell typically 15–30 cm depending on species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Geoemydidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caspian Turtle.",
+      "traits": [
+        "Freshwater turtle with a flatter shell than tortoises.\n",
+        "Often basks on banks and logs.\n",
+        "Webbed feet in many aquatic species.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Mauremys caspica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Mauremys caspica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caspian turtle eat?\n",
+        "answer": "Varies by species — from mostly herbivorous tortoises to omnivorous freshwater turtles.\n"
+      }
+    ]
+  },
+  "mertensiella-caucasica": {
+    "commonName": "Caucasian Salamander",
+    "location": "Georgia — western Lesser Caucasus endemic",
+    "description": "Caucasian Salamander — recorded from Georgia.",
+    "overview": "Caucasian Salamander (Mertensiella caucasica) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Cool moist forests, streams and mountain wetlands.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Salamander.",
+      "traits": [
+        "Tailed amphibian (salamander/newt).\n",
+        "Smooth moist skin; four limbs.\n",
+        "Larvae are aquatic.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Mertensiella caucasica occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Mertensiella caucasica venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian salamander eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
       }
     ]
   },
@@ -2829,6 +10834,395 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "ommatotriton-ophryticus": {
+    "commonName": "Northern Banded Newt",
+    "location": "Georgia",
+    "description": "Northern Banded Newt — recorded from Georgia.",
+    "overview": "Northern Banded Newt (Ommatotriton ophryticus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Cool moist forests, streams and mountain wetlands.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Northern Banded Newt.",
+      "traits": [
+        "Tailed amphibian (salamander/newt).\n",
+        "Smooth moist skin; four limbs.\n",
+        "Larvae are aquatic.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Ommatotriton ophryticus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Ommatotriton ophryticus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the northern banded newt eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "ophisops-elegans": {
+    "commonName": "Snake-Eyed Lizard",
+    "location": "Georgia",
+    "description": "Snake-Eyed Lizard — recorded from Georgia.",
+    "overview": "Snake-Eyed Lizard (Ophisops elegans) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Snake-Eyed Lizard.",
+      "traits": [
+        "Snake-Eyed Lizard is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Ophisops elegans occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Ophisops elegans venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the snake-eyed lizard eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "paralaudakia-caucasia": {
+    "commonName": "Caucasian Agama",
+    "location": "Georgia",
+    "description": "Caucasian Agama — recorded from Georgia.",
+    "overview": "Caucasian Agama (Paralaudakia caucasia) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Rocky slopes and arid open habitats.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Medium-sized lizard"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Agamidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Agama.",
+      "traits": [
+        "Robust agamid lizard with a triangular head.\n",
+        "Often basks on prominent rocks.\n",
+        "Can change posture and may inflate the body when threatened.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Paralaudakia caucasia occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Paralaudakia caucasia venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian agama eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
+  "pelobates-syriacus": {
+    "commonName": "Eastern Spadefoot",
+    "location": "Georgia",
+    "description": "Eastern Spadefoot — recorded from Georgia.",
+    "overview": "Eastern Spadefoot (Pelobates syriacus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Pelobatidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Eastern Spadefoot.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Pelobates syriacus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Pelobates syriacus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the eastern spadefoot eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "pelodytes-caucasicus": {
+    "commonName": "Caucasian Parsley Frog",
+    "location": "Georgia",
+    "description": "Caucasian Parsley Frog — recorded from Georgia.",
+    "overview": "Caucasian Parsley Frog (Pelodytes caucasicus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Pelodytidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Parsley Frog.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Pelodytes caucasicus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Pelodytes caucasicus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian parsley frog eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "pelophylax-ridibundus": {
+    "commonName": "Marsh Frog",
+    "location": "Georgia",
+    "description": "Marsh Frog — recorded from Georgia.",
+    "overview": "Marsh Frog (Pelophylax ridibundus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Marsh Frog.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Pelophylax ridibundus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Pelophylax ridibundus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the marsh frog eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
+  "phoenicolacerta-laevis": {
+    "commonName": "Lebanon Lizard",
+    "location": "Georgia — introduced (Black Sea coast population)",
+    "description": "Introduced Lebanon Lizard recorded from Georgia.",
+    "overview": "Lebanon Lizard (Phoenicolacerta laevis) is recorded from Georgia. It is listed as biologically confirmed in that checklist. It is introduced in Georgia. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open ground, scrub, forest edges or sandy/steppe habitats depending on species.",
+    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
+    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Body length varies by species; see field guides"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Lebanon Lizard.",
+      "traits": [
+        "Lebanon Lizard is a lacertid lizard; compare head and body pattern with similar regional species.\n",
+        "Diurnal and typically fast-moving.\n",
+        "Use regional keys — several lacertids overlap in the Caucasus.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Phoenicolacerta laevis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Phoenicolacerta laevis native to Georgia?\n",
+        "answer": "No — the checklist lists it as introduced.\n"
+      },
+      {
+        "question": "Is Phoenicolacerta laevis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the lebanon lizard eat?\n",
+        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+      }
+    ]
+  },
   "platyceps-najadum": {
     "commonName": "Dahl's whip snake",
     "location": "Eastern and southern Georgia",
@@ -2977,6 +11371,61 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "rana-macrocnemis": {
+    "commonName": "Caucasian Brown Frog",
+    "location": "Georgia",
+    "description": "Caucasian Brown Frog — recorded from Georgia.",
+    "overview": "Caucasian Brown Frog (Rana macrocnemis) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Wetlands, ponds, moist forests or open habitats near breeding water.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Ranidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caucasian Brown Frog.",
+      "traits": [
+        "Tailless amphibian as adult.\n",
+        "Moist skin; long hind legs in many frogs.\n",
+        "Calls in breeding season for many anurans.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Rana macrocnemis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Rana macrocnemis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caucasian brown frog eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
+      }
+    ]
+  },
   "telescopus-fallax": {
     "commonName": "European cat snake",
     "location": "Eastern and southern Georgia",
@@ -3048,6 +11497,230 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 4–12 eggs, and young hatch independently."
+      }
+    ]
+  },
+  "tenuidactylus-caspius": {
+    "commonName": "Caspian Thick-toed Gecko",
+    "location": "Georgia — natural range in the extreme southeast; also synanthropic populations in eastern towns and recorded in Kutaisi and Sokhumi",
+    "description": "A small nocturnal gecko recorded from Georgia — natural range in the far southeast, also in some towns.",
+    "overview": "The Caspian gecko (Tenuidactylus caspius) is a small climbing gecko confirmed for Georgia by. The checklist notes a natural range in the extreme southeast and synanthropic populations in eastern settlements, with additional records from Kutaisi and Sokhumi. It is biologically confirmed and feeds mainly on small arthropods at night.",
+    "habitat": "Rocky and urban walls, stone piles and dry open habitats; in Georgia the natural range is the extreme southeast, with additional synanthropic colonies in towns.",
+    "diet": "Nocturnal insectivore — mostly small arthropods.",
+    "behavior": "Primarily nocturnal/crepuscular gecko; climbs vertical surfaces and hides in crevices by day.",
+    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Rocky / open habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Up to about 10–12 cm SVL (plus long tail)"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Gekkonidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Caspian Thick-toed Gecko.",
+      "traits": [
+        "Small gecko with granular dorsal scales and vertical pupils.\n",
+        "Toes expanded for climbing rough vertical surfaces.\n",
+        "Often found on walls and rocks after dusk.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Tenuidactylus caspius occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Tenuidactylus caspius venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the caspian thick-toed gecko eat?\n",
+        "answer": "Nocturnal insectivore — mostly small arthropods.\n"
+      }
+    ]
+  },
+  "testudo-graeca": {
+    "commonName": "Mediterranean Tortoise",
+    "location": "Georgia — T. g. ibera widespread in eastern Georgia; T. g. nikolskii described from western Georgia and considered rare",
+    "description": "Mediterranean Tortoise — recorded from Georgia.",
+    "overview": "Mediterranean Tortoise (Testudo graeca) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Dry grasslands, scrub and open foothills; subspecies differ between eastern and western Georgia.",
+    "diet": "Mostly herbivorous — grasses, herbs and other plant material.",
+    "behavior": "Diurnal basking is common in aquatic turtles; tortoises are terrestrial and often most active in warm weather.",
+    "conservation": "Recorded in Georgia. Many turtles face habitat loss and collection pressure worldwide.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Terrestrial / freshwater"
+      },
+      {
+        "label": "Length",
+        "value": "Shell usually under 30 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Testudinidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Mediterranean Tortoise.",
+      "traits": [
+        "High-domed terrestrial tortoise shell.\n",
+        "Horny beak; no teeth.\n",
+        "Moves slowly on land — not a freshwater turtle.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Testudo graeca occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Testudo graeca venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the mediterranean tortoise eat?\n",
+        "answer": "Mostly herbivorous — grasses, herbs and other plant material.\n"
+      }
+    ]
+  },
+  "trachemys-scripta": {
+    "commonName": "Pond Slider",
+    "location": "Georgia — introduced / captive-released",
+    "description": "Introduced Pond Slider recorded from Georgia.",
+    "overview": "Pond Slider (Trachemys scripta) is recorded from Georgia. It is listed as biologically confirmed in that checklist. It is introduced in Georgia. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Ponds, lakes, slow rivers and wetlands.",
+    "diet": "Varies by species — from mostly herbivorous tortoises to omnivorous freshwater turtles.",
+    "behavior": "Diurnal basking is common in aquatic turtles; tortoises are terrestrial and often most active in warm weather.",
+    "conservation": "Introduced in Georgia. Can compete with native aquatic turtles.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Terrestrial / freshwater"
+      },
+      {
+        "label": "Length",
+        "value": "Shell typically 15–30 cm depending on species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Emydidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Pond Slider.",
+      "traits": [
+        "Freshwater turtle with a flatter shell than tortoises.\n",
+        "Often basks on banks and logs.\n",
+        "Webbed feet in many aquatic species.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Trachemys scripta occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Trachemys scripta native to Georgia?\n",
+        "answer": "No — the checklist lists it as introduced.\n"
+      },
+      {
+        "question": "Is Trachemys scripta venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the pond slider eat?\n",
+        "answer": "Varies by species — from mostly herbivorous tortoises to omnivorous freshwater turtles.\n"
+      }
+    ]
+  },
+  "triturus-karelinii": {
+    "commonName": "Eastern Crested Newt",
+    "location": "Georgia",
+    "description": "Eastern Crested Newt — recorded from Georgia.",
+    "overview": "Eastern Crested Newt (Triturus karelinii) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Cool moist forests, streams and mountain wetlands.",
+    "diet": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.",
+    "behavior": "Activity is strongly seasonal and tied to moisture; many species breed in springs, ponds or streams.",
+    "conservation": "Recorded in Georgia. Global and national conservation status should be checked in IUCN and Georgian assessments.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Wetlands / moist habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Size varies by species"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Salamandridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Eastern Crested Newt.",
+      "traits": [
+        "Tailed amphibian (salamander/newt).\n",
+        "Smooth moist skin; four limbs.\n",
+        "Larvae are aquatic.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Triturus karelinii occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Triturus karelinii venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the eastern crested newt eat?\n",
+        "answer": "Mostly invertebrates — insects, worms and other small prey; aquatic larvae often feed on small aquatic invertebrates.\n"
       }
     ]
   },
@@ -3417,77 +12090,168 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
-  "zamenis-longissimus": {
-    "commonName": "Aesculapian snake",
-    "location": "Western Georgia; Lagodekhi",
-    "description": "A harmless, long and slender ratsnake of forests and foothills — in Georgia mostly in the west; non-venomous.",
-    "overview": "The Aesculapian snake (Zamenis longissimus), also called the Aesculapian ratsnake, is a harmless colubrid. The name refers to the rod of Asclepius (Aesculapius), the ancient symbol of medicine; it was formerly Elaphe longissima. It ranges across south-western and central Europe, the Balkans, parts of Asia Minor, and a separate enclave along the eastern Black Sea coast from Turkey through Georgia into southern Russia. In Georgia it is widespread in the western half (Black Sea coast and Caucasus foothills); an isolated population is reported in the north-east near Lagodekhi. It is absent from areas with average annual rainfall below about 800 mm. Length is usually 1.0–1.5 m; rarely over 2 m. Globally it is Least Concern on the IUCN Red List; in Georgia it is listed in the national Red Book.",
-    "habitat": "It prefers woodland, forest edges, scrub, sunny slopes, and old structures — stone walls, hollows, and woodpiles. It climbs well and is often found in trees. Vertically in Georgia it reaches about 2,000 m. It is almost absent from the dry eastern steppes; humid Colchic landscapes and foothills in the west suit it better.",
-    "diet": "It feeds on small vertebrates — mainly rodents; also small birds, nestlings and eggs, and sometimes lizards. It kills prey by constriction and has no venom. It hunts on the ground and in trees.",
-    "behavior": "It is mostly diurnal; in warm weather it may also appear in the evening. It is calm and cautious — when threatened it prefers to flee. Adults are often uniform olive, brownish, or yellowish-bronze; scale edges often show fine white flecks. Juveniles have a more distinct blotched pattern. The head is relatively narrow, the pupil round; a yellowish neck patch is often present. It is egg-laying: in June–early July it usually lays 4–10 eggs in loose soil or leaf litter; young hatch in August–September.",
-    "conservation": "Globally it is Least Concern on the IUCN Red List — the range is broad and the population large. Locally it may decline through habitat conversion, road mortality, and killing due to confusion with venomous snakes. In Georgia it is listed in the national Red Book. It benefits the ecosystem by reducing rodent numbers.",
+  "xerotyphlops-vermicularis": {
+    "commonName": "European Blind Snake",
+    "location": "Georgia",
+    "description": "European Blind Snake — recorded from Georgia.",
+    "overview": "European Blind Snake (Xerotyphlops vermicularis) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Loose soils and underground galleries in dry open landscapes.",
+    "diet": "Ants, termites and their brood.",
+    "behavior": "Fossorial; rarely seen on the surface.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "W. Georgia"
+        "value": "Open / rocky habitats"
       },
       {
         "label": "Length",
-        "value": "approx. 1–1.5 m"
+        "value": "Usually under 40 cm"
       },
       {
         "label": "Venom",
-        "value": "None — harmless"
+        "value": "None"
       },
       {
         "label": "Conservation",
-        "value": "Least Concern"
+        "value": "See IUCN"
       },
       {
-        "label": "Elevation",
-        "value": "0–2,000 m"
+        "label": "Family",
+        "value": "Typhlopidae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise European Blind Snake.",
+      "traits": [
+        "Tiny worm-like blind snake with glossy scales.\n",
+        "Eyes reduced to dark spots under scales.\n",
+        "Non-venomous.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Xerotyphlops vermicularis occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Xerotyphlops vermicularis venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the european blind snake eat?\n",
+        "answer": "Ants, termites and their brood.\n"
+      }
+    ]
+  },
+  "zamenis-hohenackeri": {
+    "commonName": "Transcaucasian Ratsnake",
+    "location": "Georgia",
+    "description": "Transcaucasian Ratsnake — recorded from Georgia.",
+    "overview": "Transcaucasian Ratsnake (Zamenis hohenackeri) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open country, scrub, rocky slopes or woodland edges depending on species.",
+    "diet": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.",
+    "behavior": "Activity pattern varies from diurnal hunters to secretive fossorial or nocturnal species.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
+      },
+      {
+        "label": "Length",
+        "value": "Often 1 m or longer"
+      },
+      {
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
       },
       {
         "label": "Family",
         "value": "Colubridae"
       }
     ],
-    "facts": [
-      "The name refers to the rod of Asclepius — the ancient medical symbol with a snake coiled around a staff.",
-      "It was formerly Elaphe longissima; it is now placed in Zamenis (Utiger et al., 2002).",
-      "It has no venom — it constricts prey; it is harmless to humans.",
-      "In Georgia it is absent from areas with average annual rainfall below about 800 mm (Tarkhnishvili et al.)."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "The Aesculapian snake is a harmless, smooth-scaled ratsnake. Adults are often uniform olive; it climbs trees well.",
+      "summary": "How to recognise Transcaucasian Ratsnake.",
       "traits": [
-        "The back is olive, brownish, or bronze; scales often have fine white flecks.",
-        "The head is narrow; a yellowish neck patch is often present; the pupil is round.",
-        "Length is roughly 1–1.5 m; it is non-venomous — it constricts prey.",
-        "It is an excellent climber — often seen in trees and shrubs.",
-        "In Georgia — mainly the west and Caucasus foothills; also near Lagodekhi."
+        "Large or medium colubrid (Zamenis hohenackeri).\n",
+        "Round pupils; non-venomous (danger: harmless on this site unless noted).\n",
+        "Often fast and diurnal.\n"
       ]
     },
     "faq": [
       {
-        "question": "Is the Aesculapian snake dangerous to humans?",
-        "answer": "No — it is harmless. It has no venom and kills prey only by constriction. When threatened it prefers to flee; it does not attack humans."
+        "question": "Does Zamenis hohenackeri occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "Mostly in the west — Abkhazia, Samegrelo, Guria, Adjara, Imereti, Racha, and the Caucasus foothills along the Black Sea coast. An isolated population is reported in the north-east near Lagodekhi. It is almost absent from the dry eastern steppes."
+        "question": "Is Zamenis hohenackeri venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
       },
       {
-        "question": "How does it differ from grass/dice snakes (Natrix)?",
-        "answer": "Natrix (N. natrix / N. tessellata) are semi-aquatic — often with a yellow “collar” or checkerboard blotches and a stronger link to water. The Aesculapian snake is a longer, more arboreal forest ratsnake with uniform olive colouring; it feeds mainly on rodents and birds."
+        "question": "What does the transcaucasian ratsnake eat?\n",
+        "answer": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.\n"
+      }
+    ]
+  },
+  "zamenis-longissimus": {
+    "commonName": "Aesculapian Snake",
+    "location": "Georgia",
+    "description": "Aesculapian Snake — recorded from Georgia.",
+    "overview": "Aesculapian Snake (Zamenis longissimus) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
+    "habitat": "Open country, scrub, rocky slopes or woodland edges depending on species.",
+    "diet": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.",
+    "behavior": "Activity pattern varies from diurnal hunters to secretive fossorial or nocturnal species.",
+    "conservation": "Recorded in Georgia. See IUCN for global status where assessed.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open / rocky habitats"
       },
       {
-        "question": "What does it eat?",
-        "answer": "Rodents, small birds, nestlings, and eggs; sometimes lizards. It climbs trees well to raid nests."
+        "label": "Length",
+        "value": "Often 1 m or longer"
       },
       {
-        "question": "Does it lay eggs or give live birth?",
-        "answer": "It is egg-laying. In June–early July it usually lays 4–10 eggs; young hatch in August–September."
+        "label": "Venom",
+        "value": "None"
+      },
+      {
+        "label": "Conservation",
+        "value": "See IUCN"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [],
+    "identification": {
+      "summary": "How to recognise Aesculapian Snake.",
+      "traits": [
+        "Large or medium colubrid (Zamenis longissimus).\n",
+        "Round pupils; non-venomous (danger: harmless on this site unless noted).\n",
+        "Often fast and diurnal.\n"
+      ]
+    },
+    "faq": [
+      {
+        "question": "Does Zamenis longissimus occur in Georgia?\n",
+        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+      },
+      {
+        "question": "Is Zamenis longissimus venomous?\n",
+        "answer": "Site classification: Harmless. Venom: None.\n"
+      },
+      {
+        "question": "What does the aesculapian snake eat?\n",
+        "answer": "Small vertebrates and/or invertebrates depending on species — lizards, rodents, amphibians or insects.\n"
       }
     ]
   }

@@ -16,6 +16,13 @@ import {
 } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { formatContentDate } from "@/lib/formatDate";
+import {
+  filterDisplayStats,
+  hasRealIdentification,
+  hasRealSpeciesPhotos,
+  isPlaceholderBody,
+  isPlaceholderMedia,
+} from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -43,10 +50,13 @@ export function SpeciesProfile({
     () => rawRelated.map((item) => localizeSpecies(item, locale)),
     [rawRelated, locale],
   );
-  const gallery: GalleryImage[] =
-    species.gallery.length > 0
-      ? species.gallery
-      : [{ src: species.image, credit: species.imageCredit }];
+  const hasPhotos = hasRealSpeciesPhotos(species);
+  const gallery: GalleryImage[] = hasPhotos
+    ? (species.gallery.length > 0
+        ? species.gallery
+        : [{ src: species.image, credit: species.imageCredit }]
+      ).filter((item) => !isPlaceholderMedia(item.src))
+    : [];
   const primary = gallery[0];
   const heroCredit = resolvePhotoCredit(
     species.imageCredit,
@@ -62,6 +72,18 @@ export function SpeciesProfile({
     species.scientificName,
     species.location,
   );
+  const displayStats = filterDisplayStats(species.stats);
+  const showIdentification = hasRealIdentification(species.identification);
+  const biologyBlocks = [
+    { title: t("diet"), body: species.diet },
+    { title: t("behavior"), body: species.behavior },
+    { title: t("conservation"), body: species.conservation },
+  ].filter((block) => !isPlaceholderBody(block.body));
+  const mobileHeroSrc =
+    species.mobileImage && !isPlaceholderMedia(species.mobileImage)
+      ? species.mobileImage
+      : null;
+  const desktopHeroSrc = primary?.src ?? (!isPlaceholderMedia(species.image) ? species.image : null);
 
   return (
     <div className="min-h-screen bg-background">
@@ -73,49 +95,60 @@ export function SpeciesProfile({
               "calc(var(--beta-banner-height, 0px) + 7rem)",
           }}
         >
-          {species.mobileImage ? (
-            <>
+          {desktopHeroSrc ? (
+            mobileHeroSrc ? (
+              <>
+                <Image
+                  src={mobileHeroSrc}
+                  alt={imageAlt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-cover lg:hidden"
+                />
+                <Image
+                  src={desktopHeroSrc}
+                  alt={imageAlt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="hidden object-cover lg:block"
+                />
+              </>
+            ) : (
               <Image
-                src={species.mobileImage}
+                src={desktopHeroSrc}
                 alt={imageAlt}
                 fill
                 priority
                 sizes="100vw"
-                className="object-cover lg:hidden"
+                className="object-cover"
               />
-              <Image
-                src={primary?.src ?? species.image}
-                alt={imageAlt}
-                fill
-                priority
-                sizes="100vw"
-                className="hidden object-cover lg:block"
-              />
-            </>
+            )
           ) : (
-            <Image
-              src={primary?.src ?? species.image}
-              alt={imageAlt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
+            <div
+              className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_20%,rgba(255,255,255,0.12),transparent_60%),linear-gradient(160deg,#1c1916_0%,#0f0e0c_55%,#171411_100%)]"
+              aria-hidden="true"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/25 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
-          <div
-            className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
-            style={{ top: "calc(var(--beta-banner-height, 0px) + 5.75rem)" }}
-          >
-            <PhotoCreditCaption credit={heroCredit} variant="hero" />
-          </div>
-          <div
-            className="pointer-events-none absolute right-6 z-[5] lg:hidden"
-            style={{ top: "calc(var(--beta-banner-height, 0px) + 5.25rem)" }}
-          >
-            <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
-          </div>
+          {heroCredit ? (
+            <div
+              className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
+              style={{ top: "calc(var(--beta-banner-height, 0px) + 5.75rem)" }}
+            >
+              <PhotoCreditCaption credit={heroCredit} variant="hero" />
+            </div>
+          ) : null}
+          {mobileHeroCredit && mobileHeroSrc ? (
+            <div
+              className="pointer-events-none absolute right-6 z-[5] lg:hidden"
+              style={{ top: "calc(var(--beta-banner-height, 0px) + 5.25rem)" }}
+            >
+              <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
+            </div>
+          ) : null}
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <Link
@@ -145,36 +178,38 @@ export function SpeciesProfile({
           </div>
         </section>
 
-        <section className="bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("atAGlance")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t("atAGlanceTitle")}
-              </h2>
-            </Reveal>
-            <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
-              {species.stats.map((stat, index) => (
-                <Reveal
-                  key={stat.label}
-                  delay={index * 60}
-                  className="bg-background"
-                >
-                  <div className="p-6 lg:p-8">
-                    <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
-                      {stat.label}
-                    </p>
-                    <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
-                      {stat.value}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+        {displayStats.length > 0 ? (
+          <section className="bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {t("atAGlance")}
+                </p>
+                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+                  {t("atAGlanceTitle")}
+                </h2>
+              </Reveal>
+              <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
+                {displayStats.map((stat, index) => (
+                  <Reveal
+                    key={stat.label}
+                    delay={index * 60}
+                    className="bg-background"
+                  >
+                    <div className="p-6 lg:p-8">
+                      <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
+                        {stat.label}
+                      </p>
+                      <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
+                        {stat.value}
+                      </p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         <section className="bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -198,49 +233,57 @@ export function SpeciesProfile({
           </div>
         </section>
 
-        <SpeciesGallery
-          images={gallery}
-          name={species.commonName}
-          scientificName={species.scientificName}
-          location={species.location}
-          tone="background"
-        />
+        {gallery.length > 0 ? (
+          <SpeciesGallery
+            images={gallery}
+            name={species.commonName}
+            scientificName={species.scientificName}
+            location={species.location}
+            tone="background"
+          />
+        ) : null}
 
         <SpeciesRangeMap
           speciesId={species.id}
           speciesName={species.commonName}
         />
 
-        {species.identification ? (
+        {showIdentification && species.identification ? (
           <SpeciesIdentification
             name={species.commonName}
             identification={species.identification}
           />
         ) : null}
 
-        <section className="bg-surface py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("biology")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-                {t("biologyTitle")}
-              </h2>
-            </Reveal>
-            <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
-              {[
-                { title: t("diet"), body: species.diet },
-                { title: t("behavior"), body: species.behavior },
-                { title: t("conservation"), body: species.conservation },
-              ].map((block, index) => (
-                <Reveal key={block.title} delay={index * 100}>
-                  <BiologyBlock title={block.title} body={block.body} />
-                </Reveal>
-              ))}
+        {biologyBlocks.length > 0 ? (
+          <section className="bg-surface py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {t("biology")}
+                </p>
+                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+                  {t("biologyTitle")}
+                </h2>
+              </Reveal>
+              <div
+                className={`mt-14 grid gap-12 md:gap-10 ${
+                  biologyBlocks.length >= 3
+                    ? "md:grid-cols-3"
+                    : biologyBlocks.length === 2
+                      ? "md:grid-cols-2"
+                      : "md:grid-cols-1"
+                }`}
+              >
+                {biologyBlocks.map((block, index) => (
+                  <Reveal key={block.title} delay={index * 100}>
+                    <BiologyBlock title={block.title} body={block.body} />
+                  </Reveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         {species.faq && species.faq.length > 0 ? (
           <SpeciesFaqSection items={species.faq} name={species.commonName} />
@@ -271,38 +314,53 @@ export function SpeciesProfile({
                 </div>
               </Reveal>
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((item, index) => (
-                  <Reveal key={item.id} delay={index * 80}>
-                    <Link
-                      href={`/species/${item.id}`}
-                      className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
-                    >
-                      <Image
-                        src={item.mobileImage ?? item.image}
-                        alt={speciesImageAlt(
-                          item.commonName,
-                          item.scientificName,
-                          item.location,
+                {related.map((item, index) => {
+                  const cover =
+                    item.mobileImage && !isPlaceholderMedia(item.mobileImage)
+                      ? item.mobileImage
+                      : !isPlaceholderMedia(item.image)
+                        ? item.image
+                        : null;
+                  return (
+                    <Reveal key={item.id} delay={index * 80}>
+                      <Link
+                        href={`/species/${item.id}`}
+                        className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
+                      >
+                        {cover ? (
+                          <Image
+                            src={cover}
+                            alt={speciesImageAlt(
+                              item.commonName,
+                              item.scientificName,
+                              item.location,
+                            )}
+                            fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          />
+                        ) : (
+                          <div
+                            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
+                            aria-hidden="true"
+                          />
                         )}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                      <div className="absolute inset-x-0 bottom-0 p-6">
-                        <p className="text-[12px] italic text-white/50">
-                          {item.scientificName}
-                        </p>
-                        <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
-                          {item.commonName}
-                        </h3>
-                        <p className="mt-2 text-[12px] text-white/50">
-                          {item.location}
-                        </p>
-                      </div>
-                    </Link>
-                  </Reveal>
-                ))}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-6">
+                          <p className="text-[12px] italic text-white/50">
+                            {item.scientificName}
+                          </p>
+                          <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
+                            {item.commonName}
+                          </h3>
+                          <p className="mt-2 text-[12px] text-white/50">
+                            {item.location}
+                          </p>
+                        </div>
+                      </Link>
+                    </Reveal>
+                  );
+                })}
               </div>
             </div>
           </section>
