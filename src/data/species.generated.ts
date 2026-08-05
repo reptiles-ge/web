@@ -563,9 +563,6 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-3.webp"
-      },
-      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp"
       },
       {
