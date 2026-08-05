@@ -1367,44 +1367,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-mixta.jpg",
-    "imageCredit": {
-      "photographer": "Kseniia Marianna Prondzynska",
-      "url": "https://www.inaturalist.org/observations/147324674"
-    },
-    "mobileImage": "/images/darevskia-mixta-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Leonid A. Neymark",
-      "url": "https://www.inaturalist.org/observations/64964491"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-mixta.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-mixta-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-mixta.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/147324674"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-mixta.jpg"
       },
       {
-        "src": "/images/darevskia-mixta-mobile.jpg",
-        "credit": {
-          "photographer": "Leonid A. Neymark",
-          "url": "https://www.inaturalist.org/observations/64964491"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-mixta-2.jpg"
       },
       {
-        "src": "/images/darevskia-mixta-2.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/145425233"
-        }
-      },
-      {
-        "src": "/images/darevskia-mixta-3.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/156724117"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-mixta-3.jpg"
       }
     ],
     "stats": [
