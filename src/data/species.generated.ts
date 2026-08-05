@@ -888,44 +888,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-caucasica.jpg",
-    "imageCredit": {
-      "photographer": "urban-nature-tours",
-      "url": "https://www.inaturalist.org/observations/176844643"
-    },
-    "mobileImage": "/images/darevskia-caucasica-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "ms1206",
-      "url": "https://www.inaturalist.org/observations/116808851"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-caucasica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-caucasica-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-caucasica.jpg",
-        "credit": {
-          "photographer": "urban-nature-tours",
-          "url": "https://www.inaturalist.org/observations/176844643"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica.jpg"
       },
       {
-        "src": "/images/darevskia-caucasica-mobile.jpg",
-        "credit": {
-          "photographer": "ms1206",
-          "url": "https://www.inaturalist.org/observations/116808851"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica-2.jpg"
       },
       {
-        "src": "/images/darevskia-caucasica-2.jpg",
-        "credit": {
-          "photographer": "Krzysztof Ostrowski",
-          "url": "https://www.inaturalist.org/observations/382604690"
-        }
-      },
-      {
-        "src": "/images/darevskia-caucasica-3.jpg",
-        "credit": {
-          "photographer": "Tom Kirschey",
-          "url": "https://www.inaturalist.org/observations/42398812"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica-3.jpg"
       }
     ],
     "stats": [
