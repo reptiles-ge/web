@@ -2,6 +2,7 @@ import { getRegionSpecies, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
+import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { absoluteUrl, localePath } from "@/lib/site";
 import type { MetadataRoute } from "next";
 
@@ -58,6 +59,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.98,
     });
+
+    for (const hub of GROUP_HUB_LIST) {
+      entries.push({
+        url: absoluteUrl(localePath(locale, hub.path)),
+        lastModified: atlasLastModified,
+        changeFrequency: "weekly",
+        priority: hub.id === "snakes" ? 0.96 : 0.94,
+      });
+    }
 
     entries.push({
       url: absoluteUrl(localePath(locale, "/regions")),

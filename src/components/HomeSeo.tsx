@@ -4,6 +4,10 @@ import { getTranslations } from "next-intl/server";
 
 const hubs = [
   { key: "species" as const, href: "/species" },
+  { key: "snakes" as const, href: "/snakes" },
+  { key: "lizards" as const, href: "/lizards" },
+  { key: "turtles" as const, href: "/turtles" },
+  { key: "amphibians" as const, href: "/amphibians" },
   { key: "venomous" as const, href: "/venomous-snakes" },
   { key: "regions" as const, href: "/regions" },
 ] as const;

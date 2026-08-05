@@ -322,6 +322,15 @@ export function getVenomousCatalogSpecies(
     );
 }
 
+export function getCatalogSpeciesByGroup(
+  group: AnimalGroup,
+  catalog: Species[] = getCatalogSpecies(),
+) {
+  return catalog
+    .filter((item) => getSpeciesAtlasMeta(item.id).group === group)
+    .sort((a, b) => a.scientificName.localeCompare(b.scientificName));
+}
+
 export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
   const urls = new Set<string>();
   for (const item of catalog) {

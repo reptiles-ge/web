@@ -14,6 +14,14 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname === "/") return true;
   if (pathname === "/about") return true;
   if (pathname === "/venomous-snakes") return true;
+  if (
+    pathname === "/snakes" ||
+    pathname === "/lizards" ||
+    pathname === "/turtles" ||
+    pathname === "/amphibians"
+  ) {
+    return true;
+  }
   if (pathname === "/species" || pathname.startsWith("/species/")) return true;
   if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
   return false;
@@ -27,6 +35,7 @@ export function Navbar() {
 
   const links = [
     { href: "/species", label: t("species") },
+    { href: "/snakes", label: t("snakes") },
     { href: "/regions", label: t("atlas") },
     { href: "/about", label: t("about") },
   ];

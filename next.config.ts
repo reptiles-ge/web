@@ -26,6 +26,16 @@ const nextConfig: NextConfig = {
         destination: "/en/species/vipera-transcaucasiana",
         permanent: true,
       },
+      {
+        source: "/identify",
+        destination: "/species",
+        permanent: false,
+      },
+      {
+        source: "/en/identify",
+        destination: "/en/species",
+        permanent: false,
+      },
     ];
   },
 };

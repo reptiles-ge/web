@@ -4,6 +4,10 @@ import { getTranslations } from "next-intl/server";
 
 const pathways = [
   {
+    key: "snakes" as const,
+    href: "/snakes",
+  },
+  {
     key: "venomous" as const,
     href: "/venomous-snakes",
   },
@@ -35,7 +39,7 @@ export async function HomeKnowledge() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-border/80 lg:mt-20 lg:grid-cols-3">
+        <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
           {pathways.map((pathway, index) => (
             <Link
               key={pathway.key}

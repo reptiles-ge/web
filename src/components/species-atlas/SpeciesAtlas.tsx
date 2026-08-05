@@ -363,14 +363,7 @@ export function SpeciesAtlas({
                       count: stats.snakes,
                     })}
                     meta={t("stats.pathwayExplore")}
-                    onClick={() => {
-                      setFilters({
-                        ...defaultAtlasFilters,
-                        group: "snake",
-                        query: filters.query,
-                      });
-                      scrollToExplorer();
-                    }}
+                    href="/snakes"
                   />
                   <HeroPathway
                     delay={60}
@@ -389,14 +382,7 @@ export function SpeciesAtlas({
                         count: stats.lizards,
                       })}
                       meta={t("stats.pathwayExplore")}
-                      onClick={() => {
-                        setFilters({
-                          ...defaultAtlasFilters,
-                          group: "lizard",
-                          query: filters.query,
-                        });
-                        scrollToExplorer();
-                      }}
+                      href="/lizards"
                     />
                   ) : null}
                   <Link

@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 const pathways = [
+  { href: "/snakes" as const, key: "snakes" as const },
   { href: "/species" as const, key: "species" as const },
   { href: "/regions" as const, key: "regions" as const },
   { href: "/venomous-snakes" as const, key: "venomous" as const },
