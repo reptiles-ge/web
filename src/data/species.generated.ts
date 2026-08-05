@@ -1003,44 +1003,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-clarkorum.jpg",
-    "imageCredit": {
-      "photographer": "Szymon Bzoma",
-      "url": "https://www.inaturalist.org/observations/184839889"
-    },
-    "mobileImage": "/images/darevskia-clarkorum-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Gökhan EREN",
-      "url": "https://www.inaturalist.org/observations/220117301"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-clarkorum.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-clarkorum-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-clarkorum.jpg",
-        "credit": {
-          "photographer": "Szymon Bzoma",
-          "url": "https://www.inaturalist.org/observations/184839889"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-clarkorum.jpg"
       },
       {
-        "src": "/images/darevskia-clarkorum-mobile.jpg",
-        "credit": {
-          "photographer": "Gökhan EREN",
-          "url": "https://www.inaturalist.org/observations/220117301"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-clarkorum-2.jpg"
       },
       {
-        "src": "/images/darevskia-clarkorum-2.jpg",
-        "credit": {
-          "photographer": "saulechev",
-          "url": "https://www.inaturalist.org/observations/118166336"
-        }
-      },
-      {
-        "src": "/images/darevskia-clarkorum-3.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/121404384"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-clarkorum-3.jpg"
       }
     ],
     "stats": [
