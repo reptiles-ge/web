@@ -1781,6 +1781,36 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
       {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-3.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-4.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-5.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp"
       },
       {
