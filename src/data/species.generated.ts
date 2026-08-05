@@ -3821,40 +3821,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/lacerta-strigata.jpg",
+    "image": "https://cdn.reptiles.ge/lacerta-strigata.jpg",
     "imageCredit": {
       "photographer": "hossein_nabizadeh",
       "url": "https://www.inaturalist.org/observations/106854529"
     },
-    "mobileImage": "/images/lacerta-strigata-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/lacerta-strigata-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Natiq",
       "url": "https://www.inaturalist.org/observations/310036164"
     },
     "gallery": [
       {
-        "src": "/images/lacerta-strigata.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-strigata.jpg",
         "credit": {
           "photographer": "hossein_nabizadeh",
           "url": "https://www.inaturalist.org/observations/106854529"
         }
       },
       {
-        "src": "/images/lacerta-strigata-mobile.jpg",
-        "credit": {
-          "photographer": "Natiq",
-          "url": "https://www.inaturalist.org/observations/310036164"
-        }
-      },
-      {
-        "src": "/images/lacerta-strigata-2.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-strigata-2.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
           "url": "https://www.inaturalist.org/observations/267329456"
         }
       },
       {
-        "src": "/images/lacerta-strigata-3.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-strigata-3.jpg",
         "credit": {
           "photographer": "fotis-samaritakis",
           "url": "https://www.inaturalist.org/observations/296332469"
@@ -3939,40 +3932,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/lissotriton-lantzi.jpg",
+    "image": "https://cdn.reptiles.ge/lissotriton-lantzi.jpg",
     "imageCredit": {
       "photographer": "roman2013",
       "url": "https://www.inaturalist.org/observations/339319517"
     },
-    "mobileImage": "/images/lissotriton-lantzi-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/lissotriton-lantzi-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Елена Солодовник",
       "url": "https://www.inaturalist.org/observations/346762987"
     },
     "gallery": [
       {
-        "src": "/images/lissotriton-lantzi.jpg",
+        "src": "https://cdn.reptiles.ge/lissotriton-lantzi.jpg",
         "credit": {
           "photographer": "roman2013",
           "url": "https://www.inaturalist.org/observations/339319517"
         }
       },
       {
-        "src": "/images/lissotriton-lantzi-mobile.jpg",
-        "credit": {
-          "photographer": "Елена Солодовник",
-          "url": "https://www.inaturalist.org/observations/346762987"
-        }
-      },
-      {
-        "src": "/images/lissotriton-lantzi-2.jpg",
+        "src": "https://cdn.reptiles.ge/lissotriton-lantzi-2.jpg",
         "credit": {
           "photographer": "Александр Гончаров",
           "url": "https://www.inaturalist.org/observations/107759763"
         }
       },
       {
-        "src": "/images/lissotriton-lantzi-3.jpg",
+        "src": "https://cdn.reptiles.ge/lissotriton-lantzi-3.jpg",
         "credit": {
           "photographer": "Oleg Kosterin",
           "url": "https://www.inaturalist.org/observations/120609170"
@@ -4178,40 +4164,33 @@ export const species: Species[] = [
     "behavior": "დღის მონადირე კარგი მხედველობით; უკანა შხამკბილებიანი.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Moderate",
-    "image": "/images/malpolon-insignitus.jpg",
+    "image": "https://cdn.reptiles.ge/malpolon-insignitus.jpg",
     "imageCredit": {
       "photographer": "Gert Jan Verspui",
       "url": "https://www.inaturalist.org/observations/38427068"
     },
-    "mobileImage": "/images/malpolon-insignitus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/malpolon-insignitus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Valia Pavlou",
       "url": "https://www.inaturalist.org/observations/93273384"
     },
     "gallery": [
       {
-        "src": "/images/malpolon-insignitus.jpg",
+        "src": "https://cdn.reptiles.ge/malpolon-insignitus.jpg",
         "credit": {
           "photographer": "Gert Jan Verspui",
           "url": "https://www.inaturalist.org/observations/38427068"
         }
       },
       {
-        "src": "/images/malpolon-insignitus-mobile.jpg",
-        "credit": {
-          "photographer": "Valia Pavlou",
-          "url": "https://www.inaturalist.org/observations/93273384"
-        }
-      },
-      {
-        "src": "/images/malpolon-insignitus-2.jpg",
+        "src": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
         "credit": {
           "photographer": "Manuel Raab",
           "url": "https://www.inaturalist.org/observations/282195814"
         }
       },
       {
-        "src": "/images/malpolon-insignitus-3.jpg",
+        "src": "https://cdn.reptiles.ge/malpolon-insignitus-3.jpg",
         "credit": {
           "photographer": "michelemenegon",
           "url": "https://www.inaturalist.org/observations/206241534"
@@ -4300,40 +4279,33 @@ export const species: Species[] = [
     "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
     "conservation": "საქართველოში დაფიქსირებულია. ბევრ კუს სახეობას მსოფლიოში ჰაბიტატის დაკარგვა და ამოღება ემუქრება.",
     "danger": "Harmless",
-    "image": "/images/mauremys-caspica.jpg",
+    "image": "https://cdn.reptiles.ge/mauremys-caspica.jpg",
     "imageCredit": {
       "photographer": "pedroluna_wildlife",
       "url": "https://www.inaturalist.org/observations/165887582"
     },
-    "mobileImage": "/images/mauremys-caspica-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/mauremys-caspica-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Dorit Mandil",
       "url": "https://www.inaturalist.org/observations/291398011"
     },
     "gallery": [
       {
-        "src": "/images/mauremys-caspica.jpg",
+        "src": "https://cdn.reptiles.ge/mauremys-caspica.jpg",
         "credit": {
           "photographer": "pedroluna_wildlife",
           "url": "https://www.inaturalist.org/observations/165887582"
         }
       },
       {
-        "src": "/images/mauremys-caspica-mobile.jpg",
-        "credit": {
-          "photographer": "Dorit Mandil",
-          "url": "https://www.inaturalist.org/observations/291398011"
-        }
-      },
-      {
-        "src": "/images/mauremys-caspica-2.jpg",
+        "src": "https://cdn.reptiles.ge/mauremys-caspica-2.jpg",
         "credit": {
           "photographer": "Rubén",
           "url": "https://www.inaturalist.org/observations/107253848"
         }
       },
       {
-        "src": "/images/mauremys-caspica-3.jpg",
+        "src": "https://cdn.reptiles.ge/mauremys-caspica-3.jpg",
         "credit": {
           "photographer": "Fundación Tierra Ibérica",
           "url": "https://www.inaturalist.org/observations/13171016"
