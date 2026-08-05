@@ -15,7 +15,10 @@ export function SpeciesCarousel() {
   const t = useTranslations("carousel");
   const tAtlas = useTranslations("speciesAtlas");
   const featured = useMemo(
-    () => getFeaturedSpecies().map((item) => localizeSpecies(item, locale)),
+    () =>
+      getFeaturedSpecies()
+        .slice(0, 12)
+        .map((item) => localizeSpecies(item, locale)),
     [locale],
   );
   const trackRef = useRef<HTMLDivElement>(null);
