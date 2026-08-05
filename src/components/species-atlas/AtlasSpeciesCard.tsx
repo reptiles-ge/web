@@ -71,7 +71,7 @@ export function AtlasSpeciesCard({
             fill
             priority={eager}
             loading={eager ? "eager" : "lazy"}
-            quality={78}
+            quality={75}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
