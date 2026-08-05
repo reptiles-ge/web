@@ -1094,44 +1094,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-daghestanica.jpg",
-    "imageCredit": {
-      "photographer": "Марина Горбунова-Ëлкина",
-      "url": "https://www.inaturalist.org/observations/310055994"
-    },
-    "mobileImage": "/images/darevskia-daghestanica-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "giorgi_iankoshvili",
-      "url": "https://www.inaturalist.org/observations/244893149"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-daghestanica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-daghestanica-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-daghestanica.jpg",
-        "credit": {
-          "photographer": "Марина Горбунова-Ëлкина",
-          "url": "https://www.inaturalist.org/observations/310055994"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-daghestanica.jpg"
       },
       {
-        "src": "/images/darevskia-daghestanica-mobile.jpg",
-        "credit": {
-          "photographer": "giorgi_iankoshvili",
-          "url": "https://www.inaturalist.org/observations/244893149"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-daghestanica-2.jpg"
       },
       {
-        "src": "/images/darevskia-daghestanica-2.jpg",
-        "credit": {
-          "photographer": "Дауд Арсанукаев",
-          "url": "https://www.inaturalist.org/observations/79774166"
-        }
-      },
-      {
-        "src": "/images/darevskia-daghestanica-3.jpg",
-        "credit": {
-          "photographer": "Марина Горбунова-Ëлкина",
-          "url": "https://www.inaturalist.org/observations/310055993"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-daghestanica-3.jpg"
       }
     ],
     "stats": [
