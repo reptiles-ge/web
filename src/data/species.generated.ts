@@ -17,44 +17,17 @@ export const species: Species[] = [
     "behavior": "ხშირად ფარულია; ბევრი სცინკი სწრაფად მოძრაობს ფოთლოვან საფარში ან ქვების ქვეშ.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/ablepharus-pannonicus.jpg",
-    "imageCredit": {
-      "photographer": "Stefan Dobrescu",
-      "url": "https://www.inaturalist.org/observations/315046779"
-    },
-    "mobileImage": "/images/ablepharus-pannonicus-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "georgedros",
-      "url": "https://www.inaturalist.org/observations/182785233"
-    },
+    "image": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ablepharus-pannonicus-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/ablepharus-pannonicus.jpg",
-        "credit": {
-          "photographer": "Stefan Dobrescu",
-          "url": "https://www.inaturalist.org/observations/315046779"
-        }
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg"
       },
       {
-        "src": "/images/ablepharus-pannonicus-mobile.jpg",
-        "credit": {
-          "photographer": "georgedros",
-          "url": "https://www.inaturalist.org/observations/182785233"
-        }
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus-2.jpg"
       },
       {
-        "src": "/images/ablepharus-pannonicus-2.jpg",
-        "credit": {
-          "photographer": "StefanVV",
-          "url": "https://www.inaturalist.org/observations/215847171"
-        }
-      },
-      {
-        "src": "/images/ablepharus-pannonicus-3.jpg",
-        "credit": {
-          "photographer": "AnimalObserverDeniz321",
-          "url": "https://www.inaturalist.org/observations/148630873"
-        }
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus-3.jpg"
       }
     ],
     "stats": [
