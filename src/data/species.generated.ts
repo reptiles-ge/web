@@ -1458,44 +1458,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-obscura.jpg",
-    "imageCredit": {
-      "photographer": "Sandro Kiladze",
-      "url": "https://www.inaturalist.org/observations/176415405"
-    },
-    "mobileImage": "/images/darevskia-obscura-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Sandro Kiladze",
-      "url": "https://www.inaturalist.org/observations/176415516"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-obscura.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-obscura-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-obscura.jpg",
-        "credit": {
-          "photographer": "Sandro Kiladze",
-          "url": "https://www.inaturalist.org/observations/176415405"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-obscura.jpg"
       },
       {
-        "src": "/images/darevskia-obscura-mobile.jpg",
-        "credit": {
-          "photographer": "Sandro Kiladze",
-          "url": "https://www.inaturalist.org/observations/176415516"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-obscura-2.jpg"
       },
       {
-        "src": "/images/darevskia-obscura-2.jpg",
-        "credit": {
-          "photographer": "Sandro Kiladze",
-          "url": "https://www.inaturalist.org/observations/176415465"
-        }
-      },
-      {
-        "src": "/images/darevskia-obscura-3.jpg",
-        "credit": {
-          "photographer": "lzazadze",
-          "url": "https://www.inaturalist.org/observations/86843077"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-obscura-3.jpg"
       }
     ],
     "stats": [
