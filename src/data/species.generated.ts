@@ -2432,61 +2432,54 @@ export const species: Species[] = [
     "behavior": "უმეტესად დღის აქტიურია; ამინდისა და სეზონის მიხედვით შეიძლება საღამოსაც გამოჩნდეს. მშვიდი და ფრთხილია — საფრთხისას უპირატესად გაქცევას ცდილობს. ზურგი ნაცრისფერი, მოყავისფრო ან მოყვითალოა მუქი განივი ლაქებით; ხშირად ჩანს ოთხი უფრო ღია გრძივი ზოლი. თავზე დამახასიათებელი მუქი ნახატია, თვალში გამავალი მუქი ზოლით; გუგა მრგვალია. კვერცხისმდებია: შეწყვილება გაზაფხულზეა, დედალი ივლის–აგვისტოში დებს ჩვეულებრივ 3–15 კვერცხს (ზოგჯერ 24-მდე); ნაშიერები დამოუკიდებლად იჩეკებიან.",
     "conservation": "IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და სახეობა ადაპტირებადი. დასავლეთ კიდეზე (მაგ. უკრაინაში) ლოკალურად უფრო იშვიათი და დაცულია. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
     "danger": "Harmless",
-    "image": "/images/elaphe-dione.jpg",
+    "image": "https://cdn.reptiles.ge/elaphe-dione-2.jpg",
     "imageCredit": {
-      "photographer": "Yishen Xiao",
-      "url": "https://www.inaturalist.org/observations/126914440"
+      "photographer": "Zinogre",
+      "url": "https://www.inaturalist.org/observations/140744748"
     },
-    "mobileImage": "/images/elaphe-dione-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/elaphe-dione-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Dmitry Dubikovskiy",
       "url": "https://www.inaturalist.org/observations/274585553"
     },
     "gallery": [
       {
-        "src": "/images/elaphe-dione.jpg",
-        "credit": {
-          "photographer": "Yishen Xiao",
-          "url": "https://www.inaturalist.org/observations/126914440"
-        }
-      },
-      {
-        "src": "/images/elaphe-dione-2.jpg",
+        "src": "https://cdn.reptiles.ge/elaphe-dione-2.jpg",
         "credit": {
           "photographer": "Zinogre",
           "url": "https://www.inaturalist.org/observations/140744748"
         }
       },
       {
-        "src": "/images/elaphe-dione-3.jpg",
+        "src": "https://cdn.reptiles.ge/elaphe-dione-3.jpg",
         "credit": {
           "photographer": "Сергей Грабчак",
           "url": "https://www.inaturalist.org/observations/246917579"
         }
       },
       {
-        "src": "/images/elaphe-dione-4.jpg",
+        "src": "https://cdn.reptiles.ge/elaphe-dione-4.jpg",
         "credit": {
           "photographer": "Irina Maslova",
           "url": "https://www.inaturalist.org/observations/255645652"
         }
       },
       {
-        "src": "/images/elaphe-dione-5.jpg",
+        "src": "https://cdn.reptiles.ge/elaphe-dione-5.jpg",
         "credit": {
           "photographer": "Моховинка",
           "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg"
         }
       },
       {
-        "src": "/images/elaphe-dione-6.jpg",
+        "src": "https://cdn.reptiles.ge/elaphe-dione-6.jpg",
         "credit": {
           "photographer": "fisheyes",
           "url": "https://www.inaturalist.org/observations/166546598"
         }
       },
       {
-        "src": "/images/elaphe-dione-7.jpg",
+        "src": "https://cdn.reptiles.ge/elaphe-dione-7.jpg",
         "credit": {
           "photographer": "svetlanaagafonova",
           "url": "https://www.inaturalist.org/observations/97425149"
