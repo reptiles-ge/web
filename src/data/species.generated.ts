@@ -1483,9 +1483,6 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-4.webp"
       },
       {
-        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-5.webp"
-      },
-      {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-6.webp"
       }
     ],
