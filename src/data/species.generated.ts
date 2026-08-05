@@ -793,44 +793,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-brauneri.jpg",
-    "imageCredit": {
-      "photographer": "Антон Мир-Мар",
-      "url": "https://www.inaturalist.org/observations/101149855"
-    },
-    "mobileImage": "/images/darevskia-brauneri-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "giorgi_iankoshvili",
-      "url": "https://www.inaturalist.org/observations/70805087"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-brauneri.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-brauneri-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-brauneri.jpg",
-        "credit": {
-          "photographer": "Антон Мир-Мар",
-          "url": "https://www.inaturalist.org/observations/101149855"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri.jpg"
       },
       {
-        "src": "/images/darevskia-brauneri-mobile.jpg",
-        "credit": {
-          "photographer": "giorgi_iankoshvili",
-          "url": "https://www.inaturalist.org/observations/70805087"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri-2.jpg"
       },
       {
-        "src": "/images/darevskia-brauneri-2.jpg",
-        "credit": {
-          "photographer": "Alexey Katz",
-          "url": "https://www.inaturalist.org/observations/60165507"
-        }
-      },
-      {
-        "src": "/images/darevskia-brauneri-3.jpg",
-        "credit": {
-          "photographer": "Evgeny Pervakov",
-          "url": "https://www.inaturalist.org/observations/57426755"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri-3.jpg"
       }
     ],
     "stats": [
