@@ -118,6 +118,7 @@ export const featuredSpeciesIds = [
   "platyceps-najadum",
   "telescopus-fallax",
   "pseudopus-apodus",
+  "zamenis-longissimus",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;

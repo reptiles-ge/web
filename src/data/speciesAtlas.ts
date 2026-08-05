@@ -77,6 +77,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "lizard",
     habitats: ["grassland", "forest", "mountain"],
   },
+  "zamenis-longissimus": {
+    group: "snake",
+    habitats: ["forest", "mountain"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {

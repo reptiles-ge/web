@@ -35,6 +35,9 @@ export const siteConfig = {
     "Elaphe dione",
     "კატისთვალა",
     "Telescopus fallax",
+    "გრძელი მცურავი",
+    "ესკულაპის გველი",
+    "Zamenis longissimus",
     "ბიოლოგია",
     "კონსერვაცია",
     "Georgia reptiles",
@@ -87,6 +90,7 @@ const localOgSpeciesIds = new Set([
   "elaphe-dione",
   "vipera-darevskii",
   "vipera-renardi",
+  "zamenis-longissimus",
 ]);
 
 export function speciesOgImageUrl(speciesId: string) {

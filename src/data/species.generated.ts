@@ -2145,6 +2145,168 @@ export const species: Species[] = [
         "name": "Scientific publications"
       }
     ]
+  },
+  {
+    "id": "zamenis-longissimus",
+    "commonName": "გრძელი მცურავი",
+    "scientificName": "Zamenis longissimus",
+    "genus": "Zamenis",
+    "family": "Colubridae",
+    "location": "დასავლეთ საქართველო; ლაგოდეხი",
+    "description": "უშხამო, გრძელი და მოქნილი მცურავი ტყეებისა და მთისწინეთისა — საქართველოში უმეტესად დასავლეთში; უვნებელია.",
+    "overview": "გრძელი მცურავი (Zamenis longissimus), ასევე ესკულაპის გველი, ანკარასებრთა ოჯახის უშხამო მცურავია. სახელი უკავშირდება ანტიკურ ესკულაპეს (ასკლეპიოსის) კვერთხს — მედიცინის სიმბოლოს; ადრე იყო Elaphe longissima. გავრცელებულია სამხრეთ-დასავლეთ და ცენტრალურ ევროპაში, ბალკანეთში, მცირე აზიის ნაწილში და შავი ზღვის აღმოსავლეთ სანაპიროს ენკლავში — თურქეთიდან საქართველოსა და სამხრეთ რუსეთამდე. საქართველოში ფართოდაა დასავლეთ ნახევარში (შავი ზღვის სანაპირო და კავკასიონის მთისწინეთი); იზოლირებული პოპულაცია აღინიშნა ჩრდილო-აღმოსავლეთში, ლაგოდეხის მიდამოებში. არ გვხვდება იმ ზონებში, სადაც საშუალო წლიური ნალექი დაახლოებით 800 მმ-ზე ნაკლებია. სიგრძე ჩვეულებრივ 1.0–1.5 მ-ია; იშვიათად აღემატება 2 მ-ს. IUCN-ის მიხედვით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოში შეტანილია წითელ წიგნში.",
+    "habitat": "უპირატესობას ანიჭებს ტყეებს, ტყის პირას, ბუჩქნარს, მზიან მთის ფერდობებსა და ძველ ნაგებობებს — ქვის კედლებს, ფუღუროებს, ხის გროვებს. კარგი მთამსვლელია და ხშირად ადის ხეებზე. ვერტიკალურად საქართველოში აღწევს დაახლოებით 2,000 მ-მდე. მშრალ აღმოსავლეთ სტეპებში თითქმის არ გვხვდება; დასავლეთის ნოტიო კოლხური ლანდშაფტი და მთისწინეთი მისთვის უფრო ხელსაყრელია.",
+    "diet": "იკვებება წვრილი ხერხემლიანებით — უმეტესად მღრღნელებით; აგრეთვე პატარა ფრინველებით, ბარტყებითა და კვერცხებით, ზოგჯერ ხვლიკებით. მსხვერპლს ახრჩობს (კონსტრიქტორი); შხამი არ აქვს. ნადირობს მიწაზე და ხეებზე.",
+    "behavior": "უმეტესად დღის აქტიურია; თბილ ამინდში შეიძლება საღამოსაც გამოჩნდეს. მშვიდი და ფრთხილია — საფრთხისას უპირატესად გაქცევას ცდილობს. ზრდასრული ხშირად ერთგვაროვანი ზეთისხილისფერი, მოყავისფრო ან მოყვითალო-ბრინჯაოსფერია; ქერცლების კიდეებზე ხშირად ჩანს თეთრი წერტილები. ახალგაზრდებს უფრო გამოკვეთილი ლაქებიანი ნახატი აქვთ. თავი შედარებით ვიწროა, გუგა მრგვალია; კისრის გვერდზე ხშირად ჩანს მოყვითალო ლაქა. კვერცხისმდებია: ივნის–ივლისის დასაწყისში დებს ჩვეულებრივ 4–10 კვერცხს ფხვიერ მიწაში ან ფოთლის ნაგვში; ნაშიერები აგვისტო–სექტემბერში იჩეკებიან.",
+    "conservation": "IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და პოპულაცია დიდია. თუმცა ლოკალურად შეიძლება იკლოს ჰაბიტატის გარდაქმნის, გზებზე დაღუპვისა და შხამიან გველთან აღრევის გამო მოკვლის შედეგად. საქართველოში შეტანილია წითელ წიგნში. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
+    "danger": "Harmless",
+    "image": "/images/zamenis-longissimus.jpg",
+    "imageCredit": {
+      "photographer": "Baptried",
+      "url": "https://commons.wikimedia.org/wiki/File:Couleuvre_d'esculape.jpg"
+    },
+    "mobileImage": "/images/zamenis-longissimus-mobile.jpg",
+    "mobileImageCredit": {
+      "photographer": "Gowthaman k.a",
+      "url": "https://commons.wikimedia.org/wiki/File:Ratsnake.jpg"
+    },
+    "gallery": [
+      {
+        "src": "/images/zamenis-longissimus.jpg",
+        "credit": {
+          "photographer": "Baptried",
+          "url": "https://commons.wikimedia.org/wiki/File:Couleuvre_d'esculape.jpg"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-2.jpg",
+        "credit": {
+          "photographer": "Philipp Pavelka",
+          "url": "https://www.inaturalist.org/observations/25489275"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-3.jpg",
+        "credit": {
+          "photographer": "Fab5669",
+          "url": "https://commons.wikimedia.org/wiki/File:Bois_de_l'Huisserie_06.jpg"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-4.jpg",
+        "credit": {
+          "photographer": "SomlaiT",
+          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-5.jpg",
+        "credit": {
+          "photographer": "Hildegarda von Hildegardenburg",
+          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-6.jpg",
+        "credit": {
+          "photographer": "Lubor Ferenc",
+          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg"
+        }
+      },
+      {
+        "src": "/images/zamenis-longissimus-7.jpg",
+        "credit": {
+          "photographer": "Zerocool.marko",
+          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "დას. საქართველო"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "დაახლ. 1–1.5 მ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "Least Concern"
+      },
+      {
+        "label": "სიმაღლე",
+        "value": "0–2,000 მ"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "სახელი უკავშირდება ესკულაპეს კვერთხს — ანტიკურ მედიცინის სიმბოლოს, რომელზეც გველია შემოხვეული.",
+      "ადრე ერქვა Elaphe longissima; დღეს გვარ Zamenis-შია (Utiger და სხვ., 2002).",
+      "შხამი არ აქვს — მსხვერპლს ახრჩობს; ადამიანისთვის უვნებელია.",
+      "საქართველოში არ გვხვდება იმ ადგილებში, სადაც საშუალო წლიური ნალექი დაახლოებით 800 მმ-ზე ნაკლებია (Tarkhnishvili და სხვ.)."
+    ],
+    "identification": {
+      "summary": "გრძელი მცურავი უშხამო, გლუვქერცლიანი მცურავია. ზრდასრული ხშირად ერთგვაროვანი ზეთისხილისფერია; კარგად ადის ხეებზე.",
+      "traits": [
+        "ზურგი ზეთისხილისფერი, მოყავისფრო ან ბრინჯაოსფერია; ქერცლებზე ხშირად თეთრი წერტილებია.",
+        "თავი ვიწროა; კისრის გვერდზე ხშირად მოყვითალო ლაქა; გუგა მრგვალია.",
+        "სიგრძე დაახლოებით 1–1.5 მ; უშხამოა — მსხვერპლს ახრჩობს.",
+        "შესანიშნავი მთამსვლელია — ხშირად ჩანს ხეებსა და ბუჩქებზე.",
+        "საქართველოში — უმეტესად დასავლეთი და კავკასიონის მთისწინეთი; აგრეთვე ლაგოდეხის მიდამოები."
+      ]
+    },
+    "faq": [
+      {
+        "question": "საშიშია თუ არა გრძელი მცურავი ადამიანისთვის?",
+        "answer": "არა — უვნებელია. შხამი არ აქვს და მსხვერპლს მხოლოდ შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის; ადამიანს თავს არ ესხმის."
+      },
+      {
+        "question": "სად გვხვდება საქართველოში?",
+        "answer": "უმეტესად დასავლეთში — აფხაზეთი, სამეგრელო, გურია, აჭარა, იმერეთი, რაჭა და კავკასიონის მთისწინეთი შავი ზღვის სანაპიროს გასწვრივ. იზოლირებული პოპულაცია აღინიშნა ჩრდილო-აღმოსავლეთში, ლაგოდეხის მიდამოებში. მშრალ აღმოსავლეთ სტეპებში თითქმის არ გვხვდება."
+      },
+      {
+        "question": "რით განსხვავდება ანკარასგან (Natrix)?",
+        "answer": "ანკარა (Natrix natrix / N. tessellata) ნახევრადწყლის გველია — ხშირად ყვითელი „საყელოთი“ ან კუბიკური ლაქებით და უფრო მჭიდროდაა მიბმული წყალთან. გრძელი მცურავი უფრო გრძელი და მოქნილი ტყის მცურავია, ერთგვაროვანი ზეთისხილისფერი შეფერილობით და შესანიშნავი მთამსვლელი თვისებებით; იკვებება ძირითადად მღრღნელებითა და ფრინველებით."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "მღრღნელებს, პატარა ფრინველებს, ბარტყებსა და კვერცხებს; ზოგჯერ ხვლიკებს. კარგად ადის ხეებზე ბუდეების მოსანახულებლად."
+      },
+      {
+        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. ივნის–ივლისის დასაწყისში დებს ჩვეულებრივ 4–10 კვერცხს; ნაშიერები აგვისტო–სექტემბერში იჩეკებიან."
+      }
+    ],
+    "updatedAt": "2026-08-05",
+    "sources": [
+      {
+        "name": "IUCN Red List",
+        "url": "https://www.iucnredlist.org/details/157274/0"
+      },
+      {
+        "name": "GBIF",
+        "url": "https://www.gbif.org/species/2458538"
+      },
+      {
+        "name": "The Reptile Database",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Zamenis&species=longissimus"
+      },
+      {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Aesculapian_snake"
+      },
+      {
+        "name": "Scientific publications"
+      }
+    ]
   }
 ];
 
@@ -3252,6 +3414,80 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Why is it protected in Georgia?",
         "answer": "Its global IUCN status is Near Threatened; it is rare in Georgia, its populations are fragmented, and it is listed in the Red Data Book. Major threats include habitat conversion and human pressure."
+      }
+    ]
+  },
+  "zamenis-longissimus": {
+    "commonName": "Aesculapian snake",
+    "location": "Western Georgia; Lagodekhi",
+    "description": "A harmless, long and slender ratsnake of forests and foothills — in Georgia mostly in the west; non-venomous.",
+    "overview": "The Aesculapian snake (Zamenis longissimus), also called the Aesculapian ratsnake, is a harmless colubrid. The name refers to the rod of Asclepius (Aesculapius), the ancient symbol of medicine; it was formerly Elaphe longissima. It ranges across south-western and central Europe, the Balkans, parts of Asia Minor, and a separate enclave along the eastern Black Sea coast from Turkey through Georgia into southern Russia. In Georgia it is widespread in the western half (Black Sea coast and Caucasus foothills); an isolated population is reported in the north-east near Lagodekhi. It is absent from areas with average annual rainfall below about 800 mm. Length is usually 1.0–1.5 m; rarely over 2 m. Globally it is Least Concern on the IUCN Red List; in Georgia it is listed in the national Red Book.",
+    "habitat": "It prefers woodland, forest edges, scrub, sunny slopes, and old structures — stone walls, hollows, and woodpiles. It climbs well and is often found in trees. Vertically in Georgia it reaches about 2,000 m. It is almost absent from the dry eastern steppes; humid Colchic landscapes and foothills in the west suit it better.",
+    "diet": "It feeds on small vertebrates — mainly rodents; also small birds, nestlings and eggs, and sometimes lizards. It kills prey by constriction and has no venom. It hunts on the ground and in trees.",
+    "behavior": "It is mostly diurnal; in warm weather it may also appear in the evening. It is calm and cautious — when threatened it prefers to flee. Adults are often uniform olive, brownish, or yellowish-bronze; scale edges often show fine white flecks. Juveniles have a more distinct blotched pattern. The head is relatively narrow, the pupil round; a yellowish neck patch is often present. It is egg-laying: in June–early July it usually lays 4–10 eggs in loose soil or leaf litter; young hatch in August–September.",
+    "conservation": "Globally it is Least Concern on the IUCN Red List — the range is broad and the population large. Locally it may decline through habitat conversion, road mortality, and killing due to confusion with venomous snakes. In Georgia it is listed in the national Red Book. It benefits the ecosystem by reducing rodent numbers.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "W. Georgia"
+      },
+      {
+        "label": "Length",
+        "value": "approx. 1–1.5 m"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern"
+      },
+      {
+        "label": "Elevation",
+        "value": "0–2,000 m"
+      },
+      {
+        "label": "Family",
+        "value": "Colubridae"
+      }
+    ],
+    "facts": [
+      "The name refers to the rod of Asclepius — the ancient medical symbol with a snake coiled around a staff.",
+      "It was formerly Elaphe longissima; it is now placed in Zamenis (Utiger et al., 2002).",
+      "It has no venom — it constricts prey; it is harmless to humans.",
+      "In Georgia it is absent from areas with average annual rainfall below about 800 mm (Tarkhnishvili et al.)."
+    ],
+    "identification": {
+      "summary": "The Aesculapian snake is a harmless, smooth-scaled ratsnake. Adults are often uniform olive; it climbs trees well.",
+      "traits": [
+        "The back is olive, brownish, or bronze; scales often have fine white flecks.",
+        "The head is narrow; a yellowish neck patch is often present; the pupil is round.",
+        "Length is roughly 1–1.5 m; it is non-venomous — it constricts prey.",
+        "It is an excellent climber — often seen in trees and shrubs.",
+        "In Georgia — mainly the west and Caucasus foothills; also near Lagodekhi."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the Aesculapian snake dangerous to humans?",
+        "answer": "No — it is harmless. It has no venom and kills prey only by constriction. When threatened it prefers to flee; it does not attack humans."
+      },
+      {
+        "question": "Where is it found in Georgia?",
+        "answer": "Mostly in the west — Abkhazia, Samegrelo, Guria, Adjara, Imereti, Racha, and the Caucasus foothills along the Black Sea coast. An isolated population is reported in the north-east near Lagodekhi. It is almost absent from the dry eastern steppes."
+      },
+      {
+        "question": "How does it differ from grass/dice snakes (Natrix)?",
+        "answer": "Natrix (N. natrix / N. tessellata) are semi-aquatic — often with a yellow “collar” or checkerboard blotches and a stronger link to water. The Aesculapian snake is a longer, more arboreal forest ratsnake with uniform olive colouring; it feeds mainly on rodents and birds."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Rodents, small birds, nestlings, and eggs; sometimes lizards. It climbs trees well to raid nests."
+      },
+      {
+        "question": "Does it lay eggs or give live birth?",
+        "answer": "It is egg-laying. In June–early July it usually lays 4–10 eggs; young hatch in August–September."
       }
     ]
   }

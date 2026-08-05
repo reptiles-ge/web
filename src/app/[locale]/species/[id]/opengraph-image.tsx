@@ -16,6 +16,7 @@ const localOgSpeciesIds = new Set([
   "vipera-darevskii",
   "vipera-renardi",
   "vipera-transcaucasiana",
+  "zamenis-longissimus",
 ]);
 
 const cdnOgSpeciesIds = new Set([
