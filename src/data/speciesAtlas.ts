@@ -227,7 +227,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "zamenis-longissimus": {
     group: "snake",
-    habitats: ["forest"],
+    habitats: ["forest", "mountain"],
   },
   "zamenis-hohenackeri": {
     group: "snake",
@@ -288,10 +288,6 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "vipera-ammodytes": {
     group: "snake",
     habitats: ["mountain", "grassland"],
-  },
-  "zamenis-longissimus": {
-    group: "snake",
-    habitats: ["forest", "mountain"],
   },
 };
 
