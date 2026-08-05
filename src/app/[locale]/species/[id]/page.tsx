@@ -8,6 +8,10 @@ import {
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
+  buildSpeciesBreadcrumbs,
+  getSpeciesParentHub,
+} from "@/lib/speciesBreadcrumbs";
+import {
   absoluteImageUrl,
   absoluteUrl,
   localeAlternates,
@@ -134,6 +138,20 @@ export default async function SpeciesPage({ params }: PageProps) {
 
   const item = localizeSpecies(raw, locale);
   const related = getRelatedSpecies(raw.id);
+  const tProfile = await getTranslations({ locale, namespace: "profile" });
+  const tHubs = await getTranslations({ locale, namespace: "groupHubShared" });
+  const parent = getSpeciesParentHub(item);
+  const groupLabel =
+    parent.kind === "group" && parent.hubId
+      ? tHubs(`hubs.${parent.hubId}`)
+      : tHubs("hubs.snakes");
+  const breadcrumbCrumbs = buildSpeciesBreadcrumbs({
+    species: item,
+    homeLabel: tProfile("breadcrumbHome"),
+    speciesLabel: tProfile("breadcrumbSpecies"),
+    venomousLabel: tProfile("breadcrumbVenomous"),
+    groupLabel,
+  });
 
   const pageUrl = absoluteUrl(localePath(locale, `/species/${item.id}`));
   const ogImage = speciesOgImageUrl(item.id, item.image);
@@ -199,6 +217,19 @@ export default async function SpeciesPage({ params }: PageProps) {
     inLanguage: locale,
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbCrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.name,
+      ...(crumb.href
+        ? { item: absoluteUrl(localePath(locale, crumb.href)) }
+        : { item: pageUrl }),
+    })),
+  };
+
   const faqJsonLd =
     item.faq && item.faq.length > 0
       ? {
@@ -217,7 +248,13 @@ export default async function SpeciesPage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd data={faqJsonLd ? [jsonLd, faqJsonLd] : jsonLd} />
+      <JsonLd
+        data={
+          faqJsonLd
+            ? [jsonLd, breadcrumbLd, faqJsonLd]
+            : [jsonLd, breadcrumbLd]
+        }
+      />
       <SpeciesProfile species={raw} related={related} />
     </>
   );

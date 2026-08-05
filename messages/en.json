@@ -173,7 +173,11 @@
     "lastUpdated": "Last updated",
     "sourcesEyebrow": "References",
     "sourcesTitle": "Sources & References",
-    "sourcesNote": "Species profiles are compiled from peer-reviewed literature and established biodiversity databases, and are reviewed as new taxonomic and conservation data become available."
+    "sourcesNote": "Species profiles are compiled from peer-reviewed literature and established biodiversity databases, and are reviewed as new taxonomic and conservation data become available.",
+    "breadcrumbAria": "Breadcrumb",
+    "breadcrumbHome": "Home",
+    "breadcrumbSpecies": "Species",
+    "breadcrumbVenomous": "Venomous snakes"
   },
   "danger": {
     "Harmless": "Harmless",

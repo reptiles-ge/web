@@ -23,7 +23,11 @@ import {
   isPlaceholderMedia,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { ArrowLeft, ArrowUpRight, MapPin } from "lucide-react";
+import {
+  buildSpeciesBreadcrumbs,
+  getSpeciesParentHub,
+} from "@/lib/speciesBreadcrumbs";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -41,6 +45,7 @@ export function SpeciesProfile({
 }: SpeciesProfileProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("profile");
+  const tHubs = useTranslations("groupHubShared");
   const species = useMemo(
     () => localizeSpecies(rawSpecies, locale),
     [rawSpecies, locale],
@@ -49,6 +54,21 @@ export function SpeciesProfile({
     () => rawRelated.map((item) => localizeSpecies(item, locale)),
     [rawRelated, locale],
   );
+  const breadcrumbs = useMemo(() => {
+    const parent = getSpeciesParentHub(species);
+    const groupLabel =
+      parent.kind === "group" && parent.hubId
+        ? tHubs(`hubs.${parent.hubId}`)
+        : tHubs("hubs.snakes");
+
+    return buildSpeciesBreadcrumbs({
+      species,
+      homeLabel: t("breadcrumbHome"),
+      speciesLabel: t("breadcrumbSpecies"),
+      venomousLabel: t("breadcrumbVenomous"),
+      groupLabel,
+    });
+  }, [species, t, tHubs]);
   const hasPhotos = hasRealSpeciesPhotos(species);
   const gallery: GalleryImage[] = hasPhotos
     ? (species.gallery.length > 0
@@ -149,13 +169,37 @@ export function SpeciesProfile({
             </div>
           ) : null}
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Link
-              href="/species"
-              className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
-            >
-              <ArrowLeft className="size-3.5" aria-hidden="true" />
-              {t("back")}
-            </Link>
+            <nav aria-label={t("breadcrumbAria")} className="mb-4 sm:mb-6">
+              <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-white/55">
+                {breadcrumbs.map((crumb, index) => {
+                  const isLast = index === breadcrumbs.length - 1;
+                  return (
+                    <li key={`${crumb.name}-${index}`} className="inline-flex items-center gap-2">
+                      {index > 0 ? (
+                        <span aria-hidden="true" className="text-white/30">
+                          /
+                        </span>
+                      ) : null}
+                      {crumb.href && !isLast ? (
+                        <Link
+                          href={crumb.href}
+                          className="transition-colors hover:text-white"
+                        >
+                          {crumb.name}
+                        </Link>
+                      ) : (
+                        <span
+                          className={isLast ? "text-white/80" : undefined}
+                          aria-current={isLast ? "page" : undefined}
+                        >
+                          {crumb.name}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </nav>
             <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.5rem)] font-semibold leading-[1.08] text-white">
               {species.commonName}
             </h1>
