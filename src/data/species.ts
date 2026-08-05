@@ -140,6 +140,30 @@ export function getCatalogSpecies() {
     .filter((item): item is Species => Boolean(item));
 }
 
+function relatedScore(base: Species, candidate: Species): number {
+  let score = 0;
+  if (candidate.genus === base.genus) score += 100;
+  if (candidate.family === base.family) score += 40;
+  if (candidate.danger === base.danger) score += 10;
+  return score;
+}
+
+export function getRelatedSpecies(id: string, limit = 3): Species[] {
+  const base = getSpeciesById(id);
+  if (!base) return [];
+
+  return getCatalogSpecies()
+    .filter((item) => item.id !== base.id)
+    .map((item) => ({ item, score: relatedScore(base, item) }))
+    .filter(({ score }) => score >= 40)
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.item.scientificName.localeCompare(b.item.scientificName);
+    })
+    .slice(0, limit)
+    .map(({ item }) => item);
+}
+
 export function dangerClass(danger: DangerLevel) {
   switch (danger) {
     case "High":
