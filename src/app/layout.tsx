@@ -1,7 +1,4 @@
-import {
-  ThemeProvider,
-  themeInitScript,
-} from "@/components/ThemeProvider";
+import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
@@ -81,6 +78,7 @@ export default function RootLayout({ children }: Props) {
     <html
       lang={routing.defaultLocale}
       className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
