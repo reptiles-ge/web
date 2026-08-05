@@ -1921,44 +1921,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-valentini.jpg",
-    "imageCredit": {
-      "photographer": "Mihrinur bahar",
-      "url": "https://www.inaturalist.org/observations/378783722"
-    },
-    "mobileImage": "/images/darevskia-valentini-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Leonid A. Neymark",
-      "url": "https://www.inaturalist.org/observations/239167219"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-valentini.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-valentini-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-valentini.jpg",
-        "credit": {
-          "photographer": "Mihrinur bahar",
-          "url": "https://www.inaturalist.org/observations/378783722"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-valentini.jpg"
       },
       {
-        "src": "/images/darevskia-valentini-mobile.jpg",
-        "credit": {
-          "photographer": "Leonid A. Neymark",
-          "url": "https://www.inaturalist.org/observations/239167219"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg"
       },
       {
-        "src": "/images/darevskia-valentini-2.jpg",
-        "credit": {
-          "photographer": "Jacek Pietruszewski",
-          "url": "https://www.inaturalist.org/observations/170898628"
-        }
-      },
-      {
-        "src": "/images/darevskia-valentini-3.jpg",
-        "credit": {
-          "photographer": "emanon",
-          "url": "https://www.inaturalist.org/observations/329065586"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-valentini-3.jpg"
       }
     ],
     "stats": [
