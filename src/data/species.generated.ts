@@ -4908,36 +4908,22 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/ophisops-elegans.jpg",
+    "image": "https://cdn.reptiles.ge/ophisops-elegans.jpg",
     "imageCredit": {
       "photographer": "mustafa gökmen",
       "url": "https://www.inaturalist.org/observations/61378800"
     },
-    "mobileImage": "/images/ophisops-elegans-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ophisops-elegans.jpg",
     "mobileImageCredit": {
-      "photographer": "epistemophagus",
-      "url": "https://www.inaturalist.org/observations/213090312"
+      "photographer": "mustafa gökmen",
+      "url": "https://www.inaturalist.org/observations/61378800"
     },
     "gallery": [
       {
-        "src": "/images/ophisops-elegans.jpg",
+        "src": "https://cdn.reptiles.ge/ophisops-elegans.jpg",
         "credit": {
           "photographer": "mustafa gökmen",
           "url": "https://www.inaturalist.org/observations/61378800"
-        }
-      },
-      {
-        "src": "/images/ophisops-elegans-mobile.jpg",
-        "credit": {
-          "photographer": "epistemophagus",
-          "url": "https://www.inaturalist.org/observations/213090312"
-        }
-      },
-      {
-        "src": "/images/ophisops-elegans-3.jpg",
-        "credit": {
-          "photographer": "Roberto Sindaco",
-          "url": "https://www.inaturalist.org/observations/105683433"
         }
       }
     ],
@@ -5019,40 +5005,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/paralaudakia-caucasia.jpg",
+    "image": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
     "imageCredit": {
       "photographer": "Геннадий",
       "url": "https://www.inaturalist.org/observations/119628986"
     },
-    "mobileImage": "/images/paralaudakia-caucasia-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Titouan Roguet",
       "url": "https://www.inaturalist.org/observations/182026571"
     },
     "gallery": [
       {
-        "src": "/images/paralaudakia-caucasia.jpg",
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
         "credit": {
           "photographer": "Геннадий",
           "url": "https://www.inaturalist.org/observations/119628986"
         }
       },
       {
-        "src": "/images/paralaudakia-caucasia-mobile.jpg",
-        "credit": {
-          "photographer": "Titouan Roguet",
-          "url": "https://www.inaturalist.org/observations/182026571"
-        }
-      },
-      {
-        "src": "/images/paralaudakia-caucasia-2.jpg",
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-2.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
           "url": "https://www.inaturalist.org/observations/241671168"
         }
       },
       {
-        "src": "/images/paralaudakia-caucasia-3.jpg",
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-3.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
           "url": "https://www.inaturalist.org/observations/241671169"
@@ -5137,40 +5116,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/pelobates-syriacus.jpg",
+    "image": "https://cdn.reptiles.ge/pelobates-syriacus.jpg",
     "imageCredit": {
       "photographer": "Titouan Roguet",
       "url": "https://www.inaturalist.org/observations/182161519"
     },
-    "mobileImage": "/images/pelobates-syriacus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/pelobates-syriacus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Jan Ebr &amp; Ivana Ebrová",
       "url": "https://www.inaturalist.org/observations/123372073"
     },
     "gallery": [
       {
-        "src": "/images/pelobates-syriacus.jpg",
+        "src": "https://cdn.reptiles.ge/pelobates-syriacus.jpg",
         "credit": {
           "photographer": "Titouan Roguet",
           "url": "https://www.inaturalist.org/observations/182161519"
         }
       },
       {
-        "src": "/images/pelobates-syriacus-mobile.jpg",
-        "credit": {
-          "photographer": "Jan Ebr &amp; Ivana Ebrová",
-          "url": "https://www.inaturalist.org/observations/123372073"
-        }
-      },
-      {
-        "src": "/images/pelobates-syriacus-2.jpg",
+        "src": "https://cdn.reptiles.ge/pelobates-syriacus-2.jpg",
         "credit": {
           "photographer": "Jonathan Ben Simon",
           "url": "https://www.inaturalist.org/observations/152407529"
         }
       },
       {
-        "src": "/images/pelobates-syriacus-3.jpg",
+        "src": "https://cdn.reptiles.ge/pelobates-syriacus-3.jpg",
         "credit": {
           "photographer": "Craig Robson",
           "url": "https://www.inaturalist.org/observations/268758632"
@@ -5255,40 +5227,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/pelodytes-caucasicus.jpg",
+    "image": "https://cdn.reptiles.ge/pelodytes-caucasicus.jpg",
     "imageCredit": {
       "photographer": "Alexander A. Fomichev",
       "url": "https://www.inaturalist.org/observations/95240537"
     },
-    "mobileImage": "/images/pelodytes-caucasicus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/pelodytes-caucasicus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Alexander Shienok",
       "url": "https://www.inaturalist.org/observations/206587705"
     },
     "gallery": [
       {
-        "src": "/images/pelodytes-caucasicus.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus.jpg",
         "credit": {
           "photographer": "Alexander A. Fomichev",
           "url": "https://www.inaturalist.org/observations/95240537"
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-mobile.jpg",
-        "credit": {
-          "photographer": "Alexander Shienok",
-          "url": "https://www.inaturalist.org/observations/206587705"
-        }
-      },
-      {
-        "src": "/images/pelodytes-caucasicus-2.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-2.jpg",
         "credit": {
           "photographer": "Tom Kirschey",
           "url": "https://www.inaturalist.org/observations/136609538"
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-3.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-3.jpg",
         "credit": {
           "photographer": "Екатерина Следкова",
           "url": "https://www.inaturalist.org/observations/131563046"
@@ -5373,40 +5338,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/pelophylax-ridibundus.jpg",
+    "image": "https://cdn.reptiles.ge/pelophylax-ridibundus.jpg",
     "imageCredit": {
       "photographer": "Manuel Ruedi",
       "url": "https://www.inaturalist.org/observations/83801849"
     },
-    "mobileImage": "/images/pelophylax-ridibundus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/pelophylax-ridibundus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Константин",
       "url": "https://www.inaturalist.org/observations/274684194"
     },
     "gallery": [
       {
-        "src": "/images/pelophylax-ridibundus.jpg",
+        "src": "https://cdn.reptiles.ge/pelophylax-ridibundus.jpg",
         "credit": {
           "photographer": "Manuel Ruedi",
           "url": "https://www.inaturalist.org/observations/83801849"
         }
       },
       {
-        "src": "/images/pelophylax-ridibundus-mobile.jpg",
-        "credit": {
-          "photographer": "Константин",
-          "url": "https://www.inaturalist.org/observations/274684194"
-        }
-      },
-      {
-        "src": "/images/pelophylax-ridibundus-2.jpg",
+        "src": "https://cdn.reptiles.ge/pelophylax-ridibundus-2.jpg",
         "credit": {
           "photographer": "Геннадий Дякин",
           "url": "https://www.inaturalist.org/observations/353611251"
         }
       },
       {
-        "src": "/images/pelophylax-ridibundus-3.jpg",
+        "src": "https://cdn.reptiles.ge/pelophylax-ridibundus-3.jpg",
         "credit": {
           "photographer": "Jakob Fahr",
           "url": "https://www.inaturalist.org/observations/32436838"
@@ -5491,40 +5449,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/phoenicolacerta-laevis.jpg",
+    "image": "https://cdn.reptiles.ge/phoenicolacerta-laevis.jpg",
     "imageCredit": {
       "photographer": "Kseniia Marianna Prondzynska",
       "url": "https://www.inaturalist.org/observations/148101091"
     },
-    "mobileImage": "/images/phoenicolacerta-laevis-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/phoenicolacerta-laevis-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Siegfried Troidl",
       "url": "https://www.inaturalist.org/observations/17764372"
     },
     "gallery": [
       {
-        "src": "/images/phoenicolacerta-laevis.jpg",
+        "src": "https://cdn.reptiles.ge/phoenicolacerta-laevis.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
           "url": "https://www.inaturalist.org/observations/148101091"
         }
       },
       {
-        "src": "/images/phoenicolacerta-laevis-mobile.jpg",
-        "credit": {
-          "photographer": "Siegfried Troidl",
-          "url": "https://www.inaturalist.org/observations/17764372"
-        }
-      },
-      {
-        "src": "/images/phoenicolacerta-laevis-2.jpg",
+        "src": "https://cdn.reptiles.ge/phoenicolacerta-laevis-2.jpg",
         "credit": {
           "photographer": "kardelen",
           "url": "https://www.inaturalist.org/observations/216098606"
         }
       },
       {
-        "src": "/images/phoenicolacerta-laevis-3.jpg",
+        "src": "https://cdn.reptiles.ge/phoenicolacerta-laevis-3.jpg",
         "credit": {
           "photographer": "Siegfried Troidl",
           "url": "https://www.inaturalist.org/observations/17764346"
@@ -5859,40 +5810,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/rana-macrocnemis.jpg",
+    "image": "https://cdn.reptiles.ge/rana-macrocnemis.jpg",
     "imageCredit": {
       "photographer": "evgeniy_57",
       "url": "https://www.inaturalist.org/observations/343953167"
     },
-    "mobileImage": "/images/rana-macrocnemis-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/rana-macrocnemis-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Tim",
       "url": "https://www.inaturalist.org/observations/316069520"
     },
     "gallery": [
       {
-        "src": "/images/rana-macrocnemis.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis.jpg",
         "credit": {
           "photographer": "evgeniy_57",
           "url": "https://www.inaturalist.org/observations/343953167"
         }
       },
       {
-        "src": "/images/rana-macrocnemis-mobile.jpg",
-        "credit": {
-          "photographer": "Tim",
-          "url": "https://www.inaturalist.org/observations/316069520"
-        }
-      },
-      {
-        "src": "/images/rana-macrocnemis-2.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-2.jpg",
         "credit": {
           "photographer": "Tereza Bohatá",
           "url": "https://www.inaturalist.org/observations/357114699"
         }
       },
       {
-        "src": "/images/rana-macrocnemis-3.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-3.jpg",
         "credit": {
           "photographer": "Jan Ebr &amp; Ivana Ebrová",
           "url": "https://www.inaturalist.org/observations/53501993"
@@ -5977,61 +5921,61 @@ export const species: Species[] = [
     "behavior": "ბინდისა და ღამის აქტიურია — დღისით იმალება, საღამოსა და ღამით ნადირობს. დამახასიათებელია დიდი თვალები ვერტიკალური გუგით (დღისით ვიწრო ნაპრალად იკუმშება). საფრთხისას უპირატესად გარბის ან იმალება; ადამიანისთვის უვნებელია — უკანა კბილების მდებარეობა ადამიანის ეფექტურ დაშხამვას თითქმის შეუძლებელს ხდის. კვერცხისმდებია: დედალი დებს დაახლოებით 4–12 კვერცხს (ლიტერატურაში ხშირად 6–9).",
     "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — არეგულირებს ხვლიკებისა და მცირე მღრღნელების რაოდენობას.",
     "danger": "Harmless",
-    "image": "/images/telescopus-fallax.jpg",
+    "image": "https://cdn.reptiles.ge/telescopus-fallax.jpg",
     "imageCredit": {
       "photographer": "Benny Trapp",
       "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
     },
-    "mobileImage": "/images/telescopus-fallax-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/telescopus-fallax-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Maurice Flesier",
       "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_on_the_Olive_tree.jpg"
     },
     "gallery": [
       {
-        "src": "/images/telescopus-fallax.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax.jpg",
         "credit": {
           "photographer": "Benny Trapp",
           "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
         }
       },
       {
-        "src": "/images/telescopus-fallax-2.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-2.jpg",
         "credit": {
           "photographer": "Terry Caselli",
           "url": "https://commons.wikimedia.org/wiki/File:Cat_Snake_(Telescopus_Fallax).jpg"
         }
       },
       {
-        "src": "/images/telescopus-fallax-3.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-3.jpg",
         "credit": {
           "photographer": "Jeffrey Sciberras",
           "url": "https://commons.wikimedia.org/wiki/File:Mediterranean_Cat_Snake.jpg"
         }
       },
       {
-        "src": "/images/telescopus-fallax-4.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-4.jpg",
         "credit": {
           "photographer": "Berkay353",
           "url": "https://commons.wikimedia.org/wiki/File:Kedig%C3%B6zl%C3%BCy%C4%B1lan.jpg"
         }
       },
       {
-        "src": "/images/telescopus-fallax-5.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-5.jpg",
         "credit": {
           "photographer": "Ryan van Huyssteen",
           "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_282392348.jpg"
         }
       },
       {
-        "src": "/images/telescopus-fallax-6.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-6.jpg",
         "credit": {
           "photographer": "Christian Formosa",
           "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_(with_prey).jpg"
         }
       },
       {
-        "src": "/images/telescopus-fallax-7.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-7.jpg",
         "credit": {
           "photographer": "Kiril Kapustin",
           "url": "https://commons.wikimedia.org/wiki/File:Teleskopus_fallax_20.JPG"
@@ -6136,40 +6080,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამის/ბინდის გეკონი; ცოცავს ვერტიკალურ ზედაპირებზე და დღისით ნაპრალებში იმალება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/tenuidactylus-caspius.jpg",
+    "image": "https://cdn.reptiles.ge/tenuidactylus-caspius.jpg",
     "imageCredit": {
       "photographer": "Kseniia Marianna Prondzynska",
       "url": "https://www.inaturalist.org/observations/178731019"
     },
-    "mobileImage": "/images/tenuidactylus-caspius-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/tenuidactylus-caspius-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "wcwhjj",
       "url": "https://www.inaturalist.org/observations/132243305"
     },
     "gallery": [
       {
-        "src": "/images/tenuidactylus-caspius.jpg",
+        "src": "https://cdn.reptiles.ge/tenuidactylus-caspius.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
           "url": "https://www.inaturalist.org/observations/178731019"
         }
       },
       {
-        "src": "/images/tenuidactylus-caspius-mobile.jpg",
-        "credit": {
-          "photographer": "wcwhjj",
-          "url": "https://www.inaturalist.org/observations/132243305"
-        }
-      },
-      {
-        "src": "/images/tenuidactylus-caspius-2.jpg",
+        "src": "https://cdn.reptiles.ge/tenuidactylus-caspius-2.jpg",
         "credit": {
           "photographer": "Titouan Roguet",
           "url": "https://www.inaturalist.org/observations/183207302"
         }
       },
       {
-        "src": "/images/tenuidactylus-caspius-3.jpg",
+        "src": "https://cdn.reptiles.ge/tenuidactylus-caspius-3.jpg",
         "credit": {
           "photographer": "Titouan Roguet",
           "url": "https://www.inaturalist.org/observations/182328292"
