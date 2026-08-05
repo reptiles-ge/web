@@ -108,44 +108,17 @@ export const species: Species[] = [
     "behavior": "ფარული უკიდურო ან თითქმის უკიდურო ხვლიკები; ხშირად მორებისა და დაფების ქვეშ.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/anguis-colchica.jpg",
-    "imageCredit": {
-      "photographer": "Сильченко Иван Владимирович",
-      "url": "https://www.inaturalist.org/observations/129653760"
-    },
-    "mobileImage": "/images/anguis-colchica-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Volodina Ekaterina",
-      "url": "https://www.inaturalist.org/observations/265145594"
-    },
+    "image": "https://cdn.reptiles.ge/anguis-colchica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/anguis-colchica-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/anguis-colchica.jpg",
-        "credit": {
-          "photographer": "Сильченко Иван Владимирович",
-          "url": "https://www.inaturalist.org/observations/129653760"
-        }
+        "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
       },
       {
-        "src": "/images/anguis-colchica-mobile.jpg",
-        "credit": {
-          "photographer": "Volodina Ekaterina",
-          "url": "https://www.inaturalist.org/observations/265145594"
-        }
+        "src": "https://cdn.reptiles.ge/anguis-colchica-2.jpg"
       },
       {
-        "src": "/images/anguis-colchica-2.jpg",
-        "credit": {
-          "photographer": "Хаматов Гадылхан",
-          "url": "https://www.inaturalist.org/observations/47156759"
-        }
-      },
-      {
-        "src": "/images/anguis-colchica-3.jpg",
-        "credit": {
-          "photographer": "Dima Vladimirov",
-          "url": "https://www.inaturalist.org/observations/47828097"
-        }
+        "src": "https://cdn.reptiles.ge/anguis-colchica-3.jpg"
       }
     ],
     "stats": [
