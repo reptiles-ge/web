@@ -702,44 +702,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-armeniaca.jpg",
-    "imageCredit": {
-      "photographer": "Eduard Galoyan",
-      "url": "https://www.inaturalist.org/observations/55800"
-    },
-    "mobileImage": "/images/darevskia-armeniaca-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "katunchik",
-      "url": "https://www.inaturalist.org/observations/9257330"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-armeniaca.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-armeniaca-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-armeniaca.jpg",
-        "credit": {
-          "photographer": "Eduard Galoyan",
-          "url": "https://www.inaturalist.org/observations/55800"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca.jpg"
       },
       {
-        "src": "/images/darevskia-armeniaca-mobile.jpg",
-        "credit": {
-          "photographer": "katunchik",
-          "url": "https://www.inaturalist.org/observations/9257330"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca-2.jpg"
       },
       {
-        "src": "/images/darevskia-armeniaca-2.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/185288382"
-        }
-      },
-      {
-        "src": "/images/darevskia-armeniaca-3.jpg",
-        "credit": {
-          "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/231665730"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca-3.jpg"
       }
     ],
     "stats": [
