@@ -512,44 +512,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-adjarica.jpg",
-    "imageCredit": {
-      "photographer": "robihidveg",
-      "url": "https://www.inaturalist.org/observations/331068069"
-    },
-    "mobileImage": "/images/darevskia-adjarica-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "mustafa gökmen",
-      "url": "https://www.inaturalist.org/observations/38472153"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-adjarica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-adjarica-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-adjarica.jpg",
-        "credit": {
-          "photographer": "robihidveg",
-          "url": "https://www.inaturalist.org/observations/331068069"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica.jpg"
       },
       {
-        "src": "/images/darevskia-adjarica-mobile.jpg",
-        "credit": {
-          "photographer": "mustafa gökmen",
-          "url": "https://www.inaturalist.org/observations/38472153"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica-2.jpg"
       },
       {
-        "src": "/images/darevskia-adjarica-2.jpg",
-        "credit": {
-          "photographer": "Grigory Evtukh",
-          "url": "https://www.inaturalist.org/observations/102527888"
-        }
-      },
-      {
-        "src": "/images/darevskia-adjarica-3.jpg",
-        "credit": {
-          "photographer": "Levente Pribéli",
-          "url": "https://www.inaturalist.org/observations/237517945"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica-3.jpg"
       }
     ],
     "stats": [
