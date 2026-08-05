@@ -607,44 +607,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-alpina.jpg",
-    "imageCredit": {
-      "photographer": "Shamil Murtazin",
-      "url": "https://www.inaturalist.org/observations/25082262"
-    },
-    "mobileImage": "/images/darevskia-alpina-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Alexey Katz",
-      "url": "https://www.inaturalist.org/observations/327340196"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-alpina.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-alpina-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-alpina.jpg",
-        "credit": {
-          "photographer": "Shamil Murtazin",
-          "url": "https://www.inaturalist.org/observations/25082262"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-alpina.jpg"
       },
       {
-        "src": "/images/darevskia-alpina-mobile.jpg",
-        "credit": {
-          "photographer": "Alexey Katz",
-          "url": "https://www.inaturalist.org/observations/327340196"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-alpina-2.jpg"
       },
       {
-        "src": "/images/darevskia-alpina-2.jpg",
-        "credit": {
-          "photographer": "Ilia Mikheev",
-          "url": "https://www.inaturalist.org/observations/186144608"
-        }
-      },
-      {
-        "src": "/images/darevskia-alpina-3.jpg",
-        "credit": {
-          "photographer": "DenisNikitenko",
-          "url": "https://www.inaturalist.org/observations/240710392"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-alpina-3.jpg"
       }
     ],
     "stats": [
