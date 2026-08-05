@@ -6191,40 +6191,33 @@ export const species: Species[] = [
     "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
     "conservation": "საქართველოში დაფიქსირებულია. ბევრ კუს სახეობას მსოფლიოში ჰაბიტატის დაკარგვა და ამოღება ემუქრება.",
     "danger": "Harmless",
-    "image": "/images/testudo-graeca.jpg",
+    "image": "https://cdn.reptiles.ge/testudo-graeca.jpg",
     "imageCredit": {
       "photographer": "Serge Larin",
       "url": "https://www.inaturalist.org/observations/18922293"
     },
-    "mobileImage": "/images/testudo-graeca-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/testudo-graeca-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Cristina Florentina Alistar",
       "url": "https://www.inaturalist.org/observations/12352082"
     },
     "gallery": [
       {
-        "src": "/images/testudo-graeca.jpg",
+        "src": "https://cdn.reptiles.ge/testudo-graeca.jpg",
         "credit": {
           "photographer": "Serge Larin",
           "url": "https://www.inaturalist.org/observations/18922293"
         }
       },
       {
-        "src": "/images/testudo-graeca-mobile.jpg",
-        "credit": {
-          "photographer": "Cristina Florentina Alistar",
-          "url": "https://www.inaturalist.org/observations/12352082"
-        }
-      },
-      {
-        "src": "/images/testudo-graeca-2.jpg",
+        "src": "https://cdn.reptiles.ge/testudo-graeca-2.jpg",
         "credit": {
           "photographer": "Molnár Ábel Péter",
           "url": "https://www.inaturalist.org/observations/169566740"
         }
       },
       {
-        "src": "/images/testudo-graeca-3.jpg",
+        "src": "https://cdn.reptiles.ge/testudo-graeca-3.jpg",
         "credit": {
           "photographer": "Cuora",
           "url": "https://www.inaturalist.org/observations/96663399"
@@ -6309,40 +6302,33 @@ export const species: Species[] = [
     "behavior": "წყლის კუები ხშირად დღისით თბებიან; სახმელეთო კუები აქტიურია თბილ ამინდში.",
     "conservation": "შემოტანილია საქართველოში. შეიძლება კონკურენცია გაუწიოს ადგილობრივ წყლის კუებს.",
     "danger": "Harmless",
-    "image": "/images/trachemys-scripta.jpg",
+    "image": "https://cdn.reptiles.ge/trachemys-scripta.jpg",
     "imageCredit": {
       "photographer": "Nelson Wisnik",
       "url": "https://www.inaturalist.org/observations/18808638"
     },
-    "mobileImage": "/images/trachemys-scripta-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/trachemys-scripta-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Ed Hass",
       "url": "https://www.inaturalist.org/observations/150135337"
     },
     "gallery": [
       {
-        "src": "/images/trachemys-scripta.jpg",
+        "src": "https://cdn.reptiles.ge/trachemys-scripta.jpg",
         "credit": {
           "photographer": "Nelson Wisnik",
           "url": "https://www.inaturalist.org/observations/18808638"
         }
       },
       {
-        "src": "/images/trachemys-scripta-mobile.jpg",
-        "credit": {
-          "photographer": "Ed Hass",
-          "url": "https://www.inaturalist.org/observations/150135337"
-        }
-      },
-      {
-        "src": "/images/trachemys-scripta-2.jpg",
+        "src": "https://cdn.reptiles.ge/trachemys-scripta-2.jpg",
         "credit": {
           "photographer": "Laura Clark",
           "url": "https://www.inaturalist.org/observations/4571829"
         }
       },
       {
-        "src": "/images/trachemys-scripta-3.jpg",
+        "src": "https://cdn.reptiles.ge/trachemys-scripta-3.jpg",
         "credit": {
           "photographer": "bwood708",
           "url": "https://www.inaturalist.org/observations/54804571"
@@ -6431,40 +6417,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/triturus-karelinii.jpg",
+    "image": "https://cdn.reptiles.ge/triturus-karelinii.jpg",
     "imageCredit": {
       "photographer": "Parham Beyhaghi",
       "url": "https://www.inaturalist.org/observations/4757157"
     },
-    "mobileImage": "/images/triturus-karelinii-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/triturus-karelinii-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Parham Beyhaghi",
       "url": "https://www.inaturalist.org/observations/260349446"
     },
     "gallery": [
       {
-        "src": "/images/triturus-karelinii.jpg",
+        "src": "https://cdn.reptiles.ge/triturus-karelinii.jpg",
         "credit": {
           "photographer": "Parham Beyhaghi",
           "url": "https://www.inaturalist.org/observations/4757157"
         }
       },
       {
-        "src": "/images/triturus-karelinii-mobile.jpg",
-        "credit": {
-          "photographer": "Parham Beyhaghi",
-          "url": "https://www.inaturalist.org/observations/260349446"
-        }
-      },
-      {
-        "src": "/images/triturus-karelinii-2.jpg",
+        "src": "https://cdn.reptiles.ge/triturus-karelinii-2.jpg",
         "credit": {
           "photographer": "Parham Beyhaghi",
           "url": "https://www.inaturalist.org/observations/260349445"
         }
       },
       {
-        "src": "/images/triturus-karelinii-3.jpg",
+        "src": "https://cdn.reptiles.ge/triturus-karelinii-3.jpg",
         "credit": {
           "photographer": "Nikita Tiunov",
           "url": "https://www.inaturalist.org/observations/129655447"
@@ -7139,57 +7118,43 @@ export const species: Species[] = [
     "behavior": "აქტიურია თბილ სეზონზე. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში აქტივობა საღამოსა და ღამის პირველ ნახევარზე გადადის. იზამთრებს კლდეების ნაპრალებსა და ქვების ქვეშ. ცოცხლადმშობია (ოვოვივიპარია): შეწყვილება ჩვეულებრივ მარტ–აპრილშია; ნაშიერები იბადებიან ზაფხულის ბოლოს ან შემოდგომის დასაწყისში.",
     "conservation": "IUCN Red List-ის მიხედვით ახლოსაა საფრთხესთან (Near Threatened). საქართველოში იშვიათი სახეობაა და შეტანილია წითელ წიგნში; პოპულაციები ფრაგმენტირებულია. საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ადამიანის დევნა და ადგილობრივი ზეწოლა. ეკოსისტემისთვის სასარგებლოა მღრღნელების რეგულირებით.",
     "danger": "High",
-    "image": "/images/vipera-transcaucasiana.jpg",
+    "image": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
     "imageCredit": {
-      "photographer": "Vojtěch Víta",
-      "url": "https://www.inaturalist.org/observations/238226101"
+      "photographer": "Hectonichus",
+      "url": "https://commons.wikimedia.org/wiki/File:Viperidae_-_Vipera_ammodytes_transcaucasiana.JPG"
     },
-    "mobileImage": "/images/vipera-transcaucasiana-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
     "mobileImageCredit": {
-      "photographer": "Vojtěch Víta",
-      "url": "https://www.inaturalist.org/observations/238226101"
+      "photographer": "Hectonichus",
+      "url": "https://commons.wikimedia.org/wiki/File:Viperidae_-_Vipera_ammodytes_transcaucasiana.JPG"
     },
     "gallery": [
       {
-        "src": "/images/vipera-transcaucasiana.jpg",
-        "credit": {
-          "photographer": "Vojtěch Víta",
-          "url": "https://www.inaturalist.org/observations/238226101"
-        }
-      },
-      {
-        "src": "/images/vipera-transcaucasiana-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
         "credit": {
           "photographer": "Hectonichus",
           "url": "https://commons.wikimedia.org/wiki/File:Viperidae_-_Vipera_ammodytes_transcaucasiana.JPG"
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-3.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/photos/83532"
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-4.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg",
         "credit": {
           "photographer": "Giorgi Iankoshvili",
           "url": "https://www.inaturalist.org/observations/140705806"
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-5.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-5.jpg",
         "credit": {
           "photographer": "Wouter Beukema",
           "url": "https://www.inaturalist.org/observations/199114077"
-        }
-      },
-      {
-        "src": "/images/vipera-transcaucasiana-6.jpg",
-        "credit": {
-          "photographer": "Diego Reggianti",
-          "url": "https://www.inaturalist.org/observations/67388911"
         }
       }
     ],
