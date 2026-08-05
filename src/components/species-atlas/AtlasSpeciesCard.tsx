@@ -98,18 +98,18 @@ export function AtlasSpeciesCard({
           {species.description}
         </p>
 
-        <div className="mt-4 border-t border-border/70 pt-4">
-          <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            {t("foundIn")}
-          </p>
-          <p className="mt-1.5 text-[13px] leading-snug text-foreground/80">
-            {regionNames.length > 0
-              ? `${regionNames.join(", ")}${
-                  extraRegions > 0 ? ` +${extraRegions}` : ""
-                }`
-              : t("rangePending")}
-          </p>
-        </div>
+        {regionNames.length > 0 ? (
+          <div className="mt-4 border-t border-border/70 pt-4">
+            <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              {t("foundIn")}
+            </p>
+            <p className="mt-1.5 text-[13px] leading-snug text-foreground/80">
+              {`${regionNames.join(", ")}${
+                extraRegions > 0 ? ` +${extraRegions}` : ""
+              }`}
+            </p>
+          </div>
+        ) : null}
 
         <div className="mt-5 flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
