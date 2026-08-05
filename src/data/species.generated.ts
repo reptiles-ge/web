@@ -2012,44 +2012,17 @@ export const species: Species[] = [
     "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
-    "image": "/images/dolichophis-caspius.jpg",
-    "imageCredit": {
-      "photographer": "Aleksandr Popov / Александр Попов",
-      "url": "https://www.inaturalist.org/observations/37424541"
-    },
-    "mobileImage": "/images/dolichophis-caspius-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Дима Журавлёв",
-      "url": "https://www.inaturalist.org/observations/102809016"
-    },
+    "image": "https://cdn.reptiles.ge/dolichophis-caspius.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/dolichophis-caspius-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/dolichophis-caspius.jpg",
-        "credit": {
-          "photographer": "Aleksandr Popov / Александр Попов",
-          "url": "https://www.inaturalist.org/observations/37424541"
-        }
+        "src": "https://cdn.reptiles.ge/dolichophis-caspius.jpg"
       },
       {
-        "src": "/images/dolichophis-caspius-mobile.jpg",
-        "credit": {
-          "photographer": "Дима Журавлёв",
-          "url": "https://www.inaturalist.org/observations/102809016"
-        }
+        "src": "https://cdn.reptiles.ge/dolichophis-caspius-2.jpg"
       },
       {
-        "src": "/images/dolichophis-caspius-2.jpg",
-        "credit": {
-          "photographer": "Ekaterina Borovskaya",
-          "url": "https://www.inaturalist.org/observations/182597249"
-        }
-      },
-      {
-        "src": "/images/dolichophis-caspius-3.jpg",
-        "credit": {
-          "photographer": "Kevin Chen",
-          "url": "https://www.inaturalist.org/observations/367505275"
-        }
+        "src": "https://cdn.reptiles.ge/dolichophis-caspius-3.jpg"
       }
     ],
     "stats": [
