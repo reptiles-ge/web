@@ -2,6 +2,7 @@ import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
+import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
@@ -73,10 +74,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
+  const locale = await getLocale().catch(() => routing.defaultLocale);
+
   return (
     <html
-      lang={routing.defaultLocale}
+      lang={locale}
       className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning

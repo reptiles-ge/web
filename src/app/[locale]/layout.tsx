@@ -1,5 +1,4 @@
 import { ClarityInit } from "@/components/ClarityInit";
-import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
@@ -32,7 +31,6 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <DocumentLang locale={locale} />
       <Navbar />
       {children}
       <Footer />
