@@ -2230,44 +2230,17 @@ export const species: Species[] = [
     "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
-    "image": "/images/eirenis-collaris.jpg",
-    "imageCredit": {
-      "photographer": "Edouard Veuillet",
-      "url": "https://www.inaturalist.org/observations/180251559"
-    },
-    "mobileImage": "/images/eirenis-collaris-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Елена Полякова",
-      "url": "https://www.inaturalist.org/observations/380246593"
-    },
+    "image": "https://cdn.reptiles.ge/eirenis-collaris.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/eirenis-collaris.jpg",
-        "credit": {
-          "photographer": "Edouard Veuillet",
-          "url": "https://www.inaturalist.org/observations/180251559"
-        }
+        "src": "https://cdn.reptiles.ge/eirenis-collaris.jpg"
       },
       {
-        "src": "/images/eirenis-collaris-mobile.jpg",
-        "credit": {
-          "photographer": "Елена Полякова",
-          "url": "https://www.inaturalist.org/observations/380246593"
-        }
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-2.jpg"
       },
       {
-        "src": "/images/eirenis-collaris-2.jpg",
-        "credit": {
-          "photographer": "leylanglr",
-          "url": "https://www.inaturalist.org/observations/117441231"
-        }
-      },
-      {
-        "src": "/images/eirenis-collaris-3.jpg",
-        "credit": {
-          "photographer": "reisegali",
-          "url": "https://www.inaturalist.org/observations/221678518"
-        }
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-3.jpg"
       }
     ],
     "stats": [
@@ -2348,40 +2321,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
-    "image": "/images/eirenis-modestus.jpg",
+    "image": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
     "imageCredit": {
       "photographer": "Roberto Sindaco",
       "url": "https://www.inaturalist.org/observations/105717471"
     },
-    "mobileImage": "/images/eirenis-modestus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Titouan Roguet",
       "url": "https://www.inaturalist.org/observations/183208028"
     },
     "gallery": [
       {
-        "src": "/images/eirenis-modestus.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
         "credit": {
           "photographer": "Roberto Sindaco",
           "url": "https://www.inaturalist.org/observations/105717471"
         }
       },
       {
-        "src": "/images/eirenis-modestus-mobile.jpg",
-        "credit": {
-          "photographer": "Titouan Roguet",
-          "url": "https://www.inaturalist.org/observations/183208028"
-        }
-      },
-      {
-        "src": "/images/eirenis-modestus-2.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-2.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/observations/54925"
         }
       },
       {
-        "src": "/images/eirenis-modestus-3.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-3.jpg",
         "credit": {
           "photographer": "brechtheusequin",
           "url": "https://www.inaturalist.org/observations/345956305"
