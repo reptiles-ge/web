@@ -75,7 +75,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
           className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
           style={{
             paddingTop:
-              "calc(var(--beta-banner-height, 0px) + 7rem)",
+              "7rem",
           }}
         >
           <Image

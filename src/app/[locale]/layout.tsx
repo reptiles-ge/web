@@ -1,4 +1,3 @@
-import { BetaBanner } from "@/components/BetaBanner";
 import { DocumentLang } from "@/components/DocumentLang";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -32,7 +31,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages}>
       <DocumentLang locale={locale} />
-      <BetaBanner />
       <Navbar />
       {children}
       <Footer />

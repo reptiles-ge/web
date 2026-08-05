@@ -28,7 +28,7 @@ export function RegionsIndex() {
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
           style={{
             paddingTop:
-              "calc(var(--beta-banner-height, 0px) + 7rem)",
+              "7rem",
           }}
         >
           <Image

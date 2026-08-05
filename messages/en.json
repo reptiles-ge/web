@@ -23,10 +23,6 @@
     "toDark": "Switch to dark mode",
     "toLight": "Switch to light mode"
   },
-  "beta": {
-    "text": "This site is in beta testing",
-    "dismiss": "Dismiss banner"
-  },
   "hero": {
     "brand": "Reptiles",
     "title": "Discover the hidden reptiles of Georgia",

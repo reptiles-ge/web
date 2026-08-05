@@ -92,7 +92,7 @@ export function SpeciesProfile({
           className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
           style={{
             paddingTop:
-              "calc(var(--beta-banner-height, 0px) + 7rem)",
+              "7rem",
           }}
         >
           {desktopHeroSrc ? (
@@ -136,7 +136,7 @@ export function SpeciesProfile({
           {heroCredit ? (
             <div
               className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
-              style={{ top: "calc(var(--beta-banner-height, 0px) + 5.75rem)" }}
+              style={{ top: "5.75rem" }}
             >
               <PhotoCreditCaption credit={heroCredit} variant="hero" />
             </div>
@@ -144,7 +144,7 @@ export function SpeciesProfile({
           {mobileHeroCredit && mobileHeroSrc ? (
             <div
               className="pointer-events-none absolute right-6 z-[5] lg:hidden"
-              style={{ top: "calc(var(--beta-banner-height, 0px) + 5.25rem)" }}
+              style={{ top: "5.25rem" }}
             >
               <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
             </div>

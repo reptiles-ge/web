@@ -47,7 +47,7 @@ export function ContactPage() {
           <div
             className="relative z-10 mx-auto w-full max-w-lg px-6 py-14 sm:px-10 lg:px-14 lg:py-24 xl:px-20"
             style={{
-              paddingTop: "calc(var(--beta-banner-height, 0px) + 5.5rem)",
+              paddingTop: "5.5rem",
             }}
           >            <motion.div
               initial={{ opacity: 0, y: 12 }}

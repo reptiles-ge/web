@@ -293,7 +293,7 @@ export function SpeciesAtlas({
         <section
           className="relative flex min-h-[72svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-14 lg:min-h-[78svh] lg:pb-20"
           style={{
-            paddingTop: "calc(var(--beta-banner-height, 0px) + 7rem)",
+            paddingTop: "7rem",
           }}
         >
           <Image

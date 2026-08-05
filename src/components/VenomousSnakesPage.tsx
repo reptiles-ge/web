@@ -42,7 +42,7 @@ export function VenomousSnakesPage({
         <section
           className="relative flex min-h-[88svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-16 lg:min-h-[92svh] lg:pb-20"
           style={{
-            paddingTop: "calc(var(--beta-banner-height, 0px) + 7rem)",
+            paddingTop: "7rem",
           }}
         >
           <Image

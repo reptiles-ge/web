@@ -34,7 +34,7 @@ export async function NotFoundContent() {
       <div
         className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col justify-center px-6 py-16 lg:px-10 lg:py-24"
         style={{
-          paddingTop: "calc(var(--beta-banner-height, 0px) + 6rem)",
+          paddingTop: "6rem",
         }}
       >        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] font-semibold leading-none tracking-tight text-white/[0.08]">
           404
