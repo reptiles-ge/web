@@ -1,4 +1,4 @@
-import { getFeaturedSpecies, getSpeciesById } from "@/data/species";
+import { getRelatedSpecies, getSpeciesById } from "@/data/species";
 
 type RouteContext = {
   params: Promise<{ id: string }>;
@@ -12,9 +12,7 @@ export async function GET(_request: Request, context: RouteContext) {
     return Response.json({ error: "Species not found" }, { status: 404 });
   }
 
-  const related = getFeaturedSpecies()
-    .filter((entry) => entry.id !== item.id)
-    .slice(0, 3);
+  const related = getRelatedSpecies(item.id);
 
   return Response.json({
     species: item,

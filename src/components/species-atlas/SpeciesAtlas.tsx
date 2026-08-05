@@ -903,10 +903,10 @@ function SeoAuthoritySection() {
               </li>
               <li>
                 <Link
-                  href="/species/vipera-ammodytes"
+                  href="/species/vipera-transcaucasiana"
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                 >
-                  Vipera ammodytes
+                  Vipera transcaucasiana
                 </Link>
               </li>
             </ul>

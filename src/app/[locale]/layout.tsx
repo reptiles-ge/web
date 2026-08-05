@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -36,6 +37,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       {children}
       <Footer />
       <Analytics />
+      <SpeedInsights />
       <GoogleAnalytics gaId="G-7TTKJPY059" />
     </NextIntlClientProvider>
   );

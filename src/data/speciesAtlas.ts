@@ -289,6 +289,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["mountain", "grassland"],
   },
+  "zamenis-longissimus": {
+    group: "snake",
+    habitats: ["forest", "mountain"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
@@ -406,10 +410,7 @@ export function filterAtlasSpecies(
       return false;
     }
 
-    if (
-      filters.habitat !== "all" &&
-      !meta.habitats.includes(filters.habitat)
-    ) {
+    if (filters.habitat !== "all" && !meta.habitats.includes(filters.habitat)) {
       return false;
     }
 
@@ -445,7 +446,11 @@ export function parseAtlasFilters(
 ): AtlasFilters {
   const read = (key: string) => {
     const value = input[key];
-    return typeof value === "string" ? value : Array.isArray(value) ? value[0] : undefined;
+    return typeof value === "string"
+      ? value
+      : Array.isArray(value)
+        ? value[0]
+        : undefined;
   };
 
   const group = read("type");
@@ -481,8 +486,7 @@ export function parseAtlasFilters(
       ? (habitat as HabitatTag | "all")
       : "all",
     region:
-      region &&
-      (region === "all" || regions.some((item) => item.id === region))
+      region && (region === "all" || regions.some((item) => item.id === region))
         ? region
         : "all",
     query,

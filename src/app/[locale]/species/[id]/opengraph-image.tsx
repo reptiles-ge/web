@@ -15,12 +15,13 @@ const localOgSpeciesIds = new Set([
   "elaphe-dione",
   "vipera-darevskii",
   "vipera-renardi",
+  "vipera-transcaucasiana",
+  "zamenis-longissimus",
 ]);
 
 const cdnOgSpeciesIds = new Set([
   "vipera-dinniki",
   "macrovipera-lebetina",
-  "vipera-ammodytes",
   "vipera-kaznakovi",
   "pseudopus-apodus",
   "coronella-austriaca",

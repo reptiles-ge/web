@@ -2,7 +2,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import {
   catalogSpeciesIds,
-  getFeaturedSpecies,
+  getRelatedSpecies,
   getSpeciesById,
 } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -133,9 +133,7 @@ export default async function SpeciesPage({ params }: PageProps) {
   }
 
   const item = localizeSpecies(raw, locale);
-  const related = getFeaturedSpecies()
-    .filter((entry) => entry.id !== raw.id)
-    .slice(0, 3);
+  const related = getRelatedSpecies(raw.id);
 
   const pageUrl = absoluteUrl(localePath(locale, `/species/${item.id}`));
   const ogImage = speciesOgImageUrl(item.id);

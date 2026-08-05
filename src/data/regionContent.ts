@@ -128,8 +128,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Are there venomous snakes in Adjara?",
         },
         answer: {
-          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია; მთიან აჭარაში იშვიათად გვხვდება ცხვირრქოსანი გველგესლა (Vipera ammodytes). სხვა ჩამოთვლილი სახეობები ადამიანისთვის უვნებელია, თუმცა ყველა გველს სიფრთხილით მოეკიდეთ.",
-          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous; in highland Adjara the nose-horned viper (Vipera ammodytes) occurs rarely. Other listed species are harmless to humans, but treat every snake with caution.",
+          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია; მთიან აჭარაში იშვიათად გვხვდება ცხვირრქოსანი გველგესლა (Vipera transcaucasiana). სხვა ჩამოთვლილი სახეობები ადამიანისთვის უვნებელია, თუმცა ყველა გველს სიფრთხილით მოეკიდეთ.",
+          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous; in highland Adjara the Transcaucasian long-nosed viper (Vipera transcaucasiana) occurs rarely. Other listed species are harmless to humans, but treat every snake with caution.",
         },
       },
       {
@@ -224,8 +224,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Which venomous snakes occur in Samtskhe-Javakheti?",
         },
         answer: {
-          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes), დარევსკის გველგესლა (Vipera darevskii), ველის გველგესლა (Vipera renardi) და ბორჯომის ხეობაში კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
-          en: "Nose-horned viper (Vipera ammodytes), Darevsky’s viper (Vipera darevskii), steppe viper (Vipera renardi), and in the Borjomi gorge Caucasian viper (Vipera kaznakovi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
+          ka: "ცხვირრქოსანი გველგესლა (Vipera transcaucasiana), დარევსკის გველგესლა (Vipera darevskii), ველის გველგესლა (Vipera renardi) და ბორჯომის ხეობაში კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
+          en: "Transcaucasian long-nosed viper (Vipera transcaucasiana), Darevsky’s viper (Vipera darevskii), steppe viper (Vipera renardi), and in the Borjomi gorge Caucasian viper (Vipera kaznakovi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
         },
       },
     ],
@@ -299,8 +299,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Does Levantine viper occur in Kvemo Kartli?",
         },
         answer: {
-          ka: "დიახ — Macrovipera lebetina შხამიანია და აღმოსავლეთის მშრალ/ნახევრად მშრალ ჰაბიტატებს უკავშირდება; თრიალეთის მთიანეთში გვხვდება ცხვირრქოსანი გველგესლა (Vipera ammodytes). დაიცავით მანძილი.",
-          en: "Yes — Macrovipera lebetina is venomous and tied to eastern dry and semi-arid habitats; nose-horned viper (Vipera ammodytes) occurs in the Trialeti highlands. Keep your distance.",
+          ka: "დიახ — Macrovipera lebetina შხამიანია და აღმოსავლეთის მშრალ/ნახევრად მშრალ ჰაბიტატებს უკავშირდება; თრიალეთის მთიანეთში გვხვდება ცხვირრქოსანი გველგესლა (Vipera transcaucasiana). დაიცავით მანძილი.",
+          en: "Yes — Macrovipera lebetina is venomous and tied to eastern dry and semi-arid habitats; Transcaucasian long-nosed viper (Vipera transcaucasiana) occurs in the Trialeti highlands. Keep your distance.",
         },
       },
     ],

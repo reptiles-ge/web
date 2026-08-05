@@ -13,6 +13,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/species/vipera-ammodytes",
+        destination: "/species/vipera-transcaucasiana",
+        permanent: true,
+      },
+      {
+        source: "/en/species/vipera-ammodytes",
+        destination: "/en/species/vipera-transcaucasiana",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
