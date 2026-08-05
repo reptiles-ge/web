@@ -73,6 +73,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
 
   const t = await getTranslations({ locale, namespace: "site" });
   const homeUrl = absoluteUrl(localePath(locale, "/"));
+  const speciesSearchUrl = absoluteUrl(localePath(locale, "/species"));
   const description = t("description");
   const stats = getAtlasStats();
 
@@ -86,7 +87,10 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     publisher: organizationJsonLd({ description }),
     potentialAction: {
       "@type": "SearchAction",
-      target: `${homeUrl}?q={search_term_string}`,
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${speciesSearchUrl}?q={search_term_string}`,
+      },
       "query-input": "required name=search_term_string",
     },
   };
@@ -145,7 +149,6 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <SpeciesDetail />
         <HomeSeo />
         <FinalCTA />
-
       </main>
     </div>
   );
