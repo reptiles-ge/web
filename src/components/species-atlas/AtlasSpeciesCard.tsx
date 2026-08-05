@@ -37,7 +37,12 @@ export function AtlasSpeciesCard({
     0,
     getRegionsForSpecies(species.id).length - regionNames.length,
   );
-  const imageSrc = species.mobileImage ?? species.image;
+  const imageSrc =
+    species.mobileImage && !species.mobileImage.includes("species-placeholder")
+      ? species.mobileImage
+      : species.image && !species.image.includes("species-placeholder")
+        ? species.image
+        : "";
 
   return (
     <article
@@ -53,17 +58,24 @@ export function AtlasSpeciesCard({
       />
 
       <div className="relative aspect-[4/5] overflow-hidden bg-ink sm:aspect-[5/6]">
-        <Image
-          src={imageSrc}
-          alt={speciesImageAlt(
-            species.commonName,
-            species.scientificName,
-            species.location,
-          )}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-        />
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt={speciesImageAlt(
+              species.commonName,
+              species.scientificName,
+              species.location,
+            )}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
+            aria-hidden="true"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/10" />
         <div className="absolute left-4 top-4 z-[1] flex flex-wrap gap-2">
           <span className="rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white/85 backdrop-blur-md">

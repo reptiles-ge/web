@@ -780,13 +780,18 @@ function RecentSpeciesRow({ species }: { species: Species }) {
       className="group flex items-center gap-4 rounded-[22px] border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">
-        <Image
-          src={species.mobileImage ?? species.image}
-          alt=""
-          fill
-          sizes="84px"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        {(species.mobileImage || species.image) &&
+        !(species.mobileImage ?? species.image).includes(
+          "species-placeholder",
+        ) ? (
+          <Image
+            src={species.mobileImage ?? species.image}
+            alt=""
+            fill
+            sizes="84px"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : null}
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
