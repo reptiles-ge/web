@@ -84,6 +84,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "venomousSnakes" });
+
   const url = absoluteUrl(localePath(locale, PATH));
   const venomous = getVenomousCatalogSpecies().map((item) =>
     localizeSpecies(item, locale),
