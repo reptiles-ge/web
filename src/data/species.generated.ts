@@ -1276,44 +1276,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-derjugini.jpg",
-    "imageCredit": {
-      "photographer": "Edouard Veuillet",
-      "url": "https://www.inaturalist.org/observations/180244951"
-    },
-    "mobileImage": "/images/darevskia-derjugini-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "lelyare2005",
-      "url": "https://www.inaturalist.org/observations/172291711"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-derjugini.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-derjugini-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-derjugini.jpg",
-        "credit": {
-          "photographer": "Edouard Veuillet",
-          "url": "https://www.inaturalist.org/observations/180244951"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini.jpg"
       },
       {
-        "src": "/images/darevskia-derjugini-mobile.jpg",
-        "credit": {
-          "photographer": "lelyare2005",
-          "url": "https://www.inaturalist.org/observations/172291711"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-2.jpg"
       },
       {
-        "src": "/images/darevskia-derjugini-2.jpg",
-        "credit": {
-          "photographer": "Michael Hayes",
-          "url": "https://www.inaturalist.org/observations/383231300"
-        }
-      },
-      {
-        "src": "/images/darevskia-derjugini-3.jpg",
-        "credit": {
-          "photographer": "p_stipticus",
-          "url": "https://www.inaturalist.org/observations/99729990"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-3.jpg"
       }
     ],
     "stats": [
