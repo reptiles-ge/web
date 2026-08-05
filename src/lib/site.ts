@@ -80,19 +80,21 @@ export function absoluteImageUrl(src: string) {
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 
-export function cdnOgImageUrl(speciesId: string) {
-  return `${CDN_BASE}/og/${speciesId}.webp`;
-}
-
-export const localOgSpeciesIds = new Set([
-  "natrix-natrix",
-  "telescopus-fallax",
+const cdnOgJpgSpeciesIds = new Set([
   "elaphe-dione",
   "vipera-darevskii",
   "vipera-renardi",
   "vipera-transcaucasiana",
   "zamenis-longissimus",
 ]);
+
+export function cdnOgExt(speciesId: string): "webp" | "jpg" {
+  return cdnOgJpgSpeciesIds.has(speciesId) ? "jpg" : "webp";
+}
+
+export function cdnOgImageUrl(speciesId: string) {
+  return `${CDN_BASE}/og/${speciesId}.${cdnOgExt(speciesId)}`;
+}
 
 export const cdnOgSpeciesIds = new Set([
   "vipera-dinniki",
@@ -104,6 +106,13 @@ export const cdnOgSpeciesIds = new Set([
   "natrix-tessellata",
   "dolichophis-schmidti",
   "platyceps-najadum",
+  "natrix-natrix",
+  "telescopus-fallax",
+  "elaphe-dione",
+  "vipera-darevskii",
+  "vipera-renardi",
+  "vipera-transcaucasiana",
+  "zamenis-longissimus",
 ]);
 
 const missingHeroSpeciesIds = new Set([
@@ -116,9 +125,6 @@ export function speciesOgImageUrl(
   speciesId: string,
   fallbackImageSrc?: string,
 ) {
-  if (localOgSpeciesIds.has(speciesId)) {
-    return absoluteUrl(`/images/og/${speciesId}.jpg`);
-  }
   if (cdnOgSpeciesIds.has(speciesId)) {
     return cdnOgImageUrl(speciesId);
   }

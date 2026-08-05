@@ -1,9 +1,9 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import {
+  cdnOgExt,
   cdnOgImageUrl,
   cdnOgSpeciesIds,
-  localOgSpeciesIds,
 } from "@/lib/site";
 
 export const alt = "ქართული გველგესლები — Reptiles";
@@ -41,24 +41,13 @@ export default async function Image({
 }) {
   const { id } = await params;
 
-  if (localOgSpeciesIds.has(id)) {
-    const buffer = await readLocalImage(`images/og/${id}.jpg`);
-    if (buffer) {
-      return new Response(buffer, {
-        headers: {
-          "Content-Type": "image/jpeg",
-          "Cache-Control": "public, max-age=31536000, immutable",
-        },
-      });
-    }
-  }
-
   if (cdnOgSpeciesIds.has(id)) {
     const buffer = await fetchCdnOg(id);
     if (buffer) {
+      const ext = cdnOgExt(id);
       return new Response(buffer, {
         headers: {
-          "Content-Type": "image/webp",
+          "Content-Type": ext === "jpg" ? "image/jpeg" : "image/webp",
           "Cache-Control": "public, max-age=31536000, immutable",
         },
       });
