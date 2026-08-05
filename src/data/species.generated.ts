@@ -1702,13 +1702,13 @@ export const species: Species[] = [
       {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-4.jpg",
         "credit": {
-          "photographer": "Sandro Khakhva"
+          "photographer": "მარიამ რომანაძე"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-5.jpg",
         "credit": {
-          "photographer": "Sandro Khakhva"
+          "photographer": "მარიამ რომანაძე"
         }
       },
       {
