@@ -344,7 +344,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Colchis Slow Worm",
-    commonNameKa: "კოლხური ბოხმეჭა",
+    commonNameKa: "ბოხმეჭა",
     notes: "Candidate species per Tarkhnishvili et al. 2026",
   },
   {
@@ -1110,7 +1110,8 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     inProject: true,
     commonNameEn: "Blunt-nosed Viper",
     commonNameKa: "გიურზა",
-    notes: "Project slug retained as macrovipera-lebetina; accepted scientific name is Macrovipera lebetinus (Tarkhnishvili et al. 2026).",
+    notes:
+      "Project slug retained as macrovipera-lebetina; accepted scientific name is Macrovipera lebetinus (Tarkhnishvili et al. 2026).",
   },
   {
     scientificName: "Vipera renardi",
@@ -1213,7 +1214,8 @@ export const herpetofaunaExcluded: ExcludedChecklistTaxon[] = [
     slug: "rana-dalmatina",
     statusInChecklist: "anecdotal_rejected",
     taxonomicConfidence: "rejected",
-    notes: "Likely confusion with R. macrocnemis; Nikolskii 1913; no further Caucasus records.",
+    notes:
+      "Likely confusion with R. macrocnemis; Nikolskii 1913; no further Caucasus records.",
   },
   {
     scientificName: "Chelonia mydas",
@@ -1241,7 +1243,8 @@ export const herpetofaunaExcluded: ExcludedChecklistTaxon[] = [
     slug: "elaphe-situla",
     statusInChecklist: "anecdotal_rejected",
     taxonomicConfidence: "rejected",
-    notes: "Unconfirmed Tbilisi mention; possible mis-ID with Z. hohenackeri or E. dione.",
+    notes:
+      "Unconfirmed Tbilisi mention; possible mis-ID with Z. hohenackeri or E. dione.",
   },
   {
     scientificName: "Vipera renardi lotievi",
@@ -1255,18 +1258,42 @@ export const herpetofaunaExcluded: ExcludedChecklistTaxon[] = [
     slug: "vipera-berus-barani",
     statusInChecklist: "border_potential",
     taxonomicConfidence: "rejected",
-    notes: "Does not occur in Artvin; erroneously mapped near SW Georgia border.",
+    notes:
+      "Does not occur in Artvin; erroneously mapped near SW Georgia border.",
   },
 ];
 
 export const herpetofaunaDownscaled = [
-  { scientificName: "Mertensiella djanaschvilii", notes: "Downscaled to subspecies of M. caucasica pending further genetic data." },
-  { scientificName: "Darevskia arribasi", notes: "Downscaled to subspecies of D. brauneri (stat. nov. in checklist)." },
-  { scientificName: "Darevskia dryada", notes: "Treated within D. clarkorum complex / not separate Georgia species page." },
-  { scientificName: "Vipera transcaucasiana", notes: "Downscaled to subspecies of V. ammodytes." },
-  { scientificName: "Vipera eriwanensis", notes: "Downscaled to subspecies within V. renardi complex." },
-  { scientificName: "Vipera tuniyevi", notes: "Downscaled within V. kaznakovi complex." },
-  { scientificName: "Natrix megalocephala", notes: "Rejected by previous authors; not a valid Georgia taxon." },
+  {
+    scientificName: "Mertensiella djanaschvilii",
+    notes:
+      "Downscaled to subspecies of M. caucasica pending further genetic data.",
+  },
+  {
+    scientificName: "Darevskia arribasi",
+    notes: "Downscaled to subspecies of D. brauneri (stat. nov. in checklist).",
+  },
+  {
+    scientificName: "Darevskia dryada",
+    notes:
+      "Treated within D. clarkorum complex / not separate Georgia species page.",
+  },
+  {
+    scientificName: "Vipera transcaucasiana",
+    notes: "Downscaled to subspecies of V. ammodytes.",
+  },
+  {
+    scientificName: "Vipera eriwanensis",
+    notes: "Downscaled to subspecies within V. renardi complex.",
+  },
+  {
+    scientificName: "Vipera tuniyevi",
+    notes: "Downscaled within V. kaznakovi complex.",
+  },
+  {
+    scientificName: "Natrix megalocephala",
+    notes: "Rejected by previous authors; not a valid Georgia taxon.",
+  },
 ] as const;
 
 export function getChecklistTaxonBySlug(slug: string) {
