@@ -24,6 +24,30 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/coronella-austriaca.webp"
       },
       {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-4.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-1.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-3.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/coronella-austriaca-2.webp"
       },
       {
