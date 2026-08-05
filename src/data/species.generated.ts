@@ -298,44 +298,17 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/bufotes-viridis.jpg",
-    "imageCredit": {
-      "photographer": "mauro_fioretto",
-      "url": "https://www.inaturalist.org/observations/197247176"
-    },
-    "mobileImage": "/images/bufotes-viridis-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Manuel Raab",
-      "url": "https://www.inaturalist.org/observations/254019310"
-    },
+    "image": "https://cdn.reptiles.ge/bufotes-viridis.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/bufotes-viridis-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/bufotes-viridis.jpg",
-        "credit": {
-          "photographer": "mauro_fioretto",
-          "url": "https://www.inaturalist.org/observations/197247176"
-        }
+        "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
       },
       {
-        "src": "/images/bufotes-viridis-mobile.jpg",
-        "credit": {
-          "photographer": "Manuel Raab",
-          "url": "https://www.inaturalist.org/observations/254019310"
-        }
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-2.jpg"
       },
       {
-        "src": "/images/bufotes-viridis-2.jpg",
-        "credit": {
-          "photographer": "David Kaliss",
-          "url": "https://www.inaturalist.org/observations/249903065"
-        }
-      },
-      {
-        "src": "/images/bufotes-viridis-3.jpg",
-        "credit": {
-          "photographer": "Martin Grimm",
-          "url": "https://www.inaturalist.org/observations/234476969"
-        }
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-3.jpg"
       }
     ],
     "stats": [
