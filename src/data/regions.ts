@@ -83,7 +83,7 @@ export const regions: Region[] = [
     },
     speciesIds: [
       "vipera-kaznakovi",
-      "vipera-ammodytes",
+      "vipera-transcaucasiana",
       "natrix-tessellata",
       "natrix-natrix",
       "coronella-austriaca",
@@ -140,7 +140,7 @@ export const regions: Region[] = [
       en: "Volcanic plateaus, highland lakes, and dry foothills form a harsh, open habitat.",
     },
     speciesIds: [
-      "vipera-ammodytes",
+      "vipera-transcaucasiana",
       "vipera-darevskii",
       "vipera-renardi",
       "vipera-kaznakovi",
@@ -164,7 +164,7 @@ export const regions: Region[] = [
       en: "The Shida Kartli plain, foothills, and Mtkvari valley bridge dry and semi-humid zones.",
     },
     speciesIds: [
-      "vipera-ammodytes",
+      "vipera-transcaucasiana",
       "elaphe-urartica",
       "elaphe-dione",
       "dolichophis-schmidti",
@@ -206,7 +206,7 @@ export const regions: Region[] = [
     },
     speciesIds: [
       "macrovipera-lebetina",
-      "vipera-ammodytes",
+      "vipera-transcaucasiana",
       "elaphe-urartica",
       "elaphe-dione",
       "dolichophis-schmidti",
@@ -252,7 +252,7 @@ export const regions: Region[] = [
     },
     speciesIds: [
       "macrovipera-lebetina",
-      "vipera-ammodytes",
+      "vipera-transcaucasiana",
       "dolichophis-schmidti",
       "pseudopus-apodus",
       "coronella-austriaca",

@@ -37,6 +37,7 @@ const SKIP_DIR_NAMES = new Set([
   "tmp-urartica",
   "tmp-water-dragon",
   "tmp-ammodytes",
+  "tmp-transcaucasiana",
   "tmp-kaznakovi",
   "tmp-pseudopus",
 ]);

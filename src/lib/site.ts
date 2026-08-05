@@ -21,7 +21,7 @@ export const siteConfig = {
     "კავკასიური გველგესლა",
     "Vipera kaznakovi",
     "ცხვირრქოსანი გველგესლა",
-    "Vipera ammodytes",
+    "Vipera transcaucasiana",
     "დარევსკის გველგესლა",
     "Vipera darevskii",
     "ველის გველგესლა",

@@ -106,7 +106,7 @@ export const featuredSpeciesIds = [
   "vipera-dinniki",
   "macrovipera-lebetina",
   "vipera-kaznakovi",
-  "vipera-ammodytes",
+  "vipera-transcaucasiana",
   "vipera-darevskii",
   "vipera-renardi",
   "coronella-austriaca",
