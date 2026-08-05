@@ -1648,44 +1648,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-portschinskii.jpg",
-    "imageCredit": {
-      "photographer": "Axel Gosseries",
-      "url": "https://www.inaturalist.org/observations/181252728"
-    },
-    "mobileImage": "/images/darevskia-portschinskii-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Axel Gosseries",
-      "url": "https://www.inaturalist.org/observations/181253119"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-portschinskii.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-portschinskii-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-portschinskii.jpg",
-        "credit": {
-          "photographer": "Axel Gosseries",
-          "url": "https://www.inaturalist.org/observations/181252728"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-portschinskii.jpg"
       },
       {
-        "src": "/images/darevskia-portschinskii-mobile.jpg",
-        "credit": {
-          "photographer": "Axel Gosseries",
-          "url": "https://www.inaturalist.org/observations/181253119"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-portschinskii-2.jpg"
       },
       {
-        "src": "/images/darevskia-portschinskii-2.jpg",
-        "credit": {
-          "photographer": "Axel Gosseries",
-          "url": "https://www.inaturalist.org/observations/181253328"
-        }
-      },
-      {
-        "src": "/images/darevskia-portschinskii-3.jpg",
-        "credit": {
-          "photographer": "Axel Gosseries",
-          "url": "https://www.inaturalist.org/observations/181252918"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-portschinskii-3.jpg"
       }
     ],
     "stats": [
