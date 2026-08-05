@@ -1553,44 +1553,17 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/darevskia-pontica.jpg",
-    "imageCredit": {
-      "photographer": "Gennadiy Okatov",
-      "url": "https://www.inaturalist.org/observations/208842694"
-    },
-    "mobileImage": "/images/darevskia-pontica-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "yuppiy",
-      "url": "https://www.inaturalist.org/observations/30157219"
-    },
+    "image": "https://cdn.reptiles.ge/darevskia-pontica.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-pontica-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-pontica.jpg",
-        "credit": {
-          "photographer": "Gennadiy Okatov",
-          "url": "https://www.inaturalist.org/observations/208842694"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-pontica.jpg"
       },
       {
-        "src": "/images/darevskia-pontica-mobile.jpg",
-        "credit": {
-          "photographer": "yuppiy",
-          "url": "https://www.inaturalist.org/observations/30157219"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-pontica-2.jpg"
       },
       {
-        "src": "/images/darevskia-pontica-2.jpg",
-        "credit": {
-          "photographer": "Radovan Víta",
-          "url": "https://www.inaturalist.org/observations/271044071"
-        }
-      },
-      {
-        "src": "/images/darevskia-pontica-3.jpg",
-        "credit": {
-          "photographer": "Saturn Ermolinsky",
-          "url": "https://www.inaturalist.org/observations/81861224"
-        }
+        "src": "https://cdn.reptiles.ge/darevskia-pontica-3.jpg"
       }
     ],
     "stats": [
