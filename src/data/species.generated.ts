@@ -3036,40 +3036,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად ბინდის/ღამის მიწისმთხრელი.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
-    "image": "/images/eryx-jaculus.jpg",
+    "image": "https://cdn.reptiles.ge/eryx-jaculus.jpg",
     "imageCredit": {
       "photographer": "Alexandru Buzatu",
       "url": "https://www.inaturalist.org/observations/129650363"
     },
-    "mobileImage": "/images/eryx-jaculus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eryx-jaculus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Tom Kirschey",
       "url": "https://www.inaturalist.org/observations/21226800"
     },
     "gallery": [
       {
-        "src": "/images/eryx-jaculus.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus.jpg",
         "credit": {
           "photographer": "Alexandru Buzatu",
           "url": "https://www.inaturalist.org/observations/129650363"
         }
       },
       {
-        "src": "/images/eryx-jaculus-mobile.jpg",
-        "credit": {
-          "photographer": "Tom Kirschey",
-          "url": "https://www.inaturalist.org/observations/21226800"
-        }
-      },
-      {
-        "src": "/images/eryx-jaculus-2.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
         "credit": {
           "photographer": "Leonid A. Neymark",
           "url": "https://www.inaturalist.org/observations/50042883"
         }
       },
       {
-        "src": "/images/eryx-jaculus-3.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-3.jpg",
         "credit": {
           "photographer": "Roberto Sindaco",
           "url": "https://www.inaturalist.org/observations/619071"
@@ -3154,40 +3147,33 @@ export const species: Species[] = [
     "behavior": "ხშირად ფარულია; ბევრი სცინკი სწრაფად მოძრაობს ფოთლოვან საფარში ან ქვების ქვეშ.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/eumeces-schneiderii.jpg",
+    "image": "https://cdn.reptiles.ge/eumeces-schneiderii.jpg",
     "imageCredit": {
       "photographer": "Vojtěch Víta",
       "url": "https://www.inaturalist.org/observations/146024985"
     },
-    "mobileImage": "/images/eumeces-schneiderii-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eumeces-schneiderii-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "רעות בן אלישר",
       "url": "https://www.inaturalist.org/observations/26596742"
     },
     "gallery": [
       {
-        "src": "/images/eumeces-schneiderii.jpg",
+        "src": "https://cdn.reptiles.ge/eumeces-schneiderii.jpg",
         "credit": {
           "photographer": "Vojtěch Víta",
           "url": "https://www.inaturalist.org/observations/146024985"
         }
       },
       {
-        "src": "/images/eumeces-schneiderii-mobile.jpg",
-        "credit": {
-          "photographer": "רעות בן אלישר",
-          "url": "https://www.inaturalist.org/observations/26596742"
-        }
-      },
-      {
-        "src": "/images/eumeces-schneiderii-2.jpg",
+        "src": "https://cdn.reptiles.ge/eumeces-schneiderii-2.jpg",
         "credit": {
           "photographer": "Julien Renoult",
           "url": "https://www.inaturalist.org/observations/9521266"
         }
       },
       {
-        "src": "/images/eumeces-schneiderii-3.jpg",
+        "src": "https://cdn.reptiles.ge/eumeces-schneiderii-3.jpg",
         "credit": {
           "photographer": "Edouard Veuillet",
           "url": "https://www.inaturalist.org/observations/180253623"
@@ -3272,40 +3258,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სახეობის მიხედვითაა — დღის მონადირეებიდან ფარულ მიწისქვეშა ან ღამის სახეობებამდე.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
-    "image": "/images/hemorrhois-ravergieri.jpg",
+    "image": "https://cdn.reptiles.ge/hemorrhois-ravergieri.jpg",
     "imageCredit": {
       "photographer": "hossein_nabizadeh",
       "url": "https://www.inaturalist.org/observations/132460931"
     },
-    "mobileImage": "/images/hemorrhois-ravergieri-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/hemorrhois-ravergieri-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Azan Khan",
       "url": "https://www.inaturalist.org/observations/130364933"
     },
     "gallery": [
       {
-        "src": "/images/hemorrhois-ravergieri.jpg",
+        "src": "https://cdn.reptiles.ge/hemorrhois-ravergieri.jpg",
         "credit": {
           "photographer": "hossein_nabizadeh",
           "url": "https://www.inaturalist.org/observations/132460931"
         }
       },
       {
-        "src": "/images/hemorrhois-ravergieri-mobile.jpg",
-        "credit": {
-          "photographer": "Azan Khan",
-          "url": "https://www.inaturalist.org/observations/130364933"
-        }
-      },
-      {
-        "src": "/images/hemorrhois-ravergieri-2.jpg",
+        "src": "https://cdn.reptiles.ge/hemorrhois-ravergieri-2.jpg",
         "credit": {
           "photographer": "Kudaibergen Amirekul",
           "url": "https://www.inaturalist.org/observations/123060778"
         }
       },
       {
-        "src": "/images/hemorrhois-ravergieri-3.jpg",
+        "src": "https://cdn.reptiles.ge/hemorrhois-ravergieri-3.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
           "url": "https://www.inaturalist.org/observations/181209834"
@@ -3390,40 +3369,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/hyla-orientalis.jpg",
+    "image": "https://cdn.reptiles.ge/hyla-orientalis.jpg",
     "imageCredit": {
       "photographer": "SteveM4560",
       "url": "https://www.inaturalist.org/observations/185404031"
     },
-    "mobileImage": "/images/hyla-orientalis-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/hyla-orientalis-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "SteveM4560",
       "url": "https://www.inaturalist.org/observations/183468484"
     },
     "gallery": [
       {
-        "src": "/images/hyla-orientalis.jpg",
+        "src": "https://cdn.reptiles.ge/hyla-orientalis.jpg",
         "credit": {
           "photographer": "SteveM4560",
           "url": "https://www.inaturalist.org/observations/185404031"
         }
       },
       {
-        "src": "/images/hyla-orientalis-mobile.jpg",
-        "credit": {
-          "photographer": "SteveM4560",
-          "url": "https://www.inaturalist.org/observations/183468484"
-        }
-      },
-      {
-        "src": "/images/hyla-orientalis-2.jpg",
+        "src": "https://cdn.reptiles.ge/hyla-orientalis-2.jpg",
         "credit": {
           "photographer": "SteveM4560",
           "url": "https://www.inaturalist.org/observations/184358994"
         }
       },
       {
-        "src": "/images/hyla-orientalis-3.jpg",
+        "src": "https://cdn.reptiles.ge/hyla-orientalis-3.jpg",
         "credit": {
           "photographer": "Titouan Roguet",
           "url": "https://www.inaturalist.org/observations/184035964"
@@ -3512,40 +3484,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/hyla-savignyi.jpg",
+    "image": "https://cdn.reptiles.ge/hyla-savignyi.jpg",
     "imageCredit": {
       "photographer": "Parham Beyhaghi",
       "url": "https://www.inaturalist.org/observations/3641910"
     },
-    "mobileImage": "/images/hyla-savignyi-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/hyla-savignyi-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Mehmet Çelik",
       "url": "https://www.inaturalist.org/observations/146410607"
     },
     "gallery": [
       {
-        "src": "/images/hyla-savignyi.jpg",
+        "src": "https://cdn.reptiles.ge/hyla-savignyi.jpg",
         "credit": {
           "photographer": "Parham Beyhaghi",
           "url": "https://www.inaturalist.org/observations/3641910"
         }
       },
       {
-        "src": "/images/hyla-savignyi-mobile.jpg",
-        "credit": {
-          "photographer": "Mehmet Çelik",
-          "url": "https://www.inaturalist.org/observations/146410607"
-        }
-      },
-      {
-        "src": "/images/hyla-savignyi-2.jpg",
+        "src": "https://cdn.reptiles.ge/hyla-savignyi-2.jpg",
         "credit": {
           "photographer": "leuli",
           "url": "https://www.inaturalist.org/observations/186726539"
         }
       },
       {
-        "src": "/images/hyla-savignyi-3.jpg",
+        "src": "https://cdn.reptiles.ge/hyla-savignyi-3.jpg",
         "credit": {
           "photographer": "מלאכי גבעון",
           "url": "https://www.inaturalist.org/observations/214749047"
@@ -3630,40 +3595,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/lacerta-agilis.jpg",
+    "image": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
     "imageCredit": {
       "photographer": "zaharozaur",
       "url": "https://www.inaturalist.org/observations/204166502"
     },
-    "mobileImage": "/images/lacerta-agilis-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/lacerta-agilis-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Andrzej Oleksa",
       "url": "https://www.inaturalist.org/observations/47606873"
     },
     "gallery": [
       {
-        "src": "/images/lacerta-agilis.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
         "credit": {
           "photographer": "zaharozaur",
           "url": "https://www.inaturalist.org/observations/204166502"
         }
       },
       {
-        "src": "/images/lacerta-agilis-mobile.jpg",
-        "credit": {
-          "photographer": "Andrzej Oleksa",
-          "url": "https://www.inaturalist.org/observations/47606873"
-        }
-      },
-      {
-        "src": "/images/lacerta-agilis-2.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-2.jpg",
         "credit": {
           "photographer": "Lennart Hudel",
           "url": "https://www.inaturalist.org/observations/32430817"
         }
       },
       {
-        "src": "/images/lacerta-agilis-3.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-3.jpg",
         "credit": {
           "photographer": "Kamilya Medeubaeva",
           "url": "https://www.inaturalist.org/observations/275472082"
@@ -3748,40 +3706,33 @@ export const species: Species[] = [
     "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
     "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
     "danger": "Harmless",
-    "image": "/images/lacerta-media.jpg",
+    "image": "https://cdn.reptiles.ge/lacerta-media.jpg",
     "imageCredit": {
       "photographer": "reisegali",
       "url": "https://www.inaturalist.org/observations/212425978"
     },
-    "mobileImage": "/images/lacerta-media-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/lacerta-media-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Dr. Fabio Mao Valletta",
       "url": "https://www.inaturalist.org/observations/134144756"
     },
     "gallery": [
       {
-        "src": "/images/lacerta-media.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-media.jpg",
         "credit": {
           "photographer": "reisegali",
           "url": "https://www.inaturalist.org/observations/212425978"
         }
       },
       {
-        "src": "/images/lacerta-media-mobile.jpg",
-        "credit": {
-          "photographer": "Dr. Fabio Mao Valletta",
-          "url": "https://www.inaturalist.org/observations/134144756"
-        }
-      },
-      {
-        "src": "/images/lacerta-media-2.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-media-2.jpg",
         "credit": {
           "photographer": "Yaman Omran",
           "url": "https://www.inaturalist.org/observations/68053814"
         }
       },
       {
-        "src": "/images/lacerta-media-3.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
         "credit": {
           "photographer": "Vojtěch Víta",
           "url": "https://www.inaturalist.org/observations/240512685"
@@ -5008,13 +4959,6 @@ export const species: Species[] = [
         "credit": {
           "photographer": "epistemophagus",
           "url": "https://www.inaturalist.org/observations/213090312"
-        }
-      },
-      {
-        "src": "/images/ophisops-elegans-2.jpg",
-        "credit": {
-          "photographer": "Mehmet Baran",
-          "url": "https://www.inaturalist.org/observations/301910088"
         }
       },
       {
