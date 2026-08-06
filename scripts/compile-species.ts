@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
@@ -39,7 +40,6 @@ type SpeciesFrontmatter = {
   facts: string[];
   identification?: SpeciesIdentification;
   faq?: SpeciesFaq[];
-  updatedAt?: string;
   sources?: SpeciesSource[];
 };
 
@@ -47,29 +47,41 @@ function toIsoDate(value: Date): string {
   return value.toISOString().slice(0, 10);
 }
 
-function resolveUpdatedAt(
-  frontmatterDate: string | undefined,
-  filePaths: string[],
-): string {
-  if (frontmatterDate) {
-    const parsed = new Date(frontmatterDate);
-    if (Number.isNaN(parsed.getTime())) {
-      throw new Error(`Invalid updatedAt date: ${frontmatterDate}`);
-    }
-    return toIsoDate(parsed);
+function getGitLastCommitDate(filePaths: string[]): string | null {
+  try {
+    const out = execFileSync(
+      "git",
+      ["log", "-1", "--format=%cs", "--", ...filePaths],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+    ).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null;
+  } catch {
+    return null;
   }
+}
 
+function getMtimeDate(filePaths: string[]): string | null {
   let latest = 0;
   for (const filePath of filePaths) {
     if (!fs.existsSync(filePath)) continue;
     latest = Math.max(latest, fs.statSync(filePath).mtimeMs);
   }
+  return latest === 0 ? null : toIsoDate(new Date(latest));
+}
 
-  if (latest === 0) {
+function resolveUpdatedAt(filePaths: string[]): string {
+  const existing = filePaths.filter((filePath) => fs.existsSync(filePath));
+  if (existing.length === 0) {
     throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
   }
 
-  return toIsoDate(new Date(latest));
+  const gitDate = getGitLastCommitDate(existing);
+  if (gitDate) return gitDate;
+
+  const mtimeDate = getMtimeDate(existing);
+  if (mtimeDate) return mtimeDate;
+
+  throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
 }
 
 function readSpeciesMdx(
@@ -109,7 +121,7 @@ function readSpeciesMdx(
     facts: fm.facts ?? [],
     ...(fm.identification ? { identification: fm.identification } : {}),
     ...(fm.faq ? { faq: fm.faq } : {}),
-    updatedAt: options?.updatedAt ?? fm.updatedAt ?? toIsoDate(new Date()),
+    updatedAt: options?.updatedAt ?? toIsoDate(new Date()),
     sources:
       options?.sources ??
       (fm.sources && fm.sources.length > 0
@@ -157,7 +169,7 @@ for (const id of ids) {
   }
 
   const rawKa = matter(fs.readFileSync(kaPath, "utf8")).data as SpeciesFrontmatter;
-  const updatedAt = resolveUpdatedAt(rawKa.updatedAt, [kaPath, enPath]);
+  const updatedAt = resolveUpdatedAt([kaPath, enPath]);
   const sources =
     rawKa.sources && rawKa.sources.length > 0
       ? rawKa.sources

@@ -1061,7 +1061,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1334,7 +1334,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2074,7 +2074,7 @@ export const species: Species[] = [
         "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2543,7 +2543,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი ივლის–აგვისტოში დებს ჩვეულებრივ 3–15 კვერცხს (ზოგჯერ 24-მდე). ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2774,7 +2774,7 @@ export const species: Species[] = [
         "answer": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3107,7 +3107,7 @@ export const species: Species[] = [
         "answer": "წვრილი ხვლიკები და მღრღნელები; კლავს მოხრჩობით.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3781,7 +3781,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4461,7 +4461,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4854,7 +4854,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5173,7 +5173,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5867,7 +5867,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6025,7 +6025,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 4–12 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6621,7 +6621,7 @@ export const species: Species[] = [
         "answer": "გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია. გადაჭარბებული ძოვება და ჰაბიტატის დეგრადაცია პოპულაციას ამცირებს."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6743,7 +6743,7 @@ export const species: Species[] = [
         "answer": "არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია. სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა პოპულაციას ამცირებს; შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6896,7 +6896,7 @@ export const species: Species[] = [
         "answer": "ცოცხლადმშობია. შეწყვილება გაზაფხულზეა; შემოდგომაზე, აგვისტო–სექტემბერში, ბადებს 5–10 ნაშიერს."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7055,7 +7055,7 @@ export const species: Species[] = [
         "answer": "სტეპისა და მდელოების ინტენსიური ათვისება და გადაძოვება ანადგურებს მის ჰაბიტატს; არეალი ფრაგმენტირდება. ევროპის IUCN შეფასებით Vulnerableა; საქართველოში პოპულაციები მცირე და იშვიათია."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",

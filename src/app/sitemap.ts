@@ -28,52 +28,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: absoluteUrl(localePath(locale, "/")),
       lastModified: atlasLastModified,
-      changeFrequency: "weekly",
-      priority: 1,
     });
 
     entries.push({
       url: absoluteUrl(localePath(locale, "/contact")),
       lastModified: atlasLastModified,
-      changeFrequency: "yearly",
-      priority: 0.4,
     });
 
     entries.push({
       url: absoluteUrl(localePath(locale, "/about")),
       lastModified: atlasLastModified,
-      changeFrequency: "yearly",
-      priority: 0.5,
     });
 
     entries.push({
       url: absoluteUrl(localePath(locale, "/species")),
       lastModified: atlasLastModified,
-      changeFrequency: "weekly",
-      priority: 0.95,
     });
 
     entries.push({
       url: absoluteUrl(localePath(locale, "/venomous-snakes")),
       lastModified: atlasLastModified,
-      changeFrequency: "weekly",
-      priority: 0.98,
     });
 
     for (const hub of GROUP_HUB_LIST) {
       entries.push({
         url: absoluteUrl(localePath(locale, hub.path)),
         lastModified: atlasLastModified,
-        changeFrequency: "weekly",
-        priority: hub.id === "snakes" ? 0.96 : 0.94,
       });
     }
 
     entries.push({
       url: absoluteUrl(localePath(locale, "/regions")),
       lastModified: atlasLastModified,
-      changeFrequency: "weekly",
-      priority: 0.85,
     });
 
     for (const region of regions) {
@@ -82,8 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: maxUpdatedAt(
           getRegionSpecies(region).map((item) => item.updatedAt),
         ),
-        changeFrequency: "monthly",
-        priority: 0.8,
       });
     }
 
@@ -91,8 +75,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
         lastModified: toLastModified(item.updatedAt),
-        changeFrequency: "monthly",
-        priority: 0.9,
       });
     }
   }
