@@ -684,7 +684,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Derjugin's Lizard",
-    commonNameKa: "კავკასიური ტყის ხვლიკი",
+    commonNameKa: "ართვინის ხვლიკი",
     notes: "",
   },
   {
