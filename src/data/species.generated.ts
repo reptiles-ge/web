@@ -2458,13 +2458,6 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/elaphe-dione-4.jpg",
-        "credit": {
-          "photographer": "Irina Maslova",
-          "url": "https://www.inaturalist.org/observations/255645652"
-        }
-      },
-      {
         "src": "https://cdn.reptiles.ge/elaphe-dione-5.jpg",
         "credit": {
           "photographer": "Моховинка",
