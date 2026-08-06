@@ -2013,7 +2013,7 @@ export const species: Species[] = [
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური სტატუსი იხილეთ IUCN-ში.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/dolichophis-caspius.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/dolichophis-caspius-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/dolichophis-caspius-3.jpg",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/dolichophis-caspius.jpg"
