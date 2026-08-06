@@ -225,7 +225,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Caucasian Brown Frog",
-    commonNameKa: "კავკასიური მურა ბაყაყი",
+    commonNameKa: "მცირეაზიური ბაყაყი",
     notes: "",
   },
   {
