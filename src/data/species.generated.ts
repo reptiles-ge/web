@@ -3034,10 +3034,10 @@ export const species: Species[] = [
       "photographer": "Alexandru Buzatu",
       "url": "https://www.inaturalist.org/observations/129650363"
     },
-    "mobileImage": "https://cdn.reptiles.ge/eryx-jaculus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eryx-jaculus-3.jpg",
     "mobileImageCredit": {
-      "photographer": "Tom Kirschey",
-      "url": "https://www.inaturalist.org/observations/21226800"
+      "photographer": "Roberto Sindaco",
+      "url": "https://www.inaturalist.org/observations/619071"
     },
     "gallery": [
       {
