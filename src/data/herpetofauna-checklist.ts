@@ -633,7 +633,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Clark's Rock Lizard",
-    commonNameKa: "ლაზური ხვლიკი",
+    commonNameKa: "თურქული ხვლიკი",
     notes: "",
   },
   {
