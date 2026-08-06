@@ -4776,40 +4776,33 @@ export const species: Species[] = [
     "behavior": "აქტივობა სეზონურია და ტენიანობაზეა დამოკიდებული; ბევრი სახეობა მრავლდება წყაროებში, ტბორებში ან ნაკადულებში.",
     "conservation": "საქართველოში დაფიქსირებულია. გლობალური და ეროვნული სტატუსი იხილეთ IUCN-სა და ეროვნულ შეფასებებში.",
     "danger": "Harmless",
-    "image": "/images/ommatotriton-ophryticus.jpg",
+    "image": "https://cdn.reptiles.ge/ommatotriton-ophryticus.jpg",
     "imageCredit": {
       "photographer": "Sergey Lednev",
       "url": "https://www.inaturalist.org/observations/29435958"
     },
-    "mobileImage": "/images/ommatotriton-ophryticus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ommatotriton-ophryticus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Wouter Beukema",
       "url": "https://www.inaturalist.org/observations/233706355"
     },
     "gallery": [
       {
-        "src": "/images/ommatotriton-ophryticus.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus.jpg",
         "credit": {
           "photographer": "Sergey Lednev",
           "url": "https://www.inaturalist.org/observations/29435958"
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-mobile.jpg",
-        "credit": {
-          "photographer": "Wouter Beukema",
-          "url": "https://www.inaturalist.org/observations/233706355"
-        }
-      },
-      {
-        "src": "/images/ommatotriton-ophryticus-2.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-2.jpg",
         "credit": {
           "photographer": "Tom Kirschey",
           "url": "https://www.inaturalist.org/observations/139881596"
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-3.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-3.jpg",
         "credit": {
           "photographer": "Wouter Beukema",
           "url": "https://www.inaturalist.org/observations/199109327"
