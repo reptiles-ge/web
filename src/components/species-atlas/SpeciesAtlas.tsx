@@ -27,6 +27,7 @@ import { getCatalogSpecies, images, type Species } from "@/data/species";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { formatContentDate } from "@/lib/formatDate";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -677,7 +678,9 @@ export function SpeciesAtlas({
                 </p>
                 {stats.lastUpdated ? (
                   <p className="mt-6 text-[13px] text-muted-foreground">
-                    {t("lastUpdated", { date: stats.lastUpdated })}
+                    {t("lastUpdated", {
+                      date: formatContentDate(stats.lastUpdated, locale),
+                    })}
                   </p>
                 ) : null}
               </Reveal>
@@ -748,6 +751,7 @@ function ComingSoonPanel({
 
 function RecentSpeciesRow({ species }: { species: Species }) {
   const t = useTranslations("speciesAtlas");
+  const locale = useLocale() as AppLocale;
   const meta = getSpeciesAtlasMeta(species.id);
 
   return (
@@ -782,7 +786,9 @@ function RecentSpeciesRow({ species }: { species: Species }) {
           {species.scientificName}
         </p>
         <p className="mt-2 text-[12px] text-muted-foreground">
-          {t("updatedOn", { date: species.updatedAt })}
+          {t("updatedOn", {
+            date: formatContentDate(species.updatedAt, locale),
+          })}
         </p>
       </div>
     </Link>

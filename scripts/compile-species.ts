@@ -13,6 +13,7 @@ import {
   type SpeciesSource,
   type SpeciesStat,
 } from "../src/data/species";
+import { parseToSiteDateTime, toSiteDateTime } from "../src/lib/siteTime";
 
 const contentRoot = path.join(process.cwd(), "src/content/species");
 const outFile = path.join(process.cwd(), "src/data/species.generated.ts");
@@ -43,18 +44,14 @@ type SpeciesFrontmatter = {
   sources?: SpeciesSource[];
 };
 
-function toIsoDate(value: Date): string {
-  return value.toISOString().slice(0, 10);
-}
-
 function getGitLastCommitDate(filePaths: string[]): string | null {
   try {
     const out = execFileSync(
       "git",
-      ["log", "-1", "--format=%cs", "--", ...filePaths],
+      ["log", "-1", "--format=%cI", "--", ...filePaths],
       { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
     ).trim();
-    return /^\d{4}-\d{2}-\d{2}$/.test(out) ? out : null;
+    return out ? parseToSiteDateTime(out) : null;
   } catch {
     return null;
   }
@@ -66,7 +63,7 @@ function getMtimeDate(filePaths: string[]): string | null {
     if (!fs.existsSync(filePath)) continue;
     latest = Math.max(latest, fs.statSync(filePath).mtimeMs);
   }
-  return latest === 0 ? null : toIsoDate(new Date(latest));
+  return latest === 0 ? null : toSiteDateTime(new Date(latest));
 }
 
 function resolveUpdatedAt(filePaths: string[]): string {
@@ -121,7 +118,7 @@ function readSpeciesMdx(
     facts: fm.facts ?? [],
     ...(fm.identification ? { identification: fm.identification } : {}),
     ...(fm.faq ? { faq: fm.faq } : {}),
-    updatedAt: options?.updatedAt ?? toIsoDate(new Date()),
+    updatedAt: options?.updatedAt ?? toSiteDateTime(new Date()),
     sources:
       options?.sources ??
       (fm.sources && fm.sources.length > 0

@@ -4,17 +4,20 @@ import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { absoluteUrl, localePath } from "@/lib/site";
+import { compareIsoDateTimes, parseToSiteDateTime } from "@/lib/siteTime";
 import type { MetadataRoute } from "next";
 
-function toLastModified(isoDate: string | null | undefined): Date {
-  if (!isoDate) return new Date("2026-01-01T00:00:00.000Z");
-  return new Date(`${isoDate}T00:00:00.000Z`);
+const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
+
+function toLastModified(isoDate: string | null | undefined): string {
+  if (!isoDate) return FALLBACK_LASTMOD;
+  return parseToSiteDateTime(isoDate) ?? FALLBACK_LASTMOD;
 }
 
-function maxUpdatedAt(dates: Array<string | null | undefined>): Date {
+function maxUpdatedAt(dates: Array<string | null | undefined>): string {
   const latest = dates
     .filter((value): value is string => Boolean(value))
-    .sort()
+    .sort(compareIsoDateTimes)
     .at(-1);
   return toLastModified(latest);
 }

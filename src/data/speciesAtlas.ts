@@ -358,7 +358,7 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
   const updatedDates = catalog
     .map((item) => item.updatedAt)
     .filter(Boolean)
-    .sort();
+    .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
   return {
     total: catalog.length,
@@ -375,7 +375,9 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
 
 export function getRecentlyUpdatedSpecies(limit = 4) {
   return [...getCatalogSpecies()]
-    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+    .sort(
+      (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+    )
     .slice(0, limit);
 }
 
