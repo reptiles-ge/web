@@ -6945,9 +6945,9 @@ export const species: Species[] = [
     "family": "Viperidae",
     "location": "ჯავახეთი და კახეთი",
     "description": "პატარა, შხამიანი სტეპის გველგესლა — საქართველოში იშვიათია; გვხვდება ღია სტეპებსა და მთისწინეთში.",
-    "overview": "ველის გველგესლა (Vipera renardi), იგივე აღმოსავლური სტეპის გველგესლა, გველგესლასებრთა ოჯახის შხამიანი სახეობაა ursinii–renardi კომპლექსიდან. გავრცელებულია სამხრეთ-აღმოსავლეთ ევროპიდან ცენტრალურ აზიამდე; IUCN-ის მიხედვით მოიცავს ტრანსკავკასიურ პოპულაციებსაც — სომხეთს, აზერბაიჯანსა და საქართველოს. საქართველოში აღდგენილია ჯავახეთისა და ერუშეთის პლატოებზე (ხშირად V. r. eriwanensis / სამხრეთის სტეპის გველგესლა) და აღმოსავლეთში — შირაქის პლატოსა და დედოფლისწყაროს მიმდებარედ (შემახის ჯგუფი / kakhetiensis). სახეობა შედარებით პატარაა (დაახლ. 40–60 სმ), ზურგზე აქვს მუქი ზიგზაგი და უპირატესობას ანიჭებს ღია სტეპურ ჰაბიტატებს. ევროპის რეგიონულ შეფასებაში მოწყვლადია (Vulnerable) ჰაბიტატის დაკარგვის გამო.",
+    "overview": "ველის გველგესლა (Vipera renardi), იგივე აღმოსავლური სტეპის გველგესლა, გველგესლასებრთა ოჯახის შხამიანი სახეობაა. გავრცელებულია სამხრეთ-აღმოსავლეთ ევროპიდან ცენტრალურ აზიამდე; IUCN-ის მიხედვით მოიცავს ტრანსკავკასიურ პოპულაციებსაც — სომხეთს, აზერბაიჯანსა და საქართველოს. საქართველოში აღდგენილია ჯავახეთისა და ერუშეთის პლატოებზე (ხშირად V. r. eriwanensis / სამხრეთის სტეპის გველგესლა) და აღმოსავლეთში — შირაქის პლატოსა და დედოფლისწყაროს მიმდებარედ (შემახის ჯგუფი / kakhetiensis). სახეობა შედარებით პატარაა (დაახლ. 40–60 სმ), ზურგზე აქვს მუქი ზიგზაგი და უპირატესობას ანიჭებს ღია სტეპურ ჰაბიტატებს. ევროპის რეგიონულ შეფასებაში მოწყვლადია (Vulnerable) ჰაბიტატის დაკარგვის გამო.",
     "habitat": "უპირატესობას ანიჭებს ღია სტეპს, მდელოებს, ბუჩქნარსა და კლდოვან მთისწინეთს — ხშირად კარგად დრენირებულ ფერდობებსა და ნახევრადმშრალ ზონებს. საქართველოში — სამცხე–ჯავახეთში (ჯავახეთისა და ერუშეთის პლატოები, სტიპა-სტეპი) და კახეთში (შირაქის პლატო, დედოფლისწყარო, ხორნაბუჯის მიმდებარე, არწივისხეობის მთისწინეთი). ვერტიკალურად გვხვდება დაახლოებით 0–2,500 მ-მდე; აღმოსავლეთ საქართველოს პოპულაციები უმეტესად დაბალ და საშუალო სიმაღლეზეა, ჯავახეთში კი უფრო მაღალ სტეპურ პლატოებზე.",
-    "diet": "ursinii–renardi კომპლექსისთვის დამახასიათებელია ორთოპტერებით კვება — კალიებითა და მწერებით; აგრეთვე ხვლიკებითა და მცირე მღრღნელებით. ახალგაზრდები უფრო მცირე უხერხემლოებსა და ხვლიკებს ნადირობენ. ნადირობს ჩასაფრებით; შხამით ანეიტრალებს მსხვერპლს.",
+    "diet": "დამახასიათებელია ორთოპტერებით კვება — კალიებითა და მწერებით; აგრეთვე ხვლიკებითა და მცირე მღრღნელებით. ახალგაზრდები უფრო მცირე უხერხემლოებსა და ხვლიკებს ნადირობენ. ნადირობს ჩასაფრებით; შხამით ანეიტრალებს მსხვერპლს.",
     "behavior": "აქტიურია თბილ სეზონზე — საქართველოსა და აზერბაიჯანში დაახლოებით აპრილიდან ოქტომბრამდე. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში ჩრდილსა და ბუჩქნარს ეძებს. იზამთრებს ნაპრალებსა და ქვების ქვეშ. ცოცხლადმშობია (ოვოვივიპარია): ორსულობა დაახლოებით 3 თვეა; ნაშიერები იბადებიან ივლის–აგვისტოში (ზოგჯერ 10–17 ინდივიდამდე).",
     "conservation": "ევროპის რეგიონულ IUCN შეფასებაში მოწყვლადია (Vulnerable) — ბოლო სამ თაობაში ჰაბიტატის 30%-ზე მეტი დაკარგვა და გაგრძელებული ფრაგმენტაცია. მთავარი საფრთხეა სტეპისა და მდელოების გადაქცევა ინტენსიურ მიწათმოქმედებად და გადაძოვებად. საქართველოში იშვიათია; აღმოსავლეთის პოპულაციები 75-წლიანი ხარვეზის შემდეგ ხელახლა დადასტურდა. სასარგებლოა მწერებისა და მღრღნელების რეგულირებით.",
     "danger": "Moderate",
@@ -7040,7 +7040,7 @@ export const species: Species[] = [
     ],
     "facts": [
       "სახელი renardi ეწოდა რუსი ნატურალისტის შარლ (კარლ) რენარის (1809–1886) პატივსაცემად.",
-      "ursinii–renardi კომპლექსის გველგესლები ხშირად ორთოპტერებით იკვებებიან — ეს გველგესლებს შორის იშვიათი სპეციალიზაციაა.",
+      "გველგესლები ხშირად ორთოპტერებით იკვებებიან — ეს გველგესლებს შორის იშვიათი სპეციალიზაციაა.",
       "საქართველოში აღმოსავლური პოპულაციები 2010-იან წლებში ხელახლა აღმოაჩინეს 75-წლიანი ხარვეზის შემდეგ (Tuniyev et al., 2018).",
       "ტაქსონომია დინამიკურია: ტრანსკავკასიური ფორმები ხშირად V. r. eriwanensis ან ცალკე სახეობებად (Pelias eriwanensis / shemakhensis) განიხილება; ეს ატლასი მიჰყვება IUCN-ის ფართო კონცეფციას."
     ],
@@ -11416,9 +11416,9 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "commonName": "Eastern steppe viper",
     "location": "Javakheti and Kakheti",
     "description": "A small venomous steppe viper — rare in Georgia; found in open steppes and foothills.",
-    "overview": "The eastern steppe viper (Vipera renardi), also called Renard's viper, is a venomous member of the viper family in the ursinii–renardi complex. It ranges from south-eastern Europe into Central Asia; IUCN also includes Transcaucasian populations in Armenia, Azerbaijan, and Georgia. In Georgia it occurs on the Javakheti and Erusheti plateaus (often treated as V. r. eriwanensis / southern steppe viper) and in the east around the Shiraki Plateau and Dedoplistskaro (Shemakha group / kakhetiensis). It is relatively small (about 40–60 cm), with a dark dorsal zigzag, and prefers open steppe habitats. The European regional IUCN assessment lists it as Vulnerable due to habitat loss.",
+    "overview": "The eastern steppe viper (Vipera renardi), also called Renard's viper, is a venomous member of the viper family. It ranges from south-eastern Europe into Central Asia; IUCN also includes Transcaucasian populations in Armenia, Azerbaijan, and Georgia. In Georgia it occurs on the Javakheti and Erusheti plateaus (often treated as V. r. eriwanensis / southern steppe viper) and in the east around the Shiraki Plateau and Dedoplistskaro (Shemakha group / kakhetiensis). It is relatively small (about 40–60 cm), with a dark dorsal zigzag, and prefers open steppe habitats. The European regional IUCN assessment lists it as Vulnerable due to habitat loss.",
     "habitat": "It prefers open steppe, meadows, scrub, and rocky foothills — often well-drained slopes and semi-arid zones. In Georgia — in Samtskhe–Javakheti (Javakheti and Erusheti plateaus, Stipa steppe) and Kakheti (Shiraki Plateau, Dedoplistskaro, near Khornabuji, and the Artsivis Kheoba foothills). Vertically it occurs from roughly 0–2,500 m; eastern Georgian populations are mostly at low to mid elevations, while Javakheti records are on higher steppe plateaus.",
-    "diet": "Members of the ursinii–renardi complex often feed on orthopterans — grasshoppers and related insects — as well as lizards and small rodents. Juveniles hunt smaller invertebrates and lizards. It hunts by ambush and subdues prey with venom.",
+    "diet": "Often feed on orthopterans — grasshoppers and related insects — as well as lizards and small rodents. Juveniles hunt smaller invertebrates and lizards. It hunts by ambush and subdues prey with venom.",
     "behavior": "Active in the warm season — in Georgia and Azerbaijan roughly from April to early October. In spring and autumn it is often diurnal; in summer heat it seeks shade and scrub. It hibernates in crevices and under stones. It is ovoviviparous: pregnancy lasts about three months; young are born in July– August (sometimes up to 10–17 individuals).",
     "conservation": "Listed as Vulnerable in the European regional IUCN assessment — over 30% habitat loss across the last three generations and ongoing fragmentation. The main threat is conversion of steppe and meadows to intensive agriculture and overgrazing. It is rare in Georgia; eastern populations were reconfirmed after a 75-year gap. It benefits ecosystems by regulating insects and rodents.",
     "stats": [
@@ -11449,7 +11449,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [
       "The name renardi honors Russian naturalist Charles (Karl) Renard (1809–1886).",
-      "Vipers in the ursinii–renardi complex often specialize on orthopterans — an unusual diet among vipers.",
+      "Vipers often specialize on orthopterans — an unusual diet among vipers.",
       "Eastern Georgian populations were rediscovered in the 2010s after a 75-year gap (Tuniyev et al., 2018).",
       "Taxonomy is fluid: Transcaucasian forms are often treated as V. r. eriwanensis or as separate taxa (Pelias eriwanensis / shemakhensis); this atlas follows the broader IUCN concept."
     ],
