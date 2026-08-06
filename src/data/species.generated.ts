@@ -2701,10 +2701,10 @@ export const species: Species[] = [
       "photographer": "Полина Яковлевна Нехаева (Лихачева)",
       "url": "https://www.inaturalist.org/observations/18780442"
     },
-    "mobileImage": "https://cdn.reptiles.ge/emys-orbicularis-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
     "mobileImageCredit": {
-      "photographer": "Mohammad Amin Ghaffari",
-      "url": "https://www.inaturalist.org/observations/298113621"
+      "photographer": "joepon",
+      "url": "https://www.inaturalist.org/observations/370280848"
     },
     "gallery": [
       {
