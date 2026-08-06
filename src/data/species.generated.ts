@@ -75,7 +75,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -170,7 +170,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -265,7 +265,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -356,7 +356,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -502,7 +502,7 @@ export const species: Species[] = [
         "answer": "კვერცხცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -598,7 +598,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -693,7 +693,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -784,7 +784,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -879,7 +879,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -970,7 +970,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1152,7 +1152,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1243,7 +1243,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1425,7 +1425,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1520,7 +1520,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1615,7 +1615,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1706,7 +1706,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1797,7 +1797,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1888,7 +1888,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1979,7 +1979,7 @@ export const species: Species[] = [
         "answer": "ძირითადად წვრილი უხერხემლოები, განსაკუთრებით მწერები და ობობები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2196,7 +2196,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 5–11 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2288,7 +2288,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2399,7 +2399,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2666,7 +2666,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი დებს რამდენიმე კვერცხს (ჩვეულებრივ დაახლოებით 4–16). ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2885,7 +2885,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2996,7 +2996,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3218,7 +3218,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3329,7 +3329,7 @@ export const species: Species[] = [
         "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3444,7 +3444,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3555,7 +3555,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3666,7 +3666,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3892,7 +3892,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4007,7 +4007,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4123,7 +4123,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4239,7 +4239,7 @@ export const species: Species[] = [
         "answer": "ძირითადად ხვლიკები; აგრეთვე სხვა წვრილი ხერხემლიანები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4350,7 +4350,7 @@ export const species: Species[] = [
         "answer": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4619,7 +4619,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას — ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4742,7 +4742,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება მარტ–მაისშია; ივლისში დებს დაახლოებით 10–30 კვერცხს, ნაშიერები იჩეკებიან სექტემბრის დასაწყისში."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4951,7 +4951,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5062,7 +5062,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5284,7 +5284,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5395,7 +5395,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5510,7 +5510,7 @@ export const species: Species[] = [
         "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5632,7 +5632,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5755,7 +5755,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. ჩვეულებრივ დებს დაახლოებით 8–10 კვერცხს (საქართველოში ხშირად ივნის–ივლისში); ნაშიერები იჩეკებიან დაახლოებით 45–55 დღეში."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6137,7 +6137,7 @@ export const species: Species[] = [
         "answer": "ღამის მწერიჭამია — ძირითადად წვრილი ფეხსახსრიანები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6248,7 +6248,7 @@ export const species: Species[] = [
         "answer": "ძირითადად ბალახისმჭამელი — ბალახები, ბალახოვანი მცენარეები და სხვა მცენარეული საკვები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6363,7 +6363,7 @@ export const species: Species[] = [
         "answer": "სახეობის მიხედვით — ბალახისმჭამელი სახმელეთო კუებიდან ომნივორულ მტკნარი წყლის კუებამდე.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6474,7 +6474,7 @@ export const species: Species[] = [
         "answer": "ძირითადად უხერხემლოები — მწერები, ჭიები და სხვა წვრილი მსხვერპლი; წყლის ლარვები ხშირად წვრილ წყლის უხერხემლოებს იკვებებიან.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7219,7 +7219,7 @@ export const species: Species[] = [
         "answer": "გლობალურად IUCN სტატუსი Near Threatened-ია, საქართველოში იშვიათია, პოპულაციები ფრაგმენტირებულია და შეტანილია წითელ წიგნში. მთავარი საფრთხეებია ჰაბიტატის გარდაქმნა და ადამიანის ზეწოლა."
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7345,7 +7345,7 @@ export const species: Species[] = [
         "answer": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7463,7 +7463,7 @@ export const species: Species[] = [
         "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7609,7 +7609,7 @@ export const species: Species[] = [
         "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
       }
     ],
-    "updatedAt": "2026-08-05",
+    "updatedAt": "2026-08-06",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
