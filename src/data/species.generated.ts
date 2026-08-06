@@ -7463,7 +7463,7 @@ export const species: Species[] = [
         "answer": "წვრილი ხერხემლიანები და/ან უხერხემლოები სახეობის მიხედვით — ხვლიკები, მღრღნელები, ამფიბიები ან მწერები.\n"
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-06T13:21:53+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
