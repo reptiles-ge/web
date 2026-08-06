@@ -514,7 +514,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Caucasian Green Lizard",
-    commonNameKa: "კავკასიური მწვანე ხვლიკი",
+    commonNameKa: "საშუალო ხვლიკი",
     notes: "Candidate species per Tarkhnishvili et al. 2026",
   },
   {
