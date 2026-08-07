@@ -2587,6 +2587,12 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/elaphe-urartica-2.webp"
       },
       {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-ioane-1.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/elaphe-urartica-3.webp"
       },
       {
