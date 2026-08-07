@@ -190,8 +190,8 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     : "border-border/80 bg-card/90 text-foreground shadow-[0_8px_28px_rgba(14,20,17,0.06)] backdrop-blur-xl hover:border-primary/35 hover:shadow-[0_10px_36px_rgba(47,107,79,0.12)]";
 
   const iconButtonClass = isDark
-    ? "border-white/20 text-white/80 hover:bg-white/10 hover:text-white"
-    : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground";
+    ? "border-white/18 bg-white/10 text-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl hover:border-white/35 hover:bg-white/14 hover:text-white"
+    : "border-border/80 bg-card/90 text-muted-foreground shadow-[0_8px_28px_rgba(14,20,17,0.06)] backdrop-blur-xl hover:border-primary/35 hover:text-foreground hover:shadow-[0_10px_36px_rgba(47,107,79,0.12)]";
 
   const options = (
     listKey: string,
