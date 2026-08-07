@@ -223,11 +223,6 @@ export function SnakesInYardPage({
                 ))}
               </ul>
             </div>
-            <Reveal delay={120}>
-              <p className="mt-10 max-w-2xl border-l-2 border-primary/30 pl-5 text-[15px] leading-relaxed text-muted-foreground sm:mt-12 sm:text-[16px]">
-                {t("mythsClose")}
-              </p>
-            </Reveal>
           </div>
         </section>
 
