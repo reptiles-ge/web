@@ -2,12 +2,12 @@
 
 /* eslint-disable react-hooks/set-state-in-effect */
 
+import { OverlayPanel } from "@/components/OverlayPanel";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { Globe, X } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useId, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useCallback, useId, useRef, useState } from "react";
 
 type LanguageSwitcherProps = {
   variant?: "light" | "dark";
@@ -117,7 +117,12 @@ function LocaleOptions({
           {title}
         </p>
       </div>
-      <ul id={listId} role="listbox" aria-label={title} className="space-y-1.5 p-2">
+      <ul
+        id={listId}
+        role="listbox"
+        aria-label={title}
+        className="space-y-1.5 p-2"
+      >
         {routing.locales.map((code) => {
           const active = locale === code;
           return (
@@ -163,40 +168,12 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
-  const sheetRef = useRef<HTMLDivElement>(null);
   const listId = useId();
   const mobileListId = useId();
   const isDark = variant === "dark";
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    function onPointerDown(event: MouseEvent) {
-      const target = event.target as Node;
-      if (
-        rootRef.current?.contains(target) ||
-        sheetRef.current?.contains(target)
-      ) {
-        return;
-      }
-      setOpen(false);
-    }
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
-    }
-
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, []);
+  const close = useCallback(() => setOpen(false), []);
 
   const labels: Record<AppLocale, string> = {
     ka: t("ka"),
@@ -205,7 +182,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
 
   function selectLocale(code: AppLocale) {
     router.replace(pathname, { locale: code });
-    setOpen(false);
+    close();
   }
 
   const shellClass = isDark
@@ -216,58 +193,17 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     ? "border-white/20 text-white/80 hover:bg-white/10 hover:text-white"
     : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground";
 
-  const mobileSheet =
-    mounted && open
-      ? createPortal(
-          <div
-            className="fixed inset-0 z-[80] md:hidden"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t("switch")}
-          >
-            <button
-              type="button"
-              aria-label={t("close")}
-              className="absolute inset-0 bg-ink/55 backdrop-blur-[2px] animate-[search-sheet-backdrop-in_220ms_ease-out]"
-              onClick={() => setOpen(false)}
-            />
-            <div
-              ref={sheetRef}
-              className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)]"
-            >
-              <div className="flex shrink-0 flex-col items-center px-4 pt-3">
-                <span
-                  className="mb-3 h-1 w-10 rounded-full bg-border"
-                  aria-hidden="true"
-                />
-                <div className="flex w-full items-center justify-between gap-3 pb-3">
-                  <h2 className="font-display text-[18px] font-semibold text-foreground">
-                    {t("switch")}
-                  </h2>
-                  <button
-                    type="button"
-                    aria-label={t("close")}
-                    onClick={() => setOpen(false)}
-                    className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    <X className="size-4" aria-hidden="true" />
-                  </button>
-                </div>
-              </div>
-              <div className="min-h-0 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
-                <LocaleOptions
-                  listId={mobileListId}
-                  title={t("switch")}
-                  locale={locale}
-                  labels={labels}
-                  onSelect={selectLocale}
-                />
-              </div>
-            </div>
-          </div>,
-          document.body,
-        )
-      : null;
+  const options = (
+    listKey: string,
+  ) => (
+    <LocaleOptions
+      listId={listKey}
+      title={t("switch")}
+      locale={locale}
+      labels={labels}
+      onSelect={selectLocale}
+    />
+  );
 
   return (
     <div className="relative shrink-0" ref={rootRef}>
@@ -295,22 +231,16 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         </span>
       </button>
 
-      {open ? (
-        <div
-          id={listId}
-          className="absolute right-0 top-full z-50 mt-3 hidden w-[360px] origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl animate-[search-panel-in_220ms_ease-out] md:block"
-        >
-          <LocaleOptions
-            listId={`${listId}-options`}
-            title={t("switch")}
-            locale={locale}
-            labels={labels}
-            onSelect={selectLocale}
-          />
-        </div>
-      ) : null}
-
-      {mobileSheet}
+      <OverlayPanel
+        open={open}
+        onClose={close}
+        title={t("switch")}
+        closeLabel={t("close")}
+        rootRef={rootRef}
+        panelId={listId}
+        desktopContent={options(`${listId}-options`)}
+        mobileContent={options(mobileListId)}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
+import { OverlayPanel } from "@/components/OverlayPanel";
 import { getCatalogSpecies, type Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import { useRouter } from "@/i18n/navigation";
@@ -10,6 +11,7 @@ import { MapPin, Search, X } from "lucide-react";
 import Image from "next/image";
 import {
   startTransition,
+  useCallback,
   useDeferredValue,
   useEffect,
   useId,
@@ -17,7 +19,6 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
-import { createPortal } from "react-dom";
 
 type SpeciesSearchProps = {
   variant?: "light" | "dark";
@@ -175,7 +176,6 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [mounted, setMounted] = useState(false);
   const deferredQuery = useDeferredValue(query);
 
   const catalog = getCatalogSpecies().map((item) =>
@@ -190,47 +190,25 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const isDark = variant === "dark";
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
     setActiveIndex(0);
   }, [deferredQuery, open]);
 
   useEffect(() => {
     if (!open) return;
-
-    const previousOverflow = document.body.style.overflow;
-    const media = window.matchMedia("(max-width: 767px)");
-
-    function syncBodyLock() {
-      document.body.style.overflow = media.matches
-        ? "hidden"
-        : previousOverflow;
-    }
-
-    syncBodyLock();
-    media.addEventListener("change", syncBodyLock);
+    if (!window.matchMedia("(max-width: 767px)").matches) return;
 
     const frame = window.requestAnimationFrame(() => {
-      if (media.matches) {
-        mobileInputRef.current?.focus();
-      }
+      mobileInputRef.current?.focus();
     });
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-      media.removeEventListener("change", syncBodyLock);
-      document.body.style.overflow = previousOverflow;
-    };
+    return () => window.cancelAnimationFrame(frame);
   }, [open]);
 
-  function closeSearch() {
+  const closeSearch = useCallback(() => {
     setOpen(false);
     setQuery("");
     desktopInputRef.current?.blur();
     mobileInputRef.current?.blur();
-  }
+  }, []);
 
   function goToSpecies(id: string) {
     closeSearch();
@@ -293,105 +271,17 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
   const resultsTitle = trimmed ? tNav("species") : t("featured");
 
-  const mobileSheet =
-    mounted && open
-      ? createPortal(
-          <div
-            className="fixed inset-0 z-[80] md:hidden"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t("title")}
-          >
-            <button
-              type="button"
-              aria-label={t("close")}
-              className="absolute inset-0 bg-ink/55 backdrop-blur-[2px] animate-[search-sheet-backdrop-in_220ms_ease-out]"
-              onClick={closeSearch}
-            />
-            <div className="absolute inset-x-0 bottom-0 flex min-h-[70dvh] max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)]">
-              <div className="flex shrink-0 flex-col items-center px-4 pt-3">
-                <span
-                  className="mb-3 h-1 w-10 rounded-full bg-border"
-                  aria-hidden="true"
-                />
-                <div className="flex w-full items-center justify-between gap-3 pb-3">
-                  <h2 className="font-display text-[18px] font-semibold text-foreground">
-                    {t("title")}
-                  </h2>
-                  <button
-                    type="button"
-                    aria-label={t("close")}
-                    onClick={closeSearch}
-                    className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    <X className="size-4" aria-hidden="true" />
-                  </button>
-                </div>
-                <div className="mb-3 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
-                  <Search
-                    className="size-4 shrink-0 text-muted-foreground"
-                    aria-hidden="true"
-                  />
-                  <input
-                    ref={mobileInputRef}
-                    type="search"
-                    value={query}
-                    role="combobox"
-                    aria-expanded={open}
-                    aria-controls={mobileListId}
-                    aria-autocomplete="list"
-                    aria-activedescendant={
-                      visibleResults[activeIndex]
-                        ? `${mobileListId}-option-${visibleResults[activeIndex].id}`
-                        : undefined
-                    }
-                    aria-label={t("open")}
-                    placeholder={t("placeholder")}
-                    autoComplete="off"
-                    enterKeyHint="search"
-                    onChange={(event) => {
-                      setQuery(event.target.value);
-                      setOpen(true);
-                    }}
-                    onKeyDown={onKeyDown}
-                    className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70"
-                  />
-                  {query ? (
-                    <button
-                      type="button"
-                      aria-label={t("clear")}
-                      onClick={() => {
-                        setQuery("");
-                        mobileInputRef.current?.focus();
-                      }}
-                      className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                    >
-                      <X className="size-4" aria-hidden="true" />
-                    </button>
-                  ) : null}
-                </div>
-              </div>
-
-              <div
-                id={mobileListId}
-                role="listbox"
-                className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]"
-              >
-                <ResultsBlock
-                  listId={mobileListId}
-                  title={resultsTitle}
-                  results={visibleResults}
-                  activeIndex={activeIndex}
-                  emptyLabel={t("noResults")}
-                  onHover={setActiveIndex}
-                  onSelect={goToSpecies}
-                />
-              </div>
-            </div>
-          </div>,
-          document.body,
-        )
-      : null;
+  const results = (surfaceListId: string) => (
+    <ResultsBlock
+      listId={surfaceListId}
+      title={resultsTitle}
+      results={visibleResults}
+      activeIndex={activeIndex}
+      emptyLabel={t("noResults")}
+      onHover={setActiveIndex}
+      onSelect={goToSpecies}
+    />
+  );
 
   return (
     <div className="relative shrink-0" ref={rootRef}>
@@ -464,27 +354,71 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         ) : null}
       </div>
 
-      {open ? (
-        <div
-          id={listId}
-          role="listbox"
-          className="absolute right-0 top-full z-50 mt-3 hidden w-[360px] origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl animate-[search-panel-in_220ms_ease-out] md:block"
-        >
-          <div className="max-h-[min(420px,60vh)] overflow-y-auto">
-            <ResultsBlock
-              listId={listId}
-              title={resultsTitle}
-              results={visibleResults}
-              activeIndex={activeIndex}
-              emptyLabel={t("noResults")}
-              onHover={setActiveIndex}
-              onSelect={goToSpecies}
+      <OverlayPanel
+        open={open}
+        onClose={closeSearch}
+        title={t("title")}
+        closeLabel={t("close")}
+        rootRef={rootRef}
+        panelId={listId}
+        panelRole="listbox"
+        mobileSheetClassName="min-h-[70dvh]"
+        mobileHeader={
+          <div className="mb-3 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
+            <Search
+              className="size-4 shrink-0 text-muted-foreground"
+              aria-hidden="true"
             />
+            <input
+              ref={mobileInputRef}
+              type="search"
+              value={query}
+              role="combobox"
+              aria-expanded={open}
+              aria-controls={mobileListId}
+              aria-autocomplete="list"
+              aria-activedescendant={
+                visibleResults[activeIndex]
+                  ? `${mobileListId}-option-${visibleResults[activeIndex].id}`
+                  : undefined
+              }
+              aria-label={t("open")}
+              placeholder={t("placeholder")}
+              autoComplete="off"
+              enterKeyHint="search"
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setOpen(true);
+              }}
+              onKeyDown={onKeyDown}
+              className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70"
+            />
+            {query ? (
+              <button
+                type="button"
+                aria-label={t("clear")}
+                onClick={() => {
+                  setQuery("");
+                  mobileInputRef.current?.focus();
+                }}
+                className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              >
+                <X className="size-4" aria-hidden="true" />
+              </button>
+            ) : null}
           </div>
-        </div>
-      ) : null}
-
-      {mobileSheet}
+        }
+        desktopContent={
+          <div className="max-h-[min(420px,60vh)] overflow-y-auto">
+            {results(listId)}
+          </div>
+        }
+        mobileContent={
+          <div id={mobileListId} role="listbox">
+            {results(mobileListId)}
+          </div>
+        }
+      />
     </div>
   );
 }
