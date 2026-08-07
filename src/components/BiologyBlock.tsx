@@ -1,17 +1,19 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 type BiologyBlockProps = {
   title: string;
   body: string;
+  headingId?: string;
   delay?: number;
 };
 
 const PREVIEW_LENGTH = 140;
 
-export function BiologyBlock({ title, body }: BiologyBlockProps) {
+export function BiologyBlock({ title, body, headingId }: BiologyBlockProps) {
   const t = useTranslations("profile");
   const needsExpand = body.length > PREVIEW_LENGTH;
   const [open, setOpen] = useState(false);
@@ -19,7 +21,15 @@ export function BiologyBlock({ title, body }: BiologyBlockProps) {
   return (
     <div>
       <div className="h-px w-12 bg-gold" />
-      <h3 className="mt-6 font-display text-[22px] font-medium">{title}</h3>
+      <AnchoredHeading
+        as="h3"
+        id={headingId}
+        slugSource={title}
+        className="mt-6 font-display text-[22px] font-medium"
+        anchorLabel={t("anchorLink")}
+      >
+        {title}
+      </AnchoredHeading>
       <p
         className={`mt-4 text-[15px] leading-relaxed text-muted-foreground ${
           !open && needsExpand ? "line-clamp-3" : ""

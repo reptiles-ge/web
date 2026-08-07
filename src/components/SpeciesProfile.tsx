@@ -1,5 +1,6 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
@@ -8,6 +9,8 @@ import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesSources } from "@/components/SpeciesSources";
+import { TableOfContents } from "@/components/TableOfContents";
+import { getRegionsForSpecies } from "@/data/regions";
 import {
   resolvePhotoCredit,
   type GalleryImage,
@@ -27,6 +30,7 @@ import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
+import { buildTocItems, SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -93,16 +97,89 @@ export function SpeciesProfile({
   );
   const displayStats = filterDisplayStats(species.stats);
   const showIdentification = hasRealIdentification(species.identification);
-  const biologyBlocks = [
-    { title: t("diet"), body: species.diet },
-    { title: t("behavior"), body: species.behavior },
-    { title: t("conservation"), body: species.conservation },
-  ].filter((block) => !isPlaceholderBody(block.body));
+  const biologyBlocks = useMemo(
+    () =>
+      [
+        { title: t("diet"), body: species.diet, id: "diet" },
+        { title: t("behavior"), body: species.behavior, id: "behavior" },
+        {
+          title: t("conservation"),
+          body: species.conservation,
+          id: "conservation",
+        },
+      ].filter((block) => !isPlaceholderBody(block.body)),
+    [species.behavior, species.conservation, species.diet, t],
+  );
+  const hasRange = useMemo(
+    () => getRegionsForSpecies(species.id).length > 0,
+    [species.id],
+  );
   const mobileHeroSrc =
     species.mobileImage && !isPlaceholderMedia(species.mobileImage)
       ? species.mobileImage
       : null;
   const desktopHeroSrc = primary?.src ?? (!isPlaceholderMedia(species.image) ? species.image : null);
+  const overviewTitle = `${t("whoIs")} ${species.commonName}`;
+  const tocItems = useMemo(
+    () =>
+      buildTocItems([
+        displayStats.length > 0 && {
+          id: SPECIES_SECTION_IDS.atAGlance,
+          label: t("atAGlanceTitle"),
+        },
+        {
+          id: SPECIES_SECTION_IDS.overview,
+          label: overviewTitle,
+        },
+        gallery.length > 0 && {
+          id: SPECIES_SECTION_IDS.gallery,
+          label: `${species.commonName} ${t("galleryTitle")}`,
+        },
+        hasRange && {
+          id: SPECIES_SECTION_IDS.range,
+          label: t("rangeTitle", { name: species.commonName }),
+        },
+        showIdentification && {
+          id: SPECIES_SECTION_IDS.identification,
+          label: t("identificationTitle", { name: species.commonName }),
+        },
+        biologyBlocks.length > 0 && {
+          id: SPECIES_SECTION_IDS.biology,
+          label: t("biologyTitle"),
+        },
+        ...biologyBlocks.map((block) => ({
+          id: block.id,
+          label: block.title,
+          level: 3 as const,
+        })),
+        species.faq &&
+          species.faq.length > 0 && {
+            id: SPECIES_SECTION_IDS.faq,
+            label: t("faqTitle"),
+          },
+        species.sources.length > 0 && {
+          id: SPECIES_SECTION_IDS.sources,
+          label: t("sourcesTitle"),
+        },
+        related.length > 0 && {
+          id: SPECIES_SECTION_IDS.related,
+          label: t("relatedTitle"),
+        },
+      ]),
+    [
+      biologyBlocks,
+      displayStats.length,
+      gallery.length,
+      hasRange,
+      overviewTitle,
+      related.length,
+      showIdentification,
+      species.commonName,
+      species.faq,
+      species.sources.length,
+      t,
+    ],
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -219,15 +296,21 @@ export function SpeciesProfile({
           </div>
         </section>
 
+        <TableOfContents items={tocItems} label={t("tocLabel")} />
+
         {displayStats.length > 0 ? (
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                 {t("atAGlance")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+              <AnchoredHeading
+                id={SPECIES_SECTION_IDS.atAGlance}
+                className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+                anchorLabel={t("anchorLink")}
+              >
                 {t("atAGlanceTitle")}
-              </h2>
+              </AnchoredHeading>
               <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
                 {displayStats.map((stat) => (
                   <div key={stat.label} className="bg-background p-6 lg:p-8">
@@ -249,9 +332,14 @@ export function SpeciesProfile({
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
               {t("overview")}
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {t("whoIs")} {species.commonName}
-            </h2>
+            <AnchoredHeading
+              id={SPECIES_SECTION_IDS.overview}
+              slugSource={overviewTitle}
+              className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              anchorLabel={t("anchorLink")}
+            >
+              {overviewTitle}
+            </AnchoredHeading>
             <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
               {species.overview}
             </p>
@@ -292,9 +380,13 @@ export function SpeciesProfile({
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                 {t("biology")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+              <AnchoredHeading
+                id={SPECIES_SECTION_IDS.biology}
+                className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+                anchorLabel={t("anchorLink")}
+              >
                 {t("biologyTitle")}
-              </h2>
+              </AnchoredHeading>
               <div
                 className={`mt-14 grid gap-12 md:gap-10 ${
                   biologyBlocks.length >= 3
@@ -309,6 +401,7 @@ export function SpeciesProfile({
                     key={block.title}
                     title={block.title}
                     body={block.body}
+                    headingId={block.id}
                   />
                 ))}
               </div>
@@ -330,9 +423,13 @@ export function SpeciesProfile({
                   <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                     {t("related")}
                   </p>
-                  <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]">
+                  <AnchoredHeading
+                    id={SPECIES_SECTION_IDS.related}
+                    className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]"
+                    anchorLabel={t("anchorLink")}
+                  >
                     {t("relatedTitle")}
-                  </h2>
+                  </AnchoredHeading>
                 </div>
                 <Link
                   href="/species"

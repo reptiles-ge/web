@@ -1,6 +1,8 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import type { SpeciesSource } from "@/data/species";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -22,9 +24,13 @@ export function SpeciesSources({ sources }: SpeciesSourcesProps) {
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                 {t("sourcesEyebrow")}
               </p>
-              <h2 className="mt-3 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] leading-[1.1] text-foreground">
+              <AnchoredHeading
+                id={SPECIES_SECTION_IDS.sources}
+                className="mt-3 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] leading-[1.1] text-foreground"
+                anchorLabel={t("anchorLink")}
+              >
                 {t("sourcesTitle")}
-              </h2>
+              </AnchoredHeading>
             </div>
             <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-300 group-open:rotate-180 group-open:border-foreground/20 group-open:text-foreground">
               <ChevronDown className="size-4" strokeWidth={1.75} aria-hidden="true" />

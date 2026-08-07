@@ -1,9 +1,11 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
 
@@ -44,9 +46,14 @@ export function SpeciesRangeMap({
           <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
             {t("range")}
           </p>
-          <h2 className="mt-5 font-display text-balance-tight text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05] text-foreground">
+          <AnchoredHeading
+            id={SPECIES_SECTION_IDS.range}
+            slugSource={t("rangeTitle", { name: speciesName })}
+            className="mt-5 font-display text-balance-tight text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05] text-foreground"
+            anchorLabel={t("anchorLink")}
+          >
             {t("rangeTitle", { name: speciesName })}
-          </h2>
+          </AnchoredHeading>
           <p className="mx-auto mt-5 max-w-lg text-balance-tight text-[15px] leading-relaxed text-muted-foreground">
             {t("rangeSubtitle")}
           </p>

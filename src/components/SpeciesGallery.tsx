@@ -1,8 +1,10 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import type { GalleryImage } from "@/data/species";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -72,9 +74,14 @@ export function SpeciesGallery({
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
             {t("gallery")}
           </p>
-          <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+          <AnchoredHeading
+            id={SPECIES_SECTION_IDS.gallery}
+            slugSource={`${name} ${t("galleryTitle")}`}
+            className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+            anchorLabel={t("anchorLink")}
+          >
             {name} {t("galleryTitle")}
-          </h2>
+          </AnchoredHeading>
 
           <div
             className={`mt-14 grid gap-3 sm:gap-4 ${

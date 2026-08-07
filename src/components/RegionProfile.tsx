@@ -1,8 +1,10 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesDanger } from "@/components/SpeciesDanger";
+import { TableOfContents } from "@/components/TableOfContents";
 import {
   getRegionContent,
 } from "@/data/regionContent";
@@ -19,6 +21,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { buildTocItems, REGION_SECTION_IDS } from "@/lib/toc";
 import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -67,6 +70,36 @@ export function RegionProfile({ region }: RegionProfileProps) {
 
   const heroSrc = getRegionHeroImage(region.id);
   const heroAlt = t("regionHeroAlt", { name });
+  const tocItems = useMemo(
+    () =>
+      buildTocItems([
+        {
+          id: REGION_SECTION_IDS.range,
+          label: t("rangeTitle", { name }),
+        },
+        {
+          id: REGION_SECTION_IDS.habitats,
+          label: t("habitatsTitle"),
+        },
+        {
+          id: REGION_SECTION_IDS.species,
+          label: t("speciesTitle", { name, nameIn }),
+        },
+        venomous.length > 0 && {
+          id: REGION_SECTION_IDS.venomous,
+          label: t("venomousTitle", { nameIn, name }),
+        },
+        faq.length > 0 && {
+          id: REGION_SECTION_IDS.faq,
+          label: t("faqTitle"),
+        },
+        related.length > 0 && {
+          id: REGION_SECTION_IDS.related,
+          label: t("relatedTitle"),
+        },
+      ]),
+    [faq.length, name, nameIn, related.length, t, venomous.length],
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -132,6 +165,8 @@ export function RegionProfile({ region }: RegionProfileProps) {
           </div>
         </section>
 
+        <TableOfContents items={tocItems} label={t("tocLabel")} />
+
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
             className="pointer-events-none absolute inset-0 map-explorer-texture"
@@ -142,9 +177,14 @@ export function RegionProfile({ region }: RegionProfileProps) {
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
                 {t("rangeEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+              <AnchoredHeading
+                id={REGION_SECTION_IDS.range}
+                slugSource={t("rangeTitle", { name })}
+                className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                anchorLabel={t("anchorLink")}
+              >
                 {t("rangeTitle", { name })}
-              </h2>
+              </AnchoredHeading>
             </Reveal>
             <div className="mt-12 lg:mt-14">
               <GeorgiaMap
@@ -162,9 +202,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                   {t("habitatsEyebrow")}
                 </p>
-                <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+                <AnchoredHeading
+                  id={REGION_SECTION_IDS.habitats}
+                  className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]"
+                  anchorLabel={t("anchorLink")}
+                >
                   {t("habitatsTitle")}
-                </h2>
+                </AnchoredHeading>
                 <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
                   {localizeRegionText(region.description, locale)}
                 </p>
@@ -195,9 +239,14 @@ export function RegionProfile({ region }: RegionProfileProps) {
                   <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                     {t("speciesEyebrow")}
                   </p>
-                  <h2 className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                  <AnchoredHeading
+                    id={REGION_SECTION_IDS.species}
+                    slugSource={t("speciesTitle", { name, nameIn })}
+                    className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                    anchorLabel={t("anchorLink")}
+                  >
                     {t("speciesTitle", { name, nameIn })}
-                  </h2>
+                  </AnchoredHeading>
                 </div>
                 <p className="hidden text-[13px] text-muted-foreground sm:block">
                   {t("speciesCount", { count: species.length })}
@@ -226,9 +275,14 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                   {t("venomousEyebrow")}
                 </p>
-                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                <AnchoredHeading
+                  id={REGION_SECTION_IDS.venomous}
+                  slugSource={t("venomousTitle", { nameIn, name })}
+                  className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                  anchorLabel={t("anchorLink")}
+                >
                   {t("venomousTitle", { nameIn, name })}
-                </h2>
+                </AnchoredHeading>
                 <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
                   {t("venomousBody")}
                 </p>
@@ -255,9 +309,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                   {t("relatedEyebrow")}
                 </p>
-                <h2 className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.05]">
+                <AnchoredHeading
+                  id={REGION_SECTION_IDS.related}
+                  className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.05]"
+                  anchorLabel={t("anchorLink")}
+                >
                   {t("relatedTitle")}
-                </h2>
+                </AnchoredHeading>
               </Reveal>
               <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {related.map((item, index) => {
@@ -360,9 +418,13 @@ function RegionFaqSection({
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
               {t("faqEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+            <AnchoredHeading
+              id={REGION_SECTION_IDS.faq}
+              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              anchorLabel={t("anchorLink")}
+            >
               {t("faqTitle")}
-            </h2>
+            </AnchoredHeading>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("faqIntro", { name, nameIn })}
             </p>

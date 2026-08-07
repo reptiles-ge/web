@@ -1,6 +1,8 @@
 "use client";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
 import type { SpeciesIdentification as Identification } from "@/data/species";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { useTranslations } from "next-intl";
 
 type SpeciesIdentificationProps = {
@@ -20,9 +22,14 @@ export function SpeciesIdentification({
         <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
           {t("identification")}
         </p>
-        <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
+        <AnchoredHeading
+          id={SPECIES_SECTION_IDS.identification}
+          slugSource={t("identificationTitle", { name })}
+          className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+          anchorLabel={t("anchorLink")}
+        >
           {t("identificationTitle", { name })}
-        </h2>
+        </AnchoredHeading>
         <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
           {identification.summary}
         </p>

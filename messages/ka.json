@@ -177,7 +177,9 @@
     "breadcrumbAria": "ბრედქრამბი",
     "breadcrumbHome": "მთავარი",
     "breadcrumbSpecies": "სახეობები",
-    "breadcrumbVenomous": "შხამიანი გველები"
+    "breadcrumbVenomous": "შხამიანი გველები",
+    "tocLabel": "ამ გვერდზე",
+    "anchorLink": "ბმული ამ სექციაზე"
   },
   "danger": {
     "Harmless": "უვნებელი",
@@ -252,7 +254,9 @@
         "venomous": "შხამიანი გველები საქართველოში",
         "home": "მთავარი ატლასი"
       }
-    }
+    },
+    "tocLabel": "ამ გვერდზე",
+    "anchorLink": "ბმული ამ სექციაზე"
   },
   "contact": {
     "metaTitle": "კონტაქტი",
