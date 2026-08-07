@@ -9,12 +9,13 @@ import {
   regions,
   type Region,
 } from "@/data/regions";
-import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+
+const REGIONS_HERO = "/images/regions-hero-1.jpg";
 
 export function RegionsIndex() {
   const locale = useLocale() as AppLocale;
@@ -27,17 +28,16 @@ export function RegionsIndex() {
         <section
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
           style={{
-            paddingTop:
-              "7rem",
+            paddingTop: "7rem",
           }}
         >
           <Image
-            src={images.cta}
+            src={REGIONS_HERO}
             alt={t("heroImageAlt")}
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[50%_45%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
