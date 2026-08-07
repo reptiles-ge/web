@@ -7,6 +7,11 @@ import type { AppLocale } from "@/i18n/routing";
 import { useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+  chromeShellClass,
+} from "@/lib/chromeStyles";
 import { MapPin, Search, X } from "lucide-react";
 import Image from "next/image";
 import {
@@ -256,13 +261,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     }
   }
 
-  const shellClass = isDark
-    ? "border-white/18 bg-white/10 text-white shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl focus-within:border-white/35 focus-within:bg-white/14"
-    : "border-border/80 bg-card/90 text-foreground shadow-[0_8px_28px_rgba(14,20,17,0.06)] backdrop-blur-xl focus-within:border-primary/35 focus-within:shadow-[0_10px_36px_rgba(47,107,79,0.12)]";
-
-  const iconButtonClass = isDark
-    ? "border-white/20 text-white/80 hover:bg-white/10 hover:text-white"
-    : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground";
+  const shellClass = chromeShellClass(variant);
+  const iconButtonClass = chromeIconButtonClass(variant);
 
   const iconClass = isDark ? "text-white/55" : "text-muted-foreground";
   const inputClass = isDark
@@ -290,9 +290,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         aria-label={t("open")}
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className={`flex size-10 items-center justify-center rounded-full border transition-colors md:hidden ${iconButtonClass}`}
+        className={`${chromeIconButtonBase} md:hidden ${iconButtonClass}`}
       >
-        <Search className="size-3.5" aria-hidden="true" />
+        <Search className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
       </button>
 
       <div

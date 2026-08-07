@@ -1,10 +1,13 @@
 "use client";
 
-/* eslint-disable react-hooks/set-state-in-effect */
-
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+  chromeShellClass,
+} from "@/lib/chromeStyles";
 import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useId, useRef, useState } from "react";
@@ -171,7 +174,6 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
   const mobileListId = useId();
-  const isDark = variant === "dark";
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -185,17 +187,10 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     close();
   }
 
-  const shellClass = isDark
-    ? "border-white/18 bg-white/10 text-white shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl hover:border-white/35 hover:bg-white/14"
-    : "border-border/80 bg-card/90 text-foreground shadow-[0_8px_28px_rgba(14,20,17,0.06)] backdrop-blur-xl hover:border-primary/35 hover:shadow-[0_10px_36px_rgba(47,107,79,0.12)]";
+  const shellClass = chromeShellClass(variant);
+  const iconButtonClass = chromeIconButtonClass(variant);
 
-  const iconButtonClass = isDark
-    ? "border-white/18 bg-white/10 text-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl hover:border-white/35 hover:bg-white/14 hover:text-white"
-    : "border-border/80 bg-card/90 text-muted-foreground shadow-[0_8px_28px_rgba(14,20,17,0.06)] backdrop-blur-xl hover:border-primary/35 hover:text-foreground hover:shadow-[0_10px_36px_rgba(47,107,79,0.12)]";
-
-  const options = (
-    listKey: string,
-  ) => (
+  const options = (listKey: string) => (
     <LocaleOptions
       listId={listKey}
       title={t("switch")}
@@ -212,9 +207,9 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         aria-label={t("switch")}
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className={`flex size-10 items-center justify-center rounded-full border transition-colors md:hidden ${iconButtonClass}`}
+        className={`${chromeIconButtonBase} md:hidden ${iconButtonClass}`}
       >
-        <Globe className="size-3.5" aria-hidden="true" />
+        <Globe className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
       </button>
 
       <button
