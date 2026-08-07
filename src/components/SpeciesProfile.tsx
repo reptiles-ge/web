@@ -9,8 +9,6 @@ import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesSources } from "@/components/SpeciesSources";
-import { TableOfContents } from "@/components/TableOfContents";
-import { getRegionsForSpecies } from "@/data/regions";
 import {
   resolvePhotoCredit,
   type GalleryImage,
@@ -30,7 +28,7 @@ import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
-import { buildTocItems, SPECIES_SECTION_IDS } from "@/lib/toc";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -110,76 +108,11 @@ export function SpeciesProfile({
       ].filter((block) => !isPlaceholderBody(block.body)),
     [species.behavior, species.conservation, species.diet, t],
   );
-  const hasRange = useMemo(
-    () => getRegionsForSpecies(species.id).length > 0,
-    [species.id],
-  );
   const mobileHeroSrc =
     species.mobileImage && !isPlaceholderMedia(species.mobileImage)
       ? species.mobileImage
       : null;
   const desktopHeroSrc = primary?.src ?? (!isPlaceholderMedia(species.image) ? species.image : null);
-  const overviewTitle = `${t("whoIs")} ${species.commonName}`;
-  const tocItems = useMemo(
-    () =>
-      buildTocItems([
-        displayStats.length > 0 && {
-          id: SPECIES_SECTION_IDS.atAGlance,
-          label: t("atAGlanceTitle"),
-        },
-        {
-          id: SPECIES_SECTION_IDS.overview,
-          label: overviewTitle,
-        },
-        gallery.length > 0 && {
-          id: SPECIES_SECTION_IDS.gallery,
-          label: `${species.commonName} ${t("galleryTitle")}`,
-        },
-        hasRange && {
-          id: SPECIES_SECTION_IDS.range,
-          label: t("rangeTitle", { name: species.commonName }),
-        },
-        showIdentification && {
-          id: SPECIES_SECTION_IDS.identification,
-          label: t("identificationTitle", { name: species.commonName }),
-        },
-        biologyBlocks.length > 0 && {
-          id: SPECIES_SECTION_IDS.biology,
-          label: t("biologyTitle"),
-        },
-        ...biologyBlocks.map((block) => ({
-          id: block.id,
-          label: block.title,
-          level: 3 as const,
-        })),
-        species.faq &&
-          species.faq.length > 0 && {
-            id: SPECIES_SECTION_IDS.faq,
-            label: t("faqTitle"),
-          },
-        species.sources.length > 0 && {
-          id: SPECIES_SECTION_IDS.sources,
-          label: t("sourcesTitle"),
-        },
-        related.length > 0 && {
-          id: SPECIES_SECTION_IDS.related,
-          label: t("relatedTitle"),
-        },
-      ]),
-    [
-      biologyBlocks,
-      displayStats.length,
-      gallery.length,
-      hasRange,
-      overviewTitle,
-      related.length,
-      showIdentification,
-      species.commonName,
-      species.faq,
-      species.sources.length,
-      t,
-    ],
-  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -296,8 +229,6 @@ export function SpeciesProfile({
           </div>
         </section>
 
-        <TableOfContents items={tocItems} label={t("tocLabel")} />
-
         {displayStats.length > 0 ? (
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -334,11 +265,11 @@ export function SpeciesProfile({
             </p>
             <AnchoredHeading
               id={SPECIES_SECTION_IDS.overview}
-              slugSource={overviewTitle}
+              slugSource={`${t("whoIs")} ${species.commonName}`}
               className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
               anchorLabel={t("anchorLink")}
             >
-              {overviewTitle}
+              {t("whoIs")} {species.commonName}
             </AnchoredHeading>
             <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
               {species.overview}

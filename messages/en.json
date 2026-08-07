@@ -178,7 +178,6 @@
     "breadcrumbHome": "Home",
     "breadcrumbSpecies": "Species",
     "breadcrumbVenomous": "Venomous snakes",
-    "tocLabel": "On this page",
     "anchorLink": "Link to this section"
   },
   "danger": {
@@ -239,7 +238,6 @@
     "faqIntro": "Short answers about species recorded in {name}.",
     "relatedEyebrow": "Nearby",
     "relatedTitle": "Related regions",
-    "tocLabel": "On this page",
     "anchorLink": "Link to this section",
     "browseRegions": "Other regions",
     "empty": "Species data for this region has not been added yet.",

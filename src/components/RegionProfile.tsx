@@ -4,7 +4,6 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesDanger } from "@/components/SpeciesDanger";
-import { TableOfContents } from "@/components/TableOfContents";
 import {
   getRegionContent,
 } from "@/data/regionContent";
@@ -21,7 +20,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { buildTocItems, REGION_SECTION_IDS } from "@/lib/toc";
+import { REGION_SECTION_IDS } from "@/lib/toc";
 import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -70,36 +69,6 @@ export function RegionProfile({ region }: RegionProfileProps) {
 
   const heroSrc = getRegionHeroImage(region.id);
   const heroAlt = t("regionHeroAlt", { name });
-  const tocItems = useMemo(
-    () =>
-      buildTocItems([
-        {
-          id: REGION_SECTION_IDS.range,
-          label: t("rangeTitle", { name }),
-        },
-        {
-          id: REGION_SECTION_IDS.habitats,
-          label: t("habitatsTitle"),
-        },
-        {
-          id: REGION_SECTION_IDS.species,
-          label: t("speciesTitle", { name, nameIn }),
-        },
-        venomous.length > 0 && {
-          id: REGION_SECTION_IDS.venomous,
-          label: t("venomousTitle", { nameIn, name }),
-        },
-        faq.length > 0 && {
-          id: REGION_SECTION_IDS.faq,
-          label: t("faqTitle"),
-        },
-        related.length > 0 && {
-          id: REGION_SECTION_IDS.related,
-          label: t("relatedTitle"),
-        },
-      ]),
-    [faq.length, name, nameIn, related.length, t, venomous.length],
-  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -164,8 +133,6 @@ export function RegionProfile({ region }: RegionProfileProps) {
             </Reveal>
           </div>
         </section>
-
-        <TableOfContents items={tocItems} label={t("tocLabel")} />
 
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
