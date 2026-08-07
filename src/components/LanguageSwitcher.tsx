@@ -100,19 +100,21 @@ function LocaleFlag({ code }: { code: AppLocale }) {
   return <FlagUnitedKingdom />;
 }
 
+type LocaleOptionsProps = {
+  listId: string;
+  title: string;
+  locale: AppLocale;
+  labels: Record<AppLocale, string>;
+  onSelect: (code: AppLocale) => void;
+};
+
 function LocaleOptions({
   listId,
   title,
   locale,
   labels,
   onSelect,
-}: {
-  listId: string;
-  title: string;
-  locale: AppLocale;
-  labels: Record<AppLocale, string>;
-  onSelect: (code: AppLocale) => void;
-}) {
+}: LocaleOptionsProps) {
   return (
     <>
       <div className="border-b border-border/60 px-4 py-3">
