@@ -181,20 +181,23 @@ export function VenomousSnakesPage({
               </Reveal>
               <ol className="space-y-0 divide-y divide-border border-y border-border">
                 {([1, 2, 3, 4] as const).map((n, index) => (
-                  <Reveal key={n} delay={index * 50}>
-                    <li className="flex items-start gap-5 py-6">
-                      <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
-                        {String(n).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <p className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
-                          {t(`safetyStep${n}Title`)}
-                        </p>
-                        <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                          {t(`safetyStep${n}Body`)}
-                        </p>
-                      </div>
-                    </li>
+                  <Reveal
+                    key={n}
+                    as="li"
+                    delay={index * 50}
+                    className="flex items-start gap-5 py-6"
+                  >
+                    <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
+                      {String(n).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
+                        {t(`safetyStep${n}Title`)}
+                      </p>
+                      <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
+                        {t(`safetyStep${n}Body`)}
+                      </p>
+                    </div>
                   </Reveal>
                 ))}
               </ol>

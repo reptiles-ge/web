@@ -168,20 +168,23 @@ export function SnakesInYardPage({
 
             <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
               {ACTION_KEYS.map((n, index) => (
-                <Reveal key={n} delay={index * 50}>
-                  <li className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]">
-                    <span className="font-display text-[clamp(2rem,3vw,2.5rem)] font-semibold leading-none text-primary/80">
-                      {String(n).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3 className="font-display text-[clamp(1.25rem,2.2vw,1.65rem)] font-semibold text-foreground">
-                        {t(`action${n}Title`)}
-                      </h3>
-                      <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                        {t(`action${n}Body`)}
-                      </p>
-                    </div>
-                  </li>
+                <Reveal
+                  key={n}
+                  as="li"
+                  delay={index * 50}
+                  className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
+                >
+                  <span className="font-display text-[clamp(2rem,3vw,2.5rem)] font-semibold leading-none text-primary/80">
+                    {String(n).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-[clamp(1.25rem,2.2vw,1.65rem)] font-semibold text-foreground">
+                      {t(`action${n}Title`)}
+                    </h3>
+                    <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                      {t(`action${n}Body`)}
+                    </p>
+                  </div>
                 </Reveal>
               ))}
             </ol>
@@ -207,18 +210,21 @@ export function SnakesInYardPage({
               </Reveal>
               <ul className="divide-y divide-border border-y border-border">
                 {MYTH_KEYS.map((n, index) => (
-                  <Reveal key={n} delay={index * 40}>
-                    <li className="flex items-start gap-4 py-5 sm:gap-5 sm:py-6">
-                      <span
-                        className="mt-0.5 text-[13px] font-medium text-destructive"
-                        aria-hidden
-                      >
-                        —
-                      </span>
-                      <p className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
-                        {t(`myth${n}`)}
-                      </p>
-                    </li>
+                  <Reveal
+                    key={n}
+                    as="li"
+                    delay={index * 40}
+                    className="flex items-start gap-4 py-5 sm:gap-5 sm:py-6"
+                  >
+                    <span
+                      className="mt-0.5 text-[13px] font-medium text-destructive"
+                      aria-hidden
+                    >
+                      —
+                    </span>
+                    <p className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      {t(`myth${n}`)}
+                    </p>
                   </Reveal>
                 ))}
               </ul>

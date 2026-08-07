@@ -182,15 +182,18 @@ export function RegionProfile({ region }: RegionProfileProps) {
               </Reveal>
               <ul className="space-y-0 divide-y divide-border border-y border-border">
                 {content.habitats.map((habitat, index) => (
-                  <Reveal key={habitat.ka} delay={index * 50}>
-                    <li className="flex items-baseline justify-between gap-6 py-5">
-                      <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
-                        {localizeRegionText(habitat, locale)}
-                      </span>
-                      <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </li>
+                  <Reveal
+                    key={habitat.ka}
+                    as="li"
+                    delay={index * 50}
+                    className="flex items-baseline justify-between gap-6 py-5"
+                  >
+                    <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
+                      {localizeRegionText(habitat, locale)}
+                    </span>
+                    <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </Reveal>
                 ))}
               </ul>
