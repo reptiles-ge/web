@@ -14,6 +14,7 @@ import { useEffect, useMemo, useState } from "react";
 const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
   { href: "/snakes" as const, labelKey: "snakes" as const },
+  { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
   { href: "/lizards" as const, labelKey: "lizards" as const },
   { href: "/turtles" as const, labelKey: "turtles" as const },
   { href: "/amphibians" as const, labelKey: "amphibians" as const },

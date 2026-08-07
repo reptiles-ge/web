@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 const hubs = [
   { key: "species" as const, href: "/species" },
+  { key: "yard" as const, href: "/snakes-in-the-yard" },
   { key: "snakes" as const, href: "/snakes" },
   { key: "lizards" as const, href: "/lizards" },
   { key: "turtles" as const, href: "/turtles" },
