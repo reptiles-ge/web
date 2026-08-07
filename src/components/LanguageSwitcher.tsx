@@ -226,8 +226,8 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         className={`group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex ${shellClass}`}
       >
         <LocaleFlag code={locale} />
-        <span className="text-[13px] font-medium uppercase tracking-wider">
-          {locale}
+        <span className="text-[13px] font-medium tracking-wide">
+          {labels[locale]}
         </span>
       </button>
 
