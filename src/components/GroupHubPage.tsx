@@ -214,30 +214,52 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               ))}
             </div>
             {hubId === "snakes" ? (
-              <Reveal delay={200}>
-                <Link
-                  href="/venomous-snakes"
-                  className="group mt-px flex min-h-[160px] flex-col justify-between rounded-[24px] bg-card p-7 transition-colors hover:bg-surface"
-                >
-                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                    {tShared("venomousEyebrow")}
-                  </span>
-                  <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
-                    <div>
-                      <p className="font-display text-[22px] font-semibold text-foreground transition-colors group-hover:text-primary">
+              <div className="mt-px grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+                <Reveal delay={200}>
+                  <Link
+                    href="/venomous-snakes"
+                    className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
+                  >
+                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                      {tShared("venomousEyebrow")}
+                    </span>
+                    <div className="mt-6">
+                      <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
                         {tShared("venomousTitle")}
                       </p>
                       <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
                         {tShared("venomousBody")}
                       </p>
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+                        {tShared("venomousCta")}
+                        <ArrowUpRight className="size-3.5" />
+                      </span>
                     </div>
-                    <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-                      {tShared("venomousCta")}
-                      <ArrowUpRight className="size-3.5" />
+                  </Link>
+                </Reveal>
+                <Reveal delay={260}>
+                  <Link
+                    href="/snakes-in-the-yard"
+                    className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
+                  >
+                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                      {tShared("yardEyebrow")}
                     </span>
-                  </div>
-                </Link>
-              </Reveal>
+                    <div className="mt-6">
+                      <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
+                        {tShared("yardTitle")}
+                      </p>
+                      <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+                        {tShared("yardBody")}
+                      </p>
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+                        {tShared("yardCta")}
+                        <ArrowUpRight className="size-3.5" />
+                      </span>
+                    </div>
+                  </Link>
+                </Reveal>
+              </div>
             ) : null}
           </div>
         </section>

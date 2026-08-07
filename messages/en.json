@@ -497,6 +497,10 @@
     "safetyStep3Body": "Many harmless snakes resemble vipers. Killing by mistake harms the ecosystem.",
     "safetyStep4Title": "If bitten — get care",
     "safetyStep4Body": "Stay calm, immobilize the limb, and seek medical help. Do not cut, suck, or apply a tourniquet.",
+    "yardEyebrow": "Near home",
+    "yardTitle": "How do we get snakes out of the yard?",
+    "yardBody": "Prevention near the house is a different question: shelter, food, and myths that do not work. Full practice lives in a dedicated guide.",
+    "yardCta": "Open the yard guide",
     "lookalikesEyebrow": "Confusion",
     "lookalikesTitle": "Harmless species often mistaken for vipers",
     "lookalikesBody": "Grass snakes, smooth snakes, cat snakes, and fast racers are often treated as venomous. Compare profiles and field marks in the atlas.",
@@ -538,7 +542,11 @@
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
     "venomousBody": "Medically significant species — risk, identification, and safe encounters in a dedicated guide.",
-    "venomousCta": "Open safety guide"
+    "venomousCta": "Open safety guide",
+    "yardEyebrow": "Practice",
+    "yardTitle": "Snakes in the yard",
+    "yardBody": "How to reduce snakes entering the yard — shelter, food, and what does not work.",
+    "yardCta": "Open the yard guide"
   },
   "snakes": {
     "metaTitle": "Snakes in Georgia — species guide and atlas",
@@ -556,7 +564,7 @@
     "guideEyebrow": "Guide",
     "guideTitle": "Why this page is the search gateway for snakes",
     "guideP1": "When people search “snakes in Georgia,” they need the full picture — not one species. This hub gathers every snake in the atlas, highlights venomous taxa, and routes you to identification and regional context.",
-    "guideP2": "Harmless racers, cat snakes, and smooth snakes are often confused with vipers. From here open the venomous guide or a species profile — photos, traits, habitat, and sources.",
+    "guideP2": "Harmless racers, cat snakes, and smooth snakes are often confused with vipers. From here open the venomous guide, the yard guide, or a species profile — photos, traits, habitat, and sources.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} snakes in the atlas",
     "speciesBody": "Each entry opens a full profile — common and scientific names, risk, short overview, and regions.",
@@ -572,7 +580,7 @@
     "faq4Q": "Where do snakes occur in Georgia?",
     "faq4A": "From forests to high mountains and the dry east — ranges live in the regional atlas and on each species page. One species can span several regions.",
     "faq5Q": "What should I do if I meet a snake?",
-    "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, seek medical care. This page is educational.",
+    "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, call 112. If a snake is in the yard or you want to reduce visits, see the practical guide: /snakes-in-the-yard.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From snake list to profile — then region",
     "ctaBody": "Pick a species below. Regional maps help when you know the place."

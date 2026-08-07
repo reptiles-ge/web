@@ -202,6 +202,33 @@ export function VenomousSnakesPage({
           </div>
         </section>
 
+        <section className="border-t border-border bg-surface py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {t("yardEyebrow")}
+                </p>
+                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+                  {t("yardTitle")}
+                </h2>
+                <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                  {t("yardBody")}
+                </p>
+              </Reveal>
+              <Reveal delay={80}>
+                <Link
+                  href="/snakes-in-the-yard"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+                >
+                  {t("yardCta")}
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
