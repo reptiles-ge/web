@@ -2672,7 +2672,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი დებს რამდენიმე კვერცხს (ჩვეულებრივ დაახლოებით 4–16). ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-07T12:30:13+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7119,6 +7119,12 @@ export const species: Species[] = [
         "credit": {
           "photographer": "Vojtěch Víta",
           "url": "https://www.inaturalist.org/observations/238226101"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე"
         }
       },
       {
