@@ -11,6 +11,7 @@ import {
 } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { regionHref } from "@/lib/speciesRoutes";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -45,7 +46,7 @@ export function RegionsIndex() {
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <Link
-                href="/#atlas"
+                href={{ pathname: "/", hash: "atlas" }}
                 className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
               >
                 <ArrowLeft className="size-3.5" />
@@ -189,7 +190,7 @@ function RegionDirectoryRow({
 
   return (
     <Link
-      href={`/regions/${region.id}`}
+      href={regionHref(region.id)}
       className="group flex items-start justify-between gap-6 py-8 transition-colors sm:py-9"
     >
       <div className="min-w-0 flex-1">

@@ -5,6 +5,7 @@ import { getSpeciesById, images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -64,7 +65,7 @@ export function SpeciesDetail() {
           </div>
           <Reveal delay={200}>
             <Link
-              href="/species/vipera-dinniki"
+              href={speciesHref("vipera-dinniki", locale)}
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
               <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-white">

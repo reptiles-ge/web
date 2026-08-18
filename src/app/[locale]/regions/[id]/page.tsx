@@ -14,7 +14,9 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  speciesPageUrl,
 } from "@/lib/site";
+import { regionHref } from "@/lib/speciesRoutes";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -63,7 +65,7 @@ export async function generateMetadata({
     nameIn,
     count: region.speciesIds.length,
   });
-  const path = `/regions/${region.id}`;
+  const path = regionHref(region.id);
 
   return {
     title,
@@ -117,7 +119,7 @@ export default async function RegionPage({ params }: PageProps) {
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
   const overview = localizeRegionText(content.overview, locale);
-  const pageUrl = absoluteUrl(localePath(locale, `/regions/${region.id}`));
+  const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
   const species = getRegionSpecies(region).map((item) =>
     localizeSpecies(item, locale),
   );
@@ -148,7 +150,7 @@ export default async function RegionPage({ params }: PageProps) {
       itemListElement: species.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+        url: speciesPageUrl(locale, item.id),
         name: `${item.commonName} (${item.scientificName})`,
       })),
     },

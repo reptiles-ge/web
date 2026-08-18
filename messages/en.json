@@ -214,6 +214,7 @@
     "regionHeroAlt": "{name} — regional landscape",
     "back": "Atlas",
     "allRegions": "All regions",
+    "breadcrumbHome": "Home",
     "statRegions": "{count} regions",
     "statSpecies": "{count} species",
     "statVenomous": "{count} venomous",
@@ -348,8 +349,11 @@
   },
   "speciesMeta": {
     "notFound": "Species not found",
-    "titleIntentVenomous": "range, venom, photos",
-    "titleIntentHarmless": "range, photos, harmless",
+    "titleSnakeVenomous": "venomous snake of Georgia",
+    "titleSnake": "snake of Georgia",
+    "titleLizard": "lizard of Georgia",
+    "titleTurtle": "turtle of Georgia",
+    "titleAmphibian": "amphibian of Georgia",
     "descriptionCta": "See photos, Georgia range map, size, habitat, and key facts."
   },
   "speciesAtlas": {
@@ -575,13 +579,13 @@
     "faq1Q": "How many snakes are there in Georgia?",
     "faq1A": "This atlas lists snake profiles confirmed or checklist-supported for Georgia. Counts change with taxonomy and new confirmations — this page shows the current catalog.",
     "faq2Q": "Which snakes are venomous in Georgia?",
-    "faq2A": "Medically significant species are collected in a dedicated guide at /venomous-snakes. Most snakes here are harmless — do not kill by mistake; compare profiles.",
+    "faq2A": "Medically significant species are collected in a dedicated venomous snakes guide. Most snakes here are harmless — do not kill by mistake; compare profiles.",
     "faq3Q": "How do I tell a viper from a harmless snake?",
     "faq3A": "Vipers often have a vertical pupil and a more triangular head, but the rule is not universal. Learn species traits, habitat, and region from the profiles.",
     "faq4Q": "Where do snakes occur in Georgia?",
     "faq4A": "From forests to high mountains and the dry east — ranges live in the regional atlas and on each species page. One species can span several regions.",
     "faq5Q": "What should I do if I meet a snake?",
-    "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, call 112. If a snake is in the yard or you want to reduce visits, see the practical guide: /snakes-in-the-yard.",
+    "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, call 112. If a snake is in the yard or you want to reduce visits, see the practical yard guide.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From snake list to profile — then region",
     "ctaBody": "Pick a species below. Regional maps help when you know the place."

@@ -42,3 +42,34 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
 };
 
 export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
+
+export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
+  snake: "snakes",
+  lizard: "lizards",
+  turtle: "turtles",
+  amphibian: "amphibians",
+};
+
+export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
+  snakes: [
+    "shxamiani-gvelebi",
+    "gveli-ezoshi",
+    "saxeoebebi",
+    "sakartvelos-gvelebi",
+    "shxamiani-gvelis-amocnoba",
+    "gvelis-nakbeni",
+    "gavrtseleba",
+    "didi-gvelebi",
+  ],
+  lizards: [
+    "saxeoebebi",
+    "identifikacia",
+    "xvlikis-da-gvelxokeras-gansxvaveba",
+  ],
+  turtles: ["saxeoebebi", "xmelis-kuebi", "tsqlis-kuebi", "identifikacia"],
+  amphibians: [
+    "saxeoebebi",
+    "bayayi",
+    "tritoni-salamandra",
+  ],
+};

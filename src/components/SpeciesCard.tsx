@@ -3,8 +3,11 @@
 import { SpeciesDanger } from "@/components/SpeciesDanger";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { MapPin } from "lucide-react";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 
 type SpeciesCardProps = {
@@ -12,11 +15,12 @@ type SpeciesCardProps = {
 };
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
+  const locale = useLocale() as AppLocale;
   const cover = species.mobileImage ?? species.image;
 
   return (
     <Link
-      href={`/species/${species.id}`}
+      href={speciesHref(species.id, locale)}
       className="group relative block h-[560px] w-[320px] shrink-0 overflow-hidden rounded-[28px] bg-ink sm:w-[380px]"
     >
       <Image

@@ -82,6 +82,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "snakesInYard" });
+  const tSnakes = await getTranslations({ locale, namespace: "snakes" });
   const url = absoluteUrl(localePath(locale, PATH));
 
   const heroSrc = HERO_IMAGE;
@@ -100,6 +101,12 @@ export default async function SnakesInYardRoute({ params }: Props) {
       {
         "@type": "ListItem",
         position: 2,
+        name: tSnakes("breadcrumbCurrent"),
+        item: absoluteUrl(localePath(locale, "/snakes")),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: t("breadcrumbCurrent"),
         item: url,
       },

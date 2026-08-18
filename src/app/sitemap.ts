@@ -3,7 +3,8 @@ import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import { absoluteUrl, localePath } from "@/lib/site";
+import { absoluteUrl, localePath, speciesPageUrl } from "@/lib/site";
+import { regionHref } from "@/lib/speciesRoutes";
 import { compareIsoDateTimes, parseToSiteDateTime } from "@/lib/siteTime";
 import type { MetadataRoute } from "next";
 
@@ -72,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     for (const region of regions) {
       entries.push({
-        url: absoluteUrl(localePath(locale, `/regions/${region.id}`)),
+        url: absoluteUrl(localePath(locale, regionHref(region.id))),
         lastModified: maxUpdatedAt(
           getRegionSpecies(region).map((item) => item.updatedAt),
         ),
@@ -81,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     for (const item of catalog) {
       entries.push({
-        url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+        url: speciesPageUrl(locale, item.id),
         lastModified: toLastModified(item.updatedAt),
       });
     }

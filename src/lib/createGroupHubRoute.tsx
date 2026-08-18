@@ -13,6 +13,7 @@ import {
   localePath,
   siteConfig,
   speciesOgImageUrl,
+  speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -140,7 +141,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         itemListElement: species.map((item, index) => ({
           "@type": "ListItem",
           position: index + 1,
-          url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+          url: speciesPageUrl(locale, item.id),
           name: `${item.commonName} (${item.scientificName})`,
         })),
       },
@@ -154,7 +155,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       itemListElement: species.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+        url: speciesPageUrl(locale, item.id),
         name: `${item.commonName} (${item.scientificName})`,
       })),
     };

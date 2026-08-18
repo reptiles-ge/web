@@ -3,6 +3,32 @@
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
+
+const STATIC_LOCALE_PATHS = [
+  "/",
+  "/about",
+  "/contact",
+  "/species",
+  "/snakes",
+  "/lizards",
+  "/turtles",
+  "/amphibians",
+  "/venomous-snakes",
+  "/snakes-in-the-yard",
+  "/regions",
+] as const;
+
+type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
+
+function isStaticLocalePath(pathname: string): pathname is StaticLocalePath {
+  return (STATIC_LOCALE_PATHS as readonly string[]).includes(pathname);
+}
+import {
+  regionHref,
+  resolveSpecies,
+  resolveSpeciesInHub,
+  speciesHref,
+} from "@/lib/speciesRoutes";
 import {
   chromeIconButtonBase,
   chromeIconButtonClass,
@@ -10,6 +36,7 @@ import {
 } from "@/lib/chromeStyles";
 import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { useCallback, useId, useRef, useState } from "react";
 
 type LanguageSwitcherProps = {
@@ -172,6 +199,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const t = useTranslations("language");
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
@@ -185,7 +213,39 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   };
 
   function selectLocale(code: AppLocale) {
-    router.replace(pathname, { locale: code });
+    const slug = typeof params.slug === "string" ? params.slug : undefined;
+    const id = typeof params.id === "string" ? params.id : undefined;
+    const hub = (
+      ["snakes", "lizards", "turtles", "amphibians"] as const
+    ).find((item) => pathname === `/${item}/[slug]`);
+
+    if (hub && slug) {
+      const species = resolveSpeciesInHub(hub, slug);
+      if (species) {
+        router.replace(speciesHref(species.id, code), { locale: code });
+        close();
+        return;
+      }
+    }
+
+    if (pathname === "/regions/[id]" && id) {
+      router.replace(regionHref(id), { locale: code });
+      close();
+      return;
+    }
+
+    if (pathname === "/species/[id]" && id) {
+      const species = resolveSpecies(id);
+      if (species) {
+        router.replace(speciesHref(species.id, code), { locale: code });
+        close();
+        return;
+      }
+    }
+
+    if (isStaticLocalePath(pathname)) {
+      router.replace(pathname, { locale: code });
+    }
     close();
   }
 

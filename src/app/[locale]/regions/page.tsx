@@ -8,6 +8,7 @@ import {
   localePath,
   siteConfig,
 } from "@/lib/site";
+import { regionHref } from "@/lib/speciesRoutes";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -86,7 +87,7 @@ export default async function RegionsPage({ params }: Props) {
     hasPart: regions.map((region) => ({
       "@type": "WebPage",
       name: localizeRegionText(region.name, locale),
-      url: absoluteUrl(localePath(locale, `/regions/${region.id}`)),
+      url: absoluteUrl(localePath(locale, regionHref(region.id))),
     })),
     inLanguage: locale,
   };

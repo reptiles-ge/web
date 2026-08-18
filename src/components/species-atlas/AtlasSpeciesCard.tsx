@@ -12,6 +12,7 @@ import {
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
@@ -54,7 +55,7 @@ export function AtlasSpeciesCard({
       }}
     >
       <Link
-        href={`/species/${species.id}`}
+        href={speciesHref(species.id, locale)}
         className="absolute inset-0 z-10"
         aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
       />

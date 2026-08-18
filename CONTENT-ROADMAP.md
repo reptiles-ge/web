@@ -30,22 +30,19 @@
 
 | არსებული URL | როლი | შენიშვნა |
 | --- | --- | --- |
-| `/snakes` `/lizards` `/turtles` `/amphibians` | group hub / pillar | ინგლისური slug; ქართული URL ჯერ არ არის |
-| `/venomous-snakes` | შხამიანი გველების გიდი | გადასაყვანია `/gvelebi/shxamiani-gvelebi` |
-| `/snakes-in-the-yard` | ეზოს პრაქტიკული გიდი | რჩება; ნაკბენის გვერდთან უნდა დაიკავშიროს |
+| `/gvelebi` `/xvlikebi` `/kuebi` `/amfibiebi` | group hub / pillar | KA canonical; EN რჩება `/en/snakes` და ა.შ. |
+| `/gvelebi/shxamiani-gvelebi` | შხამიანი გველების გიდი | EN: `/en/venomous-snakes` |
+| `/gvelebi/gveli-ezoshi` | ეზოს პრაქტიკული გიდი | ნაკბენის გვერდთან უნდა დაიკავშიროს |
 | `/species` | ატლასი / კატალოგი | |
-| `/species/[id]` | 68 სახეობის პროფილი | სამეცნიერო slug; შევსება არათანაბარია |
+| `/gvelebi/giurza` (და ანალოგიურად) | 68 სახეობის პროფილი | KA ქართული slug; EN სამეცნიერო; ძველი `/species/[id]` 301 |
 | `/regions` `/regions/[id]` | 12 რეგიონი | თითქმის მხოლოდ გველები + გველხოკერა |
 | `/about` `/contact` | საიტი | |
 
 **68 სახეობა ჩეკლისტით დაბლოკილია** (12 ამფიბია + 56 ქვეწარმავალი). პროფილები არსებობს, მაგრამ ბევრი thin/genericა (განსაკუთრებით ახალი taxa: Darevskia, ამფიბიები, კუები). რეგიონული რუკა ახალ სახეობებზე ხშირად ცარიელია — ეს განზრახაა, სანამ წყარო არ ადასტურებს.
 
-**გადასაწყვეტი (URL)**
+**URL (გადაწყვეტილია)**
 
-- Canonical დარჩეს `/species/{scientific-slug}` და ქართული alias დაემატოს (`/gvelebi/giurza`), **ან**
-- სრული გადასვლა კლასტერ-URL-ებზე + 301 ძველიდან.
-
-რეკომენდაცია: ქართული cluster URL გახდეს ძირითადი KA locale-ზე; სამეცნიერო slug დარჩეს EN-ზე და redirect-ით. ყველა ძველი ინგლისური path-ზე 301.
+KA cluster URL არის canonical; EN ინარჩუნებს ინგლისურ/სამეცნიერო slug-ს. ძველი `/species/{id}` და ინგლისური KA path-ები 301-ით მიდის ახალ მისამართზე.
 
 **გადასაწყვეტი (დუბლი გვერდები)**
 
@@ -60,24 +57,24 @@
 
 ეს აუდიტის „და პარალელურად“ ბლოკია. pillar-ების გარეშეც იწყება.
 
-- [ ] **KA URL რუკა** — ინგლისური path → ქართული path + 301 + sitemap + canonical/hreflang
+- [x] **KA URL რუკა** — ინგლისური path → ქართული path + 301 + sitemap + canonical/hreflang
   - `/snakes` → `/gvelebi`
   - `/lizards` → `/xvlikebi`
   - `/turtles` → `/kuebi`
   - `/amphibians` → `/amfibiebi`
   - `/venomous-snakes` → `/gvelebi/shxamiani-gvelebi`
-  - `/snakes-in-the-yard` → ქართული slug (გადასაწყვეტი; მაგ. `/gvelebi/gveli-ezoshi`)
+  - `/snakes-in-the-yard` → `/gvelebi/gveli-ezoshi`
   - species: `/species/macrovipera-lebetina` → `/gvelebi/giurza` (და ანალოგიურად ყველა)
-- [ ] **Breadcrumbs** ყველა ახალ კლასტერ გვერდზე: Home → ჯგუფი → child → სახეობა
-- [ ] **Internal linking წესები**
-  - pillar → ყველა child + ყველა species
+- [x] **Breadcrumbs** კლასტერ გვერდებზე: Home → ჯგუფი → (შხამიანი, თუ არის) → სახეობა
+- [x] **Internal linking წესები**
+  - pillar → child გიდები + სახეობები (შემდეგი cluster child-ები ფაზა 1+)
   - species → parent hub + venomous (თუ შხამიანია) + მსგავსი სახეობები + რეგიონები
   - region → სახეობები → cluster hubs
-  - lookalike წყვილები ორმხრივად (გველხოკერა ↔ გველები, ჯოჯო ↔ სხვა აგამები/ხვლიკები)
-- [ ] **Unique title / H1 / meta** ყველა species-ზე (ახლა შაბლონურია: `{name} ({sci}) — {intent}`)
-- [ ] **FAQ + schema** მხოლოდ იქ, სადაც რეალური Q&A არის; არა ცარიელი FAQPage
-- [ ] **Species related** — ახლა genus/family scoreა; დაემატოს lookalikes, venomous counterparts, region overlap
-- [ ] Nav / Footer / Home knowledge ბლოკები ახალ URL-ებსა და კლასტერ child-ებზე
+  - lookalike წყვილები ორმხრივად (გველხოკერა ↔ ანკარა/ბოხმეჭა, გიურზა ↔ მალპოლონი, …)
+- [x] **Unique title / H1 / meta** — H1 = ქართული სახელი; title = `{name} ({sci}) — {ჯგუფი საქართველოში}`; description overview-იდან. ბესპოკ copy ფაზა 1+ სახეობის შევსებაზე.
+- [x] **FAQ + schema** მხოლოდ იქ, სადაც რეალური Q&A არის; არა ცარიელი FAQPage
+- [x] **Species related** — lookalikes + genus/family + region overlap + venomous counterparts
+- [x] Nav / Footer / Home — pathnames ავტომატურად ლოკალიზდება; Footer-ში ყველა hub + შხამიანი სახეობები cluster URL-ით
 
 ---
 

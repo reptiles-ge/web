@@ -11,6 +11,7 @@ import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import {
   ArrowLeft,
@@ -337,7 +338,7 @@ function SpeciesGuideRow({
 
   return (
     <Link
-      href={`/species/${species.id}`}
+      href={speciesHref(species.id, locale)}
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
     >
       <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">

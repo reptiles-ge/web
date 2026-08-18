@@ -5,6 +5,7 @@ import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
 import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
 import { regions, type Region as RegionData } from "@/data/regions";
+import { regionHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
 import {
   useCallback,
@@ -72,7 +73,7 @@ export function GeorgiaMap({
     (id: string) => {
       if (!interactive) return;
       if (selectionMode === "navigate") {
-        router.push(`/regions/${id}`);
+        router.push(regionHref(id));
         return;
       }
       setSelectedId(id);

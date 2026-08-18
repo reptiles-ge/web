@@ -28,6 +28,7 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
@@ -99,7 +100,7 @@ function HeroPathway({
   delay = 0,
 }: {
   onClick?: () => void;
-  href?: string;
+  href?: "/snakes" | "/lizards" | "/venomous-snakes";
   eyebrow: string;
   title: string;
   meta: string;
@@ -266,7 +267,13 @@ export function SpeciesAtlas({
         ? window.location.search.replace(/^\?/, "")
         : "";
     if (next === current) return;
-    router.replace(next ? `${pathname}?${next}` : pathname, { scroll: false });
+    router.replace(
+      {
+        pathname: "/species",
+        query: Object.fromEntries(params.entries()),
+      },
+      { scroll: false },
+    );
   }, [filters, pathname, router]);
 
   function updateFilter<K extends keyof AtlasFilters>(
@@ -756,7 +763,7 @@ function RecentSpeciesRow({ species }: { species: Species }) {
 
   return (
     <Link
-      href={`/species/${species.id}`}
+      href={speciesHref(species.id, locale)}
       className="group flex items-center gap-4 rounded-[22px] border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">
@@ -829,6 +836,7 @@ function TrustCard({
 
 function SeoAuthoritySection() {
   const t = useTranslations("speciesAtlas");
+  const locale = useLocale() as AppLocale;
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -861,7 +869,7 @@ function SeoAuthoritySection() {
             <ul className="mt-5 space-y-2 border-l-2 border-primary/25 pl-4">
               <li>
                 <Link
-                  href="/species/macrovipera-lebetina"
+                  href={speciesHref("macrovipera-lebetina", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                 >
                   Macrovipera lebetina
@@ -869,7 +877,7 @@ function SeoAuthoritySection() {
               </li>
               <li>
                 <Link
-                  href="/species/vipera-kaznakovi"
+                  href={speciesHref("vipera-kaznakovi", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                 >
                   Vipera kaznakovi
@@ -877,7 +885,7 @@ function SeoAuthoritySection() {
               </li>
               <li>
                 <Link
-                  href="/species/vipera-dinniki"
+                  href={speciesHref("vipera-dinniki", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                 >
                   Vipera dinniki
@@ -885,7 +893,7 @@ function SeoAuthoritySection() {
               </li>
               <li>
                 <Link
-                  href="/species/vipera-transcaucasiana"
+                  href={speciesHref("vipera-transcaucasiana", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                 >
                   Vipera transcaucasiana

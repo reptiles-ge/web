@@ -1,3 +1,7 @@
+import { getPathname } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { speciesHref } from "@/lib/speciesRoutes";
+
 export const siteConfig = {
   name: "Reptiles",
   shortName: "Reptiles",
@@ -137,25 +141,35 @@ export function speciesOgImageUrl(
   return cdnOgImageUrl("vipera-dinniki");
 }
 
-export function localePath(locale: string, path = "/") {
-  const normalized =
-    !path || path === "/"
-      ? "/"
-      : path.startsWith("/")
-        ? path
-        : `/${path}`;
+type PathnameHref = Parameters<typeof getPathname>[0]["href"];
 
-  if (locale === "ka") return normalized;
-  if (normalized === "/") return `/${locale}`;
-  return `/${locale}${normalized}`;
+export function localePath(locale: string, href: PathnameHref = "/") {
+  return getPathname({ locale: locale as AppLocale, href });
 }
 
-export function localeAlternates(locale: string, path = "/") {
-  const ka = absoluteUrl(localePath("ka", path));
-  const en = absoluteUrl(localePath("en", path));
+export function localeAlternates(locale: string, href: PathnameHref = "/") {
+  const ka = absoluteUrl(getPathname({ locale: "ka", href }));
+  const en = absoluteUrl(getPathname({ locale: "en", href }));
 
   return {
-    canonical: absoluteUrl(localePath(locale, path)),
+    canonical: absoluteUrl(getPathname({ locale: locale as AppLocale, href })),
+    languages: {
+      ka,
+      en,
+      "x-default": ka,
+    },
+  };
+}
+
+export function speciesPageUrl(locale: AppLocale, id: string) {
+  return absoluteUrl(getPathname({ locale, href: speciesHref(id, locale) }));
+}
+
+export function speciesAlternates(locale: AppLocale, id: string) {
+  const ka = speciesPageUrl("ka", id);
+  const en = speciesPageUrl("en", id);
+  return {
+    canonical: locale === "en" ? en : ka,
     languages: {
       ka,
       en,

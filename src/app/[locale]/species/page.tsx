@@ -13,6 +13,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -122,7 +123,7 @@ export default async function SpeciesIndexPage({
     itemListElement: catalog.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+          url: speciesPageUrl(locale, item.id),
       name: `${item.commonName} (${item.scientificName})`,
     })),
   };
@@ -148,14 +149,14 @@ export default async function SpeciesIndexPage({
       itemListElement: catalog.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+        url: speciesPageUrl(locale, item.id),
         name: item.commonName,
       })),
     },
     hasPart: catalog.map((item) => ({
       "@type": "WebPage",
       name: `${item.commonName} (${item.scientificName})`,
-      url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+          url: speciesPageUrl(locale, item.id),
     })),
     inLanguage: locale,
     dateModified: stats.lastUpdated ?? undefined,

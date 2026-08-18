@@ -28,6 +28,7 @@ export function SnakesInYardPage({
   coverSrc,
 }: SnakesInYardPageProps) {
   const t = useTranslations("snakesInYard");
+  const tSnakes = useTranslations("snakes");
 
   return (
     <div className="min-h-screen bg-background">
@@ -58,6 +59,17 @@ export function SnakesInYardPage({
                         >
                           <ArrowLeft className="size-3.5" />
                           {t("breadcrumbHome")}
+                        </Link>
+                      </li>
+                      <li aria-hidden="true" className="text-white/30">
+                        /
+                      </li>
+                      <li>
+                        <Link
+                          href="/snakes"
+                          className="transition-colors hover:text-white"
+                        >
+                          {tSnakes("breadcrumbCurrent")}
                         </Link>
                       </li>
                       <li aria-hidden="true" className="text-white/30">

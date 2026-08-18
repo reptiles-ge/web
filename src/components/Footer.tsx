@@ -6,6 +6,7 @@ import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { Link, usePathname } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
@@ -122,7 +123,7 @@ export function Footer() {
               {venomous.map((item) => (
                 <li key={item.id}>
                   <Link
-                    href={`/species/${item.id}`}
+                    href={speciesHref(item.id, locale)}
                     className="group block rounded-2xl border border-border/80 bg-card px-4 py-3.5 transition-colors hover:border-primary/25"
                   >
                     <p className="text-[11px] italic text-muted-foreground">
@@ -153,7 +154,7 @@ export function Footer() {
               {regions.map((region) => (
                 <li key={region.id} className="mb-2.5 break-inside-avoid">
                   <Link
-                    href={`/regions/${region.id}`}
+                    href={regionHref(region.id)}
                     className="text-[13px] text-foreground/75 transition-colors hover:text-primary"
                   >
                     {localizeRegionText(region.name, locale)}

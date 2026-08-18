@@ -4,30 +4,29 @@ import {
   isVenomousDanger,
   type AnimalGroup,
 } from "@/data/speciesAtlas";
-import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import { ANIMAL_GROUP_TO_HUB, GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+
+export type SpeciesBreadcrumbHref =
+  | "/"
+  | "/species"
+  | "/venomous-snakes"
+  | `/${GroupHubId}`;
 
 export type SpeciesBreadcrumbCrumb = {
   name: string;
-  href?: "/" | "/species" | "/venomous-snakes" | `/${GroupHubId}`;
-};
-
-const groupToHubId: Record<AnimalGroup, GroupHubId> = {
-  snake: "snakes",
-  lizard: "lizards",
-  turtle: "turtles",
-  amphibian: "amphibians",
+  href?: SpeciesBreadcrumbHref;
 };
 
 export function getSpeciesParentHub(species: Species): {
   kind: "venomous" | "group";
   href: "/venomous-snakes" | `/${GroupHubId}`;
-  hubId?: GroupHubId;
+  hubId: GroupHubId;
 } {
+  const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
   if (isVenomousDanger(species.danger)) {
-    return { kind: "venomous", href: "/venomous-snakes" };
+    return { kind: "venomous", href: "/venomous-snakes", hubId };
   }
 
-  const hubId = groupToHubId[getSpeciesAtlasMeta(species.id).group];
   return {
     kind: "group",
     href: GROUP_HUBS[hubId].path,
@@ -38,20 +37,28 @@ export function getSpeciesParentHub(species: Species): {
 export function buildSpeciesBreadcrumbs(options: {
   species: Species;
   homeLabel: string;
-  speciesLabel: string;
   venomousLabel: string;
   groupLabel: string;
 }): SpeciesBreadcrumbCrumb[] {
   const parent = getSpeciesParentHub(options.species);
+  const hubPath = GROUP_HUBS[parent.hubId].path;
 
-  return [
+  const crumbs: SpeciesBreadcrumbCrumb[] = [
     { name: options.homeLabel, href: "/" },
-    { name: options.speciesLabel, href: "/species" },
-    {
-      name:
-        parent.kind === "venomous" ? options.venomousLabel : options.groupLabel,
-      href: parent.href,
-    },
-    { name: options.species.commonName },
+    { name: options.groupLabel, href: hubPath },
   ];
+
+  if (parent.kind === "venomous") {
+    crumbs.push({
+      name: options.venomousLabel,
+      href: "/venomous-snakes",
+    });
+  }
+
+  crumbs.push({ name: options.species.commonName });
+  return crumbs;
+}
+
+export function animalGroupToHubId(group: AnimalGroup): GroupHubId {
+  return ANIMAL_GROUP_TO_HUB[group];
 }

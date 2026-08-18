@@ -5,6 +5,7 @@ import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { regionHref } from "@/lib/speciesRoutes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
@@ -78,7 +79,7 @@ export function SpeciesRangeMap({
                 </span>
               ) : null}
               <Link
-                href={`/regions/${region.id}`}
+                href={regionHref(region.id)}
                 className="text-[13px] leading-relaxed tracking-wide text-muted-foreground transition-colors hover:text-primary"
               >
                 {localizeRegionText(region.name, locale)}

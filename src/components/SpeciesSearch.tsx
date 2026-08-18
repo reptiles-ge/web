@@ -4,6 +4,7 @@
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { getCatalogSpecies, type Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -218,7 +219,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   function goToSpecies(id: string) {
     closeSearch();
     startTransition(() => {
-      router.push(`/species/${id}`);
+      router.push(speciesHref(id, locale));
     });
   }
 

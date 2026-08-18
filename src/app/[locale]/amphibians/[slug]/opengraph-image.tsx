@@ -10,8 +10,8 @@ export { alt, contentType, size };
 export default async function Image({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
-  return speciesOpengraphResponse(id);
+  const { slug } = await params;
+  return speciesOpengraphResponse(slug);
 }

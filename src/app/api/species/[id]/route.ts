@@ -1,4 +1,5 @@
-import { getRelatedSpecies, getSpeciesById } from "@/data/species";
+import { getSpeciesById } from "@/data/species";
+import { getRelatedSpecies } from "@/lib/speciesRelated";
 
 type RouteContext = {
   params: Promise<{ id: string }>;

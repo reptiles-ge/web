@@ -9,6 +9,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -84,6 +85,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "venomousSnakes" });
+  const tSnakes = await getTranslations({ locale, namespace: "snakes" });
 
   const url = absoluteUrl(localePath(locale, PATH));
   const venomous = getVenomousCatalogSpecies().map((item) =>
@@ -107,6 +109,12 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       {
         "@type": "ListItem",
         position: 2,
+        name: tSnakes("breadcrumbCurrent"),
+        item: absoluteUrl(localePath(locale, "/snakes")),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: t("breadcrumbCurrent"),
         item: url,
       },
@@ -121,7 +129,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     itemListElement: venomous.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+      url: speciesPageUrl(locale, item.id),
       name: `${item.commonName} (${item.scientificName})`,
     })),
   };
@@ -160,7 +168,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       itemListElement: venomous.map((item, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: absoluteUrl(localePath(locale, `/species/${item.id}`)),
+        url: speciesPageUrl(locale, item.id),
         name: item.commonName,
       })),
     },

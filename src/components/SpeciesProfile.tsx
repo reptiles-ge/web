@@ -28,6 +28,7 @@ import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -58,15 +59,11 @@ export function SpeciesProfile({
   );
   const breadcrumbs = useMemo(() => {
     const parent = getSpeciesParentHub(species);
-    const groupLabel =
-      parent.kind === "group" && parent.hubId
-        ? tHubs(`hubs.${parent.hubId}`)
-        : tHubs("hubs.snakes");
+    const groupLabel = tHubs(`hubs.${parent.hubId}`);
 
     return buildSpeciesBreadcrumbs({
       species,
       homeLabel: t("breadcrumbHome"),
-      speciesLabel: t("breadcrumbSpecies"),
       venomousLabel: t("breadcrumbVenomous"),
       groupLabel,
     });
@@ -381,7 +378,7 @@ export function SpeciesProfile({
                   return (
                     <Link
                       key={item.id}
-                      href={`/species/${item.id}`}
+                      href={speciesHref(item.id, locale)}
                       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
                     >
                       {cover ? (

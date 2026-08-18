@@ -7,6 +7,7 @@ import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { regionHref } from "@/lib/speciesRoutes";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -131,7 +132,7 @@ function PanelContent({
             {localizeRegionText(region.name, locale)}
           </h2>
           <Link
-            href={`/regions/${region.id}`}
+            href={regionHref(region.id)}
             className="mt-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
           >
             {t("viewRegion")}

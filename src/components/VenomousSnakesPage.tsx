@@ -8,6 +8,7 @@ import {
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import {
   ArrowLeft,
@@ -30,6 +31,7 @@ export function VenomousSnakesPage({
   heroSrc,
 }: VenomousSnakesPageProps) {
   const t = useTranslations("venomousSnakes");
+  const tSnakes = useTranslations("snakes");
   const locale = useLocale() as AppLocale;
   const highCount = species.filter((item) => item.danger === "High").length;
   const moderateCount = species.filter(
@@ -72,6 +74,17 @@ export function VenomousSnakesPage({
                   <li aria-hidden="true" className="text-white/30">
                     /
                   </li>
+                  <li>
+                    <Link
+                      href="/snakes"
+                      className="transition-colors hover:text-white"
+                    >
+                      {tSnakes("breadcrumbCurrent")}
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="text-white/30">
+                    /
+                  </li>
                   <li className="text-white/80">{t("breadcrumbCurrent")}</li>
                 </ol>
               </nav>
@@ -94,7 +107,7 @@ export function VenomousSnakesPage({
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
-                  href="/species?danger=venomous"
+                  href={{ pathname: "/species", query: { danger: "venomous" } }}
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
                 >
                   {t("ctaAtlas")}
@@ -248,7 +261,7 @@ export function VenomousSnakesPage({
               </Reveal>
               <Reveal delay={80}>
                 <Link
-                  href="/species?danger=harmless"
+                  href={{ pathname: "/species", query: { danger: "harmless" } }}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
                 >
                   {t("lookalikesCta")}
@@ -332,7 +345,7 @@ function SpeciesGuideRow({
 
   return (
     <Link
-      href={`/species/${species.id}`}
+      href={speciesHref(species.id, locale)}
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
     >
       <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">

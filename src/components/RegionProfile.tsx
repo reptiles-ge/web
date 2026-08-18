@@ -19,6 +19,7 @@ import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
@@ -98,10 +99,17 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 className="mb-4 flex flex-wrap items-center gap-2 text-[13px] text-white/45 sm:mb-6"
               >
                 <Link
-                  href="/regions"
+                  href="/"
                   className="inline-flex items-center gap-2 font-medium transition-colors hover:text-white"
                 >
                   <ArrowLeft className="size-3.5" />
+                  {t("breadcrumbHome")}
+                </Link>
+                <span aria-hidden>/</span>
+                <Link
+                  href="/regions"
+                  className="font-medium transition-colors hover:text-white"
+                >
                   {t("allRegions")}
                 </Link>
                 <span aria-hidden>/</span>
@@ -294,7 +302,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
                     <li key={item.id}>
                       <Reveal delay={index * 50}>
                         <Link
-                          href={`/regions/${item.id}`}
+                          href={regionHref(item.id)}
                           className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
                         >
                           <div className="flex min-h-[3.4rem] items-start justify-between gap-3">
@@ -332,9 +340,10 @@ function PhotoSpeciesCard({
   species: Species;
   showDanger?: boolean;
 }) {
+  const locale = useLocale() as AppLocale;
   return (
     <Link
-      href={`/species/${species.id}`}
+      href={speciesHref(species.id, locale)}
       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
     >
       <Image

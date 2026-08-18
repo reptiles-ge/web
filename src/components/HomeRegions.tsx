@@ -6,6 +6,7 @@ import {
 import { getRegionHeroImage } from "@/data/regionImages";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { regionHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -52,7 +53,7 @@ export async function HomeRegions() {
             return (
               <Link
                 key={region.id}
-                href={`/regions/${region.id}`}
+                href={regionHref(region.id)}
                 className="group relative block overflow-hidden rounded-[24px] bg-ink"
               >
                 <div className="relative aspect-[5/6] sm:aspect-[4/5]">

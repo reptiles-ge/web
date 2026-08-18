@@ -1,14 +1,29 @@
 import type { DangerLevel } from "@/data/species";
+import type { AnimalGroup } from "@/data/speciesAtlas";
+import { isVenomousDanger } from "@/data/speciesAtlas";
+
+export function speciesTitleIntentKey(
+  group: AnimalGroup,
+  danger: DangerLevel,
+):
+  | "titleSnakeVenomous"
+  | "titleSnake"
+  | "titleLizard"
+  | "titleTurtle"
+  | "titleAmphibian" {
+  if (group === "snake") {
+    return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
+  }
+  if (group === "lizard") return "titleLizard";
+  if (group === "turtle") return "titleTurtle";
+  return "titleAmphibian";
+}
 
 export function speciesMetaTitle(
   commonName: string,
   scientificName: string,
-  danger: DangerLevel,
-  intentVenomous: string,
-  intentHarmless: string,
+  intent: string,
 ) {
-  const intent =
-    danger === "Harmless" ? intentHarmless : intentVenomous;
   return `${commonName} (${scientificName}) — ${intent}`;
 }
 
