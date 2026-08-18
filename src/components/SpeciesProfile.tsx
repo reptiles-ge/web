@@ -29,6 +29,7 @@ import {
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
 import { speciesHref } from "@/lib/speciesRoutes";
+import { getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -57,6 +58,7 @@ export function SpeciesProfile({
     () => rawRelated.map((item) => localizeSpecies(item, locale)),
     [rawRelated, locale],
   );
+  const guideLinks = getSpeciesGuideLinks(species.id);
   const breadcrumbs = useMemo(() => {
     const parent = getSpeciesParentHub(species);
     const groupLabel = tHubs(`hubs.${parent.hubId}`);
@@ -342,6 +344,36 @@ export function SpeciesProfile({
         ) : null}
 
         <SpeciesSources sources={species.sources} />
+
+        {guideLinks.length > 0 ? (
+          <section className="border-t border-border bg-surface py-16 lg:py-20">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              {guideLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group flex flex-col justify-between gap-6 rounded-[24px] border border-border bg-card p-7 transition-colors hover:bg-background sm:flex-row sm:items-end sm:p-9"
+                >
+                  <div className="max-w-2xl">
+                    <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                      {t("guideLinkEyebrow")}
+                    </p>
+                    <p className="mt-4 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                      {t("guideLinkTitle")}
+                    </p>
+                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                      {t("guideLinkBody")}
+                    </p>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+                    {t("guideLinkCta")}
+                    <ArrowUpRight className="size-3.5" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {related.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">

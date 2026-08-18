@@ -36,6 +36,18 @@ export const pathnames = {
     ka: "/xvlikebi",
     en: "/lizards",
   },
+  "/lizards/saxeoebebi": {
+    ka: "/xvlikebi/saxeoebebi",
+    en: "/lizards/species",
+  },
+  "/lizards/identifikacia": {
+    ka: "/xvlikebi/identifikacia",
+    en: "/lizards/identify",
+  },
+  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba": {
+    ka: "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+    en: "/lizards/lizard-or-glass-lizard",
+  },
   "/lizards/[slug]": {
     ka: "/xvlikebi/[slug]",
     en: "/lizards/[slug]",

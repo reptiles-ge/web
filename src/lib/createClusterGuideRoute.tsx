@@ -1,4 +1,7 @@
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
+import { LizardComparePage } from "@/components/LizardComparePage";
+import { LizardIdentifyPage } from "@/components/LizardIdentifyPage";
+import { LizardSpeciesIndexPage } from "@/components/LizardSpeciesIndexPage";
 import { SnakeBitePage } from "@/components/SnakeBitePage";
 import { SnakeIdentifyPage } from "@/components/SnakeIdentifyPage";
 import { SnakeLargestPage } from "@/components/SnakeLargestPage";
@@ -42,6 +45,9 @@ const CLUSTER_PAGES: Record<
   "snake-bite": SnakeBitePage,
   "snake-range": SnakeRangePage,
   "snake-largest": SnakeLargestPage,
+  "lizard-index": LizardSpeciesIndexPage,
+  "lizard-identify": LizardIdentifyPage,
+  "lizard-glass": LizardComparePage,
 };
 
 export function createClusterGuideRoute(guideId: ClusterGuideId) {

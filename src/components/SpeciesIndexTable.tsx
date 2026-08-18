@@ -25,9 +25,13 @@ type DangerFilter = "all" | "venomous" | "harmless";
 export function SpeciesIndexTable({
   species,
   locale,
+  showDangerFilter = true,
+  showFamilyFilter = true,
 }: {
   species: Species[];
   locale: AppLocale;
+  showDangerFilter?: boolean;
+  showFamilyFilter?: boolean;
 }) {
   const t = useTranslations("speciesIndex");
   const tShared = useTranslations("groupHubShared");
@@ -49,64 +53,71 @@ export function SpeciesIndexTable({
   }, [species, danger, family]);
 
   const dash = t("emDash");
+  const showFilters = showDangerFilter || showFamilyFilter;
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2">
-        {(["all", "venomous", "harmless"] as const).map((key) => {
-          const active = danger === key;
-          return (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setDanger(key)}
-              className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                active
-                  ? "border-ink bg-ink text-ink-foreground"
-                  : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-              }`}
-            >
-              {t(`filter.${key}`)}
-            </button>
-          );
-        })}
-      </div>
-      <div className="mt-3 flex flex-wrap gap-2">
-        <button
-          type="button"
-          onClick={() => setFamily("all")}
-          className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-            family === "all"
-              ? "border-ink bg-ink text-ink-foreground"
-              : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-          }`}
-        >
-          {t("filter.familyAll")}
-        </button>
-        {families.map((name) => {
-          const active = family === name;
-          return (
-            <button
-              key={name}
-              type="button"
-              onClick={() => setFamily(name)}
-              className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                active
-                  ? "border-ink bg-ink text-ink-foreground"
-                  : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-              }`}
-            >
-              {name}
-            </button>
-          );
-        })}
-      </div>
+      {showDangerFilter ? (
+        <div className="flex flex-wrap gap-2">
+          {(["all", "venomous", "harmless"] as const).map((key) => {
+            const active = danger === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setDanger(key)}
+                className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                  active
+                    ? "border-ink bg-ink text-ink-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+                }`}
+              >
+                {t(`filter.${key}`)}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
+      {showFamilyFilter ? (
+        <div className={showDangerFilter ? "mt-3 flex flex-wrap gap-2" : "flex flex-wrap gap-2"}>
+          <button
+            type="button"
+            onClick={() => setFamily("all")}
+            className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+              family === "all"
+                ? "border-ink bg-ink text-ink-foreground"
+                : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+            }`}
+          >
+            {t("filter.familyAll")}
+          </button>
+          {families.map((name) => {
+            const active = family === name;
+            return (
+              <button
+                key={name}
+                type="button"
+                onClick={() => setFamily(name)}
+                className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                  active
+                    ? "border-ink bg-ink text-ink-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+                }`}
+              >
+                {name}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
 
       {filtered.length === 0 ? (
         <p className="mt-10 text-[15px] text-muted-foreground">{t("empty")}</p>
       ) : (
         <>
-          <div className="mt-10 space-y-px divide-y divide-border border-y border-border lg:hidden">
+          <div
+            className={`${showFilters ? "mt-10" : ""} space-y-px divide-y divide-border border-y border-border lg:hidden`}
+          >
             {filtered.map((item, index) => (
               <Reveal key={item.id} delay={Math.min(index * 30, 240)}>
                 <IndexCard
@@ -121,7 +132,7 @@ export function SpeciesIndexTable({
             ))}
           </div>
 
-          <div className="mt-10 hidden overflow-x-auto lg:block">
+          <div className={`${showFilters ? "mt-10" : ""} hidden overflow-x-auto lg:block`}>
             <table className="w-full min-w-[920px] border-y border-border text-left">
               <thead>
                 <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">

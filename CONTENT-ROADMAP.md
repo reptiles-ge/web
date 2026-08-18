@@ -37,7 +37,9 @@
 | `/gvelebi/shxamiani-gvelis-amocnoba` | შხამიანი vs უშხამო | EN: `/en/snakes/identify-venomous` |
 | `/gvelebi/gvelis-nakbeni` | ნაკბენი (საგანმანათლებლო) | EN: `/en/snakes/bite`; 112; არა medical schema |
 | `/gvelebi/gavrtseleba` | გველების გავრცელება | EN: `/en/snakes/range` |
-| `/gvelebi/didi-gvelebi` | დიდი გველები | EN: `/en/snakes/largest` |
+| `/xvlikebi/saxeoebebi` | ხვლიკების ინდექსი | EN: `/en/lizards/species` |
+| `/xvlikebi/identifikacia` | ხვლიკების ამოცნობა | EN: `/en/lizards/identify` |
+| `/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba` | გველხოკერა vs გველი | EN: `/en/lizards/lizard-or-glass-lizard` |
 | `/species` | ატლასი / კატალოგი | |
 | `/gvelebi/giurza` (და ანალოგიურად) | 68 სახეობის პროფილი | KA ქართული slug; EN სამეცნიერო; ძველი `/species/[id]` 301 |
 | `/regions` `/regions/[id]` | 12 რეგიონი | თითქმის მხოლოდ გველები + გველხოკერა |
@@ -126,7 +128,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 **სტატუსი:** `/xvlikebi` live.
 
 - [x] URL `/xvlikebi` + 301
-- [x] child: ჯოჯო, გველხოკერა (იდენტიფიკაცია / vs გველხოკერა გვერდები — ფაზა 3)
+- [x] child: ჯოჯო, გველხოკერა, ინდექსი, ამოცნობა, გველხოკერა vs გველი
 - [x] Darevskia-ს სიმდიდრის მოკლე ახსნა + ბმული სახეობებზე
 
 ### 6. `/xvlikebi/jojo` — ჯოჯო (Species)
@@ -241,23 +243,31 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ## ფაზა 3 — Lizard cluster (16–18)
 
+**სტატუსი:** live (16–18).
+
 ### 16. `/xvlikebi/saxeoebebi` — საქართველოს ხვლიკების სახეობები
 
-- [ ] child of `/xvlikebi`
-- [ ] იგივე ცხრილის ველები, რაც snake index-ს
-- [ ] Darevskia გამოყოფილი ბლოკით (16 სახეობა)
+**სტატუსი:** `/xvlikebi/saxeoebebi` live; EN `/en/lizards/species`.
+
+- [x] child of `/xvlikebi`
+- [x] იგივე ცხრილის ველები, რაც snake index-ს
+- [x] Darevskia გამოყოფილი ბლოკით (16 სახეობა)
 
 ### 17. `/xvlikebi/identifikacia` — როგორ განვასხვავოთ ხვლიკები საქართველოში
 
-- [ ] „ეს რა ხვლიკია?“ flow: ფოტო → ზომა → შეფერილობა → გავრცელება → მსგავსი სახეობები
-- [ ] Darevskia-სთვის გაფრთხილება: ფერი საკმარისი არ არის
-- [ ] ბმულები species pages-ზე
+**სტატუსი:** live; EN `/en/lizards/identify`.
+
+- [x] „ეს რა ხვლიკია?“ flow: ფოტო → ზომა → შეფერილობა → გავრცელება → მსგავსი სახეობები
+- [x] Darevskia-სთვის გაფრთხილება: ფერი საკმარისი არ არის
+- [x] ბმულები species pages-ზე
 
 ### 18. `/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba` — ხვლიკი თუ გველხოკერა
 
-- [ ] niche comparison გვერდი
-- [ ] გველხოკერა vs გველი vs ბოხმეჭა (`Anguis colchica`)
-- [ ] ორმხრივი ბმულები species pages-დან
+**სტატუსი:** live; EN `/en/lizards/lizard-or-glass-lizard`.
+
+- [x] niche comparison გვერდი
+- [x] გველხოკერა vs გველი vs ბოხმეჭა (`Anguis colchica`)
+- [x] ორმხრივი ბმულები species pages-დან (გველხოკერა, ბოხმეჭა, მცურავები)
 
 ---
 
@@ -447,7 +457,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 - [ ] `getRelatedSpecies` — lookalikes + venom counterparts, არა მხოლოდ genus
 - [ ] Breadcrumb schema + UI ყველა ახალ გვერდზე
 - [x] sitemap-ში ახალი URL-ები; ძველები მხოლოდ 301, არა duplicate
-- [x] Home / Nav / Footer / `HomeKnowledge` განახლება კლასტერებზე — Footer + snakes hub cards + LanguageSwitcher; HomeKnowledge უკვე pillar-ებზეა
+- [x] Home / Nav / Footer / `HomeKnowledge` განახლება კლასტერებზე — Footer + hub cards + LanguageSwitcher
 - [x] `#13` ნაკბენის გვერდზე **არ** მიეცეს medical advice schema — WebPage + FAQ მხოლოდ არსებულ Q&A-ზე; წყაროები: 112 და საიტის არსებული გიდები
 
 ---
@@ -471,9 +481,9 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 | 13 | გველის ნაკბენი | `/gvelebi/gvelis-nakbeni` | Guide | არის |
 | 14 | გავრცელება | `/gvelebi/gavrtseleba` | Guide | არის |
 | 15 | დიდი გველები | `/gvelebi/didi-gvelebi` | Guide | არის |
-| 16 | ხვლიკების სახეობები | `/xvlikebi/saxeoebebi` | Index | არ არის |
-| 17 | ხვლიკების იდენტიფიკაცია | `/xvlikebi/identifikacia` | Guide | არ არის |
-| 18 | ხვლიკი vs გველხოკერა | `/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba` | Guide | FAQ-ში მხოლოდ |
+| 16 | ხვლიკების სახეობები | `/xvlikebi/saxeoebebi` | Index | არის |
+| 17 | ხვლიკების იდენტიფიკაცია | `/xvlikebi/identifikacia` | Guide | არის |
+| 18 | ხვლიკი vs გველხოკერა | `/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba` | Guide | არის |
 | 19 | კუების სახეობები | `/kuebi/saxeoebebi` | Index | არ არის |
 | 20 | ხმელეთის კუები | `/kuebi/xmelis-kuebi` | Guide | არ არის |
 | 21 | წყლის კუები | `/kuebi/tsqlis-kuebi` | Guide | არ არის |

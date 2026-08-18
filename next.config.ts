@@ -197,6 +197,51 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        source: "/lizards/species",
+        destination: "/xvlikebi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/lizards/identify",
+        destination: "/xvlikebi/identifikacia",
+        statusCode: 301,
+      },
+      {
+        source: "/lizards/lizard-or-glass-lizard",
+        destination: "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+        statusCode: 301,
+      },
+      {
+        source: "/en/xvlikebi/saxeoebebi",
+        destination: "/en/lizards/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/xvlikebi/identifikacia",
+        destination: "/en/lizards/identify",
+        statusCode: 301,
+      },
+      {
+        source: "/en/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+        destination: "/en/lizards/lizard-or-glass-lizard",
+        statusCode: 301,
+      },
+      {
+        source: "/en/lizards/saxeoebebi",
+        destination: "/en/lizards/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/lizards/identifikacia",
+        destination: "/en/lizards/identify",
+        statusCode: 301,
+      },
+      {
+        source: "/en/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+        destination: "/en/lizards/lizard-or-glass-lizard",
+        statusCode: 301,
+      },
+      {
         source: "/identify",
         destination: "/species",
         statusCode: 302,

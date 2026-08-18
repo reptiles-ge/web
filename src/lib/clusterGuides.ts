@@ -34,6 +34,20 @@ export const LARGE_SNAKE_IDS = [
 
 export const LARGE_SNAKE_LIZARD_ID = "pseudopus-apodus";
 
+export const LIZARD_LOOKALIKE_PAIRS = [
+  { a: "paralaudakia-caucasia", b: "tenuidactylus-caspius" },
+  { a: "paralaudakia-caucasia", b: "darevskia-portschinskii" },
+  { a: "pseudopus-apodus", b: "anguis-colchica" },
+  { a: "pseudopus-apodus", b: "natrix-natrix" },
+] as const;
+
+export const GLASS_LIZARD_COMPARE_IDS = [
+  "pseudopus-apodus",
+  "anguis-colchica",
+  "natrix-natrix",
+  "natrix-tessellata",
+] as const;
+
 export const SNAKE_LOOKALIKE_PAIRS = [
   { a: "natrix-natrix", b: "vipera-kaznakovi" },
   { a: "natrix-tessellata", b: "vipera-kaznakovi" },
@@ -58,6 +72,14 @@ export function isSnakeSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "snake";
 }
 
+export function isLizardSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "lizard";
+}
+
+export function isDarevskiaSpecies(species: Species) {
+  return species.genus === "Darevskia";
+}
+
 export function getRegionSnakeSpecies(region: Region) {
   return getRegionSpecies(region).filter(isSnakeSpecies);
 }
@@ -75,7 +97,10 @@ export type ClusterGuideId =
   | "snake-identify"
   | "snake-bite"
   | "snake-range"
-  | "snake-largest";
+  | "snake-largest"
+  | "lizard-index"
+  | "lizard-identify"
+  | "lizard-glass";
 
 export type ClusterGuidePath =
   | "/amphibians/bayayi"
@@ -83,7 +108,10 @@ export type ClusterGuidePath =
   | "/snakes/shxamiani-gvelis-amocnoba"
   | "/snakes/gvelis-nakbeni"
   | "/snakes/gavrtseleba"
-  | "/snakes/didi-gvelebi";
+  | "/snakes/didi-gvelebi"
+  | "/lizards/saxeoebebi"
+  | "/lizards/identifikacia"
+  | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -91,7 +119,10 @@ export type ClusterMessageKey =
   | "snakeIdentify"
   | "snakeBite"
   | "snakeRange"
-  | "snakeLargest";
+  | "snakeLargest"
+  | "lizardIndex"
+  | "lizardIdentify"
+  | "lizardCompare";
 
 export type ClusterGuideConfig = {
   id: ClusterGuideId;
@@ -175,6 +206,43 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     schema: "article",
     primaryCta: "hash",
   },
+  "lizard-index": {
+    id: "lizard-index",
+    pathname: "/lizards/saxeoebebi",
+    parentHub: "lizards",
+    messageKey: "lizardIndex",
+    heroSpeciesId: "pseudopus-apodus",
+    matches: isLizardSpecies,
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "lizard-identify": {
+    id: "lizard-identify",
+    pathname: "/lizards/identifikacia",
+    parentHub: "lizards",
+    messageKey: "lizardIdentify",
+    heroSpeciesId: "paralaudakia-caucasia",
+    matches: (species) =>
+      isLizardSpecies(species) ||
+      species.id === "natrix-natrix" ||
+      species.id === "natrix-tessellata",
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "lizard-glass": {
+    id: "lizard-glass",
+    pathname: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+    parentHub: "lizards",
+    messageKey: "lizardCompare",
+    heroSpeciesId: "pseudopus-apodus",
+    matches: (species) =>
+      (GLASS_LIZARD_COMPARE_IDS as readonly string[]).includes(species.id),
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
 };
 
 export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
@@ -196,7 +264,10 @@ export type HubClusterCard =
         | "/snakes/shxamiani-gvelis-amocnoba"
         | "/snakes/gvelis-nakbeni"
         | "/snakes/gavrtseleba"
-        | "/snakes/didi-gvelebi";
+        | "/snakes/didi-gvelebi"
+        | "/lizards/saxeoebebi"
+        | "/lizards/identifikacia"
+        | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba";
       key:
         | "venomous"
         | "yard"
@@ -205,7 +276,10 @@ export type HubClusterCard =
         | "identify"
         | "bite"
         | "range"
-        | "largest";
+        | "largest"
+        | "lizardIndex"
+        | "lizardIdentify"
+        | "glassLizard";
     }
   | {
       kind: "species";
@@ -225,6 +299,13 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "species", id: "macrovipera-lebetina", key: "giurza" },
   ],
   lizards: [
+    { kind: "page", href: "/lizards/saxeoebebi", key: "lizardIndex" },
+    { kind: "page", href: "/lizards/identifikacia", key: "lizardIdentify" },
+    {
+      kind: "page",
+      href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+      key: "glassLizard",
+    },
     { kind: "species", id: "paralaudakia-caucasia", key: "jojo" },
     { kind: "species", id: "pseudopus-apodus", key: "gvelxokera" },
   ],
@@ -316,4 +397,15 @@ export function getRearFangedSpecies(species: Species[]) {
   return species.filter(
     (item) => isVenomousDanger(item.danger) && item.family !== "Viperidae",
   );
+}
+
+const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
+
+export function getSpeciesGuideLinks(id: string) {
+  if (!glassCompareIdSet.has(id)) return [];
+  return [
+    {
+      href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba" as const,
+    },
+  ];
 }
