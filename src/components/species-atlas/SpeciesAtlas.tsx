@@ -63,27 +63,28 @@ function AnimatedValue({
   value: number;
   className?: string;
 }) {
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
+    if (display === value) return;
+
     let frame = 0;
     let start: number | null = null;
+    const from = display;
     const duration = 900;
-    const timeout = window.setTimeout(() => {
-      function tick(ts: number) {
-        if (start === null) start = ts;
-        const progress = Math.min((ts - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setDisplay(Math.round(value * eased));
-        if (progress < 1) {
-          frame = window.requestAnimationFrame(tick);
-        }
+
+    function tick(ts: number) {
+      if (start === null) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(from + (value - from) * eased));
+      if (progress < 1) {
+        frame = window.requestAnimationFrame(tick);
       }
-      frame = window.requestAnimationFrame(tick);
-    }, 120);
+    }
+    frame = window.requestAnimationFrame(tick);
 
     return () => {
-      window.clearTimeout(timeout);
       window.cancelAnimationFrame(frame);
     };
   }, [value]);
