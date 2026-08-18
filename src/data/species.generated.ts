@@ -76,7 +76,7 @@ export const species: Species[] = [
         "answer": "Ophisops lacertidია შერწყმული ქუთუთოებით, მაგრამ უფრო დიდი და სწრაფი ღია ადგილების ხვლიკია. Ablepharus პატარა სცინკია გლუვი ქერცლებით."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -168,7 +168,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტის ფიგურა ნიგოეთიდანაა; ბარკოდები მთისძირიდან, ბანისხევიდან და ლანჩხუთიდან (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -256,7 +256,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -340,7 +340,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -512,7 +512,7 @@ export const species: Species[] = [
     "description": "D. parvula-ს კომპლექსის კანდიდატი კლდის ხვლიკი სამხრეთ-დასავლეთ საქართველოში; ფერი ამოცნობისთვის საკმარისი არ არის.",
     "overview": "აჭარული კლდის ხვლიკი (Darevskia adjarica) Tarkhnishvili et al. 2026-ში კანდიდატი სახეობაა: ადრე D. parvula-ს გეოგრაფიულ ქვესახეობად ითვლებოდა. არეალი სამხრეთ-დასავლეთ საქართველოს ფარავს. საქართველოს D. ajarica-სა და ჩრდილო-აღმოსავლეთ თურქეთის D. parvula-ს შორის ციტოქრომ b-ის სხვაობა 3.7%-მდეა; კომპლექსის გარდამავალი ზონა პოპულაციურად არ არის შესწავლილი, ამიტომ თავისუფალი გენთა ნაკადი ჯერ არ არის გამორიცხული. ბარკოდირებული ნიმუშები შუახევიდანაა; უახლოესი ჰომოლოგი აჭარისწყალიდანაა (დეპონირებული როგორც D. parvula).",
     "habitat": "ჩეკლისტით არეალი სამხრეთ-დასავლეთ საქართველოზე ვრცელდება. სახელდებული ადგილები: შუახევი (ფიგურა და ბარკოდები), აჭარისწყალი (უახლოესი მიმდევრობა).",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში კანდიდატი სახეობაა. სახეობრივი რანგი D. parvula-სგან დამატებით საკონტაქტო ზონისა და პოპულაციურ მტკიცებულებას საჭიროებს.",
     "danger": "Harmless",
@@ -554,9 +554,7 @@ export const species: Species[] = [
         "ფერი და ზოგადი იერი Darevskia-ს შორის არ ჰყოფს სახეობებს.",
         "ადრე D. parvula-ს ქვესახეობად ითვლებოდა; საკონტაქტო ზონა არ არის შესწავლილი.",
         "ჩეკლისტის ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს, არა ფერს.",
-        {
-          "არ აურიოთ D. mixta-ში": "mixta დასავლეთ საქართველოს ენდემია და აჭარაში არ არის."
-        }
+        "არ აურიოთ D. mixta-ში: mixta დასავლეთ საქართველოს ენდემია და აჭარაში არ არის."
       ]
     },
     "faq": [
@@ -577,7 +575,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -602,7 +600,7 @@ export const species: Species[] = [
     "description": "კანდიდატი კლდის ხვლიკი; ნაშრომის ანგარიში მოკლეა და ქართულ ლოკალიტეტს არ ასახელებს — ფერი ამოცნობისთვის საკმარისი არ არის.",
     "overview": "აფხაზეთის კლდის ხვლიკი (Darevskia alpina) საქართველოს ჩეკლისტში კანდიდატი სახეობაა. Tarkhnishvili et al. 2026-ის ტაქსონომიური შენიშვნა მოკლეა: შეიძლება იყოს ჰიბრიდული სახეობა კომპლექსებს „caucasica“ და „saxicola“ შორის (Murphy 2000; Tarkhnishvili 2012). ანგარიშში ქართული ჩანაწერების სია, ბარკოდები და სახელდებული ლოკალიტეტი არ არის. ქართული სახელი აფხაზეთს მიანიშნებს, მაგრამ ეს ნაშრომის შენიშვნაში არ დასტურდება — აქ არ ვავსებთ.",
     "habitat": "",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში კანდიდატი სახეობაა. ჰიბრიდული წარმოშობის ჰიპოთეზა სახეობრივ რანგს დამატებით მტკიცებულებას უტოვებს.",
     "danger": "Harmless",
@@ -660,7 +658,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -685,7 +683,7 @@ export const species: Species[] = [
     "description": "პართენოგენეტიკური კლდის ხვლიკი სამხრეთ საქართველოს ვიწრო არეალით; ფერი ამოცნობისთვის საკმარისი არ არის.",
     "overview": "სომხური კლდის ხვლიკი (Darevskia armeniaca) Tarkhnishvili et al. 2026-ში ჩვეულებრივი სახეობრივი სტატუსითაა. პართენოგენეტიკური ფორმაა: სავარაუდოდ ჰიბრიდი D. valentini-ის მამრებსა და D. mixta-ს მდედრებს შორის, ან უკუჯვარედინი D. valentini-სა და სხვა პართენოგენს შორის. არეალი სამხრეთ საქართველოში მცირეა; პოპულაციებს შორის შესამჩნევი განსხვავება ნაშრომში არ არის აღნიშნული. ბარკოდი ახალქალაქიდანაა; ფიგურა — ნინოწმინდის მუნიციპალიტეტი, საღამოს ტბა. მიტოქონდრიული გენომი D. mixta-სა და პართენოგენ D. dahli-საც ემთხვევა.",
     "habitat": "ნაშრომი მცირე არეალს სამხრეთ საქართველოში ასახელებს. სახელდებული ადგილები: ნინოწმინდა, საღამოს ტბა (ფიგურა); ახალქალაქი (ბარკოდი).",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "პართენოგენეტიკური ფორმაა — მამრის გარეშე მრავლდება. ეს სხვა Darevskia-სგან არ ჰყოფს ფერით.",
     "conservation": "ჩეკლისტში ჩვეულებრივი სახეობრივი სტატუსითაა; ბიოლოგიურად დადასტურებულადაა მითითებული.",
     "danger": "Harmless",
@@ -748,7 +746,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -773,7 +771,7 @@ export const species: Species[] = [
     "description": "D. saxicola-ს კომპლექსის კანდიდატი კლდის ხვლიკი; ერწოს პოპულაცია ქვესახეობაა, არა ცალკე სახეობა — ფერი საკმარისი არ არის.",
     "overview": "ბრაუნერის კლდის ხვლიკი (Darevskia brauneri) Tarkhnishvili et al. 2026-ში კანდიდატი სახეობაა, Darevskia (saxicola) კომპლექსის წევრი. სახეობრივი სტატუსი ფართოდ არის მიღებული, მაგრამ გაურკვეველია, რამდენად არსებობს საფეხურიანი გენეტიკური და ფენოტიპური კლინები D. saxicola-სა და D. szczerbaki-სგან. ზოგიერთი ქართული პოპულაციის მიტოქონდრიული ჰაპლოჯგუფები ჩრდილოეთ კავკასიის D. saxicola-ს უფრო ახლოსაა, ვიდრე ფორმალურად კონსპეციფიკურ პოპულაციებთან. გავრცელება დასავლეთ და ცენტრალურ დიდ კავკასიონზეა შეზღუდული. ერწოს ტბის მახლობლად აღწერილი D. arribasi აქ D. b. arribasi-ად რჩება: დიაგნოსტიკური ქერცლი და მორფომეტრია დასავლეთ კავკასიისა და ენგურის/ტეხურის აუზების brauneri-ის ვარიაციაში ჯდება, ხოლო mtDNA განსხვავება ≈2%-ის მასშტაბისაა. D. b. myusserica ადგილობრივად ჩრდილო-დასავლეთ საქართველოში გვხვდება.",
     "habitat": "დასავლეთი და ცენტრალური დიდი კავკასიონი. სახელდებული ადგილები: მესტია, მანშურას მდინარე (ფიგურა და ბარკოდები); მარტვილი; ერწოს ტბა; ენგურისა და ტეხურის აუზები; ლებარდე (უახლოესი მიმდევრობა).",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში კანდიდატი სახეობაა. saxicola-ს კომპლექსში საკონტაქტო ზონები და იზოლაცია საკმარისად არ არის შემოწმებული.",
     "danger": "Harmless",
@@ -814,9 +812,7 @@ export const species: Species[] = [
       "traits": [
         "ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
         "saxicola-ს კომპლექსი; ქერცლითი კლინები D. saxicola / D. szczerbaki-სგან გაურკვეველია.",
-        {
-          "D. arribasi (ერწო) აქ ქვესახეობაა": "დიაგნოსტიკური ქერცლი brauneri-ის ვარიაციაშია."
-        },
+        "D. arribasi (ერწო) აქ ქვესახეობაა: დიაგნოსტიკური ქერცლი brauneri-ის ვარიაციაშია.",
         "ჩეკლისტის ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს (მესტია, მანშურა)."
       ]
     },
@@ -838,7 +834,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -863,7 +859,7 @@ export const species: Species[] = [
     "description": "დიდი კავკასიონის კლდის ხვლიკი, რომელსაც D. daghestanica-სთან თერგის ზემო დინებაში უწყვეტი არეალი აქვს; ფერი საკმარისი არ არის.",
     "overview": "კავკასიონის ხვლიკი (Darevskia caucasica) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. Doronin et al. (2021) საქართველოს პოპულაციებსა და ჩრდილოეთ კავკასიას შორის ძლიერ გენეტიკურ სხვაობას უჩვენებს; გენომური კვლევა (Tarkhnishvili et al. 2025) სახეობის შიგნით რამდენიმე გენეტიკურად შორეულ ერთეულს ადასტურებს. D. mixta-სთან ვიწრო საკონტაქტო ზონა დიდ კავკასიონზეა. დისკუსიაში D. daghestanica-სთან უწყვეტი არეალი თერგის ზემო დინებაშია და ჰიბრიდიზაცია შესაძლებელია. ბარკოდები: ზაქაგორის ციხე, თბათანას მთა, ლებარდე; ფიგურა — თრუსოს ხეობა, ზაქაგორი.",
     "habitat": "სახელდებული ადგილები: თრუსოს ხეობა, ზაქაგორის ციხე (ფიგურა და ბარკოდი); თბათანას მთა; ლებარდე. დისკუსია თერგის ზემო დინებას daghestanica-სთან კონტაქტისთვის ასახელებს.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. სახეობის შიგნით გენეტიკურად შორეული ერთეულები აღწერილია.",
     "danger": "Harmless",
@@ -926,7 +922,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -951,7 +947,7 @@ export const species: Species[] = [
     "description": "გეოგრაფიულად იზოლირებული კლდის ხვლიკი; ქართული ფორმა D. c. dryada ქვესახეობაა, არა ცალკე სახეობა — ფერი საკმარისი არ არის.",
     "overview": "თურქული ხვლიკი (Darevskia clarkorum) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია: ფენოტიპურად და გენეტიკურად განსხვავებული სახეობა, გეოგრაფიულად იზოლირებული უახლოესი ნათესავებისგან — D. mixta და D. caucasica. ნომინალური D. dryada ზოგიერთ წყაროში სახეობად არის შემოთავაზებული ფენოტიპის მიხედვით; აქ სამხრეთ-დასავლეთ საქართველოს ფორმა გეოგრაფიულ ქვესახეობად რჩება (D. c. dryada), რადგან ციტოქრომ b-ის სხვაობა თურქულ clarkorum-თან მაღალი მსგავსების დიაპაზონშია (99.76–96.22%). ბარკოდები და ფიგურა ჭარნალის ხეობიდანაა.",
     "habitat": "გეოგრაფიულად იზოლირებულია mixta-სა და caucasica-სგან. სახელდებული ადგილი: ჭარნალის ხეობა (ფიგურა და ბარკოდები); ნომინალური dryada — სამხრეთ-დასავლეთი საქართველო.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. dryada აქ ქვესახეობაა, სანამ იზოლაცია არ დამტკიცდება.",
     "danger": "Harmless",
@@ -1014,7 +1010,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1039,7 +1035,7 @@ export const species: Species[] = [
     "description": "ბაზალური კლდის ხვლიკი, არა D. caucasica-ს ქვესახეობა; თერგის ზემო დინებაში უწყვეტი არეალი — ფერი საკმარისი არ არის.",
     "overview": "დაღესტნური ხვლიკი (Darevskia daghestanica) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ხშირად D. caucasica-ს და-სახეობად ან ქვესახეობად ითვლებოდა, მაგრამ ბაზალური ხაზია, თანაბარ მანძილზე D. caucasica-ს, D. mixta-სა და D. clarkorum-ისგან. პოპულაციებს შორის ღრმა გენეტიკური სხვაობაა ნაჩვენები. დისკუსიაში caucasica-სთან უწყვეტი არეალი თერგის ზემო დინებაშია და ჰიბრიდიზაცია შესაძლებელია. ბარკოდი თუშეთიდანაა; ფიგურა — ახმეტის მუნიციპალიტეტი, თბათანას მთა.",
     "habitat": "სახელდებული ადგილები: თუშეთი (ბარკოდი); ახმეტის მუნიციპალიტეტი, თბათანას მთა (ფიგურა). დისკუსია — თერგის ზემო დინება caucasica-სთან კონტაქტისთვის.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. პოპულაციებს შორის ღრმა გენეტიკური სხვაობა აღწერილია; ინფრასპეციფიკური სახელები ნაშრომში არ გამოიყენება.",
     "danger": "Harmless",
@@ -1102,7 +1098,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1127,7 +1123,7 @@ export const species: Species[] = [
     "description": "პართენოგენეტიკური ჰიბრიდი D. mixta-სა და D. portschinskii-სგან; ფერი ამოცნობისთვის საკმარისი არ არის.",
     "overview": "დალის ხვლიკი (Darevskia dahli) Tarkhnishvili et al. 2026-ში პართენოგენეტიკური ჰიბრიდული ფორმაა. მშობელი სახეობები D. mixta და D. portschinskii. მიტოქონდრიული გენომი D. mixta-სა და პართენოგენ D. armeniaca-ს ეზიარება — ამიტომ mtDNA მსგავსება ამ სამს შორის მაღალია და ველში ფერის ნაცვლად არ გამოდგება. ბარკოდი და ფიგურა ქოჯორიდანაა. ეს არ არის D. armeniaca: იმ პართენოგენის მშობლები valentini და mixtaა, არეალი სამხრეთ საქართველოშია.",
     "habitat": "სახელდებული ადგილი: ქოჯორი (ფიგურა და ბარკოდი).",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "პართენოგენეტიკური ჰიბრიდული ფორმაა. ეს ფერით სხვა Darevskia-სგან არ ჰყოფს.",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია.",
     "danger": "Harmless",
@@ -1190,7 +1186,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1215,7 +1211,7 @@ export const species: Species[] = [
     "description": "მიწაზე მცხოვრები Darevskia, სიმპატრიული სხვა სახეობებთან, მაგრამ ფენოტიპურად განსხვავებული — ფერი საკმარისი არ არის.",
     "overview": "ართვინის ხვლიკი (Darevskia derjugini) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. სხვა Darevskia-სთან სიმპატრიულია, მაგრამ ფენოტიპურად და გენეტიკურად განსხვავებული რჩება. ფენოტიპური მრავალფეროვნება მაღალია, გენეტიკური მრავალფეროვნება სახეობის შიგნით მოკრძალებული. საქართველოში გვარის ორი მიწაზე მცხოვრები სახეობიდან ერთ-ერთია (მეორე ხაზი მდელოს ხვლიკებია — praticola / pontica). გვხვდება მთელ დასავლეთ საქართველოში და აღმოსავლეთ საქართველოს ტყის სარტყელში. ბარკოდები: ლაგოდეხი, სიონი, მულახი, რაჭა, ბანისხევი, კინტრიში; ფიგურა — მესტიის მუნიციპალიტეტი, მულახი.",
     "habitat": "მიწაზე მცხოვრები სახეობა. დასავლეთი საქართველო და აღმოსავლეთის ტყის სარტყელი. სახელდებული ადგილები: ლაგოდეხი, სიონი, მულახი, რაჭა, ბანისხევი, კინტრიში.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "სხვა Darevskia-სთან სიმპატრიულია და ფენოტიპურად განსხვავებული რჩება. ფერი მაინც საკმარისი არ არის.",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. ქვესახეობები ნაშრომში დასახელებულია (abchasica, barani, orlowae, derjugini).",
     "danger": "Harmless",
@@ -1278,7 +1274,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1303,7 +1299,7 @@ export const species: Species[] = [
     "description": "დასავლეთ საქართველოს ენდემი კლდის ხვლიკი; აჭარაში არ არის და D. caucasica არ არის — ფერი საკმარისი არ არის.",
     "overview": "კოლხური კლდის ხვლიკი (Darevskia mixta) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. mtDNA-ით D. caucasica-სგან მცირედ განსხვავდება, მაგრამ დიდ კავკასიონზე ვიწრო საკონტაქტო ზონას ქმნის. ადრე D. derjugini-ისა და D. saxicola-ს ჰიბრიდად ითვლებოდა. ნაშრომი ინგლისურ ვერნაკულარს „Ajarian lizard“-იდან „Georgian lizard“-ზე ცვლის: სახეობა დასავლეთ საქართველოს ენდემია, მაგრამ აჭარის რეგიონში არ არის — ამიტომ არც D. adjaricaა. ბარკოდები საირმიდან და ჩხოროწყუდანაა; ფიგურა — საირმე; Baniskhevi-ის მიმდევრობა ნაშრომში დასახელებულია. მატრილინეული წინაპარია პართენოგენების armeniaca და dahli.",
     "habitat": "დასავლეთი საქართველო, აჭარის გარეშე. სახელდებული ადგილები: საირმე, ჩხოროწყუ (ბარკოდები); ბანისხევი (მიმდევრობა). საკონტაქტო ზონა D. caucasica-სთან დიდ კავკასიონზე.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. დასავლეთ საქართველოს ენდემია ნაშრომის მიხედვით.",
     "danger": "Harmless",
@@ -1366,7 +1362,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1391,7 +1387,7 @@ export const species: Species[] = [
     "description": "D. rudis-ის კომპლექსის კანდიდატი; საქართველოს ყველა rudis s.l. აქ obscuraა — ფერი საკმარისი არ არის.",
     "overview": "მესხური კლდის ხვლიკი (Darevskia obscura) Tarkhnishvili et al. 2026-ში კანდიდატი სახეობაა. D. rudis-ის კომპლექსიდან ამაღლებულია ძირითადად მიტოქონდრიული ხაზით, რომელიც კავკასია/საქართველოს პოპულაციებს ანატოლიის D. rudis-ისგან ჰყოფს. ამ ლოგიკით საქართველოს ყველა D. rudis s.l., მათ შორის chechenica და svanetica, obscura-ს ეკუთვნის, არა D. rudis s. str. სახეობრივი სტატუსი მხოლოდ mtDNA-ზეა დაყრდნობილი, მორფოლოგიისა და ბირთვული გენომის გარეშე; obscura-სა და rudis-ს შორის საკონტაქტო ზონაში გენთა ნაკადი არც დასტურდება, არც ირიცხება. ჰიბრიდული ზონა portschinskii-სთან ტანას ხეობაშია; valentini-სთან ვიწრო კონტაქტი და ფართო ინტროგრესია. ქვესახეობები (ნაშრომის infra): obscura — მტკვრის ზემო დინება, თრიალეთის დასავლეთი, მესხეთის აღმოსავლეთი; macromaculata — ჯავახეთის პლატოს დასავლეთი; bischoffi — სამხრეთ-დასავლეთი საქართველო; chechenica — აღმოსავლეთი დიდი კავკასიონი (ენგურის აღმოსავლეთით); svanetica — დასავლეთი დიდი კავკასიონი (მაგ. ენგურის ზემო აუზი).",
     "habitat": "სახელდებული ადგილები: ახალციხის მუნიციპალიტეტი, მესხეთის ქედი (ფიგურა); რველი, ბანისხევის ხეობა (ფიგურა); ახალქალაქი, სააღდგომოს მთა (ბარკოდი); ბორჯომის ხეობა (აღწერის ადგილი / მიმდევრობა). infra ასახელებს თრიალეთს, მესხეთს, ჯავახეთის პლატოს და ენგურს.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში კანდიდატი სახეობაა. სტატუსი მომავალ რევიზიას შეიძლება დასჭირდეს.",
     "danger": "Harmless",
@@ -1454,7 +1450,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1479,7 +1475,7 @@ export const species: Species[] = [
     "description": "კანდიდატი მდელოს ხვლიკი ჩრდილო-დასავლეთ საქართველოდან; praticola-სგან რანგი ღიაა — ფერი საკმარისი არ არის.",
     "overview": "კოლხური მდელოს ხვლიკი (Darevskia pontica) Tarkhnishvili et al. 2026-ში კანდიდატი სახეობაა. praticola-ს ანგარიში ჩრდილო-დასავლეთ საქართველოს პონტურ პოპულაციებს აქ ცალკე გამოყოფს. ზოგიერთ ნიშანში ფენოტიპურად ამოცნობადია, მაგრამ გამოქვეყნებული განხილვები ძალიან მცირე გენეტიკურ სხვაობას და D. praticola sensu lato-სგან ეფექტური გენეტიკური იზოლაციის არარსებობას აღნიშნავს; რანგი (სახეობა vs ქვესახეობა) წყაროებსა და ბაზებში არაერთგვაროვანია. ამ ანგარიშში ბარკოდები და სახელდებული სოფელი არ არის.",
     "habitat": "პონტური პოპულაციები ჩრდილო-დასავლეთ საქართველოში (praticola-ს ანგარიში). ამ ტაქსონის ანგარიში სოფელს ან ბარკოდს არ ასახელებს.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში კანდიდატი სახეობაა. რანგი praticola-სგან დამატებით იზოლაციის მტკიცებულებას საჭიროებს.",
     "danger": "Harmless",
@@ -1542,7 +1538,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1567,7 +1563,7 @@ export const species: Species[] = [
     "description": "მცირე კავკასიონის ენდემი, არსებითად უფრო პატარა ვიდრე obscura/valentini; ფერი საკმარისი არ არის.",
     "overview": "მტკვრის ხვლიკი (Darevskia portschinskii) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ახლოსაა D. rudis-თან, D. obscura-სა და D. valentini-სთან, მაგრამ არსებითად უფრო პატარაა და სამივესთან ვიწრო საკონტაქტო ზონას ქმნის. obscura-სთან ჰიბრიდული ზონა ტანას ხეობაშია. ცენტრალური მცირე კავკასიონის ენდემია. ბარკოდი ქოჯორიდანაა — იქვეა dahli-ის ბარკოდიც; ეს სხვა ტაქსონია. ქვესახეობები: D. p. portschinskii და D. p. nigrita.",
     "habitat": "ცენტრალური მცირე კავკასიონის ენდემი. სახელდებული ადგილები: ქოჯორი (ბარკოდი); ტანას ხეობა (ჰიბრიდული ზონა obscura-სთან).",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. obscura-სა და valentini-სთან გენთა ინტროგრესია საკონტაქტო ზონებში აღწერილია.",
     "danger": "Harmless",
@@ -1630,7 +1626,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1655,7 +1651,7 @@ export const species: Species[] = [
     "description": "აღმოსავლეთ/ცენტრალური საქართველოს მდელოს ხვლიკი; ჩრდილო-დასავლეთის პონტური პოპულაციები აქ D. ponticaა — ფერი საკმარისი არ არის.",
     "overview": "მდელოს ხვლიკი (Darevskia praticola) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ფართოდ გავრცელებული, განსხვავებული სახეობაა ფრაგმენტული არეალით; ქართული პოპულაციები აქ აღმოსავლურ/ნომინოტიპურ ხაზს ეკუთვნის (D. p. praticola — აღმოსავლეთი და ცენტრალური საქართველო). ჩრდილო-დასავლეთ საქართველოს პონტური პოპულაციები ცალკე, კანდიდატ D. pontica-დ არის გამოყოფილი. ბარკოდები თუშურებიდან და სიონიდანაა; ფიგურა — სიონის წყალსაცავი. derjugini-სთან ერთად მიწაზე მცხოვრები Darevskiaა, მაგრამ სხვა სახეობა.",
     "habitat": "აღმოსავლეთი და ცენტრალური საქართველო (ნომინოტიპური ხაზი). სახელდებული ადგილები: სიონის წყალსაცავი (ფიგურა); სიონი და თუშურები (ბარკოდები). პონტური ჩრდილო-დასავლეთი აქ ponticaა.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. pontica-სგან რანგი ლიტერატურაში არაერთგვაროვანია.",
     "danger": "Harmless",
@@ -1718,7 +1714,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1743,7 +1739,7 @@ export const species: Species[] = [
     "description": "კლდის ხვლიკი მხოლოდ მტკვრის ზემო დინებაზე, თურქეთის საზღვართან; ქართული პოპულაციები nairensis-ს უფრო ახლოსაა — ფერი საკმარისი არ არის.",
     "overview": "რადეს ხვლიკი (Darevskia raddei) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. გენეტიკური ანალიზები D. raddei-სა და D. nairensis-ს შორის მკაფიო სახეობრივ გამიჯვნას არ ადასტურებს. ქართული პოპულაციები მიტოქონდრიულად D. r. nairensis-ს უფრო ახლოსაა, ვიდრე სომხეთის ნომინალურ D. r. raddei-სთან; nairensis აქ ქვესახეობად რჩება. საქართველოში სახეობა მტკვრის ზემო დინებითაა შეზღუდული, თურქეთის საზღვართან. ბარკოდები: ასპინძა, ფია; თმოგვი. ფიგურა — ფია, მტკვრის ხეობა. ეს არ არის obscura, რომელიც იმავე აუზის სხვა ადგილებში უფრო ფართოდაა დასახელებული.",
     "habitat": "საქართველოში მხოლოდ მტკვრის ზემო დინება, თურქეთის საზღვართან. სახელდებული ადგილები: ასპინძა, ფია; თმოგვი.",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. nairensis ქვესახეობადაა დატოვებული რეპროდუქციული იზოლაციის ნაკლებობის გამო.",
     "danger": "Harmless",
@@ -1783,9 +1779,7 @@ export const species: Species[] = [
       "summary": "ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლითა და გავრცელებით, არა ფერით. ქართული პოპულაციები nairensis-ს ხაზს ეკუთვნის, არა სომხურ ნომინალურ raddei-ს ფერით.",
       "traits": [
         "ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
-        {
-          "საქართველოში არეალი ვიწროა": "მტკვრის ზემო დინება, თურქეთის საზღვართან."
-        },
+        "საქართველოში არეალი ვიწროა: მტკვრის ზემო დინება, თურქეთის საზღვართან.",
         "D. nairensis აქ ქვესახეობაა, არა ცალკე სახეობა.",
         "ჩეკლისტის ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს (ფია)."
       ]
@@ -1808,7 +1802,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1833,7 +1827,7 @@ export const species: Species[] = [
     "description": "ფენოტიპურად განსხვავებული კლდის ხვლიკი obscura/portschinskii-სთან ვიწრო კონტაქტითა და ფართო ინტროგრესიით — ფერი საკმარისი არ არის.",
     "overview": "ვალენტინის ხვლიკი (Darevskia valentini) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ახლოსაა D. rudis-თან, D. obscura-სა და D. portschinskii-სთან, მაგრამ ფენოტიპურად განსხვავებულია და obscura-სა და portschinskii-სთან ვიწრო საკონტაქტო ზონას ქმნის. საკონტაქტო ზონებში ამ სამ სახეობას შორის ფართო გენთა ინტროგრესიაა. ნომინოტიპური ქვესახეობა D. v. valentini. ბარკოდები საღამოს ტბიდან და კირხბულაქის მდინარიდანაა; ფიგურა — ნინოწმინდის მუნიციპალიტეტი, საღამოს ტბა (იგივე ადგილი, სადაც armeniacaა ნაჩვენები — სხვა, პართენოგენური ტაქსონი). ერთ-ერთი მშობელია პართენოგენ armeniaca-სი.",
     "habitat": "სახელდებული ადგილები: ნინოწმინდა, საღამოს ტბა (ფიგურა და ბარკოდი); კირხბულაქის მდინარე (ბარკოდი).",
-    "diet": "",
+    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
     "behavior": "",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებულია. obscura-სა და portschinskii-სთან ინტროგრესია საკონტაქტო ზონებში აღწერილია.",
     "danger": "Harmless",
@@ -1896,7 +1890,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1921,6 +1915,7 @@ export const species: Species[] = [
     "description": "დიდი უშხამო მცურავი — ჩეკლისტში კანდიდატი სახეობაა.",
     "overview": "ყვითელმუცელა მცურავი (Dolichophis caspius) კოლუბრიდების ოჯახის დიდი, სწრაფი გველია. Tarkhnishvili et al. 2026 მას კანდიდატ სახეობად განიხილავს: შედის D. jugularis-ის აღმოსავლურ ჯგუფში (Nagy et al. 2010) და ადრე ამ კომპლექსის გეოგრაფიულ ქვესახეობად ითვლებოდა. ნომინალური D. jugularis-ისგან გეოგრაფიულად იზოლირებულია. მიტოქონდრიული ციტოქრომ b-ის განსხვავება D. schmidti-სგან დაახლოებით 6–7%-ია; დასავლეთ კასპიისპირეთში შესაძლო საკონტაქტო ზონა პოპულაციურად ჯერ არ არის შესწავლილი. საქართველოში ჩეკლისტით დადასტურებულია (ძველი ლიტერატურა: Nikolskii 1913, Bannikov et al. 1977). ხშირად ერევა წითელმუცელა მცურავს; დიდი ზომის გამო შეიძლება გიურზასაც აგონდეს.",
     "habitat": "ჩეკლისტი კონკრეტულ ჰაბიტატს ან რაიონს არ ასახელებს.",
+    "diet": "ნაშრომი კვებას არ აკონკრეტებს.",
     "behavior": "უშხამო კოლუბრიდი; მრგვალი გუგა. დიდი, სწრაფი მცურავი.",
     "conservation": "ჩეკლისტში კანდიდატი სახეობაა. სახეობრივი რანგი D. schmidti-სგან დამატებით პოპულაციურ მტკიცებულებას საჭიროებს.",
     "danger": "Harmless",
@@ -1983,7 +1978,7 @@ export const species: Species[] = [
         "answer": "არა. გიურზა გველგესლაა ვერტიკალური გუგით. ეს მრგვალგუგებიანი უშხამო მცურავია."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2191,7 +2186,7 @@ export const species: Species[] = [
         "answer": "არა. Eirenis-ს ჩვეულებრივი თვალები და კოლუბრიდის ქერცლები აქვს, არა ჭიასავითი სხეული (გველბრუცა) და არა მსხვილი მახრჩობელას აგებულება."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2299,7 +2294,7 @@ export const species: Species[] = [
         "answer": "Pyron et al. 2013-ის მიხედვით (ჩეკლისტში ციტირებული) E. modestus ჯუჯა გველების ყველაზე ბაზალურ შტოს ეკუთვნის."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2677,7 +2672,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2785,7 +2780,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტი E. velox-ს „საკმაოდ ჩვეულებრივს“ უწოდებს, E. arguta-ს — სპორადულს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2893,7 +2888,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტი ამბობს, რომ COI-ის განსხვავება ამას შეიძლება უჭერდეს მხარს, მაგრამ პოპულაციური შესწავლა ჯერ საჭიროა. აქ არ არის გამოყოფილი."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3001,7 +2996,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026: E. j. turcicus (Werner, 1935)."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3109,7 +3104,7 @@ export const species: Species[] = [
         "answer": "Ablepharus პატარაა, შერწყმული ქუთუთოებით („გველის თვალი“). Eumeces დიდი სცინკია სრული კიდურებითა და ჩვეულებრივი თვალის რგოლით."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3134,6 +3129,7 @@ export const species: Species[] = [
     "description": "ჭრელი უშხამო მცურავი; ჩეკლისტში ბიოლოგიურად დადასტურებული სახეობაა.",
     "overview": "ნაირფერი მცურავი (Hemorrhois ravergieri) კოლუბრიდების უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს, ფართო გავრცელებით კავკასიასა და ცენტრალურ აზიაში. საქართველოში ჩეკლისტით დადასტურებულია. ნაშრომის ფიგურაზე ნიმუში მითითებულია ასპინძიდან, თმოგვიდან.",
     "habitat": "ჩეკლისტი კონკრეტულ ჰაბიტატს არ ასახელებს. ნაშრომის ფიგურაზე ნიმუში — ასპინძა, თმოგვი.",
+    "diet": "ნაშრომი კვებას არ აკონკრეტებს.",
     "behavior": "უშხამო კოლუბრიდი; მრგვალი გუგა.",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებული სახეობაა.",
     "danger": "Harmless",
@@ -3212,7 +3208,7 @@ export const species: Species[] = [
         "answer": "არა. მრგვალი გუგა და უშხამო კოლუბრიდის აგებულება გველგესლისგან განასხვავებს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3320,7 +3316,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3424,7 +3420,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3510,9 +3506,7 @@ export const species: Species[] = [
       "traits": [
         "დღის ლაცერტიდი; არა Darevskia-ს კლდის ხვლიკი.",
         "აღმოსავლეთ საქართველოში ჩეკლისტი 600–800 მ-ზე ზემოთ ასახელებს.",
-        {
-          "სამი ქვესახეობა": "ioriensis, grusinica, brevicaudata."
-        },
+        "სამი ქვესახეობა: ioriensis, grusinica, brevicaudata.",
         "ადამიანისთვის უშხამოა."
       ]
     },
@@ -3534,7 +3528,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტი: ioriensis აღმოსავლეთში, grusinica დასავლეთში, brevicaudata სამხრეთსა და ცენტრში."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3642,7 +3636,7 @@ export const species: Species[] = [
         "answer": "L. strigata ნახევრადმშრალ ჰაბიტატებში ქვეყნის მასშტაბითაა და დადასტურებული სახეობაა. L. media კანდიდატია და ძირითადად აღმოსავლეთზეა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3750,7 +3744,7 @@ export const species: Species[] = [
         "answer": "L. media კანდიდატია L. trilineata-ს კომპლექსში და ძირითადად აღმოსავლეთ საქართველოს ნახევრადმშრალ ადგილებშია. შეადარეთ პროფილები."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3858,7 +3852,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4087,7 +4081,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტით დადასტურებულია. ბარკოდირებული ნიმუში ჩაჩუნას აღკვეთილიდანაა (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4195,7 +4189,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4307,7 +4301,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4693,7 +4687,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4787,7 +4781,7 @@ export const species: Species[] = [
         "answer": "Ablepharus პატარა სცინკია გლუვი ქერცლებით. Ophisops უფრო დიდი ლაცერტიდია ღია ადგილებზე."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5007,7 +5001,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5110,7 +5104,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5214,7 +5208,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5301,9 +5295,7 @@ export const species: Species[] = [
     "identification": {
       "summary": "შემოტანილი ლაცერტიდი ანაკლიაში. არ არის საქართველოს ადგილობრივი ხვლიკი.",
       "traits": [
-        {
-          "საქართველოში ერთი ლოკალიტეტი": "ანაკლია."
-        },
+        "საქართველოში ერთი ლოკალიტეტი: ანაკლია.",
         "გენეტიკურად ახლოს სამხრეთ თურქეთის პოპულაციებთან.",
         "უნებლიედ შემოტანილი — არა ადგილობრივი ფაუნა.",
         "ადამიანისთვის უშხამოა."
@@ -5327,7 +5319,7 @@ export const species: Species[] = [
         "answer": "ადგილობრივი Lacerta და Darevskia საქართველოში ბუნებრივად ბინადრობენ. ეს სახეობა ანაკლიაშია და გენეტიკურად სამხრეთ თურქეთს უკავშირდება."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5685,7 +5677,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5952,7 +5944,7 @@ export const species: Species[] = [
         "answer": "ჯოჯო აღამიდია — დღის, მყარი ხვლიკი სამკუთხა თავით. კასპიური გეკონი გეკონია: ვერტიკალური გუგა, გაფართოებული თითები, ღამის/ბინდის აქტივობა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6060,7 +6052,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტში ორი: T. g. ibera და T. g. nikolskii. გენეტიკური გამიჯვნა ჯერ დადასტურებული არ არის."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6145,9 +6137,7 @@ export const species: Species[] = [
       "summary": "შემოტანილი წყლის კუ. T. s. elegans-ს ყურის უკან წითელი ზოლი აქვს; გუმბათისებრი ნიჟარა ხმელეთის კუა.",
       "traits": [
         "უფრო ბრტყელი ნიჟარა, ვიდრე სახმელეთო კუს გუმბათი.",
-        {
-          "T. s. elegans": "ფართო წითელი ზოლი ყურის უკან."
-        },
+        "T. s. elegans: ფართო წითელი ზოლი ყურის უკან.",
         "დაფრთხილი თათები; ხშირად ნაპირზე თბება.",
         "მშობლიური არ არის — თბილისისა და ბათუმის მიდამოების შემოტანილი პოპულაციები."
       ]
@@ -6174,7 +6164,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6278,7 +6268,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7152,7 +7142,7 @@ export const species: Species[] = [
         "answer": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7177,6 +7167,7 @@ export const species: Species[] = [
     "description": "უშხამო, ლაქებიანი მცურავი; ჩეკლისტში ბიოლოგიურად დადასტურებული სახეობაა.",
     "overview": "ამიერკავკასიური მცურავი (Zamenis hohenackeri) კოლუბრიდების უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს. საქართველოში გვხვდება ნომინოტიპური ქვესახეობა Z. h. hohenackeri. გენეტიკურად ახლოსაა კავკასიისა და აღმოსავლეთ თურქეთის პოპულაციებთან. ნაშრომის ფიგურაზე ნიმუში მითითებულია ადიგენის მუნიციპალიტეტიდან, სოფელ გომაროდან. ხშირად ერევა ესკულაპის მცურავს (Zamenis longissimus).",
     "habitat": "ჩეკლისტი კონკრეტულ ჰაბიტატს არ ასახელებს. ნაშრომის ფიგურაზე ნიმუში — ადიგენის მუნიციპალიტეტი, სოფელი გომარო.",
+    "diet": "ნაშრომი კვებას არ აკონკრეტებს.",
     "behavior": "უშხამო კოლუბრიდი; მრგვალი გუგა.",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — Z. h. hohenackeri.",
     "danger": "Harmless",
@@ -7262,7 +7253,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026: საქართველოში გვხვდება Z. h. hohenackeri. უფრო ფართო არეალში Reptile Database სხვა ქვესახეობებსაც ასახელებს."
       }
     ],
-    "updatedAt": "2026-08-06T13:21:53+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7287,6 +7278,7 @@ export const species: Species[] = [
     "description": "უშხამო კოლუბრიდი; ჩეკლისტში ბიოლოგიურად დადასტურებული სახეობაა.",
     "overview": "ესკულაპის მცურავი (Zamenis longissimus) კოლუბრიდების ოჯახის უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს. გამოქვეყნებული ფილოგეოგრაფია სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფს; მათ შორის „აზიური კლადა“ აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი (Musilová et al. 2010). საქართველოში ჩეკლისტით დადასტურებულია. ხშირად ერევა ამიერკავკასიურ მცურავს (Zamenis hohenackeri).",
     "habitat": "ჩეკლისტი კონკრეტულ ჰაბიტატს არ ასახელებს. გავრცელების კონტექსტი — აღმოსავლეთ შავიზღვისპირეთის აზიური კლადა.",
+    "diet": "ნაშრომი კვებას არ აკონკრეტებს.",
     "behavior": "უშხამო კოლუბრიდი; მრგვალი გუგა.",
     "conservation": "ჩეკლისტში ბიოლოგიურად დადასტურებული სახეობაა.",
     "danger": "Harmless",
@@ -7400,7 +7392,7 @@ export const species: Species[] = [
         "answer": "Musilová et al. 2010 სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფს; ერთ-ერთი აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T21:11:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7722,7 +7714,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A candidate rock lizard in the D. parvula complex of southwestern Georgia; colour is not enough for identification.",
     "overview": "The Ajarian rock lizard (Darevskia adjarica) is a candidate species in Tarkhnishvili et al. 2026: it was formerly treated as a geographic subspecies of D. parvula. The range extends over southwestern Georgia. Cytochrome b difference between Georgian D. ajarica and D. parvula from northeastern Turkey reaches 3.7%; the transition zone of the D. parvula complex has not been studied at population level, so free gene flow cannot yet be rejected. Barcoded specimens are from Shuakhevi; the closest homologous sequence is from Ajaristskali (deposited as D. parvula).",
     "habitat": "The checklist range is southwestern Georgia. Named places: Shuakhevi (figure and barcodes) and Ajaristskali (closest sequence).",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Candidate species in the checklist. Species rank relative to D. parvula still needs contact-zone and population-level evidence.",
     "stats": [
@@ -7750,9 +7742,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "Colour and general appearance do not separate Darevskia species.",
         "Formerly a subspecies of D. parvula; the contact zone is unstudied.",
         "Checklist figures show head scalation and preanal plates, not colour.",
-        {
-          "Not D. mixta": "mixta is endemic to western Georgia and absent from Adjara."
-        }
+        "Not D. mixta: mixta is endemic to western Georgia and absent from Adjara."
       ]
     },
     "faq": [
@@ -7780,7 +7770,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A candidate rock lizard; the paper account is short and names no Georgian locality — colour is not enough for identification.",
     "overview": "The alpine rock lizard (Darevskia alpina) is a candidate species on the Georgian checklist. The taxonomic remark in Tarkhnishvili et al. 2026 is short: it may be a hybrid species between the “caucasica” and “saxicola” complexes (Murphy 2000; Tarkhnishvili 2012). The account lists no Georgian records, barcodes, or named locality. The Georgian common name points to Abkhazia, but the paper remark does not say so — that is not filled in here.",
     "habitat": "",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Candidate species in the checklist. A possible hybrid origin leaves species rank in need of further evidence.",
     "stats": [
@@ -7831,7 +7821,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A parthenogenetic rock lizard with a small southern Georgian range; colour is not enough for identification.",
     "overview": "The Armenian rock lizard (Darevskia armeniaca) has conventional species status in Tarkhnishvili et al. 2026. It is a parthenogenetic form, supposedly a hybrid between males of D. valentini and females of D. mixta, or a backcross between D. valentini and another parthenogen. The range in southern Georgia is small, with no remarkable differences among populations noted in the account. A barcode is from Akhalkalaki; the figure is from Ninotsminda district, Saghamo Lake. The mitochondrial genome is shared with D. mixta and parthenogenetic D. dahli.",
     "habitat": "The paper places a small range in southern Georgia. Named places: Ninotsminda, Saghamo Lake (figure); Akhalkalaki (barcode).",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "A parthenogenetic form — it reproduces without males. That does not separate it from other Darevskia by colour.",
     "conservation": "Conventional species status in the checklist; listed as biologically confirmed.",
     "stats": [
@@ -7887,7 +7877,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A candidate rock lizard in the D. saxicola complex; the Ertso population is a subspecies, not a separate species — colour is not enough.",
     "overview": "Brauner’s rock lizard (Darevskia brauneri) is a candidate species in Tarkhnishvili et al. 2026, in the Darevskia (saxicola) complex. Species status is widely accepted, but it is unclear how far stepped genetic and phenotypic clines separate it from D. saxicola or D. szczerbaki. Mitochondrial haplogroups from some Georgian populations of nominal D. brauneri are closer to North Caucasian D. saxicola than to formally conspecific populations. Distribution is restricted to the western and central Greater Caucasus. D. arribasi from near Ertso Lake is treated here as D. b. arribasi: diagnostic scalation and morphometrics fall within variation of western Caucasian brauneri and of Enguri and Tekhuri basin populations, and mtDNA divergence is on a ≈2% scale. Subspecies D. b. myusserica occurs locally in northwestern Georgia.",
     "habitat": "Western and central Greater Caucasus. Named places: Mestia, Manshura River (figure and barcodes); Martvili; Ertso Lake; Enguri and Tekhuri basins; Lebarde (closest sequence).",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Candidate species in the checklist. Contact zones and isolation in the saxicola complex remain insufficiently tested.",
     "stats": [
@@ -7914,9 +7904,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "traits": [
         "Colour does not separate Darevskia species.",
         "saxicola complex; scalation clines versus D. saxicola / D. szczerbaki are unclear.",
-        {
-          "D. arribasi (Ertso) is a subspecies here": "diagnostic scalation is within brauneri variation."
-        },
+        "D. arribasi (Ertso) is a subspecies here: diagnostic scalation is within brauneri variation.",
         "Checklist figures show head scalation and preanal plates (Mestia, Manshura)."
       ]
     },
@@ -7945,7 +7933,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A Greater Caucasus rock lizard with a contiguous range with D. daghestanica on the upper Tergi; colour is not enough for identification.",
     "overview": "The Caucasian rock lizard (Darevskia caucasica) is biologically confirmed in Tarkhnishvili et al. 2026. Doronin et al. (2021) report strong genetic differences between Georgian populations and those of the northern Caucasus; a genomic study (Tarkhnishvili et al. 2025) supports several genetically distant units within D. caucasica. It forms a narrow contact zone with D. mixta in the Greater Caucasus. The discussion notes contiguous ranges with D. daghestanica in the upper Tergi (Terek), where they may hybridize. Barcodes: Zakagori Fortress, Mount Tbatana, Lebarde; figure: Truso Valley, Zakagori.",
     "habitat": "Named places: Truso Valley, Zakagori Fortress (figure and barcode); Mount Tbatana; Lebarde. The discussion names the upper Tergi for contact with daghestanica.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. Genetically distant units within the species are described.",
     "stats": [
@@ -8001,7 +7989,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A geographically isolated rock lizard; the Georgian form D. c. dryada is a subspecies, not a separate species — colour is not enough.",
     "overview": "Clark’s rock lizard (Darevskia clarkorum) is biologically confirmed in Tarkhnishvili et al. 2026: a phenotypically and genetically distinct species, geographically isolated from its closest relatives D. mixta and D. caucasica. Nominal D. dryada has been proposed as a species on phenotype; here the southwestern Georgian form is kept as a geographic subspecies (D. c. dryada), because Cytochrome b differences from Turkish clarkorum fall in a high-similarity range (99.76–96.22%). Barcodes and the figure are from Charnali Gorge / river valley.",
     "habitat": "Geographically isolated from mixta and caucasica. Named place: Charnali Gorge (figure and barcodes); nominal dryada from southwestern Georgia.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. dryada is a subspecies here until isolation is demonstrated.",
     "stats": [
@@ -8057,7 +8045,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A basal rock lizard, not a subspecies of D. caucasica; contiguous on the upper Tergi — colour is not enough.",
     "overview": "The Daghestanian rock lizard (Darevskia daghestanica) is biologically confirmed in Tarkhnishvili et al. 2026. It has commonly been treated as a sister species or even a subspecies of D. caucasica, but it is a basal lineage equidistant from D. caucasica, D. mixta, and D. clarkorum. Deep genetic differences among populations are shown. The discussion places contiguous ranges with caucasica in the upper Tergi (Terek), where they may hybridize. A barcode is from Tusheti; the figure is from Akhmeta district, Tbatana Mountain.",
     "habitat": "Named places: Tusheti (barcode); Akhmeta district, Tbatana Mountain (figure). Discussion: upper Tergi for contact with caucasica.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. Deep genetic differences among populations are described; the paper does not apply infraspecific names.",
     "stats": [
@@ -8113,7 +8101,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A parthenogenetic hybrid of D. mixta and D. portschinskii; colour is not enough for identification.",
     "overview": "Dahl’s rock lizard (Darevskia dahli) is a parthenogenetic hybrid form in Tarkhnishvili et al. 2026. The parental species are D. mixta and D. portschinskii. The mitochondrial genome is shared with D. mixta and parthenogenetic D. armeniaca — so high mtDNA similarity among the three is expected and is not a field colour mark. Barcode and figure are from Kojori. This is not D. armeniaca: that parthenogen’s parents are valentini and mixta, with a southern Georgian range.",
     "habitat": "Named place: Kojori (figure and barcode).",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "A parthenogenetic hybrid form. That does not separate it from other Darevskia by colour.",
     "conservation": "Biologically confirmed in the checklist.",
     "stats": [
@@ -8169,7 +8157,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A ground-dwelling Darevskia, sympatric with other species but phenotypically distinct — colour is not enough.",
     "overview": "Derjugin’s lizard (Darevskia derjugini) is biologically confirmed in Tarkhnishvili et al. 2026. It is sympatric with other Darevskia yet remains distinct phenotypically and genetically. Phenotypic diversity is high; genetic diversity within the species is modest. It is one of two ground-dwelling Darevskia in Georgia (the other lineage is the meadow lizards — praticola / pontica). It occurs throughout western Georgia and the forest belt of eastern Georgia. Barcodes: Lagodekhi, Sioni, Mulakhi, Racha, Baniskhevi, Kintrishi; figure: Mestia district, Mulakhi Village.",
     "habitat": "A ground-dwelling species. Western Georgia and the eastern forest belt. Named places: Lagodekhi, Sioni, Mulakhi, Racha, Baniskhevi, Kintrishi.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "Sympatric with other Darevskia and remains phenotypically distinct. Colour is still not enough.",
     "conservation": "Biologically confirmed in the checklist. Subspecies named in the paper: abchasica, barani, orlowae, derjugini.",
     "stats": [
@@ -8225,7 +8213,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A western Georgian endemic rock lizard; absent from Adjara and not D. caucasica — colour is not enough.",
     "overview": "The mixed rock lizard (Darevskia mixta) is biologically confirmed in Tarkhnishvili et al. 2026. Despite little mtDNA difference from D. caucasica, it forms a narrow contact zone with that species in the Greater Caucasus. It was previously thought to be a hybrid between D. derjugini and D. saxicola. The paper says the vernacular “Ajarian lizard” should be changed to “Georgian lizard”: the species is endemic to western Georgia but absent from the Ajara region — so it is not D. adjarica. Barcodes are from Sairme and Tchkhorotskhu; the figure is from Sairme; a Baniskhevi sequence is named in the account. It is the matrilineal ancestor of parthenogens armeniaca and dahli.",
     "habitat": "Western Georgia, excluding Adjara. Named places: Sairme, Tchkhorotskhu (barcodes); Baniskhevi (sequence). Contact zone with D. caucasica in the Greater Caucasus.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. Endemic to western Georgia according to the paper.",
     "stats": [
@@ -8281,7 +8269,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A candidate in the D. rudis complex; all Georgian rudis s.l. are obscura here — colour is not enough.",
     "overview": "The obscure rock lizard (Darevskia obscura) is a candidate species in Tarkhnishvili et al. 2026. It was elevated from the D. rudis complex mainly on a mitochondrial lineage separating Caucasus/Georgia populations from Anatolian D. rudis. On that logic all Georgian D. rudis s.l., including chechenica and svanetica, belong to obscura, not D. rudis s. str. Current species status rests solely on mtDNA, without morphology or nuclear genome; there is no evidence for or against gene flow across a contact zone with D. rudis. A hybrid zone with portschinskii is in the Tana River valley; with valentini there is a narrow contact and broad introgression. Subspecies (paper infra): obscura — upper Mtkvari, western Trialeti, eastern Meskheti; macromaculata — western Javakheti Plateau; bischoffi — southwestern Georgia; chechenica — eastern Greater Caucasus (east of the Enguri); svanetica — western Greater Caucasus (e.g. upper Enguri basin).",
     "habitat": "Named places: Akhaltsikhe district, Meskheti Range (figure); Rveli, Baniskhevi Gorge (figure); Akhalkalaki, Saaghdgomo Mt. (barcode); Borjomi Gorge (description locality / sequence). Infra names Trialeti, Meskheti, the Javakheti Plateau, and the Enguri.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Candidate species in the checklist. Status may need revision.",
     "stats": [
@@ -8337,7 +8325,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A candidate meadow lizard from northwestern Georgia; rank versus praticola is open — colour is not enough.",
     "overview": "The Pontic meadow lizard (Darevskia pontica) is a candidate species in Tarkhnishvili et al. 2026. The praticola account splits Pontic populations from northwestern Georgia here. They are phenotypically diagnosable in some characters, but published discussions also note very small genetic differentiation and lack of demonstrated effective genetic isolation from D. praticola sensu lato; rank (species vs subspecies) remains inconsistent across sources and databases. This account lists no barcodes and no named village.",
     "habitat": "Pontic populations in northwestern Georgia (praticola account). This taxon’s own account names neither a village nor a barcode.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Candidate species in the checklist. Rank relative to praticola still needs evidence of isolation.",
     "stats": [
@@ -8393,7 +8381,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A Lesser Caucasus endemic, substantially smaller than obscura/valentini; colour is not enough.",
     "overview": "Portschinsky’s lizard (Darevskia portschinskii) is biologically confirmed in Tarkhnishvili et al. 2026. It is closely related to D. rudis, D. obscura, and D. valentini, but is substantially smaller and forms a narrow contact zone with all three. A hybrid zone with D. obscura is present in the Tana River valley. It is endemic to the central Lesser Caucasus. A barcode is from Kojori — dahli is also barcoded there; that is a different taxon. Subspecies: D. p. portschinskii and D. p. nigrita.",
     "habitat": "Endemic to the central Lesser Caucasus. Named places: Kojori (barcode); Tana River valley (hybrid zone with obscura).",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. Gene introgression with obscura and valentini across contact zones is described.",
     "stats": [
@@ -8449,7 +8437,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "The eastern/central Georgian meadow lizard; northwestern Pontic populations are D. pontica here — colour is not enough.",
     "overview": "The meadow lizard (Darevskia praticola) is biologically confirmed in Tarkhnishvili et al. 2026. It is a widespread, distinct species with a fragmented range; Georgian populations here belong to the eastern/nominotypical lineage (D. p. praticola — eastern and central Georgia). Pontic populations from northwestern Georgia are treated separately as candidate D. pontica. Barcodes are from Tushurebi and Sioni; the figure is from Sioni Reservoir. With derjugini it is a ground-dwelling Darevskia, but a different species.",
     "habitat": "Eastern and central Georgia (nominotypical lineage). Named places: Sioni Reservoir (figure); Sioni and Tushurebi (barcodes). Pontic northwest is pontica here.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. Rank versus pontica is treated inconsistently in the literature.",
     "stats": [
@@ -8505,7 +8493,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A rock lizard restricted in Georgia to the upper Mtkvari near Türkiye; Georgian populations are closer to nairensis — colour is not enough.",
     "overview": "Radde’s lizard (Darevskia raddei) is biologically confirmed in Tarkhnishvili et al. 2026. Genetic analyses do not support clear species-level separation between D. raddei and D. nairensis. Georgian populations are mitochondrially closer to D. r. nairensis than to nominal D. r. raddei from Armenia; nairensis is retained at subspecies rank. In Georgia the species is restricted to the upper reaches of the Mtkvari (Kura) near the border with Türkiye. Barcodes: Aspindza, Pia; Tmogvi. Figure: Pia Village, Mtkvari Gorge. This is not obscura, which is named more widely in the same basin.",
     "habitat": "In Georgia only the upper Mtkvari, near the Turkish border. Named places: Aspindza, Pia; Tmogvi.",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. nairensis is kept as a subspecies given lack of demonstrated reproductive isolation.",
     "stats": [
@@ -8531,9 +8519,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "summary": "Colour is not enough. Field ID among Darevskia needs scalation and range, not colour. Georgian populations belong to the nairensis lineage, not Armenian nominotypical raddei by colour.",
       "traits": [
         "Colour does not separate Darevskia species.",
-        {
-          "Georgian range is narrow": "upper Mtkvari near the Turkish border."
-        },
+        "Georgian range is narrow: upper Mtkvari near the Turkish border.",
         "D. nairensis is a subspecies here, not a separate species.",
         "Checklist figures show head scalation and preanal plates (Pia)."
       ]
@@ -8563,7 +8549,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A phenotypically distinct rock lizard with a narrow contact and broad introgression with obscura/portschinskii — colour is not enough.",
     "overview": "Valentin’s lizard (Darevskia valentini) is biologically confirmed in Tarkhnishvili et al. 2026. It is closely related to D. rudis, D. obscura, and D. portschinskii, but is phenotypically distinct and forms a narrow contact zone with D. obscura and D. portschinskii. There is broad gene introgression among these three across their contact zones. Nominotypical subspecies D. v. valentini. Barcodes are from Saghamo Lake and the Kirkhbulaki River; the figure is from Ninotsminda district, Saghamo Lake (the same place figured for armeniaca — a different, parthenogenetic taxon). It is a parental species of parthenogenetic armeniaca.",
     "habitat": "Named places: Ninotsminda, Saghamo Lake (figure and barcode); Kirkhbulaki River (barcode).",
-    "diet": "",
+    "diet": "The paper does not specify diet for this species.",
     "behavior": "",
     "conservation": "Biologically confirmed in the checklist. Introgression with obscura and portschinskii across contact zones is described.",
     "stats": [
@@ -8619,6 +8605,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A large harmless racer — treated as a candidate species in the checklist.",
     "overview": "The Caspian whip snake (Dolichophis caspius) is a large, fast colubrid. Tarkhnishvili et al. 2026 treat it as a candidate species: it belongs to the eastern group of the D. jugularis superspecies (Nagy et al. 2010) and was formerly a geographic subspecies of that complex. It is geographically isolated from nominotypical D. jugularis. Reported mitochondrial cytochrome b differentiation from D. schmidti is about 6–7%; populations may approach or contact in the western Caspian area, and population-level studies are still needed. It is on the Georgia checklist (older literature: Nikolskii 1913, Bannikov et al. 1977). It is often confused with the red-bellied racer; large individuals can also be mistaken for the Levantine viper.",
     "habitat": "The checklist does not name a specific habitat or district.",
+    "diet": "The paper does not specify diet.",
     "behavior": "A harmless colubrid with a round pupil. A large, fast whip snake.",
     "conservation": "Candidate species in the checklist. Species rank relative to D. schmidti still needs population-level evidence.",
     "stats": [
@@ -9288,6 +9275,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A patterned harmless racer; biologically confirmed in the Georgia checklist.",
     "overview": "The spotted whip snake (Hemorrhois ravergieri) is a harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species with a broad distribution in the Caucasus and Central Asia. It is on the Georgia checklist. A paper figure locality is Aspindza, Tmogvi.",
     "habitat": "The checklist does not name a specific habitat. A paper figure specimen is from Aspindza, Tmogvi.",
+    "diet": "The paper does not specify diet.",
     "behavior": "A harmless colubrid with a round pupil.",
     "conservation": "Biologically confirmed in the checklist.",
     "stats": [
@@ -9474,9 +9462,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "traits": [
         "A diurnal lacertid; not a Darevskia rock lizard.",
         "In eastern Georgia the checklist places it above 600–800 m.",
-        {
-          "Three subspecies": "ioriensis, grusinica, brevicaudata."
-        },
+        "Three subspecies: ioriensis, grusinica, brevicaudata.",
         "Harmless to people."
       ]
     },
@@ -10419,9 +10405,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "identification": {
       "summary": "An introduced lacertid at Anaklia. It is not a native Georgian lizard.",
       "traits": [
-        {
-          "A single locality in Georgia": "Anaklia."
-        },
+        "A single locality in Georgia: Anaklia.",
         "Genetically close to southern Türkiye populations.",
         "Unintentionally introduced — not native fauna.",
         "Harmless to people."
@@ -10868,9 +10852,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "summary": "An introduced water turtle. T. s. elegans has a red stripe behind the eye; a high-domed shell is the land tortoise.",
       "traits": [
         "Flatter shell than a land tortoise’s dome.",
-        {
-          "T. s. elegans": "a broad red stripe behind the eye."
-        },
+        "T. s. elegans: a broad red stripe behind the eye.",
         "Webbed feet; often basks on the bank.",
         "Not native — introduced populations near Tbilisi and Batumi."
       ]
@@ -11378,6 +11360,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A harmless, patterned ratsnake; biologically confirmed in the Georgia checklist.",
     "overview": "The Transcaucasian ratsnake (Zamenis hohenackeri) is a harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species. The subspecies in Georgia is Z. h. hohenackeri. It is genetically close to other populations from the Caucasus and eastern Türkiye. A paper figure locality is Gomaro Village, Adigeni district. It is often confused with the Aesculapian snake (Zamenis longissimus).",
     "habitat": "The checklist does not name a specific habitat. A paper figure specimen is from Gomaro Village, Adigeni district.",
+    "diet": "The paper does not specify diet.",
     "behavior": "A harmless colubrid with a round pupil.",
     "conservation": "Biologically confirmed in the checklist. Georgia: Z. h. hohenackeri.",
     "stats": [
@@ -11429,6 +11412,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "description": "A harmless colubrid; biologically confirmed in the Georgia checklist.",
     "overview": "The Aesculapian snake (Zamenis longissimus) is a harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species. Published phylogeography recognises several mitochondrial clades; an “Asian clade” is native to the eastern Black Sea area (Musilová et al. 2010). It is on the Georgia checklist. It is often confused with the Transcaucasian ratsnake (Zamenis hohenackeri).",
     "habitat": "The checklist does not name a specific habitat. The biogeographic context is the eastern Black Sea Asian clade.",
+    "diet": "The paper does not specify diet.",
     "behavior": "A harmless colubrid with a round pupil.",
     "conservation": "Biologically confirmed in the checklist.",
     "stats": [
