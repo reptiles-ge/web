@@ -73,7 +73,7 @@ export function RelatedGuideGrid({
   return (
     <div className={className}>
       {cards.map((card, index) => (
-        <Reveal key={card.key} delay={index * 50} className="h-full">
+        <Reveal key={card.key} delay={index * 50} className="contents">
           <RelatedGuideCard card={card} locale={locale} species={species} />
         </Reveal>
       ))}
