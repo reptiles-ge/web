@@ -162,6 +162,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       "@type": "Place",
       name: locale === "en" ? "Georgia" : "საქართველო",
     },
+    keywords: t("keywords"),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: venomous.length,
@@ -169,7 +170,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
         "@type": "ListItem",
         position: index + 1,
         url: speciesPageUrl(locale, item.id),
-        name: item.commonName,
+        name: `${item.commonName} (${item.scientificName})`,
       })),
     },
     inLanguage: locale,

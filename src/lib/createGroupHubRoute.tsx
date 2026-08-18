@@ -134,6 +134,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         "@type": "Place",
         name: locale === "en" ? "Georgia" : "საქართველო",
       },
+      keywords: t("keywords"),
       inLanguage: locale,
       mainEntity: {
         "@type": "ItemList",

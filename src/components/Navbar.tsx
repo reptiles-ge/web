@@ -42,11 +42,14 @@ export function Navbar() {
   const menuId = useId();
 
   const links = [
-    { href: "/species", label: t("species") },
-    { href: "/snakes", label: t("snakes") },
-    { href: "/regions", label: t("atlas") },
-    { href: "/about", label: t("about") },
-  ] as const;
+    { href: "/species" as const, label: t("species") },
+    { href: "/snakes" as const, label: t("snakes") },
+    { href: "/regions" as const, label: t("atlas") },
+  ];
+  const mobileLinks = [
+    ...links,
+    { href: "/about" as const, label: t("about") },
+  ];
 
   useEffect(() => {
     if (!darkHero) {
@@ -118,7 +121,7 @@ export function Navbar() {
             }`}
           />
         </Link>
-        <nav className="relative z-10 hidden items-center gap-9 md:flex">
+        <nav className="relative z-10 hidden items-center gap-5 lg:flex xl:gap-8">
           {links.map((link) => {
             const className = `text-[13px] font-medium tracking-wide transition-colors ${
               scrolled
@@ -148,7 +151,7 @@ export function Navbar() {
           </Link>
           <button
             type="button"
-            className={`inline-flex size-10 items-center justify-center rounded-full transition-colors md:hidden ${
+            className={`inline-flex size-10 items-center justify-center rounded-full transition-colors lg:hidden ${
               scrolled || menuOpen
                 ? "text-foreground hover:bg-foreground/5"
                 : "text-white hover:bg-white/10"
@@ -169,7 +172,7 @@ export function Navbar() {
 
       <div
         id={menuId}
-        className={`md:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`lg:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         <button
           type="button"
@@ -188,7 +191,7 @@ export function Navbar() {
           }`}
         >
           <ul className="space-y-1">
-            {links.map((link, index) => (
+            {mobileLinks.map((link, index) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

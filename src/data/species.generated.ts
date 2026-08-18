@@ -575,7 +575,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -658,7 +658,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -746,7 +746,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -834,7 +834,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -922,7 +922,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1010,7 +1010,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1098,7 +1098,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1186,7 +1186,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1274,7 +1274,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1362,7 +1362,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1450,7 +1450,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1538,7 +1538,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1626,7 +1626,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1714,7 +1714,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1802,7 +1802,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1890,7 +1890,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1978,7 +1978,7 @@ export const species: Species[] = [
         "answer": "არა. გიურზა გველგესლაა ვერტიკალური გუგით. ეს მრგვალგუგებიანი უშხამო მცურავია."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3208,7 +3208,7 @@ export const species: Species[] = [
         "answer": "არა. მრგვალი გუგა და უშხამო კოლუბრიდის აგებულება გველგესლისგან განასხვავებს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",

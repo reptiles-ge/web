@@ -1,5 +1,6 @@
 "use client";
 
+import { RelatedGuideCard } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { Species } from "@/data/species";
@@ -9,11 +10,9 @@ import type { AppLocale } from "@/i18n/routing";
 import {
   HUB_CLUSTER_CARDS,
   splitHubSpecies,
-  type HubClusterCard,
 } from "@/lib/clusterGuides";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import { speciesHref } from "@/lib/speciesRoutes";
 import {
   ArrowLeft,
   ArrowRight,
@@ -160,7 +159,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               <div className="mt-14 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
                 {clusterCards.map((card, index) => (
                   <Reveal key={card.key} delay={index * 50}>
-                    <ClusterCard
+                    <RelatedGuideCard
                       card={card}
                       locale={locale}
                       species={species}
@@ -292,51 +291,6 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
         </section>
       </main>
     </div>
-  );
-}
-
-function ClusterCard({
-  card,
-  locale,
-  species,
-}: {
-  card: HubClusterCard;
-  locale: AppLocale;
-  species: Species[];
-}) {
-  const t = useTranslations("groupHubShared");
-  const item =
-    card.kind === "species"
-      ? species.find((entry) => entry.id === card.id)
-      : undefined;
-  const href =
-    card.kind === "page" ? card.href : speciesHref(card.id, locale);
-  const title =
-    card.kind === "species" && item
-      ? item.commonName
-      : t(`cluster.${card.key}.title`);
-
-  return (
-    <Link
-      href={href}
-      className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
-    >
-      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-        {t(`cluster.${card.key}.eyebrow`)}
-      </span>
-      <div className="mt-6">
-        <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-          {title}
-        </p>
-        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-          {t(`cluster.${card.key}.body`)}
-        </p>
-        <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-          {t(`cluster.${card.key}.cta`)}
-          <ArrowUpRight className="size-3.5" />
-        </span>
-      </div>
-    </Link>
   );
 }
 

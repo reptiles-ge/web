@@ -16,8 +16,16 @@ const pathways = [
     href: "/lizards",
   },
   {
+    key: "turtles" as const,
+    href: "/turtles",
+  },
+  {
     key: "amphibians" as const,
     href: "/amphibians",
+  },
+  {
+    key: "yard" as const,
+    href: "/snakes-in-the-yard",
   },
 ] as const;
 
@@ -39,7 +47,7 @@ export async function HomeKnowledge() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
+        <div className="mt-14 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
           {pathways.map((pathway, index) => (
             <Link
               key={pathway.key}

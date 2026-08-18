@@ -10,13 +10,19 @@ export async function GET(_request: Request, context: RouteContext) {
   const item = getSpeciesById(id);
 
   if (!item) {
-    return Response.json({ error: "Species not found" }, { status: 404 });
+    return Response.json(
+      { error: "Species not found" },
+      { status: 404, headers: { "X-Robots-Tag": "noindex, nofollow" } },
+    );
   }
 
   const related = getRelatedSpecies(item.id);
 
-  return Response.json({
-    species: item,
-    related,
-  });
+  return Response.json(
+    {
+      species: item,
+      related,
+    },
+    { headers: { "X-Robots-Tag": "noindex, nofollow" } },
+  );
 }

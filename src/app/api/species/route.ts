@@ -12,5 +12,8 @@ export async function GET() {
     image: item.image,
   }));
 
-  return Response.json({ species: list });
+  return Response.json(
+    { species: list },
+    { headers: { "X-Robots-Tag": "noindex, nofollow" } },
+  );
 }

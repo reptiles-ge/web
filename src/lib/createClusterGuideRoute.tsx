@@ -191,6 +191,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
               "@type": "Place",
               name: locale === "en" ? "Georgia" : "საქართველო",
             },
+            keywords: t("keywords"),
             inLanguage: locale,
             mainEntity: {
               "@type": "ItemList",
@@ -218,6 +219,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
               "@type": "Place",
               name: locale === "en" ? "Georgia" : "საქართველო",
             },
+            keywords: t("keywords"),
             inLanguage: locale,
           };
 

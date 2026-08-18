@@ -1,7 +1,10 @@
 "use client";
 
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
 import {
   ArrowLeft,
   ArrowRight,
@@ -9,7 +12,7 @@ import {
   Plus,
 } from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 type SnakesInYardPageProps = {
@@ -30,6 +33,11 @@ export function SnakesInYardPage({
 }: SnakesInYardPageProps) {
   const t = useTranslations("snakesInYard");
   const tSnakes = useTranslations("snakes");
+  const locale = useLocale() as AppLocale;
+  const relatedGuides = getHubPageRelatedGuides(
+    "snakes",
+    "/snakes-in-the-yard",
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -316,6 +324,23 @@ export function SnakesInYardPage({
                 </div>
               </Reveal>
             </div>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-surface py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                {t("relatedGuidesEyebrow")}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+                {t("relatedGuidesTitle")}
+              </h2>
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                {t("relatedGuidesBody")}
+              </p>
+            </Reveal>
+            <RelatedGuideGrid cards={relatedGuides} locale={locale} />
           </div>
         </section>
 

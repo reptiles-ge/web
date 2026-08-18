@@ -509,3 +509,7 @@ export function atlasFiltersToSearchParams(filters: AtlasFilters) {
   if (filters.query.trim()) params.set("q", filters.query.trim());
   return params;
 }
+
+export function hasActiveAtlasFilters(filters: AtlasFilters) {
+  return atlasFiltersToSearchParams(filters).toString().length > 0;
+}

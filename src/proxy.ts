@@ -44,6 +44,10 @@ function enSpeciesPath(id: string) {
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname.replace(/\/$/, "") || "/";
 
+  if (pathname === "/ka" || pathname.startsWith("/ka/")) {
+    return redirectTo(request, pathname.slice(3) || "/");
+  }
+
   const legacy = pathname.match(/^(\/en)?\/species\/([^/]+)$/);
   if (legacy) {
     const species = resolveSpecies(legacy[2]);

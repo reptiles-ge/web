@@ -29,7 +29,12 @@ import {
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { getSpeciesGuideLinks } from "@/lib/clusterGuides";
+import { speciesSeoAnchor } from "@/lib/seoKeywords";
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
+import {
+  getHubIndexTitleKey,
+  getSpeciesGuideLinks,
+} from "@/lib/clusterGuides";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -62,12 +67,12 @@ export function SpeciesProfile({
   const breadcrumbs = useMemo(() => {
     const parent = getSpeciesParentHub(species);
     const groupLabel = tHubs(`hubs.${parent.hubId}`);
-
     return buildSpeciesBreadcrumbs({
       species,
       homeLabel: t("breadcrumbHome"),
       venomousLabel: t("breadcrumbVenomous"),
       groupLabel,
+      indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
     });
   }, [species, t, tHubs]);
   const hasPhotos = hasRealSpeciesPhotos(species);
@@ -348,29 +353,17 @@ export function SpeciesProfile({
         {guideLinks.length > 0 ? (
           <section className="border-t border-border bg-surface py-16 lg:py-20">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              {guideLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group flex flex-col justify-between gap-6 rounded-[24px] border border-border bg-card p-7 transition-colors hover:bg-background sm:flex-row sm:items-end sm:p-9"
-                >
-                  <div className="max-w-2xl">
-                    <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                      {t("guideLinkEyebrow")}
-                    </p>
-                    <p className="mt-4 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
-                      {t("guideLinkTitle")}
-                    </p>
-                    <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                      {t("guideLinkBody")}
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-                    {t("guideLinkCta")}
-                    <ArrowUpRight className="size-3.5" />
-                  </span>
-                </Link>
-              ))}
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                {t("guidesEyebrow")}
+              </p>
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.45rem,2.6vw,1.9rem)] font-semibold leading-tight">
+                {t("guidesTitle")}
+              </h2>
+              <RelatedGuideGrid
+                cards={guideLinks}
+                locale={locale}
+                className="mt-8 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3"
+              />
             </div>
           </section>
         ) : null}
@@ -437,7 +430,10 @@ export function SpeciesProfile({
                           {item.scientificName}
                         </p>
                         <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
-                          {item.commonName}
+                          {speciesSeoAnchor(
+                            item.commonName,
+                            item.scientificName,
+                          )}
                         </h3>
                         <p className="mt-2 text-[12px] text-white/50">
                           {item.location}

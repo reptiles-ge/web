@@ -5,6 +5,9 @@
     "atlas": "Atlas",
     "discover": "Discover",
     "snakes": "Snakes",
+    "lizards": "Lizards",
+    "turtles": "Turtles",
+    "amphibians": "Amphibians",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -27,7 +30,12 @@
     "navigate": "Move",
     "select": "Open",
     "toClose": "Close",
-    "suggestions": ["venomous", "snakebite", "giurza", "frogs"]
+    "suggestions": [
+      "venomous",
+      "snakebite",
+      "giurza",
+      "frogs"
+    ]
   },
   "language": {
     "switch": "Change language",
@@ -45,7 +53,7 @@
     "subtitle": "A living digital atlas — scientifically curated species profiles, regional range maps, and field photography from the Caucasus.",
     "viewSpecies": "Explore species",
     "exploreRegions": "Explore by region",
-    "moreAboutViper": "Venomous snakes",
+    "moreAboutViper": "Venomous snakes in Georgia",
     "imageAlt": "A viper on a mossy rock in a misty mountain valley"
   },
   "carousel": {
@@ -70,7 +78,7 @@
     "title": "Enter the atlas of Georgia’s reptiles.",
     "subtitle": "From mountain vipers to wetland snakes — profiles, maps, and photography in one calm place.",
     "button": "Open the atlas",
-    "secondary": "Venomous snakes",
+    "secondary": "Venomous snakes in Georgia",
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "home": {
@@ -91,9 +99,9 @@
         "cta": "Open the practical guide"
       },
       "venomous": {
-        "title": "Venomous snakes of Georgia",
+        "title": "Venomous snakes in Georgia",
         "body": "Six medically significant vipers — risk levels, identification traits, and safe encounter practice.",
-        "cta": "Open safety guide"
+        "cta": "Venomous snakes in Georgia"
       },
       "atlas": {
         "title": "Species atlas",
@@ -103,17 +111,22 @@
       "snakes": {
         "title": "Snakes in Georgia",
         "body": "A complete snake guide — venomous and harmless species in one hub.",
-        "cta": "Open snakes hub"
+        "cta": "Snakes in Georgia"
       },
       "lizards": {
         "title": "Lizards in Georgia",
         "body": "Darevskia, Caucasian agama, and the glass lizard — the lizard cluster to full profiles.",
-        "cta": "Open lizards hub"
+        "cta": "Lizards in Georgia"
       },
       "amphibians": {
         "title": "Amphibians in Georgia",
         "body": "12 checklist species — frogs in a dedicated guide, newts on the hub.",
         "cta": "Open amphibians hub"
+      },
+      "turtles": {
+        "title": "Turtles in Georgia",
+        "body": "One land tortoise, two native freshwater turtles, and the introduced slider.",
+        "cta": "Open turtles hub"
       }
     },
     "regions": {
@@ -134,7 +147,12 @@
         "snakes": "Snakes in Georgia",
         "lizards": "Lizards in Georgia",
         "turtles": "Turtles in Georgia",
-        "amphibians": "Amphibians in Georgia"
+        "amphibians": "Amphibians in Georgia",
+        "identify": "Identify a venomous snake",
+        "bite": "Snakebite first steps",
+        "lizardIdentify": "Identify a lizard",
+        "frogs": "Frogs of Georgia",
+        "turtleIdentify": "Identify a turtle"
       }
     }
   },
@@ -143,6 +161,7 @@
     "rights": "All rights reserved.",
     "forCurious": "For the curious.",
     "exploreTitle": "Explore",
+    "guidesTitle": "Guides",
     "companyTitle": "Company",
     "exploreCta": "Open the atlas",
     "species": "Species atlas",
@@ -163,7 +182,18 @@
     "newts": "Newts",
     "snakeIndex": "Snake species",
     "lizardIndex": "Lizard species",
-    "turtleIndex": "Turtle species"
+    "turtleIndex": "Turtle species",
+    "snakeIdentify": "Identify a venomous snake",
+    "snakeBite": "Snakebite first steps",
+    "snakeRange": "Where snakes occur",
+    "snakeLargest": "Largest snakes",
+    "lizardIdentify": "Identify a lizard",
+    "glassLizard": "Lizard or glass lizard",
+    "turtleLand": "Land turtles",
+    "turtleWater": "Freshwater turtles",
+    "turtleIdentify": "Identify a turtle",
+    "amphibianIndex": "Amphibian species",
+    "frogsIndex": "Frog species"
   },
   "profile": {
     "back": "All species",
@@ -195,7 +225,9 @@
     "faqIntroAfter": ".",
     "related": "Similar species",
     "relatedTitle": "Related species",
-    "allSpecies": "All species",
+    "allSpecies": "Atlas of Georgia’s reptiles",
+    "guidesEyebrow": "Related guides",
+    "guidesTitle": "Continue with related pages",
     "guideLinkEyebrow": "Compare",
     "guideLinkTitle": "Lizard, glass lizard, or snake?",
     "guideLinkBody": "Eyelids, ear openings, and size — only marks confirmed on the profiles.",
@@ -211,7 +243,7 @@
     "breadcrumbAria": "Breadcrumb",
     "breadcrumbHome": "Home",
     "breadcrumbSpecies": "Species",
-    "breadcrumbVenomous": "Venomous snakes",
+    "breadcrumbVenomous": "Venomous snakes in Georgia",
     "anchorLink": "Link to this section"
   },
   "danger": {
@@ -309,7 +341,11 @@
     "brand": "Reptiles",
     "title": "Contact",
     "body": "Questions, corrections, or partnership ideas — write me.",
-    "imageAlt": "Misty Caucasus ridge at dusk"
+    "imageAlt": "Misty Caucasus ridge at dusk",
+    "about": "About the atlas",
+    "species": "Species atlas",
+    "snakes": "Snakes in Georgia",
+    "venomous": "Venomous snakes"
   },
   "about": {
     "metaTitle": "About",
@@ -356,7 +392,18 @@
     "contributeEyebrow": "Collaborate",
     "contributeTitle": "Corrections and field notes",
     "contributeBody": "Spotted a range update, misidentification, or better photo credit? Contact us — review keeps the atlas accurate.",
-    "contributeCta": "Contact"
+    "contributeCta": "Contact",
+    "exploreEyebrow": "The atlas",
+    "exploreTitle": "Start with a category",
+    "exploreBody": "Species profiles, regional maps, and field guides live in one structure — pick the group you need.",
+    "exploreLinks": {
+      "species": "Species atlas",
+      "snakes": "Snakes in Georgia",
+      "lizards": "Lizards in Georgia",
+      "turtles": "Turtles in Georgia",
+      "amphibians": "Amphibians in Georgia",
+      "venomous": "Venomous snakes in Georgia"
+    }
   },
   "site": {
     "title": "Reptiles — Atlas of Georgia’s reptiles",
@@ -391,12 +438,13 @@
   },
   "speciesMeta": {
     "notFound": "Species not found",
-    "titleSnakeVenomous": "venomous snake of Georgia",
-    "titleSnake": "snake of Georgia",
-    "titleLizard": "lizard of Georgia",
-    "titleTurtle": "turtle of Georgia",
-    "titleAmphibian": "amphibian of Georgia",
-    "descriptionCta": "See photos, Georgia range map, size, habitat, and key facts."
+    "titleSnakeVenomous": "venomous snakes in Georgia",
+    "titleSnake": "snakes in Georgia",
+    "titleLizard": "lizards in Georgia",
+    "titleTurtle": "turtles in Georgia",
+    "titleAmphibian": "amphibians in Georgia",
+    "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
+    "descriptionDefault": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus."
   },
   "speciesAtlas": {
     "metaTitle": "Species atlas — reptiles of Georgia",
@@ -566,6 +614,9 @@
     "lookalikesTitle": "Harmless species often mistaken for vipers",
     "lookalikesBody": "Grass snakes, smooth snakes, cat snakes, and fast racers are often treated as venomous. Compare profiles and field marks in the atlas.",
     "lookalikesCta": "Non-venomous species",
+    "relatedGuidesEyebrow": "Related guides",
+    "relatedGuidesTitle": "Snake identification and range",
+    "relatedGuidesBody": "Species index, regional range, and the largest snakes — next to this safety guide.",
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask most",
     "faqIntro": "Short answers on Georgia’s venomous snakes — full detail lives on each species page.",
@@ -594,16 +645,19 @@
     "relatedEyebrow": "Other categories",
     "relatedTitle": "Continue in other hubs",
     "relatedBody": "Each category gathers related species on one guide page — then sends you to the full profile.",
+    "relatedGuidesEyebrow": "Related guides",
+    "relatedGuidesTitle": "Continue with related pages",
+    "relatedGuidesBody": "Identification, range, safety, and species indexes — stay in the same topic instead of returning to the homepage.",
     "hubs": {
-      "snakes": "Snakes",
-      "lizards": "Lizards",
+      "snakes": "Snakes in Georgia",
+      "lizards": "Lizards in Georgia",
       "turtles": "Turtles",
       "amphibians": "Amphibians"
     },
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
     "venomousBody": "Medically significant species — risk, identification, and safe encounters in a dedicated guide.",
-    "venomousCta": "Open safety guide",
+    "venomousCta": "Venomous snakes in Georgia",
     "yardEyebrow": "Practice",
     "yardTitle": "Snakes in the yard",
     "yardBody": "How to reduce snakes entering the yard — shelter, food, and what does not work.",
@@ -611,9 +665,9 @@
     "cluster": {
       "venomous": {
         "eyebrow": "Safety",
-        "title": "Venomous snakes",
+        "title": "Venomous snakes in Georgia",
         "body": "Giurza, vipers, and one rear-fanged species — risk and full profiles.",
-        "cta": "Open venomous guide"
+        "cta": "Venomous snakes in Georgia"
       },
       "yard": {
         "eyebrow": "Practice",
@@ -653,9 +707,27 @@
       },
       "giurza": {
         "eyebrow": "Species",
-        "title": "Levantine viper",
+        "title": "Levantine viper (Macrovipera lebetina)",
         "body": "Georgia’s largest and most dangerous venomous snake — dry eastern habitats.",
-        "cta": "Open profile"
+        "cta": "Levantine viper (Macrovipera lebetina)"
+      },
+      "najadum": {
+        "eyebrow": "Racer",
+        "title": "Dahl's whip snake (Platyceps najadum)",
+        "body": "A slender, harmless racer — neck ocelli and a round pupil.",
+        "cta": "Dahl's whip snake (Platyceps najadum)"
+      },
+      "snakesHub": {
+        "eyebrow": "Hub",
+        "title": "Snakes in Georgia",
+        "body": "Venomous vipers and harmless racers in one cluster — catalog, risk, and profiles.",
+        "cta": "Snakes in Georgia"
+      },
+      "lizardsHub": {
+        "eyebrow": "Hub",
+        "title": "Lizards in Georgia",
+        "body": "Glass lizard, Darevskia, and Caucasian agama — the lizard cluster to full profiles.",
+        "cta": "Lizards in Georgia"
       },
       "jojo": {
         "eyebrow": "Species",
@@ -665,9 +737,9 @@
       },
       "gvelxokera": {
         "eyebrow": "Species",
-        "title": "European glass lizard",
+        "title": "European glass lizard (Pseudopus apodus)",
         "body": "A legless lizard, not a snake — eyelids, ear openings, and a side fold.",
-        "cta": "Open profile"
+        "cta": "European glass lizard"
       },
       "lizardIndex": {
         "eyebrow": "Catalog",
@@ -771,12 +843,16 @@
     "speciesBody": "Each entry opens a full profile — common and scientific names, risk, short overview, and regions.",
     "section": {
       "venomous": {
-        "title": "Venomous — {count}",
-        "body": "Species assessed as moderate or high risk to people. Giurza and the vipers also have a dedicated guide."
+        "title": "Venomous snakes in Georgia — {count}",
+        "body": "Levantine viper, Dinnik’s, Caucasus, Transcaucasian, Darevsky’s, and steppe vipers. Full guide is separate."
       },
       "harmless": {
         "title": "Harmless — {count}",
         "body": "Most snakes are harmless and often mistaken for vipers. Profiles show identification traits and habitat."
+      },
+      "racers": {
+        "title": "Racers — {count}",
+        "body": "Dahl’s whip snake, steppe ratsnake, European cat snake, and Aesculapian snake — harmless colubrids often mistaken for vipers."
       }
     },
     "faqEyebrow": "FAQ",
@@ -1327,7 +1403,9 @@
     "tableEyebrow": "Marks",
     "tableTitle": "How they differ",
     "tableBody": "An em dash means this page’s sources do not state that mark for that species — not that it lacks the trait.",
-    "col": { "trait": "Trait" },
+    "col": {
+      "trait": "Trait"
+    },
     "role": {
       "glass": "Legless lizard",
       "slow": "Legless lizard (candidate)",
@@ -1727,6 +1805,9 @@
     "ctaTitle": "Identify the species — don’t act on fear alone",
     "ctaBody": "Yard management lowers risk. If you see a snake, the atlas helps with identification and a safer decision.",
     "ctaAtlas": "Species atlas",
-    "ctaVenomous": "Venomous snakes"
+    "ctaVenomous": "Venomous snakes",
+    "relatedGuidesEyebrow": "Related guides",
+    "relatedGuidesTitle": "Venomous or not — then the catalog",
+    "relatedGuidesBody": "Identify lookalikes, open the venomous guide, or browse every snake in Georgia."
   }
 }

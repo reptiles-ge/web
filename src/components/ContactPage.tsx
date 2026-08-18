@@ -103,6 +103,32 @@ export function ContactPage() {
                 </span>
                 <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
               </a>
+              <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+                <Link
+                  href="/about"
+                  className="text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {t("about")}
+                </Link>
+                <Link
+                  href="/species"
+                  className="text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {t("species")}
+                </Link>
+                <Link
+                  href="/snakes"
+                  className="text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {t("snakes")}
+                </Link>
+                <Link
+                  href="/venomous-snakes"
+                  className="text-[13px] font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {t("venomous")}
+                </Link>
+              </div>
             </motion.div>
           </div>
         </main>

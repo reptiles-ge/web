@@ -2,6 +2,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
 import {
   getAtlasStats,
+  hasActiveAtlasFilters,
   parseAtlasFilters,
 } from "@/data/speciesAtlas";
 import { getCatalogSpecies } from "@/data/species";
@@ -29,7 +30,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
@@ -40,6 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = "/species";
   const url = absoluteUrl(localePath(locale, path));
   const ogImage = cdnOgImageUrl("vipera-kaznakovi");
+  const filtered = hasActiveAtlasFilters(parseAtlasFilters(await searchParams));
 
   return {
     title,
@@ -68,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [ogImage],
     },
     robots: {
-      index: true,
+      index: !filtered,
       follow: true,
     },
   };

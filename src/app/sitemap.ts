@@ -1,97 +1,99 @@
 import { getRegionSpecies, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
-import { routing } from "@/i18n/routing";
+import { routing, type AppLocale } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import { absoluteUrl, localePath, speciesPageUrl } from "@/lib/site";
+import {
+  absoluteUrl,
+  localeAlternates,
+  localePath,
+  speciesAlternates,
+  speciesPageUrl,
+} from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
-import { compareIsoDateTimes, parseToSiteDateTime } from "@/lib/siteTime";
 import type { MetadataRoute } from "next";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
 
 function toLastModified(isoDate: string | null | undefined): string {
   if (!isoDate) return FALLBACK_LASTMOD;
-  return parseToSiteDateTime(isoDate) ?? FALLBACK_LASTMOD;
+  if (Number.isNaN(Date.parse(isoDate))) return FALLBACK_LASTMOD;
+  return isoDate;
 }
 
 function maxUpdatedAt(dates: Array<string | null | undefined>): string {
-  const latest = dates
-    .filter((value): value is string => Boolean(value))
-    .sort(compareIsoDateTimes)
-    .at(-1);
+  let latest: string | null = null;
+  let latestTime = Number.NEGATIVE_INFINITY;
+  for (const value of dates) {
+    if (!value) continue;
+    const time = Date.parse(value);
+    if (Number.isNaN(time) || time < latestTime) continue;
+    latestTime = time;
+    latest = value;
+  }
   return toLastModified(latest);
+}
+
+function pageEntry(
+  locale: AppLocale,
+  href: Parameters<typeof localePath>[1],
+  lastModified: string,
+): MetadataRoute.Sitemap[number] {
+  const { languages } = localeAlternates(locale, href);
+  return {
+    url: absoluteUrl(localePath(locale, href)),
+    lastModified,
+    alternates: { languages },
+  };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const catalog = getCatalogSpecies();
   const atlasLastModified = toLastModified(getAtlasStats(catalog).lastUpdated);
   const entries: MetadataRoute.Sitemap = [];
+  const seen = new Set<string>();
+
+  function push(entry: MetadataRoute.Sitemap[number]) {
+    if (seen.has(entry.url)) return;
+    seen.add(entry.url);
+    entries.push(entry);
+  }
 
   for (const locale of routing.locales) {
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/")),
-      lastModified: atlasLastModified,
-    });
-
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/contact")),
-      lastModified: atlasLastModified,
-    });
-
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/about")),
-      lastModified: atlasLastModified,
-    });
-
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/species")),
-      lastModified: atlasLastModified,
-    });
-
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/venomous-snakes")),
-      lastModified: atlasLastModified,
-    });
-
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/snakes-in-the-yard")),
-      lastModified: atlasLastModified,
-    });
+    push(pageEntry(locale, "/", atlasLastModified));
+    push(pageEntry(locale, "/contact", atlasLastModified));
+    push(pageEntry(locale, "/about", atlasLastModified));
+    push(pageEntry(locale, "/species", atlasLastModified));
+    push(pageEntry(locale, "/venomous-snakes", atlasLastModified));
+    push(pageEntry(locale, "/snakes-in-the-yard", atlasLastModified));
 
     for (const guide of CLUSTER_GUIDE_LIST) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, guide.pathname)),
-        lastModified: atlasLastModified,
-      });
+      push(pageEntry(locale, guide.pathname, atlasLastModified));
     }
 
     for (const hub of GROUP_HUB_LIST) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, hub.path)),
-        lastModified: atlasLastModified,
-      });
+      push(pageEntry(locale, hub.path, atlasLastModified));
     }
 
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/regions")),
-      lastModified: atlasLastModified,
-    });
+    push(pageEntry(locale, "/regions", atlasLastModified));
 
     for (const region of regions) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, regionHref(region.id))),
-        lastModified: maxUpdatedAt(
-          getRegionSpecies(region).map((item) => item.updatedAt),
+      push(
+        pageEntry(
+          locale,
+          regionHref(region.id),
+          maxUpdatedAt(getRegionSpecies(region).map((item) => item.updatedAt)),
         ),
-      });
+      );
     }
 
     for (const item of catalog) {
-      entries.push({
+      const { languages } = speciesAlternates(locale, item.id);
+      push({
         url: speciesPageUrl(locale, item.id),
         lastModified: toLastModified(item.updatedAt),
+        alternates: { languages },
       });
     }
   }

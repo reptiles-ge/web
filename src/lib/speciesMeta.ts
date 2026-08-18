@@ -24,7 +24,7 @@ export function speciesMetaTitle(
   scientificName: string,
   intent: string,
 ) {
-  return `${commonName} (${scientificName}) — ${intent}`;
+  return `${commonName} (${scientificName}) | ${intent}`;
 }
 
 export function speciesImageAlt(

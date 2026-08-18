@@ -161,6 +161,51 @@ export function AboutPage() {
         </section>
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                {t("exploreEyebrow")}
+              </p>
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+                {t("exploreTitle")}
+              </h2>
+              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                {t("exploreBody")}
+              </p>
+            </Reveal>
+            <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
+              {(
+                [
+                  { href: "/species" as const, key: "species" as const },
+                  { href: "/snakes" as const, key: "snakes" as const },
+                  { href: "/lizards" as const, key: "lizards" as const },
+                  { href: "/turtles" as const, key: "turtles" as const },
+                  { href: "/amphibians" as const, key: "amphibians" as const },
+                  {
+                    href: "/venomous-snakes" as const,
+                    key: "venomous" as const,
+                  },
+                ] as const
+              ).map((item, index) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex min-h-[150px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
+                >
+                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="mt-8 inline-flex items-center gap-1.5 font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
+                    {t(`exploreLinks.${item.key}`)}
+                    <ArrowUpRight className="size-4 opacity-50" />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[860px] px-6 text-center lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">

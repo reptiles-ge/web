@@ -9,14 +9,16 @@ import { MapExplorer } from "@/components/map/MapExplorer";
 import { SpeciesCarousel } from "@/components/SpeciesCarousel";
 import { SpeciesDetail } from "@/components/SpeciesDetail";
 import { getAtlasStats } from "@/data/speciesAtlas";
-import { routing } from "@/i18n/routing";
 import {
   absoluteUrl,
   localeAlternates,
   localePath,
   organizationJsonLd,
   siteConfig,
+  speciesPageUrl,
 } from "@/lib/site";
+import { HOME_DEFINED_TERMS } from "@/lib/seoKeywords";
+import { routing, type AppLocale } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -47,6 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: title,
     },
     description,
+    keywords: [...siteConfig.keywords],
     alternates,
     openGraph: {
       title,
@@ -94,6 +97,14 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     url: homeUrl,
     description,
     inLanguage: locale,
+    keywords: [...siteConfig.keywords],
+    about: {
+      "@type": "DefinedTermSet",
+      name:
+        locale === "en"
+          ? "Georgia reptiles"
+          : "საქართველოს ქვეწარმავლები",
+    },
     publisher: organizationJsonLd({ description }),
     potentialAction: {
       "@type": "SearchAction",
@@ -119,6 +130,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         : "საქართველოს ქვეწარმავლების ატლასი",
     description,
     url: homeUrl,
+    keywords: [...siteConfig.keywords],
     creator: organizationJsonLd({ description }),
     publisher: organizationJsonLd({ description }),
     spatialCoverage: {
@@ -146,9 +158,38 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     inLanguage: [locale === "en" ? "en" : "ka", locale === "en" ? "ka" : "en"],
   };
 
+  const definedTermSetJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name:
+      locale === "en"
+        ? "Georgia reptiles"
+        : "საქართველოს ქვეწარმავლები",
+    alternateName:
+      locale === "en"
+        ? "საქართველოს ქვეწარმავლები"
+        : "Georgia reptiles",
+    url: homeUrl,
+    hasDefinedTerm: HOME_DEFINED_TERMS.map((term) => ({
+      "@type": "DefinedTerm",
+      name: locale === "en" ? term.en : term.ka,
+      url:
+        term.kind === "species" && term.speciesId
+          ? speciesPageUrl(locale as AppLocale, term.speciesId)
+          : absoluteUrl(localePath(locale, term.path ?? "/")),
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <JsonLd data={[websiteJsonLd, organizationJsonLdData, datasetJsonLd]} />
+      <JsonLd
+        data={[
+          websiteJsonLd,
+          organizationJsonLdData,
+          datasetJsonLd,
+          definedTermSetJsonLd,
+        ]}
+      />
       <main>
         <Hero />
         <HomeProof />

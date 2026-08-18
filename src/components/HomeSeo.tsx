@@ -4,12 +4,17 @@ import { getTranslations } from "next-intl/server";
 
 const hubs = [
   { key: "species" as const, href: "/species" },
-  { key: "yard" as const, href: "/snakes-in-the-yard" },
   { key: "snakes" as const, href: "/snakes" },
   { key: "lizards" as const, href: "/lizards" },
   { key: "turtles" as const, href: "/turtles" },
   { key: "amphibians" as const, href: "/amphibians" },
   { key: "venomous" as const, href: "/venomous-snakes" },
+  { key: "identify" as const, href: "/snakes/shxamiani-gvelis-amocnoba" },
+  { key: "bite" as const, href: "/snakes/gvelis-nakbeni" },
+  { key: "yard" as const, href: "/snakes-in-the-yard" },
+  { key: "lizardIdentify" as const, href: "/lizards/identifikacia" },
+  { key: "frogs" as const, href: "/amphibians/bayayi" },
+  { key: "turtleIdentify" as const, href: "/turtles/identifikacia" },
   { key: "regions" as const, href: "/regions" },
 ] as const;
 

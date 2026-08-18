@@ -4,13 +4,19 @@ import {
   isVenomousDanger,
   type AnimalGroup,
 } from "@/data/speciesAtlas";
+import {
+  HUB_INDEX_PATH,
+  type ClusterGuidePath,
+} from "@/lib/clusterGuides";
 import { ANIMAL_GROUP_TO_HUB, GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import { speciesSeoAnchor } from "@/lib/seoKeywords";
 
 export type SpeciesBreadcrumbHref =
   | "/"
   | "/species"
   | "/venomous-snakes"
-  | `/${GroupHubId}`;
+  | `/${GroupHubId}`
+  | ClusterGuidePath;
 
 export type SpeciesBreadcrumbCrumb = {
   name: string;
@@ -39,6 +45,7 @@ export function buildSpeciesBreadcrumbs(options: {
   homeLabel: string;
   venomousLabel: string;
   groupLabel: string;
+  indexLabel: string;
 }): SpeciesBreadcrumbCrumb[] {
   const parent = getSpeciesParentHub(options.species);
   const hubPath = GROUP_HUBS[parent.hubId].path;
@@ -53,9 +60,19 @@ export function buildSpeciesBreadcrumbs(options: {
       name: options.venomousLabel,
       href: "/venomous-snakes",
     });
+  } else {
+    crumbs.push({
+      name: options.indexLabel,
+      href: HUB_INDEX_PATH[parent.hubId],
+    });
   }
 
-  crumbs.push({ name: options.species.commonName });
+  crumbs.push({
+    name: speciesSeoAnchor(
+      options.species.commonName,
+      options.species.scientificName,
+    ),
+  });
   return crumbs;
 }
 

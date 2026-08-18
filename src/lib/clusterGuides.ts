@@ -1,5 +1,5 @@
 import { getRegionSpecies, type Region } from "@/data/regions";
-import type { Species } from "@/data/species";
+import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -37,6 +37,22 @@ export const LARGE_SNAKE_IDS = [
   "natrix-natrix",
   "elaphe-urartica",
   "dolichophis-caspius",
+  "zamenis-longissimus",
+] as const;
+
+export const VENOMOUS_VIPER_IDS = [
+  "macrovipera-lebetina",
+  "vipera-dinniki",
+  "vipera-kaznakovi",
+  "vipera-transcaucasiana",
+  "vipera-darevskii",
+  "vipera-renardi",
+] as const;
+
+export const RACER_CLUSTER_IDS = [
+  "platyceps-najadum",
+  "elaphe-dione",
+  "telescopus-fallax",
   "zamenis-longissimus",
 ] as const;
 
@@ -381,8 +397,12 @@ export type HubClusterCard =
       href:
         | "/venomous-snakes"
         | "/snakes-in-the-yard"
+        | "/snakes"
+        | "/lizards"
         | ClusterGuidePath;
       key:
+        | "snakesHub"
+        | "lizardsHub"
         | "venomous"
         | "yard"
         | "frogs"
@@ -405,7 +425,13 @@ export type HubClusterCard =
   | {
       kind: "species";
       id: string;
-      key: "giurza" | "jojo" | "gvelxokera" | "slider" | "tortoise";
+      key:
+        | "giurza"
+        | "najadum"
+        | "jojo"
+        | "gvelxokera"
+        | "slider"
+        | "tortoise";
     };
 
 export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
@@ -418,6 +444,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "page", href: "/snakes/didi-gvelebi", key: "largest" },
     { kind: "page", href: "/snakes-in-the-yard", key: "yard" },
     { kind: "species", id: "macrovipera-lebetina", key: "giurza" },
+    { kind: "species", id: "platyceps-najadum", key: "najadum" },
   ],
   lizards: [
     { kind: "page", href: "/lizards/saxeoebebi", key: "lizardIndex" },
@@ -446,6 +473,26 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
 };
 
+export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
+  snakes: "/snakes/saxeoebebi",
+  lizards: "/lizards/saxeoebebi",
+  turtles: "/turtles/saxeoebebi",
+  amphibians: "/amphibians/saxeoebebi",
+};
+
+export function getHubIndexTitleKey(hubId: GroupHubId) {
+  switch (hubId) {
+    case "snakes":
+      return "cluster.index.title" as const;
+    case "lizards":
+      return "cluster.lizardIndex.title" as const;
+    case "turtles":
+      return "cluster.turtleIndex.title" as const;
+    default:
+      return "cluster.amphibianIndex.title" as const;
+  }
+}
+
 export type SpeciesSection = {
   key: string;
   items: Species[];
@@ -456,14 +503,21 @@ export function splitHubSpecies(
   species: Species[],
 ): SpeciesSection[] {
   if (hubId === "snakes") {
+    const racerIds = new Set<string>(RACER_CLUSTER_IDS);
     return [
       {
         key: "venomous",
         items: species.filter((item) => isVenomousDanger(item.danger)),
       },
       {
+        key: "racers",
+        items: species.filter((item) => racerIds.has(item.id)),
+      },
+      {
         key: "harmless",
-        items: species.filter((item) => !isVenomousDanger(item.danger)),
+        items: species.filter(
+          (item) => !isVenomousDanger(item.danger) && !racerIds.has(item.id),
+        ),
       },
     ].filter((section) => section.items.length > 0);
   }
@@ -530,12 +584,147 @@ export function getRearFangedSpecies(species: Species[]) {
 }
 
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
+const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
-export function getSpeciesGuideLinks(id: string) {
-  if (!glassCompareIdSet.has(id)) return [];
-  return [
-    {
-      href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba" as const,
-    },
-  ];
+export function getRelatedGuideCards(guideId: ClusterGuideId): HubClusterCard[] {
+  const guide = CLUSTER_GUIDES[guideId];
+  return HUB_CLUSTER_CARDS[guide.parentHub].filter(
+    (card) => card.kind === "page" && card.href !== guide.pathname,
+  );
+}
+
+export function getHubPageRelatedGuides(
+  hubId: GroupHubId,
+  excludeHref: Extract<HubClusterCard, { kind: "page" }>["href"],
+): HubClusterCard[] {
+  return HUB_CLUSTER_CARDS[hubId].filter(
+    (card) => card.kind === "page" && card.href !== excludeHref,
+  );
+}
+
+export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
+  const species = getSpeciesById(id);
+  if (!species) return [];
+
+  const group = getSpeciesAtlasMeta(id).group;
+  const links: Array<Extract<HubClusterCard, { kind: "page" }>> = [];
+
+  if (group === "snake") {
+    if (isVenomousDanger(species.danger)) {
+      links.push({ kind: "page", href: "/venomous-snakes", key: "venomous" });
+    }
+    if (racerClusterIdSet.has(id)) {
+      links.push({ kind: "page", href: "/snakes", key: "snakesHub" });
+    }
+    links.push({ kind: "page", href: "/snakes/saxeoebebi", key: "index" });
+    if (isVenomousDanger(species.danger)) {
+      links.push({
+        kind: "page",
+        href: "/snakes/shxamiani-gvelis-amocnoba",
+        key: "identify",
+      });
+      links.push({
+        kind: "page",
+        href: "/snakes/gvelis-nakbeni",
+        key: "bite",
+      });
+    } else {
+      links.push({
+        kind: "page",
+        href: "/snakes/shxamiani-gvelis-amocnoba",
+        key: "identify",
+      });
+      links.push({
+        kind: "page",
+        href: "/snakes-in-the-yard",
+        key: "yard",
+      });
+      links.push({
+        kind: "page",
+        href: "/snakes/gavrtseleba",
+        key: "range",
+      });
+    }
+    if (largeSnakeIdSet.has(id)) {
+      links.push({
+        kind: "page",
+        href: "/snakes/didi-gvelebi",
+        key: "largest",
+      });
+    }
+  } else if (group === "lizard") {
+    if (id === "pseudopus-apodus") {
+      links.push({ kind: "page", href: "/lizards", key: "lizardsHub" });
+    }
+    links.push({
+      kind: "page",
+      href: "/lizards/saxeoebebi",
+      key: "lizardIndex",
+    });
+    links.push({
+      kind: "page",
+      href: "/lizards/identifikacia",
+      key: "lizardIdentify",
+    });
+    if (glassCompareIdSet.has(id)) {
+      links.push({
+        kind: "page",
+        href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+        key: "glassLizard",
+      });
+    }
+  } else if (group === "turtle") {
+    links.push({
+      kind: "page",
+      href: "/turtles/saxeoebebi",
+      key: "turtleIndex",
+    });
+    if (turtleLandIdSet.has(id)) {
+      links.push({
+        kind: "page",
+        href: "/turtles/xmelis-kuebi",
+        key: "turtleLand",
+      });
+    } else {
+      links.push({
+        kind: "page",
+        href: "/turtles/tsqlis-kuebi",
+        key: "turtleWater",
+      });
+    }
+    links.push({
+      kind: "page",
+      href: "/turtles/identifikacia",
+      key: "turtleIdentify",
+    });
+  } else {
+    links.push({
+      kind: "page",
+      href: "/amphibians/saxeoebebi",
+      key: "amphibianIndex",
+    });
+    if (isFrogSpecies(id)) {
+      links.push({ kind: "page", href: "/amphibians/bayayi", key: "frogs" });
+      links.push({
+        kind: "page",
+        href: "/amphibians/bayayi/saxeoebebi",
+        key: "frogsIndex",
+      });
+    } else {
+      links.push({
+        kind: "page",
+        href: "/amphibians/tritoni-salamandra",
+        key: "newts",
+      });
+    }
+  }
+
+  const seen = new Set<string>();
+  return links
+    .filter((link) => {
+      if (seen.has(link.href)) return false;
+      seen.add(link.href);
+      return true;
+    })
+    .slice(0, 4);
 }

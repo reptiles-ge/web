@@ -51,9 +51,7 @@ export const siteConfig = {
 } as const;
 
 export function getSiteUrl() {
-  const fromEnv =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
 
   if (fromEnv) {
     const withProtocol = fromEnv.startsWith("http")

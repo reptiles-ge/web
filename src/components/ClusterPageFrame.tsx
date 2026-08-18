@@ -1,15 +1,18 @@
 "use client";
 
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
+  getRelatedGuideCards,
   type ClusterGuideId,
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
 
 type ClusterPageFrameProps = {
@@ -34,6 +37,8 @@ export function ClusterPageFrame({
   const t = useTranslations(guide.messageKey);
   const tShared = useTranslations("groupHubShared");
   const tParent = useTranslations(parent.messageKey);
+  const locale = useLocale() as AppLocale;
+  const relatedGuides = getRelatedGuideCards(guideId);
 
   return (
     <div className="min-h-screen bg-background">
@@ -125,6 +130,25 @@ export function ClusterPageFrame({
         {stats}
 
         {children}
+
+        {relatedGuides.length > 0 ? (
+          <section className="border-t border-border bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              <Reveal>
+                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  {tShared("relatedGuidesEyebrow")}
+                </p>
+                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+                  {tShared("relatedGuidesTitle")}
+                </h2>
+                <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                  {tShared("relatedGuidesBody")}
+                </p>
+              </Reveal>
+              <RelatedGuideGrid cards={relatedGuides} locale={locale} />
+            </div>
+          </section>
+        ) : null}
 
         <ClusterFaq guideId={guideId} />
 

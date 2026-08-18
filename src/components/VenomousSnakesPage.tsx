@@ -1,15 +1,18 @@
 "use client";
 
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import {
+  getHubPageRelatedGuides,
   getRearFangedSpecies,
   getViperSpecies,
 } from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import {
   ArrowLeft,
   ArrowRight,
@@ -40,6 +43,9 @@ export function VenomousSnakesPage({
     (item) => item.danger === "Moderate",
   ).length;
   const giurza = species.find((item) => item.id === "macrovipera-lebetina");
+  const relatedGuides = getHubPageRelatedGuides("snakes", "/venomous-snakes").filter(
+    (card) => card.kind === "page" && card.key !== "identify" && card.key !== "bite" && card.key !== "yard",
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -174,14 +180,20 @@ export function VenomousSnakesPage({
                       {t("featuredEyebrow")}
                     </p>
                     <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
-                      {giurza.commonName}
+                      {speciesSeoAnchor(
+                        giurza.commonName,
+                        giurza.scientificName,
+                      )}
                     </p>
                     <p className="mt-1 text-[14px] italic text-muted-foreground">
                       {giurza.scientificName}
                     </p>
                   </div>
                   <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
-                    {t("featuredCta")}
+                    {speciesSeoAnchor(
+                      giurza.commonName,
+                      giurza.scientificName,
+                    )}
                     <ArrowUpRight className="size-3.5" />
                   </span>
                 </Link>
@@ -359,6 +371,23 @@ export function VenomousSnakesPage({
                 </Link>
               </Reveal>
             </div>
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                {t("relatedGuidesEyebrow")}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+                {t("relatedGuidesTitle")}
+              </h2>
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                {t("relatedGuidesBody")}
+              </p>
+            </Reveal>
+            <RelatedGuideGrid cards={relatedGuides} locale={locale} />
           </div>
         </section>
 

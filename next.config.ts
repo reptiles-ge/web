@@ -4,6 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  trailingSlash: false,
   images: {
     unoptimized: true,
     qualities: [75, 90],
@@ -14,8 +15,22 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
   async redirects() {
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.reptiles.ge" }],
+        destination: "https://reptiles.ge/:path*",
+        statusCode: 301,
+      },
       {
         source: "/snakes",
         destination: "/gvelebi",
@@ -349,12 +364,12 @@ const nextConfig: NextConfig = {
       {
         source: "/identify",
         destination: "/species",
-        statusCode: 302,
+        statusCode: 301,
       },
       {
         source: "/en/identify",
         destination: "/en/species",
-        statusCode: 302,
+        statusCode: 301,
       },
     ];
   },

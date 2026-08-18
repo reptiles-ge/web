@@ -4,6 +4,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
+import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
 import {
   buildSpeciesBreadcrumbs,
@@ -25,12 +26,13 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { speciesMetaTitle, speciesTitleIntentKey } from "@/lib/speciesMeta";
 import {
-  speciesMetaDescription,
-  speciesMetaTitle,
-  speciesTitleIntentKey,
-} from "@/lib/speciesMeta";
+  speciesAliasKeywords,
+  speciesJsonLdKeywords,
+  speciesSeoKeywords,
+} from "@/lib/seoKeywords";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -45,9 +47,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     return speciesStaticParams(hubId);
   }
 
-  async function generateMetadata({
-    params,
-  }: PageProps): Promise<Metadata> {
+  async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { locale: localeParam, slug } = await params;
     if (!hasLocale(routing.locales, localeParam)) {
       return {
@@ -68,29 +68,31 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     }
 
     const item = localizeSpecies(raw, locale);
+    const group = getSpeciesAtlasMeta(raw.id).group;
     const title = speciesMetaTitle(
       item.commonName,
       item.scientificName,
-      t(speciesTitleIntentKey(getSpeciesAtlasMeta(raw.id).group, raw.danger)),
+      t(speciesTitleIntentKey(group, raw.danger)),
     );
-    const description = speciesMetaDescription(
-      item.overview,
-      t("descriptionCta"),
-    );
+    const description =
+      group === "snake" && isVenomousDanger(raw.danger)
+        ? t("descriptionVenomous", {
+            name: item.commonName,
+            scientific: item.scientificName,
+          })
+        : t("descriptionDefault", {
+            name: item.commonName,
+            scientific: item.scientificName,
+          });
     const url = speciesPageUrl(locale, item.id);
+    const keywords = speciesSeoKeywords(item, locale);
 
     return {
-      title,
+      title: {
+        absolute: title,
+      },
       description,
-      keywords: [
-        item.commonName,
-        item.scientificName,
-        item.genus,
-        item.family,
-        item.location,
-        locale === "en" ? "reptiles" : "ქვეწარმავლები",
-        siteConfig.name,
-      ],
+      keywords,
       alternates: speciesAlternates(locale, item.id),
       openGraph: {
         type: "article",
@@ -147,7 +149,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const item = localizeSpecies(raw, locale);
     const related = getRelatedSpecies(raw.id);
     const tProfile = await getTranslations({ locale, namespace: "profile" });
-    const tHubs = await getTranslations({ locale, namespace: "groupHubShared" });
+    const tHubs = await getTranslations({
+      locale,
+      namespace: "groupHubShared",
+    });
     const parent = getSpeciesParentHub(item);
     const groupLabel = parent.hubId
       ? tHubs(`hubs.${parent.hubId}`)
@@ -157,6 +162,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       homeLabel: tProfile("breadcrumbHome"),
       venomousLabel: tProfile("breadcrumbVenomous"),
       groupLabel,
+      indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
     });
 
     const pageUrl = speciesPageUrl(locale, item.id);
@@ -171,10 +177,13 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       .map((source) => source.url)
       .filter((url): url is string => Boolean(url));
 
+    const aliases = speciesAliasKeywords(item.id, locale);
     const taxon = {
       "@type": "Taxon",
       name: item.scientificName,
-      alternateName: item.commonName,
+      alternateName: [item.commonName, ...aliases].filter(
+        (name, index, list) => list.indexOf(name) === index,
+      ),
       taxonRank: "Species",
       parentTaxon: {
         "@type": "Taxon",
@@ -185,12 +194,24 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     };
 
     const org = organizationJsonLd();
+    const definedTerm = {
+      "@type": "DefinedTerm",
+      name: item.commonName,
+      alternateName: item.scientificName,
+      inDefinedTermSet: {
+        "@type": "DefinedTermSet",
+        name:
+          locale === "en" ? "Georgia reptiles" : "საქართველოს ქვეწარმავლები",
+        url: absoluteUrl("/"),
+      },
+    };
 
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: `${item.commonName} (${item.scientificName})`,
       description: item.description,
+      keywords: speciesJsonLdKeywords(item, locale),
       image: [ogImage, ...galleryImages],
       datePublished: raw.updatedAt,
       dateModified: raw.updatedAt,
@@ -199,7 +220,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         "@id": pageUrl,
       },
       mainEntity: taxon,
-      about: taxon,
+      about: [taxon, definedTerm],
+      mentions: definedTerm,
       author: org,
       publisher: {
         ...org,
