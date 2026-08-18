@@ -101,7 +101,7 @@ function HeroPathway({
   delay = 0,
 }: {
   onClick?: () => void;
-  href?: "/snakes" | "/lizards" | "/venomous-snakes";
+  href?: "/snakes" | "/lizards" | "/turtles" | "/amphibians" | "/venomous-snakes";
   eyebrow: string;
   title: string;
   meta: string;
@@ -291,11 +291,6 @@ export function SpeciesAtlas({
   const hasActiveFilters =
     facetCount > 0 || filters.query.trim().length > 0;
 
-  const comingSoonGroups: AnimalGroup[] = [];
-  if (filters.group === "turtle" || filters.group === "amphibian") {
-    comingSoonGroups.push(filters.group);
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <main>
@@ -392,6 +387,28 @@ export function SpeciesAtlas({
                       })}
                       meta={t("stats.pathwayExplore")}
                       href="/lizards"
+                    />
+                  ) : null}
+                  {stats.turtles > 0 ? (
+                    <HeroPathway
+                      delay={180}
+                      eyebrow={t("groups.turtle")}
+                      title={t("stats.pathwayTurtlesTitle", {
+                        count: stats.turtles,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      href="/turtles"
+                    />
+                  ) : null}
+                  {stats.amphibians > 0 ? (
+                    <HeroPathway
+                      delay={240}
+                      eyebrow={t("groups.amphibian")}
+                      title={t("stats.pathwayAmphibiansTitle", {
+                        count: stats.amphibians,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      href="/amphibians"
                     />
                   ) : null}
                   <Link
@@ -604,10 +621,7 @@ export function SpeciesAtlas({
               <AtlasSpeciesGrid species={filtered} locale={locale} />
             ) : (
               <ComingSoonPanel
-                group={
-                  comingSoonGroups[0] ??
-                  (filters.group !== "all" ? filters.group : null)
-                }
+                group={filters.group !== "all" ? filters.group : null}
                 onReset={resetFilters}
               />
             )}
@@ -734,9 +748,7 @@ function ComingSoonPanel({
         {title}
       </h3>
       <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-        {group === "turtle" || group === "amphibian"
-          ? t("emptyExpandingBody")
-          : t("emptyBody")}
+        {t("emptyBody")}
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
         <button

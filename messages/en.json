@@ -472,9 +472,11 @@
       "pathwayMap": "Open the map",
       "pathwaySnakesTitle": "{count} snakes",
       "pathwayLizardsTitle": "{count} lizards",
+      "pathwayTurtlesTitle": "{count} turtles",
+      "pathwayAmphibiansTitle": "{count} amphibians",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
-      "expandingNote": "Turtles and amphibians are coming next — with the same depth, maps, and photography."
+      "expandingNote": "Turtles and amphibians are already full categories — with the same depth, maps, and photography."
     },
     "explorerEyebrow": "Explorer",
     "explorerTitle": "Browse the living catalog",
@@ -522,9 +524,8 @@
     "exploreSpeciesNamed": "Explore {name}",
     "emptyEyebrow": "Atlas in progress",
     "emptyTitle": "No species match these filters",
-    "emptyGroupTitle": "{group} — coming into the atlas",
+    "emptyGroupTitle": "{group} — no matching species",
     "emptyBody": "Try another combination, or reset filters to see the full catalog.",
-    "emptyExpandingBody": "This group is part of the atlas roadmap. Georgia’s turtles and amphibians will be added with the same depth as the snake accounts — sourced, mapped, and photographed.",
     "suggestSpecies": "Suggest a species",
     "mapEyebrow": "Regional atlas",
     "mapTitle": "Explore species by region",
@@ -534,7 +535,7 @@
     "seo": {
       "reptilesTitle": "Reptiles of Georgia",
       "reptilesP1": "Georgia sits between the Black Sea, the Greater Caucasus, and the arid east — a short geographic span that supports vipers of high mountains and Colchic forests, water snakes of rivers and wetlands, racers of dry foothills, and a widespread legless lizard often mistaken for a snake. This atlas focuses first on well-documented reptiles of Georgia, with bilingual accounts, Georgia-specific range notes, and field photography.",
-      "reptilesP2": "Species richness here is shaped by elevation, humidity, and refuge habitats. Western Colchic landscapes favor moisture-linked snakes such as Natrix; eastern semi-arid basins hold Macrovipera lebetina and fast colubrids; alpine and subalpine belts hold Caucasus endemics including Vipera dinniki. Counts on this page reflect published profiles in the atlas and will grow as lizards, turtles, and amphibians are added with equal rigor.",
+      "reptilesP2": "Species richness here is shaped by elevation, humidity, and refuge habitats. Western Colchic landscapes favor moisture-linked snakes such as Natrix; eastern semi-arid basins hold Macrovipera lebetina and fast colubrids; alpine and subalpine belts hold Caucasus endemics including Vipera dinniki. Counts on this page reflect published profiles in the atlas — snakes, lizards, turtles, and amphibians.",
       "venomousTitle": "Venomous snakes of Georgia",
       "venomousP1": "Only a minority of Georgia’s snakes are medically significant. In this atlas, “venomous” means moderate or high risk to humans: the Levantine viper (Macrovipera lebetina), Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), Transcaucasian long-nosed viper (Vipera transcaucasiana), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi). Most other snakes here — grass snake, dice snake, racers, smooth snake, cat snake — are harmless to people, though several are frequently misidentified.",
       "venomousP2": "Safe encounter practice is simple: do not handle wild snakes, keep distance, and learn the lookalikes common in your region. Open each profile for identification traits, habitat, and conservation status. This is educational natural-history guidance, not emergency medical advice.",
