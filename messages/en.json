@@ -115,7 +115,7 @@
       },
       "lizards": {
         "title": "Lizards in Georgia",
-        "body": "Darevskia, Caucasian agama, and the glass lizard — the lizard cluster to full profiles.",
+        "body": "Darevskia, Caucasian agama, and the glass lizard — catalog through to full profiles.",
         "cta": "Lizards"
       },
       "amphibians": {
@@ -231,7 +231,7 @@
     "guideLinkEyebrow": "Compare",
     "guideLinkTitle": "Lizard, glass lizard, or snake?",
     "guideLinkBody": "Eyelids, ear openings, and size — only marks confirmed on the profiles.",
-    "guideLinkCta": "Open comparison guide",
+    "guideLinkCta": "Comparison guide",
     "range": "Distribution",
     "rangeTitle": "Where {name} lives in Georgia",
     "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
@@ -323,7 +323,7 @@
         "home": "Main atlas"
       }
     },
-    "clusterEyebrow": "Cluster",
+    "clusterEyebrow": "Categories",
     "clusterTitle": "From region to group",
     "clusterBody": "A region shows confirmed records. Full catalogs live on the category pages — snakes, lizards, turtles, amphibians.",
     "clusterSnakes": "Snake range",
@@ -487,7 +487,7 @@
     "filterTitle": "Filters",
     "filterClose": "Close",
     "filterClear": "Clear",
-    "filterApply": "Save",
+    "filterApply": "Apply",
     "resultsCount": "{count, plural, =0 {No matching species} one {# species} other {# species}}",
     "showingCount": "Showing {shown} of {total}",
     "resetFilters": "Show all",
@@ -530,7 +530,7 @@
     "mapEyebrow": "Regional atlas",
     "mapTitle": "Explore species by region",
     "mapSubtitle": "Hover a region to see species counts and common residents, then open the full regional guide.",
-    "openRegionsAtlas": "Open the regions atlas",
+    "openRegionsAtlas": "Regions atlas",
     "seoEyebrow": "Field context",
     "seo": {
       "reptilesTitle": "Reptiles of Georgia",
@@ -600,17 +600,17 @@
     "safetyStep4Title": "If bitten — get care",
     "safetyStep4Body": "Call 112 immediately. Stay calm and do not move the bitten arm or leg. Do not cut, suck, or apply a tourniquet. This does not replace a doctor’s advice.",
     "yardEyebrow": "Near home",
-    "yardTitle": "How do we get snakes out of the yard?",
+    "yardTitle": "How to get snakes out of the yard",
     "yardBody": "Prevention near the house is a different question: shelter, food, and myths that do not work. Full practice lives in a dedicated guide.",
-    "yardCta": "Open the yard guide",
+    "yardCta": "Yard guide",
     "idEyebrow": "ID",
     "idTitle": "Venomous or harmless?",
     "idBody": "A vertical pupil and a triangular head often point to vipers, but no rule is universal. Lookalikes have their own guide.",
-    "idCta": "Open ID guide",
+    "idCta": "ID guide",
     "biteEyebrow": "112",
     "biteTitle": "If a snake bites you",
     "biteBody": "Educational first steps: call 112. Do not cut, suck, or apply a tourniquet.",
-    "biteCta": "Open bite guide",
+    "biteCta": "Bite guide",
     "lookalikesEyebrow": "Confusion",
     "lookalikesTitle": "Harmless species often mistaken for vipers",
     "lookalikesBody": "Grass snakes, smooth snakes, cat snakes, and fast racers are often treated as venomous. Compare profiles and field marks in the atlas.",
@@ -658,11 +658,11 @@
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
     "venomousBody": "Medically significant species — risk, identification, and safe encounters in a dedicated guide.",
-    "venomousCta": "Open the venomous guide",
+    "venomousCta": "Venomous snakes",
     "yardEyebrow": "Practice",
     "yardTitle": "Snakes in the yard",
     "yardBody": "How to reduce snakes entering the yard — shelter, food, and what does not work.",
-    "yardCta": "Open the yard guide",
+    "yardCta": "Yard guide",
     "cluster": {
       "venomous": {
         "eyebrow": "Safety",
@@ -674,37 +674,37 @@
         "eyebrow": "Practice",
         "title": "Snakes in the yard",
         "body": "Shelter, food, and myths — what actually reduces visits.",
-        "cta": "Open the yard guide"
+        "cta": "Yard guide"
       },
       "index": {
         "eyebrow": "Catalog",
         "title": "Snake species",
         "body": "Every snake in one table — name, venom, range, and size when a source exists.",
-        "cta": "Open the index"
+        "cta": "Index"
       },
       "identify": {
         "eyebrow": "ID",
         "title": "Venomous or not",
         "body": "Visual cues and lookalikes — no rule is universal.",
-        "cta": "Open ID guide"
+        "cta": "ID guide"
       },
       "bite": {
         "eyebrow": "112",
         "title": "Snakebite",
         "body": "Educational first steps: call 112. Do not cut, suck, or use a tourniquet.",
-        "cta": "Open bite guide"
+        "cta": "Bite guide"
       },
       "range": {
         "eyebrow": "Map",
         "title": "Where snakes occur",
         "body": "12 regions and only confirmed snakes — gaps are not invented.",
-        "cta": "Open range guide"
+        "cta": "Range guide"
       },
       "largest": {
         "eyebrow": "Size",
         "title": "Largest snakes",
         "body": "Giurza, racers, and others — sizes from profiles only. The glass lizard is a lizard.",
-        "cta": "Open largest guide"
+        "cta": "Largest snakes"
       },
       "giurza": {
         "eyebrow": "Species",
@@ -727,14 +727,14 @@
       "lizardsHub": {
         "eyebrow": "Guide",
         "title": "Lizards in Georgia",
-        "body": "Glass lizard, Darevskia, and Caucasian agama — the lizard cluster to full profiles.",
+        "body": "Glass lizard, Darevskia, and Caucasian agama — catalog through to full profiles.",
         "cta": "Lizards"
       },
       "jojo": {
         "eyebrow": "Species",
         "title": "Caucasian agama",
         "body": "Georgia’s only agamid in the checklist — a harmless rock lizard.",
-        "cta": "Open profile"
+        "cta": "Profile"
       },
       "gvelxokera": {
         "eyebrow": "Species",
@@ -746,79 +746,79 @@
         "eyebrow": "Catalog",
         "title": "Lizard species",
         "body": "Every lizard in the index — Darevskia in its own block. An empty cell is a missing source.",
-        "cta": "Open the index"
+        "cta": "Index"
       },
       "lizardIdentify": {
         "eyebrow": "ID",
         "title": "What lizard is this?",
         "body": "Photo, size, colour, range. For Darevskia, colour is not enough.",
-        "cta": "Open ID guide"
+        "cta": "ID guide"
       },
       "glassLizard": {
         "eyebrow": "Compare",
         "title": "Lizard or glass lizard",
         "body": "Glass lizard vs slow worm vs snake — eyelids, ear, size. None of them are venomous.",
-        "cta": "Open comparison"
+        "cta": "Compare"
       },
       "tortoise": {
         "eyebrow": "Land",
         "title": "Greek tortoise",
         "body": "The only land tortoise in the atlas — Testudo graeca.",
-        "cta": "Open profile"
+        "cta": "Profile"
       },
       "slider": {
         "eyebrow": "Introduced",
         "title": "Red-eared slider",
         "body": "Not a native species. Listed as introduced in the checklist.",
-        "cta": "Open profile"
+        "cta": "Profile"
       },
       "frogs": {
         "eyebrow": "Anura",
         "title": "Frogs of Georgia",
         "body": "Toads, treefrogs, and frogs — the Anura group in a dedicated guide.",
-        "cta": "Open frogs guide"
+        "cta": "Frogs"
       },
       "turtleIndex": {
         "eyebrow": "Catalog",
         "title": "Turtle species",
         "body": "Four turtles in one index — land, native freshwater, and the introduced slider.",
-        "cta": "Open the index"
+        "cta": "Index"
       },
       "turtleLand": {
         "eyebrow": "Land",
         "title": "Land turtles",
         "body": "The atlas has one land tortoise — the Greek tortoise (Testudo graeca).",
-        "cta": "Open land guide"
+        "cta": "Land turtles"
       },
       "turtleWater": {
         "eyebrow": "Water",
         "title": "Freshwater turtles",
         "body": "European pond turtle, Caspian turtle, and the introduced red-eared slider.",
-        "cta": "Open water guide"
+        "cta": "Freshwater turtles"
       },
       "turtleIdentify": {
         "eyebrow": "ID",
         "title": "What turtle is this?",
         "body": "Land vs water, native vs introduced — traits from the profiles.",
-        "cta": "Open ID guide"
+        "cta": "ID guide"
       },
       "amphibianIndex": {
         "eyebrow": "Catalog",
         "title": "Amphibian species",
         "body": "12 species: 8 Anura and 4 Caudata. Tarkhnishvili et al. 2026 checklist.",
-        "cta": "Open the index"
+        "cta": "Index"
       },
       "frogsIndex": {
         "eyebrow": "Table",
         "title": "Frog species",
         "body": "Anura index — the table version of the frogs guide, not a duplicate essay.",
-        "cta": "Open frog index"
+        "cta": "Frog index"
       },
       "newts": {
         "eyebrow": "Caudata",
         "title": "Newts and salamanders",
         "body": "Caucasian salamander and three newts. Endemism only when a profile sources it.",
-        "cta": "Open Caudata guide"
+        "cta": "Newts"
       }
     }
   },
@@ -1495,7 +1495,7 @@
     "faq2Q": "Is the red-eared slider native?",
     "faq2A": "No. The profile lists it as introduced / released in the checklist.",
     "faq3Q": "Where does the Greek tortoise occur?",
-    "faq3A": "Profile location: T. g. ibera in eastern Georgia; T. g. nikolskii is described from western Georgia and is considered rare. The regional map is still empty.",
+    "faq3A": "The profile places T. g. ibera in eastern Georgia; T. g. nikolskii is described from western Georgia and is considered rare. The regional map is still empty.",
     "faq4Q": "Are any turtles venomous?",
     "faq4A": "No. Atlas turtles are harmless.",
     "ctaEyebrow": "Next step",
@@ -1720,7 +1720,7 @@
     "guideEyebrow": "Caudata",
     "guideTitle": "Salamander and newts, not frogs",
     "guideP1": "Mertensiella caucasica, Lissotriton lantzi, Ommatotriton ophryticus, Triturus karelinii. Habitat on the profiles: cool humid forests, streams, mountain wetlands.",
-    "guideP2": "Caucasian salamander location: western Lesser Caucasus endemic. The national Red List is not cited on these profiles — we do not invent status. Lissotriton lantzi is a checklist candidate.",
+    "guideP2": "The Caucasian salamander profile names it a western Lesser Caucasus endemic. The national Red List is not cited on these profiles — we do not invent status. Lissotriton lantzi is a checklist candidate.",
     "speciesEyebrow": "Species",
     "speciesTitle": "{count} Caudata",
     "speciesBody": "Each entry opens a profile. Regional maps are still empty.",
