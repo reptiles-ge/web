@@ -3528,7 +3528,7 @@ export const species: Species[] = [
         "answer": "ჩეკლისტი: ioriensis აღმოსავლეთში, grusinica დასავლეთში, brevicaudata სამხრეთსა და ცენტრში."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5319,7 +5319,7 @@ export const species: Species[] = [
         "answer": "ადგილობრივი Lacerta და Darevskia საქართველოში ბუნებრივად ბინადრობენ. ეს სახეობა ანაკლიაშია და გენეტიკურად სამხრეთ თურქეთს უკავშირდება."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6164,7 +6164,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7253,7 +7253,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026: საქართველოში გვხვდება Z. h. hohenackeri. უფრო ფართო არეალში Reptile Database სხვა ქვესახეობებსაც ასახელებს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7392,7 +7392,7 @@ export const species: Species[] = [
         "answer": "Musilová et al. 2010 სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფს; ერთ-ერთი აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T21:14:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
