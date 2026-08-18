@@ -2,6 +2,7 @@ import { getRegionSpecies, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
+import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { absoluteUrl, localePath, speciesPageUrl } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
@@ -59,10 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: atlasLastModified,
     });
 
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/amphibians/bayayi")),
-      lastModified: atlasLastModified,
-    });
+    for (const guide of CLUSTER_GUIDE_LIST) {
+      entries.push({
+        url: absoluteUrl(localePath(locale, guide.pathname)),
+        lastModified: atlasLastModified,
+      });
+    }
 
     for (const hub of GROUP_HUB_LIST) {
       entries.push({

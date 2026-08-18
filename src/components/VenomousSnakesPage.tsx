@@ -284,6 +284,57 @@ export function VenomousSnakesPage({
           </div>
         </section>
 
+        <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+              <Reveal>
+                <Link
+                  href="/snakes/shxamiani-gvelis-amocnoba"
+                  className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
+                >
+                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                    {t("idEyebrow")}
+                  </span>
+                  <div className="mt-6">
+                    <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
+                      {t("idTitle")}
+                    </p>
+                    <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+                      {t("idBody")}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+                      {t("idCta")}
+                      <ArrowUpRight className="size-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+              <Reveal delay={60}>
+                <Link
+                  href="/snakes/gvelis-nakbeni"
+                  className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
+                >
+                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                    {t("biteEyebrow")}
+                  </span>
+                  <div className="mt-6">
+                    <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
+                      {t("biteTitle")}
+                    </p>
+                    <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+                      {t("biteBody")}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+                      {t("biteCta")}
+                      <ArrowUpRight className="size-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">

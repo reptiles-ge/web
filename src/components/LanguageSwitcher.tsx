@@ -16,6 +16,11 @@ const STATIC_LOCALE_PATHS = [
   "/venomous-snakes",
   "/snakes-in-the-yard",
   "/amphibians/bayayi",
+  "/snakes/saxeoebebi",
+  "/snakes/shxamiani-gvelis-amocnoba",
+  "/snakes/gvelis-nakbeni",
+  "/snakes/gavrtseleba",
+  "/snakes/didi-gvelebi",
   "/regions",
 ] as const;
 

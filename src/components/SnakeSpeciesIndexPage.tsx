@@ -2,27 +2,29 @@
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { Reveal } from "@/components/Reveal";
-import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
-import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
-import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
-import { useLocale, useTranslations } from "next-intl";
+import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import { isVenomousDanger } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
+import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
+import { useLocale, useTranslations } from "next-intl";
 
-export function ClusterGuidePage({
+export function SnakeSpeciesIndexPage({
   guideId,
   species,
   heroSrc,
 }: ClusterGuideViewProps) {
-  const guide = CLUSTER_GUIDES[guideId];
-  const t = useTranslations(guide.messageKey);
+  const t = useTranslations("snakeIndex");
   const locale = useLocale() as AppLocale;
+  const venomousCount = species.filter((item) =>
+    isVenomousDanger(item.danger),
+  ).length;
   const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (
     <ClusterPageFrame
       guideId={guideId}
       heroSrc={heroSrc}
-      ctaHash="#species"
+      ctaHash="#index"
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
@@ -36,18 +38,18 @@ export function ClusterGuidePage({
             </div>
             <div>
               <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {familyCount}
+                {venomousCount}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statFamilies")}
+                {t("statVenomous")}
               </p>
             </div>
             <div>
               <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {t("statExtraValue")}
+                {familyCount}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statExtra")}
+                {t("statFamilies")}
               </p>
             </div>
           </div>
@@ -76,22 +78,24 @@ export function ClusterGuidePage({
       </section>
 
       <section
-        id="species"
+        id="index"
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("speciesEyebrow")}
+              {t("tableEyebrow")}
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("speciesTitle", { count: species.length })}
+              {t("tableTitle", { count: species.length })}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("speciesBody")}
+              {t("tableBody")}
             </p>
           </Reveal>
-          <SpeciesGuideList species={species} locale={locale} />
+          <div className="mt-10">
+            <SpeciesIndexTable species={species} locale={locale} />
+          </div>
         </div>
       </section>
     </ClusterPageFrame>

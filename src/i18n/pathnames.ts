@@ -8,6 +8,26 @@ export const pathnames = {
     ka: "/gvelebi",
     en: "/snakes",
   },
+  "/snakes/saxeoebebi": {
+    ka: "/gvelebi/saxeoebebi",
+    en: "/snakes/species",
+  },
+  "/snakes/shxamiani-gvelis-amocnoba": {
+    ka: "/gvelebi/shxamiani-gvelis-amocnoba",
+    en: "/snakes/identify-venomous",
+  },
+  "/snakes/gvelis-nakbeni": {
+    ka: "/gvelebi/gvelis-nakbeni",
+    en: "/snakes/bite",
+  },
+  "/snakes/gavrtseleba": {
+    ka: "/gvelebi/gavrtseleba",
+    en: "/snakes/range",
+  },
+  "/snakes/didi-gvelebi": {
+    ka: "/gvelebi/didi-gvelebi",
+    en: "/snakes/largest",
+  },
   "/snakes/[slug]": {
     ka: "/gvelebi/[slug]",
     en: "/snakes/[slug]",

@@ -101,33 +101,7 @@ body {
   animation: hero-drift 28s ease-in-out infinite alternate;
 }
 
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal-ready {
-  opacity: 0;
-}
-
-.reveal-in {
-  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .reveal-ready,
-  .reveal-in {
-    opacity: 1;
-    animation: none;
-    transform: none;
-  }
-
   .hero-drift {
     animation: none;
   }

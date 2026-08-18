@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import {
   ArrowLeft,
   ArrowRight,
+  ArrowUpRight,
   Plus,
 } from "lucide-react";
 import Image from "next/image";
@@ -281,6 +282,13 @@ export function SnakesInYardPage({
                       {EMERGENCY_PHONE}
                     </span>
                   </a>
+                  <Link
+                    href="/snakes/gvelis-nakbeni"
+                    className="mt-3 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/70 transition-colors hover:text-primary"
+                  >
+                    {t("contactBiteGuideCta")}
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
                 </div>
               </Reveal>
               <Reveal delay={60}>

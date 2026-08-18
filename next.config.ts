@@ -102,6 +102,101 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        source: "/snakes/species",
+        destination: "/gvelebi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/snakes/identify-venomous",
+        destination: "/gvelebi/shxamiani-gvelis-amocnoba",
+        statusCode: 301,
+      },
+      {
+        source: "/snakes/bite",
+        destination: "/gvelebi/gvelis-nakbeni",
+        statusCode: 301,
+      },
+      {
+        source: "/snakes/range",
+        destination: "/gvelebi/gavrtseleba",
+        statusCode: 301,
+      },
+      {
+        source: "/snakes/largest",
+        destination: "/gvelebi/didi-gvelebi",
+        statusCode: 301,
+      },
+      {
+        source: "/en/gvelebi/saxeoebebi",
+        destination: "/en/snakes/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/gvelebi/shxamiani-gvelis-amocnoba",
+        destination: "/en/snakes/identify-venomous",
+        statusCode: 301,
+      },
+      {
+        source: "/en/gvelebi/gvelis-nakbeni",
+        destination: "/en/snakes/bite",
+        statusCode: 301,
+      },
+      {
+        source: "/en/gvelebi/gavrtseleba",
+        destination: "/en/snakes/range",
+        statusCode: 301,
+      },
+      {
+        source: "/en/gvelebi/didi-gvelebi",
+        destination: "/en/snakes/largest",
+        statusCode: 301,
+      },
+      {
+        source: "/en/snakes/saxeoebebi",
+        destination: "/en/snakes/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/snakes/shxamiani-gvelis-amocnoba",
+        destination: "/en/snakes/identify-venomous",
+        statusCode: 301,
+      },
+      {
+        source: "/en/snakes/gvelis-nakbeni",
+        destination: "/en/snakes/bite",
+        statusCode: 301,
+      },
+      {
+        source: "/en/snakes/gavrtseleba",
+        destination: "/en/snakes/range",
+        statusCode: 301,
+      },
+      {
+        source: "/en/snakes/didi-gvelebi",
+        destination: "/en/snakes/largest",
+        statusCode: 301,
+      },
+      {
+        source: "/gvelebi/sakartvelos-gvelebi",
+        destination: "/gvelebi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/snakes/sakartvelos-gvelebi",
+        destination: "/gvelebi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/en/snakes/sakartvelos-gvelebi",
+        destination: "/en/snakes/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/gvelebi/sakartvelos-gvelebi",
+        destination: "/en/snakes/species",
+        statusCode: 301,
+      },
+      {
         source: "/identify",
         destination: "/species",
         statusCode: 302,

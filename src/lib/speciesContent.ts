@@ -56,6 +56,29 @@ export function filterDisplayStats(stats: SpeciesStat[]) {
   });
 }
 
+const SIZE_LABELS = new Set(["სიგრძე", "Length", "Size", "ზომა"]);
+const HABITAT_LABELS = new Set(["ჰაბიტატი", "Habitat"]);
+const ACTIVITY_LABELS = new Set(["აქტიურობა", "Activity", "სეზონი", "Season"]);
+
+function getStatByLabels(species: Species, labels: Set<string>) {
+  const found = filterDisplayStats(species.stats).find((stat) =>
+    labels.has(stat.label),
+  );
+  return found?.value ?? null;
+}
+
+export function getSpeciesSizeStat(species: Species) {
+  return getStatByLabels(species, SIZE_LABELS);
+}
+
+export function getSpeciesHabitatStat(species: Species) {
+  return getStatByLabels(species, HABITAT_LABELS);
+}
+
+export function getSpeciesActivityStat(species: Species) {
+  return getStatByLabels(species, ACTIVITY_LABELS);
+}
+
 export function isPlaceholderBody(text: string) {
   const normalized = text.trim().toLowerCase();
   if (!normalized) return true;

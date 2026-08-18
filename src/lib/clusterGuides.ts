@@ -1,5 +1,6 @@
+import { getRegionSpecies, type Region } from "@/data/regions";
 import type { Species } from "@/data/species";
-import { isVenomousDanger } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 export const FROG_SPECIES_IDS = [
@@ -20,8 +21,30 @@ export const NEWT_SPECIES_IDS = [
   "triturus-karelinii",
 ] as const;
 
+export const LARGE_SNAKE_IDS = [
+  "malpolon-insignitus",
+  "macrovipera-lebetina",
+  "dolichophis-schmidti",
+  "natrix-tessellata",
+  "natrix-natrix",
+  "elaphe-urartica",
+  "dolichophis-caspius",
+  "zamenis-longissimus",
+] as const;
+
+export const LARGE_SNAKE_LIZARD_ID = "pseudopus-apodus";
+
+export const SNAKE_LOOKALIKE_PAIRS = [
+  { a: "natrix-natrix", b: "vipera-kaznakovi" },
+  { a: "natrix-tessellata", b: "vipera-kaznakovi" },
+  { a: "coronella-austriaca", b: "vipera-transcaucasiana" },
+  { a: "malpolon-insignitus", b: "macrovipera-lebetina" },
+  { a: "pseudopus-apodus", b: "natrix-natrix" },
+] as const;
+
 const frogIdSet = new Set<string>(FROG_SPECIES_IDS);
 const newtIdSet = new Set<string>(NEWT_SPECIES_IDS);
+const largeSnakeIdSet = new Set<string>(LARGE_SNAKE_IDS);
 
 export function isFrogSpecies(id: string) {
   return frogIdSet.has(id);
@@ -31,17 +54,55 @@ export function isNewtSpecies(id: string) {
   return newtIdSet.has(id);
 }
 
-export type ClusterGuideId = "amphibian-frogs";
+export function isSnakeSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "snake";
+}
 
-export type ClusterGuidePath = "/amphibians/bayayi";
+export function getRegionSnakeSpecies(region: Region) {
+  return getRegionSpecies(region).filter(isSnakeSpecies);
+}
+
+export function orderSpeciesByIds(species: Species[], ids: readonly string[]) {
+  const map = new Map(species.map((item) => [item.id, item]));
+  return ids
+    .map((id) => map.get(id))
+    .filter((item): item is Species => Boolean(item));
+}
+
+export type ClusterGuideId =
+  | "amphibian-frogs"
+  | "snake-index"
+  | "snake-identify"
+  | "snake-bite"
+  | "snake-range"
+  | "snake-largest";
+
+export type ClusterGuidePath =
+  | "/amphibians/bayayi"
+  | "/snakes/saxeoebebi"
+  | "/snakes/shxamiani-gvelis-amocnoba"
+  | "/snakes/gvelis-nakbeni"
+  | "/snakes/gavrtseleba"
+  | "/snakes/didi-gvelebi";
+
+export type ClusterMessageKey =
+  | "amphibianFrogs"
+  | "snakeIndex"
+  | "snakeIdentify"
+  | "snakeBite"
+  | "snakeRange"
+  | "snakeLargest";
 
 export type ClusterGuideConfig = {
   id: ClusterGuideId;
   pathname: ClusterGuidePath;
   parentHub: GroupHubId;
-  messageKey: "amphibianFrogs";
+  messageKey: ClusterMessageKey;
   heroSpeciesId: string;
   matches: (species: Species) => boolean;
+  faqCount: 4 | 5;
+  schema: "collection" | "article";
+  primaryCta: "hash" | "tel";
 };
 
 export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
@@ -52,14 +113,99 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "amphibianFrogs",
     heroSpeciesId: "pelophylax-ridibundus",
     matches: (species) => isFrogSpecies(species.id),
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
   },
+  "snake-index": {
+    id: "snake-index",
+    pathname: "/snakes/saxeoebebi",
+    parentHub: "snakes",
+    messageKey: "snakeIndex",
+    heroSpeciesId: "macrovipera-lebetina",
+    matches: isSnakeSpecies,
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "snake-identify": {
+    id: "snake-identify",
+    pathname: "/snakes/shxamiani-gvelis-amocnoba",
+    parentHub: "snakes",
+    messageKey: "snakeIdentify",
+    heroSpeciesId: "vipera-kaznakovi",
+    matches: (species) =>
+      isSnakeSpecies(species) || species.id === LARGE_SNAKE_LIZARD_ID,
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "snake-bite": {
+    id: "snake-bite",
+    pathname: "/snakes/gvelis-nakbeni",
+    parentHub: "snakes",
+    messageKey: "snakeBite",
+    heroSpeciesId: "macrovipera-lebetina",
+    matches: (species) =>
+      isSnakeSpecies(species) && isVenomousDanger(species.danger),
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "tel",
+  },
+  "snake-range": {
+    id: "snake-range",
+    pathname: "/snakes/gavrtseleba",
+    parentHub: "snakes",
+    messageKey: "snakeRange",
+    heroSpeciesId: "natrix-natrix",
+    matches: isSnakeSpecies,
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "snake-largest": {
+    id: "snake-largest",
+    pathname: "/snakes/didi-gvelebi",
+    parentHub: "snakes",
+    messageKey: "snakeLargest",
+    heroSpeciesId: "macrovipera-lebetina",
+    matches: (species) =>
+      largeSnakeIdSet.has(species.id) || species.id === LARGE_SNAKE_LIZARD_ID,
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+};
+
+export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
+
+export type ClusterGuideViewProps = {
+  guideId: ClusterGuideId;
+  species: Species[];
+  heroSrc: string;
 };
 
 export type HubClusterCard =
   | {
       kind: "page";
-      href: "/venomous-snakes" | "/snakes-in-the-yard" | "/amphibians/bayayi";
-      key: "venomous" | "yard" | "frogs";
+      href:
+        | "/venomous-snakes"
+        | "/snakes-in-the-yard"
+        | "/amphibians/bayayi"
+        | "/snakes/saxeoebebi"
+        | "/snakes/shxamiani-gvelis-amocnoba"
+        | "/snakes/gvelis-nakbeni"
+        | "/snakes/gavrtseleba"
+        | "/snakes/didi-gvelebi";
+      key:
+        | "venomous"
+        | "yard"
+        | "frogs"
+        | "index"
+        | "identify"
+        | "bite"
+        | "range"
+        | "largest";
     }
   | {
       kind: "species";
@@ -69,7 +215,12 @@ export type HubClusterCard =
 
 export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   snakes: [
+    { kind: "page", href: "/snakes/saxeoebebi", key: "index" },
     { kind: "page", href: "/venomous-snakes", key: "venomous" },
+    { kind: "page", href: "/snakes/shxamiani-gvelis-amocnoba", key: "identify" },
+    { kind: "page", href: "/snakes/gvelis-nakbeni", key: "bite" },
+    { kind: "page", href: "/snakes/gavrtseleba", key: "range" },
+    { kind: "page", href: "/snakes/didi-gvelebi", key: "largest" },
     { kind: "page", href: "/snakes-in-the-yard", key: "yard" },
     { kind: "species", id: "macrovipera-lebetina", key: "giurza" },
   ],
@@ -81,9 +232,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "species", id: "testudo-graeca", key: "tortoise" },
     { kind: "species", id: "trachemys-scripta", key: "slider" },
   ],
-  amphibians: [
-    { kind: "page", href: "/amphibians/bayayi", key: "frogs" },
-  ],
+  amphibians: [{ kind: "page", href: "/amphibians/bayayi", key: "frogs" }],
 };
 
 export type SpeciesSection = {

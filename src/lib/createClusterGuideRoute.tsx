@@ -1,4 +1,9 @@
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
+import { SnakeBitePage } from "@/components/SnakeBitePage";
+import { SnakeIdentifyPage } from "@/components/SnakeIdentifyPage";
+import { SnakeLargestPage } from "@/components/SnakeLargestPage";
+import { SnakeRangePage } from "@/components/SnakeRangePage";
+import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -6,6 +11,7 @@ import { routing, type AppLocale } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
   type ClusterGuideId,
+  type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import {
@@ -19,15 +25,29 @@ import {
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
+const CLUSTER_PAGES: Record<
+  ClusterGuideId,
+  ComponentType<ClusterGuideViewProps>
+> = {
+  "amphibian-frogs": ClusterGuidePage,
+  "snake-index": SnakeSpeciesIndexPage,
+  "snake-identify": SnakeIdentifyPage,
+  "snake-bite": SnakeBitePage,
+  "snake-range": SnakeRangePage,
+  "snake-largest": SnakeLargestPage,
+};
+
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
+  const PageView = CLUSTER_PAGES[guideId];
 
   async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale: localeParam } = await params;
@@ -132,43 +152,66 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       ],
     };
 
-    const collectionLd = {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: t("metaTitle"),
-      description: t("metaDescription"),
-      url,
-      isPartOf: {
-        "@type": "WebSite",
-        name: siteConfig.name,
-        url: absoluteUrl("/"),
-      },
-      about: {
-        "@type": "Place",
-        name: locale === "en" ? "Georgia" : "საქართველო",
-      },
-      inLanguage: locale,
-      mainEntity: {
-        "@type": "ItemList",
-        numberOfItems: species.length,
-        itemListElement: species.map((item, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          url: speciesPageUrl(locale, item.id),
-          name: `${item.commonName} (${item.scientificName})`,
-        })),
-      },
-    };
+    const pageLd =
+      guide.schema === "collection"
+        ? {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: t("metaTitle"),
+            description: t("metaDescription"),
+            url,
+            isPartOf: {
+              "@type": "WebSite",
+              name: siteConfig.name,
+              url: absoluteUrl("/"),
+            },
+            about: {
+              "@type": "Place",
+              name: locale === "en" ? "Georgia" : "საქართველო",
+            },
+            inLanguage: locale,
+            mainEntity: {
+              "@type": "ItemList",
+              numberOfItems: species.length,
+              itemListElement: species.map((item, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                url: speciesPageUrl(locale, item.id),
+                name: `${item.commonName} (${item.scientificName})`,
+              })),
+            },
+          }
+        : {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: t("metaTitle"),
+            description: t("metaDescription"),
+            url,
+            isPartOf: {
+              "@type": "WebSite",
+              name: siteConfig.name,
+              url: absoluteUrl("/"),
+            },
+            about: {
+              "@type": "Place",
+              name: locale === "en" ? "Georgia" : "საქართველო",
+            },
+            inLanguage: locale,
+          };
 
+    const faqNumbers = Array.from(
+      { length: guide.faqCount },
+      (_, index) => index + 1,
+    );
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: ([1, 2, 3, 4] as const).map((n) => ({
+      mainEntity: faqNumbers.map((n) => ({
         "@type": "Question",
-        name: t(`faq${n}Q`),
+        name: t(`faq${n}Q` as Parameters<typeof t>[0]),
         acceptedAnswer: {
           "@type": "Answer",
-          text: t(`faq${n}A`),
+          text: t(`faq${n}A` as Parameters<typeof t>[0]),
         },
       })),
     };
@@ -176,20 +219,15 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     return (
       <>
         <JsonLd data={breadcrumbLd} />
-        <JsonLd data={collectionLd} />
+        <JsonLd data={pageLd} />
         <JsonLd data={faqLd} />
-        <ClusterGuidePage
-          guideId={guideId}
-          species={species}
-          heroSrc={heroSrc}
-        />
+        <PageView guideId={guideId} species={species} heroSrc={heroSrc} />
       </>
     );
   }
 
   return {
-    generateStaticParams: () =>
-      routing.locales.map((locale) => ({ locale })),
+    generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     generateMetadata,
     Page,
   };
