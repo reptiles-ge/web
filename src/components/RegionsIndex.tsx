@@ -143,13 +143,6 @@ export function RegionsIndex() {
                   {t("clusterAmphibians")}
                   <ArrowUpRight className="size-3.5 opacity-50" />
                 </Link>
-                <Link
-                  href="/conservation"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                >
-                  {t("clusterConservation")}
-                  <ArrowUpRight className="size-3.5 opacity-50" />
-                </Link>
               </div>
             </Reveal>
           </div>
@@ -217,15 +210,6 @@ export function RegionsIndex() {
                     className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                   >
                     {t("seo.links.range")}
-                    <ArrowUpRight className="size-3.5 opacity-50" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/conservation"
-                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-                  >
-                    {t("seo.links.conservation")}
                     <ArrowUpRight className="size-3.5 opacity-50" />
                   </Link>
                 </li>

@@ -100,26 +100,6 @@ export const pathnames = {
     ka: "/amfibiebi/[slug]",
     en: "/amphibians/[slug]",
   },
-  "/conservation": {
-    ka: "/konservacia",
-    en: "/conservation",
-  },
-  "/conservation/witeli-nusxa-qvewarmavlebi": {
-    ka: "/konservacia/witeli-nusxa-qvewarmavlebi",
-    en: "/conservation/red-list-reptiles",
-  },
-  "/conservation/witeli-nusxa-amfibiebi": {
-    ka: "/konservacia/witeli-nusxa-amfibiebi",
-    en: "/conservation/red-list-amphibians",
-  },
-  "/conservation/ishviati-qvewarmavlebi": {
-    ka: "/konservacia/ishviati-qvewarmavlebi",
-    en: "/conservation/rare-reptiles",
-  },
-  "/conservation/endemuri-qvewarmavlebi": {
-    ka: "/konservacia/endemuri-qvewarmavlebi",
-    en: "/conservation/endemic-reptiles",
-  },
   "/venomous-snakes": {
     ka: "/gvelebi/shxamiani-gvelebi",
     en: "/venomous-snakes",

@@ -1,6 +1,5 @@
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
-import { ConservationGuidePage } from "@/components/ConservationGuidePage";
 import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
 import { LizardComparePage } from "@/components/LizardComparePage";
 import { LizardIdentifyPage } from "@/components/LizardIdentifyPage";
@@ -18,10 +17,10 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
-  CLUSTER_PARENTS,
   type ClusterGuideId,
   type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
+import { GROUP_HUBS } from "@/lib/groupHubs";
 import {
   absoluteUrl,
   localeAlternates,
@@ -60,15 +59,11 @@ const CLUSTER_PAGES: Record<
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-frogs-index": FrogSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
-  "conservation-reptiles": ConservationGuidePage,
-  "conservation-amphibians": ConservationGuidePage,
-  "conservation-rare": ConservationGuidePage,
-  "conservation-endemic": ConservationGuidePage,
 };
 
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
-  const parent = CLUSTER_PARENTS[guide.parentHub];
+  const parent = GROUP_HUBS[guide.parentHub];
   const PageView = CLUSTER_PAGES[guideId];
 
   async function generateMetadata({ params }: Props): Promise<Metadata> {

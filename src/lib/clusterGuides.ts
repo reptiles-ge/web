@@ -29,29 +29,6 @@ export const TURTLE_WATER_IDS = [
   "trachemys-scripta",
 ] as const;
 
-export const GEORGIA_RED_LIST_REPTILE_IDS = [
-  "vipera-kaznakovi",
-  "vipera-dinniki",
-  "vipera-transcaucasiana",
-] as const;
-
-export const GEORGIA_RED_LIST_AMPHIBIAN_IDS = [] as const;
-
-export const IUCN_THREATENED_REPTILE_IDS = [
-  "vipera-kaznakovi",
-  "vipera-dinniki",
-  "vipera-darevskii",
-  "vipera-transcaucasiana",
-] as const;
-
-export const ENDEMIC_REPTILE_IDS = [
-  "vipera-kaznakovi",
-  "vipera-dinniki",
-  "vipera-darevskii",
-] as const;
-
-export const ENDEMIC_AMPHIBIAN_IDS = ["mertensiella-caucasica"] as const;
-
 export const LARGE_SNAKE_IDS = [
   "malpolon-insignitus",
   "macrovipera-lebetina",
@@ -92,10 +69,6 @@ const newtIdSet = new Set<string>(NEWT_SPECIES_IDS);
 const largeSnakeIdSet = new Set<string>(LARGE_SNAKE_IDS);
 const turtleLandIdSet = new Set<string>(TURTLE_LAND_IDS);
 const turtleWaterIdSet = new Set<string>(TURTLE_WATER_IDS);
-const georgiaRedListReptileSet = new Set<string>(GEORGIA_RED_LIST_REPTILE_IDS);
-const iucnThreatenedReptileSet = new Set<string>(IUCN_THREATENED_REPTILE_IDS);
-const endemicReptileSet = new Set<string>(ENDEMIC_REPTILE_IDS);
-const endemicAmphibianSet = new Set<string>(ENDEMIC_AMPHIBIAN_IDS);
 
 export function isFrogSpecies(id: string) {
   return frogIdSet.has(id);
@@ -125,38 +98,6 @@ export function isDarevskiaSpecies(species: Species) {
   return species.genus === "Darevskia";
 }
 
-export function isChecklistCandidate(species: Species) {
-  const text = `${species.description} ${species.overview}`.toLowerCase();
-  return text.includes("კანდიდატი") || text.includes("candidate species");
-}
-
-export function isGeorgiaRedListReptile(id: string) {
-  return georgiaRedListReptileSet.has(id);
-}
-
-export function isIucnThreatenedReptile(id: string) {
-  return iucnThreatenedReptileSet.has(id);
-}
-
-export function isEndemicReptile(id: string) {
-  return endemicReptileSet.has(id);
-}
-
-export function isEndemicAmphibian(id: string) {
-  return endemicAmphibianSet.has(id);
-}
-
-export function isRareReptile(species: Species) {
-  if (!isSnakeSpecies(species) && !isLizardSpecies(species) && !isTurtleSpecies(species)) {
-    return false;
-  }
-  return (
-    isGeorgiaRedListReptile(species.id) ||
-    isIucnThreatenedReptile(species.id) ||
-    isChecklistCandidate(species)
-  );
-}
-
 export function getRegionSnakeSpecies(region: Region) {
   return getRegionSpecies(region).filter(isSnakeSpecies);
 }
@@ -167,27 +108,6 @@ export function orderSpeciesByIds(species: Species[], ids: readonly string[]) {
     .map((id) => map.get(id))
     .filter((item): item is Species => Boolean(item));
 }
-
-export type ClusterParentId = GroupHubId | "conservation";
-
-export const CLUSTER_PARENTS: Record<
-  ClusterParentId,
-  {
-    path:
-      | "/snakes"
-      | "/lizards"
-      | "/turtles"
-      | "/amphibians"
-      | "/conservation";
-    messageKey: GroupHubId | "conservationHub";
-  }
-> = {
-  snakes: { path: "/snakes", messageKey: "snakes" },
-  lizards: { path: "/lizards", messageKey: "lizards" },
-  turtles: { path: "/turtles", messageKey: "turtles" },
-  amphibians: { path: "/amphibians", messageKey: "amphibians" },
-  conservation: { path: "/conservation", messageKey: "conservationHub" },
-};
 
 export type ClusterGuideId =
   | "amphibian-frogs"
@@ -205,11 +125,7 @@ export type ClusterGuideId =
   | "turtle-identify"
   | "amphibian-index"
   | "amphibian-frogs-index"
-  | "amphibian-newts"
-  | "conservation-reptiles"
-  | "conservation-amphibians"
-  | "conservation-rare"
-  | "conservation-endemic";
+  | "amphibian-newts";
 
 export type ClusterGuidePath =
   | "/amphibians/bayayi"
@@ -227,11 +143,7 @@ export type ClusterGuidePath =
   | "/turtles/identifikacia"
   | "/amphibians/saxeoebebi"
   | "/amphibians/bayayi/saxeoebebi"
-  | "/amphibians/tritoni-salamandra"
-  | "/conservation/witeli-nusxa-qvewarmavlebi"
-  | "/conservation/witeli-nusxa-amfibiebi"
-  | "/conservation/ishviati-qvewarmavlebi"
-  | "/conservation/endemuri-qvewarmavlebi";
+  | "/amphibians/tritoni-salamandra";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -249,16 +161,12 @@ export type ClusterMessageKey =
   | "turtleIdentify"
   | "amphibianIndex"
   | "amphibianFrogsIndex"
-  | "amphibianNewts"
-  | "conservationReptiles"
-  | "conservationAmphibians"
-  | "conservationRare"
-  | "conservationEndemic";
+  | "amphibianNewts";
 
 export type ClusterGuideConfig = {
   id: ClusterGuideId;
   pathname: ClusterGuidePath;
-  parentHub: ClusterParentId;
+  parentHub: GroupHubId;
   messageKey: ClusterMessageKey;
   heroSpeciesId: string;
   heroImage?: string;
@@ -455,53 +363,6 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     matches: (species) => isNewtSpecies(species.id),
     faqCount: 4,
     schema: "collection",
-    primaryCta: "hash",
-  },
-  "conservation-reptiles": {
-    id: "conservation-reptiles",
-    pathname: "/conservation/witeli-nusxa-qvewarmavlebi",
-    parentHub: "conservation",
-    messageKey: "conservationReptiles",
-    heroSpeciesId: "vipera-kaznakovi",
-    matches: (species) => isGeorgiaRedListReptile(species.id),
-    faqCount: 4,
-    schema: "article",
-    primaryCta: "hash",
-  },
-  "conservation-amphibians": {
-    id: "conservation-amphibians",
-    pathname: "/conservation/witeli-nusxa-amfibiebi",
-    parentHub: "conservation",
-    messageKey: "conservationAmphibians",
-    heroSpeciesId: "mertensiella-caucasica",
-    matches: (species) =>
-      isAmphibianSpecies(species) &&
-      (isEndemicAmphibian(species.id) || isChecklistCandidate(species)),
-    faqCount: 4,
-    schema: "article",
-    primaryCta: "hash",
-  },
-  "conservation-rare": {
-    id: "conservation-rare",
-    pathname: "/conservation/ishviati-qvewarmavlebi",
-    parentHub: "conservation",
-    messageKey: "conservationRare",
-    heroSpeciesId: "vipera-darevskii",
-    matches: isRareReptile,
-    faqCount: 4,
-    schema: "article",
-    primaryCta: "hash",
-  },
-  "conservation-endemic": {
-    id: "conservation-endemic",
-    pathname: "/conservation/endemuri-qvewarmavlebi",
-    parentHub: "conservation",
-    messageKey: "conservationEndemic",
-    heroSpeciesId: "vipera-darevskii",
-    matches: (species) =>
-      isEndemicReptile(species.id) || isEndemicAmphibian(species.id),
-    faqCount: 4,
-    schema: "article",
     primaryCta: "hash",
   },
 };

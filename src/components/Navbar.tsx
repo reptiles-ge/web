@@ -24,9 +24,7 @@ function hasDarkHeroTop(pathname: string) {
     pathname === "/turtles" ||
     pathname.startsWith("/turtles/") ||
     pathname === "/amphibians" ||
-    pathname.startsWith("/amphibians/") ||
-    pathname === "/conservation" ||
-    pathname.startsWith("/conservation/")
+    pathname.startsWith("/amphibians/")
   ) {
     return true;
   }

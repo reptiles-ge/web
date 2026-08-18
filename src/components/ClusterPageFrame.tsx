@@ -4,9 +4,9 @@ import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   CLUSTER_GUIDES,
-  CLUSTER_PARENTS,
   type ClusterGuideId,
 } from "@/lib/clusterGuides";
+import { GROUP_HUBS } from "@/lib/groupHubs";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -30,7 +30,7 @@ export function ClusterPageFrame({
   children,
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
-  const parent = CLUSTER_PARENTS[guide.parentHub];
+  const parent = GROUP_HUBS[guide.parentHub];
   const t = useTranslations(guide.messageKey);
   const tShared = useTranslations("groupHubShared");
   const tParent = useTranslations(parent.messageKey);

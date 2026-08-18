@@ -2,112 +2,223 @@
 "use client";
 
 import { OverlayPanel } from "@/components/OverlayPanel";
-import { getCatalogSpecies, type Species } from "@/data/species";
-import type { AppLocale } from "@/i18n/routing";
-import { speciesHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
-import { useLocale, useTranslations } from "next-intl";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import type { AppLocale } from "@/i18n/routing";
 import {
   chromeIconButtonBase,
   chromeIconButtonClass,
   chromeShellClass,
 } from "@/lib/chromeStyles";
-import { MapPin, Search, X } from "lucide-react";
+import {
+  buildSearchIndex,
+  flattenGroups,
+  readRecent,
+  resolveRecent,
+  searchIndex,
+  writeRecent,
+  type SearchDocument,
+  type SearchFilter,
+  type SearchGroup,
+  type SearchIcon,
+  type SearchKind,
+} from "@/lib/siteSearch";
+import {
+  ArrowUpRight,
+  BookMarked,
+  BookOpen,
+  CornerDownLeft,
+  Home,
+  Info,
+  Mail,
+  MapPinned,
+  ScanSearch,
+  Search,
+  ShieldAlert,
+  X,
+} from "lucide-react";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import {
   startTransition,
   useCallback,
   useDeferredValue,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState,
-  type KeyboardEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type ReactNode,
 } from "react";
 
 type SpeciesSearchProps = {
   variant?: "light" | "dark";
 };
 
-type SearchItem = Species & {
-  searchText: string;
+const FILTERS: SearchFilter[] = ["all", "page", "species", "region"];
+
+const ICONS: Record<SearchIcon, typeof Search> = {
+  atlas: BookMarked,
+  hub: BookOpen,
+  guide: BookOpen,
+  identify: ScanSearch,
+  safety: ShieldAlert,
+  map: MapPinned,
+  yard: Home,
+  info: Info,
+  contact: Mail,
 };
 
-function toSearchItem(raw: Species, locale: AppLocale): SearchItem {
-  const localized = localizeSpecies(raw, locale);
-  const ka = localizeSpecies(raw, "ka");
-  const en = localizeSpecies(raw, "en");
+function highlight(text: string, query: string) {
+  const q = query.trim();
+  if (!q) return text;
+  const lower = text.toLowerCase();
+  const nq = q.toLowerCase();
+  let index = lower.indexOf(nq);
+  let length = nq.length;
+  if (index < 0) {
+    for (const token of nq.split(/\s+/).filter((item) => item.length > 1)) {
+      index = lower.indexOf(token);
+      if (index >= 0) {
+        length = token.length;
+        break;
+      }
+    }
+  }
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <mark className="rounded-[3px] bg-primary/15 text-inherit">
+        {text.slice(index, index + length)}
+      </mark>
+      {text.slice(index + length)}
+    </>
+  );
+}
 
-  return {
-    ...localized,
-    searchText: [
-      ka.commonName,
-      en.commonName,
-      raw.scientificName,
-      raw.genus,
-      raw.family,
-      ka.location,
-      en.location,
-    ]
-      .join(" ")
-      .toLowerCase(),
-  };
+function FilterBar({
+  value,
+  onChange,
+  labels,
+}: {
+  value: SearchFilter;
+  onChange: (value: SearchFilter) => void;
+  labels: Record<SearchFilter, string> & { filter: string };
+}) {
+  return (
+    <div
+      role="radiogroup"
+      aria-label={labels.filter}
+      className="flex gap-1 overflow-x-auto px-3 py-2.5 scrollbar-none"
+    >
+      {FILTERS.map((item) => {
+        const active = value === item;
+        return (
+          <button
+            key={item}
+            type="button"
+            role="radio"
+            aria-checked={active}
+            onMouseDown={(event) => event.preventDefault()}
+            onClick={() => onChange(item)}
+            className={`shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors ${
+              active
+                ? "bg-primary text-white dark:text-ink"
+                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground"
+            }`}
+          >
+            {labels[item]}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function Thumb({
+  item,
+  overlay,
+}: {
+  item: SearchDocument;
+  overlay?: boolean;
+}) {
+  const Icon = ICONS[item.icon];
+
+  if (!item.image) {
+    return (
+      <span className="flex size-12 shrink-0 items-center justify-center rounded-[14px] bg-secondary text-muted-foreground">
+        <Icon className="size-4" strokeWidth={1.75} aria-hidden="true" />
+      </span>
+    );
+  }
+
+  return (
+    <span className="relative size-12 shrink-0 overflow-hidden rounded-[14px] bg-ink">
+      <Image
+        src={item.image}
+        alt=""
+        fill
+        sizes="48px"
+        className="object-cover transition-transform duration-500 group-hover/item:scale-105"
+      />
+      {overlay ? (
+        <span className="absolute right-0.5 bottom-0.5 flex size-4.5 items-center justify-center rounded-md bg-ink/70 text-white backdrop-blur-sm">
+          <Icon className="size-2.5" strokeWidth={2} aria-hidden="true" />
+        </span>
+      ) : null}
+    </span>
+  );
 }
 
 function ResultRow({
   item,
   active,
   optionId,
+  query,
   onActivate,
   onHover,
 }: {
-  item: SearchItem;
+  item: SearchDocument;
   active: boolean;
   optionId: string;
+  query: string;
   onActivate: () => void;
   onHover: () => void;
 }) {
-  const cover = item.mobileImage ?? item.image;
-
   return (
     <li role="option" aria-selected={active}>
       <button
         type="button"
         id={optionId}
+        ref={(node) => {
+          if (active) node?.scrollIntoView({ block: "nearest" });
+        }}
         onMouseEnter={onHover}
         onMouseDown={(event) => event.preventDefault()}
         onClick={onActivate}
-        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition-all duration-200 ${
+        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-all duration-200 ${
           active
             ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
             : "hover:bg-secondary/80 active:bg-secondary"
         }`}
       >
-        <span className="relative size-14 shrink-0 overflow-hidden rounded-[14px] bg-ink">
-          <Image
-            src={cover}
-            alt=""
-            fill
-            sizes="56px"
-            className="object-cover transition-transform duration-500 group-hover/item:scale-105"
-          />
-        </span>
+        <Thumb item={item} overlay={item.kind !== "species"} />
         <span className="min-w-0 flex-1">
           <span className="block truncate font-display text-[15px] font-semibold leading-tight text-foreground">
-            {item.commonName}
+            {highlight(item.title, query)}
           </span>
-          <span className="mt-0.5 block truncate text-[12px] italic text-muted-foreground">
-            {item.scientificName}
-          </span>
-          <span className="mt-1.5 flex items-center gap-1 text-[11px] text-muted-foreground/80">
-            <MapPin className="size-3 shrink-0" aria-hidden="true" />
-            <span className="truncate">{item.location}</span>
+          <span
+            className={`mt-0.5 block truncate text-[12px] text-muted-foreground ${
+              item.kind === "species" ? "italic" : ""
+            }`}
+          >
+            {highlight(item.subtitle, query)}
           </span>
         </span>
-        <span
-          className={`mr-1 size-1.5 shrink-0 rounded-full transition-opacity ${
-            active ? "bg-primary opacity-100" : "opacity-0"
+        <ArrowUpRight
+          className={`size-3.5 shrink-0 transition-opacity ${
+            active ? "text-primary opacity-100" : "opacity-0"
           }`}
           aria-hidden="true"
         />
@@ -116,63 +227,56 @@ function ResultRow({
   );
 }
 
-function ResultsBlock({
-  listId,
+function EmptyState({
   title,
-  results,
-  activeIndex,
-  emptyLabel,
-  onHover,
-  onSelect,
+  hint,
+  suggestions,
+  onPick,
 }: {
-  listId: string;
   title: string;
-  results: SearchItem[];
-  activeIndex: number;
-  emptyLabel: string;
-  onHover: (index: number) => void;
-  onSelect: (id: string) => void;
+  hint: string;
+  suggestions: string[];
+  onPick: (value: string) => void;
 }) {
   return (
-    <>
-      <div className="border-b border-border/60 px-4 py-3">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-          {title}
-        </p>
+    <div className="px-4 py-9 text-center">
+      <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-full bg-secondary">
+        <Search className="size-4 text-muted-foreground" aria-hidden="true" />
       </div>
-
-      {results.length === 0 ? (
-        <div className="px-4 py-10 text-center">
-          <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-full bg-secondary">
-            <Search
-              className="size-4 text-muted-foreground"
-              aria-hidden="true"
-            />
-          </div>
-          <p className="text-[13px] text-muted-foreground">{emptyLabel}</p>
-        </div>
-      ) : (
-        <ul className="overflow-y-auto p-2">
-          {results.map((item, index) => (
-            <ResultRow
-              key={item.id}
-              item={item}
-              active={index === activeIndex}
-              optionId={`${listId}-option-${item.id}`}
-              onHover={() => onHover(index)}
-              onActivate={() => onSelect(item.id)}
-            />
+      <p className="text-[13px] font-medium text-foreground">{title}</p>
+      <p className="mt-1 text-[12px] text-muted-foreground">{hint}</p>
+      {suggestions.length > 0 ? (
+        <div className="mt-4 flex flex-wrap justify-center gap-1.5">
+          {suggestions.map((item) => (
+            <button
+              key={item}
+              type="button"
+              onMouseDown={(event) => event.preventDefault()}
+              onClick={() => onPick(item)}
+              className="rounded-full bg-secondary px-3 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-foreground"
+            >
+              {item}
+            </button>
           ))}
-        </ul>
-      )}
-    </>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function GroupLabel({ children }: { children: ReactNode }) {
+  return (
+    <div className="sticky top-0 z-10 border-b border-border/60 bg-card/90 px-4 py-2.5 backdrop-blur-md">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+        {children}
+      </p>
+    </div>
   );
 }
 
 export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("search");
-  const tNav = useTranslations("nav");
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const desktopInputRef = useRef<HTMLInputElement>(null);
@@ -181,23 +285,59 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const mobileListId = useId();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
+  const [filter, setFilter] = useState<SearchFilter>("all");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [recent, setRecent] = useState<SearchDocument[]>([]);
+  const [modKey, setModKey] = useState("");
   const deferredQuery = useDeferredValue(query);
 
-  const catalog = getCatalogSpecies().map((item) =>
-    toSearchItem(item, locale),
+  const index = useMemo(() => buildSearchIndex(locale), [locale]);
+  const searched = useMemo(
+    () => searchIndex(index, deferredQuery, filter),
+    [index, deferredQuery, filter],
   );
 
-  const trimmed = deferredQuery.trim().toLowerCase();
-  const visibleResults = trimmed
-    ? catalog.filter((item) => item.searchText.includes(trimmed)).slice(0, 8)
-    : catalog.slice(0, 5);
+  const trimmed = deferredQuery.trim();
+  const showRecent =
+    open && !trimmed && filter === "all" && recent.length > 0;
+
+  const groups = useMemo(() => {
+    if (!showRecent) return searched.groups;
+    const recentGroup: SearchGroup = {
+      kind: "page",
+      items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
+    };
+    const rest = searched.groups
+      .map((group) => ({
+        ...group,
+        items: group.items.filter(
+          (item) =>
+            !recent.some((entry) => entry.key === item.key),
+        ),
+      }))
+      .filter((group) => group.items.length > 0);
+    return [recentGroup, ...rest];
+  }, [searched.groups, showRecent, recent]);
+
+  const flat = useMemo(() => flattenGroups(groups), [groups]);
+  const suggestions = Array.isArray(t.raw("suggestions"))
+    ? (t.raw("suggestions") as string[])
+    : [];
 
   const isDark = variant === "dark";
 
   useEffect(() => {
+    setRecent(resolveRecent(index, readRecent()));
+  }, [index]);
+
+  useEffect(() => {
     setActiveIndex(0);
-  }, [deferredQuery, open]);
+  }, [deferredQuery, open, filter]);
+
+  useEffect(() => {
+    const mac = /Mac|iPhone|iPad/.test(navigator.platform);
+    setModKey(mac ? "⌘" : "Ctrl");
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -212,29 +352,53 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const closeSearch = useCallback(() => {
     setOpen(false);
     setQuery("");
+    setFilter("all");
     desktopInputRef.current?.blur();
     mobileInputRef.current?.blur();
   }, []);
 
-  function goToSpecies(id: string) {
-    closeSearch();
-    startTransition(() => {
-      router.push(speciesHref(id, locale));
-    });
-  }
-
-  function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
-    if (!open) {
-      if (event.key === "ArrowDown") {
-        setOpen(true);
+  useEffect(() => {
+    function onShortcut(event: globalThis.KeyboardEvent) {
+      if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "k") {
+        return;
       }
+      event.preventDefault();
+      if (open) {
+        closeSearch();
+        return;
+      }
+      setOpen(true);
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      window.requestAnimationFrame(() => {
+        (mobile ? mobileInputRef : desktopInputRef).current?.focus();
+      });
+    }
+
+    window.addEventListener("keydown", onShortcut);
+    return () => window.removeEventListener("keydown", onShortcut);
+  }, [closeSearch, open]);
+
+  const goTo = useCallback(
+    (item: SearchDocument) => {
+      setRecent(resolveRecent(index, writeRecent({ kind: item.kind, id: item.id })));
+      closeSearch();
+      startTransition(() => {
+        router.push(item.href);
+      });
+    },
+    [closeSearch, index, router],
+  );
+
+  function onKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
+    if (!open) {
+      if (event.key === "ArrowDown") setOpen(true);
       return;
     }
 
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setActiveIndex((value) =>
-        visibleResults.length === 0 ? 0 : (value + 1) % visibleResults.length,
+        flat.length === 0 ? 0 : (value + 1) % flat.length,
       );
       return;
     }
@@ -242,17 +406,15 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     if (event.key === "ArrowUp") {
       event.preventDefault();
       setActiveIndex((value) =>
-        visibleResults.length === 0
-          ? 0
-          : (value - 1 + visibleResults.length) % visibleResults.length,
+        flat.length === 0 ? 0 : (value - 1 + flat.length) % flat.length,
       );
       return;
     }
 
     if (event.key === "Enter") {
       event.preventDefault();
-      const selected = visibleResults[activeIndex];
-      if (selected) goToSpecies(selected.id);
+      const selected = flat[activeIndex];
+      if (selected) goTo(selected);
       return;
     }
 
@@ -264,25 +426,81 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
   const shellClass = chromeShellClass(variant);
   const iconButtonClass = chromeIconButtonClass(variant);
-
   const iconClass = isDark ? "text-white/55" : "text-muted-foreground";
   const inputClass = isDark
     ? "placeholder:text-white/40"
     : "placeholder:text-muted-foreground/70";
 
-  const resultsTitle = trimmed ? tNav("species") : t("featured");
+  const filterLabels = {
+    filter: t("filter"),
+    all: t("all"),
+    page: t("pages"),
+    species: t("species"),
+    region: t("regions"),
+  };
 
-  const results = (surfaceListId: string) => (
-    <ResultsBlock
-      listId={surfaceListId}
-      title={resultsTitle}
-      results={visibleResults}
-      activeIndex={activeIndex}
-      emptyLabel={t("noResults")}
-      onHover={setActiveIndex}
-      onSelect={goToSpecies}
-    />
-  );
+  const groupTitle = (kind: SearchKind, isRecent: boolean) => {
+    if (isRecent) return t("recent");
+    if (!trimmed && kind === "page") return t("suggested");
+    if (!trimmed && kind === "species") return t("featured");
+    return t(kind === "page" ? "pages" : kind === "species" ? "species" : "regions");
+  };
+
+  const results = (surfaceListId: string) => {
+    let cursor = 0;
+    const empty = flat.length === 0;
+
+    return (
+      <div id={surfaceListId} role="listbox" aria-label={t("title")}>
+        {empty ? (
+          <EmptyState
+            title={t("noResults")}
+            hint={t("noResultsHint")}
+            suggestions={suggestions}
+            onPick={(value) => {
+              setQuery(value);
+              setOpen(true);
+            }}
+          />
+        ) : (
+          groups.map((group, groupIndex) => {
+            const isRecentGroup = showRecent && groupIndex === 0;
+            const start = cursor;
+            cursor += group.items.length;
+            return (
+              <div key={`${group.kind}-${groupIndex}`}>
+                <GroupLabel>{groupTitle(group.kind, isRecentGroup)}</GroupLabel>
+                <ul className="p-1.5">
+                  {group.items.map((item, index) => {
+                    const globalIndex = start + index;
+                    return (
+                      <ResultRow
+                        key={item.key}
+                        item={item}
+                        active={globalIndex === activeIndex}
+                        optionId={`${surfaceListId}-option-${item.key}`}
+                        query={trimmed}
+                        onHover={() => setActiveIndex(globalIndex)}
+                        onActivate={() => goTo(item)}
+                      />
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })
+        )}
+      </div>
+    );
+  };
+
+  const active = flat[activeIndex];
+  const kbdClass = isDark
+    ? "border-white/18 bg-white/8 text-white/45"
+    : "border-border bg-secondary/80 text-muted-foreground";
+
+  const searchInputClass =
+    "min-w-0 flex-1 bg-transparent text-[13px] font-medium outline-none [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden";
 
   return (
     <div className="relative shrink-0" ref={rootRef}>
@@ -297,7 +515,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       </button>
 
       <div
-        className={`group hidden w-[280px] items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex lg:w-[300px] ${shellClass}`}
+        className={`group hidden w-[280px] items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex lg:w-[320px] ${shellClass}`}
       >
         <Search
           className={`size-3.5 shrink-0 ${iconClass}`}
@@ -312,10 +530,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
           aria-controls={listId}
           aria-autocomplete="list"
           aria-activedescendant={
-            open && visibleResults[activeIndex]
-              ? `${listId}-option-${visibleResults[activeIndex].id}`
-              : undefined
+            open && active ? `${listId}-option-${active.key}` : undefined
           }
+          aria-keyshortcuts="Meta+K Control+K"
           aria-label={t("open")}
           placeholder={t("placeholder")}
           autoComplete="off"
@@ -331,7 +548,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             setOpen(true);
           }}
           onKeyDown={onKeyDown}
-          className={`min-w-0 flex-1 bg-transparent text-[13px] font-medium outline-none ${inputClass}`}
+          className={`${searchInputClass} ${inputClass}`}
         />
         {query ? (
           <button
@@ -352,6 +569,12 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
           >
             <X className="size-3.5" aria-hidden="true" />
           </button>
+        ) : modKey ? (
+          <kbd
+            className={`hidden rounded-md border px-1.5 py-0.5 font-sans text-[10px] font-semibold tracking-wide lg:inline ${kbdClass}`}
+          >
+            {modKey}K
+          </kbd>
         ) : null}
       </div>
 
@@ -361,64 +584,90 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         title={t("title")}
         closeLabel={t("close")}
         rootRef={rootRef}
-        panelId={listId}
-        panelRole="listbox"
-        mobileSheetClassName="min-h-[70dvh]"
+        desktopClassName="w-[min(26.75rem,calc(100vw-1.5rem))]"
+        mobileSheetClassName="min-h-[74dvh]"
         mobileHeader={
-          <div className="mb-3 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
-            <Search
-              className="size-4 shrink-0 text-muted-foreground"
-              aria-hidden="true"
-            />
-            <input
-              ref={mobileInputRef}
-              type="search"
-              value={query}
-              role="combobox"
-              aria-expanded={open}
-              aria-controls={mobileListId}
-              aria-autocomplete="list"
-              aria-activedescendant={
-                visibleResults[activeIndex]
-                  ? `${mobileListId}-option-${visibleResults[activeIndex].id}`
-                  : undefined
-              }
-              aria-label={t("open")}
-              placeholder={t("placeholder")}
-              autoComplete="off"
-              enterKeyHint="search"
-              onChange={(event) => {
-                setQuery(event.target.value);
-                setOpen(true);
-              }}
-              onKeyDown={onKeyDown}
-              className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70"
-            />
-            {query ? (
-              <button
-                type="button"
-                aria-label={t("clear")}
-                onClick={() => {
-                  setQuery("");
-                  mobileInputRef.current?.focus();
+          <>
+            <div className="mb-2 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
+              <Search
+                className="size-4 shrink-0 text-muted-foreground"
+                aria-hidden="true"
+              />
+              <input
+                ref={mobileInputRef}
+                type="search"
+                value={query}
+                role="combobox"
+                aria-expanded={open}
+                aria-controls={mobileListId}
+                aria-autocomplete="list"
+                aria-activedescendant={
+                  active ? `${mobileListId}-option-${active.key}` : undefined
+                }
+                aria-label={t("open")}
+                placeholder={t("placeholder")}
+                autoComplete="off"
+                enterKeyHint="search"
+                onChange={(event) => {
+                  setQuery(event.target.value);
+                  setOpen(true);
                 }}
-                className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              >
-                <X className="size-4" aria-hidden="true" />
-              </button>
-            ) : null}
-          </div>
+                onKeyDown={onKeyDown}
+                className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
+              />
+              {query ? (
+                <button
+                  type="button"
+                  aria-label={t("clear")}
+                  onClick={() => {
+                    setQuery("");
+                    mobileInputRef.current?.focus();
+                  }}
+                  className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                >
+                  <X className="size-4" aria-hidden="true" />
+                </button>
+              ) : null}
+            </div>
+            <div className="-mx-4 w-[calc(100%+2rem)]">
+              <FilterBar
+                value={filter}
+                onChange={setFilter}
+                labels={filterLabels}
+              />
+            </div>
+          </>
         }
         desktopContent={
-          <div className="max-h-[min(420px,60vh)] overflow-y-auto">
-            {results(listId)}
+          <div className="flex max-h-[min(480px,68vh)] flex-col">
+            <div className="border-b border-border/60">
+              <FilterBar
+                value={filter}
+                onChange={setFilter}
+                labels={filterLabels}
+              />
+            </div>
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              {results(listId)}
+            </div>
+            <div className="flex items-center gap-4 border-t border-border/70 px-3.5 py-2 text-[10px] font-medium tracking-wide text-muted-foreground">
+              <span className="inline-flex items-center gap-1">
+                <kbd className="rounded border border-border px-1">↑</kbd>
+                <kbd className="rounded border border-border px-1">↓</kbd>
+                {t("navigate")}
+              </span>
+              <span className="inline-flex items-center gap-1">
+                <CornerDownLeft className="size-3" aria-hidden="true" />
+                {t("select")}
+              </span>
+              <span className="ml-auto inline-flex items-center gap-1">
+                <kbd className="rounded border border-border px-1">esc</kbd>
+                {t("toClose")}
+              </span>
+            </div>
           </div>
         }
-        mobileContent={
-          <div id={mobileListId} role="listbox">
-            {results(mobileListId)}
-          </div>
-        }
+        mobileContent={results(mobileListId)}
       />
     </div>
   );
