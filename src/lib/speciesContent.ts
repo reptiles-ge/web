@@ -14,12 +14,14 @@ const PLACEHOLDER_STAT_VALUES = [
   "see species account",
   "see iucn / national data",
   "see tarkhnishvili et al. 2026",
+  "იხ. ჩამონათვალი",
   "იხ. ჩეკლისტი",
   "იხ. iucn / ეროვნული მონაცემები",
   "იხ. tarkhnishvili et al. 2026",
 ];
 
 const PLACEHOLDER_BODY_MARKERS = [
+  "იხილეთ ჩამონათვალ",
   "იხილეთ ჩეკლისტ",
   "see checklist account",
   "იხილეთ tarkhnishvili",
