@@ -49,17 +49,17 @@
   },
   "hero": {
     "brand": "Reptiles",
-    "title": "Discover the hidden reptiles of Georgia",
-    "subtitle": "A living digital atlas — scientifically curated species profiles, regional range maps, and field photography from the Caucasus.",
-    "viewSpecies": "Explore species",
+    "title": "Reptiles of Georgia — species, range, identification",
+    "subtitle": "Species profiles, regional maps, and field photos — in Georgian and English.",
+    "viewSpecies": "Species",
     "exploreRegions": "Explore by region",
     "moreAboutViper": "Venomous snakes in Georgia",
     "imageAlt": "A viper on a mossy rock in a misty mountain valley"
   },
   "carousel": {
     "eyebrow": "Species discovery",
-    "title": "A biological database you can explore",
-    "subtitle": "Scientific names, risk levels, habitats, and field photography — built as a premium atlas, not a checklist.",
+    "title": "Species you can identify in the field",
+    "subtitle": "Scientific and common names, risk, and field photos — verified profiles.",
     "prev": "Previous species",
     "next": "Next species"
   },
@@ -74,10 +74,10 @@
     "imageAlt": "Vipera dinniki coiled on rock in the Greater Caucasus"
   },
   "cta": {
-    "eyebrow": "Begin exploring",
-    "title": "Enter the atlas of Georgia’s reptiles.",
-    "subtitle": "From mountain vipers to wetland snakes — profiles, maps, and photography in one calm place.",
-    "button": "Open the atlas",
+    "eyebrow": "Atlas",
+    "title": "Atlas of Georgia’s reptiles",
+    "subtitle": "Species profiles, regional maps, and field photos.",
+    "button": "Species",
     "secondary": "Venomous snakes in Georgia",
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
@@ -90,43 +90,43 @@
       "photos": "Photos"
     },
     "knowledge": {
-      "eyebrow": "Knowledge hub",
-      "title": "Guides that grow with the atlas",
-      "subtitle": "From venomous-snake ID to practical yard advice — structured knowledge for real questions.",
+      "eyebrow": "Guides",
+      "title": "Guides for questions people actually ask",
+      "subtitle": "Venomous-snake ID, snakebite, the yard, and the species catalog.",
       "yard": {
         "title": "Snakes in the yard",
         "body": "How to get snakes out of the yard — what works, what doesn’t, and what to do if one already appeared.",
-        "cta": "Open the practical guide"
+        "cta": "Yard guide"
       },
       "venomous": {
         "title": "Venomous snakes in Georgia",
         "body": "Six medically significant vipers — risk levels, identification traits, and safe encounter practice.",
-        "cta": "Open the venomous guide"
+        "cta": "Venomous snakes"
       },
       "atlas": {
         "title": "Species atlas",
-        "body": "Browse snakes and lizards with filters for habitat, region, and risk — a living catalog for Georgia.",
-        "cta": "Browse the catalog"
+        "body": "The full catalog, filtered by type, habitat, risk, and region.",
+        "cta": "Species"
       },
       "snakes": {
         "title": "Snakes in Georgia",
-        "body": "A complete snake guide — venomous and harmless species in one hub.",
-        "cta": "Open the snake hub"
+        "body": "A complete snake guide — venomous and harmless species in one place.",
+        "cta": "Snakes"
       },
       "lizards": {
         "title": "Lizards in Georgia",
         "body": "Darevskia, Caucasian agama, and the glass lizard — the lizard cluster to full profiles.",
-        "cta": "Open the lizard hub"
+        "cta": "Lizards"
       },
       "amphibians": {
         "title": "Amphibians in Georgia",
-        "body": "12 checklist species — frogs in a dedicated guide, newts on the hub.",
-        "cta": "Open amphibians hub"
+        "body": "12 checklist species — frogs and newts in dedicated guides.",
+        "cta": "Amphibians"
       },
       "turtles": {
         "title": "Turtles in Georgia",
         "body": "One land tortoise, two native freshwater turtles, and the introduced slider.",
-        "cta": "Open turtles hub"
+        "cta": "Turtles"
       }
     },
     "regions": {
@@ -137,8 +137,8 @@
     "seo": {
       "eyebrow": "Digital atlas",
       "title": "Georgia’s reptiles in one place",
-      "p1": "Reptiles.ge is a bilingual digital atlas of reptiles in Georgia — for hikers, students, researchers, and travelers. The goal is field-ready knowledge: identification, habitat, region, and safer encounters.",
-      "p2": "Explore curated species profiles with field photography, regional maps across twelve administrative units, and a venomous-snake guide for medically significant species. The atlas grows over time — new profiles, sources, and updates land in the same structure.",
+      "p1": "Reptiles.ge is a bilingual atlas of reptiles in Georgia. Identification, habitat, region, and safer encounters — for hikers, students, and researchers.",
+      "p2": "Species profiles with field photos, maps for twelve regions, and a guide to medically significant snakes. New profiles and sources are added in the same structure.",
       "links": {
         "species": "Species atlas",
         "yard": "How to get snakes out of the yard",
@@ -163,7 +163,7 @@
     "exploreTitle": "Explore",
     "guidesTitle": "Guides",
     "companyTitle": "Company",
-    "exploreCta": "Open the atlas",
+    "exploreCta": "Species",
     "species": "Species atlas",
     "venomous": "Venomous snakes",
     "yard": "Snakes in the yard",
@@ -238,7 +238,7 @@
     "rangeRegionsLabel": "Range",
     "lastUpdated": "Last updated",
     "sourcesEyebrow": "References",
-    "sourcesTitle": "Sources & References",
+    "sourcesTitle": "Sources",
     "sourcesNote": "Species profiles are compiled from peer-reviewed literature and established biodiversity databases, and are reviewed as new taxonomic and conservation data become available.",
     "breadcrumbAria": "Breadcrumb",
     "breadcrumbHome": "Home",
@@ -325,7 +325,7 @@
     },
     "clusterEyebrow": "Cluster",
     "clusterTitle": "From region to group",
-    "clusterBody": "A region shows confirmed records. Full catalogs live on the hubs — snakes, lizards, turtles, amphibians.",
+    "clusterBody": "A region shows confirmed records. Full catalogs live on the category pages — snakes, lizards, turtles, amphibians.",
     "clusterSnakes": "Snake range",
     "clusterLizards": "Lizard index",
     "clusterTurtles": "Turtle index",
@@ -349,16 +349,16 @@
   },
   "about": {
     "metaTitle": "About",
-    "metaDescription": "About Reptiles — the company behind Georgia’s bilingual reptile atlas: mission, methodology, and cited sources.",
+    "metaDescription": "Reptiles — Georgia’s bilingual reptile atlas: how profiles are written, and which sources we use.",
     "back": "Home",
     "brand": "Reptiles",
     "eyebrow": "About the company",
-    "title": "Building the definitive atlas of Georgia’s reptiles",
-    "subtitle": "A long-term knowledge platform — species profiles, regional maps, and field photography for hikers, students, researchers, and travelers.",
+    "title": "Atlas of Georgia’s reptiles",
+    "subtitle": "Species profiles, regional maps, and field photos — for hikers, students, and researchers.",
     "heroImageAlt": "Misty Caucasus ridge at dusk",
     "companyEyebrow": "Who we are",
-    "companyTitle": "Reptiles is a biodiversity knowledge company",
-    "companyBody1": "We build a bilingual digital atlas of reptiles of Georgia and the Caucasus — designed to be citeable, field-useful, and ready to scale into a global biodiversity platform.",
+    "companyTitle": "Reptiles — a reptile atlas",
+    "companyBody1": "We build a bilingual atlas of reptiles of Georgia and the Caucasus — sourced, and useful in the field.",
     "companyBody2": "Our work connects science with public understanding: clear identification, regional context, venom risk, and conservation status — without noise or speculation.",
     "companyBody3": "Every profile is curated against established biodiversity sources and updated as taxonomy, Red List status, and field evidence change.",
     "pillars": {
@@ -407,7 +407,7 @@
   },
   "site": {
     "title": "Reptiles — Atlas of Georgia’s reptiles",
-    "description": "Discover, understand, and protect Georgia’s reptiles. A bilingual digital atlas with species profiles, regional range maps, venomous snake guides, and field photography."
+    "description": "Reptiles of Georgia — species profiles, range, venomous snakes, and field photos. In Georgian and English."
   },
   "notFound": {
     "eyebrow": "Lost in the atlas",
@@ -448,7 +448,7 @@
   },
   "speciesAtlas": {
     "metaTitle": "Species atlas — reptiles of Georgia",
-    "metaDescription": "Authoritative digital atlas of Georgia’s reptiles: species profiles, distribution maps, photography, venom risk, and regional records.",
+    "metaDescription": "Reptiles of Georgia: species profiles, distribution maps, photos, venom risk, and regional records.",
     "eyebrow": "Species atlas",
     "title": "Atlas of Georgia’s reptiles",
     "subtitle": "Explore reptiles recorded in Georgia — field descriptions, range maps, photography, and the facts that matter for identification and safety.",
@@ -476,10 +476,10 @@
       "pathwayAmphibiansTitle": "{count} amphibians",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
-      "expandingNote": "Turtles and amphibians are already full categories — with the same depth, maps, and photography."
+      "expandingNote": "Turtles and amphibians are full categories — with the same depth, maps, and photography."
     },
     "explorerEyebrow": "Explorer",
-    "explorerTitle": "Browse the living catalog",
+    "explorerTitle": "Browse the catalog",
     "explorerSubtitle": "Search by name, or refine by type, risk, habitat, and region.",
     "searchPlaceholder": "Search species…",
     "clearSearch": "Clear search",
@@ -546,11 +546,11 @@
     },
     "recentEyebrow": "Freshness",
     "recentTitle": "Recently updated",
-    "recentSubtitle": "Profiles refreshed with new text, taxonomy notes, or photography — a living atlas, not a static checklist.",
+    "recentSubtitle": "Profiles refreshed with new text, taxonomy notes, or photography.",
     "updatedOn": "Updated {date}",
     "aboutEyebrow": "Trust",
     "aboutTitle": "About this atlas",
-    "aboutLead": "Reptiles.ge compiles bilingual species accounts for Georgia with field photography, regional range maps, and references to established biodiversity sources. The goal is a calm, citeable public atlas for hikers, students, and researchers.",
+    "aboutLead": "Reptiles.ge compiles bilingual species accounts for Georgia with field photos, regional maps, and cited biodiversity sources — for hikers, students, and researchers.",
     "lastUpdated": "Catalog last updated {date}",
     "methodTitle": "Methodology",
     "methodBody": "Each profile combines taxonomic identity, Georgia-relevant habitat and behavior notes, conservation status, identification traits, and FAQs. Accounts are reviewed as new literature and Red List changes appear.",
@@ -559,7 +559,7 @@
     "photosTitle": "Photography",
     "photosBody": "Images are selected for identification value and field context. Credits appear on species pages when photographer attribution is available.",
     "contributorsTitle": "The organization",
-    "contributorsBody": "Reptiles is building a bilingual, citeable atlas of Georgia’s reptiles — curated from established biodiversity sources and updated as taxonomy and conservation data change.",
+    "contributorsBody": "Reptiles builds a bilingual atlas of Georgia’s reptiles — from established biodiversity sources, updated as taxonomy and conservation data change.",
     "contributorsLink": "About Reptiles"
   },
   "venomousSnakes": {
@@ -633,7 +633,7 @@
     "faq5A": "Seek medical care immediately. Stay calm, do not move the bitten arm or leg, and avoid home remedies (cutting, sucking, tourniquets). This page is educational and does not replace a clinician.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "Continue in the atlas — from species to region",
-    "ctaBody": "The full catalog, harmless species, and regional guides live in one place. This page is the gateway — profiles are the depth.",
+    "ctaBody": "The full catalog, harmless species, and regional guides live in one place.",
     "ctaAllSpecies": "All species",
     "ctaRegions": "Regions atlas"
   },
@@ -644,7 +644,7 @@
     "ctaAllSpecies": "All species",
     "ctaRegions": "Regions atlas",
     "relatedEyebrow": "Other categories",
-    "relatedTitle": "Continue in other hubs",
+    "relatedTitle": "Continue in other categories",
     "relatedBody": "Each category gathers related species on one guide page — then sends you to the full profile.",
     "relatedGuidesEyebrow": "Related guides",
     "relatedGuidesTitle": "Continue with related pages",
@@ -668,7 +668,7 @@
         "eyebrow": "Safety",
         "title": "Venomous snakes in Georgia",
         "body": "Giurza, vipers, and one rear-fanged species — risk and full profiles.",
-        "cta": "Open the venomous guide"
+        "cta": "Venomous snakes"
       },
       "yard": {
         "eyebrow": "Practice",
@@ -719,16 +719,16 @@
         "cta": "Dahl's whip snake (Platyceps najadum)"
       },
       "snakesHub": {
-        "eyebrow": "Hub",
+        "eyebrow": "Guide",
         "title": "Snakes in Georgia",
         "body": "Venomous vipers and harmless racers in one cluster — catalog, risk, and profiles.",
-        "cta": "Open snake hub"
+        "cta": "Snakes"
       },
       "lizardsHub": {
-        "eyebrow": "Hub",
+        "eyebrow": "Guide",
         "title": "Lizards in Georgia",
         "body": "Glass lizard, Darevskia, and Caucasian agama — the lizard cluster to full profiles.",
-        "cta": "Open lizard hub"
+        "cta": "Lizards"
       },
       "jojo": {
         "eyebrow": "Species",
@@ -837,7 +837,7 @@
     "statExtraValue": "—",
     "guideEyebrow": "Guide",
     "guideTitle": "All of Georgia’s snakes in one guide",
-    "guideP1": "This hub lists every snake in the atlas — venomous and harmless — and links to identification, bite first steps, range, and full species profiles.",
+    "guideP1": "Every snake in the atlas — venomous and harmless — with links to identification, bite first steps, range, and full profiles.",
     "guideP2": "Harmless racers, cat snakes, and smooth snakes are often confused with vipers. From here open the venomous guide, the yard guide, or a species profile — photos, traits, habitat, and sources.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} snakes in the atlas",
@@ -938,7 +938,7 @@
     "statExtra": "Land / water forms",
     "statExtraValue": "2+",
     "guideEyebrow": "Guide",
-    "guideTitle": "A compact but complete hub for Georgia’s turtles",
+    "guideTitle": "Georgia’s turtles in one guide",
     "guideP1": "Turtle diversity is smaller than snakes or lizards, but the identification questions are sharp — especially for the spur-thighed tortoise and pond turtles. This page gathers every turtle profile in the atlas.",
     "guideP2": "Freshwater species and introduced sliders play different ecological roles. Each profile covers habitat, status, and identification.",
     "speciesEyebrow": "Catalog",
@@ -985,8 +985,8 @@
     "statExtra": "Core habitat",
     "statExtraValue": "Water",
     "guideEyebrow": "Guide",
-    "guideTitle": "Amphibians — the atlas’s second biological pillar",
-    "guideP1": "The brand centers reptiles, but Georgia’s herpetofauna includes amphibians too. This hub gathers every amphibian profile in the atlas.",
+    "guideTitle": "Amphibians of Georgia",
+    "guideP1": "Georgia’s herpetofauna includes amphibians too. This page gathers every amphibian profile in the atlas.",
     "guideP2": "Breeding season, forest streams, and wetlands decide where you find them. Profiles help with identification and conservation status.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} amphibians in the atlas",
@@ -1011,12 +1011,12 @@
     "faq3Q": "How do I tell frogs from toads?",
     "faq3A": "Skin texture, body shape, size, and calls help. Each profile’s identification section lists concrete traits.",
     "faq4Q": "Why are amphibians on a reptiles site?",
-    "faq4A": "Georgia’s herpetofauna is one research and field unit. An amphibian hub strengthens the topic cluster and avoids orphan content.",
+    "faq4A": "Georgia’s herpetofauna is one field unit — reptiles and amphibians together. That is why amphibians are in this atlas.",
     "faq5Q": "Should I handle amphibians?",
     "faq5A": "Better not — their skin is sensitive and populations are vulnerable. Observe and compare with the atlas.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From amphibian list to profile",
-    "ctaBody": "Open a species or return to reptile hubs — snakes, lizards, turtles."
+    "ctaBody": "Open a species or return to the reptile guides — snakes, lizards, turtles."
   },
   "amphibianFrogs": {
     "metaTitle": "Frogs of Georgia — species guide",
@@ -1047,12 +1047,12 @@
     "faq2Q": "What is the difference between a frog and a toad?",
     "faq2A": "Toads typically have drier, granular skin; treefrogs climb. Concrete field marks are on each species profile.",
     "faq3Q": "Where are the newts?",
-    "faq3A": "Newts and the Caucasian salamander are on the Caudata guide (/amphibians/newts), not this page. Anura table: /amphibians/frogs/species.",
+    "faq3A": "Newts and the Caucasian salamander are on the newts guide, not this page. The frog table is a separate index.",
     "faq4Q": "Should I handle a frog?",
     "faq4A": "Better not — their skin is sensitive. Observe and compare with the atlas.",
     "ctaEyebrow": "Next step",
-    "ctaTitle": "From frogs to the amphibians hub",
-    "ctaBody": "All 12 amphibian species are on the amphibians page. From here open a profile or the parent hub."
+    "ctaTitle": "From frogs to all amphibians",
+    "ctaBody": "All 12 amphibian species are on the amphibians page. From here open a profile or the amphibians guide."
   },
   "speciesIndex": {
     "col": {
@@ -1084,13 +1084,13 @@
     "title": "Snake species of Georgia",
     "subtitle": "Every snake in the atlas, in one index. An empty cell means we have no source yet — we do not invent it.",
     "ctaSpecies": "See the table",
-    "ctaParent": "Snakes hub",
+    "ctaParent": "Snakes",
     "statSpecies": "Snakes in the atlas",
     "statVenomous": "Venomous",
     "statFamilies": "Families",
     "guideEyebrow": "Index",
     "guideTitle": "One table for every snake",
-    "guideP1": "This page is the spine of the snake cluster: name, venom, regions, and size — only where a profile has a source. The snakes hub is the guide; this is the complete list.",
+    "guideP1": "Name, venom, regions, and size — only where a profile has a source. The snakes guide is the overview; this is the complete list.",
     "guideP2": "Many newly listed checklist snakes still have empty regional maps. Filter by venomous/harmless and family. Each row opens a full profile.",
     "tableEyebrow": "Catalog",
     "tableTitle": "{count} snakes in the index",
@@ -1103,12 +1103,12 @@
     "faq2Q": "Which snakes are venomous?",
     "faq2A": "Filter to “Venomous”. The full safety guide is separate: giurza, the vipers, and one rear-fanged species.",
     "faq3Q": "Why is some range empty?",
-    "faq3A": "Regions are filled only from confirmed species IDs. Newly listed checklist snakes are often still unmapped — that is a gap, not an invented range.",
+    "faq3A": "Regions are filled only from confirmed records. Newly listed checklist snakes are often still unmapped — that is a gap, not an invented range.",
     "faq4Q": "Is every snake in Georgia on this list?",
     "faq4A": "This index is the atlas’s current checklist catalog. Taxonomy changes; empty cells mean we have no source yet — not that the species is absent.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From the index to a profile",
-    "ctaBody": "Pick a row. The venomous guide, ID guide, and regions sit on the snakes hub."
+    "ctaBody": "Pick a row. The venomous guide, ID guide, and regions sit on the snakes page."
   },
   "snakeIdentify": {
     "metaTitle": "How to tell venomous from harmless snakes in Georgia",
@@ -1119,7 +1119,7 @@
     "title": "Venomous or harmless?",
     "subtitle": "Most snakes in Georgia are harmless. A vertical pupil and a triangular head often point to vipers, but no rule is universal.",
     "ctaSpecies": "See the signs",
-    "ctaParent": "Snakes hub",
+    "ctaParent": "Snakes",
     "guideEyebrow": "ID",
     "guideTitle": "No rule is universal",
     "guideP1": "Telling venomous from harmless by a photo is risky. A species profile is better: marks, habitat, region. This page gathers common mix-ups — not a field guarantee.",
@@ -1167,7 +1167,7 @@
     "title": "Snakebite — what should you do?",
     "subtitle": "This page is educational and is not emergency medical instruction. If bitten, call 112.",
     "ctaSpecies": "Call 112",
-    "ctaParent": "Snakes hub",
+    "ctaParent": "Snakes",
     "disclaimerEyebrow": "Not medical advice",
     "disclaimerTitle": "The first step is always 112",
     "disclaimerBody": "Only a clinician decides treatment. This page repeats steps already published on this site’s venomous and yard guides, and it points to 112 — not folklore and not an antivenom protocol.",
@@ -1228,14 +1228,14 @@
     "title": "Where do snakes occur in Georgia?",
     "subtitle": "12 regions and only the snakes already on each region list. An empty list is a data gap, not “no snakes”.",
     "ctaSpecies": "See the regions",
-    "ctaParent": "Snakes hub",
+    "ctaParent": "Snakes",
     "statRegions": "Regions",
     "statMapped": "Snakes on the map",
     "statPending": "Not on the map yet",
     "guideEyebrow": "Range",
     "guideTitle": "Region → confirmed snakes",
     "guideP1": "This page focuses the regions atlas on snakes. Lizards (including the glass lizard) are filtered out of the lists.",
-    "guideP2": "Xerotyphlops, Eryx, Eirenis and other newly listed checklist snakes are often still missing from regions. We do not invent their range — that is a separate data task.",
+    "guideP2": "Xerotyphlops, Eryx, Eirenis and other newly listed checklist snakes are often still missing from regions. Their range is not invented here.",
     "mapEyebrow": "Map",
     "mapTitle": "Choose a region",
     "mapBody": "A click opens the region page. Regions with at least one confirmed snake are highlighted.",
@@ -1266,7 +1266,7 @@
     "title": "The largest snakes of Georgia",
     "subtitle": "The order follows lengths published on profiles — not internet myths. The glass lizard is in the comparison because people often search it as a snake.",
     "ctaSpecies": "See the list",
-    "ctaParent": "Snakes hub",
+    "ctaParent": "Snakes",
     "guideEyebrow": "Size",
     "guideTitle": "Length only when a source exists",
     "guideP1": "Giurza is about 1–1.5 m on its profile; the eastern Montpellier snake is often over 1.5 m; the red-bellied racer is 1–1.5 m. Other species sometimes only say “often 1 m or longer” — that is still a source, not an invented maximum.",
@@ -1288,7 +1288,7 @@
     "faq3Q": "Are there 2–3 metre snakes?",
     "faq3A": "No such figure is stated on these atlas profiles. Only existing stats appear here.",
     "faq4Q": "Where can I see every snake?",
-    "faq4A": "The full index is in the species table; the hub gathers the guides.",
+    "faq4A": "The full index is in the species table; the snakes guide gathers the other pages.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From size to a profile",
     "ctaBody": "Open a species for stats and photos. The complete list is in the index."
@@ -1302,7 +1302,7 @@
     "title": "Lizard species of Georgia",
     "subtitle": "Every lizard in the atlas. Darevskia has its own block — colour is not enough to tell them apart. An empty cell is a missing source.",
     "ctaSpecies": "See the index",
-    "ctaParent": "Lizards hub",
+    "ctaParent": "Lizards",
     "statSpecies": "Lizards in the atlas",
     "statDarevskia": "Darevskia",
     "statFamilies": "Families",
@@ -1343,7 +1343,7 @@
     "title": "What lizard is this?",
     "subtitle": "Telling Georgia’s lizards apart starts with a photo and size, but for Darevskia colour is not enough — you need region and a profile.",
     "ctaSpecies": "See the steps",
-    "ctaParent": "Lizards hub",
+    "ctaParent": "Lizards",
     "guideEyebrow": "ID",
     "guideTitle": "From a photo to a profile — not colour alone",
     "guideP1": "Rock lizards (Darevskia) are numerous in the Caucasus and look alike. The Caucasian agama is an agamid; the glass lizard is a legless lizard, not a snake.",
@@ -1396,7 +1396,7 @@
     "title": "Lizard, glass lizard, or snake?",
     "subtitle": "The glass lizard is a legless lizard. The slow worm is a smaller legless lizard. Water snakes are snakes. None of these three is venomous.",
     "ctaSpecies": "See the comparison",
-    "ctaParent": "Lizards hub",
+    "ctaParent": "Lizards",
     "guideEyebrow": "Compare",
     "guideTitle": "Three animals people mix up",
     "guideP1": "The glass lizard profile states movable eyelids, external ear openings, and a side fold — snakes do not have eyelids. Length is about 1–1.35 m; it is harmless.",
@@ -1476,14 +1476,14 @@
     "title": "Turtle species of Georgia",
     "subtitle": "Four species: one land tortoise, two native freshwater turtles, and one introduced slider. Regional maps for these taxa are still empty.",
     "ctaSpecies": "View the index",
-    "ctaParent": "Turtles hub",
+    "ctaParent": "Turtles",
     "statSpecies": "turtles in the atlas",
     "statIntroduced": "introduced",
     "statFamilies": "families",
     "guideEyebrow": "Index",
     "guideTitle": "From land to water",
     "guideP1": "The checklist lists four turtles for Georgia. The Greek tortoise is terrestrial; the pond and Caspian turtles are freshwater; the slider is introduced.",
-    "guideP2": "These profiles are not yet mapped in regions.ts. We do not invent range. Identification is a separate guide.",
+    "guideP2": "Regional maps for these profiles are still empty. Range is not invented here. Identification is a separate guide.",
     "tableEyebrow": "Table",
     "tableTitle": "{count} turtles",
     "tableBody": "Each row opens a profile. An empty cell is a missing source.",
@@ -1511,7 +1511,7 @@
     "title": "Land turtles of Georgia",
     "subtitle": "The atlas has one land tortoise — Testudo graeca. Freshwater species are on a separate guide.",
     "ctaSpecies": "View the species",
-    "ctaParent": "Turtles hub",
+    "ctaParent": "Turtles",
     "statSpecies": "land tortoise",
     "statFamilies": "families",
     "statExtra": "checklist",
@@ -1547,7 +1547,7 @@
     "title": "Freshwater turtles of Georgia",
     "subtitle": "Two native freshwater turtles and one introduced slider. The land tortoise is on a separate guide.",
     "ctaSpecies": "View species",
-    "ctaParent": "Turtles hub",
+    "ctaParent": "Turtles",
     "statSpecies": "water turtles",
     "statFamilies": "families",
     "statExtra": "introduced",
@@ -1583,7 +1583,7 @@
     "title": "What turtle is this?",
     "subtitle": "First land or water, then native or introduced. Four species — the decision lives on the profile.",
     "ctaSpecies": "View the steps",
-    "ctaParent": "Turtles hub",
+    "ctaParent": "Turtles",
     "guideEyebrow": "ID",
     "guideTitle": "Four turtles, two questions",
     "guideP1": "Greek tortoise profile: high domed shell, slow on land. Water turtles have flatter shells and often bask on banks.",
@@ -1634,7 +1634,7 @@
     "title": "Amphibian species of Georgia",
     "subtitle": "The checklist’s 12 amphibians in one index — frogs/toads and newts/salamander in separate blocks.",
     "ctaSpecies": "View the index",
-    "ctaParent": "Amphibians hub",
+    "ctaParent": "Amphibians",
     "statSpecies": "amphibians in the atlas",
     "statFrogs": "Anura",
     "statNewts": "Caudata",
@@ -1657,7 +1657,7 @@
     "faq1Q": "How many amphibians are in Georgia?",
     "faq1A": "The atlas has 12 checklist species: 8 Anura and 4 Caudata.",
     "faq2Q": "Where is the frogs guide?",
-    "faq2A": "The guide is at /amphibians/frogs; the table is at /amphibians/frogs/species.",
+    "faq2A": "The written guide is on the frogs page; the table is the frog index.",
     "faq3Q": "Is the Caucasian salamander endemic?",
     "faq3A": "The profile location says western Lesser Caucasus endemic. The national Red List is not cited on that profile.",
     "faq4Q": "Should I handle them?",
@@ -1668,21 +1668,21 @@
   },
   "amphibianFrogsIndex": {
     "metaTitle": "Frog species of Georgia — index",
-    "metaDescription": "8 Anura species in one table. The frogs guide stays separate; this is an index, not a duplicate essay.",
+    "metaDescription": "Eight frogs and toads of Georgia in one table. The written guide stays separate — this is the index.",
     "keywords": "frog species Georgia, Anura index, toads, treefrogs, Georgia frog list",
     "breadcrumbCurrent": "Frog species",
     "heroImageAlt": "Marsh frog at the water’s edge",
     "title": "Frog species of Georgia",
-    "subtitle": "Anura index table. The guide — copy and list — stays at /amphibians/frogs.",
+    "subtitle": "Frog species in a table. The written guide stays separate.",
     "ctaSpecies": "View the table",
-    "ctaParent": "Amphibians hub",
+    "ctaParent": "Amphibians",
     "statSpecies": "Anura",
     "statFamilies": "families",
     "statExtra": "guide",
-    "statExtraValue": "#9",
+    "statExtraValue": "guide",
     "guideEyebrow": "Index",
     "guideTitle": "A table, not a second guide",
-    "guideP1": "This page shows the same eight species as the frogs guide, as an index table. Both stay: the guide answers reading intent; the index answers scanning.",
+    "guideP1": "The same eight species as the frogs guide — here as a table. The guide is for reading; the index is for scanning.",
     "guideP2": "Newts are not here. Regional maps for these taxa are still empty.",
     "guideCta": "Frogs guide",
     "tableEyebrow": "Table",
@@ -1692,11 +1692,11 @@
     "faqTitle": "What people ask about this index",
     "faqIntro": "Short answers.",
     "faq1Q": "Is this the same as the frogs guide?",
-    "faq1A": "No. The guide (/amphibians/frogs) is copy; this is a table. There is no 301 — the intents differ.",
+    "faq1A": "No. The guide (/amphibians/frogs) is the article; this is the table. Both stay, because they serve different needs.",
     "faq2Q": "How many frogs are there?",
     "faq2A": "Eight Anura from the checklist.",
     "faq3Q": "Where are the newts?",
-    "faq3A": "On the Caudata guide: /amphibians/newts.",
+    "faq3A": "On the newts and salamanders guide.",
     "faq4Q": "Should I handle them?",
     "faq4A": "Better not.",
     "ctaEyebrow": "Next step",
@@ -1712,7 +1712,7 @@
     "title": "Newts and salamanders of Georgia",
     "subtitle": "Four Caudata from the checklist. Endemic status only where a profile states it.",
     "ctaSpecies": "View species",
-    "ctaParent": "Amphibians hub",
+    "ctaParent": "Amphibians",
     "statSpecies": "Caudata",
     "statFamilies": "families",
     "statExtra": "endemic on profile",
@@ -1746,7 +1746,7 @@
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Snakes in the yard",
     "heroImageAlt": "A specialist safely capturing a snake in a residential yard with professional tongs",
-    "title": "How do we get snakes out of the yard?",
+    "title": "How to get snakes out of the yard",
     "subtitle": "There is no reliable way to “drive them out” on command. Make the yard poor for shelter and food — then a snake will not stay.",
     "ctaActions": "What to do",
     "ctaMyths": "What doesn’t work",
@@ -1760,7 +1760,7 @@
     "coverImageAlt": "A snake on rocks near rodents and tall grass — shelter and food in one place",
     "coverCaption": "A yard attracts snakes when it offers shelter (rocks, logs, tall grass) and food (rodents).",
     "actionsEyebrow": "Practice",
-    "actionsTitle": "What should we do so they stop coming in?",
+    "actionsTitle": "What to do so they stop coming in",
     "actionsLead": "The goal is not to kill or catch a snake — it is to manage the yard so neither shelter nor food remains.",
     "action1Title": "Regular clearing of grass in the yard",
     "action1Body": "Cut tall grass — the area becomes more open and less attractive to snakes.",

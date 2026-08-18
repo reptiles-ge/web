@@ -258,7 +258,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   "mtskheta-mtianeti": {
     biome: { ka: "დიდი კავკასიონი", en: "Greater Caucasus" },
     overview: {
-      ka: "მცხეთა — მთიანეთი დიდი კავკასიონის მთებით, ტყის ზედა ზონითა და სუბალპური მდელოებით გამოირჩევა. ეს არის მთის რეპტილიების — მათ შორის დინიკის გველგესლას — კლასიკური არეალი.",
+      ka: "მცხეთა — მთიანეთი დიდი კავკასიონის მთებით, ტყის ზედა ზონითა და სუბალპური მდელოებით გამოირჩევა. ეს არის მთის ქვეწარმავლების — მათ შორის დინიკის გველგესლას — კლასიკური არეალი.",
       en: "Mtskheta — Mtianeti covers Greater Caucasus peaks, the upper forest belt, and subalpine meadows. It is classic range for montane reptiles, including Dinnik’s viper.",
     },
     habitats: [
@@ -308,7 +308,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   kakheti: {
     biome: { ka: "ალაზანი · ნახევრად უდაბნო", en: "Alazani · semi-arid" },
     overview: {
-      ka: "კახეთი ალაზნის ველით, მშრალი მთისწინეთითა და ნახევრად უდაბნო ზონებით ქმნის აღმოსავლეთ საქართველოს უნიკალურ ფაუნას. აქ დომინირებს თბომოყვარე და მშრალი ჰაბიტატის სახეობები — გიურზა, სწრაფი მცურავები და კატისთვალა.",
+      ka: "კახეთი ალაზნის ველით, მშრალი მთისწინეთითა და ნახევრად უდაბნო ზონებით ქმნის აღმოსავლეთ საქართველოს განსხვავებულ ფაუნას. აქ დომინირებს თბომოყვარე და მშრალი ჰაბიტატის სახეობები — გიურზა, სწრაფი მცურავები და კატისთვალა.",
       en: "Kakheti’s Alazani valley, dry foothills, and semi-arid belts shape eastern Georgia’s distinctive fauna. Warmth-loving, dry-habitat taxa dominate — Levantine viper, fast racers, and cat snake.",
     },
     habitats: [
@@ -353,7 +353,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
   tbilisi: {
     biome: { ka: "ურბანული · მტკვარი", en: "Urban · Mtkvari" },
     overview: {
-      ka: "თბილისში რეპტილიები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. აქ შეიძლება შეხვდეთ გიურზას, ცხვირრქოსან გველგესლას, წითელმუცელა მცურავს, გველხოკერას და სხვა სახეობებს. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია.",
+      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. აქ შეიძლება შეხვდეთ გიურზას, ცხვირრქოსან გველგესლას, წითელმუცელა მცურავს, გველხოკერას და სხვა სახეობებს. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია.",
       en: "In Tbilisi, reptiles occur mainly in suburban valleys, parks, and riverside habitats — not dense city centers. Levantine viper, nose-horned viper, red-bellied racer, glass lizard, and others may appear. Urban encounters are uncommon but real.",
     },
     habitats: [
