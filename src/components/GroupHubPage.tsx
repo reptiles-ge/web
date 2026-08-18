@@ -1,6 +1,6 @@
 "use client";
 
-import { RelatedGuideCard } from "@/components/RelatedGuideCards";
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { Species } from "@/data/species";
@@ -155,19 +155,12 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               </Reveal>
             </div>
 
-            {clusterCards.length > 0 ? (
-              <div className="mt-14 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
-                {clusterCards.map((card, index) => (
-                  <Reveal key={card.key} delay={index * 50} className="contents">
-                    <RelatedGuideCard
-                      card={card}
-                      locale={locale}
-                      species={species}
-                    />
-                  </Reveal>
-                ))}
-              </div>
-            ) : null}
+            <RelatedGuideGrid
+              cards={clusterCards}
+              locale={locale}
+              species={species}
+              className="mt-14 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3"
+            />
           </div>
         </section>
 
