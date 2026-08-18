@@ -18,7 +18,11 @@ export function SnakeBitePage({
   const locale = useLocale() as AppLocale;
 
   return (
-    <ClusterPageFrame guideId={guideId} heroSrc={heroSrc}>
+    <ClusterPageFrame
+      guideId={guideId}
+      heroSrc={heroSrc}
+      heroObjectClass="object-[50%_70%]"
+    >
       <section id="content" className="scroll-mt-28 bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>

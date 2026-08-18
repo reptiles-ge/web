@@ -16,6 +16,7 @@ type ClusterPageFrameProps = {
   guideId: ClusterGuideId;
   heroSrc: string;
   ctaHash?: string;
+  heroObjectClass?: string;
   stats?: ReactNode;
   children: ReactNode;
 };
@@ -24,6 +25,7 @@ export function ClusterPageFrame({
   guideId,
   heroSrc,
   ctaHash = "#content",
+  heroObjectClass = "object-[50%_35%]",
   stats,
   children,
 }: ClusterPageFrameProps) {
@@ -46,7 +48,7 @@ export function ClusterPageFrame({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[50%_35%]"
+            className={`object-cover ${heroObjectClass}`}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />

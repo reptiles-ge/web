@@ -25,6 +25,7 @@ export function SnakeSpeciesIndexPage({
       guideId={guideId}
       heroSrc={heroSrc}
       ctaHash="#index"
+      heroObjectClass="object-[50%_70%]"
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

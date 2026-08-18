@@ -261,6 +261,7 @@ export type ClusterGuideConfig = {
   parentHub: ClusterParentId;
   messageKey: ClusterMessageKey;
   heroSpeciesId: string;
+  heroImage?: string;
   matches: (species: Species) => boolean;
   faqCount: 4 | 5;
   schema: "collection" | "article";
@@ -285,6 +286,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     parentHub: "snakes",
     messageKey: "snakeIndex",
     heroSpeciesId: "macrovipera-lebetina",
+    heroImage: "/images/guides/snake-species-cover.png",
     matches: isSnakeSpecies,
     faqCount: 4,
     schema: "collection",
@@ -296,6 +298,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     parentHub: "snakes",
     messageKey: "snakeIdentify",
     heroSpeciesId: "vipera-kaznakovi",
+    heroImage: "/images/guides/identify-venomous-cover.png",
     matches: (species) =>
       isSnakeSpecies(species) || species.id === LARGE_SNAKE_LIZARD_ID,
     faqCount: 4,
@@ -308,6 +311,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     parentHub: "snakes",
     messageKey: "snakeBite",
     heroSpeciesId: "macrovipera-lebetina",
+    heroImage: "/images/guides/snake-bite-cover.png",
     matches: (species) =>
       isSnakeSpecies(species) && isVenomousDanger(species.danger),
     faqCount: 4,
@@ -319,7 +323,8 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     pathname: "/snakes/gavrtseleba",
     parentHub: "snakes",
     messageKey: "snakeRange",
-    heroSpeciesId: "natrix-natrix",
+    heroSpeciesId: "coronella-austriaca",
+    heroImage: "/images/guides/snake-range-cover.png",
     matches: isSnakeSpecies,
     faqCount: 4,
     schema: "article",
@@ -330,7 +335,8 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     pathname: "/snakes/didi-gvelebi",
     parentHub: "snakes",
     messageKey: "snakeLargest",
-    heroSpeciesId: "macrovipera-lebetina",
+    heroSpeciesId: "dolichophis-caspius",
+    heroImage: "/images/guides/largest-snakes-cover.png",
     matches: (species) =>
       largeSnakeIdSet.has(species.id) || species.id === LARGE_SNAKE_LIZARD_ID,
     faqCount: 4,

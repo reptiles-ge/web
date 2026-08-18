@@ -44,6 +44,7 @@ export function SnakeRangePage({
       guideId={guideId}
       heroSrc={heroSrc}
       ctaHash="#regions"
+      heroObjectClass="object-[55%_68%]"
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

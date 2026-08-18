@@ -84,7 +84,9 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const matched = catalog.filter(guide.matches);
     const hero =
       catalog.find((item) => item.id === guide.heroSpeciesId) ?? matched[0];
-    const ogImage = speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
+    const ogImage = guide.heroImage
+      ? absoluteUrl(guide.heroImage)
+      : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
 
     return {
       title,
@@ -150,7 +152,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const heroRaw =
       catalog.find((item) => item.id === guide.heroSpeciesId) ??
       catalog.filter(guide.matches)[0];
-    const heroSrc = heroRaw?.image ?? "";
+    const heroSrc = guide.heroImage ?? heroRaw?.image ?? "";
 
     const breadcrumbLd = {
       "@context": "https://schema.org",

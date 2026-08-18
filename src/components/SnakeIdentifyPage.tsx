@@ -39,7 +39,12 @@ export function SnakeIdentifyPage({
   const kaznakovi = byId.get("vipera-kaznakovi");
 
   return (
-    <ClusterPageFrame guideId={guideId} heroSrc={heroSrc} ctaHash="#signs">
+    <ClusterPageFrame
+      guideId={guideId}
+      heroSrc={heroSrc}
+      ctaHash="#signs"
+      heroObjectClass="object-[50%_50%]"
+    >
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">

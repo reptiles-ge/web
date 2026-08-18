@@ -29,7 +29,12 @@ export function SnakeLargestPage({
   const lizard = species.find((item) => item.id === LARGE_SNAKE_LIZARD_ID);
 
   return (
-    <ClusterPageFrame guideId={guideId} heroSrc={heroSrc} ctaHash="#list">
+    <ClusterPageFrame
+      guideId={guideId}
+      heroSrc={heroSrc}
+      ctaHash="#list"
+      heroObjectClass="object-[50%_72%]"
+    >
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">

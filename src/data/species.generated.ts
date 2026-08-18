@@ -4133,7 +4133,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T19:22:57+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5077,7 +5077,7 @@ export const species: Species[] = [
         "answer": "Darevskia ლაცერტიდია; ჯოჯო აღამიდია — უფრო მყარი სხეული და სამკუთხა თავი. დეტალები პროფილის იდენტიფიკაციაშია."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T19:22:57+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5774,7 +5774,7 @@ export const species: Species[] = [
         "answer": "ბოხმეჭა (Anguis colchica) უფრო პატარა, უფრო გლუვი უფეხო ხვლიკია. გველხოკერა დიდია (დაახლ. 1–1.35 მ), აქვს გამოკვეთილი გვერდითი ნაოჭი და ხშირად ყვითელი მუცელი. ორივე უვნებელია და არც ერთი გველი არ არის."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-18T19:22:57+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
