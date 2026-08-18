@@ -92,6 +92,16 @@
         "title": "Snakes in Georgia",
         "body": "A complete snake guide — venomous and harmless species in one hub.",
         "cta": "Open snakes hub"
+      },
+      "lizards": {
+        "title": "Lizards in Georgia",
+        "body": "Darevskia, Caucasian agama, and the glass lizard — the lizard cluster to full profiles.",
+        "cta": "Open lizards hub"
+      },
+      "amphibians": {
+        "title": "Amphibians in Georgia",
+        "body": "12 checklist species — frogs in a dedicated guide, newts on the hub.",
+        "cta": "Open amphibians hub"
       }
     },
     "regions": {
@@ -136,7 +146,8 @@
     "snakes": "Snakes",
     "lizards": "Lizards",
     "turtles": "Turtles",
-    "amphibians": "Amphibians"
+    "amphibians": "Amphibians",
+    "frogs": "Frogs"
   },
   "profile": {
     "back": "All species",
@@ -486,14 +497,20 @@
     "statHigh": "High risk",
     "statModerate": "Moderate risk",
     "speciesEyebrow": "Catalog",
-    "speciesTitle": "Six species you should know",
-    "speciesBody": "In this atlas, “venomous” means moderate or high risk to humans. Each species opens a full profile — identification, habitat, map, and FAQ.",
+    "speciesTitle": "{count} species in this guide",
+    "speciesBody": "In this atlas, “venomous” means moderate or high risk to humans. Six vipers plus one rear-fanged species — each profile covers identification and habitat.",
+    "featuredEyebrow": "Highest risk",
+    "featuredCta": "Giurza profile",
+    "vipersTitle": "Vipers (Viperidae)",
+    "vipersBody": "Six species: the Levantine viper and five Vipera. These are Georgia’s medically significant vipers.",
+    "rearFangedTitle": "Rear-fanged",
+    "rearFangedBody": "The eastern Montpellier snake (Malpolon insignitus) is listed as moderate risk. It is not a viper — the risk profile is different.",
     "openProfile": "Full profile",
     "rangePending": "Range pending",
     "safetyEyebrow": "Safety",
     "safetyTitle": "What to do if you meet one",
     "safetyLead": "Most vipers will not strike unless they feel threatened. Distance and calm usually settle the encounter.",
-    "safetyDisclaimer": "Educational guidance — not emergency medical advice.",
+    "safetyDisclaimer": "This page is educational and is not emergency medical instruction. If bitten, call 112.",
     "safetyStep1Title": "Do not handle",
     "safetyStep1Body": "Never catch or move a wild snake — most bites happen during handling.",
     "safetyStep2Title": "Keep distance",
@@ -501,7 +518,7 @@
     "safetyStep3Title": "Learn the lookalikes",
     "safetyStep3Body": "Many harmless snakes resemble vipers. Killing by mistake harms the ecosystem.",
     "safetyStep4Title": "If bitten — get care",
-    "safetyStep4Body": "Stay calm, do not move the bitten arm or leg, and seek medical help. Do not cut, suck, or apply a tourniquet.",
+    "safetyStep4Body": "Call 112 immediately. Stay calm and do not move the bitten arm or leg. Do not cut, suck, or apply a tourniquet. This does not replace a doctor’s advice.",
     "yardEyebrow": "Near home",
     "yardTitle": "How do we get snakes out of the yard?",
     "yardBody": "Prevention near the house is a different question: shelter, food, and myths that do not work. Full practice lives in a dedicated guide.",
@@ -514,7 +531,7 @@
     "faqTitle": "What people ask most",
     "faqIntro": "Short answers on Georgia’s venomous snakes — full detail lives on each species page.",
     "faq1Q": "How many venomous snakes are there in Georgia?",
-    "faq1A": "This atlas treats six species as medically significant: the Levantine viper (Macrovipera lebetina), Transcaucasian long-nosed viper (Vipera transcaucasiana), Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi). Most other snakes here are harmless to people.",
+    "faq1A": "This atlas treats six vipers as medically significant: the Levantine viper (Macrovipera lebetinus), Transcaucasian long-nosed viper, Caucasus viper, Dinnik’s viper, Darevsky’s viper, and steppe viper. In addition, the eastern Montpellier snake (Malpolon insignitus) is a moderate-risk rear-fanged species — not a viper.",
     "faq2Q": "Which venomous snake is the most dangerous?",
     "faq2A": "The Levantine viper (Macrovipera lebetina) is Georgia’s largest and most dangerous venomous snake; its bite can threaten human life. The Transcaucasian long-nosed viper is also high risk; the Caucasus, Dinnik’s, Darevsky’s, and steppe vipers are assessed as moderate risk.",
     "faq3Q": "Where do venomous snakes occur in Georgia?",
@@ -551,7 +568,57 @@
     "yardEyebrow": "Practice",
     "yardTitle": "Snakes in the yard",
     "yardBody": "How to reduce snakes entering the yard — shelter, food, and what does not work.",
-    "yardCta": "Open the yard guide"
+    "yardCta": "Open the yard guide",
+    "cluster": {
+      "venomous": {
+        "eyebrow": "Safety",
+        "title": "Venomous snakes",
+        "body": "Giurza, vipers, and one rear-fanged species — risk and full profiles.",
+        "cta": "Open venomous guide"
+      },
+      "yard": {
+        "eyebrow": "Practice",
+        "title": "Snakes in the yard",
+        "body": "Shelter, food, and myths — what actually reduces visits.",
+        "cta": "Open the yard guide"
+      },
+      "giurza": {
+        "eyebrow": "Species",
+        "title": "Levantine viper",
+        "body": "Georgia’s largest and most dangerous venomous snake — dry eastern habitats.",
+        "cta": "Open profile"
+      },
+      "jojo": {
+        "eyebrow": "Species",
+        "title": "Caucasian agama",
+        "body": "Georgia’s only agamid in the checklist — a harmless rock lizard.",
+        "cta": "Open profile"
+      },
+      "gvelxokera": {
+        "eyebrow": "Species",
+        "title": "European glass lizard",
+        "body": "A legless lizard, not a snake — eyelids, ear openings, and a side fold.",
+        "cta": "Open profile"
+      },
+      "tortoise": {
+        "eyebrow": "Land",
+        "title": "Greek tortoise",
+        "body": "The only land tortoise in the atlas — Testudo graeca.",
+        "cta": "Open profile"
+      },
+      "slider": {
+        "eyebrow": "Introduced",
+        "title": "Red-eared slider",
+        "body": "Not a native species. Listed as introduced in the checklist.",
+        "cta": "Open profile"
+      },
+      "frogs": {
+        "eyebrow": "Anura",
+        "title": "Frogs of Georgia",
+        "body": "Toads, treefrogs, and frogs — the Anura group in a dedicated guide.",
+        "cta": "Open frogs guide"
+      }
+    }
   },
   "snakes": {
     "metaTitle": "Snakes in Georgia — species guide and atlas",
@@ -573,6 +640,16 @@
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} snakes in the atlas",
     "speciesBody": "Each entry opens a full profile — common and scientific names, risk, short overview, and regions.",
+    "section": {
+      "venomous": {
+        "title": "Venomous — {count}",
+        "body": "Species assessed as moderate or high risk to people. Giurza and the vipers also have a dedicated guide."
+      },
+      "harmless": {
+        "title": "Harmless — {count}",
+        "body": "Most snakes are harmless and often mistaken for vipers. Profiles show identification traits and habitat."
+      }
+    },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about snakes",
     "faqIntro": "Short answers for search intent — depth lives on species pages.",
@@ -610,6 +687,20 @@
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} lizards in the atlas",
     "speciesBody": "The list covers rock lizards, lacertids, skinks, and anguids — each profile built for identification.",
+    "section": {
+      "featured": {
+        "title": "Caucasian agama and glass lizard",
+        "body": "The two lizards people search most — a rock agama and a legless lizard often mistaken for a snake."
+      },
+      "darevskia": {
+        "title": "Rock lizards (Darevskia) — {count}",
+        "body": "Caucasian Darevskia is especially rich. Colour is not enough — region and traits are on each profile. Regional maps are still empty for many taxa."
+      },
+      "other": {
+        "title": "Other lizards — {count}",
+        "body": "Lacertids, skinks, geckos, and other non-Darevskia species from the checklist."
+      }
+    },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about lizards",
     "faqIntro": "Short answers — depth lives on species pages.",
@@ -647,6 +738,16 @@
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} turtles in the atlas",
     "speciesBody": "Land and freshwater species — each with range notes and field context.",
+    "section": {
+      "native": {
+        "title": "Native species — {count}",
+        "body": "The land tortoise and two freshwater turtles from the checklist. Regional maps are not yet filled."
+      },
+      "introduced": {
+        "title": "Introduced — {count}",
+        "body": "The red-eared slider (Trachemys scripta) is listed as introduced — not part of Georgia’s native fauna."
+      }
+    },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about turtles",
     "faqIntro": "Short answers — details live on profiles.",
@@ -684,6 +785,16 @@
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} amphibians in the atlas",
     "speciesBody": "Salamanders, newts, toads, and frogs — each with habitat and identification notes.",
+    "section": {
+      "frogs": {
+        "title": "Frogs (Anura) — {count}",
+        "body": "Toads, treefrogs, and frogs. A dedicated frogs guide lives on its own page."
+      },
+      "newts": {
+        "title": "Newts and salamanders — {count}",
+        "body": "Caudata: the Caucasian salamander and three newts from Tarkhnishvili et al. 2026."
+      }
+    },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about amphibians",
     "faqIntro": "Short answers — depth lives on profiles.",
@@ -700,6 +811,42 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From amphibian list to profile",
     "ctaBody": "Open a species or return to reptile hubs — snakes, lizards, turtles."
+  },
+  "amphibianFrogs": {
+    "metaTitle": "Frogs of Georgia — species guide",
+    "metaDescription": "Frogs of Georgia (Anura): toads, treefrogs, marsh frog, and Caucasian brown frog. Tarkhnishvili et al. 2026 checklist — 8 species.",
+    "keywords": "frogs in Georgia, toads Georgia, treefrogs, marsh frog, Hyla, Rana, Pelophylax, Georgia amphibians",
+    "breadcrumbCurrent": "Frogs",
+    "heroImageAlt": "Marsh frog at the water’s edge",
+    "title": "Frogs of Georgia",
+    "subtitle": "Anura — toads, treefrogs, and frogs. This guide does not include newts and salamanders.",
+    "ctaSpecies": "See the species",
+    "ctaParent": "All amphibians",
+    "statSpecies": "Frogs and toads in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Checklist",
+    "statExtraValue": "2026",
+    "guideEyebrow": "Anura",
+    "guideTitle": "Frogs, not all amphibians",
+    "guideP1": "The Georgia herpetofauna checklist (Tarkhnishvili et al. 2026) lists 12 amphibians: 4 Caudata and 8 Anura. This page gathers Anura only.",
+    "guideP2": "Marsh frog, Caucasian brown frog, treefrogs, and toads open full profiles from here. Newts and the Caucasian salamander live on the amphibians hub.",
+    "speciesEyebrow": "Catalog",
+    "speciesTitle": "{count} Anura species",
+    "speciesBody": "Each row opens a profile. Regional maps for these taxa are often still empty — we do not invent ranges.",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask about frogs",
+    "faqIntro": "Short answers — depth lives on profiles.",
+    "faq1Q": "How many frogs are there in Georgia?",
+    "faq1A": "This atlas lists 8 Anura species from the checklist: two toads, two treefrogs, Syrian spadefoot, Caucasian parsley frog, Caucasian brown frog, and marsh frog.",
+    "faq2Q": "What is the difference between a frog and a toad?",
+    "faq2A": "Toads typically have drier, granular skin; treefrogs climb. Concrete field marks are on each species profile.",
+    "faq3Q": "Where are the newts?",
+    "faq3A": "Newts and the Caucasian salamander are on the amphibians hub, not this page. This guide is Anura only.",
+    "faq4Q": "Should I handle a frog?",
+    "faq4A": "Better not — their skin is sensitive. Observe and compare with the atlas.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From frogs to the amphibians hub",
+    "ctaBody": "All 12 amphibian species are on the amphibians page. From here open a profile or the parent hub."
   },
   "snakesInYard": {
     "metaTitle": "How to get snakes out of the yard — what works and what doesn’t",

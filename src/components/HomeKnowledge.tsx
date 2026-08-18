@@ -4,20 +4,20 @@ import { getTranslations } from "next-intl/server";
 
 const pathways = [
   {
-    key: "yard" as const,
-    href: "/snakes-in-the-yard",
+    key: "snakes" as const,
+    href: "/snakes",
   },
   {
     key: "venomous" as const,
     href: "/venomous-snakes",
   },
   {
-    key: "snakes" as const,
-    href: "/snakes",
+    key: "lizards" as const,
+    href: "/lizards",
   },
   {
-    key: "atlas" as const,
-    href: "/species",
+    key: "amphibians" as const,
+    href: "/amphibians",
   },
 ] as const;
 

@@ -4040,7 +4040,7 @@ export const species: Species[] = [
     "family": "Viperidae",
     "location": "აღმოსავლეთ საქართველო",
     "description": "საქართველოს ყველაზე დიდი და საშიში შხამიანი გველი — მშრალი, კლდოვანი ლანდშაფტების მკვიდრი.",
-    "overview": "გიურზა (Macrovipera lebetina) გველგესლასებრთა ოჯახის დიდი შხამიანი სახეობაა. საქართველოში გვხვდება ქვესახეობა M. l. obtusa — იორის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯის უდაბნოში, თბილისისა და რუსთავის მიდამოებში. ბინადრობს მშრალ და ნახევრადმშრალ კლდოვან ადგილებში, ზღვის დონიდან დაახლოებით 1,500 მ-მდე. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern), თუმცა ნაკბენი ადამიანისთვის სასიკვდილო შეიძლება იყოს.",
+    "overview": "გიურზა (Macrovipera lebetinus) გველგესლასებრთა ოჯახის დიდი შხამიანი სახეობაა. ჩეკლისტში მიღებული სამეცნიერო სახელია M. lebetinus; ძველ ლიტერატურასა და URL-ში ხშირად რჩება lebetina. საქართველოში გვხვდება ქვესახეობა M. l. obtusa — იორის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯის უდაბნოში, თბილისისა და რუსთავის მიდამოებში. ბინადრობს მშრალ და ნახევრადმშრალ კლდოვან ადგილებში, ზღვის დონიდან დაახლოებით 1,500 მ-მდე. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern), თუმცა ნაკბენი ადამიანისთვის სასიკვდილო შეიძლება იყოს. ხშირად ერევა აღმოსავლურ ხვლიკიჭამია გველს (Malpolon insignitus) — უკანა შხამკბილა, არა გველგესლა.",
     "habitat": "გავრცელებულია სამხრეთ-დასავლეთ აზიასა და კავკასიაში. საქართველოში — აღმოსავლეთის მშრალ ზონაში: იორის, მტკვრისა და ალაზნის აუზებში, შირაქში, გარეჯში, თბილისსა და რუსთავამდე. ჰაბიტატი მოიცავს კლდეებს, ქვიან ფერდობებს, მღრღნელების კოლონიებსა და ადამიანის ნაგებობებს; ადის დაახლოებით 1,500 მ სიმაღლემდე.",
     "diet": "ზრდასრულები იკვებებიან მღრღნელებით, პატარა ფრინველებით, ხვლიკებითა და სხვა მცირე ხერხემლიანებით. ახალგაზრდები ძირითადად პატარა ხვლიკებით ნადირობენ. ნადირობს ჩასაფრებით; ზოგჯერ ადის ბუჩქებსა და ხეებზე ფრინველების დასაჭერად.",
     "behavior": "აქტიურია მარტის ბოლოდან ოქტომბრის ბოლომდე. გაზაფხულსა და შემოდგომაზე დღისით მოძრაობს, ზაფხულის სიცხეში — ღამით. იზამთრებს კლდეების ნაპრალებსა და სოროებში. კვერცხისმდებია: შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში, დაახლოებით 23–25 სმ სიგრძის.",
@@ -4127,6 +4127,10 @@ export const species: Species[] = [
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში."
+      },
+      {
+        "question": "რატომ წერია URL-ში lebetina, თუ სახელია lebetinus?",
+        "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
       }
     ],
     "updatedAt": "2026-08-06T13:03:03+04:00",
@@ -4983,12 +4987,12 @@ export const species: Species[] = [
     "genus": "Paralaudakia",
     "family": "Agamidae",
     "location": "საქართველო",
-    "description": "ჯოჯო — დაფიქსირებულია საქართველოში.",
-    "overview": "ჯოჯო (Paralaudakia caucasia) საქართველოში დაფიქსირებულია ჩეკლისტში. ჩეკლისტში ბიოლოგიურად დადასტურებულადაა მითითებული. გვერდი აჯამებს გავრცელებასა და ზოგად ბიოლოგიას სამეცნიერო წყაროებიდან; დეტალური რეგიონები მხოლოდ მაშინაა მითითებული, როცა ეს პირდაპირაა დადასტურებული.",
-    "habitat": "კლდოვანი ფერდობები და მშრალი ღია ჰაბიტატები.",
-    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.",
-    "behavior": "ძირითადად დღისით აქტიურია; ბევრი სახეობა ქვებზე ან მცენარეებზე თბება და საფრთხისას ნაპრალებში იფარება.",
-    "conservation": "საქართველოში დაფიქსირებულია. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის დეგრადაცია და ამოღება მიეკუთვნებოდეს.",
+    "description": "საქართველოს ერთადერთი აღამიდი ხვლიკი ჩეკლისტში — კლდოვანი, დღისით აქტიური, ადამიანისთვის უვნებელი.",
+    "overview": "ჯოჯო (Paralaudakia caucasia) აღამიდების ოჯახის ხვლიკია. Tarkhnishvili et al. 2026 ჩეკლისტში ბიოლოგიურად დადასტურებულ სახეობადაა შეტანილი; ეს არის საქართველოს ატლასის ერთადერთი Agamidae. რეგიონული რუკა ამ სახეობაზე ჯერ ცარიელია — არეალი აქ არ არის გამოგონილი. ჰაბიტატი, რომელსაც წყაროები ზოგადად უკავშირებენ, კლდოვანი და მშრალი ღია ადგილებია.",
+    "habitat": "კლდოვანი ფერდობები და მშრალი ღია ჰაბიტატები. საქართველოს რეგიონების სია ამ გვერდზე მხოლოდ მაშინ გამოჩნდება, როცა ჩანაწერი regions.ts-ში დადასტურდება.",
+    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.",
+    "behavior": "დღისით აქტიურია. ხშირად გამორჩეულ ქვებზე თბება და საფრთხისას ნაპრალში იფარება; შეიძლება სხეული გაბეროს.",
+    "conservation": "ჩეკლისტში დადასტურებულია. გლობალური IUCN სტატუსი ამ გვერდზე მხოლოდ ზოგადი ბმულითაა — კონკრეტული შეფასება გადაამოწმე IUCN-ზე. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის გარდაქმნა მიეკუთვნებოდეს.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
     "imageCredit": {
@@ -5026,46 +5030,51 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "კლდოვანი / ღია ჰაბიტატები"
-      },
-      {
-        "label": "სიგრძე",
-        "value": "საშუალო ზომის ხვლიკი"
+        "value": "კლდოვანი / ღია"
       },
       {
         "label": "შხამი",
-        "value": "არა"
-      },
-      {
-        "label": "კონსერვაცია",
-        "value": "იხ. IUCN"
+        "value": "არა — უვნებელი"
       },
       {
         "label": "ოჯახი",
         "value": "Agamidae"
+      },
+      {
+        "label": "ჩეკლისტი",
+        "value": "დადასტურებული"
       }
     ],
-    "facts": [],
+    "facts": [
+      "საქართველოს 68-ტაქსონიან ჩეკლისტში ერთადერთი Agamidaeა.",
+      "რეგიონული გავრცელება ამ ატლასში ჯერ არ არის მიბმული.",
+      "გარეგნულად შეიძლება აგერიოს კასპიურ გეკონში ან კლდის ხვლიკებში (Darevskia)."
+    ],
     "identification": {
-      "summary": "როგორ ამოვიცნოთ ჯოჯო.",
+      "summary": "ჯოჯო აღამიდია — სამკუთხა თავი, მყარი სხეული, კლდეზე თბება. არ აურიოთ Darevskia-ს კლდის ხვლიკებში ან გეკონში.",
       "traits": [
-        "მყარი აღამიდი ხვლიკი სამკუთხა თავით.\n",
-        "ხშირად გამორჩეულ ქვებზე თბება.\n",
-        "საფრთხისას შეიძლება სხეული გაბეროს.\n"
+        "მყარი აღამიდი ხვლიკი სამკუთხა თავით.",
+        "ხშირად გამორჩეულ ქვებზე თბება.",
+        "საფრთხისას შეიძლება სხეული გაბეროს.",
+        "ადამიანისთვის უშხამოა."
       ]
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა Paralaudakia caucasia საქართველოში?\n",
-        "answer": "დიახ. იგი შედის საქართველოს 68 ამფიბიისა და რეპტილიის სახეობაში.\n"
+        "question": "გვხვდება თუ არა ჯოჯო საქართველოში?",
+        "answer": "დიახ. Paralaudakia caucasia შედის Tarkhnishvili et al. 2026 ჩეკლისტში ბიოლოგიურად დადასტურებულ სახეობად."
       },
       {
-        "question": "არის თუ არა Paralaudakia caucasia შხამიანი?\n",
-        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა.\n"
+        "question": "არის თუ არა ჯოჯო შხამიანი?",
+        "answer": "უვნებელია. შხამი არ აქვს."
       },
       {
-        "question": "რითი იკვებება ჯოჯო?\n",
-        "answer": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები; უფრო დიდმა ხვლიკებმა შეიძლება წვრილი ხერხემლიანებიც შეიჭამონ.\n"
+        "question": "რომელ რეგიონებშია?",
+        "answer": "ამ ატლასის რეგიონულ რუკაზე ჯოჯო ჯერ არ არის მიბმული. არეალი აქ არ ივსება გამოცნობით."
+      },
+      {
+        "question": "რით განსხვავდება კლდის ხვლიკებისგან?",
+        "answer": "Darevskia ლაცერტიდია; ჯოჯო აღამიდია — უფრო მყარი სხეული და სამკუთხა თავი. დეტალები პროფილის იდენტიფიკაციაშია."
       }
     ],
     "updatedAt": "2026-08-06T13:03:03+04:00",
@@ -5759,6 +5768,10 @@ export const species: Species[] = [
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
         "answer": "კვერცხისმდებია. ჩვეულებრივ დებს დაახლოებით 8–10 კვერცხს (საქართველოში ხშირად ივნის–ივლისში); ნაშიერები იჩეკებიან დაახლოებით 45–55 დღეში."
+      },
+      {
+        "question": "რით განსხვავდება ბოხმეჭასგან?",
+        "answer": "ბოხმეჭა (Anguis colchica) უფრო პატარა, უფრო გლუვი უფეხო ხვლიკია. გველხოკერა დიდია (დაახლ. 1–1.35 მ), აქვს გამოკვეთილი გვერდითი ნაოჭი და ხშირად ყვითელი მუცელი. ორივე უვნებელია და არც ერთი გველი არ არის."
       }
     ],
     "updatedAt": "2026-08-06T13:03:03+04:00",
@@ -9912,7 +9925,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "commonName": "Levantine viper",
     "location": "Eastern Georgia",
     "description": "Georgia's largest and most dangerous venomous snake — a resident of dry, rocky landscapes.",
-    "overview": "The Levantine viper (Macrovipera lebetina) is a large venomous species of the viper family. In Georgia the subspecies M. l. obtusa occurs — in the lower reaches of the Iori, Mtkvari, and Alazani rivers, in Shiraki, the Gareji desert, and around Tbilisi and Rustavi. It inhabits dry and semi-arid rocky terrain, from sea level up to roughly 1,500 m. It is classified as Least Concern by the IUCN, though its bite can be fatal to humans.",
+    "overview": "The Levantine viper (Macrovipera lebetinus) is a large venomous species of the viper family. The checklist-accepted name is M. lebetinus; older literature and this site’s URL still use lebetina. In Georgia the subspecies M. l. obtusa occurs — in the lower reaches of the Iori, Mtkvari, and Alazani rivers, in Shiraki, the Gareji desert, and around Tbilisi and Rustavi. It inhabits dry and semi-arid rocky terrain, from sea level up to roughly 1,500 m. It is classified as Least Concern by the IUCN, though its bite can be fatal to humans. It is often confused with the eastern Montpellier snake (Malpolon insignitus), a rear-fanged species, not a viper.",
     "habitat": "Distributed across southwestern Asia and the Caucasus. In Georgia — in the dry eastern zone: the Iori, Mtkvari, and Alazani basins, Shiraki, Gareji, and as far as Tbilisi and Rustavi. Its habitat includes rocks, stony slopes, rodent colonies, and human structures; it ranges up to roughly 1,500 m elevation.",
     "diet": "Adults feed on rodents, small birds, lizards, and other small vertebrates. Juveniles hunt mainly small lizards. It hunts by ambush; it sometimes climbs shrubs and trees to catch birds.",
     "behavior": "Active from late March to late October. In spring and autumn it moves by day; in summer heat it is active at night. It hibernates in rock crevices and burrows. It is egg-laying: mating occurs in April–May, and it lays roughly 15–20 eggs in late summer; young hatch in 35–45 days, at roughly 23–25 cm in length.",
@@ -9979,6 +9992,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in April–May; it lays roughly 15–20 eggs in late summer, and young hatch in 35–45 days."
+      },
+      {
+        "question": "Why does the URL say lebetina if the name is lebetinus?",
+        "answer": "Tarkhnishvili et al. 2026 and the Reptile Database treat M. lebetinus as the accepted name. The path macrovipera-lebetina is a historical slug kept so old links do not break."
       }
     ]
   },
@@ -10412,55 +10429,60 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "paralaudakia-caucasia": {
     "commonName": "Caucasian Agama",
     "location": "Georgia",
-    "description": "Caucasian Agama — recorded from Georgia.",
-    "overview": "Caucasian Agama (Paralaudakia caucasia) is recorded from Georgia. It is listed as biologically confirmed in that checklist. This page summarises occurrence and general natural history from scientific sources; fine-scale districts are given only when explicitly supported.",
-    "habitat": "Rocky slopes and arid open habitats.",
-    "diet": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.",
-    "behavior": "Mostly diurnal; many species bask on rocks or vegetation and retreat to crevices when threatened.",
-    "conservation": "Recorded in Georgia. Local threats may include habitat degradation and collection.",
+    "description": "Georgia’s only agamid in the checklist — a rock-dwelling, diurnal lizard, harmless to people.",
+    "overview": "The Caucasian agama (Paralaudakia caucasia) is an agamid lizard. Tarkhnishvili et al. 2026 list it as biologically confirmed; it is the only Agamidae in this atlas. The regional map for this species is still empty — range is not invented here. Sources generally associate it with rocky and arid open habitats.",
+    "habitat": "Rocky slopes and arid open habitats. Georgian regions will appear on this page only when a record is confirmed in regions.ts.",
+    "diet": "Primarily insects and other small invertebrates.",
+    "behavior": "Diurnal. Often basks on prominent rocks and retreats to crevices when threatened; may inflate the body.",
+    "conservation": "Confirmed in the checklist. The IUCN link on this page is general — check the Red List for the current global assessment. Local threats may include habitat change.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Rocky / open habitats"
-      },
-      {
-        "label": "Length",
-        "value": "Medium-sized lizard"
+        "value": "Rocky / open"
       },
       {
         "label": "Venom",
-        "value": "None"
-      },
-      {
-        "label": "Conservation",
-        "value": "See IUCN"
+        "value": "None — harmless"
       },
       {
         "label": "Family",
         "value": "Agamidae"
+      },
+      {
+        "label": "Checklist",
+        "value": "Confirmed"
       }
     ],
-    "facts": [],
+    "facts": [
+      "The only Agamidae among Georgia’s 68 checklist taxa.",
+      "Regional occurrence is not yet mapped in this atlas.",
+      "Can be confused with the Caspian gecko or Darevskia rock lizards."
+    ],
     "identification": {
-      "summary": "How to recognise Caucasian Agama.",
+      "summary": "An agamid — triangular head, robust body, basks on rocks. Do not confuse it with Darevskia rock lizards or geckos.",
       "traits": [
-        "Robust agamid lizard with a triangular head.\n",
-        "Often basks on prominent rocks.\n",
-        "Can change posture and may inflate the body when threatened.\n"
+        "Robust agamid lizard with a triangular head.",
+        "Often basks on prominent rocks.",
+        "Can inflate the body when threatened.",
+        "Harmless to people."
       ]
     },
     "faq": [
       {
-        "question": "Does Paralaudakia caucasia occur in Georgia?\n",
-        "answer": "Yes. It is among the 68 amphibians and reptiles formally recorded from Georgia.\n"
+        "question": "Does the Caucasian agama occur in Georgia?",
+        "answer": "Yes. Paralaudakia caucasia is listed as biologically confirmed in Tarkhnishvili et al. 2026."
       },
       {
-        "question": "Is Paralaudakia caucasia venomous?\n",
-        "answer": "Site classification: Harmless. Venom: None.\n"
+        "question": "Is it venomous?",
+        "answer": "Harmless. It has no venom."
       },
       {
-        "question": "What does the caucasian agama eat?\n",
-        "answer": "Primarily insects and other small invertebrates; larger lizards may also take small vertebrates.\n"
+        "question": "Which regions?",
+        "answer": "This atlas does not yet attach the species to regional maps. Range is not filled in by guesswork."
+      },
+      {
+        "question": "How does it differ from rock lizards?",
+        "answer": "Darevskia are lacertids; the agama is an agamid — a more robust body and triangular head. See the identification section."
       }
     ]
   },
@@ -10833,6 +10855,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. It usually lays roughly 8–10 eggs (in Georgia often in June–July); young hatch in roughly 45–55 days."
+      },
+      {
+        "question": "How does it differ from the slow worm?",
+        "answer": "The eastern slow worm (Anguis colchica) is a smaller, smoother legless lizard. The glass lizard is large (about 1–1.35 m), has a clear side fold, and often a yellow belly. Both are harmless, and neither is a snake."
       }
     ]
   },

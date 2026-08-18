@@ -59,6 +59,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: atlasLastModified,
     });
 
+    entries.push({
+      url: absoluteUrl(localePath(locale, "/amphibians/bayayi")),
+      lastModified: atlasLastModified,
+    });
+
     for (const hub of GROUP_HUB_LIST) {
       entries.push({
         url: absoluteUrl(localePath(locale, hub.path)),

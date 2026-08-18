@@ -32,6 +32,10 @@ export const pathnames = {
     ka: "/amfibiebi",
     en: "/amphibians",
   },
+  "/amphibians/bayayi": {
+    ka: "/amfibiebi/bayayi",
+    en: "/amphibians/frogs",
+  },
   "/amphibians/[slug]": {
     ka: "/amfibiebi/[slug]",
     en: "/amphibians/[slug]",

@@ -87,6 +87,21 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        source: "/amphibians/frogs",
+        destination: "/amfibiebi/bayayi",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amfibiebi/bayayi",
+        destination: "/en/amphibians/frogs",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amphibians/bayayi",
+        destination: "/en/amphibians/frogs",
+        statusCode: 301,
+      },
+      {
         source: "/identify",
         destination: "/species",
         statusCode: 302,

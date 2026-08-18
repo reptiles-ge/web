@@ -44,12 +44,10 @@
 
 KA cluster URL არის canonical; EN ინარჩუნებს ინგლისურ/სამეცნიერო slug-ს. ძველი `/species/{id}` და ინგლისური KA path-ები 301-ით მიდის ახალ მისამართზე.
 
-**გადასაწყვეტი (დუბლი გვერდები)**
+**დუბლი გვერდები**
 
-- `#2` `/gvelebi/sakartvelos-gvelebi` vs `#11` `/gvelebi/saxeoebebi` — ან გაერთიანდეს ერთ species index-ად, ან `#2` იყოს ნარატიული გიდი და `#11` ცხრილი/ატლასი.
-- `#9` `/amfibiebi/bayayi` vs `#24` `/amfibiebi/bayayi/saxeoebebi` — იგივე ლოგიკა.
-
-სანამ არ გადაწყდება, ქვემოთ ორივე დავალება ცალ-ცალკე რჩება.
+- `#2` `/gvelebi/sakartvelos-gvelebi` vs `#11` `/gvelebi/saxeoebebi` — გაერთიანდება `#11`-ში. ახლა კატალოგი `/gvelebi`-ზეა; `#2` ცალკე არ იქმნება.
+- `#9` `/amfibiebi/bayayi` vs `#24` `/amfibiebi/bayayi/saxeoebebi` — `#9` live როგორც Anura გიდი; `#24` ინდექს-ცხრილი მოგვიანებით, overlap-ის შემთხვევაში 301.
 
 ---
 
@@ -84,94 +82,94 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ### 1. `/gvelebi` — გველები საქართველოში (Pillar)
 
-**სტატუსი:** არსებობს როგორც `/snakes` — საჭიროა URL + pillar-ის გაძლიერება.
+**სტატუსი:** `/gvelebi` live; EN `/en/snakes`.
 
-- [ ] URL `/gvelebi` + 301 `/snakes`-დან
-- [ ] H1/title: გველები საქართველოში
-- [ ] კლასტერის child ლინკები: სახეობები, შხამიანი, იდენტიფიკაცია, გავრცელება, ნაკბენი, დიდი გველები
-- [ ] ყველა snake species card → პროფილი
-- [ ] შხამიანი vs უშხამო განცალკევება
-- [ ] FAQ მხოლოდ რეალურ intent-ზე (რამდენია, რომელი შხამიანია, სად გვხვდება)
+- [x] URL `/gvelebi` + 301 `/snakes`-დან
+- [x] H1/title: გველები საქართველოში
+- [x] კლასტერის child ლინკები, რომლებიც არსებობს: შხამიანი, ეზო, გიურზა (იდენტიფიკაცია / გავრცელება / ნაკბენი / დიდი გველები — ფაზა 2)
+- [x] ყველა snake species card → პროფილი
+- [x] შხამიანი vs უშხამო განცალკევება
+- [x] FAQ მხოლოდ რეალურ intent-ზე (რამდენია, რომელი შხამიანია, სად გვხვდება)
 
 ### 2. `/gvelebi/sakartvelos-gvelebi` — საქართველოს გველების სახეობები (Guide)
 
-**სტატუსი:** არ არსებობს (ნაწილობრივ იფარება `/snakes` კატალოგით).
+**სტატუსი:** არ იქმნება ცალკე — იგივეა რაც `#11`. კატალოგი ახლა `/gvelebi`-ზეა; სრული ინდექს-ცხრილი ფაზა 2.
 
-- [ ] გადაწყვეტა: ცალკე გიდი თუ იგივეა რაც `#11`
-- [ ] თუ ცალკეა: intro + ოჯახები + ბმული სრულ ცხრილზე `#11`
+- [x] გადაწყვეტა: გაერთიანება `#11`-ში (`/gvelebi/saxeoebebi`); `#2` 301 მოგვიანებით
+- [ ] `#11` ცხრილი ჯერ არ არის
 
 ### 3. `/gvelebi/shxamiani-gvelebi` — საქართველოს შხამიანი გველები (Guide)
 
-**სტატუსი:** არსებობს როგორც `/venomous-snakes`.
+**სტატუსი:** `/gvelebi/shxamiani-gvelebi` live.
 
-- [ ] URL გადაყვანა + 301
-- [ ] შიდა ბმულები: გიურზა → კავკასიური გველგესლა → დანარჩენი შხამიანი
-- [ ] ბმული იდენტიფიკაციისა (`#12`) და ნაკბენის (`#13`) გვერდებზე
-- [ ] სამედიცინო disclaimer: ეს არ არის სასწრაფო დახმარების ინსტრუქცია
+- [x] URL გადაყვანა + 301
+- [x] შიდა ბმულები: გიურზა featured + ყველა შხამიანი პროფილი; გველგესლები vs Malpolon გამოყოფილია
+- [ ] ბმული იდენტიფიკაციისა (`#12`) და ნაკბენის (`#13`) გვერდებზე — გვერდები ჯერ არ არსებობს; 112 disclaimer დამატებულია
+- [x] სამედიცინო disclaimer: ეს არ არის სასწრაფო დახმარების ინსტრუქცია
 
 ### 4. `/gvelebi/giurza` — გიურზა (Species)
 
-**სტატუსი:** არსებობს `/species/macrovipera-lebetina` — ერთ-ერთი ყველაზე სრული პროფილი.
+**სტატუსი:** `/gvelebi/giurza` live.
 
-- [ ] ქართული URL + 301
-- [ ] template-ის სრული ველი (იხ. Species template ქვემოთ) — გიურზა არის reference implementation
-- [ ] lookalikes + რეგიონები (კახეთი, ქვემო ქართლი, თბილისი — მხოლოდ არსებული data)
-- [ ] წყაროები: Tarkhnishvili 2026, IUCN, ანტიგიურზა მხოლოდ თუ წყარო დასტურდება
+- [x] ქართული URL + 301
+- [x] template-ის სრული ველი — reference; დამატებულია lebetinus vs lebetina და Malpolon lookalike
+- [x] lookalikes + რეგიონები (მხოლოდ არსებული data)
+- [x] წყაროები: Tarkhnishvili 2026, IUCN, ანტიგიურზა უკვე პროფილშია
 
 ### 5. `/xvlikebi` — ხვლიკები საქართველოში (Pillar)
 
-**სტატუსი:** არსებობს `/lizards`.
+**სტატუსი:** `/xvlikebi` live.
 
-- [ ] URL `/xvlikebi` + 301
-- [ ] child: სახეობები, იდენტიფიკაცია, ხვლიკი vs გველხოკერა, ჯოჯო, გველხოკერა
-- [ ] Darevskia-ს სიმდიდრის მოკლე ახსნა + ბმული სახეობებზე
+- [x] URL `/xvlikebi` + 301
+- [x] child: ჯოჯო, გველხოკერა (იდენტიფიკაცია / vs გველხოკერა გვერდები — ფაზა 3)
+- [x] Darevskia-ს სიმდიდრის მოკლე ახსნა + ბმული სახეობებზე
 
 ### 6. `/xvlikebi/jojo` — ჯოჯო (Species)
 
-**სტატუსი:** `/species/paralaudakia-caucasia` — thin/generic პროფილი.
+**სტატუსი:** `/xvlikebi/jojo` live. Generic ტექსტი ჩანაცვლებულია; ზომა/რეგიონი არ გამოგონილა.
 
-- [ ] ქართული URL
-- [ ] სრული template: ფოტოები, ზომა, ჰაბიტატი, გავრცელება, მსგავსი სახეობები
-- [ ] რეგიონები მხოლოდ დადასტურების შემდეგ (`regions.ts`-ში ჯოჯო ახლა არ არის)
+- [x] ქართული URL
+- [x] template წყაროს ფარგლებში: ფოტოები, ჰაბიტატი, lookalikes; ზომა გამოტოვებულია
+- [x] რეგიონები არ არის — `regions.ts`-ში ჯოჯო არაა
 
 ### 7. `/xvlikebi/gvelxokera` — გველხოკერა (Species)
 
-**სტატუსი:** `/species/pseudopus-apodus` — შედარებით უკეთესი; უკვე ბევრ რეგიონშია.
+**სტატუსი:** `/xvlikebi/gvelxokera` live.
 
-- [ ] ქართული URL
-- [ ] ძლიერი ბმული `#18`-ზე (ხვლიკი თუ გველხოკერა)
-- [ ] იდენტიფიკაცია: ქუთუთოები, ყურის ხვრელი, არა გველი
+- [x] ქართული URL
+- [ ] ძლიერი ბმული `#18`-ზე — გვერდი ჯერ არ არსებობს; FAQ-ში ბოხმეჭასთან შედარება დამატებულია
+- [x] იდენტიფიკაცია: ქუთუთოები, ყურის ხვრელი, არა გველი
 
 ### 8. `/kuebi` — კუები საქართველოში (Pillar)
 
-**სტატუსი:** არსებობს `/turtles` (4 სახეობა).
+**სტატუსი:** `/kuebi` live.
 
-- [ ] URL `/kuebi` + 301
-- [ ] child: სახეობები, ხმელეთის, წყლის, იდენტიფიკაცია
-- [ ] ინტროდუცირებული *Trachemys scripta* ცალკე აღინიშნოს
+- [x] URL `/kuebi` + 301
+- [x] child: ადგილობრივი vs ინტროდუცირებული (ხმელეთის/წყლის ინდექსები — ფაზა 4)
+- [x] ინტროდუცირებული *Trachemys scripta* ცალკე აღინიშნოს
 
 ### 9. `/amfibiebi/bayayi` — ბაყაყები საქართველოში (Guide)
 
-**სტატუსი:** არ არსებობს (ამფიბიების hub არის `/amphibians`).
+**სტატუსი:** `/amfibiebi/bayayi` live (EN `/en/amphibians/frogs`).
 
-- [ ] გიდი ბაყაყებზე (Anura), არა მთელ ამფიბიებზე
-- [ ] ბმულები სახეობებზე: ტბორის ბაყაყი, მცირეაზიური ბაყაყი, ვასაკები, გომბეშოები
-- [ ] ბმული `#24` სახეობების ინდექსზე
+- [x] გიდი ბაყაყებზე (Anura), არა მთელ ამფიბიებზე
+- [x] ბმულები სახეობებზე: ტბორის ბაყაყი, მცირეაზიური ბაყაყი, ვასაკები, გომბეშოები
+- [ ] ბმული `#24` სახეობების ინდექსზე — ჯერ არ არსებობს
 
 ### 10. `/amfibiebi` — ამფიბიები საქართველოში (Pillar)
 
-**სტატუსი:** არსებობს `/amphibians`.
+**სტატუსი:** `/amfibiebi` live.
 
-- [ ] URL `/amfibiebi` + 301
-- [ ] child: სახეობები, ბაყაყები, ტრიტონები/სალამანდრები
-- [ ] 12 სახეობის ჩარჩო (Tarkhnishvili et al. 2026)
+- [x] URL `/amfibiebi` + 301
+- [x] child: ბაყაყები გიდი + Anura / Caudata სექციები
+- [x] 12 სახეობის ჩარჩო (Tarkhnishvili et al. 2026)
 
 ### 10b. 68-ვე species page-ის სრული შევსება
 
 ცალკე დიდი სამუშაო — იხ. **Species template** და **Species backlog**. ფაზა 1-ში მინიმუმი:
 
-- [ ] გიურზა, ჯოჯო, გველხოკერა — სრული reference
-- [ ] ყველა შხამიანი გველი — სრული
+- [x] გიურზა, ჯოჯო, გველხოკერა — reference (ჯოჯო წყაროს ფარგლებში; რეგიონი/ზომა არ გამოგონილა)
+- [ ] ყველა შხამიანი გველი — სრული (გიდი გაძლიერდა; პროფილები ჯერ არ გადაწერილა ყველა)
 - [ ] დანარჩენ 65-ზე: placeholder/generic ტექსტის ამოცნობა და რიგით შევსება
 
 ---
@@ -368,9 +366,9 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 **A. Reference (ფაზა 1)**
 
-- [ ] `macrovipera-lebetina` — გიურზა
-- [ ] `paralaudakia-caucasia` — ჯოჯო
-- [ ] `pseudopus-apodus` — გველხოკერა
+- [x] `macrovipera-lebetina` — გიურზა
+- [x] `paralaudakia-caucasia` — ჯოჯო
+- [x] `pseudopus-apodus` — გველხოკერა
 
 **B. შხამიანი გველები**
 
@@ -430,7 +428,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 - [ ] Group hub path-ები `groupHubs.ts`-დან ქართულ slug-ებზე; locale-aware path EN-სთვის
 - [ ] `next.config.ts` 301 რუკა ყველა ძველი URL-ისთვის (`/snakes`, `/lizards`, `/venomous-snakes`, …)
 - [ ] Species canonical URL helper: cluster + ქართული slug (და სამეცნიერო fallback)
-- [ ] Cluster child routes: არა ბლოგის `/blog/...`, არამედ `/gvelebi/...`, `/xvlikebi/...`, `/kuebi/...`, `/amfibiebi/...`, `/konservacia/...`
+- [x] Cluster child routes: არა ბლოგის `/blog/...`, არამედ `/gvelebi/...`, `/xvlikebi/...`, `/kuebi/...`, `/amfibiebi/...` (პირველი child: `/amfibiebi/bayayi`)
 - [ ] Species index კომპონენტი (ცხრილი #11/#16/#19/#23) — ერთი reusable UI
 - [ ] Visual ID კომპონენტი (#12/#17/#22/#18)
 - [ ] Lookalike ველი species frontmatter-ში
@@ -447,16 +445,16 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 | # | გვერდი | სამიზნე URL | ტიპი | სტატუსი |
 | --- | --- | --- | --- | --- |
-| 1 | გველები საქართველოში | `/gvelebi` | Pillar | არის `/snakes` |
-| 2 | საქართველოს გველების სახეობები | `/gvelebi/sakartvelos-gvelebi` | Guide | არ არის; overlap #11 |
-| 3 | საქართველოს შხამიანი გველები | `/gvelebi/shxamiani-gvelebi` | Guide | არის `/venomous-snakes` |
-| 4 | გიურზა | `/gvelebi/giurza` | Species | არის `/species/macrovipera-lebetina` |
-| 5 | ხვლიკები საქართველოში | `/xvlikebi` | Pillar | არის `/lizards` |
-| 6 | ჯოჯო | `/xvlikebi/jojo` | Species | არის thin `/species/paralaudakia-caucasia` |
-| 7 | გველხოკერა | `/xvlikebi/gvelxokera` | Species | არის `/species/pseudopus-apodus` |
-| 8 | კუები საქართველოში | `/kuebi` | Pillar | არის `/turtles` |
-| 9 | ბაყაყები საქართველოში | `/amfibiebi/bayayi` | Guide | არ არის |
-| 10 | ამფიბიები საქართველოში | `/amfibiebi` | Pillar | არის `/amphibians` |
+| 1 | გველები საქართველოში | `/gvelebi` | Pillar | არის |
+| 2 | საქართველოს გველების სახეობები | `/gvelebi/sakartvelos-gvelebi` | Guide | გაერთიანდება #11-ში |
+| 3 | საქართველოს შხამიანი გველები | `/gvelebi/shxamiani-gvelebi` | Guide | არის |
+| 4 | გიურზა | `/gvelebi/giurza` | Species | არის |
+| 5 | ხვლიკები საქართველოში | `/xvlikebi` | Pillar | არის |
+| 6 | ჯოჯო | `/xvlikebi/jojo` | Species | არის (thin აღარაა) |
+| 7 | გველხოკერა | `/xvlikebi/gvelxokera` | Species | არის |
+| 8 | კუები საქართველოში | `/kuebi` | Pillar | არის |
+| 9 | ბაყაყები საქართველოში | `/amfibiebi/bayayi` | Guide | არის |
+| 10 | ამფიბიები საქართველოში | `/amfibiebi` | Pillar | არის |
 | 11 | გველის სახეობები | `/gvelebi/saxeoebebi` | Index | არ არის |
 | 12 | შხამიანის ამოცნობა | `/gvelebi/shxamiani-gvelis-amocnoba` | Guide | არ არის |
 | 13 | გველის ნაკბენი | `/gvelebi/gvelis-nakbeni` | Guide | არ არის |

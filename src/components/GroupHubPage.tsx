@@ -1,18 +1,19 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/regions";
+import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { Species } from "@/data/species";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import {
+  HUB_CLUSTER_CARDS,
+  splitHubSpecies,
+  type HubClusterCard,
+} from "@/lib/clusterGuides";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 import {
   ArrowLeft,
   ArrowRight,
@@ -38,6 +39,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
   ).length;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
+  const clusterCards = HUB_CLUSTER_CARDS[hubId];
+  const sections = splitHubSpecies(hubId, species);
 
   return (
     <div className="min-h-screen bg-background">
@@ -152,10 +155,27 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 </div>
               </Reveal>
             </div>
+
+            {clusterCards.length > 0 ? (
+              <div className="mt-14 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
+                {clusterCards.map((card, index) => (
+                  <Reveal key={card.key} delay={index * 50}>
+                    <ClusterCard
+                      card={card}
+                      locale={locale}
+                      species={species}
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            ) : null}
           </div>
         </section>
 
-        <section id="species" className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28">
+        <section
+          id="species"
+          className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+        >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
@@ -169,15 +189,27 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               </p>
             </Reveal>
 
-            <div className="mt-12 divide-y divide-border border-y border-border">
-              {species.map((item, index) => (
-                <Reveal key={item.id} delay={Math.min(index * 40, 320)}>
-                  <SpeciesGuideRow
-                    species={item}
+            <div className="mt-14 space-y-16">
+              {sections.map((section) => (
+                <div key={section.key}>
+                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-tight">
+                    {t(
+                      `section.${section.key}.title` as Parameters<
+                        typeof t
+                      >[0],
+                      { count: section.items.length },
+                    )}
+                  </h3>
+                  <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                    {t(
+                      `section.${section.key}.body` as Parameters<typeof t>[0],
+                    )}
+                  </p>
+                  <SpeciesGuideList
+                    species={section.items}
                     locale={locale}
-                    index={index}
                   />
-                </Reveal>
+                </div>
               ))}
             </div>
           </div>
@@ -214,54 +246,6 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 </Reveal>
               ))}
             </div>
-            {hubId === "snakes" ? (
-              <div className="mt-px grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-                <Reveal delay={200}>
-                  <Link
-                    href="/venomous-snakes"
-                    className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
-                  >
-                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                      {tShared("venomousEyebrow")}
-                    </span>
-                    <div className="mt-6">
-                      <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-                        {tShared("venomousTitle")}
-                      </p>
-                      <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-                        {tShared("venomousBody")}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-                        {tShared("venomousCta")}
-                        <ArrowUpRight className="size-3.5" />
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-                <Reveal delay={260}>
-                  <Link
-                    href="/snakes-in-the-yard"
-                    className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
-                  >
-                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                      {tShared("yardEyebrow")}
-                    </span>
-                    <div className="mt-6">
-                      <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-                        {tShared("yardTitle")}
-                      </p>
-                      <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-                        {tShared("yardBody")}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-                        {tShared("yardCta")}
-                        <ArrowUpRight className="size-3.5" />
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              </div>
-            ) : null}
           </div>
         </section>
 
@@ -311,85 +295,47 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
   );
 }
 
-function SpeciesGuideRow({
-  species,
+function ClusterCard({
+  card,
   locale,
-  index,
+  species,
 }: {
-  species: Species;
+  card: HubClusterCard;
   locale: AppLocale;
-  index: number;
+  species: Species[];
 }) {
-  const tShared = useTranslations("groupHubShared");
-  const tDanger = useTranslations("danger");
-  const regions = getRegionsForSpecies(species.id)
-    .map((region) => localizeRegionText(region.name, locale))
-    .slice(0, 3);
-  const extra = Math.max(
-    0,
-    getRegionsForSpecies(species.id).length - regions.length,
-  );
-  const tone =
-    species.danger === "High"
-      ? { dot: "bg-destructive", text: "text-destructive" }
-      : species.danger === "Moderate"
-        ? { dot: "bg-gold", text: "text-gold" }
-        : { dot: "bg-primary", text: "text-primary" };
+  const t = useTranslations("groupHubShared");
+  const item =
+    card.kind === "species"
+      ? species.find((entry) => entry.id === card.id)
+      : undefined;
+  const href =
+    card.kind === "page" ? card.href : speciesHref(card.id, locale);
+  const title =
+    card.kind === "species" && item
+      ? item.commonName
+      : t(`cluster.${card.key}.title`);
 
   return (
     <Link
-      href={speciesHref(species.id, locale)}
-      className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
+      href={href}
+      className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
     >
-      <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
-        <Image
-          src={species.mobileImage ?? species.image}
-          alt={speciesImageAlt(
-            species.commonName,
-            species.scientificName,
-            species.location,
-          )}
-          fill
-          sizes="(max-width: 640px) 100vw, 144px"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
-      </div>
-
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <span
-            className={`inline-flex items-center gap-1.5 text-[12px] font-medium ${tone.text}`}
-          >
-            <span
-              className={`size-1.5 rounded-full ${tone.dot}`}
-              aria-hidden="true"
-            />
-            {tDanger(species.danger)}
-          </span>
-        </div>
-        <h3 className="mt-2 font-display text-[clamp(1.35rem,2.5vw,1.85rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
-          {species.commonName}
-        </h3>
-        <p className="mt-1 text-[13px] italic tracking-wide text-muted-foreground">
-          {species.scientificName}
-        </p>
-        <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-muted-foreground line-clamp-2">
-          {species.description}
-        </p>
-        <p className="mt-3 text-[12px] text-muted-foreground/80">
-          {regions.length > 0
-            ? `${regions.join(" · ")}${extra > 0 ? ` +${extra}` : ""}`
-            : tShared("rangePending")}
-        </p>
-      </div>
-
-      <span className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium text-foreground/70 transition-colors group-hover:text-primary sm:self-center">
-        {tShared("openProfile")}
-        <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+        {t(`cluster.${card.key}.eyebrow`)}
       </span>
+      <div className="mt-6">
+        <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
+          {title}
+        </p>
+        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+          {t(`cluster.${card.key}.body`)}
+        </p>
+        <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+          {t(`cluster.${card.key}.cta`)}
+          <ArrowUpRight className="size-3.5" />
+        </span>
+      </div>
     </Link>
   );
 }
