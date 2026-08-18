@@ -242,6 +242,181 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        source: "/turtles/species",
+        destination: "/kuebi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/turtles/land",
+        destination: "/kuebi/xmelis-kuebi",
+        statusCode: 301,
+      },
+      {
+        source: "/turtles/freshwater",
+        destination: "/kuebi/tsqlis-kuebi",
+        statusCode: 301,
+      },
+      {
+        source: "/turtles/identify",
+        destination: "/kuebi/identifikacia",
+        statusCode: 301,
+      },
+      {
+        source: "/en/kuebi/saxeoebebi",
+        destination: "/en/turtles/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/kuebi/xmelis-kuebi",
+        destination: "/en/turtles/land",
+        statusCode: 301,
+      },
+      {
+        source: "/en/kuebi/tsqlis-kuebi",
+        destination: "/en/turtles/freshwater",
+        statusCode: 301,
+      },
+      {
+        source: "/en/kuebi/identifikacia",
+        destination: "/en/turtles/identify",
+        statusCode: 301,
+      },
+      {
+        source: "/en/turtles/saxeoebebi",
+        destination: "/en/turtles/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/turtles/xmelis-kuebi",
+        destination: "/en/turtles/land",
+        statusCode: 301,
+      },
+      {
+        source: "/en/turtles/tsqlis-kuebi",
+        destination: "/en/turtles/freshwater",
+        statusCode: 301,
+      },
+      {
+        source: "/en/turtles/identifikacia",
+        destination: "/en/turtles/identify",
+        statusCode: 301,
+      },
+      {
+        source: "/amphibians/species",
+        destination: "/amfibiebi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/amphibians/frogs/species",
+        destination: "/amfibiebi/bayayi/saxeoebebi",
+        statusCode: 301,
+      },
+      {
+        source: "/amphibians/newts",
+        destination: "/amfibiebi/tritoni-salamandra",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amfibiebi/saxeoebebi",
+        destination: "/en/amphibians/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amfibiebi/bayayi/saxeoebebi",
+        destination: "/en/amphibians/frogs/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amfibiebi/tritoni-salamandra",
+        destination: "/en/amphibians/newts",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amphibians/saxeoebebi",
+        destination: "/en/amphibians/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amphibians/bayayi/saxeoebebi",
+        destination: "/en/amphibians/frogs/species",
+        statusCode: 301,
+      },
+      {
+        source: "/en/amphibians/tritoni-salamandra",
+        destination: "/en/amphibians/newts",
+        statusCode: 301,
+      },
+      {
+        source: "/conservation",
+        destination: "/konservacia",
+        statusCode: 301,
+      },
+      {
+        source: "/conservation/red-list-reptiles",
+        destination: "/konservacia/witeli-nusxa-qvewarmavlebi",
+        statusCode: 301,
+      },
+      {
+        source: "/conservation/red-list-amphibians",
+        destination: "/konservacia/witeli-nusxa-amfibiebi",
+        statusCode: 301,
+      },
+      {
+        source: "/conservation/rare-reptiles",
+        destination: "/konservacia/ishviati-qvewarmavlebi",
+        statusCode: 301,
+      },
+      {
+        source: "/conservation/endemic-reptiles",
+        destination: "/konservacia/endemuri-qvewarmavlebi",
+        statusCode: 301,
+      },
+      {
+        source: "/en/konservacia",
+        destination: "/en/conservation",
+        statusCode: 301,
+      },
+      {
+        source: "/en/konservacia/witeli-nusxa-qvewarmavlebi",
+        destination: "/en/conservation/red-list-reptiles",
+        statusCode: 301,
+      },
+      {
+        source: "/en/konservacia/witeli-nusxa-amfibiebi",
+        destination: "/en/conservation/red-list-amphibians",
+        statusCode: 301,
+      },
+      {
+        source: "/en/konservacia/ishviati-qvewarmavlebi",
+        destination: "/en/conservation/rare-reptiles",
+        statusCode: 301,
+      },
+      {
+        source: "/en/konservacia/endemuri-qvewarmavlebi",
+        destination: "/en/conservation/endemic-reptiles",
+        statusCode: 301,
+      },
+      {
+        source: "/en/conservation/witeli-nusxa-qvewarmavlebi",
+        destination: "/en/conservation/red-list-reptiles",
+        statusCode: 301,
+      },
+      {
+        source: "/en/conservation/witeli-nusxa-amfibiebi",
+        destination: "/en/conservation/red-list-amphibians",
+        statusCode: 301,
+      },
+      {
+        source: "/en/conservation/ishviati-qvewarmavlebi",
+        destination: "/en/conservation/rare-reptiles",
+        statusCode: 301,
+      },
+      {
+        source: "/en/conservation/endemuri-qvewarmavlebi",
+        destination: "/en/conservation/endemic-reptiles",
+        statusCode: 301,
+      },
+      {
         source: "/identify",
         destination: "/species",
         statusCode: 302,

@@ -102,6 +102,59 @@ export function RegionsIndex() {
           </div>
         </section>
 
+        <section className="border-t border-border bg-surface py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                {t("clusterEyebrow")}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                {t("clusterTitle")}
+              </h2>
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                {t("clusterBody")}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/snakes/gavrtseleba"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                >
+                  {t("clusterSnakes")}
+                  <ArrowUpRight className="size-3.5 opacity-50" />
+                </Link>
+                <Link
+                  href="/lizards/saxeoebebi"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                >
+                  {t("clusterLizards")}
+                  <ArrowUpRight className="size-3.5 opacity-50" />
+                </Link>
+                <Link
+                  href="/turtles/saxeoebebi"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                >
+                  {t("clusterTurtles")}
+                  <ArrowUpRight className="size-3.5 opacity-50" />
+                </Link>
+                <Link
+                  href="/amphibians/saxeoebebi"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                >
+                  {t("clusterAmphibians")}
+                  <ArrowUpRight className="size-3.5 opacity-50" />
+                </Link>
+                <Link
+                  href="/conservation"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                >
+                  {t("clusterConservation")}
+                  <ArrowUpRight className="size-3.5 opacity-50" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
@@ -137,6 +190,7 @@ export function RegionsIndex() {
               <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
                 <p>{t("seo.p1")}</p>
                 <p>{t("seo.p2")}</p>
+                <p>{t("dataGapBody")}</p>
               </div>
               <ul className="mt-8 max-w-3xl space-y-2 border-l-2 border-primary/25 pl-4">
                 <li>
@@ -154,6 +208,24 @@ export function RegionsIndex() {
                     className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
                   >
                     {t("seo.links.venomous")}
+                    <ArrowUpRight className="size-3.5 opacity-50" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/snakes/gavrtseleba"
+                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {t("seo.links.range")}
+                    <ArrowUpRight className="size-3.5 opacity-50" />
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/conservation"
+                    className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  >
+                    {t("seo.links.conservation")}
                     <ArrowUpRight className="size-3.5 opacity-50" />
                   </Link>
                 </li>

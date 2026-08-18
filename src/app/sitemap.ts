@@ -75,6 +75,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     entries.push({
+      url: absoluteUrl(localePath(locale, "/conservation")),
+      lastModified: atlasLastModified,
+    });
+
+    entries.push({
       url: absoluteUrl(localePath(locale, "/regions")),
       lastModified: atlasLastModified,
     });

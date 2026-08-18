@@ -2,12 +2,15 @@
 
 სამუშაო ფაილი: topical authority + species knowledge graph, არა 30 SEO სტატია.
 
+**მიმდინარე სამუშაო:** ფაზა 0–7 (გვერდები/კლასტერები) დასრულებულია. შემდეგი იმპლემენტაცია — **ფაზა 8** (პროფილები B–G) და **ფაზა 9** (`regions.speciesIds` მხოლოდ წყაროთი).
+
 **წესები**
 
 - აუდიტის Volume-ები ფარდობითია — არ მივიჩნიოთ Google search volume-ად.
 - reptiles.ge-ს ამჟამად პრაქტიკულად არ აქვს ორგანული ხილვადობა; მიზანი არის კლასტერები, შიდა ბმულები და სრული სახეობების პროფილები.
 - რეგიონული გავრცელება არ გამოიგონოს. მხოლოდ დადასტურებული ჩანაწერები (Tarkhnishvili et al. 2026 + არსებული `regions.ts`).
 - სამედიცინო გვერდები მხოლოდ სანდო/ოფიციალური წყაროებით.
+- პროფილის ველი არ შეივსოს გამოგონილი ტექსტით. წყარო არ არის → ველი გამოტოვე ან დატოვე placeholder (კოდი მალავს).
 
 **სტრატეგია:** `Georgia Reptile Knowledge Graph` — სახეობა ↔ ჯგუფი ↔ რეგიონი ↔ ჰაბიტატი ↔ მსგავსი სახეობა.
 
@@ -39,7 +42,18 @@
 | `/gvelebi/gavrtseleba` | გველების გავრცელება | EN: `/en/snakes/range` |
 | `/xvlikebi/saxeoebebi` | ხვლიკების ინდექსი | EN: `/en/lizards/species` |
 | `/xvlikebi/identifikacia` | ხვლიკების ამოცნობა | EN: `/en/lizards/identify` |
-| `/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba` | გველხოკერა vs გველი | EN: `/en/lizards/lizard-or-glass-lizard` |
+| `/kuebi/saxeoebebi` | კუების ინდექსი | EN: `/en/turtles/species` |
+| `/kuebi/xmelis-kuebi` | ხმელეთის კუები | EN: `/en/turtles/land` |
+| `/kuebi/tsqlis-kuebi` | წყლის კუები | EN: `/en/turtles/freshwater` |
+| `/kuebi/identifikacia` | კუების ამოცნობა | EN: `/en/turtles/identify` |
+| `/amfibiebi/saxeoebebi` | ამფიბიების ინდექსი | EN: `/en/amphibians/species` |
+| `/amfibiebi/bayayi/saxeoebebi` | ბაყაყების ინდექსი | EN: `/en/amphibians/frogs/species`; `#9` გიდი რჩება |
+| `/amfibiebi/tritoni-salamandra` | ტრიტონები / სალამანდრები | EN: `/en/amphibians/newts` |
+| `/konservacia` | კონსერვაციის ჰაბი | EN: `/en/conservation` |
+| `/konservacia/witeli-nusxa-qvewarmavlebi` | წითელი ნუსხა — რეპტილიები | პროფილის ციტატები, არა განკარგულება |
+| `/konservacia/witeli-nusxa-amfibiebi` | წითელი ნუსხა — ამფიბიები | ხარვეზი ღიად |
+| `/konservacia/ishviati-qvewarmavlebi` | იშვიათი ქვეწარმავლები | სამი კალათა |
+| `/konservacia/endemuri-qvewarmavlebi` | ენდემური ტაქსონები | მხოლოდ პროფილის ტექსტი |
 | `/species` | ატლასი / კატალოგი | |
 | `/gvelebi/giurza` (და ანალოგიურად) | 68 სახეობის პროფილი | KA ქართული slug; EN სამეცნიერო; ძველი `/species/[id]` 301 |
 | `/regions` `/regions/[id]` | 12 რეგიონი | თითქმის მხოლოდ გველები + გველხოკერა |
@@ -54,7 +68,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 **დუბლი გვერდები**
 
 - `#2` `/gvelebi/sakartvelos-gvelebi` vs `#11` `/gvelebi/saxeoebebi` — გაერთიანდება `#11`-ში. ახლა კატალოგი `/gvelebi`-ზეა; `#2` ცალკე არ იქმნება.
-- `#9` `/amfibiebi/bayayi` vs `#24` `/amfibiebi/bayayi/saxeoebebi` — `#9` live როგორც Anura გიდი; `#24` ინდექს-ცხრილი მოგვიანებით, overlap-ის შემთხვევაში 301.
+- `#9` `/amfibiebi/bayayi` vs `#24` `/amfibiebi/bayayi/saxeoebebi` — `#9` Anura გიდი; `#24` ინდექს-ცხრილი. ორივე live; 301 არა.
 
 ---
 
@@ -144,7 +158,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 **სტატუსი:** `/xvlikebi/gvelxokera` live.
 
 - [x] ქართული URL
-- [ ] ძლიერი ბმული `#18`-ზე — გვერდი ჯერ არ არსებობს; FAQ-ში ბოხმეჭასთან შედარება დამატებულია
+- [x] ძლიერი ბმული `#18`-ზე — `getSpeciesGuideLinks` პროფილის ბანერზე (გველხოკერა, ბოხმეჭა, მცურავები)
 - [x] იდენტიფიკაცია: ქუთუთოები, ყურის ხვრელი, არა გველი
 
 ### 8. `/kuebi` — კუები საქართველოში (Pillar)
@@ -152,7 +166,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 **სტატუსი:** `/kuebi` live.
 
 - [x] URL `/kuebi` + 301
-- [x] child: ადგილობრივი vs ინტროდუცირებული (ხმელეთის/წყლის ინდექსები — ფაზა 4)
+- [x] child: ადგილობრივი vs ინტროდუცირებული; ხმელეთის/წყლის ინდექსები და ამოცნობა — ფაზა 4 live
 - [x] ინტროდუცირებული *Trachemys scripta* ცალკე აღინიშნოს
 
 ### 9. `/amfibiebi/bayayi` — ბაყაყები საქართველოში (Guide)
@@ -161,7 +175,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 - [x] გიდი ბაყაყებზე (Anura), არა მთელ ამფიბიებზე
 - [x] ბმულები სახეობებზე: ტბორის ბაყაყი, მცირეაზიური ბაყაყი, ვასაკები, გომბეშოები
-- [ ] ბმული `#24` სახეობების ინდექსზე — ჯერ არ არსებობს
+- [x] ბმული `#24` სახეობების ინდექსზე (`/amfibiebi/bayayi/saxeoebebi`); `#9` რჩება გიდად, 301 არა
 
 ### 10. `/amfibiebi` — ამფიბიები საქართველოში (Pillar)
 
@@ -275,20 +289,28 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ### 19. `/kuebi/saxeoebebi` — საქართველოს კუების სახეობები
 
-- [ ] 4 სახეობის ინდექსი: *Testudo graeca*, *Emys orbicularis*, *Mauremys caspica*, *Trachemys scripta*
+**სტატუსი:** live; EN `/en/turtles/species`.
+
+- [x] 4 სახეობის ინდექსი: *Testudo graeca*, *Emys orbicularis*, *Mauremys caspica*, *Trachemys scripta*
 
 ### 20. `/kuebi/xmelis-kuebi` — ხმელეთის კუები საქართველოში
 
-- [ ] ძირითადად ხმელთაშუაზღვის კუ
-- [ ] ჰაბიტატი, რეგიონები (როცა data იქნება), კონსერვაცია
+**სტატუსი:** live; EN `/en/turtles/land`.
+
+- [x] ძირითადად ხმელთაშუაზღვის კუ
+- [x] ჰაბიტატი პროფილიდან; რეგიონები არ გამოგონილა (რუკა ცარიელია); კონსერვაცია generic — ეროვნული RL პროფილზე არაა
 
 ### 21. `/kuebi/tsqlis-kuebi` — წყლის კუები საქართველოში
 
-- [ ] ჭაობის კუ, კასპიური კუ, წითელყურა (ინტროდუცირებული)
+**სტატუსი:** live; EN `/en/turtles/freshwater`.
+
+- [x] ჭაობის კუ, კასპიური კუ, წითელყურა (ინტროდუცირებული)
 
 ### 22. `/kuebi/identifikacia` — როგორ განვასხვავოთ საქართველოს კუების სახეობები
 
-- [ ] visual ID: ხმელეთის vs წყლის, მშობლიური vs ინტროდუცირებული
+**სტატუსი:** live; EN `/en/turtles/identify`.
+
+- [x] visual ID: ხმელეთის vs წყლის, მშობლიური vs ინტროდუცირებული
 
 ---
 
@@ -296,17 +318,23 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ### 23. `/amfibiebi/saxeoebebi` — საქართველოს ამფიბიების სახეობები
 
-- [ ] 12 სახეობის ინდექსი (Anura + Caudata)
+**სტატუსი:** live; EN `/en/amphibians/species`.
+
+- [x] 12 სახეობის ინდექსი (Anura + Caudata)
 
 ### 24. `/amfibiebi/bayayi/saxeoebebi` — საქართველოს ბაყაყების სახეობები
 
-- [ ] Anura მხოლოდ
-- [ ] თუ `#9` გაერთიანდება, 301 აქ ან პირიქით
+**სტატუსი:** live; EN `/en/amphibians/frogs/species`. `#9` რჩება გიდად; 301 არა.
+
+- [x] Anura მხოლოდ
+- [x] `#9` გიდი + `#24` ცხრილი; overlap-ზე 301 არ გაკეთდა
 
 ### 25. `/amfibiebi/tritoni-salamandra` — ტრიტონები და სალამანდრები საქართველოში
 
-- [ ] *Mertensiella caucasica*, *Lissotriton lantzi*, *Ommatotriton ophryticus*, *Triturus karelinii*
-- [ ] niche / authority გვერდი; ენდემური/დაცული სახეობების ხაზგასმა მხოლოდ წყაროთი
+**სტატუსი:** live; EN `/en/amphibians/newts`.
+
+- [x] *Mertensiella caucasica*, *Lissotriton lantzi*, *Ommatotriton ophryticus*, *Triturus karelinii*
+- [x] niche / authority გვერდი; ენდემი მხოლოდ პროფილის location-იდან (Mertensiella); ეროვნული RL არ გამოგონილა
 
 ---
 
@@ -314,25 +342,37 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 წყაროები: საქართველოს წითელი ნუსხა (ოფიციალური), IUCN, Tarkhnishvili et al. 2026. სტატუსი არ გამოიგონოს.
 
+**ჰაბი:** `/konservacia` (EN `/en/conservation`) — ოთხი child გიდის კარიბჭე.
+
 ### 26. `/konservacia/witeli-nusxa-qvewarmavlebi` — საქართველოს წითელი ნუსხის ქვეწარმავლები
 
-- [ ] ოფიციალური ნუსხის სახეობები + ბმული პროფილებზე
-- [ ] განსხვავება IUCN vs ეროვნული სტატუსი
+**სტატუსი:** live; EN `/en/conservation/red-list-reptiles`.
+
+- [x] ატლასის პროფილებში ციტირებული სახეობები (kaznakovi, dinniki, transcaucasiana) + ბმული პროფილებზე
+- [x] განსხვავება IUCN vs ეროვნული სტატუსი; darevskii CR პროფილზეა, ეროვნული ციტატა არა — სიაში არაა
+- [x] გვერდი ოფიციალურ განკარგულებას არ ცვლის
 
 ### 27. `/konservacia/witeli-nusxa-amfibiebi` — საქართველოს წითელი ნუსხის ამფიბიები
 
-- [ ] იგივე სტრუქტურა ამფიბიებზე
+**სტატუსი:** live; EN `/en/conservation/red-list-amphibians`.
+
+- [x] იგივე სტრუქტურა; ეროვნული ციტატა პროფილებზე არ არის — ხარვეზი ღიადაა
+- [x] ნაჩვენებია ენდემი (Mertensiella) და კანდიდატი ამფიბიები პროფილიდან
 
 ### 28. `/konservacia/ishviati-qvewarmavlebi` — იშვიათი ქვეწარმავლები საქართველოში
 
-- [ ] არ აურიოს წითელ ნუსხასთან, თუ overlap სრული არ არის
-- [ ] კრიტერიუმი დაფიქსირდეს (ეროვნული RL, ვიწრო არეალი, candidate taxa)
+**სტატუსი:** live; EN `/en/conservation/rare-reptiles`.
+
+- [x] არ აურიოს წითელ ნუსხასთან — სამი კალათა
+- [x] კრიტერიუმი: ეროვნული RL ციტატა, IUCN საფრთხე პროფილზე, ჩეკლისტის კანდიდატი
 
 ### 29. `/konservacia/endemuri-qvewarmavlebi` — საქართველოს ენდემური ქვეწარმავლები
 
-- [ ] authority-building
-- [ ] მხოლოდ ტაქსონები, რომლებიც წყაროში ენდემურად/სუბენდემურადაა მითითებული
-- [ ] Tarkhnishvili et al. 2026: 12 ამფიბია + 56 ქვეწარმავალი, DNA barcoding, რუკები — გამოიყენე ციტირებით, არა გადაწერით
+**სტატუსი:** live; EN `/en/conservation/endemic-reptiles`.
+
+- [x] authority-building
+- [x] მხოლოდ ტაქსონები, რომლებიც პროფილში ენდემურადაა მითითებული (3 გველგესლა + Mertensiella როგორც ამფიბია)
+- [x] Tarkhnishvili et al. 2026 ციტირებულია, არა გადაწერილი
 
 ---
 
@@ -340,7 +380,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ### 30. `/regions` — საქართველოს ქვეწარმავლები რეგიონების მიხედვით
 
-**სტატუსი:** ინდექსი და 12 რეგიონის გვერდი არსებობს. შინაარსი თხელია და თითქმის მხოლოდ გველებია.
+**სტატუსი:** ინდექსი და 12 რეგიონის გვერდი არსებობს. ფაუნა ჯერ თითქმის მხოლოდ გველებია — data არ გამოგონილა.
 
 მაგალითი (მხოლოდ არსებული data, არა სრული ფაუნა):
 
@@ -349,10 +389,109 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 - სამეგრელო — …
 - მცხეთა-მთიანეთი — …
 
-- [ ] `/regions` გახდეს cluster hub: რეგიონი → სახეობები → ფოტო → რუკა
-- [ ] თითო რეგიონის intro / ჰაბიტატები / შხამიანი / FAQ გაძლიერდეს
-- [ ] **Data gap:** რეგიონებში არ შედის ამფიბიები, კუები, თითქმის ყველა ხვლიკი (გარდა გველხოკერასი) და ახალი გველები. შევსება მხოლოდ წყაროთი.
-- [ ] შემდეგი ეტაპი (არა ახლა, თუ data არაა): რეგიონი → მუნიციპალიტეტი → სახეობა. არ აიგოს ცარიელი მუნიციპალიტეტის გვერდები.
+- [x] `/regions` cluster hub: ბმულები გველების გავრცელებაზე, ინდექსებზე, კონსერვაციაზე
+- [x] თითო რეგიონის intro / ჰაბიტატები / შხამიანი / FAQ არსებული `regionContent`-ით; data-gap შენიშვნა პროფილზე
+- [x] **Data gap:** რეგიონებში არ შედის ამფიბიები, კუები, თითქმის ყველა ხვლიკი (გარდა გველხოკერასი) და ახალი გველები. შევსება მხოლოდ წყაროთი.
+- [x] შემდეგი ეტაპი (არა ახლა, თუ data არაა): რეგიონი → მუნიციპალიტეტი → სახეობა. ცარიელი მუნიციპალიტეტის გვერდები არ აიგო.
+
+---
+
+## ფაზა 8 — Species profiles B–G (~65 პროფილი)
+
+**სტატუსი:** დასაწყებია. A (გიურზა, ჯოჯო, გველხოკერა) reference-ია. დანარჩენი 65 პროფილი არსებობს, მაგრამ უმეტესობა thin/generic MDX-ია.
+
+**მიზანი:** თითოეული სახეობა იქცეს ატლასის აქტივად (როგორც გიურზა), არა 1,000-სიტყვიან generic სტატიად. კლასტერის გვერდები (#11–29) უკვე ამ პროფილებს ეყრდნობა — ინდექსის ცარიელი უჯრა, კონსერვაციის სია და ID გიდი პროფილის ველებიდან ივსება.
+
+### ფაილები / პაიპლაინი
+
+| რას ვაკეთებთ | სად |
+| --- | --- |
+| კონტენტი | `src/content/species/{id}/ka.mdx` **და** `en.mdx` ერთად, სინქრონულად |
+| კომპილაცია | `npm run species:compile` → `src/data/species.generated.ts` (`predev`/`prebuild`-იც იგივეს აკეთებს) |
+| Lookalike რუკა (ახლა) | `src/lib/speciesRoutes.ts` → `LOOKALIKES` (ორმხრივი). Frontmatter ველი ჯერ არ არის — ნუ დაამატებ ახალ YAML გასაღებს compile-ის გარეშე |
+| Activity stat | `stats` მასივში label: `აქტიურობა` / `Activity` (იხ. `speciesContent.ts`). წყარო არაა → არ დაამატო |
+| რეგიონული რუკა პროფილზე | არ იწერება MDX-ში; ჩანს მხოლოდ თუ ID არის `src/data/regions.ts` `speciesIds`-ში → **ფაზა 9** |
+| ეტალონი | `macrovipera-lebetina`, `paralaudakia-caucasia`, `pseudopus-apodus` |
+
+ნუ დაარედაქტირებ `species.generated.ts` ხელით.
+
+### Definition of Done — ერთი პროფილი
+
+KA+EN ორივე. Checkbox მხოლოდ მაშინ, როცა ორივე ენა გაკეთებულია.
+
+- [ ] `overview` სახეობის-სპეციფიკურია; აღარ არის „დაფიქსირებულია ჩეკლისტში… გვერდი აჯამებს…“ შაბლონი
+- [ ] `description` უნიკალური ერთი წინადადება (H1/meta-სთვის)
+- [ ] `location` საქართველოს კონტექსტი მხოლოდ წყაროთი; წყარო არაა → დატოვე ზოგადი, **ნუ** ჩაწერ 12 რეგიონს
+- [ ] `habitat` / `diet` / `behavior` generic წინადადებები ჩანაცვლებულია ან ამოღებულია
+- [ ] `conservation`: generic „საქართველოში დაფიქსირებულია…“ ან წაშალე, ან ჩაანაცვლე IUCN/ეროვნული ციტატით. **ნუ** ჩაწერ წითელ ნუსხას, თუ პროფილს/წყაროს არ აქვს
+- [ ] `stats.სიგრძე` კონკრეტული რიცხვი წყაროთი, ან ველი გამოტოვებული (placeholder მალულია)
+- [ ] `identification.traits` რეალური ნიშნები — არა მხოლოდ „checklist-confirmed“ / ოჯახის სახელი
+- [ ] FAQ: 3–5 რეალური კითხვა (გვხვდება? შხამი? რით განსხვავდება lookalike-ისგან?). ცარიელი FAQPage არა
+- [ ] `sources`: Tarkhnishvili DOI რჩება; IUCN **species-specific URL** თუ არსებობს (`/details/…` ან species page), არა მხოლოდ `https://www.iucnredlist.org/`
+- [ ] candidate taxa: ჩეკლისტის კანდიდატი შენიშვნა რჩება; ნუ „დაამტკიცებ“ სახეობას
+- [ ] lookalikes: თუ წყარო/ეტალონი ადასტურებს წყვილს → დაამატე `LOOKALIKES`-ში (ორმხრივად)
+- [ ] `danger`: Harmless/Moderate/High უკვე არის; ადამიანისთვის რისკი დაწერე overview/FAQ-ში მხოლოდ წყაროთი (განსაკუთრებით Malpolon rear-fanged)
+- [ ] ფოტო: არსებული CDN რჩება; `photoConfidence` / Georgia-field verification — ფაზა 9H, არა ამ ტალღის ბლოკერი
+
+**არ შეივსოს გამოგონილი ტექსტით.** უმჯობესია ცარიელი ველი, ვიდრე გამოგონილი ზომა, რეგიონი ან IUCN კატეგორია.
+
+### ტალღები (იმპლემენტაციის რიგი)
+
+ერთ ტალღაში დაასრულე სახეობები, განაახლე ამ ფაილის checkbox-ები, შემდეგ გადადი შემდეგ ტალღაზე. B-ის ნაწილი (kaznakovi, dinniki, transcaucasiana, darevskii) უკვე უფრო სავსეა ვიდრე Darevskia generic — მაინც გაიარე DoD გიურზასთან შედარებით; ნუ გამოტოვებ აუდიტის გარეშე.
+
+| ტალღა | ჯგუფი | IDs | შენიშვნა |
+| --- | --- | --- | --- |
+| **8A** | B — შხამიანი გველები | `vipera-kaznakovi` `vipera-dinniki` `vipera-transcaucasiana` `vipera-darevskii` `vipera-renardi` `malpolon-insignitus` | რისკი ზუსტად; renardi სახელი გადაამოწმე; Malpolon = Moderate/rear-fanged, არა გიურზა |
+| **8B** | C — lookalike გველები | `natrix-natrix` `natrix-tessellata` `zamenis-longissimus` `zamenis-hohenackeri` `elaphe-urartica` `elaphe-dione` `dolichophis-schmidti` `dolichophis-caspius` `platyceps-najadum` `telescopus-fallax` `coronella-austriaca` `hemorrhois-ravergieri` `eirenis-modestus` `eirenis-collaris` `xerotyphlops-vermicularis` `eryx-jaculus` | ორმხრივი lookalike + `#12`/`#18` ბმულები, სადაც რელევანტურია |
+| **8C** | D — კუები (4) | `testudo-graeca` `emys-orbicularis` `mauremys-caspica` `trachemys-scripta` | ხმელეთი vs წყალი; scripta = შემოტანილი. კვებავს `#19–22` |
+| **8D** | E — ამფიბიები (12) | Caudata: `mertensiella-caucasica` `lissotriton-lantzi` `ommatotriton-ophryticus` `triturus-karelinii` · Anura: `pelobates-syriacus` `pelodytes-caucasicus` `bufotes-viridis` `bufo-verrucosissimus` `hyla-orientalis` `hyla-savignyi` `rana-macrocnemis` `pelophylax-ridibundus` | Mertensiella ენდემი მხოლოდ თუ პროფილი/წყარო წერს; ნუ გამოიგონებ ეროვნულ RL. კვებავს `#23–25`, `#27` |
+| **8E** | F — ხვლიკები, არა-Darevskia | `tenuidactylus-caspius` `anguis-colchica` `eumeces-schneiderii` `ablepharus-pannonicus` `eremias-velox` `eremias-arguta` `ophisops-elegans` `lacerta-agilis` `lacerta-strigata` `lacerta-media` `phoenicolacerta-laevis` | Anguis = კანდიდატი; გველხოკერასთან lookalike უკვე `#18`-ზეა |
+| **8F** | G — Darevskia (16) | `darevskia-adjarica` `darevskia-alpina` `darevskia-armeniaca` `darevskia-brauneri` `darevskia-caucasica` `darevskia-clarkorum` `darevskia-daghestanica` `darevskia-dahli` `darevskia-derjugini` `darevskia-mixta` `darevskia-portschinskii` `darevskia-praticola` `darevskia-pontica` `darevskia-obscura` `darevskia-raddei` `darevskia-valentini` | **არ აირიოს.** ფერი საკმარისი არ არის. რეგიონი მხოლოდ წყაროთი. კანდიდატი შენიშვნა რჩება |
+
+ტალღის ბოლოს: `npx tsc --noEmit` საჭიროებისამებრ; კონტენტისთვის საკმარისია compile + checkbox ამ ფაილში.
+
+---
+
+## ფაზა 9 — რეგიონული `speciesIds` + data (H)
+
+**სტატუსი:** დასაწყებია **პარალელურად 8A-დან**, მაგრამ ცალკე commit/ტალღა. ფაზა 7-მა ხარვეზი გახსნა; ეს ფაზა რუკას ავსებს მხოლოდ წყაროთი.
+
+**მიზანი:** სახეობის რუკა და რეგიონის გვერდი აჩვენებს რეალურ ჩანაწერს. ახლა თითქმის მხოლოდ გველები + გველხოკერაა. ამფიბიები, კუები, უმეტესი ხვლიკი და ახალი ჩეკლისტური გველები **არ** უნდა დაემატოს ჰაბიტატის გამოცნობით.
+
+### ფაილები
+
+| რას ვაკეთებთ | სად |
+| --- | --- |
+| სახეობა → რეგიონი | `src/data/regions.ts` → თითო `Region.speciesIds` |
+| რეგიონის FAQ/overview | `src/data/regionContent.ts` — **მხოლოდ** თუ ახალი taxa რეალურად დაემატა; ნუ დაწერ „აქ არის ყველა ხვლიკი“ |
+| პროფილის `location` | MDX (ფაზა 8) — ტექსტი; რუკა მაინც `speciesIds`-იდანაა |
+
+12 რეგიონის `id`: `abkhazia` `samegrelo` `guria` `adjara` `imereti` `racha` `samtskhe-javakheti` `mtskheta-mtianeti` `shida-kartli` `kvemo-kartli` `kakheti` `tbilisi`.
+
+### როდის შეიძლება ID-ის დამატება
+
+ჩაამატე `speciesIds`-ში **მხოლოდ** თუ ერთ-ერთი პირდაპირ ასახელებს ამ ადმინისტრაციულ ერთეულს (ან 1:1 ექვივალენტს, მაგ. ჯავახეთი → `samtskhe-javakheti`):
+
+1. Tarkhnishvili et al. 2026 (DOI `10.3897/caucasiana.5.e189214`) — locality / region remark
+2. Iankoshvili & Tarkhnishvili 2021 — თუ ჩეკლისტი მას ციტირებს კონკრეტულ ჩანაწერზე
+3. უკვე დაწერილი პროფილის `location`/`habitat`, თუ იქ უკვე წერია რეგიონი (მაგ. darevskii: სამცხე—ჯავახეთი)
+
+**არ ჩაამატო თუ:**
+
+- მხოლოდ „საქართველო“ / „კავკასია“ / „კოლხეთი“ ზოგადად (კოლხეთი ≠ ყველა დასავლეთის რეგიონი)
+- ჰაბიტატის ტიპი („ტენიანი ტყე“ → აჭარა+გურია+…)
+- IUCN გლობალური range, GBIF წერტილი საქართველოს გარეთ, ან „ტიპიური“ არეალი ლიტერატურიდან ადმინ-ერთეულის გარეშე
+- მეზობელი რეგიონის სია („აფხაზეთშია → სამეგრელოშიც იქნება“)
+
+არაა ჩანაწერი → სია რჩება ცარიელი. ცარიელი მუნიციპალიტეტის გვერდები **არ** აიგოს.
+
+### H — სხვა data (არა პროზა)
+
+- [ ] `speciesIds` გაფართოება ზემოთ წესით; პრიორიტეტი: B გველები, შემდეგ კუები/ამფიბიები თუ წყაროა, Darevskia ბოლოს და მხოლოდ მკაფიო locality-ზე
+- [ ] generic conservation ჩანაცვლება/წაშლა — კეთდება ფაზა 8-ის DoD-ით, აქ მხოლოდ აუდიტი
+- [ ] `photoConfidence`: ჩეკლისტში ბევრი `verified`-ია; CDN ხშირად generic/არა-საქართველოა. პოლიტიკა: დატოვე ფოტო + კრედიტი, ან პლეისჰოლდერი — ნუ მონიშნავ Georgia-field-ად მტკიცებულების გარეშე
+- [ ] candidate taxa შენიშვნა პროფილზე (Tarkhnishvili 2026) — ფაზა 8 DoD
+- [ ] `Macrovipera lebetinus` vs slug `macrovipera-lebetina` — გიურზას პროფილზე უკვე ახსნილია; სხვა გვერდზე ნუ გააორმაგებ წინააღმდეგობრივად
 
 ---
 
@@ -383,6 +522,8 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 **არ შეივსოს გამოგონილი ტექსტით.** თუ წყარო არ არის, ველი გამოტოვდეს (კოდი უკვე მალავს placeholder body/stats-ს).
 
+ველების სპეციფიკაცია = ფაზა 8 DoD. ქვემოთ checklist იმპლემენტაციის ტალღებისთვის (8A–8F).
+
 ### Species backlog — შევსების რიგი
 
 **A. Reference (ფაზა 1)**
@@ -391,7 +532,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 - [x] `paralaudakia-caucasia` — ჯოჯო
 - [x] `pseudopus-apodus` — გველხოკერა
 
-**B. შხამიანი გველები**
+**B. შხამიანი გველები** — ტალღა **8A**
 
 - [ ] `vipera-kaznakovi` — კავკასიური გველგესლა
 - [ ] `vipera-dinniki` — დინიკის გველგესლა
@@ -400,7 +541,7 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 - [ ] `vipera-renardi` — (ნუსხაში: სომხური გველგესლა / steppe — სახელი გადაამოწმე)
 - [ ] `malpolon-insignitus` — თუ Moderate/rear-fanged; რისკი ზუსტად
 
-**C. ხშირი/lookalike გველები**
+**C. ხშირი/lookalike გველები** — ტალღა **8B**
 
 - [ ] `natrix-natrix` `natrix-tessellata`
 - [ ] `zamenis-longissimus` `zamenis-hohenackeri`
@@ -410,35 +551,35 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 - [ ] `hemorrhois-ravergieri` `eirenis-modestus` `eirenis-collaris`
 - [ ] `xerotyphlops-vermicularis` `eryx-jaculus`
 
-**D. კუები (4)**
+**D. კუები (4)** — ტალღა **8C**
 
 - [ ] `testudo-graeca` `emys-orbicularis` `mauremys-caspica` `trachemys-scripta`
 
-**E. ამფიბიები (12)**
+**E. ამფიბიები (12)** — ტალღა **8D**
 
 - [ ] სალამანდრა/ტრიტონები: `mertensiella-caucasica` `lissotriton-lantzi` `ommatotriton-ophryticus` `triturus-karelinii`
 - [ ] ბაყაყები/გომბეშოები/ვასაკები: `pelobates-syriacus` `pelodytes-caucasicus` `bufotes-viridis` `bufo-verrucosissimus` `hyla-orientalis` `hyla-savignyi` `rana-macrocnemis` `pelophylax-ridibundus`
 
-**F. ხვლიკები — არა-Darevskia**
+**F. ხვლიკები — არა-Darevskia** — ტალღა **8E**
 
 - [ ] `tenuidactylus-caspius` `anguis-colchica` `eumeces-schneiderii` `ablepharus-pannonicus`
 - [ ] `eremias-velox` `eremias-arguta` `ophisops-elegans`
 - [ ] `lacerta-agilis` `lacerta-strigata` `lacerta-media` `phoenicolacerta-laevis`
 
-**G. Darevskia (16)** — იდენტიფიკაცია + რეგიონი კრიტიკულია; არ აირიოს ერთმანეთში
+**G. Darevskia (16)** — ტალღა **8F** — იდენტიფიკაცია + რეგიონი კრიტიკულია; არ აირიოს ერთმანეთში
 
 - [ ] `darevskia-adjarica` `darevskia-alpina` `darevskia-armeniaca` `darevskia-brauneri`
 - [ ] `darevskia-caucasica` `darevskia-clarkorum` `darevskia-daghestanica` `darevskia-dahli`
 - [ ] `darevskia-derjugini` `darevskia-mixta` `darevskia-portschinskii` `darevskia-praticola`
 - [ ] `darevskia-pontica` `darevskia-obscura` `darevskia-raddei` `darevskia-valentini`
 
-**H. Data, არა პროზა**
+**H. Data, არა პროზა** — იხ. **ფაზა 9** (იმპლემენტაციის წესები იქაა).
 
 - [ ] რეგიონული `speciesIds` გაფართოება მხოლოდ წყაროთი
 - [ ] generic conservation („საქართველოში დაფიქსირებულია…“) ჩანაცვლება ან წაშლა
 - [ ] `photoConfidence` გადაამოწმე — ჩეკლისტში ყველა `verified`-ია, რეალურად ბევრი placeholder/generic CDN შეიძლება იყოს
 - [ ] candidate taxa შენიშვნა პროფილზე (Tarkhnishvili 2026)
-- [ ] `Macrovipera lebetinus` vs slug `macrovipera-lebetina` — საჯაროდ ახსნილი
+- [ ] `Macrovipera lebetinus` vs slug `macrovipera-lebetina` — საჯაროდ ახსნილი (გიურზას პროფილზე არის)
 
 ---
 
@@ -446,16 +587,16 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ესენი roadmap-ის გვერდების პარალელურად იკვრება.
 
-- [ ] Group hub path-ები `groupHubs.ts`-დან ქართულ slug-ებზე; locale-aware path EN-სთვის
-- [ ] `next.config.ts` 301 რუკა ყველა ძველი URL-ისთვის (`/snakes`, `/lizards`, `/venomous-snakes`, …)
-- [ ] Species canonical URL helper: cluster + ქართული slug (და სამეცნიერო fallback)
+- [x] Group hub path-ები `groupHubs.ts`-დან ქართულ slug-ებზე; locale-aware path EN-სთვის
+- [x] `next.config.ts` 301 რუკა ყველა ძველი URL-ისთვის (`/snakes`, `/lizards`, `/venomous-snakes`, …)
+- [x] Species canonical URL helper: cluster + ქართული slug (და სამეცნიერო fallback)
 - [x] Cluster child routes: არა ბლოგის `/blog/...`, არამედ `/gvelebi/...`, `/xvlikebi/...`, `/kuebi/...`, `/amfibiebi/...` (პირველი child: `/amfibiebi/bayayi`)
 - [x] Species index კომპონენტი (ცხრილი #11; #16/#19/#23 იგივე UI-ს გამოიყენებს)
-- [ ] Visual ID კომპონენტი (#12/#17/#22/#18)
-- [ ] Lookalike ველი species frontmatter-ში
-- [ ] Activity / reproduction / human-risk ველები (ან არსებული biology-ს მკაფიო სექციები)
-- [ ] `getRelatedSpecies` — lookalikes + venom counterparts, არა მხოლოდ genus
-- [ ] Breadcrumb schema + UI ყველა ახალ გვერდზე
+- [x] Visual ID კომპონენტი (#12/#17/#22/#18)
+- [ ] Lookalike ველი species frontmatter-ში — ფაზა 8 ჯერჯერობით ავსებს `LOOKALIKES`-ს `speciesRoutes.ts`-ში
+- [ ] Activity / reproduction / human-risk ველები (ან არსებული biology-ს მკაფიო სექციები) — ფაზა 8: `stats` + overview/FAQ, ახალი schema მხოლოდ საჭიროებისას
+- [ ] `getRelatedSpecies` — lookalikes + venom counterparts, არა მხოლოდ genus — scoring უკვე იყენებს `LOOKALIKES`; გაფართოვდება რუკის შევსებით
+- [x] Breadcrumb schema + UI ყველა ახალ გვერდზე
 - [x] sitemap-ში ახალი URL-ები; ძველები მხოლოდ 301, არა duplicate
 - [x] Home / Nav / Footer / `HomeKnowledge` განახლება კლასტერებზე — Footer + hub cards + LanguageSwitcher
 - [x] `#13` ნაკბენის გვერდზე **არ** მიეცეს medical advice schema — WebPage + FAQ მხოლოდ არსებულ Q&A-ზე; წყაროები: 112 და საიტის არსებული გიდები
@@ -484,20 +625,20 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 | 16 | ხვლიკების სახეობები | `/xvlikebi/saxeoebebi` | Index | არის |
 | 17 | ხვლიკების იდენტიფიკაცია | `/xvlikebi/identifikacia` | Guide | არის |
 | 18 | ხვლიკი vs გველხოკერა | `/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba` | Guide | არის |
-| 19 | კუების სახეობები | `/kuebi/saxeoebebi` | Index | არ არის |
-| 20 | ხმელეთის კუები | `/kuebi/xmelis-kuebi` | Guide | არ არის |
-| 21 | წყლის კუები | `/kuebi/tsqlis-kuebi` | Guide | არ არის |
-| 22 | კუების იდენტიფიკაცია | `/kuebi/identifikacia` | Guide | არ არის |
-| 23 | ამფიბიების სახეობები | `/amfibiebi/saxeoebebi` | Index | არ არის |
-| 24 | ბაყაყების სახეობები | `/amfibiebi/bayayi/saxeoebebi` | Index | არ არის |
-| 25 | ტრიტონები და სალამანდრები | `/amfibiebi/tritoni-salamandra` | Guide | არ არის |
-| 26 | წითელი ნუსხა — რეპტილიები | `/konservacia/witeli-nusxa-qvewarmavlebi` | Guide | არ არის |
-| 27 | წითელი ნუსხა — ამფიბიები | `/konservacia/witeli-nusxa-amfibiebi` | Guide | არ არის |
-| 28 | იშვიათი ქვეწარმავლები | `/konservacia/ishviati-qvewarmavlebi` | Guide | არ არის |
-| 29 | ენდემური ქვეწარმავლები | `/konservacia/endemuri-qvewarmavlebi` | Guide | არ არის |
-| 30 | რეგიონების მიხედვით | `/regions` | Hub | არის, thin / incomplete fauna |
+| 19 | კუების სახეობები | `/kuebi/saxeoebebi` | Index | არის |
+| 20 | ხმელეთის კუები | `/kuebi/xmelis-kuebi` | Guide | არის |
+| 21 | წყლის კუები | `/kuebi/tsqlis-kuebi` | Guide | არის |
+| 22 | კუების იდენტიფიკაცია | `/kuebi/identifikacia` | Guide | არის |
+| 23 | ამფიბიების სახეობები | `/amfibiebi/saxeoebebi` | Index | არის |
+| 24 | ბაყაყების სახეობები | `/amfibiebi/bayayi/saxeoebebi` | Index | არის |
+| 25 | ტრიტონები და სალამანდრები | `/amfibiebi/tritoni-salamandra` | Guide | არის |
+| 26 | წითელი ნუსხა — რეპტილიები | `/konservacia/witeli-nusxa-qvewarmavlebi` | Guide | არის |
+| 27 | წითელი ნუსხა — ამფიბიები | `/konservacia/witeli-nusxa-amfibiebi` | Guide | არის (ხარვეზი ღიად) |
+| 28 | იშვიათი ქვეწარმავლები | `/konservacia/ishviati-qvewarmavlebi` | Guide | არის |
+| 29 | ენდემური ქვეწარმავლები | `/konservacia/endemuri-qvewarmavlebi` | Guide | არის |
+| 30 | რეგიონების მიხედვით | `/regions` | Hub | არის; ფაუნა incomplete (არ გამოგონილა) |
 
-პლუს: **68 species × სრული template** და **ფაზა 0 ინფრასტრუქტურა**.
+პლუს: **ფაზა 8** — 65 პროფილი (B–G); **ფაზა 9** — `speciesIds` მხოლოდ წყაროთი. A + ფაზა 0–7 დასრულებულია.
 
 ---
 
@@ -513,10 +654,12 @@ KA cluster URL არის canonical; EN ინარჩუნებს ინ�
 
 ## როგორ ვიმუშაოთ ამ ფაილზე
 
-1. ფაზა 0 URL გადაწყვეტილება (canonical + 301) — ამის გარეშე ახალი გვერდები ორმაგდება.
-2. ფაზა 1: 4 pillar + შხამიანი გიდი + 3 species reference.
-3. `#11` snake index — knowledge graph-ის ხერხემალი.
-4. დანარჩენი cluster child-ები პრიორიტეტით: იდენტიფიკაცია / ნაკბენი / რეგიონები / კონსერვაცია.
-5. 68 პროფილი რიგით A→G; data gap-ები (რეგიონები, ფოტოები) ცალკე, არა ტექსტის გამოგონებით.
+1. ფაზა 0 URL გადაწყვეტილება (canonical + 301) — ამის გარეშე ახალი გვერდები ორმაგდება. **გაკეთებულია.**
+2. ფაზა 1: 4 pillar + შხამიანი გიდი + 3 species reference. **გაკეთებულია.**
+3. `#11` snake index — knowledge graph-ის ხერხემალი. **გაკეთებულია.**
+4. დანარჩენი cluster child-ები: იდენტიფიკაცია / ნაკბენი / რეგიონები / კონსერვაცია. **ფაზა 2–7 გაკეთებულია.**
+5. **ახლა:** ფაზა 8 ტალღა 8A → 8F (პროფილები B–G). DoD ზემოთ. KA+EN + `species:compile`.
+6. **პარალელურად, ცალკე ტალღა:** ფაზა 9 — `regions.ts` `speciesIds` მხოლოდ წყაროთი. არ გამოიგონო რეგიონი.
+7. ფოტოების Georgia-field verification — 9H, არ ბლოკავს 8A-ს.
 
-Checkbox-ები ამ ფაილში იცვლება სამუშაოს მიმდინარეობისას.
+Checkbox-ები ამ ფაილში იცვლება სამუშაოს მიმდინარეობისას. ტალღის დაწყება: 8A (`vipera-kaznakovi` … `malpolon-insignitus`).

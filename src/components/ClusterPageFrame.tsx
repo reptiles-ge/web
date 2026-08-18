@@ -4,9 +4,9 @@ import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   CLUSTER_GUIDES,
+  CLUSTER_PARENTS,
   type ClusterGuideId,
 } from "@/lib/clusterGuides";
-import { GROUP_HUBS } from "@/lib/groupHubs";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -28,9 +28,10 @@ export function ClusterPageFrame({
   children,
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
+  const parent = CLUSTER_PARENTS[guide.parentHub];
   const t = useTranslations(guide.messageKey);
   const tShared = useTranslations("groupHubShared");
-  const tParent = useTranslations(guide.parentHub);
+  const tParent = useTranslations(parent.messageKey);
 
   return (
     <div className="min-h-screen bg-background">
@@ -68,7 +69,7 @@ export function ClusterPageFrame({
                   </li>
                   <li>
                     <Link
-                      href={GROUP_HUBS[guide.parentHub].path}
+                      href={parent.path}
                       className="transition-colors hover:text-white"
                     >
                       {tParent("breadcrumbCurrent")}
@@ -109,7 +110,7 @@ export function ClusterPageFrame({
                   </a>
                 )}
                 <Link
-                  href={GROUP_HUBS[guide.parentHub].path}
+                  href={parent.path}
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
                 >
                   {t("ctaParent")}
@@ -148,7 +149,7 @@ export function ClusterPageFrame({
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href={GROUP_HUBS[guide.parentHub].path}
+                  href={parent.path}
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
                 >
                   {t("ctaParent")}

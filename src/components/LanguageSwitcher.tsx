@@ -24,6 +24,18 @@ const STATIC_LOCALE_PATHS = [
   "/lizards/saxeoebebi",
   "/lizards/identifikacia",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+  "/turtles/saxeoebebi",
+  "/turtles/xmelis-kuebi",
+  "/turtles/tsqlis-kuebi",
+  "/turtles/identifikacia",
+  "/amphibians/saxeoebebi",
+  "/amphibians/bayayi/saxeoebebi",
+  "/amphibians/tritoni-salamandra",
+  "/conservation",
+  "/conservation/witeli-nusxa-qvewarmavlebi",
+  "/conservation/witeli-nusxa-amfibiebi",
+  "/conservation/ishviati-qvewarmavlebi",
+  "/conservation/endemuri-qvewarmavlebi",
   "/regions",
 ] as const;
 

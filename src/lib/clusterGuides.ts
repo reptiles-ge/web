@@ -21,6 +21,37 @@ export const NEWT_SPECIES_IDS = [
   "triturus-karelinii",
 ] as const;
 
+export const TURTLE_LAND_IDS = ["testudo-graeca"] as const;
+
+export const TURTLE_WATER_IDS = [
+  "emys-orbicularis",
+  "mauremys-caspica",
+  "trachemys-scripta",
+] as const;
+
+export const GEORGIA_RED_LIST_REPTILE_IDS = [
+  "vipera-kaznakovi",
+  "vipera-dinniki",
+  "vipera-transcaucasiana",
+] as const;
+
+export const GEORGIA_RED_LIST_AMPHIBIAN_IDS = [] as const;
+
+export const IUCN_THREATENED_REPTILE_IDS = [
+  "vipera-kaznakovi",
+  "vipera-dinniki",
+  "vipera-darevskii",
+  "vipera-transcaucasiana",
+] as const;
+
+export const ENDEMIC_REPTILE_IDS = [
+  "vipera-kaznakovi",
+  "vipera-dinniki",
+  "vipera-darevskii",
+] as const;
+
+export const ENDEMIC_AMPHIBIAN_IDS = ["mertensiella-caucasica"] as const;
+
 export const LARGE_SNAKE_IDS = [
   "malpolon-insignitus",
   "macrovipera-lebetina",
@@ -59,6 +90,12 @@ export const SNAKE_LOOKALIKE_PAIRS = [
 const frogIdSet = new Set<string>(FROG_SPECIES_IDS);
 const newtIdSet = new Set<string>(NEWT_SPECIES_IDS);
 const largeSnakeIdSet = new Set<string>(LARGE_SNAKE_IDS);
+const turtleLandIdSet = new Set<string>(TURTLE_LAND_IDS);
+const turtleWaterIdSet = new Set<string>(TURTLE_WATER_IDS);
+const georgiaRedListReptileSet = new Set<string>(GEORGIA_RED_LIST_REPTILE_IDS);
+const iucnThreatenedReptileSet = new Set<string>(IUCN_THREATENED_REPTILE_IDS);
+const endemicReptileSet = new Set<string>(ENDEMIC_REPTILE_IDS);
+const endemicAmphibianSet = new Set<string>(ENDEMIC_AMPHIBIAN_IDS);
 
 export function isFrogSpecies(id: string) {
   return frogIdSet.has(id);
@@ -76,8 +113,48 @@ export function isLizardSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "lizard";
 }
 
+export function isTurtleSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "turtle";
+}
+
+export function isAmphibianSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "amphibian";
+}
+
 export function isDarevskiaSpecies(species: Species) {
   return species.genus === "Darevskia";
+}
+
+export function isChecklistCandidate(species: Species) {
+  const text = `${species.description} ${species.overview}`.toLowerCase();
+  return text.includes("კანდიდატი") || text.includes("candidate species");
+}
+
+export function isGeorgiaRedListReptile(id: string) {
+  return georgiaRedListReptileSet.has(id);
+}
+
+export function isIucnThreatenedReptile(id: string) {
+  return iucnThreatenedReptileSet.has(id);
+}
+
+export function isEndemicReptile(id: string) {
+  return endemicReptileSet.has(id);
+}
+
+export function isEndemicAmphibian(id: string) {
+  return endemicAmphibianSet.has(id);
+}
+
+export function isRareReptile(species: Species) {
+  if (!isSnakeSpecies(species) && !isLizardSpecies(species) && !isTurtleSpecies(species)) {
+    return false;
+  }
+  return (
+    isGeorgiaRedListReptile(species.id) ||
+    isIucnThreatenedReptile(species.id) ||
+    isChecklistCandidate(species)
+  );
 }
 
 export function getRegionSnakeSpecies(region: Region) {
@@ -91,6 +168,27 @@ export function orderSpeciesByIds(species: Species[], ids: readonly string[]) {
     .filter((item): item is Species => Boolean(item));
 }
 
+export type ClusterParentId = GroupHubId | "conservation";
+
+export const CLUSTER_PARENTS: Record<
+  ClusterParentId,
+  {
+    path:
+      | "/snakes"
+      | "/lizards"
+      | "/turtles"
+      | "/amphibians"
+      | "/conservation";
+    messageKey: GroupHubId | "conservationHub";
+  }
+> = {
+  snakes: { path: "/snakes", messageKey: "snakes" },
+  lizards: { path: "/lizards", messageKey: "lizards" },
+  turtles: { path: "/turtles", messageKey: "turtles" },
+  amphibians: { path: "/amphibians", messageKey: "amphibians" },
+  conservation: { path: "/conservation", messageKey: "conservationHub" },
+};
+
 export type ClusterGuideId =
   | "amphibian-frogs"
   | "snake-index"
@@ -100,7 +198,18 @@ export type ClusterGuideId =
   | "snake-largest"
   | "lizard-index"
   | "lizard-identify"
-  | "lizard-glass";
+  | "lizard-glass"
+  | "turtle-index"
+  | "turtle-land"
+  | "turtle-water"
+  | "turtle-identify"
+  | "amphibian-index"
+  | "amphibian-frogs-index"
+  | "amphibian-newts"
+  | "conservation-reptiles"
+  | "conservation-amphibians"
+  | "conservation-rare"
+  | "conservation-endemic";
 
 export type ClusterGuidePath =
   | "/amphibians/bayayi"
@@ -111,7 +220,18 @@ export type ClusterGuidePath =
   | "/snakes/didi-gvelebi"
   | "/lizards/saxeoebebi"
   | "/lizards/identifikacia"
-  | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba";
+  | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
+  | "/turtles/saxeoebebi"
+  | "/turtles/xmelis-kuebi"
+  | "/turtles/tsqlis-kuebi"
+  | "/turtles/identifikacia"
+  | "/amphibians/saxeoebebi"
+  | "/amphibians/bayayi/saxeoebebi"
+  | "/amphibians/tritoni-salamandra"
+  | "/conservation/witeli-nusxa-qvewarmavlebi"
+  | "/conservation/witeli-nusxa-amfibiebi"
+  | "/conservation/ishviati-qvewarmavlebi"
+  | "/conservation/endemuri-qvewarmavlebi";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -122,12 +242,23 @@ export type ClusterMessageKey =
   | "snakeLargest"
   | "lizardIndex"
   | "lizardIdentify"
-  | "lizardCompare";
+  | "lizardCompare"
+  | "turtleIndex"
+  | "turtleLand"
+  | "turtleWater"
+  | "turtleIdentify"
+  | "amphibianIndex"
+  | "amphibianFrogsIndex"
+  | "amphibianNewts"
+  | "conservationReptiles"
+  | "conservationAmphibians"
+  | "conservationRare"
+  | "conservationEndemic";
 
 export type ClusterGuideConfig = {
   id: ClusterGuideId;
   pathname: ClusterGuidePath;
-  parentHub: GroupHubId;
+  parentHub: ClusterParentId;
   messageKey: ClusterMessageKey;
   heroSpeciesId: string;
   matches: (species: Species) => boolean;
@@ -243,6 +374,130 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     schema: "article",
     primaryCta: "hash",
   },
+  "turtle-index": {
+    id: "turtle-index",
+    pathname: "/turtles/saxeoebebi",
+    parentHub: "turtles",
+    messageKey: "turtleIndex",
+    heroSpeciesId: "testudo-graeca",
+    matches: isTurtleSpecies,
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "turtle-land": {
+    id: "turtle-land",
+    pathname: "/turtles/xmelis-kuebi",
+    parentHub: "turtles",
+    messageKey: "turtleLand",
+    heroSpeciesId: "testudo-graeca",
+    matches: (species) => turtleLandIdSet.has(species.id),
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "turtle-water": {
+    id: "turtle-water",
+    pathname: "/turtles/tsqlis-kuebi",
+    parentHub: "turtles",
+    messageKey: "turtleWater",
+    heroSpeciesId: "emys-orbicularis",
+    matches: (species) => turtleWaterIdSet.has(species.id),
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "turtle-identify": {
+    id: "turtle-identify",
+    pathname: "/turtles/identifikacia",
+    parentHub: "turtles",
+    messageKey: "turtleIdentify",
+    heroSpeciesId: "testudo-graeca",
+    matches: isTurtleSpecies,
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "amphibian-index": {
+    id: "amphibian-index",
+    pathname: "/amphibians/saxeoebebi",
+    parentHub: "amphibians",
+    messageKey: "amphibianIndex",
+    heroSpeciesId: "mertensiella-caucasica",
+    matches: isAmphibianSpecies,
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "amphibian-frogs-index": {
+    id: "amphibian-frogs-index",
+    pathname: "/amphibians/bayayi/saxeoebebi",
+    parentHub: "amphibians",
+    messageKey: "amphibianFrogsIndex",
+    heroSpeciesId: "pelophylax-ridibundus",
+    matches: (species) => isFrogSpecies(species.id),
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "amphibian-newts": {
+    id: "amphibian-newts",
+    pathname: "/amphibians/tritoni-salamandra",
+    parentHub: "amphibians",
+    messageKey: "amphibianNewts",
+    heroSpeciesId: "mertensiella-caucasica",
+    matches: (species) => isNewtSpecies(species.id),
+    faqCount: 4,
+    schema: "collection",
+    primaryCta: "hash",
+  },
+  "conservation-reptiles": {
+    id: "conservation-reptiles",
+    pathname: "/conservation/witeli-nusxa-qvewarmavlebi",
+    parentHub: "conservation",
+    messageKey: "conservationReptiles",
+    heroSpeciesId: "vipera-kaznakovi",
+    matches: (species) => isGeorgiaRedListReptile(species.id),
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "conservation-amphibians": {
+    id: "conservation-amphibians",
+    pathname: "/conservation/witeli-nusxa-amfibiebi",
+    parentHub: "conservation",
+    messageKey: "conservationAmphibians",
+    heroSpeciesId: "mertensiella-caucasica",
+    matches: (species) =>
+      isAmphibianSpecies(species) &&
+      (isEndemicAmphibian(species.id) || isChecklistCandidate(species)),
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "conservation-rare": {
+    id: "conservation-rare",
+    pathname: "/conservation/ishviati-qvewarmavlebi",
+    parentHub: "conservation",
+    messageKey: "conservationRare",
+    heroSpeciesId: "vipera-darevskii",
+    matches: isRareReptile,
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
+  "conservation-endemic": {
+    id: "conservation-endemic",
+    pathname: "/conservation/endemuri-qvewarmavlebi",
+    parentHub: "conservation",
+    messageKey: "conservationEndemic",
+    heroSpeciesId: "vipera-darevskii",
+    matches: (species) =>
+      isEndemicReptile(species.id) || isEndemicAmphibian(species.id),
+    faqCount: 4,
+    schema: "article",
+    primaryCta: "hash",
+  },
 };
 
 export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
@@ -259,15 +514,7 @@ export type HubClusterCard =
       href:
         | "/venomous-snakes"
         | "/snakes-in-the-yard"
-        | "/amphibians/bayayi"
-        | "/snakes/saxeoebebi"
-        | "/snakes/shxamiani-gvelis-amocnoba"
-        | "/snakes/gvelis-nakbeni"
-        | "/snakes/gavrtseleba"
-        | "/snakes/didi-gvelebi"
-        | "/lizards/saxeoebebi"
-        | "/lizards/identifikacia"
-        | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba";
+        | ClusterGuidePath;
       key:
         | "venomous"
         | "yard"
@@ -279,7 +526,14 @@ export type HubClusterCard =
         | "largest"
         | "lizardIndex"
         | "lizardIdentify"
-        | "glassLizard";
+        | "glassLizard"
+        | "turtleIndex"
+        | "turtleLand"
+        | "turtleWater"
+        | "turtleIdentify"
+        | "amphibianIndex"
+        | "frogsIndex"
+        | "newts";
     }
   | {
       kind: "species";
@@ -310,10 +564,19 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "species", id: "pseudopus-apodus", key: "gvelxokera" },
   ],
   turtles: [
+    { kind: "page", href: "/turtles/saxeoebebi", key: "turtleIndex" },
+    { kind: "page", href: "/turtles/xmelis-kuebi", key: "turtleLand" },
+    { kind: "page", href: "/turtles/tsqlis-kuebi", key: "turtleWater" },
+    { kind: "page", href: "/turtles/identifikacia", key: "turtleIdentify" },
     { kind: "species", id: "testudo-graeca", key: "tortoise" },
     { kind: "species", id: "trachemys-scripta", key: "slider" },
   ],
-  amphibians: [{ kind: "page", href: "/amphibians/bayayi", key: "frogs" }],
+  amphibians: [
+    { kind: "page", href: "/amphibians/saxeoebebi", key: "amphibianIndex" },
+    { kind: "page", href: "/amphibians/bayayi", key: "frogs" },
+    { kind: "page", href: "/amphibians/bayayi/saxeoebebi", key: "frogsIndex" },
+    { kind: "page", href: "/amphibians/tritoni-salamandra", key: "newts" },
+  ],
 };
 
 export type SpeciesSection = {

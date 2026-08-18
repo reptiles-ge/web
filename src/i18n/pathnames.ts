@@ -56,6 +56,22 @@ export const pathnames = {
     ka: "/kuebi",
     en: "/turtles",
   },
+  "/turtles/saxeoebebi": {
+    ka: "/kuebi/saxeoebebi",
+    en: "/turtles/species",
+  },
+  "/turtles/xmelis-kuebi": {
+    ka: "/kuebi/xmelis-kuebi",
+    en: "/turtles/land",
+  },
+  "/turtles/tsqlis-kuebi": {
+    ka: "/kuebi/tsqlis-kuebi",
+    en: "/turtles/freshwater",
+  },
+  "/turtles/identifikacia": {
+    ka: "/kuebi/identifikacia",
+    en: "/turtles/identify",
+  },
   "/turtles/[slug]": {
     ka: "/kuebi/[slug]",
     en: "/turtles/[slug]",
@@ -64,13 +80,45 @@ export const pathnames = {
     ka: "/amfibiebi",
     en: "/amphibians",
   },
+  "/amphibians/saxeoebebi": {
+    ka: "/amfibiebi/saxeoebebi",
+    en: "/amphibians/species",
+  },
   "/amphibians/bayayi": {
     ka: "/amfibiebi/bayayi",
     en: "/amphibians/frogs",
   },
+  "/amphibians/bayayi/saxeoebebi": {
+    ka: "/amfibiebi/bayayi/saxeoebebi",
+    en: "/amphibians/frogs/species",
+  },
+  "/amphibians/tritoni-salamandra": {
+    ka: "/amfibiebi/tritoni-salamandra",
+    en: "/amphibians/newts",
+  },
   "/amphibians/[slug]": {
     ka: "/amfibiebi/[slug]",
     en: "/amphibians/[slug]",
+  },
+  "/conservation": {
+    ka: "/konservacia",
+    en: "/conservation",
+  },
+  "/conservation/witeli-nusxa-qvewarmavlebi": {
+    ka: "/konservacia/witeli-nusxa-qvewarmavlebi",
+    en: "/conservation/red-list-reptiles",
+  },
+  "/conservation/witeli-nusxa-amfibiebi": {
+    ka: "/konservacia/witeli-nusxa-amfibiebi",
+    en: "/conservation/red-list-amphibians",
+  },
+  "/conservation/ishviati-qvewarmavlebi": {
+    ka: "/konservacia/ishviati-qvewarmavlebi",
+    en: "/conservation/rare-reptiles",
+  },
+  "/conservation/endemuri-qvewarmavlebi": {
+    ka: "/konservacia/endemuri-qvewarmavlebi",
+    en: "/conservation/endemic-reptiles",
   },
   "/venomous-snakes": {
     ka: "/gvelebi/shxamiani-gvelebi",

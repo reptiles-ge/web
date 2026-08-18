@@ -1,4 +1,7 @@
+import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
+import { ConservationGuidePage } from "@/components/ConservationGuidePage";
+import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
 import { LizardComparePage } from "@/components/LizardComparePage";
 import { LizardIdentifyPage } from "@/components/LizardIdentifyPage";
 import { LizardSpeciesIndexPage } from "@/components/LizardSpeciesIndexPage";
@@ -7,16 +10,18 @@ import { SnakeIdentifyPage } from "@/components/SnakeIdentifyPage";
 import { SnakeLargestPage } from "@/components/SnakeLargestPage";
 import { SnakeRangePage } from "@/components/SnakeRangePage";
 import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
+import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
+import { TurtleSpeciesIndexPage } from "@/components/TurtleSpeciesIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
+  CLUSTER_PARENTS,
   type ClusterGuideId,
   type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
-import { GROUP_HUBS } from "@/lib/groupHubs";
 import {
   absoluteUrl,
   localeAlternates,
@@ -48,11 +53,22 @@ const CLUSTER_PAGES: Record<
   "lizard-index": LizardSpeciesIndexPage,
   "lizard-identify": LizardIdentifyPage,
   "lizard-glass": LizardComparePage,
+  "turtle-index": TurtleSpeciesIndexPage,
+  "turtle-land": ClusterGuidePage,
+  "turtle-water": ClusterGuidePage,
+  "turtle-identify": TurtleIdentifyPage,
+  "amphibian-index": AmphibianSpeciesIndexPage,
+  "amphibian-frogs-index": FrogSpeciesIndexPage,
+  "amphibian-newts": ClusterGuidePage,
+  "conservation-reptiles": ConservationGuidePage,
+  "conservation-amphibians": ConservationGuidePage,
+  "conservation-rare": ConservationGuidePage,
+  "conservation-endemic": ConservationGuidePage,
 };
 
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
-  const parent = GROUP_HUBS[guide.parentHub];
+  const parent = CLUSTER_PARENTS[guide.parentHub];
   const PageView = CLUSTER_PAGES[guideId];
 
   async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -64,9 +80,10 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const title = t("metaTitle");
     const description = t("metaDescription");
     const url = absoluteUrl(localePath(locale, guide.pathname));
-    const catalog = getCatalogSpecies().filter(guide.matches);
+    const catalog = getCatalogSpecies();
+    const matched = catalog.filter(guide.matches);
     const hero =
-      catalog.find((item) => item.id === guide.heroSpeciesId) ?? catalog[0];
+      catalog.find((item) => item.id === guide.heroSpeciesId) ?? matched[0];
     const ogImage = speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
 
     return {
@@ -126,12 +143,14 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     });
 
     const url = absoluteUrl(localePath(locale, guide.pathname));
-    const species = getCatalogSpecies()
+    const catalog = getCatalogSpecies();
+    const species = catalog
       .filter(guide.matches)
       .map((item) => localizeSpecies(item, locale));
-    const hero =
-      species.find((item) => item.id === guide.heroSpeciesId) ?? species[0];
-    const heroSrc = hero?.image ?? "";
+    const heroRaw =
+      catalog.find((item) => item.id === guide.heroSpeciesId) ??
+      catalog.filter(guide.matches)[0];
+    const heroSrc = heroRaw?.image ?? "";
 
     const breadcrumbLd = {
       "@context": "https://schema.org",

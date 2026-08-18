@@ -19,8 +19,11 @@ const exploreLinks = [
   { href: "/lizards" as const, labelKey: "lizards" as const },
   { href: "/lizards/saxeoebebi" as const, labelKey: "lizardIndex" as const },
   { href: "/turtles" as const, labelKey: "turtles" as const },
+  { href: "/turtles/saxeoebebi" as const, labelKey: "turtleIndex" as const },
   { href: "/amphibians" as const, labelKey: "amphibians" as const },
   { href: "/amphibians/bayayi" as const, labelKey: "frogs" as const },
+  { href: "/amphibians/tritoni-salamandra" as const, labelKey: "newts" as const },
+  { href: "/conservation" as const, labelKey: "conservation" as const },
   { href: "/regions" as const, labelKey: "regions" as const },
   { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
 ];
