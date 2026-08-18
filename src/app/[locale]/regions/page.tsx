@@ -7,6 +7,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
 import { hasLocale } from "next-intl";
@@ -75,11 +76,7 @@ export default async function RegionsPage({ params }: Props) {
     name: t("metaTitle"),
     description: t("metaDescription"),
     url,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Place",
       name: locale === "en" ? "Georgia" : "საქართველო",

@@ -14,7 +14,6 @@ import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -58,10 +57,7 @@ export function AtlasSpeciesCard({
       <Link
         href={speciesHref(species.id, locale)}
         className="absolute inset-0 z-10"
-        aria-label={speciesSeoAnchor(
-          species.commonName,
-          species.scientificName,
-        )}
+        aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
       />
 
       <div className="relative aspect-[4/5] overflow-hidden bg-ink sm:aspect-[5/6]">
@@ -123,7 +119,7 @@ export function AtlasSpeciesCard({
 
         <div className="mt-5 flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
-            {speciesSeoAnchor(species.commonName, species.scientificName)}
+            {t("exploreSpecies")}
             <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </span>
         </div>

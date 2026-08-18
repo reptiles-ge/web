@@ -7,6 +7,7 @@ import {
   localePath,
   organizationJsonLd,
   siteConfig,
+  siteEntityId,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -69,11 +70,7 @@ export default async function Contact({ params }: Props) {
     name: `${t("metaTitle")} — ${siteConfig.name}`,
     description: t("metaDescription"),
     url,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    isPartOf: { "@id": siteEntityId("website") },
     mainEntity: organizationJsonLd({
       description: t("metaDescription"),
     }),

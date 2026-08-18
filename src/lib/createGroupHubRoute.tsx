@@ -12,6 +12,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
@@ -125,16 +126,11 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       name: t("metaTitle"),
       description: t("metaDescription"),
       url,
-      isPartOf: {
-        "@type": "WebSite",
-        name: siteConfig.name,
-        url: absoluteUrl("/"),
-      },
+      isPartOf: { "@id": siteEntityId("website") },
       about: {
         "@type": "Place",
         name: locale === "en" ? "Georgia" : "საქართველო",
       },
-      keywords: t("keywords"),
       inLanguage: locale,
       mainEntity: {
         "@type": "ItemList",
@@ -146,19 +142,6 @@ export function createGroupHubRoute(hubId: GroupHubId) {
           name: `${item.commonName} (${item.scientificName})`,
         })),
       },
-    };
-
-    const itemListLd = {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      name: t("title"),
-      numberOfItems: species.length,
-      itemListElement: species.map((item, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        url: speciesPageUrl(locale, item.id),
-        name: `${item.commonName} (${item.scientificName})`,
-      })),
     };
 
     const faqLd = {
@@ -178,7 +161,6 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       <>
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
-        <JsonLd data={itemListLd} />
         <JsonLd data={faqLd} />
         <GroupHubPage hubId={hubId} species={species} heroSrc={heroSrc} />
       </>

@@ -10,44 +10,6 @@ export const siteConfig = {
     "აღმოაჩინე, გაიგე და დაიცავი საქართველოს ქვეწარმავლები. ორენოვანი ციფრული ატლასი სახეობების პროფილებით, რეგიონალური რუკებით, შხამიანი გველების გიდითა და ველის ფოტოგრაფიით.",
   locale: "ka_GE",
   language: "ka",
-  keywords: [
-    "ქვეწარმავლები",
-    "საქართველო",
-    "კავკასია",
-    "ატლასი",
-    "შხამიანი გველები საქართველოში",
-    "შხამიანი გველები",
-    "გველგესლა",
-    "Vipera dinniki",
-    "დინიკის გველგესლა",
-    "გიურზა",
-    "Macrovipera lebetina",
-    "კავკასიური გველგესლა",
-    "Vipera kaznakovi",
-    "ცხვირრქოსანი გველგესლა",
-    "Vipera transcaucasiana",
-    "დარევსკის გველგესლა",
-    "Vipera darevskii",
-    "ველის გველგესლა",
-    "Vipera renardi",
-    "სტეპის გველგესლა",
-    "გველხოკერა",
-    "Pseudopus apodus",
-    "წენგოსფერი მცურავი",
-    "Platyceps najadum",
-    "სახეებიანი მცურავი",
-    "Elaphe dione",
-    "კატისთვალა",
-    "Telescopus fallax",
-    "ესკულაპის მცურავი",
-    "გრძელი მცურავი",
-    "Zamenis longissimus",
-    "ბიოლოგია",
-    "კონსერვაცია",
-    "Georgia reptiles",
-    "venomous snakes Georgia",
-    "Reptiles",
-  ],
 } as const;
 
 export function getSiteUrl() {
@@ -176,14 +138,36 @@ export function speciesAlternates(locale: AppLocale, id: string) {
   };
 }
 
+export function siteEntityId(fragment: "organization" | "website") {
+  return `${getSiteUrl()}/#${fragment}`;
+}
+
 export function organizationJsonLd(options?: {
   description?: string;
 }): Record<string, unknown> {
   return {
     "@type": "Organization",
+    "@id": siteEntityId("organization"),
     name: siteConfig.name,
     url: absoluteUrl("/"),
-    logo: `${CDN_BASE}/logo.webp`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${CDN_BASE}/logo.webp`,
+    },
     ...(options?.description ? { description: options.description } : {}),
+  };
+}
+
+export function websiteJsonLd(options: {
+  description: string;
+}): Record<string, unknown> {
+  return {
+    "@type": "WebSite",
+    "@id": siteEntityId("website"),
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
+    description: options.description,
+    inLanguage: ["ka", "en"],
+    publisher: { "@id": siteEntityId("organization") },
   };
 }

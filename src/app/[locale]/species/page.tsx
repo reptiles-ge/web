@@ -14,6 +14,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
   speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
@@ -120,30 +121,13 @@ export default async function SpeciesIndexPage({
     ],
   };
 
-  const itemListLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: t("title"),
-    numberOfItems: catalog.length,
-    itemListElement: catalog.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-          url: speciesPageUrl(locale, item.id),
-      name: `${item.commonName} (${item.scientificName})`,
-    })),
-  };
-
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: t("metaTitle"),
     description: t("metaDescription"),
     url,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Place",
       name: locale === "en" ? "Georgia" : "საქართველო",
@@ -155,14 +139,9 @@ export default async function SpeciesIndexPage({
         "@type": "ListItem",
         position: index + 1,
         url: speciesPageUrl(locale, item.id),
-        name: item.commonName,
+        name: `${item.commonName} (${item.scientificName})`,
       })),
     },
-    hasPart: catalog.map((item) => ({
-      "@type": "WebPage",
-      name: `${item.commonName} (${item.scientificName})`,
-          url: speciesPageUrl(locale, item.id),
-    })),
     inLanguage: locale,
     dateModified: stats.lastUpdated ?? undefined,
   };
@@ -171,7 +150,6 @@ export default async function SpeciesIndexPage({
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={collectionLd} />
-      <JsonLd data={itemListLd} />
       <SpeciesAtlas initialFilters={initialFilters} />
     </>
   );

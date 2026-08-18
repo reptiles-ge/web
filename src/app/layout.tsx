@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  keywords: [...siteConfig.keywords],
   authors: [
     {
       name: siteConfig.name,

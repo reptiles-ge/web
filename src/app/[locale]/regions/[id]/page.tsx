@@ -14,6 +14,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
   speciesPageUrl,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
@@ -74,10 +75,8 @@ export async function generateMetadata({
       name,
       nameIn,
       locale === "en" ? "Georgia reptiles" : "საქართველოს ქვეწარმავლები",
-      locale === "en" ? "snakes" : "გველები",
-      locale === "en" ? "venomous snakes" : "შხამიანი გველები",
+      locale === "en" ? "regions of Georgia" : "საქართველოს რეგიონები",
       localizeRegionText(content.biome, locale),
-      siteConfig.name,
     ],
     alternates: localeAlternates(locale, path),
     openGraph: {
@@ -130,11 +129,7 @@ export default async function RegionPage({ params }: PageProps) {
     name: t("regionMetaTitle", { name, nameIn }),
     description: overview,
     url: pageUrl,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Place",
       name,

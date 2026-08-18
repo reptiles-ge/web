@@ -12,7 +12,6 @@ import {
   getViperSpecies,
 } from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import {
   ArrowLeft,
   ArrowRight,
@@ -180,20 +179,14 @@ export function VenomousSnakesPage({
                       {t("featuredEyebrow")}
                     </p>
                     <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
-                      {speciesSeoAnchor(
-                        giurza.commonName,
-                        giurza.scientificName,
-                      )}
+                      {giurza.commonName}
                     </p>
                     <p className="mt-1 text-[14px] italic text-muted-foreground">
                       {giurza.scientificName}
                     </p>
                   </div>
                   <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
-                    {speciesSeoAnchor(
-                      giurza.commonName,
-                      giurza.scientificName,
-                    )}
+                    {t("openProfile")}
                     <ArrowUpRight className="size-3.5" />
                   </span>
                 </Link>

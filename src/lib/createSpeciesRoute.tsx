@@ -22,12 +22,18 @@ import {
   localePath,
   organizationJsonLd,
   siteConfig,
+  siteEntityId,
   speciesAlternates,
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import { speciesMetaTitle, speciesTitleIntentKey } from "@/lib/speciesMeta";
+import { isPlaceholderBody } from "@/lib/speciesContent";
+import {
+  speciesMetaDescription,
+  speciesMetaTitle,
+  speciesTitleIntentKey,
+} from "@/lib/speciesMeta";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -74,8 +80,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       item.scientificName,
       t(speciesTitleIntentKey(group, raw.danger)),
     );
-    const description =
-      group === "snake" && isVenomousDanger(raw.danger)
+    const description = isPlaceholderBody(item.overview)
+      ? group === "snake" && isVenomousDanger(raw.danger)
         ? t("descriptionVenomous", {
             name: item.commonName,
             scientific: item.scientificName,
@@ -83,7 +89,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         : t("descriptionDefault", {
             name: item.commonName,
             scientific: item.scientificName,
-          });
+          })
+      : speciesMetaDescription(item.overview);
     const url = speciesPageUrl(locale, item.id);
     const keywords = speciesSeoKeywords(item, locale);
 
@@ -102,7 +109,6 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         title,
         description,
         modifiedTime: raw.updatedAt,
-        publishedTime: raw.updatedAt,
         images: [
           {
             url: speciesOgImageUrl(item.id, item.image),
@@ -194,17 +200,6 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     };
 
     const org = organizationJsonLd();
-    const definedTerm = {
-      "@type": "DefinedTerm",
-      name: item.commonName,
-      alternateName: item.scientificName,
-      inDefinedTermSet: {
-        "@type": "DefinedTermSet",
-        name:
-          locale === "en" ? "Georgia reptiles" : "საქართველოს ქვეწარმავლები",
-        url: absoluteUrl("/"),
-      },
-    };
 
     const jsonLd = {
       "@context": "https://schema.org",
@@ -213,23 +208,15 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       description: item.description,
       keywords: speciesJsonLdKeywords(item, locale),
       image: [ogImage, ...galleryImages],
-      datePublished: raw.updatedAt,
       dateModified: raw.updatedAt,
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": pageUrl,
       },
       mainEntity: taxon,
-      about: [taxon, definedTerm],
-      mentions: definedTerm,
-      author: org,
-      publisher: {
-        ...org,
-        logo: {
-          "@type": "ImageObject",
-          url: "https://cdn.reptiles.ge/logo.webp",
-        },
-      },
+      about: taxon,
+      author: { "@id": siteEntityId("organization") },
+      publisher: org,
       citation: raw.sources.map((source) =>
         source.url
           ? {

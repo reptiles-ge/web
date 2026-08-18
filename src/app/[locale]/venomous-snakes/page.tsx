@@ -9,6 +9,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
   speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
@@ -121,19 +122,6 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     ],
   };
 
-  const itemListLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: t("title"),
-    numberOfItems: venomous.length,
-    itemListElement: venomous.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: speciesPageUrl(locale, item.id),
-      name: `${item.commonName} (${item.scientificName})`,
-    })),
-  };
-
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -153,16 +141,11 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     name: t("metaTitle"),
     description: t("metaDescription"),
     url,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Place",
       name: locale === "en" ? "Georgia" : "საქართველო",
     },
-    keywords: t("keywords"),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: venomous.length,
@@ -180,7 +163,6 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <JsonLd data={itemListLd} />
       <JsonLd data={faqLd} />
       <VenomousSnakesPage species={venomous} heroSrc={heroSrc} />
     </>

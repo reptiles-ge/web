@@ -6,6 +6,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -146,11 +147,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
     name: t("metaTitle"),
     description: t("metaDescription"),
     url,
-    isPartOf: {
-      "@type": "WebSite",
-      name: siteConfig.name,
-      url: absoluteUrl("/"),
-    },
+    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Thing",
       name: locale === "en" ? "Snakes in residential yards" : "გველი ეზოში",

@@ -15,9 +15,11 @@ import {
   localePath,
   organizationJsonLd,
   siteConfig,
+  siteEntityId,
   speciesPageUrl,
+  websiteJsonLd,
 } from "@/lib/site";
-import { HOME_DEFINED_TERMS } from "@/lib/seoKeywords";
+import { HOME_DEFINED_TERMS, siteKeywords } from "@/lib/seoKeywords";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -49,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: title,
     },
     description,
-    keywords: [...siteConfig.keywords],
+    keywords: siteKeywords(locale),
     alternates,
     openGraph: {
       title,
@@ -89,107 +91,90 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   const speciesSearchUrl = absoluteUrl(localePath(locale, "/species"));
   const description = t("description");
   const stats = getAtlasStats();
+  const org = organizationJsonLd({ description });
+  const termsId = `${homeUrl}#atlas-terms`;
 
-  const websiteJsonLd = {
+  const graph = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    url: homeUrl,
-    description,
-    inLanguage: locale,
-    keywords: [...siteConfig.keywords],
-    about: {
-      "@type": "DefinedTermSet",
-      name:
-        locale === "en"
-          ? "Georgia reptiles"
-          : "საქართველოს ქვეწარმავლები",
-    },
-    publisher: organizationJsonLd({ description }),
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${speciesSearchUrl}?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
-
-  const organizationJsonLdData = {
-    "@context": "https://schema.org",
-    ...organizationJsonLd({ description }),
-  };
-
-  const datasetJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    name:
-      locale === "en"
-        ? "Atlas of reptiles of Georgia"
-        : "საქართველოს ქვეწარმავლების ატლასი",
-    description,
-    url: homeUrl,
-    keywords: [...siteConfig.keywords],
-    creator: organizationJsonLd({ description }),
-    publisher: organizationJsonLd({ description }),
-    spatialCoverage: {
-      "@type": "Place",
-      name: locale === "en" ? "Georgia" : "საქართველო",
-    },
-    variableMeasured: [
+    "@graph": [
+      org,
+      websiteJsonLd({ description }),
       {
-        "@type": "PropertyValue",
-        name: locale === "en" ? "Species profiles" : "სახეობების პროფილები",
-        value: stats.total,
+        "@type": "WebPage",
+        "@id": homeUrl,
+        url: homeUrl,
+        name: t("title"),
+        description,
+        inLanguage: locale,
+        isPartOf: { "@id": siteEntityId("website") },
+        about: { "@id": termsId },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${speciesSearchUrl}?q={search_term_string}`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
       {
-        "@type": "PropertyValue",
-        name: locale === "en" ? "Regions" : "რეგიონები",
-        value: stats.regions,
+        "@type": "Dataset",
+        name:
+          locale === "en"
+            ? "Atlas of reptiles of Georgia"
+            : "საქართველოს ქვეწარმავლების ატლასი",
+        description,
+        url: homeUrl,
+        creator: { "@id": siteEntityId("organization") },
+        publisher: { "@id": siteEntityId("organization") },
+        spatialCoverage: {
+          "@type": "Place",
+          name: locale === "en" ? "Georgia" : "საქართველო",
+        },
+        variableMeasured: [
+          {
+            "@type": "PropertyValue",
+            name: locale === "en" ? "Species profiles" : "სახეობების პროფილები",
+            value: stats.total,
+          },
+          {
+            "@type": "PropertyValue",
+            name: locale === "en" ? "Regions" : "რეგიონები",
+            value: stats.regions,
+          },
+          {
+            "@type": "PropertyValue",
+            name: locale === "en" ? "Venomous species" : "შხამიანი სახეობები",
+            value: stats.venomous,
+          },
+        ],
+        isAccessibleForFree: true,
+        inLanguage: ["ka", "en"],
       },
       {
-        "@type": "PropertyValue",
-        name: locale === "en" ? "Venomous species" : "შხამიანი სახეობები",
-        value: stats.venomous,
+        "@type": "DefinedTermSet",
+        "@id": termsId,
+        name:
+          locale === "en"
+            ? "Georgia reptiles"
+            : "საქართველოს ქვეწარმავლები",
+        alternateName:
+          locale === "en"
+            ? "საქართველოს ქვეწარმავლები"
+            : "Georgia reptiles",
+        url: homeUrl,
+        hasDefinedTerm: HOME_DEFINED_TERMS.map((term) => ({
+          "@type": "DefinedTerm",
+          name: locale === "en" ? term.en : term.ka,
+          url: speciesPageUrl(locale as AppLocale, term.speciesId),
+        })),
       },
     ],
-    isAccessibleForFree: true,
-    inLanguage: [locale === "en" ? "en" : "ka", locale === "en" ? "ka" : "en"],
-  };
-
-  const definedTermSetJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTermSet",
-    name:
-      locale === "en"
-        ? "Georgia reptiles"
-        : "საქართველოს ქვეწარმავლები",
-    alternateName:
-      locale === "en"
-        ? "საქართველოს ქვეწარმავლები"
-        : "Georgia reptiles",
-    url: homeUrl,
-    hasDefinedTerm: HOME_DEFINED_TERMS.map((term) => ({
-      "@type": "DefinedTerm",
-      name: locale === "en" ? term.en : term.ka,
-      url:
-        term.kind === "species" && term.speciesId
-          ? speciesPageUrl(locale as AppLocale, term.speciesId)
-          : absoluteUrl(localePath(locale, term.path ?? "/")),
-    })),
   };
 
   return (
     <div className="min-h-screen bg-background">
-      <JsonLd
-        data={[
-          websiteJsonLd,
-          organizationJsonLdData,
-          datasetJsonLd,
-          definedTermSetJsonLd,
-        ]}
-      />
+      <JsonLd data={graph} />
       <main>
         <Hero />
         <HomeProof />

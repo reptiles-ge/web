@@ -7,7 +7,7 @@ import {
 } from "@/lib/site";
 import { resolveSpeciesId } from "@/lib/speciesRoutes";
 
-export const speciesOgAlt = "ქართული გველგესლები — Reptiles";
+export const speciesOgAlt = "Reptiles — Georgia";
 export const speciesOgSize = {
   width: 1200,
   height: 630,

@@ -32,7 +32,7 @@ export function RelatedGuideCard({
       : t(`cluster.${card.key}.title`);
   const cta =
     card.kind === "species" && item
-      ? speciesSeoAnchor(item.commonName, item.scientificName)
+      ? t("openProfile")
       : t(`cluster.${card.key}.cta`);
 
   return (

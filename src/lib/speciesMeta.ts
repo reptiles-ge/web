@@ -35,9 +35,14 @@ export function speciesImageAlt(
   return `${commonName} (${scientificName}) ${location}`;
 }
 
-export function speciesMetaDescription(overview: string, cta: string) {
+export function speciesMetaDescription(overview: string, maxLength = 160) {
   const lead = firstSentence(overview);
-  return `${lead} ${cta}`.trim();
+  if (lead.length <= maxLength) return lead;
+
+  const truncated = lead.slice(0, maxLength - 1);
+  const lastSpace = truncated.lastIndexOf(" ");
+  const clipped = (lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated).trim();
+  return `${clipped}…`;
 }
 
 function firstSentence(text: string) {

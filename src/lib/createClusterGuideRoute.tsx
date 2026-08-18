@@ -26,6 +26,7 @@ import {
   localeAlternates,
   localePath,
   siteConfig,
+  siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
@@ -182,16 +183,11 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             name: t("metaTitle"),
             description: t("metaDescription"),
             url,
-            isPartOf: {
-              "@type": "WebSite",
-              name: siteConfig.name,
-              url: absoluteUrl("/"),
-            },
+            isPartOf: { "@id": siteEntityId("website") },
             about: {
               "@type": "Place",
               name: locale === "en" ? "Georgia" : "საქართველო",
             },
-            keywords: t("keywords"),
             inLanguage: locale,
             mainEntity: {
               "@type": "ItemList",
@@ -210,16 +206,11 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             name: t("metaTitle"),
             description: t("metaDescription"),
             url,
-            isPartOf: {
-              "@type": "WebSite",
-              name: siteConfig.name,
-              url: absoluteUrl("/"),
-            },
+            isPartOf: { "@id": siteEntityId("website") },
             about: {
               "@type": "Place",
               name: locale === "en" ? "Georgia" : "საქართველო",
             },
-            keywords: t("keywords"),
             inLanguage: locale,
           };
 

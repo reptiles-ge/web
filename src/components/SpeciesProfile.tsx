@@ -29,7 +29,6 @@ import {
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import {
   getHubIndexTitleKey,
@@ -430,10 +429,7 @@ export function SpeciesProfile({
                           {item.scientificName}
                         </p>
                         <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
-                          {speciesSeoAnchor(
-                            item.commonName,
-                            item.scientificName,
-                          )}
+                          {item.commonName}
                         </h3>
                         <p className="mt-2 text-[12px] text-white/50">
                           {item.location}
