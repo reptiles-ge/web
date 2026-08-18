@@ -158,7 +158,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
             {clusterCards.length > 0 ? (
               <div className="mt-14 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
                 {clusterCards.map((card, index) => (
-                  <Reveal key={card.key} delay={index * 50}>
+                  <Reveal key={card.key} delay={index * 50} className="h-full">
                     <RelatedGuideCard
                       card={card}
                       locale={locale}
@@ -229,10 +229,10 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
             </Reveal>
             <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {relatedHubs.map((hub, index) => (
-                <Reveal key={hub.id} delay={index * 50}>
+                <Reveal key={hub.id} delay={index * 50} className="h-full">
                   <Link
                     href={hub.path}
-                    className="group flex min-h-[160px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
+                    className="group flex h-full min-h-[160px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
                   >
                     <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
