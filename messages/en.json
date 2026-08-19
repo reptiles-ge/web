@@ -216,6 +216,8 @@
     "galleryTitle": "in photos",
     "photo": "Photo",
     "photoCredit": "Photo:",
+    "photoLocation": "Location:",
+    "photoDate": "Date:",
     "close": "Close",
     "prevPhoto": "Previous photo",
     "nextPhoto": "Next photo",

@@ -141,6 +141,11 @@ function toTranslation(item: Species) {
     facts: item.facts,
     ...(item.identification ? { identification: item.identification } : {}),
     ...(item.faq ? { faq: item.faq } : {}),
+    ...(item.gallery.length > 0 ? { gallery: item.gallery } : {}),
+    ...(item.imageCredit ? { imageCredit: item.imageCredit } : {}),
+    ...(item.mobileImageCredit
+      ? { mobileImageCredit: item.mobileImageCredit }
+      : {}),
   };
 }
 

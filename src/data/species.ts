@@ -18,8 +18,10 @@ export type SpeciesIdentification = {
 };
 
 export type PhotoCredit = {
-  photographer: string;
+  photographer?: string;
   url?: string;
+  location?: string;
+  date?: string;
 };
 
 export type GalleryImage = {
@@ -78,16 +80,58 @@ export type SpeciesTranslation = {
   facts: string[];
   identification?: SpeciesIdentification;
   faq?: SpeciesFaq[];
+  gallery?: GalleryImage[];
+  imageCredit?: PhotoCredit;
+  mobileImageCredit?: PhotoCredit;
 };
 
 export function gallerySrcs(gallery: GalleryImage[]): string[] {
   return gallery.map((item) => item.src);
 }
 
+export function hasPhotoCredit(
+  credit?: PhotoCredit,
+): credit is PhotoCredit {
+  return Boolean(
+    credit?.photographer || credit?.location || credit?.date,
+  );
+}
+
+export function overlayPhotoCredit(
+  base?: PhotoCredit,
+  extra?: PhotoCredit,
+): PhotoCredit | undefined {
+  const photographer = extra?.photographer ?? base?.photographer;
+  const url = extra?.url ?? base?.url;
+  const location = extra?.location ?? base?.location;
+  const date = extra?.date ?? base?.date;
+  const merged: PhotoCredit = {
+    ...(photographer ? { photographer } : {}),
+    ...(url ? { url } : {}),
+    ...(location ? { location } : {}),
+    ...(date ? { date } : {}),
+  };
+  return hasPhotoCredit(merged) ? merged : undefined;
+}
+
+export function mergeGallery(
+  base: GalleryImage[],
+  translated?: GalleryImage[],
+): GalleryImage[] {
+  if (!translated?.length) return base;
+  const bySrc = new Map(translated.map((item) => [item.src, item]));
+  return base.map((item) => {
+    const extra = bySrc.get(item.src);
+    if (!extra) return item;
+    const credit = overlayPhotoCredit(item.credit, extra.credit);
+    return credit ? { src: item.src, credit } : { src: item.src };
+  });
+}
+
 export function resolvePhotoCredit(
   ...credits: Array<PhotoCredit | undefined>
 ): PhotoCredit | undefined {
-  return credits.find(Boolean);
+  return credits.find(hasPhotoCredit);
 }
 
 export const dangerLabels: Record<DangerLevel, string> = {

@@ -1,4 +1,4 @@
-import type { DangerLevel } from "@/data/species";
+import type { DangerLevel, PhotoCredit } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 
@@ -33,6 +33,19 @@ export function speciesImageAlt(
   location: string,
 ) {
   return `${commonName} (${scientificName}) ${location}`;
+}
+
+export function speciesPhotoAlt(
+  commonName: string,
+  scientificName: string,
+  location: string,
+  credit?: PhotoCredit,
+) {
+  const place = credit?.location?.trim() || location;
+  const parts = [`${commonName} (${scientificName})`];
+  if (place) parts.push(place);
+  if (credit?.photographer) parts.push(credit.photographer);
+  return parts.join(" — ");
 }
 
 export function speciesMetaDescription(overview: string, maxLength = 160) {

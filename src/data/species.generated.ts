@@ -3890,19 +3890,25 @@ export const species: Species[] = [
       {
         "src": "/images/macrovipera-lebetina-ioane-1.jpg",
         "credit": {
-          "photographer": "იოანე როსტიაშვილი"
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ყვარელი",
+          "date": "2026-08-17"
         }
       },
       {
         "src": "/images/macrovipera-lebetina-ioane-2.jpg",
         "credit": {
-          "photographer": "იოანე როსტიაშვილი"
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ყვარელი",
+          "date": "2026-08-17"
         }
       },
       {
         "src": "/images/macrovipera-lebetina-ioane-3.jpg",
         "credit": {
-          "photographer": "იოანე როსტიაშვილი"
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ყვარელი",
+          "date": "2026-08-17"
         }
       },
       {
@@ -3986,7 +3992,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-19T10:56:44+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7482,6 +7488,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the snake-eyed lizard?",
         "answer": "Ophisops is a lacertid with fused eyelids, but a larger, fast lizard of open ground. Ablepharus is a tiny skink with smooth scales."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/ablepharus-pannonicus-3.jpg"
+      }
     ]
   },
   "anguis-colchica": {
@@ -7542,6 +7559,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Where is it sampled in Georgia?",
         "answer": "The checklist figure is from Nigoeti; barcodes are from Mtisdziri, Baniskhevi, and Lanchkhuti (Tarkhnishvili et al. 2026)."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/anguis-colchica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/anguis-colchica-3.jpg"
+      }
     ]
   },
   "bufo-verrucosissimus": {
@@ -7598,6 +7626,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-3.jpg"
+      }
     ]
   },
   "bufotes-viridis": {
@@ -7649,6 +7688,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-3.jpg"
       }
     ]
   },
@@ -7724,6 +7774,53 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is ovoviviparous — young are born live, usually 2–15 individuals."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-4.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-1.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-3.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-7.webp"
+      }
     ]
   },
   "darevskia-adjarica": {
@@ -7780,6 +7877,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-adjarica-3.jpg"
+      }
     ]
   },
   "darevskia-alpina": {
@@ -7830,6 +7938,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-alpina.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-alpina-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-alpina-3.jpg"
       }
     ]
   },
@@ -7887,6 +8006,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-armeniaca-3.jpg"
+      }
     ]
   },
   "darevskia-brauneri": {
@@ -7942,6 +8072,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-brauneri-3.jpg"
       }
     ]
   },
@@ -7999,6 +8140,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-caucasica-3.jpg"
+      }
     ]
   },
   "darevskia-clarkorum": {
@@ -8054,6 +8206,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-clarkorum.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-clarkorum-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-clarkorum-3.jpg"
       }
     ]
   },
@@ -8111,6 +8274,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-daghestanica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-daghestanica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-daghestanica-3.jpg"
+      }
     ]
   },
   "darevskia-dahli": {
@@ -8166,6 +8340,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-dahli.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-dahli-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-dahli-3.jpg"
       }
     ]
   },
@@ -8223,6 +8408,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-3.jpg"
+      }
     ]
   },
   "darevskia-mixta": {
@@ -8278,6 +8474,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-mixta.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-mixta-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-mixta-3.jpg"
       }
     ]
   },
@@ -8335,6 +8542,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-obscura.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-obscura-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-obscura-3.jpg"
+      }
     ]
   },
   "darevskia-pontica": {
@@ -8390,6 +8608,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-pontica.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-pontica-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-pontica-3.jpg"
       }
     ]
   },
@@ -8447,6 +8676,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-portschinskii.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-portschinskii-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-portschinskii-3.jpg"
+      }
     ]
   },
   "darevskia-praticola": {
@@ -8502,6 +8742,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-praticola.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-praticola-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-praticola-3.jpg"
       }
     ]
   },
@@ -8559,6 +8810,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-raddei.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-raddei-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-raddei-3.jpg"
+      }
     ]
   },
   "darevskia-valentini": {
@@ -8615,6 +8877,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification Harmless. No venom."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-valentini.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-valentini-3.jpg"
+      }
     ]
   },
   "dolichophis-caspius": {
@@ -8670,6 +8943,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is this the Levantine viper?",
         "answer": "No. The Levantine viper is a true viper with a vertical pupil. This is a round-pupilled, non-venomous racer."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-caspius.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-caspius-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-caspius-3.jpg"
       }
     ]
   },
@@ -8745,6 +9029,29 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 5–11 eggs; young hatch independently."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-7.webp"
+      }
     ]
   },
   "eirenis-collaris": {
@@ -8800,6 +9107,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is this a blind snake or a sand boa?",
         "answer": "No. Eirenis has normal eyes and colubrid scales, not a worm-like body (blind snake) or a stout boa build."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eirenis-collaris.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-2.jpg"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-3.jpg"
       }
     ]
   },
@@ -8857,7 +9175,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "What does “basal lineage” mean here?",
         "answer": "Following Pyron et al. 2013 (cited in the checklist), E. modestus belongs to the most basal lineage of dwarf snakes."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
+        "credit": {
+          "photographer": "Roberto Sindaco",
+          "url": "https://www.inaturalist.org/observations/105717471"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-2.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://www.inaturalist.org/observations/54925"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-3.jpg",
+        "credit": {
+          "photographer": "brechtheusequin",
+          "url": "https://www.inaturalist.org/observations/345956305"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Roberto Sindaco",
+      "url": "https://www.inaturalist.org/observations/105717471"
+    },
+    "mobileImageCredit": {
+      "photographer": "Titouan Roguet",
+      "url": "https://www.inaturalist.org/observations/183208028"
+    }
   },
   "elaphe-dione": {
     "commonName": "Steppe ratsnake",
@@ -8931,7 +9280,52 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating is in spring; the female lays usually 3–15 eggs in July–August (sometimes up to 24). Young hatch independently."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-dione-2.jpg",
+        "credit": {
+          "photographer": "Zinogre",
+          "url": "https://www.inaturalist.org/observations/140744748"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-dione-3.jpg",
+        "credit": {
+          "photographer": "Сергей Грабчак",
+          "url": "https://www.inaturalist.org/observations/246917579"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-dione-5.jpg",
+        "credit": {
+          "photographer": "Моховинка",
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-dione-6.jpg",
+        "credit": {
+          "photographer": "fisheyes",
+          "url": "https://www.inaturalist.org/observations/166546598"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-dione-7.jpg",
+        "credit": {
+          "photographer": "svetlanaagafonova",
+          "url": "https://www.inaturalist.org/observations/97425149"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Zinogre",
+      "url": "https://www.inaturalist.org/observations/140744748"
+    },
+    "mobileImageCredit": {
+      "photographer": "Dmitry Dubikovskiy",
+      "url": "https://www.inaturalist.org/observations/274585553"
+    }
   },
   "elaphe-urartica": {
     "commonName": "Urartian ratsnake",
@@ -9005,6 +9399,35 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in spring; the female lays several eggs (usually roughly 4–16). Young hatch independently."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-ioane-1.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/elaphe-urartica-7.webp"
+      }
     ]
   },
   "emys-orbicularis": {
@@ -9061,7 +9484,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. It has no venom."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/emys-orbicularis.jpg",
+        "credit": {
+          "photographer": "Полина Яковлевна Нехаева (Лихачева)",
+          "url": "https://www.inaturalist.org/observations/18780442"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/emys-orbicularis-2.jpg",
+        "credit": {
+          "photographer": "Almantas Kulbis",
+          "url": "https://www.inaturalist.org/observations/4474575"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
+        "credit": {
+          "photographer": "joepon",
+          "url": "https://www.inaturalist.org/observations/370280848"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Полина Яковлевна Нехаева (Лихачева)",
+      "url": "https://www.inaturalist.org/observations/18780442"
+    },
+    "mobileImageCredit": {
+      "photographer": "joepon",
+      "url": "https://www.inaturalist.org/observations/370280848"
+    }
   },
   "eremias-arguta": {
     "commonName": "Steppe-Runner",
@@ -9117,7 +9571,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Which is rarer?",
         "answer": "The checklist calls E. velox “fairly common” and E. arguta sporadic."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eremias-arguta.jpg",
+        "credit": {
+          "photographer": "Nikita Sevastianov",
+          "url": "https://www.inaturalist.org/observations/41042387"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eremias-arguta-2.jpg",
+        "credit": {
+          "photographer": "Наталья Бешко",
+          "url": "https://www.inaturalist.org/observations/93553764"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eremias-arguta-3.jpg",
+        "credit": {
+          "photographer": "Eugene Popov",
+          "url": "https://www.inaturalist.org/observations/11997409"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Nikita Sevastianov",
+      "url": "https://www.inaturalist.org/observations/41042387"
+    },
+    "mobileImageCredit": {
+      "photographer": "Aurélien Grimaud",
+      "url": "https://www.inaturalist.org/observations/318012787"
+    }
   },
   "eremias-velox": {
     "commonName": "Rapid Racerunner",
@@ -9173,7 +9658,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is caucasia a separate species?",
         "answer": "The checklist says COI differences may support that, but population-level study is still needed. It is not split here."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eremias-velox.jpg",
+        "credit": {
+          "photographer": "Вячеслав Юсупов",
+          "url": "https://www.inaturalist.org/observations/19103415"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eremias-velox-2.jpg",
+        "credit": {
+          "photographer": "Mohammad Amin Ghaffari",
+          "url": "https://www.inaturalist.org/observations/68975387"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eremias-velox-3.jpg",
+        "credit": {
+          "photographer": "Derek Dohler",
+          "url": "https://www.inaturalist.org/observations/109527"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Вячеслав Юсупов",
+      "url": "https://www.inaturalist.org/observations/19103415"
+    },
+    "mobileImageCredit": {
+      "photographer": "Koray Öğreten",
+      "url": "https://www.inaturalist.org/observations/375543401"
+    }
   },
   "eryx-jaculus": {
     "commonName": "Javelin Sand Boa",
@@ -9229,7 +9745,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Which subspecies occurs in Georgia?",
         "answer": "Tarkhnishvili et al. 2026: E. j. turcicus (Werner, 1935)."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eryx-jaculus.jpg",
+        "credit": {
+          "photographer": "Alexandru Buzatu",
+          "url": "https://www.inaturalist.org/observations/129650363"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
+        "credit": {
+          "photographer": "Leonid A. Neymark",
+          "url": "https://www.inaturalist.org/observations/50042883"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-3.jpg",
+        "credit": {
+          "photographer": "Roberto Sindaco",
+          "url": "https://www.inaturalist.org/observations/619071"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Alexandru Buzatu",
+      "url": "https://www.inaturalist.org/observations/129650363"
+    },
+    "mobileImageCredit": {
+      "photographer": "Roberto Sindaco",
+      "url": "https://www.inaturalist.org/observations/619071"
+    }
   },
   "eumeces-schneiderii": {
     "commonName": "Schneider's Skink",
@@ -9285,7 +9832,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the snake-eyed skink?",
         "answer": "Ablepharus is tiny, with fused eyelids (“snake eye”). Eumeces is a large skink with full limbs and a normal eyelid ring."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eumeces-schneiderii.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/146024985"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eumeces-schneiderii-2.jpg",
+        "credit": {
+          "photographer": "Julien Renoult",
+          "url": "https://www.inaturalist.org/observations/9521266"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/eumeces-schneiderii-3.jpg",
+        "credit": {
+          "photographer": "Edouard Veuillet",
+          "url": "https://www.inaturalist.org/observations/180253623"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Vojtěch Víta",
+      "url": "https://www.inaturalist.org/observations/146024985"
+    },
+    "mobileImageCredit": {
+      "photographer": "רעות בן אלישר",
+      "url": "https://www.inaturalist.org/observations/26596742"
+    }
   },
   "hemorrhois-ravergieri": {
     "commonName": "Spotted Whip Snake",
@@ -9337,7 +9915,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is this a viper?",
         "answer": "No. A round pupil and colubrid build separate it from true vipers."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/hemorrhois-ravergieri.jpg",
+        "credit": {
+          "photographer": "hossein_nabizadeh",
+          "url": "https://www.inaturalist.org/observations/132460931"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/hemorrhois-ravergieri-2.jpg",
+        "credit": {
+          "photographer": "Kudaibergen Amirekul",
+          "url": "https://www.inaturalist.org/observations/123060778"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/hemorrhois-ravergieri-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/181209834"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "hossein_nabizadeh",
+      "url": "https://www.inaturalist.org/observations/132460931"
+    },
+    "mobileImageCredit": {
+      "photographer": "Azan Khan",
+      "url": "https://www.inaturalist.org/observations/130364933"
+    }
   },
   "hyla-orientalis": {
     "commonName": "Eastern Treefrog",
@@ -9393,7 +10002,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/hyla-orientalis.jpg",
+        "credit": {
+          "photographer": "SteveM4560",
+          "url": "https://www.inaturalist.org/observations/185404031"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/hyla-orientalis-2.jpg",
+        "credit": {
+          "photographer": "SteveM4560",
+          "url": "https://www.inaturalist.org/observations/184358994"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/hyla-orientalis-3.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/184035964"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "SteveM4560",
+      "url": "https://www.inaturalist.org/observations/185404031"
+    },
+    "mobileImageCredit": {
+      "photographer": "SteveM4560",
+      "url": "https://www.inaturalist.org/observations/183468484"
+    }
   },
   "hyla-savignyi": {
     "commonName": "Yellow-Lemon Treefrog",
@@ -9445,7 +10085,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/hyla-savignyi.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/3641910"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/hyla-savignyi-2.jpg",
+        "credit": {
+          "photographer": "leuli",
+          "url": "https://www.inaturalist.org/observations/186726539"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/hyla-savignyi-3.jpg",
+        "credit": {
+          "photographer": "מלאכי גבעון",
+          "url": "https://www.inaturalist.org/observations/214749047"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Parham Beyhaghi",
+      "url": "https://www.inaturalist.org/observations/3641910"
+    },
+    "mobileImageCredit": {
+      "photographer": "Mehmet Çelik",
+      "url": "https://www.inaturalist.org/observations/146410607"
+    }
   },
   "lacerta-agilis": {
     "commonName": "Sand Lizard",
@@ -9501,7 +10172,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Which subspecies?",
         "answer": "The checklist: ioriensis in the east, grusinica in the west, brevicaudata in the south and centre."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
+        "credit": {
+          "photographer": "zaharozaur",
+          "url": "https://www.inaturalist.org/observations/204166502"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-2.jpg",
+        "credit": {
+          "photographer": "Lennart Hudel",
+          "url": "https://www.inaturalist.org/observations/32430817"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-3.jpg",
+        "credit": {
+          "photographer": "Kamilya Medeubaeva",
+          "url": "https://www.inaturalist.org/observations/275472082"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "zaharozaur",
+      "url": "https://www.inaturalist.org/observations/204166502"
+    },
+    "mobileImageCredit": {
+      "photographer": "Andrzej Oleksa",
+      "url": "https://www.inaturalist.org/observations/47606873"
+    }
   },
   "lacerta-media": {
     "commonName": "Caucasian Green Lizard",
@@ -9557,7 +10259,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the striped lizard?",
         "answer": "L. strigata is in semiarid habitats throughout the country and is biologically confirmed. L. media is a candidate and mainly eastern."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-media.jpg",
+        "credit": {
+          "photographer": "reisegali",
+          "url": "https://www.inaturalist.org/observations/212425978"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-media-2.jpg",
+        "credit": {
+          "photographer": "Yaman Omran",
+          "url": "https://www.inaturalist.org/observations/68053814"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/240512685"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "reisegali",
+      "url": "https://www.inaturalist.org/observations/212425978"
+    },
+    "mobileImageCredit": {
+      "photographer": "Dr. Fabio Mao Valletta",
+      "url": "https://www.inaturalist.org/observations/134144756"
+    }
   },
   "lacerta-strigata": {
     "commonName": "Striped Lizard",
@@ -9613,7 +10346,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the Caucasian green lizard?",
         "answer": "L. media is a candidate in the L. trilineata complex and is mainly in semiarid eastern Georgia. Compare the profiles."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-strigata.jpg",
+        "credit": {
+          "photographer": "hossein_nabizadeh",
+          "url": "https://www.inaturalist.org/observations/106854529"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-strigata-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/267329456"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-strigata-3.jpg",
+        "credit": {
+          "photographer": "fotis-samaritakis",
+          "url": "https://www.inaturalist.org/observations/296332469"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "hossein_nabizadeh",
+      "url": "https://www.inaturalist.org/observations/106854529"
+    },
+    "mobileImageCredit": {
+      "photographer": "Natiq",
+      "url": "https://www.inaturalist.org/observations/310036164"
+    }
   },
   "lissotriton-lantzi": {
     "commonName": "Caucasian Smooth Newt",
@@ -9669,7 +10433,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/lissotriton-lantzi.jpg",
+        "credit": {
+          "photographer": "roman2013",
+          "url": "https://www.inaturalist.org/observations/339319517"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lissotriton-lantzi-2.jpg",
+        "credit": {
+          "photographer": "Александр Гончаров",
+          "url": "https://www.inaturalist.org/observations/107759763"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lissotriton-lantzi-3.jpg",
+        "credit": {
+          "photographer": "Oleg Kosterin",
+          "url": "https://www.inaturalist.org/observations/120609170"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "roman2013",
+      "url": "https://www.inaturalist.org/observations/339319517"
+    },
+    "mobileImageCredit": {
+      "photographer": "Елена Солодовник",
+      "url": "https://www.inaturalist.org/observations/346762987"
+    }
   },
   "macrovipera-lebetina": {
     "commonName": "Levantine viper",
@@ -9747,6 +10542,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Why does the URL say lebetina if the name is lebetinus?",
         "answer": "Tarkhnishvili et al. 2026 and the Reptile Database treat M. lebetinus as the accepted name. The path macrovipera-lebetina is a historical slug kept so old links do not break."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
+      },
+      {
+        "src": "/images/macrovipera-lebetina-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "Kvareli",
+          "date": "2026-08-17"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "Kvareli",
+          "date": "2026-08-17"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "Kvareli",
+          "date": "2026-08-17"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-6.webp"
+      }
     ]
   },
   "malpolon-insignitus": {
@@ -9803,7 +10639,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Where is it confirmed in Georgia?",
         "answer": "It is on the checklist. A barcoded specimen is from Chachuna Managed Reserve (Tarkhnishvili et al. 2026)."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/malpolon-insignitus.jpg",
+        "credit": {
+          "photographer": "Gert Jan Verspui",
+          "url": "https://www.inaturalist.org/observations/38427068"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
+        "credit": {
+          "photographer": "Manuel Raab",
+          "url": "https://www.inaturalist.org/observations/282195814"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/malpolon-insignitus-3.jpg",
+        "credit": {
+          "photographer": "michelemenegon",
+          "url": "https://www.inaturalist.org/observations/206241534"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Gert Jan Verspui",
+      "url": "https://www.inaturalist.org/observations/38427068"
+    },
+    "mobileImageCredit": {
+      "photographer": "Valia Pavlou",
+      "url": "https://www.inaturalist.org/observations/93273384"
+    }
   },
   "mauremys-caspica": {
     "commonName": "Caspian Turtle",
@@ -9859,7 +10726,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. It has no venom."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/mauremys-caspica.jpg",
+        "credit": {
+          "photographer": "pedroluna_wildlife",
+          "url": "https://www.inaturalist.org/observations/165887582"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/mauremys-caspica-2.jpg",
+        "credit": {
+          "photographer": "Rubén",
+          "url": "https://www.inaturalist.org/observations/107253848"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/mauremys-caspica-3.jpg",
+        "credit": {
+          "photographer": "Fundación Tierra Ibérica",
+          "url": "https://www.inaturalist.org/observations/13171016"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "pedroluna_wildlife",
+      "url": "https://www.inaturalist.org/observations/165887582"
+    },
+    "mobileImageCredit": {
+      "photographer": "Dorit Mandil",
+      "url": "https://www.inaturalist.org/observations/291398011"
+    }
   },
   "mertensiella-caucasica": {
     "commonName": "Caucasian Salamander",
@@ -9919,7 +10817,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica.jpg",
+        "credit": {
+          "photographer": "david_broek",
+          "url": "https://www.inaturalist.org/observations/383087185"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva",
+          "url": "https://www.inaturalist.org/observations/379840528"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-3.jpg",
+        "credit": {
+          "photographer": "Nikita Tiunov",
+          "url": "https://www.inaturalist.org/observations/379240890"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "david_broek",
+      "url": "https://www.inaturalist.org/observations/383087185"
+    },
+    "mobileImageCredit": {
+      "photographer": "david_broek",
+      "url": "https://www.inaturalist.org/observations/383087171"
+    }
   },
   "natrix-natrix": {
     "commonName": "Grass snake",
@@ -9993,7 +10922,66 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in spring; in summer it lays roughly 8–40 eggs in a moist, warm spot — young hatch in late summer or early autumn."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:Grass_snake_(Natrix_natrix)_Pieniny.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix-2.jpg",
+        "credit": {
+          "photographer": "Andreas Eichler",
+          "url": "https://commons.wikimedia.org/wiki/File:2017.07.17.-17-Tiefer_See_oder_Grubensee-Storkow_(Mark)--Ringelnatter.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix-3.jpg",
+        "credit": {
+          "photographer": "George Chernilevsky",
+          "url": "https://commons.wikimedia.org/wiki/File:Natrix_Natrix_head_2009_G2.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix-4.jpg",
+        "credit": {
+          "photographer": "Esquilo",
+          "url": "https://commons.wikimedia.org/wiki/File:Snok_%C3%A4ter_padda.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix-5.jpg",
+        "credit": {
+          "photographer": "Vít Kršul",
+          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_obojkov%C3%A1_-_Natrix_natrix.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix-6.jpg",
+        "credit": {
+          "photographer": "GT1976",
+          "url": "https://commons.wikimedia.org/wiki/File:2019-04-25_(176)_Natrix_natrix_(grass_snake)_with_length_about_one_meter_at_Haltgraben,_Frankenfels,_Austria.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-natrix-7.jpg",
+        "credit": {
+          "photographer": "Isiwal",
+          "url": "https://commons.wikimedia.org/wiki/File:Natrix_natrix-1479.jpg"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:Grass_snake_(Natrix_natrix)_Pieniny.jpg"
+    },
+    "mobileImageCredit": {
+      "photographer": "Darius Bauzys",
+      "url": "https://commons.wikimedia.org/wiki/File:The_Grass_Snake_-_Natrix_natrix.jpg"
+    }
   },
   "natrix-tessellata": {
     "commonName": "Dice snake",
@@ -10067,6 +11055,29 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating occurs in March–May; in July it lays roughly 10–30 eggs, and young hatch in early September."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-7.webp"
+      }
     ]
   },
   "ommatotriton-ophryticus": {
@@ -10119,7 +11130,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus.jpg",
+        "credit": {
+          "photographer": "Sergey Lednev",
+          "url": "https://www.inaturalist.org/observations/29435958"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-2.jpg",
+        "credit": {
+          "photographer": "Tom Kirschey",
+          "url": "https://www.inaturalist.org/observations/139881596"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-3.jpg",
+        "credit": {
+          "photographer": "Wouter Beukema",
+          "url": "https://www.inaturalist.org/observations/199109327"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Sergey Lednev",
+      "url": "https://www.inaturalist.org/observations/29435958"
+    },
+    "mobileImageCredit": {
+      "photographer": "Wouter Beukema",
+      "url": "https://www.inaturalist.org/observations/233706355"
+    }
   },
   "ophisops-elegans": {
     "commonName": "Snake-Eyed Lizard",
@@ -10175,7 +11217,24 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the snake-eyed skink?",
         "answer": "Ablepharus is a tiny skink with smooth scales. Ophisops is a larger lacertid of open ground."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/ophisops-elegans.jpg",
+        "credit": {
+          "photographer": "mustafa gökmen",
+          "url": "https://www.inaturalist.org/observations/61378800"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "mustafa gökmen",
+      "url": "https://www.inaturalist.org/observations/61378800"
+    },
+    "mobileImageCredit": {
+      "photographer": "mustafa gökmen",
+      "url": "https://www.inaturalist.org/observations/61378800"
+    }
   },
   "paralaudakia-caucasia": {
     "commonName": "Caucasian Agama",
@@ -10235,7 +11294,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from rock lizards?",
         "answer": "Darevskia are lacertids; the agama is an agamid — a more robust body and triangular head. See the identification section."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
+        "credit": {
+          "photographer": "Геннадий",
+          "url": "https://www.inaturalist.org/observations/119628986"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-2.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/241671168"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-3.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/241671169"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Геннадий",
+      "url": "https://www.inaturalist.org/observations/119628986"
+    },
+    "mobileImageCredit": {
+      "photographer": "Titouan Roguet",
+      "url": "https://www.inaturalist.org/observations/182026571"
+    }
   },
   "pelobates-syriacus": {
     "commonName": "Eastern Spadefoot",
@@ -10287,7 +11377,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/pelobates-syriacus.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/182161519"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pelobates-syriacus-2.jpg",
+        "credit": {
+          "photographer": "Jonathan Ben Simon",
+          "url": "https://www.inaturalist.org/observations/152407529"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pelobates-syriacus-3.jpg",
+        "credit": {
+          "photographer": "Craig Robson",
+          "url": "https://www.inaturalist.org/observations/268758632"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Titouan Roguet",
+      "url": "https://www.inaturalist.org/observations/182161519"
+    },
+    "mobileImageCredit": {
+      "photographer": "Craig Robson",
+      "url": "https://www.inaturalist.org/observations/268758632"
+    }
   },
   "pelodytes-caucasicus": {
     "commonName": "Caucasian Parsley Frog",
@@ -10338,7 +11459,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus.jpg",
+        "credit": {
+          "photographer": "Alexander A. Fomichev",
+          "url": "https://www.inaturalist.org/observations/95240537"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-2.jpg",
+        "credit": {
+          "photographer": "Tom Kirschey",
+          "url": "https://www.inaturalist.org/observations/136609538"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-3.jpg",
+        "credit": {
+          "photographer": "Екатерина Следкова",
+          "url": "https://www.inaturalist.org/observations/131563046"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Alexander A. Fomichev",
+      "url": "https://www.inaturalist.org/observations/95240537"
+    },
+    "mobileImageCredit": {
+      "photographer": "Alexander Shienok",
+      "url": "https://www.inaturalist.org/observations/206587705"
+    }
   },
   "pelophylax-ridibundus": {
     "commonName": "Marsh Frog",
@@ -10390,7 +11542,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/pelophylax-ridibundus.jpg",
+        "credit": {
+          "photographer": "Manuel Ruedi",
+          "url": "https://www.inaturalist.org/observations/83801849"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pelophylax-ridibundus-2.jpg",
+        "credit": {
+          "photographer": "Геннадий Дякин",
+          "url": "https://www.inaturalist.org/observations/353611251"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pelophylax-ridibundus-3.jpg",
+        "credit": {
+          "photographer": "Jakob Fahr",
+          "url": "https://www.inaturalist.org/observations/32436838"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Manuel Ruedi",
+      "url": "https://www.inaturalist.org/observations/83801849"
+    },
+    "mobileImageCredit": {
+      "photographer": "Константин",
+      "url": "https://www.inaturalist.org/observations/274684194"
+    }
   },
   "phoenicolacerta-laevis": {
     "commonName": "Lebanon Lizard",
@@ -10446,7 +11629,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from native lacertids?",
         "answer": "Native Lacerta and Darevskia occur naturally in Georgia. This species is at Anaklia and is genetically tied to southern Türkiye."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/phoenicolacerta-laevis.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/148101091"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/phoenicolacerta-laevis-2.jpg",
+        "credit": {
+          "photographer": "kardelen",
+          "url": "https://www.inaturalist.org/observations/216098606"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/phoenicolacerta-laevis-3.jpg",
+        "credit": {
+          "photographer": "Siegfried Troidl",
+          "url": "https://www.inaturalist.org/observations/17764346"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/148101091"
+    },
+    "mobileImageCredit": {
+      "photographer": "Siegfried Troidl",
+      "url": "https://www.inaturalist.org/observations/17764372"
+    }
   },
   "platyceps-najadum": {
     "commonName": "Dahl's whip snake",
@@ -10519,6 +11733,29 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. Mating is in April–May; the female lays roughly 3–16 eggs, and young hatch independently."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-7.webp"
       }
     ]
   },
@@ -10598,6 +11835,29 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the slow worm?",
         "answer": "The eastern slow worm (Anguis colchica) is a smaller, smoother legless lizard. The glass lizard is large (about 1–1.35 m), has a clear side fold, and often a yellow belly. Both are harmless, and neither is a snake."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-5.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-7.webp"
+      }
     ]
   },
   "rana-macrocnemis": {
@@ -10650,7 +11910,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis.jpg",
+        "credit": {
+          "photographer": "evgeniy_57",
+          "url": "https://www.inaturalist.org/observations/343953167"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-2.jpg",
+        "credit": {
+          "photographer": "Tereza Bohatá",
+          "url": "https://www.inaturalist.org/observations/357114699"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-3.jpg",
+        "credit": {
+          "photographer": "Jan Ebr &amp; Ivana Ebrová",
+          "url": "https://www.inaturalist.org/observations/53501993"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "evgeniy_57",
+      "url": "https://www.inaturalist.org/observations/343953167"
+    },
+    "mobileImageCredit": {
+      "photographer": "Tim",
+      "url": "https://www.inaturalist.org/observations/316069520"
+    }
   },
   "telescopus-fallax": {
     "commonName": "European cat snake",
@@ -10724,7 +12015,66 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it lay eggs or give live birth?",
         "answer": "It is egg-laying. The female lays roughly 4–12 eggs, and young hatch independently."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax.jpg",
+        "credit": {
+          "photographer": "Benny Trapp",
+          "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-2.jpg",
+        "credit": {
+          "photographer": "Terry Caselli",
+          "url": "https://commons.wikimedia.org/wiki/File:Cat_Snake_(Telescopus_Fallax).jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-3.jpg",
+        "credit": {
+          "photographer": "Jeffrey Sciberras",
+          "url": "https://commons.wikimedia.org/wiki/File:Mediterranean_Cat_Snake.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-4.jpg",
+        "credit": {
+          "photographer": "Berkay353",
+          "url": "https://commons.wikimedia.org/wiki/File:Kedig%C3%B6zl%C3%BCy%C4%B1lan.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-5.jpg",
+        "credit": {
+          "photographer": "Ryan van Huyssteen",
+          "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_282392348.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-6.jpg",
+        "credit": {
+          "photographer": "Christian Formosa",
+          "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_(with_prey).jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-7.jpg",
+        "credit": {
+          "photographer": "Kiril Kapustin",
+          "url": "https://commons.wikimedia.org/wiki/File:Teleskopus_fallax_20.JPG"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Benny Trapp",
+      "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
+    },
+    "mobileImageCredit": {
+      "photographer": "Maurice Flesier",
+      "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_on_the_Olive_tree.jpg"
+    }
   },
   "tenuidactylus-caspius": {
     "commonName": "Caspian Thick-toed Gecko",
@@ -10780,7 +12130,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How does it differ from the Caucasian agama?",
         "answer": "The agama is a diurnal agamid with a triangular head. This is a gecko: vertical pupils, expanded toes, nocturnal/crepuscular."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/tenuidactylus-caspius.jpg",
+        "credit": {
+          "photographer": "Kseniia Marianna Prondzynska",
+          "url": "https://www.inaturalist.org/observations/178731019"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/tenuidactylus-caspius-2.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/183207302"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/tenuidactylus-caspius-3.jpg",
+        "credit": {
+          "photographer": "Titouan Roguet",
+          "url": "https://www.inaturalist.org/observations/182328292"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Kseniia Marianna Prondzynska",
+      "url": "https://www.inaturalist.org/observations/178731019"
+    },
+    "mobileImageCredit": {
+      "photographer": "wcwhjj",
+      "url": "https://www.inaturalist.org/observations/132243305"
+    }
   },
   "testudo-graeca": {
     "commonName": "Mediterranean Tortoise",
@@ -10836,7 +12217,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "How many subspecies are in Georgia?",
         "answer": "Two on the checklist: T. g. ibera and T. g. nikolskii. Genetic distinction is not yet demonstrated."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/testudo-graeca.jpg",
+        "credit": {
+          "photographer": "Serge Larin",
+          "url": "https://www.inaturalist.org/observations/18922293"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/testudo-graeca-2.jpg",
+        "credit": {
+          "photographer": "Molnár Ábel Péter",
+          "url": "https://www.inaturalist.org/observations/169566740"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/testudo-graeca-3.jpg",
+        "credit": {
+          "photographer": "Cuora",
+          "url": "https://www.inaturalist.org/observations/96663399"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Serge Larin",
+      "url": "https://www.inaturalist.org/observations/18922293"
+    },
+    "mobileImageCredit": {
+      "photographer": "Cristina Florentina Alistar",
+      "url": "https://www.inaturalist.org/observations/12352082"
+    }
   },
   "trachemys-scripta": {
     "commonName": "Pond Slider",
@@ -10896,7 +12308,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. It has no venom."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/trachemys-scripta.jpg",
+        "credit": {
+          "photographer": "Nelson Wisnik",
+          "url": "https://www.inaturalist.org/observations/18808638"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/trachemys-scripta-2.jpg",
+        "credit": {
+          "photographer": "Laura Clark",
+          "url": "https://www.inaturalist.org/observations/4571829"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/trachemys-scripta-3.jpg",
+        "credit": {
+          "photographer": "bwood708",
+          "url": "https://www.inaturalist.org/observations/54804571"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Nelson Wisnik",
+      "url": "https://www.inaturalist.org/observations/18808638"
+    },
+    "mobileImageCredit": {
+      "photographer": "Ed Hass",
+      "url": "https://www.inaturalist.org/observations/150135337"
+    }
   },
   "triturus-karelinii": {
     "commonName": "Eastern Crested Newt",
@@ -10948,7 +12391,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it venomous?",
         "answer": "Site classification: Harmless. Venom: none."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/triturus-karelinii.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/4757157"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/triturus-karelinii-2.jpg",
+        "credit": {
+          "photographer": "Parham Beyhaghi",
+          "url": "https://www.inaturalist.org/observations/260349445"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/triturus-karelinii-3.jpg",
+        "credit": {
+          "photographer": "Nikita Tiunov",
+          "url": "https://www.inaturalist.org/observations/129655447"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Parham Beyhaghi",
+      "url": "https://www.inaturalist.org/observations/4757157"
+    },
+    "mobileImageCredit": {
+      "photographer": "Parham Beyhaghi",
+      "url": "https://www.inaturalist.org/observations/260349446"
+    }
   },
   "vipera-darevskii": {
     "commonName": "Darevsky's viper",
@@ -11018,7 +12492,59 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Why is it critically endangered?",
         "answer": "Its extent of occurrence is under 100 km² and area of occupancy under 10 km²; the population is fragmented. Overgrazing and habitat degradation are reducing numbers."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/vipera-darevskii.jpg",
+        "credit": {
+          "photographer": "Boris S. Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-2.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://commons.wikimedia.org/wiki/File:Darevsky%27s_Viper.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-3.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://commons.wikimedia.org/wiki/File:P_darevskii_male.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-4.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://www.inaturalist.org/observations/52914"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-5.jpg",
+        "credit": {
+          "photographer": "Boris S. Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-6.jpg",
+        "credit": {
+          "photographer": "Boris S. Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Boris S. Tuniyev",
+      "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+    },
+    "mobileImageCredit": {
+      "photographer": "Boris S. Tuniyev",
+      "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
+    }
   },
   "vipera-dinniki": {
     "commonName": "Dinnik's viper",
@@ -11087,6 +12613,32 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Why is it considered a vulnerable species?",
         "answer": "Its range is less than 20,000 km² and severely fragmented. Degradation of subalpine pastures and human pressure are reducing the population; it is listed in the Red Data Books of Georgia and Russia."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/vipera-dinnik.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-6.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-2.webp",
+        "credit": {
+          "photographer": "Guram Iremashvili"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-5.webp",
+        "credit": {
+          "photographer": "Matthieu Berroneau"
+        }
       }
     ]
   },
@@ -11162,6 +12714,59 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Does it give live birth or lay eggs?",
         "answer": "It is ovoviviparous. Mating occurs in spring; in autumn, in August–September, it bears 5–10 young."
       }
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-3.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-4.jpg",
+        "credit": {
+          "photographer": "მარიამ რომანაძე"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-5.jpg",
+        "credit": {
+          "photographer": "მარიამ რომანაძე"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp",
+        "credit": {
+          "photographer": "საბა თოდუა"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-3.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-4.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-6.webp"
+      }
     ]
   },
   "vipera-renardi": {
@@ -11236,7 +12841,66 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Why is it Vulnerable?",
         "answer": "Intensive conversion and overgrazing of steppe and meadows destroy its habitat and fragment the range. The European IUCN assessment lists it as Vulnerable; Georgian populations are small and scarce."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi.jpg",
+        "credit": {
+          "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+          "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi-2.jpg",
+        "credit": {
+          "photographer": "Daor1009",
+          "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi_Volgograd.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi-3.jpg",
+        "credit": {
+          "photographer": "Vitalii Petrochenko",
+          "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi._Khortitsa.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi-4.jpg",
+        "credit": {
+          "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+          "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_2a.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi-5.jpg",
+        "credit": {
+          "photographer": "Matvey",
+          "url": "https://commons.wikimedia.org/wiki/File:Juvenile_Vipera_renardi_retreating.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi-6.jpg",
+        "credit": {
+          "photographer": "Vitalii Petrochenko",
+          "url": "https://commons.wikimedia.org/wiki/File:Vipera_renardi._Gulajpole.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-renardi-7.jpg",
+        "credit": {
+          "photographer": "Boris Tuniyev",
+          "url": "https://commons.wikimedia.org/wiki/File:Pelias_eriwanensis,_female_(Mt._Kysyrdag,_Turkey).png"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+      "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg"
+    },
+    "mobileImageCredit": {
+      "photographer": "Kristof Zyskowski & Yulia Bereshpolova",
+      "url": "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1b.jpg"
+    }
   },
   "vipera-transcaucasiana": {
     "commonName": "Transcaucasian long-nosed viper",
@@ -11314,7 +12978,65 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Why is it protected in Georgia?",
         "answer": "Its global IUCN status is Near Threatened; it is rare in Georgia, its populations are fragmented, and it is listed in the Red Data Book. Major threats include habitat conversion and human pressure."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/238226101"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
+        "credit": {
+          "photographer": "Hectonichus",
+          "url": "https://commons.wikimedia.org/wiki/File:Viperidae_-_Vipera_ammodytes_transcaucasiana.JPG"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-3.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "url": "https://www.inaturalist.org/photos/83532"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg",
+        "credit": {
+          "photographer": "Giorgi Iankoshvili",
+          "url": "https://www.inaturalist.org/observations/140705806"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-5.jpg",
+        "credit": {
+          "photographer": "Wouter Beukema",
+          "url": "https://www.inaturalist.org/observations/199114077"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-6.jpg",
+        "credit": {
+          "photographer": "Diego Reggianti",
+          "url": "https://www.inaturalist.org/observations/67388911"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Vojtěch Víta",
+      "url": "https://www.inaturalist.org/observations/238226101"
+    },
+    "mobileImageCredit": {
+      "photographer": "Vojtěch Víta",
+      "url": "https://www.inaturalist.org/observations/238226101"
+    }
   },
   "xerotyphlops-vermicularis": {
     "commonName": "European Blind Snake",
@@ -11370,7 +13092,45 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "What does it eat?",
         "answer": "Ants, termites and their brood."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/xerotyphlops-vermicularis.jpg",
+        "credit": {
+          "photographer": "mobinkargarfard",
+          "url": "https://www.inaturalist.org/observations/134999100"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/xerotyphlops-vermicularis-mobile.jpg",
+        "credit": {
+          "photographer": "Валерия Ковалева",
+          "url": "https://www.inaturalist.org/observations/280192435"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/xerotyphlops-vermicularis-2.jpg",
+        "credit": {
+          "photographer": "vil05",
+          "url": "https://www.inaturalist.org/observations/212917577"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/xerotyphlops-vermicularis-3.jpg",
+        "credit": {
+          "photographer": "hossein_nabizadeh",
+          "url": "https://www.inaturalist.org/observations/106927503"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "mobinkargarfard",
+      "url": "https://www.inaturalist.org/observations/134999100"
+    },
+    "mobileImageCredit": {
+      "photographer": "Валерия Ковалева",
+      "url": "https://www.inaturalist.org/observations/280192435"
+    }
   },
   "zamenis-hohenackeri": {
     "commonName": "Transcaucasian Ratsnake",
@@ -11422,7 +13182,45 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Which subspecies occurs in Georgia?",
         "answer": "Tarkhnishvili et al. 2026: Z. h. hohenackeri. The Reptile Database lists other subspecies for parts of the wider range."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-hohenackeri.jpg",
+        "credit": {
+          "photographer": "Alexandre Roux",
+          "url": "https://www.inaturalist.org/observations/316040531"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-hohenackeri-mobile.jpg",
+        "credit": {
+          "photographer": "Mariya",
+          "url": "https://www.inaturalist.org/observations/220051753"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-hohenackeri-2.jpg",
+        "credit": {
+          "photographer": "גלית משה",
+          "url": "https://www.inaturalist.org/observations/13033404"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-hohenackeri-3.jpg",
+        "credit": {
+          "photographer": "Wouter Beukema",
+          "url": "https://www.inaturalist.org/observations/199114081"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Alexandre Roux",
+      "url": "https://www.inaturalist.org/observations/316040531"
+    },
+    "mobileImageCredit": {
+      "photographer": "Mariya",
+      "url": "https://www.inaturalist.org/observations/220051753"
+    }
   },
   "zamenis-longissimus": {
     "commonName": "Aesculapian Snake",
@@ -11474,6 +13272,72 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "What is the “Asian clade”?",
         "answer": "Musilová et al. 2010 recognise several mitochondrial clades within the species; one is native to the eastern Black Sea area."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus.jpg",
+        "credit": {
+          "photographer": "Wolfgang Wüster",
+          "url": "https://www.inaturalist.org/observations/19465840"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-mobile.jpg",
+        "credit": {
+          "photographer": "Daniel Iversen",
+          "url": "https://www.inaturalist.org/observations/28676867"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-2.jpg",
+        "credit": {
+          "photographer": "Manuel Raab",
+          "url": "https://www.inaturalist.org/observations/184736285"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-3.jpg",
+        "credit": {
+          "photographer": "Philipp Pavelka",
+          "url": "https://www.inaturalist.org/observations/25489275"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
+        "credit": {
+          "photographer": "SomlaiT",
+          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-5.jpg",
+        "credit": {
+          "photographer": "Hildegarda von Hildegardenburg",
+          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-6.jpg",
+        "credit": {
+          "photographer": "Lubor Ferenc",
+          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/zamenis-longissimus-7.jpg",
+        "credit": {
+          "photographer": "Zerocool.marko",
+          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Wolfgang Wüster",
+      "url": "https://www.inaturalist.org/observations/19465840"
+    },
+    "mobileImageCredit": {
+      "photographer": "Daniel Iversen",
+      "url": "https://www.inaturalist.org/observations/28676867"
+    }
   }
 };

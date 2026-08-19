@@ -3,7 +3,7 @@
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import type { GalleryImage } from "@/data/species";
-import { speciesImageAlt } from "@/lib/speciesMeta";
+import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -28,7 +28,6 @@ export function SpeciesGallery({
   const t = useTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
   const [active, setActive] = useState<number | null>(null);
-  const imageAlt = speciesImageAlt(name, scientificName, location);
 
   useEffect(() => {
     if (active === null) return;
@@ -94,35 +93,45 @@ export function SpeciesGallery({
           >
             {photos.map((photo, index) => {
               const featured = photos.length >= 3 && index === 0;
+              const photoAlt = speciesPhotoAlt(
+                name,
+                scientificName,
+                location,
+                photo.credit,
+              );
               return (
-                <button
+                <figure
                   key={`${photo.src}-${index}`}
-                  type="button"
-                  onClick={() => setActive(index)}
-                  className={`group relative block w-full overflow-hidden rounded-[24px] bg-ink text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
+                  className={`group relative overflow-hidden rounded-[24px] bg-ink ${
                     featured
                       ? "col-span-2 aspect-[16/10] md:col-span-3"
                       : "aspect-[4/5]"
                   }`}
-                  aria-label={imageAlt}
                 >
-                  <Image
-                    src={photo.src}
-                    alt={imageAlt}
-                    fill
-                    sizes={
-                      featured
-                        ? "100vw"
-                        : "(max-width: 768px) 50vw, 33vw"
-                    }
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
-                  <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setActive(index)}
+                    className="absolute inset-0 w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                    aria-label={photoAlt}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={photoAlt}
+                      fill
+                      sizes={
+                        featured
+                          ? "100vw"
+                          : "(max-width: 768px) 50vw, 33vw"
+                      }
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
+                    <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </button>
                   <PhotoCreditCaption credit={photo.credit} variant="thumb" />
-                </button>
+                </figure>
               );
             })}
           </div>
@@ -186,7 +195,12 @@ export function SpeciesGallery({
             <div className="relative min-h-0 flex-1">
               <Image
                 src={activePhoto.src}
-                alt={imageAlt}
+                alt={speciesPhotoAlt(
+                  name,
+                  scientificName,
+                  location,
+                  activePhoto.credit,
+                )}
                 fill
                 sizes="92vw"
                 className="object-contain"

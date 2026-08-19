@@ -23,7 +23,7 @@ import {
   isPlaceholderBody,
   isPlaceholderMedia,
 } from "@/lib/speciesContent";
-import { speciesImageAlt } from "@/lib/speciesMeta";
+import { speciesImageAlt, speciesPhotoAlt } from "@/lib/speciesMeta";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -91,10 +91,17 @@ export function SpeciesProfile({
     species.imageCredit,
     primary?.credit,
   );
-  const imageAlt = speciesImageAlt(
+  const imageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
+    heroCredit,
+  );
+  const mobileImageAlt = speciesPhotoAlt(
+    species.commonName,
+    species.scientificName,
+    species.location,
+    mobileHeroCredit,
   );
   const displayStats = filterDisplayStats(species.stats);
   const showIdentification = hasRealIdentification(species.identification);
@@ -132,7 +139,7 @@ export function SpeciesProfile({
               <>
                 <Image
                   src={mobileHeroSrc}
-                  alt={imageAlt}
+                  alt={mobileImageAlt}
                   fill
                   priority
                   sizes="100vw"

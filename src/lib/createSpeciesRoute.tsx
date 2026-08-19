@@ -17,7 +17,6 @@ import {
   speciesStaticParams,
 } from "@/lib/speciesRoutes";
 import {
-  absoluteImageUrl,
   absoluteUrl,
   localePath,
   organizationJsonLd,
@@ -34,11 +33,13 @@ import {
   speciesMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
+import { galleryImageObjects } from "@/lib/photoMeta";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
   speciesSeoKeywords,
 } from "@/lib/seoKeywords";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -173,11 +174,13 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const pageUrl = speciesPageUrl(locale, item.id);
     const ogImage = speciesOgImageUrl(item.id, item.image);
-    const galleryImages = item.gallery
-      .map((photo) => photo.src)
-      .filter((src) => src !== item.image)
-      .slice(0, 3)
-      .map(absoluteImageUrl);
+    const photoObjects = galleryImageObjects(item.gallery, item, locale);
+    const ogImageObject = {
+      "@type": "ImageObject",
+      contentUrl: ogImage,
+      url: ogImage,
+      name: `${item.commonName} (${item.scientificName})`,
+    };
 
     const sameAs = raw.sources
       .map((source) => source.url)
@@ -207,7 +210,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       headline: `${item.commonName} (${item.scientificName})`,
       description: item.description,
       keywords: speciesJsonLdKeywords(item, locale),
-      image: [ogImage, ...galleryImages],
+      image: [ogImageObject, ...photoObjects],
+      associatedMedia: photoObjects,
       dateModified: raw.updatedAt,
       mainEntityOfPage: {
         "@type": "WebPage",
@@ -245,6 +249,19 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       })),
     };
 
+    const galleryLd =
+      photoObjects.length > 0
+        ? {
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            name: `${item.commonName} ${tProfile("galleryTitle")}`,
+            url: `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`,
+            about: taxon,
+            inLanguage: locale,
+            associatedMedia: photoObjects,
+          }
+        : null;
+
     const faqJsonLd =
       item.faq && item.faq.length > 0
         ? {
@@ -264,11 +281,9 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     return (
       <>
         <JsonLd
-          data={
-            faqJsonLd
-              ? [jsonLd, breadcrumbLd, faqJsonLd]
-              : [jsonLd, breadcrumbLd]
-          }
+          data={[jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
+            (entry): entry is NonNullable<typeof entry> => Boolean(entry),
+          )}
         />
         <SpeciesProfile species={raw} related={related} />
       </>
