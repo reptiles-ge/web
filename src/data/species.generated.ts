@@ -112,6 +112,20 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
       },
       {
+        "src": "/images/anguis-colchica-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2023-04-09"
+        }
+      },
+      {
+        "src": "/images/anguis-colchica-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2023-04-09"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/anguis-colchica-2.jpg"
       },
       {
@@ -3992,7 +4006,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
       }
     ],
-    "updatedAt": "2026-08-19T11:09:26+04:00",
+    "updatedAt": "2026-08-19T11:16:54+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7563,6 +7577,20 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
+      },
+      {
+        "src": "/images/anguis-colchica-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2023-04-09"
+        }
+      },
+      {
+        "src": "/images/anguis-colchica-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2023-04-09"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/anguis-colchica-2.jpg"
