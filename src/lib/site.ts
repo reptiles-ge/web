@@ -42,7 +42,7 @@ export function absoluteImageUrl(src: string) {
   return absoluteUrl(src);
 }
 
-const CDN_BASE = "https://cdn.reptiles.ge";
+export const CDN_BASE = "https://cdn.reptiles.ge";
 
 const cdnOgJpgSpeciesIds = new Set([
   "elaphe-dione",

@@ -1,6 +1,6 @@
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
-import { absoluteUrl, siteConfig } from "@/lib/site";
+import { absoluteUrl, CDN_BASE, siteConfig } from "@/lib/site";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -93,6 +93,8 @@ export default async function RootLayout({ children }: Props) {
       suppressHydrationWarning
     >
       <head>
+        <link rel="preconnect" href={CDN_BASE} />
+        <link rel="dns-prefetch" href={CDN_BASE} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
