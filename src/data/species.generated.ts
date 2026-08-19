@@ -7399,7 +7399,7 @@ export const species: Species[] = [
       photographer: "Kristof Zyskowski & Yulia Bereshpolova",
       url: "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1a.jpg",
     },
-    mobileImage: "https://cdn.reptiles.ge/vipera-renardi-mobile.jpg",
+    mobileImage: "https://cdn.reptiles.ge/vipera-renardi-mobile.webp",
     mobileImageCredit: {
       photographer: "Kristof Zyskowski & Yulia Bereshpolova",
       url: "https://commons.wikimedia.org/wiki/File:Viperidae-_Vipera_renardi_renardi_(Steppe_Viper)_1b.jpg",
