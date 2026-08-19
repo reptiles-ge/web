@@ -126,6 +126,12 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/anguis-colchica-sandro-3.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/anguis-colchica-2.jpg"
       },
       {
@@ -4374,7 +4380,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-19T11:27:16+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7625,6 +7631,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2023-04-09"
+        }
+      },
+      {
+        "src": "/images/anguis-colchica-sandro-3.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა"
         }
       },
       {
