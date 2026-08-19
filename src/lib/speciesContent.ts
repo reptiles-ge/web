@@ -1,4 +1,4 @@
-import type { Species, SpeciesStat } from "@/data/species";
+import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 
 const PLACEHOLDER_MEDIA = [
   "/images/species-placeholder.png",
@@ -43,6 +43,25 @@ export function hasRealSpeciesPhotos(species: Species) {
     return true;
   }
   return species.gallery.some((item) => !isPlaceholderMedia(item.src));
+}
+
+export function getSpeciesHeroSources(species: Species) {
+  const gallery: GalleryImage[] = hasRealSpeciesPhotos(species)
+    ? (species.gallery.length > 0
+        ? species.gallery
+        : [{ src: species.image, credit: species.imageCredit }]
+      ).filter((item) => !isPlaceholderMedia(item.src))
+    : [];
+  const primary = gallery[0];
+  const mobileHeroSrc =
+    species.mobileImage && !isPlaceholderMedia(species.mobileImage)
+      ? species.mobileImage
+      : null;
+  const desktopHeroSrc =
+    primary?.src ??
+    (!isPlaceholderMedia(species.image) ? species.image : null);
+
+  return { gallery, primary, mobileHeroSrc, desktopHeroSrc };
 }
 
 export function isPlaceholderStatValue(value: string) {

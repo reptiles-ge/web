@@ -11,15 +11,14 @@ import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   resolvePhotoCredit,
-  type GalleryImage,
   type Species,
 } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { formatContentDate } from "@/lib/formatDate";
 import {
   filterDisplayStats,
+  getSpeciesHeroSources,
   hasRealIdentification,
-  hasRealSpeciesPhotos,
   isPlaceholderBody,
   isPlaceholderMedia,
 } from "@/lib/speciesContent";
@@ -74,14 +73,8 @@ export function SpeciesProfile({
       indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
     });
   }, [species, t, tHubs]);
-  const hasPhotos = hasRealSpeciesPhotos(species);
-  const gallery: GalleryImage[] = hasPhotos
-    ? (species.gallery.length > 0
-        ? species.gallery
-        : [{ src: species.image, credit: species.imageCredit }]
-      ).filter((item) => !isPlaceholderMedia(item.src))
-    : [];
-  const primary = gallery[0];
+  const { gallery, primary, mobileHeroSrc, desktopHeroSrc } =
+    getSpeciesHeroSources(species);
   const heroCredit = resolvePhotoCredit(
     species.imageCredit,
     primary?.credit,
@@ -118,11 +111,6 @@ export function SpeciesProfile({
       ].filter((block) => !isPlaceholderBody(block.body)),
     [species.behavior, species.conservation, species.diet, t],
   );
-  const mobileHeroSrc =
-    species.mobileImage && !isPlaceholderMedia(species.mobileImage)
-      ? species.mobileImage
-      : null;
-  const desktopHeroSrc = primary?.src ?? (!isPlaceholderMedia(species.image) ? species.image : null);
 
   return (
     <div className="min-h-screen bg-background">
@@ -135,35 +123,21 @@ export function SpeciesProfile({
           }}
         >
           {desktopHeroSrc ? (
-            mobileHeroSrc ? (
-              <>
-                <Image
-                  src={mobileHeroSrc}
-                  alt={mobileImageAlt}
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="object-cover lg:hidden"
+            <picture className="absolute inset-0 block h-full w-full">
+              {mobileHeroSrc ? (
+                <source
+                  media="(min-width: 1024px)"
+                  srcSet={desktopHeroSrc}
                 />
-                <Image
-                  src={desktopHeroSrc}
-                  alt={imageAlt}
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="hidden object-cover lg:block"
-                />
-              </>
-            ) : (
-              <Image
-                src={desktopHeroSrc}
-                alt={imageAlt}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
+              ) : null}
+              <img
+                src={mobileHeroSrc ?? desktopHeroSrc}
+                alt={mobileHeroSrc ? mobileImageAlt : imageAlt}
+                fetchPriority="high"
+                decoding="async"
+                className="h-full w-full object-cover text-transparent"
               />
-            )
+            </picture>
           ) : (
             <div
               className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_20%,rgba(255,255,255,0.12),transparent_60%),linear-gradient(160deg,#1c1916_0%,#0f0e0c_55%,#171411_100%)]"

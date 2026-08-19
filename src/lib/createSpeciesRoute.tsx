@@ -27,7 +27,10 @@ import {
   speciesPageUrl,
 } from "@/lib/site";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import { isPlaceholderBody } from "@/lib/speciesContent";
+import {
+  getSpeciesHeroSources,
+  isPlaceholderBody,
+} from "@/lib/speciesContent";
 import {
   speciesMetaDescription,
   speciesMetaTitle,
@@ -278,8 +281,37 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           }
         : null;
 
+    const { mobileHeroSrc, desktopHeroSrc } = getSpeciesHeroSources(raw);
+
     return (
       <>
+        {desktopHeroSrc ? (
+          mobileHeroSrc ? (
+            <>
+              <link
+                rel="preload"
+                as="image"
+                href={mobileHeroSrc}
+                media="(max-width: 1023px)"
+                fetchPriority="high"
+              />
+              <link
+                rel="preload"
+                as="image"
+                href={desktopHeroSrc}
+                media="(min-width: 1024px)"
+                fetchPriority="high"
+              />
+            </>
+          ) : (
+            <link
+              rel="preload"
+              as="image"
+              href={desktopHeroSrc}
+              fetchPriority="high"
+            />
+          )
+        ) : null}
         <JsonLd
           data={[jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
