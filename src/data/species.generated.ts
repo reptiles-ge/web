@@ -5735,13 +5735,6 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/rana-macrocnemis-sandro-3.jpg",
-        "credit": {
-          "photographer": "სანდრო ხახვა",
-          "date": "2025-08-24"
-        }
-      },
-      {
         "src": "https://cdn.reptiles.ge/rana-macrocnemis-2.jpg",
         "credit": {
           "photographer": "Tereza Bohatá",
@@ -5798,7 +5791,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-19T11:36:58+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -12101,13 +12094,6 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "src": "/images/rana-macrocnemis-sandro-2.jpg",
-        "credit": {
-          "photographer": "სანდრო ხახვა",
-          "date": "2025-08-24"
-        }
-      },
-      {
-        "src": "/images/rana-macrocnemis-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-08-24"
