@@ -3888,7 +3888,7 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
       },
       {
-        "src": "/images/macrovipera-lebetina-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ყვარელი",
@@ -3896,7 +3896,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ყვარელი",
@@ -3904,7 +3904,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-3.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ყვარელი",
@@ -3992,7 +3992,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
       }
     ],
-    "updatedAt": "2026-08-19T10:56:44+04:00",
+    "updatedAt": "2026-08-19T11:09:26+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10548,7 +10548,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
       },
       {
-        "src": "/images/macrovipera-lebetina-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "Kvareli",
@@ -10556,7 +10556,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "Kvareli",
@@ -10564,7 +10564,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-3.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "Kvareli",

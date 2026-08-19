@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t("description");
   const url = absoluteUrl(localePath(locale, "/"));
   const alternates = localeAlternates(locale, "/");
-  const ogImage = absoluteUrl("/images/og-landing.jpg");
+  const ogImage = "https://cdn.reptiles.ge/og-landing.jpg";
 
   return {
     title: {

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: absoluteUrl("/images/og-landing.jpg"),
+        url: "https://cdn.reptiles.ge/og-landing.jpg",
         width: 1024,
         height: 541,
         alt: siteConfig.title,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [absoluteUrl("/images/og-landing.jpg")],
+    images: ["https://cdn.reptiles.ge/og-landing.jpg"],
   },
   robots: {
     index: true,

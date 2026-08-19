@@ -16,7 +16,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
-const REGIONS_HERO = "/images/regions-hero-1.jpg";
+const REGIONS_HERO = "https://cdn.reptiles.ge/regions-hero-1.jpg";
 
 export function RegionsIndex() {
   const locale = useLocale() as AppLocale;
