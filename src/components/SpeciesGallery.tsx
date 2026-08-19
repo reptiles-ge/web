@@ -2,7 +2,7 @@
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import type { GalleryImage } from "@/data/species";
+import { hasPhotoCredit, type GalleryImage } from "@/data/species";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -126,9 +126,11 @@ export function SpeciesGallery({
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
-                    <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                    {!hasPhotoCredit(photo.credit) ? (
+                      <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    ) : null}
                   </button>
                   <PhotoCreditCaption credit={photo.credit} variant="thumb" />
                 </figure>
