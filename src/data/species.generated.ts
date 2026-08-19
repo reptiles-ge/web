@@ -76,7 +76,7 @@ export const species: Species[] = [
         "answer": "Ophisops lacertidია შერწყმული ქუთუთოებით, მაგრამ უფრო დიდი და სწრაფი ღია ადგილების ხვლიკია. Ablepharus პატარა სცინკია გლუვი ქერცლებით."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -168,7 +168,7 @@ export const species: Species[] = [
         "answer": "ნაშრომის ფიგურა ნიგოეთიდანაა; ბარკოდები მთისძირიდან, ბანისხევიდან და ლანჩხუთიდან (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -256,7 +256,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -340,7 +340,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -575,7 +575,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -658,7 +658,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -746,7 +746,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -834,7 +834,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -922,7 +922,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1010,7 +1010,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1098,7 +1098,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1186,7 +1186,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1274,7 +1274,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1362,7 +1362,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1450,7 +1450,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1538,7 +1538,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1626,7 +1626,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1714,7 +1714,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1802,7 +1802,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1890,7 +1890,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1978,7 +1978,7 @@ export const species: Species[] = [
         "answer": "არა. გიურზა გველგესლაა ვერტიკალური გუგით. ეს მრგვალგუგებიანი უშხამო მცურავია."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2186,7 +2186,7 @@ export const species: Species[] = [
         "answer": "არა. Eirenis-ს ჩვეულებრივი თვალები და კოლუბრიდის ქერცლები აქვს, არა ჭიასავითი სხეული (გველბრუცა) და არა მსხვილი მახრჩობელას აგებულება."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2294,7 +2294,7 @@ export const species: Species[] = [
         "answer": "Pyron et al. 2013-ის მიხედვით (ჩამონათვალში ციტირებული) E. modestus ჯუჯა გველების ყველაზე ბაზალურ შტოს ეკუთვნის."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2672,7 +2672,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2780,7 +2780,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი E. velox-ს „საკმაოდ ჩვეულებრივს“ უწოდებს, E. arguta-ს — სპორადულს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2888,7 +2888,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი ამბობს, რომ COI-ის განსხვავება ამას შეიძლება უჭერდეს მხარს, მაგრამ პოპულაციური შესწავლა ჯერ საჭიროა. აქ არ არის გამოყოფილი."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2996,7 +2996,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026: E. j. turcicus (Werner, 1935)."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3104,7 +3104,7 @@ export const species: Species[] = [
         "answer": "Ablepharus პატარაა, შერწყმული ქუთუთოებით („გველის თვალი“). Eumeces დიდი სცინკია სრული კიდურებითა და ჩვეულებრივი თვალის რგოლით."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3208,7 +3208,7 @@ export const species: Species[] = [
         "answer": "არა. მრგვალი გუგა და უშხამო კოლუბრიდის აგებულება გველგესლისგან განასხვავებს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3316,7 +3316,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3528,7 +3528,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი: ioriensis აღმოსავლეთში, grusinica დასავლეთში, brevicaudata სამხრეთსა და ცენტრში."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3636,7 +3636,7 @@ export const species: Species[] = [
         "answer": "L. strigata ნახევრადმშრალ ჰაბიტატებში ქვეყნის მასშტაბითაა და დადასტურებული სახეობაა. L. media კანდიდატია და ძირითადად აღმოსავლეთზეა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3744,7 +3744,7 @@ export const species: Species[] = [
         "answer": "L. media კანდიდატია L. trilineata-ს კომპლექსში და ძირითადად აღმოსავლეთ საქართველოს ნახევრადმშრალ ადგილებშია. შეადარეთ პროფილები."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3852,7 +3852,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3886,6 +3886,24 @@ export const species: Species[] = [
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
+      },
+      {
+        "src": "/images/macrovipera-lebetina-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
@@ -3968,7 +3986,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
       }
     ],
-    "updatedAt": "2026-08-18T19:22:57+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4081,7 +4099,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალით დადასტურებულია. ბარკოდირებული ნიმუში ჩაჩუნას აღკვეთილიდანაა (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4189,7 +4207,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4301,7 +4319,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4687,7 +4705,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4781,7 +4799,7 @@ export const species: Species[] = [
         "answer": "Ablepharus პატარა სცინკია გლუვი ქერცლებით. Ophisops უფრო დიდი ლაცერტიდია ღია ადგილებზე."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4893,7 +4911,7 @@ export const species: Species[] = [
         "answer": "Darevskia ლაცერტიდია; ჯოჯო აღამიდია — უფრო მყარი სხეული და სამკუთხა თავი. დეტალები პროფილის იდენტიფიკაციაშია."
       }
     ],
-    "updatedAt": "2026-08-18T22:56:38+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5001,7 +5019,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5104,7 +5122,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5208,7 +5226,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5319,7 +5337,7 @@ export const species: Species[] = [
         "answer": "ადგილობრივი Lacerta და Darevskia საქართველოში ბუნებრივად ბინადრობენ. ეს სახეობა ანაკლიაშია და გენეტიკურად სამხრეთ თურქეთს უკავშირდება."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5677,7 +5695,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5944,7 +5962,7 @@ export const species: Species[] = [
         "answer": "ჯოჯო აღამიდია — დღის, მყარი ხვლიკი სამკუთხა თავით. კასპიური გეკონი გეკონია: ვერტიკალური გუგა, გაფართოებული თითები, ღამის/ბინდის აქტივობა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6052,7 +6070,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალში ორი: T. g. ibera და T. g. nikolskii. გენეტიკური გამიჯვნა ჯერ დადასტურებული არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6164,7 +6182,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6268,7 +6286,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7142,7 +7160,7 @@ export const species: Species[] = [
         "answer": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7253,7 +7271,7 @@ export const species: Species[] = [
         "answer": "Tarkhnishvili et al. 2026: საქართველოში გვხვდება Z. h. hohenackeri. უფრო ფართო არეალში Reptile Database სხვა ქვესახეობებსაც ასახელებს."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7392,7 +7410,7 @@ export const species: Species[] = [
         "answer": "Musilová et al. 2010 სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფს; ერთ-ერთი აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი."
       }
     ],
-    "updatedAt": "2026-08-18T21:14:55+04:00",
+    "updatedAt": "2026-08-18T23:01:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
