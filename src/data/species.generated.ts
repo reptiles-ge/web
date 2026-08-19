@@ -182,7 +182,7 @@ export const species: Species[] = [
         "answer": "ნაშრომის ფიგურა ნიგოეთიდანაა; ბარკოდები მთისძირიდან, ბანისხევიდან და ლანჩხუთიდან (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-19T11:21:09+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3479,6 +3479,20 @@ export const species: Species[] = [
         "credit": {
           "photographer": "zaharozaur",
           "url": "https://www.inaturalist.org/observations/204166502"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2024-04-07"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2024-04-07"
         }
       },
       {
@@ -10207,6 +10221,20 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "zaharozaur",
           "url": "https://www.inaturalist.org/observations/204166502"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2024-04-07"
+        }
+      },
+      {
+        "src": "/images/lacerta-agilis-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2024-04-07"
         }
       },
       {
