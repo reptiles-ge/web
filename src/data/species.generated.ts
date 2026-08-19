@@ -3556,7 +3556,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი: ioriensis აღმოსავლეთში, grusinica დასავლეთში, brevicaudata სამხრეთსა და ცენტრში."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-19T11:25:04+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4286,6 +4286,27 @@ export const species: Species[] = [
         "credit": {
           "photographer": "david_broek",
           "url": "https://www.inaturalist.org/observations/383087185"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2026-04-03"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2026-04-03"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-sandro-3.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2026-04-03"
         }
       },
       {
@@ -10880,6 +10901,27 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "david_broek",
           "url": "https://www.inaturalist.org/observations/383087185"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2026-04-03"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2026-04-03"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-sandro-3.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2026-04-03"
         }
       },
       {
