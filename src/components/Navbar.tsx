@@ -114,7 +114,7 @@ export function Navbar() {
         >
           <Logo
             size={44}
-            priority
+            priority={pathname !== "/"}
             showWordmark
             wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
               scrolled || menuOpen ? "text-foreground" : "text-white"

@@ -18,6 +18,7 @@ export async function Hero() {
           alt={t("imageAlt")}
           fill
           preload
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-[center_35%] scale-105 hero-drift"
         />
