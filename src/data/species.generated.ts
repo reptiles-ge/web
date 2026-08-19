@@ -112,21 +112,21 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
       },
       {
-        "src": "/images/anguis-colchica-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2023-04-09"
         }
       },
       {
-        "src": "/images/anguis-colchica-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2023-04-09"
         }
       },
       {
-        "src": "/images/anguis-colchica-sandro-3.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა"
         }
@@ -188,7 +188,7 @@ export const species: Species[] = [
         "answer": "ნაშრომის ფიგურა ნიგოეთიდანაა; ბარკოდები მთისძირიდან, ბანისხევიდან და ლანჩხუთიდან (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-19T11:30:04+04:00",
+    "updatedAt": "2026-08-19T11:40:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3488,14 +3488,14 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/lacerta-agilis-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2024-04-07"
         }
       },
       {
-        "src": "/images/lacerta-agilis-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2024-04-07"
@@ -3562,7 +3562,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი: ioriensis აღმოსავლეთში, grusinica დასავლეთში, brevicaudata სამხრეთსა და ცენტრში."
       }
     ],
-    "updatedAt": "2026-08-19T11:25:04+04:00",
+    "updatedAt": "2026-08-19T11:40:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4295,21 +4295,21 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2026-04-03"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2026-04-03"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-sandro-3.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2026-04-03"
@@ -4380,7 +4380,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-19T11:27:16+04:00",
+    "updatedAt": "2026-08-19T11:40:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4710,21 +4710,21 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-07-25"
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-07-25"
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-sandro-3.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-07-25"
@@ -4787,7 +4787,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-19T11:33:24+04:00",
+    "updatedAt": "2026-08-19T11:40:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5721,14 +5721,14 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/rana-macrocnemis-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-08-24"
         }
       },
       {
-        "src": "/images/rana-macrocnemis-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-08-24"
@@ -5791,7 +5791,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-19T11:36:58+04:00",
+    "updatedAt": "2026-08-19T11:40:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7655,21 +7655,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/anguis-colchica.jpg"
       },
       {
-        "src": "/images/anguis-colchica-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2023-04-09"
         }
       },
       {
-        "src": "/images/anguis-colchica-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2023-04-09"
         }
       },
       {
-        "src": "/images/anguis-colchica-sandro-3.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა"
         }
@@ -10292,14 +10292,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/lacerta-agilis-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2024-04-07"
         }
       },
       {
-        "src": "/images/lacerta-agilis-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/lacerta-agilis-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2024-04-07"
@@ -10951,21 +10951,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2026-04-03"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2026-04-03"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-sandro-3.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2026-04-03"
@@ -11285,21 +11285,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-07-25"
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-07-25"
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-sandro-3.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-sandro-3.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-07-25"
@@ -12086,14 +12086,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/rana-macrocnemis-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-08-24"
         }
       },
       {
-        "src": "/images/rana-macrocnemis-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2025-08-24"
