@@ -356,7 +356,7 @@ function IntroOverlay({
   ] as const;
 
   return (
-    <div className="flex min-h-[calc(100svh-7rem)] flex-col justify-end pb-2">
+    <div className="flex min-h-[calc(100svh-7rem)] flex-col justify-end pb-10 sm:pb-14 lg:pb-16">
       <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
         {t("eyebrow")}
       </p>
@@ -393,7 +393,7 @@ function IntroOverlay({
         <button
           type="button"
           onClick={onStart}
-          className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-transform duration-300 hover:scale-[1.02]"
+          className="inline-flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
         >
           {t("start")}
           <ArrowRight className="size-4" aria-hidden="true" />
