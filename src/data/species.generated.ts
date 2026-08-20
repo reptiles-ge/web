@@ -565,7 +565,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-20T14:00:09+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2552,12 +2552,12 @@ export const species: Species[] = [
     "genus": "Elaphe",
     "family": "Colubridae",
     "location": "აღმოსავლეთ საქართველო",
-    "description": "უვნებელი ლაქებიანი მცურავი — 2019 წელს გამოყოფილი სახეობა; კახეთისა და აღმოსავლეთ საქართველოს მშრალი ლანდშაფტების მკვიდრი.",
-    "overview": "ურარტუს მცურავი (Elaphe urartica) უვნებელი, შხამის გარეშე მცურავია Colubridae ოჯახიდან. 2019 წელს გამოიყო Elaphe sauromates-ისგან კრიპტური სახეობის სახით — სახელი უკავშირდება უძველეს სამეფო ურარტუს (სომხეთის მაღლობი, ვანის ტბის მიდამოები). გავრცელებულია აღმოსავლეთ ანატოლიაში, საქართველოში, სომხეთში, აზერბაიჯანში, ჩრდილოეთ ირანსა და დაღესტანში; საქართველოში — აღმოსავლეთში, ალაზნის ველიდან სამხრეთ-აღმოსავლეთამდე (მათ შორის თბილისის მიდამოები და კახეთი). სიგრძე ჩვეულებრივ 1.2 მ-მდეა.",
-    "habitat": "ევრიტოპული სახეობაა: ბინადრობს მთისა და დაბლობის ნახევრადუდაბნოებში, სტეპებში, ნახევრადტროპიკულ ტყე-სტეპებში, ღია ღვიის ტყეებში, მთის ფართოფოთლოვან ტყეებსა და ალპურ მდელოებზე. ვერტიკალურად გვხვდება დაახლოებით −25 მ-დან (ლენქორანი) 2,600 მ-მდე (შირაქი, სომხეთი). საქართველოში არეალი აღმოსავლეთ ტრანსკავკასიას მოიცავს — სამხრეთ-აღმოსავლეთ საქართველოდან დასავლეთით თითქმის თრიალეთამდე / სურამის მიმართულებით.",
-    "diet": "იკვებება მღრღნელებით, პატარა ფრინველებით, ბარტყებითა და ფრინველის კვერცხებით; ზოგჯერ ხვლიკებითაც. კარგი მთამსვლელია — ხშირად ადის ბუჩქებსა და ხეებზე ბუდეების მოსანახულებლად. მსხვერპლს ახრჩობს (კონსტრიქტორი), შხამი არ აქვს.",
-    "behavior": "დღის აქტიურია. მშვიდი და ფრთხილია — საფრთხისას უპირატესად გაქცევას ცდილობს. თავი შედარებით დიდია, ცხვირის პროფილი ხშირად ოდნავ მოკაუჭებული; ზურგზე 50–65 მომრგვალებული ყავისფერი ან შავი ლაქაა მოყვითალო ან მოთეთრო ფონზე, თავის ზედა ნაწილი მუქია. კვერცხისმდებია: შეწყვილება გაზაფხულზეა, დედალი დებს რამდენიმე კვერცხს (დაახლოებით 4–16, დედის ზომის მიხედვით); ნაშიერები დამოუკიდებლად იჩეკებიან.",
-    "conservation": "აღწერილია 2019 წელს და IUCN Red List-ზე ცალკე ჯერ არ არის შეფასებული. არეალი ფართოა და სახეობა ევრიტოპულია; მსგავსი სახეობა E. sauromates გლობალურად ნაკლებად საფრთხის ქვეშ ფასდება. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
+    "description": "უშხამო ლაქებიანი მცურავი აღმოსავლეთ საქართველოს მშრალ ზონაში. ადრე Elaphe sauromates-ად ითვლებოდა; 2026 წლის ჩამონათვალში კანდიდატი სახეობაა.",
+    "overview": "ურარტუს მცურავი (Elaphe urartica) უშხამო ლაქებიანი მცურავია აღმოსავლეთ საქართველოს მშრალ ლანდშაფტებში. ანკარასებრთა ოჯახისაა (Colubridae). 2019 წელს გამოიყო ლაქებიანი მცურავისგან (Elaphe sauromates) — გარეგნულად ძალიან ჰგავს, ამიტომ ამოცნობაში გეოგრაფიაც მნიშვნელოვანია. საქართველოში E. sauromates არ გვხვდება. 2026 წლის ქართული ჩამონათვალი სახეობას იღებს, მაგრამ კანდიდატად ტოვებს: ჩრდილო-დასავლეთ კასპიის გარდამავალი ზოლი ჯერ საკმარისად არ არის შესწავლილი. დასავლეთ და კოლხურ საქართველოში არ ეძებოთ. სიგრძე ჩვეულებრივ 1.2 მ-ს არ აღემატება. ადამიანისთვის უვნებელია.",
+    "habitat": "საქართველოში ეძებეთ აღმოსავლეთის მშრალ და ნახევრადმშრალ ადგილზე — სტეპი, ნახევრადუდაბნო, ტყე-სტეპი, ღია ღვიის ტყე, მთისწინეთის ფართოფოთლოვანი ტყისა და კლდოვანი ფერდობის პირას. 2021 წლის ქართული გველების კვლევა მას სამხრეთ- აღმოსავლეთის ნახევრადმშრალი ლანდშაფტის დიდ გველებს მიაკუთვნებს და არა დასავლეთის ნოტიო ზონას. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი, თბილისი და სამცხე — ჯავახეთი. დადასტურებული წერტილები უფრო მკაფიოა კახეთსა და თბილისის მიდამოებში: თბილისის გენეტიკური ნიმუშები (Jablonski et al. 2019), დიდი შირაქის ფოტო იმავე ნაშრომში, დედოფლისწყაროს თავის ფოტოები და ბარკოდი სოფელ ჩანქანიდან (Chankaani) 2026 წლის ჩამონათვალში. ალაზნის ველი სახეობის გამოქვეყნებულ არეალში შედის; ცალკე ლაგოდეხის ჩანაწერი ამ გვერდზე არ არის. ლიტერატურული დასავლეთი საზღვარი თრიალეთის / წალკის პლატომდე ან სურამის ქედის მიმართულებით არის აღწერილი — ეს Muskhelishvili-ისა და მოგვიანო შეჯამებების არეალია და არა წერტილ-წერტილ დადასტურებული დასავლეთი ქსელი. სახეობის სიმაღლე მთელ არეალში დაახლოებით −25 მ-დან (ლენქორანი) 2,600 მ-მდეა (შირაქი, სომხეთი). საქართველოსთვის ცალკე გაზომილი სიმაღლის დიაპაზონი აქ არ არის. გარე არეალი მოიცავს აღმოსავლეთ ანატოლიას, სომხეთს, აზერბაიჯანს, ჩრდილოეთ ირანსა და სამხრეთ დაღესტანს.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. გვარ Elaphe-ის მცურავები ჩვეულებრივ იკვებებიან მღრღნელებით, პატარა ფრინველებით, ბარტყებითა და კვერცხებით; ხვლიკიც შეიძლება შევიდეს. მსხვერპლს ახრჩობს — შხამი არ აქვს. კარგად ადის ბუჩქსა და ხეზე; ბუდის ძებნა ამ გვარისთვის ჩვეულებრივია, მაგრამ საქართველოში ეს პირდაპირ არ არის გაზომილი.",
+    "behavior": "თბილ სეზონზე აქტიურია. გვარის სხვა მცურავების მსგავსად ხშირად დღისით მოძრაობს; საქართველოში საათობრივი აქტივობა ცალკე არ არის აღწერილი. საფრთხისას უპირატესად გარბის. არ აიყვანოთ — დიდ გველს შეუძლია ძლიერად უკბინოს, თუმცა შხამი არ აქვს. კვერცხისმდებია, როგორც გვარ Elaphe-შია მიღებული. შეწყვილების სეზონი და კვერცხების რაოდენობა ამ სახეობისთვის საქართველოში არ არის გამოქვეყნებული; ძველ გვერდზე მითითებული 4–16 კვერცხი ამ ტაქსონზე პირველადი წყაროთი არ დასტურდება. აღმოსავლეთ საქართველოში იგივე მშრალ ზონაში შეიძლება შეხვდეთ სახეებიან მცურავს (Elaphe dione) — ნახატი სხვაა. გიურზასთან აღრევა საშიშია: გიურზას გუგა ვერტიკალურია და შხამიანია.",
+    "conservation": "IUCN Red List-ზე Elaphe urartica ცალკე ჯერ არ არის შეფასებული. 2017 წლის შეფასება Least Concern ეხება E. sauromates-ს გაყოფამდე — ამიტომ ამ სახეობაზე პირდაპირ არ გადმოდის. საქართველოს 2014 წლის წითელ ნუსხაში არც E. urartica და არც ძველი სახელი E. sauromates არ არის. 2026 წლის ჩამონათვალში კანდიდატია: E. sauromates-თან 600 კმ-იანი გარდამავალი ზოლი ჩრდილო-დასავლეთ კასპიაზე გენეტიკურად და გარეგნულად საკმარისად არ არის შესწავლილი. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. მღრღნელების მტაცებელია; ეს სარგებელი არ ნიშნავს, რომ გველი უნდა აიყვანოთ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/elaphe-urartica.webp",
     "mobileImage": "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
@@ -2593,11 +2593,11 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "აღმ. საქართველო"
+        "value": "მშრალი აღმ. საქართველო"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 0.8–1.2 მ"
+        "value": "ჩვეულებრივ 1.2 მ-მდე"
       },
       {
         "label": "შხამი",
@@ -2609,7 +2609,7 @@ export const species: Species[] = [
       },
       {
         "label": "სიმაღლე",
-        "value": "−25–2,600 მ"
+        "value": "სახეობა −25–2,600 მ"
       },
       {
         "label": "ოჯახი",
@@ -2617,52 +2617,71 @@ export const species: Species[] = [
       }
     ],
     "facts": [
-      "სახელი ეწოდა უძველესი სამეფო ურარტუს პატივსაცემად — სახეობა აღწერილია 2019 წელს (Jablonski და სხვ.).",
-      "ადრე ერეოდა ოთხზოლიან / ლაქებიან მცურავში (Elaphe sauromates); კავკასიისა და აღმოსავლეთ ანატოლიის პოპულაციები ახლა ცალკე სახეობაა.",
-      "შხამი არ აქვს — მსხვერპლს ახრჩობს; ადამიანისთვის უვნებელია.",
-      "საქართველოში დადასტურებულია კახეთში, დედოფლისწყაროს მუნიციპალიტეტსა და თბილისის მიდამოებში."
+      "სახელი უკავშირდება უძველეს სამეფო ურარტუს (სომხეთის მაღლობი, ვანის ტბის მიდამოები). აღწერა 2019 წელს (Jablonski და სხვ.); ტიპის ადგილია ბითლისის პროვინცია, თურქეთი — არა საქართველო.",
+      "2026 წლის ჩამონათვალის ქართული სახელია „ურარტუს ხალებიანი მცურავი“; ამ ატლასში მოკლე ფორმაა ურარტუს მცურავი.",
+      "ქართული ბარკოდები ჩანქანიდან (CaBOL) უახლოვდება დაღესტნის Elaphe-ის თანმიმდევრობებს და არა ბალკანურ E. quatuorlineata-ს."
     ],
     "identification": {
-      "summary": "ურარტუს მცურავი უვნებელი ლაქებიანი მცურავია აღმოსავლეთ საქართველოდან. გარეგნულად E. sauromates-ს ჰგავს — ამოცნობაში გეოგრაფიაც მნიშვნელოვანია.",
+      "summary": "დიდი, უშხამო ლაქებიანი მცურავია მრგვალი გუგითა და მუქი თავით. საქართველოში საკვანძოა აღმოსავლეთის მშრალი ჰაბიტატი და მსხვილი მომრგვალებული ზურგის ლაქები — არა გიურზას ვერტიკალური გუგა.",
       "traits": [
-        "ზურგზე 50–65 მომრგვალებული ყავისფერი ან შავი ლაქაა მოყვითალო/მოთეთრო ფონზე.",
-        "თავი შედარებით დიდია; ცხვირის პროფილი ხშირად ოდნავ მოკაუჭებულია.",
-        "თავის ზედა ნაწილი მუქია; გუგა მრგვალია.",
-        "სიგრძე დაახლოებით 0.8–1.2 მ; უშხამოა.",
-        "საქართველოში — აღმოსავლეთ ტრანსკავკასია (კახეთი და მიმდებარე მშრალი ზონები)."
+        "სიგრძე ჩვეულებრივ 0.8–1.2 მ (გაზომილი მასალაში დაახლ. 80–120 სმ). თავი სხეულთან შედარებით დიდია და კისრისგან გამოიყოფა. ცხვირის პროფილი ხშირად ოდნავ მოკაუჭებულია. გუგა მრგვალია. შუა ტანზე 23–25 რიგი ქერცლია; მათგან 18–21 რიგი კილურია.",
+        "ფონი მოყვითალო, მოთეთრო ან იშვიათად კაშკაშა ყვითელია. ზურგზე 50–65 მომრგვალებული ყავისფერი ან შავი ლაქაა; ხშირად თეთრი კიდით. უკანა ნაწილში ლაქები შეიძლება განივად გაიწელოს. თავის ზედა მხარე მუქია, ხშირად თითქმის შავი. თვალის უკან მუქი ზოლი პირის კუთხისკენ მიდის. მუცელი მოთეთრო ან ღია ყვითელია, გვერდებზე მარმარილოსებრი წვრილი ლაქებით.",
+        "სახეებიანი მცურავი (Elaphe dione) იგივე აღმოსავლეთში გვხვდება, მაგრამ უფრო წვრილი ნახატი აქვს — ხშირად ოთხი გრძივი ზოლი და წვრილი განივი ლაქები, არა მსხვილი მომრგვალებული ლაქების სერია. წითელმუცელა მცურავი (Dolichophis schmidti) უფრო სწრაფი და წვრილტანია; მუცელი ხშირად მოწითალოა და ზურგის ნახატი სხვაა. გიურზას (Macrovipera lebetina) გუგა ვერტიკალური ნაპრალია, თავი სამკუთხა, ქერცლი უხეშად კილური; შხამიანია. სპილენძა პატარაა, გლუვქერცლიანი.",
+        "Elaphe sauromates გარეგნულად ძალიან ჰგავს და საქართველოში არ გვხვდება — მისი არეალი უფრო დასავლეთითაა (ბალკანეთი, დასავლეთ/ცენტრალური ანატოლია, პონტო-კასპიური სტეპები). ველზე ამ ორს გეოგრაფიით არჩევენ და არა ერთი უნიკალური ნიშნით. ქერცლის დასათვლელად გველი არ აიყვანოთ.",
+        "შხამი არ აქვს. ნაკბენი შეიძლება მტკივნეული იყოს, მაგრამ სამედიცინოდ შხამიანი არ არის. თუ დიდ ლაქებიან გველს ვერტიკალური გუგით ხედავთ სამხრეთ-აღმოსავლეთის მშრალ ზონაში — ეს გიურზაა, არა ეს სახეობა. არ აიყვანოთ."
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა ურარტუს მცურავი ადამიანისთვის?",
-        "answer": "არა — უვნებელია. შხამი არ აქვს და მსხვერპლს მხოლოდ შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის; ადამიანს თავს არ ესხმის."
+        "question": "გვხვდება თუ არა ურარტუს მცურავი საქართველოში?",
+        "answer": "დიახ — აღმოსავლეთ საქართველოში. 2026 წლის ჩამონათვალი სახეობას იღებს, მაგრამ კანდიდატად ტოვებს. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "აღმოსავლეთ საქართველოში — კახეთში (ალაზნის ველი, დედოფლისწყარო, ლაგოდეხი), თბილისის მიდამოებში და სამხრეთ-აღმოსავლეთის მშრალ ზონაში. არეალი დასავლეთით თითქმის თრიალეთამდე / სურამის მიმართულებით აღწერილია."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მშრალ აღმოსავლეთში — კახეთი (მათ შორის დედოფლისწყარო / შირაქი), თბილისის მიდამოები და სამხრეთ-აღმოსავლეთის მშრალი ზონა. რუკაზე ასევეა ქვემო ქართლი და სამცხე — ჯავახეთი. დასავლეთისა და კოლხეთის სახეობა არ არის."
+      },
+      {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. მსხვერპლს შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა და სამკუთხა თავი გიურზაზე მიუთითებს."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "მოყვითალო ან მოთეთრო ფონზე 50–65 მსხვილი მომრგვალებული ლაქა, მუქი თავი, მრგვალი გუგა, სიგრძე ჩვეულებრივ 1.2 მ-მდე. სახეებიან მცურავს წვრილი ნახატი და ხშირად ოთხი ზოლი აქვს. გიურზას გუგა ვერტიკალურია."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "გაზომილ მასალაში სრული სიგრძე ჩვეულებრივ 80–120 სმ-ია და იშვიათად აღემატება 1.2 მ-ს. მამალს შედარებით გრძელი კუდი აქვს, დედალს — მეტი მუცლის ფარი."
       },
       {
         "question": "რით განსხვავდება Elaphe sauromates-ისგან?",
-        "answer": "გარეგნულად ძალიან ჰგავს — კრიპტური სახეობაა. განსხვავება ძირითადად გენეტიკური და გეოგრაფიულია: E. urartica კავკასიასა და აღმოსავლეთ ანატოლიაშია, E. sauromates — უფრო დასავლეთით (ბალკანეთი, დასავლეთ/ცენტრალური ანატოლია, პონტო-კასპიური სტეპები)."
+        "answer": "გარეგნულად თითქმის იგივეა. საქართველოში მხოლოდ E. urartica იგულისხმება. E. sauromates უფრო დასავლეთითაა. 2026 წლის ჩამონათვალი გაყოფას იღებს, მაგრამ კასპიის გარდამავალ ზოლს ჯერ საკმარისად შეუსწავლელად თვლის."
       },
       {
-        "question": "რას ჭამს?",
-        "answer": "მღრღნელებს, პატარა ფრინველებს, ბარტყებსა და კვერცხებს; ზოგჯერ ხვლიკებს. კარგად ადის ხეებსა და ბუჩქებზე ბუდეების მოსანახულებლად."
-      },
-      {
-        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი დებს რამდენიმე კვერცხს (ჩვეულებრივ დაახლოებით 4–16). ნაშიერები დამოუკიდებლად იჩეკებიან."
+        "question": "რას ჭამს და კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. კვება ქართულად არ არის ცალკე შესწავლილი; გვარის სხვა მცურავები იკვებებიან მღრღნელებით, პატარა ფრინველებითა და კვერცხებით. კვერცხების ზუსტი რაოდენობა ამ სახეობისთვის აქ არ არის დადასტურებული."
       }
     ],
-    "updatedAt": "2026-08-07T12:30:13+04:00",
+    "updatedAt": "2026-08-20T14:00:09+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/10287547"
+        "name": "Jablonski et al. 2019 — Description of Elaphe urartica",
+        "url": "https://doi.org/10.7717/peerj.6944"
+      },
+      {
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Aghasyan et al. 2017 — IUCN Red List account for Elaphe sauromates",
+        "url": "https://www.iucnredlist.org/species/157265/746010"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
@@ -3536,7 +3555,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T21:11:31+04:00",
+    "updatedAt": "2026-08-20T14:00:09+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -9719,20 +9738,20 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "elaphe-urartica": {
     "commonName": "Urartian ratsnake",
     "location": "Eastern Georgia",
-    "description": "A harmless spotted ratsnake — described as a species in 2019; native to Kakheti and the dry landscapes of eastern Georgia.",
-    "overview": "The Urartian ratsnake (Elaphe urartica) is a harmless, non-venomous ratsnake of the family Colubridae. It was split from Elaphe sauromates as a cryptic species in 2019 — its name references the ancient kingdom of Urartu (the Armenian Highland, around Lake Van). It is distributed across eastern Anatolia, Georgia, Armenia, Azerbaijan, northern Iran, and Dagestan; in Georgia — in the east, from the Alazani plain to the southeast (including the Tbilisi area and Kakheti). Its length is usually up to 1.2 m.",
-    "habitat": "It is a eurytopic species: it inhabits mountain and lowland semi-deserts, steppes, semi-tropical forest-steppe, open juniper woodland, mountain broadleaf forest, and alpine meadows. Vertically it occurs from roughly −25 m (Lankaran) up to 2,600 m (Shiraki, Armenia). In Georgia its range covers eastern Transcaucasia — from southeastern Georgia west almost to Trialeti / toward Surami.",
-    "diet": "It feeds on rodents, small birds, nestlings, and bird eggs; occasionally lizards too. It is a good climber — it often climbs shrubs and trees to raid nests. It kills prey by constriction; it has no venom.",
-    "behavior": "It is active by day. It is calm and cautious — when threatened it prefers to flee. Its head is relatively large, its snout profile often slightly upturned; its back bears 50–65 rounded brown or black blotches on a yellowish or whitish background, with a dark crown. It is egg-laying: mating occurs in spring, and the female lays several eggs (roughly 4–16, depending on her size); young hatch independently.",
-    "conservation": "It was described in 2019 and has not yet been separately assessed on the IUCN Red List. Its range is broad and the species is eurytopic; the similar species E. sauromates is assessed globally as Least Concern. Local threats include habitat conversion, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by reducing rodent numbers.",
+    "description": "A harmless blotched ratsnake of dry eastern Georgia. Formerly treated as Elaphe sauromates; a candidate species in the 2026 Georgian checklist.",
+    "overview": "The Urartian ratsnake (Elaphe urartica) is a harmless blotched ratsnake of dry eastern Georgia. It belongs to the family Colubridae. It was split from the blotched ratsnake (Elaphe sauromates) in 2019 — the two look almost the same, so geography matters for identification. E. sauromates does not occur in Georgia. The 2026 Georgian checklist accepts the name but treats the split as a candidate: the north-western Caspian transition zone has not been studied well enough. Do not expect it in western or Colchic Georgia. Total length usually does not exceed 1.2 m. It is not dangerous to people.",
+    "habitat": "In Georgia look in dry and semi-arid east — steppe, semi-desert, forest-steppe, open juniper woodland, and edges of foothill broadleaf forest and rocky slopes. The 2021 Georgian snake survey places it among large snakes of south-eastern semi-arid country, not the humid west. This atlas maps Kakheti, Kvemo Kartli, Tbilisi, and Samtskhe — Javakheti. Named records are strongest in Kakheti and around Tbilisi: genetic samples from Tbilisi (Jablonski et al. 2019), a photograph from Didi Shiraki in the same paper, head photographs from Dedoplistsqaro, and barcodes from Chankaani village in the 2026 checklist. The Alazani valley is inside the published range; a separate Lagodekhi locality is not cited here. The literature western limit is described as far as the Tsalka Plateau or toward the Surami Ridge — that is a range summary after Muskhelishvili and later reviews, not a dense set of western point records. Across the species’ range elevation is about −25 m (Lankaran) to 2,600 m (Shirak, Armenia). A separate Georgian elevation band is not measured here. Outside Georgia the range includes eastern Anatolia, Armenia, Azerbaijan, northern Iran, and southern Dagestan.",
+    "diet": "There is no separate Georgian diet study for this species. Elaphe ratsnakes typically eat rodents, small birds, nestlings, and eggs; lizards may be taken. Prey is killed by constriction; there is no venom. They climb shrubs and trees well; nest-raiding is typical of the genus but has not been quantified in Georgia.",
+    "behavior": "Active in the warm season. Like other Elaphe it often moves by day; hourly activity in Georgia has not been described separately. When threatened it usually tries to flee. Do not pick it up — a large snake can bite hard even without venom. It lays eggs, as is normal for Elaphe. Mating season and clutch size have not been published for Georgian animals; the old 4–16 egg figure is not supported here by a primary source for this taxon. In the same dry east you may also meet the steppe ratsnake (Elaphe dione) — the pattern is different. Confusion with Levantine viper is dangerous: that species has a vertical pupil and is venomous.",
+    "conservation": "Elaphe urartica has not been assessed separately on the IUCN Red List. The 2017 Least Concern listing is for E. sauromates before the split and does not transfer automatically. Georgia’s 2014 Red List includes neither E. urartica nor the older name E. sauromates. In the 2026 checklist it is a candidate: a ~600 km transition zone with E. sauromates in the north-western Caspian region has not been studied with genetics or phenotype. Local threats include habitat conversion, road mortality, and killing after confusion with venomous snakes. It preys on rodents; that does not mean the snake should be handled.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Eastern Georgia"
+        "value": "Dry eastern Georgia"
       },
       {
         "label": "Length",
-        "value": "approx. 0.8–1.2 m"
+        "value": "usually up to 1.2 m"
       },
       {
         "label": "Venom",
@@ -9744,7 +9763,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Elevation",
-        "value": "−25–2,600 m"
+        "value": "species −25–2,600 m"
       },
       {
         "label": "Family",
@@ -9752,41 +9771,48 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "facts": [
-      "Named in honor of the ancient kingdom of Urartu — the species was described in 2019 (Jablonski et al.).",
-      "It was formerly confused with the four-lined/spotted ratsnake (Elaphe sauromates); the Caucasus and eastern Anatolia populations are now recognized as a separate species.",
-      "It has no venom — it kills prey by constriction; it is harmless to humans.",
-      "In Georgia it has been confirmed in Kakheti, the Dedoplistsqaro municipality, and around Tbilisi."
+      "Named for the ancient kingdom of Urartu (Armenian Highland, around Lake Van). Described in 2019 (Jablonski et al.); the type locality is Bitlis Province, Turkey — not Georgia.",
+      "The 2026 checklist Georgian name is “ურარტუს ხალებიანი მცურავი”; this atlas uses the shorter form ურარტუს მცურავი / Urartian ratsnake.",
+      "Georgian barcodes from Chankaani (CaBOL) match Dagestan Elaphe sequences, not Balkan E. quatuorlineata."
     ],
     "identification": {
-      "summary": "The Urartian ratsnake is a harmless spotted ratsnake of eastern Georgia. It looks much like E. sauromates — geography matters for identification.",
+      "summary": "A large, harmless blotched ratsnake with a round pupil and a dark crown. In Georgia the key is dry eastern habitat and bold rounded dorsal blotches — not the vertical pupil of Levantine viper.",
       "traits": [
-        "The back has about 50–65 rounded brown or black blotches on a yellowish or whitish ground.",
-        "The head is relatively large; the snout profile is often slightly hooked.",
-        "The top of the head is dark; the pupil is round.",
-        "Length is roughly 0.8–1.2 m; it is non-venomous.",
-        "In Georgia it occurs in eastern Transcaucasia (Kakheti and nearby dry zones)."
+        "Length is usually 0.8–1.2 m (measured material about 80–120 cm). The head is relatively large and distinct from the neck. The snout profile is often slightly hooked. The pupil is round. There are 23–25 scale rows at midbody, with 18–21 of those rows keeled.",
+        "The ground colour is yellowish, whitish, or rarely bright yellow. The back has 50–65 rounded brown or black blotches, often with a whitish edge. Blotches may become more transverse toward the tail. The top of the head is dark, often almost black. A dark stripe runs from behind the eye toward the mouth. The belly is whitish to pale yellow, with a marbled speckling stronger on the sides of the ventral plates.",
+        "The steppe ratsnake (Elaphe dione) occurs in the same east but has a finer pattern — often four longitudinal stripes and small transverse blotches, not a series of large rounded spots. Schmidt’s racer (Dolichophis schmidti) is slimmer and faster; the belly is often reddish and the dorsal pattern differs. Levantine viper (Macrovipera lebetina) has a vertical pupil, a triangular head, and strongly keeled scales; it is venomous. Smooth snake is smaller, with smooth scales.",
+        "Elaphe sauromates looks almost the same and does not occur in Georgia — its range lies farther west (Balkans, western/central Anatolia, Pontic-Caspian steppes). In the field the two are separated by geography, not by a single unique mark. Do not pick up a snake to count scales.",
+        "It has no venom. A bite can hurt but is not medically venomous. A large blotched snake with a vertical pupil in the south-east dry zone is Levantine viper, not this species. Do not handle it."
       ]
     },
     "faq": [
       {
-        "question": "Is the Urartian ratsnake dangerous to humans?",
-        "answer": "No — it is harmless. It has no venom and kills prey only by constriction. When threatened it prefers to flee; it does not attack humans."
+        "question": "Is the Urartian ratsnake found in Georgia?",
+        "answer": "Yes — in eastern Georgia. The 2026 checklist accepts the species but treats it as a candidate. It does not occur throughout the country."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "In eastern Georgia — in Kakheti (the Alazani plain, Dedoplistsqaro, Lagodekhi), around Tbilisi, and in the dry zone of the southeast. Its range is described extending west almost to Trialeti / toward Surami."
+        "question": "Where might I see it in Georgia?",
+        "answer": "In the dry east — Kakheti (including Dedoplistsqaro / Shiraki), around Tbilisi, and the south-eastern semi-arid zone. The map also marks Kvemo Kartli and Samtskhe — Javakheti. It is not a western or Colchic species."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. It kills prey by constriction. When threatened it usually flees. A large snake can still bite — do not pick it up. A vertical pupil and triangular head point to Levantine viper."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "Yellowish or whitish ground with 50–65 large rounded blotches, a dark crown, a round pupil, and length usually up to 1.2 m. Steppe ratsnake has a finer pattern and often four stripes. Levantine viper has a vertical pupil."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "In measured material total length is usually 80–120 cm and rarely exceeds 1.2 m. Males have a relatively longer tail; females have more ventral scales."
       },
       {
         "question": "How does it differ from Elaphe sauromates?",
-        "answer": "It looks very similar — it is a cryptic species. The difference is mainly genetic and geographic: E. urartica occurs in the Caucasus and eastern Anatolia, while E. sauromates occurs farther west (the Balkans, western/central Anatolia, the Pontic-Caspian steppes)."
+        "answer": "They look almost the same. In Georgia only E. urartica is implied. E. sauromates occurs farther west. The 2026 checklist accepts the split but still treats the Caspian transition zone as insufficiently studied."
       },
       {
-        "question": "What does it eat?",
-        "answer": "Rodents, small birds, nestlings, and eggs; occasionally lizards. It climbs trees and shrubs well to raid nests."
-      },
-      {
-        "question": "Does it lay eggs or give live birth?",
-        "answer": "It is egg-laying. Mating occurs in spring; the female lays several eggs (usually roughly 4–16). Young hatch independently."
+        "question": "What does it eat, and does it lay eggs?",
+        "answer": "It lays eggs. Diet has not been studied separately in Georgia; other Elaphe ratsnakes eat rodents, small birds, and eggs. Clutch size for this species is not confirmed here."
       }
     ],
     "gallery": [
