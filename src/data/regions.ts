@@ -170,7 +170,6 @@ export const regions: Region[] = [
       "platyceps-najadum",
       "telescopus-fallax",
       "elaphe-urartica",
-      "elaphe-dione",
       "dolichophis-schmidti",
       "ommatotriton-ophryticus",
       "bufotes-viridis",
@@ -202,7 +201,6 @@ export const regions: Region[] = [
     },
     speciesIds: [
       "vipera-transcaucasiana",
-      "elaphe-dione",
       "dolichophis-schmidti",
       "natrix-tessellata",
       "natrix-natrix",
@@ -227,7 +225,6 @@ export const regions: Region[] = [
       "coronella-austriaca",
       "natrix-tessellata",
       "natrix-natrix",
-      "elaphe-dione",
       "dolichophis-schmidti",
       "pseudopus-apodus",
       "platyceps-najadum",
