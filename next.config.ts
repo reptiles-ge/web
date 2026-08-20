@@ -142,6 +142,36 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        source: "/gvelebi/qvitelmutsela-mtsuravi",
+        destination: "/gvelebi",
+        statusCode: 302,
+      },
+      {
+        source: "/snakes/dolichophis-caspius",
+        destination: "/gvelebi",
+        statusCode: 302,
+      },
+      {
+        source: "/species/dolichophis-caspius",
+        destination: "/gvelebi",
+        statusCode: 302,
+      },
+      {
+        source: "/en/snakes/dolichophis-caspius",
+        destination: "/en/snakes",
+        statusCode: 302,
+      },
+      {
+        source: "/en/gvelebi/qvitelmutsela-mtsuravi",
+        destination: "/en/snakes",
+        statusCode: 302,
+      },
+      {
+        source: "/en/species/dolichophis-caspius",
+        destination: "/en/snakes",
+        statusCode: 302,
+      },
+      {
         source: "/en/gvelebi/saxeoebebi",
         destination: "/en/snakes/species",
         statusCode: 301,

@@ -1,6 +1,7 @@
 import {
   getCatalogSpecies,
   getSpeciesById,
+  isPublishedSpeciesId,
   type Species,
 } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
@@ -200,7 +201,7 @@ export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
 }
 
 export function getSpeciesLookalikes(id: string): string[] {
-  return [...(lookalikeIndex[id] ?? [])];
+  return [...(lookalikeIndex[id] ?? [])].filter(isPublishedSpeciesId);
 }
 
 export function resolveSpeciesId(param: string): string | undefined {
