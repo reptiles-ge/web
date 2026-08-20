@@ -391,7 +391,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევიდან არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-20T11:30:26+04:00",
+    "updatedAt": "2026-08-20T11:36:41+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4344,6 +4344,12 @@ export const species: Species[] = [
         "credit": {
           "photographer": "david_broek",
           "url": "https://www.inaturalist.org/observations/383087185"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-lasha-1.jpg",
+        "credit": {
+          "photographer": "ლაშა გოგოძე"
         }
       },
       {
@@ -11031,6 +11037,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "david_broek",
           "url": "https://www.inaturalist.org/observations/383087185"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-lasha-1.jpg",
+        "credit": {
+          "photographer": "Lasha Gogodze"
         }
       },
       {
