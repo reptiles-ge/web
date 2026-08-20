@@ -101,6 +101,11 @@ export function SpeciesProfile({
   const biologyBlocks = useMemo(
     () =>
       [
+        {
+          title: t("habitat"),
+          body: species.habitat,
+          id: "habitat",
+        },
         { title: t("diet"), body: species.diet, id: "diet" },
         { title: t("behavior"), body: species.behavior, id: "behavior" },
         {
@@ -109,7 +114,13 @@ export function SpeciesProfile({
           id: "conservation",
         },
       ].filter((block) => !isPlaceholderBody(block.body)),
-    [species.behavior, species.conservation, species.diet, t],
+    [
+      species.behavior,
+      species.conservation,
+      species.diet,
+      species.habitat,
+      t,
+    ],
   );
 
   return (
@@ -304,11 +315,13 @@ export function SpeciesProfile({
               </AnchoredHeading>
               <div
                 className={`mt-14 grid gap-12 md:gap-10 ${
-                  biologyBlocks.length >= 3
-                    ? "md:grid-cols-3"
-                    : biologyBlocks.length === 2
-                      ? "md:grid-cols-2"
-                      : "md:grid-cols-1"
+                  biologyBlocks.length >= 4
+                    ? "md:grid-cols-2"
+                    : biologyBlocks.length >= 3
+                      ? "md:grid-cols-3"
+                      : biologyBlocks.length === 2
+                        ? "md:grid-cols-2"
+                        : "md:grid-cols-1"
                 }`}
               >
                 {biologyBlocks.map((block) => (

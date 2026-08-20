@@ -17,8 +17,13 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "vipera-kaznakovi": {
-    ka: ["კავკასიური გველგესლა", "გველგესლა"],
-    en: ["Caucasus viper"],
+    ka: ["კავკასიური გველგესლა", "გველგესლა", "Pelias kaznakovi"],
+    en: [
+      "Caucasus viper",
+      "Caucasian viper",
+      "Kaznakov's viper",
+      "Pelias kaznakovi",
+    ],
   },
   "vipera-transcaucasiana": {
     ka: ["ცხვირრქოსანი გველგესლა", "გველგესლა"],

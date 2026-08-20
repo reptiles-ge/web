@@ -52,6 +52,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "natrix-natrix",
     "vipera-dinniki",
     "coronella-austriaca",
+    "vipera-transcaucasiana",
   ],
   "vipera-dinniki": [
     "vipera-kaznakovi",

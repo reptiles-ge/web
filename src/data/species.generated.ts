@@ -6772,7 +6772,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით მოწყვლადია ფრაგმენტირებული, 20,000 კმ²-ზე ნაკლები არეალის გამო; საქართველოს წითელ ნუსხაში VU სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-20T12:59:14+04:00",
+    "updatedAt": "2026-08-20T13:01:14+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6810,13 +6810,13 @@ export const species: Species[] = [
     "scientificName": "Vipera kaznakovi",
     "genus": "Vipera",
     "family": "Viperidae",
-    "location": "დასავლეთ კავკასია",
-    "description": "კავკასიის ენდემური შხამიანი გველგესლა — კოლხური ტყეებისა და შავი ზღვის სანაპიროს იშვიათი მკვიდრი.",
-    "overview": "კავკასიური გველგესლა (Vipera kaznakovi) გველგესლასებრთა ოჯახის შხამიანი სახეობაა, ენდემური სამხრეთ-დასავლეთ კავკასიისთვის. გვხვდება საქართველოში (აფხაზეთი, აჭარა, გურია, იმერეთი; აგრეთვე ბორჯომის ხეობა), ჩრდილო-აღმოსავლეთ თურქეთსა და რუსეთის შავი ზღვის სანაპიროზე. გამოირჩევა წითელ-ნარინჯისფერი შეფერილობითა და მუქი ზიგზაგისებური ზოლით. IUCN-ის მიხედვით გადაშენების საფრთხეშია (Endangered).",
-    "habitat": "ბინადრობს მთის ტყიან ფერდობებზე, ნოტიო ხევებში, ტყის გაწმენდილებში, წიფლისა და წაბლის კორომებში, მდინარის ტერასებთან და სუბალპურ მდელოებზე. ზღვის სანაპიროდან ადის წიწვოვანი ტყის ქვედა ზღვრამდე — დაახლოებით 0–1,000 მ (იშვიათად უფრო მაღლა). თავს არიდებს ღრმა წიწვოვან ტყეს და ანთროპოგენურად ძლიერ შეცვლილ ლანდშაფტს.",
-    "diet": "ზრდასრულები იკვებებიან მღრღნელებით (ტყის და მინდვრის თაგვები, მინდვრის ვირთხები), ხვლიკებითა და პატარა ფრინველებით. ახალგაზრდები ძირითადად მცირე ხვლიკებითა და მწერებით — კალიებითა და ჭრიჭინებით. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს.",
-    "behavior": "მალული ცხოვრების წესი აქვს. შავი ზღვის სანაპიროზე ზამთრიდან მარტში გამოდის; 600–800 მ სიმაღლეზე — აპრილის მეორე ნახევარში ან მაისის დასაწყისში. შეწყვილება მარტის ბოლოდან მაისის შუა რიცხვებამდეა (საქართველოში ხშირად მაის–ივნისში). ცოცხლადმშობია: შემოდგომაზე, აგვისტო–სექტემბერში, ბადებს 5–10 ნაშიერს. იზამთრებს სანაპიროზე ნოემბრიდან, მაღლობზე — სექტემბრის ბოლოდან ან ოქტომბრის დასაწყისიდან.",
-    "conservation": "IUCN Red List-ის მიხედვით გადაშენების საფრთხეშია (Endangered); პოპულაცია მცირდება. შეტანილია საქართველოს წითელ ნუსხაში და ბერნის კონვენციის II დანართში (მკაცრად დაცული). მთავარი საფრთხეებია ჰაბიტატის განადგურება (ტურიზმი, ურბანიზაცია, სოფლის მეურნეობა, კაშხლები თურქეთში), უკანონო შეგროვება შინაურ ცხოველთა ვაჭრობისთვის და ადამიანის მიერ განზრახ ან შემთხვევით მოკვლა. სანაპირო პოპულაციების ნაწილი უკვე გაქრა.",
+    "location": "დასავლეთი საქართველო",
+    "description": "დასავლეთ კავკასიის შხამიანი გველგესლა — ნოტიო კოლხური ტყისა და შავი ზღვის სანაპიროს მკვიდრი.",
+    "overview": "კავკასიური გველგესლა (Vipera kaznakovi) დასავლეთ საქართველოს ნოტიო კოლხური ტყისა და შავი ზღვის სანაპიროს შხამიანი გველია. მთელ ქვეყანაში არ გვხვდება. ტიპის ადგილია წებელდა, სოხუმის მიდამოები (აფხაზეთი). არეალი გრძელდება ჩრდილო-აღმოსავლეთ თურქეთსა და რუსეთის შავი ზღვის სანაპიროზე. 2026 წლის ჩამონათვალი მას კანდიდატ სახეობად იღებს kaznakovi-ს კომპლექსში — საზღვარი დინიკის გველგესლასთან გენომური მონაცემით სრულად არ არის შემოწმებული. ზრდასრული ჩვეულებრივ დაახლოებით 45–60 სმ-ია. ამ ატლასში რისკი საშუალოა. IUCN-ით საფრთხეშია (Endangered); საქართველოს 2014 წლის წითელ ნუსხაში EN სტატუსითაა.",
+    "habitat": "ეძებეთ ნოტიო კოლხურ ტყეში, ტყის პირას, ხევში, წიფლისა და წაბლის კორომში, მდინარის ტერასაზე და გაწმენდილ მდელოზე — არა აღმოსავლეთის მშრალ ვაკეზე და არა დიდი კავკასიონის სუბალპში. ქართული გველების გავრცელების კვლევა მას ნოტიო კლიმატის სახეობებს მიაკუთვნებს. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი, სამცხე — ჯავახეთი და შიდა ქართლი. დასავლეთის კოლხური ჩანაწერები ყველაზე საიმედოა. ბორჯომის ხეობისა და ბანისხევის ინდივიდები ისტორიულად ამ სახეობას მიეკუთვნებოდა. ზოგი კვლევა მტკვრის შუა დინების მარცხენა ნაპირის გველგესლებს ცალკე ხაზად განიხილავს; 2026 წლის ჩამონათვალი ცენტრალური საქართველოს ტყიან ფორმას V. dinniki tuniyevi-ს უკავშირებს. ამიტომ შიდა ქართლისა და ბორჯომის რუკის ნიშანი ტიპურ კოლხურ kaznakovi-დ არ უნდა ჩაითვალოს დადასტურებულად. სიმაღლე ძირითადად ზღვის დონიდან დაახლოებით 1,000 მ-მდეა; ღრმა წიწვოვან ტყეში იშვიათად შედის.",
+    "diet": "ზრდასრული იჭერს მღრღნელებს, ხვლიკებსა და პატარა ფრინველებს. ახალგაზრდა — წვრილ ხვლიკსა და მწერს, მათ შორის კალიას. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია დასავლეთ კავკასიიდან.",
+    "behavior": "მალულია. სანაპიროზე ზამთრის შემდეგ ხშირად მარტში გამოდის; 600–800 მ სიმაღლეზე — აპრილის მეორე ნახევარში ან მაისის დასაწყისში. დღისით ჩნდება, განსაკუთრებით გრილ ამინდში; სიცხეში ჩრდილს ეძებს. ცოცხლადმშობია (კვერცხები დედის სხეულში იზრდება და ნაშიერი ცოცხალი იბადება). შეწყვილება გაზაფხულზეა; შემოდგომაზე, ჩვეულებრივ აგვისტო–სექტემბერში, ბადებს დაახლოებით 5–10 ნაშიერს. იზამთრებს სანაპიროზე ნოემბრიდან, მაღლობზე — სექტემბრის ბოლოდან ან ოქტომბრის დასაწყისიდან. ეს კალენდარი დასავლეთ კავკასიის ლიტერატურას მიჰყვება და ყველა ქართულ პოპულაციაზე ერთნაირად არ არის გაზომილი. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
+    "conservation": "IUCN-ის 2009 წლის შეფასებით (2017 წლის errata) საფრთხეშია (Endangered, B2ab(ii,iii,v)): დაკავებული ფართობი 500 კმ²-ზე ნაკლებია, არეალი ფრაგმენტირებულია და პოპულაცია მცირდება. საქართველოს 2014 წლის წითელ ნუსხაში EN სტატუსითაა — ეროვნული ჩანაწერი გლობალურ IUCN-ს მიჰყვება. საფრთხეა ჰაბიტატის განადგურება (ტურიზმი, ურბანიზაცია, სოფლის მეურნეობა), უკანონო შეგროვება და ადამიანის მიერ მოკვლა. სანაპირო პოპულაციების ნაწილი უკვე გაქრა. 2026 წლის ჩამონათვალში კანდიდატია: კომპლექსის შიდა საზღვრები გენომური მონაცემით სრულად არ არის დადასტურებული.",
     "danger": "Moderate",
     "image": "https://cdn.reptiles.ge/vipera-kaznakovi.webp",
     "mobileImage": "https://cdn.reptiles.ge/vipera-kaznakovi-mobile.webp",
@@ -6876,15 +6876,15 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "დას. კავკასია"
+        "value": "კოლხური ტყე"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 45–65 სმ"
+        "value": "დაახლ. 45–60 სმ"
       },
       {
         "label": "შხამი",
-        "value": "შხამიანი"
+        "value": "საშუალო რისკი"
       },
       {
         "label": "კონსერვაცია",
@@ -6899,42 +6899,49 @@ export const species: Species[] = [
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "სახელი ეწოდა რუსი ნატურალისტის ალექსანდრე ნიკოლაევიჩ კაზნაკოვის პატივსაცემად.",
-      "შეფერილობაში დომინირებს წითელი და ნარინჯისფერი; ხშირია მელანიზმი, თუმცა პირის გარშემო წითელი ან ყვითელი ელფერი რჩება.",
-      "ცოცხლადმშობია — შემოდგომაზე ბადებს 5–10 ნაშიერს; ამიტომ დედის დაღუპვა მთელ ნაყოფსაც ანადგურებს.",
-      "IUCN სტატუსი — გადაშენების საფრთხეში (Endangered); შეტანილია საქართველოს წითელ ნუსხაში."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "კავკასიური გველგესლა დასავლეთ კავკასიისა და კოლხური ტყეების შხამიანი სახეობაა. ამოიცანი ჰაბიტატით (დაბალი სიმაღლე, ნოტიო დასავლეთი) და ზომით.",
+      "summary": "პატარა, მსხვილტანი გველგესლაა ვერტიკალური გუგით, კილური ქერცლით და ხშირად წითელ-ნარინჯისფერი ფონით. ამოიცანი ჰაბიტატით — დაბალი ნოტიო დასავლეთი — და ზომით.",
       "traits": [
-        "სიგრძე დაახლოებით 45–65 სმ — დინიკზე ოდნავ დიდი, გიურზაზე გაცილებით პატარა.",
-        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი ფართოა.",
-        "გვხვდება დასავლეთ კავკასიაში — კოლხურ ტყეებსა და შავი ზღვის სანაპიროზე (დაახლ. 0–1,000 მ).",
-        "დინიკისგან განსხვავებით დაბალ და ნოტიო ჰაბიტატშია, არა მაღალმთის სუბალპში.",
-        "შხამიანია; IUCN სტატუსი — საფრთხეში (Endangered)."
+        "სხეული შედარებით მოკლე და მსხვილია. თავი სამკუთხაა და კისრისგან მკაფიოდ გამოიყოფა; ცხვირზე რქა არ აქვს. ზრდასრული ჩვეულებრივ დაახლოებით 45–60 სმ-ია; იშვიათად 65–70 სმ-მდე.       დედალი მამალზე დიდია. Orlov & Tuniyev-ის გაზომილ სერიაში უდიდესი დედალი 60 სმ იყო, უდიდესი მამალი — 47.5 სმ.",
+        "გუგა ვერტიკალური ნაპრალია. ზურგის ქერცლი კილურია — შუაში ამოწეული ნეკნივით. ფონი ხშირად აგურისფერი, ნარინჯისფერი ან მოყვითალო-ყავისფერია; ზურგზე მუქი ზიგზაგი გადის. შავი ინდივიდებიც ხშირია, მაგრამ პირის გარშემო წითელი ან ყვითელი ელფერი ჩვეულებრივ რჩება.",
+        "ჩვეულებრივ ანკარას (Natrix natrix) მრგვალი გუგა აქვს, სხეული უფრო წვრილია და ხშირად ყვითელი „საყელო“ აქვს; წყალთან ახლოსაა და შხამიანი არ არის. გლუვ გველს (Coronella austriaca) მრგვალი გუგა და გლუვი ქერცლი აქვს.",
+        "დინიკის გველგესლა მაღალმთისაა (დაახლ. 1,500–2,800 მ), უფრო ნაცრისფერი ან მოყავისფროა და თავი უფრო ვიწროა. ცხვირრქოსანს ცხვირზე რქა აქვს და მცირე კავკასიონის მშრალ მთას უკავშირდება. გიურზა დიდია (დაახლ. 1–1.5 მ) და აღმოსავლეთის მშრალ დაბლობზეა.",
+        "შხამიანია (საშუალო რისკი). ნაკბენი სამედიცინო დახმარებას საჭიროებს. არ აიყვანოთ."
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა კავკასიური გველგესლა ადამიანისთვის?",
-        "answer": "შხამიანია და საფრთხის დონე საშუალოდ ფასდება. მალულია და თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს; ნაკბენი იშვიათია. ნაკბენის შემთხვევაში საჭიროა დაუყოვნებელი სამედიცინო დახმარება."
+        "question": "გვხვდება თუ არა კავკასიური გველგესლა საქართველოში?",
+        "answer": "დიახ. ტიპის ადგილი აფხაზეთშია. გვხვდება დასავლეთის ნოტიო კოლხურ ზონაში — არა მთელ ქვეყანაში და არა აღმოსავლეთის მშრალ ვაკეზე."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "დასავლეთ საქართველოში — აფხაზეთში, აჭარაში, გურიასა და იმერეთში; აგრეთვე ბორჯომის ხეობაში (ბანისხევის აუზი). ბინადრობს ნოტიო კოლხურ ტყეებში, ხევებსა და მდელოებზე."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "კოლხურ ტყეში, ხევში და ტყის პირას, ძირითადად 1,000 მ-მდე. რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი და სხვა დასავლეთის რეგიონები. ბორჯომის ხეობის ჩანაწერების სახეობრივი კუთვნილება სადავოა."
+      },
+      {
+        "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
+        "answer": "შხამიანია. ამ ატლასში რისკი საშუალოა — გიურზაზე დაბალი, მაგრამ ნაკბენი მაინც სამედიცინო დახმარებას საჭიროებს. თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს. არ აიყვანოთ."
+      },
+      {
+        "question": "რა უნდა გავაკეთო ნაკბენის შემთხვევაში?",
+        "answer": "დაუყოვნებლივ დარეკეთ 112-ზე. დაზარალებული დააწვინეთ და დაამშვიდეთ; ნაკბენი ადგილი არ გაიჭრას, არ შეიწოვოს და არ მოიკვრას მჭიდრო ტურნიკეტი. მკურნალობა საავადმყოფოშია."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა, მსხვილტანი გველგესლაა ვერტიკალური გუგით, კილური ქერცლით და ხშირად წითელ-ნარინჯისფერი ფონითა და მუქი ზიგზაგით. ცხვირზე რქა არ აქვს. ანკარას მრგვალი გუგა აქვს."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ზრდასრული ჩვეულებრივ დაახლოებით 45–60 სმ-ია; იშვიათად 65–70 სმ-მდე. დედალი მამალზე დიდია. გიურზაზე გაცილებით მოკლეა."
       },
       {
         "question": "რით განსხვავდება დინიკის გველგესლასგან?",
-        "answer": "კავკასიური გველგესლა უფრო დაბალ სიმაღლეებზე ცხოვრობს (ძირითადად 0–1,000 მ), კოლხური ნოტიო ტყის მკვიდრია და წითელ-ნარინჯისფერი შეფერილობით გამოირჩევა. დინიკის გველგესლა მაღალმთიანი სახეობაა (დაახლ. 1,500–2,800 მ) და დიდი კავკასიონის სუბალპურ ზონაში გვხვდება."
+        "answer": "კავკასიური გველგესლა დაბალ, ნოტიო კოლხურ ტყეშია, ძირითადად 1,000 მ-მდე, უფრო ფართო თავითა და წითელ-ნარინჯისფერი ფონით. დინიკის გველგესლა მაღალმთისაა (დაახლ. 1,500–2,800 მ) და უფრო ნაცრისფერი ან მოყავისფროა. 2026 წლის ჩამონათვალი მათ სახეობრივ საზღვარს ჯერ კანდიდატად ტოვებს."
       },
       {
-        "question": "რატომ არის გადაშენების საფრთხეში?",
-        "answer": "არეალი ვიწროა და პოპულაცია მცირდება. ჰაბიტატს ანადგურებს ტურიზმი, ურბანიზაცია და სოფლის მეურნეობა; დამატებით საფრთხეა უკანონო შეგროვება და ადამიანის მიერ მოკვლა. სანაპირო პოპულაციების ნაწილი უკვე გაქრა."
-      },
-      {
-        "question": "ცოცხლად შობს თუ კვერცხებს დებს?",
-        "answer": "ცოცხლადმშობია. შეწყვილება გაზაფხულზეა; შემოდგომაზე, აგვისტო–სექტემბერში, ბადებს 5–10 ნაშიერს."
+        "question": "რატომ არის კანდიდატი და საფრთხეში?",
+        "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
     "updatedAt": "2026-08-06T13:03:03+04:00",
@@ -6944,12 +6951,28 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/22990/0"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/5960856"
+        "name": "Orlov & Tuniyev 1990 — Three species in the Vipera kaznakowi complex",
+        "url": "https://biostor.org/reference/310295"
+      },
+      {
+        "name": "Tuniyev et al. 2009 — IUCN Red List account for Vipera kaznakovi",
+        "url": "https://www.iucnredlist.org/species/22990/114546825"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "Tuniyev et al. 2021 — Pelias (kaznakovi) complex in the middle Kura basin",
+        "url": "https://doi.org/10.31610/trudyzin/2021.325.1.3"
+      },
+      {
+        "name": "Raaijmakers et al. 2026 — Intermediate kaznakovi × transcaucasiana from central Georgia",
+        "url": "https://herpetologynotes.org/index.php/hn/article/view/341"
       },
       {
         "name": "The Reptile Database",
@@ -13029,25 +13052,25 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "vipera-kaznakovi": {
     "commonName": "Caucasus viper",
-    "location": "Western Caucasus",
-    "description": "A venomous viper endemic to the Caucasus — a rare inhabitant of Colchic forests and the Black Sea coast.",
-    "overview": "The Caucasus viper (Vipera kaznakovi) is a venomous species of the viper family, endemic to the southwestern Caucasus. It occurs in Georgia (Abkhazia, Adjara, Guria, Imereti; also the Borjomi gorge), northeastern Turkey, and Russia's Black Sea coast. It is distinguished by its red-orange coloration and dark zigzag stripe. It is classified as Endangered by the IUCN.",
-    "habitat": "It inhabits forested mountain slopes, humid ravines, forest clearings, beech and chestnut groves, river terraces, and subalpine meadows. It ranges from the coast up to the lower edge of coniferous forest — roughly 0–1,000 m (rarely higher). It avoids deep coniferous forest and heavily human-altered landscapes.",
-    "diet": "Adults feed on rodents (wood and field mice, voles), lizards, and small birds. Juveniles feed mainly on small lizards and insects — grasshoppers and crickets. It hunts by ambush and subdues prey with venom.",
-    "behavior": "It has a secretive way of life. On the Black Sea coast it emerges from hibernation in March; at 600–800 m elevation — in the second half of April or early May. Mating runs from late March to mid-May (in Georgia often in May–June). It is ovoviviparous: in autumn, in August–September, it bears 5–10 young. It hibernates on the coast from November, and at higher elevation from late September or early October.",
-    "conservation": "Classified as Endangered on the IUCN Red List; the population is declining. It is listed in Georgia's Red List and Appendix II of the Bern Convention (strictly protected). Major threats include habitat destruction (tourism, urbanization, agriculture, dams in Turkey), illegal collection for the pet trade, and deliberate or accidental killing by humans. Some coastal populations have already disappeared.",
+    "location": "western Georgia",
+    "description": "A venomous viper of the western Caucasus — a resident of humid Colchic forest and the Black Sea coast.",
+    "overview": "The Caucasus viper (Vipera kaznakovi) is a venomous snake of western Georgia’s humid Colchic forests and the Black Sea coast. It does not occur throughout the country. The type locality is Tsebelda, near Sukhumi (Abkhazia). The range continues into northeastern Turkey and Russia’s Black Sea coast. The 2026 checklist treats it as a candidate in the kaznakovi complex — the boundary with Dinnik’s viper is not yet fully tested with genomic data. Adults are usually about 45–60 cm. In this atlas the risk is moderate. It is Endangered on the IUCN Red List and EN on Georgia’s 2014 Red List.",
+    "habitat": "Look for it in humid Colchic forest, at forest edges, in ravines, in beech and chestnut groves, on river terraces and in clearings — not on the dry eastern plains and not in the Greater Caucasus subalpine zone. A Georgian snake-distribution study places it among species of relatively humid climate. This atlas maps Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, Samtskhe — Javakheti, and Shida Kartli. Colchic records in the west are the most reliable. Snakes from the Borjomi gorge and Baniskhevi were historically assigned to this species. Some studies treat vipers of the left-bank middle Kura as a separate lineage; the 2026 checklist links the forest form of central Georgia to V. dinniki tuniyevi. The Shida Kartli and Borjomi map marks should not be read as confirmed typical Colchic kaznakovi. Elevation is mainly from sea level to about 1,000 m; it rarely enters deep coniferous forest.",
+    "diet": "Adults take rodents, lizards and small birds. Juveniles take small lizards and insects, including grasshoppers. It hunts by ambush and subdues prey with venom. There is no separate Georgian diet study on this page; this is species-level data from the western Caucasus.",
+    "behavior": "It is secretive. On the coast it often emerges from winter in March; at 600–800 m — in the second half of April or early May. It appears by day, especially in cool weather; in heat it seeks shade. It gives live birth (eggs develop inside the female; the young are born alive). Mating is in spring; in autumn, usually August–September, it bears about 5–10 young. It overwinters on the coast from November, and at higher elevation from late September or early October. This calendar follows western Caucasus literature and has not been measured the same way in every Georgian population. If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people.",
+    "conservation": "The 2009 IUCN assessment (2017 errata) lists it as Endangered (B2ab(ii,iii,v)): area of occupancy is under 500 km², the range is fragmented, and the population is declining. Georgia’s 2014 Red List assigns EN, following the global IUCN assessment. Threats include habitat destruction (tourism, urbanisation, agriculture), illegal collection and killing by people. Some coastal populations have already disappeared. In the 2026 checklist it is a candidate: internal boundaries in the complex are not yet fully confirmed with genomic data.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Western Caucasus"
+        "value": "Colchic forest"
       },
       {
         "label": "Length",
-        "value": "approx. 45–65 cm"
+        "value": "approx. 45–60 cm"
       },
       {
         "label": "Venom",
-        "value": "Venomous"
+        "value": "Moderate risk"
       },
       {
         "label": "Conservation",
@@ -13062,42 +13085,49 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "Named in honor of Russian naturalist Alexander Nikolaevich Kaznakov.",
-      "Red and orange dominate its coloration; melanism is common, though a red or yellow tint remains around the mouth.",
-      "It is ovoviviparous — it bears 5–10 young in autumn; the loss of the mother therefore destroys the entire brood.",
-      "IUCN status — Endangered; it is listed in Georgia's Red List."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "The Caucasus viper is a venomous endemic of the western Caucasus and Colchic forests. Habitat (low elevation, humid west) and size are the main cues.",
+      "summary": "A small, stout viper with a vertical pupil, keeled scales and often a red-orange ground colour. Habitat — low, humid west — and size are the main cues.",
       "traits": [
-        "Length is roughly 45–65 cm — a bit larger than Dinnik’s, far smaller than the Levantine viper.",
-        "The pupil is vertical, scales are keeled, and the head is broad.",
-        "It occurs in the western Caucasus — Colchic forests and the Black Sea coast (about 0–1,000 m).",
-        "Unlike Dinnik’s viper it lives in low, humid habitat, not the high subalpine zone.",
-        "It is venomous; IUCN status is Endangered."
+        "The body is relatively short and thick. The head is triangular and clearly set off from the neck; there is no nose horn. Adults are usually about 45–60 cm, rarely 65–70 cm. Females are larger than males. In one measured series the largest female was 60 cm and the largest male 47.5 cm.",
+        "The pupil is a vertical slit. Dorsal scales are keeled — each has a raised ridge. Ground colour is often brick-red, orange or yellowish brown, with a dark zigzag on the back. Black individuals are also common, but a red or yellow tint usually remains around the mouth.",
+        "The grass snake (Natrix natrix) has a round pupil, a slimmer body and often a yellow collar; it stays near water and is not venomous. The smooth snake (Coronella austriaca) has a round pupil and smooth scales.",
+        "Dinnik’s viper lives in the high mountains (about 1,500–2,800 m), is greyer or browner, and has a narrower head. The Transcaucasian long-nosed viper has a nose horn and is tied to the drier Lesser Caucasus. The Levantine viper is large (about 1–1.5 m) and lives in the dry east.",
+        "It is venomous (moderate risk). A bite needs medical care. Do not pick it up."
       ]
     },
     "faq": [
       {
-        "question": "Is the Caucasus viper dangerous to humans?",
-        "answer": "It is venomous, and its danger level is rated moderate. It is secretive and does not attack unless it feels threatened; bites are rare. Immediate medical attention is required in the event of a bite."
+        "question": "Is the Caucasus viper found in Georgia?",
+        "answer": "Yes. The type locality is in Abkhazia. It occurs in the humid Colchic west — not throughout the country and not on the dry eastern plains."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "In western Georgia — in Abkhazia, Adjara, Guria, and Imereti; also in the Borjomi gorge (Banistskali basin). It inhabits humid Colchic forests, ravines, and meadows."
+        "question": "Where can it be found in Georgia?",
+        "answer": "In Colchic forest, ravines and forest edges, mainly below 1,000 m. The map marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti and other western regions. The species identity of Borjomi gorge records is disputed."
       },
       {
-        "question": "How does it differ from Dinnik's viper?",
-        "answer": "The Caucasus viper lives at lower elevations (mainly 0–1,000 m), inhabits humid Colchic forest, and is distinguished by its red-orange coloration. Dinnik's viper is a high-mountain species (approx. 1,500–2,800 m) found in the subalpine zone of the Greater Caucasus."
+        "question": "Is it venomous and dangerous to humans?",
+        "answer": "It is venomous. In this atlas the risk is moderate — lower than the Levantine viper, but a bite still needs medical care. It does not attack unless it feels threatened. Do not pick it up."
       },
       {
-        "question": "Why is it endangered?",
-        "answer": "Its range is narrow and the population is declining. Habitat is being destroyed by tourism, urbanization, and agriculture; illegal collection and killing by humans are additional threats. Some coastal populations have already disappeared."
+        "question": "What should I do if bitten?",
+        "answer": "Call 112 immediately. Keep the person still and calm; do not cut, suck or apply a tight tourniquet. Treatment is in hospital."
       },
       {
-        "question": "Does it give live birth or lay eggs?",
-        "answer": "It is ovoviviparous. Mating occurs in spring; in autumn, in August–September, it bears 5–10 young."
+        "question": "How can it be identified?",
+        "answer": "It is a small, stout viper with a vertical pupil, keeled scales and often a red-orange ground colour with a dark zigzag. It has no nose horn. The grass snake has a round pupil."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Adults are usually about 45–60 cm, rarely 65–70 cm. Females are larger than males. It is much shorter than the Levantine viper."
+      },
+      {
+        "question": "How does it differ from Dinnik’s viper?",
+        "answer": "The Caucasus viper lives in low, humid Colchic forest, mainly below 1,000 m, with a broader head and a red-orange ground colour. Dinnik’s viper is a highland species (about 1,500–2,800 m) and is greyer or browner. The 2026 checklist still treats their species boundary as a candidate."
+      },
+      {
+        "question": "Why is it a candidate and Endangered?",
+        "answer": "The checklist treats it as a candidate because isolation within the kaznakovi complex is not fully confirmed with genomic data. IUCN lists it as Endangered because the range is narrow, fragmented and declining; Georgia’s Red List assigns EN."
       }
     ],
     "gallery": [
