@@ -4081,7 +4081,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-19T11:16:54+04:00",
+    "updatedAt": "2026-08-20T12:38:35+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
