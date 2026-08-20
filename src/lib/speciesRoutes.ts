@@ -53,7 +53,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-dinniki",
     "coronella-austriaca",
   ],
-  "vipera-dinniki": ["vipera-kaznakovi", "vipera-darevskii"],
+  "vipera-dinniki": [
+    "vipera-kaznakovi",
+    "vipera-darevskii",
+    "coronella-austriaca",
+  ],
   "vipera-transcaucasiana": [
     "vipera-kaznakovi",
     "coronella-austriaca",
@@ -68,6 +72,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "coronella-austriaca": [
     "vipera-transcaucasiana",
     "vipera-kaznakovi",
+    "vipera-dinniki",
   ],
   "zamenis-longissimus": ["zamenis-hohenackeri"],
   "zamenis-hohenackeri": ["zamenis-longissimus"],
