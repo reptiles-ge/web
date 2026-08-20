@@ -113,6 +113,11 @@
         "body": "A complete snake guide — venomous and harmless species in one place.",
         "cta": "Snakes"
       },
+      "quiz": {
+        "title": "Which snake is it?",
+        "body": "A photo quiz of Georgia’s snakes — four options, instant feedback, no account.",
+        "cta": "Start the quiz"
+      },
       "lizards": {
         "title": "Lizards in Georgia",
         "body": "Darevskia, Caucasian agama, and the glass lizard — catalog through to full profiles.",
@@ -184,6 +189,7 @@
     "lizardIndex": "Lizard species",
     "turtleIndex": "Turtle species",
     "snakeIdentify": "Identify a venomous snake",
+    "snakeQuiz": "Which snake is it?",
     "snakeBite": "Snakebite first steps",
     "snakeRange": "Where snakes occur",
     "snakeLargest": "Largest snakes",
@@ -690,6 +696,12 @@
         "title": "Venomous or not",
         "body": "Visual cues and lookalikes — no rule is universal.",
         "cta": "ID guide"
+      },
+      "quiz": {
+        "eyebrow": "Quiz",
+        "title": "Which snake is it?",
+        "body": "A photo, four options, instant feedback — identify Georgia’s snakes with no account.",
+        "cta": "Start the quiz"
       },
       "bite": {
         "eyebrow": "112",
@@ -1813,5 +1825,45 @@
     "relatedGuidesEyebrow": "Related guides",
     "relatedGuidesTitle": "Venomous or not — then the catalog",
     "relatedGuidesBody": "Identify lookalikes, open the venomous guide, or browse every snake in Georgia."
+  },
+  "snakeQuiz": {
+    "metaTitle": "Which snake is it? — Georgia snake ID quiz",
+    "metaDescription": "Identify Georgia’s snakes from photos. 10 questions, four options, instant feedback — no account required.",
+    "keywords": "snake identification, which snake, quiz, snakes of Georgia, blunt-nosed viper, Caucasian viper",
+    "breadcrumbHome": "Home",
+    "breadcrumbSnakes": "Snakes",
+    "breadcrumbCurrent": "Which snake is it?",
+    "eyebrow": "Quiz",
+    "title": "Which snake is it?",
+    "subtitle": "A large photo, four species, instant feedback. Ten questions on Georgia’s snakes — your score stays on this device.",
+    "loading": "Loading the quiz…",
+    "progress": "Question {current} / {total}",
+    "question": "Which snake is it?",
+    "imageAltHidden": "Photo of a snake from Georgia for identification",
+    "correct": "Correct! 🎉",
+    "incorrect": "Not this one",
+    "revealLead": "This is {commonName} ({scientificName}).",
+    "learnMore": "Learn more about this species →",
+    "next": "Next question",
+    "seeResult": "See your score",
+    "resultEyebrow": "Result",
+    "percentLabel": "{percent}%",
+    "scoreExcellent": "Outstanding — you know these snakes very well!",
+    "scoreGreat": "A very strong result!",
+    "scoreGood": "A solid start — a few more species and you’ll be sharper.",
+    "scoreKeepGoing": "There is still plenty to discover about Georgia’s snakes.",
+    "restart": "Start again",
+    "discoverSnakes": "Discover the snakes of Georgia →",
+    "noscriptTitle": "This quiz needs JavaScript",
+    "noscriptBody": "The interactive photo quiz runs in the browser. Below are species that appear in the quiz — full profiles live on the snakes hub.",
+    "faqTitle": "FAQ",
+    "faq1Q": "How does the quiz work?",
+    "faq1A": "You see a photo and pick one of four species. After you answer, you get instant feedback, a short explanation, and a link to the species page.",
+    "faq2Q": "Do I need an account?",
+    "faq2A": "No. The quiz works without registration and does not ask for personal data.",
+    "faq3Q": "How many questions are there?",
+    "faq3A": "The default round is 10 questions. Each has one correct species and three plausible lookalikes.",
+    "faq4Q": "Where do the photos and names come from?",
+    "faq4A": "The quiz uses the existing reptiles.ge species catalog and field photos — there is no second species database."
   }
 }

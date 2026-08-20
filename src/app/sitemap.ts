@@ -67,6 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/species", atlasLastModified));
     push(pageEntry(locale, "/venomous-snakes", atlasLastModified));
     push(pageEntry(locale, "/snakes-in-the-yard", atlasLastModified));
+    push(pageEntry(locale, "/quiz/gvelis-identifikacia", atlasLastModified));
 
     for (const guide of CLUSTER_GUIDE_LIST) {
       push(pageEntry(locale, guide.pathname, atlasLastModified));

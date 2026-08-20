@@ -400,6 +400,7 @@ export type HubClusterCard =
         | "/snakes-in-the-yard"
         | "/snakes"
         | "/lizards"
+        | "/quiz/gvelis-identifikacia"
         | ClusterGuidePath;
       key:
         | "snakesHub"
@@ -409,6 +410,7 @@ export type HubClusterCard =
         | "frogs"
         | "index"
         | "identify"
+        | "quiz"
         | "bite"
         | "range"
         | "largest"
@@ -439,6 +441,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   snakes: [
     { kind: "page", href: "/snakes/saxeoebebi", key: "index" },
     { kind: "page", href: "/venomous-snakes", key: "venomous" },
+    { kind: "page", href: "/quiz/gvelis-identifikacia", key: "quiz" },
     { kind: "page", href: "/snakes/shxamiani-gvelis-amocnoba", key: "identify" },
     { kind: "page", href: "/snakes/gvelis-nakbeni", key: "bite" },
     { kind: "page", href: "/snakes/gavrtseleba", key: "range" },
@@ -618,6 +621,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       links.push({ kind: "page", href: "/snakes", key: "snakesHub" });
     }
     links.push({ kind: "page", href: "/snakes/saxeoebebi", key: "index" });
+    links.push({
+      kind: "page",
+      href: "/quiz/gvelis-identifikacia",
+      key: "quiz",
+    });
     if (isVenomousDanger(species.danger)) {
       links.push({
         kind: "page",

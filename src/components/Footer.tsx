@@ -27,6 +27,10 @@ const guideLinks = [
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
   },
+  {
+    href: "/quiz/gvelis-identifikacia" as const,
+    labelKey: "snakeQuiz" as const,
+  },
   { href: "/snakes/gvelis-nakbeni" as const, labelKey: "snakeBite" as const },
   { href: "/snakes/gavrtseleba" as const, labelKey: "snakeRange" as const },
   { href: "/snakes/didi-gvelebi" as const, labelKey: "snakeLargest" as const },
@@ -67,18 +71,22 @@ const companyLinks = [
   { href: "/contact" as const, labelKey: "contact" as const },
 ];
 
+function shouldHideFooter(pathname: string) {
+  return pathname === "/contact" || pathname === "/quiz/gvelis-identifikacia";
+}
+
 export function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale() as AppLocale;
   const pathname = usePathname();
-  const [hidden, setHidden] = useState(pathname === "/contact");
+  const [hidden, setHidden] = useState(shouldHideFooter(pathname));
   const venomous = useMemo(
     () => getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),
     [locale],
   );
 
   useEffect(() => {
-    if (pathname === "/contact") {
+    if (shouldHideFooter(pathname)) {
       setHidden(true);
       return;
     }

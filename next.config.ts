@@ -371,6 +371,16 @@ const nextConfig: NextConfig = {
         destination: "/en/species",
         statusCode: 301,
       },
+      {
+        source: "/en/quiz/gvelis-identifikacia",
+        destination: "/en/quiz/which-snake",
+        statusCode: 301,
+      },
+      {
+        source: "/quiz/which-snake",
+        destination: "/quiz/gvelis-identifikacia",
+        statusCode: 301,
+      },
     ];
   },
 };

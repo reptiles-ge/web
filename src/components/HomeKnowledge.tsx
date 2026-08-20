@@ -8,6 +8,10 @@ const pathways = [
     href: "/snakes",
   },
   {
+    key: "quiz" as const,
+    href: "/quiz/gvelis-identifikacia",
+  },
+  {
     key: "venomous" as const,
     href: "/venomous-snakes",
   },

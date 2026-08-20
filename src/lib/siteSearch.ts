@@ -434,6 +434,27 @@ const STATIC_PAGES: Array<
     heroImage: "/images/guides/snakes-in-the-yard-cover.jpg",
   },
   {
+    id: "snake-quiz",
+    href: "/quiz/gvelis-identifikacia",
+    title: { ka: "რომელი გველია?", en: "Which snake is it?" },
+    subtitle: {
+      ka: "ფოტო-ქვიზი საქართველოს გველებზე",
+      en: "A photo quiz of Georgia’s snakes",
+    },
+    keywords: [
+      "ქვიზი",
+      "quiz",
+      "რომელი გველია",
+      "which snake",
+      "ამოცნობა",
+      "identifikacia",
+    ],
+    icon: "identify",
+    suggested: true,
+    rank: 9,
+    heroSpeciesId: "macrovipera-lebetina",
+  },
+  {
     id: "regions-index",
     href: "/regions",
     title: { ka: "საქართველოს რეგიონები", en: "Regions of Georgia" },

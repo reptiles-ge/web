@@ -391,7 +391,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევიდან არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-20T11:36:41+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4174,7 +4174,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-20T21:33:43+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4567,7 +4567,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-20T11:51:34+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4747,7 +4747,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას — ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე."
       }
     ],
-    "updatedAt": "2026-08-20T21:33:43+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5974,7 +5974,7 @@ export const species: Species[] = [
         "answer": "ბოხმეჭა (Anguis colchica) უფრო პატარა, უფრო გლუვი უფეხო ხვლიკია. გველხოკერა დიდია (დაახლ. 1–1.35 მ), აქვს გამოკვეთილი გვერდითი ნაოჭი და ხშირად ყვითელი მუცელი. ორივე უვნებელია და არც ერთი გველი არ არის."
       }
     ],
-    "updatedAt": "2026-08-20T21:33:43+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7142,7 +7142,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-20T21:33:43+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7636,7 +7636,7 @@ export const species: Species[] = [
         "answer": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი."
       }
     ],
-    "updatedAt": "2026-08-20T21:33:43+04:00",
+    "updatedAt": "2026-08-20T21:34:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
