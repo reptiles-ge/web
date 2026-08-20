@@ -312,6 +312,12 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
       },
       {
+        "src": "/images/bufotes-viridis-lasha-1.jpg",
+        "credit": {
+          "photographer": "ლაშა გოგოძე"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/bufotes-viridis-2.jpg"
       },
       {
@@ -7803,6 +7809,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
+      },
+      {
+        "src": "/images/bufotes-viridis-lasha-1.jpg",
+        "credit": {
+          "photographer": "ლაშა გოგოძე"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/bufotes-viridis-2.jpg"
