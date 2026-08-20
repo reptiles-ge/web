@@ -113,7 +113,8 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       setComplete(true);
       trackEvent("quiz_completed", {
         correct: answers.filter((item) => item.correct).length,
-        incorrect: questions.length - answers.filter((item) => item.correct).length,
+        incorrect:
+          questions.length - answers.filter((item) => item.correct).length,
         total: questions.length,
         percent,
       });
@@ -125,7 +126,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
 
   if (!questions || !question) {
     return (
-      <div className="rounded-[28px] border border-border bg-card px-6 py-16 text-center text-muted-foreground">
+      <div className="flex min-h-[50vh] items-center justify-center px-6 text-muted-foreground">
         {t("loading")}
       </div>
     );
@@ -136,7 +137,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     const message = t(scoreMessageKey(percent));
     return (
       <section
-        className="rounded-[28px] border border-border bg-card px-6 py-10 sm:px-10 sm:py-14"
+        className="mx-auto w-full max-w-[1400px] px-6 py-10 lg:px-10 lg:py-16"
         aria-labelledby={headingId}
       >
         <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
@@ -144,17 +145,17 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
         </p>
         <h2
           id={headingId}
-          className="mt-4 font-display text-[clamp(2.4rem,8vw,4.2rem)] font-semibold leading-none"
+          className="mt-4 font-display text-[clamp(3rem,10vw,6rem)] font-semibold leading-none"
         >
           {correctCount} / {total}
         </h2>
-        <p className="mt-2 text-[15px] text-muted-foreground">
+        <p className="mt-3 text-[16px] text-muted-foreground">
           {t("percentLabel", { percent })}
         </p>
-        <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-foreground">
+        <p className="mt-8 max-w-2xl text-[18px] leading-relaxed text-foreground sm:text-[20px]">
           {message}
         </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-12 flex flex-col gap-3 sm:flex-row">
           <button
             type="button"
             onClick={() => startRound("restart")}
@@ -185,21 +186,25 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
 
   return (
     <section aria-labelledby={headingId}>
-      <div className="mb-5 flex items-center justify-between gap-4 text-[13px] text-muted-foreground">
-        <p>{t("progress", { current: index + 1, total })}</p>
+      <div className="mx-auto mb-5 flex w-full max-w-[1400px] items-center gap-4 px-6 text-[13px] text-muted-foreground lg:px-10">
+        <p className="shrink-0">
+          {t("progress", { current: index + 1, total })}
+        </p>
         <div
           className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary"
           aria-hidden="true"
         >
           <div
             className="h-full rounded-full bg-primary transition-[width] duration-300"
-            style={{ width: `${((index + (revealed ? 1 : 0)) / total) * 100}%` }}
+            style={{
+              width: `${((index + (revealed ? 1 : 0)) / total) * 100}%`,
+            }}
           />
         </div>
       </div>
 
-      <div className="overflow-hidden rounded-[28px] border border-border bg-card">
-        <div className="group relative aspect-[4/5] w-full bg-ink sm:aspect-[16/10]">
+      <div className="grid lg:min-h-[72vh] lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="group relative min-h-[52vh] w-full bg-ink sm:min-h-[58vh] lg:min-h-full">
           <Image
             src={question.image}
             alt={
@@ -214,16 +219,16 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
             fill
             priority
             quality={90}
-            sizes="(max-width: 768px) 100vw, 720px"
+            sizes="(max-width: 1024px) 100vw, 58vw"
             className="object-cover"
           />
           <PhotoCreditCaption credit={question.imageCredit} />
         </div>
 
-        <div className="px-5 py-6 sm:px-8 sm:py-8">
+        <div className="flex flex-col justify-center bg-surface px-6 py-8 sm:px-8 lg:px-12 lg:py-12">
           <h2
             id={headingId}
-            className="font-display text-[clamp(1.5rem,4vw,2rem)] font-semibold leading-tight"
+            className="font-display text-[clamp(1.7rem,3.4vw,2.5rem)] font-semibold leading-tight"
           >
             {t("question")}
           </h2>
@@ -231,7 +236,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
           <div
             role="radiogroup"
             aria-labelledby={headingId}
-            className="mt-6 grid gap-3 sm:grid-cols-2"
+            className="mt-7 grid gap-3 sm:grid-cols-2"
           >
             {question.optionIds.map((optionId) => {
               const option = byId.get(optionId);
@@ -246,7 +251,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                   aria-checked={selected}
                   disabled={revealed}
                   onClick={() => onSelect(optionId, question.difficulty)}
-                  className={`min-h-14 rounded-2xl border px-4 py-4 text-left text-[15px] font-medium transition-colors duration-200 ${optionClass(
+                  className={`min-h-16 rounded-2xl border px-5 py-5 text-left text-[16px] font-medium transition-colors duration-200 ${optionClass(
                     {
                       revealed,
                       selected,
@@ -265,15 +270,15 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
             })}
           </div>
 
-          <div aria-live="polite" className="min-h-[8rem]">
+          <div aria-live="polite">
             {revealed && correctSpecies ? (
-              <div className="mt-6 border-t border-border pt-6">
-                <p className="font-display text-[1.35rem] font-semibold">
+              <div className="mt-8 border-t border-border pt-6">
+                <p className="font-display text-[1.5rem] font-semibold">
                   {selectedId === question.correctId
                     ? t("correct")
                     : t("incorrect")}
                 </p>
-                <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
                   {t("revealLead", {
                     commonName: correctSpecies.commonName,
                     scientificName: correctSpecies.scientificName,
@@ -294,7 +299,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                   {t("learnMore")}
                   <ArrowRight className="size-3.5" aria-hidden="true" />
                 </Link>
-                <div className="mt-6">
+                <div className="mt-7">
                   <button
                     type="button"
                     onClick={onNext}
