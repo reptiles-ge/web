@@ -98,16 +98,19 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const items: QuizCardModel[] = QUIZ_INDEX.map((quiz) => {
     const species =
       catalog.find((item) => item.id === quiz.heroSpeciesId) ?? catalog[0];
+    const useOg = quiz.id === "snake";
     return {
       ...quiz,
-      image: species?.image ?? OG_IMAGE,
-      imageAlt: species
-        ? speciesImageAlt(
-            species.commonName,
-            species.scientificName,
-            species.location,
-          )
-        : t("title"),
+      image: useOg ? OG_IMAGE : (species?.image ?? OG_IMAGE),
+      imageAlt: useOg
+        ? t("snakeTitle")
+        : species
+          ? speciesImageAlt(
+              species.commonName,
+              species.scientificName,
+              species.location,
+            )
+          : t("title"),
     };
   });
 
