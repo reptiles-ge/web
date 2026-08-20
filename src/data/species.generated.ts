@@ -312,7 +312,7 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
       },
       {
-        "src": "/images/bufotes-viridis-lasha-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-lasha-1.jpg",
         "credit": {
           "photographer": "ლაშა გოგოძე"
         }
@@ -4054,13 +4054,13 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
       },
       {
-        "src": "/images/macrovipera-lebetina-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-zakro-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-2.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "24 იანვარი"
@@ -4174,7 +4174,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-20T12:38:35+04:00",
+    "updatedAt": "2026-08-20T21:33:43+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4459,7 +4459,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-lasha-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-lasha-1.jpg",
         "credit": {
           "photographer": "ლაშა გოგოძე"
         }
@@ -4635,7 +4635,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-natrix-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-natrix-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
@@ -4747,7 +4747,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; ზაფხულში დებს დაახლოებით 8–40 კვერცხს ტენიან, თბილ ადგილას — ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-20T21:33:43+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5274,7 +5274,7 @@ export const species: Species[] = [
         "answer": "დღისით, თბილ ამინდში, კლდეებსა და ქვებზე. საქართველოში სეზონის ზუსტი თვეები 2026 წლის ჩამონათვალში არ არის მითითებული."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-20T21:33:43+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5881,7 +5881,7 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/pseudopus-apodus.webp"
       },
       {
-        "src": "/images/pseudopus-apodus-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "31 იანვარი"
@@ -5974,7 +5974,7 @@ export const species: Species[] = [
         "answer": "ბოხმეჭა (Anguis colchica) უფრო პატარა, უფრო გლუვი უფეხო ხვლიკია. გველხოკერა დიდია (დაახლ. 1–1.35 მ), აქვს გამოკვეთილი გვერდითი ნაოჭი და ხშირად ყვითელი მუცელი. ორივე უვნებელია და არც ერთი გველი არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T19:22:57+04:00",
+    "updatedAt": "2026-08-20T21:33:43+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7017,7 +7017,7 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
       {
-        "src": "/images/vipera-kaznakovi-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
@@ -7142,7 +7142,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-20T13:39:39+04:00",
+    "updatedAt": "2026-08-20T21:33:43+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7563,7 +7563,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/xerotyphlops-vermicularis-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/xerotyphlops-vermicularis-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
@@ -7636,7 +7636,7 @@ export const species: Species[] = [
         "answer": "ჭიანჭველები, ტერმიტები და მათი ნაშიერი."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-20T21:33:43+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -8210,7 +8210,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
       },
       {
-        "src": "/images/bufotes-viridis-lasha-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-lasha-1.jpg",
         "credit": {
           "photographer": "Lasha Gogodze"
         }
@@ -11129,13 +11129,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
       },
       {
-        "src": "/images/macrovipera-lebetina-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-zakro-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-2.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "24 January"
@@ -11438,7 +11438,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-lasha-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-lasha-1.jpg",
         "credit": {
           "photographer": "Lasha Gogodze"
         }
@@ -11570,7 +11570,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-natrix-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-natrix-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
@@ -12553,7 +12553,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/pseudopus-apodus.webp"
       },
       {
-        "src": "/images/pseudopus-apodus-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/pseudopus-apodus-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "31 January"
@@ -13471,7 +13471,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
       {
-        "src": "/images/vipera-kaznakovi-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
@@ -13862,7 +13862,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/xerotyphlops-vermicularis-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/xerotyphlops-vermicularis-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი"
         }
