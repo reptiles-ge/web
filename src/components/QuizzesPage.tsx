@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
@@ -21,6 +21,7 @@ type QuizCopy = {
 
 export async function QuizzesPage({ items }: QuizzesPageProps) {
   const t = await getTranslations("quizzes");
+  const tShared = await getTranslations("groupHubShared");
   const featured = items.find((item) => item.status === "live") ?? items[0];
   const upcoming = items.filter((item) => item.id !== featured?.id);
   const how = [
@@ -36,6 +37,23 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
     <div className="min-h-screen bg-background">
       <section className="pb-10 pt-28 sm:pb-14 sm:pt-32 lg:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+          <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
+            <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
+              <li>
+                <Link
+                  href="/"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                >
+                  <ArrowLeft className="size-3.5" />
+                  {tShared("breadcrumbHome")}
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-border">
+                /
+              </li>
+              <li className="text-foreground">{t("breadcrumbCurrent")}</li>
+            </ol>
+          </nav>
           <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
             {t("eyebrow")}
           </p>

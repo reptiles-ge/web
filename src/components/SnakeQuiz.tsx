@@ -14,7 +14,7 @@ import {
   type SnakeQuizQuestion,
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
-import { ArrowRight, Lightbulb, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowRight, Lightbulb, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useId, useMemo, useState } from "react";
@@ -378,6 +378,42 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
   );
 }
 
+function QuizBreadcrumbs() {
+  const t = useTranslations("snakeQuiz");
+  const tQuizzes = useTranslations("quizzes");
+
+  return (
+    <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
+      <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
+        <li>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="size-3.5" />
+            {t("breadcrumbHome")}
+          </Link>
+        </li>
+        <li aria-hidden="true" className="text-white/30">
+          /
+        </li>
+        <li>
+          <Link
+            href="/quiz"
+            className="transition-colors hover:text-white"
+          >
+            {tQuizzes("breadcrumbCurrent")}
+          </Link>
+        </li>
+        <li aria-hidden="true" className="text-white/30">
+          /
+        </li>
+        <li className="text-white/80">{t("breadcrumbCurrent")}</li>
+      </ol>
+    </nav>
+  );
+}
+
 function IntroOverlay({
   headingId,
   onStart,
@@ -395,6 +431,7 @@ function IntroOverlay({
   return (
     <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
       <div className="mt-auto w-full pb-8 sm:pb-20 lg:pb-24">
+        <QuizBreadcrumbs />
         <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
           {t("eyebrow")}
         </p>
@@ -459,6 +496,7 @@ function ResultOverlay({
   return (
     <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
       <div className="mt-auto w-full">
+        <QuizBreadcrumbs />
         <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
           {t("resultEyebrow")}
         </p>
