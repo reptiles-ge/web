@@ -101,6 +101,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["Salamandra caucasica"],
     en: ["Caucasian salamander", "Salamandra caucasica"],
   },
+  "ommatotriton-ophryticus": {
+    ka: [
+      "მცირეაზიური ტრიტონი",
+      "ზოლებიანი ტრიტონი",
+      "Triturus vittatus",
+      "Triturus vittatus ophryticus",
+    ],
+    en: [
+      "Caucasian banded newt",
+      "banded newt",
+      "Triturus vittatus",
+      "Triturus vittatus ophryticus",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

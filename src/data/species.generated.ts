@@ -4877,13 +4877,13 @@ export const species: Species[] = [
     "scientificName": "Ommatotriton ophryticus",
     "genus": "Ommatotriton",
     "family": "Salamandridae",
-    "location": "საქართველოს მთის ტყის სარტყელი",
-    "description": "ზოლებიანი ტრიტონი — გვხვდება საქართველოს მთის ტყის სარტყელში.",
-    "overview": "კავკასიური ტრიტონი (Ommatotriton ophryticus) ბიოლოგიურად დადასტურებული სახეობაა. შედის O. vittatus-ის კომპლექსში; ადრე O. vittatus-ის გეოგრაფიულ ქვესახეობად მიიჩნეოდა. უახლოესი ნათესავისგან (O. vittatus) გაიყო ადრეულ მიოცენში ან გვიან ოლიგოცენში; გენომური მონაცემებით ინტროგრესია არ არის დაფიქსირებული. არეალი სრულად იზოლირებულია O. vittatus-ისა და O. nesterovi-სგან. Tarkhnishvili et al. 2026: გვხვდება საქართველოს მთის ტყის მთელ სარტყელში. ნაშრომის ფიგურა ადიგენი, ტრიალას ტბაა. ქვესახეობა საქართველოში — O. o. ophryticus.",
-    "habitat": "საქართველოს მთის ტყის სარტყელი. ფიგურის ლოკალიტეტი — ადიგენი, ტრიალას ტბა.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "ბიოლოგიურად დადასტურებული სახეობაა. არეალი იზოლირებულია კომპლექსის სხვა სახეობებისგან.",
+    "location": "მთის ტყე, სუბალპი, დასავლეთის სანაპირო",
+    "description": "უშხამო ზოლებიანი ტრიტონი საქართველოს მთის ტყეებში, სუბალპურ ტბებსა და ზოგან შავი ზღვის სანაპიროზე.",
+    "overview": "კავკასიური ტრიტონი (Ommatotriton ophryticus) უშხამო ტრიტონია საქართველოს მთის ტყეებში, სუბალპურ ზონასა და ზოგან შავი ზღვის სანაპიროზე. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. ზრდასრული ჩვეულებრივ დაახლოებით 12–18 სმ-ია; მამრი მდედრზე დიდია. ადამიანისთვის საშიში არ არის. დასავლეთ საქართველოში უფრო უწყვეტია, აღმოსავლეთში — სპორადული, თელავამდე და ლაგოდეხამდე. ძველ წიგნებში ხშირად იწერებოდა Triturus vittatus ophryticus; ახლა ცალკე სახეობაა. ჩამონათვალში ქვესახეობაა O. o. ophryticus. ტიპური ადგილია თბილისის მიდამოები („bei Tiflis“).",
+    "habitat": "საქართველოში ეს ტყისა და მთის ტბის ტრიტონია. ეძებეთ წიწვოვან, შერეულ და ფოთლოვან ტყეში, სუბალპურ მდელოზე და პატარა ტბასთან, გუბესთან ან ნელ ნაკადულთან — განსაკუთრებით უთევზო წყალსატევში. ხმელეთზე შეიძლება უფრო მშრალ ადგილზეც გამოჩნდეს. 1996 წლის მიმოხილვა დასავლეთში უფრო უწყვეტ არეალს ასახელებს, აღმოსავლეთში — სპორადულს; სამხრეთ კავკასიონის ფერდობზე აღმოსავლეთი ზღვარი თელავთანაა. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი, სამცხე — ჯავახეთი, შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და თბილისი. დასახელებული ადგილებია, სხვათა შორის, გაგრა, სოხუმი, გუმისტა, რიწა, ფოთი, ბათუმი, კინტრიში, ჩარნალი, ოზურგეთი, ქუთაისი, აჯამეთი, ლეჩხუმი, რიონის ზემო წელი, ბანისხევი, დიდი მიტარბი, ადიგენის ტრიალას ტბა, ყაზბეგი, საგურამო, წოდორეთის ტბა, თელავის ჭიანთბა, მარიამჯვარი, ლაგოდეხი, ლიახვის ზემო წელი და ერწოს ტბა. 2026 წლის დნმ-ნიმუშები ტრიალას ტბიდან და საკისტოს ტბიდანაა. თბილისის მიდამოებში (კუების ტბა, ბეთანია, ახალდაბა / წყნეთი, ჩილი-ტბა) ისტორიული ჩანაწერებია; ნიკოლსკის ძველი პოპულაციების ნაწილი გადაშენებულად ითვლება. სიმაღლე საქართველოში ზღვის დონიდან დაახლოებით 2000 მ-მდეა; სანაპიროზეც გვხვდება და მხოლოდ 1200 მ-ზე მაღლა არ არის შეზღუდული. არეალი გრძელდება ჩრდილო-აღმოსავლეთ ანატოლიაში და რუსეთის დასავლეთ კავკასიაში; ჩრდილოეთ სომხეთის ჩანაწერები წყაროებში არ ემთხვევა.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. სახეობის დონეზე წყალში ზრდასრული იჭერს წყლის მოლუსკებს, კიბოსნაირებს, მწერებს და ხშირად სხვა ამფიბიის ლიფსიტებს; კვერცხის ჭამაც აღწერილია. მეტამორფოზის შემდეგ ნორჩი ხმელეთის უხერხემლოებს ჭამს.",
+    "behavior": "გამრავლებისას წყალშია; დანარჩენ დროს ხშირად ხმელეთზეა, ქვის, ხის და ტყის ნაგვის ქვეშ. კავკასიაში ზამთარს უმეტესად ხმელეთზე ატარებს: სექტემბერ–ოქტომბერში იწყებს, დაბალ სიმაღლეზე თებერვალ–მარტში იღვიძებს, მაღალმთაში — აპრილ–მაისში. ქვირითობა ამინდისა და სიმაღლის მიხედვით გვიანი თებერვლიდან ივლისამდეა. კვერცხს ცალ-ცალკე ან მოკლე ჯაჭვად დებს წყლის მცენარეზე. ზოგ მთის ტბაში გვიანი ლიფსიტა ზამთარს წყალში რჩება. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევებს შორის არ გადაიტანოთ. კანის ჯირკვლები თავდაცვით სეკრეტს გამოყოფს; შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის.",
+    "conservation": "IUCN-ის 2009 წლის შეფასებით ახლოსაა საფრთხესთან (Near Threatened). ეს შეფასება O. nesterovi-ს გამოყოფამდეა. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა ეროვნულ სტატუსსაც NT-ად მიიჩნევს. ძველ ქართულ წითელ წიგნებში იწერებოდა Triturus vittatus ophryticus / მცირეაზიური ტრიტონი. სხვა ტრიტონებთან შედარებით საქართველოში უფრო ხშირია, მაგრამ ადგილობრივად იკლებს, თუ ტყე იჭრება, ტბა შრება, ბინძურდება ან ივსება თევზით; სანაპიროზე რეკრეაცია და წარსულში ტერარიუმის ვაჭრობა დამატებითი საფრთხეა. დაცულ ტერიტორიებზეა, მათ შორის კინტრიშში, გუმისტაში, რიწასთან, ყაზბეგში, მარიამჯვარსა და ლაგოდეხში. თბილისის ზოგი ძველი ადგილი აღარ არის დასახლებული.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/ommatotriton-ophryticus.jpg",
     "imageCredit": {
@@ -4942,11 +4942,19 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "მთის ტყის სარტყელი"
+        "value": "მთის ტყე, ტბა, სუბალპი"
+      },
+      {
+        "label": "ზომა",
+        "value": "დაახლ. 12–18 სმ"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ახლოს საფრთხესთან (NT)"
       },
       {
         "label": "ოჯახი",
@@ -4955,30 +4963,47 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "ზოლებიანი ტრიტონი. ადრე O. vittatus-ის ქვესახეობად ითვლებოდა; გვხვდება მთის ტყის სარტყელში.",
+      "summary": "ზოლებიანი ტრიტონია გვერდის ღია ზოლით. შეწყვილებისას მამრს მაღალი, დაკბილული ქედი აქვს. საქართველოში ყველაზე ხშირად ჩვეულებრივ და სავარცხლიან ტრიტონს ერევა.",
       "traits": [
-        "Ommatotriton; O. vittatus კომპლექსის ალოპატრიული სახეობა.",
-        "გვხვდება საქართველოს მთის ტყის სარტყელში.",
-        "ფიგურა: ადიგენი, ტრიალას ტბა.",
-        "არ არის Lissotriton ან Triturus."
+        "სხეული წაგრძელებულია, კანი თითქმის გლუვი ან ოდნავ მარცვლოვანი. კუდი სხეულსა და თავს დაახლოებით უტოლდება. ფეხები და თითები გრძელია, მამრში უფრო. ზრდასრული ჩვეულებრივ დაახლოებით 12–18 სმ-ია სრული სიგრძით; იშვიათად 20 სმ-მდე. მამრი მდედრზე დიდია.",
+        "წყალში ზურგი ბრინჯაო–ზეითუნისფერი ან ზეითუნისფერ-ყავისფერია, წვრილი მუქი წერტილებით. გვერდზე ღია, ვერცხლისფერი ზოლია მუქი კიდეებით — ეს სახეობის მთავარი ნიშანია. მუცელი ყვითელი ან ნარინჯისფერია, ლაქების გარეშე. ხმელეთზე ზურგი უფრო მოწითალოა.",
+        "შეწყვილებისას მამრს ზურგსა და კუდზე ძალიან მაღალი, დაკბილული ქედი უჩნდება (დაახლოებით 3 სმ-მდე), ყვითელი ან მოყავისფრო, მუქი ვერტიკალური ზოლებით. კუდის გვერდზე ლურჯი ან მომწვანო ლაქებია. მდედრს ასეთი ქედი არ აქვს; იგი უფრო ერთფეროვანი ზეითუნისფერია.",
+        "კავკასიური ჩვეულებრივი ტრიტონი (Lissotriton lantzi) უფრო პატარაა, გვერდის ღია ზოლი არ აქვს და მამრის ქედი დაბალია. კარელინის სავარცხლიანი ტრიტონი (Triturus karelinii) უფრო უხეშკანიანია; მუცელზე მუქი ლაქები აქვს, ამ სახეობას — არა. კავკასიური სალამანდრა (Mertensiella caucasica) ყვითელი ლაქებითაა და ნაკადულის სალამანდრაა, არა ტბის ტრიტონი.",
+        "O. vittatus და O. nesterovi საქართველოში არ გვხვდება. BOLD-ში წოდორეთის ტბის თანმიმდევრობა ზოგჯერ O. nesterovi-ადაა მონიშნული, მაგრამ ეს იმავე შტრიხკოდის ჯგუფია; ჩამონათვალი ქართულ პოპულაციებს O. ophryticus-ად იღებს."
       ]
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა Ommatotriton ophryticus საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად მიიჩნევს და მთის ტყის მთელ სარტყელში ასახელებს."
+        "question": "გვხვდება თუ არა კავკასიური ტრიტონი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალი ბიოლოგიურად დადასტურებულად მიიჩნევს. დნმ-ნიმუშები ტრიალას და საკისტოს ტბებიდანაა. ტიპური ადგილი თბილისის მიდამოებია."
       },
       {
-        "question": "სად გვხვდება?",
-        "answer": "საქართველოს მთის ტყის სარტყელში. ნაშრომის ფიგურა ადიგენი, ტრიალას ტბაა."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მთის ტყეში, სუბალპურ ტბასთან და დასავლეთში ზოგან სანაპიროზეც. დასავლეთი უფრო უწყვეტია; აღმოსავლეთი სპორადულია თელავამდე და ლაგოდეხამდე. რუკაზე რამდენიმე რეგიონია, არა მხოლოდ სამცხე — ჯავახეთი."
       },
       {
-        "question": "რით განსხვავდება სხვა ტრიტონებისგან?",
-        "answer": "ეს არის Ommatotriton (ზოლებიანი ტრიტონი), არა Lissotriton (გლუვი) და არა Triturus (სავარცხლიანი). ადრე O. vittatus-ის ქვესახეობად მიიჩნეოდა."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს და ადამიანისთვის უვნებელია. კანის სეკრეტი შეიძლება გააღიზიანოს. არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "ტრიტონი გვერდის ღია ზოლით, ყვითელი ან ნარინჯისფერი ულაქო მუცლით. შეწყვილებისას მამრს მაღალი, დაკბილული ქედი აქვს. ჩვეულებრივ ტრიტონს ზოლი არ აქვს; სავარცხლიანს მუცელზე ლაქები აქვს."
+      },
+      {
+        "question": "რამდენად დიდი იზრდება?",
+        "answer": "ზრდასრული ჩვეულებრივ დაახლოებით 12–18 სმ-ია სრული სიგრძით; იშვიათად 20 სმ-მდე. მამრი მდედრზე დიდია. ქართული გაზომვები ამ გვერდზე ცალკე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "წყალში — წყლის უხერხემლოებს და ხშირად ამფიბიის ლიფსიტებს. ხმელეთზე ნორჩი მწერებსა და სხვა წვრილ უხერხემლოებს ჭამს. ქართული კვების კვლევა ამ გვერდზე არ არის."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "კავკასიაში ქვირითობა გვიანი თებერვლიდან ივლისამდეა, სიმაღლის მიხედვით. ზამთარს უმეტესად ხმელეთზე ატარებს. საქართველოს ყველა პოპულაციის ზუსტი კალენდარი ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რა ვქნა, თუ შევხვდები?",
+        "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და სხვა ტბაში არ გადაიტანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
     "updatedAt": "2026-08-19T11:40:55+04:00",
@@ -4988,11 +5013,32 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Tarkhnishvili 1996 — The distribution and ecology of the amphibians of Georgia and the Caucasus",
+        "url": "http://eprints.iliauni.edu.ge/503/1/Amphibian%20biogeography%2096.pdf"
       },
       {
-        "name": "AmphibiaWeb",
+        "name": "Tarkhnishvili & Gokhelashvili 1999 — The amphibians of the Caucasus (AmphibiaWeb species account)",
         "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Ommatotriton&where-species=ophryticus"
+      },
+      {
+        "name": "Litvinchuk 2017 — Distribution and conservation status of Ommatotriton ophryticus",
+        "url": "https://doi.org/10.24189/ncr.2017.054"
+      },
+      {
+        "name": "Frost — Amphibian Species of the World (Ommatotriton ophryticus)",
+        "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Salamandridae/Pleurodelinae/Ommatotriton/Ommatotriton-ophryticus"
+      },
+      {
+        "name": "Olgun et al. — IUCN Red List (Ommatotriton ophryticus)",
+        "url": "https://www.iucnredlist.org/species/136019/155801190"
+      },
+      {
+        "name": "National Geographic Georgia / National Museum — Northern Banded Newt map",
+        "url": "https://map.nationalgeographic.ge/en/element/mcireaziuri-tritoni/"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -11583,21 +11629,29 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "ommatotriton-ophryticus": {
     "commonName": "Northern Banded Newt",
-    "location": "Georgia’s mountain forest belt",
-    "description": "A banded newt found throughout Georgia’s mountain forest belt.",
-    "overview": "The northern banded newt (Ommatotriton ophryticus) is biologically confirmed. It belongs to the O. vittatus complex and was formerly treated as a geographic subspecies of O. vittatus. It split from O. vittatus in the early Miocene or late Oligocene; genomic analyses have not recorded introgression. Its range is fully isolated from O. vittatus and O. nesterovi. Tarkhnishvili et al. 2026: found throughout the entire mountain forest belt of Georgia. The checklist figure is Adigeni, Triala Lake. Subspecies in Georgia — O. o. ophryticus.",
-    "habitat": "Georgia’s mountain forest belt. Figure locality — Adigeni, Triala Lake.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "Biologically confirmed. Its range is isolated from the other species in the complex.",
+    "location": "mountain forest, subalpine, western coast",
+    "description": "A harmless banded newt of Georgia’s mountain forests, subalpine lakes and, in places, the Black Sea coast.",
+    "overview": "The northern banded newt (Ommatotriton ophryticus) is a harmless newt of Georgia’s mountain forests, subalpine zone and, in places, the Black Sea coast. The 2026 Georgian checklist treats it as biologically confirmed. Adults are usually about 12–18 cm long; males are larger than females. It is not dangerous to people. In western Georgia the range is more continuous; in the east it is scattered, as far as Telavi and Lagodekhi. Older books often listed it as Triturus vittatus ophryticus. It is now a separate species. The checklist uses the subspecies O. o. ophryticus. The type locality is near Tbilisi (“bei Tiflis”).",
+    "habitat": "In Georgia this is a newt of forest and mountain water. Look for it in coniferous, mixed and deciduous forest, on subalpine meadow, and at small lakes, ponds or slow streams — especially fish-free water. On land it may also appear in drier ground. A 1996 review treats the west as more continuous and the east as scattered; on the southern Greater Caucasus the eastern limit is near Telavi. This atlas marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, Samtskhe — Javakheti, Shida Kartli, Mtskheta — Mtianeti, Kakheti and Tbilisi. Named sites include Gagra, Sukhumi, Gumista, Ritsa, Poti, Batumi, Kintrishi, Charnali, Ozurgeti, Kutaisi, Ajameti, Lechkhumi, the upper Rioni, Baniskhevi, Didi Mitarbi, Triala Lake in Adigeni, Kazbegi, Saguramo, Tsodoreti Lake, Chiantba near Telavi, Mariamjvari, Lagodekhi, the upper Liakhvi and Lake Ertso. The 2026 DNA samples are from Triala Lake and Sakisto Lake. The Tbilisi area (Turtle Lake, Betania, Akhaldaba / Tskhneti, Chili-Tba) has historical records; some of Nikolsky’s old sites are treated as extinct. Elevation in Georgia runs from the coast to about 2,000 m; it is not restricted to above 1,200 m. The range continues in north-eastern Anatolia and the western Caucasus of Russia; records from northern Armenia do not agree across sources.",
+    "diet": "There is no separate Georgian diet study on this page. At species level, aquatic adults take water molluscs, crustaceans, insects and often other amphibian larvae; egg-eating is also described. After metamorphosis, juveniles take terrestrial invertebrates.",
+    "behavior": "It is in water when breeding; at other times it is often on land, under stones, wood and forest litter. In the Caucasus it usually overwinters on land: it enters hibernation in September–October, emerges in February–March at low elevation and in April–May in the highlands. Breeding runs from late February to July, depending on weather and altitude. Eggs are laid singly or in short chains on water plants. In some mountain ponds late larvae stay in water over winter. If you find one, leave it where it is. Do not pick it up or move it between water bodies. Skin glands produce a defensive secretion; wash your hands after any contact. It is not a medical risk to people.",
+    "conservation": "The 2009 IUCN assessment lists it as Near Threatened. That assessment predates the split of O. nesterovi. The South Caucasus biodiversity map also treats the national status as NT. Older Georgian Red Data Books listed it as Triturus vittatus ophryticus / მცირეაზიური ტრიტონი. In Georgia it is more common than the other newts, but local numbers fall if forest is cut, ponds dry, become polluted or are stocked with fish; coastal recreation and past pet trade add pressure. It occurs in protected areas, including Kintrishi, Gumista, Ritsa, Kazbegi, Mariamjvari and Lagodekhi. Some old Tbilisi sites are no longer occupied.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Mountain forest belt"
+        "value": "Mountain forest, lakes, subalpine"
+      },
+      {
+        "label": "Size",
+        "value": "About 12–18 cm"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Near Threatened (NT)"
       },
       {
         "label": "Family",
@@ -11606,30 +11660,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "A banded newt. Formerly a subspecies of O. vittatus; found in the mountain forest belt.",
+      "summary": "A banded newt with a pale flank stripe. Breeding males grow a high, notched crest. In Georgia it is most often confused with the smooth newt and the crested newt.",
       "traits": [
-        "Ommatotriton; an allopatric species in the O. vittatus complex.",
-        "Found throughout Georgia’s mountain forest belt.",
-        "Figure: Adigeni, Triala Lake.",
-        "Not Lissotriton or Triturus."
+        "The body is elongate; the skin is almost smooth or slightly granular. The tail is about as long as the head and body. The limbs and toes are long, more so in males. Adults are usually about 12–18 cm in total length, rarely to 20 cm. Males are larger than females.",
+        "In water the back is bronze-olive or olive-brown with small dark specks. A pale, silvery flank stripe with dark edges is the main field mark. The belly is yellow to orange and unspotted. On land the back is more reddish.",
+        "In the breeding season the male grows a very high, notched crest on the back and tail (up to about 3 cm), yellowish or brownish with dark vertical bars. The tail sides show blue or greenish spots. The female lacks this crest and is a plainer olive.",
+        "Lantz’s smooth newt (Lissotriton lantzi) is smaller, lacks the pale flank stripe and has only a low male crest. Karelin’s crested newt (Triturus karelinii) has coarser skin and a dark-spotted belly; this species does not. The Caucasian salamander (Mertensiella caucasica) has yellow spots and is a stream salamander, not a pond newt.",
+        "O. vittatus and O. nesterovi do not occur in Georgia. A BOLD record from Tsodoreti Lake is sometimes labelled O. nesterovi, but it is the same barcode cluster; the checklist treats Georgian populations as O. ophryticus."
       ]
     },
     "faq": [
       {
-        "question": "Does Ommatotriton ophryticus occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026 list it as biologically confirmed and found throughout the mountain forest belt."
+        "question": "Does the northern banded newt occur in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. DNA samples are from Triala Lake and Sakisto Lake. The type locality is near Tbilisi."
       },
       {
-        "question": "Where does it occur?",
-        "answer": "Throughout Georgia’s mountain forest belt. The checklist figure is Adigeni, Triala Lake."
+        "question": "Where can it be found in Georgia?",
+        "answer": "In mountain forest, at subalpine lakes and, in the west, locally on the coast. The west is more continuous; the east is scattered as far as Telavi and Lagodekhi. The map marks several regions, not only Samtskhe — Javakheti."
       },
       {
-        "question": "How does it differ from other newts?",
-        "answer": "This is Ommatotriton (banded newt), not Lissotriton (smooth) or Triturus (crested). It was formerly treated as a subspecies of O. vittatus."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom and is harmless to people. Skin secretion can irritate. Do not pick it up. Wash your hands after contact."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. Venom: none."
+        "question": "How can it be identified?",
+        "answer": "A newt with a pale flank stripe and a yellow or orange unspotted belly. Breeding males have a high, notched crest. The smooth newt lacks the stripe; the crested newt has a spotted belly."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Adults are usually about 12–18 cm in total length, rarely to 20 cm. Males are larger than females. Separate Georgian measurements are not given on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "In water — aquatic invertebrates and often amphibian larvae. On land, juveniles take insects and other small invertebrates. There is no Georgian diet study on this page."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "In the Caucasus, breeding runs from late February to July, depending on altitude. It usually overwinters on land. A full calendar for every Georgian population is not given here."
+      },
+      {
+        "question": "What should I do if I find one?",
+        "answer": "Watch it and leave it where it is. Do not pick it up or move it to another pond. It is not a medical risk to people."
       }
     ],
     "gallery": [

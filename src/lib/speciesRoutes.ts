@@ -105,7 +105,15 @@ const LOOKALIKES: Record<string, string[]> = {
     "ommatotriton-ophryticus",
     "triturus-karelinii",
   ],
-  "ommatotriton-ophryticus": ["triturus-karelinii"],
+  "ommatotriton-ophryticus": [
+    "lissotriton-lantzi",
+    "triturus-karelinii",
+    "mertensiella-caucasica",
+  ],
+  "triturus-karelinii": [
+    "ommatotriton-ophryticus",
+    "lissotriton-lantzi",
+  ],
   "hyla-orientalis": ["hyla-savignyi"],
   "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
   "bufotes-viridis": ["bufo-verrucosissimus", "pelobates-syriacus"],
