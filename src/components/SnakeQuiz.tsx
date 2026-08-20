@@ -14,7 +14,7 @@ import {
   type SnakeQuizQuestion,
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
-import { ArrowRight, RotateCcw } from "lucide-react";
+import { ArrowRight, Lightbulb, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
@@ -65,6 +65,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
   const [answers, setAnswers] = useState<Answered[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [complete, setComplete] = useState(false);
+  const [hintOpen, setHintOpen] = useState(false);
 
   const startRound = useCallback(
     (reason: "start" | "restart") => {
@@ -74,6 +75,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       setAnswers([]);
       setSelectedId(null);
       setComplete(false);
+      setHintOpen(false);
       trackEvent(reason === "restart" ? "quiz_restarted" : "quiz_started", {
         length: next.length,
         mode: "default",
@@ -128,6 +130,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     }
     setIndex((current) => current + 1);
     setSelectedId(null);
+    setHintOpen(false);
   }
 
   const correctSpecies = question
@@ -200,12 +203,40 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                   />
                 ))}
               </div>
-              <h2
-                id={headingId}
-                className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.05] text-white"
-              >
-                {t("question")}
-              </h2>
+              <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
+                <h2
+                  id={headingId}
+                  className="max-w-2xl font-display text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.05] text-white"
+                >
+                  {t("question")}
+                </h2>
+                {!revealed ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const next = !hintOpen;
+                      setHintOpen(next);
+                      if (next) {
+                        trackEvent("quiz_hint_used", {
+                          question: index + 1,
+                          species: question.correctId,
+                          difficulty: question.difficulty,
+                        });
+                      }
+                    }}
+                    aria-expanded={hintOpen}
+                    className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border border-white/20 bg-black/35 px-4 text-[13px] font-medium text-white backdrop-blur-md transition-colors hover:border-white/45 hover:bg-black/50"
+                  >
+                    <Lightbulb className="size-4" aria-hidden="true" />
+                    {hintOpen ? t("hintHide") : t("hint")}
+                  </button>
+                ) : null}
+              </div>
+              {hintOpen && !revealed && correctSpecies?.hint ? (
+                <p className="mt-4 max-w-2xl rounded-2xl border border-white/15 bg-black/45 px-4 py-3 text-[14px] leading-relaxed text-white/80 backdrop-blur-md sm:text-[15px]">
+                  {correctSpecies.hint}
+                </p>
+              ) : null}
             </header>
 
             <div>

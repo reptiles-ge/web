@@ -72,6 +72,7 @@ export type SnakeQuizSpecies = {
   family: string;
   genus: string;
   explanation: string;
+  hint: string;
 };
 
 export type SnakeQuizQuestion = {
@@ -94,6 +95,35 @@ export function scoreMessageKey(percent: number): ScoreMessageKey {
   return band?.messageKey ?? "scoreKeepGoing";
 }
 
+function spoilsAnswer(text: string, species: Species) {
+  const haystack = text.toLowerCase();
+  const needles = [
+    species.commonName,
+    species.scientificName,
+    ...species.scientificName.split(/\s+/),
+  ]
+    .map((item) => item.trim().toLowerCase())
+    .filter((item) => item.length > 3);
+  return needles.some((needle) => haystack.includes(needle));
+}
+
+export function buildQuizHint(species: Species) {
+  const traits = (species.identification?.traits ?? []).filter(
+    (trait) => trait.trim() && !spoilsAnswer(trait, species),
+  );
+  const picked = (traits.length > 0 ? traits : species.identification?.traits ?? [])
+    .slice(0, 1)
+    .map((trait) => trait.trim())
+    .filter(Boolean);
+  if (picked.length > 0) return picked.join(" ");
+
+  const habitat = species.stats.find(
+    (stat) => /ჰაბიტატი|habitat/i.test(stat.label),
+  )?.value;
+  if (habitat) return habitat;
+  return species.location;
+}
+
 export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
   const explanation =
     species.identification?.summary?.trim() ||
@@ -110,6 +140,7 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     family: species.family,
     genus: species.genus,
     explanation,
+    hint: buildQuizHint(species),
   };
 }
 

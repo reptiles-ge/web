@@ -452,7 +452,7 @@ const STATIC_PAGES: Array<
     icon: "identify",
     suggested: true,
     rank: 9,
-    heroSpeciesId: "macrovipera-lebetina",
+    heroImage: "/images/guides/snake-quiz-og.jpg",
   },
   {
     id: "regions-index",

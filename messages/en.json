@@ -1839,6 +1839,8 @@
     "loading": "Loading the quiz…",
     "progress": "Question {current} / {total}",
     "question": "Which snake is it?",
+    "hint": "Hint",
+    "hintHide": "Hide hint",
     "imageAltHidden": "Photo of a snake from Georgia for identification",
     "correct": "Correct! 🎉",
     "incorrect": "Not this one",

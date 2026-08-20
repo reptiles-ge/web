@@ -5,7 +5,6 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
-  cdnOgImageUrl,
   localeAlternates,
   localePath,
   siteConfig,
@@ -22,7 +21,7 @@ type Props = {
 };
 
 const PATH = "/quiz/gvelis-identifikacia";
-const OG_SPECIES = "macrovipera-lebetina";
+const OG_IMAGE = "/images/guides/snake-quiz-og.jpg";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -37,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = t("metaTitle");
   const description = t("metaDescription");
   const url = absoluteUrl(localePath(locale, PATH));
-  const ogImage = cdnOgImageUrl(OG_SPECIES);
+  const ogImage = absoluteUrl(OG_IMAGE);
 
   return {
     title,
@@ -57,8 +56,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          width: 1024,
+          height: 559,
           alt: title,
         },
       ],
