@@ -76,6 +76,7 @@ export const SNAKE_LOOKALIKE_PAIRS = [
   { a: "natrix-natrix", b: "vipera-kaznakovi" },
   { a: "natrix-tessellata", b: "vipera-kaznakovi" },
   { a: "coronella-austriaca", b: "vipera-transcaucasiana" },
+  { a: "coronella-austriaca", b: "vipera-dinniki" },
   { a: "malpolon-insignitus", b: "macrovipera-lebetina" },
   { a: "pseudopus-apodus", b: "natrix-natrix" },
 ] as const;

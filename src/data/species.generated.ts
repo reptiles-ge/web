@@ -6666,12 +6666,12 @@ export const species: Species[] = [
     "genus": "Vipera",
     "family": "Viperidae",
     "location": "დიდი კავკასიონი",
-    "description": "დიდი კავკასიონის ენდემური გველგესლა; გვხვდება მაღალმთიან ტყეებსა და სუბალპურ ზონაში.",
-    "overview": "დინიკის გველგესლა (Vipera dinniki) დიდი კავკასიონის ენდემური შხამიანი სახეობაა. გვხვდება რუსეთის, საქართველოსა და აზერბაიჯანის მაღალმთიან რეგიონებში — ტყის ზედა ზონაში, სუბალპურ მდელოებსა და კლდოვან ადგილებში, დაახლოებით 1,500–2,800 მეტრზე. IUCN-ის მიხედვით მოწყვლადია ფრაგმენტირებული არეალისა და ჰაბიტატის გაუარესების გამო.",
-    "habitat": "გავრცელებულია დიდი კავკასიონის ქედზე — რუსეთში, საქართველოსა და აზერბაიჯანში. ჰაბიტატი მოიცავს ტყეს, ბუჩქნარს, ბალახოვან საფარსა და კლდოვან ადგილებს დაახლოებით 1,500–2,800 მ სიმაღლეზე. პოპულაციები სივრცით ფრაგმენტირებულია.",
-    "diet": "ზრდასრულები იკვებებიან ძირითადად ხვლიკებითა და მღრღნელებით, იშვიათად — ფრინველებით. ახალგაზრდები იკვებებიან მცირე ხვლიკებითა და მწერებით. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს.",
-    "behavior": "აქტიურია თბილ სეზონზე; ძლიერ სიცხეში ჩრდილს ეძებს. იზამთრებს შემოდგომიდან გაზაფხულამდე კლდეების ნაპრალებსა და ქვების ქვეშ. ცოცხლადმშობია: შეწყვილება აპრილ–მაისშია, ნაშიერები იბადებიან აგვისტო–სექტემბერში — ჩვეულებრივ 3–7 ინდივიდი.",
-    "conservation": "IUCN Red List-ის მიხედვით მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საფრთხეებს შორისაა სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა. შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში.",
+    "description": "დიდი კავკასიონის მაღალმთის შხამიანი გველგესლა — სუბალპური მდელოებისა და ტყის ზედა ზონის მკვიდრი.",
+    "overview": "დინიკის გველგესლა (Vipera dinniki) დიდი კავკასიონის მაღალმთის შხამიანი გველია. საქართველოში დადასტურებულია; მთელ ქვეყანაში არ გვხვდება. 2026 წლის ჩამონათვალი მას კანდიდატ სახეობად იღებს kaznakovi-ს კომპლექსში — სახეობრივი საზღვარი კავკასიურ გველგესლასთან ჯერ სრულად არ არის შემოწმებული. ნომინოტიპური ფორმა ტყის ზედა საზღვარს ზემოთაა; ქვესახეობა V. d. tuniyevi ჩამონათვალში ცენტრალური საქართველოს ტყიან და მთის ჰაბიტატს უკავშირდება. ზრდასრული ჩვეულებრივ დაახლოებით 40–55 სმ-ია. ამ ატლასში რისკი საშუალოა. IUCN-ით მოწყვლადია; შეტანილია საქართველოს 2014 წლის წითელ ნუსხაში.",
+    "habitat": "ეძებეთ დიდი კავკასიონის სუბალპურ მდელოზე, ტყის ზედა ზონაში, კლდოვან ამონაკვეთსა და მორენაზე — არა კოლხურ დაბლობზე და არა აღმოსავლეთის მშრალ ვაკეზე. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და მცხეთა — მთიანეთი. დასახელებული ადგილებია სვანეთი (ტიპის სერია; ენგურის აუზი, უშგული–შხარა), ხევსურეთი (არდოთი) და სტეფანწმინდის მიდამოები. თუშეთშიც არის მოხსენიებული. IUCN სიმაღლეს დაახლოებით 1,500–2,800 მ-ს ასახელებს; კავკასიური კვლევები ზოგჯერ 3,000 მ-მდეც აღწევს და ხეობებში ოდნავ დაბლაც ჩამოდის. ხშირია სამხრეთისა და სამხრეთ-აღმოსავლეთის ფერდობი. პოპულაციები ფრაგმენტირებულია.",
+    "diet": "ზრდასრული იჭერს ხვლიკებსა და წვრილ ძუძუმწოვრებს; იშვიათად — მიწაზე ბუდე ფრინველის ნაშიერს. ახალგაზრდა — წვრილ ხვლიკსა და მწერს, მათ შორის კალიას. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია დასავლეთ კავკასიიდან.",
+    "behavior": "მაღალმთაში აქტიური სეზონი ჩვეულებრივ აპრილის შუიდან სექტემბრის მეორე ნახევრამდეა. დღისით ჩნდება; სიცხეში ჩრდილს ეძებს, მოღრუბლულ ამინდში შეიძლება მთელი დღე იყოს გარეთ. იზამთრებს კლდის ნაპრალში, ხშირად იმავე ადგილას, სადაც ზაფხულშია. ცოცხლადმშობია. შეწყვილება აპრილის ბოლოდან მაისამდეა; ნაშიერები იბადებიან აგვისტოში ჩრდილო ფერდობზე, სექტემბერში — სამხრეთზე. ახალშობილი დაახლოებით 13 სმ-ია და პირველ სეზონზე თითქმის აღარ იკვებება — პირდაპირ იზამთრებს. მაღალმთაში დედალი ყოველ წელს არ მრავლდება. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
+    "conservation": "IUCN-ის 2009 წლის შეფასებით (2017 წლის errata) მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საქართველოს 2014 წლის წითელ ნუსხაში VU სტატუსითაა — ეროვნული ჩანაწერი IUCN-ის გლობალურ შეფასებას მიჰყვება. საფრთხეა სუბალპური საძოვრის დეგრადაცია და ძოვება. 2026 წლის ჩამონათვალში კანდიდატია: kaznakovi-ს კომპლექსის შიდა საზღვრები ჯერ გენომური მონაცემით სრულად არ არის დადასტურებული.",
     "danger": "Moderate",
     "image": "https://cdn.reptiles.ge/vipera-dinnik.webp",
     "mobileImage": "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
@@ -6704,15 +6704,15 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "დიდი კავკასიონი"
+        "value": "სუბალპური მდელო"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 40–50 სმ"
+        "value": "დაახლ. 40–55 სმ"
       },
       {
         "label": "შხამი",
-        "value": "შხამიანი"
+        "value": "საშუალო რისკი"
       },
       {
         "label": "კონსერვაცია",
@@ -6727,53 +6727,76 @@ export const species: Species[] = [
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "სახელი ეწოდა რუსი ჰერპეტოლოგის ნიკოლაი იაკოვლევიჩ დინიკის პატივსაცემად.",
-      "ცოცხლადმშობია — ნაშიერები იბადებიან აგვისტო–სექტემბერში, ჩვეულებრივ 3–7 ინდივიდი.",
-      "არეალი მკვეთრად ფრაგმენტირებულია; IUCN სტატუსი — მოწყვლადი (Vulnerable).",
-      "გავრცელებულია დიდი კავკასიონის ქედზე — რუსეთში, საქართველოსა და აზერბაიჯანში."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "დინიკის გველგესლა დიდი კავკასიონის მაღალმთიანი, შხამიანი სახეობაა. ამოიცანი ზომით, ჰაბიტატის სიმაღლით და იმით, რომ ცოცხლადმშობია — გიურზასგან განსხვავებით.",
+      "summary": "პატარა მაღალმთის გველგესლაა ვერტიკალური გუგით, კილური ქერცლით და ხშირად ზიგზაგური ან სწორი ზურგის ზოლით. ამოიცანი სიმაღლითა და ჰაბიტატით — კავკასიურ გველგესლასა და გლუვ გველს ერევა.",
       "traits": [
-        "შედარებით პატარაა — სიგრძე დაახლოებით 40–50 სმ.",
-        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი სამკუთხაა.",
-        "გვხვდება დიდი კავკასიონის მაღალმთაში — დაახლოებით 1,500–2,800 მ.",
-        "ცოცხლადმშობია; გიურზა უფრო დიდია, კვერცხისმდებია და დაბლობებზეა.",
-        "შხამიანია (საშუალო რისკი); ნაკბენისას საჭიროა სამედიცინო დახმარება."
+        "სხეული შედარებით წვრილია, არა მასიური. ზრდასრული ჩვეულებრივ დაახლოებით 40–55 სმ-ია; დედალი მამალზე დიდია, მამალს კუდი უფრო გრძელი აქვს. თავი სამკუთხაა, მაგრამ კავკასიურ გველგესლაზე ვიწროა და კისრისგან ნაკლებად გამოიყოფა.",
+        "გუგა ვერტიკალური ნაპრალია. ზურგის ქერცლი კილურია — შუაში ამოწეული ნეკნივით. ფონი ნაცრისფერი, ვერცხლისფერი, მოყავისფრო ან მომწვანო-ნაცრისფერია; ზოგ ინდივიდს ყვითელი ან ნარინჯისფერი ელფერი აქვს. ზურგზე მუქი ზიგზაგია, ზოგჯერ სწორი ზოლი. მუცელი მუქია ღია ლაქებით ან ღიაა მუქი წინწკლებით. დასავლეთ პოპულაციებში შავი ინდივიდები ხშირია; საქართველოში ასეთი ფერი სტეფანწმინდასთან არის დოკუმენტირებული.",
+        "ნაშიერი ნაცრისფერ-ყავისფერია — არა წითელი, როგორც კავკასიურ გველგესლაში. შავი ინდივიდები იბადებიან ჩვეულებრივი ნახატით და დაახლოებით მესამე წელს სრულად შავდებიან.",
+        "კავკასიური გველგესლა უფრო დაბალ, ნოტიო კოლხურ ტყეშია (ძირითადად 0–1,000 მ), უფრო ფართო თავითა და წითელ-ნარინჯისფერი ფონით. მისი შავი ინდივიდები პირის გარშემო წითელ ან ყვითელ ელფერს ინარჩუნებენ. დარევსკის გველგესლა მცირე კავკასიონზეა — ჯავახეთ–ერუშეთი, ჩვეულებრივ 2,300 მ-ზე მაღლა. გიურზა დიდია და აღმოსავლეთის მშრალ დაბლობზეა.",
+        "იმავე მაღალმთაში გლუვ გველს (Coronella austriaca) მრგვალი გუგა და გლუვი ქერცლი აქვს — არა შხამიანი. ცხვირრქოსანს ცხვირზე რქა აქვს და მცირე კავკასიონთანაა დაკავშირებული. შხამიანია (საშუალო რისკი); ნაკბენი სამედიცინო დახმარებას საჭიროებს."
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა დინიკის გველგესლა ადამიანისთვის?",
-        "answer": "შხამიანია, თუმცა საფრთხის დონე საშუალოდ ფასდება. ნაკბენი იშვიათია — გველი თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს. მაინც, ნაკბენის შემთხვევაში საჭიროა დაუყოვნებელი სამედიცინო დახმარება."
+        "question": "გვხვდება თუ არა დინიკის გველგესლა საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში კანდიდატ სახეობადაა შეტანილი, მაგრამ საქართველოში დადასტურებულია. მხოლოდ დიდი კავკასიონის მაღალმთაშია — არა მთელ ქვეყანაში."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "დიდი კავკასიონის მაღალმთიან ზონაში — ტყის ზედა საზღვართან, სუბალპურ მდელოებსა და კლდოვან ადგილებში, დაახლოებით 1,500–2,800 მეტრზე. პოპულაციები ფრაგმენტირებულია."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "სუბალპურ მდელოზე, ტყის ზედა ზონაში და კლდოვან ადგილზე. რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და მცხეთა — მთიანეთი. დასახელებულია სვანეთი, ხევსურეთი, სტეფანწმინდა და თუშეთი. დასავლეთის დაბლობზე და აღმოსავლეთის მშრალ ვაკეზე არ არის."
       },
       {
-        "question": "რით განსხვავდება გიურზასგან?",
-        "answer": "დინიკის გველგესლა უფრო პატარაა (დაახლ. 40–50 სმ), ცოცხლადმშობია და მაღალმთიანი ჰაბიტატის მკვიდრია. გიურზა უფრო დიდია, კვერცხისმდებია და აღმოსავლეთ საქართველოს მშრალ დაბლობებზე გვხვდება."
+        "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
+        "answer": "შხამიანია. ამ ატლასში რისკი საშუალოა — გიურზაზე დაბალი, მაგრამ ნაკბენი მაინც სამედიცინო დახმარებას საჭიროებს. თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს. არ აიყვანოთ."
       },
       {
-        "question": "რატომ არის მოწყვლადი სახეობა?",
-        "answer": "არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია. სუბალპური საძოვრების დეგრადაცია და ადამიანის ზეწოლა პოპულაციას ამცირებს; შეტანილია საქართველოსა და რუსეთის წითელ წიგნებში."
+        "question": "რა უნდა გავაკეთო ნაკბენის შემთხვევაში?",
+        "answer": "დაუყოვნებლივ დარეკეთ 112-ზე. დაზარალებული დააწვინეთ და დაამშვიდეთ; ნაკბენი ადგილი არ გაიჭრას, არ შეიწოვოს და არ მოიკვრას მჭიდრო ტურნიკეტი. მკურნალობა საავადმყოფოშია."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა, შედარებით წვრილი გველგესლაა ვერტიკალური გუგით, კილური ქერცლით და ზიგზაგური ან სწორი ზურგის ზოლით. ფონი ხშირად ნაცრისფერი ან მოყავისფროა, არა კავკასიური გველგესლას წითელი. გლუვ გველს მრგვალი გუგა აქვს."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ზრდასრული ჩვეულებრივ დაახლოებით 40–55 სმ-ია. დედალი მამალზე დიდია. ეს საქართველოს პატარა გველგესლებს მიეკუთვნება — გიურზაზე გაცილებით მოკლეა."
+      },
+      {
+        "question": "რით განსხვავდება კავკასიური გველგესლასგან?",
+        "answer": "დინიკის გველგესლა მაღალმთისაა (დაახლ. 1,500–2,800 მ) და უფრო ნაცრისფერი ან მოყავისფროა. კავკასიური გველგესლა კოლხურ ნოტიო ტყეშია, ძირითადად 1,000 მ-მდე, უფრო ფართო თავითა და წითელ-ნარინჯისფერი ფონით. 2026 წლის ჩამონათვალი მათ სახეობრივ საზღვარს ჯერ კანდიდატად ტოვებს."
+      },
+      {
+        "question": "რატომ არის კანდიდატი და მოწყვლადი?",
+        "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით მოწყვლადია ფრაგმენტირებული, 20,000 კმ²-ზე ნაკლები არეალის გამო; საქართველოს წითელ ნუსხაში VU სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-20T12:59:14+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/23001/0"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/5960888"
+        "name": "Orlov & Tuniyev 1990 — Three species in the Vipera kaznakowi complex",
+        "url": "https://biostor.org/reference/310295"
+      },
+      {
+        "name": "Schmid et al. 2023 — Melanism in Vipera dinniki in Georgia",
+        "url": "https://www.biotaxa.org/hn/article/view/76087"
+      },
+      {
+        "name": "Tuniyev et al. 2009 — IUCN Red List account for Vipera dinniki",
+        "url": "https://www.iucnredlist.org/species/23001/114547350"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
@@ -12900,24 +12923,24 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "vipera-dinniki": {
     "commonName": "Dinnik's viper",
     "location": "Greater Caucasus",
-    "description": "A venomous viper endemic to the Greater Caucasus, found in high-mountain forests and the subalpine zone.",
-    "overview": "Dinnik's viper (Vipera dinniki) is a venomous species endemic to the Greater Caucasus. It occurs in the high-mountain regions of Russia, Georgia, and Azerbaijan — in the upper forest zone, subalpine meadows, and rocky terrain, at roughly 1,500–2,800 meters. It is classified as Vulnerable by the IUCN due to its fragmented range and habitat degradation.",
-    "habitat": "Distributed along the Greater Caucasus range — in Russia, Georgia, and Azerbaijan. Its habitat includes forest, scrub, grassy cover, and rocky terrain at roughly 1,500–2,800 m elevation. Populations are spatially fragmented.",
-    "diet": "Adults feed mainly on lizards and rodents, occasionally birds. Juveniles feed on small lizards and insects. It hunts by ambush and subdues prey with venom.",
-    "behavior": "Active during the warm season; it seeks shade in intense heat. It hibernates from autumn to spring in rock crevices and under stones. It is ovoviviparous: mating occurs in April–May, and young are born in August–September — usually 3–7 individuals.",
-    "conservation": "Classified as Vulnerable on the IUCN Red List: its range is less than 20,000 km² and severely fragmented; a decline in habitat and population is projected. Threats include degradation of subalpine pastures and human pressure. It is listed in the Red Data Books of Georgia and Russia.",
+    "description": "A venomous highland viper of the Greater Caucasus — a resident of subalpine meadows and the upper forest belt.",
+    "overview": "Dinnik's viper (Vipera dinniki) is a venomous snake of the Greater Caucasus highlands. It is confirmed in Georgia; it does not occur throughout the country. The 2026 checklist treats it as a candidate in the kaznakovi complex — the species boundary with the Caucasus viper is not yet fully tested. The nominotypical form lives above the timberline; the checklist links subspecies V. d. tuniyevi to forest and mountain habitat in central Georgia. Adults are usually about 40–55 cm. In this atlas the risk is moderate. It is Vulnerable on the IUCN Red List and on Georgia’s 2014 Red List.",
+    "habitat": "Look for it on Greater Caucasus subalpine meadow, in the upper forest belt, on rock outcrops and moraines — not in Colchic lowlands and not on the dry eastern plains. This atlas maps Abkhazia, Samegrelo — Zemo Svaneti, Racha — Lechkhumi — Kvemo Svaneti, and Mtskheta — Mtianeti. Named localities include Svaneti (type series; Enguri basin and Ushguli–Shkhara), Khevsureti (Ardoti), and the Stepantsminda area. Tusheti is also mentioned. IUCN gives about 1,500–2,800 m; Caucasian studies sometimes record it to 3,000 m, and it may descend a little lower along valleys. South- and southeast-facing slopes are typical. Populations are fragmented.",
+    "diet": "Adults take lizards and small mammals; occasionally fledglings of ground-nesting birds. Juveniles take small lizards and insects, including grasshoppers. It hunts by ambush and subdues prey with venom. There is no separate Georgian diet study on this page; this is species-level data from the western Caucasus.",
+    "behavior": "In the highlands the active season is usually mid-April to the second half of September. It appears by day; in heat it seeks shade, and in cloudy weather it may stay out all day. It overwinters in rock crevices, often in the same place it uses in summer. It gives live birth. Mating is from late April to May; young are born in August on the northern slope and in September on the southern slope. Newborns are about 13 cm and almost do not feed in their first season — they go straight into hibernation. In the highlands females do not breed every year. If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people.",
+    "conservation": "The 2009 IUCN assessment (2017 errata) lists it as Vulnerable: the range is under 20,000 km² and severely fragmented; a decline in habitat and population is projected. Georgia’s 2014 Red List assigns VU, following the global IUCN assessment. Threats include degradation of subalpine pasture and grazing. In the 2026 checklist it is a candidate: internal boundaries in the kaznakovi complex are not yet fully confirmed with genomic data.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Greater Caucasus"
+        "value": "subalpine meadow"
       },
       {
         "label": "Length",
-        "value": "approx. 40–50 cm"
+        "value": "approx. 40–55 cm"
       },
       {
         "label": "Venom",
-        "value": "Venomous"
+        "value": "Moderate risk"
       },
       {
         "label": "Conservation",
@@ -12932,38 +12955,49 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "Named in honor of Russian herpetologist Nikolai Yakovlevich Dinnik.",
-      "Ovoviviparous — young are born in August–September, usually 3–7 individuals.",
-      "Its range is severely fragmented; IUCN status — Vulnerable.",
-      "Distributed along the Greater Caucasus range — in Russia, Georgia, and Azerbaijan."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "Dinnik’s viper is a venomous highland species of the Greater Caucasus. Size, elevation, and live birth separate it from the Levantine viper.",
+      "summary": "A small highland viper with a vertical pupil, keeled scales and often a zigzag or straight dorsal stripe. Use elevation and habitat — it is confused with the Caucasus viper and the smooth snake.",
       "traits": [
-        "It is relatively small — roughly 40–50 cm long.",
-        "The pupil is vertical, scales are keeled, and the head is triangular.",
-        "It lives in the Greater Caucasus highlands at about 1,500–2,800 m.",
-        "It is live-bearing; the Levantine viper is larger, egg-laying, and lowland.",
-        "It is venomous (moderate risk); a bite needs medical care."
+        "The body is relatively slim, not heavy. Adults are usually about 40–55 cm; females are larger than males, and males have a longer tail. The head is triangular but narrower than in the Caucasus viper, and less clearly set off from the neck.",
+        "The pupil is a vertical slit. Dorsal scales are keeled — each has a raised ridge. Ground colour is grey, silver-grey, brown or green-grey; some individuals have yellow or orange tones. The back has a dark zigzag, sometimes a straight stripe. The belly is dark with pale spots or pale with dark speckles. Black (melanistic) individuals are common in western populations; in Georgia this colour form is documented near Stepantsminda.",
+        "Newborns are grey-brown — not red, as in the Caucasus viper. Melanistic individuals are born with a normal pattern and become fully black by about the third year.",
+        "The Caucasus viper lives in lower, humid Colchic forest (mainly 0–1,000 m), with a broader head and a red-orange ground colour. Its black individuals keep red or yellow tones around the mouth. Darevsky’s viper is on the Lesser Caucasus — Javakheti–Erusheti, usually above 2,300 m. The Levantine viper is large and lives on dry eastern lowlands.",
+        "In the same highlands the smooth snake (Coronella austriaca) has a round pupil and smooth scales — it is not venomous. The Transcaucasian long-nosed viper has a nose horn and is tied to the Lesser Caucasus. It is venomous (moderate risk); a bite needs medical care."
       ]
     },
     "faq": [
       {
-        "question": "Is Dinnik's viper dangerous to humans?",
-        "answer": "It is venomous, though its danger level is rated moderate. Bites are rare — the snake does not attack unless it feels threatened. Still, immediate medical attention is required in the event of a bite."
+        "question": "Is Dinnik's viper found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as a candidate species, but it is confirmed in Georgia. It occurs only in the Greater Caucasus highlands — not throughout the country."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "In the high-mountain zone of the Greater Caucasus — near the upper forest line, in subalpine meadows and rocky terrain, at roughly 1,500–2,800 meters. Populations are fragmented."
+        "question": "Where can it be found in Georgia?",
+        "answer": "On subalpine meadow, in the upper forest belt and on rocky ground. The map marks Abkhazia, Samegrelo — Zemo Svaneti, Racha — Lechkhumi — Kvemo Svaneti and Mtskheta — Mtianeti. Named places include Svaneti, Khevsureti, Stepantsminda and Tusheti. It is absent from western lowlands and the dry eastern plains."
       },
       {
-        "question": "How does it differ from the Levantine viper (gyurza)?",
-        "answer": "Dinnik's viper is smaller (approx. 40–50 cm), ovoviviparous, and a native of high-mountain habitat. The Levantine viper is larger, egg-laying, and found in the dry lowlands of eastern Georgia."
+        "question": "Is it venomous and dangerous to humans?",
+        "answer": "Yes, it is venomous. In this atlas the risk is moderate — lower than the Levantine viper, but a bite still needs medical care. It does not attack unless it feels threatened. Do not pick it up."
       },
       {
-        "question": "Why is it considered a vulnerable species?",
-        "answer": "Its range is less than 20,000 km² and severely fragmented. Degradation of subalpine pastures and human pressure are reducing the population; it is listed in the Red Data Books of Georgia and Russia."
+        "question": "What should I do if bitten?",
+        "answer": "Call 112 immediately. Keep the person still and calm; do not cut, suck or apply a tight tourniquet. Treatment is in hospital."
+      },
+      {
+        "question": "How can it be identified?",
+        "answer": "It is a small, relatively slim viper with a vertical pupil, keeled scales and a zigzag or straight dorsal stripe. Ground colour is often grey or brown, not the red of the Caucasus viper. The smooth snake has a round pupil."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Adults are usually about 40–55 cm. Females are larger than males. It belongs with Georgia’s small vipers — much shorter than the Levantine viper."
+      },
+      {
+        "question": "How does it differ from the Caucasus viper?",
+        "answer": "Dinnik’s viper is highland (about 1,500–2,800 m) and more grey or brown. The Caucasus viper lives in humid Colchic forest, mainly below 1,000 m, with a broader head and red-orange colour. The 2026 checklist still treats their species boundary as a candidate question."
+      },
+      {
+        "question": "Why is it a candidate species and Vulnerable?",
+        "answer": "The checklist treats it as a candidate because isolation within the kaznakovi complex is not fully confirmed with genomic data. IUCN lists it as Vulnerable because the range is fragmented and under 20,000 km²; Georgia’s Red List assigns VU."
       }
     ],
     "gallery": [

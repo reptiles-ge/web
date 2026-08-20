@@ -3,8 +3,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   "vipera-dinniki": {
-    ka: ["დინიკის გველგესლა", "გველგესლა"],
-    en: ["Dinnik's viper"],
+    ka: ["დინიკის გველგესლა", "Pelias dinniki"],
+    en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],
   },
   "macrovipera-lebetina": {
     ka: ["Macrovipera lebetina", "Vipera lebetina"],
