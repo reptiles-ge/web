@@ -297,13 +297,13 @@ export const species: Species[] = [
     "scientificName": "Bufotes viridis",
     "genus": "Bufotes",
     "family": "Bufonidae",
-    "location": "საქართველო — ღია ჰაბიტატები",
-    "description": "უშხამო გომბეშო მწვანე ლაქებიანი ზურგით; საქართველოში ღია ადგილებშია ჩვეულებრივი, ტყის ჩაკეტილ ქვეშეებში — იშვიათი.",
-    "overview": "მწვანე გომბეშო (Bufotes viridis) საქართველოში ბიოლოგიურად დადასტურებული უშხამო გომბეშოა. Tarkhnishvili (1996) მას საქართველოში ფართოდ გავრცელებულად მიიჩნევს: 28 ლოკალიტეტი აღმოსავლეთში და 14 დასავლეთში; იშვიათია ნოტიო შავიზღვისპირეთში, თუმცა ისტორიული ჩანაწერები ბათუმიდან და ფოთიდანაც არსებობს. ღია ადგილებს ანიჭებს უპირატესობას და ჩაკეტილ ტყის ქვეშეს არიდებს. Tarkhnishvili et al. (2026) სახეობას B. viridis კომპლექსის ნომინალურ სახეობად იღებს; კომპლექსის სხვა ტაქსონები საქართველოში არ არის მითითებული. Dufresnes et al. (2019) კავკასიის მწვანე გომბეშოებს B. sitibundus-ს მიაკუთვნებს, მაგრამ Speybroeck et al. (2020) და Frost სახელს B. viridis ინარჩუნებენ; Tarkhnishvili et al. (2026) sitibundus-ს აქ არ ყოფს, რადგან კავკასიასა და ევროპას შორის გეოგრაფიული ან გენეტიკური იზოლაციის მტკიცებულება არაა, მიუხედავად Cyt b-ის 5%-ზე მეტი სხვაობისა დანიისა და თურქეთის ნიმუშებს შორის. ჩამონათვალის ფიგურა და ბარკოდი (CaBOL-ID 1007180) დედოფლისწყაროს მუნიციპალიტეტიდან, ფანტიშარას ხეობიდანაა.",
-    "habitat": "Tarkhnishvili (1996): გვხვდება ტყიდან უდაბნომდე და დასახლებულ ადგილებამდე, მაგრამ ჩაკეტილ ტყეს არიდებს; ტყის გაწმენდილ ადგილებში შეიძლება გამოჩნდეს. აღმოსავლეთ საქართველოს მშრალ ზონაში უფრო დამახასიათებელია, ვიდრე კოლხეთის ნოტიო სანაპიროზე. Tarkhnishvili (1993) ბორჯომის ხეობაში მას ღია ჰაბიტატის ანურების ჯგუფში მიაკუთვნებს. ქვირითობა AmphibiaWeb-ის ზოგადი სახეობრივი მონაცემით არაღრმა წყალსატევებშია — გუბეები, არხები, ტბორები, ჩვეულებრივ 50 სმ-მდე; ეს სიღრმე საქართველოში ცალკე არ არის გაზომილი. 2026 წლის ჩამონათვალის ვაუჩერი — ფანტიშარას ხეობა, დედოფლისწყარო. საქართველოს სრული სიმაღლის დიაპაზონი გამოქვეყნებული წყაროებით აქ არ არის დადგენილი.",
-    "diet": "AmphibiaWeb (Kuzmin-ის ანგარიში): ზრდასრულები ძირითადად ხმელეთის უხერხემლოებით იკვებებიან — ხოჭოები, ობობები და სხვა მცოცავი ფორმები; ზრდასრულებში ჭიანჭველებიც მნიშვნელოვანია. ახალმეტამორფოზული ნაშიერები იკვებებიან წყალფეხიანებით, ხოჭოებით, ტკიპებითა და ორფრთიანებით; ლიფსიტები — დეტრიტითა და წყალმცენარეებით. საქართველოს პოპულაციების კუჭის შიგთავსი ამ გვერდზე ცალკე არ არის ციტირებული.",
-    "behavior": "AmphibiaWeb: აქტიურია ძირითადად ბინდსა და ღამით; ქვირითობისას შეიძლება დღისითაც გამოჩნდეს. დღის განმავლობაში იმალება; მშრალ ადგილებში ღამით წყალთან მიდის დასალევად. ზამთრობს ხმელეთზე, ზოგჯერ ჯგუფურად; კავკასიაში მაქსიმალური სიცოცხლის ხანგრძლივობა შეფასებულია დაახლოებით 7–10 წლით. Tarkhnishvili (1993): ბორჯომის ხეობაში ღია ჰაბიტატის ანურებს, მათ შორის ამ სახეობას, მრავალჯერადი ქვირითობა ახასიათებს. საქართველოში რეპროდუქციის ზუსტი თვეები ამ გვერდზე არ არის დაკალენდრებული. თუ შეხვდებით — არ აიყვანოთ; შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის საშიში არ არის.",
-    "conservation": "IUCN Red List-ის 2023 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). AmphibiaWeb-ის მიხედვით შეტანილია ბერნის კონვენციის II დანართში. საქართველოს წითელი ნუსხის ოფიციალური ჩანაწერი ამ განახლებაში არ არის გადამოწმებული. AmphibiaWeb: ადგილობრივ საფრთხეებს შორისაა მდელოების განადგურება, ჭაობების დაშრობა და ურბანიზაცია; ამავე დროს სახეობა ხშირად იყენებს ბაღებს, პარკებსა და სხვა ანთროპოგენურ ადგილებს. საქართველოში პოპულაციის ტენდენცია ცალკე არ არის გამოქვეყნებული.",
+    "location": "საქართველო — ღია ადგილები",
+    "description": "უშხამო გომბეშო მწვანე ლაქებიანი ზურგით. საქართველოში ღია ადგილებშია ჩვეულებრივი, მკვრივ ტყეში — იშვიათი.",
+    "overview": "მწვანე გომბეშო (Bufotes viridis) უშხამო გომბეშოა მწვანე ლაქებიანი ზურგით. საქართველოში ფართოდ გვხვდება ღია ადგილებში — სტეპში, გაწმენდილ ადგილებში, ბაღებსა და დასახლებულ ლანდშაფტში. მკვრივ ტყეში და ნოტიო შავიზღვისპირეთში იშვიათია. ადამიანისთვის საშიში არ არის. 2026 წლის ქართული ჩამონათვალი მას Bufotes viridis-ად იღებს.",
+    "habitat": "ეძებეთ ღია ადგილზე, არა მკვრივი ტყის ქვეშ. უფრო დამახასიათებელია აღმოსავლეთ საქართველოს მშრალი ზონისთვის, ვიდრე კოლხეთის ნოტიო სანაპიროსთვის. დასახელებული ადგილებია ფანტიშარას ხეობა დედოფლისწყაროსთან და ბორჯომის ხეობა. ქვირითობს არაღრმა გუბეებში, არხებსა და ტბორებში. ბათუმიდან და ფოთიდანაც არის ძველი ჩანაწერები, მაგრამ იქ იშვიათია.",
+    "diet": "ზრდასრული ძირითადად ხმელეთზე ნადირობს: ხოჭოები, ობობები, ჭიანჭველები და სხვა მცოცავი უხერხემლოები. ახალგარდაქმნილი ნაშიერები უფრო წვრილ ნადავლს იჭერენ. ლიფსიტები იკვებებიან წყალმცენარეებითა და დამპალი მცენარეული ნარჩენით.",
+    "behavior": "ძირითადად ბინდსა და ღამითაა აქტიური. დღისით იმალება. ქვირითობისას შეიძლება დღისითაც გამოჩნდეს არაღრმა წყალთან. მშრალ ამინდში ღამით წყალთან მიდის დასალევად. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის საშიში არ არის.",
+    "conservation": "IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ხშირად გვხვდება ბაღებში, პარკებსა და დასახლებულ ადგილებში, თუმცა მდელოების გაქრობა და ჭაობების დაშრობა ადგილობრივად ამცირებს. საქართველოს წითელ ნუსხაზე ამ გვერდზე ოფიციალური ჩანაწერი არ არის მოყვანილი.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/bufotes-viridis.jpg",
     "mobileImage": "https://cdn.reptiles.ge/bufotes-viridis-mobile.jpg",
@@ -331,7 +331,7 @@ export const species: Species[] = [
       },
       {
         "label": "ზომა",
-        "value": "4.8–12 სმ"
+        "value": "დაახლ. 5–12 სმ"
       },
       {
         "label": "შხამი",
@@ -348,50 +348,50 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "მწვანე გომბეშო უშხამო გომბეშოა მწვანე ან ზეთისხილისფერი ლაქებით ნაცრისფერ-მომწვანო ზურგზე. საქართველოში ძირითადი აღრევა კავკასიურ გომბეშოსთანაა (Bufo verrucosissimus).",
+      "summary": "მოკლე, მეჭეჭებიანი გომბეშოა არათანაბარი მწვანე ან ზეთისხილისფერი ლაქებით. საქართველოში ყველაზე ხშირად კავკასიურ გომბეშოს ერევა.",
       "traits": [
-        "ზურგი ნაცრისფერი ან ზეთისხილისფერია, არათანაბარი მწვანე ან ზეთისხილისფერი ლაქებით; გვერდებზე ხშირად წითელი ან ნარინჯისფერი ბორცვებია.",
-        "თვალის უკან გამოკვეთილი ყურისძირის (პაროტოიდული) ჯირკვლებია; გუგა ჰორიზონტალური; ყურის აპკი ჩვეულებრივ ჩანს.",
-        "კანი კვანძოვანი/მეჭეჭებიანია. სხეულის სიგრძე (SVL) AmphibiaWeb-ით 48–120 მმ; მდედრი მამრზე დიდია. ქვირითობისას მამრს წინა თითებზე ნუპტიალური ბალიშები აქვს.",
-        "კავკასიური გომბეშო (Bufo verrucosissimus) ყავისფერი ან მოწითალო-ყავისფერია, მწვანე მოზაიკის გარეშე და უფრო ტყის სახეობაა; მწვანე გომბეშო ღია ადგილებისაა.",
-        "სირიულ მყვარს (Pelobates syriacus) გუგა ვერტიკალური აქვს, უკანა ფეხზე — თხრილის „ნიჩაბი“, დიდი პაროტოიდები არა. ვასაკებს (Hyla) თითის დისკები და გლუვი კანი აქვთ."
+        "ზურგი ნაცრისფერი ან ზეთისხილისფერია, არათანაბარი მწვანე ან ზეთისხილისფერი ლაქებით. გვერდებზე ხშირად წითელი ან ნარინჯისფერი ბორცვები ჩანს.",
+        "თვალის უკან დიდი ჯირკვლებია — პაროტოიდები. ისინი თავდაცვით სეკრეტს გამოყოფენ, რომელიც ლორწოვანზე შეიძლება გამაღიზიანებელი იყოს. გუგა ჰორიზონტალური ნაპრალია; ყურის აპკი ჩვეულებრივ ჩანს.",
+        "კანი მეჭეჭებიანია. სიგრძე ჩვეულებრივ დაახლოებით 5–12 სმ-ია; მდედრი, როგორც წესი, მამრზე დიდია. ქვირითობისას მამრს თითებზე უხეში ბალიშები უჩნდება.",
+        "კავკასიური გომბეშო ყავისფერი ან მოწითალო-ყავისფერია, მწვანე ლაქების გარეშე და უფრო ტყეშია. მწვანე გომბეშო ღია ადგილების ცხოველია.",
+        "სირიულ მყვარს გუგა ვერტიკალური აქვს და უკანა ფეხზე — მყარი „ნიჩაბი“ სათხრელად; თვალის უკან დიდი ჯირკვლები არა აქვს. ვასაკებს გლუვი კანი და წებოვანი დისკები აქვთ თითებზე."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა მწვანე გომბეშო საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად მიიჩნევს. Tarkhnishvili (1996) მას საქართველოში ფართოდ გავრცელებულად აღწერს."
+        "answer": "დიახ. შედის საქართველოს 2026 წლის ჩამონათვალში და ქვეყანაში ფართოდაა აღწერილი."
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "უფრო ხშირად ღია, მშრალ და ნახევრადმშრალ ადგილებში, მათ შორის აღმოსავლეთ საქართველოში. 2026 წლის ვაუჩერი ფანტიშარას ხეობიდანაა (დედოფლისწყარო); Tarkhnishvili (1993) ბორჯომის ხეობაშიც ასახელებს. ნოტიო შავიზღვისპირეთში იშვიათია. რუკა მხოლოდ იმ რეგიონებს აჩვენებს, სადაც ამ გვერდზე დასახელებული ლოკალიტეტებია."
+        "answer": "ღია, მშრალ ან ნახევრადმშრალ ადგილებში, განსაკუთრებით აღმოსავლეთ საქართველოში. დასახელებული ადგილებია ფანტიშარა (დედოფლისწყარო) და ბორჯომის ხეობა. ნოტიო შავიზღვისპირეთში იშვიათია. რუკაზე აღნიშნულია კახეთი და სამცხე — ჯავახეთი, სადაც ეს ადგილებია; ღია ადგილებში უფრო ფართოდაცაა მითითებული."
       },
       {
         "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
-        "answer": "კბენით შხამი არ აქვს და ადამიანისთვის უვნებელია. ყურისძირის ჯირკვლების სეკრეტი შეიძლება ლორწოვანზე გამაღიზიანებელი იყოს; შეხების შემდეგ ხელები დაიბანეთ. არ აიყვანოთ. ძაღლს პირით აღება შეიძლება ავნოს — ეს ზოგადი ბუფონიდების რისკია, არა საქართველოს ცალკე კვლევა."
+        "answer": "არა. კბენით შხამი არ აქვს და ადამიანისთვის უვნებელია. თვალის უკან ჯირკვლების სეკრეტი შეიძლება თვალს ან პირს გააღიზიანოს; შეხების შემდეგ ხელები დაიბანეთ და არ აიყვანოთ. ძაღლს პირით აღება შეიძლება ავნოს."
       },
       {
         "question": "როგორ ამოვიცნო?",
-        "answer": "მოკლე, მეჭეჭებიანი გომბეშო მწვანე ან ზეთისხილისფერი ლაქებით, ჰორიზონტალური გუგით და თვალის უკან პაროტოიდული ჯირკვლებით. ყავისფერი ტყის გომბეშო სხვა გვარია (Bufo)."
+        "answer": "მოკლე, მეჭეჭებიანი გომბეშო მწვანე ან ზეთისხილისფერი ლაქებით, ჰორიზონტალური გუგით და თვალის უკან დიდი ჯირკვლებით. ერთფეროვანი ყავისფერი ტყის გომბეშო სხვა სახეობაა."
       },
       {
         "question": "რით განსხვავდება კავკასიური გომბეშოსგან?",
-        "answer": "მწვანე გომბეშო (Bufotes) ღია ადგილების სახეობაა მწვანე ლაქებიანი ზურგით. კავკასიური გომბეშო (Bufo verrucosissimus) უფრო ტყისაა, ყავისფერი, მწვანე მოზაიკის გარეშე. Tarkhnishvili et al. 2026-ში მეორე კანდიდატი სახეობაა B. bufo-სთან."
+        "answer": "მწვანე გომბეშოს ზურგზე მწვანე ლაქები აქვს და ღია ადგილებშია. კავკასიური გომბეშო ყავისფერია, ლაქებიანი მოზაიკის გარეშე და უფრო ტყეში გვხვდება."
       },
       {
         "question": "არის თუ არა sitibundus ცალკე სახეობა?",
-        "answer": "ამ ატლასში არა. Dufresnes et al. (2019) კავკასიის ხაზს B. sitibundus-ს უწოდებს; Speybroeck et al. (2020) ქვესახეობად ტოვებს, Frost — B. viridis-ის სინონიმად. Tarkhnishvili et al. 2026 sitibundus-ს არ ყოფს."
+        "answer": "ამ ატლასში არა. 2026 წლის ქართული ჩამონათვალი სახელს Bufotes viridis ინარჩუნებს. ზოგი კვლევა კავკასიის პოპულაციებს B. sitibundus-ს უწოდებს. ველში ცხოველი იგივენაირად ამოიცნობა."
       },
       {
         "question": "რას ჭამს?",
-        "answer": "ზრდასრულები — ხმელეთის უხერხემლოებს, მათ შორის ხოჭოებს, ობობებსა და ჭიანჭველებს (AmphibiaWeb). საქართველოს პოპულაციების დიეტა ცალკე არ არის გამოქვეყნებული ამ გვერდზე."
+        "answer": "ზრდასრული — ხოჭოებს, ობობებს, ჭიანჭველებს და სხვა ხმელეთის უხერხემლოებს. ლიფსიტები წყალმცენარეებსა და მცენარეულ ნარჩენს ჭამენ."
       },
       {
         "question": "რა ვქნა, თუ შევხვდები?",
-        "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ გადაიტანოთ წყალსატევიდან. შეხების შემდეგ ხელები დაიბანეთ. სამედიცინო საფრთხე ადამიანისთვის არ არის."
+        "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევიდან არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-20T11:17:50+04:00",
+    "updatedAt": "2026-08-20T11:30:26+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7803,13 +7803,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "bufotes-viridis": {
     "commonName": "Green Toad",
-    "location": "Georgia — open habitats",
-    "description": "A harmless toad with a green-spotted back; common in open country in Georgia, scarce in closed forest.",
-    "overview": "The green toad (Bufotes viridis) is a biologically confirmed, harmless toad in Georgia. Tarkhnishvili (1996) treated it as widespread: 28 localities in the east and 14 in the west; it is scarce on the humid Black Sea coast, though historical records exist from Batumi and Poti. It prefers open ground and avoids closed-canopy forest. Tarkhnishvili et al. (2026) treat it as the nominal species of the B. viridis complex; other taxa of that complex are not listed for Georgia. Dufresnes et al. (2019) assign Caucasian green toads to B. sitibundus, but Speybroeck et al. (2020) and Frost retain B. viridis; Tarkhnishvili et al. (2026) do not split sitibundus here, citing no evidence of geographic or genetic isolation between Caucasian and European green toads, despite Cyt b p-distance exceeding 5% between Danish and Turkish samples. The checklist figure and barcode (CaBOL-ID 1007180) are from Pantishara Canyon, Dedoplistskaro Municipality.",
-    "habitat": "Tarkhnishvili (1996): occurs from forest to desert and in settled areas, but avoids closed-canopy forest; it may appear in clearings. It is more characteristic of dry eastern Georgia than of the humid Colchic coast. Tarkhnishvili (1993) places it in the open-habitat anuran guild of Borjomi Canyon. AmphibiaWeb’s general account: spawning in shallow water — ponds, ditches, pools, usually not deeper than 50 cm; that depth is not separately measured for Georgia. The 2026 checklist voucher is Pantishara Canyon, Dedoplistskaro. A published nationwide elevation range for Georgia is not established here.",
-    "diet": "AmphibiaWeb (Kuzmin account): adults eat mainly terrestrial invertebrates — beetles, spiders and other crawling prey; ants are important in adults. Newly metamorphosed toadlets take springtails, beetles, mites and flies; tadpoles eat detritus and algae. Stomach contents from Georgian populations are not cited on this page.",
-    "behavior": "AmphibiaWeb: active mainly at dusk and night; may be diurnal during breeding. By day it hides; in dry country it visits water at night to rehydrate. Hibernation is usually on land, sometimes in groups; maximum longevity in the Caucasus is estimated at about 7–10 years. Tarkhnishvili (1993): open-habitat anurans in Borjomi Canyon, including this species, have multiple spawns. Exact breeding months in Georgia are not calendared here. If you meet one, do not pick it up; wash your hands after any contact. It is not dangerous to people.",
-    "conservation": "Assessed as Least Concern on the IUCN Red List (2023). AmphibiaWeb lists it on Bern Convention Appendix II. Georgia’s official Red List entry is not verified in this update. AmphibiaWeb: local threats include destruction of meadows, drying of wetlands and urbanization; the species also uses gardens, parks and other anthropogenic sites. A published population trend for Georgia is not available here.",
+    "location": "Georgia — open country",
+    "description": "A harmless toad with a green-spotted back. Common in open country in Georgia, scarce in dense forest.",
+    "overview": "The green toad (Bufotes viridis) is a harmless toad with a green-spotted back. In Georgia it is widespread in open country — steppe, clearings, gardens and settled land. It is scarce in dense forest and on the humid Black Sea coast. It is not dangerous to people. The 2026 Georgian checklist treats it as Bufotes viridis.",
+    "habitat": "Look for it on open ground, not under dense forest canopy. It is more typical of dry eastern Georgia than of the humid Colchic coast. Named sites include Pantishara Canyon near Dedoplistskaro and Borjomi Canyon. It breeds in shallow pools, ditches and ponds. There are older records from Batumi and Poti, but it is scarce there.",
+    "diet": "Adults hunt on land: beetles, spiders, ants and other crawling invertebrates. Newly transformed young take smaller prey. Tadpoles eat algae and decaying plant matter.",
+    "behavior": "It is mainly active at dusk and at night. By day it stays hidden. During breeding it may also appear by day around shallow water. In dry weather it may come to water at night to drink. If you find one, leave it where it is and do not pick it up. Wash your hands after any contact. It is not dangerous to people.",
+    "conservation": "The IUCN Red List assesses it as Least Concern. It often lives in gardens, parks and other places near people, but loss of meadows and drying of wetlands can still reduce local numbers. Georgia’s official Red List status is not cited on this page.",
     "stats": [
       {
         "label": "Habitat",
@@ -7817,7 +7817,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Size",
-        "value": "4.8–12 cm"
+        "value": "about 5–12 cm"
       },
       {
         "label": "Venom",
@@ -7834,47 +7834,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "The green toad is a harmless bufonid with irregular green or olive spots on a grey-olive back. In Georgia the main confusion is with the Caucasian toad (Bufo verrucosissimus).",
+      "summary": "A short, warty toad with irregular green or olive spots. In Georgia it is most often confused with the Caucasian toad.",
       "traits": [
-        "Dorsum greyish or olive with irregular green or olive blotches; flanks often have red or orange-tipped warts.",
-        "Prominent parotoid glands behind the eyes; pupil horizontal; tympanum usually visible.",
-        "Skin tuberculate. Snout–vent length 48–120 mm on AmphibiaWeb; females larger than males. Breeding males have nuptial pads on the fingers.",
-        "The Caucasian toad (Bufo verrucosissimus) is brown or reddish-brown, without a green mosaic, and is more a forest species; the green toad is an open-country animal.",
-        "Syrian spadefoot (Pelobates syriacus): vertical pupil, metatarsal spade, no large parotoids. Treefrogs (Hyla) have adhesive discs and smooth skin."
+        "The back is grey or olive, with irregular green or olive spots. The sides often show small red or orange warts.",
+        "Large glands behind the eyes — parotoid glands — produce a defensive secretion that can irritate the mouth or eyes. The pupil is a horizontal slit; a round eardrum is usually visible.",
+        "The skin is warty. Length is usually about 5–12 cm; females are generally larger than males. In the breeding season males develop rough pads on their fingers.",
+        "The Caucasian toad is brown or reddish-brown, without a green-spotted pattern, and lives more in forest. The green toad is an open-country animal.",
+        "The Syrian spadefoot has a vertical pupil and a hard digging “spade” on the hind foot; it lacks large glands behind the eyes. Treefrogs have smooth skin and sticky discs on the toes."
       ]
     },
     "faq": [
       {
         "question": "Does the green toad occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026 list it as biologically confirmed. Tarkhnishvili (1996) described it as widespread in the country."
+        "answer": "Yes. It is in the 2026 Georgian checklist and is widely reported in the country."
       },
       {
         "question": "Where can it be found in Georgia?",
-        "answer": "Most often in open, dry or semi-arid country, including eastern Georgia. The 2026 voucher is Pantishara Canyon (Dedoplistskaro); Tarkhnishvili (1993) also records it in Borjomi Canyon. It is scarce on the humid Black Sea coast. The map shows only regions with named localities cited on this page."
+        "answer": "In open, dry or semi-arid country, especially in eastern Georgia. Named sites include Pantishara (Dedoplistskaro) and Borjomi Canyon. It is scarce on the humid Black Sea coast. The map marks Kakheti and Samtskhe–Javakheti, where those sites lie; it is also reported more widely in open country."
       },
       {
         "question": "Is it venomous or dangerous to people?",
-        "answer": "It has no venomous bite and is harmless to people. Parotoid secretions can irritate mucous membranes; wash your hands after contact. Do not handle it. Mouthing by a dog can be harmful — a general bufonid risk, not a Georgia-specific study."
+        "answer": "No. It has no venomous bite and is harmless to people. Secretion from the glands behind the eyes can irritate the mouth or eyes; wash your hands after contact and do not pick it up. Mouthing by a dog can be harmful."
       },
       {
         "question": "How can it be identified?",
-        "answer": "A short, warty toad with green or olive dorsal blotches, a horizontal pupil and parotoid glands behind the eyes. A plain brown forest toad is a different genus (Bufo)."
+        "answer": "A short, warty toad with green or olive spots, a horizontal pupil and large glands behind the eyes. A plain brown forest toad is a different species."
       },
       {
         "question": "How does it differ from the Caucasian toad?",
-        "answer": "The green toad (Bufotes) is an open-country species with a green-spotted back. The Caucasian toad (Bufo verrucosissimus) is more a forest animal, brown, without a green mosaic. In Tarkhnishvili et al. 2026 the latter is a candidate species versus B. bufo."
+        "answer": "The green toad has a green-spotted back and lives in open country. The Caucasian toad is brown, without that spotted pattern, and is found more in forest."
       },
       {
         "question": "Is sitibundus a separate species?",
-        "answer": "Not in this atlas. Dufresnes et al. (2019) name the Caucasian lineage B. sitibundus; Speybroeck et al. (2020) keep it as a subspecies, Frost as a synonym of B. viridis. Tarkhnishvili et al. 2026 do not split it."
+        "answer": "Not in this atlas. The 2026 Georgian checklist keeps the name Bufotes viridis. Some studies call Caucasian populations B. sitibundus. In the field the animal is identified the same way."
       },
       {
         "question": "What does it eat?",
-        "answer": "Adults eat terrestrial invertebrates, including beetles, spiders and ants (AmphibiaWeb). Diet of Georgian populations is not published separately on this page."
+        "answer": "Adults eat beetles, spiders, ants and other land invertebrates. Tadpoles eat algae and plant debris."
       },
       {
         "question": "What should I do if I encounter one?",
-        "answer": "Watch it and leave it where it is. Do not pick it up or move it from a breeding pool. Wash your hands after contact. It is not a medical risk to people."
+        "answer": "Watch it and leave it where it is. Do not pick it up or move it from a pool. Wash your hands after contact. It is not a medical risk to people."
       }
     ],
     "gallery": [
