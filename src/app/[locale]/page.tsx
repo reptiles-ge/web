@@ -150,6 +150,14 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         ],
         isAccessibleForFree: true,
         inLanguage: ["ka", "en"],
+        license: {
+          "@type": "CreativeWork",
+          name:
+            locale === "en"
+              ? "All rights reserved"
+              : "ყველა უფლება დაცულია",
+          url: absoluteUrl(localePath(locale, "/about")),
+        },
       },
       {
         "@type": "DefinedTermSet",
