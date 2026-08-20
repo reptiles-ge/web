@@ -94,6 +94,10 @@ export function scoreMessageKey(percent: number): ScoreMessageKey {
   return band?.messageKey ?? "scoreKeepGoing";
 }
 
+const QUIZ_IMAGE_OVERRIDES: Record<string, string> = {
+  "zamenis-longissimus": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
+};
+
 function spoilsAnswer(text: string, species: Species) {
   const haystack = text.toLowerCase();
   const needles = [
@@ -110,14 +114,16 @@ export function buildQuizHint(species: Species) {
   const traits = (species.identification?.traits ?? []).filter(
     (trait) => trait.trim() && !spoilsAnswer(trait, species),
   );
-  const picked = (traits.length > 0 ? traits : species.identification?.traits ?? [])
+  const picked = (
+    traits.length > 0 ? traits : (species.identification?.traits ?? [])
+  )
     .slice(0, 1)
     .map((trait) => trait.trim())
     .filter(Boolean);
   if (picked.length > 0) return picked.join(" ");
 
-  const habitat = species.stats.find(
-    (stat) => /ჰაბიტატი|habitat/i.test(stat.label),
+  const habitat = species.stats.find((stat) =>
+    /ჰაბიტატი|habitat/i.test(stat.label),
   )?.value;
   if (habitat) return habitat;
   return species.location;
@@ -128,14 +134,18 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     species.identification?.summary?.trim() ||
     species.facts[0]?.trim() ||
     species.description.trim();
+  const overrideSrc = QUIZ_IMAGE_OVERRIDES[species.id];
+  const overridePhoto = overrideSrc
+    ? species.gallery.find((item) => item.src === overrideSrc)
+    : undefined;
 
   return {
     id: species.id,
     commonName: species.commonName,
     scientificName: species.scientificName,
     location: species.location,
-    image: species.image,
-    imageCredit: species.imageCredit,
+    image: overridePhoto?.src ?? species.image,
+    imageCredit: overridePhoto?.credit ?? species.imageCredit,
     family: species.family,
     genus: species.genus,
     explanation,
@@ -206,7 +216,9 @@ function idsForDifficulty(
   pool: SnakeQuizSpecies[],
 ) {
   const preferred = POOL_BY_DIFFICULTY[difficulty];
-  const fromPool = preferred.filter((id) => pool.some((item) => item.id === id));
+  const fromPool = preferred.filter((id) =>
+    pool.some((item) => item.id === id),
+  );
   if (fromPool.length >= 2) return fromPool;
   return pool.map((item) => item.id);
 }
@@ -284,7 +296,12 @@ export function generateSnakeQuiz(
     .flatMap(({ id, difficulty }) => {
       const species = byId.get(id);
       if (!species) return [];
-      const distractors = pickSnakeDistractors(id, pool, QUIZ_OPTION_COUNT - 1, rng);
+      const distractors = pickSnakeDistractors(
+        id,
+        pool,
+        QUIZ_OPTION_COUNT - 1,
+        rng,
+      );
       if (distractors.length < QUIZ_OPTION_COUNT - 1) return [];
       const optionIds = shuffle([id, ...distractors], rng);
       return [
