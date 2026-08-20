@@ -377,8 +377,18 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        source: "/en/quiz/romeli-gvelia",
+        destination: "/en/quiz/which-snake",
+        statusCode: 301,
+      },
+      {
+        source: "/quiz/gvelis-identifikacia",
+        destination: "/quiz/romeli-gvelia",
+        statusCode: 301,
+      },
+      {
         source: "/quiz/which-snake",
-        destination: "/quiz/gvelis-identifikacia",
+        destination: "/quiz/romeli-gvelia",
         statusCode: 301,
       },
     ];

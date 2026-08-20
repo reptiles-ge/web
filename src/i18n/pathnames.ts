@@ -109,7 +109,7 @@ export const pathnames = {
     en: "/snakes-in-the-yard",
   },
   "/quiz/gvelis-identifikacia": {
-    ka: "/quiz/gvelis-identifikacia",
+    ka: "/quiz/romeli-gvelia",
     en: "/quiz/which-snake",
   },
   "/regions": "/regions",
