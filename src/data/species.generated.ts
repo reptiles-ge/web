@@ -3960,12 +3960,12 @@ export const species: Species[] = [
     "genus": "Macrovipera",
     "family": "Viperidae",
     "location": "აღმოსავლეთ საქართველო",
-    "description": "საქართველოს ყველაზე დიდი და საშიში შხამიანი გველი — მშრალი, კლდოვანი ლანდშაფტების მკვიდრი.",
-    "overview": "გიურზა (Macrovipera lebetinus) გველგესლასებრთა ოჯახის დიდი შხამიანი სახეობაა. ჩამონათვალში მიღებული სამეცნიერო სახელია M. lebetinus; ძველ ლიტერატურასა და URL-ში ხშირად რჩება lebetina. საქართველოში გვხვდება ქვესახეობა M. l. obtusa — იორის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯის უდაბნოში, თბილისისა და რუსთავის მიდამოებში. ბინადრობს მშრალ და ნახევრადმშრალ კლდოვან ადგილებში, ზღვის დონიდან დაახლოებით 1,500 მ-მდე. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern), თუმცა ნაკბენი ადამიანისთვის სასიკვდილო შეიძლება იყოს. ხშირად ერევა აღმოსავლურ ხვლიკიჭამია გველს (Malpolon insignitus) — უკანა შხამკბილა, არა გველგესლა.",
-    "habitat": "გავრცელებულია სამხრეთ-დასავლეთ აზიასა და კავკასიაში. საქართველოში — აღმოსავლეთის მშრალ ზონაში: იორის, მტკვრისა და ალაზნის აუზებში, შირაქში, გარეჯში, თბილისსა და რუსთავამდე. ჰაბიტატი მოიცავს კლდეებს, ქვიან ფერდობებს, მღრღნელების კოლონიებსა და ადამიანის ნაგებობებს; ადის დაახლოებით 1,500 მ სიმაღლემდე.",
-    "diet": "ზრდასრულები იკვებებიან მღრღნელებით, პატარა ფრინველებით, ხვლიკებითა და სხვა მცირე ხერხემლიანებით. ახალგაზრდები ძირითადად პატარა ხვლიკებით ნადირობენ. ნადირობს ჩასაფრებით; ზოგჯერ ადის ბუჩქებსა და ხეებზე ფრინველების დასაჭერად.",
-    "behavior": "აქტიურია მარტის ბოლოდან ოქტომბრის ბოლომდე. გაზაფხულსა და შემოდგომაზე დღისით მოძრაობს, ზაფხულის სიცხეში — ღამით. იზამთრებს კლდეების ნაპრალებსა და სოროებში. კვერცხისმდებია: შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში, დაახლოებით 23–25 სმ სიგრძის.",
-    "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოშიც LC სტატუსი აქვს. საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ურბანიზაცია, გადაჭარბებული ძოვება და ადამიანის დევნა. მღრღნელების რეგულირებით სასარგებლოა ეკოსისტემისთვის.",
+    "description": "აღმოსავლეთ საქართველოს ყველაზე დიდი შხამიანი გველგესლა — მშრალი, კლდოვანი ადგილების მკვიდრი.",
+    "overview": "გიურზა (Macrovipera lebetinus) აღმოსავლეთ საქართველოს მშრალი ზონის დიდი შხამიანი გველგესლაა. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. მიღებული სახელია M. lebetinus; ძველ ლიტერატურაში ხშირია lebetina. კავკასიის პოპულაციები ჩვეულებრივ ქვესახეობას M. l. obtusa მიეკუთვნება. საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ლანდშაფტშია — დასავლეთში და მაღალმთაში არ გვხვდება. ზრდასრული ხშირად დაახლოებით 1–1.5 მ-ია. ნაკბენი სამედიცინოდ მნიშვნელოვანია და სასწრაფო დახმარებას საჭიროებს. ხშირად ერევა აღმოსავლურ ხვლიკიჭამია გველსა და დიდ უშხამო მცურავებს.",
+    "habitat": "ეძებეთ მშრალ, ქვიან და კლდოვან ადგილზე — არა კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. დამახასიათებელია ივრის, მტკვრისა და ალაზნის ქვედა დინებები, შირაქი, გარეჯი და ქვემო ქართლის მშრალი მთისწინეთი. თბილისისა და რუსთავის მიდამოებში იშვიათია. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებული ადგილია ყვარელიც — ალაზნის ხეობა. თავს აფარებს კლდის ნაპრალს, ქვას, მღრღნელის სოროს და ზოგჯერ ნაგებობას; ზაფხულის სიცხეში ხშირად წყალთან ახლოს ჩნდება. ქართულ წყაროებში ზედა სიმაღლე დაახლოებით 1,500 მ-ია. დასავლეთ საქართველოში დადასტურებული არეალი არ არის.",
+    "diet": "ზრდასრული ძირითადად მღრღნელებს იჭერს; აგრეთვე პატარა ფრინველებს, ხვლიკებსა და სხვა მცირე ხერხემლიანებს. ახალგაზრდა უფრო პატარა ხვლიკებით ნადირობს. ნადირობს ჩასაფრებით. ზოგჯერ ბუჩქზე ან ხეზე ადის ფრინველის დასაჭერად.",
+    "behavior": "ამიერკავკასიაში აქტიური სეზონი ჩვეულებრივ აპრილიდან ოქტომბრის ბოლომდეა; ზოგი წყარო გამოსვლას მარტის ბოლოდანაც აღნიშნავს. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში — ბინდსა და ღამით. იზამთრებს კლდის ნაპრალსა და სოროში. კვერცხისმდებია — საქართველოს სხვა გველგესლები ცოცხლადმშობია. შეწყვილება აპრილ–მაისშია. ქართული წყაროები ზაფხულში დაახლოებით 15–20 კვერცხს ასახელებენ; ნაშიერი დაახლოებით 23–25 სმ-ია და იჩეკება დაახლოებით 35–45 დღეში. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
+    "conservation": "IUCN-ის 2021 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2014 წლის საქართველოს წითელ ნუსხაში არ არის — იქ შეტანილია დინიკის და კავკასიური გველგესლა. ძველ ქართულ ენციკლოპედიაში ზოგჯერ წითელ წიგნშია ნახსენები; ეს 2014 წლის ნუსხას არ ემთხვევა. საფრთხეებია ჰაბიტატის გარდაქმნა, ურბანიზაცია, გადაჭარბებული ძოვება და ადამიანის დევნა. მღრღნელებზე ნადირობით მონაწილეობს მშრალი ლანდშაფტის კვებით ჯაჭვში.",
     "danger": "High",
     "image": "https://cdn.reptiles.ge/macrovipera-lebetina.webp",
     "mobileImage": "https://cdn.reptiles.ge/macrovipera-lebetina-mobile.webp",
@@ -4013,7 +4013,7 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "აღმ. საქართველო"
+        "value": "მშრალი კლდოვანი ადგილები"
       },
       {
         "label": "სიგრძე",
@@ -4021,7 +4021,7 @@ export const species: Species[] = [
       },
       {
         "label": "შხამი",
-        "value": "ძალიან საშიში"
+        "value": "მაღალი რისკი"
       },
       {
         "label": "კონსერვაცია",
@@ -4036,46 +4036,49 @@ export const species: Species[] = [
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "საქართველოს ყველაზე დიდი გველგესლაა და, სავარაუდოდ, ერთადერთი შხამიანი გველი, რომლის ნაკბენიც ადამიანის სიცოცხლეს უქმნის რეალურ საფრთხეს.",
-      "კვერცხისმდებია — დინიკის გველგესლასგან განსხვავებით, რომელიც ცოცხლადმშობია; დებს დაახლოებით 15–20 კვერცხს.",
-      "შხამი ჰემოტოქსიურია: აზიანებს სისხლის წითელ უჯრედებსა და სისხლძარღვებს; მკურნალობაში გამოიყენება შრატი „ანტიგიურზა“.",
-      "ადგილობრივი სახელი „გიურზა“ კავკასიასა და შუა აზიაშია გავრცელებული; ინგლისურად ხშირად Blunt-nosed ან Levantine viper ეწოდება."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "გიურზა საქართველოს ყველაზე დიდი და საშიში შხამიანი გველია. ამოიცანი ზომით, თავის ფორმით, ჰაბიტატით და იმით, რომ კვერცხისმდებია — მაღალმთიანი დინიკისგან განსხვავებით.",
+      "summary": "მასიური გველგესლაა ფართო სამკუთხა თავით, ვერტიკალური გუგით და კილური ქერცლით. აღმოსავლეთის მშრალ დაბლობზე დიდ უშხამო მცურავებსა და ხვლიკიჭამია გველს ერევა.",
       "traits": [
-        "დიდი სხეულია — სიგრძე დაახლოებით 1–1.5 მ; თავი ფართო და სამკუთხაა.",
-        "გუგა ვერტიკალურია; ქერცლები კილურია — ტიპური გველგესლა.",
-        "გვხვდება აღმოსავლეთ საქართველოს მშრალ დაბლობებსა და ქვიან ფერდობებზე (დაახლ. 0–1,500 მ).",
-        "კვერცხისმდებია — დინიკის გველგესლა ცოცხლადმშობია და მაღალმთაშია.",
-        "შხამი ძალიან საშიშია; ნაკბენისას საჭიროა დაუყოვნებელი სამედიცინო დახმარება."
+        "სხეული სქელი და მძიმეა. თავი ფართო, სამკუთხაა და კისრისგან მკაფიოდ გამოიყოფა; დაბოლოება ბლაგვია, რქის გარეშე. კავკასიაში ზრდასრული ხშირად დაახლოებით 1–1.5 მ-ია; 2 მ-მდე ცნობები სადავოა.",
+        "გუგა ვერტიკალური ნაპრალია. ზურგის ქერცლი კილურია — შუაში ამოწეული ნეკნივით. თავის ფარები წვრილ, კილურ ქერცლად არის დაყოფილი, მათ შორის თვალის ზემოთაც.",
+        "ფონი ნაცრისფერი, ქვიშისფერი ან მოყავისფროა. ზურგზე მუქი ლაქები ან განივი ზოლებია, ზოგჯერ ზიგზაგად. მუცელი ღიაა, ხშირად წვრილი მუქი წინწკლებით. ერთფეროვანი ინდივიდიც გვხვდება.",
+        "აღმოსავლურ ხვლიკიჭამია გველს (Malpolon insignitus) მრგვალი გუგა და ამოწეული „წარბი“ აქვს; ის უფრო წვრილი და დღის მონადირეა. დიდ მცურავებს (Dolichophis) მრგვალი გუგა და სწრაფი, წვრილი ტანი აქვთ — არა გველგესლის მასიური აგებულება.",
+        "ველის გველგესლა იმავე აღმოსავლეთში შეიძლება იყოს, მაგრამ გაცილებით პატარაა (დაახლ. 40–60 სმ). ცხვირრქოსანს ცხვირზე რქა აქვს და მთიანეთთანაა დაკავშირებული. დინიკის გველგესლა დიდი კავკასიონის მაღალმთაშია — ამ სახეობის ჰაბიტატში არა."
       ]
     },
     "faq": [
       {
-        "question": "რამდენად საშიშია გიურზას ნაკბენი?",
-        "answer": "ძალიან საშიშია. საქართველოში ეს არის ყველაზე დიდი გველგესლა და, სავარაუდოდ, ერთადერთი შხამიანი გველი, რომლის ნაკბენმა შეიძლება ადამიანის სიცოცხლეს შეუქმნას რეალური საფრთხე. შხამი ჰემოტოქსიურია — აზიანებს სისხლსა და სისხლძარღვებს."
+        "question": "გვხვდება თუ არა გიურზა საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. მხოლოდ აღმოსავლეთის ნახევრადმშრალ ზონაშია — არა მთელ ქვეყანაში."
+      },
+      {
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "ივრის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯში და ქვემო ქართლის მშრალ მთისწინეთში. თბილისისა და რუსთავის მიდამოებში იშვიათია. რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასავლეთ საქართველოში არ არის."
+      },
+      {
+        "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
+        "answer": "შხამიანია და საქართველოს გველებიდან ყველაზე მაღალი სამედიცინო რისკისაა — დიდია და შხამის რაოდენობა მეტია. სხვა გველგესლებიც შხამიანია, მაგრამ ეს სახეობა ზომითა და შხამის მოქმედებით ყველაზე საშიშია. თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს. ნაკბენი სასწრაფო სამედიცინო დახმარებას საჭიროებს."
       },
       {
         "question": "რა უნდა გავაკეთო ნაკბენის შემთხვევაში?",
-        "answer": "დაუყოვნებლივ გამოიძახეთ სასწრაფო დახმარება ან მიმართეთ სამედიცინო დაწესებულებას. დაზარალებული უნდა იყოს მოსვენებული; ნაკბენის ადგილი არ უნდა გაიჭრას, არ შეიწოვოს და არ მოიკვრას მჭიდრო ტურნიკეტი. მკურნალობაში გამოიყენება შრატი „ანტიგიურზა“."
+        "answer": "დაუყოვნებლივ დარეკეთ 112-ზე. დაზარალებული დააწვინეთ და დაამშვიდეთ; ნაკბენი ადგილი არ გაიჭრას, არ შეიწოვოს და არ მოიკვრას მჭიდრო ტურნიკეტი. მკურნალობა საავადმყოფოშია; შრატი ექიმმა უნდა შეარჩიოს."
       },
       {
-        "question": "სად გვხვდება გიურზა საქართველოში?",
-        "answer": "აღმოსავლეთ საქართველოს მშრალ და ნახევრადმშრალ ზონაში — იორის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯის უდაბნოში, თბილისისა და რუსთავის მიდამოებში. ბინადრობს კლდოვან ადგილებში, დაახლოებით 1,500 მ-მდე."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "დიდი, სქელი გველია ფართო სამკუთხა თავით, ვერტიკალური გუგით და კილური ქერცლით. რქა არ აქვს. დიდ მცურავსა და ხვლიკიჭამია გველს მრგვალი გუგა აქვს და უფრო წვრილი ტანი."
       },
       {
-        "question": "აქტიურია თუ არა დღისით?",
-        "answer": "გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში კი ღამის ცხოვრებაზე გადადის. აქტიური სეზონი მარტის ბოლოდან ოქტომბრის ბოლომდეა."
+        "question": "რამდენად დიდია?",
+        "answer": "კავკასიაში ზრდასრული ხშირად დაახლოებით 1–1.5 მ-ია. ეს არის საქართველოს ყველაზე დიდი გველგესლა. 2 მ-მდე ცნობები სადავოა."
       },
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია, ზაფხულის ბოლოს დებს დაახლოებით 15–20 კვერცხს; ნაშიერები იჩეკებიან 35–45 დღეში."
+        "answer": "კვერცხისმდებია. საქართველოს Vipera-ს გველგესლები ცოცხლადმშობია. შეწყვილება აპრილ–მაისშია; ქართული წყაროები ზაფხულში დაახლოებით 15–20 კვერცხს ასახელებენ."
       },
       {
-        "question": "რატომ წერია URL-ში lebetina, თუ სახელია lebetinus?",
-        "answer": "Tarkhnishvili et al. 2026 და Reptile Database მიღებულ სახელად M. lebetinus-ს ასახელებენ. საიტის მისამართი macrovipera-lebetina ისტორიული slug-ია და არ იცვლება, რომ ძველი ბმულები არ დაიკარგოს."
+        "question": "რა ვქნა, თუ შევხვდები?",
+        "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
     "updatedAt": "2026-08-19T11:16:54+04:00",
@@ -4085,16 +4088,32 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/157295/0"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/2444716"
+        "name": "Aghasyan et al. 2021 — IUCN Red List account for Macrovipera lebetina",
+        "url": "https://www.iucnredlist.org/species/157295/750117"
+      },
+      {
+        "name": "Avella et al. 2025 — The biology and toxinology of blunt-nosed vipers",
+        "url": "https://doi.org/10.1038/s44185-025-00090-w"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Macrovipera&species=lebetinus"
+      },
+      {
+        "name": "National Geographic Georgia / National Museum — Levantine viper map",
+        "url": "https://map.nationalgeographic.ge/element/giurza/"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "მუსხელიშვილი — ენციკლოპედია „საქართველო“ (გიურზა)",
+        "url": "https://georgianencyclopedia.ge/ka/form/1599"
       }
     ]
   },
@@ -4455,7 +4474,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-20T11:39:12+04:00",
+    "updatedAt": "2026-08-20T11:51:34+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10719,16 +10738,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "macrovipera-lebetina": {
     "commonName": "Levantine viper",
     "location": "Eastern Georgia",
-    "description": "Georgia's largest and most dangerous venomous snake — a resident of dry, rocky landscapes.",
-    "overview": "The Levantine viper (Macrovipera lebetinus) is a large venomous species of the viper family. The checklist-accepted name is M. lebetinus; older literature and this site’s URL still use lebetina. In Georgia the subspecies M. l. obtusa occurs — in the lower reaches of the Iori, Mtkvari, and Alazani rivers, in Shiraki, the Gareji desert, and around Tbilisi and Rustavi. It inhabits dry and semi-arid rocky terrain, from sea level up to roughly 1,500 m. It is classified as Least Concern by the IUCN, though its bite can be fatal to humans. It is often confused with the eastern Montpellier snake (Malpolon insignitus), a rear-fanged species, not a viper.",
-    "habitat": "Distributed across southwestern Asia and the Caucasus. In Georgia — in the dry eastern zone: the Iori, Mtkvari, and Alazani basins, Shiraki, Gareji, and as far as Tbilisi and Rustavi. Its habitat includes rocks, stony slopes, rodent colonies, and human structures; it ranges up to roughly 1,500 m elevation.",
-    "diet": "Adults feed on rodents, small birds, lizards, and other small vertebrates. Juveniles hunt mainly small lizards. It hunts by ambush; it sometimes climbs shrubs and trees to catch birds.",
-    "behavior": "Active from late March to late October. In spring and autumn it moves by day; in summer heat it is active at night. It hibernates in rock crevices and burrows. It is egg-laying: mating occurs in April–May, and it lays roughly 15–20 eggs in late summer; young hatch in 35–45 days, at roughly 23–25 cm in length.",
-    "conservation": "Classified as Least Concern on the IUCN Red List; it also holds LC status in Georgia. Threats include habitat conversion, urbanization, overgrazing, and persecution by humans. It benefits the ecosystem by controlling rodent populations.",
+    "description": "Eastern Georgia’s largest venomous viper — a resident of dry, rocky ground.",
+    "overview": "The Levantine viper (Macrovipera lebetinus) is a large venomous snake of eastern Georgia’s dry lowlands. The 2026 Georgian checklist treats it as biologically confirmed. The accepted name is M. lebetinus; older literature often uses lebetina. Caucasian populations are usually assigned to the subspecies M. l. obtusa. In Georgia it is confined to the semi-arid south-east — not the west, and not the high mountains. Adults commonly reach about 1–1.5 m. A bite is medically significant and needs emergency care. It is often confused with the eastern Montpellier snake and with large harmless racers.",
+    "habitat": "Look for it on dry, stony and rocky ground — not in Colchic forest and not in the Greater Caucasus highlands. Confirmed country sources place it along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. This atlas maps Kakheti, Kvemo Kartli and Tbilisi. Kvareli, in the Alazani valley, is a named locality from photographs on this site. It shelters in rock crevices, under stones, in rodent burrows and sometimes in buildings; in summer heat it is often near water. Georgian sources give an upper elevation of about 1,500 m. There is no confirmed range in western Georgia.",
+    "diet": "Adults take mainly rodents; also small birds, lizards and other small vertebrates. Juveniles hunt mostly small lizards. It hunts by ambush. It sometimes climbs shrubs or trees to catch birds.",
+    "behavior": "In Transcaucasia the active season is usually April to late October; some sources note emergence from late March. In spring and autumn it often moves by day; in summer heat it is active at dusk and at night. It overwinters in rock crevices and burrows. It lays eggs — Georgia’s other vipers give live birth. Mating is in April–May. Georgian sources report about 15–20 eggs in summer; hatchlings are about 23–25 cm after roughly 35–45 days. If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people.",
+    "conservation": "The 2021 IUCN assessment lists it as Least Concern. It is not on Georgia’s 2014 Red List, which does include Dinnik’s viper and the Caucasus viper. Older Georgian encyclopedias sometimes place it in the Red Book; that does not match the 2014 list. Threats include habitat conversion, urbanisation, overgrazing and persecution. As a rodent predator it belongs in the food web of dry landscapes.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Eastern Georgia"
+        "value": "dry rocky ground"
       },
       {
         "label": "Length",
@@ -10736,7 +10755,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Venom",
-        "value": "Highly dangerous"
+        "value": "High risk"
       },
       {
         "label": "Conservation",
@@ -10751,46 +10770,49 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "It is Georgia's largest viper and likely the only venomous snake whose bite poses a genuine threat to human life.",
-      "It is egg-laying — unlike Dinnik's viper, which is ovoviviparous; it lays roughly 15–20 eggs.",
-      "Its venom is hemotoxic: it damages red blood cells and blood vessels; the antivenom \"Anti-Gyurza\" is used in treatment.",
-      "The local name \"gyurza\" is used across the Caucasus and Central Asia; in English it is often called the Blunt-nosed or Levantine viper."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "The Levantine viper is Georgia’s largest and most dangerous venomous snake. Size, head shape, habitat, and egg-laying separate it from highland Dinnik’s viper.",
+      "summary": "A heavy-bodied viper with a broad triangular head, a vertical pupil and keeled scales. In eastern dry country it is confused with large racers and the Montpellier snake.",
       "traits": [
-        "It is large — roughly 1–1.5 m — with a broad, triangular head.",
-        "The pupil is vertical and the scales are keeled — a typical viper.",
-        "It occurs in dry lowlands and rocky slopes of eastern Georgia (about 0–1,500 m).",
-        "It lays eggs — Dinnik’s viper is live-bearing and lives in the high mountains.",
-        "Venom is highly dangerous; a bite needs immediate medical care."
+        "The body is thick and heavy. The head is broad and triangular, clearly set off from the neck; the snout is blunt, with no horn. In the Caucasus adults commonly reach about 1–1.5 m; reports of 2 m are debated.",
+        "The pupil is a vertical slit. Dorsal scales are keeled — each has a raised ridge. Head shields, including those above the eye, are broken into small keeled scales.",
+        "Ground colour is grey, sandy or brown. The back has dark blotches or cross-bars, sometimes in a zigzag. The belly is pale, often with fine dark speckles. Uniform individuals also occur.",
+        "The eastern Montpellier snake (Malpolon insignitus) has a round pupil and raised “eyebrows”; it is slimmer and hunts by day. Large racers (Dolichophis) have a round pupil and a fast, slender body — not a viper’s heavy build.",
+        "The steppe viper can occur in the same east, but it is much smaller (about 40–60 cm). The Transcaucasian long-nosed viper has a nose horn and is tied to mountains. Dinnik’s viper lives in the Greater Caucasus highlands — not in this species’ habitat."
       ]
     },
     "faq": [
       {
-        "question": "How dangerous is a Levantine viper's bite?",
-        "answer": "Very dangerous. In Georgia it is the largest viper and likely the only venomous snake whose bite can pose a genuine threat to human life. Its venom is hemotoxic — it damages blood and blood vessels."
+        "question": "Is the Levantine viper found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. It occurs only in the semi-arid east — not throughout the country."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "Along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. The map marks Kakheti, Kvemo Kartli and Tbilisi. It is absent from western Georgia."
+      },
+      {
+        "question": "Is it venomous and dangerous to humans?",
+        "answer": "Yes. Among Georgia’s snakes it has the highest medical risk — it is large and injects more venom. Other vipers are also venomous, but this species is the most dangerous by size and venom effect. It does not attack unless it feels threatened. A bite needs emergency medical care."
       },
       {
         "question": "What should I do if bitten?",
-        "answer": "Call emergency services immediately or go to a medical facility. The victim should stay calm; the bite site should not be cut, sucked, or bound with a tight tourniquet. The antivenom \"Anti-Gyurza\" is used in treatment."
+        "answer": "Call 112 immediately. Keep the person still and calm; do not cut, suck or apply a tight tourniquet. Treatment is in hospital; antivenom is a medical decision."
       },
       {
-        "question": "Where is the Levantine viper found in Georgia?",
-        "answer": "In the dry and semi-arid zone of eastern Georgia — in the lower reaches of the Iori, Mtkvari, and Alazani rivers, in Shiraki, the Gareji desert, and around Tbilisi and Rustavi. It inhabits rocky terrain up to roughly 1,500 m."
+        "question": "How can it be identified?",
+        "answer": "It is a large, thick snake with a broad triangular head, a vertical pupil and keeled scales. It has no nose horn. Large racers and the Montpellier snake have a round pupil and a slimmer body."
       },
       {
-        "question": "Is it active during the day?",
-        "answer": "In spring and autumn it is often active by day; in summer heat it shifts to a nocturnal lifestyle. Its active season runs from late March to late October."
+        "question": "How large does it grow?",
+        "answer": "In the Caucasus adults commonly reach about 1–1.5 m. It is Georgia’s largest viper. Reports of 2 m are debated."
       },
       {
         "question": "Does it lay eggs or give live birth?",
-        "answer": "It is egg-laying. Mating occurs in April–May; it lays roughly 15–20 eggs in late summer, and young hatch in 35–45 days."
+        "answer": "It lays eggs. Georgia’s Vipera species give live birth. Mating is in April–May; Georgian sources report about 15–20 eggs in summer."
       },
       {
-        "question": "Why does the URL say lebetina if the name is lebetinus?",
-        "answer": "Tarkhnishvili et al. 2026 and the Reptile Database treat M. lebetinus as the accepted name. The path macrovipera-lebetina is a historical slug kept so old links do not break."
+        "question": "What should I do if I encounter one?",
+        "answer": "Keep your distance, watch it and leave it where it is. Do not pick it up or kill it. It will not chase a person who gives it space."
       }
     ],
     "gallery": [

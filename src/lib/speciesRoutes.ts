@@ -40,6 +40,7 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "macrovipera-lebetina": [
     "malpolon-insignitus",
+    "dolichophis-schmidti",
     "dolichophis-caspius",
     "vipera-renardi",
   ],

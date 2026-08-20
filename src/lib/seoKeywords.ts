@@ -7,8 +7,14 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["Dinnik's viper"],
   },
   "macrovipera-lebetina": {
-    ka: ["გიურზა"],
-    en: ["Levantine viper", "giurza"],
+    ka: ["Macrovipera lebetina", "Vipera lebetina"],
+    en: [
+      "Levantine viper",
+      "blunt-nosed viper",
+      "giurza",
+      "gyurza",
+      "Macrovipera lebetina",
+    ],
   },
   "vipera-kaznakovi": {
     ka: ["კავკასიური გველგესლა", "გველგესლა"],
