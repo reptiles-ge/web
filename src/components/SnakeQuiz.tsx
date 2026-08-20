@@ -389,7 +389,7 @@ function IntroOverlay({
         ))}
       </ul>
 
-      <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+      <div className="mt-10">
         <button
           type="button"
           onClick={onStart}
@@ -398,7 +398,6 @@ function IntroOverlay({
           {t("start")}
           <ArrowRight className="size-4" aria-hidden="true" />
         </button>
-        <p className="text-[13px] text-white/50">{t("startNote")}</p>
       </div>
     </div>
   );
