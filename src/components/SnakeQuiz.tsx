@@ -203,14 +203,17 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                   />
                 ))}
               </div>
-              <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
-                <h2
-                  id={headingId}
-                  className="max-w-2xl font-display text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.05] text-white"
-                >
-                  {t("question")}
-                </h2>
-                {!revealed ? (
+              <h2
+                id={headingId}
+                className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.05] text-white"
+              >
+                {t("question")}
+              </h2>
+            </header>
+
+            <div>
+              {!revealed && correctSpecies?.hint ? (
+                <div className="mb-3">
                   <button
                     type="button"
                     onClick={() => {
@@ -225,21 +228,18 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                       }
                     }}
                     aria-expanded={hintOpen}
-                    className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border border-white/20 bg-black/35 px-4 text-[13px] font-medium text-white backdrop-blur-md transition-colors hover:border-white/45 hover:bg-black/50"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/20 bg-black/35 px-3.5 text-[13px] font-medium text-white/90 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-black/50 hover:text-white"
                   >
-                    <Lightbulb className="size-4" aria-hidden="true" />
+                    <Lightbulb className="size-3.5" aria-hidden="true" />
                     {hintOpen ? t("hintHide") : t("hint")}
                   </button>
-                ) : null}
-              </div>
-              {hintOpen && !revealed && correctSpecies?.hint ? (
-                <p className="mt-4 max-w-2xl rounded-2xl border border-white/15 bg-black/45 px-4 py-3 text-[14px] leading-relaxed text-white/80 backdrop-blur-md sm:text-[15px]">
-                  {correctSpecies.hint}
-                </p>
+                  {hintOpen ? (
+                    <p className="mt-3 max-w-2xl rounded-2xl border border-white/15 bg-black/45 px-4 py-3 text-[14px] leading-relaxed text-white/80 backdrop-blur-md">
+                      {correctSpecies.hint}
+                    </p>
+                  ) : null}
+                </div>
               ) : null}
-            </header>
-
-            <div>
               <div
                 role="radiogroup"
                 aria-labelledby={headingId}
