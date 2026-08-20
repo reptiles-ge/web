@@ -27,10 +27,6 @@ const pathways = [
     key: "amphibians" as const,
     href: "/amphibians",
   },
-  {
-    key: "yard" as const,
-    href: "/snakes-in-the-yard",
-  },
 ] as const;
 
 export async function HomeKnowledge() {
