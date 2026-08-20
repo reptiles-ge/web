@@ -1,8 +1,10 @@
 import { JsonLd } from "@/components/JsonLd";
-import { SnakeQuizPage } from "@/components/SnakeQuizPage";
+import { QuizzesPage, type QuizCardModel } from "@/components/QuizzesPage";
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { QUIZ_INDEX } from "@/lib/quizzes";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 import {
   absoluteUrl,
   localeAlternates,
@@ -10,7 +12,6 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import { getSnakeQuizCatalog, QUIZ_LENGTH } from "@/lib/snakeQuiz";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
@@ -20,7 +21,7 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const PATH = "/quiz/gvelis-identifikacia";
+const PATH = "/quiz";
 const OG_IMAGE = "/images/guides/snake-quiz-og.jpg";
 
 export function generateStaticParams() {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "snakeQuiz" });
+  const t = await getTranslations({ locale, namespace: "quizzes" });
   const title = t("metaTitle");
   const description = t("metaDescription");
   const url = absoluteUrl(localePath(locale, PATH));
@@ -75,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function SnakeIdentifyQuizRoute({ params }: Props) {
+export default async function QuizzesIndexRoute({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
@@ -84,16 +85,31 @@ export default async function SnakeIdentifyQuizRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "snakeQuiz" });
+  const t = await getTranslations({ locale, namespace: "quizzes" });
   const tShared = await getTranslations({
     locale,
     namespace: "groupHubShared",
   });
-  const tQuizzes = await getTranslations({ locale, namespace: "quizzes" });
   const url = absoluteUrl(localePath(locale, PATH));
-  const snakes = getSnakeQuizCatalog(
-    getCatalogSpecies().map((item) => localizeSpecies(item, locale)),
+  const catalog = getCatalogSpecies().map((item) =>
+    localizeSpecies(item, locale),
   );
+
+  const items: QuizCardModel[] = QUIZ_INDEX.map((quiz) => {
+    const species =
+      catalog.find((item) => item.id === quiz.heroSpeciesId) ?? catalog[0];
+    return {
+      ...quiz,
+      image: species?.image ?? OG_IMAGE,
+      imageAlt: species
+        ? speciesImageAlt(
+            species.commonName,
+            species.scientificName,
+            species.location,
+          )
+        : t("title"),
+    };
+  });
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -108,12 +124,6 @@ export default async function SnakeIdentifyQuizRoute({ params }: Props) {
       {
         "@type": "ListItem",
         position: 2,
-        name: tQuizzes("breadcrumbCurrent"),
-        item: absoluteUrl(localePath(locale, "/quiz")),
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
         name: t("breadcrumbCurrent"),
         item: url,
       },
@@ -122,39 +132,26 @@ export default async function SnakeIdentifyQuizRoute({ params }: Props) {
 
   const pageLd = {
     "@context": "https://schema.org",
-    "@type": "Quiz",
+    "@type": "CollectionPage",
     name: t("metaTitle"),
     description: t("metaDescription"),
     url,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    about: {
-      "@type": "Thing",
-      name: locale === "en" ? "Snakes of Georgia" : "საქართველოს გველები",
-    },
-    educationalLevel: "beginner",
-    numberOfQuestions: QUIZ_LENGTH,
-  };
-
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [1, 2, 3, 4].map((n) => ({
-      "@type": "Question",
-      name: t(`faq${n}Q` as Parameters<typeof t>[0]),
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`faq${n}A` as Parameters<typeof t>[0]),
+    hasPart: [
+      {
+        "@type": "Quiz",
+        name: t("snakeTitle"),
+        url: absoluteUrl(localePath(locale, "/quiz/gvelis-identifikacia")),
       },
-    })),
+    ],
   };
 
   return (
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <JsonLd data={faqLd} />
-      <SnakeQuizPage snakes={snakes} />
+      <QuizzesPage items={items} />
     </>
   );
 }

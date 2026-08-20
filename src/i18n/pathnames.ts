@@ -108,6 +108,7 @@ export const pathnames = {
     ka: "/gvelebi/gveli-ezoshi",
     en: "/snakes-in-the-yard",
   },
+  "/quiz": "/quiz",
   "/quiz/gvelis-identifikacia": {
     ka: "/quiz/romeli-gvelia",
     en: "/quiz/which-snake",

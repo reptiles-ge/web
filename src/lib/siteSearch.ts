@@ -434,6 +434,20 @@ const STATIC_PAGES: Array<
     heroImage: "/images/guides/snakes-in-the-yard-cover.jpg",
   },
   {
+    id: "quizzes",
+    href: "/quiz",
+    title: { ka: "ქვიზები", en: "Quizzes" },
+    subtitle: {
+      ka: "ფოტო-ქვიზები საქართველოს ქვეწარმავლებზე",
+      en: "Photo quizzes of Georgia’s reptiles",
+    },
+    keywords: ["ქვიზი", "ქვიზები", "quiz", "quizzes", "ამოცნობა"],
+    icon: "identify",
+    suggested: true,
+    rank: 3,
+    heroImage: "/images/guides/snake-quiz-og.jpg",
+  },
+  {
     id: "snake-quiz",
     href: "/quiz/gvelis-identifikacia",
     title: { ka: "რომელი გველია?", en: "Which snake is it?" },

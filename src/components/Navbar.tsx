@@ -45,6 +45,7 @@ export function Navbar() {
   const links = [
     { href: "/species" as const, label: t("species") },
     { href: "/snakes" as const, label: t("snakes") },
+    { href: "/quiz" as const, label: t("quizzes") },
     { href: "/regions" as const, label: t("atlas") },
   ];
   const mobileLinks = [
@@ -122,7 +123,7 @@ export function Navbar() {
             }`}
           />
         </Link>
-        <nav className="relative z-10 hidden items-center gap-5 lg:flex xl:gap-8">
+        <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
           {links.map((link) => {
             const className = `text-[13px] font-medium tracking-wide transition-colors ${
               scrolled
