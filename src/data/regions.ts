@@ -331,6 +331,7 @@ export const regions: Region[] = [
       "lissotriton-lantzi",
       "tenuidactylus-caspius",
       "eryx-jaculus",
+      "xerotyphlops-vermicularis",
       "eirenis-modestus",
       "darevskia-dahli",
       "darevskia-portschinskii",
