@@ -179,7 +179,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
         className={`relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-5 pt-24 sm:px-8 sm:pt-28 lg:px-10 ${
           playing && !complete
             ? revealed
-              ? "min-h-dvh pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:pb-[max(2rem,env(safe-area-inset-bottom))]"
+              ? "min-h-dvh pb-[calc(8.25rem+env(safe-area-inset-bottom))] sm:pb-[max(2rem,env(safe-area-inset-bottom))]"
               : "min-h-dvh pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:pb-10"
             : "pb-[max(1.25rem,env(safe-area-inset-bottom))]"
         }`}
@@ -364,7 +364,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                       question: index + 1,
                     })
                   }
-                  className="mt-2 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
+                  className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
                 >
                   {t("learnMore")}
                   <ArrowRight className="size-3.5" aria-hidden="true" />
@@ -394,7 +394,7 @@ function IntroOverlay({
 
   return (
     <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
-      <div className="mt-auto w-full">
+      <div className="mt-auto w-full pb-8 sm:pb-20 lg:pb-24">
         <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
           {t("eyebrow")}
         </p>
@@ -427,7 +427,7 @@ function IntroOverlay({
           ))}
         </ul>
 
-        <div className="mt-5 sm:mt-10">
+        <div className="mt-5 sm:mt-8">
           <button
             type="button"
             onClick={onStart}
