@@ -17,7 +17,7 @@ import {
 import { ArrowRight, Lightbulb, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useCallback, useId, useMemo, useState } from "react";
 
 type SnakeQuizProps = {
   snakes: SnakeQuizSpecies[];
@@ -59,13 +59,16 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     [snakes],
   );
 
+  const [playing, setPlaying] = useState(false);
   const [questions, setQuestions] = useState<SnakeQuizQuestion[] | null>(null);
-  const started = useRef(false);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Answered[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [complete, setComplete] = useState(false);
   const [hintOpen, setHintOpen] = useState(false);
+
+  const introCover =
+    snakes.find((item) => item.id === "natrix-natrix") ?? snakes[0];
 
   const startRound = useCallback(
     (reason: "start" | "restart") => {
@@ -76,6 +79,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       setSelectedId(null);
       setComplete(false);
       setHintOpen(false);
+      setPlaying(true);
       trackEvent(reason === "restart" ? "quiz_restarted" : "quiz_started", {
         length: next.length,
         mode: "default",
@@ -84,18 +88,10 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     [snakes],
   );
 
-  useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-    startRound("start");
-  }, [startRound]);
-
   const question = questions?.[index];
   const revealed = selectedId !== null;
   const correctCount = answers.filter((item) => item.correct).length;
   const total = questions?.length ?? QUIZ_LENGTH;
-  const backdrop =
-    question ?? questions?.[questions.length - 1] ?? null;
 
   function onSelect(optionId: string, difficulty: QuizDifficulty) {
     if (!question || revealed) return;
@@ -133,23 +129,30 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     setHintOpen(false);
   }
 
+  const coverSrc = playing
+    ? (question?.image ?? questions?.at(-1)?.image ?? introCover?.image)
+    : introCover?.image;
+  const coverKey = !playing
+    ? "intro"
+    : complete
+      ? "result"
+      : (question?.speciesId ?? "cover");
+
   const correctSpecies = question
     ? byId.get(question.correctId)
-    : backdrop
-      ? byId.get(backdrop.correctId)
-      : undefined;
+    : undefined;
 
   return (
     <section
       aria-labelledby={headingId}
       className="relative isolate min-h-svh overflow-hidden bg-ink"
     >
-      {backdrop ? (
+      {coverSrc ? (
         <Image
-          key={complete ? "result" : backdrop.speciesId}
-          src={backdrop.image}
+          key={coverKey}
+          src={coverSrc}
           alt={
-            revealed && correctSpecies
+            playing && revealed && correctSpecies
               ? speciesImageAlt(
                   correctSpecies.commonName,
                   correctSpecies.scientificName,
@@ -167,9 +170,9 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/85" />
       <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
 
-      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1400px] flex-col justify-between px-5 pb-6 pt-28 sm:px-8 lg:px-10 lg:pb-8">
-        {!questions || !question ? (
-          <p className="text-white/70">{t("loading")}</p>
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1400px] flex-col justify-between px-5 pb-8 pt-28 sm:px-8 lg:px-10 lg:pb-10">
+        {!playing ? (
+          <IntroOverlay headingId={headingId} onStart={() => startRound("start")} />
         ) : complete ? (
           <ResultOverlay
             headingId={headingId}
@@ -177,6 +180,8 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
             total={total}
             onRestart={() => startRound("restart")}
           />
+        ) : !question ? (
+          <p className="text-white/70">{t("loading")}</p>
         ) : (
           <>
             <header>
@@ -333,6 +338,69 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
         )}
       </div>
     </section>
+  );
+}
+
+function IntroOverlay({
+  headingId,
+  onStart,
+}: {
+  headingId: string;
+  onStart: () => void;
+}) {
+  const t = useTranslations("snakeQuiz");
+  const rules = [
+    { title: t("rule1Title"), body: t("rule1Body") },
+    { title: t("rule2Title"), body: t("rule2Body") },
+    { title: t("rule3Title"), body: t("rule3Body") },
+  ] as const;
+
+  return (
+    <div className="flex min-h-[calc(100svh-7rem)] flex-col justify-end pb-2">
+      <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
+        {t("eyebrow")}
+      </p>
+      <h1
+        id={headingId}
+        className="mt-4 max-w-3xl font-display text-[clamp(2.6rem,8vw,5.4rem)] font-semibold leading-[0.98] text-white"
+      >
+        {t("title")}
+      </h1>
+      <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white/70 sm:text-[17px]">
+        {t("startLead")}
+      </p>
+
+      <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-white/12 bg-white/10 sm:grid-cols-3">
+        {rules.map((rule, index) => (
+          <li
+            key={rule.title}
+            className="bg-black/40 px-5 py-5 backdrop-blur-xl sm:px-6 sm:py-6"
+          >
+            <span className="font-display text-[12px] tracking-[0.22em] text-white/40">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <p className="mt-3 font-display text-[18px] font-semibold text-white">
+              {rule.title}
+            </p>
+            <p className="mt-2 text-[13px] leading-relaxed text-white/60">
+              {rule.body}
+            </p>
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <button
+          type="button"
+          onClick={onStart}
+          className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-transform duration-300 hover:scale-[1.02]"
+        >
+          {t("start")}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </button>
+        <p className="text-[13px] text-white/50">{t("startNote")}</p>
+      </div>
+    </div>
   );
 }
 

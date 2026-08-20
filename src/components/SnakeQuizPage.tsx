@@ -13,7 +13,6 @@ export function SnakeQuizPage({ snakes }: SnakeQuizPageProps) {
 
   return (
     <div className="bg-ink">
-      <h1 className="sr-only">{t("title")}</h1>
       <SnakeQuiz snakes={snakes} />
       <noscript>
         <section className="bg-background px-6 py-16 text-foreground">
