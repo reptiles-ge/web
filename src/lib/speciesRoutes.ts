@@ -42,7 +42,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "macrovipera-lebetina": [
     "malpolon-insignitus",
     "dolichophis-schmidti",
-    "dolichophis-caspius",
     "vipera-renardi",
   ],
   "malpolon-insignitus": [
@@ -88,8 +87,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "elaphe-dione": ["elaphe-urartica"],
   "zamenis-longissimus": ["zamenis-hohenackeri"],
   "zamenis-hohenackeri": ["zamenis-longissimus"],
-  "dolichophis-caspius": ["dolichophis-schmidti"],
-  "dolichophis-schmidti": ["dolichophis-caspius", "malpolon-insignitus"],
+  "dolichophis-schmidti": ["malpolon-insignitus"],
   "eirenis-modestus": ["eirenis-collaris"],
   "eirenis-collaris": ["eirenis-modestus"],
   "eryx-jaculus": ["xerotyphlops-vermicularis"],

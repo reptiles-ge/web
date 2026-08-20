@@ -36,7 +36,6 @@ export const LARGE_SNAKE_IDS = [
   "natrix-tessellata",
   "natrix-natrix",
   "elaphe-urartica",
-  "dolichophis-caspius",
   "zamenis-longissimus",
 ] as const;
 
@@ -260,7 +259,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     pathname: "/snakes/didi-gvelebi",
     parentHub: "snakes",
     messageKey: "snakeLargest",
-    heroSpeciesId: "dolichophis-caspius",
+    heroSpeciesId: "dolichophis-schmidti",
     heroImage: "/images/guides/largest-snakes-cover.png",
     matches: (species) =>
       largeSnakeIdSet.has(species.id) || species.id === LARGE_SNAKE_LIZARD_ID,

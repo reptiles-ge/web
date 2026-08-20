@@ -40,7 +40,6 @@ export const MEDIUM_SNAKE_IDS = [
   "elaphe-urartica",
   "elaphe-dione",
   "dolichophis-schmidti",
-  "dolichophis-caspius",
   "telescopus-fallax",
   "hemorrhois-ravergieri",
   "zamenis-hohenackeri",

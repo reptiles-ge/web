@@ -219,9 +219,18 @@ export const featuredSpeciesIds = [
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
 
+export const unpublishedSpeciesIds = new Set<string>([
+  "dolichophis-caspius",
+]);
+
+export function isPublishedSpeciesId(id: string) {
+  return !unpublishedSpeciesIds.has(id);
+}
+
 export { species };
 
 export function getSpeciesById(id: string) {
+  if (!isPublishedSpeciesId(id)) return undefined;
   return species.find((item) => item.id === id);
 }
 
@@ -233,6 +242,7 @@ export function getFeaturedSpecies() {
 
 export function getCatalogSpecies() {
   return catalogSpeciesIds
+    .filter(isPublishedSpeciesId)
     .map((id) => getSpeciesById(id))
     .filter((item): item is Species => Boolean(item));
 }
