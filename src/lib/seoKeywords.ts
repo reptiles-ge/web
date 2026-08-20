@@ -46,6 +46,10 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["ესკულაპის მცურავი", "გრძელი მცურავი"],
     en: ["Aesculapian snake"],
   },
+  "bufotes-viridis": {
+    ka: ["Bufo viridis"],
+    en: ["Bufo viridis", "European green toad"],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

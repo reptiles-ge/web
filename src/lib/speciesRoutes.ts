@@ -90,6 +90,7 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "ommatotriton-ophryticus": ["triturus-karelinii"],
   "hyla-orientalis": ["hyla-savignyi"],
+  "bufotes-viridis": ["bufo-verrucosissimus", "pelobates-syriacus"],
   "bufo-verrucosissimus": ["bufotes-viridis"],
   "rana-macrocnemis": ["pelophylax-ridibundus"],
   "eumeces-schneiderii": ["ablepharus-pannonicus"],

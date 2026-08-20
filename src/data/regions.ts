@@ -177,6 +177,7 @@ export const regions: Region[] = [
       "elaphe-dione",
       "dolichophis-schmidti",
       "ommatotriton-ophryticus",
+      "bufotes-viridis",
       "bufo-verrucosissimus",
       "rana-macrocnemis",
       "mertensiella-caucasica",

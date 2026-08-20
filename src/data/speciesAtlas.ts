@@ -43,7 +43,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "bufotes-viridis": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["grassland", "wetland"],
   },
   "bufo-verrucosissimus": {
     group: "amphibian",
