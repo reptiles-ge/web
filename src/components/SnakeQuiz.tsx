@@ -1,6 +1,5 @@
 "use client";
 
-import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { trackEvent } from "@/lib/analytics";
@@ -29,21 +28,26 @@ type Answered = {
   correct: boolean;
 };
 
+const OPTION_MARKS = {
+  ka: ["ა", "ბ", "გ", "დ"],
+  en: ["A", "B", "C", "D"],
+} as const;
+
 function optionClass(state: {
   revealed: boolean;
   selected: boolean;
   correct: boolean;
 }) {
   if (!state.revealed) {
-    return "border-border bg-card text-foreground hover:border-primary/40 hover:bg-background";
+    return "border-white/15 bg-black/35 text-white hover:border-white/45 hover:bg-black/50";
   }
   if (state.correct) {
-    return "border-primary bg-primary/10 text-foreground";
+    return "border-emerald-300/80 bg-emerald-500/25 text-white";
   }
   if (state.selected) {
-    return "border-destructive bg-destructive/10 text-foreground";
+    return "border-destructive/80 bg-destructive/30 text-white";
   }
-  return "border-border bg-card text-muted-foreground opacity-60";
+  return "border-white/10 bg-black/25 text-white/45";
 }
 
 export function SnakeQuiz({ snakes }: SnakeQuizProps) {
@@ -88,6 +92,8 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
   const revealed = selectedId !== null;
   const correctCount = answers.filter((item) => item.correct).length;
   const total = questions?.length ?? QUIZ_LENGTH;
+  const backdrop =
+    question ?? questions?.[questions.length - 1] ?? null;
 
   function onSelect(optionId: string, difficulty: QuizDifficulty) {
     if (!question || revealed) return;
@@ -124,198 +130,236 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     setSelectedId(null);
   }
 
-  if (!questions || !question) {
-    return (
-      <div className="flex min-h-[50vh] items-center justify-center px-6 text-muted-foreground">
-        {t("loading")}
-      </div>
-    );
-  }
-
-  if (complete) {
-    const percent = scorePercent(correctCount, total);
-    const message = t(scoreMessageKey(percent));
-    return (
-      <section
-        className="mx-auto w-full max-w-[1400px] px-6 py-10 lg:px-10 lg:py-16"
-        aria-labelledby={headingId}
-      >
-        <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-          {t("resultEyebrow")}
-        </p>
-        <h2
-          id={headingId}
-          className="mt-4 font-display text-[clamp(3rem,10vw,6rem)] font-semibold leading-none"
-        >
-          {correctCount} / {total}
-        </h2>
-        <p className="mt-3 text-[16px] text-muted-foreground">
-          {t("percentLabel", { percent })}
-        </p>
-        <p className="mt-8 max-w-2xl text-[18px] leading-relaxed text-foreground sm:text-[20px]">
-          {message}
-        </p>
-        <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-          <button
-            type="button"
-            onClick={() => startRound("restart")}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-[14px] font-medium text-background transition-opacity hover:opacity-90"
-          >
-            <RotateCcw className="size-4" aria-hidden="true" />
-            {t("restart")}
-          </button>
-          <Link
-            href="/snakes"
-            onClick={() =>
-              trackEvent("species_page_clicked", {
-                source: "quiz_complete",
-                target: "snakes_hub",
-              })
-            }
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border px-6 text-[14px] font-medium transition-colors hover:border-primary/40 hover:text-primary"
-          >
-            {t("discoverSnakes")}
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-    );
-  }
-
-  const correctSpecies = byId.get(question.correctId);
+  const correctSpecies = question
+    ? byId.get(question.correctId)
+    : backdrop
+      ? byId.get(backdrop.correctId)
+      : undefined;
 
   return (
-    <section aria-labelledby={headingId}>
-      <div className="mx-auto mb-5 flex w-full max-w-[1400px] items-center gap-4 px-6 text-[13px] text-muted-foreground lg:px-10">
-        <p className="shrink-0">
-          {t("progress", { current: index + 1, total })}
-        </p>
-        <div
-          className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary"
-          aria-hidden="true"
-        >
-          <div
-            className="h-full rounded-full bg-primary transition-[width] duration-300"
-            style={{
-              width: `${((index + (revealed ? 1 : 0)) / total) * 100}%`,
-            }}
+    <section
+      aria-labelledby={headingId}
+      className="relative isolate min-h-svh overflow-hidden bg-ink"
+    >
+      {backdrop ? (
+        <Image
+          key={complete ? "result" : backdrop.speciesId}
+          src={backdrop.image}
+          alt={
+            revealed && correctSpecies
+              ? speciesImageAlt(
+                  correctSpecies.commonName,
+                  correctSpecies.scientificName,
+                  correctSpecies.location,
+                )
+              : t("imageAltHidden")
+          }
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover hero-drift"
+        />
+      ) : null}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/85" />
+      <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
+
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1400px] flex-col justify-between px-5 pb-6 pt-28 sm:px-8 lg:px-10 lg:pb-8">
+        {!questions || !question ? (
+          <p className="text-white/70">{t("loading")}</p>
+        ) : complete ? (
+          <ResultOverlay
+            headingId={headingId}
+            correctCount={correctCount}
+            total={total}
+            onRestart={() => startRound("restart")}
           />
-        </div>
-      </div>
-
-      <div className="grid lg:min-h-[72vh] lg:grid-cols-[1.15fr_0.85fr]">
-        <div className="group relative min-h-[52vh] w-full bg-ink sm:min-h-[58vh] lg:min-h-full">
-          <Image
-            src={question.image}
-            alt={
-              revealed && correctSpecies
-                ? speciesImageAlt(
-                    correctSpecies.commonName,
-                    correctSpecies.scientificName,
-                    correctSpecies.location,
-                  )
-                : t("imageAltHidden")
-            }
-            fill
-            priority
-            quality={90}
-            sizes="(max-width: 1024px) 100vw, 58vw"
-            className="object-cover"
-          />
-          <PhotoCreditCaption credit={question.imageCredit} />
-        </div>
-
-        <div className="flex flex-col justify-center bg-surface px-6 py-8 sm:px-8 lg:px-12 lg:py-12">
-          <h2
-            id={headingId}
-            className="font-display text-[clamp(1.7rem,3.4vw,2.5rem)] font-semibold leading-tight"
-          >
-            {t("question")}
-          </h2>
-
-          <div
-            role="radiogroup"
-            aria-labelledby={headingId}
-            className="mt-7 grid gap-3 sm:grid-cols-2"
-          >
-            {question.optionIds.map((optionId) => {
-              const option = byId.get(optionId);
-              if (!option) return null;
-              const selected = selectedId === optionId;
-              const isCorrect = optionId === question.correctId;
-              return (
-                <button
-                  key={optionId}
-                  type="button"
-                  role="radio"
-                  aria-checked={selected}
-                  disabled={revealed}
-                  onClick={() => onSelect(optionId, question.difficulty)}
-                  className={`min-h-16 rounded-2xl border px-5 py-5 text-left text-[16px] font-medium transition-colors duration-200 ${optionClass(
-                    {
-                      revealed,
-                      selected,
-                      correct: isCorrect,
-                    },
-                  )}`}
-                >
-                  <span className="block leading-snug">{option.commonName}</span>
-                  {revealed ? (
-                    <span className="mt-1 block text-[12px] font-normal italic text-muted-foreground">
-                      {option.scientificName}
-                    </span>
-                  ) : null}
-                </button>
-              );
-            })}
-          </div>
-
-          <div aria-live="polite">
-            {revealed && correctSpecies ? (
-              <div className="mt-8 border-t border-border pt-6">
-                <p className="font-display text-[1.5rem] font-semibold">
-                  {selectedId === question.correctId
-                    ? t("correct")
-                    : t("incorrect")}
-                </p>
-                <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t("revealLead", {
-                    commonName: correctSpecies.commonName,
-                    scientificName: correctSpecies.scientificName,
-                  })}{" "}
-                  {question.explanation}
-                </p>
-                <Link
-                  href={speciesHref(question.correctId, locale)}
-                  onClick={() =>
-                    trackEvent("species_page_clicked", {
-                      source: "quiz_question",
-                      species: question.correctId,
-                      question: index + 1,
-                    })
-                  }
-                  className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/80 transition-colors hover:text-primary"
-                >
-                  {t("learnMore")}
-                  <ArrowRight className="size-3.5" aria-hidden="true" />
-                </Link>
-                <div className="mt-7">
-                  <button
-                    type="button"
-                    onClick={onNext}
-                    className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-[14px] font-medium text-background transition-opacity hover:opacity-90 sm:w-auto"
-                  >
-                    {index + 1 >= questions.length
-                      ? t("seeResult")
-                      : t("next")}
-                    <ArrowRight className="size-4" aria-hidden="true" />
-                  </button>
-                </div>
+        ) : (
+          <>
+            <header>
+              <div className="flex items-center gap-3 text-[12px] tracking-[0.18em] text-white/70 uppercase">
+                <span>
+                  {t("progress", { current: index + 1, total })}
+                </span>
+                <span className="h-px flex-1 bg-white/20" aria-hidden="true" />
               </div>
-            ) : null}
-          </div>
-        </div>
+              <div
+                className="mt-3 flex gap-1.5"
+                aria-hidden="true"
+              >
+                {Array.from({ length: total }, (_, i) => (
+                  <span
+                    key={i}
+                    className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                      i < index || (i === index && revealed)
+                        ? "bg-white"
+                        : i === index
+                          ? "bg-white/55"
+                          : "bg-white/20"
+                    }`}
+                  />
+                ))}
+              </div>
+              <h2
+                id={headingId}
+                className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.05] text-white"
+              >
+                {t("question")}
+              </h2>
+            </header>
+
+            <div>
+              <div
+                role="radiogroup"
+                aria-labelledby={headingId}
+                className="grid gap-2.5 sm:grid-cols-2 sm:gap-3"
+              >
+                {question.optionIds.map((optionId, optionIndex) => {
+                  const option = byId.get(optionId);
+                  if (!option) return null;
+                  const selected = selectedId === optionId;
+                  const isCorrect = optionId === question.correctId;
+                  return (
+                    <button
+                      key={optionId}
+                      type="button"
+                      role="radio"
+                      aria-checked={selected}
+                      disabled={revealed}
+                      onClick={() => onSelect(optionId, question.difficulty)}
+                      className={`flex min-h-14 items-center gap-3 rounded-2xl border px-4 py-3.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-[4.25rem] sm:px-5 ${optionClass(
+                        {
+                          revealed,
+                          selected,
+                          correct: isCorrect,
+                        },
+                      )}`}
+                    >
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/20 text-[12px] font-medium">
+                        {OPTION_MARKS[locale][optionIndex]}
+                      </span>
+                      <span>
+                        <span className="block text-[15px] font-medium leading-snug sm:text-[16px]">
+                          {option.commonName}
+                        </span>
+                        {revealed ? (
+                          <span className="mt-0.5 block text-[12px] font-normal italic text-white/60">
+                            {option.scientificName}
+                          </span>
+                        ) : null}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div aria-live="polite">
+                {revealed && correctSpecies ? (
+                  <div className="mt-4 rounded-[24px] border border-white/15 bg-black/45 p-5 backdrop-blur-xl sm:p-6">
+                    <p className="font-display text-[1.45rem] font-semibold text-white">
+                      {selectedId === question.correctId
+                        ? t("correct")
+                        : t("incorrect")}
+                    </p>
+                    <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-white/75 sm:text-[15px]">
+                      {t("revealLead", {
+                        commonName: correctSpecies.commonName,
+                        scientificName: correctSpecies.scientificName,
+                      })}{" "}
+                      {question.explanation}
+                    </p>
+                    <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                      <button
+                        type="button"
+                        onClick={onNext}
+                        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                      >
+                        {index + 1 >= questions.length
+                          ? t("seeResult")
+                          : t("next")}
+                        <ArrowRight className="size-4" aria-hidden="true" />
+                      </button>
+                      <Link
+                        href={speciesHref(question.correctId, locale)}
+                        onClick={() =>
+                          trackEvent("species_page_clicked", {
+                            source: "quiz_question",
+                            species: question.correctId,
+                            question: index + 1,
+                          })
+                        }
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
+                      >
+                        {t("learnMore")}
+                        <ArrowRight className="size-3.5" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </section>
+  );
+}
+
+function ResultOverlay({
+  headingId,
+  correctCount,
+  total,
+  onRestart,
+}: {
+  headingId: string;
+  correctCount: number;
+  total: number;
+  onRestart: () => void;
+}) {
+  const t = useTranslations("snakeQuiz");
+  const percent = scorePercent(correctCount, total);
+
+  return (
+    <div className="flex min-h-[70vh] flex-col justify-end pb-4">
+      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
+        {t("resultEyebrow")}
+      </p>
+      <h2
+        id={headingId}
+        className="mt-4 font-display text-[clamp(4rem,14vw,8rem)] font-semibold leading-none text-white"
+      >
+        {correctCount}
+        <span className="text-white/35"> / {total}</span>
+      </h2>
+      <p className="mt-2 text-[15px] text-white/55">
+        {t("percentLabel", { percent })}
+      </p>
+      <p className="mt-6 max-w-xl text-[18px] leading-relaxed text-white sm:text-[20px]">
+        {t(scoreMessageKey(percent))}
+      </p>
+      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+        <button
+          type="button"
+          onClick={onRestart}
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+        >
+          <RotateCcw className="size-4" aria-hidden="true" />
+          {t("restart")}
+        </button>
+        <Link
+          href="/snakes"
+          onClick={() =>
+            trackEvent("species_page_clicked", {
+              source: "quiz_complete",
+              target: "snakes_hub",
+            })
+          }
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+        >
+          {t("discoverSnakes")}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
+      </div>
+    </div>
   );
 }
