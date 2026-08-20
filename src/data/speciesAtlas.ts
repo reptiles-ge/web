@@ -285,6 +285,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["mountain", "grassland"],
   },
+  "vipera-transcaucasiana": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
   "vipera-ammodytes": {
     group: "snake",
     habitats: ["mountain", "grassland"],

@@ -6944,7 +6944,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-20T13:35:07+04:00",
+    "updatedAt": "2026-08-20T13:39:39+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7150,16 +7150,16 @@ export const species: Species[] = [
   {
     "id": "vipera-transcaucasiana",
     "commonName": "ცხვირრქოსანი გველგესლა",
-    "scientificName": "Vipera transcaucasiana",
+    "scientificName": "Vipera ammodytes",
     "genus": "Vipera",
     "family": "Viperidae",
     "location": "მცირე კავკასიონი",
-    "description": "ტრანსკავკასიური ცხვირრქოსანი გველგესლა — შხამიანი სახეობა საქართველოსა და ჩრდილოეთ ანატოლიაში; ევროპული Vipera ammodytes საქართველოში არ გვხვდება.",
-    "overview": "ცხვირრქოსანი გველგესლა (Vipera transcaucasiana) გველგესლასებრთა ოჯახის შხამიანი სახეობაა, ცნობილი ცხვირზე არსებული რქისებრი წარმონაქმნით. გავრცელებულია საქართველოსა და თურქეთის ჩრდილოეთ ანატოლიაში — არა სამხრეთ ევროპაში, სადაც ცხოვრობს ახლოს მდგომი სახეობა Vipera ammodytes. ტიპური ლოკალიტეტია ბორჯომი. საქართველოში გვხვდება მესხეთისა და თრიალეთის ქედებზე, მტკვრის ზემო დინებასა და ახალქალაქის მიდამოებში, დაახლოებით 1,700 მ-მდე. IUCN-ის მიხედვით ახლოსაა საფრთხესთან (Near Threatened); საქართველოში იშვიათია და შეტანილია წითელ წიგნში.",
-    "habitat": "უპირატესობას ანიჭებს მშრალ, კლდოვან ფერდობებს მეჩხერი მცენარეულობით — ქვიან ადგილებს, ბუჩქნარს, ტყის პირებს, ქვის ღობეებსა და ვენახებს. საქართველოში — მცირე კავკასიონის მთიანეთში: მესხეთი, თრიალეთი, მტკვრის ზემო დინება, ახალქალაქის მიმდებარე ტერიტორია; ვერტიკალურად დაახლოებით 1,700 მ-მდე.",
-    "diet": "იკვებება მღრღნელებით, პატარა ფრინველებითა და ხვლიკებით. ახალგაზრდები ძირითადად მცირე ხვლიკებით ნადირობენ. ნადირობს ჩასაფრებით; შხამით ანეიტრალებს მსხვერპლს.",
-    "behavior": "აქტიურია თბილ სეზონზე. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში აქტივობა საღამოსა და ღამის პირველ ნახევარზე გადადის. იზამთრებს კლდეების ნაპრალებსა და ქვების ქვეშ. ცოცხლადმშობია (ოვოვივიპარია): შეწყვილება ჩვეულებრივ მარტ–აპრილშია; ნაშიერები იბადებიან ზაფხულის ბოლოს ან შემოდგომის დასაწყისში.",
-    "conservation": "IUCN Red List-ის მიხედვით ახლოსაა საფრთხესთან (Near Threatened). საქართველოში იშვიათი სახეობაა და შეტანილია წითელ წიგნში; პოპულაციები ფრაგმენტირებულია. საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, ადამიანის დევნა და ადგილობრივი ზეწოლა. ეკოსისტემისთვის სასარგებლოა მღრღნელების რეგულირებით.",
+    "description": "საქართველოს ცხვირრქოსანი გველგესლა — შხამიანი გველი მცირე კავკასიონის მშრალ, კლდოვან ფერდობებზე და არა შავი ზღვის სანაპიროზე.",
+    "overview": "ცხვირრქოსანი გველგესლა (Vipera ammodytes) გველგესლასებრთა ოჯახის შხამიანი გველია. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. კავკასიის ინდივიდები ქვესახეობას V. a. transcaucasiana მიეკუთვნება; ტიპის ადგილია ბორჯომი. ძველ წიგნებში და ზოგ ბაზაში სრულ სახეობად რჩება Vipera transcaucasiana. მთელ საქართველოში არ გვხვდება. ეძებეთ მშრალ, კლდოვან ადგილზე მცირე კავკასიონში — მესხეთი, თრიალეთი, მტკვრის ზემო დინება — არა ნოტიო კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. ამ ფორმის ზრდასრული ჩვეულებრივ 75 სმ-ს არ აღემატება. ნაკბენი სამედიცინოდ მნიშვნელოვანია. IUCN-ით გაყოფილი სახელი V. transcaucasiana ახლოსაა საფრთხესთან (Near Threatened); საქართველოს 2014 წლის წითელ ნუსხაში ეს ტაქსონი არ არის.",
+    "habitat": "ეძებეთ მშრალ, კლდოვან ფერდობზე მეჩხერი მცენარეულობით — ქვაზე, ბუჩქნარში, ტყის პირას, ქვის ღობესა და ვენახში. ქართული გველების გავრცელების კვლევა მას შედარებით მშრალი, კლდოვანი ან ბალახოვანი ადგილების სახეობებს მიაკუთვნებს, ძირითადად აღმოსავლეთში. ამ ატლასის რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი და თბილისი. დასახელებული ქართული ადგილებია ბორჯომის ტიპის სერია, შტრიხკოდირებული ინდივიდები გომაროდან (ადიგენი) და თაშისკარიდან, და 2026 წლის ჩამონათვალში ცოცხალი ნიმუში გორიდან. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა არეალს მცირე კავკასიონის მთებად აჯამებს — თბილისის მიდამოებიდან შუახევამდე, აჭარის მთიანეთში. ტრადიციული რეგიონული აღწერა მტკვრის ზემო დინებას ახალქალაქისკენაც აგრძელებს; ეს დასავლეთ ჯავახეთის ზღვარი ამ გვერდზე წერტილ-წერტილ არ არის თავიდან დადასტურებული. კავკასიური გველგესლასავით შავი ზღვის სანაპიროს სახეობა არ არის. ლიტერატურაში ზედა სიმაღლე ხშირად დაახლოებით 1,700 მ-ია; საქართველოში ზღვის დონის არეალი აქ არ არის დადგენილი. არეალი გრძელდება ჩრდილოეთ ანატოლიაში. სომხეთის, აზერბაიჯანისა და ირანის ჩანაწერები სადავოა და ამ ატლასში ქართულ არეალად არ ითვლება.",
+    "diet": "ზრდასრული იჭერს ხვლიკებსა და წვრილ ძუძუმწოვრებს; პატარა ფრინველი იშვიათად ფიქსირდება. ახალგაზრდა ძირითადად წვრილ ხვლიკზე ნადირობს. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია ცხვირრქოსანი გველგესლადან.",
+    "behavior": "აქტიურია თბილ სეზონზე. გრილ გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში აქტივობა საღამოსა და ღამის დასაწყისზე გადადის. იზამთრებს კლდის ნაპრალსა და ქვის ქვეშ. ცოცხლადმშობია (კვერცხები დედის სხეულში იზრდება და ნაშიერი ცოცხალი იბადება). შეწყვილება გაზაფხულზეა; ნაშიერი იბადება ზაფხულის ბოლოს ან შემოდგომის დასაწყისში. ნაშიერთა რიცხვი ცალკე ქართულ კვლევაში არ არის გაზომილი; ბალკანური მუზეუმის ნიმუშებში ამ სახეობის საშუალო დაახლოებით ცხრაა (დაახლ. 5–17). თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს. მტკვრის შუა დინების ხეობაში კავკასიურ გველგესლასთან ვიწრო კონტაქტის ზონაა; იქ იშვიათად ჩნდება შუალედური ინდივიდი (ძველი სახელი Vipera pontica). ასეთ გველს ცხვირი აწეული შეიძლება ჰქონდეს, მაგრამ ნამდვილი რქა — არა.",
+    "conservation": "IUCN-ის 2009 წლის შეფასებით (2017 წლის errata) Vipera transcaucasiana ახლოსაა საფრთხესთან (Near Threatened). ეს სახელი გაყოფილ კავკასიურ ტაქსონს ეხება. თუ ცხოველებს V. ammodytes-ად განვიხილავთ, სახეობა მთლიანად ევროპაში გაცილებით ფართოდაა გავრცელებული. საქართველოს 2014 წლის წითელ ნუსხაში შეტანილია დინიკის და კავკასიური გველგესლა — ეს ტაქსონი არა. ძველ სსრკ-ისა და საქართველოს წითელ წიგნებში იყო; ეს 2014 წლის ნუსხას არ ემთხვევა. ბერნის კონვენცია V. ammodytes-ს განსაკუთრებული დაცვის სახეობებში ასახელებს. საფრთხეა კლდოვანი ფერდობის გარდაქმნა, სოფლის მეურნეობა და ადამიანის მიერ მოკვლა. საქართველოში პოპულაციები იშვიათად და ფრაგმენტირებულად არის აღწერილი. 2026 წლის ჩამონათვალი ქართულ ინდივიდებს კონსერვატიულად ქვესახეობად ტოვებს: ზოგი გენომური კვლევა მათ სამხრეთ ბალკანურ ხაზთან უფრო აახლოებს, მაგრამ ავტორები ცალკე სახეობად არ აყენებენ.",
     "danger": "High",
     "image": "https://cdn.reptiles.ge/vipera-transcaucasiana.jpg",
     "imageCredit": {
@@ -7224,69 +7224,72 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "მცირე კავკასიონი"
+        "value": "მშრალი კლდოვანი ფერდობი"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 60–75 სმ"
+        "value": "ჩვეულებრივ 75 სმ-მდე"
       },
       {
         "label": "შხამი",
-        "value": "ძალიან საშიში"
+        "value": "მაღალი რისკი"
       },
       {
         "label": "კონსერვაცია",
-        "value": "ახლოს საფრთხესთან (NT)"
+        "value": "NT (გაყოფილი სახელი)"
       },
       {
         "label": "სიმაღლე",
-        "value": "0–1,700 მ"
+        "value": "მთისწინეთი–დაახლ. 1,700 მ"
       },
       {
         "label": "ოჯახი",
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "ცხვირზე აქვს რქისებრი წარმონაქმნი 9–17 წვრილი ქერცლისგან — აქედან მოდის სახელი „ცხვირრქოსანი“.",
-      "საქართველოში გვხვდება Vipera transcaucasiana და არა ევროპული Vipera ammodytes; ტიპური ლოკალიტეტია ბორჯომი.",
-      "ზოგი ავტორი მას V. ammodytes-ის ქვესახეობად მიიჩნევს, თუმცა IUCN და რიგი ტაქსონომიური წყაროები სრულ სახეობად აღიარებს.",
-      "საქართველოში იშვიათია და შეტანილია წითელ წიგნში; გვხვდება მესხეთ–თრიალეთის მთიანეთში."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "ტრანსკავკასიური ცხვირრქოსანი გველგესლა შხამიანია და ცხვირზე რქისებრი წარმონაქმნით გამოირჩევა. საქართველოში იშვიათია; ევროპული V. ammodytes აქ არ გვხვდება.",
+      "summary": "მსხვილტანი გველგესლაა ნამდვილი ცხვირის რქით, ვერტიკალური გუგითა და კილური ქერცლით. საქართველოში მთავარი ნიშანია რქა და მცირე კავკასიონის მშრალი ჰაბიტატი.",
       "traits": [
-        "ცხვირზე რქისებრი წარმონაქმნი 9–17 წვრილი ქერცლისგან — სახეობის საკვანძო ნიშანი.",
-        "გუგა ვერტიკალურია; ქერცლები კილურია; თავი ფართოა.",
-        "ზურგზე ხშირად ვიწრო განივი ზოლები ან ლაქებია — ევროპული V. ammodytes-ის უწყვეტი ზიგზაგისგან განსხვავებით.",
-        "სიგრძე ჩვეულებრივ 60–75 სმ-მდე; შხამი ძალიან საშიშია.",
-        "საქართველოში მცირე კავკასიონთანაა დაკავშირებული და იშვიათია."
+        "საკვანძო ნიშანია ცხვირზე რქა — 9–17 წვრილი ქერცლი ორ–ოთხ, ჩვეულებრივ სამ რიგად. საქართველოს სხვა გველგესლას ნამდვილი ცხვირის რქა არ აქვს. თავი ფართოა და კისრისგან გამოიყოფა. კავკასიური ფორმის ზრდასრული ჩვეულებრივ 75 სმ-ს არ აღემატება; დედალი მამალზე უფრო დიდია.",
+        "გუგა ვერტიკალური ნაპრალია. ზურგის ქერცლი ძლიერ კილურია. ფონი ხშირად ღია ნაცრისფერი, ფერფლისფერი ან რუხ-თეთრია. ზურგზე ჩვეულებრივ ვიწრო განივი ზოლები ან ლაქებია და არა ერთი მუქი, უწყვეტი ზიგზაგი. რქასა და თავის ზედა მხარეს მძიმე მუქი ლაქები ჩვეულებრივ არ აქვს; კისერზე სუსტი V-ნიშანი შეიძლება იყოს. ფერადი ირისი ხშირად ოქროსფერი ან სპილენძისფერია.",
+        "გლუვ გველს (Coronella austriaca) მრგვალი გუგა, გლუვი ქერცლი და რქის გარეშე აქვს; შხამიანი არ არის. კავკასიურ გველგესლას რქა არ აქვს, ნოტიო კოლხურ ზონაშია და ხშირად აგურისფერი ან ნარინჯისფერია. დინიკის გველგესლა დიდი კავკასიონის მაღალმთისაა, რქის გარეშე. დარევსკის გველგესლა უფრო პატარაა და ჯავახეთ–ერუშეთის მაღალმთას უკავშირდება. გიურზა გაცილებით დიდია (დაახლ. 1–1.5 მ), ბლაგვი დაბოლოებით და სამხრეთ-აღმოსავლეთის მშრალ დაბლობზეა.",
+        "მტკვრის შუა დინების კონტაქტის ზონაში კავკასიურ გველგესლასთან იშვიათ ჰიბრიდს აწეული, მაგრამ ურქო ცხვირი შეიძლება ჰქონდეს. ეს მესამე სახეობა არ არის. ქერცლის დასათვლელად გველგესლა არ აიყვანოთ.",
+        "შხამიანია (ამ ატლასში მაღალი რისკი — სამედიცინოდ მნიშვნელოვანი, თუმცა გიურზა უფრო დიდია და შხამის რაოდენობა მეტია). ნაკბენი სასწრაფო სამედიცინო დახმარებას საჭიროებს. არ აიყვანოთ."
       ]
     },
     "faq": [
       {
-        "question": "რამდენად საშიშია ცხვირრქოსანი გველგესლას ნაკბენი?",
-        "answer": "ძალიან საშიშია. შხამი აერთიანებს ჰემოტოქსიურ და ნეიროტოქსიურ ეფექტებს; გრძელი ეშვები ღრმა ნაკბენს იძლევა. ნაკბენის შემთხვევაში საჭიროა დაუყოვნებელი სამედიცინო დახმარება."
+        "question": "გვხვდება თუ არა ცხვირრქოსანი გველგესლა საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. ქართული ინდივიდები ქვესახეობაა V. a. transcaucasiana. ტიპის ადგილია ბორჯომი. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "მცირე კავკასიონის მთიანეთში — მესხეთისა და თრიალეთის ქედებზე, მტკვრის ზემო დინებასა და ახალქალაქის მიმდებარე ტერიტორიაზე. ვერტიკალურად დაახლოებით 1,700 მ-მდე. იშვიათი სახეობაა."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მცირე კავკასიონის მშრალ, კლდოვან ადგილზე — მესხეთი, თრიალეთი, მტკვრის ზემო დინება და აჭარის მთიანეთი შუახევისკენ. რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი და თბილისი. კოლხური სანაპიროს სახეობა არ არის."
       },
       {
-        "question": "ეს Vipera ammodytes არის თუ არა?",
-        "answer": "არა. საქართველოში გვხვდება ტრანსკავკასიური სახეობა Vipera transcaucasiana. ევროპული ცხვირრქოსანი (Vipera ammodytes) ბალკანეთსა და სამხრეთ ევროპაშია გავრცელებული და ჩვენს ფაუნაში არ შედის."
+        "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
+        "answer": "შხამიანია. ამ ატლასში რისკი მაღალია: ნაკბენმა შეიძლება სერიოზული ადგილობრივი და ზოგადი დაზიანება გამოიწვიოს და საავადმყოფოს საჭიროებს. თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს. არ აიყვანოთ. გიურზა საქართველოს ყველაზე დიდი და, ზომით, ყველაზე მაღალი რისკის გველია."
       },
       {
-        "question": "რით განსხვავდება დინიკის გველგესლასა და გიურზასგან?",
-        "answer": "ცხვირრქოსანს აქვს ცხვირზე რქისებრი წარმონაქმნი. დინიკის გველგესლა უფრო პატარაა და დიდი კავკასიონის მაღალმთიანი ენდემია. გიურზა უფრო დიდია, კვერცხისმდებია და აღმოსავლეთ საქართველოს მშრალ დაბლობებზე გვხვდება."
+        "question": "რა უნდა გავაკეთო ნაკბენის შემთხვევაში?",
+        "answer": "დაუყოვნებლივ დარეკეთ 112-ზე. დაზარალებული დააწვინეთ და დაამშვიდეთ; ნაკბენი ადგილი არ გაიჭრას, არ შეიწოვოს და არ მოიკვრას მჭიდრო ტურნიკეტი. მკურნალობა საავადმყოფოშია."
       },
       {
-        "question": "ცოცხლად შობს თუ კვერცხებს დებს?",
-        "answer": "ცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ზაფხულის ბოლოს ან შემოდგომის დასაწყისში. შეწყვილება ჩვეულებრივ მარტ–აპრილშია."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "საქართველოს გველგესლებიდან მხოლოდ ამას აქვს ნამდვილი ცხვირის რქა. გუგა ვერტიკალურია, ქერცლი კილური, ზურგი ხშირად ნაცრისფერია ვიწრო განივი ზოლებით. გლუვ გველს მრგვალი გუგა აქვს და რქა არა."
       },
       {
-        "question": "რატომ არის დაცული საქართველოში?",
-        "answer": "გლობალურად IUCN სტატუსი Near Threatened-ია, საქართველოში იშვიათია, პოპულაციები ფრაგმენტირებულია და შეტანილია წითელ წიგნში. მთავარი საფრთხეებია ჰაბიტატის გარდაქმნა და ადამიანის ზეწოლა."
+        "question": "რამდენად დიდია?",
+        "answer": "კავკასიური ზრდასრული ჩვეულებრივ დაახლოებით 75 სმ-ს არ აღემატება. დედალი მამალზე უფრო დიდია. გიურზაზე გაცილებით მოკლეა."
+      },
+      {
+        "question": "ეს Vipera transcaucasiana არის თუ არა?",
+        "answer": "იგივე ცხოველებია, განსხვავებული რანგი. 2026 წლის ჩამონათვალი იყენებს V. ammodytes-ს, ქვესახეობა transcaucasiana. IUCN-ით გაყოფილი სახელი V. transcaucasiana კვლავ NT-ია. ბალკანური V. ammodytes ცალკე ქართული სახეობა არ არის."
+      },
+      {
+        "question": "რატომ არ არის წითელ ნუსხაში, თუ IUCN-ით NT-ია?",
+        "answer": "2014 წლის სახელმწიფო ნუსხა სხვა სახელებს მიჰყვება (დინიკის და კავკასიური გველგესლა). IUCN-ის NT გაყოფილ კავკასიურ ტაქსონს ეხება. ძველ წითელ წიგნებში იყო; ეს 2014 წლის ნუსხა არ არის."
       }
     ],
     "updatedAt": "2026-08-20T02:36:06+04:00",
@@ -7296,23 +7299,36 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Boulenger 1913 — On the geographical races of Vipera ammodytes",
+        "url": "https://doi.org/10.1080/00222931308693322"
+      },
+      {
+        "name": "Tuniyev et al. 2009 — IUCN Red List account for Vipera transcaucasiana",
         "url": "https://www.iucnredlist.org/species/164708/114549008"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/5960866"
+        "name": "Raaijmakers et al. 2026 — Intermediate kaznakovi × transcaucasiana from central Georgia",
+        "url": "https://herpetologynotes.org/index.php/hn/article/view/341"
+      },
+      {
+        "name": "Mulder 2017 — Distribution of V. a. transcaucasiana in Turkey",
+        "url": "https://biozoojournals.ro/bihbiol/cont/v11n1/bb_e161305_Mulder.pdf"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Vipera&species=ammodytes"
       },
       {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Vipera_transcaucasiana"
+        "name": "National Geographic Georgia / National Museum — South Caucasian sand viper map",
+        "url": "https://map.nationalgeographic.ge/en/element/amierkavkasiuri-ckhvirrqosani-gvelgesla/"
       },
       {
-        "name": "Scientific publications"
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -13318,80 +13334,83 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     }
   },
   "vipera-transcaucasiana": {
-    "commonName": "Transcaucasian long-nosed viper",
+    "commonName": "Nose-horned viper",
     "location": "Lesser Caucasus",
-    "description": "A venomous long-nosed viper of Georgia and northern Anatolia — not the European Vipera ammodytes, which does not occur in Georgia.",
-    "overview": "The Transcaucasian long-nosed viper (Vipera transcaucasiana) is a venomous member of the viper family, known for the horn-like growth on its snout. It occurs in Georgia and northern Anatolia in Turkey — not in southern Europe, where the related Vipera ammodytes lives. The type locality is Borjomi. In Georgia it is found in the Meskheti and Trialeti ranges, the upper Mtkvari basin, and around Akhalkalaki, up to roughly 1,700 m. It is classified as Near Threatened by the IUCN; it is rare in Georgia and listed in the Red Data Book.",
-    "habitat": "It prefers dry, rocky slopes with sparse vegetation — stony ground, scrub, forest edges, stone walls, and vineyards. In Georgia — in the mountains of the Lesser Caucasus: Meskheti, Trialeti, the upper Mtkvari basin, and the area around Akhalkalaki; vertically up to roughly 1,700 m.",
-    "diet": "It feeds on rodents, small birds, and lizards. Juveniles hunt mainly small lizards. It hunts by ambush and subdues prey with venom.",
-    "behavior": "Active during the warm season. In spring and autumn it is often active by day; in summer heat activity shifts to evening and the first half of the night. It hibernates in rock crevices and under stones. It is ovoviviparous: mating usually occurs in March–April; young are born in late summer or early autumn.",
-    "conservation": "Classified as Near Threatened on the IUCN Red List. It is a rare species in Georgia and is listed in the Red Data Book; populations are fragmented. Threats include habitat conversion, persecution by humans, and local pressure. It benefits the ecosystem by controlling rodents.",
+    "description": "Georgia’s nose-horned viper — a venomous snake of dry rocky slopes in the Lesser Caucasus, not the Black Sea coast.",
+    "overview": "The nose-horned viper (Vipera ammodytes) is a venomous snake of the viper family. The 2026 Georgian checklist treats it as biologically confirmed. Caucasian animals belong to the subspecies V. a. transcaucasiana, described from Borjomi. Older books and some databases still use Vipera transcaucasiana as a full species. It does not occur throughout Georgia. Look for it on dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin — not in humid Colchic forest and not in the Greater Caucasus highlands. Adults of this form usually stay under about 75 cm. A bite is medically significant. IUCN still lists the split name V. transcaucasiana as Near Threatened; Georgia’s 2014 Red List does not include this taxon.",
+    "habitat": "Look for it on dry, rocky slopes with sparse vegetation — stone, scrub, forest edges, stone walls and vineyards. A Georgian snake-distribution study places it among species of reasonably dry, rocky or grassland country, mostly in the east. This atlas maps Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli and Tbilisi. Named Georgian localities include the type series from Borjomi, barcoded animals from Gomaro (Adigeni) and Tashiskari, and a live specimen from Gori in the 2026 checklist. A biodiversity map of the South Caucasus summarises the range as Lesser Caucasus mountains from the Tbilisi area to Shuakhevi in highland Adjara. Traditional regional accounts also take the upper Mtkvari towards Akhalkalaki; that western Javakheti limit is not re-mapped locality by locality on this page. It is not a Black Sea coastal snake like the Caucasus viper. Literature often gives an upper elevation of about 1,700 m; a sea-level range inside Georgia is not established here. The range continues into northern Anatolia. Records from Armenia, Azerbaijan or Iran are disputed and are not treated as confirmed Georgian range.",
+    "diet": "Adults take lizards and small mammals; small birds are recorded less often. Juveniles hunt mainly small lizards. It hunts by ambush and subdues prey with venom. There is no separate Georgian diet study on this page; these are species-level data from the nose-horned viper.",
+    "behavior": "It is active in the warm season. In cool spring and autumn weather it often moves by day; in summer heat activity shifts to evening and early night. It overwinters in rock crevices and under stones. It gives live birth (eggs develop inside the female; the young are born alive). Mating is in spring; young are born in late summer or early autumn. Litter size has not been measured in a dedicated Georgian study; Balkan museum samples of this species average about nine young (about 5–17). If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people. In the middle Mtkvari valley a narrow contact zone with the Caucasus viper produces rare intermediate animals (the old name Vipera pontica). Those snakes may have an upturned snout but no true horn.",
+    "conservation": "IUCN’s 2009 assessment (2017 errata) lists Vipera transcaucasiana as Near Threatened. That name is the split Caucasian taxon. If the animals are treated as V. ammodytes, the species as a whole is much more widespread in Europe. Georgia’s 2014 Red List includes Dinnik’s viper and the Caucasus viper, not this taxon. Older USSR and Georgian Red Books did list it; that does not match the 2014 list. The Bern Convention lists V. ammodytes among species needing special protection. Threats include conversion of rocky slopes, agriculture and killing by people. Populations are described as scarce and fragmented in Georgia. The 2026 checklist keeps a conservative subspecies rank for Georgian animals: some genomic work links them more closely to southern Balkan lineages, but the authors do not elevate them to a separate species.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Lesser Caucasus"
+        "value": "dry rocky slopes"
       },
       {
         "label": "Length",
-        "value": "approx. 60–75 cm"
+        "value": "usually under 75 cm"
       },
       {
         "label": "Venom",
-        "value": "Highly dangerous"
+        "value": "High risk"
       },
       {
         "label": "Conservation",
-        "value": "Near Threatened (NT)"
+        "value": "NT (split name)"
       },
       {
         "label": "Elevation",
-        "value": "0–1,700 m"
+        "value": "foothills–~1,700 m"
       },
       {
         "label": "Family",
         "value": "Viperidae"
       }
     ],
-    "facts": [
-      "It has a horn-like growth on its snout made of 9–17 small scales — the source of the “long-nosed” / “nose-horned” name.",
-      "Georgia hosts Vipera transcaucasiana, not the European Vipera ammodytes; the type locality is Borjomi.",
-      "Some authors still treat it as a subspecies of V. ammodytes, but the IUCN and several taxonomic sources recognize it as a full species.",
-      "It is rare in Georgia and listed in the Red Data Book; found in the Meskheti–Trialeti highlands."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "The Transcaucasian long-nosed viper is venomous and marked by a horn-like snout. It is rare in Georgia; the European V. ammodytes does not occur here.",
+      "summary": "A stout viper with a true nose horn, a vertical pupil and keeled scales. In Georgia the horn and dry Lesser Caucasus habitat are the main field marks.",
       "traits": [
-        "A horn-like snout of 9–17 small scales is the diagnostic trait.",
-        "The pupil is vertical, scales are keeled, and the head is broad.",
-        "The dorsum often shows narrow transverse bars or blotches — unlike the continuous zigzag typical of European V. ammodytes.",
-        "Length is usually up to about 60–75 cm; venom is highly dangerous.",
-        "In Georgia it is linked to the Lesser Caucasus and is rare."
+        "The diagnostic mark is a horn on the snout, built of 9–17 small scales in two to four rows, usually three. No other Georgian viper has a true nose horn. The head is broad and set off from the neck. Adults of the Caucasian form usually stay under about 75 cm; females are generally larger than males.",
+        "The pupil is a vertical slit. Dorsal scales are strongly keeled. Ground colour is often light grey, ash or grey-white. The back usually has narrow cross-bars or blotches rather than one bold, continuous zigzag. The horn and the top of the head are typically without heavy dark mottling; a weak V-mark may sit on the nape. The iris is often golden or copper.",
+        "The smooth snake (Coronella austriaca) has a round pupil, smooth scales and no horn; it is not venomous. The Caucasus viper has no horn, lives in humid Colchic country, and is often brick-red or orange. Dinnik’s viper is a Greater Caucasus highland snake without a horn. Darevsky’s viper is smaller and tied to the Javakheti–Erusheti highlands. The Levantine viper is much larger (about 1–1.5 m), has a blunt snout and lives in the dry south-east lowlands.",
+        "In the middle Mtkvari contact zone, rare hybrids with the Caucasus viper may show an upturned but hornless snout. That is not a third species. Do not handle any viper to count scales.",
+        "It is venomous (high risk in this atlas — medically significant, though the Levantine viper is larger and injects more venom). A bite needs emergency medical care. Do not pick it up."
       ]
     },
     "faq": [
       {
-        "question": "How dangerous is a Transcaucasian long-nosed viper's bite?",
-        "answer": "Very dangerous. The venom combines hemotoxic and neurotoxic effects, and the long fangs can deliver a deep bite. Immediate medical attention is required in the event of a bite."
+        "question": "Is the nose-horned viper found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. Georgian animals are the Caucasian subspecies V. a. transcaucasiana. The type locality is Borjomi. It does not occur throughout the country."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "In the mountains of the Lesser Caucasus — the Meskheti and Trialeti ranges, the upper Mtkvari basin, and the area around Akhalkalaki. Vertically up to roughly 1,700 m. It is a rare species."
+        "question": "Where can it be found in Georgia?",
+        "answer": "On dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin, and highland Adjara towards Shuakhevi. The map marks Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli and Tbilisi. It is not a Colchic coastal species."
       },
       {
-        "question": "Is this Vipera ammodytes?",
-        "answer": "No. Georgia has the Transcaucasian species Vipera transcaucasiana. The European nose-horned viper (Vipera ammodytes) ranges across the Balkans and southern Europe and is not part of Georgia’s fauna."
+        "question": "Is it venomous and dangerous to humans?",
+        "answer": "It is venomous. In this atlas the risk is high: a bite can cause serious local and systemic illness and needs hospital care. It does not attack unless it feels threatened. Do not pick it up. The Levantine viper is Georgia’s largest and, by size, the highest-risk snake."
       },
       {
-        "question": "How does it differ from Dinnik's viper and the Levantine viper?",
-        "answer": "The long-nosed viper has a horn-like growth on its snout. Dinnik's viper is smaller and a high-mountain endemic of the Greater Caucasus. The Levantine viper is larger, egg-laying, and found in the dry lowlands of eastern Georgia."
+        "question": "What should I do if bitten?",
+        "answer": "Call 112 immediately. Keep the person still and calm; do not cut, suck or apply a tight tourniquet. Treatment is in hospital."
       },
       {
-        "question": "Does it give live birth or lay eggs?",
-        "answer": "It is ovoviviparous — young are born in late summer or early autumn. Mating usually occurs in March–April."
+        "question": "How can it be identified?",
+        "answer": "It is the only Georgian viper with a true nose horn. It has a vertical pupil, keeled scales and often a grey back with narrow cross-bars. The smooth snake has a round pupil and no horn."
       },
       {
-        "question": "Why is it protected in Georgia?",
-        "answer": "Its global IUCN status is Near Threatened; it is rare in Georgia, its populations are fragmented, and it is listed in the Red Data Book. Major threats include habitat conversion and human pressure."
+        "question": "How large does it grow?",
+        "answer": "Caucasian adults usually stay under about 75 cm. Females are generally larger than males. It is much shorter than the Levantine viper."
+      },
+      {
+        "question": "Is this the same as Vipera transcaucasiana?",
+        "answer": "Same animals, different rank. The 2026 checklist uses V. ammodytes, subspecies transcaucasiana. IUCN still assesses the split name V. transcaucasiana as Near Threatened. Balkan V. ammodytes without the Caucasian subspecies name is not a separate Georgian species."
+      },
+      {
+        "question": "Why is it not on Georgia’s Red List if IUCN says Near Threatened?",
+        "answer": "The 2014 government list follows other names (Dinnik’s and Caucasus vipers). The IUCN NT grade applies to the split Caucasian taxon. Older Red Books listed it; that is not the 2014 list."
       }
     ],
     "gallery": [

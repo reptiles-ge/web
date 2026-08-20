@@ -26,8 +26,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "vipera-transcaucasiana": {
-    ka: ["ცხვირრქოსანი გველგესლა", "გველგესლა"],
-    en: ["Transcaucasian long-nosed viper"],
+    ka: [
+      "ცხვირრქოსანი გველგესლა",
+      "გველგესლა",
+      "Vipera ammodytes",
+      "Vipera transcaucasiana",
+    ],
+    en: [
+      "Transcaucasian long-nosed viper",
+      "nose-horned viper",
+      "Transcaucasian sand viper",
+      "Vipera transcaucasiana",
+      "Vipera ammodytes transcaucasiana",
+    ],
   },
   "vipera-darevskii": {
     ka: ["დარევსკის გველგესლა", "გველგესლა"],
@@ -144,7 +155,7 @@ export const HOME_DEFINED_TERMS: SeoDefinedTerm[] = [
   },
   {
     ka: "ცხვირრქოსანი გველგესლა",
-    en: "Transcaucasian long-nosed viper",
+    en: "Nose-horned viper",
     speciesId: "vipera-transcaucasiana",
   },
   {
