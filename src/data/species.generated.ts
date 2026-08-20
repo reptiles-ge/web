@@ -433,13 +433,13 @@ export const species: Species[] = [
     "scientificName": "Coronella austriaca",
     "genus": "Coronella",
     "family": "Colubridae",
-    "location": "საქართველო — მთისწინეთი და მთები",
-    "description": "უვნებელი ანკარასებრი გველი სპილენძისფერი შეფერილობით — მალული, გლუვქერცლიანი და ხშირად გველგესლასთან აღრეული.",
-    "overview": "სპილენძა (Coronella austriaca) ანკარასებრთა ოჯახის უვნებელი გველია. გავრცელებულია ევროპიდან დასავლეთ აზიამდე — მათ შორის თურქეთში, საქართველოში, სომხეთში, აზერბაიჯანსა და ჩრდილოეთ ირანში. საქართველოში გვხვდება მთისწინეთში, ტყის, სუბალპურ და ალპურ ზონაში; უპირატესობას ანიჭებს შედარებით მშრალ ადგილებს. სახელი სპილენძისფერი ან მოწითალო შეფერილობიდან მოდის. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
-    "habitat": "ბინადრობს მეჩხერ ტყეებში, ტყის პირებში, ბუჩქნარში, კლდოვან ფერდობებზე, მდელოებსა და სუბალპურ–ალპურ ზონაში. საქართველოში — მთისწინეთიდან მაღალმთიანეთამდე. იმალება სოროებში, ქვებისა და კუნძების ქვეშ, ხშირად მზისგან გახურებულ ქვიან ადგილებში. თავს არიდებს ღია, ტენიან დაბლობებსა და ჭაობებს.",
-    "diet": "იკვებება ძირითადად ხვლიკებით; აგრეთვე მღრღნელებით, მწერებით, ხვლიკის კვერცხებითა და იშვიათად სხვა მცირე გველებით. დიდ მსხვერპლს სხეულის რგოლებით აფიქსირებს და გუდავს — კლასიკური კონსტრიქტორი არ არის, მაგრამ შეკვრა ნადირობის მნიშვნელოვანი ნაწილია.",
-    "behavior": "მალული, დღის აქტიური გველია. შეფერილობითა და თავის ნახატით ხშირად გველგესლას ემსგავსება, თუმცა ქერცლები გლუვია (არა კილური), თვალის გუგა მრგვალია და თავზე ხშირად ჩანს გვირგვინისებრი მუქი ნახატი — აქედან მოდის გვარის სახელი Coronella. კვერცხცოცხლადმშობია (ოვოვივიპარია): ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი. ზრდასრულის სიგრძე დაახლოებით 60–80 სმ-ია.",
-    "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ევროპაში დაცულია ბერნის კონვენციითა და ჰაბიტატების დირექტივით. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა და გველგესლასთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — არეგულირებს ხვლიკებისა და მღრღნელების რაოდენობას.",
+    "location": "საქართველო — ფართოდ გავრცელებული",
+    "description": "უვნებელი, გლუვქერცლიანი გველი საქართველოში — მალული და ხშირად გველგესლასთან აღრეული.",
+    "overview": "სპილენძა (Coronella austriaca) საქართველოში გავრცელებული უვნებელი გველია — გლუვი ქერცლით, მრგვალი გუგით და ხშირად გველგესლასთან აღრეული. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. ანკარასებრთა ოჯახისაა; შხამი არ აქვს. არეალი ევროპიდან დასავლეთ აზიამდეა, მათ შორის კავკასია. ქართული სახელი სპილენძისფერ ან მოწითალო შეფერილობას უკავშირდება; ინგლისური smooth snake — გლუვ ქერცლს. ქართული წყაროებით ჩვეულებრივ 50 სმ-ზე მოკლეა, მაქსიმუმ დაახლოებით 70 სმ-მდე. IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოს 2014 წლის წითელ ნუსხაში არ არის.",
+    "habitat": "2021 წლის ქართული გველების კვლევა სპილენძას მთელ საქართველოში გავრცელებულ სახეობად ასახელებს — ჩვეულებრივ ანკარასა და წყლის ანკარასთან ერთად. იგივე ნაშრომი მას შედარებით ნოტიო კლიმატის სახეობებსაც მიაკუთვნებს (კავკასიურ გველგესლასა და ესკულაპის მცურავთან), და არა სამხრეთ-აღმოსავლეთის ნახევრადმშრალი დაბლობის სპეციალისტებს, როგორიცაა გიურზა. ამ ატლასის რუკაზე აღნიშნულია ყველა 12 რეგიონი. ჩამონათვალში გავრცელების ნდობა საშუალოა: ფართო არეალი დასტურდება, მაგრამ წერტილ-წერტილ სიმჭიდროვე არათანაბარია და მალული ცხოვრების გამო ადგილობრივად შეიძლება იშვიათად ჩანდეს. ეძებეთ ტყის პირზე, მეჩხერ ტყეში, ბუჩქნარში, ქვიან ფერდობზე და მთისწინეთში — მზით გახურებულ ქვასა და კუნძის ქვეშ. ჭაობსა და ღია სველ დაბლობს თავს არიდებს. სახეობის დონეზე ევროპაში მაღალმთაშიც ფიქსირდება; საქართველოში ზღვის დონის ზუსტი ზღვარი ამ გვერდზე არ არის დადგენილი. დასახელებული საველე ადგილია ბორჯომი–ბაკურიანის მთისწინეთი, თუმცა ეს ერთი დაკვირვებაა და არეალის საზღვარი არ არის.",
+    "diet": "ძირითადად ხვლიკებს იჭერს; პატარა ინდივიდებში ეს მთავარი საკვებია, ზრდასრულში ემატება წვრილი ძუძუმწოვარი. იშვიათად იკვებება სხვა მცირე გველით, მათ შორის გველგესლათი. დიდ მსხვერპლს სხეულის რგოლებით აფიქსირებს — არა დიდი კონსტრიქტორივით ახრჩობს, არამედ იჭერს და ყლაპავს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია.",
+    "behavior": "მალულია. ქართულ გველებში უმეტესობა დღისითაა აქტიური — დილით ადრე და მზის ჩასვლამდე; სპილენძა ღამის სახეობად არ არის გამოყოფილი. ხშირად ქვის ქვეშ რჩება და მოკლე დროში თბება. საფრთხისას თავს აბრტყელებს, ისე რომ გველგესლას ჰგავდეს; შეიძლება სტკივნოს და უკბინოს, თუ დაიჭერენ. არ ეძებს ადამიანს. არ აიყვანოთ — უვნებელია, მაგრამ ველური გველის დაჭერა ზედმეტი რისკია და ცხოველს აზიანებს. კვერცხცოცხლადმშობია: კვერცხები დედის სხეულში იზრდება და ნაშიერი ცოცხალი იბადება, ჩვეულებრივ 2–15 ინდივიდი. ნაშიერთა რიცხვი ცალკე ქართულ კვლევაში არ არის გაზომილი. იზამთრებს სოროში, ქვისა და კლდის ნაპრალში. თბილი სეზონის ფენოლოგია საქართველოში ცალკე არ არის გამოქვეყნებული ამ გვერდის წყაროებში.",
+    "conservation": "IUCN-ის 2017 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის — იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში; ჰაბიტატების დირექტივა საქართველოს კანონი არ არის. ადგილობრივი საფრთხეა ჰაბიტატის გარდაქმნა და გველგესლასთან აღრევის გამო მოკვლა. ხვლიკებსა და წვრილ ძუძუმწოვრებზე ნადირობით მონაწილეობს ადგილობრივ კვებით ჯაჭვში.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/coronella-austriaca.webp",
     "mobileImage": "https://cdn.reptiles.ge/coronella-austriaca-mobile.webp",
@@ -493,11 +493,11 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "მთისწინეთი–ალპი"
+        "value": "ტყის პირი–მთა"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 60–80 სმ"
+        "value": "ჩვეულებრივ <50–70 სმ"
       },
       {
         "label": "შხამი",
@@ -505,7 +505,7 @@ export const species: Species[] = [
       },
       {
         "label": "კონსერვაცია",
-        "value": "ნაკლ. საფრთხე (LC)"
+        "value": "LC"
       },
       {
         "label": "გამრავლება",
@@ -517,41 +517,52 @@ export const species: Species[] = [
       }
     ],
     "facts": [
-      "სახელი „სპილენძა“ სპილენძისფერი ან მოწითალო შეფერილობიდან მოდის; ინგლისურად Smooth snake — გლუვი ქერცლების გამო.",
-      "შხამიანი არ არის, თუმცა თავის ნახატითა და შეფერილობით ხშირად გველგესლას ემსგავსება — ამიტომ ზოგჯერ უსაფუძვლოდ კლავენ.",
-      "კვერცხცოცხლადმშობია: ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი.",
-      "გვარის სახელი Coronella ლათინურად „პატარა გვირგვინს“ ნიშნავს — თავზე ხშირად ჩანს გვირგვინისებრი მუქი ნახატი."
+      "2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების ნდობა საშუალოა — ფართო არეალია, მაგრამ ადგილობრივი სიმჭიდროვე სრულად არ არის დათვლილი.",
+      "საფრთხისას თავს აბრტყელებს და გველგესლას ჰგავს — ეს თავდაცვაა და არა შხამის ნიშანი.",
+      "კავკასიის პოპულაციები ნომინოტიპურ ქვესახეობას C. a. austriaca მიეკუთვნება; ტიპის ადგილი ვენაა და არა საქართველო."
     ],
     "identification": {
-      "summary": "სპილენძა უვნებელი ანკარასებრია, მაგრამ შეფერილობით ხშირად გველგესლას ჰგავს. ამოცნობისთვის შეხედე ქერცლებს, გუგას და თავის ნახატს — არა მხოლოდ ფერს.",
+      "summary": "უვნებელი ანკარასებრია, მაგრამ ფერით ხშირად გველგესლას ჰგავს. ჯერ ქერცელი, გუგა და თავის ნახატი შეამოწმე — არა მხოლოდ ფერი. არ აიყვანო დასათვლელად.",
       "traits": [
-        "ქერცლები გლუვია (არა კილური) — გველგესლასგან განსხვავებით.",
-        "თვალის გუგა მრგვალია; შხამიან გველგესლებს ვერტიკალური გუგა აქვთ.",
-        "თავზე ხშირად ჩანს გვირგვინისებრი მუქი ნახატი (გვარის სახელი Coronella).",
-        "შეფერილობა სპილენძისფერი ან მოწითალოა; სიგრძე დაახლოებით 60–80 სმ.",
-        "მალულია და უპირატესობას ანიჭებს მთისწინეთს, ტყის პირებსა და ქვიან ადგილებს."
+        "ზურგის ქერცელი გლუვია, კილის გარეშე. გველგესლას ზურგის ქერცელი კილურია — შუაში ამოწეული ხაზივით. თავი ვიწროა და კისრისგან ნაკლებად გამოიყოფა, ვიდრე გველგესლასი.",
+        "გუგა მრგვალია. საქართველოს გველგესლებს ვერტიკალური ნაპრალისებრი გუგა აქვთ. თვალიდან ყურისკენ ხშირად მუქი ზოლი გადის. თავის ზურგზე ხშირად გვირგვინისებრი ან გულის ფორმის მუქი ნახატია; გვარის სახელი Coronella — „პატარა გვირგვინი“.",
+        "ფონი სპილენძისფერი, მოყავისფრო ან ნაცრისფერია. ზურგზე ჩვეულებრივ ორი რიგი წვრილი მუქი ლაქაა და არა ერთი უწყვეტი ზიგზაგი. მუცელი ხშირად მუქი ნაცრისფერი ან მოწითალოა, წინწკლებით. ახალგაზრდას ნახატი უფრო კონტრასტულია. ქართული წყაროებით ჩვეულებრივ 50 სმ-ზე მოკლეა, მაქსიმუმ დაახლოებით 70 სმ; ევროპულ გიდებში იშვიათად 80 სმ-მდეა ნახსენები — ეს ქართულ ტიპურ ზომად არ ითვლება.",
+        "კავკასიურ გველგესლას კილური ქერცელი, ვერტიკალური გუგა და ხშირად აგურისფერი ტანი აქვს; ნოტიო დასავლეთისაა. დინიკის გველგესლა დიდი კავკასიონის მაღალმთისაა, რქის გარეშე. ცხვირრქოსანს ნამდვილი ცხვირის რქა აქვს და მცირე კავკასიონის მშრალ კლდეს უკავშირდება. დარევსკის გველგესლა უფრო პატარაა და ჯავახეთ–ერუშეთის მაღალმთას. ჩვეულებრივ ანკარას ხშირად ყვითელი საყელო აქვს და წყალთან ახლოსაა.",
+        "შხამიანი არ არის. თუ შეხვდებით, დაიცავით მანძილი. გველგესლასთან აღრევა ადვილია — ამიტომ უცნობი გველი არ აიყვანოთ."
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა სპილენძა ადამიანისთვის?",
-        "answer": "უვნებელია — შხამი არ აქვს. შეიძლება უკბინოს, თუ დაიჭერენ ან საფრთხეს იგრძნობს, მაგრამ ადამიანისთვის საფრთხეს არ წარმოადგენს."
+        "question": "გვხვდება თუ არა სპილენძა საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. 2021 წლის კვლევა მას მთელ საქართველოში გავრცელებულად ასახელებს."
       },
       {
-        "question": "რით განსხვავდება გველგესლასგან?",
-        "answer": "სპილენძას ქერცლები გლუვია, თვალის გუგა მრგვალია და თავზე ხშირად გვირგვინისებრი ნახატი აქვს. გველგესლას ქერცლები კილურია, გუგა ვერტიკალურად ნაპრალისებრია და ზურგზე ხშირად ზიგზაგისებური ზოლი ჩანს."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "ტყის პირზე, მეჩხერ ტყეში, ბუჩქნარსა და ქვიან მთისწინეთში — ხშირად მზიან ქვის ქვეშ. რუკაზე ყველა 12 რეგიონია. უფრო ნოტიო და მთის ლანდშაფტს უკავშირდება, ვიდრე სამხრეთ-აღმოსავლეთის ნახევრადმშრალ დაბლობს."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "მთისწინეთში, ტყის, სუბალპურ და ალპურ ზონაში — შედარებით მშრალ, ქვიან და ბუჩქნარიან ადგილებში. იმალება სოროებში, ქვებისა და კუნძების ქვეშ."
+        "question": "შხამიანია თუ არა და საშიშია ადამიანისთვის?",
+        "answer": "შხამი არ აქვს და ადამიანისთვის საშიში არ არის. თუ დაიჭერენ, შეიძლება უკბინოს — ეს სამედიცინო საფრთხე არ არის. არ აიყვანოთ: ადვილად ერევა გველგესლას."
+      },
+      {
+        "question": "როგორ განვასხვავო გველგესლასგან?",
+        "answer": "სპილენძას გლუვი ქერცელი, მრგვალი გუგა და რქის გარეშე აქვს; ზურგზე წვრილი ლაქების ორი რიგია. გველგესლას კილური ქერცელი, ვერტიკალური გუგა და ხშირად ზიგზაგი აქვს. არ აიყვანოთ დასათვლელად."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ქართული წყაროებით ჩვეულებრივ 50 სმ-ზე მოკლეა, მაქსიმუმ დაახლოებით 70 სმ. ევროპულ გიდებში იშვიათად უფრო გრძელი ინდივიდიცაა აღწერილი; ეს ქართულ ტიპურ ზომად არ ითვლება."
       },
       {
         "question": "რას ჭამს?",
-        "answer": "ძირითადად ხვლიკებს; აგრეთვე მღრღნელებს, მწერებსა და იშვიათად სხვა მცირე გველებს. დიდ მსხვერპლს სხეულის რგოლებით აფიქსირებს."
+        "answer": "ძირითადად ხვლიკებს; აგრეთვე წვრილ ძუძუმწოვრებს და იშვიათად სხვა მცირე გველს. ქართული კვების კვლევა ცალკე არ არის."
       },
       {
         "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხცოცხლადმშობია (ოვოვივიპარია) — ნაშიერები იბადებიან ცოცხლად, ჩვეულებრივ 2–15 ინდივიდი."
+        "answer": "კვერცხცოცხლადმშობია — ნაშიერი ცოცხალი იბადება, ჩვეულებრივ 2–15 ინდივიდი. ქართული ნაშიერთა რიცხვი ცალკე არ არის გაზომილი."
+      },
+      {
+        "question": "რა უნდა გავაკეთო, თუ შევხვდები?",
+        "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
     "updatedAt": "2026-08-06T13:03:03+04:00",
@@ -561,16 +572,24 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/157284/0"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/5959617"
+        "name": "Crnobrnja-Isailović et al. 2017 — IUCN Red List account for Coronella austriaca",
+        "url": "https://www.iucnredlist.org/species/157284/748852"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Coronella&species=austriaca"
+      },
+      {
+        "name": "Reading & Jofré 2013 — Diet composition of Coronella austriaca",
+        "url": "https://doi.org/10.1163/15685381-00002899"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -3409,13 +3428,13 @@ export const species: Species[] = [
     "scientificName": "Hyla savignyi",
     "genus": "Hyla",
     "family": "Hylidae",
-    "location": "დალის წყალსაცავი; საკონტაქტო ზონა აღმოსავლეთ საქართველოში",
-    "description": "მცირეაზიური ვასაკა — დადასტურებული ხაზი; საკონტაქტო ზონა H. orientalis-თან აღმოსავლეთ საქართველოში.",
-    "overview": "მცირეაზიური ვასაკა (Hyla savignyi) ბიოლოგიურად დადასტურებული სახეობაა. H. arborea კომპლექსის კარგად მხარდაჭერილი ხაზია: მრავალლოკუსიანი გენეტიკა, შეწყვილების ხმები და მორფოლოგია (Kaya and Simmons 1999; Kaya et al. 2009; Litvinchuk et al. 2006; Stöck et al. 2008). H. orientalis-თან პარაპატრიულია აღმოსავლეთ საქართველოში; გენნაკადი საკონტაქტო ზონაში სრულად არ არის გარკვეული, მაგრამ შეზღუდული ინტროგრესია სახეობრივ სტატუსს არ გამორიცხავს, თუ ხაზები ფენოტიპურად და გენეტიკურად რჩება განსხვავებული. გაყოფის დრო 11 მლნ წელს აღემატება. ქვესახეობა H. s. savignyi. ბარკოდი დალის წყალსაცავიდანაა.",
-    "habitat": "ბარკოდი — დალის წყალსაცავი. საკონტაქტო ზონა H. orientalis-თან — აღმოსავლეთ საქართველო.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "ბიოლოგიურად დადასტურებული სახეობაა. საკონტაქტო ზონა H. orientalis-თან აღმოსავლეთ საქართველოში სრულად არ არის გარკვეული.",
+    "location": "სამხრეთ-აღმოსავლეთ საქართველო",
+    "description": "უშხამო ვასაკა სამხრეთ-აღმოსავლეთ საქართველოს მშრალ ზონაში. მთელ ქვეყანაში არ გვხვდება.",
+    "overview": "მცირეაზიური ვასაკა (Hyla savignyi) უშხამო ვასაკაა სამხრეთ-აღმოსავლეთ საქართველოს მშრალ ზონაში. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. ზრდასრული ჩვეულებრივ დაახლოებით 3–5 სმ-ია. ადამიანისთვის საშიში არ არის. მთელ საქართველოში არ გვხვდება. ეძებეთ ივრის ხეობაში, ვაშლოვანის მიდამოებში და თბილისის სამხრეთ-აღმოსავლეთით — სტეპში, ბუჩქნარსა და წყალთან, არა ნოტიო კოლხურ ტყეში. დასავლეთ საქართველოს ძველი ჩანაწერები შეცდომად ითვლება. ქვეყნის დანარჩენ ნაწილში ვასაკა, როგორც წესი, აღმოსავლური ვასაკაა (Hyla orientalis). ძველ წიგნებში ხშირად იწერებოდა Hyla arborea savignyi. ახლა ცალკე სახეობაა. ჩამონათვალში ქვესახეობაა H. s. savignyi. აღმოსავლეთ საქართველოში ორი ვასაკის არეალი ერთმანეთს ეხება და თითქმის არ ემთხვევა; იქ გენების გადასვლა სრულად არ არის გარკვეული.",
+    "habitat": "საქართველოში ეს უფრო მშრალი ადგილების ვასაკაა, ვიდრე ტყის. ეძებეთ სტეპში, ბუჩქნარში, ბაღსა და წყალთან — გუბესთან, ტბორთან ან ნელ ნაკადულთან. შორი მშრალ ფერდობზეც შეიძლება გამოჩნდეს. ამ ატლასის რუკაზე აღნიშნულია კახეთი. 2026 წლის ჩამონათვალის დნმ-ნიმუში დალის წყალსაცავიდანაა (დედოფლისწყარო, მდინარე იორი). დასახელებულია აგრეთვე ივრის ტყეები და ვაშლოვანის ნაკრძალი. ალაზნის ველი ლიტერატურაშია, მაგრამ ზუსტი წერტილის გარეშე. კარგად დოკუმენტირებული ძველი ადგილია თბილისის სამხრეთი. თელავის პოპულაცია შუალედურ ნიშნებს აჩვენებს და ამ გვერდზე სუფთა H. savignyi-ად არ ითვლება. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა არეალს თბილისის სამხრეთ-აღმოსავლეთით აჯამებს. საქართველოში ზღვის დონიდან სიმაღლე აქ არ არის დადგენილი. არეალი გრძელდება სომხეთში, დასავლეთ აზერბაიჯანში, ანატოლიასა და ახლო აღმოსავლეთში.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. სახეობის დონეზე ზრდასრული იჭერს უხერხემლოებს, ძირითადად მწერებს. ლიფსიტები წყალმცენარეებსა და მცენარეულ ნარჩენს ჭამენ.",
+    "behavior": "დღისით ხშირად ზის ფოთოლზე, ბუჩქზე ან იმალება ქვის, მორის და სოროს ქვეშ. ქვირითობს პატარა, უმეტესად მდგარ წყალში — გუბეში, ტბორში, ზოგჯერ ნელ ნაკადულში, სადაც ბალახი და ბუჩქი მკვრივია. შეწყვილებისას მამრი ხმით იძახის; ხმა აღმოსავლური ვასაკასგან განსხვავდება. საქართველოში სეზონური აქტივობის ზუსტი კალენდარი ამ გვერდზე არ არის. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევებს შორის არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის.",
+    "conservation": "IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern): არეალი ფართოა და პოპულაცია დიდად ითვლება. საქართველოს 2014 წლის წითელ ნუსხაში ეს სახეობა არ არის. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა ეროვნულ სტატუსსაც ნაკლებ საფრთხედ მიიჩნევს. ადგილობრივად შეიძლება იკლოს, თუ ქვირითობის გუბეები გაშრება ან დაბინძურდება. ვაშლოვანისა და ჭაჭუნის მიდამოებში ნაწილი დაცულ ტერიტორიაზეა. აღმოსავლეთ საქართველოში H. orientalis-თან საკონტაქტო ზონა სრულად არ არის შესწავლილი.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/hyla-savignyi.jpg",
     "imageCredit": {
@@ -3453,11 +3472,19 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "დალის წყალსაცავი"
+        "value": "სტეპი, ბუჩქნარი, წყალთან"
+      },
+      {
+        "label": "ზომა",
+        "value": "დაახლ. 3–5 სმ"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
       },
       {
         "label": "ოჯახი",
@@ -3466,30 +3493,47 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "ვასაკა (Hyla), ბიოლოგიურად დადასტურებული. აღმოსავლეთ საქართველოში საკონტაქტო ზონა აქვს კანდიდატ H. orientalis-თან.",
+      "summary": "პატარა, გლუვკანიანი ვასაკაა წებოვანი დისკებით თითების ბოლოზე. საქართველოში ყველაზე ხშირად აღმოსავლურ ვასაკას ერევა; ადგილი ხშირად ფერზე საიმედოა.",
       "traits": [
-        "Hyla savignyi; მხარდაჭერილია გენეტიკით, ხმით და მორფოლოგიით.",
-        "ბარკოდი: დალის წყალსაცავი.",
-        "პარაპატრიულია H. orientalis-თან აღმოსავლეთ საქართველოში.",
-        "ქვესახეობა H. s. savignyi."
+        "სხეული მოკლეა, კანი გლუვი. თითების ბოლოზე მომრგვალო წებოვანი დისკებია — ამით ვასაკა ტბორის ბაყაყისგან და გომბეშოსგან გამოირჩევა. ზრდასრული ჩვეულებრივ დაახლოებით 3–5 სმ-ია.",
+        "ზურგი უმეტესად ღია მწვანე ან მოყვითალოა, ლაქების გარეშე. ფერი ტემპერატურისა და ფონის მიხედვით შეიძლება შეიცვალოს. გვერდზე ხშირად მუქი ზოლია, რომელიც საზარდულთან მარყუჟს არ ქმნის; მხოლოდ ამ ზოლზე დაყრდნობა შეცდომას იწვევს, რადგან აღმოსავლურ ვასაკასაც ზოგჯერ იგივე ნიშანი აქვს.",
+        "თვალის ქვემოთ ზედა ტუჩზე მუქი ლაქა ჩვეულებრივ არ ჩანს. ყურის აპკი თვალზე პატარაა. თვალები დიდია. ეს ნიშნები სასარგებლოა, მაგრამ საქართველოში ორი ვასაკის გასაყოფად საკმარისი არ არის.",
+        "აღმოსავლური ვასაკა (Hyla orientalis) იგივე გვარისაა. იგი საქართველოს უმეტეს ნაწილშია, გარდა ამ სახეობის არეალისა. მცირეაზიური ვასაკა უფრო მშრალ, უტყეო ადგილებშია თბილისის სამხრეთ-აღმოსავლეთით. შეწყვილების ხმა განსხვავდება. საკონტაქტო ზონაში, მათ შორის თელავთან, გარეგნობა შეიძლება შუალედური იყოს.",
+        "ტბორის ბაყაყი (Pelophylax ridibundus) უფრო დიდია, წყალში რჩება და თითებზე წებოვანი დისკები არა აქვს. გომბეშოებს მეჭეჭებიანი კანი აქვთ და ხეებზე არ ადიან."
       ]
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა Hyla savignyi საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად მიიჩნევს. ბარკოდი დალის წყალსაცავიდანაა."
+        "question": "გვხვდება თუ არა მცირეაზიური ვასაკა საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალი ბიოლოგიურად დადასტურებულად მიიჩნევს. დნმ-ნიმუში დალის წყალსაცავიდანაა."
       },
       {
-        "question": "სად ეხება Hyla orientalis-ს?",
-        "answer": "აღმოსავლეთ საქართველოში პარაპატრიულია; გენნაკადი საკონტაქტო ზონაში სრულად არ არის გარკვეული."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "სამხრეთ-აღმოსავლეთში, განსაკუთრებით კახეთში — ივრის ხეობა, დალის წყალსაცავი, ვაშლოვანი — და თბილისის სამხრეთით. დასავლეთ საქართველოსა და ნოტიო ტყეში ნუ ეძებთ. რუკაზე აღნიშნულია კახეთი."
       },
       {
-        "question": "არის თუ არა კანდიდატი?",
-        "answer": "არა. ეს სახეობა ბიოლოგიურად დადასტურებულია. კანდიდატია H. orientalis."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს და ადამიანისთვის უვნებელია. არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა მწვანე ან მოყვითალო ბაყაყი გლუვი კანით და წებოვანი დისკებით თითებზე. საქართველოში ადგილი მნიშვნელოვანია: ეს სახეობა მშრალ სამხრეთ-აღმოსავლეთშია."
+      },
+      {
+        "question": "რით განსხვავდება აღმოსავლური ვასაკასგან?",
+        "answer": "ორივე ვასაკაა. მცირეაზიური უფრო პატარა და ღია ფერისაა, მაგრამ ველში ფერი საიმედო არ არის. საიმედოა არეალი: ეს სახეობა თბილისის სამხრეთ-აღმოსავლეთის მშრალ ზონაშია, აღმოსავლური — ქვეყნის უმეტეს ნაწილში. საკონტაქტო ზონაში გარეგნობა შეიძლება აირიოს."
+      },
+      {
+        "question": "რამდენად დიდი იზრდება?",
+        "answer": "ზრდასრული ჩვეულებრივ დაახლოებით 3–5 სმ-ია ცხვირიდან კლოაკამდე. საქართველოში ცალკე გაზომვები ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ზრდასრული — უხერხემლოებს, ძირითადად მწერებს. ქართული კვების კვლევა ამ გვერდზე არ არის. ლიფსიტები წყალმცენარეებს ჭამენ."
+      },
+      {
+        "question": "რა ვქნა, თუ შევხვდები?",
+        "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
     "updatedAt": "2026-08-18T21:11:31+04:00",
@@ -3499,11 +3543,28 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Tarkhnishvili 1996 — The distribution and ecology of the amphibians of Georgia and the Caucasus",
+        "url": "http://eprints.iliauni.edu.ge/503/1/Amphibian%20biogeography%2096.pdf"
       },
       {
-        "name": "AmphibiaWeb",
+        "name": "Tarkhnishvili & Gokhelashvili 1999 — The amphibians of the Caucasus (AmphibiaWeb species account)",
         "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Hyla&where-species=savignyi"
+      },
+      {
+        "name": "Frost — Amphibian Species of the World (Hyla savignyi)",
+        "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Anura/Hylidae/Hylinae/Hyla/Hyla-savignyi"
+      },
+      {
+        "name": "Kuzmin et al. — IUCN Red List (Hyla savignyi)",
+        "url": "https://www.iucnredlist.org/species/55647/11347491"
+      },
+      {
+        "name": "National Geographic Georgia / National Museum — Yellow-lemon Treefrog map",
+        "url": "https://map.nationalgeographic.ge/en/element/mcireaziuri-vasaka/"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -7292,7 +7353,7 @@ export const species: Species[] = [
         "answer": "2014 წლის სახელმწიფო ნუსხა სხვა სახელებს მიჰყვება (დინიკის და კავკასიური გველგესლა). IUCN-ის NT გაყოფილ კავკასიურ ტაქსონს ეხება. ძველ წითელ წიგნებში იყო; ეს 2014 წლის ნუსხა არ არის."
       }
     ],
-    "updatedAt": "2026-08-20T02:36:06+04:00",
+    "updatedAt": "2026-08-20T13:49:26+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -8021,21 +8082,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "coronella-austriaca": {
     "commonName": "Smooth snake",
-    "location": "Georgia — foothills and mountains",
-    "description": "A harmless colubrid snake with copper-toned coloring — secretive, smooth-scaled, and often confused with a viper.",
-    "overview": "The smooth snake (Coronella austriaca) is a harmless snake of the colubrid family. It is distributed from Europe to western Asia — including Turkey, Georgia, Armenia, Azerbaijan, and northern Iran. In Georgia it occurs in the foothills, forest, subalpine, and alpine zones; it prefers relatively dry terrain. Its name comes from its coppery or reddish coloration. It is classified as Least Concern by the IUCN.",
-    "habitat": "It inhabits open woodland, forest edges, scrub, rocky slopes, meadows, and the subalpine-alpine zone. In Georgia — from the foothills to the high mountains. It hides in burrows, under stones and logs, often in sun-warmed rocky spots. It avoids open, damp lowlands and marshes.",
-    "diet": "It feeds mainly on lizards; also rodents, insects, lizard eggs, and occasionally other small snakes. It pins and constricts larger prey with coils of its body — not a true constrictor, but constriction is an important part of its hunting.",
-    "behavior": "It is a secretive, diurnal snake. Its coloring and head pattern often resemble a viper's, though its scales are smooth (not keeled), its pupil is round, and a crown-like dark pattern is often visible on its head — the source of the genus name Coronella. It is ovoviviparous: young are born live, usually 2–15 individuals. Adult length is roughly 60–80 cm.",
-    "conservation": "Classified as Least Concern on the IUCN Red List. In Europe it is protected under the Bern Convention and the Habitats Directive. Local threats include habitat conversion and killing due to confusion with vipers. It benefits the ecosystem by regulating lizard and rodent numbers.",
+    "location": "Georgia — widespread",
+    "description": "A harmless, smooth-scaled snake of Georgia — secretive and often mistaken for a viper.",
+    "overview": "The smooth snake (Coronella austriaca) is a harmless snake found across Georgia — smooth-scaled, round-pupilled, and often mistaken for a viper. The 2026 Georgian checklist treats it as biologically confirmed. It belongs to the colubrid family and has no venom. The range runs from Europe to western Asia, including the Caucasus. The Georgian name refers to coppery or reddish colour; the English name refers to the unkeeled scales. Georgian sources treat it as a small snake, usually under 50 cm and at most about 70 cm. It is Least Concern on the IUCN Red List and is not on Georgia’s 2014 Red List.",
+    "habitat": "A 2021 study of snakes in Georgia lists the smooth snake as widespread through the country, together with the grass snake and the dice snake. The same paper also groups it with species of relatively humid climate (with the Caucasus viper and the Aesculapian snake), not with the semi-arid south-east specialists such as the Levantine viper. This atlas maps all 12 regions. Distribution confidence in the checklist is medium: a broad range is supported, but local density is uneven, and the species is easy to miss because it stays hidden. Look for it at forest edges, in open woodland, scrub, rocky slopes and foothills — often under sun-warmed stones and logs. It avoids marshes and open wet lowlands. In Europe it is also recorded in high mountains; a precise elevation limit for Georgia is not established on this page. A named field locality is the Borjomi–Bakuriani foothills; that is a single observation, not a range boundary.",
+    "diet": "It takes mainly lizards; in small individuals that is the main prey, and adults also eat small mammals. Other small snakes, including vipers, are taken occasionally. It coils around larger prey to hold it — not as a large constrictor that suffocates prey, but to pin and swallow it. There is no separate Georgian diet study on this page; this is species-level evidence.",
+    "behavior": "It is secretive. Most Georgian snakes are active by day — early morning and before sunset; this species is not listed as nocturnal. It often stays under stones and basks for short periods. When threatened it flattens its head so it looks more like a viper; it may hiss and bite if handled. It does not hunt people. Do not pick it up — it is harmless, but handling wild snakes is unnecessary risk and harms the animal. It is ovoviviparous: eggs develop inside the female and the young are born live, usually 2–15. Litter size has not been measured in a separate Georgian study. It overwinters in burrows and in gaps under stones and rock. Warm-season timing in Georgia is not published separately in the sources used here.",
+    "conservation": "The 2017 IUCN assessment lists it as Least Concern. It is not on Georgia’s 2014 Red List, which does include Dinnik’s viper and the Caucasus viper. In Europe it is listed on Appendix II of the Bern Convention and Annex IV of the EU Habitats Directive; the Habitats Directive is not Georgian law. Local threats are habitat conversion and killing after confusion with vipers. As a predator of lizards and small mammals it belongs in local food webs.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Foothills–alpine zone"
+        "value": "forest edge–mountains"
       },
       {
         "label": "Length",
-        "value": "approx. 60–80 cm"
+        "value": "usually <50–70 cm"
       },
       {
         "label": "Venom",
@@ -8043,7 +8104,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Conservation",
-        "value": "Least Concern (LC)"
+        "value": "LC"
       },
       {
         "label": "Reproduction",
@@ -8055,41 +8116,52 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "facts": [
-      "The name \"smooth snake\" refers to its smooth scales; its coppery or reddish coloring gave rise to its Georgian name.",
-      "It is not venomous, though its head pattern and coloring often resemble a viper's — so it is sometimes killed without cause.",
-      "It is ovoviviparous: young are born live, usually 2–15 individuals.",
-      "The genus name Coronella means \"little crown\" in Latin — a crown-like dark pattern is often visible on its head."
+      "The 2026 checklist treats it as biologically confirmed; distribution confidence is medium — a broad range is known, but local density is not fully counted.",
+      "When threatened it flattens its head and looks like a viper — a defence, not a sign of venom.",
+      "Caucasian populations belong to the nominotypical subspecies C. a. austriaca; the type locality is Vienna, not Georgia."
     ],
     "identification": {
-      "summary": "The smooth snake is a harmless colubrid often mistaken for a viper because of its coloring. Check the scales, pupil, and head pattern — not color alone.",
+      "summary": "A harmless colubrid often mistaken for a viper by colour. Check scales, pupil and head pattern first — not colour alone. Do not pick it up to count scales.",
       "traits": [
-        "Scales are smooth (not keeled), unlike vipers.",
-        "The pupil is round; venomous vipers have a vertical pupil.",
-        "A crown-like dark pattern is often visible on the head (genus name Coronella).",
-        "Coloring is copper to reddish; length is roughly 60–80 cm.",
-        "It is secretive and favors foothills, forest edges, and rocky cover."
+        "Dorsal scales are smooth, without a keel. Viper dorsal scales are keeled — a raised ridge down the centre. The head is narrow and less set off from the neck than in a viper.",
+        "The pupil is round. Georgian vipers have a vertical slit pupil. A dark stripe often runs from the eye toward the neck. The crown of the head often has a dark crown- or heart-shaped mark; the genus name Coronella means “little crown”.",
+        "Ground colour is copper, brown or grey. The back usually has two rows of small dark spots, not a single unbroken zigzag. The belly is often dark grey or reddish with mottling. Juveniles are more contrasty. Georgian sources treat adults as usually under 50 cm, at most about 70 cm; European guides rarely mention 80 cm — that is not treated here as typical for Georgia.",
+        "The Caucasus viper has keeled scales, a vertical pupil and often a brick-red body; it is a humid western species. Dinnik’s viper is a Greater Caucasus highland snake without a horn. The nose-horned viper has a true nose horn and is tied to dry Lesser Caucasus rock. Darevsky’s viper is smaller and tied to the Javakheti–Erusheti highlands. The grass snake often has a yellow collar and stays near water.",
+        "It is not venomous. If you meet one, keep your distance. Confusion with vipers is easy — so do not pick up an unidentified snake."
       ]
     },
     "faq": [
       {
-        "question": "Is the smooth snake dangerous to humans?",
-        "answer": "It is harmless — it has no venom. It may bite if caught or threatened, but it poses no danger to humans."
+        "question": "Is the smooth snake found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. A 2021 study lists it as widespread through Georgia."
       },
       {
-        "question": "How does it differ from a viper?",
-        "answer": "The smooth snake has smooth scales, a round pupil, and often a crown-like pattern on its head. A viper has keeled scales, a vertically slit pupil, and often a zigzag stripe along its back."
+        "question": "Where might I see it in Georgia?",
+        "answer": "At forest edges, in open woodland, scrub and rocky foothills — often under sun-warmed stones. The map marks all 12 regions. It is tied more to humid and montane landscapes than to the semi-arid south-east lowlands."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "In the foothills, forest, subalpine, and alpine zones — in relatively dry, stony, scrubby terrain. It hides in burrows, under stones and logs."
+        "question": "Is it venomous or dangerous to humans?",
+        "answer": "It has no venom and is not dangerous to people. It may bite if handled — that is not a medical emergency. Do not pick it up: it is easily confused with vipers."
+      },
+      {
+        "question": "How do I tell it from a viper?",
+        "answer": "The smooth snake has smooth scales, a round pupil and no horn; the back has two rows of small spots. A viper has keeled scales, a vertical pupil and often a zigzag. Do not pick it up to check."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Georgian sources treat it as usually under 50 cm, at most about 70 cm. European guides rarely describe longer individuals; that is not treated here as typical for Georgia."
       },
       {
         "question": "What does it eat?",
-        "answer": "Mainly lizards; also rodents, insects, and occasionally other small snakes. It pins larger prey with coils of its body."
+        "answer": "Mainly lizards; also small mammals and occasionally other small snakes. There is no separate Georgian diet study."
       },
       {
         "question": "Does it lay eggs or give live birth?",
-        "answer": "It is ovoviviparous — young are born live, usually 2–15 individuals."
+        "answer": "It is ovoviviparous — young are born live, usually 2–15. Georgian litter size has not been measured separately."
+      },
+      {
+        "question": "What should I do if I meet one?",
+        "answer": "Keep your distance and give it a way out. Do not kill it or pick it up. An unidentified snake may be a viper."
       }
     ],
     "gallery": [
@@ -10354,21 +10426,29 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "hyla-savignyi": {
     "commonName": "Yellow-Lemon Treefrog",
-    "location": "Dali Reservoir; contact zone in eastern Georgia",
-    "description": "Yellow-lemon treefrog — a confirmed lineage; contact zone with H. orientalis in eastern Georgia.",
-    "overview": "The yellow-lemon treefrog (Hyla savignyi) is biologically confirmed. It is a well-supported lineage in the H. arborea complex: multilocus genetics, mating calls, and morphology (Kaya and Simmons 1999; Kaya et al. 2009; Litvinchuk et al. 2006; Stöck et al. 2008). It is parapatric with H. orientalis in eastern Georgia; gene flow across the contact zone is not fully resolved, but limited introgression does not preclude species status if the lineages stay phenotypically and genetically distinct. Divergence estimates exceed 11 million years. Subspecies H. s. savignyi. The barcode is from Dali Reservoir.",
-    "habitat": "Barcode — Dali Reservoir. Contact zone with H. orientalis — eastern Georgia.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "Biologically confirmed. The contact zone with H. orientalis in eastern Georgia is not fully resolved.",
+    "location": "south-eastern Georgia",
+    "description": "A harmless treefrog of dry country in south-eastern Georgia. It does not occur throughout the country.",
+    "overview": "The yellow-lemon treefrog (Hyla savignyi) is a harmless treefrog of south-eastern Georgia’s dry country. The 2026 Georgian checklist treats it as biologically confirmed. Adults are usually about 3–5 cm long. It is not dangerous to people. It does not occur throughout Georgia. Look for it in the Iori valley, around Vashlovani, and south-east of Tbilisi — in steppe, shrub and near water, not in humid Colchic forest. Old records from western Georgia are treated as errors. In the rest of the country a treefrog is usually the eastern treefrog (Hyla orientalis). Older books often listed it as Hyla arborea savignyi. It is now a separate species. The checklist uses the subspecies H. s. savignyi. In eastern Georgia the two treefrogs meet with little overlap; gene flow across that contact zone is not fully resolved.",
+    "habitat": "In Georgia this is a treefrog of drier ground, not of closed forest. Look for it in steppe, shrub, gardens and near water — pools, ponds or slow streams. It may also appear on dry slopes far from water. This atlas marks Kakheti. The 2026 checklist DNA sample is from Dali Reservoir (Dedoplistskaro, Iori). Named sites also include woods along the Iori and Vashlovani Reserve. The Alazani valley is mentioned in the literature without a precise point. A well-documented older locality is south of Tbilisi. The Telavi population shows mixed characters and is not treated here as pure H. savignyi. The South Caucasus biodiversity map summarises the range as south-east of Tbilisi. Elevation in Georgia is not established on this page. The range continues in Armenia, western Azerbaijan, Anatolia and the Near East.",
+    "diet": "There is no separate Georgian diet study on this page. At species level, adults take invertebrates, mainly insects. Tadpoles eat algae and plant debris.",
+    "behavior": "By day it often sits on leaves or shrubs, or hides under stones, logs and in burrows. It breeds in small, mostly still water — ponds, puddles and sometimes slow brooks with dense herb and shrub cover. Breeding males call; the call differs from that of the eastern treefrog. A precise seasonal calendar for Georgia is not given here. If you find one, leave it where it is. Do not pick it up or move it between water bodies. Wash your hands after any contact. It is not a medical risk to people.",
+    "conservation": "The IUCN Red List assesses it as Least Concern: the range is wide and the population is thought to be large. It is not on Georgia’s 2014 Red List. The South Caucasus biodiversity map also treats the national status as Least Concern. Local numbers can still fall if breeding pools dry or become polluted. Part of the Georgian range lies in or near Vashlovani and Chachuna. The contact zone with H. orientalis in eastern Georgia is not fully studied.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Dali Reservoir"
+        "value": "Steppe, shrub, near water"
+      },
+      {
+        "label": "Size",
+        "value": "about 3–5 cm"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
       },
       {
         "label": "Family",
@@ -10377,30 +10457,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "A treefrog (Hyla), biologically confirmed. In eastern Georgia it has a contact zone with candidate H. orientalis.",
+      "summary": "A small, smooth-skinned treefrog with sticky pads on the toe tips. In Georgia it is most often confused with the eastern treefrog; place is often more reliable than colour.",
       "traits": [
-        "Hyla savignyi; supported by genetics, call, and morphology.",
-        "Barcode: Dali Reservoir.",
-        "Parapatric with H. orientalis in eastern Georgia.",
-        "Subspecies H. s. savignyi."
+        "The body is short and the skin is smooth. Rounded sticky pads on the toe tips separate a treefrog from marsh frogs and toads. Adults are usually about 3–5 cm long.",
+        "The back is usually light green or yellowish, without spots. Colour can change with temperature and background. A dark side stripe often runs without a loop at the groin; that stripe alone is unreliable, because some eastern treefrogs show the same mark.",
+        "A dark spot on the upper lip below the eye is usually absent. The eardrum is smaller than the eye. The eyes are large. These marks help, but they are not enough on their own to split the two Georgian treefrogs.",
+        "The eastern treefrog (Hyla orientalis) is the same genus. It occurs through most of Georgia except this species’ range. The yellow-lemon treefrog lives in drier, less forested country south-east of Tbilisi. The breeding call differs. In the contact zone, including around Telavi, appearance can be intermediate.",
+        "The marsh frog (Pelophylax ridibundus) is larger, stays in water and lacks sticky toe pads. Toads have warty skin and do not climb like treefrogs."
       ]
     },
     "faq": [
       {
-        "question": "Does Hyla savignyi occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026 list it as biologically confirmed. The barcode is from Dali Reservoir."
+        "question": "Does the yellow-lemon treefrog occur in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. The DNA sample is from Dali Reservoir."
       },
       {
-        "question": "Where does it meet Hyla orientalis?",
-        "answer": "They are parapatric in eastern Georgia; gene flow across the contact zone is not fully resolved."
+        "question": "Where can it be found in Georgia?",
+        "answer": "In the south-east, especially Kakheti — the Iori valley, Dali Reservoir, Vashlovani — and south of Tbilisi. Do not expect it in western Georgia or humid forest. The map marks Kakheti."
       },
       {
-        "question": "Is it a candidate species?",
-        "answer": "No. This species is biologically confirmed. H. orientalis is the candidate species."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom and is harmless to people. Do not pick it up. Wash your hands after any contact."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. Venom: none."
+        "question": "How can it be identified?",
+        "answer": "A small green or yellowish frog with smooth skin and sticky pads on the toes. In Georgia, place matters: this species is the dry south-east treefrog."
+      },
+      {
+        "question": "How does it differ from the eastern treefrog?",
+        "answer": "Both are treefrogs. This species is often smaller and paler, but colour is not reliable in the field. Range is more useful: this species is the dry country south-east of Tbilisi; the eastern treefrog occupies most of the rest of Georgia. In the contact zone they can look alike."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Adults are usually about 3–5 cm from snout to vent. Separate Georgian measurements are not given on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Adults take invertebrates, mainly insects. There is no Georgian diet study on this page. Tadpoles eat algae."
+      },
+      {
+        "question": "What should I do if I find one?",
+        "answer": "Watch it and leave it where it is. Do not pick it up. It is not a medical risk to people."
       }
     ],
     "gallery": [

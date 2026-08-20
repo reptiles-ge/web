@@ -55,7 +55,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "hyla-savignyi": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["grassland", "wetland"],
   },
   "rana-macrocnemis": {
     group: "amphibian",

@@ -56,6 +56,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["წენგოსფერი მცურავი"],
     en: ["Dahl's whip snake"],
   },
+  "elaphe-urartica": {
+    ka: [
+      "ურარტუს ხალებიანი მცურავი",
+      "ლაქებიანი მცურავი",
+      "Elaphe sauromates",
+    ],
+    en: [
+      "Urartian rat snake",
+      "blotched ratsnake",
+      "Elaphe sauromates",
+    ],
+  },
   "elaphe-dione": {
     ka: ["სახეებიანი მცურავი"],
     en: ["steppe ratsnake"],
@@ -67,6 +79,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   "zamenis-longissimus": {
     ka: ["ესკულაპის მცურავი", "გრძელი მცურავი"],
     en: ["Aesculapian snake"],
+  },
+  "coronella-austriaca": {
+    ka: ["გლუვი გველი", "სპილენძა გველი"],
+    en: ["smooth snake", "Coronella"],
+  },
+  "hyla-savignyi": {
+    ka: ["Hyla arborea savignyi"],
+    en: [
+      "Savigny's treefrog",
+      "lemon-yellow treefrog",
+      "Middle East treefrog",
+      "Hyla arborea savignyi",
+    ],
   },
   "bufotes-viridis": {
     ka: ["Bufo viridis"],
