@@ -48,6 +48,15 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["ველის გველგესლა", "სტეპის გველგესლა", "გველგესლა"],
     en: ["eastern steppe viper", "steppe viper"],
   },
+  "paralaudakia-caucasia": {
+    ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
+    en: [
+      "Caucasian rock agama",
+      "Laudakia caucasia",
+      "Agama caucasica",
+      "Stellio caucasius",
+    ],
+  },
   "pseudopus-apodus": {
     ka: ["გველხოკერა"],
     en: ["European glass lizard", "sheltopusik"],

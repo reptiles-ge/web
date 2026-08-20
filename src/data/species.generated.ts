@@ -4054,6 +4054,19 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
       },
       {
+        "src": "/images/macrovipera-lebetina-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-zakro-2.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "24 იანვარი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
@@ -4622,6 +4635,12 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/natrix-natrix-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/natrix-natrix-2.jpg",
         "credit": {
           "photographer": "Andreas Eichler",
@@ -5006,7 +5025,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და სხვა ტბაში არ გადაიტანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-19T11:40:55+04:00",
+    "updatedAt": "2026-08-20T14:08:47+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5142,51 +5161,60 @@ export const species: Species[] = [
     "scientificName": "Paralaudakia caucasia",
     "genus": "Paralaudakia",
     "family": "Agamidae",
-    "location": "საქართველო",
-    "description": "საქართველოს ერთადერთი აღამიდი ხვლიკი ჩამონათვალში — კლდოვანი, დღისით აქტიური, ადამიანისთვის უვნებელი.",
-    "overview": "ჯოჯო (Paralaudakia caucasia) აღამიდების ოჯახის ხვლიკია. Tarkhnishvili et al. 2026 ჩამონათვალში ბიოლოგიურად დადასტურებულ სახეობადაა შეტანილი; ეს არის საქართველოს ატლასის ერთადერთი Agamidae. რეგიონული რუკა ამ სახეობაზე ჯერ ცარიელია — არეალი აქ არ არის გამოგონილი. ჰაბიტატი, რომელსაც წყაროები ზოგადად უკავშირებენ, კლდოვანი და მშრალი ღია ადგილებია.",
-    "habitat": "კლდოვანი ფერდობები და მშრალი ღია ჰაბიტატები. საქართველოს რეგიონების სია ამ გვერდზე მხოლოდ მაშინ გამოჩნდება, როცა ჩანაწერი regions.ts-ში დადასტურდება.",
-    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.",
-    "behavior": "დღისით აქტიურია. ხშირად გამორჩეულ ქვებზე თბება და საფრთხისას ნაპრალში იფარება; შეიძლება სხეული გაბეროს.",
-    "conservation": "ჩამონათვალში დადასტურებულია. გლობალური IUCN სტატუსი ამ გვერდზე მხოლოდ ზოგადი ბმულითაა — კონკრეტული შეფასება გადაამოწმე IUCN-ზე. ადგილობრივ საფრთხეებს შეიძლება ჰაბიტატის გარდაქმნა მიეკუთვნებოდეს.",
+    "location": "აღმოსავლეთი და სამხრეთი; ადგილობრივად დასავლეთი",
+    "description": "საქართველოს ერთადერთი აღამიდი ხვლიკი — კლდოვანი, დღისით აქტიური, უშხამო.",
+    "overview": "ჯოჯო (Paralaudakia caucasia) საქართველოს ერთადერთი აღამიდი ხვლიკია: კლდოვანი, დღისით აქტიური და ადამიანისთვის უშხამო. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. კლდოვან ადგილებში გვხვდება აღმოსავლეთ და სამხრეთ საქართველოში, დასავლეთში კი მხოლოდ ადგილობრივად. ბარკოდირებული ნიმუშებია ფია, თმოგვი და ფანტიშარას ხეობა; ნაშრომის ფიგურა დედოფლისწყაროს მუნიციპალიტეტიდანაა, დათვისხევის ხეობიდან. ტიპის ადგილი ისტორიულად თბილისსა და ბაქოს მოიცავს. მთელ ქვეყანაში, მათ შორის კოლხეთის ტენიან ტყეში, არ გვხვდება.",
+    "habitat": "კლდოვანი ფერდობები და მშრალი, ნახევრად მშრალი ღია ლანდშაფტები; იშვიათად ქვებიანი ვაკე. საფარს ნაპრალები, ქვების ქვეშ არსებული სივრცეები და სოროები იძლევა. Tarkhnishvili et al. 2026: აღმოსავლეთი და სამხრეთი საქართველო, დასავლეთში ადგილობრივად. დადასტურებული ლოკალიტეტები ამ ატლასში: ასპინძის მუნიციპალიტეტი (ფია, თმოგვი — სამცხე–ჯავახეთი) და დედოფლისწყარო (დათვისხევი, ფანტიშარა — კახეთი). ქართული ენციკლოპედია დამატებით ასახელებს ივრის ზეგანს, ქართლს, ბორჯომის მუნიციპალიტეტსა და მესხეთს; ეს წერტილები 2026 წლის ბარკოდების სიაში არ არის და რუკაზე ცალკე არ იხატება. დასავლეთის ზუსტი მუნიციპალიტეტები ჩამონათვალში არ არის დასახელებული.",
+    "diet": "ძირითადად მწერები და სხვა ფეხსახსრიანები, მათ შორის ობობასნაირები. ქართული ენციკლოპედია მცენარეულ საკვებსაც ასახელებს. 2026 წლის ჩამონათვალი დიეტას არ აკონკრეტებს.",
+    "behavior": "დღისით აქტიურია. ხშირად გამორჩეულ ქვებზე და კლდის რაფებზე თბება; საფრთხისას ნაპრალში იფარება და შეიძლება სხეული გაბეროს. კვერცხისმდებელია. საქართველოში დადების თვე და ნაშთების რაოდენობა 2026 წლის ჩამონათვალში არ არის მითითებული. გარეულ ცხოველს ხელით ნუ შეეხებით.",
+    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებულია. IUCN-ის 2017 წლის შეფასებით სახეობა გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern). 2014 წლის საქართველოს წითელ ნუსხაში არ არის შეტანილი. ზოგი წყარო ძველ გვარის სახელს Laudakia caucasia იყენებს; 2026 წლის ქართული ჩამონათვალი იღებს Paralaudakia caucasia-ს.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
     "imageCredit": {
       "photographer": "Геннадий",
-      "url": "https://www.inaturalist.org/observations/119628986"
+      "url": "https://www.inaturalist.org/observations/119628986",
+      "location": "დაღესტანი, რუსეთი"
     },
     "mobileImage": "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Titouan Roguet",
-      "url": "https://www.inaturalist.org/observations/182026571"
+      "url": "https://www.inaturalist.org/observations/182026571",
+      "location": "საგარეჯოს მუნიციპალიტეტი"
     },
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
         "credit": {
           "photographer": "Геннадий",
-          "url": "https://www.inaturalist.org/observations/119628986"
+          "url": "https://www.inaturalist.org/observations/119628986",
+          "location": "დაღესტანი, რუსეთი"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-2.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/241671168"
+          "url": "https://www.inaturalist.org/observations/241671168",
+          "location": "გეღარქუნიქი, სომხეთი"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-3.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/241671169"
+          "url": "https://www.inaturalist.org/observations/241671169",
+          "location": "გეღარქუნიქი, სომხეთი"
         }
       }
     ],
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "კლდოვანი / ღია"
+        "value": "კლდოვანი / მშრალი"
+      },
+      {
+        "label": "ზომა",
+        "value": "SVL ≈ 12–15 სმ"
       },
       {
         "label": "შხამი",
@@ -5201,36 +5229,49 @@ export const species: Species[] = [
         "value": "დადასტურებული"
       }
     ],
-    "facts": [
-      "საქართველოს 68-ტაქსონიან ჩამონათვალში ერთადერთი Agamidaeა.",
-      "რეგიონული გავრცელება ამ ატლასში ჯერ არ არის მიბმული.",
-      "გარეგნულად შეიძლება აგერიოს კასპიურ გეკონში ან კლდის ხვლიკებში (Darevskia)."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "ჯოჯო აღამიდია — სამკუთხა თავი, მყარი სხეული, კლდეზე თბება. არ აურიოთ Darevskia-ს კლდის ხვლიკებს ან გეკონს.",
+      "summary": "მყარი, გაბრტყელებული აღამიდი სამკუთხა თავით და ეკლებიანი, რგოლებად დალაგებული კუდის ქერცლებით. არ აურიოთ Darevskia-ს კლდის ხვლიკებში, კასპიურ გეკონში ან გრძელფეხა სცინკში.",
       "traits": [
-        "მყარი აღამიდი ხვლიკი სამკუთხა თავით.",
-        "ხშირად გამორჩეულ ქვებზე თბება.",
-        "საფრთხისას შეიძლება სხეული გაბეროს.",
-        "ადამიანისთვის უშხამოა."
+        "თავი გაბრტყელებული და სამკუთხაა; ყურის ხვრელი თვალის ჭრილზე დიდია.",
+        "ზურგის ქერცლები არაერთგვაროვანია. ხერხემლის გასწვრივ გადიდებულია, გვერდებზე უფრო ეკლებიანი.",
+        "კუდი სხეულზე დაახლოებით ორჯერ გრძელია და დაფარულია ეკლებიანი რგოლებით.",
+        "ზურგი ზეთისხილისფერ-რუხია, ხშირად მოყვითალო ლაქებით ან ბადისებრი შავი ნახატით; მამრს გამრავლებისას მუცელი შეიძლება გამუქდეს.",
+        "Darevskia უფრო წვრილია, ერთგვაროვანი წვრილი ქერცლებით, უკუდო ეკლებიანი რგოლების გარეშე. კასპიურ გეკონს ვერტიკალური გუგა და გაფართოებული თითები აქვს და ძირითადად ბინდის შემდეგ ჩანს."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა ჯოჯო საქართველოში?",
-        "answer": "დიახ. Paralaudakia caucasia შედის Tarkhnishvili et al. 2026 ჩამონათვალში ბიოლოგიურად დადასტურებულ სახეობად."
+        "answer": "დიახ. Paralaudakia caucasia Tarkhnishvili et al. 2026 ჩამონათვალში ბიოლოგიურად დადასტურებულია. ეს არის საქართველოს ერთადერთი აღამიდი."
       },
       {
-        "question": "არის თუ არა ჯოჯო შხამიანი?",
-        "answer": "უვნებელია. შხამი არ აქვს."
+        "question": "სად შეიძლება ნახვა საქართველოში?",
+        "answer": "კლდოვან, მშრალ ადგილებში აღმოსავლეთსა და სამხრეთში. ბარკოდებია ასპინძიდან (ფია, თმოგვი) და კახეთიდან (ფანტიშარა); ფიგურა დედოფლისწყაროდანაა, დათვისხევიდან. დასავლეთში ჩამონათვალი მხოლოდ ადგილობრივ გავრცელებას ასახელებს, კონკრეტული მუნიციპალიტეტის გარეშე."
       },
       {
-        "question": "რომელ რეგიონებშია?",
-        "answer": "ამ ატლასის რეგიონულ რუკაზე ჯოჯო ჯერ არ არის მიბმული. არეალი აქ არ ივსება გამოცნობით."
+        "question": "არის თუ არა ჯოჯო შხამიანი ან საშიში?",
+        "answer": "უშხამოა და ადამიანისთვის სამედიცინოდ უვნებელი. შეიძლება დაიკბინოს, თუ დაიჭერთ. ნუ იჭერთ."
+      },
+      {
+        "question": "რამდენად დიდი იზრდება?",
+        "answer": "ზრდასრულის სხეულის სიგრძე დინოდან კლოაკამდე ჩვეულებრივ დაახლოებით 12–15 სმ-ია; კუდი დაახლოებით ორჯერ გრძელია. ზუსტი ქართული ნიმუშების ზომები 2026 წლის ჩამონათვალში არ არის მოცემული."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "ეძებეთ მყარი, გაბრტყელებული ხვლიკი სამკუთხა თავით, არაერთგვაროვანი ეკლებიანი ქერცლებით და რგოლებად დალაგებული ეკლებიანი კუდით, რომელიც კლდეზე თბება. Darevskia უფრო წვრილია; გეკონი ღამით იცოცავს გაფართოებული თითებით."
       },
       {
         "question": "რით განსხვავდება კლდის ხვლიკებისგან?",
-        "answer": "Darevskia ლაცერტიდია; ჯოჯო აღამიდია — უფრო მყარი სხეული და სამკუთხა თავი. დეტალები პროფილის იდენტიფიკაციაშია."
+        "answer": "Darevskia ლაცერტიდია: წვრილი, მოქნილი, ერთგვაროვანი ქერცლებით. ჯოჯო აღამიდია — უფრო მყარი, გაბრტყელებული, ეკლებიანი კუდის რგოლებით."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად მწერებს და სხვა წვრილ ფეხსახსრიანებს. მცენარეული საკვები ზოგ ანგარიშშია აღნიშნული, მაგრამ ქართული პოპულაციების დიეტა ცალკე არ არის გაზომილი."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "დღისით, თბილ ამინდში, კლდეებსა და ქვებზე. საქართველოში სეზონის ზუსტი თვეები 2026 წლის ჩამონათვალში არ არის მითითებული."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -5240,15 +5281,33 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Nikolskii 1913 — Georgian records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Muskhelishvili 1970 — Georgian records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Bannikov et al. 1977 — Georgian records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Baig et al. 2012 — Morphology-based revision of Laudakia (Paralaudakia)",
+        "url": "https://www.senckenberg.de/wp-content/uploads/2019/08/04_vertebrate_zoology_62-2_baig_wagner.pdf"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Paralaudakia&species=caucasia"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/"
+        "name": "Aghasyan et al. 2017 — IUCN Red List account for Paralaudakia caucasia",
+        "url": "https://www.iucnredlist.org/species/164611/1061421"
+      },
+      {
+        "name": "Georgian Government Resolution No. 190 of 2014 — Red List of Georgia",
+        "url": "https://www.matsne.gov.ge/ka/document/view/2256983"
+      },
+      {
+        "name": "Georgian National Encyclopedia — კავკასიური ჯოჯო (A. Bukhnikashvili)",
+        "url": "https://georgianencyclopedia.ge/ka/form/16453"
       }
     ]
   },
@@ -5820,6 +5879,13 @@ export const species: Species[] = [
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/pseudopus-apodus.webp"
+      },
+      {
+        "src": "/images/pseudopus-apodus-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "31 იანვარი"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/pseudopus-apodus-2.webp"
@@ -6951,6 +7017,12 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
       {
+        "src": "/images/vipera-kaznakovi-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
         "credit": {
           "photographer": "Sandro Khakhva"
@@ -7488,6 +7560,12 @@ export const species: Species[] = [
         "credit": {
           "photographer": "mobinkargarfard",
           "url": "https://www.inaturalist.org/observations/134999100"
+        }
+      },
+      {
+        "src": "/images/xerotyphlops-vermicularis-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
         }
       },
       {
@@ -11051,6 +11129,19 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
       },
       {
+        "src": "/images/macrovipera-lebetina-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-zakro-2.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "24 January"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
@@ -11479,6 +11570,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
+        "src": "/images/natrix-natrix-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/natrix-natrix-2.jpg",
         "credit": {
           "photographer": "Andreas Eichler",
@@ -11831,17 +11928,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "paralaudakia-caucasia": {
     "commonName": "Caucasian Agama",
-    "location": "Georgia",
-    "description": "Georgia’s only agamid in the checklist — a rock-dwelling, diurnal lizard, harmless to people.",
-    "overview": "The Caucasian agama (Paralaudakia caucasia) is an agamid lizard. Tarkhnishvili et al. 2026 list it as biologically confirmed; it is the only Agamidae in this atlas. The regional map for this species is still empty — range is not invented here. Sources generally associate it with rocky and arid open habitats.",
-    "habitat": "Rocky slopes and arid open habitats. Georgian regions will appear on this page only when a record is confirmed in regions.ts.",
-    "diet": "Primarily insects and other small invertebrates.",
-    "behavior": "Diurnal. Often basks on prominent rocks and retreats to crevices when threatened; may inflate the body.",
-    "conservation": "Confirmed in the checklist. The IUCN link on this page is general — check the Red List for the current global assessment. Local threats may include habitat change.",
+    "location": "eastern and southern Georgia; locally in the west",
+    "description": "Georgia’s only agamid lizard — rock-dwelling, diurnal, and harmless to people.",
+    "overview": "The Caucasian agama (Paralaudakia caucasia) is Georgia’s only agamid: a rock-dwelling, diurnal lizard, harmless to people. Tarkhnishvili et al. 2026 list it as biologically confirmed. It occupies rocky ground in eastern and southern Georgia and occurs only locally in the west. Barcoded specimens are from Pia, Tmogvi, and Pantishara Gorge; the checklist figure is from Datviskhevi Gorge, Dedoplistskaro. The type locality historically includes Tbilisi and Baku. It does not occur throughout the country, and not in humid Colchic forest.",
+    "habitat": "Rocky slopes and dry to semi-arid open landscapes; less often stony flats. Animals use crevices, spaces under stones, and burrows. Tarkhnishvili et al. 2026: eastern and southern Georgia, locally in the west. Localities tied to this atlas: Aspindza Municipality (Pia, Tmogvi — Samtskhe–Javakheti) and Dedoplistskaro (Datviskhevi, Pantishara — Kakheti). The Georgian National Encyclopedia also names the Iori Plateau, Kartli, Borjomi Municipality, and Meskheti; those points are not in the 2026 barcode list and are not drawn separately on the map. Western municipalities are not named in the checklist.",
+    "diet": "Mainly insects and other arthropods, including arachnids. The Georgian National Encyclopedia also mentions plant material. The 2026 checklist does not specify diet.",
+    "behavior": "Active by day. Often basks on prominent rocks and ledges; when threatened it retreats into a crevice and may inflate the body. It lays eggs. Laying month and clutch size in Georgia are not given in the 2026 account. Do not handle wild animals.",
+    "conservation": "Biologically confirmed in the checklist. IUCN (2017) assesses the species as Least Concern globally. It is not listed on Georgia’s 2014 Red List. Some sources still use Laudakia caucasia; the 2026 Georgian checklist uses Paralaudakia caucasia.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Rocky / open"
+        "value": "Rocky / dry"
+      },
+      {
+        "label": "Size",
+        "value": "SVL ≈ 12–15 cm"
       },
       {
         "label": "Venom",
@@ -11856,36 +11957,49 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "value": "Confirmed"
       }
     ],
-    "facts": [
-      "The only Agamidae among Georgia’s 68 checklist taxa.",
-      "Regional occurrence is not yet mapped in this atlas.",
-      "Can be confused with the Caspian gecko or Darevskia rock lizards."
-    ],
+    "facts": [],
     "identification": {
-      "summary": "An agamid — triangular head, robust body, basks on rocks. Do not confuse it with Darevskia rock lizards or geckos.",
+      "summary": "A robust, flattened agamid with a triangular head and a tail of spiny scale rings. Do not confuse it with Darevskia rock lizards, the Caspian gecko, or Schneider’s skink.",
       "traits": [
-        "Robust agamid lizard with a triangular head.",
-        "Often basks on prominent rocks.",
-        "Can inflate the body when threatened.",
-        "Harmless to people."
+        "Head flattened and triangular; the ear opening is larger than the eye opening.",
+        "Dorsal scales are mixed. They are enlarged along the spine and more spinose on the flanks.",
+        "The tail is about twice the body length and covered in spiny rings.",
+        "Back olive-grey, often with yellowish spots or a dark net; breeding males may darken on the belly.",
+        "Darevskia are slimmer, with small even scales and no spiny tail rings. The Caspian gecko has a vertical pupil and widened toes and is mainly active after dusk."
       ]
     },
     "faq": [
       {
         "question": "Does the Caucasian agama occur in Georgia?",
-        "answer": "Yes. Paralaudakia caucasia is listed as biologically confirmed in Tarkhnishvili et al. 2026."
+        "answer": "Yes. Paralaudakia caucasia is biologically confirmed in Tarkhnishvili et al. 2026. It is Georgia’s only agamid."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Harmless. It has no venom."
+        "question": "Where can it be found in Georgia?",
+        "answer": "On rocky, dry ground in the east and south. Barcodes are from Aspindza (Pia, Tmogvi) and Kakheti (Pantishara); the figure is from Datviskhevi, Dedoplistskaro. The checklist mentions only local occurrence in the west, without a named municipality."
       },
       {
-        "question": "Which regions?",
-        "answer": "This atlas does not yet attach the species to regional maps. Range is not filled in by guesswork."
+        "question": "Is it venomous or dangerous?",
+        "answer": "It has no venom and is medically harmless to people. It may bite if grabbed. Do not handle it."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Adult snout–vent length is typically about 12–15 cm; the tail is about twice as long. Exact measurements of Georgian specimens are not given in the 2026 checklist."
+      },
+      {
+        "question": "How can it be identified?",
+        "answer": "Look for a robust, flattened lizard with a triangular head, mixed spiny scales, and a ringed spiny tail, basking on rock. Darevskia are slimmer; the gecko climbs after dusk on widened toes."
       },
       {
         "question": "How does it differ from rock lizards?",
-        "answer": "Darevskia are lacertids; the agama is an agamid — a more robust body and triangular head. See the identification section."
+        "answer": "Darevskia are lacertids: slim, with small even scales. The agama is an agamid — more robust and flattened, with spiny tail rings."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly insects and other small arthropods. Plant food is mentioned in some accounts; the diet of Georgian populations has not been measured separately."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "By day, in warm weather, on rocks and stones. Exact months of activity in Georgia are not given in the 2026 checklist."
       }
     ],
     "gallery": [
@@ -11893,31 +12007,36 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia.jpg",
         "credit": {
           "photographer": "Геннадий",
-          "url": "https://www.inaturalist.org/observations/119628986"
+          "url": "https://www.inaturalist.org/observations/119628986",
+          "location": "Dagestan, Russia"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-2.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/241671168"
+          "url": "https://www.inaturalist.org/observations/241671168",
+          "location": "Gegharkunik, Armenia"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-3.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
-          "url": "https://www.inaturalist.org/observations/241671169"
+          "url": "https://www.inaturalist.org/observations/241671169",
+          "location": "Gegharkunik, Armenia"
         }
       }
     ],
     "imageCredit": {
       "photographer": "Геннадий",
-      "url": "https://www.inaturalist.org/observations/119628986"
+      "url": "https://www.inaturalist.org/observations/119628986",
+      "location": "Dagestan, Russia"
     },
     "mobileImageCredit": {
       "photographer": "Titouan Roguet",
-      "url": "https://www.inaturalist.org/observations/182026571"
+      "url": "https://www.inaturalist.org/observations/182026571",
+      "location": "Sagarejo Municipality"
     }
   },
   "pelobates-syriacus": {
@@ -12432,6 +12551,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/pseudopus-apodus.webp"
+      },
+      {
+        "src": "/images/pseudopus-apodus-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "31 January"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/pseudopus-apodus-2.webp"
@@ -13345,6 +13471,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
       {
+        "src": "/images/vipera-kaznakovi-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
         "credit": {
           "photographer": "Sandro Khakhva"
@@ -13727,6 +13859,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "mobinkargarfard",
           "url": "https://www.inaturalist.org/observations/134999100"
+        }
+      },
+      {
+        "src": "/images/xerotyphlops-vermicularis-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი"
         }
       },
       {

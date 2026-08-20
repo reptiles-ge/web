@@ -37,6 +37,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "paralaudakia-caucasia": [
     "tenuidactylus-caspius",
     "darevskia-portschinskii",
+    "eumeces-schneiderii",
   ],
   "macrovipera-lebetina": [
     "malpolon-insignitus",
