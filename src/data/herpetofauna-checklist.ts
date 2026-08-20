@@ -1092,7 +1092,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Eastern Montpellier Snake",
-    commonNameKa: "აღმოსავლური ხვლიკიჭამია გველი",
+    commonNameKa: "ჩვეულებრივი ხვლიკიჭამია გველი",
     notes: "Candidate species per Tarkhnishvili et al. 2026",
   },
   {
