@@ -4321,12 +4321,12 @@ export const species: Species[] = [
     "genus": "Mertensiella",
     "family": "Salamandridae",
     "location": "მცირე კავკასიონის დასავლეთი",
-    "description": "ეოცენური რელიქტი — მცირე კავკასიონის დასავლეთის ენდემი სალამანდრა.",
-    "overview": "კავკასიური სალამანდრა (Mertensiella caucasica) ბიოლოგიურად დადასტურებული სახეობაა. Tarkhnishvili et al. 2026 მას ეოცენურ რელიქტად და მცირე კავკასიონის დასავლეთის ენდემად მიიჩნევს; უახლოესი ნათესავი Chioglossa lusitanicaა, არეალები გაყოფილია, ხოლო გაყოფის დრო დაახლოებით 40–70 მლნ წელია. ბორჯომის ხეობასა და მესხეთის ჩრდილო ფერდობებზე აღწერილია გენეტიკურად იზოლირებული ხაზი M. sp. 1; ჩამონათვალის ბარკოდირებული ნიმუშები ამ ხაზს ეკუთვნის, არა „ტიპურ“ M. caucasica-ს. ნაშრომი არ იღებს M. djanashvilii-ს ცალკე სახეობად: M. c. djanaschvilii გენეტიკურად არ განსხვავდება ნომინალური ფორმის სხვა პოპულაციებისგან. ნაშრომის ფიგურა ბახმაროდანაა.",
-    "habitat": "მცირე კავკასიონის დასავლეთი. ხაზი M. sp. 1 — ბორჯომის ხეობა და მესხეთის ჩრდილო ფერდობები; ფიგურის ლოკალიტეტი — ბახმარო.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "ბიოლოგიურად დადასტურებული ენდემი. ტაქსონომია დიაპაზონზე გენეტიკურ კვლევას საჭიროებს, სანამ ფორმალური რევიზია მოხდება; djanashvilii აქ სახეობად არ არის აწეული.",
+    "description": "უშხამო ნაკადულის სალამანდრა ყვითელი ლაქებით. საქართველოს ერთადერთი ნამდვილი სალამანდრა.",
+    "overview": "კავკასიური სალამანდრა (Mertensiella caucasica) უშხამო, ყვითელლაქებიანი სალამანდრაა, რომელიც საქართველოში მხოლოდ მცირე კავკასიონის დასავლეთში გვხვდება. ეს არის ქვეყნის ჩამონათვალის ერთადერთი ნამდვილი სალამანდრა — ტრიტონი არ არის. ცხოვრობს დაჩრდილულ მთის ნაკადულებთან წიფლნარში, წიწვოვან და შერეულ ტყეში; დასახელებული ადგილებია ბახმარო, ბორჯომის ხეობა, ტაშისკარი, მტირალა და კინტრიში. ადამიანისთვის საშიში არ არის. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს.",
+    "habitat": "ეძებეთ ვიწრო, დაჩრდილულ მთის ნაკადულთან — ჩვეულებრივ 1–1.5 მ სიგანისა და გაზაფხულზე დაახლოებით 20–30 სმ სიღრმის — არა დიდ მდინარეში და არა ღია გუბეში. ნაპირზე სქელი ფოთოლნაყარი, ხავსი, ქვები და მორებია. ზრდასრული იმალება ქვის, მორის და ფესვის ქვეშ; წყლიდან 200–300 მ-ზეც შედის ტყეში. საქართველოში არეალი მცირე კავკასიონის დასავლეთითაა: აჭარა, გურია, ბორჯომი–მესხეთი. დასახელებული ადგილებია ბახმარო (ბახვისწყალი), ბორჯომის ხეობა, ახალდაბა, ტაშისკარი, მტირალა და კინტრიში. ტიპის ლოკალიტეტი ზეკარის უღელტეხილთანაა მითითებული. არეალის კიდე დაახლოებით ბათუმი–კინტრიში და ბორჯომი–ნედზურა, შემდეგ აბასთუმანი–გოდერძი. აღმოსავლეთ საქართველოში და დიდ კავკასიონზე არ არის. სიმაღლე ტყის სარტყელიდან სუბალპურ ზოლამდეა; წყაროებში ზედა ზღვარი დაახლოებით 1 800–2 400 მ. ადამიანის შეცვლილ ლანდშაფტს გაურბის.",
+    "diet": "ზრდასრული ძირითადად ხმელეთზე ნადირობს: ხის ტილი, ობობები, ხოჭოები და სხვა ნიადაგისა და ნაპირის უხერხემლოები. ლიფსიტები ნაკადულის უხერხემლოებს ჭამენ, მათ შორის კიბოსნაირებს (Gammaridae) და მწერის ლარვებს.",
+    "behavior": "ძირითადად ღამითაა აქტიური და იშვიათად ჩანს. დღისით იმალება. ბორჯომის ხეობაში, საშუალო სიმაღლეზე, პირველი ზრდასრულები მაისის დასაწყისში ჩნდებიან, უკანასკნელნი — სექტემბერში; ბათუმის მხარეს და მაღალმთაში ეს პერიოდი შეიძლება განსხვავდებოდეს. ქვირითობა გვიან გაზაფხულზე და ზაფხულშია. შეჯვარება ხმელეთზე ან წყალშია. მდედრი კვერცხებს ნაკადულში დებს; ბორჯომის პოპულაციაში საშუალოდ დაახლოებით 17 კვერცხი. ლიფსიტები ნაკადულში რჩებიან და მეტამორფოზამდე, როგორც წესი, 2–4 წელი სჭირდებათ. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. კანი ლორწოს გამოყოფს, რომელიც თვალს ან პირს შეიძლება გააღიზიანოს. შეხების შემდეგ ხელები დაიბანეთ.",
+    "conservation": "IUCN-ის მიხედვით მოწყვლადია (Vulnerable). 2009 წლის შეფასებით დაკავებული ფართობი 2 000 კმ²-ზე ნაკლებია, გავრცელება მკვეთრად ფრაგმენტირებულია და ჰაბიტატის ხარისხი მცირდება. საქართველოში მთავარი საფრთხეებია ტყის ჩეხა, ნაკადულის გამოყენება ხის გასატანად და პირუტყვის ზეწოლა. შეტანილია საქართველოს წითელ წიგნში. დაცულ ტერიტორიებს შორისაა ბორჯომი–ხარაგაულის ეროვნული პარკი და კინტრიში. არ აიყვანოთ და არ გადაიტანოთ — სახეობა შინაურ ცხოველადაც აგროვებენ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/mertensiella-caucasica.jpg",
     "imageCredit": {
@@ -4391,15 +4391,19 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "დას. მცირე კავკასიონი"
+        "value": "მთის ნაკადული, ტყე"
+      },
+      {
+        "label": "ზომა",
+        "value": "დაახლ. 13–19 სმ"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "ენდემი"
+        "label": "კონსერვაცია",
+        "value": "მოწყვლადი (VU)"
       },
       {
         "label": "ოჯახი",
@@ -4408,48 +4412,81 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "საქართველოს ჩამონათვალის ერთადერთი ნამდვილი სალამანდრა — არა ტრიტონი. ენდემია მცირე კავკასიონის დასავლეთისა.",
+      "summary": "წვრილი, მუქი სალამანდრა ყვითელი ან ნარინჯისფერი ლაქებით და გრძელი მრგვალი კუდით. საქართველოს ტრიტონებს ამით განსხვავდება.",
       "traits": [
-        "კუდიანი სალამანდრა; ტრიტონებისგან განცალკევებული გვარი.",
-        "მცირე კავკასიონის დასავლეთის ენდემი; ეოცენური რელიქტი.",
-        "ბარკოდირებული ნიმუშები ხაზს M. sp. 1 ეკუთვნის (ბორჯომი / მესხეთი).",
-        "M. djanashvilii ჩამონათვალში ცალკე სახეობად არ არის მიღებული."
+        "ტანი წაგრძელებული და წვრილია. ზურგი შავი, მუქი ყავისფერი ან მოყავისფრო-ნარინჯისფერია; ზურგსა და გვერდებზე ოვალური ყვითელი ლაქებია, ხშირად ორ არათანაბარ რიგად. მუცელი მოყავისფროა. გვერდებზე 11–12 ნეკნთაშორისი ღარი ჩანს.",
+        "კუდი ჩვეულებრივ ტანზე და თავზე გრძელია და განიკვეთში მრგვალი — არა გვერდებზე გაბრტყელებული, როგორც ქვირითობის ტრიტონს. კუდის მოწყვეტა და აღდგენა შეუძლია. სრული სიგრძე ჩვეულებრივ დაახლოებით 13–19 სმ-ია; ტანი დაახლოებით 6–8 სმ.",
+        "მამრს კუდის ფუძეზე, ზურგის მხარეს, რქისებრი წვერი აქვს. ქვირითობის სეზონზე წინა ფეხებზე უხეში ბალიშები უჩნდება. მდედრს ეს წვერი არ აქვს. ზომით სქესები ახლოსაა; ბორჯომის პოპულაციაში მამრი საშუალოდ ოდნავ დიდია.",
+        "საქართველოს ტრიტონებს (კავკასიური ჩვეულებრივი, ზოლებიანი, კარელინის სავარცხლიანი) ქვირითობისას გვერდებზე გაბრტყელებული კუდი აქვთ; მამრს ზურგის ქედი უჩნდება და უფრო გუბეში ან ტბაში არიან. სალამანდრა ნაკადულის ნაპირზეა, ყვითელლაქებიანი და კუდი მრგვალი აქვს.",
+        "მტირალასა და ბათუმის მიდამოებში ზოგი ინდივიდი უფრო ღიაა, ლაქები შემცირებული — ეს M. c. djanaschvilii-ის ფორმაა, ველში იგივე სახეობად რჩება."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა კავკასიური სალამანდრა საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულ სახეობად მიიჩნევს და მცირე კავკასიონის დასავლეთის ენდემად ასახელებს."
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. საქართველოში მხოლოდ მცირე კავკასიონის დასავლეთშია — არა მთელ ქვეყანაში."
+      },
+      {
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "დაჩრდილულ მთის ნაკადულებთან აჭარაში, გურიაში, ბორჯომის ხეობასა და მესხეთის ჩრდილო ფერდობებზე. დასახელებული ადგილებია ბახმარო, ტაშისკარი, ახალდაბა, მტირალა და კინტრიში. რუკაზე აღნიშნულია აჭარა, გურია და სამცხე — ჯავახეთი. აღმოსავლეთ საქართველოში არ არის."
+      },
+      {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. კბენით შხამი არ აქვს და ადამიანისთვის უვნებელია. კანის ლორწო შეიძლება თვალს ან პირს გააღიზიანოს. არ აიყვანოთ; შეხების შემდეგ ხელები დაიბანეთ."
+      },
+      {
+        "question": "როგორ განვასხვავო ტრიტონისგან?",
+        "answer": "სალამანდრას მუქი ტანი ყვითელი ლაქებით და გრძელი მრგვალი კუდი აქვს. ტრიტონს ქვირითობისას გაბრტყელებული კუდი და, მამრს, ზურგის ქედი აქვს; უფრო გუბესა და ტბაშია, არა ვიწრო ნაკადულის ნაპირზე."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "სრული სიგრძე ჩვეულებრივ დაახლოებით 13–19 სმ-ია. ტანი დაახლოებით 6–8 სმ-ია, კუდი კი ტანზე გრძელი."
       },
       {
         "question": "არის თუ არა ენდემი?",
-        "answer": "დიახ. ჩამონათვალი მას მცირე კავკასიონის დასავლეთის ენდემად მიიჩნევს."
+        "answer": "დიახ — მცირე კავკასიონის დასავლეთის ენდემი. საქართველოს გარდა ჩრდილო-აღმოსავლეთ თურქეთშიცაა. საქართველოს შიგნით მხოლოდ დასავლეთ მცირე კავკასიონზეა."
+      },
+      {
+        "question": "რა ვქნა, თუ შევხვდები?",
+        "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და ნაკადულიდან არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       },
       {
         "question": "არის თუ არა djanashvilii ცალკე სახეობა?",
-        "answer": "Tarkhnishvili et al. 2026 ამ აწევას არ იღებს: საზღვარი ნომინალურ ფორმასა და M. sp. 1-ს შორის ჯერ არ არის მკაფიო, ხოლო M. c. djanaschvilii გენეტიკურად არ განსხვავდება ნომინალური M. caucasica-ს სხვა პოპულაციებისგან."
-      },
-      {
-        "question": "რა არის M. sp. 1?",
-        "answer": "გენეტიკურად იზოლირებული ხაზი ბორჯომის ხეობასა და მესხეთის ჩრდილო ფერდობებზე; შესაძლოა კრიპტული სახეობა, მაგრამ აქ ფორმალურ ტაქსონად არ არის აყვანილი. ბარკოდირებული ნიმუშები ამ ხაზს ეკუთვნის."
-      },
-      {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
+        "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-19T11:40:55+04:00",
+    "updatedAt": "2026-08-20T11:39:12+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Tarkhnishvili & Gokhelashvili 1999 — The amphibians of the Caucasus"
       },
       {
-        "name": "AmphibiaWeb",
+        "name": "Tarkhnishvili, Thorpe & Arntzen 2000 — Pre-Pleistocene refugia and differentiation between populations of the Caucasian salamander",
+        "url": "https://doi.org/10.1006/mpev.1999.0718"
+      },
+      {
+        "name": "Tarkhnishvili — The ecology of the Caucasian salamander (Mertensiella caucasica) in a local population",
+        "url": "http://eprints.iliauni.edu.ge/608/1/05_20.pdf"
+      },
+      {
+        "name": "AmphibiaWeb — Mertensiella caucasica",
         "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Mertensiella&where-species=caucasica"
+      },
+      {
+        "name": "Kaya et al. 2009 — IUCN Red List account for Mertensiella caucasica",
+        "url": "http://eprints.iliauni.edu.ge/521/1/0"
+      },
+      {
+        "name": "IUCN Red List — Mertensiella caucasica",
+        "url": "https://www.iucnredlist.org/species/13198/179333799"
+      },
+      {
+        "name": "Frost — Amphibian Species of the World (Mertensiella caucasica)",
+        "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Salamandridae/Salamandrinae/Mertensiella/Mertensiella-caucasica"
       }
     ]
   },
@@ -10975,24 +11012,28 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "mertensiella-caucasica": {
     "commonName": "Caucasian Salamander",
     "location": "western Lesser Caucasus",
-    "description": "An Eocene relict — a salamander endemic to the western Lesser Caucasus.",
-    "overview": "The Caucasian salamander (Mertensiella caucasica) is biologically confirmed. Tarkhnishvili et al. 2026 treat it as an Eocene relict endemic to the western Lesser Caucasus. Its closest relative is Chioglossa lusitanica; the ranges are disjunct and the split is estimated at about 40–70 million years. An undescribed, genetically isolated lineage (M. sp. 1), perhaps a cryptic species, occurs in Borjomi Gorge and on the northern slopes of the Meskheti range; barcoded individuals belong to this lineage rather than to “typical” M. caucasica. The paper does not elevate M. djanashvilii to species: M. c. djanaschvilii does not differ genetically from other populations of nominal M. caucasica. The checklist figure is from Bakhmaro.",
-    "habitat": "Western Lesser Caucasus. Lineage M. sp. 1 — Borjomi Gorge and northern Meskheti slopes; figure locality — Bakhmaro.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "A biologically confirmed endemic. Taxonomy needs genetic work across the range before a formal revision; djanashvilii is not accepted here as a separate species.",
+    "description": "A harmless stream salamander with yellow spots. Georgia’s only true salamander.",
+    "overview": "The Caucasian salamander (Mertensiella caucasica) is a harmless yellow-spotted salamander found in Georgia only in the western Lesser Caucasus. It is the only true salamander on the Georgian checklist — not a newt. It lives along shaded mountain brooks in beech, conifer and mixed forest. Named Georgian sites include Bakhmaro, Borjomi Gorge, Tashiskari, Mtirala and Kintrishi. It is not dangerous to people. The 2026 Georgian checklist treats it as biologically confirmed.",
+    "habitat": "Look for it beside a narrow, shaded mountain brook — usually no more than 1–1.5 m wide and about 20–30 cm deep in spring — not in a large river and not in an open pond. Banks have thick leaf litter, moss, stones and logs. Adults hide under stones, logs and roots; they also move 200–300 m into the forest. In Georgia the range is the western Lesser Caucasus: Adjara, Guria and the Borjomi–Meskheti area. Named sites include Bakhmaro (Bakhvistskali), Borjomi Gorge, Akhaldaba, Tashiskari, Mtirala and Kintrishi. The type locality is given as Zekari Pass. The range margin runs roughly Batumi– Kintrishi and Borjomi–Nedzura, then Abastumani–Goderdzi. It does not occur in eastern Georgia or on the Greater Caucasus. Elevation runs from the forest belt into the subalpine; sources put the upper limit at about 1,800–2,400 m. It avoids landscapes altered by people.",
+    "diet": "Adults hunt mainly on land: woodlice, spiders, beetles and other soil and bank invertebrates. Larvae eat stream invertebrates, including amphipods (Gammaridae) and insect larvae.",
+    "behavior": "It is mainly active at night and is seldom seen. By day it stays hidden. In Borjomi Gorge, at medium elevation, the first active adults appear in early May and the last in September; around Batumi and in the highlands this window may differ. Breeding is in late spring and summer. Mating occurs on land or in water. The female lays eggs in the stream; in a Borjomi population the mean clutch is about 17 eggs. Larvae remain in the brook and usually take two to four years to metamorphose. If you find one, leave it where it is and do not pick it up. The skin mucus can irritate eyes or mouth. Wash your hands after any contact.",
+    "conservation": "The IUCN Red List assesses it as Vulnerable. The 2009 account gives an area of occupancy under 2,000 km², a severely fragmented range, and continuing decline in habitat quality. In Georgia the main threats are logging, using brooks as timber tracks, and pressure from livestock. It is listed in Georgia’s Red Data Book. Protected sites include Borjomi–Kharagauli National Park and Kintrishi. Do not collect or move animals — the species is also taken for the pet trade.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "W. Lesser Caucasus"
+        "value": "Mountain brook, forest"
+      },
+      {
+        "label": "Size",
+        "value": "about 13–19 cm"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Endemic"
+        "label": "Conservation",
+        "value": "Vulnerable (VU)"
       },
       {
         "label": "Family",
@@ -11001,34 +11042,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "The only true salamander on Georgia’s checklist — not a newt. Endemic to the western Lesser Caucasus.",
+      "summary": "A slender dark salamander with yellow or orange spots and a long, rounded tail. That is how it differs from Georgia’s newts.",
       "traits": [
-        "A tailed salamander; a genus separate from the newts.",
-        "Endemic to the western Lesser Caucasus; an Eocene relict.",
-        "Barcoded specimens belong to lineage M. sp. 1 (Borjomi / Meskheti).",
-        "M. djanashvilii is not accepted as a separate species in the checklist."
+        "The body is elongate and slender. The back is black, dark brown or brown-orange, with oval yellow spots on the back and sides, often in two irregular rows. The belly is brownish. There are 11–12 costal grooves on each side.",
+        "The tail is usually longer than the body and head and round in cross-section — not flattened like a breeding newt’s swimming tail. It can drop and regenerate the tail. Total length is usually about 13–19 cm; the body is about 6–8 cm.",
+        "The male has a horn-like spur on the upper side of the tail base. In the breeding season he also has rough pads on the forelegs. The female lacks the spur. The sexes are similar in size; in a Borjomi population males average slightly larger.",
+        "Georgia’s newts (Caucasian smooth newt, banded newt, Karelin’s crested newt) have a laterally flattened tail when breeding; males grow a dorsal crest and are more often in ponds or lakes. The salamander lives on brook banks, has yellow spots, and a rounded tail.",
+        "Around Mtirala and Batumi some individuals are paler, with reduced spots — the M. c. djanaschvilii form. In the field it is still this species."
       ]
     },
     "faq": [
       {
         "question": "Does the Caucasian salamander occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026 list it as biologically confirmed and as endemic to the western Lesser Caucasus."
+        "answer": "Yes. It is biologically confirmed in the 2026 checklist. In Georgia it occurs only in the western Lesser Caucasus — not throughout the country."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "Along shaded mountain brooks in Adjara, Guria, Borjomi Gorge and the northern Meskheti slopes. Named sites include Bakhmaro, Tashiskari, Akhaldaba, Mtirala and Kintrishi. The map marks Adjara, Guria and Samtskhe — Javakheti. It is absent from eastern Georgia."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venomous bite and is harmless to people. Skin mucus can irritate eyes or mouth. Do not pick it up; wash your hands after any contact."
+      },
+      {
+        "question": "How do I tell it from a newt?",
+        "answer": "The salamander has a dark body with yellow spots and a long, rounded tail. Breeding newts have a flattened tail and, in males, a dorsal crest; they are more often in ponds and lakes, not on a narrow brook bank."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Total length is usually about 13–19 cm. The body is about 6–8 cm; the tail is longer than the body."
       },
       {
         "question": "Is it endemic?",
-        "answer": "Yes. The checklist treats it as endemic to the western Lesser Caucasus."
+        "answer": "Yes — endemic to the western Lesser Caucasus. Besides Georgia it occurs in north-eastern Turkey. Inside Georgia it is only in the western Lesser Caucasus."
+      },
+      {
+        "question": "What should I do if I find one?",
+        "answer": "Watch it and leave it where it is. Do not pick it up or move it from the stream. Wash your hands after any contact. It is not a medical risk to people."
       },
       {
         "question": "Is djanashvilii a separate species?",
-        "answer": "Tarkhnishvili et al. 2026 do not accept that elevation: the boundary between the nominal form and M. sp. 1 is not yet clear, and M. c. djanaschvilii does not differ genetically from other populations of nominal M. caucasica."
-      },
-      {
-        "question": "What is M. sp. 1?",
-        "answer": "A genetically isolated lineage in Borjomi Gorge and on the northern Meskheti slopes; perhaps a cryptic species, but not treated here as a formal taxon. Barcoded individuals belong to this lineage."
-      },
-      {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. Venom: none."
+        "answer": "Not in this atlas. The 2026 checklist does not accept M. djanashvilii as a separate species. The paler Mtirala form does not differ genetically from other populations of the nominal species. Borjomi–Meskheti holds a separate lineage (M. sp. 1); in the field the animal is identified the same way."
       }
     ],
     "gallery": [

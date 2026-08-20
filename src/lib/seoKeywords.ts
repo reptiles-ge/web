@@ -50,6 +50,10 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["Bufo viridis"],
     en: ["Bufo viridis", "European green toad"],
   },
+  "mertensiella-caucasica": {
+    ka: ["Salamandra caucasica"],
+    en: ["Caucasian salamander", "Salamandra caucasica"],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {
