@@ -6892,7 +6892,7 @@ export const species: Species[] = [
       },
       {
         "label": "სიმაღლე",
-        "value": "0–1,000 მ"
+        "value": "0–1,000 მ ზღვის დონიდან"
       },
       {
         "label": "ოჯახი",
@@ -6944,7 +6944,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-20T13:35:07+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13078,7 +13078,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Elevation",
-        "value": "0–1,000 m"
+        "value": "0–1,000 m a.s.l."
       },
       {
         "label": "Family",
