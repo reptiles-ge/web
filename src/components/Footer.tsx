@@ -72,7 +72,7 @@ const companyLinks = [
 ];
 
 function shouldHideFooter(pathname: string) {
-  return pathname === "/contact" || pathname === "/quiz/gvelis-identifikacia";
+  return pathname === "/contact" || pathname.startsWith("/quiz/");
 }
 
 export function Footer() {

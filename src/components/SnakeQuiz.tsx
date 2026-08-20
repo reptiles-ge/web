@@ -142,35 +142,48 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     ? byId.get(question.correctId)
     : undefined;
 
+  const nextLabel =
+    questions && index + 1 >= questions.length ? t("seeResult") : t("next");
+
   return (
     <section
       aria-labelledby={headingId}
-      className="relative isolate min-h-svh overflow-hidden bg-ink"
+      className="relative isolate min-h-dvh bg-ink"
     >
-      {coverSrc ? (
-        <Image
-          key={coverKey}
-          src={coverSrc}
-          alt={
-            playing && revealed && correctSpecies
-              ? speciesImageAlt(
-                  correctSpecies.commonName,
-                  correctSpecies.scientificName,
-                  correctSpecies.location,
-                )
-              : t("imageAltHidden")
-          }
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover hero-drift"
-        />
-      ) : null}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/85" />
-      <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
+      <div className="absolute inset-0 overflow-hidden">
+        {coverSrc ? (
+          <Image
+            key={coverKey}
+            src={coverSrc}
+            alt={
+              playing && revealed && correctSpecies
+                ? speciesImageAlt(
+                    correctSpecies.commonName,
+                    correctSpecies.scientificName,
+                    correctSpecies.location,
+                  )
+                : t("imageAltHidden")
+            }
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover hero-drift"
+          />
+        ) : null}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/85" />
+        <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
+      </div>
 
-      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1400px] flex-col justify-between px-5 pb-8 pt-28 sm:px-8 lg:px-10 lg:pb-10">
+      <div
+        className={`relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-5 pt-24 sm:px-8 sm:pt-28 lg:px-10 ${
+          playing && !complete
+            ? revealed
+              ? "min-h-dvh pb-[calc(7.5rem+env(safe-area-inset-bottom))] sm:pb-[max(2rem,env(safe-area-inset-bottom))]"
+              : "min-h-dvh pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:pb-10"
+            : "pb-[max(1.25rem,env(safe-area-inset-bottom))]"
+        }`}
+      >
         {!playing ? (
           <IntroOverlay headingId={headingId} onStart={() => startRound("start")} />
         ) : complete ? (
@@ -184,17 +197,14 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
           <p className="text-white/70">{t("loading")}</p>
         ) : (
           <>
-            <header>
-              <div className="flex items-center gap-3 text-[12px] tracking-[0.18em] text-white/70 uppercase">
+            <header className="shrink-0">
+              <div className="flex items-center gap-3 text-[11px] tracking-[0.18em] text-white/70 uppercase sm:text-[12px]">
                 <span>
                   {t("progress", { current: index + 1, total })}
                 </span>
                 <span className="h-px flex-1 bg-white/20" aria-hidden="true" />
               </div>
-              <div
-                className="mt-3 flex gap-1.5"
-                aria-hidden="true"
-              >
+              <div className="mt-2 flex gap-1.5 sm:mt-3" aria-hidden="true">
                 {Array.from({ length: total }, (_, i) => (
                   <span
                     key={i}
@@ -210,15 +220,17 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
               </div>
               <h2
                 id={headingId}
-                className="mt-6 max-w-2xl font-display text-[clamp(1.9rem,5vw,3.4rem)] font-semibold leading-[1.05] text-white"
+                className="mt-3 max-w-2xl font-display text-[clamp(1.3rem,6.4vw,3.4rem)] font-semibold leading-[1.08] text-white sm:mt-6"
               >
                 {t("question")}
               </h2>
             </header>
 
-            <div>
+            <div className="min-h-3 flex-1" aria-hidden="true" />
+
+            <div className="shrink-0">
               {!revealed && correctSpecies?.hint ? (
-                <div className="mb-3">
+                <div className="mb-2.5 sm:mb-3">
                   <button
                     type="button"
                     onClick={() => {
@@ -239,7 +251,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                     {hintOpen ? t("hintHide") : t("hint")}
                   </button>
                   {hintOpen ? (
-                    <p className="mt-3 max-w-2xl rounded-2xl border border-white/15 bg-black/45 px-4 py-3 text-[14px] leading-relaxed text-white/80 backdrop-blur-md">
+                    <p className="mt-2.5 max-w-2xl rounded-2xl border border-white/15 bg-black/45 px-4 py-3 text-[13px] leading-relaxed text-white/80 backdrop-blur-md sm:mt-3 sm:text-[14px]">
                       {correctSpecies.hint}
                     </p>
                   ) : null}
@@ -248,7 +260,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
               <div
                 role="radiogroup"
                 aria-labelledby={headingId}
-                className="grid gap-2.5 sm:grid-cols-2 sm:gap-3"
+                className="grid gap-1.5 sm:grid-cols-2 sm:gap-3"
               >
                 {question.optionIds.map((optionId, optionIndex) => {
                   const option = byId.get(optionId);
@@ -263,7 +275,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                       aria-checked={selected}
                       disabled={revealed}
                       onClick={() => onSelect(optionId, question.difficulty)}
-                      className={`flex min-h-14 items-center gap-3 rounded-2xl border px-4 py-3.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-[4.25rem] sm:px-5 ${optionClass(
+                      className={`flex min-h-11 items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-[4.25rem] sm:gap-3 sm:px-5 sm:py-3.5 ${optionClass(
                         {
                           revealed,
                           selected,
@@ -271,15 +283,15 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                         },
                       )}`}
                     >
-                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full border border-white/20 text-[12px] font-medium">
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-[12px] font-medium sm:size-8">
                         {OPTION_MARKS[locale][optionIndex]}
                       </span>
-                      <span>
-                        <span className="block text-[15px] font-medium leading-snug sm:text-[16px]">
+                      <span className="min-w-0">
+                        <span className="line-clamp-2 block text-[14px] font-medium leading-snug sm:line-clamp-none sm:text-[16px]">
                           {option.commonName}
                         </span>
                         {revealed ? (
-                          <span className="mt-0.5 block text-[12px] font-normal italic text-white/60">
+                          <span className="mt-0.5 hidden text-[12px] font-normal italic text-white/60 sm:block">
                             {option.scientificName}
                           </span>
                         ) : null}
@@ -291,28 +303,26 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
 
               <div aria-live="polite">
                 {revealed && correctSpecies ? (
-                  <div className="mt-4 rounded-[24px] border border-white/15 bg-black/45 p-5 backdrop-blur-xl sm:p-6">
-                    <p className="font-display text-[1.45rem] font-semibold text-white">
+                  <div className="mt-2.5 rounded-[20px] border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:rounded-[24px] sm:p-6">
+                    <p className="font-display text-[1.1rem] font-semibold text-white sm:text-[1.45rem]">
                       {selectedId === question.correctId
                         ? t("correct")
                         : t("incorrect")}
                     </p>
-                    <p className="mt-2 max-w-3xl text-[14px] leading-relaxed text-white/75 sm:text-[15px]">
+                    <p className="mt-1.5 text-[13px] leading-relaxed text-white/75 sm:mt-2 sm:text-[15px]">
                       {t("revealLead", {
                         commonName: correctSpecies.commonName,
                         scientificName: correctSpecies.scientificName,
                       })}{" "}
                       {question.explanation}
                     </p>
-                    <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                    <div className="mt-5 hidden sm:flex sm:items-center sm:gap-3">
                       <button
                         type="button"
                         onClick={onNext}
                         className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
                       >
-                        {index + 1 >= questions.length
-                          ? t("seeResult")
-                          : t("next")}
+                        {nextLabel}
                         <ArrowRight className="size-4" aria-hidden="true" />
                       </button>
                       <Link
@@ -334,6 +344,33 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                 ) : null}
               </div>
             </div>
+
+            {revealed && correctSpecies ? (
+              <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-black/80 px-5 pt-3 backdrop-blur-xl sm:hidden pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+                <button
+                  type="button"
+                  onClick={onNext}
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink"
+                >
+                  {nextLabel}
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </button>
+                <Link
+                  href={speciesHref(question.correctId, locale)}
+                  onClick={() =>
+                    trackEvent("species_page_clicked", {
+                      source: "quiz_question",
+                      species: question.correctId,
+                      question: index + 1,
+                    })
+                  }
+                  className="mt-2 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
+                >
+                  {t("learnMore")}
+                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                </Link>
+              </div>
+            ) : null}
           </>
         )}
       </div>
@@ -356,48 +393,50 @@ function IntroOverlay({
   ] as const;
 
   return (
-    <div className="flex min-h-[calc(100svh-7rem)] flex-col justify-end pb-10 sm:pb-14 lg:pb-16">
-      <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
-        {t("eyebrow")}
-      </p>
-      <h1
-        id={headingId}
-        className="mt-4 max-w-3xl font-display text-[clamp(2.6rem,8vw,5.4rem)] font-semibold leading-[0.98] text-white"
-      >
-        {t("title")}
-      </h1>
-      <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white/70 sm:text-[17px]">
-        {t("startLead")}
-      </p>
-
-      <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-white/12 bg-white/10 sm:grid-cols-3">
-        {rules.map((rule, index) => (
-          <li
-            key={rule.title}
-            className="bg-black/40 px-5 py-5 backdrop-blur-xl sm:px-6 sm:py-6"
-          >
-            <span className="font-display text-[12px] tracking-[0.22em] text-white/40">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <p className="mt-3 font-display text-[18px] font-semibold text-white">
-              {rule.title}
-            </p>
-            <p className="mt-2 text-[13px] leading-relaxed text-white/60">
-              {rule.body}
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-10">
-        <button
-          type="button"
-          onClick={onStart}
-          className="inline-flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
+    <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
+      <div className="mt-auto w-full">
+        <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
+          {t("eyebrow")}
+        </p>
+        <h1
+          id={headingId}
+          className="mt-3 max-w-3xl font-display text-[clamp(1.85rem,10vw,5.4rem)] font-semibold leading-[0.98] text-white sm:mt-4"
         >
-          {t("start")}
-          <ArrowRight className="size-4" aria-hidden="true" />
-        </button>
+          {t("title")}
+        </h1>
+        <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-white/70 sm:mt-5 sm:text-[17px]">
+          {t("startLead")}
+        </p>
+
+        <ul className="mt-5 grid gap-px overflow-hidden rounded-[24px] border border-white/12 bg-white/10 sm:mt-10 sm:grid-cols-3">
+          {rules.map((rule, index) => (
+            <li
+              key={rule.title}
+              className="bg-black/40 px-4 py-3.5 backdrop-blur-xl sm:px-6 sm:py-6"
+            >
+              <span className="font-display text-[12px] tracking-[0.22em] text-white/40">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-2 font-display text-[16px] font-semibold text-white sm:mt-3 sm:text-[18px]">
+                {rule.title}
+              </p>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-white/60 sm:mt-2">
+                {rule.body}
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-5 sm:mt-10">
+          <button
+            type="button"
+            onClick={onStart}
+            className="inline-flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
+          >
+            {t("start")}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -418,45 +457,47 @@ function ResultOverlay({
   const percent = scorePercent(correctCount, total);
 
   return (
-    <div className="flex min-h-[70vh] flex-col justify-end pb-4">
-      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
-        {t("resultEyebrow")}
-      </p>
-      <h2
-        id={headingId}
-        className="mt-4 font-display text-[clamp(4rem,14vw,8rem)] font-semibold leading-none text-white"
-      >
-        {correctCount}
-        <span className="text-white/35"> / {total}</span>
-      </h2>
-      <p className="mt-2 text-[15px] text-white/55">
-        {t("percentLabel", { percent })}
-      </p>
-      <p className="mt-6 max-w-xl text-[18px] leading-relaxed text-white sm:text-[20px]">
-        {t(scoreMessageKey(percent))}
-      </p>
-      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-        <button
-          type="button"
-          onClick={onRestart}
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+    <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
+      <div className="mt-auto w-full">
+        <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
+          {t("resultEyebrow")}
+        </p>
+        <h2
+          id={headingId}
+          className="mt-3 font-display text-[clamp(2.6rem,16vw,8rem)] font-semibold leading-none text-white sm:mt-4"
         >
-          <RotateCcw className="size-4" aria-hidden="true" />
-          {t("restart")}
-        </button>
-        <Link
-          href="/snakes"
-          onClick={() =>
-            trackEvent("species_page_clicked", {
-              source: "quiz_complete",
-              target: "snakes_hub",
-            })
-          }
-          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
-        >
-          {t("discoverSnakes")}
-          <ArrowRight className="size-4" aria-hidden="true" />
-        </Link>
+          {correctCount}
+          <span className="text-white/35"> / {total}</span>
+        </h2>
+        <p className="mt-2 text-[15px] text-white/55">
+          {t("percentLabel", { percent })}
+        </p>
+        <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white sm:mt-6 sm:text-[20px]">
+          {t(scoreMessageKey(percent))}
+        </p>
+        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
+          <button
+            type="button"
+            onClick={onRestart}
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
+          >
+            <RotateCcw className="size-4" aria-hidden="true" />
+            {t("restart")}
+          </button>
+          <Link
+            href="/snakes"
+            onClick={() =>
+              trackEvent("species_page_clicked", {
+                source: "quiz_complete",
+                target: "snakes_hub",
+              })
+            }
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10 sm:w-auto"
+          >
+            {t("discoverSnakes")}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     </div>
   );
