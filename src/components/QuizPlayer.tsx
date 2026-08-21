@@ -791,7 +791,7 @@ function ResultOverlay({
           const answer = answers[questionIndex];
           if (!species || !answer) return null;
           return (
-            <li key={`${item.correctId}-${questionIndex}`}>
+            <li key={`${item.correctId}-${questionIndex}`} className="min-w-0">
               <Link
                 href={speciesHref(item.correctId, locale)}
                 onClick={() =>
@@ -803,9 +803,9 @@ function ResultOverlay({
                     correct: answer.correct,
                   })
                 }
-                className="flex items-center gap-3 rounded-[20px] border border-white/12 bg-black/45 p-2.5 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60"
+                className="flex min-w-0 items-center gap-2.5 rounded-[20px] border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
               >
-                <span className="relative size-14 shrink-0 overflow-hidden rounded-2xl sm:size-16">
+                <span className="relative size-12 shrink-0 overflow-hidden rounded-2xl sm:size-16">
                   <Image
                     src={species.image}
                     alt={species.imageAlt}
@@ -823,7 +823,7 @@ function ResultOverlay({
                   </span>
                 </span>
                 <span
-                  className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-medium ${
+                  className={`shrink-0 whitespace-nowrap rounded-full px-2 py-1 text-[11px] font-medium sm:px-2.5 ${
                     answer.correct
                       ? "bg-emerald-500/20 text-emerald-100"
                       : "bg-destructive/25 text-red-100"
