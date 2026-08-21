@@ -4788,6 +4788,12 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/natrix-tessellata.webp"
       },
       {
+        "src": "/images/natrix-tessellata-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი ყურაშვილი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/natrix-tessellata-4.webp"
       },
       {
@@ -6121,7 +6127,7 @@ export const species: Species[] = [
     "location": "აღმოსავლეთ და სამხრეთ საქართველო",
     "description": "ბინდისა და ღამის გველი ვერტიკალური გუგით — კატის თვალს მოგვაგონებს; შხამიანი კბილები ხახის სიღრმეში აქვს განლაგებული; ადამიანისთვის უვნებელი, მშრალი ქვიანი ადგილების მკვიდრი.",
     "overview": "კატისთვალა (Telescopus fallax) Colubridae ოჯახის სახეობაა — შხამიანი კბილები ხახის სიღრმეში აქვს განლაგებული; ინგლისურად European / Mediterranean cat snake. აღწერა ფრიდრიხ ლუდვიგ ფლაიშმანმა 1831 წელს (თავდაპირველად Tarbophis fallax); ტიპის ლოკალობა — დალმაცია და ისტრია. გავრცელებულია სამხრეთ-აღმოსავლეთ ევროპიდან დასავლეთ აზიამდე — ბალკანები, თურქეთი, ახლო აღმოსავლეთი და კავკასია. საქართველოში ცნობილია აღმოსავლეთისა და სამხრეთის მშრალ ლანდშაფტებში; კავკასიურ ქვესახეობას (T. f. iberus) ტიპის ლოკალობად აქვს თბილისი („Tiflis“). სახელი მოდის ვერტიკალური, კატისებრი გუგიდან. სიგრძე ჩვეულებრივ დაახლ. 60–100 სმ (მაქსიმუმი ~1 მ). IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
-    "habitat": "უპირატესობას ანიჭებს მშრალ, ქვიან და კლდოვან ადგილებს: ქვიან ფერდობებს, კლდის ნაპრალებს, ბუჩქნარს, ღია ტყის პირებს, ნანგრევებსა და ქვის ღობეებს — ზღვის დონიდან დაახლოებით 2,000 მ-მდე. საქართველოში უფრო ხშირია აღმოსავლეთისა და სამხრეთის ქსეროფიტულ ჰაბიტატებში. დღისით იმალება ქვების ქვეშ, ნაპრალებში ან ხის ქერქის ქვეშ; კარგად ცოცავს კლდეებსა და კედლებზე.",
+    "habitat": "უპირატესობას ანიჭებს მშრალ, ქვიან და კლდოვან ადგილებს: ქვიან ფერდობებს, კლდის ნაპრალებს, ბუჩქნარს, ღია ტყის პირებს, ნანგრევებსა და ქვის ღობეებს — ზღვის დონიდან დაახლოებით 2,000 მ-მდე. საქართველოში უფრო ხშირია აღმოსავლეთისა და სამხრეთის ქსეროფიტულ ჰაბიტატებში. დასახელებული ადგილია თბილისის მთაწმინდა. დღისით იმალება ქვების ქვეშ, ნაპრალებში ან ხის ქერქის ქვეშ; კარგად ცოცავს კლდეებსა და კედლებზე.",
     "diet": "ძირითადად ხვლიკებითა და გეკონებით იკვებება; აგრეთვე იჭერს სხვა მცირე გველებს, ფრინველის ბარტყებსა და მცირე ძუძუმწოვრებს. მსხვერპლს სხეულის რგოლებით აფიქსირებს და შხამიანი კბილებით ასუსტებს, რომლებიც ხახის სიღრმეშია განლაგებული — შხამი ნადირობისთვისაა და ადამიანისთვის პრაქტიკულად უვნებელია.",
     "behavior": "ბინდისა და ღამის აქტიურია — დღისით იმალება, საღამოსა და ღამით ნადირობს. დამახასიათებელია დიდი თვალები ვერტიკალური გუგით (დღისით ვიწრო ნაპრალად იკუმშება). საფრთხისას უპირატესად გარბის ან იმალება; ადამიანისთვის უვნებელია — შხამიანი კბილები ხახის სიღრმეშია განლაგებული და ადამიანის ეფექტურ დაშხამვას თითქმის შეუძლებელს ხდის. კვერცხისმდებია: დედალი დებს დაახლოებით 4–12 კვერცხს (ლიტერატურაში ხშირად 6–9).",
     "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — არეგულირებს ხვლიკებისა და მცირე მღრღნელების რაოდენობას.",
@@ -6142,6 +6148,14 @@ export const species: Species[] = [
         "credit": {
           "photographer": "Benny Trapp",
           "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-lasha-1.jpg",
+        "credit": {
+          "photographer": "ლაშა ჯავახიშვილი",
+          "location": "მთაწმინდა",
+          "date": "2026-08-15"
         }
       },
       {
@@ -6236,7 +6250,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად გვხვდება საქართველოში?",
-        "answer": "აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან ლანდშაფტებში — კახეთში, ქართლში, სამცხე–ჯავახეთსა და მსგავს ჰაბიტატებში. ვერტიკალურად გვხვდება ზღვის დონიდან დაახლოებით 2,000 მ-მდე."
+        "answer": "აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან ლანდშაფტებში — კახეთში, ქართლში, სამცხე–ჯავახეთსა და მსგავს ჰაბიტატებში. თბილისში (მთაწმინდა) დადასტურებულია. ვერტიკალურად გვხვდება ზღვის დონიდან დაახლოებით 2,000 მ-მდე."
       },
       {
         "question": "რატომ ჰქვია კატისთვალა?",
@@ -6971,7 +6985,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით მოწყვლადია ფრაგმენტირებული, 20,000 კმ²-ზე ნაკლები არეალის გამო; საქართველოს წითელ ნუსხაში VU სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-20T13:01:14+04:00",
+    "updatedAt": "2026-08-21T14:04:56+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -11712,6 +11726,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/natrix-tessellata.webp"
       },
       {
+        "src": "/images/natrix-tessellata-giorgi-1.jpg",
+        "credit": {
+          "photographer": "Giorgi Qurashvili"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/natrix-tessellata-4.webp"
       },
       {
@@ -12688,7 +12708,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Eastern and southern Georgia",
     "description": "A crepuscular and nocturnal rear-fanged snake with a vertical, cat-like pupil — native to dry, rocky landscapes.",
     "overview": "The European cat snake (Telescopus fallax), also called the Mediterranean cat snake, is a rear-fanged (opisthoglyphous) species of the family Colubridae. It was described by Friedrich Ludwig Fleischmann in 1831 (originally as Tarbophis fallax); the type locality is Dalmatia and Istria. It ranges from southeastern Europe across western Asia — the Balkans, Turkey, the Middle East, and the Caucasus. In Georgia it is known from the dry landscapes of the east and south; the Caucasian subspecies (T. f. iberus) has its type locality at Tbilisi (“Tiflis”). The name refers to the vertical, cat-like pupil. Length is usually about 60–100 cm (up to roughly 1 m). It is classified as Least Concern by the IUCN.",
-    "habitat": "It favors dry, rocky terrain: stony slopes, rock crevices, scrub, open woodland edges, ruins, and dry-stone walls — from sea level to roughly 2,000 m. In Georgia it is more often found in the xeric habitats of the east and south. By day it shelters under stones, in crevices, or under bark; it climbs rocks and walls well.",
+    "habitat": "It favors dry, rocky terrain: stony slopes, rock crevices, scrub, open woodland edges, ruins, and dry-stone walls — from sea level to roughly 2,000 m. In Georgia it is more often found in the xeric habitats of the east and south. A named locality is Mtatsminda in Tbilisi. By day it shelters under stones, in crevices, or under bark; it climbs rocks and walls well.",
     "diet": "It feeds mainly on lizards and geckos; it also takes other small snakes, nestling birds, and small mammals. It pins prey with body loops and subdues it with rear fangs — the venom is for hunting and is practically harmless to humans.",
     "behavior": "It is crepuscular and nocturnal — it hides by day and hunts at dusk and at night. Distinctive large eyes have a vertical pupil (a narrow slit in bright light). When threatened it prefers to flee or hide; it is harmless to humans — the rear position of the fangs makes an effective envenoming bite almost impossible. It is egg-laying: females lay roughly 4–12 eggs (often 6–9 in the literature).",
     "conservation": "Classified as Least Concern on the IUCN Red List. In Europe it is listed on Annex II of the Bern Convention and Annex IV of the EU Habitats Directive. Local threats include habitat conversion, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by regulating lizards and small rodents.",
@@ -12741,7 +12761,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where is it found in Georgia?",
-        "answer": "In the dry, rocky landscapes of the east and south — Kakheti, Kartli, Samtskhe–Javakheti, and similar habitats. Vertically it occurs from sea level to roughly 2,000 m."
+        "answer": "In the dry, rocky landscapes of the east and south — Kakheti, Kartli, Samtskhe–Javakheti, and similar habitats. It is documented in Tbilisi (Mtatsminda). Vertically it occurs from sea level to roughly 2,000 m."
       },
       {
         "question": "Why is it called a cat snake?",
@@ -12762,6 +12782,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Benny Trapp",
           "url": "https://commons.wikimedia.org/wiki/File:Benny_Trapp_Telescopus_fallax.jpg"
+        }
+      },
+      {
+        "src": "/images/telescopus-fallax-lasha-1.jpg",
+        "credit": {
+          "photographer": "Lasha Javakhishvili",
+          "location": "Mtatsminda",
+          "date": "2026-08-15"
         }
       },
       {
