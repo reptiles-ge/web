@@ -1,5 +1,6 @@
 "use client";
 
+import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
@@ -158,6 +159,14 @@ export function VenomousSnakesPage({
             </div>
           </div>
         </section>
+
+        <QuizPracticeCta
+          locale={locale}
+          eyebrow={t("quizCtaEyebrow")}
+          title={t("quizCtaTitle")}
+          body={t("quizCtaBody")}
+          cta={t("quizCta")}
+        />
 
         <section id="species" className="scroll-mt-28 bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

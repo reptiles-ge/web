@@ -28,10 +28,12 @@ import {
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
 import { speciesHref } from "@/lib/speciesRoutes";
+import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import {
   getHubIndexTitleKey,
   getSpeciesGuideLinks,
+  isSnakeSpecies,
 } from "@/lib/clusterGuides";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
@@ -300,8 +302,23 @@ export function SpeciesProfile({
           />
         ) : null}
 
+        {isSnakeSpecies(species) ? (
+          <QuizPracticeCta
+            locale={locale}
+            eyebrow={t("quizCtaEyebrow")}
+            title={t("quizCtaTitle")}
+            body={t("quizCtaBody", { name: species.commonName })}
+            cta={t("quizCta")}
+            className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
+          />
+        ) : null}
+
         {biologyBlocks.length > 0 ? (
-          <section className="bg-surface py-20 lg:py-28">
+          <section
+            className={`bg-surface pb-20 lg:pb-28 ${
+              isSnakeSpecies(species) ? "pt-12 lg:pt-16" : "pt-20 lg:pt-28"
+            }`}
+          >
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
                 {t("biology")}
