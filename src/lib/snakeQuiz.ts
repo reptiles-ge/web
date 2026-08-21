@@ -67,6 +67,7 @@ export type SnakeQuizSpecies = {
   commonName: string;
   scientificName: string;
   image: string;
+  mobileImage?: string;
   imageCredit?: PhotoCredit;
   family: string;
   genus: string;
@@ -78,6 +79,7 @@ export type SnakeQuizSpecies = {
 export type SnakeQuizQuestion = {
   speciesId: string;
   image: string;
+  mobileImage?: string;
   imageCredit?: PhotoCredit;
   correctId: string;
   optionIds: string[];
@@ -99,6 +101,24 @@ const QUIZ_IMAGE_OVERRIDES: Record<string, string> = {
   "zamenis-longissimus": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
   "vipera-kaznakovi": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
   "vipera-transcaucasiana": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
+};
+
+const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {
+  "dolichophis-schmidti": "https://cdn.reptiles.ge/dolichophis-schmidti-3.webp",
+  "eirenis-collaris": "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
+  "eirenis-modestus": "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg",
+  "elaphe-urartica": "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
+  "eryx-jaculus": "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
+  "malpolon-insignitus": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
+  "natrix-natrix": "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg",
+  "natrix-tessellata": "https://cdn.reptiles.ge/natrix-tessellata-mobile.webp",
+  "platyceps-najadum": "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
+  "vipera-darevskii": "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg",
+  "vipera-dinniki": "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
+  "vipera-renardi": "https://cdn.reptiles.ge/vipera-renardi-2.jpg",
+  "vipera-transcaucasiana":
+    "https://cdn.reptiles.ge/vipera-transcaucasiana-mobile.webp",
+  "zamenis-hohenackeri": "https://cdn.reptiles.ge/zamenis-hohenackeri-2.jpg",
 };
 
 const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
@@ -151,12 +171,17 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
   const overridePhoto = overrideSrc
     ? species.gallery.find((item) => item.src === overrideSrc)
     : undefined;
+  const image = overridePhoto?.src ?? species.image;
+  const mobileOverride = QUIZ_MOBILE_IMAGE_OVERRIDES[species.id];
+  const mobileImage =
+    mobileOverride && mobileOverride !== image ? mobileOverride : undefined;
 
   return {
     id: species.id,
     commonName: species.commonName,
     scientificName: species.scientificName,
-    image: overridePhoto?.src ?? species.image,
+    image,
+    mobileImage,
     imageCredit: overridePhoto?.credit ?? species.imageCredit,
     family: species.family,
     genus: species.genus,
@@ -325,6 +350,7 @@ export function generateSnakeQuiz(
         {
           speciesId: id,
           image: species.image,
+          mobileImage: species.mobileImage,
           imageCredit: species.imageCredit,
           correctId: id,
           optionIds,

@@ -84,3 +84,85 @@ test("pickSnakeDistractors prefers same genus and lookalikes", () => {
   ]);
   assert.ok(distractors.some((id) => preferred.has(id)));
 });
+
+test("quiz mobile covers use tighter shots only where desktop crops badly", () => {
+  const byId = new Map(snakePool().map((item) => [item.id, item]));
+  const mobileOf = (id: string) => byId.get(id)?.mobileImage;
+  const imageOf = (id: string) => byId.get(id)?.image;
+
+  assert.equal(
+    mobileOf("vipera-transcaucasiana"),
+    "https://cdn.reptiles.ge/vipera-transcaucasiana-mobile.webp",
+  );
+  assert.equal(
+    mobileOf("vipera-dinniki"),
+    "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
+  );
+  assert.equal(
+    mobileOf("natrix-tessellata"),
+    "https://cdn.reptiles.ge/natrix-tessellata-mobile.webp",
+  );
+  assert.equal(
+    mobileOf("dolichophis-schmidti"),
+    "https://cdn.reptiles.ge/dolichophis-schmidti-3.webp",
+  );
+  assert.equal(
+    mobileOf("malpolon-insignitus"),
+    "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
+  );
+  assert.equal(
+    mobileOf("eryx-jaculus"),
+    "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
+  );
+  assert.equal(
+    mobileOf("platyceps-najadum"),
+    "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
+  );
+  assert.equal(
+    mobileOf("natrix-natrix"),
+    "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg",
+  );
+  assert.equal(
+    mobileOf("elaphe-urartica"),
+    "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
+  );
+  assert.equal(
+    mobileOf("vipera-darevskii"),
+    "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg",
+  );
+  assert.equal(
+    mobileOf("vipera-renardi"),
+    "https://cdn.reptiles.ge/vipera-renardi-2.jpg",
+  );
+  assert.equal(
+    mobileOf("zamenis-hohenackeri"),
+    "https://cdn.reptiles.ge/zamenis-hohenackeri-2.jpg",
+  );
+  assert.equal(
+    mobileOf("eirenis-modestus"),
+    "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg",
+  );
+  assert.equal(
+    mobileOf("eirenis-collaris"),
+    "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
+  );
+
+  assert.equal(mobileOf("vipera-kaznakovi"), undefined);
+  assert.equal(mobileOf("zamenis-longissimus"), undefined);
+  assert.equal(mobileOf("coronella-austriaca"), undefined);
+  assert.equal(mobileOf("elaphe-dione"), undefined);
+  assert.equal(mobileOf("macrovipera-lebetina"), undefined);
+  assert.equal(mobileOf("telescopus-fallax"), undefined);
+  assert.equal(mobileOf("xerotyphlops-vermicularis"), undefined);
+  assert.equal(mobileOf("hemorrhois-ravergieri"), undefined);
+
+  assert.notEqual(
+    imageOf("vipera-transcaucasiana"),
+    mobileOf("vipera-transcaucasiana"),
+  );
+  const questions = generateSnakeQuiz(snakePool(), { rng: rngFrom(7) });
+  for (const question of questions) {
+    const species = byId.get(question.speciesId);
+    assert.equal(question.mobileImage, species?.mobileImage);
+  }
+});

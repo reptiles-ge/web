@@ -272,9 +272,15 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
     setHintOpen(false);
   }
 
+  const coverSpecies = playing
+    ? (question ? (byId.get(question.correctId) ?? introCover) : introCover)
+    : introCover;
   const coverSrc = playing
     ? (question?.image ?? questions?.at(-1)?.image ?? introCover?.image)
     : introCover?.image;
+  const coverMobileSrc = playing
+    ? (question?.mobileImage ?? coverSpecies?.mobileImage)
+    : introCover?.mobileImage;
   const coverKey = !playing
     ? "intro"
     : complete
@@ -282,7 +288,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       : (question?.speciesId ?? "cover");
 
   const correctSpecies = question ? byId.get(question.correctId) : undefined;
-  const nextImage = revealed ? questions?.[index + 1]?.image : undefined;
+  const nextQuestion = revealed ? questions?.[index + 1] : undefined;
 
   const nextLabel =
     questions && index + 1 >= questions.length ? t("seeResult") : t("next");
@@ -292,23 +298,53 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       aria-labelledby={headingId}
       className="relative isolate min-h-dvh bg-ink"
     >
-      {nextImage ? <link rel="preload" as="image" href={nextImage} /> : null}
+      {nextQuestion?.mobileImage &&
+      nextQuestion.mobileImage !== nextQuestion.image ? (
+        <link
+          rel="preload"
+          as="image"
+          href={nextQuestion.mobileImage}
+          media="(max-width: 1023px)"
+        />
+      ) : null}
+      {nextQuestion?.image ? (
+        <link
+          rel="preload"
+          as="image"
+          href={nextQuestion.image}
+          media={
+            nextQuestion.mobileImage &&
+            nextQuestion.mobileImage !== nextQuestion.image
+              ? "(min-width: 1024px)"
+              : undefined
+          }
+        />
+      ) : null}
       <div className="absolute inset-0 overflow-hidden">
         {coverSrc ? (
-          <Image
+          <picture
             key={coverKey}
-            src={coverSrc}
-            alt={
-              playing && revealed && correctSpecies
-                ? correctSpecies.imageAlt
-                : t("imageAltHidden")
-            }
-            fill
-            priority={!playing}
-            quality={90}
-            sizes="100vw"
-            className="object-cover hero-drift"
-          />
+            className="absolute inset-0 block h-full w-full"
+          >
+            {coverMobileSrc && coverMobileSrc !== coverSrc ? (
+              <source media="(min-width: 1024px)" srcSet={coverSrc} />
+            ) : null}
+            <img
+              src={
+                coverMobileSrc && coverMobileSrc !== coverSrc
+                  ? coverMobileSrc
+                  : coverSrc
+              }
+              alt={
+                playing && revealed && correctSpecies
+                  ? correctSpecies.imageAlt
+                  : t("imageAltHidden")
+              }
+              fetchPriority={!playing ? "high" : "auto"}
+              decoding="async"
+              className="h-full w-full object-cover hero-drift text-transparent"
+            />
+          </picture>
         ) : null}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/85" />
         <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
