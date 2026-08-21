@@ -6860,7 +6860,7 @@ export const species: Species[] = [
     "location": "დიდი კავკასიონი",
     "description": "დიდი კავკასიონის მაღალმთის შხამიანი გველგესლა — სუბალპური მდელოებისა და ტყის ზედა ზონის მკვიდრი.",
     "overview": "დინიკის გველგესლა (Vipera dinniki) დიდი კავკასიონის მაღალმთის შხამიანი გველია. საქართველოში დადასტურებულია; მთელ ქვეყანაში არ გვხვდება. 2026 წლის ჩამონათვალი მას კანდიდატ სახეობად იღებს kaznakovi-ს კომპლექსში — სახეობრივი საზღვარი კავკასიურ გველგესლასთან ჯერ სრულად არ არის შემოწმებული. ნომინოტიპური ფორმა ტყის ზედა საზღვარს ზემოთაა; ქვესახეობა V. d. tuniyevi ჩამონათვალში ცენტრალური საქართველოს ტყიან და მთის ჰაბიტატს უკავშირდება. ზრდასრული ჩვეულებრივ დაახლოებით 40–55 სმ-ია. ამ ატლასში რისკი საშუალოა. IUCN-ით მოწყვლადია; შეტანილია საქართველოს 2014 წლის წითელ ნუსხაში.",
-    "habitat": "ეძებეთ დიდი კავკასიონის სუბალპურ მდელოზე, ტყის ზედა ზონაში, კლდოვან ამონაკვეთსა და მორენაზე — არა კოლხურ დაბლობზე და არა აღმოსავლეთის მშრალ ვაკეზე. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და მცხეთა — მთიანეთი. დასახელებული ადგილებია სვანეთი (ტიპის სერია; ენგურის აუზი, უშგული–შხარა), ხევსურეთი (არდოთი) და სტეფანწმინდის მიდამოები. თუშეთშიც არის მოხსენიებული. IUCN სიმაღლეს დაახლოებით 1,500–2,800 მ-ს ასახელებს; კავკასიური კვლევები ზოგჯერ 3,000 მ-მდეც აღწევს და ხეობებში ოდნავ დაბლაც ჩამოდის. ხშირია სამხრეთისა და სამხრეთ-აღმოსავლეთის ფერდობი. პოპულაციები ფრაგმენტირებულია.",
+    "habitat": "ეძებეთ დიდი კავკასიონის სუბალპურ მდელოზე, ტყის ზედა ზონაში, კლდოვან ამონაკვეთსა და მორენაზე — არა კოლხურ დაბლობზე და არა აღმოსავლეთის მშრალ ვაკეზე. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და მცხეთა — მთიანეთი. დასახელებული ადგილებია სვანეთი (ტიპის სერია; ენგურის აუზი, უშგული–შხარა), ხევსურეთი (არდოთი), სტეფანწმინდის მიდამოები და თრუსო. თუშეთშიც არის მოხსენიებული. IUCN სიმაღლეს დაახლოებით 1,500–2,800 მ-ს ასახელებს; კავკასიური კვლევები ზოგჯერ 3,000 მ-მდეც აღწევს და ხეობებში ოდნავ დაბლაც ჩამოდის. ხშირია სამხრეთისა და სამხრეთ-აღმოსავლეთის ფერდობი. პოპულაციები ფრაგმენტირებულია.",
     "diet": "ზრდასრული იჭერს ხვლიკებსა და წვრილ ძუძუმწოვრებს; იშვიათად — მიწაზე ბუდე ფრინველის ნაშიერს. ახალგაზრდა — წვრილ ხვლიკსა და მწერს, მათ შორის კალიას. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია დასავლეთ კავკასიიდან.",
     "behavior": "მაღალმთაში აქტიური სეზონი ჩვეულებრივ აპრილის შუიდან სექტემბრის მეორე ნახევრამდეა. დღისით ჩნდება; სიცხეში ჩრდილს ეძებს, მოღრუბლულ ამინდში შეიძლება მთელი დღე იყოს გარეთ. იზამთრებს კლდის ნაპრალში, ხშირად იმავე ადგილას, სადაც ზაფხულშია. ცოცხლადმშობია. შეწყვილება აპრილის ბოლოდან მაისამდეა; ნაშიერები იბადებიან აგვისტოში ჩრდილო ფერდობზე, სექტემბერში — სამხრეთზე. ახალშობილი დაახლოებით 13 სმ-ია და პირველ სეზონზე თითქმის აღარ იკვებება — პირდაპირ იზამთრებს. მაღალმთაში დედალი ყოველ წელს არ მრავლდება. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
     "conservation": "IUCN-ის 2009 წლის შეფასებით (2017 წლის errata) მოწყვლადია (Vulnerable): არეალი 20,000 კმ²-ზე ნაკლებია და მკვეთრად ფრაგმენტირებულია; ჰაბიტატისა და პოპულაციის შემცირება მოსალოდნელია. საქართველოს 2014 წლის წითელ ნუსხაში VU სტატუსითაა — ეროვნული ჩანაწერი IUCN-ის გლობალურ შეფასებას მიჰყვება. საფრთხეა სუბალპური საძოვრის დეგრადაცია და ძოვება. 2026 წლის ჩამონათვალში კანდიდატია: kaznakovi-ს კომპლექსის შიდა საზღვრები ჯერ გენომური მონაცემით სრულად არ არის დადასტურებული.",
@@ -6870,6 +6870,13 @@ export const species: Species[] = [
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/vipera-dinnik.webp"
+      },
+      {
+        "src": "/images/vipera-dinnik-7.jpg",
+        "credit": {
+          "location": "თრუსო",
+          "date": "2026-08-19"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/vipera-dinnik-6.webp"
@@ -6937,7 +6944,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "სუბალპურ მდელოზე, ტყის ზედა ზონაში და კლდოვან ადგილზე. რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და მცხეთა — მთიანეთი. დასახელებულია სვანეთი, ხევსურეთი, სტეფანწმინდა და თუშეთი. დასავლეთის დაბლობზე და აღმოსავლეთის მშრალ ვაკეზე არ არის."
+        "answer": "სუბალპურ მდელოზე, ტყის ზედა ზონაში და კლდოვან ადგილზე. რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და მცხეთა — მთიანეთი. დასახელებულია სვანეთი, ხევსურეთი, სტეფანწმინდა, თრუსო და თუშეთი. დასავლეთის დაბლობზე და აღმოსავლეთის მშრალ ვაკეზე არ არის."
       },
       {
         "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
@@ -13284,7 +13291,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Greater Caucasus",
     "description": "A venomous highland viper of the Greater Caucasus — a resident of subalpine meadows and the upper forest belt.",
     "overview": "Dinnik's viper (Vipera dinniki) is a venomous snake of the Greater Caucasus highlands. It is confirmed in Georgia; it does not occur throughout the country. The 2026 checklist treats it as a candidate in the kaznakovi complex — the species boundary with the Caucasus viper is not yet fully tested. The nominotypical form lives above the timberline; the checklist links subspecies V. d. tuniyevi to forest and mountain habitat in central Georgia. Adults are usually about 40–55 cm. In this atlas the risk is moderate. It is Vulnerable on the IUCN Red List and on Georgia’s 2014 Red List.",
-    "habitat": "Look for it on Greater Caucasus subalpine meadow, in the upper forest belt, on rock outcrops and moraines — not in Colchic lowlands and not on the dry eastern plains. This atlas maps Abkhazia, Samegrelo — Zemo Svaneti, Racha — Lechkhumi — Kvemo Svaneti, and Mtskheta — Mtianeti. Named localities include Svaneti (type series; Enguri basin and Ushguli–Shkhara), Khevsureti (Ardoti), and the Stepantsminda area. Tusheti is also mentioned. IUCN gives about 1,500–2,800 m; Caucasian studies sometimes record it to 3,000 m, and it may descend a little lower along valleys. South- and southeast-facing slopes are typical. Populations are fragmented.",
+    "habitat": "Look for it on Greater Caucasus subalpine meadow, in the upper forest belt, on rock outcrops and moraines — not in Colchic lowlands and not on the dry eastern plains. This atlas maps Abkhazia, Samegrelo — Zemo Svaneti, Racha — Lechkhumi — Kvemo Svaneti, and Mtskheta — Mtianeti. Named localities include Svaneti (type series; Enguri basin and Ushguli–Shkhara), Khevsureti (Ardoti), the Stepantsminda area and Truso. Tusheti is also mentioned. IUCN gives about 1,500–2,800 m; Caucasian studies sometimes record it to 3,000 m, and it may descend a little lower along valleys. South- and southeast-facing slopes are typical. Populations are fragmented.",
     "diet": "Adults take lizards and small mammals; occasionally fledglings of ground-nesting birds. Juveniles take small lizards and insects, including grasshoppers. It hunts by ambush and subdues prey with venom. There is no separate Georgian diet study on this page; this is species-level data from the western Caucasus.",
     "behavior": "In the highlands the active season is usually mid-April to the second half of September. It appears by day; in heat it seeks shade, and in cloudy weather it may stay out all day. It overwinters in rock crevices, often in the same place it uses in summer. It gives live birth. Mating is from late April to May; young are born in August on the northern slope and in September on the southern slope. Newborns are about 13 cm and almost do not feed in their first season — they go straight into hibernation. In the highlands females do not breed every year. If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people.",
     "conservation": "The 2009 IUCN assessment (2017 errata) lists it as Vulnerable: the range is under 20,000 km² and severely fragmented; a decline in habitat and population is projected. Georgia’s 2014 Red List assigns VU, following the global IUCN assessment. Threats include degradation of subalpine pasture and grazing. In the 2026 checklist it is a candidate: internal boundaries in the kaznakovi complex are not yet fully confirmed with genomic data.",
@@ -13332,7 +13339,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can it be found in Georgia?",
-        "answer": "On subalpine meadow, in the upper forest belt and on rocky ground. The map marks Abkhazia, Samegrelo — Zemo Svaneti, Racha — Lechkhumi — Kvemo Svaneti and Mtskheta — Mtianeti. Named places include Svaneti, Khevsureti, Stepantsminda and Tusheti. It is absent from western lowlands and the dry eastern plains."
+        "answer": "On subalpine meadow, in the upper forest belt and on rocky ground. The map marks Abkhazia, Samegrelo — Zemo Svaneti, Racha — Lechkhumi — Kvemo Svaneti and Mtskheta — Mtianeti. Named places include Svaneti, Khevsureti, Stepantsminda, Truso and Tusheti. It is absent from western lowlands and the dry eastern plains."
       },
       {
         "question": "Is it venomous and dangerous to humans?",
@@ -13362,6 +13369,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/vipera-dinnik.webp"
+      },
+      {
+        "src": "/images/vipera-dinnik-7.jpg",
+        "credit": {
+          "location": "Truso",
+          "date": "2026-08-19"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/vipera-dinnik-6.webp"
