@@ -34,6 +34,34 @@ function hasDarkHeroTop(pathname: string) {
   return false;
 }
 
+function NavNewBadge({
+  label,
+  placement = "corner",
+}: {
+  label: string;
+  placement?: "corner" | "inline";
+}) {
+  if (placement === "inline") {
+    return (
+      <span className="inline-flex items-center rounded-full bg-[#e23d2e] px-2 py-[3px] text-[10px] font-semibold leading-none text-white">
+        {label}
+      </span>
+    );
+  }
+
+  return (
+    <span className="pointer-events-none absolute -right-2 -top-5">
+      <span className="relative inline-flex items-center rounded-full bg-[#e23d2e] px-1.5 py-[3px] text-[9px] font-semibold leading-none text-white shadow-[0_2px_8px_rgba(226,61,46,0.38)]">
+        {label}
+        <span
+          aria-hidden
+          className="absolute left-1/2 top-[calc(100%-1px)] -translate-x-1/2 border-x-[4px] border-t-[5px] border-x-transparent border-t-[#e23d2e]"
+        />
+      </span>
+    </span>
+  );
+}
+
 export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -45,7 +73,7 @@ export function Navbar() {
   const links = [
     { href: "/species" as const, label: t("species") },
     { href: "/snakes" as const, label: t("snakes") },
-    { href: "/quiz" as const, label: t("quizzes") },
+    { href: "/quiz" as const, label: t("quizzes"), badge: t("new") },
     { href: "/regions" as const, label: t("atlas") },
   ];
   const mobileLinks = [
@@ -131,8 +159,15 @@ export function Navbar() {
                 : "text-white/70 hover:text-white"
             }`;
             return (
-              <Link key={link.href} href={link.href} className={className}>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative ${className}`}
+              >
                 {link.label}
+                {"badge" in link && link.badge ? (
+                  <NavNewBadge label={link.badge} />
+                ) : null}
               </Link>
             );
           })}
@@ -200,8 +235,11 @@ export function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
                 >
-                  <span className="font-display text-[1.35rem] font-semibold text-foreground">
+                  <span className="flex items-center gap-2.5 font-display text-[1.35rem] font-semibold text-foreground">
                     {link.label}
+                    {"badge" in link && link.badge ? (
+                      <NavNewBadge label={link.badge} placement="inline" />
+                    ) : null}
                   </span>
                   <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                     {String(index + 1).padStart(2, "0")}
