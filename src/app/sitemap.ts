@@ -8,9 +8,12 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  quizAlternates,
+  quizPageUrl,
   speciesAlternates,
   speciesPageUrl,
 } from "@/lib/site";
+import { liveQuizzes } from "@/lib/quizzes";
 import { regionHref } from "@/lib/speciesRoutes";
 import type { MetadataRoute } from "next";
 
@@ -68,7 +71,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/venomous-snakes", atlasLastModified));
     push(pageEntry(locale, "/snakes-in-the-yard", atlasLastModified));
     push(pageEntry(locale, "/quiz", atlasLastModified));
-    push(pageEntry(locale, "/quiz/gvelis-identifikacia", atlasLastModified));
+    for (const quiz of liveQuizzes()) {
+      const { languages } = quizAlternates(locale, quiz.id);
+      push({
+        url: quizPageUrl(locale, quiz.id),
+        lastModified: atlasLastModified,
+        alternates: { languages },
+      });
+    }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
       push(pageEntry(locale, guide.pathname, atlasLastModified));

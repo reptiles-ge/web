@@ -109,10 +109,7 @@ export const pathnames = {
     en: "/snakes-in-the-yard",
   },
   "/quiz": "/quiz",
-  "/quiz/gvelis-identifikacia": {
-    ka: "/quiz/romeli-gvelia",
-    en: "/quiz/which-snake",
-  },
+  "/quiz/[slug]": "/quiz/[slug]",
   "/regions": "/regions",
   "/regions/[id]": "/regions/[id]",
 } as const;

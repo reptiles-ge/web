@@ -6,6 +6,7 @@ import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { Link, usePathname } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { quizHref } from "@/lib/quizzes";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -29,7 +30,7 @@ const guideLinks = [
     labelKey: "snakeIdentify" as const,
   },
   {
-    href: "/quiz/gvelis-identifikacia" as const,
+    quizId: "snake" as const,
     labelKey: "snakeQuiz" as const,
   },
   { href: "/snakes/gvelis-nakbeni" as const, labelKey: "snakeBite" as const },
@@ -142,9 +143,15 @@ export function Footer() {
             </p>
             <ul className="mt-5 columns-2 gap-x-8">
               {guideLinks.map((link) => (
-                <li key={link.href} className="mb-2.5 break-inside-avoid">
+                <li key={link.labelKey} className="mb-2.5 break-inside-avoid">
                   <Link
-                    href={link.href}
+                    href={
+                      "quizId" in link && link.quizId
+                        ? quizHref(link.quizId, locale)
+                        : "href" in link && link.href
+                          ? link.href
+                          : "/quiz"
+                    }
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                   >
                     {t(link.labelKey)}

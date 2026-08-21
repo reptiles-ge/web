@@ -399,7 +399,6 @@ export type HubClusterCard =
         | "/snakes-in-the-yard"
         | "/snakes"
         | "/lizards"
-        | "/quiz/gvelis-identifikacia"
         | ClusterGuidePath;
       key:
         | "snakesHub"
@@ -409,7 +408,6 @@ export type HubClusterCard =
         | "frogs"
         | "index"
         | "identify"
-        | "quiz"
         | "bite"
         | "range"
         | "largest"
@@ -423,6 +421,11 @@ export type HubClusterCard =
         | "amphibianIndex"
         | "frogsIndex"
         | "newts";
+    }
+  | {
+      kind: "quiz";
+      id: "snake";
+      key: "quiz";
     }
   | {
       kind: "species";
@@ -440,7 +443,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   snakes: [
     { kind: "page", href: "/snakes/saxeoebebi", key: "index" },
     { kind: "page", href: "/venomous-snakes", key: "venomous" },
-    { kind: "page", href: "/quiz/gvelis-identifikacia", key: "quiz" },
+    { kind: "quiz", id: "snake", key: "quiz" },
     { kind: "page", href: "/snakes/shxamiani-gvelis-amocnoba", key: "identify" },
     { kind: "page", href: "/snakes/gvelis-nakbeni", key: "bite" },
     { kind: "page", href: "/snakes/gavrtseleba", key: "range" },
@@ -592,7 +595,9 @@ const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 export function getRelatedGuideCards(guideId: ClusterGuideId): HubClusterCard[] {
   const guide = CLUSTER_GUIDES[guideId];
   return HUB_CLUSTER_CARDS[guide.parentHub].filter(
-    (card) => card.kind === "page" && card.href !== guide.pathname,
+    (card) =>
+      card.kind === "quiz" ||
+      (card.kind === "page" && card.href !== guide.pathname),
   );
 }
 
@@ -601,7 +606,9 @@ export function getHubPageRelatedGuides(
   excludeHref: Extract<HubClusterCard, { kind: "page" }>["href"],
 ): HubClusterCard[] {
   return HUB_CLUSTER_CARDS[hubId].filter(
-    (card) => card.kind === "page" && card.href !== excludeHref,
+    (card) =>
+      card.kind === "quiz" ||
+      (card.kind === "page" && card.href !== excludeHref),
   );
 }
 
@@ -610,7 +617,7 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
   if (!species) return [];
 
   const group = getSpeciesAtlasMeta(id).group;
-  const links: Array<Extract<HubClusterCard, { kind: "page" }>> = [];
+  const links: HubClusterCard[] = [];
 
   if (group === "snake") {
     if (isVenomousDanger(species.danger)) {
@@ -620,11 +627,7 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       links.push({ kind: "page", href: "/snakes", key: "snakesHub" });
     }
     links.push({ kind: "page", href: "/snakes/saxeoebebi", key: "index" });
-    links.push({
-      kind: "page",
-      href: "/quiz/gvelis-identifikacia",
-      key: "quiz",
-    });
+    links.push({ kind: "quiz", id: "snake", key: "quiz" });
     if (isVenomousDanger(species.danger)) {
       links.push({
         kind: "page",
@@ -730,8 +733,9 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
   const seen = new Set<string>();
   return links
     .filter((link) => {
-      if (seen.has(link.href)) return false;
-      seen.add(link.href);
+      const key = link.kind === "page" ? link.href : `${link.kind}:${link.id}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
       return true;
     })
     .slice(0, 4);

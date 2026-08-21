@@ -1,5 +1,6 @@
 import { getPathname } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 export const siteConfig = {
@@ -123,6 +124,23 @@ export function localeAlternates(locale: string, href: PathnameHref = "/") {
 
 export function speciesPageUrl(locale: AppLocale, id: string) {
   return absoluteUrl(getPathname({ locale, href: speciesHref(id, locale) }));
+}
+
+export function quizPageUrl(locale: AppLocale, id: string) {
+  return absoluteUrl(getPathname({ locale, href: quizHref(id, locale) }));
+}
+
+export function quizAlternates(locale: AppLocale, id: string) {
+  const ka = quizPageUrl("ka", id);
+  const en = quizPageUrl("en", id);
+  return {
+    canonical: locale === "en" ? en : ka,
+    languages: {
+      ka,
+      en,
+      "x-default": ka,
+    },
+  };
 }
 
 export function speciesAlternates(locale: AppLocale, id: string) {

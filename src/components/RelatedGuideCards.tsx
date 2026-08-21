@@ -5,6 +5,7 @@ import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
+import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import { ArrowUpRight } from "lucide-react";
@@ -25,7 +26,11 @@ export function RelatedGuideCard({
       ? species.find((entry) => entry.id === card.id)
       : undefined;
   const href =
-    card.kind === "page" ? card.href : speciesHref(card.id, locale);
+    card.kind === "page"
+      ? card.href
+      : card.kind === "quiz"
+        ? quizHref(card.id, locale)
+        : speciesHref(card.id, locale);
   const title =
     card.kind === "species" && item
       ? speciesSeoAnchor(item.commonName, item.scientificName)

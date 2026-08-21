@@ -32,6 +32,7 @@ const STATIC_LOCALE_PATHS = [
   "/amphibians/bayayi/saxeoebebi",
   "/amphibians/tritoni-salamandra",
   "/regions",
+  "/quiz",
 ] as const;
 
 type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
@@ -39,6 +40,7 @@ type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
 function isStaticLocalePath(pathname: string): pathname is StaticLocalePath {
   return (STATIC_LOCALE_PATHS as readonly string[]).includes(pathname);
 }
+import { quizHref, resolveQuizBySlug } from "@/lib/quizzes";
 import {
   regionHref,
   resolveSpecies,
@@ -239,6 +241,15 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       const species = resolveSpeciesInHub(hub, slug);
       if (species) {
         router.replace(speciesHref(species.id, code), { locale: code });
+        close();
+        return;
+      }
+    }
+
+    if (pathname === "/quiz/[slug]" && slug) {
+      const quiz = resolveQuizBySlug(locale, slug);
+      if (quiz) {
+        router.replace(quizHref(quiz.id, code), { locale: code });
         close();
         return;
       }

@@ -1,5 +1,6 @@
 import { type PhotoCredit, type Species } from "@/data/species";
 import { isSnakeSpecies } from "@/lib/clusterGuides";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
 import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 
@@ -65,13 +66,13 @@ export type SnakeQuizSpecies = {
   id: string;
   commonName: string;
   scientificName: string;
-  location: string;
   image: string;
   imageCredit?: PhotoCredit;
   family: string;
   genus: string;
   explanation: string;
   hint: string;
+  imageAlt: string;
 };
 
 export type SnakeQuizQuestion = {
@@ -96,6 +97,14 @@ export function scoreMessageKey(percent: number): ScoreMessageKey {
 
 const QUIZ_IMAGE_OVERRIDES: Record<string, string> = {
   "zamenis-longissimus": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
+  "vipera-kaznakovi": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
+  "vipera-transcaucasiana": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
+};
+
+const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
+  "eirenis-collaris": 1,
+  "eirenis-modestus": 1,
+  "vipera-dinniki": 1,
 };
 
 function spoilsAnswer(text: string, species: Species) {
@@ -111,12 +120,16 @@ function spoilsAnswer(text: string, species: Species) {
 }
 
 export function buildQuizHint(species: Species) {
-  const traits = (species.identification?.traits ?? []).filter(
+  const all = species.identification?.traits ?? [];
+  const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
+  const preferred =
+    preferredIndex != null ? all[preferredIndex]?.trim() : undefined;
+  if (preferred && !spoilsAnswer(preferred, species)) return preferred;
+
+  const traits = all.filter(
     (trait) => trait.trim() && !spoilsAnswer(trait, species),
   );
-  const picked = (
-    traits.length > 0 ? traits : (species.identification?.traits ?? [])
-  )
+  const picked = (traits.length > 0 ? traits : all)
     .slice(0, 1)
     .map((trait) => trait.trim())
     .filter(Boolean);
@@ -143,13 +156,17 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     id: species.id,
     commonName: species.commonName,
     scientificName: species.scientificName,
-    location: species.location,
     image: overridePhoto?.src ?? species.image,
     imageCredit: overridePhoto?.credit ?? species.imageCredit,
     family: species.family,
     genus: species.genus,
     explanation,
     hint: buildQuizHint(species),
+    imageAlt: speciesImageAlt(
+      species.commonName,
+      species.scientificName,
+      species.location,
+    ),
   };
 }
 

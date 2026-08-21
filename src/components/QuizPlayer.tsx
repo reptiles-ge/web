@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { trackEvent } from "@/lib/analytics";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 import {
   generateSnakeQuiz,
@@ -14,13 +14,23 @@ import {
   type SnakeQuizQuestion,
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
-import { ArrowLeft, ArrowRight, Lightbulb, RotateCcw } from "lucide-react";
+import { ArrowRight, Check, Lightbulb, RotateCcw, Share2 } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useCallback, useId, useMemo, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type KeyboardEvent,
+} from "react";
 
-type SnakeQuizProps = {
+type QuizPlayerProps = {
+  quizId: string;
   snakes: SnakeQuizSpecies[];
+  shareUrl: string;
 };
 
 type Answered = {
@@ -28,10 +38,22 @@ type Answered = {
   correct: boolean;
 };
 
+type Draft = {
+  questions: SnakeQuizQuestion[];
+  index: number;
+  answers: Answered[];
+  selectedId: string | null;
+  hintOpen: boolean;
+};
+
 const OPTION_MARKS = {
   ka: ["ა", "ბ", "გ", "დ"],
   en: ["A", "B", "C", "D"],
 } as const;
+
+function draftKey(quizId: string) {
+  return `reptiles.quiz.draft.${quizId}`;
+}
 
 function optionClass(state: {
   revealed: boolean;
@@ -50,7 +72,7 @@ function optionClass(state: {
   return "border-white/10 bg-black/25 text-white/45";
 }
 
-export function SnakeQuiz({ snakes }: SnakeQuizProps) {
+export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
   const t = useTranslations("snakeQuiz");
   const locale = useLocale() as AppLocale;
   const headingId = useId();
@@ -58,6 +80,9 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     () => new Map(snakes.map((item) => [item.id, item])),
     [snakes],
   );
+  const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const feedbackRef = useRef<HTMLParagraphElement>(null);
+  const abandonSent = useRef(false);
 
   const [playing, setPlaying] = useState(false);
   const [questions, setQuestions] = useState<SnakeQuizQuestion[] | null>(null);
@@ -66,6 +91,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [complete, setComplete] = useState(false);
   const [hintOpen, setHintOpen] = useState(false);
+  const [draftReady, setDraftReady] = useState(false);
 
   const introCover =
     snakes.find((item) => item.id === "natrix-natrix") ?? snakes[0];
@@ -80,18 +106,109 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       setComplete(false);
       setHintOpen(false);
       setPlaying(true);
-      trackEvent(reason === "restart" ? "quiz_restarted" : "quiz_started", {
+      abandonSent.current = false;
+      const payload = {
+        quiz_id: quizId,
         length: next.length,
         mode: "default",
-      });
+      };
+      if (reason === "restart") {
+        trackEvent("quiz_restarted", payload);
+        trackEvent("quiz_retry_clicked", payload);
+      } else {
+        trackEvent("quiz_started", payload);
+      }
     },
-    [snakes],
+    [snakes, quizId],
   );
+
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(draftKey(quizId));
+      if (!raw) {
+        trackEvent("quiz_view", { quiz_id: quizId });
+        return;
+      }
+      const draft = JSON.parse(raw) as Draft;
+      if (!Array.isArray(draft.questions) || draft.questions.length === 0) {
+        trackEvent("quiz_view", { quiz_id: quizId });
+        return;
+      }
+      setQuestions(draft.questions);
+      setIndex(draft.index ?? 0);
+      setAnswers(draft.answers ?? []);
+      setSelectedId(draft.selectedId ?? null);
+      setHintOpen(Boolean(draft.hintOpen));
+      setComplete(false);
+      setPlaying(true);
+    } catch {
+      trackEvent("quiz_view", { quiz_id: quizId });
+    } finally {
+      setDraftReady(true);
+    }
+  }, [quizId]);
+
+  useEffect(() => {
+    if (!draftReady) return;
+    if (!playing || complete || !questions) {
+      sessionStorage.removeItem(draftKey(quizId));
+      return;
+    }
+    const draft: Draft = {
+      questions,
+      index,
+      answers,
+      selectedId,
+      hintOpen,
+    };
+    sessionStorage.setItem(draftKey(quizId), JSON.stringify(draft));
+  }, [
+    draftReady,
+    playing,
+    complete,
+    questions,
+    index,
+    answers,
+    selectedId,
+    hintOpen,
+    quizId,
+  ]);
+
+  useEffect(() => {
+    function onHide() {
+      if (abandonSent.current) return;
+      if (!playing || complete || !questions) return;
+      abandonSent.current = true;
+      trackEvent("quiz_abandoned", {
+        quiz_id: quizId,
+        question: index + 1,
+        answered: answers.length,
+      });
+    }
+
+    function onVisibility() {
+      if (document.visibilityState === "hidden") onHide();
+      if (document.visibilityState === "visible") {
+        abandonSent.current = false;
+      }
+    }
+
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", onHide);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", onHide);
+    };
+  }, [playing, complete, questions, index, answers.length, quizId]);
 
   const question = questions?.[index];
   const revealed = selectedId !== null;
   const correctCount = answers.filter((item) => item.correct).length;
   const total = questions?.length ?? QUIZ_LENGTH;
+
+  useEffect(() => {
+    if (revealed) feedbackRef.current?.focus();
+  }, [revealed, index]);
 
   function onSelect(optionId: string, difficulty: QuizDifficulty) {
     if (!question || revealed) return;
@@ -99,12 +216,36 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
     setSelectedId(optionId);
     setAnswers((current) => [...current, { selectedId: optionId, correct }]);
     trackEvent("quiz_answered", {
+      quiz_id: quizId,
       question: index + 1,
       species: question.correctId,
       selected_answer: optionId,
       correct,
       difficulty,
     });
+  }
+
+  function onRadioKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (revealed || !question) return;
+    const ids = question.optionIds;
+    const current = optionRefs.current.findIndex(
+      (node) => node === document.activeElement,
+    );
+    const active = current >= 0 ? current : 0;
+    let next = active;
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+      next = (active + 1) % ids.length;
+    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      next = (active - 1 + ids.length) % ids.length;
+    } else if (event.key === "Home") {
+      next = 0;
+    } else if (event.key === "End") {
+      next = ids.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    optionRefs.current[next]?.focus();
   }
 
   function onNext() {
@@ -115,7 +256,9 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
         questions.length,
       );
       setComplete(true);
+      sessionStorage.removeItem(draftKey(quizId));
       trackEvent("quiz_completed", {
+        quiz_id: quizId,
         correct: answers.filter((item) => item.correct).length,
         incorrect:
           questions.length - answers.filter((item) => item.correct).length,
@@ -138,9 +281,8 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       ? "result"
       : (question?.speciesId ?? "cover");
 
-  const correctSpecies = question
-    ? byId.get(question.correctId)
-    : undefined;
+  const correctSpecies = question ? byId.get(question.correctId) : undefined;
+  const nextImage = revealed ? questions?.[index + 1]?.image : undefined;
 
   const nextLabel =
     questions && index + 1 >= questions.length ? t("seeResult") : t("next");
@@ -150,6 +292,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
       aria-labelledby={headingId}
       className="relative isolate min-h-dvh bg-ink"
     >
+      {nextImage ? <link rel="preload" as="image" href={nextImage} /> : null}
       <div className="absolute inset-0 overflow-hidden">
         {coverSrc ? (
           <Image
@@ -157,15 +300,11 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
             src={coverSrc}
             alt={
               playing && revealed && correctSpecies
-                ? speciesImageAlt(
-                    correctSpecies.commonName,
-                    correctSpecies.scientificName,
-                    correctSpecies.location,
-                  )
+                ? correctSpecies.imageAlt
                 : t("imageAltHidden")
             }
             fill
-            priority
+            priority={!playing}
             quality={90}
             sizes="100vw"
             className="object-cover hero-drift"
@@ -185,12 +324,20 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
         }`}
       >
         {!playing ? (
-          <IntroOverlay headingId={headingId} onStart={() => startRound("start")} />
-        ) : complete ? (
+          <IntroOverlay
+            headingId={headingId}
+            onStart={() => startRound("start")}
+          />
+        ) : complete && questions ? (
           <ResultOverlay
             headingId={headingId}
+            quizId={quizId}
             correctCount={correctCount}
             total={total}
+            questions={questions}
+            answers={answers}
+            byId={byId}
+            shareUrl={shareUrl}
             onRestart={() => startRound("restart")}
           />
         ) : !question ? (
@@ -199,9 +346,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
           <>
             <header className="shrink-0">
               <div className="flex items-center gap-3 text-[11px] tracking-[0.18em] text-white/70 uppercase sm:text-[12px]">
-                <span>
-                  {t("progress", { current: index + 1, total })}
-                </span>
+                <span>{t("progress", { current: index + 1, total })}</span>
                 <span className="h-px flex-1 bg-white/20" aria-hidden="true" />
               </div>
               <div className="mt-2 flex gap-1.5 sm:mt-3" aria-hidden="true">
@@ -238,6 +383,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                       setHintOpen(next);
                       if (next) {
                         trackEvent("quiz_hint_used", {
+                          quiz_id: quizId,
                           question: index + 1,
                           species: question.correctId,
                           difficulty: question.difficulty,
@@ -260,6 +406,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
               <div
                 role="radiogroup"
                 aria-labelledby={headingId}
+                onKeyDown={onRadioKeyDown}
                 className="grid gap-1.5 sm:grid-cols-2 sm:gap-3"
               >
                 {question.optionIds.map((optionId, optionIndex) => {
@@ -270,6 +417,9 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                   return (
                     <button
                       key={optionId}
+                      ref={(node) => {
+                        optionRefs.current[optionIndex] = node;
+                      }}
                       type="button"
                       role="radio"
                       aria-checked={selected}
@@ -291,7 +441,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                           {option.commonName}
                         </span>
                         {revealed ? (
-                          <span className="mt-0.5 hidden text-[12px] font-normal italic text-white/60 sm:block">
+                          <span className="mt-0.5 block text-[12px] font-normal italic text-white/60">
                             {option.scientificName}
                           </span>
                         ) : null}
@@ -301,10 +451,24 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                 })}
               </div>
 
-              <div aria-live="polite">
+              <div
+                aria-live="polite"
+                aria-label={
+                  revealed && correctSpecies
+                    ? t("revealLead", {
+                        commonName: correctSpecies.commonName,
+                        scientificName: correctSpecies.scientificName,
+                      })
+                    : undefined
+                }
+              >
                 {revealed && correctSpecies ? (
                   <div className="mt-2.5 rounded-[20px] border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:rounded-[24px] sm:p-6">
-                    <p className="font-display text-[1.1rem] font-semibold text-white sm:text-[1.45rem]">
+                    <p
+                      ref={feedbackRef}
+                      tabIndex={-1}
+                      className="font-display text-[1.1rem] font-semibold text-white outline-none sm:text-[1.45rem]"
+                    >
                       {selectedId === question.correctId
                         ? t("correct")
                         : t("incorrect")}
@@ -329,6 +493,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                         href={speciesHref(question.correctId, locale)}
                         onClick={() =>
                           trackEvent("species_page_clicked", {
+                            quiz_id: quizId,
                             source: "quiz_question",
                             species: question.correctId,
                             question: index + 1,
@@ -359,6 +524,7 @@ export function SnakeQuiz({ snakes }: SnakeQuizProps) {
                   href={speciesHref(question.correctId, locale)}
                   onClick={() =>
                     trackEvent("species_page_clicked", {
+                      quiz_id: quizId,
                       source: "quiz_question",
                       species: question.correctId,
                       question: index + 1,
@@ -386,11 +552,7 @@ function QuizBreadcrumbs() {
     <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
       <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
         <li>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 transition-colors hover:text-white"
-          >
-            <ArrowLeft className="size-3.5" />
+          <Link href="/" className="transition-colors hover:text-white">
             {t("breadcrumbHome")}
           </Link>
         </li>
@@ -398,10 +560,7 @@ function QuizBreadcrumbs() {
           /
         </li>
         <li>
-          <Link
-            href="/quiz"
-            className="transition-colors hover:text-white"
-          >
+          <Link href="/quiz" className="transition-colors hover:text-white">
             {tQuizzes("breadcrumbCurrent")}
           </Link>
         </li>
@@ -481,61 +640,202 @@ function IntroOverlay({
 
 function ResultOverlay({
   headingId,
+  quizId,
   correctCount,
   total,
+  questions,
+  answers,
+  byId,
+  shareUrl,
   onRestart,
 }: {
   headingId: string;
+  quizId: string;
   correctCount: number;
   total: number;
+  questions: SnakeQuizQuestion[];
+  answers: Answered[];
+  byId: Map<string, SnakeQuizSpecies>;
+  shareUrl: string;
   onRestart: () => void;
 }) {
   const t = useTranslations("snakeQuiz");
+  const locale = useLocale() as AppLocale;
   const percent = scorePercent(correctCount, total);
+  const [copied, setCopied] = useState(false);
+
+  async function onShare() {
+    const text = t("shareText", {
+      score: `${correctCount}/${total}`,
+      url: shareUrl.replace(/^https?:\/\//, ""),
+    });
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share({
+          title: t("title"),
+          text,
+          url: shareUrl,
+        });
+        trackEvent("quiz_share_clicked", {
+          quiz_id: quizId,
+          method: "share",
+          percent,
+        });
+        return;
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+    }
+    try {
+      await navigator.clipboard.writeText(`${text} ${shareUrl}`);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+      trackEvent("quiz_share_clicked", {
+        quiz_id: quizId,
+        method: "copy",
+        percent,
+      });
+    } catch {
+      trackEvent("quiz_share_clicked", {
+        quiz_id: quizId,
+        method: "copy_failed",
+        percent,
+      });
+    }
+  }
 
   return (
-    <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
-      <div className="mt-auto w-full">
-        <QuizBreadcrumbs />
-        <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
-          {t("resultEyebrow")}
-        </p>
-        <h2
-          id={headingId}
-          className="mt-3 font-display text-[clamp(2.6rem,16vw,8rem)] font-semibold leading-none text-white sm:mt-4"
+    <div className="flex w-full flex-col pb-16 sm:pb-24">
+      <QuizBreadcrumbs />
+      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
+        {t("resultEyebrow")}
+      </p>
+      <h2
+        id={headingId}
+        className="mt-3 font-display text-[clamp(2.6rem,16vw,8rem)] font-semibold leading-none text-white sm:mt-4"
+      >
+        {correctCount}
+        <span className="text-white/35"> / {total}</span>
+      </h2>
+      <p className="mt-2 text-[15px] text-white/55">
+        {t("percentLabel", { percent })}
+      </p>
+      <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white sm:mt-6 sm:text-[20px]">
+        {t(scoreMessageKey(percent))}
+      </p>
+      <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
+        <button
+          type="button"
+          onClick={onRestart}
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
         >
-          {correctCount}
-          <span className="text-white/35"> / {total}</span>
-        </h2>
-        <p className="mt-2 text-[15px] text-white/55">
-          {t("percentLabel", { percent })}
-        </p>
-        <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white sm:mt-6 sm:text-[20px]">
-          {t(scoreMessageKey(percent))}
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
-          <button
-            type="button"
-            onClick={onRestart}
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
-          >
-            <RotateCcw className="size-4" aria-hidden="true" />
-            {t("restart")}
-          </button>
-          <Link
-            href="/snakes"
-            onClick={() =>
-              trackEvent("species_page_clicked", {
-                source: "quiz_complete",
-                target: "snakes_hub",
-              })
-            }
-            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10 sm:w-auto"
-          >
-            {t("discoverSnakes")}
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
-        </div>
+          <RotateCcw className="size-4" aria-hidden="true" />
+          {t("restart")}
+        </button>
+        <button
+          type="button"
+          onClick={onShare}
+          className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10 sm:w-auto"
+        >
+          {copied ? (
+            <Check className="size-4" aria-hidden="true" />
+          ) : (
+            <Share2 className="size-4" aria-hidden="true" />
+          )}
+          {copied ? t("shareCopied") : t("share")}
+        </button>
+      </div>
+
+      <h3 className="mt-12 font-display text-[1.25rem] font-semibold text-white sm:mt-16 sm:text-[1.5rem]">
+        {t("roundRecap")}
+      </h3>
+      <ul className="mt-4 grid gap-2 sm:mt-5 sm:grid-cols-2">
+        {questions.map((item, questionIndex) => {
+          const species = byId.get(item.correctId);
+          const answer = answers[questionIndex];
+          if (!species || !answer) return null;
+          return (
+            <li key={`${item.correctId}-${questionIndex}`}>
+              <Link
+                href={speciesHref(item.correctId, locale)}
+                onClick={() =>
+                  trackEvent("species_page_clicked", {
+                    quiz_id: quizId,
+                    source: "quiz_result",
+                    species: item.correctId,
+                    question: questionIndex + 1,
+                    correct: answer.correct,
+                  })
+                }
+                className="flex items-center gap-3 rounded-[20px] border border-white/12 bg-black/45 p-2.5 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60"
+              >
+                <span className="relative size-14 shrink-0 overflow-hidden rounded-2xl sm:size-16">
+                  <Image
+                    src={species.image}
+                    alt={species.imageAlt}
+                    fill
+                    sizes="64px"
+                    className="object-cover"
+                  />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-[14px] font-medium text-white">
+                    {species.commonName}
+                  </span>
+                  <span className="mt-0.5 block truncate text-[12px] italic text-white/55">
+                    {species.scientificName}
+                  </span>
+                </span>
+                <span
+                  className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-medium ${
+                    answer.correct
+                      ? "bg-emerald-500/20 text-emerald-100"
+                      : "bg-destructive/25 text-red-100"
+                  }`}
+                >
+                  {answer.correct ? t("resultCorrect") : t("resultWrong")}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+
+      <p className="mt-8 max-w-xl text-[14px] leading-relaxed text-white/65 sm:mt-10">
+        {t("practiceNote")}
+      </p>
+      <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.28em] text-white/45">
+        {t("relatedTitle")}
+      </p>
+      <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <Link
+          href="/snakes/shxamiani-gvelis-amocnoba"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+        >
+          {t("ctaIdentify")}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
+        <Link
+          href="/venomous-snakes"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+        >
+          {t("ctaVenomous")}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
+        <Link
+          href="/snakes"
+          onClick={() =>
+            trackEvent("species_page_clicked", {
+              quiz_id: quizId,
+              source: "quiz_complete",
+              target: "snakes_hub",
+            })
+          }
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+        >
+          {t("discoverSnakes")}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
       </div>
     </div>
   );

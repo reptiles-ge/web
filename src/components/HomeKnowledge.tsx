@@ -1,36 +1,39 @@
 import { Link } from "@/i18n/navigation";
+import { quizHref } from "@/lib/quizzes";
 import { ArrowUpRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import type { AppLocale } from "@/i18n/routing";
 
 const pathways = [
   {
     key: "snakes" as const,
-    href: "/snakes",
+    href: "/snakes" as const,
   },
   {
     key: "quiz" as const,
-    href: "/quiz/gvelis-identifikacia",
+    quizId: "snake" as const,
   },
   {
     key: "venomous" as const,
-    href: "/venomous-snakes",
+    href: "/venomous-snakes" as const,
   },
   {
     key: "lizards" as const,
-    href: "/lizards",
+    href: "/lizards" as const,
   },
   {
     key: "turtles" as const,
-    href: "/turtles",
+    href: "/turtles" as const,
   },
   {
     key: "amphibians" as const,
-    href: "/amphibians",
+    href: "/amphibians" as const,
   },
-] as const;
+];
 
 export async function HomeKnowledge() {
   const t = await getTranslations("home.knowledge");
+  const locale = (await getLocale()) as AppLocale;
 
   return (
     <section id="knowledge" className="bg-surface py-24 lg:py-36">
@@ -51,7 +54,13 @@ export async function HomeKnowledge() {
           {pathways.map((pathway, index) => (
             <Link
               key={pathway.key}
-              href={pathway.href}
+              href={
+                "quizId" in pathway && pathway.quizId
+                  ? quizHref(pathway.quizId, locale)
+                  : "href" in pathway && pathway.href
+                    ? pathway.href
+                    : "/quiz"
+              }
               className="group relative flex min-h-[280px] flex-col justify-between bg-card p-8 transition-colors duration-300 hover:bg-background sm:p-10"
             >
               <div>

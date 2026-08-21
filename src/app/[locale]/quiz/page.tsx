@@ -1,14 +1,12 @@
 import { JsonLd } from "@/components/JsonLd";
 import { QuizzesPage, type QuizCardModel } from "@/components/QuizzesPage";
-import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
-import { QUIZ_INDEX } from "@/lib/quizzes";
-import { speciesImageAlt } from "@/lib/speciesMeta";
+import { liveQuizzes } from "@/lib/quizzes";
 import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  quizPageUrl,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -40,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = absoluteUrl(OG_IMAGE);
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: t("keywords")
       .split(",")
@@ -57,8 +55,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: ogImage,
-          width: 1024,
-          height: 559,
+          width: 1200,
+          height: 630,
           alt: title,
         },
       ],
@@ -91,28 +89,12 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     namespace: "groupHubShared",
   });
   const url = absoluteUrl(localePath(locale, PATH));
-  const catalog = getCatalogSpecies().map((item) =>
-    localizeSpecies(item, locale),
-  );
 
-  const items: QuizCardModel[] = QUIZ_INDEX.map((quiz) => {
-    const species =
-      catalog.find((item) => item.id === quiz.heroSpeciesId) ?? catalog[0];
-    const useOg = quiz.id === "snake";
-    return {
-      ...quiz,
-      image: useOg ? OG_IMAGE : (species?.image ?? OG_IMAGE),
-      imageAlt: useOg
-        ? t("snakeTitle")
-        : species
-          ? speciesImageAlt(
-              species.commonName,
-              species.scientificName,
-              species.location,
-            )
-          : t("title"),
-    };
-  });
+  const items: QuizCardModel[] = liveQuizzes().map((quiz) => ({
+    ...quiz,
+    image: quiz.ogImage,
+    imageAlt: t("snakeTitle"),
+  }));
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -145,7 +127,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
       {
         "@type": "Quiz",
         name: t("snakeTitle"),
-        url: absoluteUrl(localePath(locale, "/quiz/gvelis-identifikacia")),
+        url: quizPageUrl(locale, "snake"),
       },
     ],
   };

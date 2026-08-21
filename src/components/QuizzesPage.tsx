@@ -1,7 +1,9 @@
 import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
 import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { quizHref } from "@/lib/quizzes";
+import { ArrowRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export type QuizCardModel = QuizDefinition & {
@@ -22,8 +24,8 @@ type QuizCopy = {
 export async function QuizzesPage({ items }: QuizzesPageProps) {
   const t = await getTranslations("quizzes");
   const tShared = await getTranslations("groupHubShared");
+  const locale = (await getLocale()) as AppLocale;
   const featured = items.find((item) => item.status === "live") ?? items[0];
-  const upcoming = items.filter((item) => item.id !== featured?.id);
   const how = [
     { title: t("how1Title"), body: t("how1Body") },
     { title: t("how2Title"), body: t("how2Body") },
@@ -42,9 +44,8 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
               <li>
                 <Link
                   href="/"
-                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  className="transition-colors hover:text-foreground"
                 >
-                  <ArrowLeft className="size-3.5" />
                   {tShared("breadcrumbHome")}
                 </Link>
               </li>
@@ -68,7 +69,8 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
 
           <FeaturedQuizCard
             item={featured}
-            copy={copy[featured.id]}
+            locale={locale}
+            copy={copy[featured.messageKey]}
             liveLabel={t("live")}
             questionsLabel={
               featured.questions
@@ -78,21 +80,9 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
             startLabel={t("start")}
           />
 
-          <div className="mt-10 sm:mt-12">
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
-              {t("soonEyebrow")}
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-4">
-              {upcoming.map((item) => (
-                <UpcomingQuizCard
-                  key={item.id}
-                  item={item}
-                  copy={copy[item.id]}
-                  soonLabel={t("soon")}
-                />
-              ))}
-            </div>
-          </div>
+          <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground sm:mt-10">
+            {t("upcomingLine")}
+          </p>
         </div>
       </section>
 
@@ -149,17 +139,20 @@ function quizCopy(
 
 function FeaturedQuizCard({
   item,
+  locale,
   copy,
   liveLabel,
   questionsLabel,
   startLabel,
 }: {
   item: QuizCardModel;
+  locale: AppLocale;
   copy: QuizCopy;
   liveLabel: string;
   questionsLabel: string | null;
   startLabel: string;
 }) {
+  const href = quizHref(item.id, locale);
   const inner = (
     <div className="grid sm:grid-cols-[14rem_1fr] lg:grid-cols-[18rem_1fr]">
       <div className="relative h-44 sm:h-auto">
@@ -201,56 +194,12 @@ function FeaturedQuizCard({
     </div>
   );
 
-  if (item.href) {
-    return (
-      <Link
-        href={item.href}
-        className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
-      >
-        {inner}
-      </Link>
-    );
-  }
-
   return (
-    <article className="mt-10 overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]">
+    <Link
+      href={href}
+      className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
+    >
       {inner}
-    </article>
-  );
-}
-
-function UpcomingQuizCard({
-  item,
-  copy,
-  soonLabel,
-}: {
-  item: QuizCardModel;
-  copy: QuizCopy;
-  soonLabel: string;
-}) {
-  return (
-    <article className="relative overflow-hidden rounded-[24px] sm:rounded-[28px]">
-      <div className="relative aspect-[16/11]">
-        <Image
-          src={item.image}
-          alt={item.imageAlt}
-          fill
-          sizes="(min-width: 640px) 50vw, 100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15" />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-        <span className="inline-flex rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/80 backdrop-blur-md">
-          {soonLabel}
-        </span>
-        <h2 className="mt-3 font-display text-[1.35rem] font-semibold leading-tight text-white sm:text-[1.6rem]">
-          {copy.title}
-        </h2>
-        <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-white/65 sm:text-[14px]">
-          {copy.lead}
-        </p>
-      </div>
-    </article>
+    </Link>
   );
 }

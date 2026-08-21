@@ -43,7 +43,12 @@ export function VenomousSnakesPage({
   ).length;
   const giurza = species.find((item) => item.id === "macrovipera-lebetina");
   const relatedGuides = getHubPageRelatedGuides("snakes", "/venomous-snakes").filter(
-    (card) => card.kind === "page" && card.key !== "identify" && card.key !== "bite" && card.key !== "yard",
+    (card) =>
+      card.kind === "quiz" ||
+      (card.kind === "page" &&
+        card.key !== "identify" &&
+        card.key !== "bite" &&
+        card.key !== "yard"),
   );
 
   return (

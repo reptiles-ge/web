@@ -24,6 +24,7 @@ import {
   type ClusterGuideId,
 } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
+import { quizHref, type QuizHref } from "@/lib/quizzes";
 import { transliterateKa } from "@/lib/slugify";
 import {
   regionHref,
@@ -51,12 +52,14 @@ export type SearchPageHref = Exclude<
   | "/lizards/[slug]"
   | "/turtles/[slug]"
   | "/amphibians/[slug]"
+  | "/quiz/[slug]"
   | "/regions/[id]"
 >;
 
 export type SearchHref =
   | SearchPageHref
   | SpeciesHref
+  | QuizHref
   | { pathname: "/regions/[id]"; params: { id: string } };
 
 export type SearchDocument = {
@@ -438,34 +441,13 @@ const STATIC_PAGES: Array<
     href: "/quiz",
     title: { ka: "ქვიზები", en: "Quizzes" },
     subtitle: {
-      ka: "ფოტო-ქვიზები საქართველოს ქვეწარმავლებზე",
-      en: "Photo quizzes of Georgia’s reptiles",
+      ka: "ფოტო-ქვიზი საქართველოს გველებზე",
+      en: "A photo quiz of Georgia’s snakes",
     },
     keywords: ["ქვიზი", "ქვიზები", "quiz", "quizzes", "ამოცნობა"],
     icon: "identify",
     suggested: true,
     rank: 3,
-    heroImage: "/images/guides/snake-quiz-og.jpg",
-  },
-  {
-    id: "snake-quiz",
-    href: "/quiz/gvelis-identifikacia",
-    title: { ka: "რომელი გველია?", en: "Which snake is it?" },
-    subtitle: {
-      ka: "ფოტო-ქვიზი საქართველოს გველებზე",
-      en: "A photo quiz of Georgia’s snakes",
-    },
-    keywords: [
-      "ქვიზი",
-      "quiz",
-      "რომელი გველია",
-      "which snake",
-      "ამოცნობა",
-      "identifikacia",
-    ],
-    icon: "identify",
-    suggested: true,
-    rank: 9,
     heroImage: "/images/guides/snake-quiz-og.jpg",
   },
   {
@@ -505,6 +487,24 @@ const STATIC_PAGES: Array<
   },
 ];
 
+const SNAKE_QUIZ_COPY: PageCopy = {
+  title: { ka: "რომელი გველია?", en: "Which snake is it?" },
+  subtitle: {
+    ka: "ფოტო-ქვიზი საქართველოს გველებზე",
+    en: "A photo quiz of Georgia’s snakes",
+  },
+  keywords: [
+    "ქვიზი",
+    "quiz",
+    "რომელი გველია",
+    "which snake",
+    "გველების ქვიზი",
+  ],
+  icon: "identify",
+  suggested: true,
+  rank: 9,
+};
+
 const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
 
 function pickLocale(text: LocalizedText, locale: AppLocale) {
@@ -539,10 +539,17 @@ function fieldScore(query: string, field: string, weight: number) {
   return 0;
 }
 
+function hrefSearchText(href: SearchHref) {
+  if (typeof href === "string") return href;
+  if ("slug" in href.params) return href.params.slug;
+  if ("id" in href.params) return href.params.id;
+  return "";
+}
+
 function toPageDocument(
   locale: AppLocale,
   id: string,
-  href: SearchPageHref,
+  href: SearchHref,
   copy: PageCopy,
   image?: string,
 ): SearchDocument {
@@ -560,7 +567,7 @@ function toPageDocument(
       copy.subtitle.ka,
       copy.subtitle.en,
       ...copy.keywords,
-      href,
+      hrefSearchText(href),
     ]),
     image,
     icon: copy.icon,
@@ -656,6 +663,13 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
         page,
         coverFromSpecies(page.heroSpeciesId, page.heroImage),
       ),
+    ),
+    toPageDocument(
+      locale,
+      "snake-quiz",
+      quizHref("snake", locale),
+      SNAKE_QUIZ_COPY,
+      "/images/guides/snake-quiz-og.jpg",
     ),
     ...GROUP_HUB_LIST.map((hub) =>
       toPageDocument(

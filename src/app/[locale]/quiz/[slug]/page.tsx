@@ -1,12 +1,18 @@
 import { JsonLd } from "@/components/JsonLd";
-import { SnakeQuizPage } from "@/components/SnakeQuizPage";
+import { QuizLanding } from "@/components/QuizLanding";
+import { QuizPlayer } from "@/components/QuizPlayer";
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
+  quizStaticParams,
+  resolveQuizBySlug,
+} from "@/lib/quizzes";
+import {
   absoluteUrl,
-  localeAlternates,
   localePath,
+  quizAlternates,
+  quizPageUrl,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -17,35 +23,42 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type Props = {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
-const PATH = "/quiz/gvelis-identifikacia";
-const OG_IMAGE = "/images/guides/snake-quiz-og.jpg";
+const OG_SIZE = { width: 1200, height: 630 };
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+  return quizStaticParams();
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale: localeParam } = await params;
+  const { locale: localeParam, slug } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "snakeQuiz" });
+  const quiz = resolveQuizBySlug(locale, slug);
+  if (!quiz) return {};
+
+  const t = await getTranslations({
+    locale,
+    namespace: quiz.messageNamespace,
+  });
   const title = t("metaTitle");
   const description = t("metaDescription");
-  const url = absoluteUrl(localePath(locale, PATH));
-  const ogImage = absoluteUrl(OG_IMAGE);
+  const url = quizPageUrl(locale, quiz.id);
+  const ogImage = absoluteUrl(quiz.ogImage);
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords: t("keywords")
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean),
-    alternates: localeAlternates(locale, PATH),
+    alternates: quizAlternates(locale, quiz.id),
     openGraph: {
       title,
       description,
@@ -56,8 +69,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: ogImage,
-          width: 1024,
-          height: 559,
+          width: OG_SIZE.width,
+          height: OG_SIZE.height,
           alt: title,
         },
       ],
@@ -75,25 +88,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function SnakeIdentifyQuizRoute({ params }: Props) {
-  const { locale: localeParam } = await params;
+export default async function QuizSlugRoute({ params }: Props) {
+  const { locale: localeParam, slug } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
   }
 
   const locale = localeParam as AppLocale;
+  const quiz = resolveQuizBySlug(locale, slug);
+  if (!quiz) {
+    notFound();
+  }
+
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "snakeQuiz" });
+  const t = await getTranslations({
+    locale,
+    namespace: quiz.messageNamespace,
+  });
   const tShared = await getTranslations({
     locale,
     namespace: "groupHubShared",
   });
   const tQuizzes = await getTranslations({ locale, namespace: "quizzes" });
-  const url = absoluteUrl(localePath(locale, PATH));
-  const snakes = getSnakeQuizCatalog(
-    getCatalogSpecies().map((item) => localizeSpecies(item, locale)),
+  const url = quizPageUrl(locale, quiz.id);
+  const catalog = getCatalogSpecies().map((item) =>
+    localizeSpecies(item, locale),
   );
+  const snakes = getSnakeQuizCatalog(catalog);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -154,7 +176,8 @@ export default async function SnakeIdentifyQuizRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <SnakeQuizPage snakes={snakes} />
+      <QuizPlayer quizId={quiz.id} snakes={snakes} shareUrl={url} />
+      <QuizLanding snakes={snakes} species={catalog} />
     </>
   );
 }

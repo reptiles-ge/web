@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "tsx --test src/lib/snakeQuiz.test.ts",
     "species:compile": "tsx scripts/compile-species.ts",
     "images:unused": "node scripts/remove-unused-images.js",
     "images:unused:delete": "node scripts/remove-unused-images.js --delete"
