@@ -4810,6 +4810,13 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/natrix-tessellata-shota-1.jpg",
+        "credit": {
+          "photographer": "შოთა ზანდუკელი",
+          "date": "2025-03-12"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/natrix-tessellata-4.webp"
       },
       {
@@ -7186,7 +7193,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-20T21:34:49+04:00",
+    "updatedAt": "2026-08-22T20:16:10+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -11768,6 +11775,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "/images/natrix-tessellata-giorgi-1.jpg",
         "credit": {
           "photographer": "Giorgi Qurashvili"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-shota-1.jpg",
+        "credit": {
+          "photographer": "Shota Zandukeli",
+          "date": "2025-03-12"
         }
       },
       {
