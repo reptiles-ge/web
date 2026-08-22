@@ -472,6 +472,13 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/coronella-austriaca-shota-1.jpg",
+        "credit": {
+          "photographer": "შოთა ზანდუკელი",
+          "date": "2025-03-12"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/coronella-austriaca-2.webp"
       },
       {
@@ -4197,7 +4204,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-21T19:17:01+04:00",
+    "updatedAt": "2026-08-22T20:19:50+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5792,6 +5799,13 @@ export const species: Species[] = [
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
+      },
+      {
+        "src": "/images/platyceps-najadum-shota-1.jpg",
+        "credit": {
+          "photographer": "შოთა ზანდუკელი",
+          "date": "2025-03-12"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/platyceps-najadum-2.webp"
@@ -8391,6 +8405,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/coronella-austriaca-sandro-3.jpg",
         "credit": {
           "photographer": "Sandro Khakhva"
+        }
+      },
+      {
+        "src": "/images/coronella-austriaca-shota-1.jpg",
+        "credit": {
+          "photographer": "Shota Zandukeli",
+          "date": "2025-03-12"
         }
       },
       {
@@ -12544,6 +12565,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
+      },
+      {
+        "src": "/images/platyceps-najadum-shota-1.jpg",
+        "credit": {
+          "photographer": "Shota Zandukeli",
+          "date": "2025-03-12"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/platyceps-najadum-2.webp"
