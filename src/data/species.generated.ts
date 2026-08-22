@@ -4107,6 +4107,13 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/macrovipera-lebetina-shota-1.jpg",
+        "credit": {
+          "photographer": "შოთა ზანდუკელი",
+          "date": "2025-03-12"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
       },
       {
@@ -4899,7 +4906,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება მარტ–მაისშია; ივლისში დებს დაახლოებით 10–30 კვერცხს, ნაშიერები იჩეკებიან სექტემბრის დასაწყისში."
       }
     ],
-    "updatedAt": "2026-08-21T14:10:10+04:00",
+    "updatedAt": "2026-08-22T20:16:48+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -11230,6 +11237,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "Nino Khvedelidze",
           "location": "Nekresi Monastery",
           "date": "2026-08-02"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-shota-1.jpg",
+        "credit": {
+          "photographer": "Shota Zandukeli",
+          "date": "2025-03-12"
         }
       },
       {
