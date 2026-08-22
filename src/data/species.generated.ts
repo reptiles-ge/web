@@ -572,7 +572,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
-    "updatedAt": "2026-08-20T14:00:09+04:00",
+    "updatedAt": "2026-08-22T20:22:52+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4121,6 +4121,13 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/macrovipera-lebetina-shota-2.jpg",
+        "credit": {
+          "photographer": "შოთა ზანდუკელი",
+          "date": "2023-07-10"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
       },
       {
@@ -5890,7 +5897,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-06T13:03:03+04:00",
+    "updatedAt": "2026-08-22T20:22:52+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -11265,6 +11272,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2025-03-12"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-shota-2.jpg",
+        "credit": {
+          "photographer": "Shota Zandukeli",
+          "date": "2023-07-10"
         }
       },
       {
