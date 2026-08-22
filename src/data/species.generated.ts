@@ -4190,7 +4190,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-21T00:44:34+04:00",
+    "updatedAt": "2026-08-21T19:17:01+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7096,6 +7096,13 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp",
         "credit": {
           "photographer": "საბა თოდუა"
+        }
+      },
+      {
+        "src": "/images/vipera-kaznakovi-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი ელბაქიძე",
+          "date": "2025-09-03"
         }
       },
       {
@@ -13587,6 +13594,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp",
         "credit": {
           "photographer": "საბა თოდუა"
+        }
+      },
+      {
+        "src": "/images/vipera-kaznakovi-giorgi-1.jpg",
+        "credit": {
+          "photographer": "Giorgi Elbakidze",
+          "date": "2025-09-03"
         }
       },
       {
