@@ -572,7 +572,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
-    "updatedAt": "2026-08-22T20:22:52+04:00",
+    "updatedAt": "2026-08-23T22:16:50+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
