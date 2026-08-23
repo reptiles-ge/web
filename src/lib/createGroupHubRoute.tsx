@@ -152,7 +152,13 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         name: t(`faq${n}Q`),
         acceptedAnswer: {
           "@type": "Answer",
-          text: t(`faq${n}A`),
+          text:
+            hubId === "snakes" && n === 5
+              ? t.markup("faq5A", {
+                  bite: (chunks) => chunks,
+                  yard: (chunks) => chunks,
+                })
+              : t(`faq${n}A`),
         },
       })),
     };

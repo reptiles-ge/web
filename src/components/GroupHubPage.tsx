@@ -298,6 +298,26 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
   );
 }
 
+const faqLinkClassName =
+  "text-foreground underline-offset-4 hover:underline";
+
+function SnakesFaq5Answer() {
+  const t = useTranslations("snakes");
+
+  return t.rich("faq5A", {
+    bite: (chunks) => (
+      <Link href="/snakes/gvelis-nakbeni" className={faqLinkClassName}>
+        {chunks}
+      </Link>
+    ),
+    yard: (chunks) => (
+      <Link href="/snakes-in-the-yard" className={faqLinkClassName}>
+        {chunks}
+      </Link>
+    ),
+  });
+}
+
 function FaqSection({ hubId }: { hubId: GroupHubId }) {
   const t = useTranslations(hubId);
   const [open, setOpen] = useState<number | null>(0);
@@ -350,7 +370,11 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                     >
                       <div className="overflow-hidden">
                         <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                          {t(`faq${n}A`)}
+                          {hubId === "snakes" && n === 5 ? (
+                            <SnakesFaq5Answer />
+                          ) : (
+                            t(`faq${n}A`)
+                          )}
                         </p>
                       </div>
                     </div>
