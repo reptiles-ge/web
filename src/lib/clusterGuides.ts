@@ -450,7 +450,6 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "page", href: "/snakes/didi-gvelebi", key: "largest" },
     { kind: "page", href: "/snakes-in-the-yard", key: "yard" },
     { kind: "species", id: "macrovipera-lebetina", key: "giurza" },
-    { kind: "species", id: "platyceps-najadum", key: "najadum" },
   ],
   lizards: [
     { kind: "page", href: "/lizards/saxeoebebi", key: "lizardIndex" },
