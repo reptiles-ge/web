@@ -2145,7 +2145,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–2,000 მ"
       },
       {
@@ -2486,7 +2486,7 @@ export const species: Species[] = [
         "value": "Least Concern"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–3,580 მ"
       },
       {
@@ -2615,7 +2615,7 @@ export const species: Species[] = [
         "value": "შეფასების გარეშე"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "სახეობა −25–2,600 მ"
       },
       {
@@ -4158,7 +4158,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–1,500 მ"
       },
       {
@@ -4738,7 +4738,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–2,350 მ"
       },
       {
@@ -4874,7 +4874,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–1,100 მ"
       },
       {
@@ -5851,7 +5851,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–2,000 მ"
       },
       {
@@ -5981,7 +5981,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–2,000 მ"
       },
       {
@@ -6270,7 +6270,7 @@ export const species: Species[] = [
         "value": "ნაკლ. საფრთხე (LC)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–2,000 მ"
       },
       {
@@ -6854,7 +6854,7 @@ export const species: Species[] = [
         "value": "კრიტიკული (CR)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "2,300–3,000 მ"
       },
       {
@@ -6983,7 +6983,7 @@ export const species: Species[] = [
         "value": "მოწყვლადი (VU)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "1,500–2,800 მ"
       },
       {
@@ -7168,7 +7168,7 @@ export const species: Species[] = [
         "value": "საფრთხეში (EN)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–1,000 მ ზღვის დონიდან"
       },
       {
@@ -7350,7 +7350,7 @@ export const species: Species[] = [
         "value": "მოწყვლადი (VU)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "0–2,500 მ"
       },
       {
@@ -7516,7 +7516,7 @@ export const species: Species[] = [
         "value": "NT (გაყოფილი სახელი)"
       },
       {
-        "label": "სიმაღლე",
+        "label": "ზღვის დონიდან",
         "value": "მთისწინეთი–დაახლ. 1,700 მ"
       },
       {
