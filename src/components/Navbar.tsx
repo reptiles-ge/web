@@ -29,7 +29,7 @@ function hasDarkHeroTop(pathname: string) {
     return true;
   }
   if (pathname === "/species" || pathname.startsWith("/species/")) return true;
-  if (pathname === "/quiz" || pathname.startsWith("/quiz/")) return true;
+  if (pathname.startsWith("/quiz/")) return true;
   if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
   return false;
 }
