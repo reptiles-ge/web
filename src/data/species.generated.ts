@@ -3370,7 +3370,7 @@ export const species: Species[] = [
         "answer": "ნაირფერი მცურავი უფრო გამხდარი და სწრაფია; ლაქები ხშირად რომბულია და კუდზე ზოლებად გადადის. ურარტუს მცურავი უფრო მასიურია, თავი მუქი, ლაქები უფრო დიდი და მომრგვალებული. ორივე უშხამოა."
       }
     ],
-    "updatedAt": "2026-08-24T09:31:05+04:00",
+    "updatedAt": "2026-08-24T09:32:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7084,20 +7084,6 @@ export const species: Species[] = [
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/observations/52914"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/vipera-darevskii-5.jpg",
-        "credit": {
-          "photographer": "Boris S. Tuniyev",
-          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/vipera-darevskii-6.jpg",
-        "credit": {
-          "photographer": "Boris S. Tuniyev",
-          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
         }
       }
     ],
@@ -13789,20 +13775,6 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/observations/52914"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/vipera-darevskii-5.jpg",
-        "credit": {
-          "photographer": "Boris S. Tuniyev",
-          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/vipera-darevskii-6.jpg",
-        "credit": {
-          "photographer": "Boris S. Tuniyev",
-          "url": "https://commons.wikimedia.org/wiki/File:Pelias_darevskii,_male_and_female_(Mt._Gumbati,_South_Georgia).png"
         }
       }
     ],
