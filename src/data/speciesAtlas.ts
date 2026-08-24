@@ -27,7 +27,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "ommatotriton-ophryticus": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["wetland", "forest", "mountain"],
   },
   "triturus-karelinii": {
     group: "amphibian",

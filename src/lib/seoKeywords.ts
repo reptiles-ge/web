@@ -93,6 +93,16 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["გლუვი გველი", "სპილენძა გველი"],
     en: ["smooth snake", "Coronella"],
   },
+  "natrix-natrix": {
+    ka: ["ანკარა", "დიდთავა ანკარა", "Natrix megalocephala"],
+    en: [
+      "grass snake",
+      "ringed snake",
+      "ring snake",
+      "eastern grass snake",
+      "Natrix megalocephala",
+    ],
+  },
   "hyla-savignyi": {
     ka: ["Hyla arborea savignyi"],
     en: [
@@ -103,12 +113,36 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "bufotes-viridis": {
-    ka: ["Bufo viridis"],
-    en: ["Bufo viridis", "European green toad"],
+    ka: ["Bufo viridis", "Pseudepidalea viridis", "Bufotes sitibundus"],
+    en: [
+      "Bufo viridis",
+      "Pseudepidalea viridis",
+      "Bufotes sitibundus",
+      "European green toad",
+    ],
   },
   "mertensiella-caucasica": {
     ka: ["Salamandra caucasica"],
     en: ["Caucasian salamander", "Salamandra caucasica"],
+  },
+  "natrix-tessellata": {
+    ka: ["წყლის გველი", "dice snake"],
+    en: ["tessellated water snake", "water snake"],
+  },
+  "lissotriton-lantzi": {
+    ka: [
+      "ჩვეულებრივი ტრიტონი",
+      "გლუვი ტრიტონი",
+      "Triturus vulgaris lantzi",
+      "Lissotriton vulgaris lantzi",
+    ],
+    en: [
+      "Caucasian newt",
+      "Lantz's newt",
+      "smooth newt",
+      "Triturus vulgaris lantzi",
+      "Lissotriton vulgaris lantzi",
+    ],
   },
   "ommatotriton-ophryticus": {
     ka: [
@@ -119,6 +153,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
     en: [
       "Caucasian banded newt",
+      "northern banded newt",
+      "Asia Minor newt",
       "banded newt",
       "Triturus vittatus",
       "Triturus vittatus ophryticus",

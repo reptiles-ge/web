@@ -72,7 +72,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-kaznakovi",
     "pseudopus-apodus",
   ],
-  "natrix-tessellata": ["natrix-natrix", "pseudopus-apodus"],
+  "natrix-tessellata": [
+    "natrix-natrix",
+    "vipera-kaznakovi",
+    "pseudopus-apodus",
+  ],
   "coronella-austriaca": [
     "vipera-transcaucasiana",
     "vipera-kaznakovi",
@@ -104,6 +108,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "lissotriton-lantzi": [
     "ommatotriton-ophryticus",
     "triturus-karelinii",
+    "mertensiella-caucasica",
   ],
   "ommatotriton-ophryticus": [
     "lissotriton-lantzi",
@@ -116,7 +121,11 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "hyla-orientalis": ["hyla-savignyi"],
   "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
-  "bufotes-viridis": ["bufo-verrucosissimus", "pelobates-syriacus"],
+  "bufotes-viridis": [
+    "bufo-verrucosissimus",
+    "pelobates-syriacus",
+    "hyla-orientalis",
+  ],
   "bufo-verrucosissimus": ["bufotes-viridis"],
   "rana-macrocnemis": ["pelophylax-ridibundus"],
   "eumeces-schneiderii": ["ablepharus-pannonicus"],
