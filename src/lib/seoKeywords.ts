@@ -65,6 +65,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["წენგოსფერი მცურავი"],
     en: ["Dahl's whip snake"],
   },
+  "hemorrhois-ravergieri": {
+    ka: [
+      "Coluber ravergieri",
+      "Zamenis ravergieri",
+      "ჭრელი მცურავი",
+      "ნაირფერი გველი",
+    ],
+    en: [
+      "spotted whipsnake",
+      "variegated racer",
+      "Coluber ravergieri",
+      "Zamenis ravergieri",
+      "Ravergier's whip snake",
+    ],
+  },
   "elaphe-urartica": {
     ka: [
       "ურარტუს ხალებიანი მცურავი",
@@ -103,6 +118,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Natrix megalocephala",
     ],
   },
+  "hyla-orientalis": {
+    ka: [
+      "ვასაკა",
+      "Hyla arborea",
+      "Hyla arborea schelkownikowi",
+      "აღმოსავლური ხის ბაყაყი",
+    ],
+    en: [
+      "eastern tree frog",
+      "Oriental treefrog",
+      "Hyla arborea",
+      "Hyla arborea schelkownikowi",
+      "European treefrog",
+    ],
+  },
   "hyla-savignyi": {
     ka: ["Hyla arborea savignyi"],
     en: [
@@ -112,6 +142,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Hyla arborea savignyi",
     ],
   },
+
   "bufotes-viridis": {
     ka: ["Bufo viridis", "Pseudepidalea viridis", "Bufotes sitibundus"],
     en: [
