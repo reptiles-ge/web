@@ -587,7 +587,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
-    "updatedAt": "2026-08-23T22:16:50+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4406,7 +4406,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5159,7 +5159,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. უშხამოა. გველგესლასთან ამოსაცნობად ნახეთ მრგვალი გუგა, ვიწრო თავი და წყალთან კავშირი."
       }
     ],
-    "updatedAt": "2026-08-24T09:24:07+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6162,7 +6162,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. შეწყვილება აპრილ–მაისშია; დედალი დებს დაახლოებით 3–16 კვერცხს, ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6581,7 +6581,7 @@ export const species: Species[] = [
         "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 4–12 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7161,7 +7161,7 @@ export const species: Species[] = [
         "answer": "გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია. გადაჭარბებული ძოვება და ჰაბიტატის დეგრადაცია პოპულაციას ამცირებს."
       }
     ],
-    "updatedAt": "2026-08-24T14:11:54+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7301,7 +7301,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით მოწყვლადია ფრაგმენტირებული, 20,000 კმ²-ზე ნაკლები არეალის გამო; საქართველოს წითელ ნუსხაში VU სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7486,7 +7486,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-24T14:19:21+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
