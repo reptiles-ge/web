@@ -28,6 +28,7 @@ import {
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
 import { speciesHref } from "@/lib/speciesRoutes";
+import { dangerPageHref } from "@/lib/dangerLevels";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import {
@@ -55,6 +56,7 @@ export function SpeciesProfile({
   const locale = useLocale() as AppLocale;
   const t = useTranslations("profile");
   const tHubs = useTranslations("groupHubShared");
+  const tDanger = useTranslations("danger");
   const species = useMemo(
     () => localizeSpecies(rawSpecies, locale),
     [rawSpecies, locale],
@@ -99,6 +101,7 @@ export function SpeciesProfile({
     mobileHeroCredit,
   );
   const displayStats = filterDisplayStats(species.stats);
+  const dangerValue = tDanger(species.danger);
   const showIdentification = hasRealIdentification(species.identification);
   const biologyBlocks = useMemo(
     () =>
@@ -221,7 +224,7 @@ export function SpeciesProfile({
                 <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
                 {species.location}
               </span>
-              <SpeciesDanger level={species.danger} variant="hero" />
+              <SpeciesDanger level={species.danger} variant="hero" linked />
             </div>
           </div>
         </section>
@@ -246,7 +249,16 @@ export function SpeciesProfile({
                       {stat.label}
                     </p>
                     <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
-                      {stat.value}
+                      {stat.value === dangerValue ? (
+                        <Link
+                          href={dangerPageHref(species.danger)}
+                          className="transition-colors hover:text-primary"
+                        >
+                          {stat.value}
+                        </Link>
+                      ) : (
+                        stat.value
+                      )}
                     </p>
                   </div>
                 ))}

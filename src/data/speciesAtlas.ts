@@ -326,6 +326,34 @@ export function getVenomousCatalogSpecies(
     );
 }
 
+function familyRank(species: Species) {
+  return species.family === "Viperidae" ? 0 : 1;
+}
+
+export function getCatalogByDanger(
+  catalog: Species[] = getCatalogSpecies(),
+): Record<DangerLevel, Species[]> {
+  const groups: Record<DangerLevel, Species[]> = {
+    High: [],
+    Moderate: [],
+    Harmless: [],
+  };
+
+  for (const item of catalog) {
+    groups[item.danger].push(item);
+  }
+
+  for (const level of Object.keys(groups) as DangerLevel[]) {
+    groups[level].sort(
+      (a, b) =>
+        familyRank(a) - familyRank(b) ||
+        a.scientificName.localeCompare(b.scientificName),
+    );
+  }
+
+  return groups;
+}
+
 export function getCatalogSpeciesByGroup(
   group: AnimalGroup,
   catalog: Species[] = getCatalogSpecies(),

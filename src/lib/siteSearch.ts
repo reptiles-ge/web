@@ -412,6 +412,32 @@ const STATIC_PAGES: Array<
     heroSpeciesId: "macrovipera-lebetina",
   },
   {
+    id: "risk-to-humans",
+    href: "/risk-to-humans",
+    title: {
+      ka: "რისკი ადამიანისთვის",
+      en: "Risk to humans",
+    },
+    subtitle: {
+      ka: "უვნებელი, საშუალო, მაღალი — რას ნიშნავს თითოეული ნიშანი",
+      en: "Harmless, moderate, high — what each label means",
+    },
+    keywords: [
+      "რისკი",
+      "risk",
+      "მაღალი რისკი",
+      "საშუალო რისკი",
+      "უვნებელი",
+      "harmless",
+      "danger",
+      "შხამი",
+    ],
+    icon: "safety",
+    suggested: true,
+    rank: 2,
+    heroSpeciesId: "macrovipera-lebetina",
+  },
+  {
     id: "snakes-in-yard",
     href: "/snakes-in-the-yard",
     title: {
@@ -433,7 +459,7 @@ const STATIC_PAGES: Array<
     ],
     icon: "yard",
     suggested: true,
-    rank: 2,
+    rank: 6,
     heroImage: "/images/guides/snakes-in-the-yard-cover.jpg",
   },
   {

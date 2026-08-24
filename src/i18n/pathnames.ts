@@ -108,6 +108,10 @@ export const pathnames = {
     ka: "/gvelebi/gveli-ezoshi",
     en: "/snakes-in-the-yard",
   },
+  "/risk-to-humans": {
+    ka: "/riskis-doneebi",
+    en: "/risk-to-humans",
+  },
   "/quiz": "/quiz",
   "/quiz/[slug]": "/quiz/[slug]",
   "/regions": "/regions",

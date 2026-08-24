@@ -1,12 +1,16 @@
 "use client";
 
 import type { DangerLevel } from "@/data/species";
+import { Link } from "@/i18n/navigation";
+import { dangerPageHref } from "@/lib/dangerLevels";
 import { Shield } from "lucide-react";
 import { useTranslations } from "next-intl";
+import type { ReactNode } from "react";
 
 type SpeciesDangerProps = {
   level: DangerLevel;
   variant?: "hero" | "card";
+  linked?: boolean;
 };
 
 function levelTone(level: DangerLevel) {
@@ -35,7 +39,41 @@ function levelTone(level: DangerLevel) {
   }
 }
 
-export function SpeciesDanger({ level, variant = "hero" }: SpeciesDangerProps) {
+function DangerShell({
+  linked,
+  level,
+  label,
+  value,
+  children,
+}: {
+  linked: boolean;
+  level: DangerLevel;
+  label: string;
+  value: string;
+  children: ReactNode;
+}) {
+  const tDanger = useTranslations("danger");
+
+  if (!linked) {
+    return children;
+  }
+
+  return (
+    <Link
+      href={dangerPageHref(level)}
+      className="inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50"
+      aria-label={tDanger("linkAria", { label, value })}
+    >
+      {children}
+    </Link>
+  );
+}
+
+export function SpeciesDanger({
+  level,
+  variant = "hero",
+  linked = false,
+}: SpeciesDangerProps) {
   const tCard = useTranslations("card");
   const tDanger = useTranslations("danger");
   const tone = levelTone(level);
@@ -44,33 +82,42 @@ export function SpeciesDanger({ level, variant = "hero" }: SpeciesDangerProps) {
 
   if (variant === "card") {
     return (
-      <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
-        <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.14em] text-white/40">
-          <Shield className="size-3 opacity-70" aria-hidden="true" />
-          {label}
-        </span>
-        <span
-          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${tone.chip}`}
-        >
-          <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
-          {value}
-        </span>
-      </div>
+      <DangerShell
+        linked={linked}
+        level={level}
+        label={label}
+        value={value}
+      >
+        <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
+          <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.14em] text-white/40">
+            <Shield className="size-3 opacity-70" aria-hidden="true" />
+            {label}
+          </span>
+          <span
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${tone.chip}`}
+          >
+            <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
+            {value}
+          </span>
+        </div>
+      </DangerShell>
     );
   }
 
   return (
-    <span
-      className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 backdrop-blur-md"
-      title={`${label}: ${value}`}
-    >
-      <Shield className="size-3.5 text-white/45" aria-hidden="true" />
-      <span className="text-[11px] tracking-[0.14em] text-white/45">{label}</span>
-      <span className="h-3 w-px bg-white/15" aria-hidden="true" />
-      <span className={`inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide ${tone.valueHero}`}>
-        <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
-        {value}
+    <DangerShell linked={linked} level={level} label={label} value={value}>
+      <span
+        className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 backdrop-blur-md"
+        title={linked ? undefined : `${label}: ${value}`}
+      >
+        <Shield className="size-3.5 text-white/45" aria-hidden="true" />
+        <span className="text-[11px] tracking-[0.14em] text-white/45">{label}</span>
+        <span className="h-3 w-px bg-white/15" aria-hidden="true" />
+        <span className={`inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide ${tone.valueHero}`}>
+          <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
+          {value}
+        </span>
       </span>
-    </span>
+    </DangerShell>
   );
 }

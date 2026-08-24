@@ -16,6 +16,7 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname === "/about") return true;
   if (pathname === "/venomous-snakes") return true;
   if (pathname === "/snakes-in-the-yard") return true;
+  if (pathname === "/risk-to-humans") return true;
   if (
     pathname === "/snakes" ||
     pathname.startsWith("/snakes/") ||

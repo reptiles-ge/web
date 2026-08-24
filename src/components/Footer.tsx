@@ -25,6 +25,7 @@ const exploreLinks = [
 const guideLinks = [
   { href: "/snakes/saxeoebebi" as const, labelKey: "snakeIndex" as const },
   { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
+  { href: "/risk-to-humans" as const, labelKey: "riskLevels" as const },
   {
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
