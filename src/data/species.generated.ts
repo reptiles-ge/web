@@ -487,7 +487,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/coronella-austriaca-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-shota-1.jpg",
         "credit": {
           "photographer": "შოთა ზანდუკელი",
           "date": "2025-03-12"
@@ -4293,7 +4293,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nino-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nino-1.jpg",
         "credit": {
           "photographer": "ნინო ხვედელიძე",
           "location": "ნეკრესის მონასტერი",
@@ -4301,7 +4301,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nino-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nino-2.jpg",
         "credit": {
           "photographer": "ნინო ხვედელიძე",
           "location": "ნეკრესის მონასტერი",
@@ -4309,14 +4309,14 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-shota-1.jpg",
         "credit": {
           "photographer": "შოთა ზანდუკელი",
           "date": "2025-03-12"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-shota-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-shota-2.jpg",
         "credit": {
           "photographer": "შოთა ზანდუკელი",
           "date": "2023-07-10"
@@ -5052,13 +5052,13 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/natrix-tessellata.webp"
       },
       {
-        "src": "/images/natrix-tessellata-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი ყურაშვილი"
         }
       },
       {
-        "src": "/images/natrix-tessellata-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-shota-1.jpg",
         "credit": {
           "photographer": "შოთა ზანდუკელი",
           "date": "2025-03-12"
@@ -6073,7 +6073,7 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
       },
       {
-        "src": "/images/platyceps-najadum-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-shota-1.jpg",
         "credit": {
           "photographer": "შოთა ზანდუკელი",
           "date": "2025-03-12"
@@ -6467,7 +6467,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/telescopus-fallax-lasha-1.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-lasha-1.jpg",
         "credit": {
           "photographer": "ლაშა ჯავახიშვილი",
           "location": "მთაწმინდა",
@@ -7087,14 +7087,14 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-darevskii-guram-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-guram-1.jpg",
         "credit": {
           "photographer": "გურამ ირემაშვილი",
           "location": "მთა მადათაფა"
         }
       },
       {
-        "src": "/images/vipera-darevskii-tadevosyan-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-tadevosyan-1.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "date": "2003"
@@ -7161,7 +7161,7 @@ export const species: Species[] = [
         "answer": "გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია. გადაჭარბებული ძოვება და ჰაბიტატის დეგრადაცია პოპულაციას ამცირებს."
       }
     ],
-    "updatedAt": "2026-08-24T13:56:15+04:00",
+    "updatedAt": "2026-08-24T14:11:54+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7202,7 +7202,7 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/vipera-dinnik.webp"
       },
       {
-        "src": "/images/vipera-dinnik-7.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-7.jpg",
         "credit": {
           "location": "თრუსო",
           "date": "2026-08-19"
@@ -7399,7 +7399,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-kaznakovi-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი ელბაქიძე",
           "date": "2025-09-03"
@@ -8684,7 +8684,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/coronella-austriaca-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-shota-1.jpg",
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2025-03-12"
@@ -11620,7 +11620,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nino-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nino-1.jpg",
         "credit": {
           "photographer": "Nino Khvedelidze",
           "location": "Nekresi Monastery",
@@ -11628,7 +11628,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nino-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nino-2.jpg",
         "credit": {
           "photographer": "Nino Khvedelidze",
           "location": "Nekresi Monastery",
@@ -11636,14 +11636,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-shota-1.jpg",
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2025-03-12"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-shota-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-shota-2.jpg",
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2023-07-10"
@@ -12213,13 +12213,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/natrix-tessellata.webp"
       },
       {
-        "src": "/images/natrix-tessellata-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-giorgi-1.jpg",
         "credit": {
           "photographer": "Giorgi Qurashvili"
         }
       },
       {
-        "src": "/images/natrix-tessellata-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-shota-1.jpg",
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2025-03-12"
@@ -12973,7 +12973,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
       },
       {
-        "src": "/images/platyceps-najadum-shota-1.jpg",
+        "src": "https://cdn.reptiles.ge/platyceps-najadum-shota-1.jpg",
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2025-03-12"
@@ -13286,7 +13286,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/telescopus-fallax-lasha-1.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-lasha-1.jpg",
         "credit": {
           "photographer": "Lasha Javakhishvili",
           "location": "Mtatsminda",
@@ -13792,14 +13792,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-darevskii-guram-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-guram-1.jpg",
         "credit": {
           "photographer": "Guram Iremashvili",
           "location": "Mt. Madatapa"
         }
       },
       {
-        "src": "/images/vipera-darevskii-tadevosyan-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-darevskii-tadevosyan-1.jpg",
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "date": "2003"
@@ -13900,7 +13900,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/vipera-dinnik.webp"
       },
       {
-        "src": "/images/vipera-dinnik-7.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-dinnik-7.jpg",
         "credit": {
           "location": "Truso",
           "date": "2026-08-19"
@@ -14059,7 +14059,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-kaznakovi-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-giorgi-1.jpg",
         "credit": {
           "photographer": "Giorgi Elbakidze",
           "date": "2025-09-03"
