@@ -21,9 +21,7 @@ export function PhotoCreditCaption({
 
   if (!hasPhotoCredit(credit)) return null;
 
-  const dateLabel = credit.date
-    ? formatPhotoDate(credit.date, locale)
-    : null;
+  const dateLabel = credit.date ? formatPhotoDate(credit.date, locale) : null;
   const photographer = credit.photographer ? (
     credit.url ? (
       <a
@@ -42,19 +40,7 @@ export function PhotoCreditCaption({
   const meta = [credit.location, dateLabel].filter(Boolean).join(" · ");
 
   if (variant === "hero") {
-    return (
-      <div
-        className={`pointer-events-auto max-w-[16rem] text-right text-[11px] leading-snug tracking-[0.04em] text-white/45 ${className}`}
-      >
-        {photographer ? (
-          <p>
-            <span className="text-white/30">{t("photoCredit")} </span>
-            {photographer}
-          </p>
-        ) : null}
-        {meta ? <p className="mt-0.5 text-white/35">{meta}</p> : null}
-      </div>
-    );
+    return null;
   }
 
   if (variant === "lightbox") {
