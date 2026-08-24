@@ -7085,6 +7085,20 @@ export const species: Species[] = [
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/observations/52914"
         }
+      },
+      {
+        "src": "/images/vipera-darevskii-guram-1.jpg",
+        "credit": {
+          "photographer": "გურამ ირემაშვილი",
+          "location": "მთა მადათაფა"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-tadevosyan-1.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "date": "2003"
+        }
       }
     ],
     "stats": [
@@ -7147,7 +7161,7 @@ export const species: Species[] = [
         "answer": "გავრცელების არეალი 100 კმ²-ზე ნაკლებია, დაკავებული ფართობი — 10 კმ²-ზე ნაკლები; პოპულაცია ფრაგმენტირებულია. გადაჭარბებული ძოვება და ჰაბიტატის დეგრადაცია პოპულაციას ამცირებს."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-24T13:56:15+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13775,6 +13789,20 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Tigran Tadevosyan",
           "url": "https://www.inaturalist.org/observations/52914"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-guram-1.jpg",
+        "credit": {
+          "photographer": "Guram Iremashvili",
+          "location": "Mt. Madatapa"
+        }
+      },
+      {
+        "src": "/images/vipera-darevskii-tadevosyan-1.jpg",
+        "credit": {
+          "photographer": "Tigran Tadevosyan",
+          "date": "2003"
         }
       }
     ],
