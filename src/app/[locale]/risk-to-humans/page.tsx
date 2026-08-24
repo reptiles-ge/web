@@ -1,6 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { RiskToHumansPage } from "@/components/RiskToHumansPage";
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
+import { getCatalogSpecies } from "@/data/species";
 import { getCatalogByDanger } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -97,11 +97,6 @@ export default async function RiskToHumansRoute({ params }: Props) {
     byDanger.Harmless,
     HARMLESS_EXAMPLE_IDS,
   );
-  const heroSrc =
-    getSpeciesById(OG_SPECIES)?.image ??
-    byDanger.High[0]?.image ??
-    catalog[0]?.image ??
-    "";
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -165,7 +160,6 @@ export default async function RiskToHumansRoute({ params }: Props) {
         moderate={byDanger.Moderate}
         harmlessExamples={harmlessExamples}
         harmlessCount={byDanger.Harmless.length}
-        heroSrc={heroSrc}
       />
     </>
   );

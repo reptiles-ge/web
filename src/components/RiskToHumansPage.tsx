@@ -7,13 +7,11 @@ import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
 import {
-  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   Plus,
   Shield,
 } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -22,7 +20,6 @@ type RiskToHumansPageProps = {
   moderate: Species[];
   harmlessExamples: Species[];
   harmlessCount: number;
-  heroSrc: string;
 };
 
 function levelTone(level: DangerLevel) {
@@ -32,21 +29,18 @@ function levelTone(level: DangerLevel) {
         dot: "bg-destructive",
         value: "text-destructive",
         chip: "bg-destructive/15 text-destructive",
-        hero: "text-[#f0a399]",
       };
     case "Moderate":
       return {
         dot: "bg-gold",
         value: "text-gold",
         chip: "bg-gold/20 text-gold",
-        hero: "text-[#e0c078]",
       };
     default:
       return {
         dot: "bg-primary",
         value: "text-primary",
         chip: "bg-primary/15 text-primary",
-        hero: "text-[#8fceae]",
       };
   }
 }
@@ -56,7 +50,6 @@ export function RiskToHumansPage({
   moderate,
   harmlessExamples,
   harmlessCount,
-  heroSrc,
 }: RiskToHumansPageProps) {
   const t = useTranslations("riskToHumans");
   const tDanger = useTranslations("danger");
@@ -75,59 +68,41 @@ export function RiskToHumansPage({
   return (
     <div className="min-h-screen bg-background">
       <main>
-        <section
-          className="relative flex min-h-[88svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-16 lg:min-h-[92svh] lg:pb-20"
-          style={{ paddingTop: "7rem" }}
-        >
-          <Image
-            src={heroSrc}
-            alt={t("heroImageAlt")}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[50%_35%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/92" />
-          <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
-
-          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+        <section className="bg-background pb-10 pt-28 sm:pb-14 sm:pt-32 lg:pb-16">
+          <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
-                <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
+                <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                   <li>
                     <Link
                       href="/"
-                      className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                      className="transition-colors hover:text-foreground"
                     >
-                      <ArrowLeft className="size-3.5" />
                       {t("breadcrumbHome")}
                     </Link>
                   </li>
-                  <li aria-hidden="true" className="text-white/30">
+                  <li aria-hidden="true" className="text-border">
                     /
                   </li>
                   <li>
                     <Link
                       href="/species"
-                      className="transition-colors hover:text-white"
+                      className="transition-colors hover:text-foreground"
                     >
                       {t("breadcrumbSpecies")}
                     </Link>
                   </li>
-                  <li aria-hidden="true" className="text-white/30">
+                  <li aria-hidden="true" className="text-border">
                     /
                   </li>
-                  <li className="text-white/80">{t("breadcrumbCurrent")}</li>
+                  <li className="text-foreground">{t("breadcrumbCurrent")}</li>
                 </ol>
               </nav>
 
-              <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
-                Reptiles
-              </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.6rem)] font-semibold leading-[1.05] text-white sm:mt-4">
+              <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.6rem)] font-semibold leading-[1.05] text-foreground">
                 {t("title")}
               </h1>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
                 {t("subtitle")}
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
@@ -137,15 +112,13 @@ export function RiskToHumansPage({
                     <a
                       key={level}
                       href={`#${DANGER_LEVEL_HASH[level]}`}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 backdrop-blur-md transition-colors hover:border-white/28 hover:bg-white/10"
+                      className={`inline-flex items-center gap-2 rounded-full px-3.5 py-2 transition-opacity hover:opacity-80 ${tone.chip}`}
                     >
                       <span
                         className={`size-1.5 rounded-full ${tone.dot}`}
                         aria-hidden="true"
                       />
-                      <span
-                        className={`text-[12px] font-semibold tracking-wide ${tone.hero}`}
-                      >
+                      <span className={`text-[12px] font-semibold tracking-wide ${tone.value}`}>
                         {tDanger(level)}
                       </span>
                     </a>
@@ -375,17 +348,8 @@ export function RiskToHumansPage({
 
         <FaqSection />
 
-        <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
-          <Image
-            src={heroSrc}
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover opacity-50"
-            aria-hidden
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/88" />
-          <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+        <section className="border-t border-border bg-ink py-20 lg:py-28">
+          <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
                 {t("ctaEyebrow")}
@@ -406,7 +370,7 @@ export function RiskToHumansPage({
                 </Link>
                 <Link
                   href="/venomous-snakes"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 transition-colors hover:border-white/35 hover:text-white"
                 >
                   {t("ctaVenomous")}
                 </Link>
