@@ -505,6 +505,8 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
       return "cluster.turtleIndex.title" as const;
     case "birds":
       return "hubs.birds" as const;
+    case "mammals":
+      return "hubs.mammals" as const;
     default:
       return "cluster.amphibianIndex.title" as const;
   }
@@ -578,7 +580,7 @@ export function splitHubSpecies(
     ].filter((section) => section.items.length > 0);
   }
 
-  if (hubId === "birds") {
+  if (hubId === "birds" || hubId === "mammals") {
     return [{ key: "all", items: species }].filter(
       (section) => section.items.length > 0,
     );
@@ -727,6 +729,8 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
     });
   } else if (group === "bird") {
     links.push({ kind: "page", href: "/birds", key: "birdsHub" });
+  } else if (group === "mammal") {
+    links.push({ kind: "page", href: "/mammals", key: "mammalsHub" });
   } else {
     links.push({
       kind: "page",
