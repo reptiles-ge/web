@@ -2725,15 +2725,18 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. ზამთარში ხშირად იკვებება თავისუფალ გუნდში და ველის პირას შეიძლება ახლოს მოგვიდგეს, მაგრამ არ აიყვანოთ. ყველა შებუმბვლებში საკვანძო ნიშანი თბილი წაბლისფერი კუდზედაა, რომელიც ზოლებიან ყავისფერ ზურგს უპირისპირდება; ფრენისას კუდის გარე თეთრი ბუმბული ჩანს. მამალს კაშკაშა ყვითელი თავი და ქვედა მხარე აქვს, თავქუდსა და ლოყაზე მუქი ზოლებით. დედალი და ახალგაზრდა უფრო მკრთალი და ზოლებიანია, სახეზე ხშირად მოყვითალო ელფერით. გალობა — მოკლე ნოტების რიგი გაწელილი ბოლოთი — ბუდობის სეზონს ეკუთვნის და საქართველოში მოზამთრისთვის მოსალოდნელი ნიშანი არ არის. ზამთარშიც ისმის მოკლე, მკვეთრი საკონტაქტო ხმა, მაგალითად „tsick“. ბუდობის ბიოლოგია (სხვაგან დაახლოებით 3–5 კვერცხი) სახეობის დონის მონაცემია მობუდარი არეალიდან; 2024 წლის ქართული ჩამონათვალი ამ სახეობას საქართველოში მობუდარად არ იღებს.",
     "conservation": "BirdLife International Emberiza citrinella-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2024). არეალი ფართოა; დასავლეთ ევროპის სასოფლო პოპულაციები ინტენსიური მეურნეობის გამო შემცირდა, მაგრამ გლობალური კლება უფრო მაღალი კატეგორიისთვის საკმარისად სწრაფი არ არის. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია და ადგილობრივი საფრთხეები ამ გვერდზე არ არის გაზომილი. ევროკავშირში შეტანილია ფრინველების დირექტივის II დანართში (კოდი A376); ეს დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/emberiza-citrinella-zauri-1.jpg",
+    "image": "/images/emberiza-citrinella-trepte-1.jpg",
     "imageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-12"
+      "photographer": "Andreas Trepte",
+      "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
+      "date": "2015-03-16"
     },
-    "mobileImage": "/images/emberiza-citrinella-zauri-1.jpg",
+    "mobileImage": "/images/emberiza-citrinella-sharp-1.jpg",
     "mobileImageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-12"
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
+      "location": "ოქსფორდშირი",
+      "date": "2015-04-27"
     },
     "gallery": [
       {
@@ -2741,6 +2744,47 @@ export const species: Species[] = [
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-12"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-sharp-1.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
+          "location": "ოქსფორდშირი",
+          "date": "2015-04-27"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-trepte-1.jpg",
+        "credit": {
+          "photographer": "Andreas Trepte",
+          "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
+          "date": "2015-03-16"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-gorbunova-1.jpg",
+        "credit": {
+          "photographer": "Горбунова М.С.",
+          "url": "https://commons.wikimedia.org/wiki/File:Male_bunting.jpg",
+          "date": "2024-05-15"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-lours-1.jpg",
+        "credit": {
+          "photographer": "Alexis Lours",
+          "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella).jpg",
+          "date": "2021-11-14"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-gailhampshire-1.jpg",
+        "credit": {
+          "photographer": "Gail Hampshire",
+          "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer,_female_(16409057066).jpg",
+          "date": "2014-07-09"
         }
       }
     ],
@@ -2819,7 +2863,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-26T22:37:27+04:00",
+    "updatedAt": "2026-08-26T22:40:06+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -10776,15 +10820,59 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-12"
         }
+      },
+      {
+        "src": "/images/emberiza-citrinella-sharp-1.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
+          "location": "Oxfordshire",
+          "date": "2015-04-27"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-trepte-1.jpg",
+        "credit": {
+          "photographer": "Andreas Trepte",
+          "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
+          "date": "2015-03-16"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-gorbunova-1.jpg",
+        "credit": {
+          "photographer": "Горбунова М.С.",
+          "url": "https://commons.wikimedia.org/wiki/File:Male_bunting.jpg",
+          "date": "2024-05-15"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-lours-1.jpg",
+        "credit": {
+          "photographer": "Alexis Lours",
+          "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella).jpg",
+          "date": "2021-11-14"
+        }
+      },
+      {
+        "src": "/images/emberiza-citrinella-gailhampshire-1.jpg",
+        "credit": {
+          "photographer": "Gail Hampshire",
+          "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer,_female_(16409057066).jpg",
+          "date": "2014-07-09"
+        }
       }
     ],
     "imageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-12"
+      "photographer": "Andreas Trepte",
+      "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
+      "date": "2015-03-16"
     },
     "mobileImageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-12"
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
+      "location": "Oxfordshire",
+      "date": "2015-04-27"
     }
   },
   "emys-orbicularis": {
