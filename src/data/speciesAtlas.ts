@@ -5,7 +5,7 @@ import {
   type Species,
 } from "@/data/species";
 
-export type AnimalGroup = "snake" | "lizard" | "turtle" | "amphibian" | "bird";
+export type AnimalGroup = "snake" | "lizard" | "turtle" | "amphibian" | "bird" | "mammal";
 
 export type HabitatTag = "forest" | "mountain" | "wetland" | "grassland";
 
@@ -301,6 +301,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "vulpes-vulpes": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
@@ -401,6 +405,7 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     turtle: 0,
     amphibian: 0,
     bird: 0,
+    mammal: 0,
   };
 
   for (const item of catalog) {
@@ -419,6 +424,7 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     turtles: byGroup.turtle,
     amphibians: byGroup.amphibian,
     birds: byGroup.bird,
+    mammals: byGroup.mammal,
     regions: regions.length,
     photos: getAtlasPhotoCount(catalog),
     venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
@@ -531,6 +537,7 @@ export function parseAtlasFilters(
     "turtle",
     "amphibian",
     "bird",
+    "mammal",
   ];
   const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];
   const habitats: Array<HabitatTag | "all"> = [
