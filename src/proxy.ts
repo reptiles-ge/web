@@ -75,7 +75,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const enKa = pathname.match(
-    /^\/en\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi)\/([^/]+)$/,
+    /^\/en\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi)\/([^/]+)$/,
   );
   if (enKa) {
     const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[enKa[1]], enKa[2]);
@@ -86,7 +86,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const kaHub = pathname.match(
-    /^\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi)\/([^/]+)$/,
+    /^\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi)\/([^/]+)$/,
   );
   if (kaHub) {
     const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
@@ -97,7 +97,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const enWrongSlug = pathname.match(
-    /^\/en\/(snakes|lizards|turtles|amphibians|birds)\/([^/]+)$/,
+    /^\/en\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
   );
   if (enWrongSlug) {
     const species = resolveSpeciesInHub(
