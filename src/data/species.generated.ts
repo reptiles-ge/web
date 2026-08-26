@@ -5563,7 +5563,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T01:30:39+04:00",
     "sources": [
       {
         "name": "McDonald et al. 2019 — IUCN Red List, Mustela nivalis",
@@ -6585,23 +6585,57 @@ export const species: Species[] = [
     "location": "ნოტიო კავკასიური ტყე",
     "description": "პატარა უკუდო ამფიბია ვერტიკალური გუგით. საქართველოში დადასტურებულია; კავკასიის ტყიანი დასავლეთის ენდემია.",
     "overview": "კავკასიური ჯვრიანა (Pelodytes caucasicus) პატარა უკუდო ამფიბიაა ოჯახიდან Pelodytidae და საქართველოში დადასტურებული სახეობაა. აღწერა Boulenger-ს ეკუთვნის 1896 წელს; ტიპური ლოკალიტეტია ლომისმთა, დაახლოებით 2130 მ, ბაკურიანის მახლობლად. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულად იღებს და კავკასიის ეკორეგიონის დასავლეთის ენდემად ასახელებს — არა მხოლოდ საქართველოს პოლიტიკური საზღვრის. იგივე ჩამონათვალში COI ბარკოდი გომბორიდანაა, ფიგურის ლოკალიტეტი — ქისტაური. ქართულად იხმარება ჯვრიანა და ჯვარულა. ინგლისურად Caucasian parsley frog. ადამიანისთვის შხამიანი არ არის. IUCN-ზე Near Threatened; საქართველოს წითელ ნუსხაშიც NT-ად არის მითითებული.",
-    "habitat": "საქართველოში გვხვდება. არ არის მთელი ქვეყნის თანაბარი მკვიდრი და მშრალ აღმოსავლეთ ვაკეზე ნუ ივარაუდებთ. Tarkhnishvili et al. 2026 ადასტურებს სახეობას და ასახელებს გომბორსა და ქისტაურს. Amphibian Species of the World ტიპურ ლოკალიტეტს უთითებს ლომისმთას ბაკურიანთან. Litvinchuk და Kidov (2018) აჯამებენ 56 ქართულ ლოკალიტეტს: კოლხეთის სანაპიროდან (ფოთი, კულევი, ბათუმი) აჭარა–გურია–იმერეთ–რაჭის ტყეებამდე, ბორჯომის ხეობამდე და დიდი კავკასიონის სამხრეთ კალთაზე ბარისახოდან ლაგოდეხამდე. სიმაღლე იმ ნაკრებში ზღვის დონიდან დაახლოებით 2300 მ-მდეა (ცხრა-ცხაროს უღელტეხილი). ქართული ენციკლოპედია და National Geographic-ის რუკა მცირე კავკასიონზე აღმოსავლეთ ზღვრად ბორჯომის ხეობას უთითებენ; იმავე 2018 წლის ნაკრებში არის ტაბაწყურიც — ეს წყაროები ზუსტ აღმოსავლეთ ზღვარზე სრულად არ ემთხვევა. ჰაბიტატი ნოტიო, დაჩრდილული ფართოფოთლოვანი ან შერეული მთის ტყეა, იშვიათად წიწვოვანი ტყე და სუბალპური სარტყელი, ცივი გამჭვირვალე ნაკადულის, ტბორის ან წყაროს პირას. AmphibiaWeb-ის მიხედვით ხანდახან წყლიდან 200–300 მ-ზეცაა. CBG მღვიმის ჩანაწერებს უთითებს (მარშანიას II, კოტშა) — ტროგლოქსენია, მღვიმის მუდმივი მკვიდრი არა.",
+    "habitat": "საქართველოში გვხვდება. არ არის მთელი ქვეყნის თანაბარი მკვიდრი და მშრალ აღმოსავლეთ ვაკეზე ნუ ივარაუდებთ. Tarkhnishvili et al. 2026 ადასტურებს სახეობას და ასახელებს გომბორსა და ქისტაურს. Amphibian Species of the World ტიპურ ლოკალიტეტს უთითებს ლომისმთას ბაკურიანთან. ამ გვერდის ფოტოები 2015 წლის 21 მაისს ბორჯომ-ხარაგაულის ეროვნულ პარკშია გადაღებული (ზაური ხაჩიძე). Litvinchuk და Kidov (2018) აჯამებენ 56 ქართულ ლოკალიტეტს: კოლხეთის სანაპიროდან (ფოთი, კულევი, ბათუმი) აჭარა–გურია–იმერეთ–რაჭის ტყეებამდე, ბორჯომის ხეობამდე და დიდი კავკასიონის სამხრეთ კალთაზე ბარისახოდან ლაგოდეხამდე. სიმაღლე იმ ნაკრებში ზღვის დონიდან დაახლოებით 2300 მ-მდეა (ცხრა-ცხაროს უღელტეხილი). ქართული ენციკლოპედია და National Geographic-ის რუკა მცირე კავკასიონზე აღმოსავლეთ ზღვრად ბორჯომის ხეობას უთითებენ; იმავე 2018 წლის ნაკრებში არის ტაბაწყურიც — ეს წყაროები ზუსტ აღმოსავლეთ ზღვარზე სრულად არ ემთხვევა. ჰაბიტატი ნოტიო, დაჩრდილული ფართოფოთლოვანი ან შერეული მთის ტყეა, იშვიათად წიწვოვანი ტყე და სუბალპური სარტყელი, ცივი გამჭვირვალე ნაკადულის, ტბორის ან წყაროს პირას. AmphibiaWeb-ის მიხედვით ხანდახან წყლიდან 200–300 მ-ზეცაა. CBG მღვიმის ჩანაწერებს უთითებს (მარშანიას II, კოტშა) — ტროგლოქსენია, მღვიმის მუდმივი მკვიდრი არა.",
     "diet": "ამ გვერდზე ქართული კუჭის შიგთავსის კვლევა არ არის. ქართული ენციკლოპედია საკვებად ასახელებს მწერებს, მათ მატლებს და წვრილ უხერხემლოებს. სახეობის დონეზე ეს ხმელეთის უხერხემლოებზე ნადირობაა; თავკომბალა წყალში იკვებება. ნუ მიიჩნევთ ბაღის მავნებლების „ბიოლოგიურ კონტროლად“.",
     "behavior": "ძირითადად ღამის აქტიურია და სიცივესა და ჩრდილს ანიჭებს უპირატესობას. დღეს იმალება ფესვებში, ქვებში, ფოთოლში ან ნაპირის ხვრელებში; გამრავლების ღამეს ბრუნდება წყალთან. AmphibiaWeb-ით გამოზამთრება ჩვეულებრივ სექტემბერ–ნოემბრიდან მარტამდეა — ეს სახეობის დონის პერიოდია და არა ყოველი ქართული ლოკალიტეტის კალენდარი. ბორჯომის ხეობაში გამრავლება მაისის მეორე ნახევრიდან სექტემბრის ბოლომდე გრძელდება; პიკი ხშირად ივნის–ივლისშია. ეს „აფეთქებითი“ ქვირითობა არ არის — ერთ წყალსატევში სეზონი შეიძლება გაწელილი იყოს. მამალი დედალზე ადრე მოდის და საღამოს ან ღამის პირველ ნახევარში იძახის; ხმა სუსტია ვასაკასთან ან ტბორის ბაყაყთან შედარებით. დედალი სეზონში ერთხელ ყრის; კლატჩი AmphibiaWeb-ით დაახლოებით 80–750 კვერცხია ლორწოვან პარკებში. თავკომბალას მეტამორფოზი ზოგჯერ 2–3 თვეში მთავრდება, მაგრამ ხშირად ზამთრობს წყალში და მომდევნო წლის აპრილ–ივლისში გამოდის; ზოგჯერ მეორე ზამთარიც სჭირდება. სქესობრივ სიმწიფეს ჩვეულებრივ 2–3 წელს აღწევს.",
     "conservation": "IUCN Red List-ზე Near Threatened (Kaya et al. 2009). ეს 2009 წლის შეფასებაა; ამ გვერდზე უფრო ახალი გლობალური გადაფასება არ არის მითითებული. CBG და National Geographic-ის ბიომრავალფეროვნების რუკა საქართველოს წითელ ნუსხაშიც NT-ს უთითებს. არ არის საქართველოს ენდემი. მთავარი დოკუმენტირებული წნეხია ტყის ჭრა, ქვირითობის წყალსატევების განადგურება და დაბინძურება, ნაგვისა და მორღვეული ხის გაწმენდა, გზაზე დაღუპვა. კავკასიის სხვა ნაწილებში დამატებით არის დასახელებული ინტროდუცირებული ენოტი; ეს საქართველოს ყველა პოპულაციაზე გაზომილი ზემოქმედება არ არის. CITES-ში არ შედის. ველური ამფიბია არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის შხამიანი არ არის და სამედიცინო საფრთხეს არ წარმოადგენს. ნუ აიყვანთ; კანი ლორწოს გამოყოფს, როგორც სხვა ამფიბიები.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/pelodytes-caucasicus.jpg",
+    "image": "/images/pelodytes-caucasicus-zauri-1.jpg",
     "imageCredit": {
-      "photographer": "Alexander A. Fomichev",
-      "url": "https://www.inaturalist.org/observations/95240537"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-21"
     },
-    "mobileImage": "https://cdn.reptiles.ge/pelodytes-caucasicus-mobile.jpg",
+    "mobileImage": "/images/pelodytes-caucasicus-zauri-2.jpg",
     "mobileImageCredit": {
-      "photographer": "Alexander Shienok",
-      "url": "https://www.inaturalist.org/observations/206587705"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-21"
     },
     "gallery": [
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-21"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-21"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-21"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-21"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/pelodytes-caucasicus.jpg",
         "credit": {
@@ -6659,7 +6693,7 @@ export const species: Species[] = [
       "summary": "პატარა, წვრილი უკუდო ამფიბია ვერტიკალური გუგით, სუსტი ფარფლითა და ზურგზე ირიბი ჯვრის ნახატით. საქართველოში ერთადერთი Pelodytes-ია. ყველაზე ხშირი აბნევა სირიული მყვარი და ყავისფერი ან ტბორის ბაყაყებია.",
       "traits": [
         "სხეულის სიგრძე სახეობის დონეზე დაახლოებით 4–5.5 სმ-ია (ქართული ენციკლოპედია 55 მმ-მდე). თურქული სერია (Erişmiş et al. 2009) ზრდასრულებში დაახლოებით 40–53 მმ-ს იძლევა; ეს თურქული ნიმუშია და არა ამ გვერდზე გაზომილი ქართული სერია. სხეული წვრილია, არა გომბეშოსებრი. კანი ზურგზე რეგულარული ბორცვებით. ზურგი ზეთისხილისფერი ან რუხ-ყავისფერია მუქი ლაქებით; ზოგჯერ წითელი წერტილები. არაგამრავლების პერიოდში ზურგის ნახატი ირიბი ჯვარია ორი ღია ლაქით უკანა კუთხეებთან — ამ ნიშანს სახელი უკავშირდება. მუცელი რუხი ან მოთეთროა. გუგა ვერტიკალური ღერძით. დოლის აპკი ჩანს. უკანა თითებს შორის აპკი სუსტია; შიდა მეტატარზული ბორცვი პატარა და მომრგვალოა, არა დიდი „ნიჩაბი“.",
-        "დედალი ჩვეულებრივ უფრო ღიაა, ზემოდან მოწითალო-ყავისფერი; მუცლის უკანა ნაწილი შეიძლება მოწითალო იყოს. გამრავლებისას მამალი მუქდება, ჯვრის ნახატი იკარგება და ჩნდება შავი ნუპციალური ბორცვები მკერდზე, მხრებსა და წინა თითებზე. მამალს შიგნითა ყელის რეზონატორი აქვს. თავკომბალა ხშირად ზამთრობს და მხოლოდ მომდევნო წელს ასრულებს მეტამორფოზს.",
+        "დედალი ჩვეულებრივ უფრო ღიაა, ზემოდან მოწითალო-ყავისფერი; მუცლის უკანა ნაწილი შეიძლება მოწითალო იყოს. ბორჯომ-ხარაგაულის 2015 წლის ფოტოზე მუცელი მოთეთრო-მოკრემისფროა წვრილი მუქი მარცვლებით, საზარდულთან კი ვარდისფერ-ნარინჯისფერი ტონი ჩანს. გამრავლებისას მამალი მუქდება, ჯვრის ნახატი იკარგება და ჩნდება შავი ნუპციალური ბორცვები მკერდზე, მხრებსა და წინა თითებზე. მამალს შიგნითა ყელის რეზონატორი აქვს. თავკომბალა ხშირად ზამთრობს და მხოლოდ მომდევნო წელს ასრულებს მეტამორფოზს. ნუ აიყვანთ — ხელში აღება ამოცნობისთვის საჭირო არ არის.",
         "სირიული მყვარი (Pelobates syriacus) უფრო მსხვილი და „გათხრილი“ სხეულისაა, დიდი შიდა მეტატარზული ნიჩბით; Tarkhnishvili et al. 2026 მას აღმოსავლეთ საქართველოში ასახელებს, არა კოლხურ ტყეში. მცირეაზიური ბაყაყი (Rana macrocnemis) და ტბორის ბაყაყი (Pelophylax ridibundus) ჰორიზონტალური გუგით და გვერდითი კანის ნაოჭებით გამოირჩევიან; ტბორის ბაყაყი უფრო წყლის პირას რჩება. კავკასიური გომბეშო (Bufo verrucosissimus) და მწვანე გომბეშო (Bufotes viridis) დიდი, კოპლებიანი, ჰორიზონტალური გუგით არიან. აღმოსავლური ვასაკა (Hyla orientalis) მწვანეა თითის დისკებით და ხეზე ადის. დასავლეთევროპული Pelodytes punctatus საქართველოში არ გვხვდება.",
         "შხამიანი არ არის. ტყის ჩრდილში, ცივი ნაკადულის ან ტყის გზის გუბის პირას პატარა ბაყაყი ვერტიკალური გუგით და ზურგის ჯვრით ამ სახეობას ემთხვევა უფრო, ვიდრე ტბორის ბაყაყს. ნუ აიყვანთ."
       ]
@@ -6671,7 +6705,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება ვნახო საქართველოში?",
-        "answer": "ნოტიო მთის ტყეში ცივი ნაკადულის, ტბორის ან წყაროს პირას. დასახელებული წერტილებია ბაკურიანი/ლომისმთა, ბორჯომის ხეობა, გომბორი და ქისტაური; 2018 წლის ნაკრები ასევე მოიცავს კოლხეთის სანაპიროს, აჭარას, რაჭას და ლაგოდეხს. მთელ აღმოსავლეთ ვაკეზე ნუ ივარაუდებთ."
+        "answer": "ნოტიო მთის ტყეში ცივი ნაკადულის, ტბორის ან წყაროს პირას. დასახელებული წერტილებია ბაკურიანი/ლომისმთა, ბორჯომ-ხარაგაულის ეროვნული პარკი (ფოტო: 21 მაისი 2015), გომბორი და ქისტაური; 2018 წლის ნაკრები ასევე მოიცავს კოლხეთის სანაპიროს, აჭარას, რაჭას და ლაგოდეხს. მთელ აღმოსავლეთ ვაკეზე ნუ ივარაუდებთ."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -14825,7 +14859,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "humid Caucasian forest",
     "description": "A small tailless amphibian with a vertical pupil. Confirmed in Georgia; endemic to the forested western Caucasus, not Georgia alone.",
     "overview": "The Caucasian parsley frog (Pelodytes caucasicus) is a small tailless amphibian of the family Pelodytidae and is confirmed in Georgia. Boulenger described it in 1896; the type locality is Mount Lomis, about 2,130 m, near Bakuriani. Tarkhnishvili et al. 2026 treat it as biologically confirmed and endemic to the western Caucasus ecoregion — broader than Georgia’s political border. In that checklist the COI barcode is from Gombori and the figure locality is Kistauri. Georgian names are ჯვრიანა and ჯვარულა. It is not venomous. IUCN lists it as Near Threatened; the Georgian Red List category given in CBG and the National Geographic biodiversity map is also NT.",
-    "habitat": "It occurs in Georgia. It is not evenly distributed across the country, and it should not be assumed on dry eastern plains. Tarkhnishvili et al. 2026 confirm the species and name Gombori and Kistauri. Amphibian Species of the World gives the type locality as Mount Lomis near Bakuriani. Litvinchuk and Kidov (2018) compile 56 Georgian localities: from the Colchis coast (Poti, Kulevi, Batumi) through forests of Adjara, Guria, Imereti and Racha, the Borjomi gorge, and the southern slope of the Greater Caucasus from Barisakho to Lagodekhi. Elevations in that compilation run from sea level to about 2,300 m (Tskhra-Tskharo Pass). The Georgian Encyclopaedia and the National Geographic map treat the Borjomi Gorge as the eastern limit on the Lesser Caucasus; the 2018 compilation also includes Tabatskuri — sources do not fully agree on that eastern edge. Habitat is humid, shaded broad-leaved or mixed mountain forest, rarely coniferous forest or the subalpine belt, beside cold clear streams, ponds or springs. AmphibiaWeb notes animals sometimes 200–300 m from water. CBG lists cave records (Marshania II, Kotsha): it is a trogloxene, not a permanent cave dweller.",
+    "habitat": "It occurs in Georgia. It is not evenly distributed across the country, and it should not be assumed on dry eastern plains. Tarkhnishvili et al. 2026 confirm the species and name Gombori and Kistauri. Amphibian Species of the World gives the type locality as Mount Lomis near Bakuriani. Photos on this page were taken on 21 May 2015 in Borjomi-Kharagauli National Park (Zauri Khachidze). Litvinchuk and Kidov (2018) compile 56 Georgian localities: from the Colchis coast (Poti, Kulevi, Batumi) through forests of Adjara, Guria, Imereti and Racha, the Borjomi gorge, and the southern slope of the Greater Caucasus from Barisakho to Lagodekhi. Elevations in that compilation run from sea level to about 2,300 m (Tskhra-Tskharo Pass). The Georgian Encyclopaedia and the National Geographic map treat the Borjomi Gorge as the eastern limit on the Lesser Caucasus; the 2018 compilation also includes Tabatskuri — sources do not fully agree on that eastern edge. Habitat is humid, shaded broad-leaved or mixed mountain forest, rarely coniferous forest or the subalpine belt, beside cold clear streams, ponds or springs. AmphibiaWeb notes animals sometimes 200–300 m from water. CBG lists cave records (Marshania II, Kotsha): it is a trogloxene, not a permanent cave dweller.",
     "diet": "This page has no Georgian stomach-content study. The Georgian Encyclopaedia lists insects, their larvae and small invertebrates. At species level adults take terrestrial invertebrates; tadpoles feed in water. Do not treat it as garden pest control.",
     "behavior": "It is mainly nocturnal and prefers cool, shaded sites. By day it hides among roots, stones, leaf litter or bank holes; at night in the breeding season it returns to water. AmphibiaWeb gives hibernation typically from September– November to March — a species-level window, not a calendar for every Georgian locality. In the Borjomi Canyon breeding lasts from the second half of May to the end of September, often peaking in June–July. It is not an explosive breeder; the season in one water body can be long. Males arrive before females and call in the evening or first half of the night; the call is weak compared with tree frogs or marsh frogs. Each female spawns once per season; clutch size in AmphibiaWeb is about 80–750 eggs in mucous sacs. Tadpoles may metamorphose in 2–3 months, but they often overwinter and emerge the following April–July; some spend a second winter as larvae. Sexual maturity is usually at 2–3 years.",
     "conservation": "IUCN Red List Near Threatened (Kaya et al. 2009). That assessment is from 2009; this page does not cite a later global reassessment. CBG and the National Geographic biodiversity map also give NT on the Georgian Red List. It is not a Georgia-only endemic. Documented pressures are forest cutting, destruction and pollution of breeding waters, clearing of fallen wood and litter, and road kill. In other parts of the Caucasus the introduced raccoon is also named; that is not a measured impact for every Georgian population. Not listed on CITES. Do not collect wild amphibians.",
@@ -14865,7 +14899,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "summary": "A small, slender tailless amphibian with a vertical pupil, weakly webbed toes and an oblique cross on the back. It is the only Pelodytes in Georgia. The usual confusions are the eastern spadefoot and brown or marsh frogs.",
       "traits": [
         "Snout–vent length at species level is about 4–5.5 cm (Georgian Encyclopaedia up to 55 mm). A Turkish series (Erişmiş et al. 2009) gives about 40–53 mm in adults; that is a Turkish sample, not a Georgian series measured on this page. The body is slender, not toad-like. Dorsal skin has regularly arranged tubercles. The back is olive or grey-brown with dark spots; red specks occur. Outside the breeding season the dorsal pattern is an oblique cross with two pale spots at its hind corners — the mark behind the Georgian name. The belly is grey or whitish. The pupil has a vertical axis. The tympanum is visible. Toe webbing is weak; the inner metatarsal tubercle is small and rounded, not a large digging spade.",
-        "The female is usually paler, reddish-brown above; the rear of the belly may be reddish. Breeding males darken, lose the cross pattern and develop black nuptial tubercles on the chest, arms and inner fingers. Males have internal vocal sacs. Tadpoles often overwinter and complete metamorphosis the following year.",
+        "The female is usually paler, reddish-brown above; the rear of the belly may be reddish. A 2015 Borjomi-Kharagauli photo shows a creamy-white belly with fine dark granules and a pinkish-orange tone at the groin. Breeding males darken, lose the cross pattern and develop black nuptial tubercles on the chest, arms and inner fingers. Males have internal vocal sacs. Tadpoles often overwinter and complete metamorphosis the following year. Do not handle the animal — picking it up is not needed for identification.",
         "The eastern spadefoot (Pelobates syriacus) is stockier, with a large inner metatarsal spade; Tarkhnishvili et al. 2026 place it in eastern Georgia, not Colchic forest. The long-legged wood frog (Rana macrocnemis) and marsh frog (Pelophylax ridibundus) have horizontal pupils and dorsolateral folds; the marsh frog stays closer to open water. The Caucasian toad (Bufo verrucosissimus) and green toad (Bufotes viridis) are large and warty, with horizontal pupils. The eastern tree frog (Hyla orientalis) is green, with toe pads, and climbs. Western European Pelodytes punctatus does not occur in Georgia.",
         "It is not venomous. A small frog with a vertical pupil and a dorsal cross beside a cold forest stream or a shaded forest-road puddle matches this species more than a marsh frog. Do not handle it."
       ]
@@ -14877,7 +14911,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can it be found in Georgia?",
-        "answer": "In humid mountain forest beside cold streams, ponds or springs. Named points include Bakuriani/Mount Lomis, the Borjomi Canyon, Gombori and Kistauri; a 2018 compilation also covers the Colchis coast, Adjara, Racha and Lagodekhi. Do not assume it on the dry eastern plains."
+        "answer": "In humid mountain forest beside cold streams, ponds or springs. Named points include Bakuriani/Mount Lomis, Borjomi-Kharagauli National Park (photographed 21 May 2015), Gombori and Kistauri; a 2018 compilation also covers the Colchis coast, Adjara, Racha and Lagodekhi. Do not assume it on the dry eastern plains."
       },
       {
         "question": "How can it be identified?",
@@ -14906,6 +14940,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/pelodytes-caucasicus-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-21"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-21"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-21"
+        }
+      },
+      {
+        "src": "/images/pelodytes-caucasicus-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-21"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/pelodytes-caucasicus.jpg",
         "credit": {
           "photographer": "Alexander A. Fomichev",
@@ -14928,12 +14994,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "Alexander A. Fomichev",
-      "url": "https://www.inaturalist.org/observations/95240537"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-21"
     },
     "mobileImageCredit": {
-      "photographer": "Alexander Shienok",
-      "url": "https://www.inaturalist.org/observations/206587705"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-21"
     }
   },
   "pelophylax-ridibundus": {
