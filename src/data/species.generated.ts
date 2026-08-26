@@ -6431,7 +6431,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T00:44:45+04:00",
+    "updatedAt": "2026-08-27T00:48:51+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -8387,6 +8387,226 @@ export const species: Species[] = [
       {
         "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
         "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      }
+    ]
+  },
+  {
+    "id": "vulpes-vulpes",
+    "commonName": "მელა",
+    "scientificName": "Vulpes vulpes",
+    "genus": "Vulpes",
+    "family": "Canidae",
+    "location": "მუდმივი საქართველოში",
+    "description": "ძაღლისებრი მტაცებელი წითურ-ჟანგმიწოვანი ბეწვით, შავი ყურებითა და ხშირად თეთრწვერა კუდით. საქართველოში მუდმივი სახეობაა.",
+    "overview": "მელა (Vulpes vulpes) ძუძუმწოვარია, მგლისებრთა ოჯახიდან (Canidae). ეს არის ნამდვილი მელების გვარის (Vulpes) ყველაზე დიდი სახეობა და ხორცისმჭამელთა რიგის ყველაზე ფართოდ გავრცელებული წევრი. IUCN საქართველოს მშობლიურ არეალში ასახელებს. ეროვნულ ძუძუმწოვრების ჩამონათვალებში შეტანილია. სახეობის დონეზე თავ-ტანის სიგრძე დაახლოებით 45–90 სმ-ია, კუდი 30–55 სმ, მასა ხშირად 3–14 კგ. შხამი არ აქვს. ადამიანისთვის მთავარი რისკი ნაკბენი და ცოფია და არა შხამი. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში არ არის.",
+    "habitat": "საქართველოში ეძებეთ ტყის პირას, ბუჩქნარში, სასოფლო ადგილზე, მდელოზე, მთისწინეთსა და დასახლებულ პერიფერიაზე. სახეობის დონეზე ჰაბიტატი ძალიან ფართოა: ტყე, ღია ადგილი, მთა ხის ზღვარს ზემოთაც, სანაპირო და ქალაქის გარეუბანი. IUCN აღნიშნავს ზღვის დონიდან დაახლოებით 4,500 მ-მდე; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი ამ გვერდზე არ არის გამოქვეყნებული. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს. ქვეყნის არსებობა დადასტურებულია, მაგრამ მუნიციპალიტეტების სია აქ არ არის შედგენილი. დასახელებული ქართული წერტილია სამონადირეო მეურნეობა „იორის ჭალები“ (2020 წლის მართვის გეგმა). მთელ ქვეყანაში თანაბარ სიმჭიდროვეს ნუ ივარაუდებთ.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ოპორტუნისტული ყოვლისმჭამელია: ძირითადად წვრილი ძუძუმწოვრები (განსაკუთრებით მღრღნელები), ასევე კურდღელი, ფრინველი, მწერი, ხილი, ლეში და დასახლებასთან საკვების ნარჩენი. საქართველოში რეალისტური სურათი იგივეა — პატარა ნადირი ღია და ნახევრად ღია ადგილზე, ზოგჯერ ქათამი ან სხვა შინაური ფრინველი დაუცველ ეზოში — მაგრამ ადგილობრივი მენიუ აქ არ არის გაზომილი.",
+    "behavior": "ძირითადად ღამით და შებინდებისასაა აქტიური; დღისითაც ჩანს, განსაკუთრებით დაბალ შეწუხებაზე ან საკვების სიუხვეზე. ეს დღის გამოჩენა თავისთავად ცოფს არ ნიშნავს. ბუდობს სოროში, კლდის ნაპრალში ან სხვა ცხოველის მიტოვებულ სოროში. გამრავლების სეზონში ოჯახური ჯგუფია; სხვა დროს ხშირად მარტო ნადირობს. სახეობის დონეზე ორსულობა დაახლოებით 51–53 დღეა, ხშირად 4–6 ლეკვი, გაზაფხულზე. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. კვალი ძაღლისას ჰგავს, მაგრამ უფრო კომპაქტურია; წინა თათს ხუთი თითი აქვს, უკანას ოთხი, კლანჭები ხშირად ჩანს. კუდის თეთრი წვერი ტიპიურია, მაგრამ ყველა ინდივიდს არ აქვს.",
+    "conservation": "Hoffmann და Sillero-Zubiri Vulpes vulpes-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016); პოპულაციის ტენდენცია სტაბილურია. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ნადირობის ობიექტად არის შეტანილი; კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. CITES-ის დანართებში სახეობის დონეზე არ არის, გარდა რამდენიმე აზიური ქვესახეობისა, რომლებიც საქართველოს არ ეხება. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, საგზაო დაღუპვა და კონფლიქტი შინაურ ფრინველზე; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
+    "interaction": "შხამი არ აქვს. შეიძლება უკბინოს. საქართველოში გარეულ ხორცისმჭამელებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აჭმიოთ და არ აიყვანოთ. ძაღლები აცერით.",
+    "image": "/images/vulpes-vulpes-mallnitz-1.jpg",
+    "imageCredit": {
+      "photographer": "Uoaei1",
+      "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
+      "location": "მალნიცი",
+      "date": "2019-07-30"
+    },
+    "mobileImage": "/images/vulpes-vulpes-portrait-1.jpg",
+    "mobileImageCredit": {
+      "photographer": "ClaudiaTen",
+      "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
+      "location": "რაუტასი",
+      "date": "2022-11-26"
+    },
+    "gallery": [
+      {
+        "src": "/images/vulpes-vulpes-mallnitz-1.jpg",
+        "credit": {
+          "photographer": "Uoaei1",
+          "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
+          "location": "მალნიცი",
+          "date": "2019-07-30"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-portrait-1.jpg",
+        "credit": {
+          "photographer": "ClaudiaTen",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
+          "location": "რაუტასი",
+          "date": "2022-11-26"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-lours-1.jpg",
+        "credit": {
+          "photographer": "Alexis Lours",
+          "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_drinking_from_a_lake_in_Gennevilliers,_France.jpg",
+          "location": "ჟენევილიე",
+          "date": "2023-09-28"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-billington-1.jpg",
+        "credit": {
+          "photographer": "Ken Billington",
+          "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(4).jpg",
+          "date": "2007-05-28"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-cubs-1.jpg",
+        "credit": {
+          "photographer": "Divlja Srbija",
+          "url": "https://commons.wikimedia.org/wiki/File:Mlade_lisice_u_rupi.jpg",
+          "date": "2018-05-03"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "კვება",
+        "value": "ყოვლისმჭამელი"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "მუდმივი"
+      },
+      {
+        "label": "ზომა",
+        "value": "45–90 სმ"
+      },
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტყის პირი / ღია ადგილი"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Canidae"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს, თავდაპირველად Canis vulpes. მიღებული სახელია Vulpes vulpes. რიგი Carnivora, ქვერიგი Caniformia, ოჯახი Canidae, გვარი Vulpes.",
+      "კავკასიის ლიტერატურაში ისტორიულად დასახელებულია რამდენიმე ქვესახეობა, მათ შორის V. v. caucasica (დინიკი, 1914) და V. v. alpherakyi (სატუნინი, 1906). ქვესახეობების რაოდენობა და საზღვრები სადავოა; ველში საქართველოს ინდივიდს ქვესახეობაზე საიმედოდ ნუ მიაკუთვნებთ.",
+      "ქართულად იხმარება მელა და ჩვეულებრივი მელა; ზოგ ტექსტში წითელი მელაც. ინგლისურად red fox; ძველ ლიტერატურაში common fox. ფერის ფორმები cross fox და silver fox იგივე სახეობაა.",
+      "IUCN საქართველოს native ქვეყნად ასახელებს. Bukhnikashvili და Kandaurov 2002 წლის ანოტირებულ ჩამონათვალშია. Eliava et al. 2007 მას LC-ით ასახელებს. ეს ქვეყნის დონის დადასტურებაა და არა რეგიონული რუკა."
+    ],
+    "identification": {
+      "summary": "საშუალო ზომის ძაღლისებრი მტაცებელი წითურ-ჟანგმიწოვანი ზურგით, შავი ყურის უკანა მხარით, შავი ქვედა ფეხებით და ხშირად თეთრი კუდის წვერით. საქართველოში მუდმივია.",
+      "traits": [
+        "სახეობის დონეზე თავ-ტანი დაახლოებით 45–90 სმ, კუდი 30–55 სმ, მხრის სიმაღლე დაახლოებით 35–50 სმ, მასა ხშირად 3–14 კგ. მამალი, როგორც წესი, დედალზე ოდნავ დიდია. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის. დინგი წვრილია, ყურები აღმართული, გუგა ვერტიკალურად ოვალური.",
+        "ტიპიური შეფერილობა წითურ-ჟანგმიწოვანია ზურგზე, ღია ყელითა და მუცლით. ყურის უკანა მხარე და ფეხის ქვედა ნაწილი ჩვეულებრივ შავია. კუდი ბუსუსიანია; თეთრი წვერი საიმედო ნიშანია, როცა ჩანს, მაგრამ ზოგ ინდივიდს შავი ან მუქი წვერი აქვს. იშვიათია მუქი („ვერცხლისფერი“) და ჯვარედინი ფერის ფორმები.",
+        "ტურა (Canis aureus) საქართველოშიაც არის: უფრო მაღალი, უფრო ერთგვაროვანი მოყვითალო-რუხი, უფრო მოკლე კუდით, თეთრი კუდის წვერის გარეშე. მგელი (Canis lupus) გაცილებით დიდია, უფრო გრძელფეხა და არ ჰგავს წითელ მელას. ძაღლთან შედარებით მელას უფრო წვრილი დინგი, უფრო პატარა კვალი და უფრო სწორი სარბენი აქვს. კორსაკი (Vulpes corsac) კავკასიაში მხოლოდ ჩრდილოეთის მშრალ ნაწილზეა აღნიშნული და საქართველოს ფაუნაში ამ გვერდზე არ არის მიღებული. ამ ატლასში ტურასა და მგელის ცალკე გვერდები ჯერ არ არის.",
+        "შხამიანი არ არის. ნაკბენი ან ნერწყვი შეიძლება ცოფის რისკი იყოს. არ აიყვანოთ, განსაკუთრებით თუ ცხოველი უშიშრად უახლოვდება, დაბნეულია ან აგრესიულია. დღის გამოჩენა ნორმალურიც შეიძლება იყოს."
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა მელა საქართველოში?",
+        "answer": "კი. IUCN მას საქართველოში მშობლიურ სახეობად ასახელებს. შეტანილია ეროვნულ ძუძუმწოვრების ჩამონათვალებში და ნადირობის ობიექტების ნუსხაში."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ტყის პირას, ბუჩქნარში, სასოფლო ადგილზე, მთისწინეთსა და დასახლების გარეუბანში, წელიწადის ნებისმიერ დროს. ამ გვერდზე მუნიციპალიტეტების სია არ არის. დასახელებული წერტილია „იორის ჭალები“. რუკა არ არის შეფერილი."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "წითურ-ჟანგმიწოვანი ზურგი, შავი ყურის უკანა მხარე, შავი ქვედა ფეხები, ბუსუსიანი კუდი ხშირად თეთრი წვერით, წვრილი დინგი. ტურა უფრო რუხ-მოყვითალოა და უფრო მოკლე კუდით; მგელი გაცილებით დიდია."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე თავ-ტანი დაახლოებით 45–90 სმ, კუდი 30–55 სმ, მასა ხშირად 3–14 კგ. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად წვრილ ძუძუმწოვრებს, ასევე ფრინველს, მწერს, ხილსა და ლეშს. საქართველოში კვება ცალკე არ არის შესწავლილი ამ გვერდზე."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "ძირითადად ღამით და შებინდებისას. დღისითაც შეიძლება გამოჩნდეს. მუდმივია და არ მიგრირებს, როგორც ბევრი ფრინველი."
+      },
+      {
+        "question": "საშიშია?",
+        "answer": "შხამიანი არ არის. შეიძლება უკბინოს. საქართველოში გარეულ მტაცებლებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აიყვანოთ. ნაკბენის შემდეგ ჭრილობა ჩამოიბანეთ და მიმართეთ ექიმს."
+      },
+      {
+        "question": "დაცულია?",
+        "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
+      }
+    ],
+    "updatedAt": "2026-08-27T00:55:18+04:00",
+    "sources": [
+      {
+        "name": "Hoffmann & Sillero-Zubiri 2016 — IUCN Red List, Vulpes vulpes",
+        "url": "https://www.iucnredlist.org/species/23062/46190249"
+      },
+      {
+        "name": "Bukhnikashvili & Kandaurov 2002 — The annotated list of mammals of Georgia",
+        "url": "https://www.academia.edu/13409158/The_Annotated_List_of_Mammals_of_Georgia"
+      },
+      {
+        "name": "Eliava et al. 2007 — New data on animal biodiversity of Georgia",
+        "url": "http://science.org.ge/old/moambe/2007-vol2/eliava.pdf"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "ნადირობას დაქვემდებარებული სახეობები — Vulpes vulpes",
+        "url": "https://legali.ge/law/1468671/"
+      },
+      {
+        "name": "იორის ჭალები — სამონადირეო მეურნეობის მართვის გეგმა (2020)",
+        "url": "https://mepa.gov.ge/ge/Files/Download/45520"
+      },
+      {
+        "name": "Larivière & Pasitschniak-Arts 1996 — Mammalian Species 537, Vulpes vulpes",
+        "url": "https://www.science.smith.edu/departments/Biology/VHAYSSEN/msi/pdf/i0076-3519-537-01-0001.pdf"
+      },
+      {
+        "name": "EUNIS — Vulpes vulpes",
+        "url": "https://eunis.eea.europa.eu/species/11350"
+      },
+      {
+        "name": "ASM Mammal Diversity Database — Vulpes vulpes",
+        "url": "https://www.mammaldiversity.org/"
+      },
+      {
+        "name": "Experimental and Clinical Medicine 2024 — Rabies in Georgia at the modern stage",
+        "url": "https://doi.org/10.52340/jecm.2024.04.10"
+      },
+      {
+        "name": "Gurielidze et al. 2021 — Grey wolf and golden jackal in Georgia",
+        "url": "https://doi.org/10.1111/jzo.12831"
+      },
+      {
+        "name": "Baryshnikov 2012 — Pleistocene Canidae of the Caucasus",
+        "url": "https://doi.org/10.15298/rusjtheriol.11.2.01"
+      },
+      {
+        "name": "Wikimedia Commons — Vulpes vulpes Mallnitz (Uoaei1, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Red fox, Gennevilliers (Alexis Lours, CC BY 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_drinking_from_a_lake_in_Gennevilliers,_France.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Red Fox (Ken Billington, CC BY-SA 3.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(4).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Portrait, Rautas (ClaudiaTen, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Fox cubs (Divlja Srbija, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mlade_lisice_u_rupi.jpg"
       }
     ]
   },
@@ -15213,6 +15433,149 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "mobileImageCredit": {
       "photographer": "Vojtěch Víta",
       "url": "https://www.inaturalist.org/observations/238226101"
+    }
+  },
+  "vulpes-vulpes": {
+    "commonName": "Red fox",
+    "location": "Year-round in Georgia",
+    "description": "A dog-like predator with rusty-red fur, black-backed ears, and often a white-tipped tail. It is a resident species in Georgia.",
+    "overview": "The red fox (Vulpes vulpes) is a mammal in the dog family (Canidae). It is the largest true fox (genus Vulpes) and the most widely distributed member of the order Carnivora. IUCN lists Georgia in the native range. It appears on national mammal checklists. At species level, head–body length is about 45–90 cm, the tail 30–55 cm, and mass often 3–14 kg. It has no venom. The main human risk is a bite and rabies, not poison. IUCN lists it as Least Concern. It is not on Georgia’s 2014 Red List.",
+    "habitat": "In Georgia look for it at woodland edges, scrub, farmland, grassland, foothills, and the margins of settlements. Species-level habitat is very broad: forest, open country, mountains even above the treeline, coasts, and suburban areas. IUCN notes elevations to about 4,500 m; a Georgia-specific elevation range is not published on this page. This page does not map administrative regions. Country occurrence is confirmed, but a municipality-by-municipality list is not compiled here. A named Georgian locality is the Iori floodplain hunting farm (2020 management plan). Do not assume even density across the whole country.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range it is an opportunistic omnivore: mainly small mammals (especially rodents), also lagomorphs, birds, insects, fruit, carrion, and food waste near people. The realistic picture in Georgia is the same — small prey in open and semi-open country, and sometimes poultry in unprotected yards — but the local menu has not been measured here.",
+    "behavior": "It is mainly active at night and at dusk; it can also be seen by day, especially where disturbance is low or food is abundant. A daytime sighting does not by itself mean rabies. It dens in an earth, a rock crevice, or a borrowed burrow. In the breeding season it lives as a family group; at other times it often hunts alone. At species level gestation is about 51–53 days, often with 4–6 cubs, in spring. Those figures come from the wider range, not a Georgian den sample. Tracks resemble a dog’s but are more compact; the forefoot has five toes, the hind foot four, and claws often show. A white tail tip is typical but not present on every individual.",
+    "conservation": "Hoffmann and Sillero-Zubiri assess Vulpes vulpes as Least Concern on the IUCN Red List (2016); the population trend is stable. It is not on Georgia’s 2014 Red List (Government Resolution No. 190). It is listed as a hunting species; quotas and seasons are set by agency documents and are not copied here as current numbers. It is not on CITES appendices at species level, except for a few Asian subspecies that do not apply to Georgia. Local pressures can include hunting, road mortality, and conflict over poultry; a national trend is not measured on this page. Do not handle wild animals.",
+    "interaction": "It has no venom. It can bite. In Georgia it is named among wild carnivores that can carry rabies. Do not feed or handle it. Keep dogs vaccinated.",
+    "stats": [
+      {
+        "label": "Diet",
+        "value": "Omnivore"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Resident"
+      },
+      {
+        "label": "Size",
+        "value": "45–90 cm"
+      },
+      {
+        "label": "Habitat",
+        "value": "Woodland edge / open country"
+      },
+      {
+        "label": "Family",
+        "value": "Canidae"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "Linnaeus described it in 1758, originally as Canis vulpes. The accepted name is Vulpes vulpes. Order Carnivora, suborder Caniformia, family Canidae, genus Vulpes.",
+      "Caucasus literature historically names several subspecies, including V. v. caucasica (Dinnik, 1914) and V. v. alpherakyi (Satunin, 1906). Subspecies counts and boundaries are disputed; do not assign a Georgian individual to a subspecies in the field with confidence.",
+      "In Georgian the usual names are მელა and ჩვეულებრივი მელა; some texts use წითელი მელა. In English: red fox; older literature also says common fox. Cross fox and silver fox are colour morphs of the same species.",
+      "IUCN lists Georgia as native. It is in Bukhnikashvili and Kandaurov’s 2002 annotated mammal list. Eliava et al. 2007 list it as LC. That is country-level confirmation, not a regional map."
+    ],
+    "identification": {
+      "summary": "A medium-sized dog-like predator with a rusty-red back, black ear backs, black lower legs, and often a white tail tip. It is resident in Georgia.",
+      "traits": [
+        "At species level head–body is about 45–90 cm, tail 30–55 cm, shoulder height about 35–50 cm, mass often 3–14 kg. Males are usually slightly larger than females. There is no separate measured Georgian series on this page. The muzzle is slender, the ears erect, and the pupils vertically oval.",
+        "Typical colour is rusty-red on the back, with a paler throat and belly. The backs of the ears and the lower legs are usually black. The tail is bushy; a white tip is a useful mark when present, but some individuals have a dark tip. Dark (“silver”) and cross-coloured morphs occur but are uncommon.",
+        "The golden jackal (Canis aureus) also occurs in Georgia: taller, more uniformly yellowish-grey, with a shorter tail and without a white tail tip. The wolf (Canis lupus) is much larger and longer-legged and does not look like a red fox. Compared with a dog, a fox has a finer muzzle, a smaller print, and often a straighter trail. The corsac fox (Vulpes corsac) is recorded in the Caucasus only from arid parts of the North Caucasus and is not accepted here as part of Georgia’s fauna. This atlas does not yet have separate pages for jackal or wolf.",
+        "It is not venomous. A bite or saliva can carry rabies risk. Do not handle it, especially if an animal approaches without fear, seems disoriented, or is aggressive. Daytime activity can also be normal."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the red fox found in Georgia?",
+        "answer": "Yes. IUCN lists it as native in Georgia. It is on national mammal checklists and on the list of hunting species."
+      },
+      {
+        "question": "Where can I see it in Georgia?",
+        "answer": "At woodland edges, in scrub, on farmland, in foothills, and at the edge of settlements, at any time of year. This page has no municipality list. A named site is the Iori floodplain hunting farm. The atlas map is not coloured."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "Rusty-red back, black ear backs, black lower legs, a bushy tail often with a white tip, and a slender muzzle. A golden jackal is more yellowish-grey with a shorter tail; a wolf is much larger."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "At species level head–body is about 45–90 cm, tail 30–55 cm, mass often 3–14 kg. There is no separate measured Georgian series on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly small mammals, also birds, insects, fruit, and carrion. Diet has not been studied separately in Georgia on this page."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "Mainly at night and at dusk. It can also appear by day. It is resident and does not migrate like many birds."
+      },
+      {
+        "question": "Is it dangerous?",
+        "answer": "It is not venomous. It can bite. In Georgia it is named among wild carnivores that can carry rabies. Do not handle it. After a bite, wash the wound and seek medical care."
+      },
+      {
+        "question": "Is it protected?",
+        "answer": "It is globally Least Concern and is not on Georgia’s 2014 Red List. It is a hunting species; season and quota are set by official rules."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/images/vulpes-vulpes-mallnitz-1.jpg",
+        "credit": {
+          "photographer": "Uoaei1",
+          "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
+          "location": "Mallnitz",
+          "date": "2019-07-30"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-portrait-1.jpg",
+        "credit": {
+          "photographer": "ClaudiaTen",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
+          "location": "Rautas",
+          "date": "2022-11-26"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-lours-1.jpg",
+        "credit": {
+          "photographer": "Alexis Lours",
+          "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_drinking_from_a_lake_in_Gennevilliers,_France.jpg",
+          "location": "Gennevilliers",
+          "date": "2023-09-28"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-billington-1.jpg",
+        "credit": {
+          "photographer": "Ken Billington",
+          "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(4).jpg",
+          "date": "2007-05-28"
+        }
+      },
+      {
+        "src": "/images/vulpes-vulpes-cubs-1.jpg",
+        "credit": {
+          "photographer": "Divlja Srbija",
+          "url": "https://commons.wikimedia.org/wiki/File:Mlade_lisice_u_rupi.jpg",
+          "date": "2018-05-03"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Uoaei1",
+      "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
+      "location": "Mallnitz",
+      "date": "2019-07-30"
+    },
+    "mobileImageCredit": {
+      "photographer": "ClaudiaTen",
+      "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
+      "location": "Rautas",
+      "date": "2022-11-26"
     }
   },
   "xerotyphlops-vermicularis": {
