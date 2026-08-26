@@ -8420,6 +8420,13 @@ export const species: Species[] = [
     },
     "gallery": [
       {
+        "src": "/images/vulpes-vulpes-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-14"
+        }
+      },
+      {
         "src": "/images/vulpes-vulpes-mallnitz-1.jpg",
         "credit": {
           "photographer": "Uoaei1",
@@ -15521,6 +15528,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/vulpes-vulpes-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-14"
+        }
+      },
       {
         "src": "/images/vulpes-vulpes-mallnitz-1.jpg",
         "credit": {
