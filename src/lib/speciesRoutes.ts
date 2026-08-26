@@ -18,7 +18,8 @@ export type SpeciesHref = {
     | "/snakes/[slug]"
     | "/lizards/[slug]"
     | "/turtles/[slug]"
-    | "/amphibians/[slug]";
+    | "/amphibians/[slug]"
+    | "/birds/[slug]";
   params: { slug: string };
 };
 
@@ -267,6 +268,8 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
       return { pathname: "/lizards/[slug]", params: { slug } };
     case "turtles":
       return { pathname: "/turtles/[slug]", params: { slug } };
+    case "birds":
+      return { pathname: "/birds/[slug]", params: { slug } };
     default:
       return { pathname: "/amphibians/[slug]", params: { slug } };
   }
@@ -309,7 +312,7 @@ export function regionHref(id: string) {
 
 export function remapSpeciesPathname(pathname: string, locale: AppLocale) {
   const match = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians)\/([^/]+)$/,
+    /^\/(snakes|lizards|turtles|amphibians|birds)\/([^/]+)$/,
   );
   if (!match) return pathname;
   const hub = match[1] as GroupHubId;

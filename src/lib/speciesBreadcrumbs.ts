@@ -60,7 +60,7 @@ export function buildSpeciesBreadcrumbs(options: {
       name: options.venomousLabel,
       href: "/venomous-snakes",
     });
-  } else {
+  } else if (HUB_INDEX_PATH[parent.hubId] !== hubPath) {
     crumbs.push({
       name: options.indexLabel,
       href: HUB_INDEX_PATH[parent.hubId],

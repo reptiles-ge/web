@@ -10,6 +10,7 @@
     "lizards": "Lizards",
     "turtles": "Turtles",
     "amphibians": "Amphibians",
+    "birds": "Birds",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -155,6 +156,7 @@
         "lizards": "Lizards in Georgia",
         "turtles": "Turtles in Georgia",
         "amphibians": "Amphibians in Georgia",
+        "birds": "Birds in Georgia",
         "identify": "Identify a venomous snake",
         "bite": "Snakebite first steps",
         "lizardIdentify": "Identify a lizard",
@@ -187,6 +189,7 @@
     "lizards": "Lizards",
     "turtles": "Turtles",
     "amphibians": "Amphibians",
+    "birds": "Birds",
     "frogs": "Frogs",
     "newts": "Newts",
     "snakeIndex": "Snake species",
@@ -500,8 +503,9 @@
       "snakes": "Snakes in Georgia",
       "lizards": "Lizards in Georgia",
       "turtles": "Turtles in Georgia",
-      "amphibians": "Amphibians in Georgia",
-      "venomous": "Venomous snakes in Georgia"
+        "amphibians": "Amphibians in Georgia",
+        "birds": "Birds in Georgia",
+        "venomous": "Venomous snakes in Georgia"
     }
   },
   "site": {
@@ -542,6 +546,7 @@
     "titleLizard": "range and identification in Georgia",
     "titleTurtle": "range and identification in Georgia",
     "titleAmphibian": "range and identification in Georgia",
+    "titleBird": "winter status and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionDefault": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus."
   },
@@ -573,6 +578,7 @@
       "pathwayLizardsTitle": "{count} lizards",
       "pathwayTurtlesTitle": "{count} turtles",
       "pathwayAmphibiansTitle": "{count} amphibians",
+      "pathwayBirdsTitle": "{count} birds",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
       "expandingNote": "Turtles and amphibians are full categories — with the same depth, maps, and photography."
@@ -604,7 +610,8 @@
       "snake": "Snakes",
       "lizard": "Lizards",
       "turtle": "Turtles",
-      "amphibian": "Amphibians"
+      "amphibian": "Amphibians",
+      "bird": "Birds"
     },
     "danger": {
       "all": "All",
@@ -756,7 +763,8 @@
       "snakes": "Snakes in Georgia",
       "lizards": "Lizards in Georgia",
       "turtles": "Turtles",
-      "amphibians": "Amphibians"
+      "amphibians": "Amphibians",
+      "birds": "Birds in Georgia"
     },
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
@@ -928,6 +936,12 @@
         "title": "Newts and salamanders",
         "body": "Caucasian salamander and three newts. Endemism only when a profile sources it.",
         "cta": "Newts"
+      },
+      "birdsHub": {
+        "eyebrow": "Birds",
+        "title": "Birds in Georgia",
+        "body": "The first bird profiles in the atlas — species pages, not a full avifauna list.",
+        "cta": "Birds"
       }
     }
   },
@@ -1127,6 +1141,49 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From amphibian list to profile",
     "ctaBody": "Open a species or return to the reptile guides — snakes, lizards, turtles."
+  },
+  "birds": {
+    "metaTitle": "Birds in Georgia — species profiles",
+    "metaDescription": "Birds of Georgia on reptiles.ge: field-guide profiles with identification, seasonality, and sources. The first species is the yellowhammer.",
+    "keywords": "birds in Georgia, Georgia birds, yellowhammer, Emberiza citrinella, ჩვეულებრივი გრატა",
+    "breadcrumbCurrent": "Birds",
+    "heroImageAlt": "Open farmland habitat used by wintering buntings in Georgia",
+    "title": "Birds in Georgia",
+    "subtitle": "Species profiles for Georgian birds, starting with confirmed checklist taxa — not a complete national bird list.",
+    "ctaSpecies": "See the species",
+    "statSpecies": "Birds in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Current focus",
+    "statExtraValue": "Buntings",
+    "guideEyebrow": "Guide",
+    "guideTitle": "Birds in the nature atlas",
+    "guideP1": "Reptiles.ge is adding bird profiles using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
+    "guideP2": "The 2024 annotated checklist of the birds of Georgia (Budagashvili & Javakhishvili) is the country-status source used here. This hub is not a substitute for that full list of 400+ species.",
+    "speciesEyebrow": "Catalog",
+    "speciesTitle": "{count} birds in the atlas",
+    "speciesBody": "Each profile states whether the species is a resident, migrant, or winter visitor in Georgia — and what remains unmapped.",
+    "section": {
+      "all": {
+        "title": "Birds — {count}",
+        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+      }
+    },
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask about birds here",
+    "faqIntro": "Short answers — depth lives on profiles.",
+    "faq1Q": "Does this site cover all Georgian birds?",
+    "faq1A": "No. This hub publishes individual species pages as they are written. The 2024 national checklist is the reference for the full avifauna.",
+    "faq2Q": "Which bird is in the atlas now?",
+    "faq2A": "The yellowhammer (Emberiza citrinella) is the first bird profile. It is treated as a winter visitor in Georgia.",
+    "faq3Q": "Why are birds on a reptiles website?",
+    "faq3A": "The site is expanding into a Georgian nature atlas. Bird pages use the same structure as reptiles and amphibians.",
+    "faq4Q": "Are regional maps shown for birds?",
+    "faq4A": "Only when a profile has named regional records. The yellowhammer page does not colour the map, because the checklist confirms country status, not a region list.",
+    "faq5Q": "Should I handle wild birds?",
+    "faq5A": "No. Identify them by sight and sound. Do not catch or keep wild birds.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From bird list to profile",
+    "ctaBody": "Open a species, or continue in the reptile and amphibian guides."
   },
   "amphibianFrogs": {
     "metaTitle": "Frogs of Georgia — species guide",

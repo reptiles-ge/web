@@ -26,6 +26,7 @@ import {
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { quizHref, type QuizHref } from "@/lib/quizzes";
 import { transliterateKa } from "@/lib/slugify";
+import { speciesAliasKeywords } from "@/lib/seoKeywords";
 import {
   regionHref,
   speciesHref,
@@ -52,6 +53,7 @@ export type SearchPageHref = Exclude<
   | "/lizards/[slug]"
   | "/turtles/[slug]"
   | "/amphibians/[slug]"
+  | "/birds/[slug]"
   | "/quiz/[slug]"
   | "/regions/[id]"
 >;
@@ -99,6 +101,7 @@ const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
   lizard: { ka: "ხვლიკი", en: "Lizard" },
   turtle: { ka: "კუ", en: "Turtle" },
   amphibian: { ka: "ამფიბია", en: "Amphibian" },
+  bird: { ka: "ფრინველი", en: "Bird" },
 };
 
 const HUB_COPY: Record<GroupHubId, PageCopy> = {
@@ -138,6 +141,21 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       en: "Frogs, newts, and salamanders",
     },
     keywords: ["ამფიბიები", "amfibiebi", "amphibians", "ბაყაყები", "frogs"],
+    icon: "hub",
+  },
+  birds: {
+    title: { ka: "ფრინველები საქართველოში", en: "Birds in Georgia" },
+    subtitle: {
+      ka: "ფრინველების პროფილები ბუნების ატლასში",
+      en: "Bird profiles in the nature atlas",
+    },
+    keywords: [
+      "ფრინველები",
+      "prinvelebi",
+      "birds",
+      "გრატა",
+      "yellowhammer",
+    ],
     icon: "hub",
   },
 };
@@ -617,6 +635,7 @@ function speciesGroupText(species: Species) {
   extra.push(group === "lizard" ? "ხვლიკი lizards" : "");
   extra.push(group === "turtle" ? "კუ turtles tortoise" : "");
   extra.push(group === "amphibian" ? "ამფიბია amphibian" : "");
+  extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
   return extra;
 }
 
@@ -643,6 +662,8 @@ function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
       ka.location,
       en.location,
       raw.id,
+      ...speciesAliasKeywords(raw.id, "ka"),
+      ...speciesAliasKeywords(raw.id, "en"),
       ...speciesGroupText(raw),
     ]),
     image: raw.mobileImage ?? raw.image,

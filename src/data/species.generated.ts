@@ -2712,6 +2712,138 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "emberiza-citrinella",
+    "commonName": "ჩვეულებრივი გრატა",
+    "scientificName": "Emberiza citrinella",
+    "genus": "Emberiza",
+    "family": "Emberizidae",
+    "location": "მოზამთრე საქართველოში",
+    "description": "თესლისმჭამელი გრატა წაბლისფერი კუდზედათი. საქართველოში დადასტურებულია როგორც მოზამთრე; 2024 წლის ეროვნულ ჩამონათვალში მობუდარად არ არის მიღებული.",
+    "overview": "ჩვეულებრივი გრატა (Emberiza citrinella) ბეღურას ზომის ძველი სამყაროს გრატაა (ოჯახი Emberizidae). 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას მოზამთრედ იღებს: არამობუდარი, გვიან შემოდგომაზე, ზამთარში და ადრე გაზაფხულზე. სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A); არსებობა ისტორიული ჩანაწერებითა და ფოტოებითაა დადასტურებული. იმავე ჩამონათვალში მობუდარ სახეობად არ არის შეტანილი. საერთაშორისო სახელმძღვანელოები კავკასიასა და აღმოსავლეთ შავიზღვისპირეთში აღმოსავლური ქვესახეობის E. c. erythrogenys იზოლირებულ პოპულაციას აღწერენ; ეს რეგიონული სურათი ქართულ მობუდარ სტატუსს არ ცვლის. ზრდასრულის სიგრძე დაახლოებით 16–16.5 სმ-ია. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. ადამიანისთვის უვნებელია.",
+    "habitat": "საქართველოში ეძებეთ ცივ თვეებში და არა ზაფხულის ბუდობის სეზონში. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს: 2024 წლის ჩამონათვალი ქვეყნის დონეზე ზამთრის სტატუსს ადასტურებს, მაგრამ მუნიციპალიტეტების სიას არ აქვეყნებს. მთელ ქვეყანაში თანაბრად ნუ ივარაუდებთ. სახეობის დონეზე ზამთრის ჰაბიტატი ღია ადგილია მიწაზე საკვებით — ნამჯა, სარეველოვანი ზოლი, სასოფლო-სამეურნეო ველი, საძოვარი, ბაღი, ბუჩქნარისა და ტყის პირი. მკვრივი დახურული ტყე ტიპიური არ არის. საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული; არეალის სამხრეთში მსგავს ღია ადგილებში ლიტერატურა დაახლოებით 2,000 მ-მდე აღნიშნავს. ატლასის რუკა ცარიელია, სანამ დასახელებული ქართული წერტილები ისეთი წყაროებიდან არ შეიკრიბება, სადაც ისინი რეალურად არის.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ზრდასრული ძირითადად ბალახის, მარცვლეულისა და სარეველას თესლს იღებს; იკვებება მიწაზე, ზამთარში ხშირად მცირე გუნდში, ზოგჯერ სხვა გრატებთან ან მთიულებთან. ბუდობის სეზონში სხვაგან უხერხემლოებს იღებს და ბარტყებს მწერებითა და ობობებით კვებავს. საქართველოში მოზამთრისთვის რეალისტური სურათი თესლზე ნადირობაა ღია ადგილზე და არა გაზომილი ადგილობრივი მენიუ.",
+    "behavior": "დღის აქტიურია. ზამთარში ხშირად იკვებება თავისუფალ გუნდში და ველის პირას შეიძლება ახლოს მოგვიდგეს, მაგრამ არ აიყვანოთ. ყველა შებუმბვლებში საკვანძო ნიშანი თბილი წაბლისფერი კუდზედაა, რომელიც ზოლებიან ყავისფერ ზურგს უპირისპირდება; ფრენისას კუდის გარე თეთრი ბუმბული ჩანს. მამალს კაშკაშა ყვითელი თავი და ქვედა მხარე აქვს, თავქუდსა და ლოყაზე მუქი ზოლებით. დედალი და ახალგაზრდა უფრო მკრთალი და ზოლებიანია, სახეზე ხშირად მოყვითალო ელფერით. გალობა — მოკლე ნოტების რიგი გაწელილი ბოლოთი — ბუდობის სეზონს ეკუთვნის და საქართველოში მოზამთრისთვის მოსალოდნელი ნიშანი არ არის. ზამთარშიც ისმის მოკლე, მკვეთრი საკონტაქტო ხმა, მაგალითად „tsick“. ბუდობის ბიოლოგია (სხვაგან დაახლოებით 3–5 კვერცხი) სახეობის დონის მონაცემია მობუდარი არეალიდან; 2024 წლის ქართული ჩამონათვალი ამ სახეობას საქართველოში მობუდარად არ იღებს.",
+    "conservation": "BirdLife International Emberiza citrinella-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2024). არეალი ფართოა; დასავლეთ ევროპის სასოფლო პოპულაციები ინტენსიური მეურნეობის გამო შემცირდა, მაგრამ გლობალური კლება უფრო მაღალი კატეგორიისთვის საკმარისად სწრაფი არ არის. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია და ადგილობრივი საფრთხეები ამ გვერდზე არ არის გაზომილი. ევროკავშირში შეტანილია ფრინველების დირექტივის II დანართში (კოდი A376); ეს დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი არ დაიჭიროთ.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/species-placeholder.png",
+    "mobileImage": "https://cdn.reptiles.ge/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია ველი ზამთარში"
+      },
+      {
+        "label": "ზომა",
+        "value": "დაახლ. 16–16.5 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
+      },
+      {
+        "label": "სეზონი",
+        "value": "მოზამთრე (WV)"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Emberizidae"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს. 2024 წლის ქართული ჩამონათვალი IOC World Bird List-ის ტაქსონომიას მიჰყვება: რიგი Passeriformes, ოჯახი Emberizidae, გვარი Emberiza.",
+      "ფართოდ აღიარებულია სამი ქვესახეობა: E. c. citrinella, E. c. caliginosa (ბრიტანეთის კუნძულები) და აღმოსავლური E. c. erythrogenys, სახელმძღვანელოებში კავკასიისა და აღმოსავლეთ შავიზღვისპირეთის იზოლირებული პოპულაციით. ქართული ლექსიკონები ქვეყანასთან E. c. erythrogenys-ს აკავშირებენ. ზამთრის გუნდში ქვესახეობის ველში მინიჭება ძნელია.",
+      "ქართულად იხმარება ჩვეულებრივი გრატა, მოყვითალო გრატა, ქეროზა და რუხი გულწითელა. ინგლისურად yellowhammer. ძველ ლიტერატურაში yellow bunting-იც გვხვდება.",
+      "2024 წლის ჩამონათვალის კოდებია WV (მოზამთრე), მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო) და ისტორიული ჩანაწერები. ეს ქვეყნის დონის დადასტურებაა და არა რეგიონული რუკა."
+    ],
+    "identification": {
+      "summary": "ბეღურას ზომის გრატაა წაბლისფერი კუდზედათი; მამალს ყვითელი თავი აქვს. საქართველოში 2024 წლის ჩამონათვალით მოზამთრეა და არა დადასტურებული მობუდარი.",
+      "traits": [
+        "სიგრძე სახეობის დონეზე დაახლოებით 16–16.5 სმ-ია; ფრთების შლილი დაახლოებით 23–29.5 სმ; მასა დაახლოებით 20–36 გ. ნისკარტი კონუსურია, როგორც სხვა თესლისმჭამელ გრატებს. ფრენისას კუდის გარე თეთრი ბუმბული ჩანს. კუდზედა წაბლისფერია — ყველაზე საიმედო ფერადი ნიშანი, როცა თავი მკრთალია.",
+        "ზრდასრულ მამალს კაშკაშა ყვითელი თავი და ქვედა მხარე აქვს, ზოლებიანი ყავისფერი ზურგი და წაბლისფერი კუდზედა. დედალი და ახალგაზრდა უფრო მურა და ზოლებიანია, სახეზე ხშირად მოყვითალო ელფერით და არა მთლიანად ყვითელი თავით. შემოდგომის ახალ შებუმბვლებში ყვითელი შეიძლება ყავისფერი კიდეებით დაიფაროს, სანამ წვერები არ გაიცვება.",
+        "მთის გრატა (Emberiza cia) საქართველოში მთელი წლის რეზიდენტია; რუხი თავი შავი ზოლებით და წითურ-ჟანგმიწოვანი ქვედა მხარე აქვს და არა ყვითელი თავი. ქერის გრატა (Emberiza calandra) უფრო დიდი, ზოლებიანი ყავისფერი ფრინველია ყვითელის და წაბლისფერი კუდზედას გარეშე. ფიჭვის გრატა (Emberiza leucocephalos) იშვიათი მოზამთრე ან შემთხვევითი სტუმარია; მამალს თეთრი თავქუდი და წაბლისფერი სახე აქვს და არა ყვითელი თავი. წრიული გრატას (Emberiza cirlus) სტატუსი 2024 წლის ჩამონათვალში განსაზღვრული არ არის; მამალს მუქზოლიანი ყვითელი სახე და ზეთისხილისფერ-რუხი კუდზედა აქვს და არა წაბლისფერი. ამ ატლასში იმ გრატების ცალკე გვერდები ჯერ არ არის.",
+        "შხამი არ აქვს და ადამიანისთვის საფრთხე არ არის. არ აიყვანოთ. ზაფხულში ბაღში ყვითელი ფრინველი, 2024 წლის ქართული სტატუსით, უფრო სხვა სახეობაა: ეს სახეობა იქ მოზამთრედაა შეტანილი."
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა ჩვეულებრივი გრატა საქართველოში?",
+        "answer": "კი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას დადასტურებულ მოზამთრედ იღებს (არამობუდარი გვიან შემოდგომაზე, ზამთარში და ადრე გაზაფხულზე). მობუდარად იქ არ არის შეტანილი."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ცივ თვეებში, ღია ადგილებში მიწაზე თესლით — სასოფლო ველი, ნამჯა, სარეველოვანი ზოლი. ამ გვერდზე მუნიციპალიტეტების სია არ არის და რეგიონული რუკა არ არის შეფერილი. არსებობა ქვეყნის დონეზეა დადასტურებული და არა რეგიონების მიხედვით."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "წაბლისფერი კუდზედა, ზოლებიანი ყავისფერი ზურგი, კუდის გარე თეთრი ბუმბული, კონუსური ნისკარტი. მამალს ყვითელი თავი და ქვედა მხარე აქვს; დედალი და ახალგაზრდა უფრო მკრთალია მოყვითალო სახით. მთის გრატას რუხი ზოლიანი თავი აქვს და არა ყვითელი თავი."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე სიგრძე დაახლოებით 16–16.5 სმ-ია, ფრთების შლილი დაახლოებით 23–29.5 სმ. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ზამთარში ძირითადად თესლს, მიწაზე, ხშირად მცირე გუნდში. საქართველოში კვება ცალკე არ არის შესწავლილი ამ გვერდზე."
+      },
+      {
+        "question": "როდის არის საქართველოში?",
+        "answer": "როგორც მოზამთრე: გვიან შემოდგომაზე, ზამთარში და ადრე გაზაფხულზე, 2024 წლის ჩამონათვალის მიხედვით. შუა ზაფხულში ღობის გალობა იმ ჩამონათვალის სტატუსი არ არის."
+      },
+      {
+        "question": "ბუდობს თუ არა საქართველოში?",
+        "answer": "2024 წლის ეროვნული ჩამონათვალი მობუდარად არ იღებს. ზოგი საერთაშორისო სახელმძღვანელო კავკასიასა და აღმოსავლეთ შავიზღვისპირეთში იზოლირებულ ბუდობას რუკავს; ეს რეგიონული განცხადებაა და არა იმ ჩამონათვალში დადასტურებული ქართული ბუდობის სტატუსი."
+      },
+      {
+        "question": "საშიშია ან დაცულია?",
+        "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
+      }
+    ],
+    "updatedAt": "2026-08-26T22:10:50+04:00",
+    "sources": [
+      {
+        "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
+        "url": "https://www.sabuko.org/wp-content/uploads/2024/12/Sandgrouse-461ThebirdsofGeorgia-anupdatedchecklistusingcitizenscienceplatforms.pdf"
+      },
+      {
+        "name": "BirdLife International 2024 — IUCN Red List account for Emberiza citrinella",
+        "url": "https://www.iucnredlist.org/species/22720878/264581123"
+      },
+      {
+        "name": "BirdLife DataZone — Yellowhammer factsheet",
+        "url": "https://datazone.birdlife.org/species/factsheet/yellowhammer-emberiza-citrinella"
+      },
+      {
+        "name": "IOC World Bird List",
+        "url": "https://www.worldbirdnames.org/"
+      },
+      {
+        "name": "Avibase — Georgia bird checklist",
+        "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "NPLG Wiki Dictionaries — ჩვეულებრივი გრატა",
+        "url": "https://www.nplg.gov.ge/wikidict/index.php/%E1%83%A9%E1%83%95%E1%83%94%E1%83%A3%E1%83%9A%E1%83%94%E1%83%91%E1%83%A0%E1%83%98%E1%83%95%E1%83%98_%E1%83%92%E1%83%A0%E1%83%90%E1%83%A2%E1%83%90"
+      },
+      {
+        "name": "EUNIS — Emberiza citrinella",
+        "url": "https://eunis.eea.europa.eu/species/1023"
+      },
+      {
+        "name": "RSPB — Yellowhammer",
+        "url": "https://www.rspb.org.uk/birds-and-wildlife/yellowhammer"
+      }
+    ]
+  },
+  {
     "id": "emys-orbicularis",
     "commonName": "ჭაობის კუ",
     "scientificName": "Emys orbicularis",
@@ -6060,6 +6192,142 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "picus-viridis",
+    "commonName": "მწვანე კოდალა",
+    "scientificName": "Picus viridis",
+    "genus": "Picus",
+    "family": "Picidae",
+    "location": "მთელი წლის რეზიდენტი საქართველოში",
+    "description": "საშუალო-დიდი მწვანე კოდალა წითელი თავქუდით. საქართველოში 2024 წლის ეროვნულ ჩამონათვალში დადასტურებულია როგორც მთელი წლის რეზიდენტი და მობუდარი.",
+    "overview": "მწვანე კოდალა (Picus viridis) საშუალო-დიდი კოდალაა ოჯახიდან Picidae და საქართველოში დადასტურებული მთელი წლის რეზიდენტია. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს YR-R-ად: მობუდარი, წლის განმავლობაში ადგილზე. სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A). არსებობის ხარისხი მაღალია (H); მტკიცებულებაა ფოტო და ხმის ჩანაწერი. ზრდასრული სახეობის დონეზე დაახლოებით 30–36 სმ-ია, ზეთისხილისფერ-მწვანე ზურგით, ყვითელი კუდზედათი და წითელი თავქუდით. შხამი არ აქვს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. 2024 წლის ჩამონათვალი იგივე კატეგორიას ეროვნულადაც უთითებს.",
+    "habitat": "ეს გვერდი მუნიციპალიტეტების რუკას არ აფერადებს. 2024 წლის ჩამონათვალი ქვეყნის დონეზე რეზიდენტობას ადასტურებს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. მთელ ქვეყანაში, მათ შორის უხეო მაღალ პლატოზე, თანაბრად ნუ ივარაუდებთ. დასახელებული აღწერები: ჯავახიშვილი, მელიქიშვილი და მეტრეველი (2022) მას დააფიქსირეს ბორჯომ-ხარაგაულის ეროვნული პარკის ტყის აღწერის წერტილების 15%-ზე (80 წერტილი) და ფშავ-ხევსურეთის დაცულ ტერიტორიებზე წერტილების 3.85%-ზე (26 წერტილი). იმ კვლევაში უპირატესობას ანიჭებდა საშუალო სიმკვრივის ტყეს გახსნილობებითა და მდელოებით. სახეობის დონეზე ჰაბიტატი ნახევრად ღია ადგილია: ფოთლოვანი ან შერეული ტყე, ტყის პირი, ჭალის ტყე, ბაღი, პარკი და ახლომდებარე მოკლე ბალახი, სადაც ჭიანჭველები ბუდობენ. მკვრივი დახურული ტყე შავ კოდალაზე ნაკლებად ტიპიურია. საქართველოსთვის ცალკე სიმაღლის სარტყელი აქ არ არის გამოქვეყნებული.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ძირითადი საკვები ჭიანჭველაა, განსაკუთრებით Lasius და Formica; იკვებება მიწაზე, ბუდეებში ძიებით, ზრდასრულებისა და მატლების აღებით. სხვა მწერებსაც იღებს. სახეობის დონის ლიტერატურაში იშვიათად წვრილი ხერხემლიანებიც არის; ეს გაზომილი ქართული მენიუ არ არის. ველში დიდი მწვანე კოდალა გაზონზე ან მდელოზე ტიპიურად იქცევა. ღეროში მატლებზე ნადირობა ჭრელ კოდალებზე გაცილებით ნაკლებია ყოველდღიური მეთოდი.",
+    "behavior": "დღის აქტიურია და ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიული ხმა ხმამაღალი, სიცილის მსგავსი ნოტების რიგია. ხეზე დაკვრა (დრამი) სხვა კოდალებთან შედარებით იშვიათია. ფრენა ტალღოვანია; მაშინ ყვითელი კუდზედა კარგად ჩანს. ფრთხილია და არ აიყვანოთ. ბუდობს ხეში ამოთხრილ ფუღუროში. სახეობის დონეზე ნაყარი დაახლოებით ოთხიდან ექვსამდე კვერცხია, ინკუბაცია დაახლოებით 19–20 დღე; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად იღებს. ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში 2022 წლის გამოძახების აღწერებმა აპრილის ბოლოდან ივლისამდე მობუდარი სეზონის ხმები დააფიქსირეს. რეზიდენტია და შორ მანძილზე მიგრანტი არ არის.",
+    "conservation": "BirdLife International Picus viridis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS მსოფლიოს, ევროპისა და ევროკავშირის მასშტაბით Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. 2022 წლის დაცული ტერიტორიების აღწერა ადგილობრივი სურათია და არა ეროვნული მონიტორინგის სერია. EUNIS აღნიშნავს ევროკავშირის ფრინველების დირექტივას და ბერნის კონვენციაში Picidae-ს შეტანას; ეს საქართველოს წითელი ნუსხა არ არის. ველური ფრინველი არ დაიჭიროთ. ძველი ხეების და ჭიანჭველებით მდიდარი მდელოს კარგვა სახეობის დონეზე ბიოლოგიურად რელევანტური წნეხია; საქართველოსთვის ადგილობრივი საფრთხის რანგირება აქ არ არის გამოქვეყნებული.",
+    "danger": "Harmless",
+    "image": "https://cdn.reptiles.ge/species-placeholder.png",
+    "mobileImage": "https://cdn.reptiles.ge/species-placeholder.png",
+    "gallery": [],
+    "stats": [
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტყის პირი და მდელო"
+      },
+      {
+        "label": "ზომა",
+        "value": "დაახლ. 30–36 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
+      },
+      {
+        "label": "სეზონი",
+        "value": "მთელი წელი (YR-R)"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Picidae"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს. 2024 წლის ქართული ჩამონათვალი სახელებისთვის OSME Region List-ს მიჰყვება: რიგი Piciformes, ოჯახი Picidae, გვარი Picus. IOC World Bird List Picus viridis-ს იბერიული მწვანე კოდალასგან (Picus sharpei) და ლევაიანის კოდალასგან (Picus vaillantii) განცალკევებულ სახეობად იღებს.",
+      "ფართოდ აღიარებული ქვესახეობებია P. v. viridis, P. v. karelini (იტალია და ბალკანები აღმოსავლეთით მცირე აზიითა და კავკასიით ჩრდილოეთ ირანამდე და სამხრეთ-დასავლეთ თურქმენეთამდე) და P. v. innominatus ზაგროსში. ქართული ლექსიკონები ქვეყანაში სამხრულ მწვანე კოდალას, P. v. karelini-ს (Brandt, 1841) ასახელებენ. ველში ამოცნობა სახეობამდეა. ზოგი გენეტიკური ნაშრომი karelini-ს ნომინატისგან განცალკევებას ეჭვქვეშ აყენებს; სახელმძღვანელოები ჯერ კიდევ უთითებენ.",
+      "ქართულად მწვანე კოდალა. ინგლისურად იხმარება European green woodpecker (2024 წლის ჩამონათვალი), Eurasian green woodpecker (BirdLife) და green woodpecker. ძველ ინგლისურში yaffle გალობის გამო. ძველი ლექსიკონის ჩანაწერი, თითქოს საქართველოში Picus-ის მხოლოდ ერთი სახეობაა, მოძველებულია: 2024 წლის ჩამონათვალი რუხ კოდალასაც (Picus canus) ადასტურებს.",
+      "2024 წლის ჩამონათვალის კოდებია YR-R, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო) და SR (ხმის ჩანაწერი). ეს ქვეყნის დონის დადასტურებაა ზემოთ დასახელებულ დაცული ტერიტორიების აღწერებთან ერთად და არა სრული რეგიონული რუკა."
+    ],
+    "identification": {
+      "summary": "დიდი მწვანე კოდალაა წითელი თავქუდით, შავი ნიღბით და ყვითელი კუდზედათი. საქართველოში 2024 წლის ჩამონათვალით მთელი წლის რეზიდენტია. ჩვეულებრივი აბნევა რუხი კოდალაა, რომელსაც სრული წითელი თავქუდი არ აქვს.",
+      "traits": [
+        "სიგრძე სახეობის დონეზე დაახლოებით 30–36 სმ-ია, ფრთების შლილი დაახლოებით 45–51 სმ. NPLG უთითებს ფრთას 150–170 მმ, კუდს 105–116 მმ და მასას 185–250 გ. ზურგი ზეთისხილისფერ-მწვანეა, კუდზედა ყვითელი, ქვედა მხარე უფრო ღია მოყვითალო-მწვანე. თავქუდი და კეფა ორივე სქესში წითელია. ღია თვალის გარშემო შავი ლაქაა („ნიღაბი“). ნისკარტი სწორი და სატეხისებრია და არა კონუსური.",
+        "ულვაში (ლოყის ზოლი) სქესის ნიშანია: ზრდასრულ მამალს შუაში წითელი აქვს, ზრდასრულ დედალს მთლიანად შავი. ახალგაზრდა სხეულზე ზოლიანი და წინწკლებიანია და ქერცლოვანი ჩანს; მწვანე ტონები და წითელი თავქუდი მაინც ჩანს. იბერიულ მწვანე კოდალას (Picus sharpei) შავი ნიღაბი თითქმის არ აქვს; ეს დასავლეთევროპული გამოყოფილი სახეობაა და ქართულ ჩამონათვალში არ არის.",
+        "რუხი კოდალა (Picus canus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია. თავი უფრო რუხია და სრული წითელი თავქუდი არ აქვს: მამალს შუბლზე მხოლოდ პატარა წითელი ლაქა აქვს, დედალს — არა. შავი კოდალა (Dryocopus martius) უფრო დიდი და შავია, წითელი თავქუდით (მამალი) ან წითელი კეფით (დედალი). დიდი ჭრელი, სირიული, საშუალო ჭრელი, თეთრზურგა და მცირე ჭრელი კოდალები შავ-თეთრ-წითელია და არა ზეთისხილისფერ-მწვანე. მაქცია პატარა, შენიღბულ-ყავისფერი კოდალასნაირია და მობუდარი მიგრანტია, არა მწვანე რეზიდენტი. ამ ატლასში იმ სახეობების ცალკე გვერდები ჯერ არ არის.",
+        "შხამი არ აქვს და ადამიანისთვის საფრთხე არ არის. არ აიყვანოთ. საქართველოში ტყის პირის მდელოზე მიწაზე მწვანე ფრინველი უფრო ეს სახეობაა, ვიდრე ჭრელი კოდალა."
+      ]
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა მწვანე კოდალა საქართველოში?",
+        "answer": "კი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას დადასტურებულ მთელი წლის რეზიდენტად იღებს (YR-R): მობუდარი, წლის განმავლობაში ადგილზე."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ტყესა და ტყის პირზე ახლომდებარე მდელოთი, სადაც ჭიანჭველებზე იკვებება. დასახელებულ აღწერებში დაფიქსირდა ბორჯომ-ხარაგაულის ეროვნულ პარკში (80 ტყის წერტილის 15%) და უფრო იშვიათად ფშავ-ხევსურეთის დაცულ ტერიტორიებზე (26 წერტილის 3.85%). ეს გვერდი ყველა რეგიონს არ რუკავს."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "ზეთისხილისფერ-მწვანე ზურგი, ყვითელი კუდზედა, წითელი თავქუდი, თვალის გარშემო შავი ნიღაბი. მამალს ულვაშის შუაში წითელი აქვს, დედალს მთლიანად შავი. რუხ კოდალას სრული წითელი თავქუდი არ აქვს."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე სიგრძე დაახლოებით 30–36 სმ-ია, ფრთების შლილი დაახლოებით 45–51 სმ. NPLG მასას 185–250 გ-ს უთითებს. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად ჭიანჭველას, მიწაზე. საქართველოში კვება ცალკე არ არის შესწავლილი ამ გვერდზე."
+      },
+      {
+        "question": "როდის არის საქართველოში?",
+        "answer": "მთელი წელი, 2024 წლის ჩამონათვალის მიხედვით. იქ გავლით მიგრანტად ან მხოლოდ მოზამთრედ არ არის მიჩნეული."
+      },
+      {
+        "question": "ბუდობს თუ არა საქართველოში?",
+        "answer": "კი. 2024 წლის ჩამონათვალის YR-R მობუდარ რეზიდენტს ნიშნავს. 2022 წლის დაცული ტერიტორიების აღწერაში აპრილის ბოლოდან ივლისამდე გამოძახება დაფიქსირდა."
+      },
+      {
+        "question": "საშიშია ან დაცულია?",
+        "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
+      }
+    ],
+    "updatedAt": "2026-08-26T22:21:34+04:00",
+    "sources": [
+      {
+        "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
+        "url": "https://www.sabuko.org/wp-content/uploads/2024/12/Sandgrouse-461ThebirdsofGeorgia-anupdatedchecklistusingcitizenscienceplatforms.pdf"
+      },
+      {
+        "name": "Javakhishvili, Melikishvili & Metreveli 2022 — Woodpecker monitoring in Borjomi-Kharagauli and Pshav-Khevsureti",
+        "url": "https://www.undp.org/sites/g/files/zskgke326/files/2024-12/undp-georgia-monitoring-woodpecker-2021-eng.pdf"
+      },
+      {
+        "name": "BirdLife DataZone — Eurasian Green Woodpecker",
+        "url": "https://datazone.birdlife.org/species/factsheet/eurasian-green-woodpecker-picus-viridis"
+      },
+      {
+        "name": "EUNIS — Picus viridis",
+        "url": "https://eunis.eea.europa.eu/species/1219"
+      },
+      {
+        "name": "IOC World Bird List",
+        "url": "https://www.worldbirdnames.org/"
+      },
+      {
+        "name": "Avibase — Georgia bird checklist",
+        "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
+      },
+      {
+        "name": "NPLG Wiki Dictionaries — მწვანე კოდალა",
+        "url": "https://www.nplg.gov.ge/wikidict/index.php/%E1%83%9B%E1%83%AC%E1%83%95%E1%83%90%E1%83%9C%E1%83%94_%E1%83%99%E1%83%9D%E1%83%93%E1%83%90%E1%83%9A%E1%83%90"
+      },
+      {
+        "name": "ქართული ენციკლოპედია — კოდალასებრნი",
+        "url": "https://www.georgianencyclopedia.ge/ka/form/27814"
+      },
+      {
+        "name": "RSPB — Green woodpecker",
+        "url": "https://www.rspb.org.uk/birds-and-wildlife/green-woodpecker"
+      },
+      {
+        "name": "Winkler & Christie 2020 — Birds of the World (Picus viridis)",
+        "url": "https://birdsoftheworld.org/bow/species/eugwoo2/cur/introduction"
+      }
+    ]
+  },
+  {
     "id": "platyceps-najadum",
     "commonName": "წენგოსფერი მცურავი",
     "scientificName": "Platyceps najadum",
@@ -6179,7 +6447,7 @@ export const species: Species[] = [
         "answer": "წენგოსფერი მცურავი უფრო გამხდარია და კისერზე ოცელებიანი ლაქები აქვს. წითელმუცელა მცურავი უფრო მასიურია; ზრდასრულობაში ხშირად ერთგვაროვანი მოწითალოა წითელი ან ნარინჯისფერი მუცლით. ორივე უშხამოა."
       }
     ],
-    "updatedAt": "2026-08-24T14:19:21+04:00",
+    "updatedAt": "2026-08-26T21:57:57+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6631,7 +6899,7 @@ export const species: Species[] = [
         "answer": "გვერდი აუარეთ და არ აიყვანოთ. ადამიანს არ ეძებს. თუ ვერტიკალური გუგით გველს ვერ არწმუნებთ, მიიჩნიეთ შხამიანად."
       }
     ],
-    "updatedAt": "2026-08-24T14:19:21+04:00",
+    "updatedAt": "2026-08-26T21:57:57+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10400,6 +10668,91 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ]
   },
+  "emberiza-citrinella": {
+    "commonName": "Yellowhammer",
+    "location": "Winter visitor in Georgia",
+    "description": "A seed-eating bunting with a chestnut rump. Confirmed in Georgia as a winter visitor; breeding in Georgia is not accepted on the 2024 national bird checklist.",
+    "overview": "The yellowhammer (Emberiza citrinella) is a sparrow-sized Old World bunting (family Emberizidae). The 2024 annotated checklist of the birds of Georgia treats it as a winter visitor: a non-breeder present in late autumn, winter, and early spring. Seasonality is classed as high-quality (code A), with occurrence supported by historical records and photographs. It is not listed as a breeding bird for Georgia on that checklist. International handbooks describe an isolated Caucasus and eastern Black Sea population of the eastern subspecies E. c. erythrogenys; that regional breeding picture is not the same as a confirmed Georgian breeding status. Adults are about 16–16.5 cm long. IUCN lists the species as Least Concern. It is harmless to people.",
+    "habitat": "In Georgia look for it in the cold months, not as a summer nesting bird. This page does not map administrative regions: the 2024 checklist confirms the country-level winter status but does not publish a municipality-by-municipality range. Do not assume it occurs evenly across Georgia. Species-level winter habitat is open country with food on the ground — stubble, weedy field margins, farmland, pasture, orchards, and the edges of scrub or woodland. Dense closed forest is not typical. Elevation for Georgia has not been published separately here; elsewhere in the south of the range, related open habitats can reach about 2,000 m. The atlas map is empty until named Georgian localities are compiled from sources that actually list them.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range, adults take mainly seeds of grasses, cereals, and farmland weeds; they forage on the ground, often in small flocks in winter, sometimes with other buntings or finches. In the breeding season elsewhere they take invertebrates and feed chicks on insects and spiders. For a winter bird in Georgia the realistic picture is seed-feeding on farmland and open ground, not a measured local menu.",
+    "behavior": "It is active by day. In winter it often feeds in loose flocks and can be fairly confiding along field edges, but it should not be handled. The diagnostic field mark in all plumages is a warm chestnut rump, contrasting with a streaked brown back; white outer tail feathers flash in flight. The male has a bright yellow head and underparts, with some dark streaking on the crown and cheeks. Females and immatures are duller and more streaked, usually with a yellowish wash on the face. The song — a run of short notes ending in a drawn-out wheeze, often remembered in English as “a little bit of bread and no cheese” — belongs to the breeding season and is not the expected cue for a winter visitor in Georgia. Winter birds still give short, sharp contact calls such as “tsick”. Nesting biology (clutches of about 3–5 eggs elsewhere) is species-level data from the breeding range; the 2024 Georgian checklist does not treat this species as a breeder in Georgia.",
+    "conservation": "BirdLife International assesses Emberiza citrinella as Least Concern on the IUCN Red List (2024). The range is huge; western European farmland populations have declined with agricultural intensification, but the global decline is not fast enough for a higher threat category. It is not on Georgia’s 2014 Red List (Government Resolution No. 190). The 2024 Georgian bird checklist assigns national Red List category LC. Georgia-specific population trend and local threats have not been quantified on this page. In the EU the species is listed on Annex II of the Birds Directive (code A376); that directive does not apply in Georgia. Do not catch or keep wild birds.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Open farmland in winter"
+      },
+      {
+        "label": "Size",
+        "value": "approx. 16–16.5 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Season",
+        "value": "Winter visitor (WV)"
+      },
+      {
+        "label": "Family",
+        "value": "Emberizidae"
+      }
+    ],
+    "facts": [
+      "Described by Linnaeus in 1758. The 2024 Georgian checklist follows IOC World Bird List taxonomy: order Passeriformes, family Emberizidae, genus Emberiza.",
+      "Three subspecies are widely recognised: E. c. citrinella, E. c. caliginosa (British Isles), and E. c. erythrogenys in the east, including an isolated Caucasus and eastern Black Sea population in handbook accounts. Georgian dictionaries name E. c. erythrogenys as the form associated with the country. Subspecies are hard to assign in the field in winter flocks.",
+      "Georgian names in use include ჩვეულებრივი გრატა, მოყვითალო გრატა, ქეროზა, and რუხი გულწითელა. English is yellowhammer. Older literature may use yellow bunting.",
+      "The 2024 checklist codes are WV (winter visitor), data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph) plus historical records. That is country-level confirmation, not a regional map."
+    ],
+    "identification": {
+      "summary": "A sparrow-sized bunting with a chestnut rump and, in males, a yellow head. In Georgia it is a winter bird, not a confirmed breeder on the 2024 checklist.",
+      "traits": [
+        "Length is about 16–16.5 cm; wingspan about 23–29.5 cm; mass about 20–36 g at species level. The bill is conical, as in other seed-eating buntings. White outer tail feathers show in flight. The rump is chestnut — the most reliable colour mark when the head is dull.",
+        "Adult males have a bright yellow head and underparts, a streaked brown back, and a chestnut rump. Females and young birds are browner and more streaked, often with a yellowish wash on the face rather than a solid yellow head. Fresh autumn plumage can hide yellow under brown feather edges until the tips wear.",
+        "Rock bunting (Emberiza cia) is a year-round resident in Georgia; it has a grey head with black stripes and rufous underparts, not a yellow head. Corn bunting (Emberiza calandra) is a larger, streaky brown bird without yellow or a chestnut rump. Pine bunting (Emberiza leucocephalos) is a scarce winter or casual visitor; males have a white crown and chestnut face, not a yellow head. Cirl bunting (Emberiza cirlus) is similar in size but its status in Georgia is not defined on the 2024 checklist; the male has a dark-striped yellow face and an olive-grey rump, not chestnut. This atlas does not yet have separate pages for those buntings.",
+        "It is not venomous and is not a threat to people. Leave it alone. A yellow garden bird in summer is more likely something else if you are using the 2024 Georgian status: this species is listed there as a winter visitor."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the yellowhammer found in Georgia?",
+        "answer": "Yes. The 2024 annotated checklist of the birds of Georgia lists it as a confirmed winter visitor (non-breeder in late autumn, winter, and early spring). It is not listed there as a breeding bird."
+      },
+      {
+        "question": "Where can I see it in Georgia?",
+        "answer": "In the cold months, in open country with seeds on the ground — farmland, stubble, weedy margins, and similar edges. This page has no named municipality list and does not colour the regional map. Presence is confirmed at country level, not mapped region by region here."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "Chestnut rump, streaked brown back, white outer tail, conical bill. Males have a yellow head and underparts; females and immatures are duller with a yellowish face. Rock bunting has a grey striped head and no yellow head."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "About 16–16.5 cm long at species level, with a wingspan of about 23–29.5 cm. A separate measured series from Georgia is not given on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly seeds in winter, taken on the ground, often in small flocks. Diet has not been studied separately in Georgia on this page."
+      },
+      {
+        "question": "When is it present in Georgia?",
+        "answer": "As a winter visitor: late autumn, winter, and early spring, according to the 2024 checklist. Song from a hedge in midsummer is not the status that checklist assigns to Georgia."
+      },
+      {
+        "question": "Does it breed in Georgia?",
+        "answer": "The 2024 national bird checklist does not list it as a breeder. Some international handbooks map isolated breeding in the Caucasus and along the eastern Black Sea; that is a regional statement, not a confirmed Georgian nesting status on the checklist used here."
+      },
+      {
+        "question": "Is it dangerous or protected?",
+        "answer": "It is harmless. It is globally Least Concern and is not on Georgia’s 2014 Red List. Do not catch wild birds."
+      }
+    ]
+  },
   "emys-orbicularis": {
     "commonName": "European Pond Turtle",
     "location": "Western (E. o. orbicularis) and eastern Georgia (E. o. persica)",
@@ -12977,6 +13330,91 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "photographer": "Siegfried Troidl",
       "url": "https://www.inaturalist.org/observations/17764372"
     }
+  },
+  "picus-viridis": {
+    "commonName": "European green woodpecker",
+    "location": "Year-round resident in Georgia",
+    "description": "A medium-large green woodpecker with a red crown. Confirmed in Georgia as a year-round resident and breeder on the 2024 national bird checklist.",
+    "overview": "The European green woodpecker (Picus viridis) is a medium-large woodpecker (family Picidae) confirmed in Georgia as a year-round resident. The 2024 annotated checklist of the birds of Georgia codes it YR-R: a breeder present throughout the year. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs and sound recordings. Adults are about 30–36 cm long at species level, olive-green above, with a yellow rump and a red crown. It is not venomous. IUCN lists the species as Least Concern. The 2024 checklist assigns the same category nationally.",
+    "habitat": "This page does not colour a municipality-by-municipality map. The 2024 checklist confirms country-level resident status but does not publish a regional gazetteer. Do not assume it occurs evenly across Georgia, including treeless high plateaus. Named survey evidence: Javakhishvili, Melikishvili and Metreveli (2022) recorded it at 15% of forest sampling points in Borjomi-Kharagauli National Park (80 points) and at 3.85% of points in Pshav-Khevsureti Protected Areas (26 points). In that study it preferred medium-density forest with openings and meadows. Species-level habitat is semi-open country: deciduous or mixed woodland, forest edge, floodplain woodland, orchards, parks, and nearby short grassland where ants nest. Closed high-density forest is less typical than for black woodpecker. A separate national elevation band for Georgia is not published here.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range the main food is ants, especially Lasius and Formica, taken on the ground by probing nests and licking up adults and larvae. Other insects are taken. Occasional small vertebrates appear in species-level literature; that is not a measured Georgian menu. In the field, a large green woodpecker feeding on a lawn or meadow is behaving typically. Tree-trunk drilling for wood-boring larvae is much less the daily method than in spotted woodpeckers.",
+    "behavior": "It is active by day and is often heard before it is seen. The territorial call is a loud, laughing series of notes (the “yaffle”). Drumming on wood is infrequent compared with many other woodpeckers. Flight is undulating; the yellow rump is then obvious. It is shy and should not be handled. Nesting is in a cavity excavated in a tree. Species-level clutches are about four to six eggs, with incubation of about 19–20 days; those figures are from the wider range, not a Georgian nest sample on this page. The 2024 checklist treats the species as a breeder in Georgia. Call-count work in Borjomi-Kharagauli and Pshav-Khevsureti in late April–July recorded calling birds in the breeding season. It is resident and is not a long-distance migrant.",
+    "conservation": "BirdLife International assesses Picus viridis as Least Concern on the IUCN Red List. EUNIS reports Least Concern at world, Europe, and EU scales. The 2024 Georgian bird checklist assigns global and national Red List category LC. A Georgia-specific population trend is not quantified on this page. The 2022 protected-area survey is a local snapshot, not a national monitoring series. EUNIS notes coverage under the EU Birds Directive and that Picidae are listed under the Bern Convention; those instruments are not Georgia’s Red List. Do not catch or keep wild birds. Loss of old trees and of ant-rich grassland would be the biologically relevant pressures at species level; local threat ranking for Georgia is not published here.",
+    "stats": [
+      {
+        "label": "Habitat",
+        "value": "Forest edge and meadows"
+      },
+      {
+        "label": "Size",
+        "value": "approx. 30–36 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Season",
+        "value": "Year-round resident (YR-R)"
+      },
+      {
+        "label": "Family",
+        "value": "Picidae"
+      }
+    ],
+    "facts": [
+      "Described by Linnaeus in 1758. The 2024 Georgian checklist follows the OSME Region List for names: order Piciformes, family Picidae, genus Picus. IOC World Bird List treats Picus viridis as a species separate from Iberian green woodpecker (Picus sharpei) and Levaillant’s woodpecker (Picus vaillantii).",
+      "Widely recognised subspecies include P. v. viridis, P. v. karelini (Italy and the Balkans east through Asia Minor and the Caucasus to northern Iran and south-west Turkmenistan), and P. v. innominatus in the Zagros. Georgian dictionaries name the form in the country as southern green woodpecker, P. v. karelini (Brandt, 1841). Field identification is to species. Some genetic work has questioned whether karelini is distinct from nominate viridis; handbooks still list it.",
+      "Georgian is მწვანე კოდალა. English names in use are European green woodpecker (2024 checklist), Eurasian green woodpecker (BirdLife), and green woodpecker. Older English includes yaffle, from the call. An older Georgian dictionary statement that only one Picus species occurs in Georgia is out of date: the 2024 checklist also confirms grey-headed woodpecker (Picus canus).",
+      "2024 checklist codes: YR-R, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph) and SR (sound recording). That is country-level confirmation plus the named protected-area surveys cited above, not a complete regional map."
+    ],
+    "identification": {
+      "summary": "A large green woodpecker with a red crown, black mask, and yellow rump. In Georgia it is a year-round resident on the 2024 checklist. The usual confusion is grey-headed woodpecker, which lacks a full red crown.",
+      "traits": [
+        "Length about 30–36 cm and wingspan about 45–51 cm at species level. NPLG gives wing 150–170 mm, tail 105–116 mm, and mass 185–250 g. The back is olive-green, the rump yellow, the underparts paler yellowish-green. The crown and nape are red in both sexes. A black patch surrounds the pale eye (a “mask”). The bill is straight and chisel-like, not conical.",
+        "The moustache (malar stripe) is the sex mark: red in the centre in adult males, all black in adult females. Juveniles are barred and spotted on the body and look scaly; they still show green tones and a red crown coming through. Iberian green woodpecker (Picus sharpei) has little or no black mask; it is a western European split and is not on the Georgian list.",
+        "Grey-headed woodpecker (Picus canus) is also a year-round resident in Georgia on the 2024 checklist. It is greyer-headed, without a full red crown: the male has only a small red patch on the forehead; the female has none. Black woodpecker (Dryocopus martius) is larger and black with a red crown (male) or red nape (female). Great spotted, Syrian, middle spotted, white-backed, and lesser spotted woodpeckers are pied black, white, and red — not olive-green. Eurasian wryneck is a small, cryptically brown picid and a breeding migrant, not a green resident. This atlas does not yet have separate pages for those species.",
+        "It is not venomous and is not a threat to people. Leave it alone. A green bird on the ground in woodland-edge grassland in Georgia is more likely this species than a spotted woodpecker."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the European green woodpecker found in Georgia?",
+        "answer": "Yes. The 2024 annotated checklist of the birds of Georgia lists it as a confirmed year-round resident (YR-R): a breeder present throughout the year."
+      },
+      {
+        "question": "Where can I see it in Georgia?",
+        "answer": "In woodland and forest edge with nearby grassland, where it feeds on ants. Named surveys recorded it in Borjomi-Kharagauli National Park (15% of 80 forest points) and, more rarely, in Pshav-Khevsureti Protected Areas (3.85% of 26 points). This page does not map every region."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "Olive-green back, yellow rump, red crown, black mask around the eye. Males have a red-centred moustache; females have an all-black moustache. Grey-headed woodpecker lacks a full red crown."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "About 30–36 cm long at species level, with a wingspan of about 45–51 cm. NPLG gives mass as 185–250 g. A separate measured series from Georgia is not given on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly ants, taken on the ground. Diet has not been studied separately in Georgia on this page."
+      },
+      {
+        "question": "When is it present in Georgia?",
+        "answer": "All year, according to the 2024 checklist. It is not treated there as a passage migrant or winter-only visitor."
+      },
+      {
+        "question": "Does it breed in Georgia?",
+        "answer": "Yes. YR-R on the 2024 checklist means resident breeder. Calling birds were recorded in late April–July in the 2022 protected-area survey."
+      },
+      {
+        "question": "Is it dangerous or protected?",
+        "answer": "It is harmless. It is globally Least Concern and is coded LC nationally on the 2024 checklist. Do not catch wild birds."
+      }
+    ]
   },
   "platyceps-najadum": {
     "commonName": "Dahl's whip snake",

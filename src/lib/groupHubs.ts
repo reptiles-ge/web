@@ -1,6 +1,6 @@
 import type { AnimalGroup } from "@/data/speciesAtlas";
 
-export type GroupHubId = "snakes" | "lizards" | "turtles" | "amphibians";
+export type GroupHubId = "snakes" | "lizards" | "turtles" | "amphibians" | "birds";
 
 export type GroupHubConfig = {
   id: GroupHubId;
@@ -39,6 +39,13 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
     heroSpeciesId: "mertensiella-caucasica",
     messageKey: "amphibians",
   },
+  birds: {
+    id: "birds",
+    path: "/birds",
+    group: "bird",
+    heroSpeciesId: "emberiza-citrinella",
+    messageKey: "birds",
+  },
 };
 
 export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
@@ -48,6 +55,7 @@ export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   lizard: "lizards",
   turtle: "turtles",
   amphibian: "amphibians",
+  bird: "birds",
 };
 
 export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
@@ -92,4 +100,5 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "frogs",
     "newts",
   ],
+  birds: ["saxeoebebi", "species"],
 };

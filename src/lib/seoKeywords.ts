@@ -200,6 +200,28 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Triturus vittatus ophryticus",
     ],
   },
+  "emberiza-citrinella": {
+    ka: [
+      "მოყვითალო გრატა",
+      "ქეროზა",
+      "რუხი გულწითელა",
+      "Emberiza citrinella erythrogenys",
+    ],
+    en: ["yellow bunting", "Emberiza citrinella erythrogenys"],
+  },
+  "picus-viridis": {
+    ka: [
+      "კოდალა",
+      "სამხრული მწვანე კოდალა",
+      "Picus viridis karelini",
+    ],
+    en: [
+      "green woodpecker",
+      "Eurasian green woodpecker",
+      "yaffle",
+      "Picus viridis karelini",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

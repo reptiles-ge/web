@@ -159,7 +159,8 @@ export type ClusterGuidePath =
   | "/turtles/identifikacia"
   | "/amphibians/saxeoebebi"
   | "/amphibians/bayayi/saxeoebebi"
-  | "/amphibians/tritoni-salamandra";
+  | "/amphibians/tritoni-salamandra"
+  | "/birds";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -399,6 +400,7 @@ export type HubClusterCard =
         | "/snakes-in-the-yard"
         | "/snakes"
         | "/lizards"
+        | "/birds"
         | ClusterGuidePath;
       key:
         | "snakesHub"
@@ -420,7 +422,8 @@ export type HubClusterCard =
         | "turtleIdentify"
         | "amphibianIndex"
         | "frogsIndex"
-        | "newts";
+        | "newts"
+        | "birdsHub";
     }
   | {
       kind: "quiz";
@@ -476,6 +479,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "page", href: "/amphibians/bayayi/saxeoebebi", key: "frogsIndex" },
     { kind: "page", href: "/amphibians/tritoni-salamandra", key: "newts" },
   ],
+  birds: [],
 };
 
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
@@ -483,6 +487,7 @@ export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   lizards: "/lizards/saxeoebebi",
   turtles: "/turtles/saxeoebebi",
   amphibians: "/amphibians/saxeoebebi",
+  birds: "/birds",
 };
 
 export function getHubIndexTitleKey(hubId: GroupHubId) {
@@ -493,6 +498,8 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
       return "cluster.lizardIndex.title" as const;
     case "turtles":
       return "cluster.turtleIndex.title" as const;
+    case "birds":
+      return "hubs.birds" as const;
     default:
       return "cluster.amphibianIndex.title" as const;
   }
@@ -564,6 +571,12 @@ export function splitHubSpecies(
         items: species.filter((item) => item.id === "trachemys-scripta"),
       },
     ].filter((section) => section.items.length > 0);
+  }
+
+  if (hubId === "birds") {
+    return [{ key: "all", items: species }].filter(
+      (section) => section.items.length > 0,
+    );
   }
 
   return [
@@ -707,6 +720,8 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       href: "/turtles/identifikacia",
       key: "turtleIdentify",
     });
+  } else if (group === "bird") {
+    links.push({ kind: "page", href: "/birds", key: "birdsHub" });
   } else {
     links.push({
       kind: "page",
