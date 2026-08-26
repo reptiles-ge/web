@@ -5,8 +5,9 @@ import {
   getRegionsForSpecies,
   localizeRegionText,
 } from "@/data/regions";
+import type { Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
+import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesImageAlt } from "@/lib/speciesMeta";
@@ -33,12 +34,20 @@ export function SpeciesGuideRow({
     0,
     getRegionsForSpecies(species.id).length - regions.length,
   );
+  const group = getSpeciesAtlasMeta(species.id).group;
+  const riskChip = getSpeciesRiskChip(species, group);
   const tone =
-    species.danger === "High"
+    riskChip?.kind === "danger" && riskChip.level === "High"
       ? { dot: "bg-destructive", text: "text-destructive" }
-      : species.danger === "Moderate"
+      : riskChip?.kind === "danger" && riskChip.level === "Moderate"
         ? { dot: "bg-gold", text: "text-gold" }
         : { dot: "bg-primary", text: "text-primary" };
+  const riskLabel =
+    riskChip?.kind === "danger"
+      ? tDanger(riskChip.level)
+      : riskChip?.kind === "interaction"
+        ? riskChip.value
+        : null;
 
   return (
     <Link
@@ -64,15 +73,17 @@ export function SpeciesGuideRow({
           <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span
-            className={`inline-flex items-center gap-1.5 text-[12px] font-medium ${tone.text}`}
-          >
+          {riskLabel ? (
             <span
-              className={`size-1.5 rounded-full ${tone.dot}`}
-              aria-hidden="true"
-            />
-            {tDanger(species.danger)}
-          </span>
+              className={`inline-flex items-center gap-1.5 text-[12px] font-medium ${tone.text}`}
+            >
+              <span
+                className={`size-1.5 rounded-full ${tone.dot}`}
+                aria-hidden="true"
+              />
+              {riskLabel}
+            </span>
+          ) : null}
         </div>
         <h3 className="mt-2 font-display text-[clamp(1.35rem,2.5vw,1.85rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
           {species.commonName}

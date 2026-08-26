@@ -1,6 +1,8 @@
 "use client";
 
 import type { Species } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -13,8 +15,8 @@ type SpeciesCardProps = {
   species: Species;
 };
 
-function safetyTone(danger: Species["danger"]) {
-  switch (danger) {
+function safetyTone(level?: Species["danger"]) {
+  switch (level) {
     case "High":
       return {
         dot: "bg-destructive",
