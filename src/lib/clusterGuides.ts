@@ -425,7 +425,8 @@ export type HubClusterCard =
         | "amphibianIndex"
         | "frogsIndex"
         | "newts"
-        | "birdsHub";
+        | "birdsHub"
+        | "mammalsHub";
     }
   | {
       kind: "quiz";
@@ -482,6 +483,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "page", href: "/amphibians/tritoni-salamandra", key: "newts" },
   ],
   birds: [],
+  mammals: [],
 };
 
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
@@ -490,6 +492,7 @@ export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   turtles: "/turtles/saxeoebebi",
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds",
+  mammals: "/mammals",
 };
 
 export function getHubIndexTitleKey(hubId: GroupHubId) {
