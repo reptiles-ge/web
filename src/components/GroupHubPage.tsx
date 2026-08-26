@@ -170,7 +170,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               cards={clusterCards}
               locale={locale}
               species={species}
-              className="mt-14 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3"
+              className="mt-14"
             />
           </div>
         </section>

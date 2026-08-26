@@ -406,7 +406,7 @@ export function SpeciesProfile({
               <RelatedGuideGrid
                 cards={guideLinks}
                 locale={locale}
-                className="mt-8 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3"
+                className="mt-8"
               />
             </div>
           </section>
