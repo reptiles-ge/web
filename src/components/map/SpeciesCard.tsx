@@ -1,7 +1,6 @@
 "use client";
 
 import type { Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -39,8 +38,17 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
   const locale = useLocale() as AppLocale;
   const tDanger = useTranslations("danger");
   const tMap = useTranslations("map");
-  const tone = safetyTone(species.danger);
+  const riskChip = getSpeciesRiskChip(species);
+  const tone = safetyTone(
+    riskChip?.kind === "danger" ? riskChip.level : undefined,
+  );
   const cover = species.mobileImage ?? species.image;
+  const riskLabel =
+    riskChip?.kind === "danger"
+      ? tDanger(riskChip.level)
+      : riskChip?.kind === "interaction"
+        ? riskChip.value
+        : null;
 
   return (
     <Link
@@ -73,12 +81,14 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           </div>
           <ArrowUpRight className="mt-0.5 size-3.5 shrink-0 text-muted-foreground/50 transition-colors group-hover:text-primary" />
         </div>
-        <span
-          className={`mt-2.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide ${tone.chip}`}
-        >
-          <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
-          {tDanger(species.danger)}
-        </span>
+        {riskLabel ? (
+          <span
+            className={`mt-2.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide ${tone.chip}`}
+          >
+            <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
+            {riskLabel}
+          </span>
+        ) : null}
         <span className="sr-only">{tMap("viewSpecies")}</span>
       </div>
     </Link>
