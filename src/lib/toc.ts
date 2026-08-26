@@ -4,6 +4,7 @@ export const SPECIES_SECTION_IDS = {
   gallery: "gallery",
   range: "range",
   identification: "identification",
+  voice: "voice",
   biology: "biology",
   faq: "faq",
   sources: "sources",

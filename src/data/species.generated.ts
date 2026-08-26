@@ -2829,6 +2829,11 @@ export const species: Species[] = [
         "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. ზაფხულში ბაღში ყვითელი ფრინველი, 2024 წლის ქართული სტატუსით, უფრო სხვა სახეობაა: ეს სახეობა იქ მოზამთრედაა შეტანილი."
       ]
     },
+    "audio": {
+      "src": "/audio/emberiza-citrinella.mp3",
+      "recordist": "Hannu Varkki",
+      "url": "https://commons.wikimedia.org/wiki/File:Emberiza_citrinella_-_Yellowhammer_XC457380.mp3"
+    },
     "faq": [
       {
         "question": "გვხვდება თუ არა ჩვეულებრივი გრატა საქართველოში?",
@@ -2900,6 +2905,10 @@ export const species: Species[] = [
       {
         "name": "RSPB — Yellowhammer",
         "url": "https://www.rspb.org.uk/birds-and-wildlife/yellowhammer"
+      },
+      {
+        "name": "Wikimedia Commons — Emberiza citrinella XC457380 (Hannu Varkki, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Emberiza_citrinella_-_Yellowhammer_XC457380.mp3"
       }
     ]
   },
@@ -6265,9 +6274,32 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია და ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიული ხმა ხმამაღალი, სიცილის მსგავსი ნოტების რიგია. ხეზე დაკვრა (დრამი) სხვა კოდალებთან შედარებით იშვიათია. ფრენა ტალღოვანია; მაშინ ყვითელი კუდზედა კარგად ჩანს. ფრთხილია და არ აიყვანოთ. ბუდობს ხეში ამოთხრილ ფუღუროში. სახეობის დონეზე ნაყარი დაახლოებით ოთხიდან ექვსამდე კვერცხია, ინკუბაცია დაახლოებით 19–20 დღე; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად იღებს. ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში 2022 წლის გამოძახების აღწერებმა აპრილის ბოლოდან ივლისამდე მობუდარი სეზონის ხმები დააფიქსირეს. რეზიდენტია და შორ მანძილზე მიგრანტი არ არის.",
     "conservation": "BirdLife International Picus viridis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS მსოფლიოს, ევროპისა და ევროკავშირის მასშტაბით Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. 2022 წლის დაცული ტერიტორიების აღწერა ადგილობრივი სურათია და არა ეროვნული მონიტორინგის სერია. EUNIS აღნიშნავს ევროკავშირის ფრინველების დირექტივას და ბერნის კონვენციაში Picidae-ს შეტანას; ეს საქართველოს წითელი ნუსხა არ არის. ველური ფრინველი არ დაიჭიროთ. ძველი ხეების და ჭიანჭველებით მდიდარი მდელოს კარგვა სახეობის დონეზე ბიოლოგიურად რელევანტური წნეხია; საქართველოსთვის ადგილობრივი საფრთხის რანგირება აქ არ არის გამოქვეყნებული.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "https://cdn.reptiles.ge/species-placeholder.png",
-    "mobileImage": "https://cdn.reptiles.ge/species-placeholder.png",
-    "gallery": [],
+    "image": "/images/picus-viridis-zauri-1.jpg",
+    "imageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-13"
+    },
+    "mobileImage": "/images/picus-viridis-zauri-2.jpg",
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-13"
+    },
+    "gallery": [
+      {
+        "src": "/images/picus-viridis-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-13"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-13"
+        }
+      }
+    ],
     "stats": [
       {
         "label": "კვება",
@@ -13537,7 +13569,31 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it dangerous or protected?",
         "answer": "It is harmless. It is globally Least Concern and is coded LC nationally on the 2024 checklist. Do not catch wild birds."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "/images/picus-viridis-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-13"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-13"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-13"
+    },
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-13"
+    }
   },
   "platyceps-najadum": {
     "commonName": "Dahl's whip snake",

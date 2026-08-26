@@ -8,6 +8,7 @@ import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
+import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   resolvePhotoCredit,
@@ -228,6 +229,9 @@ export function SpeciesProfile({
                 <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
                 {species.location}
               </span>
+              {species.audio ? (
+                <SpeciesVoicePlayer audio={species.audio} />
+              ) : null}
               {usesDangerScale(group) ? (
                 <SpeciesRiskChip species={species} variant="hero" linked />
               ) : null}

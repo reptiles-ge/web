@@ -8,6 +8,7 @@ import {
   type GalleryImage,
   type PhotoCredit,
   type Species,
+  type SpeciesAudio,
   type SpeciesFaq,
   type SpeciesIdentification,
   type SpeciesSource,
@@ -41,6 +42,7 @@ type SpeciesFrontmatter = {
   stats: SpeciesStat[];
   facts: string[];
   identification?: SpeciesIdentification;
+  audio?: SpeciesAudio;
   faq?: SpeciesFaq[];
   sources?: SpeciesSource[];
 };
@@ -119,6 +121,7 @@ function readSpeciesMdx(
     stats: fm.stats ?? [],
     facts: fm.facts ?? [],
     ...(fm.identification ? { identification: fm.identification } : {}),
+    ...(fm.audio?.src ? { audio: fm.audio } : {}),
     ...(fm.faq ? { faq: fm.faq } : {}),
     updatedAt: options?.updatedAt ?? toSiteDateTime(new Date()),
     sources:

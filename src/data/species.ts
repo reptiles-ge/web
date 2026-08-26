@@ -34,6 +34,14 @@ export type SpeciesSource = {
   url?: string;
 };
 
+export type SpeciesAudio = {
+  src: string;
+  recordist?: string;
+  url?: string;
+  location?: string;
+  date?: string;
+};
+
 export type Species = {
   id: string;
   commonName: string;
@@ -57,6 +65,7 @@ export type Species = {
   stats: SpeciesStat[];
   facts: string[];
   identification?: SpeciesIdentification;
+  audio?: SpeciesAudio;
   faq?: SpeciesFaq[];
   updatedAt: string;
   sources: SpeciesSource[];
