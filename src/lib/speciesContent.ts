@@ -59,8 +59,9 @@ export function getSpeciesHeroSources(species: Species) {
       ? species.mobileImage
       : null;
   const desktopHeroSrc =
-    primary?.src ??
-    (!isPlaceholderMedia(species.image) ? species.image : null);
+    species.image && !isPlaceholderMedia(species.image)
+      ? species.image
+      : (primary?.src ?? null);
 
   return { gallery, primary, mobileHeroSrc, desktopHeroSrc };
 }
