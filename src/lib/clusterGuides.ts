@@ -1,7 +1,8 @@
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import type { GroupHubId } from "@/lib/groupHubs";
+import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export const FROG_SPECIES_IDS = [
   "pelobates-syriacus",

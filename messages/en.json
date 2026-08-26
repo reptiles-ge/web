@@ -777,7 +777,8 @@
       "lizards": "Lizards in Georgia",
       "turtles": "Turtles",
       "amphibians": "Amphibians",
-      "birds": "Birds in Georgia"
+      "birds": "Birds in Georgia",
+      "mammals": "Mammals in Georgia"
     },
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
@@ -955,6 +956,12 @@
         "title": "Birds in Georgia",
         "body": "The first bird profiles in the atlas — species pages, not a full avifauna list.",
         "cta": "Birds"
+      },
+      "mammalsHub": {
+        "eyebrow": "Mammals",
+        "title": "Mammals in Georgia",
+        "body": "The first mammal profiles in the atlas — species pages, not a full mammal list.",
+        "cta": "Mammals"
       }
     }
   },
