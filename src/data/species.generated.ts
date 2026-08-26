@@ -5411,7 +5411,7 @@ export const species: Species[] = [
     "overview": "დედოფალა (Mustela nivalis) ძუძუმწოვარია კვერნისებრთა ოჯახიდან (Mustelidae) და საქართველოში მშობლიური მუდმივი სახეობაა. IUCN საქართველოს native არეალში ასახელებს. ეროვნულ ძუძუმწოვრების ჩამონათვალებში შეტანილია. ეს არის ხორცისმჭამელთა რიგის ყველაზე პატარა სახეობა: სახეობის დონეზე თავ-ტანი დაახლოებით 13–26 სმ, კუდი შედარებით მოკლეა. შხამი არ აქვს. ადამიანისთვის მთავარი რისკი დაჭერისას ნაკბენია და არა შხამი. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული ამ გვერდზე.",
     "habitat": "საქართველოში ეძებეთ ბალახოვან პირას, ბუჩქნარში, სასოფლო ადგილზე, ტყის პირას, კლდოვან და მაღალმთიან ადგილზე, სადაც მღრღნელებია. სახეობის დონეზე ჰაბიტატი ფართოა: მდელო, ჰეჯეროუ, ფერმა, რიპარიული ტყე, სტეპი, ალპური მდელო; თავს არიდებს ღია უსაფარო ადგილს, სადაც მტაცებელი ფრინველი ადვილად ხედავს. Sheffield და King კავკასიას ასახელებენ იმ დაბალ განედის მთებს შორის, სადაც სახეობა მთელი წელი დაახლოებით 3,660 მ-მდე ცხოვრობს; ეს კავკასიის სახეობის დონის ციფრია და არა საქართველოს ცალკე გაზომილი სარტყელი. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს. დასახელებული ქართული წერტილებია: ბორჯომ-ხარაგაულის ეროვნული პარკი, 2015 წლის 25 მაისი (ზაური ხაჩიძის ფოტოები ამ გვერდზე); ლაგოდეხი (Kurose et al. 2005, გენეტიკური ნიმუში N18); კვესეთი–კობის საავტომობილო დერეფნის ძუძუმწოვრების აღწერა, Lot 1 და Lot 2 (2019); თელავი, ბაღი, 2025 წლის აგვისტო (მოგზაურობის ანგარიში, არა რეცენზირებული ნაშრომი). მთელ ქვეყანაში თანაბარ სიმჭიდროვეს ნუ ივარაუდებთ.",
     "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში სპეციალიზებული მღრღნელების მტაცებელია, განსაკუთრებით მინდვრის თაგვები და მემინდვრიები; იშვიათად იღებს ფრინველის კვერცხსა და ბარტყს, წვრილ კურდღელს, ხვლიკს, ბაყაყს, მწერს და ლეშს. პატარა ზომა საშუალებას აძლევს ნადირს სოროში გაჰყვეს. საქართველოში რეალისტური სურათი იგივეა — წვრილი მღრღნელები ბალახსა და ტყის პირას — მაგრამ ადგილობრივი მენიუ აქ არ არის გაზომილი.",
-    "behavior": "აქტიურია დღისითაც და ღამითაც; ხშირად უფრო დღისით იჭერენ, მაგრამ ეს ერთ პერიოდზე არ არის შეზღუდული. მოძრაობს სწრაფი ნახტომებით, ხშირად სწორდება უკანა ფეხებზე საყურებლად. ბუდეს თვითონ იშვიათად თხრის: იკავებს მღრღნელის სოროს, ქვაყრილს ან სხვა საფარს. სახეობის დონეზე ორსულობა დაახლოებით 34–37 დღეა, გადადებული იმპლანტაციის გარეშე (ყარყუმისგან განსხვავებით). ტემპერატურულ არეალში ხშირია ერთი ან ორი ნაშთი წელიწადში, ჩვეულებრივ რამდენიმე ნაშიერი; ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. ჩრდილოეთ პოპულაციები ზამთარში თეთრდებიან; სამხრეთში ზამთრის ბეწვი ხშირად ყავისფერი რჩება. ბორჯომ-ხარაგაულის 2015 წლის 25 მაისის ფოტოებზე ინდივიდი ყავისფერ-თეთრ ზაფხულის ბეწვშია. საქართველოში თეთრი ზამთრის ფორმა ნაგულისხმევად ნუ ჩათვალეთ — ზამთრის სერია ამ გვერდზე არ არის.",
+    "behavior": "აქტიურია დღისითაც და ღამითაც; ხშირად უფრო დღისით იჭერენ, მაგრამ ეს ერთ პერიოდზე არ არის შეზღუდული. მოძრაობს სწრაფი ნახტომებით, ხშირად სწორდება უკანა ფეხებზე საყურებლად. ბუდეს თვითონ იშვიათად თხრის: იკავებს მღრღნელის სოროს, ქვაყრილს ან სხვა საფარს. სახეობის დონეზე ორსულობა დაახლოებით 34–37 დღეა, გადადებული იმპლანტაციის გარეშე (ყარყუმისგან განსხვავებით). ტემპერატურულ არეალში ხშირია ერთი ან ორი ნაშთი წელიწადში, ჩვეულებრივ რამდენიმე ნაშიერი; ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. ჩრდილოეთ პოპულაციები ზამთარში თეთრდებიან; სამხრეთში ზამთრის ბეწვი ხშირად ყავისფერი რჩება. ბორჯომ-ხარაგაულის 2015 წლის 25 მაისის ფოტოებზე ინდივიდი ყავისფერ-თეთრ ზაფხულის ბეწვშია. საქართველოში თეთრი ზამთრის ფორმა ნაგულისხმევად ნუ ჩათვალეთ — ზამთრის სერია ამ გვერდზე არ არის. ხმა იშვიათია და ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1146321 (Jose Manuel Unanue, მენდარო, ესპანეთი, 2026-06-13), ჩამწერის მიერ აღნიშნული როგორც uncertain.",
     "conservation": "McDonald და თანაავტორები Mustela nivalis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016 შეფასება, 2019 წლის შესწორებული ვერსია); ფართო არეალი და დიდი პოპულაციაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. CITES-ის დანართებში სახეობის დონეზე არ არის. ამ გვერდზე სამონადირეო სახეობად არ არის ციტირებული, მელასგან განსხვავებით. ადგილობრივი ზეწოლა შეიძლება იყოს მღრღნელების საწინააღმდეგო შხამი (მეორადი მოწამვლა სახეობის დონის ლიტერატურაში), ბინადრობის კარგვა და გზაზე დაღუპვა; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ.",
     "image": "/images/mustela-nivalis-zauri-1.jpg",
@@ -5529,6 +5529,13 @@ export const species: Species[] = [
         "შხამიანი არ არის. არ აიყვანოთ. ბაღში ან ქვის ღობესთან პატარა ყავისფერი „გველივით“ სწრაფი ცხოველი, თეთრი მუცლით, უფრო ეს სახეობაა, ვიდრე კვერნა."
       ]
     },
+    "audio": {
+      "src": "/audio/mustela-nivalis.mp3",
+      "recordist": "Jose Manuel Unanue",
+      "url": "https://xeno-canto.org/1146321",
+      "location": "მენდარო",
+      "date": "2026-06-13"
+    },
     "faq": [
       {
         "question": "გვხვდება თუ არა დედოფალა საქართველოში?",
@@ -5555,6 +5562,10 @@ export const species: Species[] = [
         "answer": "დღისითაც და ღამითაც. მუდმივია და არ მიგრირებს, როგორც ბევრი ფრინველი."
       },
       {
+        "question": "ისმის თუ არა ხმა?",
+        "answer": "იშვიათად. ამ გვერდის ჩანაწერი ესპანეთიდანაა (xeno-canto XC1146321) და ჩამწერის მიერ აღნიშნულია როგორც uncertain; ქართული ჩანაწერი აქ არ არის."
+      },
+      {
         "question": "საშიშია?",
         "answer": "შხამიანი არ არის. დაჭერისას შეიძლება უკბინოს. არ აიყვანოთ."
       },
@@ -5563,7 +5574,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული."
       }
     ],
-    "updatedAt": "2026-08-27T01:30:39+04:00",
+    "updatedAt": "2026-08-27T01:33:34+04:00",
     "sources": [
       {
         "name": "McDonald et al. 2019 — IUCN Red List, Mustela nivalis",
@@ -5618,6 +5629,10 @@ export const species: Species[] = [
       },
       {
         "name": "ზაური ხაჩიძე — დედოფალა, ბორჯომ-ხარაგაულის ეროვნული პარკი (2015-05-25)"
+      },
+      {
+        "name": "xeno-canto XC1146321 — Mustela nivalis (Jose Manuel Unanue, CC BY-NC-SA 4.0; ID uncertain)",
+        "url": "https://xeno-canto.org/1146321"
       },
       {
         "name": "Wikimedia Commons — Belette pygmée, Vercors (Jean Andrieux, CC BY-SA 4.0)",
@@ -6732,7 +6747,7 @@ export const species: Species[] = [
         "answer": "გლობალურად Near Threatened (2009). საქართველოს წითელ ნუსხაში NT-ად არის მითითებული. ველური ამფიბია არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T01:33:34+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13993,7 +14008,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "overview": "The least weasel (Mustela nivalis) is a mammal in the weasel family (Mustelidae) and a native resident in Georgia. IUCN lists Georgia in the native range. It appears on national mammal checklists. It is the smallest member of the order Carnivora. At species level, head–body length is about 13–26 cm and the tail is relatively short. It has no venom. The main human risk is a bite if handled, not poison. IUCN lists it as Least Concern. It is not treated on this page as a threatened taxon on Georgia’s 2014 Red List.",
     "habitat": "In Georgia look for it in rank grass, scrub, farmland, woodland edges, rocky ground, and mountains where rodents are present. Species-level habitat is broad: meadow, hedgerow, farmland, riparian woodland, steppe, and alpine meadow. It avoids open coverless ground, where raptors see it easily. Sheffield and King name the Caucasus among low-latitude ranges where it lives year-round to about 3,660 m; that is a Caucasus-level figure, not a measured Georgian belt. This page does not map administrative regions. Named Georgian points are Borjomi-Kharagauli National Park, 25 May 2015 (photographs by ზაური ხაჩიძე on this page); Lagodekhi (Kurose et al. 2005, genetic sample N18); the Kvesheti–Kobi road corridor mammal survey, Lots 1 and 2 (2019); and a garden in Telavi in August 2025 (a trip report, not a peer-reviewed paper). Do not assume even density across the whole country.",
     "diet": "There is no separate Georgian diet study on this page. Across the range it is a specialist hunter of small rodents, especially voles and mice. It occasionally takes birds’ eggs and nestlings, young lagomorphs, lizards, frogs, insects, and carrion. Its small size lets it follow prey into burrows. The realistic picture in Georgia is the same — small rodents in grass and at woodland edges — but the local menu has not been measured here.",
-    "behavior": "It is active by day and at night; captures are often by day, but activity is not limited to one period. It moves in quick bounds and often stands on the hind legs to look around. It rarely digs its own den: it takes a rodent burrow, a rock pile, or other cover. At species level gestation is about 34–37 days, without delayed implantation (unlike the stoat). In temperate parts of the range one or two litters a year are common, usually with several young. Those figures come from the wider range, not a Georgian den sample. Northern populations turn white in winter; in the south the winter coat often stays brown. The Borjomi-Kharagauli photographs of 25 May 2015 show an individual in brown-and-white summer pelage. Do not assume a white winter form in Georgia — a winter series is not on this page.",
+    "behavior": "It is active by day and at night; captures are often by day, but activity is not limited to one period. It moves in quick bounds and often stands on the hind legs to look around. It rarely digs its own den: it takes a rodent burrow, a rock pile, or other cover. At species level gestation is about 34–37 days, without delayed implantation (unlike the stoat). In temperate parts of the range one or two litters a year are common, usually with several young. Those figures come from the wider range, not a Georgian den sample. Northern populations turn white in winter; in the south the winter coat often stays brown. The Borjomi-Kharagauli photographs of 25 May 2015 show an individual in brown-and-white summer pelage. Do not assume a white winter form in Georgia — a winter series is not on this page. Vocalisations are uncommon and no Georgian recording is on this page; the clip is xeno-canto XC1146321 (Jose Manuel Unanue, Mendaro, Spain, 13 June 2026), marked uncertain by the recordist.",
     "conservation": "McDonald and co-authors assess Mustela nivalis as Least Concern on the IUCN Red List (2016 assessment, 2019 amended version); the range is wide and the population large. Eliava et al. 2007 list it as LC in Georgia. It is not treated on this page as a threatened taxon on Georgia’s 2014 Red List (Government Resolution No. 190). It is not on CITES appendices at species level. Unlike the red fox, it is not cited here as a hunting species. Local pressures can include rodenticide (secondary poisoning is documented at species level), habitat loss, and road mortality; a national trend is not measured on this page. Do not handle wild animals.",
     "interaction": "It has no venom. It can bite if handled. Any wild mammal can theoretically carry rabies; Georgian literature names fox, jackal, wolf, and dogs as the main sources, not this species. Do not feed or handle it.",
     "stats": [
@@ -14061,6 +14076,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "When is it active?",
         "answer": "By day and at night. It is resident and does not migrate like many birds."
+      },
+      {
+        "question": "Does it make a sound?",
+        "answer": "Rarely heard. The clip on this page is from Spain (xeno-canto XC1146321) and is marked uncertain by the recordist; there is no Georgian recording here."
       },
       {
         "question": "Is it dangerous?",
