@@ -12,6 +12,7 @@ import {
 } from "@/data/species";
 import {
   getSpeciesAtlasMeta,
+  groupHasVenomConcept,
   isVenomousDanger,
   type AnimalGroup,
 } from "@/data/speciesAtlas";
@@ -623,10 +624,12 @@ function toPageDocument(
 function speciesGroupText(species: Species) {
   const group = getSpeciesAtlasMeta(species.id).group;
   const extra: string[] = [];
-  if (isVenomousDanger(species.danger)) {
-    extra.push("შხამიანი", "venomous", "viper");
-  } else {
-    extra.push("უშხამო", "harmless");
+  if (groupHasVenomConcept(group)) {
+    if (isVenomousDanger(species.danger)) {
+      extra.push("შხამიანი", "venomous", "viper");
+    } else {
+      extra.push("უშხამო", "harmless");
+    }
   }
   if (isFrogSpecies(species.id)) extra.push("ბაყაყი", "frog", "toad");
   if (isNewtSpecies(species.id)) extra.push("ტრიტონი", "სალამანდრა", "newt");
