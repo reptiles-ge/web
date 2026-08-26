@@ -2725,9 +2725,25 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. ზამთარში ხშირად იკვებება თავისუფალ გუნდში და ველის პირას შეიძლება ახლოს მოგვიდგეს, მაგრამ არ აიყვანოთ. ყველა შებუმბვლებში საკვანძო ნიშანი თბილი წაბლისფერი კუდზედაა, რომელიც ზოლებიან ყავისფერ ზურგს უპირისპირდება; ფრენისას კუდის გარე თეთრი ბუმბული ჩანს. მამალს კაშკაშა ყვითელი თავი და ქვედა მხარე აქვს, თავქუდსა და ლოყაზე მუქი ზოლებით. დედალი და ახალგაზრდა უფრო მკრთალი და ზოლებიანია, სახეზე ხშირად მოყვითალო ელფერით. გალობა — მოკლე ნოტების რიგი გაწელილი ბოლოთი — ბუდობის სეზონს ეკუთვნის და საქართველოში მოზამთრისთვის მოსალოდნელი ნიშანი არ არის. ზამთარშიც ისმის მოკლე, მკვეთრი საკონტაქტო ხმა, მაგალითად „tsick“. ბუდობის ბიოლოგია (სხვაგან დაახლოებით 3–5 კვერცხი) სახეობის დონის მონაცემია მობუდარი არეალიდან; 2024 წლის ქართული ჩამონათვალი ამ სახეობას საქართველოში მობუდარად არ იღებს.",
     "conservation": "BirdLife International Emberiza citrinella-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2024). არეალი ფართოა; დასავლეთ ევროპის სასოფლო პოპულაციები ინტენსიური მეურნეობის გამო შემცირდა, მაგრამ გლობალური კლება უფრო მაღალი კატეგორიისთვის საკმარისად სწრაფი არ არის. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია და ადგილობრივი საფრთხეები ამ გვერდზე არ არის გაზომილი. ევროკავშირში შეტანილია ფრინველების დირექტივის II დანართში (კოდი A376); ეს დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "https://cdn.reptiles.ge/species-placeholder.png",
-    "mobileImage": "https://cdn.reptiles.ge/species-placeholder.png",
-    "gallery": [],
+    "image": "/images/emberiza-citrinella-zauri-1.jpg",
+    "imageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-12"
+    },
+    "mobileImage": "/images/emberiza-citrinella-zauri-1.jpg",
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-12"
+    },
+    "gallery": [
+      {
+        "src": "/images/emberiza-citrinella-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-12"
+        }
+      }
+    ],
     "stats": [
       {
         "label": "კვება",
@@ -2803,7 +2819,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-26T22:28:49+04:00",
+    "updatedAt": "2026-08-26T22:37:27+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -6283,7 +6299,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-26T22:29:12+04:00",
+    "updatedAt": "2026-08-26T22:37:27+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -10752,7 +10768,24 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "question": "Is it dangerous or protected?",
         "answer": "It is harmless. It is globally Least Concern and is not on Georgia’s 2014 Red List. Do not catch wild birds."
       }
-    ]
+    ],
+    "gallery": [
+      {
+        "src": "/images/emberiza-citrinella-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "date": "2015-05-12"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-12"
+    },
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "date": "2015-05-12"
+    }
   },
   "emys-orbicularis": {
     "commonName": "European Pond Turtle",
