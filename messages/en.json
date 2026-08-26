@@ -11,6 +11,7 @@
     "turtles": "Turtles",
     "amphibians": "Amphibians",
     "birds": "Birds",
+    "mammals": "Mammals",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -190,6 +191,7 @@
     "turtles": "Turtles",
     "amphibians": "Amphibians",
     "birds": "Birds",
+    "mammals": "Mammals",
     "frogs": "Frogs",
     "newts": "Newts",
     "snakeIndex": "Snake species",
