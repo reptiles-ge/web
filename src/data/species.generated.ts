@@ -6390,6 +6390,13 @@ export const species: Species[] = [
         "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ტყის პირის მდელოზე მიწაზე მწვანე ფრინველი უფრო ეს სახეობაა, ვიდრე ჭრელი კოდალა."
       ]
     },
+    "audio": {
+      "src": "/audio/picus-viridis.mp3",
+      "recordist": "Walter Wallner",
+      "url": "https://xeno-canto.org/1139426",
+      "location": "Burgenland",
+      "date": "2026-05-27"
+    },
     "faq": [
       {
         "question": "გვხვდება თუ არა მწვანე კოდალა საქართველოში?",
@@ -6424,7 +6431,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T00:34:28+04:00",
+    "updatedAt": "2026-08-27T00:44:45+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -6485,6 +6492,10 @@ export const species: Species[] = [
       {
         "name": "Wikimedia Commons — Žluna zelená, Praha (Skot, CC BY-SA 4.0)",
         "url": "https://commons.wikimedia.org/wiki/File:%C5%BDluna_zelen%C3%A1_(Picus_viridis)_-_samice,_Praha,_vrch_T%C5%99e%C5%A1%C5%88ovka.jpg"
+      },
+      {
+        "name": "xeno-canto XC1139426 — Picus viridis (Walter Wallner, CC BY-NC-SA 4.0)",
+        "url": "https://xeno-canto.org/1139426"
       }
     ]
   },
