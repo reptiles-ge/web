@@ -11,13 +11,15 @@ export function speciesTitleIntentKey(
   | "titleLizard"
   | "titleTurtle"
   | "titleAmphibian"
-  | "titleBird" {
+  | "titleBird"
+  | "titleMammal" {
   if (group === "snake") {
     return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
   }
   if (group === "lizard") return "titleLizard";
   if (group === "turtle") return "titleTurtle";
   if (group === "bird") return "titleBird";
+  if (group === "mammal") return "titleMammal";
   return "titleAmphibian";
 }
 

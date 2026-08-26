@@ -17,6 +17,7 @@ const KA_HUB: Record<GroupHubId, string> = {
   turtles: "kuebi",
   amphibians: "amfibiebi",
   birds: "prinvelebi",
+  mammals: "dzuzumtsovrebi",
 };
 
 const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
@@ -25,6 +26,7 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   kuebi: "turtles",
   amfibiebi: "amphibians",
   prinvelebi: "birds",
+  dzuzumtsovrebi: "mammals",
 };
 
 function redirectTo(request: NextRequest, pathname: string) {
@@ -62,7 +64,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const enHub = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians|birds)\/([^/]+)$/,
+    /^\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
   );
   if (enHub) {
     const species = resolveSpeciesInHub(enHub[1] as GroupHubId, enHub[2]);

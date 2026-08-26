@@ -315,7 +315,7 @@ export function regionHref(id: string) {
 
 export function remapSpeciesPathname(pathname: string, locale: AppLocale) {
   const match = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians|birds)\/([^/]+)$/,
+    /^\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
   );
   if (!match) return pathname;
   const hub = match[1] as GroupHubId;
