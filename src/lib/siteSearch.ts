@@ -161,6 +161,22 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
     ],
     icon: "hub",
   },
+  mammals: {
+    title: { ka: "ძუძუმწოვრები საქართველოში", en: "Mammals in Georgia" },
+    subtitle: {
+      ka: "ძუძუმწოვრების პროფილები ბუნების ატლასში",
+      en: "Mammal profiles in the nature atlas",
+    },
+    keywords: [
+      "ძუძუმწოვრები",
+      "dzuzumtsovrebi",
+      "mammals",
+      "მელა",
+      "fox",
+      "vulpes",
+    ],
+    icon: "hub",
+  },
 };
 
 const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
@@ -641,6 +657,7 @@ function speciesGroupText(species: Species) {
   extra.push(group === "turtle" ? "კუ turtles tortoise" : "");
   extra.push(group === "amphibian" ? "ამფიბია amphibian" : "");
   extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
+  extra.push(group === "mammal" ? "ძუძუმწოვარი mammal მელა fox" : "");
   return extra;
 }
 
