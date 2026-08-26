@@ -43,12 +43,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
     riskChip?.kind === "danger" ? riskChip.level : undefined,
   );
   const cover = species.mobileImage ?? species.image;
-  const riskLabel =
-    riskChip?.kind === "danger"
-      ? tDanger(riskChip.level)
-      : riskChip?.kind === "interaction"
-        ? riskChip.value
-        : null;
+  const riskLabel = riskChip ? tDanger(riskChip.level) : null;
 
   return (
     <Link

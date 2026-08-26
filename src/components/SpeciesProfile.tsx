@@ -228,7 +228,9 @@ export function SpeciesProfile({
                 <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
                 {species.location}
               </span>
-              <SpeciesRiskChip species={species} variant="hero" linked />
+              {usesDangerScale(group) ? (
+                <SpeciesRiskChip species={species} variant="hero" linked />
+              ) : null}
             </div>
           </div>
         </section>
@@ -269,6 +271,16 @@ export function SpeciesProfile({
                   </div>
                 ))}
               </div>
+              {species.interaction &&
+              !isPlaceholderBody(species.interaction) ? (
+                <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-foreground/80 sm:text-[16px]">
+                  <span className="font-medium text-foreground">
+                    {t("interaction")}
+                  </span>
+                  {": "}
+                  {species.interaction}
+                </p>
+              ) : null}
             </div>
           </section>
         ) : null}

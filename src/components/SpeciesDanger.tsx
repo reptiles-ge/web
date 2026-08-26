@@ -153,24 +153,12 @@ export function SpeciesRiskChip({
   const chip = getSpeciesRiskChip(species, group);
   if (!chip) return null;
 
-  if (chip.kind === "danger") {
-    return (
-      <SpeciesDanger
-        level={chip.level}
-        variant={variant}
-        linked={linked && usesDangerScale(group)}
-        linkToDangerPage={usesDangerScale(group)}
-      />
-    );
-  }
-
   return (
     <SpeciesDanger
+      level={chip.level}
       variant={variant}
-      label={chip.label}
-      value={chip.value}
-      linked={false}
-      linkToDangerPage={false}
+      linked={linked && usesDangerScale(group)}
+      linkToDangerPage={usesDangerScale(group)}
     />
   );
 }

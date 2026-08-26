@@ -31,6 +31,7 @@ type SpeciesFrontmatter = {
   diet: string;
   behavior: string;
   conservation: string;
+  interaction?: string;
   danger?: DangerLevel;
   image: string;
   imageCredit?: PhotoCredit;
@@ -106,6 +107,7 @@ function readSpeciesMdx(
     diet: fm.diet,
     behavior: fm.behavior,
     conservation: fm.conservation,
+    ...(fm.interaction ? { interaction: fm.interaction } : {}),
     ...(fm.danger ? { danger: fm.danger } : {}),
     image: fm.image,
     ...(fm.imageCredit ? { imageCredit: fm.imageCredit } : {}),
@@ -137,6 +139,7 @@ function toTranslation(item: Species) {
     diet: item.diet,
     behavior: item.behavior,
     conservation: item.conservation,
+    ...(item.interaction ? { interaction: item.interaction } : {}),
     stats: item.stats,
     facts: item.facts,
     ...(item.identification ? { identification: item.identification } : {}),

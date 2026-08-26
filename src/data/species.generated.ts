@@ -2724,37 +2724,34 @@ export const species: Species[] = [
     "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ზრდასრული ძირითადად ბალახის, მარცვლეულისა და სარეველას თესლს იღებს; იკვებება მიწაზე, ზამთარში ხშირად მცირე გუნდში, ზოგჯერ სხვა გრატებთან ან მთიულებთან. ბუდობის სეზონში სხვაგან უხერხემლოებს იღებს და ბარტყებს მწერებითა და ობობებით კვებავს. საქართველოში მოზამთრისთვის რეალისტური სურათი თესლზე ნადირობაა ღია ადგილზე და არა გაზომილი ადგილობრივი მენიუ.",
     "behavior": "დღის აქტიურია. ზამთარში ხშირად იკვებება თავისუფალ გუნდში და ველის პირას შეიძლება ახლოს მოგვიდგეს, მაგრამ არ აიყვანოთ. ყველა შებუმბვლებში საკვანძო ნიშანი თბილი წაბლისფერი კუდზედაა, რომელიც ზოლებიან ყავისფერ ზურგს უპირისპირდება; ფრენისას კუდის გარე თეთრი ბუმბული ჩანს. მამალს კაშკაშა ყვითელი თავი და ქვედა მხარე აქვს, თავქუდსა და ლოყაზე მუქი ზოლებით. დედალი და ახალგაზრდა უფრო მკრთალი და ზოლებიანია, სახეზე ხშირად მოყვითალო ელფერით. გალობა — მოკლე ნოტების რიგი გაწელილი ბოლოთი — ბუდობის სეზონს ეკუთვნის და საქართველოში მოზამთრისთვის მოსალოდნელი ნიშანი არ არის. ზამთარშიც ისმის მოკლე, მკვეთრი საკონტაქტო ხმა, მაგალითად „tsick“. ბუდობის ბიოლოგია (სხვაგან დაახლოებით 3–5 კვერცხი) სახეობის დონის მონაცემია მობუდარი არეალიდან; 2024 წლის ქართული ჩამონათვალი ამ სახეობას საქართველოში მობუდარად არ იღებს.",
     "conservation": "BirdLife International Emberiza citrinella-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2024). არეალი ფართოა; დასავლეთ ევროპის სასოფლო პოპულაციები ინტენსიური მეურნეობის გამო შემცირდა, მაგრამ გლობალური კლება უფრო მაღალი კატეგორიისთვის საკმარისად სწრაფი არ არის. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია და ადგილობრივი საფრთხეები ამ გვერდზე არ არის გაზომილი. ევროკავშირში შეტანილია ფრინველების დირექტივის II დანართში (კოდი A376); ეს დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი არ დაიჭიროთ.",
+    "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
     "image": "https://cdn.reptiles.ge/species-placeholder.png",
     "mobileImage": "https://cdn.reptiles.ge/species-placeholder.png",
     "gallery": [],
     "stats": [
       {
-        "label": "ჰაბიტატი",
-        "value": "ღია ველი ზამთარში"
+        "label": "კვება",
+        "value": "თესლი / მარცვლეული"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "მოზამთრე"
       },
       {
         "label": "ზომა",
-        "value": "დაახლ. 16–16.5 სმ"
+        "value": "16–16.5 სმ"
       },
       {
-        "label": "ადამიანის რისკი",
-        "value": "დაბალი / პირდაპირი საფრთხე არ წარმოადგენს"
-      },
-      {
-        "label": "მოპყრობა",
-        "value": "ველური ფრინველი — არ დაიჭიროთ"
-      },
-      {
-        "label": "კონსერვაცია",
-        "value": "ნაკლ. საფრთხე (LC)"
-      },
-      {
-        "label": "სეზონი",
-        "value": "მოზამთრე (WV)"
+        "label": "ჰაბიტატი",
+        "value": "ღია ადგილები"
       },
       {
         "label": "ოჯახი",
         "value": "Emberizidae"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
       }
     ],
     "facts": [
@@ -6207,37 +6204,34 @@ export const species: Species[] = [
     "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ძირითადი საკვები ჭიანჭველაა, განსაკუთრებით Lasius და Formica; იკვებება მიწაზე, ბუდეებში ძიებით, ზრდასრულებისა და მატლების აღებით. სხვა მწერებსაც იღებს. სახეობის დონის ლიტერატურაში იშვიათად წვრილი ხერხემლიანებიც არის; ეს გაზომილი ქართული მენიუ არ არის. ველში დიდი მწვანე კოდალა გაზონზე ან მდელოზე ტიპიურად იქცევა. ღეროში მატლებზე ნადირობა ჭრელ კოდალებზე გაცილებით ნაკლებია ყოველდღიური მეთოდი.",
     "behavior": "დღის აქტიურია და ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიული ხმა ხმამაღალი, სიცილის მსგავსი ნოტების რიგია. ხეზე დაკვრა (დრამი) სხვა კოდალებთან შედარებით იშვიათია. ფრენა ტალღოვანია; მაშინ ყვითელი კუდზედა კარგად ჩანს. ფრთხილია და არ აიყვანოთ. ბუდობს ხეში ამოთხრილ ფუღუროში. სახეობის დონეზე ნაყარი დაახლოებით ოთხიდან ექვსამდე კვერცხია, ინკუბაცია დაახლოებით 19–20 დღე; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად იღებს. ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში 2022 წლის გამოძახების აღწერებმა აპრილის ბოლოდან ივლისამდე მობუდარი სეზონის ხმები დააფიქსირეს. რეზიდენტია და შორ მანძილზე მიგრანტი არ არის.",
     "conservation": "BirdLife International Picus viridis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS მსოფლიოს, ევროპისა და ევროკავშირის მასშტაბით Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. 2022 წლის დაცული ტერიტორიების აღწერა ადგილობრივი სურათია და არა ეროვნული მონიტორინგის სერია. EUNIS აღნიშნავს ევროკავშირის ფრინველების დირექტივას და ბერნის კონვენციაში Picidae-ს შეტანას; ეს საქართველოს წითელი ნუსხა არ არის. ველური ფრინველი არ დაიჭიროთ. ძველი ხეების და ჭიანჭველებით მდიდარი მდელოს კარგვა სახეობის დონეზე ბიოლოგიურად რელევანტური წნეხია; საქართველოსთვის ადგილობრივი საფრთხის რანგირება აქ არ არის გამოქვეყნებული.",
+    "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
     "image": "https://cdn.reptiles.ge/species-placeholder.png",
     "mobileImage": "https://cdn.reptiles.ge/species-placeholder.png",
     "gallery": [],
     "stats": [
       {
+        "label": "კვება",
+        "value": "ჭიანჭველები"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "მთელი წლის რეზიდენტი"
+      },
+      {
+        "label": "ზომა",
+        "value": "30–36 სმ"
+      },
+      {
         "label": "ჰაბიტატი",
         "value": "ტყის პირი და მდელო"
       },
       {
-        "label": "ზომა",
-        "value": "დაახლ. 30–36 სმ"
-      },
-      {
-        "label": "ადამიანის რისკი",
-        "value": "დაბალი / პირდაპირი საფრთხე არ წარმოადგენს"
-      },
-      {
-        "label": "მოპყრობა",
-        "value": "ველური ფრინველი — არ დაიჭიროთ"
+        "label": "ოჯახი",
+        "value": "Picidae"
       },
       {
         "label": "კონსერვაცია",
-        "value": "ნაკლ. საფრთხე (LC)"
-      },
-      {
-        "label": "სეზონი",
-        "value": "მთელი წელი (YR-R)"
-      },
-      {
-        "label": "ოჯახი",
-        "value": "Picidae"
+        "value": "LC"
       }
     ],
     "facts": [
@@ -10683,34 +10677,31 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "diet": "There is no separate Georgian diet study on this page. Across the range, adults take mainly seeds of grasses, cereals, and farmland weeds; they forage on the ground, often in small flocks in winter, sometimes with other buntings or finches. In the breeding season elsewhere they take invertebrates and feed chicks on insects and spiders. For a winter bird in Georgia the realistic picture is seed-feeding on farmland and open ground, not a measured local menu.",
     "behavior": "It is active by day. In winter it often feeds in loose flocks and can be fairly confiding along field edges, but it should not be handled. The diagnostic field mark in all plumages is a warm chestnut rump, contrasting with a streaked brown back; white outer tail feathers flash in flight. The male has a bright yellow head and underparts, with some dark streaking on the crown and cheeks. Females and immatures are duller and more streaked, usually with a yellowish wash on the face. The song — a run of short notes ending in a drawn-out wheeze, often remembered in English as “a little bit of bread and no cheese” — belongs to the breeding season and is not the expected cue for a winter visitor in Georgia. Winter birds still give short, sharp contact calls such as “tsick”. Nesting biology (clutches of about 3–5 eggs elsewhere) is species-level data from the breeding range; the 2024 Georgian checklist does not treat this species as a breeder in Georgia.",
     "conservation": "BirdLife International assesses Emberiza citrinella as Least Concern on the IUCN Red List (2024). The range is huge; western European farmland populations have declined with agricultural intensification, but the global decline is not fast enough for a higher threat category. It is not on Georgia’s 2014 Red List (Government Resolution No. 190). The 2024 Georgian bird checklist assigns national Red List category LC. Georgia-specific population trend and local threats have not been quantified on this page. In the EU the species is listed on Annex II of the Birds Directive (code A376); that directive does not apply in Georgia. Do not catch or keep wild birds.",
+    "interaction": "It is not a threat to people; wild birds must not be captured.",
     "stats": [
       {
-        "label": "Habitat",
-        "value": "Open farmland in winter"
+        "label": "Diet",
+        "value": "Seeds / grain"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Winter visitor"
       },
       {
         "label": "Size",
-        "value": "approx. 16–16.5 cm"
+        "value": "16–16.5 cm"
       },
       {
-        "label": "Human risk",
-        "value": "Negligible / not a direct threat"
-      },
-      {
-        "label": "Handling",
-        "value": "Wild bird — do not capture"
-      },
-      {
-        "label": "Conservation",
-        "value": "Least Concern (LC)"
-      },
-      {
-        "label": "Season",
-        "value": "Winter visitor (WV)"
+        "label": "Habitat",
+        "value": "Open country"
       },
       {
         "label": "Family",
         "value": "Emberizidae"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
       }
     ],
     "facts": [
@@ -13350,34 +13341,31 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "diet": "There is no separate Georgian diet study on this page. Across the range the main food is ants, especially Lasius and Formica, taken on the ground by probing nests and licking up adults and larvae. Other insects are taken. Occasional small vertebrates appear in species-level literature; that is not a measured Georgian menu. In the field, a large green woodpecker feeding on a lawn or meadow is behaving typically. Tree-trunk drilling for wood-boring larvae is much less the daily method than in spotted woodpeckers.",
     "behavior": "It is active by day and is often heard before it is seen. The territorial call is a loud, laughing series of notes (the “yaffle”). Drumming on wood is infrequent compared with many other woodpeckers. Flight is undulating; the yellow rump is then obvious. It is shy and should not be handled. Nesting is in a cavity excavated in a tree. Species-level clutches are about four to six eggs, with incubation of about 19–20 days; those figures are from the wider range, not a Georgian nest sample on this page. The 2024 checklist treats the species as a breeder in Georgia. Call-count work in Borjomi-Kharagauli and Pshav-Khevsureti in late April–July recorded calling birds in the breeding season. It is resident and is not a long-distance migrant.",
     "conservation": "BirdLife International assesses Picus viridis as Least Concern on the IUCN Red List. EUNIS reports Least Concern at world, Europe, and EU scales. The 2024 Georgian bird checklist assigns global and national Red List category LC. A Georgia-specific population trend is not quantified on this page. The 2022 protected-area survey is a local snapshot, not a national monitoring series. EUNIS notes coverage under the EU Birds Directive and that Picidae are listed under the Bern Convention; those instruments are not Georgia’s Red List. Do not catch or keep wild birds. Loss of old trees and of ant-rich grassland would be the biologically relevant pressures at species level; local threat ranking for Georgia is not published here.",
+    "interaction": "It is not a threat to people; wild birds must not be captured.",
     "stats": [
+      {
+        "label": "Diet",
+        "value": "Ants"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Year-round resident"
+      },
+      {
+        "label": "Size",
+        "value": "30–36 cm"
+      },
       {
         "label": "Habitat",
         "value": "Forest edge and meadows"
       },
       {
-        "label": "Size",
-        "value": "approx. 30–36 cm"
-      },
-      {
-        "label": "Human risk",
-        "value": "Negligible / not a direct threat"
-      },
-      {
-        "label": "Handling",
-        "value": "Wild bird — do not capture"
+        "label": "Family",
+        "value": "Picidae"
       },
       {
         "label": "Conservation",
-        "value": "Least Concern (LC)"
-      },
-      {
-        "label": "Season",
-        "value": "Year-round resident (YR-R)"
-      },
-      {
-        "label": "Family",
-        "value": "Picidae"
+        "value": "LC"
       }
     ],
     "facts": [

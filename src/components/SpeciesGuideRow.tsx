@@ -42,12 +42,7 @@ export function SpeciesGuideRow({
       : riskChip?.kind === "danger" && riskChip.level === "Moderate"
         ? { dot: "bg-gold", text: "text-gold" }
         : { dot: "bg-primary", text: "text-primary" };
-  const riskLabel =
-    riskChip?.kind === "danger"
-      ? tDanger(riskChip.level)
-      : riskChip?.kind === "interaction"
-        ? riskChip.value
-        : null;
+  const riskLabel = riskChip ? tDanger(riskChip.level) : null;
 
   return (
     <Link

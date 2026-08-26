@@ -70,7 +70,14 @@ export function isPlaceholderStatValue(value: string) {
   return PLACEHOLDER_STAT_VALUES.some((item) => normalized === item);
 }
 
-const VENOM_STAT_LABELS = new Set(["შხამი", "Venom"]);
+const SAFETY_STAT_LABELS = new Set([
+  "შხამი",
+  "Venom",
+  "ადამიანის რისკი",
+  "Human risk",
+  "მოპყრობა",
+  "Handling",
+]);
 
 export function filterDisplayStats(
   stats: SpeciesStat[],
@@ -80,11 +87,7 @@ export function filterDisplayStats(
     const value = stat.value.trim();
     if (!value) return false;
     if (isPlaceholderStatValue(value)) return false;
-    if (
-      group &&
-      !groupHasVenomConcept(group) &&
-      VENOM_STAT_LABELS.has(stat.label)
-    ) {
+    if (group && !groupHasVenomConcept(group) && SAFETY_STAT_LABELS.has(stat.label)) {
       return false;
     }
     return true;
@@ -93,7 +96,14 @@ export function filterDisplayStats(
 
 const SIZE_LABELS = new Set(["სიგრძე", "Length", "Size", "ზომა"]);
 const HABITAT_LABELS = new Set(["ჰაბიტატი", "Habitat"]);
-const ACTIVITY_LABELS = new Set(["აქტიურობა", "Activity", "სეზონი", "Season"]);
+const ACTIVITY_LABELS = new Set([
+  "აქტიურობა",
+  "Activity",
+  "სეზონი",
+  "Season",
+  "სტატუსი საქართველოში",
+  "Status in Georgia",
+]);
 
 function getStatByLabels(species: Species, labels: Set<string>) {
   const found = filterDisplayStats(species.stats).find((stat) =>

@@ -47,6 +47,7 @@ export type Species = {
   diet: string;
   behavior: string;
   conservation: string;
+  interaction?: string;
   danger?: DangerLevel;
   image: string;
   imageCredit?: PhotoCredit;
@@ -76,6 +77,7 @@ export type SpeciesTranslation = {
   diet: string;
   behavior: string;
   conservation: string;
+  interaction?: string;
   stats: SpeciesStat[];
   facts: string[];
   identification?: SpeciesIdentification;
