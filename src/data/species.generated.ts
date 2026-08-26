@@ -221,6 +221,30 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/bufo-verrucosissimus-mobile.jpg",
     "gallery": [
       {
+        "src": "/images/bufo-verrucosissimus-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-16"
+        }
+      },
+      {
+        "src": "/images/bufo-verrucosissimus-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-16"
+        }
+      },
+      {
+        "src": "/images/bufo-verrucosissimus-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-16"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/bufo-verrucosissimus.jpg"
       },
       {
@@ -4885,6 +4909,30 @@ export const species: Species[] = [
     },
     "gallery": [
       {
+        "src": "/images/mertensiella-caucasica-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-15"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-15"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-15"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/mertensiella-caucasica.jpg",
         "credit": {
           "photographer": "david_broek",
@@ -7860,6 +7908,30 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/vipera-kaznakovi-mobile.webp",
     "gallery": [
       {
+        "src": "/images/vipera-kaznakovi-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-17"
+        }
+      },
+      {
+        "src": "/images/vipera-kaznakovi-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-17"
+        }
+      },
+      {
+        "src": "/images/vipera-kaznakovi-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-17"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
       {
@@ -8550,7 +8622,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-27T01:00:44+04:00",
+    "updatedAt": "2026-08-27T01:02:29+04:00",
     "sources": [
       {
         "name": "Hoffmann & Sillero-Zubiri 2016 — IUCN Red List, Vulpes vulpes",
@@ -9214,6 +9286,30 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/bufo-verrucosissimus-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-16"
+        }
+      },
+      {
+        "src": "/images/bufo-verrucosissimus-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-16"
+        }
+      },
+      {
+        "src": "/images/bufo-verrucosissimus-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-16"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/bufo-verrucosissimus.jpg"
       },
@@ -12814,6 +12910,30 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/mertensiella-caucasica-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-15"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-15"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-15"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/mertensiella-caucasica.jpg",
         "credit": {
           "photographer": "david_broek",
@@ -15106,6 +15226,30 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/vipera-kaznakovi-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-17"
+        }
+      },
+      {
+        "src": "/images/vipera-kaznakovi-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-17"
+        }
+      },
+      {
+        "src": "/images/vipera-kaznakovi-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-17"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/vipera-kaznakovi.webp"
       },
