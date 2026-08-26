@@ -20,6 +20,7 @@ const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
   "turtle",
   "amphibian",
   "bird",
+  "mammal",
 ];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;

@@ -222,6 +222,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Picus viridis karelini",
     ],
   },
+  "vulpes-vulpes": {
+    ka: [
+      "ჩვეულებრივი მელა",
+      "წითელი მელა",
+      "Canis vulpes",
+      "Vulpes vulpes caucasica",
+      "Vulpes vulpes alpherakyi",
+    ],
+    en: [
+      "common fox",
+      "cross fox",
+      "silver fox",
+      "Canis vulpes",
+      "Vulpes vulpes caucasica",
+      "Vulpes vulpes alpherakyi",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

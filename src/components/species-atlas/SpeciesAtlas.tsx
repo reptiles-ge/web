@@ -45,6 +45,7 @@ const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
   "turtle",
   "amphibian",
   "bird",
+  "mammal",
 ];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
@@ -108,6 +109,7 @@ function HeroPathway({
     | "/turtles"
     | "/amphibians"
     | "/birds"
+    | "/mammals"
     | "/venomous-snakes";
   eyebrow: string;
   title: string;
@@ -259,6 +261,7 @@ export function SpeciesAtlas({
       turtle: 0,
       amphibian: 0,
       bird: 0,
+      mammal: 0,
     };
     for (const item of catalog) {
       counts[getSpeciesAtlasMeta(item.id).group] += 1;
@@ -428,6 +431,17 @@ export function SpeciesAtlas({
                       })}
                       meta={t("stats.pathwayExplore")}
                       href="/birds"
+                    />
+                  ) : null}
+                  {stats.mammals > 0 ? (
+                    <HeroPathway
+                      delay={280}
+                      eyebrow={t("groups.mammal")}
+                      title={t("stats.pathwayMammalsTitle", {
+                        count: stats.mammals,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      href="/mammals"
                     />
                   ) : null}
                   <Link
