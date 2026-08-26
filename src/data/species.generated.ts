@@ -300,7 +300,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T01:09:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5048,7 +5048,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-20T21:34:49+04:00",
+    "updatedAt": "2026-08-27T01:09:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5476,6 +5476,38 @@ export const species: Species[] = [
       "url": "https://www.inaturalist.org/observations/233706355"
     },
     "gallery": [
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-19"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-19"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-19"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-19"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus.jpg",
         "credit": {
@@ -8067,7 +8099,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-24T14:19:21+04:00",
+    "updatedAt": "2026-08-27T01:09:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -8295,6 +8327,46 @@ export const species: Species[] = [
       "url": "https://www.inaturalist.org/observations/238226101"
     },
     "gallery": [
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-5.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-18"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/vipera-transcaucasiana.jpg",
         "credit": {
@@ -13342,6 +13414,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/ommatotriton-ophryticus-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-19"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-19"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-19"
+        }
+      },
+      {
+        "src": "/images/ommatotriton-ophryticus-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-19"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus.jpg",
         "credit": {
           "photographer": "Sergey Lednev",
@@ -15530,6 +15634,46 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-18"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-zauri-5.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-18"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/vipera-transcaucasiana.jpg",
         "credit": {
