@@ -29,7 +29,7 @@ export function getSpeciesParentHub(species: Species): {
   hubId: GroupHubId;
 } {
   const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
-  if (isVenomousDanger(species.danger)) {
+  if (isVenomousDanger(species.danger) && getSpeciesAtlasMeta(species.id).group === "snake") {
     return { kind: "venomous", href: "/venomous-snakes", hubId };
   }
 
