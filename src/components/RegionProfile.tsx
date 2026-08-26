@@ -3,7 +3,7 @@
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
-import { SpeciesDanger } from "@/components/SpeciesDanger";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import {
   getRegionContent,
 } from "@/data/regionContent";

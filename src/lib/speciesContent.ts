@@ -1,3 +1,4 @@
+import { groupHasVenomConcept, type AnimalGroup } from "@/data/speciesAtlas";
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 
 const PLACEHOLDER_MEDIA = [
@@ -69,11 +70,24 @@ export function isPlaceholderStatValue(value: string) {
   return PLACEHOLDER_STAT_VALUES.some((item) => normalized === item);
 }
 
-export function filterDisplayStats(stats: SpeciesStat[]) {
+const VENOM_STAT_LABELS = new Set(["შხამი", "Venom"]);
+
+export function filterDisplayStats(
+  stats: SpeciesStat[],
+  group?: AnimalGroup,
+) {
   return stats.filter((stat) => {
     const value = stat.value.trim();
     if (!value) return false;
-    return !isPlaceholderStatValue(value);
+    if (isPlaceholderStatValue(value)) return false;
+    if (
+      group &&
+      !groupHasVenomConcept(group) &&
+      VENOM_STAT_LABELS.has(stat.label)
+    ) {
+      return false;
+    }
+    return true;
   });
 }
 

@@ -31,7 +31,7 @@ type SpeciesFrontmatter = {
   diet: string;
   behavior: string;
   conservation: string;
-  danger: DangerLevel;
+  danger?: DangerLevel;
   image: string;
   imageCredit?: PhotoCredit;
   mobileImage?: string;
@@ -106,7 +106,7 @@ function readSpeciesMdx(
     diet: fm.diet,
     behavior: fm.behavior,
     conservation: fm.conservation,
-    danger: fm.danger,
+    ...(fm.danger ? { danger: fm.danger } : {}),
     image: fm.image,
     ...(fm.imageCredit ? { imageCredit: fm.imageCredit } : {}),
     ...(fm.mobileImage ? { mobileImage: fm.mobileImage } : {}),

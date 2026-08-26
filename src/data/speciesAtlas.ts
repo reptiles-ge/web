@@ -312,8 +312,17 @@ export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
   );
 }
 
-export function isVenomousDanger(danger: DangerLevel) {
+export function isVenomousDanger(danger?: DangerLevel) {
   return danger === "High" || danger === "Moderate";
+}
+
+export function groupHasVenomConcept(group: AnimalGroup) {
+  return (
+    group === "snake" ||
+    group === "lizard" ||
+    group === "turtle" ||
+    group === "amphibian"
+  );
 }
 
 const venomousDangerOrder: Record<DangerLevel, number> = {
@@ -329,7 +338,8 @@ export function getVenomousCatalogSpecies(
     .filter((item) => isVenomousDanger(item.danger))
     .sort(
       (a, b) =>
-        venomousDangerOrder[a.danger] - venomousDangerOrder[b.danger] ||
+        venomousDangerOrder[a.danger ?? "Harmless"] -
+          venomousDangerOrder[b.danger ?? "Harmless"] ||
         a.scientificName.localeCompare(b.scientificName),
     );
 }
@@ -452,11 +462,16 @@ export function filterAtlasSpecies(
       return false;
     }
 
-    if (filters.danger === "venomous" && !isVenomousDanger(item.danger)) {
-      return false;
-    }
-    if (filters.danger === "harmless" && isVenomousDanger(item.danger)) {
-      return false;
+    if (filters.danger !== "all") {
+      if (!groupHasVenomConcept(meta.group)) {
+        return false;
+      }
+      if (filters.danger === "venomous" && !isVenomousDanger(item.danger)) {
+        return false;
+      }
+      if (filters.danger === "harmless" && isVenomousDanger(item.danger)) {
+        return false;
+      }
     }
 
     if (filters.habitat !== "all" && !meta.habitats.includes(filters.habitat)) {

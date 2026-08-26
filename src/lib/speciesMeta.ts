@@ -4,7 +4,7 @@ import { isVenomousDanger } from "@/data/speciesAtlas";
 
 export function speciesTitleIntentKey(
   group: AnimalGroup,
-  danger: DangerLevel,
+  danger?: DangerLevel,
 ):
   | "titleSnakeVenomous"
   | "titleSnake"

@@ -1,19 +1,27 @@
 "use client";
 
-import type { DangerLevel } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import type { DangerLevel, Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { dangerPageHref } from "@/lib/dangerLevels";
+import {
+  getSpeciesRiskChip,
+  usesDangerScale,
+} from "@/lib/speciesRisk";
 import { Shield } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 type SpeciesDangerProps = {
-  level: DangerLevel;
+  level?: DangerLevel;
   variant?: "hero" | "card";
   linked?: boolean;
+  label?: string;
+  value?: string;
+  linkToDangerPage?: boolean;
 };
 
-function levelTone(level: DangerLevel) {
+function levelTone(level?: DangerLevel) {
   switch (level) {
     case "High":
       return {
@@ -47,14 +55,14 @@ function DangerShell({
   children,
 }: {
   linked: boolean;
-  level: DangerLevel;
+  level?: DangerLevel;
   label: string;
   value: string;
   children: ReactNode;
 }) {
   const tDanger = useTranslations("danger");
 
-  if (!linked) {
+  if (!linked || !level) {
     return children;
   }
 
@@ -73,17 +81,22 @@ export function SpeciesDanger({
   level,
   variant = "hero",
   linked = false,
+  label: labelOverride,
+  value: valueOverride,
+  linkToDangerPage = true,
 }: SpeciesDangerProps) {
   const tCard = useTranslations("card");
   const tDanger = useTranslations("danger");
   const tone = levelTone(level);
-  const label = tCard("dangerLevel");
-  const value = tDanger(level);
+  const label = labelOverride ?? tCard("dangerLevel");
+  const value = valueOverride ?? (level ? tDanger(level) : "");
+
+  if (!value) return null;
 
   if (variant === "card") {
     return (
       <DangerShell
-        linked={linked}
+        linked={linked && linkToDangerPage}
         level={level}
         label={label}
         value={value}
@@ -105,10 +118,15 @@ export function SpeciesDanger({
   }
 
   return (
-    <DangerShell linked={linked} level={level} label={label} value={value}>
+    <DangerShell
+      linked={linked && linkToDangerPage}
+      level={level}
+      label={label}
+      value={value}
+    >
       <span
         className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 backdrop-blur-md"
-        title={linked ? undefined : `${label}: ${value}`}
+        title={linked && linkToDangerPage ? undefined : `${label}: ${value}`}
       >
         <Shield className="size-3.5 text-white/45" aria-hidden="true" />
         <span className="text-[11px] tracking-[0.14em] text-white/45">{label}</span>
@@ -119,5 +137,40 @@ export function SpeciesDanger({
         </span>
       </span>
     </DangerShell>
+  );
+}
+
+export function SpeciesRiskChip({
+  species,
+  variant = "hero",
+  linked = false,
+}: {
+  species: Species;
+  variant?: "hero" | "card";
+  linked?: boolean;
+}) {
+  const group = getSpeciesAtlasMeta(species.id).group;
+  const chip = getSpeciesRiskChip(species, group);
+  if (!chip) return null;
+
+  if (chip.kind === "danger") {
+    return (
+      <SpeciesDanger
+        level={chip.level}
+        variant={variant}
+        linked={linked && usesDangerScale(group)}
+        linkToDangerPage={usesDangerScale(group)}
+      />
+    );
+  }
+
+  return (
+    <SpeciesDanger
+      variant={variant}
+      label={chip.label}
+      value={chip.value}
+      linked={false}
+      linkToDangerPage={false}
+    />
   );
 }
