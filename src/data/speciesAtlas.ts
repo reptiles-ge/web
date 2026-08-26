@@ -358,6 +358,7 @@ export function getCatalogByDanger(
   };
 
   for (const item of catalog) {
+    if (!item.danger) continue;
     groups[item.danger].push(item);
   }
 
