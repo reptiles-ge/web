@@ -4,11 +4,15 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { SpeciesDanger, SpeciesRiskChip } from "@/components/SpeciesDanger";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesSources } from "@/components/SpeciesSources";
+import {
+  resolvePhotoCredit,
+  type Species,
+} from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { usesDangerScale } from "@/lib/speciesRisk";
 import { localizeSpecies } from "@/i18n/localizeSpecies";

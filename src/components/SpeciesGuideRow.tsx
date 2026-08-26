@@ -5,7 +5,8 @@ import {
   getRegionsForSpecies,
   localizeRegionText,
 } from "@/data/regions";
-import type { Species } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesImageAlt } from "@/lib/speciesMeta";
