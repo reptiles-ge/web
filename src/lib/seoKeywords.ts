@@ -62,8 +62,12 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["European glass lizard", "sheltopusik"],
   },
   "platyceps-najadum": {
-    ka: ["წენგოსფერი მცურავი"],
-    en: ["Dahl's whip snake"],
+    ka: ["წენგოსფერი მცურავი", "Coluber najadum"],
+    en: [
+      "Dahl's whip snake",
+      "slender whip snake",
+      "Coluber najadum",
+    ],
   },
   "hemorrhois-ravergieri": {
     ka: [
@@ -97,8 +101,13 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["steppe ratsnake"],
   },
   "telescopus-fallax": {
-    ka: ["კატისთვალა"],
-    en: ["European cat snake"],
+    ka: ["კატისთვალა", "Tarbophis fallax", "Telescopus fallax iberus"],
+    en: [
+      "European cat snake",
+      "Mediterranean cat snake",
+      "Tarbophis fallax",
+      "Telescopus fallax iberus",
+    ],
   },
   "zamenis-longissimus": {
     ka: ["ესკულაპის მცურავი", "გრძელი მცურავი"],
