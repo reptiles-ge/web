@@ -5506,6 +5506,13 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/paralaudakia-caucasia-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "2026-08-22"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-2.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
@@ -7209,6 +7216,13 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/vipera-dinniki-truso-2.jpg",
+        "credit": {
+          "location": "თრუსოს ხეობა",
+          "date": "2026-08-25"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/vipera-dinnik-6.webp"
       },
       {
@@ -7698,7 +7712,7 @@ export const species: Species[] = [
     "location": "მცირე კავკასიონი",
     "description": "საქართველოს ცხვირრქოსანი გველგესლა — შხამიანი გველი მცირე კავკასიონის მშრალ, კლდოვან ფერდობებზე და არა შავი ზღვის სანაპიროზე.",
     "overview": "ცხვირრქოსანი გველგესლა (Vipera ammodytes) გველგესლასებრთა ოჯახის შხამიანი გველია. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. კავკასიის ინდივიდები ქვესახეობას V. a. transcaucasiana მიეკუთვნება; ტიპის ადგილია ბორჯომი. ძველ წიგნებში და ზოგ ბაზაში სრულ სახეობად რჩება Vipera transcaucasiana. მთელ საქართველოში არ გვხვდება. ეძებეთ მშრალ, კლდოვან ადგილზე მცირე კავკასიონში — მესხეთი, თრიალეთი, მტკვრის ზემო დინება — არა ნოტიო კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. ამ ფორმის ზრდასრული ჩვეულებრივ 75 სმ-ს არ აღემატება. ნაკბენი სამედიცინოდ მნიშვნელოვანია. IUCN-ით გაყოფილი სახელი V. transcaucasiana ახლოსაა საფრთხესთან (Near Threatened); საქართველოს 2014 წლის წითელ ნუსხაში ეს ტაქსონი არ არის.",
-    "habitat": "ეძებეთ მშრალ, კლდოვან ფერდობზე მეჩხერი მცენარეულობით — ქვაზე, ბუჩქნარში, ტყის პირას, ქვის ღობესა და ვენახში. ქართული გველების გავრცელების კვლევა მას შედარებით მშრალი, კლდოვანი ან ბალახოვანი ადგილების სახეობებს მიაკუთვნებს, ძირითადად აღმოსავლეთში. ამ ატლასის რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი და თბილისი. დასახელებული ქართული ადგილებია ბორჯომის ტიპის სერია, შტრიხკოდირებული ინდივიდები გომაროდან (ადიგენი) და თაშისკარიდან, და 2026 წლის ჩამონათვალში ცოცხალი ნიმუში გორიდან. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა არეალს მცირე კავკასიონის მთებად აჯამებს — თბილისის მიდამოებიდან შუახევამდე, აჭარის მთიანეთში. ტრადიციული რეგიონული აღწერა მტკვრის ზემო დინებას ახალქალაქისკენაც აგრძელებს; ეს დასავლეთ ჯავახეთის ზღვარი ამ გვერდზე წერტილ-წერტილ არ არის თავიდან დადასტურებული. კავკასიური გველგესლასავით შავი ზღვის სანაპიროს სახეობა არ არის. ლიტერატურაში ზედა სიმაღლე ხშირად დაახლოებით 1,700 მ-ია; საქართველოში ზღვის დონის არეალი აქ არ არის დადგენილი. არეალი გრძელდება ჩრდილოეთ ანატოლიაში. სომხეთის, აზერბაიჯანისა და ირანის ჩანაწერები სადავოა და ამ ატლასში ქართულ არეალად არ ითვლება.",
+    "habitat": "ეძებეთ მშრალ, კლდოვან ფერდობზე მეჩხერი მცენარეულობით — ქვაზე, ბუჩქნარში, ტყის პირას, ქვის ღობესა და ვენახში. ქართული გველების გავრცელების კვლევა მას შედარებით მშრალი, კლდოვანი ან ბალახოვანი ადგილების სახეობებს მიაკუთვნებს, ძირითადად აღმოსავლეთში. ამ ატლასის რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი, თბილისი და მცხეთა — მთიანეთი. დასახელებული ქართული ადგილებია ბორჯომის ტიპის სერია, შტრიხკოდირებული ინდივიდები გომაროდან (ადიგენი) და თაშისკარიდან, 2026 წლის ჩამონათვალში ცოცხალი ნიმუში გორიდან, და 2026 წლის აგვისტოს ფოტო დაკვირვება ძეგვიდან. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა არეალს მცირე კავკასიონის მთებად აჯამებს — თბილისის მიდამოებიდან შუახევამდე, აჭარის მთიანეთში. ტრადიციული რეგიონული აღწერა მტკვრის ზემო დინებას ახალქალაქისკენაც აგრძელებს; ეს დასავლეთ ჯავახეთის ზღვარი ამ გვერდზე წერტილ-წერტილ არ არის თავიდან დადასტურებული. კავკასიური გველგესლასავით შავი ზღვის სანაპიროს სახეობა არ არის. ლიტერატურაში ზედა სიმაღლე ხშირად დაახლოებით 1,700 მ-ია; საქართველოში ზღვის დონის არეალი აქ არ არის დადგენილი. არეალი გრძელდება ჩრდილოეთ ანატოლიაში. სომხეთის, აზერბაიჯანისა და ირანის ჩანაწერები სადავოა და ამ ატლასში ქართულ არეალად არ ითვლება.",
     "diet": "ზრდასრული იჭერს ხვლიკებსა და წვრილ ძუძუმწოვრებს; პატარა ფრინველი იშვიათად ფიქსირდება. ახალგაზრდა ძირითადად წვრილ ხვლიკზე ნადირობს. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია ცხვირრქოსანი გველგესლადან.",
     "behavior": "აქტიურია თბილ სეზონზე. გრილ გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში აქტივობა საღამოსა და ღამის დასაწყისზე გადადის. იზამთრებს კლდის ნაპრალსა და ქვის ქვეშ. ცოცხლადმშობია (კვერცხები დედის სხეულში იზრდება და ნაშიერი ცოცხალი იბადება). შეწყვილება გაზაფხულზეა; ნაშიერი იბადება ზაფხულის ბოლოს ან შემოდგომის დასაწყისში. ნაშიერთა რიცხვი ცალკე ქართულ კვლევაში არ არის გაზომილი; ბალკანური მუზეუმის ნიმუშებში ამ სახეობის საშუალო დაახლოებით ცხრაა (დაახლ. 5–17). თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს. მტკვრის შუა დინების ხეობაში კავკასიურ გველგესლასთან ვიწრო კონტაქტის ზონაა; იქ იშვიათად ჩნდება შუალედური ინდივიდი (ძველი სახელი Vipera pontica). ასეთ გველს ცხვირი აწეული შეიძლება ჰქონდეს, მაგრამ ნამდვილი რქა — არა.",
     "conservation": "IUCN-ის 2009 წლის შეფასებით (2017 წლის errata) Vipera transcaucasiana ახლოსაა საფრთხესთან (Near Threatened). ეს სახელი გაყოფილ კავკასიურ ტაქსონს ეხება. თუ ცხოველებს V. ammodytes-ად განვიხილავთ, სახეობა მთლიანად ევროპაში გაცილებით ფართოდაა გავრცელებული. საქართველოს 2014 წლის წითელ ნუსხაში შეტანილია დინიკის და კავკასიური გველგესლა — ეს ტაქსონი არა. ძველ სსრკ-ისა და საქართველოს წითელ წიგნებში იყო; ეს 2014 წლის ნუსხას არ ემთხვევა. ბერნის კონვენცია V. ammodytes-ს განსაკუთრებული დაცვის სახეობებში ასახელებს. საფრთხეა კლდოვანი ფერდობის გარდაქმნა, სოფლის მეურნეობა და ადამიანის მიერ მოკვლა. საქართველოში პოპულაციები იშვიათად და ფრაგმენტირებულად არის აღწერილი. 2026 წლის ჩამონათვალი ქართულ ინდივიდებს კონსერვატიულად ქვესახეობად ტოვებს: ზოგი გენომური კვლევა მათ სამხრეთ ბალკანურ ხაზთან უფრო აახლოებს, მაგრამ ავტორები ცალკე სახეობად არ აყენებენ.",
@@ -7719,6 +7733,13 @@ export const species: Species[] = [
         "credit": {
           "photographer": "Vojtěch Víta",
           "url": "https://www.inaturalist.org/observations/238226101"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-dzegvi.jpg",
+        "credit": {
+          "location": "ძეგვი",
+          "date": "2026-08-25"
         }
       },
       {
@@ -7807,7 +7828,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "მცირე კავკასიონის მშრალ, კლდოვან ადგილზე — მესხეთი, თრიალეთი, მტკვრის ზემო დინება და აჭარის მთიანეთი შუახევისკენ. რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი და თბილისი. კოლხური სანაპიროს სახეობა არ არის."
+        "answer": "მცირე კავკასიონის მშრალ, კლდოვან ადგილზე — მესხეთი, თრიალეთი, მტკვრის ზემო დინება და აჭარის მთიანეთი შუახევისკენ.       რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი, თბილისი და მცხეთა — მთიანეთი. კოლხური სანაპიროს სახეობა არ არის."
       },
       {
         "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
@@ -12533,6 +12554,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
+        "src": "/images/paralaudakia-caucasia-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "2026-08-22"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-2.jpg",
         "credit": {
           "photographer": "Kseniia Marianna Prondzynska",
@@ -13907,6 +13935,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
+        "src": "/images/vipera-dinniki-truso-2.jpg",
+        "credit": {
+          "location": "Truso Valley",
+          "date": "2026-08-25"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/vipera-dinnik-6.webp"
       },
       {
@@ -14214,7 +14249,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Lesser Caucasus",
     "description": "Georgia’s nose-horned viper — a venomous snake of dry rocky slopes in the Lesser Caucasus, not the Black Sea coast.",
     "overview": "The nose-horned viper (Vipera ammodytes) is a venomous snake of the viper family. The 2026 Georgian checklist treats it as biologically confirmed. Caucasian animals belong to the subspecies V. a. transcaucasiana, described from Borjomi. Older books and some databases still use Vipera transcaucasiana as a full species. It does not occur throughout Georgia. Look for it on dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin — not in humid Colchic forest and not in the Greater Caucasus highlands. Adults of this form usually stay under about 75 cm. A bite is medically significant. IUCN still lists the split name V. transcaucasiana as Near Threatened; Georgia’s 2014 Red List does not include this taxon.",
-    "habitat": "Look for it on dry, rocky slopes with sparse vegetation — stone, scrub, forest edges, stone walls and vineyards. A Georgian snake-distribution study places it among species of reasonably dry, rocky or grassland country, mostly in the east. This atlas maps Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli and Tbilisi. Named Georgian localities include the type series from Borjomi, barcoded animals from Gomaro (Adigeni) and Tashiskari, and a live specimen from Gori in the 2026 checklist. A biodiversity map of the South Caucasus summarises the range as Lesser Caucasus mountains from the Tbilisi area to Shuakhevi in highland Adjara. Traditional regional accounts also take the upper Mtkvari towards Akhalkalaki; that western Javakheti limit is not re-mapped locality by locality on this page. It is not a Black Sea coastal snake like the Caucasus viper. Literature often gives an upper elevation of about 1,700 m; a sea-level range inside Georgia is not established here. The range continues into northern Anatolia. Records from Armenia, Azerbaijan or Iran are disputed and are not treated as confirmed Georgian range.",
+    "habitat": "Look for it on dry, rocky slopes with sparse vegetation — stone, scrub, forest edges, stone walls and vineyards. A Georgian snake-distribution study places it among species of reasonably dry, rocky or grassland country, mostly in the east. This atlas maps Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, Tbilisi and Mtskheta — Mtianeti. Named Georgian localities include the type series from Borjomi, barcoded animals from Gomaro (Adigeni) and Tashiskari, a live specimen from Gori in the 2026 checklist, and an August 2026 photo record from Dzegvi. A biodiversity map of the South Caucasus summarises the range as Lesser Caucasus mountains from the Tbilisi area to Shuakhevi in highland Adjara. Traditional regional accounts also take the upper Mtkvari towards Akhalkalaki; that western Javakheti limit is not re-mapped locality by locality on this page. It is not a Black Sea coastal snake like the Caucasus viper. Literature often gives an upper elevation of about 1,700 m; a sea-level range inside Georgia is not established here. The range continues into northern Anatolia. Records from Armenia, Azerbaijan or Iran are disputed and are not treated as confirmed Georgian range.",
     "diet": "Adults take lizards and small mammals; small birds are recorded less often. Juveniles hunt mainly small lizards. It hunts by ambush and subdues prey with venom. There is no separate Georgian diet study on this page; these are species-level data from the nose-horned viper.",
     "behavior": "It is active in the warm season. In cool spring and autumn weather it often moves by day; in summer heat activity shifts to evening and early night. It overwinters in rock crevices and under stones. It gives live birth (eggs develop inside the female; the young are born alive). Mating is in spring; young are born in late summer or early autumn. Litter size has not been measured in a dedicated Georgian study; Balkan museum samples of this species average about nine young (about 5–17). If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people. In the middle Mtkvari valley a narrow contact zone with the Caucasus viper produces rare intermediate animals (the old name Vipera pontica). Those snakes may have an upturned snout but no true horn.",
     "conservation": "IUCN’s 2009 assessment (2017 errata) lists Vipera transcaucasiana as Near Threatened. That name is the split Caucasian taxon. If the animals are treated as V. ammodytes, the species as a whole is much more widespread in Europe. Georgia’s 2014 Red List includes Dinnik’s viper and the Caucasus viper, not this taxon. Older USSR and Georgian Red Books did list it; that does not match the 2014 list. The Bern Convention lists V. ammodytes among species needing special protection. Threats include conversion of rocky slopes, agriculture and killing by people. Populations are described as scarce and fragmented in Georgia. The 2026 checklist keeps a conservative subspecies rank for Georgian animals: some genomic work links them more closely to southern Balkan lineages, but the authors do not elevate them to a separate species.",
@@ -14262,7 +14297,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can it be found in Georgia?",
-        "answer": "On dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin, and highland Adjara towards Shuakhevi. The map marks Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli and Tbilisi. It is not a Colchic coastal species."
+        "answer": "On dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin, and highland Adjara towards Shuakhevi. The map marks Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, Tbilisi and Mtskheta — Mtianeti. It is not a Colchic coastal species."
       },
       {
         "question": "Is it venomous and dangerous to humans?",
@@ -14295,6 +14330,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Vojtěch Víta",
           "url": "https://www.inaturalist.org/observations/238226101"
+        }
+      },
+      {
+        "src": "/images/vipera-transcaucasiana-dzegvi.jpg",
+        "credit": {
+          "location": "Dzegvi",
+          "date": "2026-08-25"
         }
       },
       {
