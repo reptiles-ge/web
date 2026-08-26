@@ -6274,17 +6274,39 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია და ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიული ხმა ხმამაღალი, სიცილის მსგავსი ნოტების რიგია. ხეზე დაკვრა (დრამი) სხვა კოდალებთან შედარებით იშვიათია. ფრენა ტალღოვანია; მაშინ ყვითელი კუდზედა კარგად ჩანს. ფრთხილია და არ აიყვანოთ. ბუდობს ხეში ამოთხრილ ფუღუროში. სახეობის დონეზე ნაყარი დაახლოებით ოთხიდან ექვსამდე კვერცხია, ინკუბაცია დაახლოებით 19–20 დღე; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად იღებს. ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში 2022 წლის გამოძახების აღწერებმა აპრილის ბოლოდან ივლისამდე მობუდარი სეზონის ხმები დააფიქსირეს. რეზიდენტია და შორ მანძილზე მიგრანტი არ არის.",
     "conservation": "BirdLife International Picus viridis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS მსოფლიოს, ევროპისა და ევროკავშირის მასშტაბით Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. 2022 წლის დაცული ტერიტორიების აღწერა ადგილობრივი სურათია და არა ეროვნული მონიტორინგის სერია. EUNIS აღნიშნავს ევროკავშირის ფრინველების დირექტივას და ბერნის კონვენციაში Picidae-ს შეტანას; ეს საქართველოს წითელი ნუსხა არ არის. ველური ფრინველი არ დაიჭიროთ. ძველი ხეების და ჭიანჭველებით მდიდარი მდელოს კარგვა სახეობის დონეზე ბიოლოგიურად რელევანტური წნეხია; საქართველოსთვის ადგილობრივი საფრთხის რანგირება აქ არ არის გამოქვეყნებული.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/picus-viridis-zauri-1.jpg",
+    "image": "/images/picus-viridis-sharp-male.jpg",
     "imageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-13"
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
+      "location": "კიუ",
+      "date": "2014-07-26"
     },
-    "mobileImage": "/images/picus-viridis-zauri-2.jpg",
+    "mobileImage": "/images/picus-viridis-sharp-female.jpg",
     "mobileImageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-13"
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
+      "location": "ლონდონი",
+      "date": "2015-04-21"
     },
     "gallery": [
+      {
+        "src": "/images/picus-viridis-sharp-male.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
+          "location": "კიუ",
+          "date": "2014-07-26"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-sharp-female.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
+          "location": "ლონდონი",
+          "date": "2015-04-21"
+        }
+      },
       {
         "src": "/images/picus-viridis-zauri-1.jpg",
         "credit": {
@@ -6297,6 +6319,33 @@ export const species: Species[] = [
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-13"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-lours-1.jpg",
+        "credit": {
+          "photographer": "Alexis Lours",
+          "url": "https://commons.wikimedia.org/wiki/File:Green_woodpecker_Franconville_2022_01_21_1.jpg",
+          "location": "ფრანკონვილი",
+          "date": "2022-01-21"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-mannweiler-1.jpg",
+        "credit": {
+          "photographer": "Simon Mannweiler",
+          "url": "https://commons.wikimedia.org/wiki/File:Picus_viridis_(Gr%C3%BCnspecht)_2023-07-01_01.jpg",
+          "location": "ზაარლანდი",
+          "date": "2023-07-01"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-skot-1.jpg",
+        "credit": {
+          "photographer": "Skot",
+          "url": "https://commons.wikimedia.org/wiki/File:%C5%BDluna_zelen%C3%A1_(Picus_viridis)_-_samice,_Praha,_vrch_T%C5%99e%C5%A1%C5%88ovka.jpg",
+          "location": "პრაღა",
+          "date": "2024-06-30"
         }
       }
     ],
@@ -6416,6 +6465,26 @@ export const species: Species[] = [
       {
         "name": "Winkler & Christie 2020 — Birds of the World (Picus viridis)",
         "url": "https://birdsoftheworld.org/bow/species/eugwoo2/cur/introduction"
+      },
+      {
+        "name": "Wikimedia Commons — European green woodpecker male (Charles J. Sharp, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG"
+      },
+      {
+        "name": "Wikimedia Commons — European green woodpecker female (Charles J. Sharp, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Green woodpecker Franconville (Alexis Lours, CC BY 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Green_woodpecker_Franconville_2022_01_21_1.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Picus viridis Grünspecht (Simon Mannweiler, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Picus_viridis_(Gr%C3%BCnspecht)_2023-07-01_01.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Žluna zelená, Praha (Skot, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:%C5%BDluna_zelen%C3%A1_(Picus_viridis)_-_samice,_Praha,_vrch_T%C5%99e%C5%A1%C5%88ovka.jpg"
       }
     ]
   },
@@ -13572,6 +13641,24 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/picus-viridis-sharp-male.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
+          "location": "Kew Gardens",
+          "date": "2014-07-26"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-sharp-female.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
+          "location": "London",
+          "date": "2015-04-21"
+        }
+      },
+      {
         "src": "/images/picus-viridis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
@@ -13584,15 +13671,46 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-13"
         }
+      },
+      {
+        "src": "/images/picus-viridis-lours-1.jpg",
+        "credit": {
+          "photographer": "Alexis Lours",
+          "url": "https://commons.wikimedia.org/wiki/File:Green_woodpecker_Franconville_2022_01_21_1.jpg",
+          "location": "Franconville",
+          "date": "2022-01-21"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-mannweiler-1.jpg",
+        "credit": {
+          "photographer": "Simon Mannweiler",
+          "url": "https://commons.wikimedia.org/wiki/File:Picus_viridis_(Gr%C3%BCnspecht)_2023-07-01_01.jpg",
+          "location": "Saarland",
+          "date": "2023-07-01"
+        }
+      },
+      {
+        "src": "/images/picus-viridis-skot-1.jpg",
+        "credit": {
+          "photographer": "Skot",
+          "url": "https://commons.wikimedia.org/wiki/File:%C5%BDluna_zelen%C3%A1_(Picus_viridis)_-_samice,_Praha,_vrch_T%C5%99e%C5%A1%C5%88ovka.jpg",
+          "location": "Prague",
+          "date": "2024-06-30"
+        }
       }
     ],
     "imageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-13"
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
+      "location": "Kew Gardens",
+      "date": "2014-07-26"
     },
     "mobileImageCredit": {
-      "photographer": "ზაური ხაჩიძე",
-      "date": "2015-05-13"
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
+      "location": "London",
+      "date": "2015-04-21"
     }
   },
   "platyceps-najadum": {
