@@ -19,6 +19,8 @@ const exploreLinks = [
   { href: "/lizards" as const, labelKey: "lizards" as const },
   { href: "/turtles" as const, labelKey: "turtles" as const },
   { href: "/amphibians" as const, labelKey: "amphibians" as const },
+  { href: "/birds" as const, labelKey: "birds" as const },
+  { href: "/mammals" as const, labelKey: "mammals" as const },
   { href: "/regions" as const, labelKey: "regions" as const },
 ];
 

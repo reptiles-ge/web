@@ -10,6 +10,8 @@
     "lizards": "Lizards",
     "turtles": "Turtles",
     "amphibians": "Amphibians",
+    "birds": "Birds",
+    "mammals": "Mammals",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -155,6 +157,8 @@
         "lizards": "Lizards in Georgia",
         "turtles": "Turtles in Georgia",
         "amphibians": "Amphibians in Georgia",
+        "birds": "Birds in Georgia",
+        "mammals": "Mammals in Georgia",
         "identify": "Identify a venomous snake",
         "bite": "Snakebite first steps",
         "lizardIdentify": "Identify a lizard",
@@ -187,6 +191,8 @@
     "lizards": "Lizards",
     "turtles": "Turtles",
     "amphibians": "Amphibians",
+    "birds": "Birds",
+    "mammals": "Mammals",
     "frogs": "Frogs",
     "newts": "Newts",
     "snakeIndex": "Snake species",
@@ -217,12 +223,18 @@
     "behavior": "Behavior",
     "conservation": "Conservation",
     "habitat": "Habitat and range",
+    "interaction": "Human interaction",
     "readMore": "Read more",
     "readLess": "Show less",
     "facts": "Interesting facts",
     "factsTitle": "What you should know",
     "identification": "Identification",
     "identificationTitle": "How to identify {name}",
+    "voice": "Voice",
+    "voiceTitle": "Listen to the voice",
+    "voicePlay": "Play",
+    "voicePause": "Pause",
+    "voiceCredit": "Recording:",
     "gallery": "Gallery",
     "galleryTitle": "in photos",
     "photo": "Photo",
@@ -500,8 +512,10 @@
       "snakes": "Snakes in Georgia",
       "lizards": "Lizards in Georgia",
       "turtles": "Turtles in Georgia",
-      "amphibians": "Amphibians in Georgia",
-      "venomous": "Venomous snakes in Georgia"
+        "amphibians": "Amphibians in Georgia",
+        "birds": "Birds in Georgia",
+        "mammals": "Mammals in Georgia",
+        "venomous": "Venomous snakes in Georgia"
     }
   },
   "site": {
@@ -542,6 +556,8 @@
     "titleLizard": "range and identification in Georgia",
     "titleTurtle": "range and identification in Georgia",
     "titleAmphibian": "range and identification in Georgia",
+    "titleBird": "range and identification in Georgia",
+    "titleMammal": "range and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionDefault": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus."
   },
@@ -573,6 +589,8 @@
       "pathwayLizardsTitle": "{count} lizards",
       "pathwayTurtlesTitle": "{count} turtles",
       "pathwayAmphibiansTitle": "{count} amphibians",
+      "pathwayBirdsTitle": "{count} birds",
+      "pathwayMammalsTitle": "{count} mammals",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
       "expandingNote": "Turtles and amphibians are full categories — with the same depth, maps, and photography."
@@ -604,7 +622,9 @@
       "snake": "Snakes",
       "lizard": "Lizards",
       "turtle": "Turtles",
-      "amphibian": "Amphibians"
+      "amphibian": "Amphibians",
+      "bird": "Birds",
+      "mammal": "Mammals"
     },
     "danger": {
       "all": "All",
@@ -756,7 +776,9 @@
       "snakes": "Snakes in Georgia",
       "lizards": "Lizards in Georgia",
       "turtles": "Turtles",
-      "amphibians": "Amphibians"
+      "amphibians": "Amphibians",
+      "birds": "Birds in Georgia",
+      "mammals": "Mammals in Georgia"
     },
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
@@ -928,6 +950,18 @@
         "title": "Newts and salamanders",
         "body": "Caucasian salamander and three newts. Endemism only when a profile sources it.",
         "cta": "Newts"
+      },
+      "birdsHub": {
+        "eyebrow": "Birds",
+        "title": "Birds in Georgia",
+        "body": "The first bird profiles in the atlas — species pages, not a full avifauna list.",
+        "cta": "Birds"
+      },
+      "mammalsHub": {
+        "eyebrow": "Mammals",
+        "title": "Mammals in Georgia",
+        "body": "The first mammal profiles in the atlas — species pages, not a full mammal list.",
+        "cta": "Mammals"
       }
     }
   },
@@ -1127,6 +1161,92 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From amphibian list to profile",
     "ctaBody": "Open a species or return to the reptile guides — snakes, lizards, turtles."
+  },
+  "birds": {
+    "metaTitle": "Birds in Georgia — species profiles",
+    "metaDescription": "Birds of Georgia on reptiles.ge: field-guide profiles with identification, seasonality, and sources. Current species include yellowhammer and European green woodpecker.",
+    "keywords": "birds in Georgia, Georgia birds, European green woodpecker, Picus viridis, yellowhammer, Emberiza citrinella, მწვანე კოდალა",
+    "breadcrumbCurrent": "Birds",
+    "heroImageAlt": "Open farmland habitat used by wintering buntings in Georgia",
+    "title": "Birds in Georgia",
+    "subtitle": "Species profiles for Georgian birds, starting with confirmed checklist taxa — not a complete national bird list.",
+    "ctaSpecies": "See the species",
+    "statSpecies": "Birds in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Current focus",
+    "statExtraValue": "Buntings and woodpeckers",
+    "guideEyebrow": "Guide",
+    "guideTitle": "Birds in the nature atlas",
+    "guideP1": "Reptiles.ge is adding bird profiles using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
+    "guideP2": "The 2024 annotated checklist of the birds of Georgia (Budagashvili & Javakhishvili) is the country-status source used here. This hub is not a substitute for that full list of 400+ species.",
+    "speciesEyebrow": "Catalog",
+    "speciesTitle": "{count} birds in the atlas",
+    "speciesBody": "Each profile states whether the species is a resident, migrant, or winter visitor in Georgia — and what remains unmapped.",
+    "section": {
+      "all": {
+        "title": "Birds — {count}",
+        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+      }
+    },
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask about birds here",
+    "faqIntro": "Short answers — depth lives on profiles.",
+    "faq1Q": "Does this site cover all Georgian birds?",
+    "faq1A": "No. This hub publishes individual species pages as they are written. The 2024 national checklist is the reference for the full avifauna.",
+    "faq2Q": "Which bird is in the atlas now?",
+    "faq2A": "Two profiles so far: yellowhammer (Emberiza citrinella), a winter visitor; and European green woodpecker (Picus viridis), a year-round resident.",
+    "faq3Q": "Why are birds on a reptiles website?",
+    "faq3A": "The site is expanding into a Georgian nature atlas. Bird pages use the same structure as reptiles and amphibians.",
+    "faq4Q": "Are regional maps shown for birds?",
+    "faq4A": "Only when a profile has named regional records. The yellowhammer and green woodpecker pages do not colour the administrative map: the checklist confirms country status, not a complete region list.",
+    "faq5Q": "Should I handle wild birds?",
+    "faq5A": "No. Identify them by sight and sound. Do not catch or keep wild birds.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From bird list to profile",
+    "ctaBody": "Open a species, or continue in the reptile and amphibian guides."
+  },
+  "mammals": {
+    "metaTitle": "Mammals in Georgia — species profiles",
+    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources. Current species include the red fox (Vulpes vulpes) and the least weasel (Mustela nivalis).",
+    "keywords": "mammals in Georgia, Georgia mammals, red fox, least weasel, Vulpes vulpes, Mustela nivalis, მელა, დედოფალა, fox Georgia, weasel Georgia",
+    "breadcrumbCurrent": "Mammals",
+    "heroImageAlt": "Red fox at a woodland edge, with reddish fur and a bushy tail",
+    "title": "Mammals in Georgia",
+    "subtitle": "Species profiles for Georgian mammals, starting with documented checklist taxa — not a complete national mammal list.",
+    "ctaSpecies": "See the species",
+    "statSpecies": "Mammals in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Current focus",
+    "statExtraValue": "Canids and mustelids",
+    "guideEyebrow": "Guide",
+    "guideTitle": "Mammals in the nature atlas",
+    "guideP1": "Reptiles.ge is adding mammal profiles using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
+    "guideP2": "Country occurrence here rests on national mammal lists, IUCN, and hunting documents. This hub is not a substitute for a full list of 100+ species.",
+    "speciesEyebrow": "Catalog",
+    "speciesTitle": "{count} mammals in the atlas",
+    "speciesBody": "Each profile states whether the species is resident in Georgia — and what remains unmapped.",
+    "section": {
+      "all": {
+        "title": "Mammals — {count}",
+        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+      }
+    },
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask about mammals here",
+    "faqIntro": "Short answers — depth lives on profiles.",
+    "faq1Q": "Does this site cover all Georgian mammals?",
+    "faq1A": "No. This hub publishes individual species pages as they are written. National mammal checklists remain the reference for the full fauna.",
+    "faq2Q": "Which mammals are in the atlas now?",
+    "faq2A": "Two profiles so far: red fox (Vulpes vulpes) and least weasel (Mustela nivalis), both year-round native species in Georgia.",
+    "faq3Q": "Why are mammals on a reptiles website?",
+    "faq3A": "The site is expanding into a Georgian nature atlas. Mammal pages use the same structure as reptiles, amphibians, and birds.",
+    "faq4Q": "Are regional maps shown for mammals?",
+    "faq4A": "Only when a profile has named regional records. The red fox and least weasel pages do not colour the administrative map: country occurrence is confirmed, a municipality list is not compiled here.",
+    "faq5Q": "Should I handle wild mammals?",
+    "faq5A": "No. Watch from a distance. A bite or saliva can carry rabies risk; do not pick up wild animals.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From mammal list to profile",
+    "ctaBody": "Open a species, or continue in the reptile, amphibian, and bird guides."
   },
   "amphibianFrogs": {
     "metaTitle": "Frogs of Georgia — species guide",

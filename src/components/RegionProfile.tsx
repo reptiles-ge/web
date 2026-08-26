@@ -3,7 +3,7 @@
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
-import { SpeciesDanger } from "@/components/SpeciesDanger";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import {
   getRegionContent,
 } from "@/data/regionContent";
@@ -370,7 +370,7 @@ function PhotoSpeciesCard({
         </h3>
         {showDanger ? (
           <div className="mt-3">
-            <SpeciesDanger level={species.danger} variant="hero" />
+            <SpeciesRiskChip species={species} variant="hero" />
           </div>
         ) : (
           <p className="mt-2 text-[12px] text-white/50">{species.location}</p>

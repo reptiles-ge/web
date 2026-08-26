@@ -34,6 +34,14 @@ export type SpeciesSource = {
   url?: string;
 };
 
+export type SpeciesAudio = {
+  src: string;
+  recordist?: string;
+  url?: string;
+  location?: string;
+  date?: string;
+};
+
 export type Species = {
   id: string;
   commonName: string;
@@ -47,7 +55,8 @@ export type Species = {
   diet: string;
   behavior: string;
   conservation: string;
-  danger: DangerLevel;
+  interaction?: string;
+  danger?: DangerLevel;
   image: string;
   imageCredit?: PhotoCredit;
   mobileImage?: string;
@@ -56,6 +65,7 @@ export type Species = {
   stats: SpeciesStat[];
   facts: string[];
   identification?: SpeciesIdentification;
+  audio?: SpeciesAudio;
   faq?: SpeciesFaq[];
   updatedAt: string;
   sources: SpeciesSource[];
@@ -76,6 +86,7 @@ export type SpeciesTranslation = {
   diet: string;
   behavior: string;
   conservation: string;
+  interaction?: string;
   stats: SpeciesStat[];
   facts: string[];
   identification?: SpeciesIdentification;
@@ -215,6 +226,11 @@ export const featuredSpeciesIds = [
   "eirenis-modestus",
   "eirenis-collaris",
   "malpolon-insignitus",
+  "emberiza-citrinella",
+  "picus-viridis",
+  "cuculus-canorus",
+  "vulpes-vulpes",
+  "mustela-nivalis",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;

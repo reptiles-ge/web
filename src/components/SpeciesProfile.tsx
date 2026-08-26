@@ -4,15 +4,18 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { SpeciesDanger } from "@/components/SpeciesDanger";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
+import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   resolvePhotoCredit,
   type Species,
 } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { usesDangerScale } from "@/lib/speciesRisk";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { formatContentDate } from "@/lib/formatDate";
 import {
@@ -100,8 +103,10 @@ export function SpeciesProfile({
     species.location,
     mobileHeroCredit,
   );
-  const displayStats = filterDisplayStats(species.stats);
-  const dangerValue = tDanger(species.danger);
+  const group = getSpeciesAtlasMeta(species.id).group;
+  const displayStats = filterDisplayStats(species.stats, group);
+  const dangerValue = species.danger ? tDanger(species.danger) : null;
+  const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const showIdentification = hasRealIdentification(species.identification);
   const biologyBlocks = useMemo(
     () =>
@@ -224,7 +229,12 @@ export function SpeciesProfile({
                 <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
                 {species.location}
               </span>
-              <SpeciesDanger level={species.danger} variant="hero" linked />
+              {species.audio ? (
+                <SpeciesVoicePlayer audio={species.audio} />
+              ) : null}
+              {usesDangerScale(group) ? (
+                <SpeciesRiskChip species={species} variant="hero" linked />
+              ) : null}
             </div>
           </div>
         </section>
@@ -249,7 +259,9 @@ export function SpeciesProfile({
                       {stat.label}
                     </p>
                     <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
-                      {stat.value === dangerValue ? (
+                      {linkDangerStats &&
+                      dangerValue &&
+                      stat.value === dangerValue ? (
                         <Link
                           href={dangerPageHref(species.danger)}
                           className="transition-colors hover:text-primary"
@@ -263,6 +275,16 @@ export function SpeciesProfile({
                   </div>
                 ))}
               </div>
+              {species.interaction &&
+              !isPlaceholderBody(species.interaction) ? (
+                <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-foreground/80 sm:text-[16px]">
+                  <span className="font-medium text-foreground">
+                    {t("interaction")}
+                  </span>
+                  {": "}
+                  {species.interaction}
+                </p>
+              ) : null}
             </div>
           </section>
         ) : null}
@@ -384,7 +406,7 @@ export function SpeciesProfile({
               <RelatedGuideGrid
                 cards={guideLinks}
                 locale={locale}
-                className="mt-8 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3"
+                className="mt-8"
               />
             </div>
           </section>

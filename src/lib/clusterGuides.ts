@@ -1,7 +1,8 @@
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import type { GroupHubId } from "@/lib/groupHubs";
+import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export const FROG_SPECIES_IDS = [
   "pelobates-syriacus",
@@ -159,7 +160,9 @@ export type ClusterGuidePath =
   | "/turtles/identifikacia"
   | "/amphibians/saxeoebebi"
   | "/amphibians/bayayi/saxeoebebi"
-  | "/amphibians/tritoni-salamandra";
+  | "/amphibians/tritoni-salamandra"
+  | "/birds"
+  | "/mammals";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -399,6 +402,8 @@ export type HubClusterCard =
         | "/snakes-in-the-yard"
         | "/snakes"
         | "/lizards"
+        | "/birds"
+        | "/mammals"
         | ClusterGuidePath;
       key:
         | "snakesHub"
@@ -420,7 +425,9 @@ export type HubClusterCard =
         | "turtleIdentify"
         | "amphibianIndex"
         | "frogsIndex"
-        | "newts";
+        | "newts"
+        | "birdsHub"
+        | "mammalsHub";
     }
   | {
       kind: "quiz";
@@ -476,6 +483,8 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "page", href: "/amphibians/bayayi/saxeoebebi", key: "frogsIndex" },
     { kind: "page", href: "/amphibians/tritoni-salamandra", key: "newts" },
   ],
+  birds: [],
+  mammals: [],
 };
 
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
@@ -483,6 +492,8 @@ export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   lizards: "/lizards/saxeoebebi",
   turtles: "/turtles/saxeoebebi",
   amphibians: "/amphibians/saxeoebebi",
+  birds: "/birds",
+  mammals: "/mammals",
 };
 
 export function getHubIndexTitleKey(hubId: GroupHubId) {
@@ -493,6 +504,10 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
       return "cluster.lizardIndex.title" as const;
     case "turtles":
       return "cluster.turtleIndex.title" as const;
+    case "birds":
+      return "hubs.birds" as const;
+    case "mammals":
+      return "hubs.mammals" as const;
     default:
       return "cluster.amphibianIndex.title" as const;
   }
@@ -566,6 +581,12 @@ export function splitHubSpecies(
     ].filter((section) => section.items.length > 0);
   }
 
+  if (hubId === "birds" || hubId === "mammals") {
+    return [{ key: "all", items: species }].filter(
+      (section) => section.items.length > 0,
+    );
+  }
+
   return [
     {
       key: "frogs",
@@ -590,6 +611,44 @@ export function getRearFangedSpecies(species: Species[]) {
 
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
 const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
+
+const PAGE_CARD_IMAGES: Partial<
+  Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
+> = {
+  "/venomous-snakes": "/images/guides/identify-venomous-cover.png",
+  "/snakes-in-the-yard": "/images/guides/snakes-in-the-yard-cover.jpg",
+};
+
+function speciesCardImage(id: string) {
+  const item = getSpeciesById(id);
+  const src = item?.image;
+  if (!src || isPlaceholderMedia(src)) return undefined;
+  return src;
+}
+
+export function getHubClusterCardImage(card: HubClusterCard) {
+  if (card.kind === "species") {
+    return speciesCardImage(card.id);
+  }
+
+  if (card.kind === "quiz") {
+    return "/images/guides/snake-quiz-og.jpg";
+  }
+
+  const override = PAGE_CARD_IMAGES[card.href];
+  if (override) return override;
+
+  const guide = CLUSTER_GUIDE_LIST.find((entry) => entry.pathname === card.href);
+  if (guide) {
+    if (guide.heroImage) return guide.heroImage;
+    return speciesCardImage(guide.heroSpeciesId);
+  }
+
+  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
+  if (hub) return speciesCardImage(hub.heroSpeciesId);
+
+  return undefined;
+}
 
 export function getRelatedGuideCards(guideId: ClusterGuideId): HubClusterCard[] {
   const guide = CLUSTER_GUIDES[guideId];
@@ -707,6 +766,10 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       href: "/turtles/identifikacia",
       key: "turtleIdentify",
     });
+  } else if (group === "bird") {
+    links.push({ kind: "page", href: "/birds", key: "birdsHub" });
+  } else if (group === "mammal") {
+    links.push({ kind: "page", href: "/mammals", key: "mammalsHub" });
   } else {
     links.push({
       kind: "page",

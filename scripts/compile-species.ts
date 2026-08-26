@@ -8,6 +8,7 @@ import {
   type GalleryImage,
   type PhotoCredit,
   type Species,
+  type SpeciesAudio,
   type SpeciesFaq,
   type SpeciesIdentification,
   type SpeciesSource,
@@ -31,7 +32,8 @@ type SpeciesFrontmatter = {
   diet: string;
   behavior: string;
   conservation: string;
-  danger: DangerLevel;
+  interaction?: string;
+  danger?: DangerLevel;
   image: string;
   imageCredit?: PhotoCredit;
   mobileImage?: string;
@@ -40,6 +42,7 @@ type SpeciesFrontmatter = {
   stats: SpeciesStat[];
   facts: string[];
   identification?: SpeciesIdentification;
+  audio?: SpeciesAudio;
   faq?: SpeciesFaq[];
   sources?: SpeciesSource[];
 };
@@ -106,7 +109,8 @@ function readSpeciesMdx(
     diet: fm.diet,
     behavior: fm.behavior,
     conservation: fm.conservation,
-    danger: fm.danger,
+    ...(fm.interaction ? { interaction: fm.interaction } : {}),
+    ...(fm.danger ? { danger: fm.danger } : {}),
     image: fm.image,
     ...(fm.imageCredit ? { imageCredit: fm.imageCredit } : {}),
     ...(fm.mobileImage ? { mobileImage: fm.mobileImage } : {}),
@@ -117,6 +121,7 @@ function readSpeciesMdx(
     stats: fm.stats ?? [],
     facts: fm.facts ?? [],
     ...(fm.identification ? { identification: fm.identification } : {}),
+    ...(fm.audio?.src ? { audio: fm.audio } : {}),
     ...(fm.faq ? { faq: fm.faq } : {}),
     updatedAt: options?.updatedAt ?? toSiteDateTime(new Date()),
     sources:
@@ -137,6 +142,7 @@ function toTranslation(item: Species) {
     diet: item.diet,
     behavior: item.behavior,
     conservation: item.conservation,
+    ...(item.interaction ? { interaction: item.interaction } : {}),
     stats: item.stats,
     facts: item.facts,
     ...(item.identification ? { identification: item.identification } : {}),

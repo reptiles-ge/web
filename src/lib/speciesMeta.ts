@@ -4,18 +4,22 @@ import { isVenomousDanger } from "@/data/speciesAtlas";
 
 export function speciesTitleIntentKey(
   group: AnimalGroup,
-  danger: DangerLevel,
+  danger?: DangerLevel,
 ):
   | "titleSnakeVenomous"
   | "titleSnake"
   | "titleLizard"
   | "titleTurtle"
-  | "titleAmphibian" {
+  | "titleAmphibian"
+  | "titleBird"
+  | "titleMammal" {
   if (group === "snake") {
     return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
   }
   if (group === "lizard") return "titleLizard";
   if (group === "turtle") return "titleTurtle";
+  if (group === "bird") return "titleBird";
+  if (group === "mammal") return "titleMammal";
   return "titleAmphibian";
 }
 

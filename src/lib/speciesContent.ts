@@ -1,3 +1,4 @@
+import { groupHasVenomConcept, type AnimalGroup } from "@/data/speciesAtlas";
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 
 const PLACEHOLDER_MEDIA = [
@@ -58,8 +59,9 @@ export function getSpeciesHeroSources(species: Species) {
       ? species.mobileImage
       : null;
   const desktopHeroSrc =
-    primary?.src ??
-    (!isPlaceholderMedia(species.image) ? species.image : null);
+    species.image && !isPlaceholderMedia(species.image)
+      ? species.image
+      : (primary?.src ?? null);
 
   return { gallery, primary, mobileHeroSrc, desktopHeroSrc };
 }
@@ -69,17 +71,40 @@ export function isPlaceholderStatValue(value: string) {
   return PLACEHOLDER_STAT_VALUES.some((item) => normalized === item);
 }
 
-export function filterDisplayStats(stats: SpeciesStat[]) {
+const SAFETY_STAT_LABELS = new Set([
+  "შხამი",
+  "Venom",
+  "ადამიანის რისკი",
+  "Human risk",
+  "მოპყრობა",
+  "Handling",
+]);
+
+export function filterDisplayStats(
+  stats: SpeciesStat[],
+  group?: AnimalGroup,
+) {
   return stats.filter((stat) => {
     const value = stat.value.trim();
     if (!value) return false;
-    return !isPlaceholderStatValue(value);
+    if (isPlaceholderStatValue(value)) return false;
+    if (group && !groupHasVenomConcept(group) && SAFETY_STAT_LABELS.has(stat.label)) {
+      return false;
+    }
+    return true;
   });
 }
 
 const SIZE_LABELS = new Set(["სიგრძე", "Length", "Size", "ზომა"]);
 const HABITAT_LABELS = new Set(["ჰაბიტატი", "Habitat"]);
-const ACTIVITY_LABELS = new Set(["აქტიურობა", "Activity", "სეზონი", "Season"]);
+const ACTIVITY_LABELS = new Set([
+  "აქტიურობა",
+  "Activity",
+  "სეზონი",
+  "Season",
+  "სტატუსი საქართველოში",
+  "Status in Georgia",
+]);
 
 function getStatByLabels(species: Species, labels: Set<string>) {
   const found = filterDisplayStats(species.stats).find((stat) =>

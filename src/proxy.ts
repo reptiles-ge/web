@@ -16,6 +16,8 @@ const KA_HUB: Record<GroupHubId, string> = {
   lizards: "xvlikebi",
   turtles: "kuebi",
   amphibians: "amfibiebi",
+  birds: "prinvelebi",
+  mammals: "dzuzumtsovrebi",
 };
 
 const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
@@ -23,6 +25,8 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   xvlikebi: "lizards",
   kuebi: "turtles",
   amfibiebi: "amphibians",
+  prinvelebi: "birds",
+  dzuzumtsovrebi: "mammals",
 };
 
 function redirectTo(request: NextRequest, pathname: string) {
@@ -60,7 +64,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const enHub = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians)\/([^/]+)$/,
+    /^\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
   );
   if (enHub) {
     const species = resolveSpeciesInHub(enHub[1] as GroupHubId, enHub[2]);
@@ -71,7 +75,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const enKa = pathname.match(
-    /^\/en\/(gvelebi|xvlikebi|kuebi|amfibiebi)\/([^/]+)$/,
+    /^\/en\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi)\/([^/]+)$/,
   );
   if (enKa) {
     const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[enKa[1]], enKa[2]);
@@ -82,7 +86,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const kaHub = pathname.match(
-    /^\/(gvelebi|xvlikebi|kuebi|amfibiebi)\/([^/]+)$/,
+    /^\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi)\/([^/]+)$/,
   );
   if (kaHub) {
     const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
@@ -93,7 +97,7 @@ export default function proxy(request: NextRequest) {
   }
 
   const enWrongSlug = pathname.match(
-    /^\/en\/(snakes|lizards|turtles|amphibians)\/([^/]+)$/,
+    /^\/en\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
   );
   if (enWrongSlug) {
     const species = resolveSpeciesInHub(

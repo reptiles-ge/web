@@ -18,7 +18,9 @@ export type SpeciesHref = {
     | "/snakes/[slug]"
     | "/lizards/[slug]"
     | "/turtles/[slug]"
-    | "/amphibians/[slug]";
+    | "/amphibians/[slug]"
+    | "/birds/[slug]"
+    | "/mammals/[slug]";
   params: { slug: string };
 };
 
@@ -26,6 +28,10 @@ const KA_SLUG_OVERRIDES: Record<string, string> = {
   "macrovipera-lebetina": "giurza",
   "paralaudakia-caucasia": "jojo",
   "pseudopus-apodus": "gvelxokera",
+};
+
+const KA_SLUG_ALIASES: Record<string, string[]> = {
+  "pelodytes-caucasicus": ["kavkasiuri-jvarula"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
@@ -151,6 +157,14 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "bufo-verrucosissimus": ["bufotes-viridis"],
   "rana-macrocnemis": ["pelophylax-ridibundus"],
+  "pelodytes-caucasicus": [
+    "pelobates-syriacus",
+    "rana-macrocnemis",
+    "pelophylax-ridibundus",
+    "bufo-verrucosissimus",
+    "hyla-orientalis",
+    "bufotes-viridis",
+  ],
   "eumeces-schneiderii": ["ablepharus-pannonicus"],
   "ablepharus-pannonicus": [
     "ophisops-elegans",
@@ -223,6 +237,12 @@ for (const species of getCatalogSpecies()) {
   idByAnySlug[slug] = species.id;
 }
 
+for (const [id, aliases] of Object.entries(KA_SLUG_ALIASES)) {
+  for (const slug of aliases) {
+    idByAnySlug[slug] = id;
+  }
+}
+
 export function getSpeciesHubId(id: string): GroupHubId {
   return hubForSpeciesId(id);
 }
@@ -267,6 +287,10 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
       return { pathname: "/lizards/[slug]", params: { slug } };
     case "turtles":
       return { pathname: "/turtles/[slug]", params: { slug } };
+    case "birds":
+      return { pathname: "/birds/[slug]", params: { slug } };
+    case "mammals":
+      return { pathname: "/mammals/[slug]", params: { slug } };
     default:
       return { pathname: "/amphibians/[slug]", params: { slug } };
   }
@@ -279,6 +303,7 @@ export function speciesStaticParams(hubId: GroupHubId) {
       const slugs = new Set([
         getSpeciesPublicSlug(item.id, "ka"),
         getSpeciesPublicSlug(item.id, "en"),
+        ...(KA_SLUG_ALIASES[item.id] ?? []),
       ]);
       return (["ka", "en"] as const).flatMap((locale) =>
         [...slugs].map((slug) => ({ locale, slug })),
@@ -309,7 +334,7 @@ export function regionHref(id: string) {
 
 export function remapSpeciesPathname(pathname: string, locale: AppLocale) {
   const match = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians)\/([^/]+)$/,
+    /^\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
   );
   if (!match) return pathname;
   const hub = match[1] as GroupHubId;

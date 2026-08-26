@@ -1,6 +1,6 @@
 "use client";
 
-import { SpeciesDanger } from "@/components/SpeciesDanger";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import {
   getSpeciesAtlasMeta,
   type AnimalGroup,
@@ -89,7 +89,7 @@ export function AtlasSpeciesCard({
           </span>
         </div>
         <div className="absolute bottom-4 left-4 right-4 z-[1]">
-          <SpeciesDanger level={species.danger} variant="hero" />
+          <SpeciesRiskChip species={species} variant="hero" />
         </div>
       </div>
 

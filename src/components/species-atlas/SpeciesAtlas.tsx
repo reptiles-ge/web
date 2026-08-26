@@ -44,6 +44,8 @@ const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
   "lizard",
   "turtle",
   "amphibian",
+  "bird",
+  "mammal",
 ];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
@@ -101,7 +103,14 @@ function HeroPathway({
   delay = 0,
 }: {
   onClick?: () => void;
-  href?: "/snakes" | "/lizards" | "/turtles" | "/amphibians" | "/venomous-snakes";
+  href?:
+    | "/snakes"
+    | "/lizards"
+    | "/turtles"
+    | "/amphibians"
+    | "/birds"
+    | "/mammals"
+    | "/venomous-snakes";
   eyebrow: string;
   title: string;
   meta: string;
@@ -251,6 +260,8 @@ export function SpeciesAtlas({
       lizard: 0,
       turtle: 0,
       amphibian: 0,
+      bird: 0,
+      mammal: 0,
     };
     for (const item of catalog) {
       counts[getSpeciesAtlasMeta(item.id).group] += 1;
@@ -409,6 +420,28 @@ export function SpeciesAtlas({
                       })}
                       meta={t("stats.pathwayExplore")}
                       href="/amphibians"
+                    />
+                  ) : null}
+                  {stats.birds > 0 ? (
+                    <HeroPathway
+                      delay={260}
+                      eyebrow={t("groups.bird")}
+                      title={t("stats.pathwayBirdsTitle", {
+                        count: stats.birds,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      href="/birds"
+                    />
+                  ) : null}
+                  {stats.mammals > 0 ? (
+                    <HeroPathway
+                      delay={280}
+                      eyebrow={t("groups.mammal")}
+                      title={t("stats.pathwayMammalsTitle", {
+                        count: stats.mammals,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      href="/mammals"
                     />
                   ) : null}
                   <Link

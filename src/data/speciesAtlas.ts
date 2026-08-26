@@ -5,7 +5,7 @@ import {
   type Species,
 } from "@/data/species";
 
-export type AnimalGroup = "snake" | "lizard" | "turtle" | "amphibian";
+export type AnimalGroup = "snake" | "lizard" | "turtle" | "amphibian" | "bird" | "mammal";
 
 export type HabitatTag = "forest" | "mountain" | "wetland" | "grassland";
 
@@ -39,7 +39,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "pelodytes-caucasicus": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["wetland", "forest", "mountain"],
   },
   "bufotes-viridis": {
     group: "amphibian",
@@ -293,6 +293,26 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["mountain", "grassland"],
   },
+  "emberiza-citrinella": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
+  "picus-viridis": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "cuculus-canorus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "vulpes-vulpes": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "mustela-nivalis": {
+    group: "mammal",
+    habitats: ["grassland", "forest", "mountain"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
@@ -304,8 +324,17 @@ export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
   );
 }
 
-export function isVenomousDanger(danger: DangerLevel) {
+export function isVenomousDanger(danger?: DangerLevel) {
   return danger === "High" || danger === "Moderate";
+}
+
+export function groupHasVenomConcept(group: AnimalGroup) {
+  return (
+    group === "snake" ||
+    group === "lizard" ||
+    group === "turtle" ||
+    group === "amphibian"
+  );
 }
 
 const venomousDangerOrder: Record<DangerLevel, number> = {
@@ -321,7 +350,8 @@ export function getVenomousCatalogSpecies(
     .filter((item) => isVenomousDanger(item.danger))
     .sort(
       (a, b) =>
-        venomousDangerOrder[a.danger] - venomousDangerOrder[b.danger] ||
+        venomousDangerOrder[a.danger ?? "Harmless"] -
+          venomousDangerOrder[b.danger ?? "Harmless"] ||
         a.scientificName.localeCompare(b.scientificName),
     );
 }
@@ -340,6 +370,7 @@ export function getCatalogByDanger(
   };
 
   for (const item of catalog) {
+    if (!item.danger) continue;
     groups[item.danger].push(item);
   }
 
@@ -381,6 +412,8 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     lizard: 0,
     turtle: 0,
     amphibian: 0,
+    bird: 0,
+    mammal: 0,
   };
 
   for (const item of catalog) {
@@ -398,6 +431,8 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     lizards: byGroup.lizard,
     turtles: byGroup.turtle,
     amphibians: byGroup.amphibian,
+    birds: byGroup.bird,
+    mammals: byGroup.mammal,
     regions: regions.length,
     photos: getAtlasPhotoCount(catalog),
     venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
@@ -442,11 +477,16 @@ export function filterAtlasSpecies(
       return false;
     }
 
-    if (filters.danger === "venomous" && !isVenomousDanger(item.danger)) {
-      return false;
-    }
-    if (filters.danger === "harmless" && isVenomousDanger(item.danger)) {
-      return false;
+    if (filters.danger !== "all") {
+      if (!groupHasVenomConcept(meta.group)) {
+        return false;
+      }
+      if (filters.danger === "venomous" && !isVenomousDanger(item.danger)) {
+        return false;
+      }
+      if (filters.danger === "harmless" && isVenomousDanger(item.danger)) {
+        return false;
+      }
     }
 
     if (filters.habitat !== "all" && !meta.habitats.includes(filters.habitat)) {
@@ -504,6 +544,8 @@ export function parseAtlasFilters(
     "lizard",
     "turtle",
     "amphibian",
+    "bird",
+    "mammal",
   ];
   const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];
   const habitats: Array<HabitatTag | "all"> = [

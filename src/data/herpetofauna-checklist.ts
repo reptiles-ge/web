@@ -140,7 +140,7 @@ export const herpetofaunaChecklist: HerpetofaunaChecklistTaxon[] = [
     photoConfidence: "verified",
     inProject: true,
     commonNameEn: "Caucasian Parsley Frog",
-    commonNameKa: "კავკასიური ჯვარულა",
+    commonNameKa: "კავკასიური ჯვრიანა",
     notes: "",
   },
   {

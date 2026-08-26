@@ -181,6 +181,8 @@ export function AboutPage() {
                   { href: "/lizards" as const, key: "lizards" as const },
                   { href: "/turtles" as const, key: "turtles" as const },
                   { href: "/amphibians" as const, key: "amphibians" as const },
+                  { href: "/birds" as const, key: "birds" as const },
+                  { href: "/mammals" as const, key: "mammals" as const },
                   {
                     href: "/venomous-snakes" as const,
                     key: "venomous" as const,

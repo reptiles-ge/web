@@ -127,6 +127,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Natrix megalocephala",
     ],
   },
+  "pelodytes-caucasicus": {
+    ka: [
+      "კავკასიური ჯვარულა",
+      "ჯვრიანა",
+      "ჯვარულა",
+      "Pelodytes",
+    ],
+    en: [
+      "Caucasian mud-diver",
+      "parsley frog",
+      "Pelodytes",
+    ],
+  },
   "hyla-orientalis": {
     ka: [
       "ვასაკა",
@@ -198,6 +211,74 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "banded newt",
       "Triturus vittatus",
       "Triturus vittatus ophryticus",
+    ],
+  },
+  "emberiza-citrinella": {
+    ka: [
+      "მოყვითალო გრატა",
+      "ქეროზა",
+      "რუხი გულწითელა",
+      "Emberiza citrinella erythrogenys",
+    ],
+    en: ["yellow bunting", "Emberiza citrinella erythrogenys"],
+  },
+  "picus-viridis": {
+    ka: [
+      "კოდალა",
+      "სამხრული მწვანე კოდალა",
+      "Picus viridis karelini",
+    ],
+    en: [
+      "green woodpecker",
+      "Eurasian green woodpecker",
+      "yaffle",
+      "Picus viridis karelini",
+    ],
+  },
+  "cuculus-canorus": {
+    ka: [
+      "ჩვეულებრივი გუგული",
+      "გუგულისებრნი",
+      "Cuculus canorus canorus",
+    ],
+    en: [
+      "European cuckoo",
+      "Eurasian cuckoo",
+      "cuckoo",
+      "Cuculus canorus canorus",
+    ],
+  },
+  "vulpes-vulpes": {
+    ka: [
+      "ჩვეულებრივი მელა",
+      "წითელი მელა",
+      "Canis vulpes",
+      "Vulpes vulpes caucasica",
+      "Vulpes vulpes alpherakyi",
+    ],
+    en: [
+      "common fox",
+      "cross fox",
+      "silver fox",
+      "Canis vulpes",
+      "Vulpes vulpes caucasica",
+      "Vulpes vulpes alpherakyi",
+    ],
+  },
+  "mustela-nivalis": {
+    ka: [
+      "სინდიოფალა",
+      "Putorius nivalis",
+      "Mustela nivalis caucasica",
+      "Mustela nivalis dinniki",
+    ],
+    en: [
+      "weasel",
+      "common weasel",
+      "little weasel",
+      "Putorius nivalis",
+      "Mustela nivalis caucasica",
+      "Mustela nivalis dinniki",
     ],
   },
 };

@@ -1,7 +1,9 @@
 import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
+import { images } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   GROUP_HUBS,
@@ -99,7 +101,8 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     );
     const hero =
       species.find((item) => item.id === hub.heroSpeciesId) ?? species[0];
-    const heroSrc = hero?.image ?? "";
+    const heroSrc =
+      hero?.image && !isPlaceholderMedia(hero.image) ? hero.image : images.hero;
 
     const breadcrumbLd = {
       "@context": "https://schema.org",

@@ -1,6 +1,6 @@
 "use client";
 
-import { SpeciesDanger } from "@/components/SpeciesDanger";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -56,7 +56,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           <p className="mt-4 max-h-0 overflow-hidden text-[13px] leading-relaxed text-white/70 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
             {species.description}
           </p>
-          <SpeciesDanger level={species.danger} variant="card" />
+          <SpeciesRiskChip species={species} variant="card" />
         </div>
       </div>
     </Link>

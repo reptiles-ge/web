@@ -29,7 +29,7 @@ export function getSpeciesParentHub(species: Species): {
   hubId: GroupHubId;
 } {
   const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
-  if (isVenomousDanger(species.danger)) {
+  if (isVenomousDanger(species.danger) && getSpeciesAtlasMeta(species.id).group === "snake") {
     return { kind: "venomous", href: "/venomous-snakes", hubId };
   }
 
@@ -60,7 +60,7 @@ export function buildSpeciesBreadcrumbs(options: {
       name: options.venomousLabel,
       href: "/venomous-snakes",
     });
-  } else {
+  } else if (HUB_INDEX_PATH[parent.hubId] !== hubPath) {
     crumbs.push({
       name: options.indexLabel,
       href: HUB_INDEX_PATH[parent.hubId],
