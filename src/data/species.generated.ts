@@ -8511,6 +8511,11 @@ export const species: Species[] = [
         "შხამიანი არ არის. ნაკბენი ან ნერწყვი შეიძლება ცოფის რისკი იყოს. არ აიყვანოთ, განსაკუთრებით თუ ცხოველი უშიშრად უახლოვდება, დაბნეულია ან აგრესიულია. დღის გამოჩენა ნორმალურიც შეიძლება იყოს."
       ]
     },
+    "audio": {
+      "src": "/audio/vulpes-vulpes.mp3",
+      "recordist": "Paul Driver",
+      "url": "https://xeno-canto.org/1070195"
+    },
     "faq": [
       {
         "question": "გვხვდება თუ არა მელა საქართველოში?",
@@ -8545,7 +8550,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-27T00:55:18+04:00",
+    "updatedAt": "2026-08-27T01:00:44+04:00",
     "sources": [
       {
         "name": "Hoffmann & Sillero-Zubiri 2016 — IUCN Red List, Vulpes vulpes",
@@ -8614,6 +8619,10 @@ export const species: Species[] = [
       {
         "name": "Wikimedia Commons — Fox cubs (Divlja Srbija, CC BY-SA 4.0)",
         "url": "https://commons.wikimedia.org/wiki/File:Mlade_lisice_u_rupi.jpg"
+      },
+      {
+        "name": "xeno-canto XC1070195 — Vulpes vulpes (Paul Driver)",
+        "url": "https://xeno-canto.org/1070195"
       }
     ]
   },
