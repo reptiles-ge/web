@@ -55,6 +55,7 @@ export type SearchPageHref = Exclude<
   | "/turtles/[slug]"
   | "/amphibians/[slug]"
   | "/birds/[slug]"
+  | "/mammals/[slug]"
   | "/quiz/[slug]"
   | "/regions/[id]"
 >;
@@ -103,6 +104,7 @@ const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
   turtle: { ka: "კუ", en: "Turtle" },
   amphibian: { ka: "ამფიბია", en: "Amphibian" },
   bird: { ka: "ფრინველი", en: "Bird" },
+  mammal: { ka: "ძუძუმწოვარი", en: "Mammal" },
 };
 
 const HUB_COPY: Record<GroupHubId, PageCopy> = {
