@@ -158,6 +158,7 @@
         "turtles": "Turtles in Georgia",
         "amphibians": "Amphibians in Georgia",
         "birds": "Birds in Georgia",
+        "mammals": "Mammals in Georgia",
         "identify": "Identify a venomous snake",
         "bite": "Snakebite first steps",
         "lizardIdentify": "Identify a lizard",
@@ -513,6 +514,7 @@
       "turtles": "Turtles in Georgia",
         "amphibians": "Amphibians in Georgia",
         "birds": "Birds in Georgia",
+        "mammals": "Mammals in Georgia",
         "venomous": "Venomous snakes in Georgia"
     }
   },
@@ -555,6 +557,7 @@
     "titleTurtle": "range and identification in Georgia",
     "titleAmphibian": "range and identification in Georgia",
     "titleBird": "range and identification in Georgia",
+    "titleMammal": "range and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionDefault": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus."
   },
@@ -587,6 +590,7 @@
       "pathwayTurtlesTitle": "{count} turtles",
       "pathwayAmphibiansTitle": "{count} amphibians",
       "pathwayBirdsTitle": "{count} birds",
+      "pathwayMammalsTitle": "{count} mammals",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
       "expandingNote": "Turtles and amphibians are full categories — with the same depth, maps, and photography."
@@ -619,7 +623,8 @@
       "lizard": "Lizards",
       "turtle": "Turtles",
       "amphibian": "Amphibians",
-      "bird": "Birds"
+      "bird": "Birds",
+      "mammal": "Mammals"
     },
     "danger": {
       "all": "All",
