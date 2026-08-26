@@ -108,6 +108,14 @@ export const pathnames = {
     ka: "/prinvelebi/[slug]",
     en: "/birds/[slug]",
   },
+  "/mammals": {
+    ka: "/dzuzumtsovrebi",
+    en: "/mammals",
+  },
+  "/mammals/[slug]": {
+    ka: "/dzuzumtsovrebi/[slug]",
+    en: "/mammals/[slug]",
+  },
   "/venomous-snakes": {
     ka: "/gvelebi/shxamiani-gvelebi",
     en: "/venomous-snakes",

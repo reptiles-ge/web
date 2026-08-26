@@ -160,7 +160,8 @@ export type ClusterGuidePath =
   | "/amphibians/saxeoebebi"
   | "/amphibians/bayayi/saxeoebebi"
   | "/amphibians/tritoni-salamandra"
-  | "/birds";
+  | "/birds"
+  | "/mammals";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -401,6 +402,7 @@ export type HubClusterCard =
         | "/snakes"
         | "/lizards"
         | "/birds"
+        | "/mammals"
         | ClusterGuidePath;
       key:
         | "snakesHub"
