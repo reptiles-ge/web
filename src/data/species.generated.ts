@@ -212,7 +212,7 @@ export const species: Species[] = [
         "answer": "ნაშრომის ფიგურა ნიგოეთიდანაა; ბარკოდები მთისძირიდან, ბანისხევიდან და ლანჩხუთიდან (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-19T11:40:55+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -659,7 +659,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
-    "updatedAt": "2026-08-24T14:19:21+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -856,7 +856,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T01:26:42+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -1728,7 +1728,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -5409,26 +5409,40 @@ export const species: Species[] = [
     "location": "მუდმივი საქართველოში",
     "description": "ყველაზე პატარა ხორცისმჭამელი: წაგრძელებული ყავისფერი სხეული, თეთრი მუცელი და მოკლე კუდი შავი წვერის გარეშე. საქართველოში მშობლიური მუდმივი სახეობაა.",
     "overview": "დედოფალა (Mustela nivalis) ძუძუმწოვარია კვერნისებრთა ოჯახიდან (Mustelidae) და საქართველოში მშობლიური მუდმივი სახეობაა. IUCN საქართველოს native არეალში ასახელებს. ეროვნულ ძუძუმწოვრების ჩამონათვალებში შეტანილია. ეს არის ხორცისმჭამელთა რიგის ყველაზე პატარა სახეობა: სახეობის დონეზე თავ-ტანი დაახლოებით 13–26 სმ, კუდი შედარებით მოკლეა. შხამი არ აქვს. ადამიანისთვის მთავარი რისკი დაჭერისას ნაკბენია და არა შხამი. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული ამ გვერდზე.",
-    "habitat": "საქართველოში ეძებეთ ბალახოვან პირას, ბუჩქნარში, სასოფლო ადგილზე, ტყის პირას, კლდოვან და მაღალმთიან ადგილზე, სადაც მღრღნელებია. სახეობის დონეზე ჰაბიტატი ფართოა: მდელო, ჰეჯეროუ, ფერმა, რიპარიული ტყე, სტეპი, ალპური მდელო; თავს არიდებს ღია უსაფარო ადგილს, სადაც მტაცებელი ფრინველი ადვილად ხედავს. Sheffield და King კავკასიას ასახელებენ იმ დაბალ განედის მთებს შორის, სადაც სახეობა მთელი წელი დაახლოებით 3,660 მ-მდე ცხოვრობს; ეს კავკასიის სახეობის დონის ციფრია და არა საქართველოს ცალკე გაზომილი სარტყელი. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს. დასახელებული ქართული წერტილებია: ლაგოდეხი (Kurose et al. 2005, გენეტიკური ნიმუში N18); კვესეთი–კობის საავტომობილო დერეფნის ძუძუმწოვრების აღწერა, Lot 1 და Lot 2 (2019); თელავი, ბაღი, 2025 წლის აგვისტო (მოგზაურობის ანგარიში, არა რეცენზირებული ნაშრომი). მთელ ქვეყანაში თანაბარ სიმჭიდროვეს ნუ ივარაუდებთ.",
+    "habitat": "საქართველოში ეძებეთ ბალახოვან პირას, ბუჩქნარში, სასოფლო ადგილზე, ტყის პირას, კლდოვან და მაღალმთიან ადგილზე, სადაც მღრღნელებია. სახეობის დონეზე ჰაბიტატი ფართოა: მდელო, ჰეჯეროუ, ფერმა, რიპარიული ტყე, სტეპი, ალპური მდელო; თავს არიდებს ღია უსაფარო ადგილს, სადაც მტაცებელი ფრინველი ადვილად ხედავს. Sheffield და King კავკასიას ასახელებენ იმ დაბალ განედის მთებს შორის, სადაც სახეობა მთელი წელი დაახლოებით 3,660 მ-მდე ცხოვრობს; ეს კავკასიის სახეობის დონის ციფრია და არა საქართველოს ცალკე გაზომილი სარტყელი. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს. დასახელებული ქართული წერტილებია: ბორჯომ-ხარაგაულის ეროვნული პარკი, 2015 წლის 25 მაისი (ზაური ხაჩიძის ფოტოები ამ გვერდზე); ლაგოდეხი (Kurose et al. 2005, გენეტიკური ნიმუში N18); კვესეთი–კობის საავტომობილო დერეფნის ძუძუმწოვრების აღწერა, Lot 1 და Lot 2 (2019); თელავი, ბაღი, 2025 წლის აგვისტო (მოგზაურობის ანგარიში, არა რეცენზირებული ნაშრომი). მთელ ქვეყანაში თანაბარ სიმჭიდროვეს ნუ ივარაუდებთ.",
     "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში სპეციალიზებული მღრღნელების მტაცებელია, განსაკუთრებით მინდვრის თაგვები და მემინდვრიები; იშვიათად იღებს ფრინველის კვერცხსა და ბარტყს, წვრილ კურდღელს, ხვლიკს, ბაყაყს, მწერს და ლეშს. პატარა ზომა საშუალებას აძლევს ნადირს სოროში გაჰყვეს. საქართველოში რეალისტური სურათი იგივეა — წვრილი მღრღნელები ბალახსა და ტყის პირას — მაგრამ ადგილობრივი მენიუ აქ არ არის გაზომილი.",
-    "behavior": "აქტიურია დღისითაც და ღამითაც; ხშირად უფრო დღისით იჭერენ, მაგრამ ეს ერთ პერიოდზე არ არის შეზღუდული. მოძრაობს სწრაფი ნახტომებით, ხშირად სწორდება უკანა ფეხებზე საყურებლად. ბუდეს თვითონ იშვიათად თხრის: იკავებს მღრღნელის სოროს, ქვაყრილს ან სხვა საფარს. სახეობის დონეზე ორსულობა დაახლოებით 34–37 დღეა, გადადებული იმპლანტაციის გარეშე (ყარყუმისგან განსხვავებით). ტემპერატურულ არეალში ხშირია ერთი ან ორი ნაშთი წელიწადში, ჩვეულებრივ რამდენიმე ნაშიერი; ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. ჩრდილოეთ პოპულაციები ზამთარში თეთრდებიან; სამხრეთში ზამთრის ბეწვი ხშირად ყავისფერი რჩება. საქართველოში თეთრი ზამთრის ფორმა ნაგულისხმევად ნუ ჩათვალეთ — ამ გვერდზე ადგილობრივი ზამთრის შეფერილობა არ არის გაზომილი.",
+    "behavior": "აქტიურია დღისითაც და ღამითაც; ხშირად უფრო დღისით იჭერენ, მაგრამ ეს ერთ პერიოდზე არ არის შეზღუდული. მოძრაობს სწრაფი ნახტომებით, ხშირად სწორდება უკანა ფეხებზე საყურებლად. ბუდეს თვითონ იშვიათად თხრის: იკავებს მღრღნელის სოროს, ქვაყრილს ან სხვა საფარს. სახეობის დონეზე ორსულობა დაახლოებით 34–37 დღეა, გადადებული იმპლანტაციის გარეშე (ყარყუმისგან განსხვავებით). ტემპერატურულ არეალში ხშირია ერთი ან ორი ნაშთი წელიწადში, ჩვეულებრივ რამდენიმე ნაშიერი; ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. ჩრდილოეთ პოპულაციები ზამთარში თეთრდებიან; სამხრეთში ზამთრის ბეწვი ხშირად ყავისფერი რჩება. ბორჯომ-ხარაგაულის 2015 წლის 25 მაისის ფოტოებზე ინდივიდი ყავისფერ-თეთრ ზაფხულის ბეწვშია. საქართველოში თეთრი ზამთრის ფორმა ნაგულისხმევად ნუ ჩათვალეთ — ზამთრის სერია ამ გვერდზე არ არის.",
     "conservation": "McDonald და თანაავტორები Mustela nivalis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016 შეფასება, 2019 წლის შესწორებული ვერსია); ფართო არეალი და დიდი პოპულაციაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. CITES-ის დანართებში სახეობის დონეზე არ არის. ამ გვერდზე სამონადირეო სახეობად არ არის ციტირებული, მელასგან განსხვავებით. ადგილობრივი ზეწოლა შეიძლება იყოს მღრღნელების საწინააღმდეგო შხამი (მეორადი მოწამვლა სახეობის დონის ლიტერატურაში), ბინადრობის კარგვა და გზაზე დაღუპვა; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ.",
-    "image": "/images/mustela-nivalis-grazalema-1.jpg",
+    "image": "/images/mustela-nivalis-zauri-1.jpg",
     "imageCredit": {
-      "photographer": "Davidruiz91",
-      "url": "https://commons.wikimedia.org/wiki/File:Comadreja_en_un_Muro_de_Piedra.jpg",
-      "location": "სიერა-დე-გრასალემა",
-      "date": "2016-04-05"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-25"
     },
-    "mobileImage": "/images/mustela-nivalis-andrieux-1.jpg",
+    "mobileImage": "/images/mustela-nivalis-zauri-2.jpg",
     "mobileImageCredit": {
-      "photographer": "Jean Andrieux",
-      "url": "https://commons.wikimedia.org/wiki/File:Belette_pygm%C3%A9e_%C2%A9PNRV-Jean_Andrieux.jpg",
-      "location": "ვერკორი",
-      "date": "2021-06-02"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-25"
     },
     "gallery": [
+      {
+        "src": "/images/mustela-nivalis-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-25"
+        }
+      },
+      {
+        "src": "/images/mustela-nivalis-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-25"
+        }
+      },
       {
         "src": "/images/mustela-nivalis-grazalema-1.jpg",
         "credit": {
@@ -5522,7 +5536,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება ვნახო საქართველოში?",
-        "answer": "ბალახოვან პირას, ბუჩქნარში, სასოფლო ადგილზე, ტყის პირას და მთაში, სადაც მღრღნელებია. დასახელებული წერტილებია ლაგოდეხი, კვესეთი–კობის დერეფანი და თელავის ერთი ბაღის დაკვირვება. ეს გვერდი ყველა რეგიონს არ რუკავს."
+        "answer": "ბალახოვან პირას, ბუჩქნარში, სასოფლო ადგილზე, ტყის პირას და მთაში, სადაც მღრღნელებია. დასახელებული წერტილებია ბორჯომ-ხარაგაულის ეროვნული პარკი (ფოტო, 2015 წლის 25 მაისი), ლაგოდეხი, კვესეთი–კობის დერეფანი და თელავის ერთი ბაღის დაკვირვება. ეს გვერდი ყველა რეგიონს არ რუკავს."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -5549,7 +5563,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული."
       }
     ],
-    "updatedAt": "2026-08-27T01:21:46+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "McDonald et al. 2019 — IUCN Red List, Mustela nivalis",
@@ -5601,6 +5615,9 @@ export const species: Species[] = [
       },
       {
         "name": "ქართული საბჭოთა ენციკლოპედია, ტ. 3 (1978) — დედოფალა"
+      },
+      {
+        "name": "ზაური ხაჩიძე — დედოფალა, ბორჯომ-ხარაგაულის ეროვნული პარკი (2015-05-25)"
       },
       {
         "name": "Wikimedia Commons — Belette pygmée, Vercors (Jean Andrieux, CC BY-SA 4.0)",
@@ -6681,7 +6698,7 @@ export const species: Species[] = [
         "answer": "გლობალურად Near Threatened (2009). საქართველოს წითელ ნუსხაში NT-ად არის მითითებული. ველური ამფიბია არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7609,7 +7626,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-19T11:40:55+04:00",
+    "updatedAt": "2026-08-27T01:29:19+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13940,9 +13957,9 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Year-round in Georgia",
     "description": "The smallest carnivore: a long brown body, white belly, and a short tail without a black tip. It is a native resident in Georgia.",
     "overview": "The least weasel (Mustela nivalis) is a mammal in the weasel family (Mustelidae) and a native resident in Georgia. IUCN lists Georgia in the native range. It appears on national mammal checklists. It is the smallest member of the order Carnivora. At species level, head–body length is about 13–26 cm and the tail is relatively short. It has no venom. The main human risk is a bite if handled, not poison. IUCN lists it as Least Concern. It is not treated on this page as a threatened taxon on Georgia’s 2014 Red List.",
-    "habitat": "In Georgia look for it in rank grass, scrub, farmland, woodland edges, rocky ground, and mountains where rodents are present. Species-level habitat is broad: meadow, hedgerow, farmland, riparian woodland, steppe, and alpine meadow. It avoids open coverless ground, where raptors see it easily. Sheffield and King name the Caucasus among low-latitude ranges where it lives year-round to about 3,660 m; that is a Caucasus-level figure, not a measured Georgian belt. This page does not map administrative regions. Named Georgian points are Lagodekhi (Kurose et al. 2005, genetic sample N18); the Kvesheti–Kobi road corridor mammal survey, Lots 1 and 2 (2019); and a garden in Telavi in August 2025 (a trip report, not a peer-reviewed paper). Do not assume even density across the whole country.",
+    "habitat": "In Georgia look for it in rank grass, scrub, farmland, woodland edges, rocky ground, and mountains where rodents are present. Species-level habitat is broad: meadow, hedgerow, farmland, riparian woodland, steppe, and alpine meadow. It avoids open coverless ground, where raptors see it easily. Sheffield and King name the Caucasus among low-latitude ranges where it lives year-round to about 3,660 m; that is a Caucasus-level figure, not a measured Georgian belt. This page does not map administrative regions. Named Georgian points are Borjomi-Kharagauli National Park, 25 May 2015 (photographs by ზაური ხაჩიძე on this page); Lagodekhi (Kurose et al. 2005, genetic sample N18); the Kvesheti–Kobi road corridor mammal survey, Lots 1 and 2 (2019); and a garden in Telavi in August 2025 (a trip report, not a peer-reviewed paper). Do not assume even density across the whole country.",
     "diet": "There is no separate Georgian diet study on this page. Across the range it is a specialist hunter of small rodents, especially voles and mice. It occasionally takes birds’ eggs and nestlings, young lagomorphs, lizards, frogs, insects, and carrion. Its small size lets it follow prey into burrows. The realistic picture in Georgia is the same — small rodents in grass and at woodland edges — but the local menu has not been measured here.",
-    "behavior": "It is active by day and at night; captures are often by day, but activity is not limited to one period. It moves in quick bounds and often stands on the hind legs to look around. It rarely digs its own den: it takes a rodent burrow, a rock pile, or other cover. At species level gestation is about 34–37 days, without delayed implantation (unlike the stoat). In temperate parts of the range one or two litters a year are common, usually with several young. Those figures come from the wider range, not a Georgian den sample. Northern populations turn white in winter; in the south the winter coat often stays brown. Do not assume a white winter form in Georgia — local winter colour is not measured on this page.",
+    "behavior": "It is active by day and at night; captures are often by day, but activity is not limited to one period. It moves in quick bounds and often stands on the hind legs to look around. It rarely digs its own den: it takes a rodent burrow, a rock pile, or other cover. At species level gestation is about 34–37 days, without delayed implantation (unlike the stoat). In temperate parts of the range one or two litters a year are common, usually with several young. Those figures come from the wider range, not a Georgian den sample. Northern populations turn white in winter; in the south the winter coat often stays brown. The Borjomi-Kharagauli photographs of 25 May 2015 show an individual in brown-and-white summer pelage. Do not assume a white winter form in Georgia — a winter series is not on this page.",
     "conservation": "McDonald and co-authors assess Mustela nivalis as Least Concern on the IUCN Red List (2016 assessment, 2019 amended version); the range is wide and the population large. Eliava et al. 2007 list it as LC in Georgia. It is not treated on this page as a threatened taxon on Georgia’s 2014 Red List (Government Resolution No. 190). It is not on CITES appendices at species level. Unlike the red fox, it is not cited here as a hunting species. Local pressures can include rodenticide (secondary poisoning is documented at species level), habitat loss, and road mortality; a national trend is not measured on this page. Do not handle wild animals.",
     "interaction": "It has no venom. It can bite if handled. Any wild mammal can theoretically carry rabies; Georgian literature names fox, jackal, wolf, and dogs as the main sources, not this species. Do not feed or handle it.",
     "stats": [
@@ -13993,7 +14010,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can I see it in Georgia?",
-        "answer": "In rank grass, scrub, farmland, woodland edges, and mountains where rodents are present. Named points are Lagodekhi, the Kvesheti–Kobi corridor, and one garden sighting in Telavi. This page does not map every region."
+        "answer": "In rank grass, scrub, farmland, woodland edges, and mountains where rodents are present. Named points are Borjomi-Kharagauli National Park (photographs, 25 May 2015), Lagodekhi, the Kvesheti–Kobi corridor, and one garden sighting in Telavi. This page does not map every region."
       },
       {
         "question": "How can I identify it?",
@@ -14021,6 +14038,22 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/mustela-nivalis-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-25"
+        }
+      },
+      {
+        "src": "/images/mustela-nivalis-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-25"
+        }
+      },
       {
         "src": "/images/mustela-nivalis-grazalema-1.jpg",
         "credit": {
@@ -14067,16 +14100,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "Davidruiz91",
-      "url": "https://commons.wikimedia.org/wiki/File:Comadreja_en_un_Muro_de_Piedra.jpg",
-      "location": "Sierra de Grazalema",
-      "date": "2016-04-05"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-25"
     },
     "mobileImageCredit": {
-      "photographer": "Jean Andrieux",
-      "url": "https://commons.wikimedia.org/wiki/File:Belette_pygm%C3%A9e_%C2%A9PNRV-Jean_Andrieux.jpg",
-      "location": "Vercors",
-      "date": "2021-06-02"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-25"
     }
   },
   "natrix-natrix": {
