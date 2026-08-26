@@ -228,7 +228,9 @@ export const featuredSpeciesIds = [
   "malpolon-insignitus",
   "emberiza-citrinella",
   "picus-viridis",
+  "cuculus-canorus",
   "vulpes-vulpes",
+  "mustela-nivalis",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;

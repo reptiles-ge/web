@@ -39,7 +39,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "pelodytes-caucasicus": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["wetland", "forest", "mountain"],
   },
   "bufotes-viridis": {
     group: "amphibian",
@@ -301,9 +301,17 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "cuculus-canorus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
   "vulpes-vulpes": {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],
+  },
+  "mustela-nivalis": {
+    group: "mammal",
+    habitats: ["grassland", "forest", "mountain"],
   },
 };
 

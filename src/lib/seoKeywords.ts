@@ -127,6 +127,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Natrix megalocephala",
     ],
   },
+  "pelodytes-caucasicus": {
+    ka: [
+      "კავკასიური ჯვარულა",
+      "ჯვრიანა",
+      "ჯვარულა",
+      "Pelodytes",
+    ],
+    en: [
+      "Caucasian mud-diver",
+      "parsley frog",
+      "Pelodytes",
+    ],
+  },
   "hyla-orientalis": {
     ka: [
       "ვასაკა",
@@ -222,6 +235,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Picus viridis karelini",
     ],
   },
+  "cuculus-canorus": {
+    ka: [
+      "ჩვეულებრივი გუგული",
+      "გუგულისებრნი",
+      "Cuculus canorus canorus",
+    ],
+    en: [
+      "European cuckoo",
+      "Eurasian cuckoo",
+      "cuckoo",
+      "Cuculus canorus canorus",
+    ],
+  },
   "vulpes-vulpes": {
     ka: [
       "ჩვეულებრივი მელა",
@@ -237,6 +263,22 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Canis vulpes",
       "Vulpes vulpes caucasica",
       "Vulpes vulpes alpherakyi",
+    ],
+  },
+  "mustela-nivalis": {
+    ka: [
+      "სინდიოფალა",
+      "Putorius nivalis",
+      "Mustela nivalis caucasica",
+      "Mustela nivalis dinniki",
+    ],
+    en: [
+      "weasel",
+      "common weasel",
+      "little weasel",
+      "Putorius nivalis",
+      "Mustela nivalis caucasica",
+      "Mustela nivalis dinniki",
     ],
   },
 };

@@ -657,7 +657,11 @@ function speciesGroupText(species: Species) {
   extra.push(group === "turtle" ? "კუ turtles tortoise" : "");
   extra.push(group === "amphibian" ? "ამფიბია amphibian" : "");
   extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
-  extra.push(group === "mammal" ? "ძუძუმწოვარი mammal მელა fox" : "");
+  extra.push(
+    group === "mammal"
+      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel"
+      : "",
+  );
   return extra;
 }
 
