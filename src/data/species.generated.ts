@@ -6021,7 +6021,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-27T16:53:03+04:00",
+    "updatedAt": "2026-08-27T17:40:58+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7017,7 +7017,7 @@ export const species: Species[] = [
     "location": "საქართველო — წყალთან",
     "description": "უშხამო, ნახევრადწყლის გველი კუბიკური ლაქებით. საქართველოში მდინარეების, ტბებისა და ნაპირების მკვიდრია; ადამიანისთვის უვნებელია.",
     "overview": "წყლის ანკარა (Natrix tessellata) უშხამო, ნახევრადწყლის გველია, რომელიც საქართველოში მდინარეებთან, ტბებთან და ნაპირებთან ფართოდ გვხვდება. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. გავრცელებულია ცენტრალური და აღმოსავლეთ ევრაზიის დიდ ნაწილზე. საქართველოში წყლის ჰაბიტატების უმეტესობას იკავებს; ამ ატლასის რუკაზე აღნიშნულია ყველა 12 რეგიონი, თუმცა გავრცელება საშუალო სიზუსტითაა დადგენილი — სახეობა წყალზეა მიბმული და მშრალ ქედზე არ უნდა ვეძებოთ. დასავლეთში ჩვეულებრივ ზღვის დონიდან დაახლოებით 0–600 მ-მდეა, აღმოსავლეთში — 900 მ-მდე; იშვიათი დაკვირვებები 1,100 მ-მდეა. ნოტიო დასავლეთში ხშირად ჩვეულებრივ ანკარაზე (Natrix natrix) ნაკლებია; ნახევრადმშრალ აღმოსავლეთში პირიქით. ზურგზე მუქი კვადრატული ლაქებია, მუცელი ხშირად ყვითელი ან ნარინჯისფერი შავი წერტილებით. ზრდასრული ჩვეულებრივ დაახლოებით 70–110 სმ-ია; დიდი მდედრი 1.2 მ-საც აჭარბებს. ადამიანისთვის საშიში არ არის. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოს წითელ ნუსხაში არ შედის.",
-    "habitat": "საქართველოში ეს წყლის პირის გველია. ეძებეთ მდინარესთან, ნაკადულთან, ტბასთან, წყალსაცავთან, არხთან და გუბესთან — ქვაზე, ნაპირზე, ტალახზე და წყალზე გადახრილ ტოტზე. შედის სასოფლო-სამეურნეო და შეცვლილ ლანდშაფტშიც, თუ თევზი ან ამფიბია ჰყოფნის. დასავლეთში კოლხეთის ჭაობები და შავი ზღვის სანაპირო წყალიც უდგება; დასახელებული ადგილებია კოლხეთის ეროვნული პარკი და ჭარნალის ხეობა აჭარაში. 2011 წლის ქართული კვლევა მას ქვეყნის წყლის ჰაბიტატების უმეტესობაში ასახელებს. ვერტიკალურად დასავლეთში ჩვეულებრივ 0–600 მ, აღმოსავლეთში 900 მ, იშვიათად 1,100 მ; უფრო მაღლა ნალექიან ადგილზე იშვიათია. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი, სამცხე — ჯავახეთი, შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. 2021 წლის გველების მიმოხილვა მას მთელ საქართველოში გავრცელებულად მიიჩნევს. ჩვეულებრივ ანკარასთან შედარებით უფრო ღია, კლდოვან და ნახევრადმშრალ ნაპირს ირჩევს.",
+    "habitat": "საქართველოში ეს წყლის პირის გველია. ეძებეთ მდინარესთან, ნაკადულთან, ტბასთან, წყალსაცავთან, არხთან და გუბესთან — ქვაზე, ნაპირზე, ტალახზე და წყალზე გადახრილ ტოტზე. შედის სასოფლო-სამეურნეო და შეცვლილ ლანდშაფტშიც, თუ თევზი ან ამფიბია ჰყოფნის. დასავლეთში კოლხეთის ჭაობები და შავი ზღვის სანაპირო წყალიც უდგება; დასახელებული ადგილებია კოლხეთის ეროვნული პარკი და ჭარნალის ხეობა აჭარაში. ამ გვერდზე დასახელებული ფოტოა ლისის ტბიდან (თბილისი; 29 ივნისი 2024 და 25 მარტი 2025). 2011 წლის ქართული კვლევა მას ქვეყნის წყლის ჰაბიტატების უმეტესობაში ასახელებს. ვერტიკალურად დასავლეთში ჩვეულებრივ 0–600 მ, აღმოსავლეთში 900 მ, იშვიათად 1,100 მ; უფრო მაღლა ნალექიან ადგილზე იშვიათია. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი, სამცხე — ჯავახეთი, შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. 2021 წლის გველების მიმოხილვა მას მთელ საქართველოში გავრცელებულად მიიჩნევს. ჩვეულებრივ ანკარასთან შედარებით უფრო ღია, კლდოვან და ნახევრადმშრალ ნაპირს ირჩევს.",
     "diet": "ცალკე ქართული კვების კვლევა რაოდენობრივი ნიმუშით ამ გვერდზე არ არის. სახეობის დონეზე ძირითადად თევზს ჭამს; ამფიბიებსაც იჭერს — ბაყაყს, გომბეშოსა და ლიფსიტას. 2014 წლის გლობალური მიმოხილვა საქართველოს იმ ქვეყნებში ასახელებს, სადაც დიეტაში ამფიბიებიცაა დაფიქსირებული. კავკასიის სანაპიროზე ხშირად გობისებრი თევზია მთავარი ნადავლი. მსხვერპლს ცოცხლად ყლაპავს. ნადირობს წყალში და ნაპირთან.",
     "behavior": "თბილ სეზონზე აქტიურია, ძირითადად დღისით. ხშირად იბანაობს ან მზეზე თბება ნაპირზე, ქვაზე და წყალზე გადახრილ ტოტზე. ცივ თვეებში ზამთრობს წყალთან ახლოს, მშრალ სოროში ან ნაპრალში; ზუსტი თვეები სიმაღლესა და კლიმატზეა დამოკიდებული და საქართველოს ყველა პოპულაციის ერთი კალენდარი ამ გვერდზე არ არის. კვერცხისმდებია. სახეობის არეალში შეწყვილება ჩვეულებრივ გაზაფხულზეა, კვერცხს ზაფხულში დებს ტენიან ადგილას — ნიადაგი, დამპალი მცენარეულობა, ქვის ღობე; ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე. საფრთხისას კლოაკიდან უსიამოვნო სუნის სეკრეტს გამოყოფს ან მკვდარს თამაშობს. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ — შხამი არ აქვს. ხშირად გველგესლაში ერევათ მუქი ლაქების გამო.",
     "conservation": "IUCN-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ შედის. ქვეყანაში ფართოდაა გავრცელებული და წყალთან ადგილობრივად ჩვეულებრივია. ბერნის კონვენციის II დანართშია. მთავარი ზეწოლა წყლის დაბინძურება, ნაპირის შეცვლა და დევნაა — ადამიანები ხშირად შხამიან გველად მიიჩნევენ. ზოგ ევროპულ ქვეყანაში ადგილობრივი პოპულაციები მცირდება ჰაბიტატის დაკარგვისა და დაბინძურების გამო; საქართველოს პოპულაციის ცალკე ტრენდი ამ გვერდზე არ არის გამოქვეყნებული.",
@@ -7039,6 +7039,59 @@ export const species: Species[] = [
         "credit": {
           "photographer": "შოთა ზანდუკელი",
           "date": "2025-03-12"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2025-03-25"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2025-03-25"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2025-03-25"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-4.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2024-06-29"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-beka-1.jpg",
+        "credit": {
+          "photographer": "ბექა ჭანკოტაძე",
+          "date": "2021-08-01"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-sandro-1.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2024-08-04"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-sandro-2.jpg",
+        "credit": {
+          "photographer": "სანდრო ხახვა",
+          "date": "2024-08-04"
         }
       },
       {
@@ -16710,7 +16763,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Georgia — near water",
     "description": "A non-venomous, semi-aquatic snake with checkered blotches. In Georgia it lives along rivers, lakes and shorelines; it is harmless to people.",
     "overview": "The dice snake (Natrix tessellata) is a non-venomous, semi-aquatic snake found widely in Georgia along rivers, lakes and shorelines. The 2026 Georgian checklist treats it as biologically confirmed. It ranges across much of central and eastern Eurasia. In Georgia it occupies most available water habitats; this atlas marks all 12 regions, with medium distribution confidence — look for it by water, not on dry ridges. In the west it usually occurs from about 0–600 m, in the east to 900 m, with rare records to 1,100 m. In the humid west it is often outnumbered by the grass snake (Natrix natrix); in the semi-arid east the reverse is typical. The back has dark square blotches; the belly is often yellow or orange with black spots. Adults are usually about 70–110 cm; large females can exceed 1.2 m. It is not dangerous to people. IUCN lists it as Least Concern; it is not on Georgia’s Red List.",
-    "habitat": "In Georgia this is a snake of water margins. Look for it at rivers, streams, lakes, reservoirs, canals and ponds — on stones, banks, mud and branches over the water. It also uses farmland and altered ground if fish or amphibians are present. In the west it uses Colchic wetlands and Black Sea coastal water; named sites include Kolkheti National Park and the Charnali valley in Adjara. A 2011 Georgian study treats it as present in most of the country’s aquatic habitats. Elevation is usually 0–600 m in the west and 900 m in the east, rarely 1,100 m; it is scarce higher up in wet country. This atlas marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, Samtskhe — Javakheti, Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti and Tbilisi. A 2021 review of Georgia’s snakes treats it as widespread. Compared with the grass snake it chooses more open, rocky, semi-arid shores.",
+    "habitat": "In Georgia this is a snake of water margins. Look for it at rivers, streams, lakes, reservoirs, canals and ponds — on stones, banks, mud and branches over the water. It also uses farmland and altered ground if fish or amphibians are present. In the west it uses Colchic wetlands and Black Sea coastal water; named sites include Kolkheti National Park and the Charnali valley in Adjara. A named photo on this page is from Lisi Lake in Tbilisi (29 June 2024 and 25 March 2025). A 2011 Georgian study treats it as present in most of the country’s aquatic habitats. Elevation is usually 0–600 m in the west and 900 m in the east, rarely 1,100 m; it is scarce higher up in wet country. This atlas marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, Samtskhe — Javakheti, Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti and Tbilisi. A 2021 review of Georgia’s snakes treats it as widespread. Compared with the grass snake it chooses more open, rocky, semi-arid shores.",
     "diet": "There is no separate quantitative Georgian diet study on this page. At species level it feeds mainly on fish; it also takes amphibians — frogs, toads and tadpoles. A 2014 global review lists Georgia among countries where amphibians are recorded in the diet. On Caucasian coasts, gobies are often the main prey. It swallows prey alive. It hunts in water and along the bank.",
     "behavior": "It is active in the warm season, mostly by day. It often swims or basks on banks, stones and overhanging branches. In cold months it overwinters near water in dry burrows or crevices; the exact months depend on elevation and climate, and this page does not give a single calendar for all Georgian populations. It lays eggs. Across the species’ range, mating is usually in spring; eggs are laid in summer in a moist spot — soil, rotting plants, stone walls — and hatch in late summer or early autumn. When threatened it releases a foul cloacal secretion or feigns death. If you find one, watch it and leave it. Do not pick it up or kill it — it has no venom. People often mistake it for a viper because of the dark blotches.",
     "conservation": "IUCN lists it as Least Concern. It is not on Georgia’s 2014 Red List. In the country it is widespread and locally common by water. It is on Appendix II of the Bern Convention. Main pressures are water pollution, altered banks and persecution — people often treat it as venomous. In some European countries local populations are declining through habitat loss and pollution; a separate trend for Georgia is not published on this page.",
@@ -16805,6 +16858,59 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2025-03-12"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-1.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Lisi Lake",
+          "date": "2025-03-25"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-2.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Lisi Lake",
+          "date": "2025-03-25"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-3.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Lisi Lake",
+          "date": "2025-03-25"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-ioane-4.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Lisi Lake",
+          "date": "2024-06-29"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-beka-1.jpg",
+        "credit": {
+          "photographer": "Beka Chankotadze",
+          "date": "2021-08-01"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-sandro-1.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva",
+          "date": "2024-08-04"
+        }
+      },
+      {
+        "src": "/images/natrix-tessellata-sandro-2.jpg",
+        "credit": {
+          "photographer": "Sandro Khakhva",
+          "date": "2024-08-04"
         }
       },
       {
