@@ -174,8 +174,22 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "მელა",
       "fox",
       "vulpes",
+      "ტურა",
+      "jackal",
+      "canis",
       "ციყვი",
       "squirrel",
+      "დათვი",
+      "bear",
+      "ursus",
+      "ღორი",
+      "ტახი",
+      "boar",
+      "ჯიქი",
+      "leopard",
+      "შველი",
+      "roe deer",
+      "capreolus",
     ],
     icon: "hub",
   },
@@ -661,7 +675,7 @@ function speciesGroupText(species: Species) {
   extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
   extra.push(
     group === "mammal"
-      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel"
+      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard"
       : "",
   );
   return extra;

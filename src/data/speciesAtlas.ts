@@ -321,13 +321,45 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],
   },
+  "canis-aureus": {
+    group: "mammal",
+    habitats: ["grassland", "forest", "wetland"],
+  },
+  "canis-lupus": {
+    group: "mammal",
+    habitats: ["mountain", "forest", "grassland"],
+  },
   "mustela-nivalis": {
     group: "mammal",
     habitats: ["grassland", "forest", "mountain"],
   },
+  "meles-canescens": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
   "sciurus-anomalus": {
     group: "mammal",
     habitats: ["forest"],
+  },
+  "capreolus-capreolus": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "ursus-arctos": {
+    group: "mammal",
+    habitats: ["forest", "mountain", "grassland"],
+  },
+  "erinaceus-concolor": {
+    group: "mammal",
+    habitats: ["forest", "grassland"],
+  },
+  "sus-scrofa": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "panthera-pardus": {
+    group: "mammal",
+    habitats: ["mountain", "forest", "grassland"],
   },
 };
 

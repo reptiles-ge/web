@@ -233,8 +233,16 @@ export const featuredSpeciesIds = [
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
   "vulpes-vulpes",
+  "canis-aureus",
+  "canis-lupus",
   "mustela-nivalis",
+  "meles-canescens",
   "sciurus-anomalus",
+  "capreolus-capreolus",
+  "ursus-arctos",
+  "erinaceus-concolor",
+  "sus-scrofa",
+  "panthera-pardus",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
