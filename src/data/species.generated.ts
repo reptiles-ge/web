@@ -2662,12 +2662,12 @@ export const species: Species[] = [
     "genus": "Eirenis",
     "family": "Colubridae",
     "location": "აღმოსავლეთი და ცენტრალური საქართველო",
-    "description": "პატარა უშხამო ჯუჯა გველი; ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა.",
-    "overview": "წყნარი ეირენისი (Eirenis modestus) კოლუბრიდების პატარა, უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს და ჯუჯა გველების ყველაზე ბაზალურ შტოს მიაკუთვნებს (Pyron et al. 2013). არეალი აღმოსავლეთ ხმელთაშუაზღვიურია; საქართველოში — აღმოსავლეთი და ცენტრალური ნაწილი. ნომინოტიპური ქვესახეობაა E. m. modestus. ნაშრომის ფიგურაზე ნიმუში მითითებულია თბილისიდან. ხშირად ერევა საყელოიან ეირენისს (Eirenis collaris).",
-    "habitat": "ქვიანი და მშრალი ღია ადგილები თავშესაფრით ქვების ქვეშ. ჩამონათვალი საქართველოში აღმოსავლეთსა და ცენტრს ასახელებს; ნაშრომის ფიგურაზე ნიმუში — თბილისი.",
-    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.",
-    "behavior": "ფარული ჯუჯა გველი; მრგვალი გუგა, უშხამო.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — E. m. modestus.",
+    "description": "პატარა უშხამო გველი ქვიან მშრალ ადგილებში. საქართველოში დადასტურებულია აღმოსავლეთსა და ცენტრში; დასახელებული ადგილია თბილისი.",
+    "overview": "წყნარი ეირენისი (Eirenis modestus) პატარა უშხამო გველია აღმოსავლეთ და ცენტრალურ საქართველოში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; ქვესახეობა აქ ნომინოტიპურია — E. m. modestus. დასახელებული ნიმუში თბილისიდანაა. 2021 წლის ქართული გველების კვლევა მას მშრალი კლიმატის, ქვიანი ან ბალახოვანი ადგილის სახეობებს მიაკუთვნებს და ძირითადად აღმოსავლეთს უკავშირებს. დასავლეთ საქართველოსა და კოლხეთში დასახელებული ჩანაწერი ამ გვერდზე არ არის. ზრდასრული სიგრძე სახეობის დონეზე ჩვეულებრივ 70 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 67 სმ-ია, უმეტესობა ამაზე მცირეა. ადამიანისთვის უვნებელია — შხამი არ აქვს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ხშირად ერევა საყელოიან ეირენისს (Eirenis collaris), რომელიც ჩამონათვალში სამხრეთ-აღმოსავლეთს უკავშირდება.",
+    "habitat": "2021 წლის ქართული გველების კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. 2026 წლის ჩამონათვალი საქართველოში აღმოსავლეთსა და ცენტრს ასახელებს; ფიგურაზე ნიმუში თბილისიდანაა. ამ ატლასის რუკაზე აღნიშნულია თბილისი, ქვემო ქართლი, შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და სამცხე — ჯავახეთი — ეს ჩამონათვალის ფორმულირებასა და თბილისის ნიმუშს ეყრდნობა და არა მუნიციპალიტეტების სრულ ჩამონათვალს. გავრცელების ნდობა საშუალოა. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. სახეობის დონეზე ცხოვრობს მშრალ ქვიან ფერდობზე, სტეპში, მეჩხერ ბუჩქნარსა და სასოფლო ადგილის კიდეზე; დღისით ხშირად ბრტყელი ქვის ქვეშაა. საქართველოსთვის ზღვის დონის დიაპაზონი ცალკე არ არის გამოქვეყნებული. თბილისის ნიმუშები დაბლობსა და მთისწინეთს უკავშირდება. აღმოსავლეთ ანატოლიაში ლიტერატურაში მითითებულია დაახლოებით 2000 მ-მდე — ეს ქართულ სიმაღლედ არ უნდა ჩაითვალოს. მთელი არეალი მოიცავს თურქეთს, კავკასიას, ბერძნულ კუნძულებსა და მეზობელ რეგიონებს; ტიპის მასალა საქართველოდან არ არის.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. დასავლეთ თურქეთში 14 ინდივიდის კუჭის შიგთავსში ძირითადად მწერები იყო, აგრეთვე ფეხსახსრიანები (მათ შორის სკოლოპენდრები) და იშვიათად პატარა ხვლიკი. სხვა ლიტერატურაში დასახელებულია აგრეთვე ობობები, მორიელები და წვრილი ხვლიკები. იკვებება ძირითადად ქვის ქვეშ მცხოვრები უხერხემლოებით. შხამი არ აქვს — მსხვერპლს პირით იჭერს.",
+    "behavior": "მალულია. სახეობის დონეზე აქტიურია დაახლოებით აპრილიდან ნოემბრამდე; ნადირობს გამთენიისას ან ბინდში, ზოგჯერ დღისითაც ჩანს. დღის სიცხეში ხშირად ქვის ქვეშ რჩება. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. საფრთხისას უპირატესად გარბის. არ აიყვანოთ — შხამი არ აქვს, მაგრამ პატარა გველსაც შეუძლია უკბინოს. კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში 3–8 შედარებით დიდი კვერცხია, ჩვეულებრივ ივნის–ივლისში. ნაშიერი დაახლოებით 8–12 სმ-ია. შეწყვილების სეზონი და ქართული კლაჩის ზომა აქ არ არის გაზომილი. იმავე მშრალ აღმოსავლეთში შეიძლება შეხვდეთ საყელოიან ეირენისს (სამხრეთ-აღმოსავლეთში), სპილენძას, გველბრუცას და, იშვიათად, კატისთვალა გველს (Telescopus fallax) — გუგა, ზომა და თავის ნახატი განასხვავებს.",
+    "conservation": "IUCN Red List-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და კონკრეტული გლობალური საფრთხე არ არის გამოყოფილი. საქართველოს 2014 წლის წითელ ნუსხაში არ არის; იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. ქართული სურათი ჯერ არათანაბარია: დასახელებული თანამედროვე ადგილი თბილისია, ხოლო აღმოსავლეთ–ცენტრალური არეალი ჩამონათვალის განზოგადებაა და არა სრული რუკა. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა და შხამიან გველთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
     "imageCredit": {
@@ -2705,47 +2705,71 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ქვიანი / მშრალი ღია"
+        "value": "ქვიანი მშრალი / აღმ.–ცენტრი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ <70 სმ"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "დადასტურებული"
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
       },
       {
         "label": "ოჯახი",
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "აღწერა 1838 წელს (Martin) როგორც Coronella modesta; გვარის Eirenis ტიპის სახეობაა. ტიპის მასალა ევფრატის ექსპედიციასა და ტრაპიზონს უკავშირდება და არა საქართველოს. ძველ კატალოგებში ზოგჯერ E. collaris-ის სინონიმად იწერებოდა.",
+      "2026 წლის ჩამონათვალის ფიგურაზე ნიმუში თბილისიდანაა. Mahlow et al. 2013 იგივე ქალაქიდან მუზეუმის ნიმუშებსაც ასახელებს. გვარი გადასინჯვას საჭიროებს; საქართველოში ამჟამად E. modestus და E. m. modestus გამოიყენება.",
+      "ქართული სახელი წყნარი ეირენისი პატარა, მალულ გველს ასახავს; ინგლისური ring-headed dwarf snake — თავისა და კისრის მუქ ზოლებს, რომლებიც ახალგაზრდაში უფრო ნათელია."
+    ],
     "identification": {
-      "summary": "პატარა უშხამო ჯუჯა გველი; ინგლისური სახელი თავის რგოლს/საყელოს ასახავს.",
+      "summary": "პატარა, გამხდარი უშხამო გველია მრგვალი გუგით. ზრდასრულში ტანი ხშირად ერთგვაროვანი მოყავისფრო ან რუხია; ახალგაზრდას თავზე და კისერზე მუქი ზოლები უფრო ნათელია. არ არის გველგესლა და არ არის ჭიასავითი გველბრუცა.",
       "traits": [
-        "პატარა, გამხდარი კოლუბრიდი — არა დიდი მცურავი.",
-        "ხშირად მუქი ნიშანი თავზე ან კისერზე („რგოლთავა“).",
-        "მრგვალი გუგა; უშხამო.",
-        "ერევა საყელოიან ეირენისს, რომელიც სამხრეთ-აღმოსავლეთ საქართველოშია მითითებული."
+        "სხეული გამხდარი და მოკლეა — ჯუჯა გველის იერით და არა დიდი მცურავის. თავი კისრისგან სუსტად გამოიყოფა, დინგი მომრგვალებულია. გუგა მრგვალია. ზურგის ქერცელი გლუვია. სახეობის დონეზე ზურგის ქერცლის რიგები შუა ტანზე ჩვეულებრივ 17–18-ია (იშვიათად 19). საყელოიან ეირენისს შუა ტანზე ხშირად 15 რიგი აქვს. ქერცლის დასათვლელად გველი არ აიყვანოთ. ზრდასრული სიგრძე ჩვეულებრივ 70 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 67 სმ.",
+        "ზურგი მოყავისფრო, რუხი ან მოწითალო-ყავისფერია, ხშირად თითქმის ულაქო. ახალგაზრდას თავის ზურგზე მუქი განივი ზოლები აქვს და კისერზე ნახევარმთვარისებრი საყელო — აქედან ინგლისური სახელი ring-headed. ზრდასრულში თავის ნახატი ხშირად ფერმკრთალდება. მუცელი ღიაა. ანატოლიურ ქვესახეობა E. m. semimaculatus-ს ზურგზე წერტილებიანი რიგები აქვს; საქართველოში ჩამონათვალი ნომინოტიპურ E. m. modestus-ს ასახელებს.",
+        "საყელოიანი ეირენისი (Eirenis collaris) მსგავსი ზომისაა, მაგრამ საყელო ჩვეულებრივ უფრო მკაფიო რჩება; ჩამონათვალი მას სამხრეთ-აღმოსავლეთ საქართველოში ასახელებს (დასახელებული ადგილი — დედოფლისწყარო, თარიბანა), ამ სახეობას კი — აღმოსავლეთსა და ცენტრში. სპილენძა (Coronella austriaca) უფრო მასიურია, ზურგზე წვრილი ლაქების ორი რიგი აქვს და უფრო ტყის პირსა და ნოტიო ადგილს უკავშირდება. გველბრუცა (Xerotyphlops vermicularis) ჭიასავითია, თვალები შემცირებულია. კატისთვალა გველს (Telescopus fallax) გუგა ვერტიკალურია.",
+        "შხამი არ აქვს. გუგა მრგვალია — ვერტიკალური ნაპრალი გველგესლაზე ან გიურზაზე მიუთითებს. თუ შეხვდებით, დაიცავით მანძილი. არ აიყვანოთ: პატარა უშხამო გველიც ადვილად ზიანდება, ხოლო უცნობი გველი შეიძლება შხამიანი იყოს."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა წყნარი ეირენისი საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026: აღმოსავლეთი და ცენტრალური საქართველო. ნაშრომის ფიგურაზე ნიმუში — თბილისი."
+        "answer": "დიახ. 2026 წლის ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს აღმოსავლეთ და ცენტრალურ საქართველოში. დასახელებული ადგილია თბილისი. მთელ ქვეყანაში არ ეძებოთ."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. უშხამო ჯუჯა გველია."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მშრალ ქვიან ან ბალახოვან ადგილზე, ხშირად ქვის ქვეშ — აღმოსავლეთსა და ცენტრში. ამ ატლასის რუკაზე თბილისი, ქვემო და შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და სამცხე — ჯავახეთია. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. გავრცელების ნდობა საშუალოა."
       },
       {
-        "question": "როგორ განვასხვავოთ საყელოიანი ეირენისისგან?",
-        "answer": "ორივე პატარა უშხამო Eirenis-ია. E. collaris სახელს საყელოს უნდა; ჩამონათვალი მას სამხრეთ-აღმოსავლეთ საქართველოში ასახელებს, E. modestus-ს — აღმოსავლეთსა და ცენტრში."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. საფრთხისას უპირატესად გარბის. პატარა გველსაც შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
       },
       {
-        "question": "რას ნიშნავს „ბაზალური შტო“?",
-        "answer": "Pyron et al. 2013-ის მიხედვით (ჩამონათვალში ციტირებული) E. modestus ჯუჯა გველების ყველაზე ბაზალურ შტოს ეკუთვნის."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა გამხდარი გველი, მრგვალი გუგა, გლუვი ქერცელი, ზურგი ხშირად ერთგვაროვანი მოყავისფრო ან რუხი. ახალგაზრდას თავზე და კისერზე მუქი ზოლები აქვს. საყელოიან ეირენისს საყელო უფრო მკაფიო აქვს და სამხრეთ-აღმოსავლეთშია მითითებული. გველბრუცა ჭიასავითია. არ აიყვანოთ დასათვლელად."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "სახეობის დონეზე ზრდასრული ჩვეულებრივ 70 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 67 სმ-ია. უმეტესობა ამაზე მცირეა. საქართველოსთვის ცალკე გაზომილი სიგრძე ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს და კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში 3–8 კვერცხია, ჩვეულებრივ ივნის–ივლისში. კვება ქართულად არ არის ცალკე შესწავლილი; დასავლეთ თურქეთში ძირითადად მწერები და სხვა ქვისქვეშა უხერხემლოები, იშვიათად პატარა ხვლიკი."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "სახეობის დონეზე აპრილიდან ნოემბრამდე, ძირითადად გამთენიისას და ბინდში. საქართველოში საათობრივი კალენდარი ცალკე არ არის გამოქვეყნებული; მოსალოდნელია თბილი სეზონი ქვის ქვეშ მშრალ ადგილებში."
+      },
+      {
+        "question": "რით განსხვავდება საყელოიანი ეირენისისგან?",
+        "answer": "ორივე პატარა უშხამო Eirenis-ია. საყელოიანს საყელო უფრო მკაფიო აქვს; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, წყნარს — აღმოსავლეთსა და ცენტრში. შუა ტანზე ქერცლის რიგები ხშირად 15 წინააღმდეგ 17–18, მაგრამ ეს ხელში ასათვლელი ნიშანი არ არის."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -2755,7 +2779,24 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Mahlow et al. 2013 — Annotated checklist of the genus Eirenis",
+        "url": "https://doi.org/10.3897/vz.63.e31413"
+      },
+      {
+        "name": "Çiçek & Mermer 2007 — Food of Eirenis modestus in western Turkey",
+        "url": "https://journals.tubitak.gov.tr/zoology/vol31/iss4/13/"
+      },
+      {
+        "name": "Bowles 2024 — IUCN Red List account for Eirenis modestus",
+        "url": "https://www.iucnredlist.org/species/157292/137861955"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
@@ -2769,69 +2810,84 @@ export const species: Species[] = [
     "scientificName": "Elaphe dione",
     "genus": "Elaphe",
     "family": "Colubridae",
-    "location": "საქართველო — მშრალი ზონები",
-    "description": "უშხამო, ნახატიანი მცურავი სტეპებისა და მშრალი ლანდშაფტებისა — საქართველოში უპირატესად მშრალ ჰაბიტატებში; უვნებელია.",
-    "overview": "სახეებიანი მცურავი (Elaphe dione) ანკარასებრთა ოჯახის უშხამო მცურავია. აღწერა პალასმა 1773 წელს გააკეთა; სახელი უკავშირდება ბერძნულ მითოლოგიურ ფიგურა დიონეს (აფროდიტეს დედა). გავრცელების არეალი ერთ-ერთი ყველაზე ფართოა გვარ Elaphe-ში — აღმოსავლეთ უკრაინიდან ცენტრალური აზიის გავლით მონღოლეთამდე, ჩრდილოეთ ჩინეთამდე და კორეამდე; ასევე გვხვდება საქართველოში, აზერბაიჯანსა და ჩრდილოეთ ირანში. საქართველოში უპირატესად მშრალი კლიმატის ჰაბიტატებს ანიჭებს უპირატესობას; ბოლო წლების დაკვირვებებმა (მათ შორის სოციალური ქსელების ჩანაწერებმა) არეალის ცოდნა მნიშვნელოვნად გააფართოვა. სიგრძე ჩვეულებრივ დაახლოებით 0.7–1.2 მ-ია. IUCN-ის მიხედვით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern).",
-    "habitat": "ევრიტოპული სახეობაა: ბინადრობს სტეპებში, ბუჩქნარებში, მშრალ და ღია ტყეებში, კლდოვან ადგილებში, ნახევრადუდაბნოებში, ჭალების პირას და შეცვლილ ლანდშაფტშიც. ვერტიკალურად აღწევს ზღვის დონიდან დაახლოებით 3,580 მ-მდე. საქართველოში დამოკიდებულია შედარებით მშრალ კლიმატზე — უფრო ხშირია აღმოსავლეთსა და სამხრეთის მშრალ ზონებში; შესაფერის ჰაბიტატებში დასავლეთშიც აღინიშნა. თავშესაფარს ეძებს მღრღნელების სოროებში, ქვების ქვეშ, ფესვებსა და ნიადაგის ნაპრალებში.",
-    "diet": "იკვებება მღრღნელებით, პატარა ფრინველებით, ბარტყებითა და ფრინველის კვერცხებით; აგრეთვე ხვლიკებით; იშვიათად ამფიბიებით, წვრილი თევზითა და მწერებით. მსხვერპლს ახრჩობს (კონსტრიქტორი); შხამი არ აქვს. კარგი მთამსვლელია და მოცურავეა — ხშირად ადის ბუჩქებსა და ხეებზე ბუდეების მოსანახულებლად.",
-    "behavior": "უმეტესად დღის აქტიურია; ამინდისა და სეზონის მიხედვით შეიძლება საღამოსაც გამოჩნდეს. მშვიდი და ფრთხილია — საფრთხისას უპირატესად გაქცევას ცდილობს. ზურგი ნაცრისფერი, მოყავისფრო ან მოყვითალოა მუქი განივი ლაქებით; ხშირად ჩანს ოთხი უფრო ღია გრძივი ზოლი. თავზე დამახასიათებელი მუქი ნახატია, თვალში გამავალი მუქი ზოლით; გუგა მრგვალია. კვერცხისმდებია: შეწყვილება გაზაფხულზეა, დედალი ივლის–აგვისტოში დებს ჩვეულებრივ 3–15 კვერცხს (ზოგჯერ 24-მდე); ნაშიერები დამოუკიდებლად იჩეკებიან.",
-    "conservation": "IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და სახეობა ადაპტირებადი. დასავლეთ კიდეზე (მაგ. უკრაინაში) ლოკალურად უფრო იშვიათი და დაცულია. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
+    "location": "აღმოსავლეთ საქართველოს მშრალი ზონები",
+    "description": "უშხამო, ნახატიანი მცურავი საქართველოს მშრალ ჰაბიტატებში. შხამი არ აქვს; ადამიანისთვის უვნებელია.",
+    "overview": "სახეებიანი მცურავი (Elaphe dione) უშხამო, ნახატიანი მცურავია საქართველოს მშრალ ჰაბიტატებში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; გავრცელების სიზუსტე საშუალოდაა შეფასებული. დასახელებული თანამედროვე წერტილები კახეთშია: ყვარელი (COI შტრიხკოდი) და კაჭრეთი (თავის ფოტოები იმავე ნაშრომში). 2021 წლის ქართული გველების კვლევა მას მშრალ კლიმატზე დამოკიდებულ, ქვიან ან ბალახოვან ადგილის სახეობებს მიაკუთვნებს და ძირითადად აღმოსავლეთ საქართველოს უკავშირებს; იმავე ნაშრომი ამ სახეობაზე ცოდნის მნიშვნელოვან მატებასაც აღნიშნავს, მათ შორის შესაფერის დასავლეთ ჰაბიტატებში. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. მთელ ქვეყანაში არ ეძებოთ. სახეობის არეალი კავკასიიდან წყნარ ოკეანემდეა. სიგრძე სახეობის დონეზე ჩვეულებრივ დაახლოებით 0.7–1.2 მ-ია; საქართველოსთვის ცალკე გაზომილი ზომა აქ არ არის. ადამიანისთვის უვნებელია — შხამი არ აქვს. ევროპაში IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
+    "habitat": "2021 წლის ქართული გველების კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. თავშესაფარს სხვა ნაწილებში ხშირად მღრღნელის სოროში, ქვის ქვეშ და ნაპრალში ეძებს; საქართველოში ეს პირდაპირ არ არის ცალკე გაზომილი. ამ ატლასის რუკაზე კახეთი, ქვემო ქართლი და თბილისია. დასახელებული ნიმუშები კახეთიდანაა: ყვარელი და კაჭრეთი. შიდა ქართლისა და სამცხე — ჯავახეთის დასახელებული წერტილი ამ გვერდზე არ არის. 2021 წლის კვლევამ სოციალური ქსელებისა და iNaturalist-ის ჩანაწერებით არეალის ცოდნა გაზარდა და აღნიშნა, რომ ზოგი აღმოსავლეთის კოლუბრიდი — მათ შორის ეს სახეობა — შესაფერის ჰაბიტატში დასავლეთშიც დაფიქსირდა; დასავლეთისა და კოლხეთის კონკრეტული დასახელებული ჩანაწერი აქ მაინც არ არის მოცემული. სახეობის დონეზე ბინადრობს სტეპში, ბუჩქნარში, ღია ტყეში, კლდოვან ადგილში და შეცვლილ ლანდშაფტშიც. სიმაღლე მთელ არეალში ზღვის დონიდან მაღალ მთამდეა; დადასტურებული მაღალი ჩანაწერია დაახლოებით 3,520 მ სიჩუანში და არა საქართველოში. საქართველოსთვის ცალკე სიმაღლის დიაპაზონი არ არის გამოქვეყნებული.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. გვარ Elaphe-ის მცურავები ჩვეულებრივ იკვებებიან მღრღნელებით, პატარა ფრინველებით, ბარტყებითა და კვერცხებით; ხვლიკიც შეიძლება შევიდეს. ვოლგის აუზში ძირითად საკვებად მღრღნელებია აღწერილი. მსხვერპლს ახრჩობს — შხამი არ აქვს. კარგად ადის ბუჩქსა და ხეზე, როგორც ამ გვარშია მიღებული; საქართველოში ბუდის ძებნა პირდაპირ არ არის გაზომილი.",
+    "behavior": "თბილ სეზონზე აქტიურია. გვარის სხვა მცურავების მსგავსად ხშირად დღისით მოძრაობს; ამინდის მიხედვით შეიძლება საღამოსაც გამოჩნდეს. საქართველოში საათობრივი აქტივობა ცალკე არ არის აღწერილი. საფრთხისას უპირატესად გარბის. არ აიყვანოთ — დიდ გველს შეუძლია ძლიერად უკბინოს, თუმცა შხამი არ აქვს. კვერცხისმდებია. ვოლგის აუზში 17 დედალმა ტერარიუმში დადო თითოეულმა 5–14 კვერცხი, ივლისის დასაწყისიდან აგვისტოს შუა რიცხვებამდე; ეს საქართველოს კლაჩი არ არის. შეწყვილების სეზონი და კვერცხების რაოდენობა ქართული პოპულაციისთვის აქ არ არის გამოქვეყნებული. იგივე მშრალ აღმოსავლეთში შეიძლება შეხვდეთ ურარტუს მცურავს (Elaphe urartica) — ნახატი უფრო მსხვილია. გიურზასთან აღრევა საშიშია: გიურზას გუგა ვერტიკალურია და შხამიანია.",
+    "conservation": "ევროპაში IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და სახეობა ადაპტირებადი. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. 2021 წლის კვლევა აღნიშნავს, რომ გველების არეალის ზუსტი ცოდნა კონსერვაციის პრიორიტეტებისთვის მნიშვნელოვანია, რადგან IUCN-ის კატეგორიები არეალის ზომაზეცაა დამოკიდებული. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. მღრღნელების მტაცებელია; ეს სარგებელი არ ნიშნავს, რომ გველი უნდა აიყვანოთ.",
+    "interaction": "არ აიყვანოთ. შხამი არ აქვს, მაგრამ დიდ გველს შეუძლია უკბინოს. თუ გუგა ვერტიკალურია — ეს სხვა სახეობაა, ხშირად შხამიანი.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/elaphe-dione-2.jpg",
     "imageCredit": {
       "photographer": "Zinogre",
-      "url": "https://www.inaturalist.org/observations/140744748"
+      "url": "https://www.inaturalist.org/observations/140744748",
+      "location": "ჩჟენჯოუ, ხენანი, ჩინეთი",
+      "date": "2022-10-27"
     },
     "mobileImage": "https://cdn.reptiles.ge/elaphe-dione-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Dmitry Dubikovskiy",
-      "url": "https://www.inaturalist.org/observations/274585553"
+      "url": "https://www.inaturalist.org/observations/274585553",
+      "location": "კემეროვოს ოლქი, რუსეთი",
+      "date": "2025-04-27"
     },
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-2.jpg",
         "credit": {
           "photographer": "Zinogre",
-          "url": "https://www.inaturalist.org/observations/140744748"
+          "url": "https://www.inaturalist.org/observations/140744748",
+          "location": "ჩჟენჯოუ, ხენანი, ჩინეთი",
+          "date": "2022-10-27"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-3.jpg",
         "credit": {
           "photographer": "Сергей Грабчак",
-          "url": "https://www.inaturalist.org/observations/246917579"
+          "url": "https://www.inaturalist.org/observations/246917579",
+          "location": "პრიმორიეს მხარე, რუსეთი",
+          "date": "2024-10-09"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-5.jpg",
         "credit": {
           "photographer": "Моховинка",
-          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg",
+          "location": "უკრაინა",
+          "date": "2015-07-12"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-6.jpg",
         "credit": {
           "photographer": "fisheyes",
-          "url": "https://www.inaturalist.org/observations/166546598"
+          "url": "https://www.inaturalist.org/observations/166546598",
+          "location": "ინჩონი, სამხრეთ კორეა",
+          "date": "2023-06-10"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-7.jpg",
         "credit": {
           "photographer": "svetlanaagafonova",
-          "url": "https://www.inaturalist.org/observations/97425149"
+          "url": "https://www.inaturalist.org/observations/97425149",
+          "location": "ალთაის მხარე, რუსეთი",
+          "date": "2021-07-26"
         }
       }
     ],
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "მშრალი ზონები"
+        "value": "მშრალი აღმ. საქართველო"
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 0.7–1.2 მ"
+        "value": "სახეობა ~0.7–1.2 მ"
       },
       {
         "label": "შხამი",
@@ -2839,11 +2895,7 @@ export const species: Species[] = [
       },
       {
         "label": "კონსერვაცია",
-        "value": "Least Concern"
-      },
-      {
-        "label": "ზღვის დონიდან",
-        "value": "0–3,580 მ"
+        "value": "ნაკლ. საფრთხე (LC)"
       },
       {
         "label": "ოჯახი",
@@ -2851,41 +2903,51 @@ export const species: Species[] = [
       }
     ],
     "facts": [
-      "სახელი dione ბერძნული მითოლოგიიდან მოდის — დიონე აფროდიტეს დედად ითვლება (Pallas, 1773).",
-      "გვარ Elaphe-ში ერთ-ერთი ყველაზე ფართოდ გავრცელებული სახეობაა — ევრაზიის სტეპებიდან შორეულ აღმოსავლეთამდე.",
-      "შხამი არ აქვს — მსხვერპლს ახრჩობს; ადამიანისთვის უვნებელია.",
-      "საქართველოში არეალის ცოდნა ბოლო წლებში მნიშვნელოვნად გაფართოვდა — მათ შორის მოყვარულთა და სოციალური ქსელების ჩანაწერებით."
+      "აღწერა 1773 წელს (Pallas), თავდაპირველად Coluber dione. 2026 წლის ჩამონათვალის ქართული სახელია სახეებიანი მცურავი; ინგლისური — Steppe Rat Snake.",
+      "ყვარელის COI შტრიხკოდი (CaBOL-ID 1010929) და კაჭრეთის თავის ფოტოები გამოქვეყნებულია 2026 წლის ჩამონათვალში.",
+      "ისტორიული ქართული ჩანაწერებია ნიკოლსკისთან (1913), მუსხელიშვილთან (1970) და ბანნიკოვთან (1977); თანამედროვე არეალის სურათი 2021 წლის კვლევამ მნიშვნელოვნად გააფართოვა."
     ],
     "identification": {
-      "summary": "სახეებიანი მცურავი უშხამო, ნახატიანი მცურავია მშრალი ჰაბიტატებისა. დამახასიათებელია ლაქებიანი ზურგი და ხშირად ოთხი გრძივი ზოლი.",
+      "summary": "უშხამო, ნახატიანი მცურავია მრგვალი გუგით. საქართველოში საკვანძოა წვრილი განივი ლაქები და ხშირად ოთხი გრძივი ზოლი — არა ურარტუს მსხვილი ლაქები და არა გიურზას ვერტიკალური გუგა.",
       "traits": [
-        "ზურგი ნაცრისფერი/მოყავისფროა მუქი განივი ლაქებით; ხშირად ჩანს ოთხი გრძივი ზოლი.",
-        "თავზე მუქი ნახატია; თვალში გამავალი მუქი ზოლი; გუგა მრგვალია.",
-        "სიგრძე დაახლოებით 0.7–1.2 მ; უშხამოა — მსხვერპლს ახრჩობს.",
-        "კარგად ადის და ცურავს; ბუდეებსაც ნახულობს.",
-        "საქართველოში — უპირატესად მშრალი აღმოსავლეთი და სამხრეთი."
+        "სხეული საშუალო სიგრძის მცურავისაა, არა განსაკუთრებით მასიური. თავი კისრისგან ზომიერად გამოიყოფა. გუგა მრგვალია. თვალში გამავალი მუქი ზოლი ხშირად ჩანს. სახეობის დონეზე სიგრძე ჩვეულებრივ დაახლოებით 0.7–1.2 მ-ია. ქერცლის დასათვლელად გველი არ აიყვანოთ.",
+        "ფონი ნაცრისფერი, მოყავისფრო ან მოყვითალოა. ზურგზე მუქი განივი ლაქებია; ხშირად ჩანს ოთხი უფრო ღია გრძივი ზოლი. თავზე მუქი ნახატია. მუცელი ღიაა, ხშირად წვრილი ლაქებით. ნაშიერს იგივე ტიპის ნახატი აქვს, უფრო მკვეთრი კონტრასტით. ფოტოგალერეა სახეობის ნახატს სხვა ქვეყნებიდან აჩვენებს — არა საქართველოს ველის კადრს.",
+        "ურარტუს მცურავი (Elaphe urartica) უფრო მასიურია, თავი მუქი, ლაქები უფრო დიდი და მომრგვალებული — არა წვრილი განივი ნახატი და ოთხი ზოლი. ნაირფერი მცურავი (Hemorrhois ravergieri) უფრო გამხდარი და სწრაფია; ლაქები ხშირად რომბულია და კუდზე ზოლებად ერთდება. წითელმუცელა მცურავი (Dolichophis schmidti) უფრო სწრაფია; ზრდასრულობაში ხშირად ერთგვაროვანი მოწითალოა წითელი მუცლით. წენგოსფერი მცურავი (Platyceps najadum) უფრო გამხდარია; კისერზე თვალაკებიანი ლაქებია და არა მთელ ზურგზე წვრილი ნახატი.",
+        "გიურზას (Macrovipera lebetina) გუგა ვერტიკალური ნაპრალია, თავი ფართო, ქერცლი უხეშად კილური; შხამიანია. კატისთვალას (Telescopus fallax) გუგაც ვერტიკალურია და აქტიურია ღამით. სპილენძა პატარაა, გლუვქერცლიანი. თუ ნახატიან გველს ვერტიკალური გუგით ხედავთ — ეს გიურზა ან გველგესლაა, არა ეს სახეობა. შხამი არ აქვს. ნაკბენი შეიძლება მტკივნეული იყოს. არ აიყვანოთ."
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა სახეებიანი მცურავი ადამიანისთვის?",
-        "answer": "არა — უვნებელია. შხამი არ აქვს და მსხვერპლს მხოლოდ შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის; ადამიანს თავს არ ესხმის."
+        "question": "გვხვდება თუ არა სახეებიანი მცურავი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "უპირატესად მშრალი კლიმატის ჰაბიტატებში — აღმოსავლეთსა და სამხრეთში (კახეთი, ქვემო და შიდა ქართლი, სამცხე–ჯავახეთი და მიმდებარე მშრალი ზონები). შესაფერის ადგილებში დასავლეთშიც აღინიშნა."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "უპირატესად მშრალ აღმოსავლეთში. დასახელებულია ყვარელი და კაჭრეთი (კახეთი). ამ ატლასის რუკაზე ასევეა ქვემო ქართლი და თბილისი. 2021 წლის კვლევა შესაფერის დასავლეთ ჰაბიტატებსაც აღნიშნავს, მაგრამ დასავლეთის დასახელებული წერტილი აქ არ არის."
       },
       {
-        "question": "რით განსხვავდება ურარტუს მცურავისგან (Elaphe urartica)?",
-        "answer": "E. dione უფრო პატარაა და სხვა ნახატი აქვს — ხშირად ოთხი გრძივი ზოლი და წვრილი განივი ლაქები; E. urartica უფრო დიდია, მსხვილი მომრგვალებული ლაქებით მოყვითალო/მოთეთრო ფონზე. გეოგრაფიაც ეხმარება ამოცნობას."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. მსხვერპლს შეკვრით ახრჩობს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გიურზაზე ან გველგესლაზე მიუთითებს."
       },
       {
-        "question": "რას ჭამს?",
-        "answer": "მღრღნელებს, პატარა ფრინველებს, ბარტყებსა და კვერცხებს; აგრეთვე ხვლიკებს. კარგად ადის ხეებსა და ბუჩქებზე ბუდეების მოსანახულებლად."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "ნაცრისფერ ან მოყავისფრო ფონზე წვრილი განივი ლაქები, ხშირად ოთხი გრძივი ზოლი, მუქი ზოლი თვალში, მრგვალი გუგა. ურარტუს მცურავს მსხვილი მომრგვალებული ლაქები და მუქი თავი აქვს. გიურზას გუგა ვერტიკალურია."
       },
       {
-        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხისმდებია. შეწყვილება გაზაფხულზეა; დედალი ივლის–აგვისტოში დებს ჩვეულებრივ 3–15 კვერცხს (ზოგჯერ 24-მდე). ნაშიერები დამოუკიდებლად იჩეკებიან."
+        "question": "რამდენად დიდია?",
+        "answer": "სახეობის დონეზე სიგრძე ჩვეულებრივ დაახლოებით 0.7–1.2 მ-ია. საქართველოსთვის ცალკე გაზომილი სიგრძე ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რით განსხვავდება ურარტუს მცურავისგან?",
+        "answer": "სახეებიან მცურავს უფრო წვრილი ნახატი აქვს და ხშირად ოთხი ზოლი. ურარტუს მცურავი უფრო მასიურია, თავი მუქი, ლაქები უფრო დიდი და მომრგვალებული. ორივე უშხამოა და აღმოსავლეთის მშრალ ზონაში შეიძლება ერთად შეხვდეთ."
+      },
+      {
+        "question": "რას ჭამს და კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. კვება ქართულად არ არის ცალკე შესწავლილი; გვარის სხვა მცურავები იკვებებიან მღრღნელებით, პატარა ფრინველებითა და კვერცხებით. ვოლგის აუზში დაფიქსირდა 5–14 კვერცხი კლაჩში — ეს ქართული მონაცემი არ არის."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "თბილ სეზონზე; ხშირად დღისით. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. მოსალოდნელია მშრალ ქვიან ან ბალახოვან ადგილებში."
       }
     ],
     "updatedAt": "2026-08-23T22:29:07+04:00",
@@ -2895,12 +2957,24 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/157275/0"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/2458400"
+        "name": "EUNIS — Elaphe dione (European IUCN status Least Concern)",
+        "url": "https://eunis.eea.europa.eu/species/10630"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "Hofmann, Fritzsche & Miehe 2016 — high-altitude record of Elaphe dione in Sichuan",
+        "url": "https://www.salamandra-journal.com/index.php/contents/2016-vol-52/1511-hofmann-s-p-fritzsche-g-miehe/file"
+      },
+      {
+        "name": "Klenina 2013 — reproductive biology of Elaphe dione in the Volga basin",
+        "url": "https://sciup.org/148202187"
       },
       {
         "name": "The Reptile Database",
@@ -10779,7 +10853,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა (IUCN, 2009). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. სომხეთსა და აზერბაიჯანში ეროვნულად მოწყვლადად ითვლება."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T12:29:31+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13055,56 +13129,80 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "eirenis-modestus": {
     "commonName": "Ring-headed Dwarf Snake",
     "location": "Eastern and central Georgia",
-    "description": "A small harmless dwarf snake; biologically confirmed in the Georgia checklist.",
-    "overview": "The ring-headed dwarf snake (Eirenis modestus) is a small, harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species and place it in the most basal lineage of dwarf snakes (Pyron et al. 2013). It has a broad Eastern Mediterranean range; in Georgia, eastern and central parts. The subspecies is nominotypical E. m. modestus. A paper figure locality is Tbilisi. It is often confused with the collared dwarf snake (Eirenis collaris).",
-    "habitat": "Stony, dry open ground with cover under rocks. The checklist places it in eastern and central Georgia; a paper figure specimen is from Tbilisi.",
-    "diet": "Mostly insects and other small invertebrates.",
-    "behavior": "A secretive dwarf snake; round pupil, non-venomous.",
-    "conservation": "Biologically confirmed in the checklist. Georgia: E. m. modestus.",
+    "description": "A small harmless snake of dry stony ground. Confirmed in Georgia in the east and centre; the named locality is Tbilisi.",
+    "overview": "The ring-headed dwarf snake (Eirenis modestus) is a small, non-venomous snake of eastern and central Georgia. It belongs to the colubrid family (Colubridae). The 2026 Georgian checklist treats it as biologically confirmed; the subspecies here is nominotypical E. m. modestus. A named specimen is from Tbilisi. The 2021 Georgian snake survey places it among dry-climate species of rocky or grassland settings, mostly in the east. This page has no named western or Colchic locality. Adults are usually under 70 cm; the measured maximum is about 67 cm, and most individuals are smaller. It is harmless to people — it has no venom. IUCN lists it as Least Concern. It is often confused with the collared dwarf snake (Eirenis collaris), which the checklist places in the southeast.",
+    "habitat": "The 2021 Georgian snake survey treats the species as tied to a dry climate: rocky or grassland sites, mostly in eastern Georgia. The 2026 checklist names eastern and central Georgia; a figure specimen is from Tbilisi. This atlas marks Tbilisi, Kvemo Kartli, Shida Kartli, Mtskheta — Mtianeti, Kakheti, and Samtskhe — Javakheti — based on that checklist wording and the Tbilisi specimen, not a full list of municipalities. Distribution confidence is medium. There is no named western or Colchic point on this page. Across the species range it lives on dry stony slopes, steppe, sparse shrub, and field edges; by day it often hides under flat stones. A separate Georgian elevation range has not been published. Tbilisi specimens belong to lowland and foothill country. Eastern Anatolian literature cites about 2000 m — that should not be read as a Georgian ceiling. The wider range includes Turkey, the Caucasus, Greek islands, and neighbouring regions; type material is not from Georgia.",
+    "diet": "There is no separate Georgian diet study. In western Turkey, stomachs of 14 individuals held mostly insects, other arthropods (including centipedes), and rarely a small lizard. Other literature also lists spiders, scorpions, and small lizards. It feeds mainly on invertebrates that live under stones. It has no venom — prey is seized with the mouth.",
+    "behavior": "It is secretive. At species level it is active from about April to November; it hunts at dawn or dusk and is sometimes seen by day. In heat it often stays under stones. Hourly and seasonal calendars have not been published for Georgia. When threatened it usually flees. Do not pick it up — it is not venomous, but even a small snake can bite. It lays eggs; species-level literature cites 3–8 relatively large eggs, usually in June–July. Hatchlings are about 8–12 cm. Mating season and clutch size in Georgia are not measured here. In the same dry east you may also meet the collared dwarf snake (southeast), the smooth snake, the worm snake, and rarely the European cat snake (Telescopus fallax) — pupil, size, and head pattern separate them.",
+    "conservation": "IUCN lists it as Least Concern — the range is wide and no specific global threat is singled out. It is not on Georgia’s 2014 Red List; the snakes listed there are Dinnik’s viper and the Caucasus viper. The 2026 checklist treats it as biologically confirmed; distribution accuracy is scored medium. The Georgian picture is still uneven: the named modern locality is Tbilisi, and the east–central range is a checklist summary, not a complete map. Local threats include habitat change and killing after confusion with a venomous snake. Do not pick it up.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Stony / dry open"
+        "value": "Dry stony / east–centre"
+      },
+      {
+        "label": "Length",
+        "value": "Usually <70 cm"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Confirmed"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
       },
       {
         "label": "Family",
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "Described in 1838 (Martin) as Coronella modesta; it is the type species of Eirenis. Type material is linked to the Euphrates Expedition and Trabzon, not Georgia. Older catalogues sometimes treated it as a synonym of E. collaris.",
+      "The 2026 checklist figure specimen is from Tbilisi. Mahlow et al. 2013 also list museum specimens from that city. The genus needs revision; in Georgia the current names are E. modestus and E. m. modestus.",
+      "The Georgian name წყნარი ეირენისი reflects a small, secretive snake; the English ring-headed dwarf snake refers to the dark head and neck bands, which are clearer in juveniles."
+    ],
     "identification": {
-      "summary": "A small harmless dwarf snake; the English name refers to a head ring or collar.",
+      "summary": "A small, slender, non-venomous snake with a round pupil. Adults often have a nearly plain brown or grey back; juveniles show darker bands on the head and neck. It is not a viper and not a worm-like blind snake.",
       "traits": [
-        "Small, slender colubrid — not a large racer.",
-        "Often a dark mark on the head or nape (“ring-headed”).",
-        "Round pupil; non-venomous.",
-        "Confused with E. collaris, which the checklist places in southeastern Georgia."
+        "The body is slender and short — a dwarf snake, not a large racer. The head is only weakly set off from the neck; the snout is rounded. The pupil is round. Dorsal scales are smooth. At species level midbody scale rows are usually 17–18 (rarely 19). The collared dwarf snake often has 15 rows at midbody. Do not pick the snake up to count scales. Adults are usually under 70 cm; the measured maximum is about 67 cm.",
+        "The back is brown, grey, or reddish-brown, often almost unspotted. Juveniles have dark cross-bands on the head and a crescent-shaped collar on the neck — the source of the English name. In adults the head pattern often fades. The belly is pale. The Anatolian subspecies E. m. semimaculatus has rows of spots along the back; the Georgian checklist names nominotypical E. m. modestus.",
+        "The collared dwarf snake (Eirenis collaris) is similar in size but usually keeps a clearer collar; the checklist places it in southeastern Georgia (named locality Taribana, Dedoplistskaro), and this species in the east and centre. The smooth snake (Coronella austriaca) is stouter, has two rows of small dorsal spots, and is more tied to forest edges and moister ground. The worm snake (Xerotyphlops vermicularis) is earthworm-like, with reduced eyes. The European cat snake (Telescopus fallax) has a vertical pupil.",
+        "It has no venom. The pupil is round — a vertical slit points to a viper or blunt-nosed viper. If you meet one, keep your distance. Do not pick it up: a small harmless snake is easily injured, and an unknown snake may be venomous."
       ]
     },
     "faq": [
       {
         "question": "Does the ring-headed dwarf snake occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026: eastern and central Georgia. A paper figure specimen is from Tbilisi."
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed in eastern and central Georgia. The named locality is Tbilisi. Do not expect it throughout the country."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. It is a non-venomous dwarf snake."
+        "question": "Where might I encounter it in Georgia?",
+        "answer": "On dry stony or grassy ground, often under stones — in the east and centre. This atlas marks Tbilisi, Kvemo and Shida Kartli, Mtskheta — Mtianeti, Kakheti, and Samtskhe — Javakheti. There is no named western or Colchic point here. Distribution confidence is medium."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. When threatened it usually flees. Even a small snake can bite — do not pick it up. A vertical pupil points to a viper or blunt-nosed viper."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "A small slender snake, round pupil, smooth scales, often a nearly plain brown or grey back. Juveniles have dark bands on the head and neck. The collared dwarf snake keeps a clearer collar and is listed in the southeast. The worm snake is earthworm-like. Do not pick it up to count scales."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "At species level adults are usually under 70 cm; the measured maximum is about 67 cm. Most individuals are smaller. A separate Georgian length series is not on this page."
+      },
+      {
+        "question": "What does it eat, and does it lay eggs?",
+        "answer": "It lays eggs; species-level literature cites 3–8 eggs, usually in June–July. Diet has not been studied separately in Georgia; in western Turkey it eats mostly insects and other under-stone invertebrates, rarely a small lizard."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "At species level from April to November, mainly at dawn and dusk. An hourly calendar has not been published for Georgia; expect the warm season on dry ground under stones."
       },
       {
         "question": "How does it differ from the collared dwarf snake?",
-        "answer": "Both are small harmless Eirenis. E. collaris is named for a collar; the checklist places it in southeastern Georgia, and E. modestus in eastern and central Georgia."
-      },
-      {
-        "question": "What does “basal lineage” mean here?",
-        "answer": "Following Pyron et al. 2013 (cited in the checklist), E. modestus belongs to the most basal lineage of dwarf snakes."
+        "answer": "Both are small harmless Eirenis. The collared species usually keeps a clearer collar; the checklist places it in the southeast and this species in the east and centre. Midbody scale rows are often 15 versus 17–18, but that is not a handling character."
       }
     ],
     "gallery": [
@@ -13141,21 +13239,22 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "elaphe-dione": {
     "commonName": "Steppe ratsnake",
-    "location": "Georgia — dry zones",
-    "description": "A harmless patterned ratsnake of steppes and dry landscapes — in Georgia mostly in drier habitats; non-venomous.",
-    "overview": "The steppe ratsnake (Elaphe dione), also called Dione's ratsnake, is a harmless colubrid. Pallas described it in 1773; the name refers to the Greek mythological figure Dione (mother of Aphrodite). It has one of the widest ranges in the genus Elaphe — from eastern Ukraine across Central Asia to Mongolia, northern China, and Korea; also Georgia, Azerbaijan, and northern Iran. In Georgia it prefers relatively dry habitats; recent records (including social-media sightings) have substantially improved knowledge of its range. Length is usually about 0.7–1.2 m. Globally it is Least Concern on the IUCN Red List.",
-    "habitat": "It is eurytopic: it lives in steppes, shrubland, dry and open woodland, rocky areas, semi-deserts, wetland edges, and disturbed landscapes. Vertically it occurs from sea level to about 3,580 m. In Georgia it depends on a reasonably dry climate — more often in the east and south; it has also been noted in suitable western habitats. It shelters in rodent burrows, under rocks, among roots, and in soil crevices.",
-    "diet": "It feeds on rodents, small birds, nestlings, and bird eggs; also lizards; occasionally amphibians, small fish, and insects. It kills prey by constriction and has no venom. It climbs well and swims readily — often ascending shrubs and trees to raid nests.",
-    "behavior": "It is mostly diurnal; depending on weather and season it may also appear in the evening. It is calm and cautious — when threatened it prefers to flee. The back is grey, brownish, or yellowish with dark transverse blotches; four paler longitudinal stripes are often visible. The head has a distinctive dark pattern and a dark stripe through the eye; the pupil is round. It is egg-laying: mating is in spring, and the female lays usually 3–15 eggs in July–August (sometimes up to 24); young hatch independently.",
-    "conservation": "Globally it is Least Concern on the IUCN Red List — the range is broad and the species is adaptable. At the western edge (e.g. Ukraine) it is locally rarer and protected. Local threats include habitat conversion, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by reducing rodent numbers.",
+    "location": "Dry eastern Georgia",
+    "description": "A harmless patterned ratsnake of Georgia’s drier habitats. Non-venomous and not dangerous to people.",
+    "overview": "The steppe ratsnake (Elaphe dione) is a harmless patterned colubrid of Georgia’s drier habitats. It belongs to the family Colubridae. The 2026 Georgian checklist treats it as biologically confirmed; distribution confidence is medium. Named modern localities are in Kakheti: Kvareli (a COI barcode) and Kachreti (head photographs in the same paper). The 2021 Georgian snake survey places it among dry-climate species of rocky or grassland sites, mainly in eastern Georgia; the same study reports a substantial gain in knowledge for this species, including suitable western habitats. This atlas maps Kakheti, Kvemo Kartli, and Tbilisi. Do not expect it throughout the country. The species ranges from the Caucasus to the Pacific. Length is usually about 0.7–1.2 m at species level; a separate Georgian measurement is not published here. It is not dangerous to people — it has no venom. In Europe it is Least Concern on the IUCN Red List.",
+    "habitat": "The 2021 Georgian snake survey treats it as dependent on a reasonably dry climate: rocky or grassland sites, mainly in eastern Georgia. Elsewhere it often shelters in rodent burrows, under rocks, and in crevices; that has not been measured separately in Georgia. This atlas maps Kakheti, Kvemo Kartli, and Tbilisi. Named specimens are from Kakheti: Kvareli and Kachreti. Named points for Shida Kartli and Samtskhe — Javakheti are not given on this page. The 2021 study used social-media and iNaturalist records to expand the known range and noted that some eastern colubrids — including this species — were also found in suitable western habitats; a named western or Colchic locality is still not listed here. Across its range it uses steppe, shrubland, open woodland, rocky ground, and disturbed landscapes. Elevation spans from lowlands to high mountains; a verified high record is about 3,520 m in Sichuan, not in Georgia. A separate Georgian elevation band is not published.",
+    "diet": "There is no separate Georgian diet study for this species. Elaphe ratsnakes usually take rodents, small birds, nestlings, and eggs; lizards may also be eaten. In the Volga basin, rodents are described as the main prey. It kills by constriction and has no venom. Like other Elaphe it climbs shrubs and trees well; nest-raiding has not been measured directly in Georgia.",
+    "behavior": "It is active in the warm season. Like other Elaphe it often moves by day; in some weather it may also appear in the evening. Hourly activity in Georgia has not been described separately. When threatened it usually tries to flee. Do not pick it up — a large snake can bite hard even without venom. It lays eggs. In the Volga basin, 17 females each laid 5–14 eggs in captivity from early July to mid-August; that is not a Georgian clutch. Mating season and clutch size have not been published for Georgian animals. In the same dry east you may also meet the Urartian ratsnake (Elaphe urartica) — the blotches are larger. Confusion with Levantine viper is dangerous: that species has a vertical pupil and is venomous.",
+    "conservation": "In Europe it is Least Concern on the IUCN Red List — the range is broad and the species is adaptable. It is not on Georgia’s 2014 Red List. The 2026 checklist treats it as biologically confirmed, with medium distribution confidence. The 2021 survey notes that accurate range data matter for conservation priorities because IUCN categories also depend on range size. Local threats include habitat conversion, road mortality, and killing after confusion with venomous snakes. It preys on rodents; that benefit is not a reason to handle the snake.",
+    "interaction": "Do not pick it up. It has no venom, but a large snake can bite. A vertical pupil means a different species, often venomous.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Dry zones"
+        "value": "Dry eastern Georgia"
       },
       {
         "label": "Length",
-        "value": "approx. 0.7–1.2 m"
+        "value": "species ~0.7–1.2 m"
       },
       {
         "label": "Venom",
@@ -13163,11 +13262,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Conservation",
-        "value": "Least Concern"
-      },
-      {
-        "label": "Elevation",
-        "value": "0–3,580 m"
+        "value": "Least Concern (LC)"
       },
       {
         "label": "Family",
@@ -13175,41 +13270,51 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "facts": [
-      "The name dione comes from Greek mythology — Dione is regarded as the mother of Aphrodite (Pallas, 1773).",
-      "It is one of the most widely distributed Elaphe species — from Eurasian steppes to the Far East.",
-      "It has no venom — it constricts prey; it is harmless to humans.",
-      "Knowledge of its range in Georgia has expanded substantially in recent years — including from citizen and social-media records."
+      "Described in 1773 (Pallas), originally as Coluber dione. The 2026 checklist Georgian name is სახეებიანი მცურავი; the English name is Steppe Rat Snake.",
+      "The Kvareli COI barcode (CaBOL-ID 1010929) and Kachreti head photographs are published in the 2026 checklist.",
+      "Historical Georgian records include Nikolskii (1913), Muskhelishvili (1970), and Bannikov et al. (1977); the 2021 survey substantially expanded the modern range picture."
     ],
     "identification": {
-      "summary": "The steppe ratsnake is a harmless patterned ratsnake of dry habitats. Look for a blotched back and often four longitudinal stripes.",
+      "summary": "A harmless patterned ratsnake with a round pupil. In Georgia look for fine transverse blotches and often four lengthwise stripes — not the Urartian ratsnake’s large rounded spots, and not a viper’s vertical pupil.",
       "traits": [
-        "The back is grey/brownish with dark transverse blotches; four longitudinal stripes are often present.",
-        "The head has a dark pattern; a dark stripe runs through the eye; the pupil is round.",
-        "Length is roughly 0.7–1.2 m; it is non-venomous — it constricts prey.",
-        "It climbs and swims well; it also raids nests.",
-        "In Georgia — mainly the dry east and south."
+        "A medium-length ratsnake, not especially heavy-bodied. The head is moderately distinct from the neck. The pupil is round. A dark stripe through the eye is often visible. Species-level length is usually about 0.7–1.2 m. Do not pick the snake up to count scales.",
+        "The ground colour is grey, brownish, or yellowish. The back has dark transverse blotches; four paler lengthwise stripes are often present. The head has a dark pattern. The belly is pale, often finely spotted. Juveniles have the same pattern type, often with stronger contrast. The photo gallery shows the species’ pattern from other countries — not a Georgian field shot.",
+        "The Urartian ratsnake (Elaphe urartica) is stouter, with a dark head and larger rounded blotches — not a fine transverse pattern and four stripes. The spotted whip snake (Hemorrhois ravergieri) is slimmer and faster; blotches are often rhombic and may join into stripes on the tail. Adult red-bellied racers (Dolichophis schmidti) are faster and often plain coppery with a red belly. Dahl’s whip snake (Platyceps najadum) is thinner, with neck ocelli rather than a fine pattern along the whole back.",
+        "Levantine viper (Macrovipera lebetina) has a vertical pupil, a broad head, and strongly keeled scales; it is venomous. The European cat snake (Telescopus fallax) also has a vertical pupil and is active at night. The smooth snake is smaller, with smooth scales. A patterned snake with a vertical pupil is a viper, not this species. It has no venom. A bite can still hurt. Do not pick it up."
       ]
     },
     "faq": [
       {
-        "question": "Is the steppe ratsnake dangerous to humans?",
-        "answer": "No — it is harmless. It has no venom and kills prey only by constriction. When threatened it prefers to flee; it does not attack humans."
+        "question": "Is the steppe ratsnake found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. It does not occur throughout the country."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "Mainly in dry-climate habitats — in the east and south (Kakheti, Kvemo and Shida Kartli, Samtskhe–Javakheti and nearby dry zones). It has also been noted in suitable western sites."
+        "question": "Where can it be found in Georgia?",
+        "answer": "Mainly in the dry east. Named localities are Kvareli and Kachreti (Kakheti). This atlas also maps Kvemo Kartli and Tbilisi. The 2021 survey notes suitable western habitats too, but a named western point is not listed here."
       },
       {
-        "question": "How does it differ from the Urartian ratsnake (Elaphe urartica)?",
-        "answer": "E. dione is smaller with a different pattern — often four longitudinal stripes and finer transverse blotches; E. urartica is larger, with bold rounded blotches on a yellowish/whitish ground. Geography also helps identification."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom and kills prey by constriction. When threatened it usually flees. A large snake can bite — do not pick it up. A vertical pupil points to Levantine viper or another viper."
       },
       {
-        "question": "What does it eat?",
-        "answer": "Rodents, small birds, nestlings, and eggs; also lizards. It climbs trees and shrubs well to raid nests."
+        "question": "How can it be identified?",
+        "answer": "Grey or brownish ground colour, fine transverse blotches, often four lengthwise stripes, a dark stripe through the eye, and a round pupil. The Urartian ratsnake has large rounded blotches and a dark head. Levantine viper has a vertical pupil."
       },
       {
-        "question": "Does it lay eggs or give live birth?",
-        "answer": "It is egg-laying. Mating is in spring; the female lays usually 3–15 eggs in July–August (sometimes up to 24). Young hatch independently."
+        "question": "How large does it grow?",
+        "answer": "At species level, length is usually about 0.7–1.2 m. A separate Georgian measurement is not given on this page."
+      },
+      {
+        "question": "How does it differ from the Urartian ratsnake?",
+        "answer": "The steppe ratsnake has a finer pattern and often four stripes. The Urartian ratsnake is stouter, with a dark head and larger rounded blotches. Both are harmless and can occur in the same dry east."
+      },
+      {
+        "question": "What does it eat, and does it lay eggs?",
+        "answer": "It lays eggs. Diet has not been studied separately in Georgia; related ratsnakes take rodents, small birds, and eggs. In the Volga basin clutches of 5–14 eggs were recorded — that is not Georgian data."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "In the warm season, often by day. An hourly and seasonal calendar has not been published for Georgia. Expect it in dry rocky or grassland sites."
       }
     ],
     "gallery": [
@@ -13217,45 +13322,59 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/elaphe-dione-2.jpg",
         "credit": {
           "photographer": "Zinogre",
-          "url": "https://www.inaturalist.org/observations/140744748"
+          "url": "https://www.inaturalist.org/observations/140744748",
+          "location": "Zhengzhou, Henan, China",
+          "date": "2022-10-27"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-3.jpg",
         "credit": {
           "photographer": "Сергей Грабчак",
-          "url": "https://www.inaturalist.org/observations/246917579"
+          "url": "https://www.inaturalist.org/observations/246917579",
+          "location": "Primorsky Krai, Russia",
+          "date": "2024-10-09"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-5.jpg",
         "credit": {
           "photographer": "Моховинка",
-          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B7%D0%B5%D1%80%D1%83%D0%BD%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BF%D0%BE%D0%BB%D0%BE%D0%B7_Elaphe_dione_(Pallas,_1773).jpg",
+          "location": "Ukraine",
+          "date": "2015-07-12"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-6.jpg",
         "credit": {
           "photographer": "fisheyes",
-          "url": "https://www.inaturalist.org/observations/166546598"
+          "url": "https://www.inaturalist.org/observations/166546598",
+          "location": "Incheon, South Korea",
+          "date": "2023-06-10"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/elaphe-dione-7.jpg",
         "credit": {
           "photographer": "svetlanaagafonova",
-          "url": "https://www.inaturalist.org/observations/97425149"
+          "url": "https://www.inaturalist.org/observations/97425149",
+          "location": "Altai Krai, Russia",
+          "date": "2021-07-26"
         }
       }
     ],
     "imageCredit": {
       "photographer": "Zinogre",
-      "url": "https://www.inaturalist.org/observations/140744748"
+      "url": "https://www.inaturalist.org/observations/140744748",
+      "location": "Zhengzhou, Henan, China",
+      "date": "2022-10-27"
     },
     "mobileImageCredit": {
       "photographer": "Dmitry Dubikovskiy",
-      "url": "https://www.inaturalist.org/observations/274585553"
+      "url": "https://www.inaturalist.org/observations/274585553",
+      "location": "Kemerovo Oblast, Russia",
+      "date": "2025-04-27"
     }
   },
   "elaphe-urartica": {

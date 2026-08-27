@@ -81,6 +81,15 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Coluber najadum",
     ],
   },
+  "eirenis-modestus": {
+    ka: ["Coronella modesta", "Contia modesta"],
+    en: [
+      "Asia Minor dwarf snake",
+      "ringheaded dwarf snake",
+      "Coronella modesta",
+      "Contia modesta",
+    ],
+  },
   "hemorrhois-ravergieri": {
     ka: [
       "Coluber ravergieri",

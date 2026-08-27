@@ -149,7 +149,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "coronella-austriaca",
     "elaphe-dione",
   ],
-  "eirenis-modestus": ["eirenis-collaris"],
+  "eirenis-modestus": [
+    "eirenis-collaris",
+    "coronella-austriaca",
+    "xerotyphlops-vermicularis",
+  ],
   "eirenis-collaris": ["eirenis-modestus"],
   "eryx-jaculus": ["xerotyphlops-vermicularis"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
