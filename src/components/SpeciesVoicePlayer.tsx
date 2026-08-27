@@ -2,7 +2,7 @@
 
 import type { SpeciesAudio } from "@/data/species";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
-import { Pause, Play } from "lucide-react";
+import { Loader2, Pause, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
@@ -18,6 +18,7 @@ export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
   const t = useTranslations("profile");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
 
@@ -26,9 +27,12 @@ export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
     if (!el) return;
 
     el.pause();
-    el.currentTime = 0;
+    el.removeAttribute("src");
+    el.load();
     setPlaying(false);
+    setLoading(false);
     setProgress(0);
+    setDuration(0);
 
     const onTime = () => {
       setProgress(el.currentTime);
@@ -41,14 +45,19 @@ export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
       setProgress(0);
     };
     const onPause = () => setPlaying(false);
-    const onPlay = () => setPlaying(true);
+    const onPlaying = () => {
+      setPlaying(true);
+      setLoading(false);
+    };
+    const onWaiting = () => setLoading(true);
 
     el.addEventListener("timeupdate", onTime);
     el.addEventListener("loadedmetadata", onTime);
     el.addEventListener("durationchange", onTime);
     el.addEventListener("ended", onEnded);
     el.addEventListener("pause", onPause);
-    el.addEventListener("play", onPlay);
+    el.addEventListener("playing", onPlaying);
+    el.addEventListener("waiting", onWaiting);
     onTime();
 
     return () => {
@@ -57,16 +66,26 @@ export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
       el.removeEventListener("durationchange", onTime);
       el.removeEventListener("ended", onEnded);
       el.removeEventListener("pause", onPause);
-      el.removeEventListener("play", onPlay);
+      el.removeEventListener("playing", onPlaying);
+      el.removeEventListener("waiting", onWaiting);
       el.pause();
+      el.removeAttribute("src");
+      el.load();
     };
   }, [audio.src]);
 
   const toggle = () => {
     const el = audioRef.current;
-    if (!el) return;
+    if (!el || loading) return;
     if (el.paused) {
-      void el.play().catch(() => setPlaying(false));
+      if (!el.getAttribute("src")) {
+        el.src = audio.src;
+      }
+      setLoading(true);
+      void el.play().catch(() => {
+        setPlaying(false);
+        setLoading(false);
+      });
     } else {
       el.pause();
     }
@@ -82,14 +101,17 @@ export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
       title={credit}
       className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 py-1 pr-3.5 pl-1 backdrop-blur-md"
     >
-      <audio ref={audioRef} src={audio.src} preload="metadata" />
+      <audio ref={audioRef} preload="none" />
       <button
         type="button"
         onClick={toggle}
+        disabled={loading}
         aria-label={playing ? t("voicePause") : t("voicePlay")}
         className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-ink"
       >
-        {playing ? (
+        {loading ? (
+          <Loader2 className="size-3 animate-spin" />
+        ) : playing ? (
           <Pause className="size-3 fill-current" />
         ) : (
           <Play className="ml-px size-3 fill-current" />
