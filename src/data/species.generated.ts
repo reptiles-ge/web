@@ -782,14 +782,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და ღამითაა აქტიური; დღისითაც ჩანს იქ, სადაც შეწუხება დაბალია. ცხოვრობს ოჯახურ ჯგუფში (ხროვა): ჩვეულებრივ მშობლები და მათი შთამომავლობა. მარტო ან წყვილადაც გადაადგილდება. სახეობის დონეზე ორსულობა დაახლოებით 63 დღეა; ლეკვები ხშირად გაზაფხულზე იბადებიან, ხშირად 4–7. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუნაგის ნიმუში. კვალი დიდი ძაღლისას ჰგავს, მაგრამ ხშირად უფრო ოვალური და უფრო დიდია; წინა თათს ხუთი თითი აქვს (ნემსი ბეჭზე ბეჭდში ხშირად არ ჩანს), უკანას ოთხი, კლანჭები ჩვეულებრივ ჩანს. ყეფა იშვიათია; უფრო დამახასიათებელია ყმუილი. ველური ცხოველი არ აიყვანოთ და არ აჭმიოთ.",
     "conservation": "Boitani, Phillips და Jhala Canis lupus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2018 შეფასება, 2023 წლის შესწორებული ვერსია); გლობალური ტენდენცია სტაბილურად ფასდება, თუმცა ზოგი რეგიონული პოპულაცია საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ნადირობის ობიექტად არის შეტანილი; კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. CITES-ის დანართ II-შია (საქართველოს პოპულაცია); დანართ I ეხება მხოლოდ ბჰუტანის, ინდოეთის, ნეპალისა და პაკისტანის პოპულაციებს. Shakarashvili et al. 2020 საქართველოში ბოლო ათწლეულებში რაოდენობის ზრდას აღნიშნავს. ეროვნული აღწერა ამ გვერდზე არ არის დადასტურებული. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, კონფლიქტი პირუტყვზე, ჰიბრიდიზაცია თავისუფლად მოსიარულე ძაღლებთან და საგზაო დაღუპვა. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება უკბინოს. დიდი მტაცებელია; პირუტყვზე ნადირობა საქართველოში დოკუმენტირებული კონფლიქტია. Kopaliani et al. 2014 აღნიშნავს 2000-იანი წლებიდან პირუტყვზე თავდასხმების სიხშირის ზრდის ანგარიშებს და ადამიანზე თავდასხმის რამდენიმე შეტყობინებას — ეს შეტყობინებებია და არა ამ გვერდზე გადამოწმებული კლინიკური სერია. საქართველოში გარეულ ხორცისმჭამელებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აჭმიოთ, არ აიყვანოთ, ძაღლები აცერით. შეხვედრისას დატოვეთ დისტანცია და უკან დაიხიეთ ნელა; ნუ გაექცევით და ნუ მიაწვებით.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+    "image": "/images/canis-lupus-eurasian-1.jpg",
     "imageCredit": {
       "photographer": "Mas3cf",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
       "location": "ბარდუ",
       "date": "2016-02-24"
     },
-    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+    "mobileImage": "/images/canis-lupus-eurasian-1.jpg",
     "mobileImageCredit": {
       "photographer": "Mas3cf",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
@@ -805,7 +805,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Loup_gris_%28Canis_lupus_%29.jpg",
+        "src": "/images/canis-lupus-pescheray-1.jpg",
         "credit": {
           "photographer": "Clément Bardot",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_(Canis_lupus_).jpg",
@@ -814,7 +814,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Portrait_of_a_Wolf.jpg",
+        "src": "/images/canis-lupus-portrait-1.jpg",
         "credit": {
           "photographer": "Pieter-Paul G",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Wolf.jpg",
@@ -822,7 +822,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+        "src": "/images/canis-lupus-eurasian-1.jpg",
         "credit": {
           "photographer": "Mas3cf",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
@@ -831,7 +831,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Loup_gris_commun_DSCF1575.jpg",
+        "src": "/images/canis-lupus-sainte-croix-1.jpg",
         "credit": {
           "photographer": "Musicaline",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_commun_DSCF1575.jpg",
@@ -840,7 +840,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Fresh_Wolf_tracks%2C_Bia%C5%82owie%C5%BCa_Forest%2C_Poland_%284664117735%29.jpg",
+        "src": "/images/canis-lupus-tracks-1.jpg",
         "credit": {
           "photographer": "Frank Vassen",
           "url": "https://commons.wikimedia.org/wiki/File:Fresh_Wolf_tracks,_Bia%C5%82owie%C5%BCa_Forest,_Poland_(4664117735).jpg",
@@ -849,7 +849,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Canis_lupus_lupus_in_Alpenzoo%2C_Innsbruck.jpg",
+        "src": "/images/canis-lupus-innsbruck-1.jpg",
         "credit": {
           "photographer": "Wilfredor",
           "url": "https://commons.wikimedia.org/wiki/File:Canis_lupus_lupus_in_Alpenzoo,_Innsbruck.jpg",
@@ -4542,14 +4542,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური. დღისით იმალება ფოთლისა და ბალახის ბუდეში ბუჩქის, ფესვის ან სხვა საფარის ქვეშ. სახეობის დონის აღწერებში ბუდე სოროშიც არის; ვიკის ზოგი ანგარიში ამბობს, რომ ეს სახეობა სოროს არ თხრის. ეს ორი სურათი არ ემთხვევა; ეს გვერდი ერთს ეროვნულ წესად არ ირჩევს. ცივ სეზონში არეალის ცივ ნაწილებში იზამთრებს; საქართველოსთვის დაწყებისა და დამთავრების თარიღები ამ გვერდზე არ არის გაზომილი. ჩვეულებრივ მარტოულია, გარდა გამრავლებისა და დედისა ნაშიერებთან. საფრთხისას იკეცება ბურთად, ისე რომ რბილი მუცელი და სახე ეკლებით იფარება. ზოგჯერ სხეულს საკუთარი ნერწყვით იფარავს (self-anointing); ამ ქცევის ფუნქცია სრულად არ არის დადგენილი. გამრავლება თბილ თვეებშია; ლიტერატურაში ნაშიერების რაოდენობა რამდენიმედან დაახლოებით შვიდამდეა აღნიშნული. ეს რეგიონული ან სახეობის დონის ციფრებია და არა ქართული ბუდის ნიმუში. ამ გვერდზე ქართული ხმის ჩანაწერი არ არის.",
     "conservation": "Amori, Hutterer, Kryštufek, Yiğit, Mitsainas და Palomo Erinaceus concolor-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2021 გამოქვეყნება; შეფასება 2016-ის განახლებაა). გლობალური არეალი ანატოლიიდან სამხრეთ კავკასიამდე და ლევანტამდეა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელი ნუსხა (დადგენილება №190) ამ გვერდზე მას საფრთხის ქვეშ მყოფ ტაქსონად არ განიხილავს. სახეობის დონეზე დასახელებული ზეწოლაა გზაზე დაღუპვა, ჰაბიტატის კარგვა და პესტიციდი; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ და შინაურად ნუ გახდით.",
     "interaction": "შხამი არ აქვს და შეხებით შხამიანი არ არის. ეკლები კანის დაცვაა და არა შხამიანი ქვეწარმავლის იარაღი. დაჭერისას ან ძაღლისა და კატის მიერ კუთხეში მოქცევისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ. ბაღში ხშირად ჩნდება და უხერხემლოებს ჭამს; ეს სასარგებლოა ბაღისთვის, თუ არ იყენებთ ძლიერ პესტიციდს. შინაური „ზღარბი“ ჩვეულებრივ აფრიკული სახეობაა (Atelerix), არა ეს ტაქსონი.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Hedgehog_1210127.jpg",
+    "image": "/images/erinaceus-concolor-1.jpg",
     "imageCredit": {
       "photographer": "Nevit Dilmen",
       "url": "https://commons.wikimedia.org/wiki/File:Hedgehog_1210127.jpg",
       "location": "სტამბოლი",
       "date": "2012-09-29"
     },
-    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/6/69/Erinaceus_concolor_202662874.jpg",
+    "mobileImage": "/images/erinaceus-concolor-2.jpg",
     "mobileImageCredit": {
       "photographer": "Jan Ebr",
       "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
@@ -4558,7 +4558,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/72/Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
+        "src": "/images/erinaceus-concolor-orkhevi-1.jpg",
         "credit": {
           "photographer": "David Osipov",
           "url": "https://commons.wikimedia.org/wiki/File:Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
@@ -4567,7 +4567,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Hedgehog_1210127.jpg",
+        "src": "/images/erinaceus-concolor-1.jpg",
         "credit": {
           "photographer": "Nevit Dilmen",
           "url": "https://commons.wikimedia.org/wiki/File:Hedgehog_1210127.jpg",
@@ -4576,7 +4576,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/6/69/Erinaceus_concolor_202662874.jpg",
+        "src": "/images/erinaceus-concolor-2.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
@@ -4585,7 +4585,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Erinaceus_concolor_202738952.jpg",
+        "src": "/images/erinaceus-concolor-3.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202738952.jpg",
@@ -4594,7 +4594,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/0/07/PikiWiki_Israel_17010_Hedgehog.jpg",
+        "src": "/images/erinaceus-concolor-israel-1.jpg",
         "credit": {
           "photographer": "Nadav Kavalerchik",
           "url": "https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_17010_Hedgehog.jpg",
@@ -4603,7 +4603,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/4/49/Erinaceus_concolor_-_D7-10-3855.JPG",
+        "src": "/images/erinaceus-concolor-4.jpg",
         "credit": {
           "photographer": "Eran Finkle",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_-_D7-10-3855.JPG",
@@ -10601,14 +10601,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და ღამითაა აქტიური; დღის დასვენება ხშირია, მოკლე დასვენება შუადღისას. ნადირობის მაღალ წნევაზე უფრო ღამის აქტიურობისკენ იწევს. დედალი გოჭებთან ერთად კოლტში (ხმოვან ჯგუფში) დადის; ზრდასრული მამალი გამრავლების სეზონის გარეთ ხშირად მარტოა. ირულებს ტალახში და შემდეგ ხეზე იწმენდს — ეს ტერიტორიის ნიშანიც არის. სახეობის დონეზე ორსულობა დაახლოებით 112–130 დღეა, ხშირად 5–7 გოჭი; იშვიათად მეტი ან ნაკლები. მშობიარობის წინ დედალი ჯგუფს ტოვებს და ბუდეს აშენებს. ზომიერ სარტყელში გოჭები ძირითადად გაზაფხულზე იბადებიან. ქართული ენციკლოპედია ხურაობას ნოემბერ–დეკემბერს უთითებს; ეს მეორადი წყაროა და ამ გვერდზე გაზომილ ქართულ კალენდრად არ არის მიღებული. გოჭს სხეულზე გრძივი ღია ზოლები აქვს; ეს ნიმუში დაახლოებით 2–6 თვეში ქრება. კვალი წყვილი ჩლიქია; რბილ მიწაზე უკანა პატარა ჩლიქებიც (ნამჩლიქები) ხშირად ჩანს. ამოთხრილი მიწა და ტალახის ამობანა ტყეში ხშირი ნიშანია.",
     "conservation": "Keuling და Leus Sus scrofa-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2019). გლობალურად ძირითადი საფრთხე არ არის დასახელებული; ადგილობრივად შეიძლება იყოს ჰაბიტატის შემცირება, ნადირობა, კულტურის ზიანის გამო დევნა და შინაურ ღორთან შეჯვარება. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ნადირობის ობიექტად არის შეტანილი (ბრძანება №175); კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. ქართული ენციკლოპედია წერს, რომ რაოდენობა ქვეყანაში 2000 სულს არ აღემატება; წელი და აღწერის მეთოდი აქ არ არის, ამიტომ ეს მიმდინარე აღწერად არ ჩაითვალოს. 2007 წელს აფრიკული ღორის ცხელება საქართველოში დადასტურდა; პირველი კლინიკური შემთხვევები პოთთან უკავშირდება, სავარაუდოდ გემის ნარჩენი ხორციდან. დაავადება შინაურ და გარეულ ღორებს ეხება და ადამიანს არ გადაედოება. იმდროინდელ FAO-ს შეჯამებაში გარეულ ღორში შემთხვევა ჯერ დადასტურებული არ იყო, მაგრამ კონტაქტი თავისუფლად მოვლილ შინაურ ღორებთან შესაძლებლად იყო მიჩნეული. ეროვნული პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება დაარტყას ან ეშვით დაჭრას, განსაკუთრებით დედალი გოჭებთან ან კუთხეში მოქცეული მამალი. არ აჭმიოთ და არ მიუახლოვდეთ. ძაღლები შეაჩერეთ. აფრიკული ღორის ცხელება ადამიანისთვის საშიში არ არის. თუ ხორცი მოიპოვება კანონიერად, სახეობის დონეზე ნედლი ან ნაკლებად მოხარშული ხორცი შეიძლება ტრიქინელას რისკი იყოს; საქართველოს ცალკე გამოკვლევა ამ გვერდზე არ არის.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/27/%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
+    "image": "/images/sus-scrofa-forest-1.jpg",
     "imageCredit": {
       "photographer": "Volodymyr Burdiak",
       "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
       "location": "ტერნოპილის ოლქი",
       "date": "2021-11-06"
     },
-    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/7/78/Wild_Boar_frontal.jpg",
+    "mobileImage": "/images/sus-scrofa-frontal-1.jpg",
     "mobileImageCredit": {
       "photographer": "Richard Bartz",
       "url": "https://commons.wikimedia.org/wiki/File:Wild_Boar_frontal.jpg",
@@ -10617,7 +10617,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/2/27/%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
+        "src": "/images/sus-scrofa-forest-1.jpg",
         "credit": {
           "photographer": "Volodymyr Burdiak",
           "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
@@ -10626,7 +10626,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/78/Wild_Boar_frontal.jpg",
+        "src": "/images/sus-scrofa-frontal-1.jpg",
         "credit": {
           "photographer": "Richard Bartz",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_Boar_frontal.jpg",
@@ -10635,7 +10635,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Wild_boar_%28Sus_scrofa%29.jpg",
+        "src": "/images/sus-scrofa-1.jpg",
         "credit": {
           "photographer": "Bramans",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_boar_(Sus_scrofa).jpg",
@@ -10644,7 +10644,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Suidae_Sus_scrofa_scrofa_4.jpg",
+        "src": "/images/sus-scrofa-2.jpg",
         "credit": {
           "photographer": "NasserHalaweh",
           "url": "https://commons.wikimedia.org/wiki/File:Suidae_Sus_scrofa_scrofa_4.jpg",
@@ -10653,7 +10653,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/3/36/Sus_scrofa_piglet.jpg",
+        "src": "/images/sus-scrofa-piglet-1.jpg",
         "credit": {
           "photographer": "Sander van der Wel",
           "url": "https://commons.wikimedia.org/wiki/File:Sus_scrofa_piglet.jpg",
@@ -10662,7 +10662,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/4/44/Frischlinge_mit_Bachen.jpg",
+        "src": "/images/sus-scrofa-sow-1.jpg",
         "credit": {
           "photographer": "df7ii",
           "url": "https://commons.wikimedia.org/wiki/File:Frischlinge_mit_Bachen.jpg",
@@ -11470,7 +11470,7 @@ export const species: Species[] = [
     "behavior": "ხშირად შებინდებისას და ღამით მოძრაობს, განსაკუთრებით ადამიანთან ახლოს; შორეულ ტყეში დღისითაც ჩანს. ზამთარში, საკვების დეფიციტზე, ბუნაგში იძინებს — ეს ღრმა ძილია, არა სრული ჰიბერნაცია, როგორც ზოგ მღრღნელში; შეიძლება გაიღვიძოს. ზუსტი კალენდარი საქართველოში ყველა პოპულაციაზე ერთნაირად არ არის გაზომილი; ვაშლოვანის უფრო რბილ ზამთარში იგივე ხანგრძლივობა ნაგულისხმევად ნუ ჩათვალეთ. მაკეობა სახეობის დონეზე გადადებული იმპლანტაციით მიმდინარეობს; ლეკვები იბადებიან ბუნაგში, ჩვეულებრივ ზამთარში, ხშირად ერთი-რამდენიმე; დედასთან რჩებიან დაახლოებით ორ წლამდე. ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. კვალი მცენარისძირია: ხუთი თითი, წინა თათზე გრძელი კლანჭები; უკანა ანაბეჭდი ადამიანის ტერფს უფრო ჰგავს, ვიდრე მგლისას.",
     "conservation": "McLellan და თანაავტორები Ursus arctos-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2017); გლობალური ტენდენცია სტაბილურია, მაგრამ სამხრეთის ფრაგმენტირებული პოპულაციები ცალკე საფრთხის ქვეშ შეიძლება იყოს. IUCN-ის 2017 შეფასება მცირე კავკასიონის პოპულაციას (სამხრეთ და აღმოსავლეთ სომხეთი ჩრდილო-დასავლეთ ირანამდე) Endangered-ად განიხილავს; ეს რეგიონული შეფასებაა და არა საქართველოს წითელი ნუსხის ჩანაწერი. საქართველოში 2014 წლის დადგენილება №190 სახეობას EN-ად აფასებს, კრიტერიუმი C2(aI), მიზეზი — მცირე, ფრაგმენტირებული პოპულაცია. ნადირობა დაშვებული არ არის. CITES-ში საქართველოს პოპულაცია დანართ II-შია (დანართი I სხვა ქვეყნებისა და U. a. isabellinus-ისთვისაა). Lortkipanidze 2010 მინიმუმ დაახლოებით 450 ინდივიდს ითვლის დაახლოებით 34 000 კმ² ჰაბიტატზე, სიმჭიდროვით დაახლოებით 13 / 1000 კმ² ცენტრალურ საქართველოში; ეს მინიმუმია და არა სრული აღწერა. 2014 წელს ბორჯომ-ხარაგაულში 38–47 ინდივიდი (95% CI). 2022–2024 წლების ნიმუშებში 228 უნიკალური გენოტიპი იქნა გამოყოფილი აჭარის პარკებიდან, ბორჯომ-ხარაგაულიდან, ალგეთიდან და ვაშლოვანიდან — ეს შერჩეული დაცული ტერიტორიების ნიმუშია და არა ქვეყნის ჯამი; დიდი კავკასიონის დიდი ნაწილი ამ სერიაში არ არის. მთავარი დასახელებული საფრთხეებია უკანონო ნადირობა, ჰაბიტატის ფრაგმენტაცია და კონფლიქტი მეფუტკრეებსა და მეცხოველეებთან.",
     "interaction": "შხამი არ აქვს და საჭმელად არ განიხილება. დიდი ცხოველია: შეიძლება უკბინოს ან დაარტყას, თუ მოულოდნელად შეხვდებით, განსაკუთრებით დედას ლეკვებთან ან ნადირთან. არ მიუახლოვდეთ, არ აჭამოთ, არ აუშვათ ძაღლი. ბილიკზე ხმა გამოსცით, რომ არ გააოცოთ. საკვები ბანაკში დაცულად შეინახეთ. ფუტკრის სკასა და პირუტყვზე ზარალი რეალურია ზოგ სოფელში, განსაკუთრებით ბორჯომ-ხარაგაულის მიდამოებში — ეს კონფლიქტია და არა იმის ნიშანი, რომ დათვი ადამიანზე ნადირობს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი. ველური ცხოველი არ აიყვანოთ.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_1.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_1.jpg",
+    "image": "/images/ursus-arctos-female-1.jpg",
     "imageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg",
@@ -11509,7 +11509,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_1.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_1.jpg",
+        "src": "/images/ursus-arctos-female-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg",
@@ -11518,7 +11518,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_3.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_3.jpg",
+        "src": "/images/ursus-arctos-female-2.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_3.jpg",
@@ -11527,7 +11527,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_mother_and_cub.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_mother_and_cub.jpg",
+        "src": "/images/ursus-arctos-cub-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_mother_and_cub.jpg",
@@ -11536,7 +11536,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Urme_de_urs_in_sare.jpg/960px-Urme_de_urs_in_sare.jpg",
+        "src": "/images/ursus-arctos-tracks-1.jpg",
         "credit": {
           "photographer": "RodicaB",
           "url": "https://commons.wikimedia.org/wiki/File:Urme_de_urs_in_sare.jpg",
@@ -11545,7 +11545,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Grizzly_rear_paw_print.jpg",
+        "src": "/images/ursus-arctos-paw-1.jpg",
         "credit": {
           "photographer": "Craig Morgan",
           "url": "https://commons.wikimedia.org/wiki/File:Grizzly_rear_paw_print.jpg",
@@ -11629,7 +11629,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის EN სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T03:14:32+04:00",
+    "updatedAt": "2026-08-28T03:15:09+04:00",
     "sources": [
       {
         "name": "McLellan et al. 2017 — IUCN Red List, Ursus arctos",
@@ -14037,7 +14037,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Loup_gris_%28Canis_lupus_%29.jpg",
+        "src": "/images/canis-lupus-pescheray-1.jpg",
         "credit": {
           "photographer": "Clément Bardot",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_(Canis_lupus_).jpg",
@@ -14046,7 +14046,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Portrait_of_a_Wolf.jpg",
+        "src": "/images/canis-lupus-portrait-1.jpg",
         "credit": {
           "photographer": "Pieter-Paul G",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Wolf.jpg",
@@ -14054,7 +14054,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg",
+        "src": "/images/canis-lupus-eurasian-1.jpg",
         "credit": {
           "photographer": "Mas3cf",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
@@ -14063,7 +14063,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Loup_gris_commun_DSCF1575.jpg",
+        "src": "/images/canis-lupus-sainte-croix-1.jpg",
         "credit": {
           "photographer": "Musicaline",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_commun_DSCF1575.jpg",
@@ -14072,7 +14072,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Fresh_Wolf_tracks%2C_Bia%C5%82owie%C5%BCa_Forest%2C_Poland_%284664117735%29.jpg",
+        "src": "/images/canis-lupus-tracks-1.jpg",
         "credit": {
           "photographer": "Frank Vassen",
           "url": "https://commons.wikimedia.org/wiki/File:Fresh_Wolf_tracks,_Bia%C5%82owie%C5%BCa_Forest,_Poland_(4664117735).jpg",
@@ -14081,7 +14081,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Canis_lupus_lupus_in_Alpenzoo%2C_Innsbruck.jpg",
+        "src": "/images/canis-lupus-innsbruck-1.jpg",
         "credit": {
           "photographer": "Wilfredor",
           "url": "https://commons.wikimedia.org/wiki/File:Canis_lupus_lupus_in_Alpenzoo,_Innsbruck.jpg",
@@ -16863,7 +16863,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/72/Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
+        "src": "/images/erinaceus-concolor-orkhevi-1.jpg",
         "credit": {
           "photographer": "David Osipov",
           "url": "https://commons.wikimedia.org/wiki/File:Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
@@ -16872,7 +16872,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Hedgehog_1210127.jpg",
+        "src": "/images/erinaceus-concolor-1.jpg",
         "credit": {
           "photographer": "Nevit Dilmen",
           "url": "https://commons.wikimedia.org/wiki/File:Hedgehog_1210127.jpg",
@@ -16881,7 +16881,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/6/69/Erinaceus_concolor_202662874.jpg",
+        "src": "/images/erinaceus-concolor-2.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
@@ -16890,7 +16890,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Erinaceus_concolor_202738952.jpg",
+        "src": "/images/erinaceus-concolor-3.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202738952.jpg",
@@ -16899,7 +16899,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/0/07/PikiWiki_Israel_17010_Hedgehog.jpg",
+        "src": "/images/erinaceus-concolor-israel-1.jpg",
         "credit": {
           "photographer": "Nadav Kavalerchik",
           "url": "https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_17010_Hedgehog.jpg",
@@ -16908,7 +16908,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/4/49/Erinaceus_concolor_-_D7-10-3855.JPG",
+        "src": "/images/erinaceus-concolor-4.jpg",
         "credit": {
           "photographer": "Eran Finkle",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_-_D7-10-3855.JPG",
@@ -21287,7 +21287,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/2/27/%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
+        "src": "/images/sus-scrofa-forest-1.jpg",
         "credit": {
           "photographer": "Volodymyr Burdiak",
           "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
@@ -21296,7 +21296,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/78/Wild_Boar_frontal.jpg",
+        "src": "/images/sus-scrofa-frontal-1.jpg",
         "credit": {
           "photographer": "Richard Bartz",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_Boar_frontal.jpg",
@@ -21305,7 +21305,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Wild_boar_%28Sus_scrofa%29.jpg",
+        "src": "/images/sus-scrofa-1.jpg",
         "credit": {
           "photographer": "Bramans",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_boar_(Sus_scrofa).jpg",
@@ -21314,7 +21314,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Suidae_Sus_scrofa_scrofa_4.jpg",
+        "src": "/images/sus-scrofa-2.jpg",
         "credit": {
           "photographer": "NasserHalaweh",
           "url": "https://commons.wikimedia.org/wiki/File:Suidae_Sus_scrofa_scrofa_4.jpg",
@@ -21323,7 +21323,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/3/36/Sus_scrofa_piglet.jpg",
+        "src": "/images/sus-scrofa-piglet-1.jpg",
         "credit": {
           "photographer": "Sander van der Wel",
           "url": "https://commons.wikimedia.org/wiki/File:Sus_scrofa_piglet.jpg",
@@ -21332,7 +21332,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/4/44/Frischlinge_mit_Bachen.jpg",
+        "src": "/images/sus-scrofa-sow-1.jpg",
         "credit": {
           "photographer": "df7ii",
           "url": "https://commons.wikimedia.org/wiki/File:Frischlinge_mit_Bachen.jpg",
@@ -21981,7 +21981,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_1.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_1.jpg",
+        "src": "/images/ursus-arctos-female-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg",
@@ -21990,7 +21990,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_3.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_female_3.jpg",
+        "src": "/images/ursus-arctos-female-2.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_3.jpg",
@@ -21999,7 +21999,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Eurasian_brown_bear_%28Ursus_arctos_arctos%29_mother_and_cub.jpg/1280px-Eurasian_brown_bear_%28Ursus_arctos_arctos%29_mother_and_cub.jpg",
+        "src": "/images/ursus-arctos-cub-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_mother_and_cub.jpg",
@@ -22008,7 +22008,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Urme_de_urs_in_sare.jpg/960px-Urme_de_urs_in_sare.jpg",
+        "src": "/images/ursus-arctos-tracks-1.jpg",
         "credit": {
           "photographer": "RodicaB",
           "url": "https://commons.wikimedia.org/wiki/File:Urme_de_urs_in_sare.jpg",
@@ -22017,7 +22017,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Grizzly_rear_paw_print.jpg",
+        "src": "/images/ursus-arctos-paw-1.jpg",
         "credit": {
           "photographer": "Craig Morgan",
           "url": "https://commons.wikimedia.org/wiki/File:Grizzly_rear_paw_print.jpg",

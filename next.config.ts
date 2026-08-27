@@ -13,10 +13,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "cdn.reptiles.ge",
       },
-      {
-        protocol: "https",
-        hostname: "upload.wikimedia.org",
-      },
     ],
   },
   async headers() {
