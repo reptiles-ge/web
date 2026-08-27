@@ -5822,8 +5822,10 @@ export const species: Species[] = [
     "behavior": "ამიერკავკასიაში აქტიური სეზონი ჩვეულებრივ აპრილიდან ოქტომბრის ბოლომდეა; ზოგი წყარო გამოსვლას მარტის ბოლოდანაც აღნიშნავს. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში — ბინდსა და ღამით. იზამთრებს კლდის ნაპრალსა და სოროში. კვერცხისმდებია — საქართველოს სხვა გველგესლები ცოცხლადმშობია. შეწყვილება აპრილ–მაისშია. ქართული წყაროები ზაფხულში დაახლოებით 15–20 კვერცხს ასახელებენ; ნაშიერი დაახლოებით 23–25 სმ-ია და იჩეკება დაახლოებით 35–45 დღეში. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
     "conservation": "IUCN-ის 2021 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2014 წლის საქართველოს წითელ ნუსხაში არ არის — იქ შეტანილია დინიკის და კავკასიური გველგესლა. ძველ ქართულ ენციკლოპედიაში ზოგჯერ წითელ წიგნშია ნახსენები; ეს 2014 წლის ნუსხას არ ემთხვევა. საფრთხეებია ჰაბიტატის გარდაქმნა, ურბანიზაცია, გადაჭარბებული ძოვება და ადამიანის დევნა. მღრღნელებზე ნადირობით მონაწილეობს მშრალი ლანდშაფტის კვებით ჯაჭვში.",
     "danger": "High",
-    "image": "https://cdn.reptiles.ge/macrovipera-lebetina.webp",
-    "mobileImage": "https://cdn.reptiles.ge/macrovipera-lebetina-mobile.webp",
+    "image": "/images/macrovipera-lebetina-nika-3.png",
+    "imageCredit": {
+      "photographer": "ნიკა მელიქიშვილი"
+    },
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina.webp"
@@ -5924,7 +5926,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-3.jpg",
+        "src": "/images/macrovipera-lebetina-nika-3.png",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი"
         }
@@ -6019,7 +6021,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-24T14:19:21+04:00",
+    "updatedAt": "2026-08-27T16:53:03+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -15973,7 +15975,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-3.jpg",
+        "src": "/images/macrovipera-lebetina-nika-3.png",
         "credit": {
           "photographer": "Nika Melikishvili"
         }
@@ -15996,7 +15998,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-6.webp"
       }
-    ]
+    ],
+    "imageCredit": {
+      "photographer": "Nika Melikishvili"
+    }
   },
   "malpolon-insignitus": {
     "commonName": "Eastern Montpellier Snake",
