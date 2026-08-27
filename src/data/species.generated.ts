@@ -3908,7 +3908,7 @@ export const species: Species[] = [
         "answer": "დიახ. 2014 წლის წითელ ნუსხაში მოწყვლადია (VU, B2a) — მცირე ფრაგმენტირებული არეალი. გლობალურად IUCN-ით Least Concern."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T14:00:04+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
