@@ -5817,7 +5817,7 @@ export const species: Species[] = [
     "location": "აღმოსავლეთ საქართველო",
     "description": "აღმოსავლეთ საქართველოს ყველაზე დიდი შხამიანი გველგესლა — მშრალი, კლდოვანი ადგილების მკვიდრი.",
     "overview": "გიურზა (Macrovipera lebetinus) აღმოსავლეთ საქართველოს მშრალი ზონის დიდი შხამიანი გველგესლაა. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. მიღებული სახელია M. lebetinus; ძველ ლიტერატურაში ხშირია lebetina. კავკასიის პოპულაციები ჩვეულებრივ ქვესახეობას M. l. obtusa მიეკუთვნება. საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ლანდშაფტშია — დასავლეთში და მაღალმთაში არ გვხვდება. ზრდასრული ხშირად დაახლოებით 1–1.5 მ-ია. ნაკბენი სამედიცინოდ მნიშვნელოვანია და სასწრაფო დახმარებას საჭიროებს. ხშირად ერევა ჩვეულებრივ ხვლიკიჭამია გველსა და დიდ უშხამო მცურავებს.",
-    "habitat": "ეძებეთ მშრალ, ქვიან და კლდოვან ადგილზე — არა კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. დამახასიათებელია ივრის, მტკვრისა და ალაზნის ქვედა დინებები, შირაქი, გარეჯი და ქვემო ქართლის მშრალი მთისწინეთი. თბილისისა და რუსთავის მიდამოებში იშვიათია. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებული ადგილებია ყვარელი და ნეკრესის მონასტერი — ალაზნის ხეობა. თავს აფარებს კლდის ნაპრალს, ქვას, მღრღნელის სოროს და ზოგჯერ ნაგებობას; ზაფხულის სიცხეში ხშირად წყალთან ახლოს ჩნდება. ქართულ წყაროებში ზედა სიმაღლე დაახლოებით 1,500 მ-ია. დასავლეთ საქართველოში დადასტურებული არეალი არ არის.",
+    "habitat": "ეძებეთ მშრალ, ქვიან და კლდოვან ადგილზე — არა კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. დამახასიათებელია ივრის, მტკვრისა და ალაზნის ქვედა დინებები, შირაქი, გარეჯი და ქვემო ქართლის მშრალი მთისწინეთი. თბილისისა და რუსთავის მიდამოებში იშვიათია. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებული ადგილებია ყვარელი და ნეკრესის მონასტერი — ალაზნის ხეობა — და ფერადი უდაბნო. თავს აფარებს კლდის ნაპრალს, ქვას, მღრღნელის სოროს და ზოგჯერ ნაგებობას; ზაფხულის სიცხეში ხშირად წყალთან ახლოს ჩნდება. ქართულ წყაროებში ზედა სიმაღლე დაახლოებით 1,500 მ-ია. დასავლეთ საქართველოში დადასტურებული არეალი არ არის.",
     "diet": "ზრდასრული ძირითადად მღრღნელებს იჭერს; აგრეთვე პატარა ფრინველებს, ხვლიკებსა და სხვა მცირე ხერხემლიანებს. ახალგაზრდა უფრო პატარა ხვლიკებით ნადირობს. ნადირობს ჩასაფრებით. ზოგჯერ ბუჩქზე ან ხეზე ადის ფრინველის დასაჭერად.",
     "behavior": "ამიერკავკასიაში აქტიური სეზონი ჩვეულებრივ აპრილიდან ოქტომბრის ბოლომდეა; ზოგი წყარო გამოსვლას მარტის ბოლოდანაც აღნიშნავს. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში — ბინდსა და ღამით. იზამთრებს კლდის ნაპრალსა და სოროში. კვერცხისმდებია — საქართველოს სხვა გველგესლები ცოცხლადმშობია. შეწყვილება აპრილ–მაისშია. ქართული წყაროები ზაფხულში დაახლოებით 15–20 კვერცხს ასახელებენ; ნაშიერი დაახლოებით 23–25 სმ-ია და იჩეკება დაახლოებით 35–45 დღეში. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
     "conservation": "IUCN-ის 2021 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2014 წლის საქართველოს წითელ ნუსხაში არ არის — იქ შეტანილია დინიკის და კავკასიური გველგესლა. ძველ ქართულ ენციკლოპედიაში ზოგჯერ წითელ წიგნშია ნახსენები; ეს 2014 წლის ნუსხას არ ემთხვევა. საფრთხეებია ჰაბიტატის გარდაქმნა, ურბანიზაცია, გადაჭარბებული ძოვება და ადამიანის დევნა. მღრღნელებზე ნადირობით მონაწილეობს მშრალი ლანდშაფტის კვებით ჯაჭვში.",
@@ -5896,6 +5896,46 @@ export const species: Species[] = [
         }
       },
       {
+        "src": "/images/macrovipera-lebetina-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი კიკუაშვილი",
+          "location": "ფერადი უდაბნო",
+          "date": "2022-09-04"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-giorgi-2.jpg",
+        "credit": {
+          "photographer": "გიორგი კიკუაშვილი",
+          "location": "ფერადი უდაბნო",
+          "date": "2022-09-04"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-1.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-2.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-3.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-4.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
       },
       {
@@ -5952,7 +5992,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "ივრის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯში და ქვემო ქართლის მშრალ მთისწინეთში. თბილისისა და რუსთავის მიდამოებში იშვიათია. რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებულია ყვარელი და ნეკრესის მონასტერი. დასავლეთ საქართველოში არ არის."
+        "answer": "ივრის, მტკვრისა და ალაზნის ქვედა დინებებში, შირაქში, გარეჯში და ქვემო ქართლის მშრალ მთისწინეთში. თბილისისა და რუსთავის მიდამოებში იშვიათია. რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებულია ყვარელი, ნეკრესის მონასტერი და ფერადი უდაბნო. დასავლეთ საქართველოში არ არის."
       },
       {
         "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
@@ -6478,7 +6518,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-27T16:37:58+04:00",
+    "updatedAt": "2026-08-27T16:43:24+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -15758,7 +15798,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Eastern Georgia",
     "description": "Eastern Georgia’s largest venomous viper — a resident of dry, rocky ground.",
     "overview": "The Levantine viper (Macrovipera lebetinus) is a large venomous snake of eastern Georgia’s dry lowlands. The 2026 Georgian checklist treats it as biologically confirmed. The accepted name is M. lebetinus; older literature often uses lebetina. Caucasian populations are usually assigned to the subspecies M. l. obtusa. In Georgia it is confined to the semi-arid south-east — not the west, and not the high mountains. Adults commonly reach about 1–1.5 m. A bite is medically significant and needs emergency care. It is often confused with the eastern Montpellier snake and with large harmless racers.",
-    "habitat": "Look for it on dry, stony and rocky ground — not in Colchic forest and not in the Greater Caucasus highlands. Confirmed country sources place it along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. This atlas maps Kakheti, Kvemo Kartli and Tbilisi. Named localities from photographs on this site include Kvareli and Nekresi Monastery, in the Alazani valley. It shelters in rock crevices, under stones, in rodent burrows and sometimes in buildings; in summer heat it is often near water. Georgian sources give an upper elevation of about 1,500 m. There is no confirmed range in western Georgia.",
+    "habitat": "Look for it on dry, stony and rocky ground — not in Colchic forest and not in the Greater Caucasus highlands. Confirmed country sources place it along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. This atlas maps Kakheti, Kvemo Kartli and Tbilisi. Named localities from photographs on this site include Kvareli and Nekresi Monastery in the Alazani valley, and the Colored Desert. It shelters in rock crevices, under stones, in rodent burrows and sometimes in buildings; in summer heat it is often near water. Georgian sources give an upper elevation of about 1,500 m. There is no confirmed range in western Georgia.",
     "diet": "Adults take mainly rodents; also small birds, lizards and other small vertebrates. Juveniles hunt mostly small lizards. It hunts by ambush. It sometimes climbs shrubs or trees to catch birds.",
     "behavior": "In Transcaucasia the active season is usually April to late October; some sources note emergence from late March. In spring and autumn it often moves by day; in summer heat it is active at dusk and at night. It overwinters in rock crevices and burrows. It lays eggs — Georgia’s other vipers give live birth. Mating is in April–May. Georgian sources report about 15–20 eggs in summer; hatchlings are about 23–25 cm after roughly 35–45 days. If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people.",
     "conservation": "The 2021 IUCN assessment lists it as Least Concern. It is not on Georgia’s 2014 Red List, which does include Dinnik’s viper and the Caucasus viper. Older Georgian encyclopedias sometimes place it in the Red Book; that does not match the 2014 list. Threats include habitat conversion, urbanisation, overgrazing and persecution. As a rodent predator it belongs in the food web of dry landscapes.",
@@ -15806,7 +15846,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can it be found in Georgia?",
-        "answer": "Along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. The map marks Kakheti, Kvemo Kartli and Tbilisi. Named places include Kvareli and Nekresi Monastery. It is absent from western Georgia."
+        "answer": "Along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. The map marks Kakheti, Kvemo Kartli and Tbilisi. Named places include Kvareli, Nekresi Monastery and the Colored Desert. It is absent from western Georgia."
       },
       {
         "question": "Is it venomous and dangerous to humans?",
@@ -15902,6 +15942,46 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Shota Zandukeli",
           "date": "2023-07-10"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-giorgi-1.jpg",
+        "credit": {
+          "photographer": "Giorgi Kikuashvili",
+          "location": "Colored Desert",
+          "date": "2022-09-04"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-giorgi-2.jpg",
+        "credit": {
+          "photographer": "Giorgi Kikuashvili",
+          "location": "Colored Desert",
+          "date": "2022-09-04"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-1.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-2.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-3.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili"
+        }
+      },
+      {
+        "src": "/images/macrovipera-lebetina-nika-4.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili"
         }
       },
       {
