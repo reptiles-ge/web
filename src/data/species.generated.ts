@@ -706,7 +706,7 @@ export const species: Species[] = [
       "photographer": "ზაური ხაჩიძე",
       "date": "2015-05-20"
     },
-    "mobileImage": "/images/cuculus-canorus-moeller-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/cuculus-canorus-moeller-1.jpg",
     "mobileImageCredit": {
       "photographer": "Reinhold Möller",
       "url": "https://commons.wikimedia.org/wiki/File:B%C3%B6senbechhofen_Weiher_Kuckuck_Cuculus_canorus-20240608-RM-170659.jpg",
@@ -731,7 +731,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/cuculus-canorus-moeller-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-moeller-1.jpg",
         "credit": {
           "photographer": "Reinhold Möller",
           "url": "https://commons.wikimedia.org/wiki/File:B%C3%B6senbechhofen_Weiher_Kuckuck_Cuculus_canorus-20240608-RM-170659.jpg",
@@ -740,7 +740,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/cuculus-canorus-janssen-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-janssen-1.jpg",
         "credit": {
           "photographer": "Jac. Janssen",
           "url": "https://commons.wikimedia.org/wiki/File:20180525_002_Belgie_Kempenbroek_koekoek_(42429286452).jpg",
@@ -749,7 +749,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/cuculus-canorus-rinaud-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-rinaud-1.jpg",
         "credit": {
           "photographer": "TRinaud",
           "url": "https://commons.wikimedia.org/wiki/File:Common_cuckoo_(Cuculus_canorus)_2019.jpg",
@@ -758,7 +758,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/cuculus-canorus-eichler-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-eichler-1.jpg",
         "credit": {
           "photographer": "Andreas Eichler",
           "url": "https://commons.wikimedia.org/wiki/File:2015.08.30.-07-See_Pfingstberg_Mannheim-Rheinau--junger_Kuckuck.jpg",
@@ -3072,7 +3072,7 @@ export const species: Species[] = [
       "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
       "date": "2015-03-16"
     },
-    "mobileImage": "/images/emberiza-citrinella-sharp-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/emberiza-citrinella-sharp-1.jpg",
     "mobileImageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
@@ -3088,7 +3088,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/emberiza-citrinella-sharp-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-sharp-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
@@ -3121,7 +3121,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/emberiza-citrinella-gailhampshire-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-gailhampshire-1.jpg",
         "credit": {
           "photographer": "Gail Hampshire",
           "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer,_female_(16409057066).jpg",
@@ -3845,7 +3845,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-lepik-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-lepik-1.jpg",
         "credit": {
           "photographer": "Enel Lepik",
           "url": "https://commons.wikimedia.org/wiki/File:Must-k%C3%A4rbsen%C3%A4pp_(Ficedula_hypoleuca).jpg",
@@ -3853,7 +3853,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-crowbared-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg",
         "credit": {
           "photographer": "Crowbared",
           "url": "https://commons.wikimedia.org/wiki/File:Ficedula_hypoleuca_-Finland_-female-8.jpg",
@@ -3862,7 +3862,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-sharp-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-sharp-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Pied_flycatcher_(Ficedula_hypoleuca)_non-breeding_male.jpg",
@@ -3871,7 +3871,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-rinaud-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-rinaud-1.jpg",
         "credit": {
           "photographer": "TRinaud",
           "url": "https://commons.wikimedia.org/wiki/File:European_pied_flycatcher_(Ficedula_hypoleuca)_2023.jpg",
@@ -3880,7 +3880,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-lapa-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-lapa-1.jpg",
         "credit": {
           "photographer": "Luiz Lapa",
           "url": "https://commons.wikimedia.org/wiki/File:Papa-moscas-preto,_f%C3%AAmea,_European_Pied_Flycatcher,_female_(50348692871).jpg",
@@ -3898,7 +3898,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-virtala-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-virtala-1.jpg",
         "credit": {
           "photographer": "Matti Virtala",
           "url": "https://commons.wikimedia.org/wiki/File:Ficedula_hypoleuca_Oulu_Finland_2021-05-13.jpg",
@@ -4796,7 +4796,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-reigada-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-reigada-1.jpg",
         "credit": {
           "photographer": "Pepe Reigada",
           "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
@@ -4805,7 +4805,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-dalous-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-dalous-1.jpg",
         "credit": {
           "photographer": "Pierre Dalous",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
@@ -4823,7 +4823,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-hobern-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-hobern-1.jpg",
         "credit": {
           "photographer": "Donald Hobern",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(34536504885).jpg",
@@ -4832,7 +4832,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-shrestha-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-shrestha-1.jpg",
         "credit": {
           "photographer": "Prasan Shrestha",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wryneck.jpg",
@@ -4841,7 +4841,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-ronning-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-ronning-1.jpg",
         "credit": {
           "photographer": "Arnstein Rønning",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Ramsoy).JPG",
@@ -4932,7 +4932,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად Least Concern-ია და 2024 წლის ჩამონათვალში ეროვნულადაც LC-ია. 2014 წლის საქართველოს წითელ ნუსხაში არ არის. ნუ დაიჭერთ ველურ ფრინველებს."
       }
     ],
-    "updatedAt": "2026-08-27T10:28:44+04:00",
+    "updatedAt": "2026-08-27T10:33:47+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -6188,7 +6188,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-grazalema-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-grazalema-1.jpg",
         "credit": {
           "photographer": "Davidruiz91",
           "url": "https://commons.wikimedia.org/wiki/File:Comadreja_en_un_Muro_de_Piedra.jpg",
@@ -6215,7 +6215,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-martin-bravo-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-martin-bravo-1.jpg",
         "credit": {
           "photographer": "Santiago Martín-Bravo",
           "url": "https://commons.wikimedia.org/wiki/File:Least_Weasel_imported_from_iNaturalist_photo_104090488_on_7_March_2024.jpg",
@@ -6818,7 +6818,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -7774,14 +7774,14 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია და ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიული ხმა ხმამაღალი, სიცილის მსგავსი ნოტების რიგია. ხეზე დაკვრა (დრამი) სხვა კოდალებთან შედარებით იშვიათია. ფრენა ტალღოვანია; მაშინ ყვითელი კუდზედა კარგად ჩანს. ფრთხილია და არ აიყვანოთ. ბუდობს ხეში ამოთხრილ ფუღუროში. სახეობის დონეზე ნაყარი დაახლოებით ოთხიდან ექვსამდე კვერცხია, ინკუბაცია დაახლოებით 19–20 დღე; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად იღებს. ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში 2022 წლის გამოძახების აღწერებმა აპრილის ბოლოდან ივლისამდე მობუდარი სეზონის ხმები დააფიქსირეს. რეზიდენტია და შორ მანძილზე მიგრანტი არ არის.",
     "conservation": "BirdLife International Picus viridis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS მსოფლიოს, ევროპისა და ევროკავშირის მასშტაბით Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. 2022 წლის დაცული ტერიტორიების აღწერა ადგილობრივი სურათია და არა ეროვნული მონიტორინგის სერია. EUNIS აღნიშნავს ევროკავშირის ფრინველების დირექტივას და ბერნის კონვენციაში Picidae-ს შეტანას; ეს საქართველოს წითელი ნუსხა არ არის. ველური ფრინველი არ დაიჭიროთ. ძველი ხეების და ჭიანჭველებით მდიდარი მდელოს კარგვა სახეობის დონეზე ბიოლოგიურად რელევანტური წნეხია; საქართველოსთვის ადგილობრივი საფრთხის რანგირება აქ არ არის გამოქვეყნებული.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/picus-viridis-sharp-male.jpg",
+    "image": "https://cdn.reptiles.ge/picus-viridis-sharp-male.jpg",
     "imageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
       "location": "კიუ",
       "date": "2014-07-26"
     },
-    "mobileImage": "/images/picus-viridis-sharp-female.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/picus-viridis-sharp-female.jpg",
     "mobileImageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
@@ -7790,7 +7790,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/picus-viridis-sharp-male.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-sharp-male.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
@@ -7799,7 +7799,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/picus-viridis-sharp-female.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-sharp-female.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
@@ -7831,7 +7831,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/picus-viridis-mannweiler-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-mannweiler-1.jpg",
         "credit": {
           "photographer": "Simon Mannweiler",
           "url": "https://commons.wikimedia.org/wiki/File:Picus_viridis_(Gr%C3%BCnspecht)_2023-07-01_01.jpg",
@@ -8454,7 +8454,7 @@ export const species: Species[] = [
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-06-04"
     },
-    "mobileImage": "/images/sciurus-anomalus-ustun-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/sciurus-anomalus-ustun-1.jpg",
     "mobileImageCredit": {
       "photographer": "Esin Üstün",
       "url": "https://commons.wikimedia.org/wiki/File:Squirrel_(16356817154).jpg",
@@ -8471,7 +8471,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-cebeci-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-cebeci-1.jpg",
         "credit": {
           "photographer": "Zeynel Cebeci",
           "url": "https://commons.wikimedia.org/wiki/File:Squirrel_-_Sincap_01.jpg",
@@ -8480,7 +8480,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-vake-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-vake-1.jpg",
         "credit": {
           "photographer": "Yuri Samoylov",
           "url": "https://commons.wikimedia.org/wiki/File:2025-02-09_Squirrel_in_Vake_Park.jpg",
@@ -8489,7 +8489,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-cebeci-2.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-cebeci-2.jpg",
         "credit": {
           "photographer": "Zeynel Cebeci",
           "url": "https://commons.wikimedia.org/wiki/File:Squirrel_-_Sincap_02.jpg",
@@ -8498,7 +8498,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-alacam-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-alacam-1.jpg",
         "credit": {
           "photographer": "VisamLord90",
           "url": "https://commons.wikimedia.org/wiki/File:Red_squirrel_Alacam_Samsun_Turkey.jpg",
@@ -8507,7 +8507,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-cate-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-cate-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Kaukasuseekhoorn_-_Caucasian_Squirrel_-_Sciurus_anomalus.jpg",
@@ -8516,7 +8516,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-nest-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-nest-1.jpg",
         "credit": {
           "photographer": "Adem",
           "url": "https://commons.wikimedia.org/wiki/File:Sciurus_anomalus_nest.jpg",
@@ -8525,7 +8525,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sciurus-anomalus-ustun-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-ustun-1.jpg",
         "credit": {
           "photographer": "Esin Üstün",
           "url": "https://commons.wikimedia.org/wiki/File:Squirrel_(16356817154).jpg",
@@ -10245,7 +10245,7 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამით და შებინდებისასაა აქტიური; დღისითაც ჩანს, განსაკუთრებით დაბალ შეწუხებაზე ან საკვების სიუხვეზე. ეს დღის გამოჩენა თავისთავად ცოფს არ ნიშნავს. ბუდობს სოროში, კლდის ნაპრალში ან სხვა ცხოველის მიტოვებულ სოროში. გამრავლების სეზონში ოჯახური ჯგუფია; სხვა დროს ხშირად მარტო ნადირობს. სახეობის დონეზე ორსულობა დაახლოებით 51–53 დღეა, ხშირად 4–6 ლეკვი, გაზაფხულზე. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. კვალი ძაღლისას ჰგავს, მაგრამ უფრო კომპაქტურია; წინა თათს ხუთი თითი აქვს, უკანას ოთხი, კლანჭები ხშირად ჩანს. კუდის თეთრი წვერი ტიპიურია, მაგრამ ყველა ინდივიდს არ აქვს.",
     "conservation": "Hoffmann და Sillero-Zubiri Vulpes vulpes-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016); პოპულაციის ტენდენცია სტაბილურია. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ნადირობის ობიექტად არის შეტანილი; კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. CITES-ის დანართებში სახეობის დონეზე არ არის, გარდა რამდენიმე აზიური ქვესახეობისა, რომლებიც საქართველოს არ ეხება. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, საგზაო დაღუპვა და კონფლიქტი შინაურ ფრინველზე; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება უკბინოს. საქართველოში გარეულ ხორცისმჭამელებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აჭმიოთ და არ აიყვანოთ. ძაღლები აცერით.",
-    "image": "/images/vulpes-vulpes-mallnitz-1.jpg",
+    "image": "https://cdn.reptiles.ge/vulpes-vulpes-mallnitz-1.jpg",
     "imageCredit": {
       "photographer": "Uoaei1",
       "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
@@ -10268,7 +10268,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vulpes-vulpes-mallnitz-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-mallnitz-1.jpg",
         "credit": {
           "photographer": "Uoaei1",
           "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
@@ -10286,7 +10286,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vulpes-vulpes-lours-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-lours-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_drinking_from_a_lake_in_Gennevilliers,_France.jpg",
@@ -10295,7 +10295,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vulpes-vulpes-billington-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-billington-1.jpg",
         "credit": {
           "photographer": "Ken Billington",
           "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(4).jpg",
@@ -11478,7 +11478,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/cuculus-canorus-moeller-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-moeller-1.jpg",
         "credit": {
           "photographer": "Reinhold Möller",
           "url": "https://commons.wikimedia.org/wiki/File:B%C3%B6senbechhofen_Weiher_Kuckuck_Cuculus_canorus-20240608-RM-170659.jpg",
@@ -11487,7 +11487,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/cuculus-canorus-janssen-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-janssen-1.jpg",
         "credit": {
           "photographer": "Jac. Janssen",
           "url": "https://commons.wikimedia.org/wiki/File:20180525_002_Belgie_Kempenbroek_koekoek_(42429286452).jpg",
@@ -11496,7 +11496,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/cuculus-canorus-rinaud-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-rinaud-1.jpg",
         "credit": {
           "photographer": "TRinaud",
           "url": "https://commons.wikimedia.org/wiki/File:Common_cuckoo_(Cuculus_canorus)_2019.jpg",
@@ -11505,7 +11505,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/cuculus-canorus-eichler-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-eichler-1.jpg",
         "credit": {
           "photographer": "Andreas Eichler",
           "url": "https://commons.wikimedia.org/wiki/File:2015.08.30.-07-See_Pfingstberg_Mannheim-Rheinau--junger_Kuckuck.jpg",
@@ -13273,7 +13273,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/emberiza-citrinella-sharp-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-sharp-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella)_male.jpg",
@@ -13306,7 +13306,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/emberiza-citrinella-gailhampshire-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-gailhampshire-1.jpg",
         "credit": {
           "photographer": "Gail Hampshire",
           "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer,_female_(16409057066).jpg",
@@ -13872,7 +13872,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-lepik-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-lepik-1.jpg",
         "credit": {
           "photographer": "Enel Lepik",
           "url": "https://commons.wikimedia.org/wiki/File:Must-k%C3%A4rbsen%C3%A4pp_(Ficedula_hypoleuca).jpg",
@@ -13880,7 +13880,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-crowbared-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg",
         "credit": {
           "photographer": "Crowbared",
           "url": "https://commons.wikimedia.org/wiki/File:Ficedula_hypoleuca_-Finland_-female-8.jpg",
@@ -13889,7 +13889,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-sharp-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-sharp-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Pied_flycatcher_(Ficedula_hypoleuca)_non-breeding_male.jpg",
@@ -13898,7 +13898,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-rinaud-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-rinaud-1.jpg",
         "credit": {
           "photographer": "TRinaud",
           "url": "https://commons.wikimedia.org/wiki/File:European_pied_flycatcher_(Ficedula_hypoleuca)_2023.jpg",
@@ -13907,7 +13907,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-lapa-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-lapa-1.jpg",
         "credit": {
           "photographer": "Luiz Lapa",
           "url": "https://commons.wikimedia.org/wiki/File:Papa-moscas-preto,_f%C3%AAmea,_European_Pied_Flycatcher,_female_(50348692871).jpg",
@@ -13925,7 +13925,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-virtala-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-virtala-1.jpg",
         "credit": {
           "photographer": "Matti Virtala",
           "url": "https://commons.wikimedia.org/wiki/File:Ficedula_hypoleuca_Oulu_Finland_2021-05-13.jpg",
@@ -14532,7 +14532,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-reigada-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-reigada-1.jpg",
         "credit": {
           "photographer": "Pepe Reigada",
           "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
@@ -14541,7 +14541,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-dalous-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-dalous-1.jpg",
         "credit": {
           "photographer": "Pierre Dalous",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
@@ -14559,7 +14559,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-hobern-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-hobern-1.jpg",
         "credit": {
           "photographer": "Donald Hobern",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(34536504885).jpg",
@@ -14568,7 +14568,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-shrestha-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-shrestha-1.jpg",
         "credit": {
           "photographer": "Prasan Shrestha",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wryneck.jpg",
@@ -14577,7 +14577,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-ronning-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-ronning-1.jpg",
         "credit": {
           "photographer": "Arnstein Rønning",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Ramsoy).JPG",
@@ -15599,7 +15599,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-grazalema-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-grazalema-1.jpg",
         "credit": {
           "photographer": "Davidruiz91",
           "url": "https://commons.wikimedia.org/wiki/File:Comadreja_en_un_Muro_de_Piedra.jpg",
@@ -15626,7 +15626,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-martin-bravo-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-martin-bravo-1.jpg",
         "credit": {
           "photographer": "Santiago Martín-Bravo",
           "url": "https://commons.wikimedia.org/wiki/File:Least_Weasel_imported_from_iNaturalist_photo_104090488_on_7_March_2024.jpg",
@@ -16029,7 +16029,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16771,7 +16771,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/picus-viridis-sharp-male.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-sharp-male.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_male.JPG",
@@ -16780,7 +16780,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/picus-viridis-sharp-female.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-sharp-female.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:European_green_woodpecker_(Picus_viridis)_female.jpg",
@@ -16812,7 +16812,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/picus-viridis-mannweiler-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-mannweiler-1.jpg",
         "credit": {
           "photographer": "Simon Mannweiler",
           "url": "https://commons.wikimedia.org/wiki/File:Picus_viridis_(Gr%C3%BCnspecht)_2023-07-01_01.jpg",
@@ -17280,7 +17280,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-cebeci-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-cebeci-1.jpg",
         "credit": {
           "photographer": "Zeynel Cebeci",
           "url": "https://commons.wikimedia.org/wiki/File:Squirrel_-_Sincap_01.jpg",
@@ -17289,7 +17289,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-vake-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-vake-1.jpg",
         "credit": {
           "photographer": "Yuri Samoylov",
           "url": "https://commons.wikimedia.org/wiki/File:2025-02-09_Squirrel_in_Vake_Park.jpg",
@@ -17298,7 +17298,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-cebeci-2.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-cebeci-2.jpg",
         "credit": {
           "photographer": "Zeynel Cebeci",
           "url": "https://commons.wikimedia.org/wiki/File:Squirrel_-_Sincap_02.jpg",
@@ -17307,7 +17307,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-alacam-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-alacam-1.jpg",
         "credit": {
           "photographer": "VisamLord90",
           "url": "https://commons.wikimedia.org/wiki/File:Red_squirrel_Alacam_Samsun_Turkey.jpg",
@@ -17316,7 +17316,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-cate-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-cate-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Kaukasuseekhoorn_-_Caucasian_Squirrel_-_Sciurus_anomalus.jpg",
@@ -17325,7 +17325,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-nest-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-nest-1.jpg",
         "credit": {
           "photographer": "Adem",
           "url": "https://commons.wikimedia.org/wiki/File:Sciurus_anomalus_nest.jpg",
@@ -17334,7 +17334,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sciurus-anomalus-ustun-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-ustun-1.jpg",
         "credit": {
           "photographer": "Esin Üstün",
           "url": "https://commons.wikimedia.org/wiki/File:Squirrel_(16356817154).jpg",
@@ -18685,7 +18685,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vulpes-vulpes-mallnitz-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-mallnitz-1.jpg",
         "credit": {
           "photographer": "Uoaei1",
           "url": "https://commons.wikimedia.org/wiki/File:Vulpes_vulpes_Mallnitz_01.jpg",
@@ -18703,7 +18703,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vulpes-vulpes-lours-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-lours-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_drinking_from_a_lake_in_Gennevilliers,_France.jpg",
@@ -18712,7 +18712,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vulpes-vulpes-billington-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-billington-1.jpg",
         "credit": {
           "photographer": "Ken Billington",
           "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_(Vulpes_vulpes)_(4).jpg",
