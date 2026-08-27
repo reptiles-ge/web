@@ -228,6 +228,7 @@ export const featuredSpeciesIds = [
   "malpolon-insignitus",
   "emberiza-citrinella",
   "picus-viridis",
+  "jynx-torquilla",
   "cuculus-canorus",
   "ficedula-hypoleuca",
   "ficedula-semitorquata",

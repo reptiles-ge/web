@@ -235,6 +235,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Picus viridis karelini",
     ],
   },
+  "jynx-torquilla": {
+    ka: [
+      "ჩვეულებრივი მაქცია",
+      "კოდალასებრნი",
+      "Jynx torquilla torquilla",
+    ],
+    en: [
+      "wryneck",
+      "northern wryneck",
+      "European wryneck",
+      "Jynx torquilla torquilla",
+    ],
+  },
   "cuculus-canorus": {
     ka: [
       "ჩვეულებრივი გუგული",

@@ -38,6 +38,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "naxevartetqela-buzicheria",
   ],
   "sciurus-anomalus": ["sparsuli-tsiqvi"],
+  "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {

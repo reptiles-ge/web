@@ -301,6 +301,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "jynx-torquilla": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
   "cuculus-canorus": {
     group: "bird",
     habitats: ["forest", "grassland"],

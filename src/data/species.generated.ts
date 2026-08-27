@@ -3989,7 +3989,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:15:59+04:00",
+    "updatedAt": "2026-08-27T10:21:36+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -4204,7 +4204,7 @@ export const species: Species[] = [
         "answer": "IUCN-ის წითელ ნუსხაზეა როგორც Least Concern და არა როგორც ამჟამინდელი საფრთხის კატეგორია. ადრე Near Threatened იყო. 2024 წლის ქართული ჩამონათვალი ეროვნულადაც LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. უვნებელია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:17:07+04:00",
+    "updatedAt": "2026-08-27T10:21:36+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -4732,6 +4732,253 @@ export const species: Species[] = [
       {
         "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
         "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      }
+    ]
+  },
+  {
+    "id": "jynx-torquilla",
+    "commonName": "მაქცია",
+    "scientificName": "Jynx torquilla",
+    "genus": "Jynx",
+    "family": "Picidae",
+    "location": "მობუდარი მიგრანტი საქართველოში",
+    "description": "პატარა, შენიღბულ-ზოლიანი კოდალასნაირი, რომელიც ჭიანჭველებს მიწაზე იკრებს. 2024 წლის ეროვნულ ჩამონათვალში საქართველოში დადასტურებულია როგორც მობუდარი და გავლითი მიგრანტი. ამ გვერდზე დასახელებული ფოტო ჭოროხის დელტიდანაა, 15 სექტემბერი 2014.",
+    "overview": "მაქცია (Jynx torquilla) პატარა კოდალასნაირია (ოჯახი Picidae), რომელიც საქართველოში დადასტურებულია როგორც მობუდარი მიგრანტი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს BB; M: მობუდარია და არამობუდარ სეზონზე არ არის, ასევე გავლითი მიგრანტია. სეზონურობის ხარისხი მაღალია (კოდი A). არსებობის ხარისხი მაღალია (H), ფოტოებითა და რგოლის მონაცემებით. ზრდასრული სახეობის დონეზე დაახლოებით 16–18 სმ-ია. ადამიანისთვის საფრთხე არ არის. IUCN სახეობას Least Concern-ად იღებს. 2024 წლის ჩამონათვალი იგივე კატეგორიას ანიჭებს ეროვნულადაც.",
+    "habitat": "საქართველოში ეძებეთ მობუდარ სეზონზე და გაზაფხულისა და შემოდგომის გადაფრენაზე, და არა ზამთარში — 2024 წლის ჩამონათვალით. ამ გვერდზე დასახელებული ჩანაწერია ჭოროხის დელტა (სამხრეთი ტბორები და ჭაობები), 15 სექტემბერი 2014 (ფოტო: Wouter van der Ham). ეს თარიღი შემოდგომის გადაფრენაზე მოდის. 2024 წლის ჩამონათვალი ადასტურებს ქვეყნის დონის მობუდარ-მიგრანტულ სტატუსს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. ნუ ჩათვლით, რომ თანაბრად გვხვდება მთელ საქართველოში, მათ შორის უხეო მაღალ პლატოებზე ან დახურულ მაღალმთის ტყეში. სახეობის დონის ჰაბიტატი ნახევრად ღია ადგილებია: ტყის პირი, ბაღები, პარკები, მდინარის ხეობები და მსგავსი ადგილები გაბნეული ხეებითა და მოკლე ბალახით, სადაც ჭიანჭველა ბუდობს. საქართველოს ცალკე სიმაღლის სარტყელი ამ გვერდზე არ არის გამოქვეყნებული. 2022 წლის კოდალების მონიტორინგის ანგარიში ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში ამ სახეობას დათვლილ კოდალებს შორის არ ასახელებს.",
+    "diet": "ამ გვერდზე ცალკე ქართული კვების კვლევა არ არის. არეალში მთავარი საკვები ჭიანჭველაა, განსაკუთრებით ლარვები და ჭუპრები, რომლებსაც მიწაზე გრძელი, წებოვანი ენით იღებს. სხვა წვრილ უხერხემლოებსაც იღებს. სხვა კოდალებისგან განსხვავებით, ყოველდღიური კვება ხის ჭიის მატლებისთვის ტანის ბურღვა არ არის. ველში ტყის პირის ჭიანჭველიან მიწაზე მომხტარი პატარა ზოლიანი ყავისფერი ფრინველი ტიპიურად იქცევა.",
+    "behavior": "აქტიურია დღისით. სიმღერა ხმამაღალი, ცხვირისებრი ნოტების სერიაა, ხშირად იწერება როგორც „qui-qui-qui“, რამდენიმე წამი; შეიძლება პატარა შავარდენს ან მცირე ჭრელ კოდალას გაახსენოთ. ხეზე დოლის ცემა ჩვეულებრივი ნიშანი არ არის. საფრთხისას, განსაკუთრებით სოროში, კისერს გველისებრ ამახვევს და შეიძლება ჩასჩიჩინოს; ამ ჩვევიდან მოდის ინგლისური სახელი wryneck. საკუთარ სოროს ჩვეულებრივ არ თხრის. იყენებს ხეში არსებულ ღრს, სოროს ყუთს ან სხვა ხვრელს და დებს თეთრ კვერცხებს. სახეობის დონეზე ნაყარი ხშირად დაახლოებით შვიდიდან ათამდე კვერცხია, ინკუბაცია დაახლოებით 12–14 დღე, ბარტყები სოროში დაახლოებით 18–22 დღე; ეს ციფრები უფრო ფართო არეალიდანაა და არა ამ გვერდზე ქართული ბუდის ნიმუშიდან. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად და მიგრანტად იღებს. პალეარქტიკის პოპულაციების უმეტესობა შემოდგომაზე მობუდარ არეალს ტოვებს; დასავლური ფრინველები ზამთრობენ ძირითადად აფრიკაში, აღმოსავლური — სამხრეთ აზიაში. ჩამონათვალი მას საქართველოში ზამთრის სტუმრად (WV) არ კოდავს.",
+    "conservation": "BirdLife International Jynx torquilla-ს IUCN-ის წითელ ნუსხაში Least Concern-ად აფასებს. გლობალური არეალი დიდია; დასავლეთ ევროპის ნაწილებში მკვეთრი კლებაა და გაერთიანებულ სამეფოში აღარ არის რეგულარული მობუდარი, მაგრამ გლობალური კლება უფრო მაღალი საფრთხის კატეგორიისთვის საკმარისად სწრაფად არ ითვლება. EUNIS ევროპაში Least Concern-ს უთითებს, ევროკავშირის პოპულაციის სტატუსს — depleted, და გაშუქებას EU Birds Directive-ით (კოდი A233); ეს ინსტრუმენტი საქართველოში არ მოქმედებს. 2014 წლის საქართველოს წითელ ნუსხაში (მთავრობის დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ წითელ ნუსხას LC-ს ანიჭებს. საქართველოს ცალკე პოპულაციის ტრენდი ამ გვერდზე არ არის რაოდენობრივი. ნუ დაიჭერთ და ნუ გაიჩენთ ველურ ფრინველებს. ძველი, ღრუიანი ხეების და ჭიანჭველიანი მდელოების კარგვა სახეობის დონეზე ბიოლოგიურად შესაბამისი წნეხია; ადგილობრივი საფრთხის რანგი საქართველოსთვის აქ არ არის გამოქვეყნებული.",
+    "interaction": "პირდაპირი საფრთხე ადამიანისთვის არ არის; ველური ფრინველები არ უნდა აიყვანოთ.",
+    "danger": "Harmless",
+    "image": "/images/jynx-torquilla-reigada-1.jpg",
+    "imageCredit": {
+      "photographer": "Pepe Reigada",
+      "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
+      "location": "კორდობა",
+      "date": "2015-05-02"
+    },
+    "mobileImage": "/images/jynx-torquilla-dalous-1.jpg",
+    "mobileImageCredit": {
+      "photographer": "Pierre Dalous",
+      "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
+      "location": "არიეჟი",
+      "date": "2012-09-01"
+    },
+    "gallery": [
+      {
+        "src": "/images/jynx-torquilla-reigada-1.jpg",
+        "credit": {
+          "photographer": "Pepe Reigada",
+          "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
+          "location": "კორდობა",
+          "date": "2015-05-02"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-dalous-1.jpg",
+        "credit": {
+          "photographer": "Pierre Dalous",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
+          "location": "არიეჟი",
+          "date": "2012-09-01"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-chorokhi-1.jpg",
+        "credit": {
+          "photographer": "Wouter van der Ham",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Picidae)_(Eurasian_Wryneck)_-_(adult),_Chorokhi_Delta,_Georgia.jpg",
+          "location": "ჭოროხის დელტა",
+          "date": "2014-09-15"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-hobern-1.jpg",
+        "credit": {
+          "photographer": "Donald Hobern",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(34536504885).jpg",
+          "location": "კოპენჰაგენი",
+          "date": "2017-05-08"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-shrestha-1.jpg",
+        "credit": {
+          "photographer": "Prasan Shrestha",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wryneck.jpg",
+          "location": "ბჰაქტაპური",
+          "date": "2020-02-13"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-ronning-1.jpg",
+        "credit": {
+          "photographer": "Arnstein Rønning",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Ramsoy).JPG",
+          "location": "რამსეი",
+          "date": "2010-08-12"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "კვება",
+        "value": "ჭიანჭველები"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "მობუდარი მიგრანტი"
+      },
+      {
+        "label": "ზომა",
+        "value": "16–18 სმ"
+      },
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია ტყე და პირები"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Picidae"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს. 2024 წლის ქართული ჩამონათვალი სახელებისთვის OSME Region List-ს მიჰყვება: რიგი Piciformes, ოჯახი Picidae, გვარი Jynx. IOC World Bird List Jynx-ის ორ ცოცხალ სახეობას იღებს: ამას და წითელყელა მაქციას (Jynx ruficollis) საჰარის სამხრეთით. აფრიკული სახეობა ქართულ ჩამონათვალში არ არის.",
+      "სახელმძღვანელოები ხშირად ექვს ქვესახეობას უთითებენ, ვარიაცია ძირითადად კლინალურია. NPLG ხუთს ასახელებს და საქართველოში ფორმას J. t. torquilla-ს (Linnaeus, 1758) ანიჭებს. ნომინატი torquilla სტანდარტულ დამუშავებებში მობუდარი ფორმაა ევროპის უმეტეს ნაწილში კავკასიამდე. ველში ამოცნობა საქართველოში სახეობამდეა. ქვესახეობაზე მინიჭებული ქართული გაზომილი სერია ამ გვერდზე არ არის.",
+      "ქართულად მაქცია; ლექსიკონებში იხმარება ჩვეულებრივი მაქციაც. ინგლისურად იხმარება Eurasian wryneck (2024 წლის ჩამონათვალი: Eurasian Wryneck), wryneck და northern wryneck. ქართულში იგივე სიტყვა ფოლკლორში სხვა არსებასაც აღნიშნავს; ეს გვერდი ფრინველზეა.",
+      "2024 წლის ჩამონათვალის კოდებია BB; M, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო) და RD (რგოლის მონაცემები). ეს ქვეყნის დონის დადასტურებაა მობუდარობასა და გადაფრენაზე და არა სრული რეგიონული რუკა. ამ გვერდზე დასახელებული ფოტოა ჭოროხის დელტა, 15 სექტემბერი 2014."
+    ],
+    "identification": {
+      "summary": "ბეღურის ზომის, ქერქისფერი კოდალასნაირი მუქი ზოლით კეფიდან ზურგზე, მოკლე ნისკარტით და მომრგვალებული კუდით. საქართველოში 2024 წლის ჩამონათვალით მობუდარი მიგრანტია. მწვანე ან ჭრელ კოდალას არ ჰგავს.",
+      "traits": [
+        "სიგრძე სახეობის დონეზე დაახლოებით 16–18 სმ. NPLG იძლევა ფრთას 80–95 მმ, კუდს 60–75 მმ, ნისკარტს 15–16 მმ და მასას 30–45 გ. ფრთების შლილი ხშირად დაახლოებით 25–30 სმ-ია. ნისკარტი მოკლე და წაწვეტებულია და არა კოდალას სატეხი. კუდი მომრგვალებული და შედარებით რბილია, არა ხისტი საყრდენი. ზურგის მხარე რუხ-მურაა, ქერქივით ლაქებიანი და ზოლიანი, უფრო მუქი ზოლით კეფიდან ზურგზე. ყელი ჟანგმიწისფერია წვრილი ზოლებით; ქვედა მხარე ღიაა პატარა ისრისებრი ნიშნებით. ფეხები და ნისკარტი მურაა. სქესები ველში ერთნაირია; NPLG მამალს მხოლოდ ოდნავ უფრო დიდს უთითებს.",
+        "ახალგაზრდა ზრდასრულს ჰგავს, ოდნავ დაბალი კონტრასტით. ფრენა ტალღისებრია. ხშირად იკვებება მიწაზე და შეიძლება ტანზე მიეკიდოს, მაგრამ ხეებზე ჭრელი კოდალასავით არ ადის. ხმა მატარებელი ცხვირისებრი ნოტების სერიაა; ამ გვერდზე ხმა მცირე ჭრელი კოდალასგან განცალკევებულ ამოცნობად ფრინველის ნახვის გარეშე არ ითვლება.",
+        "მწვანე კოდალა (Picus viridis) 2024 წლის ჩამონათვალში საქართველოში მთელი წლის რეზიდენტია: გაცილებით დიდი, ზეთისხილისფერ-მწვანე, წითელი თავქუდით. ამ ატლასში იმ სახეობის გვერდი არის. რუხი კოდალა (Picus canus) ასევე რეზიდენტია: რუხი თავით, მწვანე ზურგით, არა ქერქისფერ-მურა. შავი კოდალა (Dryocopus martius) დიდი და შავია. დიდი ჭრელი, სირიული, საშუალო ჭრელი, თეთრზურგა და მცირე ჭრელი კოდალები შავ-თეთრ-წითელია. ჩვეულებრივი ღამისთევა შენიღბულ-ლაქებიანია, მაგრამ ღამის ფრინველია, გრძელი ფრთებითა და პაწაწინა ნისკარტით და კოდალა არ არის. ამ ატლასში იმ სხვა სახეობების ცალკე გვერდები ჯერ არ არის.",
+        "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ზაფხულში ტყის პირის ჭიანჭველიან მიწაზე პატარა ყავისფერი ზოლიანი ფრინველი უფრო ეს სახეობაა, ვიდრე მწვანე კოდალა."
+      ]
+    },
+    "audio": {
+      "src": "/audio/jynx-torquilla.mp3",
+      "recordist": "Kim Erlend Vidal",
+      "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Eurasian_Wryneck_XC561861.mp3",
+      "location": "როდეი, ნურლანი",
+      "date": "2020-05-23"
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა მაქცია საქართველოში?",
+        "answer": "კი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას დადასტურებულ მობუდარად და მიგრანტად იღებს (BB; M), ფოტოებითა და რგოლის მონაცემებით."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "თბილ თვეებში, ღია ტყეში, ბაღებში და პირებზე, სადაც მიწაზე ჭიანჭველაა, ასევე გაზაფხულისა და შემოდგომის გადაფრენაზე. ამ გვერდზე დასახელებული ფოტო ჭოროხის დელტიდანაა, 15 სექტემბერი 2014. ეს გვერდი ყველა რეგიონს არ რუკავს."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "ბეღურის ზომის, ქერქისფერ-მურა და ზოლიანი, მუქი ზოლით კეფიდან ზურგზე და მოკლე ნისკარტით. ხშირად იკვებება მიწაზე. საქართველოში მწვანე და ჭრელი კოდალები სულ სხვანაირად გამოიყურებიან. სიმღერა ცხვირისებრი „qui-qui-qui“ სერიაა."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე დაახლოებით 16–18 სმ. NPLG მასას 30–45 გ-ს იძლევა. საქართველოდან ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად ჭიანჭველებს, მიწაზე. კვება საქართველოში ცალკე არ არის შესწავლილი ამ გვერდზე."
+      },
+      {
+        "question": "როდის არის საქართველოში?",
+        "answer": "მობუდარ სეზონზე და გადაფრენაზე, 2024 წლის ჩამონათვალის BB; M კოდით. იქ ზამთრის სტუმრად არ არის მიჩნეული. ზუსტი ჩამოსვლისა და წასვლის თარიღები საქართველოსთვის ამ გვერდზე არ არის ცხრილში. აქ ფოტო 15 სექტემბრითაა."
+      },
+      {
+        "question": "ბუდობს თუ არა საქართველოში?",
+        "answer": "კი. 2024 წლის ჩამონათვალზე BB ნიშნავს დადასტურებულ მობუდარს. ჩვეულებრივ არსებულ ღრს იყენებს და ახალს არ თხრის. ადგილობრივი ბუდის ჩანაწერები ამ გვერდზე არ არის შეგროვებული."
+      },
+      {
+        "question": "საშიშია თუ დაცულია?",
+        "answer": "უვნებელია. გლობალურად Least Concern-ია და 2024 წლის ჩამონათვალში ეროვნულადაც LC-ია. 2014 წლის საქართველოს წითელ ნუსხაში არ არის. ნუ დაიჭერთ ველურ ფრინველებს."
+      }
+    ],
+    "updatedAt": "2026-08-27T10:24:54+04:00",
+    "sources": [
+      {
+        "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
+        "url": "https://www.sabuko.org/wp-content/uploads/2024/12/Sandgrouse-461ThebirdsofGeorgia-anupdatedchecklistusingcitizenscienceplatforms.pdf"
+      },
+      {
+        "name": "Javakhishvili, Melikishvili & Metreveli 2022 — Woodpecker monitoring in Borjomi-Kharagauli and Pshav-Khevsureti",
+        "url": "https://www.undp.org/sites/g/files/zskgke326/files/2024-12/undp-georgia-monitoring-woodpecker-2021-eng.pdf"
+      },
+      {
+        "name": "BirdLife DataZone — Eurasian Wryneck",
+        "url": "https://datazone.birdlife.org/species/factsheet/eurasian-wryneck-jynx-torquilla"
+      },
+      {
+        "name": "IUCN Red List — Jynx torquilla",
+        "url": "https://www.iucnredlist.org/species/22680683/157474468"
+      },
+      {
+        "name": "EUNIS — Jynx torquilla",
+        "url": "https://eunis.eea.europa.eu/species/1091"
+      },
+      {
+        "name": "IOC World Bird List",
+        "url": "https://www.worldbirdnames.org/"
+      },
+      {
+        "name": "Avibase — Georgia bird checklist",
+        "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
+      },
+      {
+        "name": "NPLG Wiki Dictionaries — მაქცია",
+        "url": "https://www.nplg.gov.ge/wikidict/index.php/%E1%83%9B%E1%83%90%E1%83%A5%E1%83%AA%E1%83%98%E1%83%90_(%E1%83%A4%E1%83%A0%E1%83%98%E1%83%9C%E1%83%95%E1%83%94%E1%83%9A%E1%83%98)"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "RSPB — Wryneck",
+        "url": "https://www.rspb.org.uk/birds-and-wildlife/wryneck"
+      },
+      {
+        "name": "eBird — Eurasian Wryneck",
+        "url": "https://ebird.org/species/eurwry"
+      },
+      {
+        "name": "Winkler, Christie, Kirwan & Perlman 2025 — Birds of the World (Jynx torquilla)",
+        "url": "https://birdsoftheworld.org/bow/species/eurwry/cur/introduction"
+      },
+      {
+        "name": "Wikimedia Commons — Córdoba (Pepe Reigada, CC0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Ariège (Pierre Dalous, CC BY-SA 3.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Chorokhi Delta, Georgia (Wouter van der Ham, CC BY 3.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Picidae)_(Eurasian_Wryneck)_-_(adult),_Chorokhi_Delta,_Georgia.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Copenhagen (Donald Hobern, CC BY 2.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(34536504885).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Bhaktapur (Prasan Shrestha, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wryneck.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Ramsøy (Arnstein Rønning, CC BY-SA 3.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Ramsoy).JPG"
+      },
+      {
+        "name": "Wikimedia Commons — XC561861 song (Kim Erlend Vidal, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Eurasian_Wryneck_XC561861.mp3"
       }
     ]
   },
@@ -7609,7 +7856,7 @@ export const species: Species[] = [
       "traits": [
         "სიგრძე სახეობის დონეზე დაახლოებით 30–36 სმ-ია, ფრთების შლილი დაახლოებით 45–51 სმ. NPLG უთითებს ფრთას 150–170 მმ, კუდს 105–116 მმ და მასას 185–250 გ. ზურგი ზეთისხილისფერ-მწვანეა, კუდზედა ყვითელი, ქვედა მხარე უფრო ღია მოყვითალო-მწვანე. თავქუდი და კეფა ორივე სქესში წითელია. ღია თვალის გარშემო შავი ლაქაა („ნიღაბი“). ნისკარტი სწორი და სატეხისებრია და არა კონუსური.",
         "ულვაში (ლოყის ზოლი) სქესის ნიშანია: ზრდასრულ მამალს შუაში წითელი აქვს, ზრდასრულ დედალს მთლიანად შავი. ახალგაზრდა სხეულზე ზოლიანი და წინწკლებიანია და ქერცლოვანი ჩანს; მწვანე ტონები და წითელი თავქუდი მაინც ჩანს. იბერიულ მწვანე კოდალას (Picus sharpei) შავი ნიღაბი თითქმის არ აქვს; ეს დასავლეთევროპული გამოყოფილი სახეობაა და ქართულ ჩამონათვალში არ არის.",
-        "რუხი კოდალა (Picus canus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია. თავი უფრო რუხია და სრული წითელი თავქუდი არ აქვს: მამალს შუბლზე მხოლოდ პატარა წითელი ლაქა აქვს, დედალს — არა. შავი კოდალა (Dryocopus martius) უფრო დიდი და შავია, წითელი თავქუდით (მამალი) ან წითელი კეფით (დედალი). დიდი ჭრელი, სირიული, საშუალო ჭრელი, თეთრზურგა და მცირე ჭრელი კოდალები შავ-თეთრ-წითელია და არა ზეთისხილისფერ-მწვანე. მაქცია პატარა, შენიღბულ-ყავისფერი კოდალასნაირია და მობუდარი მიგრანტია, არა მწვანე რეზიდენტი. ამ ატლასში იმ სახეობების ცალკე გვერდები ჯერ არ არის.",
+        "რუხი კოდალა (Picus canus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია. თავი უფრო რუხია და სრული წითელი თავქუდი არ აქვს: მამალს შუბლზე მხოლოდ პატარა წითელი ლაქა აქვს, დედალს — არა. შავი კოდალა (Dryocopus martius) უფრო დიდი და შავია, წითელი თავქუდით (მამალი) ან წითელი კეფით (დედალი). დიდი ჭრელი, სირიული, საშუალო ჭრელი, თეთრზურგა და მცირე ჭრელი კოდალები შავ-თეთრ-წითელია და არა ზეთისხილისფერ-მწვანე. მაქცია პატარა, შენიღბულ-ყავისფერი კოდალასნაირია და მობუდარი მიგრანტია, არა მწვანე რეზიდენტი; ამ ატლასში იმ სახეობის გვერდი არის. აქ დასახელებული სხვა კოდალების ცალკე გვერდები ჯერ არ არის.",
         "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ტყის პირის მდელოზე მიწაზე მწვანე ფრინველი უფრო ეს სახეობაა, ვიდრე ჭრელი კოდალა."
       ]
     },
@@ -8331,7 +8578,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში მოწყვლადია შესახლებული ციყვის გამო. IUCN-ის LC ნადირობის ნებართვად ნუ ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-27T10:18:04+04:00",
+    "updatedAt": "2026-08-27T10:21:36+04:00",
     "sources": [
       {
         "name": "Yiğit et al. 2016/2017 — IUCN Red List, Sciurus anomalus",
@@ -14136,6 +14383,160 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "url": "https://www.inaturalist.org/observations/146410607"
     }
   },
+  "jynx-torquilla": {
+    "commonName": "Eurasian wryneck",
+    "location": "Breeding migrant in Georgia",
+    "description": "A small, cryptically barred woodpecker that feeds on ants on the ground. Confirmed in Georgia as a breeding bird and passage migrant on the 2024 national bird checklist. A named photograph on this page is from the Chorokhi Delta, 15 September 2014.",
+    "overview": "The Eurasian wryneck (Jynx torquilla) is a small woodpecker (family Picidae) confirmed in Georgia as a breeding migrant. The 2024 annotated checklist of the birds of Georgia codes it BB; M: a breeder that is absent in the non-breeding season, and also a bird of passage. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs and ringing data. Adults are about 16–18 cm long at species level. It is not a threat to people. IUCN lists the species as Least Concern. The 2024 checklist assigns the same category nationally.",
+    "habitat": "In Georgia look for it in the breeding season and on spring and autumn passage, not in winter on the 2024 checklist. Named record on this page: Chorokhi Delta (southern ponds and wetlands), 15 September 2014 (photograph by Wouter van der Ham). That date falls on autumn passage. The 2024 checklist confirms country-level breeding-migrant status but does not publish a regional gazetteer. Do not assume it occurs evenly across Georgia, including treeless high plateaus or closed high-elevation forest. Species-level habitat is semi-open country: woodland edge, orchards, parks, river valleys, and similar places with scattered trees and short ground vegetation where ants nest. A separate national elevation band for Georgia is not published here. The 2022 woodpecker monitoring report for Borjomi-Kharagauli and Pshav-Khevsureti did not list this species among the woodpeckers counted there.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range the main food is ants, especially larvae and pupae, taken on the ground with a long sticky tongue. Other small invertebrates are taken. Unlike most woodpeckers, daily feeding is not trunk-drilling for wood-boring larvae. In the field, a small barred brown bird hopping on ant-rich ground at a woodland edge is behaving typically.",
+    "behavior": "It is active by day. The song is a series of loud, nasal notes, often written as “quee-quee-quee”, lasting several seconds; it can recall a small falcon or lesser spotted woodpecker. Drumming on wood is not the usual cue. When threatened, especially at a nest hole, it may twist the neck in a snake-like display and hiss; that habit is the source of the English name wryneck. It does not usually excavate its own nest. It uses an existing cavity in a tree, a nest box, or another hole, and lays white eggs. Species-level clutches are often about seven to ten eggs, with incubation of about 12–14 days and young in the nest for about 18–22 days; those figures are from the wider range, not a Georgian nest sample on this page. The 2024 checklist treats the species as a breeder in Georgia and as a migrant. Most Palearctic populations leave the breeding range in autumn; western birds winter mainly in Africa, eastern birds in southern Asia. The checklist does not code it as a winter visitor (WV) in Georgia.",
+    "conservation": "BirdLife International assesses Jynx torquilla as Least Concern on the IUCN Red List. The global range is large; parts of western Europe have declined sharply, and the species is no longer a regular UK breeder, but the global decline is not treated as fast enough for a higher threat category. EUNIS reports Least Concern in Europe, an EU population status of depleted, and coverage under the EU Birds Directive (code A233); that instrument does not apply in Georgia. It is not on Georgia’s 2014 Red List (Government Resolution No. 190). The 2024 Georgian bird checklist assigns global and national Red List category LC. A Georgia-specific population trend is not quantified on this page. Do not catch or keep wild birds. Loss of old trees with cavities and of ant-rich grassland would be the biologically relevant pressures at species level; local threat ranking for Georgia is not published here.",
+    "interaction": "It is not a threat to people; wild birds must not be captured.",
+    "stats": [
+      {
+        "label": "Diet",
+        "value": "Ants"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Breeding migrant"
+      },
+      {
+        "label": "Size",
+        "value": "16–18 cm"
+      },
+      {
+        "label": "Habitat",
+        "value": "Open woodland and edges"
+      },
+      {
+        "label": "Family",
+        "value": "Picidae"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "Described by Linnaeus in 1758. The 2024 Georgian checklist follows the OSME Region List for names: order Piciformes, family Picidae, genus Jynx. IOC World Bird List treats two living Jynx species: this one and red-throated wryneck (Jynx ruficollis) of sub-Saharan Africa. The African species is not on the Georgian list.",
+      "Handbooks commonly list six subspecies, with variation largely clinal. NPLG names five and assigns the form in Georgia as J. t. torquilla (Linnaeus, 1758). Nominate torquilla is the breeding form over most of Europe east to the Caucasus in standard treatments. Field identification in Georgia is to species. A measured Georgian specimen series assigned to subspecies is not given on this page.",
+      "Georgian is მაქცია; dictionaries also use ჩვეულებრივი მაქცია. English names include Eurasian wryneck (2024 checklist: Eurasian Wryneck), wryneck, and northern wryneck. In Georgian the same common word can appear in folklore for an unrelated figure; this page is the bird.",
+      "2024 checklist codes: BB; M, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph) and RD (ringing data). That is country-level confirmation of breeding and passage, not a complete regional map. Named photographic evidence on this page is the Chorokhi Delta, 15 September 2014."
+    ],
+    "identification": {
+      "summary": "A sparrow-sized, bark-coloured woodpecker with a dark stripe down the nape and back, a short bill, and a rounded tail. In Georgia it is a breeding migrant on the 2024 checklist. It does not look like the green or pied woodpeckers.",
+      "traits": [
+        "Length about 16–18 cm at species level. NPLG gives wing 80–95 mm, tail 60–75 mm, bill 15–16 mm, and mass 30–45 g. Wingspan is often given around 25–30 cm. The bill is short and pointed, not a woodpecker chisel. The tail is rounded and relatively soft, not a stiff prop. Upperparts are grey-brown, mottled and barred like bark, with a darker band from the nape onto the back. The throat is buff with fine bars; the underparts are pale with small arrow-shaped marks. Legs and bill are brown. Sexes are alike in the field; NPLG notes the male as only slightly larger.",
+        "Juveniles are similar to adults, with slightly duller contrast. Flight is undulating. It often feeds on the ground and may cling to trunks, but it does not hitch up trees the way spotted woodpeckers do. The call is a carrying series of nasal notes; this page does not treat call as a standalone identification against lesser spotted woodpecker without a view of the bird.",
+        "European green woodpecker (Picus viridis) is a year-round resident in Georgia on the 2024 checklist: much larger, olive-green, with a red crown. This atlas has a page for that species. Grey-headed woodpecker (Picus canus) is also a resident: grey-headed, green-backed, not bark-brown. Black woodpecker (Dryocopus martius) is large and black. Great spotted, Syrian, middle spotted, white-backed, and lesser spotted woodpeckers are pied black, white, and red. Eurasian nightjar is cryptically mottled but is nocturnal, has long wings and a tiny bill, and is not a woodpecker. This atlas does not yet have separate pages for those other species.",
+        "It is not a threat to people. Leave it alone. A small brown barred bird on ant-rich ground at a Georgian woodland edge in summer is more likely this species than a green woodpecker."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the Eurasian wryneck found in Georgia?",
+        "answer": "Yes. The 2024 annotated checklist of the birds of Georgia lists it as a confirmed breeding bird and migrant (BB; M), with photographs and ringing data."
+      },
+      {
+        "question": "Where can I see it in Georgia?",
+        "answer": "In the warmer months, in open woodland, orchards, and edges with ants on the ground, and on spring and autumn passage. A named photograph on this page is from the Chorokhi Delta on 15 September 2014. This page does not map every region."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "Sparrow-sized, bark-brown and barred, with a dark stripe down the nape and back and a short bill. It often feeds on the ground. Green and pied woodpeckers in Georgia look very different. The song is a nasal “quee-quee-quee” series."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "About 16–18 cm long at species level. NPLG gives mass as 30–45 g. A separate measured series from Georgia is not given on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly ants, taken on the ground. Diet has not been studied separately in Georgia on this page."
+      },
+      {
+        "question": "When is it present in Georgia?",
+        "answer": "In the breeding season and on passage, according to the 2024 checklist (BB; M). It is not treated there as a winter visitor. Exact arrival and departure dates for Georgia are not tabulated on this page. The photograph here is from 15 September."
+      },
+      {
+        "question": "Does it breed in Georgia?",
+        "answer": "Yes. BB on the 2024 checklist means it is a confirmed breeder. It usually uses an existing hole rather than excavating a new one. Local nest records are not compiled on this page."
+      },
+      {
+        "question": "Is it dangerous or protected?",
+        "answer": "It is harmless. It is globally Least Concern and is coded LC nationally on the 2024 checklist. It is not on Georgia’s 2014 Red List. Do not catch wild birds."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/images/jynx-torquilla-reigada-1.jpg",
+        "credit": {
+          "photographer": "Pepe Reigada",
+          "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
+          "location": "Córdoba",
+          "date": "2015-05-02"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-dalous-1.jpg",
+        "credit": {
+          "photographer": "Pierre Dalous",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
+          "location": "Ariège",
+          "date": "2012-09-01"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-chorokhi-1.jpg",
+        "credit": {
+          "photographer": "Wouter van der Ham",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Picidae)_(Eurasian_Wryneck)_-_(adult),_Chorokhi_Delta,_Georgia.jpg",
+          "location": "Chorokhi Delta",
+          "date": "2014-09-15"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-hobern-1.jpg",
+        "credit": {
+          "photographer": "Donald Hobern",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(34536504885).jpg",
+          "location": "Copenhagen",
+          "date": "2017-05-08"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-shrestha-1.jpg",
+        "credit": {
+          "photographer": "Prasan Shrestha",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wryneck.jpg",
+          "location": "Bhaktapur",
+          "date": "2020-02-13"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-ronning-1.jpg",
+        "credit": {
+          "photographer": "Arnstein Rønning",
+          "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Ramsoy).JPG",
+          "location": "Ramsøy",
+          "date": "2010-08-12"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Pepe Reigada",
+      "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
+      "location": "Córdoba",
+      "date": "2015-05-02"
+    },
+    "mobileImageCredit": {
+      "photographer": "Pierre Dalous",
+      "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
+      "location": "Ariège",
+      "date": "2012-09-01"
+    }
+  },
   "lacerta-agilis": {
     "commonName": "Sand Lizard",
     "location": "Western Georgia; east above 600–800 m",
@@ -16270,7 +16671,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "traits": [
         "Length about 30–36 cm and wingspan about 45–51 cm at species level. NPLG gives wing 150–170 mm, tail 105–116 mm, and mass 185–250 g. The back is olive-green, the rump yellow, the underparts paler yellowish-green. The crown and nape are red in both sexes. A black patch surrounds the pale eye (a “mask”). The bill is straight and chisel-like, not conical.",
         "The moustache (malar stripe) is the sex mark: red in the centre in adult males, all black in adult females. Juveniles are barred and spotted on the body and look scaly; they still show green tones and a red crown coming through. Iberian green woodpecker (Picus sharpei) has little or no black mask; it is a western European split and is not on the Georgian list.",
-        "Grey-headed woodpecker (Picus canus) is also a year-round resident in Georgia on the 2024 checklist. It is greyer-headed, without a full red crown: the male has only a small red patch on the forehead; the female has none. Black woodpecker (Dryocopus martius) is larger and black with a red crown (male) or red nape (female). Great spotted, Syrian, middle spotted, white-backed, and lesser spotted woodpeckers are pied black, white, and red — not olive-green. Eurasian wryneck is a small, cryptically brown picid and a breeding migrant, not a green resident. This atlas does not yet have separate pages for those species.",
+        "Grey-headed woodpecker (Picus canus) is also a year-round resident in Georgia on the 2024 checklist. It is greyer-headed, without a full red crown: the male has only a small red patch on the forehead; the female has none. Black woodpecker (Dryocopus martius) is larger and black with a red crown (male) or red nape (female). Great spotted, Syrian, middle spotted, white-backed, and lesser spotted woodpeckers are pied black, white, and red — not olive-green. Eurasian wryneck is a small, cryptically brown picid and a breeding migrant, not a green resident; this atlas has a page for that species. It does not yet have separate pages for the other woodpeckers named here.",
         "It is not a threat to people. Leave it alone. A green bird on the ground in woodland-edge grassland in Georgia is more likely this species than a spotted woodpecker."
       ]
     },
