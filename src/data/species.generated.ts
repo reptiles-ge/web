@@ -5414,13 +5414,13 @@ export const species: Species[] = [
     "behavior": "აქტიურია დღისითაც და ღამითაც; ხშირად უფრო დღისით იჭერენ, მაგრამ ეს ერთ პერიოდზე არ არის შეზღუდული. მოძრაობს სწრაფი ნახტომებით, ხშირად სწორდება უკანა ფეხებზე საყურებლად. ბუდეს თვითონ იშვიათად თხრის: იკავებს მღრღნელის სოროს, ქვაყრილს ან სხვა საფარს. სახეობის დონეზე ორსულობა დაახლოებით 34–37 დღეა, გადადებული იმპლანტაციის გარეშე (ყარყუმისგან განსხვავებით). ტემპერატურულ არეალში ხშირია ერთი ან ორი ნაშთი წელიწადში, ჩვეულებრივ რამდენიმე ნაშიერი; ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. ჩრდილოეთ პოპულაციები ზამთარში თეთრდებიან; სამხრეთში ზამთრის ბეწვი ხშირად ყავისფერი რჩება. ბორჯომ-ხარაგაულის 2015 წლის 25 მაისის ფოტოებზე ინდივიდი ყავისფერ-თეთრ ზაფხულის ბეწვშია. საქართველოში თეთრი ზამთრის ფორმა ნაგულისხმევად ნუ ჩათვალეთ — ზამთრის სერია ამ გვერდზე არ არის. ხმა იშვიათია და ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1146321 (Jose Manuel Unanue, მენდარო, ესპანეთი, 2026-06-13), ჩამწერის მიერ აღნიშნული როგორც uncertain.",
     "conservation": "McDonald და თანაავტორები Mustela nivalis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016 შეფასება, 2019 წლის შესწორებული ვერსია); ფართო არეალი და დიდი პოპულაციაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. CITES-ის დანართებში სახეობის დონეზე არ არის. ამ გვერდზე სამონადირეო სახეობად არ არის ციტირებული, მელასგან განსხვავებით. ადგილობრივი ზეწოლა შეიძლება იყოს მღრღნელების საწინააღმდეგო შხამი (მეორადი მოწამვლა სახეობის დონის ლიტერატურაში), ბინადრობის კარგვა და გზაზე დაღუპვა; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ.",
-    "image": "/images/mustela-nivalis-zauri-1.jpg",
+    "image": "/images/mustela-nivalis-zauri-2.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-05-25"
     },
-    "mobileImage": "/images/mustela-nivalis-zauri-2.jpg",
+    "mobileImage": "/images/mustela-nivalis-zauri-1.jpg",
     "mobileImageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -5428,7 +5428,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/mustela-nivalis-zauri-1.jpg",
+        "src": "/images/mustela-nivalis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -5436,7 +5436,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-zauri-2.jpg",
+        "src": "/images/mustela-nivalis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -14092,7 +14092,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/mustela-nivalis-zauri-1.jpg",
+        "src": "/images/mustela-nivalis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -14100,7 +14100,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-zauri-2.jpg",
+        "src": "/images/mustela-nivalis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
