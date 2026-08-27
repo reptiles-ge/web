@@ -856,7 +856,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -3209,7 +3209,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -3989,7 +3989,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -4932,7 +4932,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად Least Concern-ია და 2024 წლის ჩამონათვალში ეროვნულადაც LC-ია. 2014 წლის საქართველოს წითელ ნუსხაში არ არის. ნუ დაიჭერთ ველურ ფრინველებს."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -6318,7 +6318,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "McDonald et al. 2019 — IUCN Red List, Mustela nivalis",
@@ -7931,7 +7931,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -8007,11 +8007,12 @@ export const species: Species[] = [
     "family": "Colubridae",
     "location": "აღმოსავლეთ და სამხრეთ საქართველო",
     "description": "უშხამო, ძალიან გამხდარი მცურავი კისრის მუქი, ღია კიდეებიანი ლაქებით. საქართველოში დადასტურებულია; უფრო ხშირია აღმოსავლეთისა და სამხრეთის მშრალ ქვიან ადგილებში.",
-    "overview": "წენგოსფერი მცურავი (Platyceps najadum) უშხამო, ძალიან გამხდარი მცურავია საქართველოს მშრალ ქვიან ადგილებში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; გავრცელების სიზუსტე საშუალოდაა შეფასებული. დასახელებული თანამედროვე ნიმუში და COI შტრიხკოდი თმოგვიდანაა (ასპინძა, სამცხე — ჯავახეთი). 2021 წლის ქართული გველების კვლევა მას მშრალ კლიმატზე დამოკიდებულ სახეობებს მიაკუთვნებს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. მთელ ქვეყანაში არ ეძებოთ. ადამიანისთვის უვნებელია — შხამი არ აქვს. ზრდასრული სიგრძე სახეობის დონეზე ჩვეულებრივ დაახლოებით 70–100 სმ-ია; იშვიათად აღემატება 1 მ-ს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ძველ წიგნებში ხშირად Coluber najadum ან Tyria najadum იწერებოდა; თანამედროვე გვარია Platyceps. კავკასიაში ნომინალური ქვესახეობაა (P. n. najadum).",
-    "habitat": "2021 წლის ქართული გველების კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. რეალურად შეხვდებით ქვიან ფერდობზე, კლდის ამონაკვეთთან, ბუჩქნარში, ტყის პირას, მშრალ მდელოზე და სასოფლო-სამეურნეო ადგილთან. თავშესაფარი ქვის ნაპრალი და კლდის ღრმულია. დასახელებული თანამედროვე წერტილი თმოგვია. ძველ მუზეუმურ მასალაში დასახელებულია თბილისი და ბორჯომი; აჭარის ასსრ და ახალი ათონი (აფხაზეთი) იმავე მიმოხილვაშია, მაგრამ ზუსტი თანამედროვე დასავლური რუკა აქ არ არის. ამ ატლასის რუკა რეგიონულ ჩანაწერებს ასახავს და არ ნიშნავს, რომ სახეობა ყველა მონიშნულ რეგიონში თანაბრად გავრცელებულია. გურიისა და იმერეთის დასახელებული წერტილი ამ გვერდზე არ არის. სახეობის დონეზე ლიტერატურაში ხშირად ზღვის დონიდან დაახლოებით 2,000 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული. არეალი ბალკანებიდან კავკასიამდე და ახლო აღმოსავლეთამდეა; ტიპის ადგილი ბაქოა და არა საქართველო.",
+    "overview": "წენგოსფერი მცურავი (Platyceps najadum) უშხამო, ძალიან გამხდარი გველია აღმოსავლეთ და სამხრეთ საქართველოს მშრალ ქვიან ადგილებში. ანკარასებრთა ოჯახისაა (Colubridae). ადამიანისთვის უვნებელია: შხამი არ აქვს. ზრდასრული სიგრძე ჩვეულებრივ დაახლოებით 70–100 სმ-ია; იშვიათად აღემატება 1 მ-ს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2026 წლის ქართული ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. თანამედროვე დასახელებული ნიმუში თმოგვიდანაა (ასპინძა, სამცხე — ჯავახეთი). 2021 წლის ქართული გველების კვლევა მას მშრალ კლიმატზე დამოკიდებულ სახეობებს მიაკუთვნებს — ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. მთელ ქვეყანაში არ ეძებოთ.",
+    "habitat": "საქართველოში რეალურად შეხვდებით ქვიან ფერდობზე, კლდის ამონაკვეთთან, ბუჩქნარში, ტყის პირას, მშრალ მდელოზე და სასოფლო-სამეურნეო ადგილთან. თავშესაფარი ქვის ნაპრალი, კლდის ღრმული და, ზამთარში, ზოგჯერ ადამიანის ნაგებობაცაა. 2021 წლის კვლევა სახეობას მშრალი კლიმატის ჯგუფში ათავსებს: ძირითადად აღმოსავლეთის ქვიან ან ბალახოვან ლანდშაფტებში. დასახელებული თანამედროვე წერტილი თმოგვია. ძველ მუზეუმურ მასალაში დასახელებულია თბილისი და ბორჯომი; იმავე მიმოხილვაშია აჭარის ასსრ და ახალი ათონი (აფხაზეთი), მაგრამ ეს ისტორიული ეტიკეტებია და არ ცვლის ზუსტ თანამედროვე დასავლურ რუკას. ამ ატლასის რუკა რეგიონულ ჩანაწერებს ასახავს და არ ნიშნავს, რომ სახეობა ყველა მონიშნულ რეგიონში თანაბრად გავრცელებულია. გურიისა და იმერეთის დასახელებული წერტილი ამ გვერდზე არ არის. სახეობის დონეზე ლიტერატურაში ხშირად ზღვის დონიდან დაახლოებით 2,000 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული. ფართო არეალი ბალკანებიდან კავკასიამდე და ახლო აღმოსავლეთამდეა; ტიპის ადგილი ბაქოა და არა საქართველო.",
     "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს; აგრეთვე მცირე ძუძუმწოვრებს, ფრინველებსა და სხვა გველებს. შხამი არ აქვს — ნადირობს სისწრაფით. საქართველოში მენიუ პირდაპირ არ არის გაზომილი.",
-    "behavior": "არეალის სხვა ნაწილებში დღის აქტიურია; სწრაფად მოძრაობს და ხშირად მზეზე თბება. საქართველოში საათობრივი კალენდარი ცალკე არ არის აღწერილი. საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება თავი აიწიოს და პირი გააღოს. არ აიყვანოთ — შხამი არ აქვს, მაგრამ დიდ გველს შეუძლია უკბინოს. კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში ხშირად 3–16 კვერცხია მითითებული. შეწყვილების სეზონი და საქართველოს კლაჩის ზომა აქ არ არის გამოქვეყნებული. 2026 წელს საქართველოში დაფიქსირდა ზამთრის თავშესაფარი, სადაც ერთი წენგოსფერი მცურავი წითელმუცელა მცურავებთან (Dolichophis schmidti) და წყლის ანკარასთან (Natrix tessellata) ერთად იყო. იგივე მშრალ ადგილებში შეიძლება შეხვდეთ ნაირფერ მცურავს, წითელმუცელა მცურავს, ურარტუს მცურავს, კატისთვალას და, უფრო იშვიათად, გიურზას ან ცხვირრქოსან გველგესლას. გველგესლას გუგა ვერტიკალურია.",
-    "conservation": "IUCN Red List-ის 2009 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ევროპის პოპულაციები შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში; ეს სამართლებრივი ჩარჩო საქართველოში ავტომატურად არ მოქმედებს ისე, როგორც ევროკავშირში. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. იმავე ნაშრომი აღნიშნავს, რომ საქართველოსა და სომხეთის COI თანმიმდევრობები დაახლოებით 6.65%-ით განსხვავდება — ეს ტაქსონომიური გადახედვის საფუძველი შეიძლება იყოს და არა დასრულებული სახეობრივი გაყოფა. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
+    "behavior": "არეალის სხვა ნაწილებში დღის აქტიურია: სწრაფად მოძრაობს და ხშირად მზეზე თბება. საქართველოში საათობრივი კალენდარი ცალკე არ არის აღწერილი; მოსალოდნელია თბილი სეზონი მშრალ ქვიან ადგილებში. საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება თავი აიწიოს და პირი გააღოს. კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში ხშირად 3–16 კვერცხია მითითებული. შეწყვილების სეზონი და საქართველოს კლაჩის ზომა აქ არ არის გამოქვეყნებული. 2026 წელს საქართველოში დაფიქსირდა ზამთრის თავშესაფარი რკინაბეტონის სეპტიკურ ავზში: ერთი წენგოსფერი მცურავი 133 წითელმუცელა მცურავთან (Dolichophis schmidti) და ერთ წყლის ანკარასთან (Natrix tessellata) ერთად იყო. ეს არის კავკასიაში დოკუმენტირებული პირველი სახეობათაშორისი გველების ზამთრის თავშესაფარი — და არა იმის მტკიცება, რომ სახეობა ყოველთვის ასე იზამთრებს.",
+    "conservation": "IUCN Red List-ის 2009 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ევროპის პოპულაციები შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში; ეს სამართლებრივი ჩარჩო საქართველოში ავტომატურად არ მოქმედებს ისე, როგორც ევროკავშირში. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
+    "interaction": "შხამი არ აქვს და ადამიანისთვის სამედიცინოდ უვნებელია. არ აიყვანოთ: დიდ გველს შეუძლია უკბინოს და ნაკბენი მტკივნეულია. თუ გუგა ვერტიკალური ნაპრალია, ეს სახეობა არ არის — დაიცავით მანძილი და გაეცით გზა. ფოტო გადაიღეთ შორიდან და დატოვეთ ადგილზე.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/platyceps-najadum.webp",
     "mobileImage": "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
@@ -8072,17 +8073,17 @@ export const species: Species[] = [
       }
     ],
     "facts": [
-      "აღწერა 1831 წელს (Eichwald), თავდაპირველად Tyria najadum; ტიპის ადგილი ბაქოა და არა საქართველო. ძველ ლიტერატურაში ხშირად Coluber najadum ან Zamenis dahlii იწერებოდა. თანამედროვე გვარი Platyceps Schätti & Monsch 2004-ის შემდეგ დამკვიდრდა.",
-      "2026 წლის ჩამონათვალის ნიმუში და COI შტრიხკოდი თმოგვიდანაა (ასპინძა). ქართული სახელი წენგოსფერი მცურავი ზურგის ზეთისხილისფერ–მოყავისფრო ტონს ასახავს.",
-      "ინგლისური სახელი whip snake გამხდარ, მათრახისებრ სხეულზე მიუთითებს. კისრის ოცელები საველე ამოცნობის მთავარი ნიშანია."
+      "აღწერა 1831 წელს (Eichwald), თავდაპირველად Tyria najadum; ტიპის ადგილი ბაქოა და არა საქართველო. ძველ ლიტერატურაში ხშირად Coluber najadum ან Zamenis dahlii იწერებოდა. თანამედროვე გვარი Platyceps Schätti & Monsch 2004-ის შემდეგ დამკვიდრდა. კავკასიაში ნომინალური ქვესახეობაა (P. n. najadum).",
+      "2026 წლის ჩამონათვალის ნიმუში და COI შტრიხკოდი თმოგვიდანაა (ასპინძა; CaBOL-ID 1027410). იმავე ნაშრომი აღნიშნავს, რომ საქართველოსა და სომხეთის COI თანმიმდევრობები დაახლოებით 6.65%-ით განსხვავდება — ეს ტაქსონომიური გადახედვის საფუძველი შეიძლება იყოს და არა დასრულებული სახეობრივი გაყოფა.",
+      "ქართული სახელი წენგოსფერი მცურავი ზურგის ზეთისხილისფერ–მოყავისფრო ტონს ასახავს. ინგლისური სახელი whip snake გამხდარ, მათრახისებრ სხეულზე მიუთითებს. კისრის ოცელები საველე ამოცნობის მთავარი ნიშანია."
     ],
     "identification": {
-      "summary": "უშხამო, ძალიან გამხდარი მცურავია მრგვალი გუგით. საკვანძო ნიშანი კისრის მუქი, ღია კიდეებიანი ლაქებია (ოცელები) — არა გველგესლა და არა გიურზა.",
+      "summary": "უშხამო, ძალიან გამხდარი მცურავია მრგვალი გუგით. საკვანძო ნიშანი კისრის მუქი, ღია კიდეებიანი ლაქებია — არა გველგესლა და არა გიურზა.",
       "traits": [
         "სხეული ძალიან გამხდარი და მათრახისებრია; თავი ვიწროა, თვალი შედარებით დიდი, გუგა მრგვალი. ზურგის ქერცლი გლუვია; შუა ტანზე ჩვეულებრივ 19 რიგია (იშვიათად 17). კუდი გრძელია. ქერცლის დასათვლად გველი არ აიყვანოთ.",
-        "ფონი ზეთისხილისფერი, რუხი ან წენგოსფერი–მოყავისფროა. კისერზე მუქი, ღია კიდეებით შემოხაზული ლაქებია; უკან ისინი მცირდება და ხშირად ქრება. ზურგის უკანა ნაწილი ხშირად თითქმის ერთგვაროვანია. თვალის წინ და უკან ხშირად ღია ვერტიკალური ნასმია. მუცელი ღიაა.",
+        "ფონი ზეთისხილისფერი, რუხი ან წენგოსფერი–მოყავისფროა. კისერზე და წინა ტანზე მუქი, ღია კიდეებით შემოხაზული ლაქებია (ოცელები); უკან ისინი მცირდება და ხშირად ქრება. ზურგის უკანა ნაწილი ხშირად თითქმის ერთგვაროვანია. ახალგაზრდებს კისრის ნახატი ხშირად უფრო მკაფიო აქვთ. თვალის წინ და უკან ხშირად ღია ვერტიკალური ნასმია. მუცელი ღიაა.",
         "ნაირფერ მცურავს (Hemorrhois ravergieri) მთელ ზურგზე რომბული ლაქები აქვს და არა მხოლოდ კისრის ოცელები. წითელმუცელა მცურავი (Dolichophis schmidti) უფრო მასიურია; ზრდასრულობაში ხშირად ერთგვაროვანი მოწითალოა წითელი მუცლით. ურარტუს მცურავი (Elaphe urartica) უფრო სქელია, თავი მუქი, ლაქები უფრო დიდი. სახეებიან მცურავს (Elaphe dione) წვრილი ნახატი და ხშირად გრძივი ზოლები აქვს. კატისთვალას (Telescopus fallax) გუგა ვერტიკალურია და აქტიურია ღამით.",
-        "გველგესლას გუგა ვერტიკალური ნაპრალია, თავი უფრო სამკუთხა, ქერცლი უხეშად კილური; შხამიანია. გიურზა (Macrovipera lebetina) უფრო მასიურია, თავი ფართო, გუგა ვერტიკალური — სამედიცინოდ მნიშვნელოვანი შხამიანი. თუ გამხდარ გველს ვერტიკალური გუგით ხედავთ — ეს გველგესლაა ან გიურზა, არა ეს სახეობა. შხამი არ აქვს. ნაკბენი შეიძლება მტკივნეული იყოს. არ აიყვანოთ."
+        "გველგესლას გუგა ვერტიკალური ნაპრალია, თავი უფრო სამკუთხა, ქერცლი უხეშად კილური; შხამიანია. გიურზა (Macrovipera lebetina) უფრო მასიურია, თავი ფართო, გუგა ვერტიკალური — სამედიცინოდ მნიშვნელოვანი შხამიანი. თუ გამხდარ გველს ვერტიკალური გუგით ხედავთ — ეს გველგესლაა ან გიურზა, არა ეს სახეობა."
       ]
     },
     "faq": [
@@ -8096,7 +8097,7 @@ export const species: Species[] = [
       },
       {
         "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
-        "answer": "არა. შხამი არ აქვს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
+        "answer": "არა. შხამი არ აქვს და სამედიცინო საფრთხეს არ წარმოადგენს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -8104,19 +8105,19 @@ export const species: Species[] = [
       },
       {
         "question": "რამდენად დიდია?",
-        "answer": "სახეობის დონეზე ზრდასრული სიგრძე ჩვეულებრივ დაახლოებით 70–100 სმ-ია; იშვიათად აღემატება 1 მ-ს. ლიტერატურაში მაქსიმუმი დაახლოებით 1.4–1.5 მ-მდეა, მათ შორის ბალკანეთიდან. საქართველოსთვის ცალკე გაზომილი მაქსიმუმი ამ გვერდზე არ არის."
+        "answer": "ზრდასრული სიგრძე ჩვეულებრივ დაახლოებით 70–100 სმ-ია; იშვიათად აღემატება 1 მ-ს. ლიტერატურაში მაქსიმუმი დაახლოებით 1.35–1.40 მ-მდეა, მათ შორის არეალის სხვა ნაწილებიდან. საქართველოსთვის ცალკე გაზომილი მაქსიმუმი ამ გვერდზე არ არის."
       },
       {
-        "question": "რას ჭამს და კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში ხშირად 3–16 კვერცხია. კვება ქართულად არ არის ცალკე შესწავლილი; არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს, აგრეთვე მცირე ძუძუმწოვრებს, ფრინველებსა და სხვა გველებს."
+        "question": "რას ჭამს?",
+        "answer": "კვება ქართულად არ არის ცალკე შესწავლილი. არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს; აგრეთვე მცირე ძუძუმწოვრებს, ფრინველებსა და სხვა გველებს. შხამი არ აქვს — ნადირობს სისწრაფით."
       },
       {
-        "question": "როდის არის აქტიური?",
-        "answer": "არეალის სხვა ნაწილებში დღის აქტიურია. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული; მოსალოდნელია თბილი სეზონი მშრალ ქვიან ადგილებში. ზამთარში დაფიქსირებულია სხვა უშხამო გველებთან ერთად თავშესაფარში."
+        "question": "როდის არის აქტიური და კვერცხებს დებს?",
+        "answer": "არეალის სხვა ნაწილებში დღის აქტიურია. საქართველოში საათობრივი კალენდარი ცალკე არ არის გამოქვეყნებული; მოსალოდნელია თბილი სეზონი მშრალ ქვიან ადგილებში. კვერცხისმდებია; სახეობის დონეზე ხშირად 3–16 კვერცხია მითითებული. ზამთარში საქართველოში დაფიქსირებულია სხვა უშხამო გველებთან ერთად ადამიანის ნაგებობაში."
       },
       {
-        "question": "რით განსხვავდება წითელმუცელა მცურავისგან?",
-        "answer": "წენგოსფერი მცურავი უფრო გამხდარია და კისერზე ოცელებიანი ლაქები აქვს. წითელმუცელა მცურავი უფრო მასიურია; ზრდასრულობაში ხშირად ერთგვაროვანი მოწითალოა წითელი ან ნარინჯისფერი მუცლით. ორივე უშხამოა."
+        "question": "რა უნდა გავაკეთო, თუ შევხვდები?",
+        "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — ეს შეიძლება გველგესლა ან გიურზა იყოს; გაეცით გზა."
       }
     ],
     "updatedAt": "2026-08-26T21:57:57+04:00",
@@ -8134,8 +8135,12 @@ export const species: Species[] = [
         "url": "https://doi.org/10.33256/36.2.125130"
       },
       {
-        "name": "Schätti, Kucharzewski & Masroor 2005 — Morphologie, Verbreitung und Systematik der Schlanknatter",
+        "name": "Schätti, Stutz & Charvet 2005 — Morphologie, Verbreitung und Systematik der Schlanknatter",
         "url": "https://doi.org/10.5962/bhl.part.80315"
+      },
+      {
+        "name": "Schätti 2004 — Platyceps najadum and Coluber atayevi",
+        "url": "https://doi.org/10.5962/bhl.part.80249"
       },
       {
         "name": "Schätti & Monsch 2004 — whip snakes and the genus Platyceps",
@@ -8144,6 +8149,10 @@ export const species: Species[] = [
       {
         "name": "Lymberakis et al. 2009 — IUCN Red List account for Platyceps najadum",
         "url": "https://www.iucnredlist.org/species/157277/5068046"
+      },
+      {
+        "name": "EUNIS — Coluber najadum / Platyceps najadum",
+        "url": "https://eunis.eea.europa.eu/species/659"
       },
       {
         "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
@@ -10391,7 +10400,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T12:01:00+04:00",
     "sources": [
       {
         "name": "Hoffmann & Sillero-Zubiri 2016 — IUCN Red List, Vulpes vulpes",
@@ -16847,11 +16856,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "commonName": "Dahl's whip snake",
     "location": "Eastern and southern Georgia",
     "description": "A non-venomous, extremely slender racer with dark pale-edged neck spots. Confirmed in Georgia; more often found in dry rocky habitats of the east and south.",
-    "overview": "Dahl’s whip snake (Platyceps najadum) is a non-venomous, extremely slender racer of dry rocky habitats in Georgia. It belongs to the family Colubridae. The 2026 Georgian checklist treats it as biologically confirmed; distribution confidence is medium. A named modern specimen and COI barcode come from Tmogvi (Aspindza, Samtskhe–Javakheti). The 2021 Georgian snake survey places it with dry-climate species of rocky or grassy ground, mainly in eastern Georgia. Do not look for it across the whole country. It is harmless to people — it has no venom. Adults are usually about 70–100 cm and rarely exceed 1 m. IUCN lists it as Least Concern. Older books often used Coluber najadum or Tyria najadum; the current genus is Platyceps. Caucasian animals belong to the nominotypical subspecies (P. n. najadum).",
-    "habitat": "The 2021 Georgian snake survey treats the species as tied to a reasonably dry climate: rocky or grassy ground, mainly in eastern Georgia. In practice you may meet it on rocky slopes, outcrops, scrub, woodland edges, dry meadows, and farmland. It shelters in rock crevices and stone rubble. The named modern point is Tmogvi. Older museum material includes Tbilisi and Borjomi; Adjara ASSR and Novy Afon (Abkhazia) appear in the same review, but there is no precise modern western map here. This atlas map shows regional records and does not mean the species is evenly present in every highlighted region. This page has no named locality for Guria or Imereti. Species-level literature often cites sea level to about 2,000 m; a Georgia-only elevation range has not been published here. The wider range runs from the Balkans across the Caucasus into the Middle East; the type locality is Baku, not Georgia.",
+    "overview": "Dahl’s whip snake (Platyceps najadum) is a non-venomous, extremely slender snake of dry rocky ground in eastern and southern Georgia. It belongs to the family Colubridae. It is harmless to people: it has no venom. Adults are usually about 70–100 cm and rarely exceed 1 m. IUCN lists it as Least Concern. The 2026 Georgian checklist treats it as biologically confirmed. A named modern specimen comes from Tmogvi (Aspindza, Samtskhe–Javakheti). The 2021 Georgian snake survey places it with dry-climate species of rocky or grassy ground, mainly in eastern Georgia. Do not look for it across the whole country.",
+    "habitat": "In Georgia you may meet it on rocky slopes, outcrops, scrub, woodland edges, dry meadows, and farmland. It shelters in rock crevices, stone rubble, and, in winter, sometimes in human structures. The 2021 survey places it with dry-climate species: mainly eastern rocky or grassy landscapes. The named modern point is Tmogvi. Older museum material includes Tbilisi and Borjomi; Adjara ASSR and Novy Afon (Abkhazia) appear in the same review, but those are historical labels and do not replace a precise modern western map. This atlas map shows regional records and does not mean the species is evenly present in every highlighted region. This page has no named locality for Guria or Imereti. Species-level literature often cites sea level to about 2,000 m; a Georgia-only elevation range has not been published here. The wider range runs from the Balkans across the Caucasus into the Middle East; the type locality is Baku, not Georgia.",
     "diet": "There is no separate Georgian diet study for this species. Elsewhere in the range it mainly takes lizards; it also takes small mammals, birds, and other snakes. It has no venom — it hunts with speed. The menu in Georgia has not been measured directly.",
-    "behavior": "Across the range it is mainly active by day; it moves quickly and often basks. Hourly activity in Georgia has not been described separately. When threatened it usually tries to flee; if cornered it may raise its head and gape. Do not pick it up — it has no venom, but a large snake can bite. It lays eggs; outside Georgia the literature often cites 3–16 eggs. Mating season and clutch size for Georgian animals have not been published here. In 2026 a winter shelter in Georgia held one Dahl’s whip snake together with red-bellied racers (Dolichophis schmidti) and a dice snake (Natrix tessellata). In the same dry ground you may also meet the spotted whip snake, red-bellied racer, Urartian ratsnake, European cat snake, and, more rarely, Levantine viper or Transcaucasian nose-horned viper. Vipers have a vertical pupil.",
-    "conservation": "The 2009 IUCN Red List assessment lists it as Least Concern — the range is wide. It is not on Georgia’s 2014 Red List. European populations are listed on Annex II of the Bern Convention and Annex IV of the EU Habitats Directive; that legal frame does not apply in Georgia the same way as in the EU. The 2026 checklist treats it as biologically confirmed; distribution confidence is medium. The same paper notes about 6.65% COI difference between Georgian and Armenian sequences — a reason to revisit taxonomy, not a completed species split. Local threats include habitat conversion, road mortality, and killing after confusion with venomous snakes. Do not pick it up.",
+    "behavior": "Across the range it is mainly active by day: it moves quickly and often basks. Hourly activity in Georgia has not been described separately; the warm season in dry rocky places is the realistic window. When threatened it usually tries to flee; if cornered it may raise its head and gape. It lays eggs; outside Georgia the literature often cites 3–16 eggs. Mating season and clutch size for Georgian animals have not been published here. In 2026 a winter shelter in a reinforced septic tank in Georgia held one Dahl’s whip snake together with 133 red-bellied racers (Dolichophis schmidti) and one dice snake (Natrix tessellata). That is the first documented interspecific snake hibernaculum in the Caucasus — not evidence that the species always overwinters this way.",
+    "conservation": "The 2009 IUCN Red List assessment lists it as Least Concern — the range is wide. It is not on Georgia’s 2014 Red List. European populations are listed on Annex II of the Bern Convention and Annex IV of the EU Habitats Directive; that legal frame does not apply in Georgia the same way as in the EU. The 2026 checklist treats it as biologically confirmed; distribution confidence is medium. Local threats include habitat conversion, road mortality, and killing after confusion with venomous snakes. Do not pick it up.",
+    "interaction": "It has no venom and is not a medical threat to people. Do not pick it up: a large snake can bite, and a bite can hurt. If the pupil is a vertical slit, this is not the species — give it space and walk away. Photograph from a distance and leave it where it is.",
     "stats": [
       {
         "label": "Habitat",
@@ -16879,17 +16889,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "facts": [
-      "Described in 1831 (Eichwald), originally as Tyria najadum; the type locality is Baku, not Georgia. Older literature often used Coluber najadum or Zamenis dahlii. The modern genus Platyceps became standard after Schätti & Monsch 2004.",
-      "The 2026 checklist specimen and COI barcode are from Tmogvi (Aspindza). The Georgian name reflects the olive–buckthorn dorsal tone.",
-      "The English name whip snake refers to the extremely slender, whip-like body. Neck ocelli are the main field mark."
+      "Described in 1831 (Eichwald), originally as Tyria najadum; the type locality is Baku, not Georgia. Older literature often used Coluber najadum or Zamenis dahlii. The modern genus Platyceps became standard after Schätti & Monsch 2004. Caucasian animals belong to the nominotypical subspecies (P. n. najadum).",
+      "The 2026 checklist specimen and COI barcode are from Tmogvi (Aspindza; CaBOL-ID 1027410). The same paper notes about 6.65% COI difference between Georgian and Armenian sequences — a reason to revisit taxonomy, not a completed species split.",
+      "The Georgian name reflects the olive–buckthorn dorsal tone. The English name whip snake refers to the extremely slender, whip-like body. Neck ocelli are the main field mark."
     ],
     "identification": {
-      "summary": "A non-venomous, extremely slender racer with a round pupil. The key field mark is dark pale-edged neck spots (ocelli) — not a viper and not a Levantine viper.",
+      "summary": "A non-venomous, extremely slender racer with a round pupil. The key field mark is dark pale-edged neck spots — not a viper and not a Levantine viper.",
       "traits": [
         "The body is very slender and whip-like; the head is narrow, the eye relatively large, the pupil round. Dorsal scales are smooth; there are usually 19 rows at mid-body (rarely 17). The tail is long. Do not pick the snake up to count scales.",
-        "The ground colour is olive, grey, or buckthorn–brown. The neck has dark spots with pale borders; these shrink and often fade toward the rear. The hind body is often nearly plain. A pale vertical dash is often present in front of and behind the eye. The belly is pale.",
+        "The ground colour is olive, grey, or buckthorn–brown. The neck and front body have dark spots with pale borders (ocelli); these shrink and often fade toward the rear. The hind body is often nearly plain. Young animals often show the neck pattern more clearly. A pale vertical dash is often present in front of and behind the eye. The belly is pale.",
         "The spotted whip snake (Hemorrhois ravergieri) has rhombic blotches along the whole back, not only neck ocelli. The red-bellied racer (Dolichophis schmidti) is stouter; adults are often plain coppery with a red belly. The Urartian ratsnake (Elaphe urartica) is thicker, with a dark head and larger blotches. The steppe ratsnake (Elaphe dione) has a finer pattern and often lengthwise stripes. The European cat snake (Telescopus fallax) has a vertical pupil and is active at night.",
-        "Vipers have a vertical slit pupil, a more triangular head, and strongly keeled scales; they are venomous. The Levantine viper (Macrovipera lebetina) is much stouter, with a broad head and a vertical pupil — a medically significant venomous snake. A slender snake with a vertical pupil is a viper, not this species. It has no venom. A bite can still hurt. Do not pick it up."
+        "Vipers have a vertical slit pupil, a more triangular head, and strongly keeled scales; they are venomous. The Levantine viper (Macrovipera lebetina) is much stouter, with a broad head and a vertical pupil — a medically significant venomous snake. A slender snake with a vertical pupil is a viper, not this species."
       ]
     },
     "faq": [
@@ -16903,7 +16913,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Is it venomous or dangerous to humans?",
-        "answer": "No. It has no venom. When threatened it usually flees. A large snake can bite — do not pick it up. A vertical pupil points to a viper or Levantine viper."
+        "answer": "No. It has no venom and is not a medical threat. When threatened it usually flees. A large snake can bite — do not pick it up. A vertical pupil points to a viper or Levantine viper."
       },
       {
         "question": "How can I identify it?",
@@ -16911,19 +16921,19 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "How large does it grow?",
-        "answer": "At species level adults are usually about 70–100 cm and rarely exceed 1 m. Published maxima elsewhere reach about 1.4–1.5 m, including Balkan records. A separate measured maximum for Georgia is not given on this page."
+        "answer": "Adults are usually about 70–100 cm and rarely exceed 1 m. Published maxima elsewhere reach about 1.35–1.40 m. A separate measured maximum for Georgia is not given on this page."
       },
       {
-        "question": "What does it eat, and does it lay eggs?",
-        "answer": "It lays eggs; outside Georgia the literature often cites 3–16 eggs. Diet has not been studied separately in Georgia; elsewhere it mainly takes lizards, also small mammals, birds, and other snakes."
+        "question": "What does it eat?",
+        "answer": "Diet has not been studied separately in Georgia. Elsewhere it mainly takes lizards; it also takes small mammals, birds, and other snakes. It has no venom — it hunts with speed."
       },
       {
-        "question": "When is it active?",
-        "answer": "Across the range it is mainly active by day. An hourly and seasonal calendar for Georgia has not been published separately; the warm season in dry rocky places is the realistic window. In winter it has been recorded in a shelter with other non-venomous snakes."
+        "question": "When is it active, and does it lay eggs?",
+        "answer": "Across the range it is mainly active by day. An hourly calendar for Georgia has not been published separately; the warm season in dry rocky places is the realistic window. It lays eggs; species-level literature often cites 3–16 eggs. In winter in Georgia it has been recorded in a human structure with other non-venomous snakes."
       },
       {
-        "question": "How does it differ from the red-bellied racer?",
-        "answer": "Dahl’s whip snake is thinner and has neck ocelli. The red-bellied racer is stouter; adults are often plain coppery with a red or orange belly. Both are non-venomous."
+        "question": "What should I do if I encounter one?",
+        "answer": "Watch from a distance, take a photo, and leave it. Do not pick it up. If the pupil is vertical or the head is broad and triangular, it may be a viper or Levantine viper — give it space."
       }
     ],
     "gallery": [

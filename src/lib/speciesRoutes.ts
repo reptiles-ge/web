@@ -117,8 +117,10 @@ const LOOKALIKES: Record<string, string[]> = {
     "hemorrhois-ravergieri",
     "dolichophis-schmidti",
     "elaphe-urartica",
+    "elaphe-dione",
     "telescopus-fallax",
     "macrovipera-lebetina",
+    "vipera-transcaucasiana",
   ],
   "telescopus-fallax": [
     "vipera-transcaucasiana",
