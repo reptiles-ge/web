@@ -90,11 +90,20 @@ export function Navbar() {
     { href: "/mammals" as const, label: t("mammals") },
   ];
   const groupLinks = [...reptileGroupLinks, ...otherGroupLinks];
-  const mobileLinks = [
-    ...links,
-    { href: "/about" as const, label: t("about") },
+  const mobileNavItems = [
+    { kind: "link" as const, href: "/species" as const, label: t("species") },
+    { kind: "groups" as const },
+    {
+      kind: "link" as const,
+      href: "/quiz" as const,
+      label: t("quizzes"),
+      badge: t("new"),
+    },
+    { kind: "link" as const, href: "/regions" as const, label: t("atlas") },
+    { kind: "link" as const, href: "/about" as const, label: t("about") },
   ];
   const [groupsOpen, setGroupsOpen] = useState(false);
+  const [mobileGroupsOpen, setMobileGroupsOpen] = useState(false);
   const groupsActive = groupLinks.some(
     (link) => pathname === link.href || pathname.startsWith(`${link.href}/`),
   );
@@ -117,10 +126,14 @@ export function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
     setGroupsOpen(false);
+    setMobileGroupsOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (!menuOpen) return;
+    if (!menuOpen) {
+      setMobileGroupsOpen(false);
+      return;
+    }
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -314,59 +327,69 @@ export function Navbar() {
           }`}
         >
           <ul className="space-y-1">
-            {mobileLinks.map((link, index) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
-                >
-                  <span className="flex items-center gap-2.5 font-display text-[1.35rem] font-semibold text-foreground">
-                    {link.label}
-                    {"badge" in link && link.badge ? (
-                      <NavNewBadge label={link.badge} placement="inline" />
+            {mobileNavItems.map((item, index) => {
+              const number = String(index + 1).padStart(2, "0");
+
+              if (item.kind === "groups") {
+                return (
+                  <li key="groups">
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-between gap-4 rounded-2xl px-3 py-3.5 text-left transition-colors hover:bg-surface"
+                      aria-expanded={mobileGroupsOpen}
+                      onClick={() => setMobileGroupsOpen((open) => !open)}
+                    >
+                      <span className="flex items-center gap-2 font-display text-[1.35rem] font-semibold text-foreground">
+                        {t("groups")}
+                        <ChevronDown
+                          className={`size-4 text-muted-foreground transition-transform ${
+                            mobileGroupsOpen ? "rotate-180" : ""
+                          }`}
+                          strokeWidth={1.75}
+                        />
+                      </span>
+                      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                        {number}
+                      </span>
+                    </button>
+                    {mobileGroupsOpen ? (
+                      <div className="mb-1 flex flex-col px-3 pb-2">
+                        {groupLinks.map((group) => (
+                          <Link
+                            key={group.href}
+                            href={group.href}
+                            onClick={() => setMenuOpen(false)}
+                            className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                          >
+                            {group.label}
+                          </Link>
+                        ))}
+                      </div>
                     ) : null}
-                  </span>
-                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </Link>
-                {link.href === "/species" ? (
-                  <div className="mb-2 mt-1 px-3">
-                    <p className="pb-2 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                      {t("groups")}
-                    </p>
-                    <p className="px-1 pb-1 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                      {t("reptiles")}
-                    </p>
-                    <div className="grid grid-cols-2 gap-1">
-                      {reptileGroupLinks.map((group) => (
-                        <Link
-                          key={group.href}
-                          href={group.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
-                        >
-                          {group.label}
-                        </Link>
-                      ))}
-                    </div>
-                    <div className="mt-2 grid grid-cols-2 gap-1">
-                      {otherGroupLinks.map((group) => (
-                        <Link
-                          key={group.href}
-                          href={group.href}
-                          onClick={() => setMenuOpen(false)}
-                          className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
-                        >
-                          {group.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-              </li>
-            ))}
+                  </li>
+                );
+              }
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
+                  >
+                    <span className="flex items-center gap-2.5 font-display text-[1.35rem] font-semibold text-foreground">
+                      {item.label}
+                      {"badge" in item && item.badge ? (
+                        <NavNewBadge label={item.badge} placement="inline" />
+                      ) : null}
+                    </span>
+                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+                      {number}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <Link
             href="/species"
