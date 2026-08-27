@@ -2704,7 +2704,7 @@ export const species: Species[] = [
         "answer": "არა. Eirenis-ს ჩვეულებრივი თვალები და კოლუბრიდის ქერცლები აქვს, არა ჭიასავითი სხეული (გველბრუცა) და არა მსხვილი მახრჩობელას აგებულება."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T13:05:35+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -9085,7 +9085,7 @@ export const species: Species[] = [
         "answer": "გვერდი აუარეთ და არ აიყვანოთ. ადამიანს არ ეძებს. თუ ვერტიკალური გუგით გველს ვერ არწმუნებთ, მიიჩნიეთ შხამიანად."
       }
     ],
-    "updatedAt": "2026-08-26T21:57:57+04:00",
+    "updatedAt": "2026-08-27T13:05:35+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
