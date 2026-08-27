@@ -540,14 +540,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და ღამითაა აქტიური; დღისითაც ჩანს. ფონიჭალის კამერა-ხაფანგებზე (2020–2021) დეტექციები დილის საათებში, დაახლოებით 6–12 საათზე, უფრო ხშირი იყო, ვიდრე შუადღის ძაღლის პიკზე — ეს ერთი ადგილის ნიმუშია და არა ეროვნული კალენდარი. ხშირად წყვილად ან მცირე ოჯახურ ჯგუფად ცხოვრობს. ტერიტორიას ყვირილითაც აღნიშნავს; ხმა მელას ყეფასა და მგლის ყმუილს შორის არის და საქართველოშიც გამოიყენება გამოკითხვებში. ბუდობს სოროში, რომელსაც თვითონ თხრის ან სხვა ცხოველისას იკავებს. სახეობის დონეზე ორსულობა დაახლოებით 63 დღეა; ნაგები ხშირად რამდენიმე ლეკვია (ლიტერატურაში 1–9, საშუალო ხშირად დაახლოებით 4–6). ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. კვალი ძაღლისას ჰგავს და მელასაზე დიდია.",
     "conservation": "Hoffmann და თანაავტორები Canis aureus-ს IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშ აფასებენ (2018). ევროპის რეგიონულ შეფასებაში (Ranc et al. 2025) ასევე LC-ია და პოპულაცია იზრდება; ეს შეფასება საქართველოს ცალკე ქვეყნად native სიაში არ ასახელებს, კავკასიას კი ფართო არეალში მოიხსენიებს. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. ნადირობის ობიექტად არის შეტანილი; 2011 წლის მოპოვების წესებში ტურაზე ნადირობა აკრძალულია 1 თებერვლიდან 1 სექტემბრამდე — მოქმედი სეზონი და კვოტა ოფიციალური წესით უნდა შემოწმდეს და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. CITES-ის დანართებში სახეობის დონეზე არ არის. ევროკავშირის ჰაბიტატების დირექტივა საქართველოში არ მოქმედებს. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, საგზაო დაღუპვა და კონფლიქტი შინაურ ცხოველზე; ეროვნული ტენდენცია აქ არ არის გაზომილი, თუმცა 2020 წლის ქართული გენეტიკური კვლევა ორივე სახეობის — ტურასა და მგლის — სიმრავლის ზრდას აღნიშნავს. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება უკბინოს. საქართველოში გარეულ ხორცისმჭამელებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აჭმიოთ და არ აიყვანოთ. ძაღლები აცერით. დაუცველ ეზოში შეიძლება წვრილი პირუტყვი ან ფრინველი წაიღოს — ეს სახეობის ოპორტუნისტული კვების ნაწილია და არ ნიშნავს, რომ ადამიანზე ნადირობს.",
-    "image": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
+    "image": "/images/canis-aureus-stankovic-1.jpg",
     "imageCredit": {
       "photographer": "Mladen Stankovic",
       "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
       "location": "სერბეთი",
       "date": "2024-11-24"
     },
-    "mobileImage": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
+    "mobileImage": "/images/canis-aureus-stankovic-1.jpg",
     "mobileImageCredit": {
       "photographer": "Mladen Stankovic",
       "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
@@ -564,7 +564,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg",
+        "src": "/images/canis-aureus-kerkini-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal_(Canis_aureus_moreotica).jpg",
@@ -573,7 +573,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
+        "src": "/images/canis-aureus-stankovic-1.jpg",
         "credit": {
           "photographer": "Mladen Stankovic",
           "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
@@ -582,7 +582,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-danube-1.jpg",
+        "src": "/images/canis-aureus-danube-1.jpg",
         "credit": {
           "photographer": "Didier Delavaud",
           "url": "https://commons.wikimedia.org/wiki/File:Chacal_dor%C3%A9,_delta_du_Danube.jpg",
@@ -591,7 +591,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-bukvic-1.jpg",
+        "src": "/images/canis-aureus-bukvic-1.jpg",
         "credit": {
           "photographer": "Ivan Bukvic",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%A0akal_na_oprezu.jpg",
@@ -600,7 +600,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-yarkon-1.jpg",
+        "src": "/images/canis-aureus-yarkon-1.jpg",
         "credit": {
           "photographer": "Вых Пыхманн",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal.jpg",
@@ -934,7 +934,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება. საერთაშორისო ვაჭრობა CITES-ის დანართ II-ით რეგულირდება."
       }
     ],
-    "updatedAt": "2026-08-28T03:14:32+04:00",
+    "updatedAt": "2026-08-28T03:21:56+04:00",
     "sources": [
       {
         "name": "Boitani, Phillips & Jhala 2023 — IUCN Red List, Canis lupus",
@@ -4687,7 +4687,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. IUCN-ის LC ნადირობის ნებართვად ნუ ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-28T03:14:32+04:00",
+    "updatedAt": "2026-08-28T03:21:56+04:00",
     "sources": [
       {
         "name": "Amori et al. 2021 — IUCN Red List, Erinaceus concolor",
@@ -10745,7 +10745,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T03:14:32+04:00",
+    "updatedAt": "2026-08-28T03:21:56+04:00",
     "sources": [
       {
         "name": "Keuling & Leus 2019 — IUCN Red List, Sus scrofa",
@@ -11629,7 +11629,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის EN სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T03:15:09+04:00",
+    "updatedAt": "2026-08-28T03:21:56+04:00",
     "sources": [
       {
         "name": "McLellan et al. 2017 — IUCN Red List, Ursus arctos",
@@ -13884,7 +13884,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg",
+        "src": "/images/canis-aureus-kerkini-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal_(Canis_aureus_moreotica).jpg",
@@ -13893,7 +13893,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
+        "src": "/images/canis-aureus-stankovic-1.jpg",
         "credit": {
           "photographer": "Mladen Stankovic",
           "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
@@ -13902,7 +13902,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-danube-1.jpg",
+        "src": "/images/canis-aureus-danube-1.jpg",
         "credit": {
           "photographer": "Didier Delavaud",
           "url": "https://commons.wikimedia.org/wiki/File:Chacal_dor%C3%A9,_delta_du_Danube.jpg",
@@ -13911,7 +13911,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-bukvic-1.jpg",
+        "src": "/images/canis-aureus-bukvic-1.jpg",
         "credit": {
           "photographer": "Ivan Bukvic",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%A0akal_na_oprezu.jpg",
@@ -13920,7 +13920,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/canis-aureus-yarkon-1.jpg",
+        "src": "/images/canis-aureus-yarkon-1.jpg",
         "credit": {
           "photographer": "Вых Пыхманн",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal.jpg",
