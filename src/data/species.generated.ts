@@ -4742,29 +4742,59 @@ export const species: Species[] = [
     "genus": "Jynx",
     "family": "Picidae",
     "location": "მობუდარი მიგრანტი საქართველოში",
-    "description": "პატარა, შენიღბულ-ზოლიანი კოდალასნაირი, რომელიც ჭიანჭველებს მიწაზე იკრებს. 2024 წლის ეროვნულ ჩამონათვალში საქართველოში დადასტურებულია როგორც მობუდარი და გავლითი მიგრანტი. ამ გვერდზე დასახელებული ფოტო ჭოროხის დელტიდანაა, 15 სექტემბერი 2014.",
+    "description": "პატარა, შენიღბულ-ზოლიანი კოდალასნაირი, რომელიც ჭიანჭველებს მიწაზე იკრებს. 2024 წლის ეროვნულ ჩამონათვალში საქართველოში დადასტურებულია როგორც მობუდარი და გავლითი მიგრანტი. ამ გვერდზე დასახელებული ფოტოებია ბორჯომ-ხარაგაულის ეროვნული პარკი, 16 ივლისი 2015, და ჭოროხის დელტა, 15 სექტემბერი 2014.",
     "overview": "მაქცია (Jynx torquilla) პატარა კოდალასნაირია (ოჯახი Picidae), რომელიც საქართველოში დადასტურებულია როგორც მობუდარი მიგრანტი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს BB; M: მობუდარია და არამობუდარ სეზონზე არ არის, ასევე გავლითი მიგრანტია. სეზონურობის ხარისხი მაღალია (კოდი A). არსებობის ხარისხი მაღალია (H), ფოტოებითა და რგოლის მონაცემებით. ზრდასრული სახეობის დონეზე დაახლოებით 16–18 სმ-ია. ადამიანისთვის საფრთხე არ არის. IUCN სახეობას Least Concern-ად იღებს. 2024 წლის ჩამონათვალი იგივე კატეგორიას ანიჭებს ეროვნულადაც.",
-    "habitat": "საქართველოში ეძებეთ მობუდარ სეზონზე და გაზაფხულისა და შემოდგომის გადაფრენაზე, და არა ზამთარში — 2024 წლის ჩამონათვალით. ამ გვერდზე დასახელებული ჩანაწერია ჭოროხის დელტა (სამხრეთი ტბორები და ჭაობები), 15 სექტემბერი 2014 (ფოტო: Wouter van der Ham). ეს თარიღი შემოდგომის გადაფრენაზე მოდის. 2024 წლის ჩამონათვალი ადასტურებს ქვეყნის დონის მობუდარ-მიგრანტულ სტატუსს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. ნუ ჩათვლით, რომ თანაბრად გვხვდება მთელ საქართველოში, მათ შორის უხეო მაღალ პლატოებზე ან დახურულ მაღალმთის ტყეში. სახეობის დონის ჰაბიტატი ნახევრად ღია ადგილებია: ტყის პირი, ბაღები, პარკები, მდინარის ხეობები და მსგავსი ადგილები გაბნეული ხეებითა და მოკლე ბალახით, სადაც ჭიანჭველა ბუდობს. საქართველოს ცალკე სიმაღლის სარტყელი ამ გვერდზე არ არის გამოქვეყნებული. 2022 წლის კოდალების მონიტორინგის ანგარიში ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში ამ სახეობას დათვლილ კოდალებს შორის არ ასახელებს.",
+    "habitat": "საქართველოში ეძებეთ მობუდარ სეზონზე და გაზაფხულისა და შემოდგომის გადაფრენაზე, და არა ზამთარში — 2024 წლის ჩამონათვალით. ამ გვერდზე დასახელებული ჩანაწერებია ბორჯომ-ხარაგაულის ეროვნული პარკი, 16 ივლისი 2015 (ფოტოები: ზაური ხაჩიძე), მობუდარ სეზონზე; და ჭოროხის დელტა (სამხრეთი ტბორები და ჭაობები), 15 სექტემბერი 2014 (ფოტო: Wouter van der Ham), შემოდგომის გადაფრენაზე. ივლისის ფოტოები პარკის ტყეში ყოფნას აჩვენებს და არა ბუდის ჩანაწერს. 2024 წლის ჩამონათვალი ადასტურებს ქვეყნის დონის მობუდარ-მიგრანტულ სტატუსს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. ნუ ჩათვლით, რომ თანაბრად გვხვდება მთელ საქართველოში, მათ შორის უხეო მაღალ პლატოებზე ან დახურულ მაღალმთის ტყეში. სახეობის დონის ჰაბიტატი ნახევრად ღია ადგილებია: ტყის პირი, ბაღები, პარკები, მდინარის ხეობები და მსგავსი ადგილები გაბნეული ხეებითა და მოკლე ბალახით, სადაც ჭიანჭველა ბუდობს. საქართველოს ცალკე სიმაღლის სარტყელი ამ გვერდზე არ არის გამოქვეყნებული. 2022 წლის კოდალების მონიტორინგის ანგარიში ბორჯომ-ხარაგაულსა და ფშავ-ხევსურეთში ამ სახეობას დათვლილ კოდალებს შორის არ ასახელებს.",
     "diet": "ამ გვერდზე ცალკე ქართული კვების კვლევა არ არის. არეალში მთავარი საკვები ჭიანჭველაა, განსაკუთრებით ლარვები და ჭუპრები, რომლებსაც მიწაზე გრძელი, წებოვანი ენით იღებს. სხვა წვრილ უხერხემლოებსაც იღებს. სხვა კოდალებისგან განსხვავებით, ყოველდღიური კვება ხის ჭიის მატლებისთვის ტანის ბურღვა არ არის. ველში ტყის პირის ჭიანჭველიან მიწაზე მომხტარი პატარა ზოლიანი ყავისფერი ფრინველი ტიპიურად იქცევა.",
     "behavior": "აქტიურია დღისით. სიმღერა ხმამაღალი, ცხვირისებრი ნოტების სერიაა, ხშირად იწერება როგორც „qui-qui-qui“, რამდენიმე წამი; შეიძლება პატარა შავარდენს ან მცირე ჭრელ კოდალას გაახსენოთ. ხეზე დოლის ცემა ჩვეულებრივი ნიშანი არ არის. საფრთხისას, განსაკუთრებით სოროში, კისერს გველისებრ ამახვევს და შეიძლება ჩასჩიჩინოს; ამ ჩვევიდან მოდის ინგლისური სახელი wryneck. საკუთარ სოროს ჩვეულებრივ არ თხრის. იყენებს ხეში არსებულ ღრს, სოროს ყუთს ან სხვა ხვრელს და დებს თეთრ კვერცხებს. სახეობის დონეზე ნაყარი ხშირად დაახლოებით შვიდიდან ათამდე კვერცხია, ინკუბაცია დაახლოებით 12–14 დღე, ბარტყები სოროში დაახლოებით 18–22 დღე; ეს ციფრები უფრო ფართო არეალიდანაა და არა ამ გვერდზე ქართული ბუდის ნიმუშიდან. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად და მიგრანტად იღებს. პალეარქტიკის პოპულაციების უმეტესობა შემოდგომაზე მობუდარ არეალს ტოვებს; დასავლური ფრინველები ზამთრობენ ძირითადად აფრიკაში, აღმოსავლური — სამხრეთ აზიაში. ჩამონათვალი მას საქართველოში ზამთრის სტუმრად (WV) არ კოდავს.",
     "conservation": "BirdLife International Jynx torquilla-ს IUCN-ის წითელ ნუსხაში Least Concern-ად აფასებს. გლობალური არეალი დიდია; დასავლეთ ევროპის ნაწილებში მკვეთრი კლებაა და გაერთიანებულ სამეფოში აღარ არის რეგულარული მობუდარი, მაგრამ გლობალური კლება უფრო მაღალი საფრთხის კატეგორიისთვის საკმარისად სწრაფად არ ითვლება. EUNIS ევროპაში Least Concern-ს უთითებს, ევროკავშირის პოპულაციის სტატუსს — depleted, და გაშუქებას EU Birds Directive-ით (კოდი A233); ეს ინსტრუმენტი საქართველოში არ მოქმედებს. 2014 წლის საქართველოს წითელ ნუსხაში (მთავრობის დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ წითელ ნუსხას LC-ს ანიჭებს. საქართველოს ცალკე პოპულაციის ტრენდი ამ გვერდზე არ არის რაოდენობრივი. ნუ დაიჭერთ და ნუ გაიჩენთ ველურ ფრინველებს. ძველი, ღრუიანი ხეების და ჭიანჭველიანი მდელოების კარგვა სახეობის დონეზე ბიოლოგიურად შესაბამისი წნეხია; ადგილობრივი საფრთხის რანგი საქართველოსთვის აქ არ არის გამოქვეყნებული.",
     "interaction": "პირდაპირი საფრთხე ადამიანისთვის არ არის; ველური ფრინველები არ უნდა აიყვანოთ.",
     "danger": "Harmless",
-    "image": "/images/jynx-torquilla-reigada-1.jpg",
+    "image": "/images/jynx-torquilla-zauri-1.jpg",
     "imageCredit": {
-      "photographer": "Pepe Reigada",
-      "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
-      "location": "კორდობა",
-      "date": "2015-05-02"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-07-16"
     },
-    "mobileImage": "/images/jynx-torquilla-dalous-1.jpg",
+    "mobileImage": "/images/jynx-torquilla-zauri-2.jpg",
     "mobileImageCredit": {
-      "photographer": "Pierre Dalous",
-      "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
-      "location": "არიეჟი",
-      "date": "2012-09-01"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-07-16"
     },
     "gallery": [
+      {
+        "src": "/images/jynx-torquilla-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-07-16"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-07-16"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-07-16"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-07-16"
+        }
+      },
       {
         "src": "/images/jynx-torquilla-reigada-1.jpg",
         "credit": {
@@ -4850,7 +4880,7 @@ export const species: Species[] = [
       "აღწერა ლინემ 1758 წელს. 2024 წლის ქართული ჩამონათვალი სახელებისთვის OSME Region List-ს მიჰყვება: რიგი Piciformes, ოჯახი Picidae, გვარი Jynx. IOC World Bird List Jynx-ის ორ ცოცხალ სახეობას იღებს: ამას და წითელყელა მაქციას (Jynx ruficollis) საჰარის სამხრეთით. აფრიკული სახეობა ქართულ ჩამონათვალში არ არის.",
       "სახელმძღვანელოები ხშირად ექვს ქვესახეობას უთითებენ, ვარიაცია ძირითადად კლინალურია. NPLG ხუთს ასახელებს და საქართველოში ფორმას J. t. torquilla-ს (Linnaeus, 1758) ანიჭებს. ნომინატი torquilla სტანდარტულ დამუშავებებში მობუდარი ფორმაა ევროპის უმეტეს ნაწილში კავკასიამდე. ველში ამოცნობა საქართველოში სახეობამდეა. ქვესახეობაზე მინიჭებული ქართული გაზომილი სერია ამ გვერდზე არ არის.",
       "ქართულად მაქცია; ლექსიკონებში იხმარება ჩვეულებრივი მაქციაც. ინგლისურად იხმარება Eurasian wryneck (2024 წლის ჩამონათვალი: Eurasian Wryneck), wryneck და northern wryneck. ქართულში იგივე სიტყვა ფოლკლორში სხვა არსებასაც აღნიშნავს; ეს გვერდი ფრინველზეა.",
-      "2024 წლის ჩამონათვალის კოდებია BB; M, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო) და RD (რგოლის მონაცემები). ეს ქვეყნის დონის დადასტურებაა მობუდარობასა და გადაფრენაზე და არა სრული რეგიონული რუკა. ამ გვერდზე დასახელებული ფოტოა ჭოროხის დელტა, 15 სექტემბერი 2014."
+      "2024 წლის ჩამონათვალის კოდებია BB; M, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო) და RD (რგოლის მონაცემები). ეს ქვეყნის დონის დადასტურებაა მობუდარობასა და გადაფრენაზე და არა სრული რეგიონული რუკა. ამ გვერდზე დასახელებული ფოტოებია ბორჯომ-ხარაგაულის ეროვნული პარკი, 16 ივლისი 2015, და ჭოროხის დელტა, 15 სექტემბერი 2014."
     ],
     "identification": {
       "summary": "ბეღურის ზომის, ქერქისფერი კოდალასნაირი მუქი ზოლით კეფიდან ზურგზე, მოკლე ნისკარტით და მომრგვალებული კუდით. საქართველოში 2024 წლის ჩამონათვალით მობუდარი მიგრანტია. მწვანე ან ჭრელ კოდალას არ ჰგავს.",
@@ -4875,7 +4905,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება ვნახო საქართველოში?",
-        "answer": "თბილ თვეებში, ღია ტყეში, ბაღებში და პირებზე, სადაც მიწაზე ჭიანჭველაა, ასევე გაზაფხულისა და შემოდგომის გადაფრენაზე. ამ გვერდზე დასახელებული ფოტო ჭოროხის დელტიდანაა, 15 სექტემბერი 2014. ეს გვერდი ყველა რეგიონს არ რუკავს."
+        "answer": "თბილ თვეებში, ღია ტყეში, ბაღებში და პირებზე, სადაც მიწაზე ჭიანჭველაა, ასევე გაზაფხულისა და შემოდგომის გადაფრენაზე. ამ გვერდზე დასახელებული ფოტოებია ბორჯომ-ხარაგაულის ეროვნული პარკი, 16 ივლისი 2015, და ჭოროხის დელტა, 15 სექტემბერი 2014. ეს გვერდი ყველა რეგიონს არ რუკავს."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -4891,7 +4921,7 @@ export const species: Species[] = [
       },
       {
         "question": "როდის არის საქართველოში?",
-        "answer": "მობუდარ სეზონზე და გადაფრენაზე, 2024 წლის ჩამონათვალის BB; M კოდით. იქ ზამთრის სტუმრად არ არის მიჩნეული. ზუსტი ჩამოსვლისა და წასვლის თარიღები საქართველოსთვის ამ გვერდზე არ არის ცხრილში. აქ ფოტო 15 სექტემბრითაა."
+        "answer": "მობუდარ სეზონზე და გადაფრენაზე, 2024 წლის ჩამონათვალის BB; M კოდით. იქ ზამთრის სტუმრად არ არის მიჩნეული. ზუსტი ჩამოსვლისა და წასვლის თარიღები საქართველოსთვის ამ გვერდზე არ არის ცხრილში. აქ ფოტოები 16 ივლისითა და 15 სექტემბრითაა."
       },
       {
         "question": "ბუდობს თუ არა საქართველოში?",
@@ -4902,7 +4932,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად Least Concern-ია და 2024 წლის ჩამონათვალში ეროვნულადაც LC-ია. 2014 წლის საქართველოს წითელ ნუსხაში არ არის. ნუ დაიჭერთ ველურ ფრინველებს."
       }
     ],
-    "updatedAt": "2026-08-27T10:24:54+04:00",
+    "updatedAt": "2026-08-27T10:28:44+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -7901,7 +7931,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T00:48:51+04:00",
+    "updatedAt": "2026-08-27T10:28:44+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -14386,9 +14416,9 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "jynx-torquilla": {
     "commonName": "Eurasian wryneck",
     "location": "Breeding migrant in Georgia",
-    "description": "A small, cryptically barred woodpecker that feeds on ants on the ground. Confirmed in Georgia as a breeding bird and passage migrant on the 2024 national bird checklist. A named photograph on this page is from the Chorokhi Delta, 15 September 2014.",
+    "description": "A small, cryptically barred woodpecker that feeds on ants on the ground. Confirmed in Georgia as a breeding bird and passage migrant on the 2024 national bird checklist. Named photographs on this page include Borjomi-Kharagauli National Park, 16 July 2015, and the Chorokhi Delta, 15 September 2014.",
     "overview": "The Eurasian wryneck (Jynx torquilla) is a small woodpecker (family Picidae) confirmed in Georgia as a breeding migrant. The 2024 annotated checklist of the birds of Georgia codes it BB; M: a breeder that is absent in the non-breeding season, and also a bird of passage. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs and ringing data. Adults are about 16–18 cm long at species level. It is not a threat to people. IUCN lists the species as Least Concern. The 2024 checklist assigns the same category nationally.",
-    "habitat": "In Georgia look for it in the breeding season and on spring and autumn passage, not in winter on the 2024 checklist. Named record on this page: Chorokhi Delta (southern ponds and wetlands), 15 September 2014 (photograph by Wouter van der Ham). That date falls on autumn passage. The 2024 checklist confirms country-level breeding-migrant status but does not publish a regional gazetteer. Do not assume it occurs evenly across Georgia, including treeless high plateaus or closed high-elevation forest. Species-level habitat is semi-open country: woodland edge, orchards, parks, river valleys, and similar places with scattered trees and short ground vegetation where ants nest. A separate national elevation band for Georgia is not published here. The 2022 woodpecker monitoring report for Borjomi-Kharagauli and Pshav-Khevsureti did not list this species among the woodpeckers counted there.",
+    "habitat": "In Georgia look for it in the breeding season and on spring and autumn passage, not in winter on the 2024 checklist. Named records on this page: Borjomi-Kharagauli National Park, 16 July 2015 (photographs by ზაური ხაჩიძე), in the breeding season; and Chorokhi Delta (southern ponds and wetlands), 15 September 2014 (photograph by Wouter van der Ham), on autumn passage. The July photographs show presence in woodland in the park; they are not a nest record. The 2024 checklist confirms country-level breeding-migrant status but does not publish a regional gazetteer. Do not assume it occurs evenly across Georgia, including treeless high plateaus or closed high-elevation forest. Species-level habitat is semi-open country: woodland edge, orchards, parks, river valleys, and similar places with scattered trees and short ground vegetation where ants nest. A separate national elevation band for Georgia is not published here. The 2022 woodpecker monitoring report for Borjomi-Kharagauli and Pshav-Khevsureti did not list this species among the woodpeckers counted there.",
     "diet": "There is no separate Georgian diet study on this page. Across the range the main food is ants, especially larvae and pupae, taken on the ground with a long sticky tongue. Other small invertebrates are taken. Unlike most woodpeckers, daily feeding is not trunk-drilling for wood-boring larvae. In the field, a small barred brown bird hopping on ant-rich ground at a woodland edge is behaving typically.",
     "behavior": "It is active by day. The song is a series of loud, nasal notes, often written as “quee-quee-quee”, lasting several seconds; it can recall a small falcon or lesser spotted woodpecker. Drumming on wood is not the usual cue. When threatened, especially at a nest hole, it may twist the neck in a snake-like display and hiss; that habit is the source of the English name wryneck. It does not usually excavate its own nest. It uses an existing cavity in a tree, a nest box, or another hole, and lays white eggs. Species-level clutches are often about seven to ten eggs, with incubation of about 12–14 days and young in the nest for about 18–22 days; those figures are from the wider range, not a Georgian nest sample on this page. The 2024 checklist treats the species as a breeder in Georgia and as a migrant. Most Palearctic populations leave the breeding range in autumn; western birds winter mainly in Africa, eastern birds in southern Asia. The checklist does not code it as a winter visitor (WV) in Georgia.",
     "conservation": "BirdLife International assesses Jynx torquilla as Least Concern on the IUCN Red List. The global range is large; parts of western Europe have declined sharply, and the species is no longer a regular UK breeder, but the global decline is not treated as fast enough for a higher threat category. EUNIS reports Least Concern in Europe, an EU population status of depleted, and coverage under the EU Birds Directive (code A233); that instrument does not apply in Georgia. It is not on Georgia’s 2014 Red List (Government Resolution No. 190). The 2024 Georgian bird checklist assigns global and national Red List category LC. A Georgia-specific population trend is not quantified on this page. Do not catch or keep wild birds. Loss of old trees with cavities and of ant-rich grassland would be the biologically relevant pressures at species level; local threat ranking for Georgia is not published here.",
@@ -14423,7 +14453,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Described by Linnaeus in 1758. The 2024 Georgian checklist follows the OSME Region List for names: order Piciformes, family Picidae, genus Jynx. IOC World Bird List treats two living Jynx species: this one and red-throated wryneck (Jynx ruficollis) of sub-Saharan Africa. The African species is not on the Georgian list.",
       "Handbooks commonly list six subspecies, with variation largely clinal. NPLG names five and assigns the form in Georgia as J. t. torquilla (Linnaeus, 1758). Nominate torquilla is the breeding form over most of Europe east to the Caucasus in standard treatments. Field identification in Georgia is to species. A measured Georgian specimen series assigned to subspecies is not given on this page.",
       "Georgian is მაქცია; dictionaries also use ჩვეულებრივი მაქცია. English names include Eurasian wryneck (2024 checklist: Eurasian Wryneck), wryneck, and northern wryneck. In Georgian the same common word can appear in folklore for an unrelated figure; this page is the bird.",
-      "2024 checklist codes: BB; M, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph) and RD (ringing data). That is country-level confirmation of breeding and passage, not a complete regional map. Named photographic evidence on this page is the Chorokhi Delta, 15 September 2014."
+      "2024 checklist codes: BB; M, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph) and RD (ringing data). That is country-level confirmation of breeding and passage, not a complete regional map. Named photographic evidence on this page includes Borjomi-Kharagauli National Park, 16 July 2015, and the Chorokhi Delta, 15 September 2014."
     ],
     "identification": {
       "summary": "A sparrow-sized, bark-coloured woodpecker with a dark stripe down the nape and back, a short bill, and a rounded tail. In Georgia it is a breeding migrant on the 2024 checklist. It does not look like the green or pied woodpeckers.",
@@ -14441,7 +14471,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can I see it in Georgia?",
-        "answer": "In the warmer months, in open woodland, orchards, and edges with ants on the ground, and on spring and autumn passage. A named photograph on this page is from the Chorokhi Delta on 15 September 2014. This page does not map every region."
+        "answer": "In the warmer months, in open woodland, orchards, and edges with ants on the ground, and on spring and autumn passage. Named photographs on this page are from Borjomi-Kharagauli National Park on 16 July 2015 and from the Chorokhi Delta on 15 September 2014. This page does not map every region."
       },
       {
         "question": "How can I identify it?",
@@ -14457,7 +14487,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "When is it present in Georgia?",
-        "answer": "In the breeding season and on passage, according to the 2024 checklist (BB; M). It is not treated there as a winter visitor. Exact arrival and departure dates for Georgia are not tabulated on this page. The photograph here is from 15 September."
+        "answer": "In the breeding season and on passage, according to the 2024 checklist (BB; M). It is not treated there as a winter visitor. Exact arrival and departure dates for Georgia are not tabulated on this page. The photographs here are from 16 July and 15 September."
       },
       {
         "question": "Does it breed in Georgia?",
@@ -14469,6 +14499,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/jynx-torquilla-zauri-1.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-07-16"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-zauri-2.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-07-16"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-zauri-3.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-07-16"
+        }
+      },
+      {
+        "src": "/images/jynx-torquilla-zauri-4.jpg",
+        "credit": {
+          "photographer": "ზაური ხაჩიძე",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-07-16"
+        }
+      },
       {
         "src": "/images/jynx-torquilla-reigada-1.jpg",
         "credit": {
@@ -14525,16 +14587,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "Pepe Reigada",
-      "url": "https://commons.wikimedia.org/wiki/File:Wryneck_by_Pepe_Reigada.jpg",
-      "location": "Córdoba",
-      "date": "2015-05-02"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-07-16"
     },
     "mobileImageCredit": {
-      "photographer": "Pierre Dalous",
-      "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Jyntor.jpg",
-      "location": "Ariège",
-      "date": "2012-09-01"
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-07-16"
     }
   },
   "lacerta-agilis": {
