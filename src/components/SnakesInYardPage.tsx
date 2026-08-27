@@ -1,5 +1,6 @@
 "use client";
 
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
@@ -345,6 +346,8 @@ export function SnakesInYardPage({
         </section>
 
         <FaqSection />
+
+        <ContentAttribution />
 
         <section className="relative flex min-h-[60svh] items-center overflow-hidden bg-ink py-24">
           <Image

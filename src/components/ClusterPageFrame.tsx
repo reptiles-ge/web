@@ -1,5 +1,6 @@
 "use client";
 
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
@@ -151,6 +152,8 @@ export function ClusterPageFrame({
         ) : null}
 
         <ClusterFaq guideId={guideId} />
+
+        <ContentAttribution />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <Image

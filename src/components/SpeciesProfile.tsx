@@ -9,6 +9,7 @@ import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   resolvePhotoCredit,
@@ -391,6 +392,14 @@ export function SpeciesProfile({
         {species.faq && species.faq.length > 0 ? (
           <SpeciesFaqSection items={species.faq} name={species.commonName} />
         ) : null}
+
+        <ContentAttribution
+          sourcesHref={
+            species.sources.length > 0
+              ? `#${SPECIES_SECTION_IDS.sources}`
+              : undefined
+          }
+        />
 
         <SpeciesSources sources={species.sources} />
 

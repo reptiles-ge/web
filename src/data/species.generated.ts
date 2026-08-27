@@ -2581,9 +2581,73 @@ export const species: Species[] = [
     "behavior": "ფარული ჯუჯა გველი; მრგვალი გუგა, უშხამო.",
     "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — E. c. collaris.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/eirenis-collaris.jpg",
+    "image": "/images/eirenis-collaris-ioane-1.jpg",
+    "imageCredit": {
+      "photographer": "იოანე როსტიაშვილი",
+      "location": "იაღლუჯის გორები",
+      "date": "2024-05-12"
+    },
     "mobileImage": "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
     "gallery": [
+      {
+        "src": "/images/eirenis-collaris-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "იაღლუჯის გორები",
+          "date": "2024-05-12"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "იაღლუჯის გორები",
+          "date": "2024-05-12"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "იაღლუჯის გორები",
+          "date": "2024-05-12"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-1.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-2.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-3.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-4.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-5.jpg",
+        "credit": {
+          "photographer": "ნიკა მელიქიშვილი",
+          "date": "2019-07-15"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/eirenis-collaris.jpg"
       },
@@ -2802,7 +2866,7 @@ export const species: Species[] = [
         "answer": "ორივე პატარა უშხამო Eirenis-ია. საყელოიანს საყელო უფრო მკაფიო აქვს; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, წყნარს — აღმოსავლეთსა და ცენტრში. შუა ტანზე ქერცლის რიგები ხშირად 15 წინააღმდეგ 17–18, მაგრამ ეს ხელში ასათვლელი ნიშანი არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T12:31:22+04:00",
+    "updatedAt": "2026-08-27T12:46:36+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -8861,7 +8925,7 @@ export const species: Species[] = [
     "location": "აღმოსავლეთ და სამხრეთ საქართველო",
     "description": "ბინდისა და ღამის გველი ვერტიკალური გუგით მშრალ ქვიან ადგილებში; შხამიანი კბილები ხახის სიღრმეში აქვს და ადამიანისთვის სამედიცინოდ უვნებელია.",
     "overview": "კატისთვალა (Telescopus fallax) აღმოსავლეთ და სამხრეთ საქართველოს მშრალი ქვიანი ადგილების ღამის გველია ვერტიკალური გუგით. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; გავრცელების სიზუსტე საშუალოდაა შეფასებული. 2021 წლის ქართული გველების კვლევა მას ღამის სახეობად ასახელებს და მშრალი კლიმატის, ქვიანი ან ბალახოვანი ადგილის ჯგუფს მიაკუთვნებს — ძირითადად აღმოსავლეთ საქართველოში. დასავლეთისა და კოლხეთის დასახელებული ჩანაწერი ამ გვერდზე არ არის. კავკასიურ პოპულაციებს ხშირად ქვესახეობად T. f. iberus მოიხსენიებენ; ტიპის ადგილია თბილისი („Tiflis“). შხამიანი კბილები ხახის სიღრმეში აქვს განლაგებული — ნადირობისთვისაა და ადამიანისთვის სამედიცინოდ უვნებელია. სახეობის დონეზე სიგრძე ჩვეულებრივ დაახლოებით 60–100 სმ-ია. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
-    "habitat": "2021 წლის ქართული კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. არეალის სხვა ნაწილებში იკავებს ქვიან ფერდობს, კლდის ნაპრალს, ბუჩქნარს, ღია ტყის პირს, ნანგრევსა და ქვის ღობეს. კარგად ცოცავს კლდესა და კედელზე. დღისით იმალება ქვის ქვეშ, ნაპრალში ან ქერქის ქვეშ. ამ ატლასის რუკაზე აღნიშნულია შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. დასახელებული თანამედროვე ფოტოა თბილისის მთაწმინდა. სამცხე — ჯავახეთის დასახელებული ჩანაწერი ამ გვერდზე არ არის; მთელ დასავლეთ საქართველოში არ ეძებოთ. სახეობის დონეზე ლიტერატურაში ხშირად ზღვის დონიდან დაახლოებით 2,000 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული.",
+    "habitat": "2021 წლის ქართული კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. არეალის სხვა ნაწილებში იკავებს ქვიან ფერდობს, კლდის ნაპრალს, ბუჩქნარს, ღია ტყის პირს, ნანგრევსა და ქვის ღობეს. კარგად ცოცავს კლდესა და კედელზე. დღისით იმალება ქვის ქვეშ, ნაპრალში ან ქერქის ქვეშ. ამ ატლასის რუკაზე აღნიშნულია შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. დასახელებული ფოტოებია თბილისის მთაწმინდა და იაღლუჯას მთა რუსთავთან. სამცხე — ჯავახეთის დასახელებული ჩანაწერი ამ გვერდზე არ არის; მთელ დასავლეთ საქართველოში არ ეძებოთ. სახეობის დონეზე ლიტერატურაში ხშირად ზღვის დონიდან დაახლოებით 2,000 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული.",
     "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს; აგრეთვე მცირე გველებს, ფრინველის ბარტყებსა და წვრილ ძუძუმწოვრებს. ხმელთაშუაზღვისპირეთში ხშირად გეკონებიცაა მენიუში — საქართველოში გეკონი (Tenuidactylus caspius) შეზღუდულია, ამიტომ აქ უფრო სავარაუდოა ხვლიკები. მსხვერპლს სხეულის რგოლებით აფიქსირებს და ხახის სიღრმის შხამიანი კბილებით ასუსტებს. შხამი ნადირობისთვისაა, არა ადამიანის წინააღმდეგ.",
     "behavior": "2021 წლის ქართული კვლევა მას ღამის სახეობად ასახელებს; დღის აქტიური მცურავებისგან ამით გამოირჩევა. დღისით იმალება, საღამოსა და ღამით ნადირობს. დიდი თვალები და ვერტიკალური გუგა ღამის ხედვას ემსახურება — დღის სინათლეზე გუგა ვიწრო ნაპრალად იკუმშება. საფრთხისას უპირატესად გარბის ან იმალება; ზოგიერთი დაკვირვებით შეიძლება დაიხვიოს და ჰყეფოს, იშვიათად — უკბინოს. არ აიყვანოთ. კვერცხისმდებია: სახეობის დონეზე ლიტერატურაში ხშირად 5–9 კვერცხია (ზოგან 4–12). შეწყვილების სეზონი და საქართველოს კლაჩის ზომა აქ არ არის გამოქვეყნებული. იზამთრების დეტალი საქართველოსთვის ცალკე არ არის აღწერილი ამ გვერდის წყაროებში.",
     "conservation": "IUCN Red List-ის 2009 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის — იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში; ჰაბიტატების დირექტივა საქართველოს კანონი არ არის. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. ადგილობრივი საფრთხეა ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და გველგესლასთან აღრევის გამო მოკვლა. ვერტიკალური გუგა სწორედ ამ აღრევას იწვევს. ხვლიკებზე ნადირობით მონაწილეობს ადგილობრივ კვებით ჯაჭვში. არ აიყვანოთ.",
@@ -8877,6 +8941,14 @@ export const species: Species[] = [
       "url": "https://commons.wikimedia.org/wiki/File:Telescopus_fallax_on_the_Olive_tree.jpg"
     },
     "gallery": [
+      {
+        "src": "/images/telescopus-fallax-malkhaz-1.jpg",
+        "credit": {
+          "photographer": "მალხაზ გაბესკირია",
+          "location": "იაღლუჯას მთა, რუსთავი",
+          "date": "2022-05-04"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/telescopus-fallax.jpg",
         "credit": {
@@ -8968,7 +9040,7 @@ export const species: Species[] = [
       "აღწერა 1831 წელს (Fleischmann), თავდაპირველად Tarbophis fallax; აღწერის მასალა აღმოსავლეთ ადრიატიკიდანაა. კავკასიური ფორმა iberus (Eichwald, 1831) ტიპის ადგილად თბილისს („Tiflis“) ატარებს — iberus ძველ ქართულ იბერიას უკავშირდება და არა პირენეების ნახევარკუნძულს. 2026 წლის ჩამონათვალი სახეობის დონეზე Telescopus fallax-ს იღებს.",
       "ვერტიკალური გუგა ანკარასებრებში იშვიათია. საქართველოს გველგესლებსაც ვერტიკალური გუგა აქვთ — ამიტომ მხოლოდ თვალით ამოცნობა საკმარისი არ არის.",
       "2019 წლის ფილოგენეტიკური კვლევა აღნიშნავს, რომ T. fallax-ის ჯგუფს რევიზია სჭირდება; პრაქტიკაში საქართველოსთვის რჩება Telescopus fallax.",
-      "ამ ატლასის რუკაზე ხუთი რეგიონია; დასახელებული თანამედროვე ფოტო მთაწმინდიდანაა. ზუსტი ეროვნული რუკა ჯერ არათანაბარია."
+      "ამ ატლასის რუკაზე ხუთი რეგიონია; დასახელებული ფოტოებია მთაწმინდა და იაღლუჯას მთა რუსთავთან. ზუსტი ეროვნული რუკა ჯერ არათანაბარია."
     ],
     "identification": {
       "summary": "გამხდარი ღამის გველია დიდი თვალებითა და ვერტიკალური გუგით. საქართველოში მთავარი რისკი გველგესლასთან აღრევაა — გუგა ორივეს ვერტიკალურია, ამიტომ ჯერ სხეულის ფორმა, ქერცელი და თავის ფარები შეადარეთ.",
@@ -8986,7 +9058,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "მშრალ, ქვიან ან ბალახოვან ადგილებში, ძირითადად აღმოსავლეთში. ამ ატლასის რუკაზეა შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. დასახელებული თანამედროვე ფოტოა მთაწმინდა. სამცხე — ჯავახეთის დასახელებული ჩანაწერი აქ არ არის."
+        "answer": "მშრალ, ქვიან ან ბალახოვან ადგილებში, ძირითადად აღმოსავლეთში. ამ ატლასის რუკაზეა შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. დასახელებული ფოტოებია მთაწმინდა და იაღლუჯას მთა რუსთავთან. სამცხე — ჯავახეთის დასახელებული ჩანაწერი აქ არ არის."
       },
       {
         "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
@@ -13146,6 +13218,65 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/eirenis-collaris-ioane-1.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Iagluji Hills",
+          "date": "2024-05-12"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-ioane-2.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Iagluji Hills",
+          "date": "2024-05-12"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-ioane-3.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Iagluji Hills",
+          "date": "2024-05-12"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-1.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-2.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-3.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-4.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili",
+          "date": "2019-07-15"
+        }
+      },
+      {
+        "src": "/images/eirenis-collaris-nika-5.jpg",
+        "credit": {
+          "photographer": "Nika Melikishvili",
+          "date": "2019-07-15"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/eirenis-collaris.jpg"
       },
       {
@@ -13154,7 +13285,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "src": "https://cdn.reptiles.ge/eirenis-collaris-3.jpg"
       }
-    ]
+    ],
+    "imageCredit": {
+      "photographer": "Ioane Rostiashvili",
+      "location": "Iagluji Hills",
+      "date": "2024-05-12"
+    }
   },
   "eirenis-modestus": {
     "commonName": "Ring-headed Dwarf Snake",
@@ -17754,7 +17890,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Eastern and southern Georgia",
     "description": "A crepuscular and nocturnal snake with a vertical pupil in dry, rocky country; rear-fanged and medically harmless to people.",
     "overview": "The European cat snake (Telescopus fallax) is a nocturnal snake of dry rocky country in eastern and southern Georgia, with a vertical pupil. It belongs to the family Colubridae. The 2026 Georgian checklist treats it as biologically confirmed; distribution confidence is medium. The 2021 Georgian snake study lists it as nocturnal and groups it with dry-climate species of rocky or grassland settings, mostly in eastern Georgia. This page has no named record from the west or Colchis. Caucasian populations are often called subspecies T. f. iberus; the type locality is Tbilisi (“Tiflis”). The fangs sit at the back of the mouth — the venom is for hunting and is medically insignificant for people. Species-level length is usually about 60–100 cm. IUCN lists it as Least Concern.",
-    "habitat": "The 2021 Georgian study treats the species as dependent on a reasonably dry climate: rocky or grassland settings, mostly in eastern Georgia. Across the wider range it uses stony slopes, rock crevices, scrub, open woodland edges, ruins, and dry-stone walls. It climbs rock and walls well. By day it shelters under stones, in crevices, or under bark. This atlas map marks Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti, and Tbilisi. A named recent photograph is from Mtatsminda in Tbilisi. This page has no named record from Samtskhe — Javakheti; do not expect it throughout western Georgia. Literature often cites elevations to about 2,000 m at species level; a separate elevational range for Georgia is not published here.",
+    "habitat": "The 2021 Georgian study treats the species as dependent on a reasonably dry climate: rocky or grassland settings, mostly in eastern Georgia. Across the wider range it uses stony slopes, rock crevices, scrub, open woodland edges, ruins, and dry-stone walls. It climbs rock and walls well. By day it shelters under stones, in crevices, or under bark. This atlas map marks Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti, and Tbilisi. Named photographs are from Mtatsminda in Tbilisi and Iagluji Mountain near Rustavi. This page has no named record from Samtskhe — Javakheti; do not expect it throughout western Georgia. Literature often cites elevations to about 2,000 m at species level; a separate elevational range for Georgia is not published here.",
     "diet": "There is no separate Georgian diet study for this species. Across the range it feeds mainly on lizards; it also takes small snakes, nestling birds, and small mammals. In the Mediterranean, geckos are often important prey — in Georgia the only gecko in the checklist (Tenuidactylus caspius) has a limited range, so lizards are the more realistic local prey. It pins prey with body loops and subdues it with rear fangs. The venom is for hunting, not a threat to people.",
     "behavior": "The 2021 Georgian study lists it as nocturnal; that sets it apart from the country’s day-active racers. It hides by day and hunts at dusk and night. Large eyes and a vertical pupil serve night vision — in daylight the pupil closes to a slit. When threatened it usually flees or hides; some accounts describe coiling and hissing, rarely biting. Do not handle it. It is egg-laying: species-level literature often cites about 5–9 eggs (sometimes 4–12). Mating season and clutch size in Georgia are not published here. Overwintering details for Georgia are not described in the sources on this page.",
     "conservation": "The 2009 IUCN Red List assessment lists it as Least Concern. It is not on Georgia’s 2014 Red List — the snakes listed there include Dinnik’s viper and the Caucasus viper. In Europe it is on Bern Convention Annex II and EU Habitats Directive Annex IV; the Habitats Directive is not Georgian law. The 2026 checklist treats it as biologically confirmed. Local threats include habitat conversion, road mortality, and killing after confusion with vipers. The vertical pupil is exactly why that confusion happens. It takes part in local food webs by hunting lizards. Do not handle it.",
@@ -17788,7 +17924,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "Described in 1831 (Fleischmann), originally as Tarbophis fallax, from the eastern Adriatic. The Caucasian form iberus (Eichwald, 1831) has its type locality at Tbilisi (“Tiflis”) — iberus refers to ancient Caucasian Iberia, not the Iberian Peninsula. The 2026 checklist uses Telescopus fallax at species rank.",
       "A vertical pupil is unusual among colubrids. Georgian vipers also have vertical pupils — the eye alone is not enough for identification.",
       "A 2019 phylogenetic study notes that the T. fallax group needs revision; in practice Georgia is still treated as Telescopus fallax.",
-      "This atlas map shows five regions; a named recent photograph is from Mtatsminda. The national picture is still uneven."
+      "This atlas map shows five regions; named photographs are from Mtatsminda and Iagluji Mountain near Rustavi. The national picture is still uneven."
     ],
     "identification": {
       "summary": "A slender nocturnal snake with large eyes and a vertical pupil. In Georgia the main risk is confusion with vipers — both have vertical pupils, so compare body shape, scale texture, and head shields first.",
@@ -17806,7 +17942,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can it be found in Georgia?",
-        "answer": "In dry rocky or grassy country, mainly in the east. This atlas map marks Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti, and Tbilisi. A named recent photograph is from Mtatsminda. This page has no named record from Samtskhe — Javakheti."
+        "answer": "In dry rocky or grassy country, mainly in the east. This atlas map marks Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti, and Tbilisi. Named photographs are from Mtatsminda and Iagluji Mountain near Rustavi. This page has no named record from Samtskhe — Javakheti."
       },
       {
         "question": "Is it venomous or dangerous to humans?",
@@ -17834,6 +17970,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/telescopus-fallax-malkhaz-1.jpg",
+        "credit": {
+          "photographer": "Malkhaz Gabeskiria",
+          "location": "Iagluji Mountain, Rustavi",
+          "date": "2022-05-04"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/telescopus-fallax.jpg",
         "credit": {

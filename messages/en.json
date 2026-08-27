@@ -530,6 +530,13 @@
         "venomous": "Venomous snakes in Georgia"
     }
   },
+  "attribution": {
+    "heading": "Reptiles.ge",
+    "subtitle": "Atlas of animals of Georgia",
+    "body": "Prepared by Reptiles.ge from established scientific and biological sources. Sources used are listed on this page.",
+    "sources": "Sources",
+    "methodology": "Our methodology"
+  },
   "site": {
     "title": "Reptiles — atlas of animals of Georgia",
     "description": "A species atlas of Georgia’s animals: profiles, range, and identification. Reptiles and venomous snakes are already here — in Georgian and English."

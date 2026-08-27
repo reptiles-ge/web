@@ -122,7 +122,10 @@ export function AboutPage() {
           </div>
         </section>
 
-        <section className="border-t border-border bg-surface/60 py-20 lg:py-28">
+        <section
+          id="methodology"
+          className="scroll-mt-28 border-t border-border bg-surface/60 py-20 lg:py-28"
+        >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">

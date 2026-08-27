@@ -130,6 +130,8 @@ export default async function RegionPage({ params }: PageProps) {
     description: overview,
     url: pageUrl,
     isPartOf: { "@id": siteEntityId("website") },
+    author: { "@id": siteEntityId("organization") },
+    publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Place",
       name,

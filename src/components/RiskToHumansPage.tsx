@@ -1,5 +1,6 @@
 "use client";
 
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { DangerLevel, Species } from "@/data/species";
@@ -347,6 +348,8 @@ export function RiskToHumansPage({
         </section>
 
         <FaqSection />
+
+        <ContentAttribution />
 
         <section className="border-t border-border bg-ink py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">

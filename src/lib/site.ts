@@ -167,6 +167,7 @@ export function organizationJsonLd(options?: {
     "@type": "Organization",
     "@id": siteEntityId("organization"),
     name: siteConfig.name,
+    alternateName: ["Reptiles.ge", "საქართველოს ცხოველთა ატლასი"],
     url: absoluteUrl("/"),
     logo: {
       "@type": "ImageObject",

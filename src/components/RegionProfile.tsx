@@ -1,6 +1,7 @@
 "use client";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
@@ -282,6 +283,8 @@ export function RegionProfile({ region }: RegionProfileProps) {
         {faq.length > 0 ? (
           <RegionFaqSection items={faq} name={name} nameIn={nameIn} />
         ) : null}
+
+        <ContentAttribution />
 
         {related.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">

@@ -184,6 +184,8 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             description: t("metaDescription"),
             url,
             isPartOf: { "@id": siteEntityId("website") },
+            author: { "@id": siteEntityId("organization") },
+            publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
               name: locale === "en" ? "Georgia" : "საქართველო",
@@ -207,6 +209,8 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             description: t("metaDescription"),
             url,
             isPartOf: { "@id": siteEntityId("website") },
+            author: { "@id": siteEntityId("organization") },
+            publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
               name: locale === "en" ? "Georgia" : "საქართველო",

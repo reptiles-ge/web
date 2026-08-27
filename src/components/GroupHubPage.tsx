@@ -1,5 +1,6 @@
 "use client";
 
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
@@ -253,6 +254,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
         </section>
 
         <FaqSection hubId={hubId} />
+
+        <ContentAttribution />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <Image
