@@ -6,6 +6,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["დინიკის გველგესლა", "Pelias dinniki"],
     en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],
   },
+  "malpolon-insignitus": {
+    ka: [
+      "ხვლიკიჭამია გველი",
+      "ხვლიკიჭამია",
+      "Malpolon monspessulanus",
+    ],
+    en: [
+      "Montpellier snake",
+      "eastern Montpellier snake",
+      "Malpolon monspessulanus",
+    ],
+  },
   "macrovipera-lebetina": {
     ka: ["Macrovipera lebetina", "Vipera lebetina"],
     en: [
@@ -98,7 +110,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
   "elaphe-dione": {
     ka: ["სახეებიანი მცურავი"],
-    en: ["steppe ratsnake"],
+    en: ["steppe ratsnake", "Dione's ratsnake", "steppe rat snake"],
   },
   "telescopus-fallax": {
     ka: ["კატისთვალა", "Tarbophis fallax", "Telescopus fallax iberus"],

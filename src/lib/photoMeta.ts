@@ -63,14 +63,6 @@ export function galleryImageObject(
           contentLocation: {
             "@type": "Place",
             name: credit.location,
-            containedInPlace: {
-              "@type": "Country",
-              name: locale === "en" ? "Georgia" : "საქართველო",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "GE",
-              },
-            },
           },
         }
       : {}),

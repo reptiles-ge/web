@@ -263,7 +263,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "malpolon-insignitus": {
     group: "snake",
-    habitats: ["grassland", "mountain"],
+    habitats: ["grassland"],
   },
   "macrovipera-lebetina": {
     group: "snake",

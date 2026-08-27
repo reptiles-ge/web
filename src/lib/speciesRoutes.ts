@@ -61,6 +61,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "malpolon-insignitus": [
     "macrovipera-lebetina",
     "dolichophis-schmidti",
+    "hemorrhois-ravergieri",
   ],
   "vipera-kaznakovi": [
     "natrix-natrix",
@@ -102,7 +103,14 @@ const LOOKALIKES: Record<string, string[]> = {
     "hemorrhois-ravergieri",
     "macrovipera-lebetina",
   ],
-  "elaphe-dione": ["elaphe-urartica"],
+  "elaphe-dione": [
+    "elaphe-urartica",
+    "hemorrhois-ravergieri",
+    "dolichophis-schmidti",
+    "macrovipera-lebetina",
+    "platyceps-najadum",
+    "telescopus-fallax",
+  ],
   "hemorrhois-ravergieri": [
     "platyceps-najadum",
     "elaphe-urartica",
@@ -110,7 +118,12 @@ const LOOKALIKES: Record<string, string[]> = {
     "macrovipera-lebetina",
     "vipera-transcaucasiana",
   ],
-  "zamenis-longissimus": ["zamenis-hohenackeri"],
+  "zamenis-longissimus": [
+    "zamenis-hohenackeri",
+    "natrix-natrix",
+    "coronella-austriaca",
+    "vipera-kaznakovi",
+  ],
   "zamenis-hohenackeri": ["zamenis-longissimus"],
   "dolichophis-schmidti": ["malpolon-insignitus"],
   "platyceps-najadum": [

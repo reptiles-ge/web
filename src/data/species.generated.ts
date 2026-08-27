@@ -5734,13 +5734,14 @@ export const species: Species[] = [
     "scientificName": "Malpolon insignitus",
     "genus": "Malpolon",
     "family": "Psammophiidae",
-    "location": "აღმოსავლეთ საქართველო",
-    "description": "დიდი უკანა შხამკბილებიანი გველი — არა გველგესლა; ჩამონათვალში კანდიდატი სახეობაა.",
-    "overview": "ჩვეულებრივი ხვლიკიჭამია გველი (Malpolon insignitus) ფსამოფიიდების ოჯახის დიდი დღის გველია. Tarkhnishvili et al. 2026 მას კანდიდატ სახეობად განიხილავს: შედის M. monspessulanus-ის კომპლექსში და საკონტაქტო ზონა სრულად არ არის შესწავლილი. საქართველოში ჩამონათვალით დადასტურებულია; ბარკოდირებული ნიმუში ჩაჩუნას აღკვეთილიდანაა. ხშირად ერევა გიურზას — ეს უკანა შხამკბილებიანია, არა გველგესლა; ადამიანისთვის რისკი მსუბუქია, მაგრამ ნაკბენი სერიოზულად უნდა შეფასდეს. სახელწოდება ხვლიკებზე ნადირობას ასახავს.",
-    "habitat": "ღია, მშრალი და ხმელთაშუაზღვიური ტიპის ლანდშაფტები. საქართველოში ნიმუში დაფიქსირებულია ჩაჩუნას აღკვეთილში.",
-    "diet": "ძირითადად ხვლიკები; აგრეთვე სხვა წვრილი ხერხემლიანები.",
-    "behavior": "დღის მონადირე კარგი მხედველობით. უკანა შხამკბილებიანი: შხამი ნადირს ამშვიდებს, ადამიანისთვის ჩვეულებრივ მსუბუქია.",
-    "conservation": "ჩამონათვალში კანდიდატი სახეობაა. სახეობრივი რანგი M. monspessulanus-ისგან დამატებით პოპულაციურ მტკიცებულებას საჭიროებს.",
+    "location": "სამხრეთ-აღმოსავლეთ საქართველო",
+    "description": "დიდი უკანა შხამკბილებიანი დღის გველი ამოწეული „წარბით“ და მრგვალი გუგით — არა გველგესლა. საქართველოში დადასტურებულია სამხრეთ-აღმოსავლეთის მშრალ ზონაში.",
+    "overview": "ჩვეულებრივი ხვლიკიჭამია გველი (Malpolon insignitus) აღმოსავლეთ საქართველოს მშრალი ზონის დიდი, უკანა შხამკბილებიანი დღის გველია — არა გველგესლა. 2026 წლის ქართული ჩამონათვალი მას ჩამონათვალში იღებს, მაგრამ სახეობრივ რანგს კანდიდატად ტოვებს: შედის M. monspessulanus-ის კომპლექსში. დასახელებული ბარკოდირებული ნიმუში ჩაჩუნას აღკვეთილიდანაა (კახეთი). 2021 წლის ქართული გველების კვლევა მას მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ლანდშაფტში ათავსებს — მთელ ქვეყანაში არ ეძებოთ. ადამიანისთვის რისკი ჩვეულებრივ გველგესლაზე მსუბუქია, მაგრამ ნაკბენი სერიოზულად უნდა შეფასდეს. IUCN-ით გლობალურად ნაკლებად საფრთხის ქვეშაა; საქართველოს 2014 წლის წითელ ნუსხაში ძველი სახელით Malpolon monspessulanus მოწყვლადია (VU).",
+    "habitat": "საქართველოში რეალურად შეხვდებით სამხრეთ-აღმოსავლეთის მშრალ, ღია ადგილებში: სტეპი, ნახევრადუდაბნო, ქვიანი ფერდობი და იშვიათი მშრალი ტყე–ბუჩქნარი. დასახელებული თანამედროვე წერტილი ჩაჩუნას აღკვეთილია, იორის ზეგანზე, კახეთში. 2021 წლის კვლევა სახეობას ათავსებს იმავე ჯგუფში, რაშიც გიურზა და ურარტუს მცურავი — მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალი ლანდშაფტი. დასავლეთ საქართველოში, კოლხეთის ტყეში და მაღალმთაში არ ეძებოთ. ამ ატლასის რუკა ამ გვერდზე კახეთს ასახავს და არ ნიშნავს, რომ სახეობა რეგიონის ყველა კუთხეში თანაბრად გვხვდება. სხვა ადმინისტრაციული რეგიონის დასახელებული თანამედროვე წერტილი აქ არ არის. სახეობის დონეზე ლიტერატურაში ხშირად დაახლოებით 0–1,400 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული. ფართო არეალი ხმელთაშუაზღვის აღმოსავლეთიდან ჩრდილოეთ აფრიკამდე და კავკასიამდეა; ტიპის ადგილი ეგვიპტეა და არა საქართველო.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. სახელი ხვლიკებზე ნადირობას ასახავს. არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს; აგრეთვე სხვა გველებს, მცირე ძუძუმწოვრებსა და ფრინველებს. უკანა შხამკბილები ნადირს ამშვიდებს და არა ადამიანზე თავდასხმისთვისაა. საქართველოში მენიუ პირდაპირ არ არის გაზომილი.",
+    "behavior": "დღის მონადირეა. 2021 წლის ქართული მიმოხილვა უმეტეს გველს, მათ შორის ამ ჯგუფს, დღის აქტიურად მიიჩნევს — უფრო დილით ადრე და მზის ჩასვლამდე. საქართველოში საათობრივი კალენდარი ცალკე არ არის გამოქვეყნებული; მოსალოდნელია თბილი სეზონი მშრალ ღია ადგილებში. სწრაფია; მხედველობა კარგად აქვს განვითარებული. საფრთხისას უპირატესად გარბის. კუთხეში მოქცევისას შეიძლება წინა ტანი აიწიოს, გაბეროს და სტვენით დაიცვას თავი — ეს თავდაცვაა და არა კობრას ნათესაობა. კვერცხისმდებია. შეწყვილების სეზონი და საქართველოს კლაჩის ზომა აქ არ არის გამოქვეყნებული.",
+    "conservation": "IUCN Red List-ის 2021 წლის შეფასებით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა. საქართველოს 2014 წლის წითელ ნუსხაში შეტანილია ძველი სახელით Malpolon monspessulanus, კატეგორია მოწყვლადი (VU), კრიტერიუმი B2a — მცირე ფრაგმენტირებული არეალი. ეროვნული ნუსხა ჯერ არ არის განახლებული M. insignitus-ის სახელზე; პრაქტიკულად იგივე ქართულ პოპულაციას ეხება. ჩამონათვალის „კანდიდატი“ სტატუსი ტაქსონომიური შენიშვნაა და არა კონსერვაციის კატეგორია. 2026 წლის ჩამონათვალში გავრცელების სიზუსტე საშუალოდაა შეფასებული. ადგილობრივ საფრთხეა მშრალი ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და გიურზასთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
+    "interaction": "უკანა შხამკბილებიანია, არა გველგესლა. ამ ატლასში საშუალო რისკია. ნაკბენი ჩვეულებრივ ადგილობრივია — ტკივილი, შეშუპება, სიწითლე; იშვიათი სისტემური ნიშნები უფრო დასავლურ Malpolon monspessulanus-თანაა დოკუმენტირებული. შხამკბილები პირის უკანაა: ხანმოკლე ნაკბენმა შეიძლება შხამი საერთოდ არ შეიყვანოს, ხოლო ხანგრძლივმა ჩავლებამ — კი. არ აიყვანოთ. თუ გუგა ვერტიკალური ნაპრალია ან თავი ფართო და სამკუთხაა — ეს შეიძლება გიურზა იყოს; გაეცით გზა და დარეკეთ 112 ნაკბენისას.",
     "danger": "Moderate",
     "image": "https://cdn.reptiles.ge/malpolon-insignitus.jpg",
     "imageCredit": {
@@ -5778,47 +5779,71 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "მშრალი ღია ლანდშაფტი"
+        "value": "სამხრ.-აღმ. მშრალი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "სახეობა ~1–2 მ"
       },
       {
         "label": "შხამი",
-        "value": "მსუბუქი (უკანა შხამკბილები)"
+        "value": "საშუალო რისკი"
       },
       {
-        "label": "სტატუსი",
-        "value": "კანდიდატი"
+        "label": "კონსერვაცია",
+        "value": "VU (ეროვნული)"
       },
       {
         "label": "ოჯახი",
         "value": "Psammophiidae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "აღწერა 1827 წელს (Geoffroy Saint-Hilaire), თავდაპირველად Coluber insignitus; ტიპის ადგილი ეგვიპტეა. ძველ ქართულ და საბჭოთა ლიტერატურაში ხშირად Malpolon monspessulanus იწერებოდა. Carranza et al. 2006 აღმოსავლურ ფორმას ცალკე სახეობად M. insignitus მიიჩნევს. 2026 წლის ჩამონათვალი სრულ სახეობრივ რანგს კანდიდატად ტოვებს: საკონტაქტო ზონა ჩრდილო-აღმოსავლეთ მაროკოში პოპულაციურად არ არის შესწავლილი და ჰიბრიდიც არის ნახსენები.",
+      "2026 წლის ჩამონათვალის ბარკოდირებული ნიმუში ჩაჩუნადანაა (CaBOL-ID 1027416). იმავე ნაშრომი ქართულ მასალას ნომინალურ ქვესახეობას M. i. insignitus მიაკუთვნებს; The Reptile Database კავკასიურ პოპულაციებს ხშირად M. i. fuscus-ს ანიჭებს. ამ გვერდზე ქვესახეობა არ არის გადაჭრილი.",
+      "ქართული სახელი ხვლიკებზე ნადირობას ასახავს. ინგლისური eastern Montpellier snake დასავლურ M. monspessulanus-სგან განასხვავებს. არ არის კობრა: წინა ტანის აწევა თავდაცვითი იერია."
+    ],
     "identification": {
-      "summary": "დიდი მყარი გველი გამორჩეული წარბებით. გიურზასგან განსხვავდება თავის ფორმით და იმით, რომ უკანა შხამკბილებიანია.",
+      "summary": "დიდი, სწრაფი დღის გველია ამოწეული წარბებით და მრგვალი გუგით. გიურზასგან განსხვავდება თავის ფორმით, გუგით და იმით, რომ უკანა შხამკბილებიანია — არა გველგესლა.",
       "traits": [
-        "გამორჩეული წარბები / „გაბრაზებული“ იერი.",
-        "მრგვალი გუგა — არა გველგესლის ვერტიკალური ნაპრალი.",
-        "უკანა შხამკბილებიანი; ადამიანისთვის ჩვეულებრივ მსუბუქი.",
-        "ხშირად ერევა გიურზას და წითელმუცელა მცურავს."
+        "სხეული გამხდარია, მაგრამ მყარი; თავი ვიწრო და წაგრძელებულია. თვალის ზემოთ ქერცლი ამოწეულია და „გაბრაზებულ“ იერს აძლევს. გუგა მრგვალია — არა გველგესლის ვერტიკალური ნაპრალი. ზურგის ქერცლი გლუვია, შუა ტანზე ხშირად 17–19 რიგი. ქერცლის დასათვლად გველი არ აიყვანოთ.",
+        "ფონი ზეთისხილისფერი, რუხი ან მოყავისფროა. მამრებს ხშირად უფრო ერთგვაროვანი ზურგი და ვიწრო ღია ზოლები აქვთ; მდედრებს — უფრო ლაქებიანი ან ჭადრაკისებრი ნახატი. დასავლური M. monspessulanus-ის მამრების მუქი „უნაგირი“ ამ სახეობის მამრებს ჩვეულებრივ არ აქვთ. მუცელი ღიაა. ახალგაზრდები უფრო ლაქებიანები არიან. საქართველოში სქესობრივი სხვაობა ცალკე არ არის გაზომილი — ეს სახეობის დონის ნიშნებია.",
+        "გიურზა (Macrovipera lebetinus) უფრო მასიურია, თავი ფართო და სამკუთხა, გუგა ვერტიკალური, ქერცლი კილური — სამედიცინოდ მნიშვნელოვანი გველგესლა. წითელმუცელა მცურავი (Dolichophis schmidti) უშხამოა, წარბი არ აქვს ამოწეული და ზრდასრულობაში ხშირად წითელი ან ნარინჯისფერი მუცელი აქვს. ნაირფერ მცურავს (Hemorrhois ravergieri) მთელ ზურგზე რომბული ლაქები აქვს და არა ამოწეული წარბი.",
+        "თუ გამხდარ გველს ვერტიკალური გუგით ხედავთ — ეს გველგესლაა ან გიურზა, არა ეს სახეობა. დიდი უშხამო მცურავები სწრაფები არიან, მაგრამ მათ Malpolon-ის „წარბი“ არ აქვთ."
       ]
     },
     "faq": [
       {
-        "question": "არის თუ არა ეს გველი გიურზა?",
-        "answer": "არა. Malpolon insignitus უკანა შხამკბილებიანია, არა გველგესლა. გიურზა უფრო მასიური გველგესლაა ვერტიკალური გუგით."
+        "question": "გვხვდება თუ არა ხვლიკიჭამია გველი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალი სახეობას ჩამონათვალში იღებს. დასახელებული ბარკოდირებული ნიმუში ჩაჩუნას აღკვეთილიდანაა. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "რამდენად საშიშია ნაკბენი?",
-        "answer": "საიტის კლასიფიკაცია: Moderate. ადამიანისთვის ჩვეულებრივ მსუბუქია, მაგრამ ნაკბენი სერიოზულად უნდა შეფასდეს და საჭიროა 112."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ, ღია ადგილებში. დასახელებული თანამედროვე წერტილი კახეთშია, ჩაჩუნას მიდამოებში. დასავლეთში, კოლხეთის ტყეში და მაღალმთაში არ ეძებოთ. სხვა რეგიონის დასახელებული წერტილი ამ გვერდზე არ არის."
       },
       {
-        "question": "რატომ არის კანდიდატი სახეობა?",
-        "answer": "Tarkhnishvili et al. 2026: შედის M. monspessulanus-ის კომპლექსში; საკონტაქტო ზონა პოპულაციურად არ არის შესწავლილი."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "უკანა შხამკბილებიანია, არა გველგესლა. ამ ატლასში საშუალო რისკია. ნაკბენი ჩვეულებრივ ადგილობრივია და გველგესლაზე მსუბუქი, მაგრამ სერიოზულად უნდა შეფასდეს — დარეკეთ 112. არ აიყვანოთ. ვერტიკალური გუგა გიურზაზე ან გველგესლაზე მიუთითებს."
       },
       {
-        "question": "სად არის დადასტურებული საქართველოში?",
-        "answer": "ჩამონათვალით დადასტურებულია. ბარკოდირებული ნიმუში ჩაჩუნას აღკვეთილიდანაა (Tarkhnishvili et al. 2026)."
+        "question": "როგორ განვასხვავო გიურზასგან?",
+        "answer": "ამ სახეობას მრგვალი გუგა, ვიწრო თავი და ამოწეული წარბები აქვს; ქერცლი გლუვია. გიურზა მასიურია, თავი ფართო და სამკუთხა, გუგა ვერტიკალური, ქერცლი კილური. თუ ეჭვი გაქვთ — მანძილი დაიცავით."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "სახეობის დონეზე მამრები ლიტერატურაში ხშირად დაახლოებით 1.5–2 მ-მდეა მითითებული. 2021 წლის ქართული მიმოხილვა Bannikov et al. 1977-ის მიხედვით მას საშუალო ზომის გველებს მიაკუთვნებს (მაქსიმალური სხეულის სიგრძე 70–120 სმ). საქართველოსთვის ცალკე გაზომილი მაქსიმუმი ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "კვება ქართულად არ არის ცალკე შესწავლილი. სახელი ხვლიკებზე ნადირობას ასახავს. არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს; აგრეთვე სხვა გველებს, მცირე ძუძუმწოვრებსა და ფრინველებს."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "დღის გველია. საქართველოში საათობრივი კალენდარი ცალკე არ არის გამოქვეყნებული; მოსალოდნელია თბილი სეზონი მშრალ ღია ადგილებში, უფრო დილით და საღამოსკენ. კვერცხისმდებია; ქართული კლაჩის ზომა აქ არ არის."
+      },
+      {
+        "question": "რა უნდა გავაკეთო, თუ შევხვდები?",
+        "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — შეიძლება გიურზა იყოს; გაეცით გზა. ნაკბენისას დარეკეთ 112."
       }
     ],
     "updatedAt": "2026-08-21T00:44:34+04:00",
@@ -5828,11 +5853,38 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Carranza, Arnold & Pleguezuelos 2006 — phylogeny of Malpolon",
+        "url": "https://doi.org/10.1016/j.ympev.2006.03.028"
+      },
+      {
+        "name": "Aghasyan et al. 2021 — IUCN Red List account for Malpolon insignitus",
+        "url": "https://www.iucnredlist.org/species/157253/744783"
+      },
+      {
+        "name": "Weinstein et al. 2024 — local envenoming by Malpolon insignitus fuscus",
+        "url": "https://doi.org/10.1016/j.toxicon.2024.107856"
+      },
+      {
+        "name": "Dibiasi & Lüddecke 2023 — first documented envenomation by M. insignitus",
+        "url": "https://doi.org/10.1016/j.toxicon.2023.107255"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Malpolon&species=insignitus"
+      },
+      {
+        "name": "Muskhelishvili 1970 — Presmykajushchiesya vostochnoi Gruzii"
+      },
+      {
+        "name": "Bannikov et al. 1977 — cited for size class in Iankoshvili & Tarkhnishvili 2021"
       }
     ]
   },
@@ -8120,7 +8172,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — ეს შეიძლება გველგესლა ან გიურზა იყოს; გაეცით გზა."
       }
     ],
-    "updatedAt": "2026-08-26T21:57:57+04:00",
+    "updatedAt": "2026-08-27T12:19:26+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10714,122 +10766,163 @@ export const species: Species[] = [
     "scientificName": "Zamenis longissimus",
     "genus": "Zamenis",
     "family": "Colubridae",
-    "location": "საქართველო",
-    "description": "უშხამო კოლუბრიდი; ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა.",
-    "overview": "ესკულაპის მცურავი (Zamenis longissimus) კოლუბრიდების ოჯახის უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს. გამოქვეყნებული ფილოგეოგრაფია სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფს; მათ შორის „აზიური კლადა“ აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი (Musilová et al. 2010). საქართველოში ჩამონათვალით დადასტურებულია. ხშირად ერევა ამიერკავკასიურ მცურავს (Zamenis hohenackeri).",
-    "habitat": "ჩამონათვალი კონკრეტულ ჰაბიტატს არ ასახელებს. გავრცელების კონტექსტი — აღმოსავლეთ შავიზღვისპირეთის აზიური კლადა.",
-    "diet": "ნაშრომი კვებას არ აკონკრეტებს.",
-    "behavior": "უშხამო კოლუბრიდი; მრგვალი გუგა.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა.",
+    "location": "დასავლეთ საქართველო — ნოტიო ზონა",
+    "description": "უშხამო, ხეზე ასვლადი გველი დასავლეთ საქართველოს ნოტიო ტყეებში. შხამი არ აქვს; ზრდასრული ხშირად ერთფეროვანია.",
+    "overview": "ესკულაპის მცურავი (Zamenis longissimus) უშხამო, ხეზე ასვლადი გველია დასავლეთ საქართველოს ნოტიო ტყეებსა და მთისწინეთში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; გავრცელების ნდობა საშუალოა. 2021 წლის გველების კვლევა მას ნოტიო კლიმატის სახეობებს მიაკუთვნებს — კავკასიურ გველგესლასა და სპილენძასთან ერთად — და არა სამხრეთ-აღმოსავლეთის ნახევრადმშრალ დაბლობს. მთელ საქართველოში არ ეძებოთ. ადამიანისთვის უვნებელია. ხშირად ერევა ამიერკავკასიურ მცურავს; ახალგაზრდა ანკარას ყვითელ საყელოსაც წააგავს.",
+    "habitat": "საქართველოში ეძებეთ ნოტიო დასავლეთსა და მთისწინეთში — ფოთლოვან ან შერეულ ტყეს, ტყის პირს, ბუჩქნარს, მზიან ფერდობსა და დასახლების პირას, სადაც ხე, ქვა ან ძველი ნაგებობაა. სახეობის დონეზე კარგად ადის ხეზე; ბუდე, ფუღურო და ტოტი თავშესაფარიცაა და ნადირობის ადგილიც. 2021 წლის კვლევა მას შედარებით ნოტიო კლიმატს უკავშირებს. ევროპის 2006 წლის სამოქმედო გეგმა, Tarkhnishvili და სხვ. 2002-ზე დაყრდნობით, წერს, რომ საქართველოში არ არის ნაპოვნი ადგილებში, სადაც წლიური ნალექი 800 მმ-ზე ნაკლებია; იგივე ტექსტი დასავლეთ ნახევარს ასახელებს შავი ზღვის სანაპიროდან კავკასიონის მთისწინეთამდე და ცალკე, სავარაუდოდ იზოლირებულ პოპულაციას ლაგოდეხთან. ლაგოდეხი ამ ატლასის რუკაზე არ არის შეფერილი — ეს ძველი ლიტერატურული მითითებაა და 2021–2026 წლის მასალით აქ არ არის ხელახლა დადასტურებული. რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და სამცხე — ჯავახეთი. ადმინისტრაციული რეგიონი მთლიანად არ ნიშნავს, რომ სახეობა ყველა ჰაბიტატშია: სამცხე — ჯავახეთის მშრალი პლატო უფრო ამიერკავკასიური მცურავის გარემოა. კონკრეტული დასახელებული წერტილია ქუთაისი / სათაფლია: Musilová და სხვ. (2010) იქიდან აღებული ნიმუშით გამოყოფენ „აზიურ“ მიტოქონდრიულ კლადას, რომელიც აღმოსავლეთ შავიზღვისპირეთს უკავშირდება. სახეობის დონეზე ევროპაში ზღვის დონიდან დაახლოებით 2000 მ-მდეა აღწერილი; საქართველოსთვის ცალკე გაზომილი სიმაღლის დიაპაზონი ამ გვერდზე არ არის.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. სახეობის დონეზე ზრდასრული იკვებება წვრილი ძუძუმწოვრებით — თაგვი, მემინდვრია, ვირთაგვამდე — და ხშირად ხვლიკით; ხეზე ასვლით იღებს ფრინველის კვერცხსა და ბარტყსაც, თუმცა ეს ყველა პოპულაციაში ერთნაირად არ არის გაზომილი. ცენტრალურ იტალიაში 32 ინდივიდის კუჭის შიგთავსი ძირითადად მღრღნელები და ხვლიკები იყო; ფრინველი იმ ნიმუშში არ გამოჩნდა. ახალგაზრდა უფრო ხვლიკზე და წვრილ მსხვერპლზეა დამოკიდებული. მსხვერპლს სხეულის რგოლებით ახრჩობს — შხამი არ აქვს. 2021 წლის ქართული დანართი „სხვა“ გველებს, ამ სახეობის ჩათვლით, ძირითადად წვრილ ძუძუმწოვარზე, ქვეწარმავალზე ან ფრინველზე მონადირედ აჯგუფებს; ეს ზოგადი კლასიფიკაციაა და არა ადგილობრივი მენიუ.",
+    "behavior": "2021 წლის ქართული დანართით საქართველოს გველების უმეტესობა დღისითაა აქტიური — დილით ადრე და მზის ჩასვლამდე; ესკულაპის მცურავი ღამის სახეობად არ არის გამოყოფილი. თბილ სეზონზე მოძრაობს; ზამთარში იმალება სოროში, ქვის ან ხის ნაპრალში. საქართველოში თბილი სეზონის ზუსტი თვეები ამ გვერდის წყაროებში ცალკე არ არის გამოქვეყნებული. საფრთხისას უპირატესად გარბის. თუ დაიჭერენ, შეიძლება უკბინოს — ნაკბენი მტკივნეულია, მაგრამ შხამიანი არ არის. არ აიყვანოთ. კვერცხისმდებია. ევროპულ მასალაში დედალი ჩვეულებრივ 2–18 კვერცხს დებს დამპალ მცენარეულში, კომპოსტში, ნაკელის გროვაში ან ხის ფუღუროში; ეს ციფრები ქართული ბუდეების ნიმუში არ არის. ახალგაზრდა ლაქებიანია და ხშირად ღია ნიშანი აქვს კისრის ან საფეთქლის არეში.",
+    "conservation": "IUCN-ის 2017 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის — იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. ძველ ქართულ ცნობარებში ხანდახან „წითელ წიგნში“ მოხსენიება 2014 წლის სამართლებრივ ნუსხას არ ცვლის. ევროპაში შეტანილია ბერნის კონვენციის II დანართსა და ევროკავშირის ჰაბიტატების დირექტივის IV დანართში; ჰაბიტატების დირექტივა საქართველოს კანონი არ არის. 2026 წლის ჩამონათვალში გავრცელების ნდობა საშუალოა: დასავლეთის ნოტიო არეალი დასტურდება, მაგრამ წერტილ-წერტილ სიმჭიდროვე და ლაგოდეხის ძველი მითითება სრულად არ არის განახლებული. ადგილობრივ საფრთხეა ტყის პირის გარდაქმნა, გზაზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა.",
+    "interaction": "შხამი არ აქვს. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. დასავლეთ საქართველოში იგივე ნოტიო ზონაში კავკასიური გველგესლაა — ვერტიკალური გუგა და კილური ქერცელი შხამიან სახეობაზე მიუთითებს.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/zamenis-longissimus.jpg",
     "imageCredit": {
       "photographer": "Wolfgang Wüster",
-      "url": "https://www.inaturalist.org/observations/19465840"
+      "url": "https://www.inaturalist.org/observations/19465840",
+      "location": "ევროპა"
     },
     "mobileImage": "https://cdn.reptiles.ge/zamenis-longissimus-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Daniel Iversen",
-      "url": "https://www.inaturalist.org/observations/28676867"
+      "url": "https://www.inaturalist.org/observations/28676867",
+      "location": "ევროპა"
     },
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus.jpg",
         "credit": {
           "photographer": "Wolfgang Wüster",
-          "url": "https://www.inaturalist.org/observations/19465840"
+          "url": "https://www.inaturalist.org/observations/19465840",
+          "location": "ევროპა"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-mobile.jpg",
         "credit": {
           "photographer": "Daniel Iversen",
-          "url": "https://www.inaturalist.org/observations/28676867"
+          "url": "https://www.inaturalist.org/observations/28676867",
+          "location": "ევროპა"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-2.jpg",
         "credit": {
           "photographer": "Manuel Raab",
-          "url": "https://www.inaturalist.org/observations/184736285"
+          "url": "https://www.inaturalist.org/observations/184736285",
+          "location": "ევროპა"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-3.jpg",
         "credit": {
           "photographer": "Philipp Pavelka",
-          "url": "https://www.inaturalist.org/observations/25489275"
+          "url": "https://www.inaturalist.org/observations/25489275",
+          "location": "ევროპა"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
         "credit": {
           "photographer": "SomlaiT",
-          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg",
+          "location": "უნგრეთი"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-5.jpg",
         "credit": {
           "photographer": "Hildegarda von Hildegardenburg",
-          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG"
+          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG",
+          "location": "პოდიიის ეროვნული პარკი, ჩეხეთი"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-6.jpg",
         "credit": {
           "photographer": "Lubor Ferenc",
-          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg",
+          "location": "ჩეხეთი"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-7.jpg",
         "credit": {
           "photographer": "Zerocool.marko",
-          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg",
+          "location": "სიჩევაცკის ხეობა, სერბეთი"
         }
       }
     ],
     "stats": [
       {
-        "label": "შხამი",
-        "value": "არა"
+        "label": "ჰაბიტატი",
+        "value": "ნოტიო ტყე–მთისწინეთი"
       },
       {
-        "label": "სტატუსი",
-        "value": "დადასტურებული"
+        "label": "სიგრძე",
+        "value": "ხშირად 0.7–1.6 მ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
+      },
+      {
+        "label": "გამრავლება",
+        "value": "კვერცხისმდები"
       },
       {
         "label": "ოჯახი",
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "აღწერა ლაურენტიმ 1768 წელს; ტიპის ადგილი ავსტრიაა და არა საქართველო. დიდი ხანი Elaphe longissima ერქვა. გვარი Zamenis Utiger და სხვ. 2002-ის შემდეგ იხმარება. იტალიური Zamenis lineatus ცალკე სახეობაა და ქართულ ჩამონათვალში არ არის.",
+      "ქართულად ესკულაპის მცურავი; ასევე გრძელი მცურავი. სახელი ასკლეპიოსის კვერთხს უკავშირდება — ანტიკურ სიმბოლოში გველი მკურნალობასთან იყო დაკავშირებული, არა შხამთან.",
+      "Musilová და სხვ. (2010) სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფენ. „აზიური კლადა“ აღმოსავლეთ შავიზღვისპირეთისაა; მათ ნიმუშში ერთი ინდივიდი ქუთაისიდან / სათაფლიიდანაა. ეს კლადა ევროპის პოსტგლაციალურ გავრცელებაში მთავარი არ ყოფილა — პრაქტიკულად ნიშნავს, რომ კავკასიური პოპულაციები დიდი ხანია განცალკევებულია დასავლეთ და აღმოსავლეთ ევროპის ხაზებისგან. ველში ამოცნობა სახეობამდეა.",
+      "2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების ნდობა საშუალოა. გალერეის ფოტოები ევროპულია და საქართველოში გადაღებულად არ უნდა ჩაითვალოს."
+    ],
     "identification": {
-      "summary": "უშხამო მცურავი მრგვალი გუგით; ზრდასრულები ხშირად უფრო ერთფეროვანია, ვიდრე Z. hohenackeri.",
+      "summary": "უშხამო, გრძელი მცურავია მრგვალი გუგით. ზრდასრული ხშირად ზეთისხილისფერი ან მოყავისფრო და შედარებით ერთფეროვანია; ახალგაზრდა ლაქებიანია. დასავლეთ საქართველოს ნოტიო ტყე უფრო ამ სახეობას უკავშირდება, ვიდრე აღმოსავლეთის მშრალ დაბლობს.",
       "traits": [
-        "მრგვალი გუგა; უშხამო კოლუბრიდი.",
-        "ზრდასრულები ხშირად ზეთისხილისფერ-ყავისფერი, შედარებით ერთფეროვანი.",
-        "ახალგაზრდებს ხშირად აქვთ ლაქები და ღია ნიშანი კისრის/საფეთქლის არეში.",
-        "ერევა ამიერკავკასიურ მცურავს, რომელიც ზრდასრულობაშიც უფრო ლაქებიანია."
+        "სხეული გრძელი და წვრილია, თავი კისრისგან ზომიერად გამოიყოფა. გუგა მრგვალია — არა ვერტიკალური ნაპრალი, როგორც გველგესლას. ზურგის ქერცელი გლუვია ან სუსტად კილური; სახეობის დონეზე შუა ტანზე ჩვეულებრივ 23 რიგია (იშვიათად 19–21). მუცლის ფარები გვერდზე ოდნავ კუთხოვანია, რაც ხეზე ასვლას ეხმარება. ქერცლის დასათვლელად გველი არ აიყვანოთ.",
+        "ზრდასრულის ფონი ზეთისხილისფერი, მოყავისფრო ან მოყვითალო-ყავისფერია და ხშირად ერთფეროვანი; ქერცლის კიდე შეიძლება ღია იყოს, ამიტომ ტანი წვრილად წინწკლებიანი ჩანს. მუცელი ღია, ხშირად მოყვითალოა. ახალგაზრდა მუქი ლაქებიანია და კისრის ან საფეთქლის არეში ღია ნიშანი აქვს — ამიტომ ანკარას ყვითელ საყელოს ერევა. ანკარას ხშირად უფრო კონტრასტული საყელო აქვს და წყალთან, ნესტიან დაბლობთან უფრო ახლოსაა; ეს სახეობა ხესა და ტყის პირს უკავშირდება.",
+        "ამიერკავკასიური მცურავი (Zamenis hohenackeri) ზრდასრულობაშიც ლაქებიან ნახატს ინარჩუნებს და უფრო მშრალ, კლდოვან ან ბალახოვან ადგილს უკავშირდება — აღმოსავლეთსა და სამცხის ნაწილში. იმერეთსა და სამცხე — ჯავახეთში ორივე გვარის გადაფარვა შესაძლებელია; იქ ნახატი და ჰაბიტატი ერთად უნდა ნახოთ. სპილენძა პატარაა (ჩვეულებრივ 50–70 სმ), გლუვქერცლიანი, თავზე ხშირად გვირგვინისებრი ნახატით. კავკასიურ გველგესლას ვერტიკალური გუგა, კილური ქერცელი და ხშირად აგურისფერი ტანი აქვს; შხამიანია. ურარტუს და სახეებიანი მცურავი აღმოსავლეთის მშრალი ზონის სახეობებია და კოლხეთში არ ეძებოთ.",
+        "ზომა წყაროებში არ ემთხვევა. 2021 წლის ქართული დანართი სახეობას საშუალო ზომის გველებს მიაკუთვნებს (მაქსიმუმი 70–120 სმ). ევროპულ სახელმძღვანელოებსა და სამოქმედო გეგმაში ზრდასრული ხშირად 1.4–1.6 მ-ია, სამხრეთში იშვიათად 2 მ-მდე. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის — ველში გრძელი ერთფეროვანი მცურავი დასავლეთის ტყეში ამ სახეობას უფრო ჰგავს, ვიდრე პატარა სპილენძას.",
+        "შხამი არ აქვს. მსხვერპლს შეკვრით ახრჩობს. თუ დიდ გველს ვერტიკალური გუგით ხედავთ ნოტიო დასავლეთში — ეს კავკასიური გველგესლაა, არა ეს სახეობა. არ აიყვანოთ."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა ესკულაპის მცურავი საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026 ჩამონათვალით დადასტურებულია; აზიური მიტოქონდრიული კლადა აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი."
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. 2021 წლის კვლევა მას ნოტიო კლიმატის სახეობად ასახელებს. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. უშხამო კოლუბრიდია."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "ნოტიო დასავლეთში — ტყე, ტყის პირი და მთისწინეთი. რუკაზეა აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი და სამცხე — ჯავახეთი. დასახელებული გენეტიკური წერტილია ქუთაისი / სათაფლია. ლაგოდეხის ძველი მითითება ამ რუკაზე არ არის შეფერილი და განახლებას საჭიროებს. აღმოსავლეთის მშრალ დაბლობზე ნუ ეძებთ."
       },
       {
-        "question": "როგორ განვასხვავოთ ამიერკავკასიური მცურავისგან?",
-        "answer": "Z. longissimus ზრდასრულობაში ხშირად უფრო ერთფეროვანია; Z. hohenackeri ლაქებიან ნახატს ინარჩუნებს. ორივე უშხამოა."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. მსხვერპლს შეკვრით ახრჩობს. თუ დაიჭერენ, შეიძლება უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა დასავლეთში კავკასიურ გველგესლაზე მიუთითებს."
       },
       {
-        "question": "რას ნიშნავს „აზიური კლადა“?",
-        "answer": "Musilová et al. 2010 სახეობაში რამდენიმე მიტოქონდრიულ კლადას გამოყოფს; ერთ-ერთი აღმოსავლეთ შავიზღვისპირეთისთვისაა დამახასიათებელი."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "მრგვალი გუგა, გრძელი ტანი, ზრდასრულში ზეთისხილისფერ-ყავისფერი ერთფეროვანი ზურგი; ახალგაზრდა ლაქებიანია ღია კისრის ნიშნით. ამიერკავკასიური მცურავი ზრდასრულობაშიც ლაქებიანია. ანკარას უფრო მკაფიო საყელო და წყალთან კავშირი აქვს."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ქართული 2021 წლის დანართი საშუალო ზომას უთითებს (70–120 სმ). ევროპულ წყაროებში ზრდასრული ხშირად 1.4–1.6 მ-ია. საქართველოსთვის ცალკე გაზომილი სერია აქ არ არის."
+      },
+      {
+        "question": "რას ჭამს და როდის არის აქტიური?",
+        "answer": "ქართული კვების კვლევა არ არის. სახეობის დონეზე — წვრილი ძუძუმწოვარი, ხვლიკი, ზოგჯერ ფრინველის კვერცხი და ბარტყი. დღისითაა აქტიური, დილით და საღამოს; ღამის სახეობად არ ითვლება."
+      },
+      {
+        "question": "როგორ განვასხვავო ამიერკავკასიური მცურავისგან?",
+        "answer": "ზრდასრული ესკულაპის მცურავი ხშირად ერთფეროვანია; ამიერკავკასიური მცურავი ლაქებს ინარჩუნებს და უფრო მშრალ ჰაბიტატს უკავშირდება. ორივე უშხამოა. გადაფარვა იმერეთსა და სამცხეშია შესაძლებელი."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -10839,7 +10932,32 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Musilová et al. 2010 — Phylogeography of the Aesculapian snake",
+        "url": "https://doi.org/10.1016/j.ympev.2010.09.017"
+      },
+      {
+        "name": "Agasyan et al. 2017 — IUCN Red List account for Zamenis longissimus",
+        "url": "https://www.iucnredlist.org/species/157266/49063773"
+      },
+      {
+        "name": "Edgar & Bird 2006 — Council of Europe action plan for Zamenis longissimus",
+        "url": "https://rm.coe.int/1680746d1b"
+      },
+      {
+        "name": "Utiger et al. 2002 — Molecular systematics of Old World ratsnakes",
+        "url": "https://doi.org/10.1078/0031-1049-00022"
+      },
+      {
+        "name": "Luiselli & Rugiero 1993 — Food habits of Elaphe longissima in central Italy",
+        "url": "https://doi.org/10.2307/1564922"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
@@ -15170,57 +15288,82 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "malpolon-insignitus": {
     "commonName": "Eastern Montpellier Snake",
-    "location": "Eastern Georgia",
-    "description": "A large rear-fanged snake — not a viper; treated as a candidate species in the checklist.",
-    "overview": "The eastern Montpellier snake (Malpolon insignitus) is a large diurnal psammophiid. Tarkhnishvili et al. 2026 treat it as a candidate species in the M. monspessulanus complex: the contact zone has not been studied at population level. It is recorded in Georgia; a barcoded specimen is from Chachuna Managed Reserve. It is often confused with the Levantine viper — this species is rear-fanged, not a viper. Risk to people is usually mild, but a bite should still be treated seriously.",
-    "habitat": "Open dry and Mediterranean-type landscapes. In Georgia a specimen is recorded from Chachuna Managed Reserve.",
-    "diet": "Primarily lizards; also other small vertebrates.",
-    "behavior": "A diurnal hunter with good vision. Rear-fanged: venom subdues prey and is usually mild for humans.",
-    "conservation": "Candidate species in the checklist. Species rank relative to M. monspessulanus still needs population-level evidence.",
+    "location": "South-eastern Georgia",
+    "description": "A large rear-fanged diurnal snake with raised “brows” and a round pupil — not a viper. Confirmed in Georgia in the dry south-east.",
+    "overview": "The eastern Montpellier snake (Malpolon insignitus) is a large rear-fanged diurnal snake of dry south-eastern Georgia — not a viper. The 2026 Georgian checklist includes it but treats full species rank as a candidate: it belongs to the M. monspessulanus complex. A named barcoded specimen is from Chachuna Managed Reserve (Kakheti). The 2021 Georgian snake survey places it only in south-eastern semi-arid country — do not look for it across the whole country. Risk to people is usually milder than a viper bite, but any bite should be treated seriously. IUCN lists it globally as Least Concern; the 2014 Georgian Red List still uses the older name Malpolon monspessulanus and rates it Vulnerable (VU).",
+    "habitat": "In Georgia you may meet it in dry open country of the south-east: steppe, semi-desert, stony slopes, and sparse dry scrub. The named modern locality is Chachuna Managed Reserve on the Iori plateau in Kakheti. The 2021 survey groups it with the Levantine viper and the Urartian ratsnake — species of south-eastern semi-arid landscapes only. Do not look for it in western Georgia, Colchis forest, or the high mountains. This atlas map shows Kakheti and does not mean the species is evenly present across that region. This page has no named modern locality in other administrative regions. Species-level literature often cites about 0–1,400 m; a Georgia-only elevation range has not been published here. The wider range runs from the eastern Mediterranean and North Africa into the Caucasus; the type locality is Egypt, not Georgia.",
+    "diet": "There is no separate Georgian diet study. The Georgian name reflects hunting lizards. Elsewhere in the range it mainly takes lizards; it also eats other snakes, small mammals, and birds. Rear fangs help subdue prey; they are not for attacking people. The Georgian menu has not been measured directly.",
+    "behavior": "It hunts by day. The 2021 Georgian review treats most snakes, including this group, as diurnal — more often early morning and before sunset. An hourly calendar for Georgia has not been published; expect the warm season in dry open country. It is fast and has well-developed vision. It usually flees. If cornered it may raise the front of the body, inflate, and hiss — a defensive display, not kinship with cobras. It lays eggs. Mating season and clutch size in Georgia have not been published here.",
+    "conservation": "The 2021 IUCN Red List assessment rates it globally as Least Concern — the range is wide. The 2014 Georgian Red List includes it under the older name Malpolon monspessulanus as Vulnerable (VU), criterion B2a — a small fragmented range. The national list has not been updated to the name M. insignitus; it still refers to the same Georgian population in practice. “Candidate” in the 2026 checklist is a taxonomic note, not a conservation category. Distribution confidence in that checklist is medium. Local threats include conversion of dry habitat, roadkill, and killing after confusion with the Levantine viper. Do not handle it.",
+    "interaction": "It is rear-fanged, not a viper. This atlas classifies it as moderate risk. Bites are usually local — pain, swelling, redness; rare systemic signs are documented mainly for western Malpolon monspessulanus. The fangs sit at the back of the mouth: a brief nip may inject little or no venom, a prolonged chew can. Do not pick it up. If the pupil is a vertical slit or the head is broad and triangular, it may be a Levantine viper — give it space and call 112 after a bite.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Dry open country"
+        "value": "SE dry country"
+      },
+      {
+        "label": "Length",
+        "value": "species ~1–2 m"
       },
       {
         "label": "Venom",
-        "value": "Mild (rear-fanged)"
+        "value": "Moderate risk"
       },
       {
-        "label": "Status",
-        "value": "Candidate"
+        "label": "Conservation",
+        "value": "VU (national)"
       },
       {
         "label": "Family",
         "value": "Psammophiidae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "Described in 1827 (Geoffroy Saint-Hilaire) as Coluber insignitus; the type locality is Egypt. Older Georgian and Soviet literature usually used Malpolon monspessulanus. Carranza et al. 2006 treat the eastern form as a separate species, M. insignitus. The 2026 checklist leaves full species rank as a candidate: the contact zone in north-eastern Morocco has not been studied at population level, and a hybrid has been reported.",
+      "The 2026 checklist barcode is from Chachuna (CaBOL-ID 1027416). That paper assigns Georgian material to the nominotypical subspecies M. i. insignitus; The Reptile Database often places Caucasian populations in M. i. fuscus. This page does not settle the subspecies.",
+      "The Georgian name reflects hunting lizards. The English name distinguishes it from western M. monspessulanus. It is not a cobra: raising the front of the body is a defensive display."
+    ],
     "identification": {
-      "summary": "A large robust snake with prominent brows. Round pupils and rear fangs separate it from the Levantine viper.",
+      "summary": "A large, fast diurnal snake with raised brows and a round pupil. Head shape, pupil, and rear fangs separate it from the Levantine viper — it is not a viper.",
       "traits": [
-        "Prominent brows / an “angry” look.",
-        "Round pupil — not a viper’s vertical slit.",
-        "Rear-fanged; usually mild for humans.",
-        "Often confused with the Levantine viper and the red-bellied racer."
+        "The body is slender but firm; the head is narrow and elongated. Scales above the eye are raised and give an “angry” look. The pupil is round — not a viper’s vertical slit. Dorsal scales are smooth, often 17–19 rows at mid-body. Do not pick the snake up to count scales.",
+        "Ground colour is olive, grey, or brownish. Males often have a more even back and narrow pale lines; females are more spotted or chequered. Males of this species usually lack the dark “saddle” of western M. monspessulanus. The belly is pale. Juveniles are more spotted. Sexual differences have not been measured separately in Georgia — these are species-level marks.",
+        "The Levantine viper (Macrovipera lebetinus) is heavier, with a broad triangular head, a vertical pupil, and keeled scales — a medically significant viper. The red-bellied racer (Dolichophis schmidti) is non-venomous, lacks raised brows, and as an adult often has a red or orange belly. The spotted whip snake (Hemorrhois ravergieri) has rhombic blotches along the back and no raised brow.",
+        "If you see a slender snake with a vertical pupil, it is a viper, not this species. Large harmless racers are fast but lack the Malpolon brow."
       ]
     },
     "faq": [
       {
-        "question": "Is this the Levantine viper?",
-        "answer": "No. Malpolon insignitus is rear-fanged, not a viper. The Levantine viper is a heavier true viper with a vertical pupil."
+        "question": "Is the eastern Montpellier snake found in Georgia?",
+        "answer": "Yes. The 2026 checklist includes it. A named barcoded specimen is from Chachuna Managed Reserve. It does not occur across the whole country."
       },
       {
-        "question": "How dangerous is a bite?",
-        "answer": "Site classification: Moderate. Usually mild for humans, but treat any bite seriously and call 112."
+        "question": "Where can it be found in Georgia?",
+        "answer": "Only in south-eastern semi-arid open country. The named modern locality is in Kakheti, around Chachuna. Do not look for it in the west, in Colchis forest, or in the high mountains. This page has no named locality in other regions."
       },
       {
-        "question": "Why is it a candidate species?",
-        "answer": "Tarkhnishvili et al. 2026 place it in the M. monspessulanus complex; the contact zone has not been studied at population level."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "It is rear-fanged, not a viper. This atlas rates it moderate risk. A bite is usually local and milder than a viper bite, but treat it seriously — call 112. Do not handle it. A vertical pupil points to a Levantine viper or another viper."
       },
       {
-        "question": "Where is it confirmed in Georgia?",
-        "answer": "It is on the checklist. A barcoded specimen is from Chachuna Managed Reserve (Tarkhnishvili et al. 2026)."
+        "question": "How do I tell it from the Levantine viper?",
+        "answer": "This species has a round pupil, a narrow head, and raised brows; the scales are smooth. The Levantine viper is heavy-bodied, with a broad triangular head, a vertical pupil, and keeled scales. If unsure, keep your distance."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Species-level literature often cites males around 1.5–2 m. The 2021 Georgian review, following Bannikov et al. 1977, groups it with medium snakes (maximum body length 70–120 cm). A Georgia-only measured maximum is not on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Diet has not been studied separately in Georgia. The name reflects lizard hunting. Elsewhere it mainly takes lizards; it also eats other snakes, small mammals, and birds."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "It is a day-active snake. An hourly calendar for Georgia has not been published; expect the warm season in dry open country, more often in the morning and towards evening. It lays eggs; Georgian clutch size is not given here."
+      },
+      {
+        "question": "What should I do if I meet one?",
+        "answer": "Watch from a distance, take a photo, and leave it. Do not pick it up. If the pupil is vertical or the head is broad and triangular, it may be a Levantine viper — walk away. After a bite, call 112."
       }
     ],
     "gallery": [
@@ -18943,53 +19086,84 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "zamenis-longissimus": {
     "commonName": "Aesculapian Snake",
-    "location": "Georgia",
-    "description": "A harmless colubrid; biologically confirmed in the Georgia checklist.",
-    "overview": "The Aesculapian snake (Zamenis longissimus) is a harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species. Published phylogeography recognises several mitochondrial clades; an “Asian clade” is native to the eastern Black Sea area (Musilová et al. 2010). It is on the Georgia checklist. It is often confused with the Transcaucasian ratsnake (Zamenis hohenackeri).",
-    "habitat": "The checklist does not name a specific habitat. The biogeographic context is the eastern Black Sea Asian clade.",
-    "diet": "The paper does not specify diet.",
-    "behavior": "A harmless colubrid with a round pupil.",
-    "conservation": "Biologically confirmed in the checklist.",
+    "location": "western Georgia — humid zone",
+    "description": "A non-venomous climbing snake of humid western Georgian forests. Adults are often relatively plain.",
+    "overview": "The Aesculapian snake (Zamenis longissimus) is a non-venomous climber of humid forests and foothills in western Georgia. It belongs to Colubridae. The 2026 Georgian checklist treats it as biologically confirmed; distribution confidence is medium. The 2021 snake survey groups it with relatively humid-climate species — alongside Caucasian viper and smooth snake — not with the semi-arid south-east. Do not expect it throughout Georgia. It is harmless to people. Adults are often confused with Transcaucasian ratsnake; juveniles can resemble a grass snake’s pale collar.",
+    "habitat": "In Georgia look in the humid west and foothills — deciduous or mixed forest, forest edge, scrub, sunny slopes, and settlement edges with trees, stone, or old buildings. At species level it climbs well; cavities and branches are both shelter and hunting sites. The 2021 study links it to relatively humid climate. The 2006 European action plan, citing Tarkhnishvili et al. 2002, states it has not been found in Georgian areas with under 800 mm annual rainfall; the same text places it across the western half from the Black Sea coast into Caucasus foothills, plus a probably isolated population near Lagodekhi. Lagodekhi is not coloured on this atlas map — that is an older literature record not reconfirmed here with 2021–2026 sources. The map marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, and Samtskhe — Javakheti. An administrative region is not uniform habitat: the dry Javakheti plateau is more typical of Transcaucasian ratsnake. A named genetic locality is Kutaisi / Sataplia: Musilová et al. (2010) used a sample from there for the “Asian” mitochondrial clade of the eastern Black Sea. Species-level accounts describe occurrence to about 2,000 m in Europe; a measured Georgian elevation band is not published on this page.",
+    "diet": "There is no separate Georgian diet study. At species level adults take small mammals — mice, voles, up to rats — and often lizards; climbing lets them take bird eggs and nestlings, though that is not equally documented in every population. In central Italy, stomach contents from 32 snakes were mainly rodents and lizards; birds were absent from that sample. Juveniles depend more on lizards and small prey. Prey is killed by constriction — there is no venom. The 2021 Georgian appendix groups “other” snakes, including this species, as feeding mostly on small mammals, reptiles, or birds; that is a coarse class, not a local menu.",
+    "behavior": "The 2021 Georgian appendix treats most snakes in the country as diurnal — early morning and before sunset; Aesculapian snake is not listed as nocturnal. It is active in the warm season and overwinters in burrows or rock and tree crevices. Exact warm-season months in Georgia are not separately published in the sources used here. It usually flees if threatened. If seized it may bite — painful, not venomous. Do not handle it. It is oviparous. In European material females typically lay 2–18 eggs in rotting vegetation, compost, manure heaps, or tree hollows; those figures are not a Georgian nest sample. Juveniles are blotched, often with a pale mark on the neck or temple.",
+    "conservation": "IUCN assessed it as Least Concern in 2017. It is not on Georgia’s 2014 Red List — the only snakes listed there are Dinnik’s viper and Caucasian viper. Older Georgian references to a “Red Book” do not override the 2014 legal list. In Europe it is on Bern Convention Appendix II and EU Habitats Directive Annex IV; the Habitats Directive is not Georgian law. The 2026 checklist gives medium distribution confidence: the humid western range is supported, but local density and the old Lagodekhi record are not fully updated. Local pressures include forest-edge conversion, road mortality, and killing after confusion with vipers.",
+    "interaction": "It has no venom. If you meet one, keep distance and do not pick it up. In the same humid west, Caucasian viper occurs — a vertical pupil and keeled scales point to a venomous species.",
     "stats": [
       {
-        "label": "Venom",
-        "value": "None"
+        "label": "Habitat",
+        "value": "humid forest–foothills"
       },
       {
-        "label": "Status",
-        "value": "Confirmed"
+        "label": "Length",
+        "value": "often 0.7–1.6 m"
+      },
+      {
+        "label": "Venom",
+        "value": "none — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
+      },
+      {
+        "label": "Reproduction",
+        "value": "egg-laying"
       },
       {
         "label": "Family",
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "Described by Laurenti in 1768; the type locality is Austria, not Georgia. It was long called Elaphe longissima. The genus Zamenis has been used since Utiger et al. 2002. Italian Zamenis lineatus is a separate species and is not on the Georgian checklist.",
+      "Georgian names: ესკულაპის მცურავი and გრძელი მცურავი. The English name refers to the staff of Asclepius — a medical symbol, not a venom warning.",
+      "Musilová et al. (2010) recognise several mitochondrial clades. The “Asian clade” is native to the eastern Black Sea; their sample includes one snake from Kutaisi / Sataplia. That clade did not drive Europe’s post-glacial spread — in practice Caucasian populations have long been separate from the western and eastern European lineages. Field identification is to species.",
+      "Biologically confirmed in the 2026 checklist; distribution confidence is medium. Gallery photos are European and should not be read as Georgian field shots."
+    ],
     "identification": {
-      "summary": "A harmless ratsnake with a round pupil; adults are often more uniform than Z. hohenackeri.",
+      "summary": "A long, non-venomous ratsnake with a round pupil. Adults are often olive or brown and relatively plain; juveniles are blotched. Humid western Georgian forest fits this species better than the dry eastern lowlands.",
       "traits": [
-        "Round pupil; non-venomous colubrid.",
-        "Adults often olive-brown and relatively uniform.",
-        "Juveniles often blotched, with a pale mark on the neck or temple.",
-        "Confused with Z. hohenackeri, which stays more patterned as an adult."
+        "The body is long and slender; the head is only moderately distinct from the neck. The pupil is round — not a vertical slit as in vipers. Dorsal scales are smooth or weakly keeled; at species level there are usually 23 mid-body rows (rarely 19–21). Ventral scales are slightly angled at the sides, which helps climbing. Do not handle a snake to count scales.",
+        "Adult ground colour is olive, brown, or yellowish-brown and often rather uniform; paler scale edges can give a fine speckled look. The belly is pale, often yellowish. Juveniles are dark-blotched with a pale neck or temple mark, so they are confused with a grass snake’s yellow collar. Grass snakes usually have a sharper collar and stay closer to water and damp low ground; this species is tied to trees and forest edge.",
+        "Transcaucasian ratsnake (Zamenis hohenackeri) keeps a blotched pattern as an adult and is tied to drier rocky or grassy ground — more eastern and in parts of Samtskhe. Overlap is possible in Imereti and Samtskhe — Javakheti; use pattern and habitat together. Smooth snake is smaller (usually 50–70 cm), smooth-scaled, often with a crown-like head mark. Caucasian viper has a vertical pupil, keeled scales, and often a brick-red body; it is venomous. Urartian and steppe ratsnakes belong to the dry east — do not look for them in Colchis.",
+        "Size sources disagree. The 2021 Georgian appendix classes this species as medium (maximum 70–120 cm). European guides and the action plan often give adults 1.4–1.6 m, rarely to 2 m in the south. There is no measured Georgian series on this page — in the field, a long, relatively plain ratsnake in western forest fits this species better than a small smooth snake.",
+        "It has no venom. Prey is subdued by constriction. A large snake with a vertical pupil in the humid west is Caucasian viper, not this species. Do not handle it."
       ]
     },
     "faq": [
       {
         "question": "Does the Aesculapian snake occur in Georgia?",
-        "answer": "Yes. It is on the Tarkhnishvili et al. 2026 checklist; the Asian mitochondrial clade is associated with the eastern Black Sea area."
+        "answer": "Yes. It is biologically confirmed on the 2026 checklist. The 2021 survey treats it as a humid-climate species. It does not occur throughout the country."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. It is a non-venomous colubrid."
+        "question": "Where might I see it in Georgia?",
+        "answer": "In the humid west — forest, forest edge, and foothills. The map marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, and Samtskhe — Javakheti. A named genetic locality is Kutaisi / Sataplia. The old Lagodekhi record is not coloured here and still needs updating. Do not look on the dry eastern lowlands."
       },
       {
-        "question": "How does it differ from the Transcaucasian ratsnake?",
-        "answer": "Adult Z. longissimus is often more uniform; Z. hohenackeri keeps a blotched pattern. Both are harmless."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. It constricts prey. If seized it may bite — do not handle it. A vertical pupil in the west points to Caucasian viper."
       },
       {
-        "question": "What is the “Asian clade”?",
-        "answer": "Musilová et al. 2010 recognise several mitochondrial clades within the species; one is native to the eastern Black Sea area."
+        "question": "How do I identify it?",
+        "answer": "Round pupil, long body, olive-brown and relatively plain as an adult; juveniles blotched with a pale neck mark. Transcaucasian ratsnake stays blotched as an adult. Grass snake has a sharper collar and a closer link to water."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "The 2021 Georgian appendix gives a medium size class (70–120 cm). European sources often give adults 1.4–1.6 m. There is no separate measured Georgian series here."
+      },
+      {
+        "question": "What does it eat, and when is it active?",
+        "answer": "There is no Georgian diet study. At species level — small mammals, lizards, sometimes bird eggs and nestlings. It is diurnal, mainly morning and evening; it is not treated as a nocturnal species."
+      },
+      {
+        "question": "How does it differ from Transcaucasian ratsnake?",
+        "answer": "Adult Aesculapian snake is often plainer; Transcaucasian ratsnake keeps blotches and is tied to drier habitat. Both are harmless. Overlap is possible in Imereti and Samtskhe."
       }
     ],
     "gallery": [
@@ -18997,66 +19171,76 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus.jpg",
         "credit": {
           "photographer": "Wolfgang Wüster",
-          "url": "https://www.inaturalist.org/observations/19465840"
+          "url": "https://www.inaturalist.org/observations/19465840",
+          "location": "Europe"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-mobile.jpg",
         "credit": {
           "photographer": "Daniel Iversen",
-          "url": "https://www.inaturalist.org/observations/28676867"
+          "url": "https://www.inaturalist.org/observations/28676867",
+          "location": "Europe"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-2.jpg",
         "credit": {
           "photographer": "Manuel Raab",
-          "url": "https://www.inaturalist.org/observations/184736285"
+          "url": "https://www.inaturalist.org/observations/184736285",
+          "location": "Europe"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-3.jpg",
         "credit": {
           "photographer": "Philipp Pavelka",
-          "url": "https://www.inaturalist.org/observations/25489275"
+          "url": "https://www.inaturalist.org/observations/25489275",
+          "location": "Europe"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
         "credit": {
           "photographer": "SomlaiT",
-          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:Erdei_sikl%C3%B3.jpg",
+          "location": "Hungary"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-5.jpg",
         "credit": {
           "photographer": "Hildegarda von Hildegardenburg",
-          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG"
+          "url": "https://commons.wikimedia.org/wiki/File:Zamenis_longissimus_(Nov%C3%BD_Hr%C3%A1dek_Castle,_Podyj%C3%AD_National_Park).JPG",
+          "location": "Podyjí National Park, Czechia"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-6.jpg",
         "credit": {
           "photographer": "Lubor Ferenc",
-          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:U%C5%BEovka_stromov%C3%A1_(1).jpg",
+          "location": "Czechia"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/zamenis-longissimus-7.jpg",
         "credit": {
           "photographer": "Zerocool.marko",
-          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg"
+          "url": "https://commons.wikimedia.org/wiki/File:Smuk,_Zamenis_longissimus,_Si%C4%87eva%C4%8Dka_klisura_(1).jpg",
+          "location": "Sićevo Gorge, Serbia"
         }
       }
     ],
     "imageCredit": {
       "photographer": "Wolfgang Wüster",
-      "url": "https://www.inaturalist.org/observations/19465840"
+      "url": "https://www.inaturalist.org/observations/19465840",
+      "location": "Europe"
     },
     "mobileImageCredit": {
       "photographer": "Daniel Iversen",
-      "url": "https://www.inaturalist.org/observations/28676867"
+      "url": "https://www.inaturalist.org/observations/28676867",
+      "location": "Europe"
     }
   }
 };
