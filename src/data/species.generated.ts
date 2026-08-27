@@ -5846,7 +5846,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — შეიძლება გიურზა იყოს; გაეცით გზა. ნაკბენისას დარეკეთ 112."
       }
     ],
-    "updatedAt": "2026-08-21T00:44:34+04:00",
+    "updatedAt": "2026-08-27T12:28:29+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10655,13 +10655,14 @@ export const species: Species[] = [
     "scientificName": "Zamenis hohenackeri",
     "genus": "Zamenis",
     "family": "Colubridae",
-    "location": "საქართველო",
-    "description": "უშხამო, ლაქებიანი მცურავი; ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა.",
-    "overview": "ამიერკავკასიური მცურავი (Zamenis hohenackeri) კოლუბრიდების უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს. საქართველოში გვხვდება ნომინოტიპური ქვესახეობა Z. h. hohenackeri. გენეტიკურად ახლოსაა კავკასიისა და აღმოსავლეთ თურქეთის პოპულაციებთან. ნაშრომის ფიგურაზე ნიმუში მითითებულია ადიგენის მუნიციპალიტეტიდან, სოფელ გომაროდან. ხშირად ერევა ესკულაპის მცურავს (Zamenis longissimus).",
-    "habitat": "ჩამონათვალი კონკრეტულ ჰაბიტატს არ ასახელებს. ნაშრომის ფიგურაზე ნიმუში — ადიგენის მუნიციპალიტეტი, სოფელი გომარო.",
-    "diet": "ნაშრომი კვებას არ აკონკრეტებს.",
-    "behavior": "უშხამო კოლუბრიდი; მრგვალი გუგა.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — Z. h. hohenackeri.",
+    "location": "საქართველო — მშრალი კლდოვანი და ბალახოვანი ადგილები",
+    "description": "უშხამო, ლაქებიანი მცურავი საქართველოს მშრალ კლდოვან და ბალახოვან ადგილებში. ადამიანისთვის უვნებელია.",
+    "overview": "ამიერკავკასიური მცურავი (Zamenis hohenackeri) საქართველოში დადასტურებული უშხამო, ლაქებიანი მცურავია მშრალი კლდოვანი და ბალახოვანი ადგილებისა. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; ქვეყანაში გვხვდება ნომინოტიპური ქვესახეობა Z. h. hohenackeri. ზრდასრული ხშირად მეტრზე მოკლეა; მეზობელ აზერბაიჯანში გაზომილ ზრდასრულებს სხეულის სიგრძე დაახლოებით 62–78 სმ ჰქონდათ, პლუს უფრო მოკლე კუდი. შხამი არ აქვს. IUCN-ით გლობალურად ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ხშირად ერევა ესკულაპის მცურავს და სხვა ლაქებიან გველს, მათ შორის გველგესლას.",
+    "habitat": "2021 წლის ქართული გველების კვლევა მას შედარებით მშრალი კლიმატის სახეობებს მიაკუთვნებს — კლდოვან ან ბალახოვან ადგილზე, ძირითადად აღმოსავლეთში, ერთად სახეებიან მცურავთან, ჭრელ ანკარასთან და ცხვირრქოსან გველგესლასთან. იგივე ნაშრომი აღნიშნავს, რომ რამდენიმე ასეთი ანკარა, მათ შორის ეს სახეობა, შესაფერის ჰაბიტატში დასავლეთშიც დაფიქსირდა; ადრე ისინი მხოლოდ აღმოსავლეთით ითვლებოდა. ამ ატლასის რუკაზე აღნიშნულია იმერეთი, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი და თბილისი. კახეთი რუკაზე არ არის, თუმცა ლიტერატურა სახეობას ძირითადად აღმოსავლეთის მშრალ ზონას უკავშირებს — ეროვნული რუკა ჯერ არასრულია. დასახელებული წერტილებია: ადიგენის მუნიციპალიტეტი, სოფელი გომარო (2026 წლის ჩამონათვალის შტრიხკოდირებული ნიმუში და თავის ფოტოები); ბოშური (გენეტიკური ნიმუში Jandzik et al. 2013; გორის მუნიციპალიტეტში არის ზემო და ქვემო ბოშური); ტიპის სერიაში ისტორიულად შედის თბილისი (Tiflis, Strauch 1873). მთელ ქვეყანაში თანაბარ სიმჭიდროვეს ნუ ივარაუდებთ. სახეობის დონეზე ხშირად მთის სარტყელშია; Jandzik უმეტესად 900–3 000 მ-ს ასახელებს, სამხრეთ არეალში უფრო დაბლაც. საქართველოს ცალკე სიმაღლის სარტყელი ამ გვერდზე არ არის გაზომილი. ესკულაპის მცურავისგან განსხვავებით, ნოტიო კოლხური ტყის სახეობად არ ითვლება.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. სომხეთის წითელი წიგნის ანგარიშით ზრდასრული იჭერს წვრილ მღრღნელებსა და ხვლიკებს; ახალგაზრდა — მწერებსაც. აზერბაიჯანულ და კავკასიურ აღწერებში იგივე სურათია. მსხვერპლს ახრჩობს; შხამი არ აქვს. საქართველოში რეალისტური მენიუ იგივე უნდა იყოს კლდოვან და ბალახოვან ადგილზე, მაგრამ ადგილობრივი მონაცემი აქ არ არის.",
+    "behavior": "მალული სახეობაა. Jandzik და თანაავტორები მას ძირითადად ბინდისა და ღამის აქტიურობას უწერენ; ამიტომ დღისით იშვიათად ჩანს. გუგა მრგვალია. საფრთხისას უპირატესად გარბის; ადამიანს არ ეძებს. კვერცხისმდებია. სახეობის დონეზე ნაშთში ხშირად 3–7 კვერცხია. სომხეთში აღწერილია: გამოზამთრების შემდეგ აპრილში გამოდის, კვერცხს დებს ივნისის შუაში, ნაშიერი იჩეკება სექტემბრის დასაწყისში. ეს სომხური ფენოლოგიაა და არა საქართველოში გაზომილი კალენდარი.",
+    "conservation": "Hraoui-Bloquet და თანაავტორები სახეობას IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2009). საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ეს ტაქსონი არ არის; იქ გველებიდან შეტანილია კავკასიური და დინიკის გველგესლა და ხვლიკიჭამია გველი (ძველი სახელი Malpolon monspessulanus). სომხეთსა და აზერბაიჯანში ეროვნულად მოწყვლადადაა შეფასებული; ზოგი მეზობელი წყარო ძველ ქართულ წითელ წიგნსაც ასახელებს — ეს 2014 წლის ნუსხას არ ემთხვევა. Iankoshvili და Tarkhnishvili 2021 არეალის ცოდნას მნიშვნელოვნად აფართოებს; IUCN-ის კატეგორიები არეალის ზომაზეა დამოკიდებული, ამიტომ დასავლეთის ახალი ჩანაწერები კონსერვაციის შეფასებას ცვლის. ადგილობრივი წნეხია ჰაბიტატის გარდაქმნა და შხამიანთან აღრევის გამო მოკვლა. საქართველოს პოპულაციის ტენდენცია აქ არ არის გაზომილი. ველური გველი არ აიყვანოთ.",
+    "interaction": "შხამი არ აქვს. ნაკბენი სამედიცინოდ მნიშვნელოვანი არ არის, მაგრამ ველური გველი არ აიყვანოთ. ლაქებიანი ნახატი გველგესლასთან აღრევას იწვევს — ჯერ გუგა და თავის ფორმა შეამოწმეთ, შემდეგ მანძილი დაიცავით.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/zamenis-hohenackeri.jpg",
     "imageCredit": {
@@ -10705,11 +10706,23 @@ export const species: Species[] = [
     ],
     "stats": [
       {
-        "label": "შხამი",
-        "value": "არა"
+        "label": "ჰაბიტატი",
+        "value": "მშრალი კლდე / ბალახი"
       },
       {
-        "label": "სტატუსი",
+        "label": "სიგრძე",
+        "value": "ხშირად 75–95 სმ"
+      },
+      {
+        "label": "შხამი",
+        "value": "არა — უვნებელი"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC / წითელ ნუსხაში არა"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
         "value": "დადასტურებული"
       },
       {
@@ -10717,32 +10730,53 @@ export const species: Species[] = [
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "აღწერა Strauch-მა 1873 წელს გააკეთა როგორც Coluber hohenackeri. ტიპის ადგილებია ჰელენენდორფი/ელისაბეტპოლი (დღეს გოიგოლი და განჯა, აზერბაიჯანი) და ტიფლისი (თბილისი). გვარში Zamenis გადაიტანეს Utiger et al. 2002-მა. ძველ ქართულ და საბჭოთა წიგნებში იხმარება Elaphe hohenackeri.",
+      "საქართველოში მხოლოდ Z. h. hohenackeri. უფრო ფართო არეალში აღიარებულია აგრეთვე Z. h. tauricus (სამხრეთ ანატოლია–ლევანტი) და Z. h. lyciensis (სამხრეთ-დასავლეთ თურქეთი, Hofmann et al. 2018). ეს ქვესახეობები საქართველოში არ გვხვდება.",
+      "Tarkhnishvili et al. 2026 ქართულ ინდივიდებს კავკასიისა და აღმოსავლეთ თურქეთის პოპულაციებთან გენეტიკურად ახლოს მიიჩნევს. შტრიხკოდი: CaBOL-ID 1027409, გომარო.",
+      "2026 წლის ჩამონათვალი უარყოფს დაუდასტურებელ თბილისის ხსენებას Elaphe situla-ზე; შესაძლო აღრევა ამ სახეობასთან ან E. dione-სთან."
+    ],
     "identification": {
-      "summary": "უშხამო მცურავი, რომელიც ზრდასრულობაშიც ლაქებიან ნახატს ინარჩუნებს.",
+      "summary": "უშხამო, შედარებით წვრილი მცურავი მრგვალი გუგით. ზრდასრულობაშიც ორ რიგად განლაგებული მუქი ლაქები და ღია ზურგის ხაზი რჩება — ესკულაპის მცურავისგან განსხვავებით.",
       "traits": [
-        "მრგვალი გუგა; უშხამო კოლუბრიდი.",
-        "ზრდასრულებიც ხშირად ლაქებიანი/ჭრელია — არა ერთფეროვანი როგორც Z. longissimus.",
-        "თავსა და კისერზე ხშირად მუქი ნიშნებია.",
-        "ერევა ესკულაპის მცურავს."
+        "გუგა მრგვალია, არა ვერტიკალური ჭრილი როგორც გველგესლას. თავი სხეულისგან ზომიერადაა გამოყოფილი, ცხვირის რქა არ აქვს. ზურგის წინა ნახევრის ქერცლი გლუვია; კუდთან შეიძლება ოდნავ კილური იყოს (აზერბაიჯანული სერია).",
+        "ნომინოტიპურ ქვესახეობაში ზურგზე ორი გრძივი რიგი ოხრისფერი ან ყავისფერი ლაქაა, შუაში ვიწრო ღია ხაზით. თავიდან კისერზე ხშირად ჩანგლისებრი მუქი ნიშანია. თვალიდან პირის კუთხემდე ირიბი მუქი ზოლია; თვალის ქვეშ ხშირად ვერტიკალური მუქი ხაზი. მუცელი მოწითალო ან მოყვითალოა, ნაცრისფერი ლაქებით. ახალგაზრდაზე კონტრასტი უფრო მკვეთრია; ასაკთან ერთად ფონი მუქდება და ლაქები ნაკლებად ჩანს.",
+        "ძველ სახეობის აღწერებში სრული სიგრძე ხშირად დაახლოებით 65 სმ-ია. აზერბაიჯანში ზრდასრულების სხეული 61.5–78.1 სმ, კუდი 11.2–16.4 სმ; დედალი საშუალოდ დიდია. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის.",
+        "ესკულაპის მცურავი (Zamenis longissimus) ზრდასრულობაში ხშირად უფრო ერთფეროვანი ზეთისხილისფერ-ყავისფერია; ეს სახეობა ლაქებს ინარჩუნებს. Z. longissimus უფრო ნოტიო, ტყიან ადგილს უკავშირდება. სახეებიანი მცურავი (Elaphe dione) ხშირად ოთხ გრძივ ზოლს აჩვენებს და უფრო სტეპურ-მშრალია. ურარტუს მცურავი (Elaphe urartica) უფრო დიდია, მსხვილი მომრგვალებული ლაქებით. სპილენძა (Coronella austriaca) უფრო პატარაა, გლუვქერცლიანი, სხვა თავის ნახატით. ჭრელი ანკარა (Hemorrhois ravergieri) უფრო სწრაფი, წაგრძელებული თავით. ცხვირრქოსან გველგესლას ვერტიკალური გუგა, კილური ქერცლი და ნამდვილი ცხვირის რქა აქვს — შხამიანია."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა ამიერკავკასიური მცურავი საქართველოში?",
-        "answer": "დიახ. ჩამონათვალით დადასტურებულია; საქართველოში მითითებულია Z. h. hohenackeri. ნაშრომის ფიგურაზე ნიმუში — ადიგენი, სოფელი გომარო."
+        "answer": "კი. 2026 წლის ჩამონათვალით ბიოლოგიურად დადასტურებულია. ქვეყანაში მითითებულია ქვესახეობა Z. h. hohenackeri."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "მშრალ კლდოვან და ბალახოვან ადგილზე, უფრო აღმოსავლეთსა და სამხრეთის მთისწინეთში; შესაფერის ჰაბიტატში დასავლეთშიც. ამ ატლასზე რუკულია იმერეთი, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი და თბილისი. დასახელებული წერტილებია გომარო (ადიგენი), ბოშური და ისტორიულად თბილისი."
       },
       {
         "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. უშხამო კოლუბრიდია."
+        "answer": "არა. ანკარასებრთა უშხამო მცურავია. ადამიანისთვის უვნებელია. არ აიყვანოთ."
       },
       {
-        "question": "როგორ განვასხვავოთ ესკულაპის მცურავისგან?",
-        "answer": "Z. hohenackeri ზრდასრულობაშიც უფრო ლაქებიანია; Z. longissimus ხშირად უფრო ერთფეროვანი. ორივე უშხამოა."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "მრგვალი გუგა, ზურგზე ორი რიგი მუქი ლაქა ღია შუა ხაზით, თვალიდან პირის კუთხემდე მუქი ზოლი. ზრდასრულიც ლაქებიანი რჩება. გველგესლას ვერტიკალური გუგა და ხშირად ცხვირის რქა აქვს."
       },
       {
-        "question": "რომელი ქვესახეობაა საქართველოში?",
-        "answer": "Tarkhnishvili et al. 2026: საქართველოში გვხვდება Z. h. hohenackeri. უფრო ფართო არეალში Reptile Database სხვა ქვესახეობებსაც ასახელებს."
+        "question": "როგორ განვასხვავო ესკულაპის მცურავისგან?",
+        "answer": "ესკულაპის მცურავი ზრდასრულობაში ხშირად უფრო ერთფეროვანია და უფრო ნოტიო ტყეს უკავშირდება. ამიერკავკასიური მცურავი ლაქებს ინარჩუნებს და მშრალ კლდოვან ადგილს ანიჭებს უპირატესობას. ორივე უშხამოა."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "ძველ აღწერებში ხშირად დაახლოებით 65 სმ სრული სიგრძეა. აზერბაიჯანში ზრდასრულის სხეული დაახლოებით 62–78 სმ-ია, პლუს მოკლე კუდი. საქართველოს ცალკე სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "სახეობის დონეზე — წვრილ მღრღნელებსა და ხვლიკებს; ახალგაზრდა მწერებსაც. ქართული კვების კვლევა ამ გვერდზე არ არის."
+      },
+      {
+        "question": "დაცულია?",
+        "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა (IUCN, 2009). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. სომხეთსა და აზერბაიჯანში ეროვნულად მოწყვლადად ითვლება."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -10752,11 +10786,39 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Jandzik, Avcı & Gvoždík 2013 — Lineages within Zamenis hohenackeri",
+        "url": "https://doi.org/10.1163/15685381-00002911"
+      },
+      {
+        "name": "Hofmann et al. 2018 — Subspecies of Zamenis hohenackeri",
+        "url": "https://doi.org/10.11646/zootaxa.4471.1.6"
+      },
+      {
+        "name": "Utiger et al. 2002 — Molecular systematics of ratsnakes; transfer to Zamenis"
+      },
+      {
+        "name": "Iskanderov, Ahmedov & Qasymova 2017 — Morphology and records in Azerbaijan",
+        "url": "http://www.idosi.org/wjz/wjz12(1)17/1.pdf"
+      },
+      {
+        "name": "Arakelyan et al. 2013 — Red Data Book of Armenia, Zamenis hohenackeri",
+        "url": "https://doi.org/10.11648/j.aff.20130202.14"
+      },
+      {
+        "name": "Hraoui-Bloquet et al. 2009 — IUCN Red List, Zamenis hohenackeri",
+        "url": "https://www.iucnredlist.org/species/157251/5060528"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Zamenis&species=hohenackeri"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -10925,7 +10987,7 @@ export const species: Species[] = [
         "answer": "ზრდასრული ესკულაპის მცურავი ხშირად ერთფეროვანია; ამიერკავკასიური მცურავი ლაქებს ინარჩუნებს და უფრო მშრალ ჰაბიტატს უკავშირდება. ორივე უშხამოა. გადაფარვა იმერეთსა და სამცხეშია შესაძლებელი."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T12:28:29+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -18996,20 +19058,33 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "zamenis-hohenackeri": {
     "commonName": "Transcaucasian Ratsnake",
-    "location": "Georgia",
-    "description": "A harmless, patterned ratsnake; biologically confirmed in the Georgia checklist.",
-    "overview": "The Transcaucasian ratsnake (Zamenis hohenackeri) is a harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species. The subspecies in Georgia is Z. h. hohenackeri. It is genetically close to other populations from the Caucasus and eastern Türkiye. A paper figure locality is Gomaro Village, Adigeni district. It is often confused with the Aesculapian snake (Zamenis longissimus).",
-    "habitat": "The checklist does not name a specific habitat. A paper figure specimen is from Gomaro Village, Adigeni district.",
-    "diet": "The paper does not specify diet.",
-    "behavior": "A harmless colubrid with a round pupil.",
-    "conservation": "Biologically confirmed in the checklist. Georgia: Z. h. hohenackeri.",
+    "location": "Georgia — dry rocky and grassland country",
+    "description": "A harmless, blotched ratsnake of dry rocky and grassland habitats in Georgia.",
+    "overview": "The Transcaucasian ratsnake (Zamenis hohenackeri) is a confirmed, non-venomous blotched ratsnake of dry rocky and grassland country in Georgia. The 2026 Georgian checklist treats it as biologically confirmed; the subspecies in Georgia is Z. h. hohenackeri. Adults are usually well under a metre; measured Azerbaijan adults had body lengths of about 62–78 cm plus a shorter tail. It is not venomous. IUCN lists it as Least Concern. It is not on Georgia’s 2014 Red List. It is often confused with the Aesculapian snake and with other blotched snakes, including vipers.",
+    "habitat": "A 2021 Georgian snake-distribution study places it among species of reasonably dry climate, in rocky or grassland settings, mostly in the east — together with the Steppe ratsnake, spotted racer, and Transcaucasian nose-horned viper. The same paper reports that several such colubrids, including this species, were also recorded in suitable western habitats after previously being known mainly from the east. This atlas maps Imereti, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, and Tbilisi. Kakheti is not on that map, even though literature ties the species mainly to eastern dry country — the national map is still incomplete. Named points include Gomaro village, Adigeni municipality (the 2026 checklist barcode and head photographs); Boshuri (a genetic sample in Jandzik et al. 2013; Zemo and Kvemo Boshuri exist in Gori municipality); and Tbilisi (Tiflis) in Strauch’s 1873 type series. Do not assume even density across the country. At species level it is often montane; Jandzik et al. give mostly 900–3,000 m, lower in southern parts of the range. A Georgia-only elevation belt is not measured on this page. Unlike the Aesculapian snake, it is not treated as a humid Colchic-forest snake.",
+    "diet": "There is no separate Georgian diet study on this page. The Armenian Red Data Book account says adults take small rodents and lizards; juveniles also take insects. Azerbaijan and Caucasus accounts match that picture. Prey is constricted; there is no venom. A realistic Georgian diet in rocky grassland should be similar, but local stomach data are not cited here.",
+    "behavior": "It is secretive. Jandzik et al. describe mainly crepuscular and nocturnal activity, so daytime encounters are uncommon. The pupil is round. When threatened it usually flees; it does not hunt people. It lays eggs. Species accounts typically give 3–7 eggs per clutch. In Armenia it is described as emerging in April after winter, laying in mid-June, with hatchlings in early September. That calendar is Armenian, not a measured Georgian season.",
+    "conservation": "Hraoui-Bloquet et al. assess the species as Least Concern on the IUCN Red List (2009). It is not on Georgia’s 2014 Red List (Decree No. 190); snakes listed there include the Caucasus viper, Dinnik’s viper, and the Montpellier snake under the old name Malpolon monspessulanus. Armenia and Azerbaijan treat it as nationally Vulnerable; some neighbouring sources also cite an older Georgian Red Book — that is not the 2014 list. Iankoshvili and Tarkhnishvili 2021 substantially expanded range knowledge; IUCN categories depend on range size, so new western records change conservation geography. Local pressure includes habitat conversion and killing after confusion with venomous snakes. A Georgian population trend is not measured here. Do not collect wild snakes.",
+    "interaction": "It is not venomous. A bite is not medically significant, but do not pick up a wild snake. The blotched pattern is easily confused with a viper — check the pupil and head shape first, then keep your distance.",
     "stats": [
       {
-        "label": "Venom",
-        "value": "None"
+        "label": "Habitat",
+        "value": "Dry rock / grass"
       },
       {
-        "label": "Status",
+        "label": "Length",
+        "value": "Often 75–95 cm"
+      },
+      {
+        "label": "Venom",
+        "value": "None — harmless"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC / not on Red List"
+      },
+      {
+        "label": "Status in Georgia",
         "value": "Confirmed"
       },
       {
@@ -19017,32 +19092,53 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "Strauch described it in 1873 as Coluber hohenackeri. Type localities include Helenendorf/Elisabethpol (today Goygol and Ganja, Azerbaijan) and Tiflis (Tbilisi). Utiger et al. 2002 moved it to Zamenis. Older Georgian and Soviet books use Elaphe hohenackeri.",
+      "Only Z. h. hohenackeri occurs in Georgia. The wider range also includes Z. h. tauricus (southern Anatolia–Levant) and Z. h. lyciensis (south-western Türkiye; Hofmann et al. 2018). Those subspecies do not occur in Georgia.",
+      "Tarkhnishvili et al. 2026 treat Georgian animals as genetically close to other Caucasus and eastern Türkiye populations. Barcode: CaBOL-ID 1027409, Gomaro.",
+      "The 2026 checklist rejects an unconfirmed Tbilisi mention of Elaphe situla; possible confusion with this species or with E. dione."
+    ],
     "identification": {
-      "summary": "A harmless ratsnake that keeps a blotched pattern as an adult.",
+      "summary": "A slender, non-venomous ratsnake with a round pupil. Adults keep two rows of dark blotches and a pale vertebral line — unlike adult Aesculapian snakes.",
       "traits": [
-        "Round pupil; non-venomous colubrid.",
-        "Adults often stay blotched or mottled — less uniform than Z. longissimus.",
-        "Dark marks on the head and neck are common.",
-        "Confused with the Aesculapian snake."
+        "The pupil is round, not a vertical slit as in vipers. The head is only moderately distinct from the body; there is no nose horn. Scales on the front half of the back are smooth; those toward the tail may be weakly keeled (Azerbaijan series).",
+        "In the nominotypical subspecies the back has two longitudinal rows of ochre or brown spots separated by a narrow pale line. A forked dark nuchal mark is common. A dark stripe runs from the eye to the mouth corner; a vertical dark line often sits below the eye. The belly is reddish or yellowish with grey mottling. Juveniles are more contrasting; with age the ground colour darkens and the spots become less obvious.",
+        "Older species accounts often give a total length of about 65 cm. In Azerbaijan, adult body length was 61.5–78.1 cm and the tail 11.2–16.4 cm; females averaged larger. A Georgia-only measured series is not on this page.",
+        "Adult Aesculapian snakes (Zamenis longissimus) are often more uniform olive-brown and tied to more humid, wooded country. This species keeps a blotched pattern and prefers drier rocky ground. The Steppe ratsnake (Elaphe dione) often shows four longitudinal stripes and is more steppe-dry. The Urartian ratsnake (Elaphe urartica) is larger, with big rounded blotches. The smooth snake (Coronella austriaca) is smaller, with smooth scales and a different head pattern. The spotted racer (Hemorrhois ravergieri) is faster, with a more elongated head. The Transcaucasian nose-horned viper has a vertical pupil, keeled scales, and a true nose horn — it is venomous."
       ]
     },
     "faq": [
       {
         "question": "Does the Transcaucasian ratsnake occur in Georgia?",
-        "answer": "Yes. It is on the checklist as Z. h. hohenackeri. A paper figure specimen is from Gomaro Village, Adigeni district."
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. The subspecies in Georgia is Z. h. hohenackeri."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "On dry rocky and grassland ground, more often in eastern and southern foothills; also in suitable western habitat. This atlas maps Imereti, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, and Tbilisi. Named points include Gomaro (Adigeni), Boshuri, and historically Tbilisi."
       },
       {
         "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. It is a non-venomous colubrid."
+        "answer": "No. It is a non-venomous colubrid. It is harmless to people. Do not pick it up."
+      },
+      {
+        "question": "How can it be identified?",
+        "answer": "Round pupil, two rows of dark blotches with a pale midline, and a dark stripe from the eye to the mouth corner. Adults stay blotched. Vipers have a vertical pupil and often a nose horn."
       },
       {
         "question": "How does it differ from the Aesculapian snake?",
-        "answer": "Adult Z. hohenackeri is usually more blotched; Z. longissimus is often more uniform. Both are harmless."
+        "answer": "Adult Aesculapian snakes are often more uniform and tied to humid woodland. This species keeps a blotched pattern and prefers drier rocky ground. Both are non-venomous."
       },
       {
-        "question": "Which subspecies occurs in Georgia?",
-        "answer": "Tarkhnishvili et al. 2026: Z. h. hohenackeri. The Reptile Database lists other subspecies for parts of the wider range."
+        "question": "How large does it grow?",
+        "answer": "Older accounts often give about 65 cm total length. In Azerbaijan, adult body length is about 62–78 cm plus a short tail. A Georgia-only series is not on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "At species level, small rodents and lizards; juveniles also insects. There is no Georgian diet study on this page."
+      },
+      {
+        "question": "Is it protected?",
+        "answer": "Globally Least Concern (IUCN, 2009). It is not on Georgia’s 2014 Red List. Armenia and Azerbaijan treat it as nationally Vulnerable."
       }
     ],
     "gallery": [
