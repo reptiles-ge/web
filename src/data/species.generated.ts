@@ -109,7 +109,7 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/anguis-colchica-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/anguis-colchica-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -117,7 +117,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/anguis-colchica-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -125,7 +125,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/anguis-colchica-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -245,7 +245,7 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/bufo-verrucosissimus-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/bufo-verrucosissimus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -253,7 +253,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/bufo-verrucosissimus-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -261,7 +261,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/bufo-verrucosissimus-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -508,7 +508,7 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/coronella-austriaca-mobile.webp",
     "gallery": [
       {
-        "src": "/images/coronella-austriaca-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -516,7 +516,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/coronella-austriaca-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -524,7 +524,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/coronella-austriaca-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -701,7 +701,7 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია და ხშირად ჯერ ისმის, მერე ჩანს. მამლის სიმღერა ორნოტიანი „გუ-გუ“-ა, ჩვეულებრივ ღია ქოჩორზე. დედალს სხვა, გუგუნისებრი ხმა აქვს. საკუთარ ბუდეს არ აშენებს. ობლიგატური ბუდობრივი პარაზიტია: დედალი სხვა ფრინველების ბუდეებში დებს, ხშირად მასპინძლის ერთ კვერცხს იღებს. სახეობის დონის ლიტერატურა ბევრ მასპინძელს უთითებს (ევროპაში ხშირად მდელოს მწყერჩიტა, ლელიანის მეჩალია, ტყის ჭვინტაკა, ბოლოქანქარები); საქართველოსთვის გამოქვეყნებული მასპინძელთა ნუსხა ამ გვერდზე არ არის შედგენილი. ამ ჯგუფებიდან ზოგი საქართველოშიც ბუდობს, მაგრამ ეს ადგილობრივი მასპინძელთა სია არ არის. მართვე ჩვეულებრივ დარჩენილ კვერცხებს ან ნაშიერებს ბუდიდან აგდებს. ინკუბაცია მოკლეა, სახეობის დონეზე დაახლოებით 11–13 დღე; დედალმა სეზონზე სხვადასხვა ბუდეში ბევრი კვერცხი შეიძლება დადოს (სახელმძღვანელოების ციფრები ხშირად დაახლოებით 9–22-ია). ზრდასრულები გამრავლების ადგილს ახალგაზრდებზე ადრე ტოვებენ. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად და მიგრანტად იღებს, არა მოზამთრედ.",
     "conservation": "BirdLife International Cuculus canorus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. გლობალური არეალი უზარმაზარია; ზოგი ევროპული სასოფლო პოპულაცია შემცირდა, მათ შორის გაერთიანებული სამეფოს ნაწილებში კარგად დოკუმენტირებული კლება, მაგრამ გლობალური კლება უფრო მაღალი კატეგორიისთვის საკმარისად სწრაფად არ ითვლება. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ევროკავშირის ფრინველების დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/cuculus-canorus-zauri-1.jpg",
+    "image": "https://cdn.reptiles.ge/cuculus-canorus-zauri-1.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "date": "2015-05-20"
@@ -715,14 +715,14 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/cuculus-canorus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-20"
         }
       },
       {
-        "src": "/images/cuculus-canorus-morffew-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-morffew-1.jpg",
         "credit": {
           "photographer": "Andy Morffew",
           "url": "https://commons.wikimedia.org/wiki/File:Cuckoo_(51169010335).jpg",
@@ -767,7 +767,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/cuculus-canorus-chick-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-chick-1.jpg",
         "credit": {
           "photographer": "vladlen666",
           "url": "https://commons.wikimedia.org/wiki/File:Cuculus_canorus_chick1.JPG",
@@ -856,7 +856,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -1641,7 +1641,7 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/darevskia-derjugini-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/darevskia-derjugini-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -1649,7 +1649,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/darevskia-derjugini-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -1657,7 +1657,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/darevskia-derjugini-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -1665,7 +1665,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/darevskia-derjugini-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -3066,7 +3066,7 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. ზამთარში ხშირად იკვებება თავისუფალ გუნდში და ველის პირას შეიძლება ახლოს მოგვიდგეს, მაგრამ არ აიყვანოთ. ყველა შებუმბვლებში საკვანძო ნიშანი თბილი წაბლისფერი კუდზედაა, რომელიც ზოლებიან ყავისფერ ზურგს უპირისპირდება; ფრენისას კუდის გარე თეთრი ბუმბული ჩანს. მამალს კაშკაშა ყვითელი თავი და ქვედა მხარე აქვს, თავქუდსა და ლოყაზე მუქი ზოლებით. დედალი და ახალგაზრდა უფრო მკრთალი და ზოლებიანია, სახეზე ხშირად მოყვითალო ელფერით. გალობა — მოკლე ნოტების რიგი გაწელილი ბოლოთი — ბუდობის სეზონს ეკუთვნის და საქართველოში მოზამთრისთვის მოსალოდნელი ნიშანი არ არის. ზამთარშიც ისმის მოკლე, მკვეთრი საკონტაქტო ხმა, მაგალითად „tsick“. ბუდობის ბიოლოგია (სხვაგან დაახლოებით 3–5 კვერცხი) სახეობის დონის მონაცემია მობუდარი არეალიდან; 2024 წლის ქართული ჩამონათვალი ამ სახეობას საქართველოში მობუდარად არ იღებს.",
     "conservation": "BirdLife International Emberiza citrinella-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2024). არეალი ფართოა; დასავლეთ ევროპის სასოფლო პოპულაციები ინტენსიური მეურნეობის გამო შემცირდა, მაგრამ გლობალური კლება უფრო მაღალი კატეგორიისთვის საკმარისად სწრაფი არ არის. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია და ადგილობრივი საფრთხეები ამ გვერდზე არ არის გაზომილი. ევროკავშირში შეტანილია ფრინველების დირექტივის II დანართში (კოდი A376); ეს დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/emberiza-citrinella-trepte-1.jpg",
+    "image": "https://cdn.reptiles.ge/emberiza-citrinella-trepte-1.jpg",
     "imageCredit": {
       "photographer": "Andreas Trepte",
       "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
@@ -3081,7 +3081,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/emberiza-citrinella-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-12"
@@ -3097,7 +3097,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/emberiza-citrinella-trepte-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-trepte-1.jpg",
         "credit": {
           "photographer": "Andreas Trepte",
           "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
@@ -3105,7 +3105,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/emberiza-citrinella-gorbunova-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-gorbunova-1.jpg",
         "credit": {
           "photographer": "Горбунова М.С.",
           "url": "https://commons.wikimedia.org/wiki/File:Male_bunting.jpg",
@@ -3113,7 +3113,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/emberiza-citrinella-lours-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-lours-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella).jpg",
@@ -3209,7 +3209,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T00:34:28+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -3807,13 +3807,13 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. მამლის სიმღერა მობუდარ ადგილებში მოკლე, სასტვენისებრი ფრაზაა გამეორებული ნოტებით; ხმებია მოკლე „უიტ“ ან „უით“. სრული სიმღერა ქართულ გადაფრენაზე ნაკლებად მოსალოდნელი ნიშანია, ვიდრე პატარა ბუზიჭერია, რომელიც ხიდან მწერებს იჭერს. შორ მანძილზე მიგრანტია: ბუდობს ევროპის დიდ ნაწილსა და დასავლეთ ციმბირში და ზამთრობს ძირითადად ტროპიკულ აფრიკაში. საქართველო გადაფრენის გზაზეა და არა სახეობის რუკული მობუდარი ბირთვის ნაწილი. ფუღუროში ბუდობა, ბუდე-ყუთები და დაახლოებით ხუთიდან შვიდამდე კვერცხი, ინკუბაციით დაახლოებით 13–15 დღე, სახეობის დონის ფაქტებია მობუდარი არეალიდან. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად არ იღებს. ბორჯომ-ხარაგაულის მაისის ბოლოს ფოტოები გაზაფხულის გადაფრენაზეა.",
     "conservation": "BirdLife International Ficedula hypoleuca-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. ევროპის ნაწილში პოპულაცია შემცირებულია, მაგრამ გლობალური არეალი დიდია და უფრო მაღალ საფრთხის კატეგორიას არ აკმაყოფილებს. EUNIS ევროპაში Least Concern-ს უთითებს და ევროკავშირის ფრინველების დირექტივასაც აღნიშნავს; ეს ინსტრუმენტი საქართველოში არ მოქმედებს. საქართველოს 2014 წლის წითელ ნუსხაში (მთავრობის დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/ficedula-hypoleuca-zauri-1.jpg",
+    "image": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-1.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-05-31"
     },
-    "mobileImage": "/images/ficedula-hypoleuca-zauri-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-2.jpg",
     "mobileImageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -3821,7 +3821,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/ficedula-hypoleuca-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -3829,7 +3829,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -3837,7 +3837,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -3889,7 +3889,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-strzelecki-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-strzelecki-1.jpg",
         "credit": {
           "photographer": "Jerzy Strzelecki",
           "url": "https://commons.wikimedia.org/wiki/File:Pied_Flycatcher_Lodz(Poland)(js)01.jpg",
@@ -3989,7 +3989,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:21:36+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -4087,14 +4087,14 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. სიმღერა მოკლე სასტვენისებრი ფრაზაა, ჭრელ და თეთრყელა მემატლიას შორის შუალედური; ხმები სხვა Ficedula-ს მსგავსი მკვეთრი ნოტებია. შორ მანძილზე მიგრანტია: ბუდობს ბალკანებიდან და თურქეთიდან კავკასიით ჩრდილოეთ ირანამდე და ზამთრობს აღმოსავლეთ და ცენტრალურ აფრიკაში. საქართველო მობუდარ არეალშია. ბუდობს ხის ფუღუროში ან ბუდე-ყუთში. სახეობის დონეზე ნაყარი ჩვეულებრივ დაახლოებით ხუთიდან შვიდამდე კვერცხია; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად იღებს.",
     "conservation": "BirdLife International Ficedula semitorquata-ს IUCN Red List-ზე ამჟამად ნაკლებად საფრთხის ქვეშ აფასებს. ძველ შეფასებებში Near Threatened იყო; წითელ ნუსხაზე ყოფნა ავტომატურად საფრთხის კატეგორიას არ ნიშნავს. EUNIS მსოფლიოსა და ევროპის მასშტაბით Least Concern-ს უთითებს და ევროკავშირის ფრინველების დირექტივასაც აღნიშნავს; ეს ინსტრუმენტი საქართველოში არ მოქმედებს. საქართველოს 2014 წლის წითელ ნუსხაში (მთავრობის დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. მომწიფებული ფუღუროიანი ხეების კარგვა სახეობის დონეზე ბიოლოგიურად რელევანტური წნეხია. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/ficedula-semitorquata-medenica-1.jpg",
+    "image": "https://cdn.reptiles.ge/ficedula-semitorquata-medenica-1.jpg",
     "imageCredit": {
       "photographer": "Ivan Medenica",
       "url": "https://commons.wikimedia.org/wiki/File:Ficedula_semitorquata.jpg",
       "location": "პიროტი",
       "date": "2016-05-24"
     },
-    "mobileImage": "/images/ficedula-semitorquata-asman-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ficedula-semitorquata-asman-1.jpg",
     "mobileImageCredit": {
       "photographer": "Paul Asman and Jill Lenoble",
       "url": "https://commons.wikimedia.org/wiki/File:Semi-collared_flycatcher_Ficedula_semitorquata_(3497826766).jpg",
@@ -4103,7 +4103,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/ficedula-semitorquata-medenica-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-semitorquata-medenica-1.jpg",
         "credit": {
           "photographer": "Ivan Medenica",
           "url": "https://commons.wikimedia.org/wiki/File:Ficedula_semitorquata.jpg",
@@ -4112,7 +4112,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-semitorquata-asman-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-semitorquata-asman-1.jpg",
         "credit": {
           "photographer": "Paul Asman and Jill Lenoble",
           "url": "https://commons.wikimedia.org/wiki/File:Semi-collared_flycatcher_Ficedula_semitorquata_(3497826766).jpg",
@@ -4121,7 +4121,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ficedula-semitorquata-castro-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-semitorquata-castro-1.jpg",
         "credit": {
           "photographer": "Tony Castro",
           "url": "https://commons.wikimedia.org/wiki/File:SemicollaredFlycatcher.jpg",
@@ -4750,13 +4750,13 @@ export const species: Species[] = [
     "conservation": "BirdLife International Jynx torquilla-ს IUCN-ის წითელ ნუსხაში Least Concern-ად აფასებს. გლობალური არეალი დიდია; დასავლეთ ევროპის ნაწილებში მკვეთრი კლებაა და გაერთიანებულ სამეფოში აღარ არის რეგულარული მობუდარი, მაგრამ გლობალური კლება უფრო მაღალი საფრთხის კატეგორიისთვის საკმარისად სწრაფად არ ითვლება. EUNIS ევროპაში Least Concern-ს უთითებს, ევროკავშირის პოპულაციის სტატუსს — depleted, და გაშუქებას EU Birds Directive-ით (კოდი A233); ეს ინსტრუმენტი საქართველოში არ მოქმედებს. 2014 წლის საქართველოს წითელ ნუსხაში (მთავრობის დადგენილება №190) არ არის. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ წითელ ნუსხას LC-ს ანიჭებს. საქართველოს ცალკე პოპულაციის ტრენდი ამ გვერდზე არ არის რაოდენობრივი. ნუ დაიჭერთ და ნუ გაიჩენთ ველურ ფრინველებს. ძველი, ღრუიანი ხეების და ჭიანჭველიანი მდელოების კარგვა სახეობის დონეზე ბიოლოგიურად შესაბამისი წნეხია; ადგილობრივი საფრთხის რანგი საქართველოსთვის აქ არ არის გამოქვეყნებული.",
     "interaction": "პირდაპირი საფრთხე ადამიანისთვის არ არის; ველური ფრინველები არ უნდა აიყვანოთ.",
     "danger": "Harmless",
-    "image": "/images/jynx-torquilla-zauri-1.jpg",
+    "image": "https://cdn.reptiles.ge/jynx-torquilla-zauri-1.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-07-16"
     },
-    "mobileImage": "/images/jynx-torquilla-zauri-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/jynx-torquilla-zauri-2.jpg",
     "mobileImageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -4764,7 +4764,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/jynx-torquilla-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -4772,7 +4772,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -4780,7 +4780,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -4788,7 +4788,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -4814,7 +4814,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/jynx-torquilla-chorokhi-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-chorokhi-1.jpg",
         "credit": {
           "photographer": "Wouter van der Ham",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Picidae)_(Eurasian_Wryneck)_-_(adult),_Chorokhi_Delta,_Georgia.jpg",
@@ -4932,7 +4932,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად Least Concern-ია და 2024 წლის ჩამონათვალში ეროვნულადაც LC-ია. 2014 წლის საქართველოს წითელ ნუსხაში არ არის. ნუ დაიჭერთ ველურ ფრინველებს."
       }
     ],
-    "updatedAt": "2026-08-27T10:33:47+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -5970,7 +5970,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/mertensiella-caucasica-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -5978,7 +5978,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -5986,7 +5986,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6158,13 +6158,13 @@ export const species: Species[] = [
     "behavior": "აქტიურია დღისითაც და ღამითაც; ხშირად უფრო დღისით იჭერენ, მაგრამ ეს ერთ პერიოდზე არ არის შეზღუდული. მოძრაობს სწრაფი ნახტომებით, ხშირად სწორდება უკანა ფეხებზე საყურებლად. ბუდეს თვითონ იშვიათად თხრის: იკავებს მღრღნელის სოროს, ქვაყრილს ან სხვა საფარს. სახეობის დონეზე ორსულობა დაახლოებით 34–37 დღეა, გადადებული იმპლანტაციის გარეშე (ყარყუმისგან განსხვავებით). ტემპერატურულ არეალში ხშირია ერთი ან ორი ნაშთი წელიწადში, ჩვეულებრივ რამდენიმე ნაშიერი; ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. ჩრდილოეთ პოპულაციები ზამთარში თეთრდებიან; სამხრეთში ზამთრის ბეწვი ხშირად ყავისფერი რჩება. ბორჯომ-ხარაგაულის 2015 წლის 25 მაისის ფოტოებზე ინდივიდი ყავისფერ-თეთრ ზაფხულის ბეწვშია. საქართველოში თეთრი ზამთრის ფორმა ნაგულისხმევად ნუ ჩათვალეთ — ზამთრის სერია ამ გვერდზე არ არის. ხმა იშვიათია და ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1146321 (Jose Manuel Unanue, მენდარო, ესპანეთი, 2026-06-13), ჩამწერის მიერ აღნიშნული როგორც uncertain.",
     "conservation": "McDonald და თანაავტორები Mustela nivalis-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016 შეფასება, 2019 წლის შესწორებული ვერსია); ფართო არეალი და დიდი პოპულაციაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. CITES-ის დანართებში სახეობის დონეზე არ არის. ამ გვერდზე სამონადირეო სახეობად არ არის ციტირებული, მელასგან განსხვავებით. ადგილობრივი ზეწოლა შეიძლება იყოს მღრღნელების საწინააღმდეგო შხამი (მეორადი მოწამვლა სახეობის დონის ლიტერატურაში), ბინადრობის კარგვა და გზაზე დაღუპვა; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ.",
-    "image": "/images/mustela-nivalis-zauri-2.jpg",
+    "image": "https://cdn.reptiles.ge/mustela-nivalis-zauri-2.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-05-25"
     },
-    "mobileImage": "/images/mustela-nivalis-zauri-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/mustela-nivalis-zauri-1.jpg",
     "mobileImageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6172,7 +6172,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/mustela-nivalis-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6180,7 +6180,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6197,7 +6197,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-andrieux-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-andrieux-1.jpg",
         "credit": {
           "photographer": "Jean Andrieux",
           "url": "https://commons.wikimedia.org/wiki/File:Belette_pygm%C3%A9e_%C2%A9PNRV-Jean_Andrieux.jpg",
@@ -6206,7 +6206,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-strzelecki-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-strzelecki-1.jpg",
         "credit": {
           "photographer": "Jerzy Strzelecki",
           "url": "https://commons.wikimedia.org/wiki/File:Least_Weasel(js)02.jpg",
@@ -6223,7 +6223,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/mustela-nivalis-richenza-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-richenza-1.jpg",
         "credit": {
           "photographer": "Richenza",
           "url": "https://commons.wikimedia.org/wiki/File:Lasice_kol%C4%8Dava_(Mustela_nivalis)_(1).jpg",
@@ -6318,7 +6318,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული."
       }
     ],
-    "updatedAt": "2026-08-27T09:37:55+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "McDonald et al. 2019 — IUCN Red List, Mustela nivalis",
@@ -6794,7 +6794,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6802,7 +6802,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6810,7 +6810,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -6935,7 +6935,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და სხვა ტბაში არ გადაიტანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T01:10:11+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7104,7 +7104,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/paralaudakia-caucasia-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "2026-08-22"
@@ -7350,13 +7350,13 @@ export const species: Species[] = [
     "conservation": "IUCN Red List-ზე Near Threatened (Kaya et al. 2009). ეს 2009 წლის შეფასებაა; ამ გვერდზე უფრო ახალი გლობალური გადაფასება არ არის მითითებული. CBG და National Geographic-ის ბიომრავალფეროვნების რუკა საქართველოს წითელ ნუსხაშიც NT-ს უთითებს. არ არის საქართველოს ენდემი. მთავარი დოკუმენტირებული წნეხია ტყის ჭრა, ქვირითობის წყალსატევების განადგურება და დაბინძურება, ნაგვისა და მორღვეული ხის გაწმენდა, გზაზე დაღუპვა. კავკასიის სხვა ნაწილებში დამატებით არის დასახელებული ინტროდუცირებული ენოტი; ეს საქართველოს ყველა პოპულაციაზე გაზომილი ზემოქმედება არ არის. CITES-ში არ შედის. ველური ამფიბია არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის შხამიანი არ არის და სამედიცინო საფრთხეს არ წარმოადგენს. ნუ აიყვანთ; კანი ლორწოს გამოყოფს, როგორც სხვა ამფიბიები.",
     "danger": "Harmless",
-    "image": "/images/pelodytes-caucasicus-zauri-1.jpg",
+    "image": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-1.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-05-21"
     },
-    "mobileImage": "/images/pelodytes-caucasicus-zauri-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-2.jpg",
     "mobileImageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -7364,7 +7364,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/pelodytes-caucasicus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -7372,7 +7372,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -7380,7 +7380,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -7388,7 +7388,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -7808,21 +7808,21 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/picus-viridis-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-13"
         }
       },
       {
-        "src": "/images/picus-viridis-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-13"
         }
       },
       {
-        "src": "/images/picus-viridis-lours-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-lours-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Green_woodpecker_Franconville_2022_01_21_1.jpg",
@@ -7840,7 +7840,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/picus-viridis-skot-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-skot-1.jpg",
         "credit": {
           "photographer": "Skot",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%BDluna_zelen%C3%A1_(Picus_viridis)_-_samice,_Praha,_vrch_T%C5%99e%C5%A1%C5%88ovka.jpg",
@@ -7931,7 +7931,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:28:44+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -8318,7 +8318,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/rana-macrocnemis-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -8326,7 +8326,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/rana-macrocnemis-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -8334,7 +8334,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/rana-macrocnemis-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -8448,7 +8448,7 @@ export const species: Species[] = [
     "behavior": "აქტიურია დღისით და ზამთარში არ სძინავს. ხშირად დილით და გვიან შუადღისას მოძრაობს, სიცხეში შუადღეს ჩერდება, ზამთარში აქტივობა შუადღისკენ იწევს. იკვებება ხეზეც და მიწაზეც და ევროპულ ციყვზე (Sciurus vulgaris) უფრო სახმელეთოა. ხეებს შორის ნახტომი კავკასიურ ლიტერატურაში იშვიათია. ბუდე ჩვეულებრივ ხის ღრუა ხავსითა და მშრალი ფოთლით, ხშირად 5–14 მ სიმაღლეზე, შესასვლელით სამხრეთის ან სამხრეთ-აღმოსავლეთისკენ; ბუდე ქვების, ფესვების ან შენობის ქვეშაც არის აღწერილი. გამრავლება წლის დიდ ნაწილში შეიძლება; ამიერკავკასიაში 2–7 ნაშიერი ყველაზე ხშირად იანვრის ბოლოს–თებერვლის დასაწყისში, აპრილში და ივლისის შუა–აგვისტოს ბოლოს არის აღნიშნული. ეს რეგიონული თარიღებია და არა ქართული ბუდის ნიმუში. ხმა მკვეთრი მეტალისებრი chit-chit-chit-ია; Stroganova მას მწვანე კოდალას ადარებს. ამ გვერდზე ქართული ჩანაწერი არ არის.",
     "conservation": "Yiğit, Kryštufek, Sozen, Bukhnikashvili და Shenbrot Sciurus anomalus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016 შეფასება; 2017 წლის შესწორებული ვერსია). გლობალური არეალი ფართოა; მთავარ საფრთხედ ჰაბიტატის განადგურება სახელდება. საქართველოს 2014 წლის წითელი ნუსხა (დადგენილება №190) მას მოწყვლადად (VU, A1e) სვამს: შესახლებული სახეობის ზეწოლის ქვეშ. ეს შესახლებული ციყვი Sciurus vulgaris-ია, 1937 წელს ალთადან დიდი კავკასიონის ჩრდილოეთ ფერდობზე გაშვებული და ახლა S. anomalus-თან ერთსა და იმავე ადგილებში გვხვდება კავკასიის ნაწილში (Stroganova 1958; Vereshchagin 1967). Bukhnikashvili et al. 2023 საქართველოში S. vulgaris-ის ჩანაწერებსაც ითვლის. ველში სახეობამდე ამოცნობა მაინც საჭიროა. ამ ატლასში ევროპული ციყვის გვერდი ჯერ არ არის. ადგილობრივი ზეწოლაა ტყის კარგვაც და, ისტორიულად, ბეწვის მოპოვება; ახლანდელი ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს და შეხებით შხამიანი არ არის. დაჭერისას ან კუთხეში მოქცევისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ. კავკასიის ზოგ ნაწილში თხილისა და ხილის ბაღებში შედის; ეს მოსავლის საკითხია და არა სამედიცინო.",
-    "image": "/images/sciurus-anomalus-zauri-1.jpg",
+    "image": "https://cdn.reptiles.ge/sciurus-anomalus-zauri-1.jpg",
     "imageCredit": {
       "photographer": "ზაური ხაჩიძე",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -8463,7 +8463,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/sciurus-anomalus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -8608,7 +8608,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში მოწყვლადია შესახლებული ციყვის გამო. IUCN-ის LC ნადირობის ნებართვად ნუ ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-27T10:21:36+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Yiğit et al. 2016/2017 — IUCN Red List, Sciurus anomalus",
@@ -9488,7 +9488,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-dinniki-truso-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg",
         "credit": {
           "location": "თრუსოს ხეობა",
           "date": "2026-08-25"
@@ -9637,7 +9637,7 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/vipera-kaznakovi-mobile.webp",
     "gallery": [
       {
-        "src": "/images/vipera-kaznakovi-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -9645,7 +9645,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-kaznakovi-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -9653,7 +9653,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-kaznakovi-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -10025,7 +10025,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/vipera-transcaucasiana-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -10033,7 +10033,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -10041,7 +10041,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -10049,7 +10049,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -10057,7 +10057,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-5.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-5.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -10072,7 +10072,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-dzegvi.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-dzegvi.jpg",
         "credit": {
           "location": "ძეგვი",
           "date": "2026-08-25"
@@ -10252,7 +10252,7 @@ export const species: Species[] = [
       "location": "მალნიცი",
       "date": "2019-07-30"
     },
-    "mobileImage": "/images/vulpes-vulpes-portrait-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/vulpes-vulpes-portrait-1.jpg",
     "mobileImageCredit": {
       "photographer": "ClaudiaTen",
       "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
@@ -10261,7 +10261,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/vulpes-vulpes-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-14"
@@ -10277,7 +10277,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vulpes-vulpes-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-portrait-1.jpg",
         "credit": {
           "photographer": "ClaudiaTen",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
@@ -10303,7 +10303,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/vulpes-vulpes-cubs-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-cubs-1.jpg",
         "credit": {
           "photographer": "Divlja Srbija",
           "url": "https://commons.wikimedia.org/wiki/File:Mlade_lisice_u_rupi.jpg",
@@ -10391,7 +10391,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-27T01:02:29+04:00",
+    "updatedAt": "2026-08-27T10:49:25+04:00",
     "sources": [
       {
         "name": "Hoffmann & Sillero-Zubiri 2016 — IUCN Red List, Vulpes vulpes",
@@ -10969,7 +10969,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/anguis-colchica-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -10977,7 +10977,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/anguis-colchica-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -10985,7 +10985,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/anguis-colchica-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/anguis-colchica-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11080,7 +11080,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/bufo-verrucosissimus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11088,7 +11088,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/bufo-verrucosissimus-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11096,7 +11096,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/bufo-verrucosissimus-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11298,7 +11298,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/coronella-austriaca-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11306,7 +11306,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/coronella-austriaca-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11314,7 +11314,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/coronella-austriaca-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/coronella-austriaca-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -11462,14 +11462,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/cuculus-canorus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-20"
         }
       },
       {
-        "src": "/images/cuculus-canorus-morffew-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-morffew-1.jpg",
         "credit": {
           "photographer": "Andy Morffew",
           "url": "https://commons.wikimedia.org/wiki/File:Cuckoo_(51169010335).jpg",
@@ -11514,7 +11514,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/cuculus-canorus-chick-1.jpg",
+        "src": "https://cdn.reptiles.ge/cuculus-canorus-chick-1.jpg",
         "credit": {
           "photographer": "vladlen666",
           "url": "https://commons.wikimedia.org/wiki/File:Cuculus_canorus_chick1.JPG",
@@ -12121,7 +12121,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/darevskia-derjugini-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -12129,7 +12129,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/darevskia-derjugini-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -12137,7 +12137,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/darevskia-derjugini-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -12145,7 +12145,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/darevskia-derjugini-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -13266,7 +13266,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/emberiza-citrinella-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-12"
@@ -13282,7 +13282,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/emberiza-citrinella-trepte-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-trepte-1.jpg",
         "credit": {
           "photographer": "Andreas Trepte",
           "url": "https://commons.wikimedia.org/wiki/File:Goldammer_Emberiza_citrinella.jpg",
@@ -13290,7 +13290,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/emberiza-citrinella-gorbunova-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-gorbunova-1.jpg",
         "credit": {
           "photographer": "Горбунова М.С.",
           "url": "https://commons.wikimedia.org/wiki/File:Male_bunting.jpg",
@@ -13298,7 +13298,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/emberiza-citrinella-lours-1.jpg",
+        "src": "https://cdn.reptiles.ge/emberiza-citrinella-lours-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Yellowhammer_(Emberiza_citrinella).jpg",
@@ -13848,7 +13848,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/ficedula-hypoleuca-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -13856,7 +13856,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -13864,7 +13864,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -13916,7 +13916,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-hypoleuca-strzelecki-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-hypoleuca-strzelecki-1.jpg",
         "credit": {
           "photographer": "Jerzy Strzelecki",
           "url": "https://commons.wikimedia.org/wiki/File:Pied_Flycatcher_Lodz(Poland)(js)01.jpg",
@@ -14031,7 +14031,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/ficedula-semitorquata-medenica-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-semitorquata-medenica-1.jpg",
         "credit": {
           "photographer": "Ivan Medenica",
           "url": "https://commons.wikimedia.org/wiki/File:Ficedula_semitorquata.jpg",
@@ -14040,7 +14040,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-semitorquata-asman-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-semitorquata-asman-1.jpg",
         "credit": {
           "photographer": "Paul Asman and Jill Lenoble",
           "url": "https://commons.wikimedia.org/wiki/File:Semi-collared_flycatcher_Ficedula_semitorquata_(3497826766).jpg",
@@ -14049,7 +14049,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ficedula-semitorquata-castro-1.jpg",
+        "src": "https://cdn.reptiles.ge/ficedula-semitorquata-castro-1.jpg",
         "credit": {
           "photographer": "Tony Castro",
           "url": "https://commons.wikimedia.org/wiki/File:SemicollaredFlycatcher.jpg",
@@ -14500,7 +14500,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/jynx-torquilla-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -14508,7 +14508,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -14516,7 +14516,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -14524,7 +14524,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -14550,7 +14550,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/jynx-torquilla-chorokhi-1.jpg",
+        "src": "https://cdn.reptiles.ge/jynx-torquilla-chorokhi-1.jpg",
         "credit": {
           "photographer": "Wouter van der Ham",
           "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_(Picidae)_(Eurasian_Wryneck)_-_(adult),_Chorokhi_Delta,_Georgia.jpg",
@@ -15411,7 +15411,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/mertensiella-caucasica-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -15419,7 +15419,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -15427,7 +15427,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -15583,7 +15583,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/mustela-nivalis-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -15591,7 +15591,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -15608,7 +15608,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-andrieux-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-andrieux-1.jpg",
         "credit": {
           "photographer": "Jean Andrieux",
           "url": "https://commons.wikimedia.org/wiki/File:Belette_pygm%C3%A9e_%C2%A9PNRV-Jean_Andrieux.jpg",
@@ -15617,7 +15617,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-strzelecki-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-strzelecki-1.jpg",
         "credit": {
           "photographer": "Jerzy Strzelecki",
           "url": "https://commons.wikimedia.org/wiki/File:Least_Weasel(js)02.jpg",
@@ -15634,7 +15634,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/mustela-nivalis-richenza-1.jpg",
+        "src": "https://cdn.reptiles.ge/mustela-nivalis-richenza-1.jpg",
         "credit": {
           "photographer": "Richenza",
           "url": "https://commons.wikimedia.org/wiki/File:Lasice_kol%C4%8Dava_(Mustela_nivalis)_(1).jpg",
@@ -16005,7 +16005,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16013,7 +16013,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16021,7 +16021,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ommatotriton-ophryticus-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/ommatotriton-ophryticus-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16247,7 +16247,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/paralaudakia-caucasia-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "2026-08-22"
@@ -16450,7 +16450,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/pelodytes-caucasicus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16458,7 +16458,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16466,7 +16466,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16474,7 +16474,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/pelodytes-caucasicus-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -16789,21 +16789,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/picus-viridis-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-13"
         }
       },
       {
-        "src": "/images/picus-viridis-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-13"
         }
       },
       {
-        "src": "/images/picus-viridis-lours-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-lours-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Green_woodpecker_Franconville_2022_01_21_1.jpg",
@@ -16821,7 +16821,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/picus-viridis-skot-1.jpg",
+        "src": "https://cdn.reptiles.ge/picus-viridis-skot-1.jpg",
         "credit": {
           "photographer": "Skot",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%BDluna_zelen%C3%A1_(Picus_viridis)_-_samice,_Praha,_vrch_T%C5%99e%C5%A1%C5%88ovka.jpg",
@@ -17118,7 +17118,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/rana-macrocnemis-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -17126,7 +17126,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/rana-macrocnemis-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -17134,7 +17134,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/rana-macrocnemis-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/rana-macrocnemis-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -17272,7 +17272,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/sciurus-anomalus-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/sciurus-anomalus-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18072,7 +18072,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-dinniki-truso-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg",
         "credit": {
           "location": "Truso Valley",
           "date": "2026-08-25"
@@ -18183,7 +18183,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/vipera-kaznakovi-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18191,7 +18191,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-kaznakovi-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18199,7 +18199,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-kaznakovi-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18487,7 +18487,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/vipera-transcaucasiana-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18495,7 +18495,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-2.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-2.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18503,7 +18503,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-3.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-3.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18511,7 +18511,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-4.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-4.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18519,7 +18519,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-zauri-5.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-5.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -18534,7 +18534,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vipera-transcaucasiana-dzegvi.jpg",
+        "src": "https://cdn.reptiles.ge/vipera-transcaucasiana-dzegvi.jpg",
         "credit": {
           "location": "Dzegvi",
           "date": "2026-08-25"
@@ -18678,7 +18678,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/vulpes-vulpes-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "date": "2015-05-14"
@@ -18694,7 +18694,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vulpes-vulpes-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-portrait-1.jpg",
         "credit": {
           "photographer": "ClaudiaTen",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog.jpg",
@@ -18720,7 +18720,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/vulpes-vulpes-cubs-1.jpg",
+        "src": "https://cdn.reptiles.ge/vulpes-vulpes-cubs-1.jpg",
         "credit": {
           "photographer": "Divlja Srbija",
           "url": "https://commons.wikimedia.org/wiki/File:Mlade_lisice_u_rupi.jpg",
