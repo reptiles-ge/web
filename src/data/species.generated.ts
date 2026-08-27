@@ -7022,8 +7022,16 @@ export const species: Species[] = [
     "behavior": "თბილ სეზონზე აქტიურია, ძირითადად დღისით. ხშირად იბანაობს ან მზეზე თბება ნაპირზე, ქვაზე და წყალზე გადახრილ ტოტზე. ცივ თვეებში ზამთრობს წყალთან ახლოს, მშრალ სოროში ან ნაპრალში; ზუსტი თვეები სიმაღლესა და კლიმატზეა დამოკიდებული და საქართველოს ყველა პოპულაციის ერთი კალენდარი ამ გვერდზე არ არის. კვერცხისმდებია. სახეობის არეალში შეწყვილება ჩვეულებრივ გაზაფხულზეა, კვერცხს ზაფხულში დებს ტენიან ადგილას — ნიადაგი, დამპალი მცენარეულობა, ქვის ღობე; ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე. საფრთხისას კლოაკიდან უსიამოვნო სუნის სეკრეტს გამოყოფს ან მკვდარს თამაშობს. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ — შხამი არ აქვს. ხშირად გველგესლაში ერევათ მუქი ლაქების გამო.",
     "conservation": "IUCN-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ შედის. ქვეყანაში ფართოდაა გავრცელებული და წყალთან ადგილობრივად ჩვეულებრივია. ბერნის კონვენციის II დანართშია. მთავარი ზეწოლა წყლის დაბინძურება, ნაპირის შეცვლა და დევნაა — ადამიანები ხშირად შხამიან გველად მიიჩნევენ. ზოგ ევროპულ ქვეყანაში ადგილობრივი პოპულაციები მცირდება ჰაბიტატის დაკარგვისა და დაბინძურების გამო; საქართველოს პოპულაციის ცალკე ტრენდი ამ გვერდზე არ არის გამოქვეყნებული.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/natrix-tessellata.webp",
-    "mobileImage": "https://cdn.reptiles.ge/natrix-tessellata-mobile.webp",
+    "image": "/images/natrix-tessellata-sandro-1.jpg",
+    "imageCredit": {
+      "photographer": "სანდრო ხახვა",
+      "date": "2024-08-04"
+    },
+    "mobileImage": "/images/natrix-tessellata-sandro-1.jpg",
+    "mobileImageCredit": {
+      "photographer": "სანდრო ხახვა",
+      "date": "2024-08-04"
+    },
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/natrix-tessellata.webp"
@@ -7189,7 +7197,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. უშხამოა. გველგესლასთან ამოსაცნობად ნახეთ მრგვალი გუგა, ვიწრო თავი და წყალთან კავშირი."
       }
     ],
-    "updatedAt": "2026-08-24T14:19:21+04:00",
+    "updatedAt": "2026-08-27T18:19:11+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -16931,7 +16939,15 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "src": "https://cdn.reptiles.ge/natrix-tessellata-7.webp"
       }
-    ]
+    ],
+    "imageCredit": {
+      "photographer": "Sandro Khakhva",
+      "date": "2024-08-04"
+    },
+    "mobileImageCredit": {
+      "photographer": "Sandro Khakhva",
+      "date": "2024-08-04"
+    }
   },
   "ommatotriton-ophryticus": {
     "commonName": "Northern Banded Newt",
