@@ -479,7 +479,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევიდან არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-24T09:24:07+04:00",
+    "updatedAt": "2026-08-27T16:37:58+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6297,15 +6297,10 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური და იშვიათად ჩანს. დღისით იმალება. ბორჯომის ხეობაში, საშუალო სიმაღლეზე, პირველი ზრდასრულები მაისის დასაწყისში ჩნდებიან, უკანასკნელნი — სექტემბერში; ბათუმის მხარეს და მაღალმთაში ეს პერიოდი შეიძლება განსხვავდებოდეს. ქვირითობა გვიან გაზაფხულზე და ზაფხულშია. შეჯვარება ხმელეთზე ან წყალშია. მდედრი კვერცხებს ნაკადულში დებს; ბორჯომის პოპულაციაში საშუალოდ დაახლოებით 17 კვერცხი. ლიფსიტები ნაკადულში რჩებიან და მეტამორფოზამდე, როგორც წესი, 2–4 წელი სჭირდებათ. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. კანი ლორწოს გამოყოფს, რომელიც თვალს ან პირს შეიძლება გააღიზიანოს. შეხების შემდეგ ხელები დაიბანეთ.",
     "conservation": "IUCN-ის მიხედვით მოწყვლადია (Vulnerable). 2009 წლის შეფასებით დაკავებული ფართობი 2 000 კმ²-ზე ნაკლებია, გავრცელება მკვეთრად ფრაგმენტირებულია და ჰაბიტატის ხარისხი მცირდება. საქართველოში მთავარი საფრთხეებია ტყის ჩეხა, ნაკადულის გამოყენება ხის გასატანად და პირუტყვის ზეწოლა. შეტანილია საქართველოს წითელ წიგნში. დაცულ ტერიტორიებს შორისაა ბორჯომი–ხარაგაულის ეროვნული პარკი და კინტრიში. არ აიყვანოთ და არ გადაიტანოთ — სახეობა შინაურ ცხოველადაც აგროვებენ.",
     "danger": "Harmless",
-    "image": "/images/mertensiella-caucasica-giorgi-1.jpg",
+    "image": "/images/mertensiella-caucasica-armen-3.jpg",
     "imageCredit": {
-      "photographer": "გიორგი იანქოშვილი",
-      "date": "2017-12-15"
-    },
-    "mobileImage": "https://cdn.reptiles.ge/mertensiella-caucasica-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "david_broek",
-      "url": "https://www.inaturalist.org/observations/383087171"
+      "photographer": "Armen Seropian",
+      "date": "2019-02-17"
     },
     "gallery": [
       {
@@ -6483,7 +6478,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-27T16:37:58+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -16308,12 +16303,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "გიორგი იანქოშვილი",
-      "date": "2017-12-15"
-    },
-    "mobileImageCredit": {
-      "photographer": "david_broek",
-      "url": "https://www.inaturalist.org/observations/383087171"
+      "photographer": "Armen Seropian",
+      "date": "2019-02-17"
     }
   },
   "mustela-nivalis": {
