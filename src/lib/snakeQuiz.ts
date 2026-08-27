@@ -108,7 +108,7 @@ const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {
   "eirenis-collaris": "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
   "eirenis-modestus": "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg",
   "elaphe-urartica": "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
-  "eryx-jaculus": "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
+  "eryx-jaculus": "/images/eryx-jaculus-ioane-1.jpg",
   "malpolon-insignitus": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
   "natrix-natrix": "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg",
   "natrix-tessellata": "https://cdn.reptiles.ge/natrix-tessellata-mobile.webp",

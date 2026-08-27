@@ -3751,91 +3751,161 @@ export const species: Species[] = [
     "scientificName": "Eryx jaculus",
     "genus": "Eryx",
     "family": "Boidae",
-    "location": "საქართველო",
-    "description": "უშხამო ქვიშიანი ბოა; ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა.",
-    "overview": "დასავლური მახრჩობელა (Eryx jaculus) ბოასებრთა უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს, ფართო არეალით აღმოსავლეთ ხმელთაშუაზღვეთში, კავკასიასა და ჩრდილოეთ აფრიკაში. საქართველოში მითითებულია ქვესახეობა E. j. turcicus. ჩამონათვალით დადასტურებულია; CaBOL ბარკოდი თბილისიდანაა, ნაშრომის ფიგურაზეც თბილისი. მიწისმთხრელი იერით შეიძლება გველბრუცას (Xerotyphlops vermicularis) აგონდეს.",
-    "habitat": "ქვიშიანი და ფხვიერი ნიადაგები მშრალ ღია ადგილებში. საქართველოში CaBOL ნიმუში თბილისიდანაა.",
-    "diet": "წვრილი ხვლიკები და მღრღნელები; კლავს მოხრჩობით.",
-    "behavior": "ძირითადად ბინდის/ღამის მიწისმთხრელი; უშხამო მახრჩობელი.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — E. j. turcicus.",
+    "location": "სამხრეთ-აღმოსავლეთი საქართველო",
+    "description": "უშხამო ქვიშიანი ბოა — საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ზონაში. ამ გვერდზე დასახელებული ფოტოებია კუმისის ტბა (ივნისი 2020) და ლისის ტბა (2 ივლისი 2023).",
+    "overview": "დასავლური მახრჩობელა (Eryx jaculus) უშხამო ქვიშიანი ბოაა, რომელიც საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ზონაში გვხვდება. 2026 წლის ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; ქვესახეობად უთითებს E. j. turcicus. 2021 წლის ქართული გველების კვლევა მას ათავსებს იმავე ლანდშაფტში, რაშიც გიურზა და ურარტუს მცურავი — არა მთელ ქვეყანაში. დასახელებული ბარკოდი და ჩამონათვალის ფიგურა თბილისიდანაა. ამ ატლასის ფოტოებია კუმისის ტბა, ივნისი 2020 (გიორგი იანქოშვილი) და ლისის ტბა, 2 ივლისი 2023 (იოანე როსტიაშვილი). საქართველოში ჩვეულებრივ 50 სმ-ზე მოკლეა; შხამი არ აქვს და ნადირს ხრჩობით იკლავს. ჭიასავით გველბრუცას ადვილად ერევა, მაგრამ აგებულება სხვაა.",
+    "habitat": "ეძებეთ მშრალ, ღია ადგილზე ფხვიერი ნიადაგით — ქვიშიანი ან თიხნარი ვაკე, ნახევრადუდაბნო, იშვიათი ბუჩქნარი და ქვიანი ფერდობი. დღის უმეტეს ნაწილს მიწაში, სოროში ან ქვის ქვეშ ატარებს; ზედაპირზე ძირითადად ბინდსა და ღამით ჩნდება. 2021 წლის კვლევით მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ლანდშაფტშია. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი; ეს არ ნიშნავს, რომ რეგიონის ყველა კუთხეში თანაბრად გვხვდება. დასახელებული თანამედროვე წერტილებია თბილისი (CaBOL 1027415; ჩამონათვალის ფიგურაც) და ამ გვერდის ფოტოები — კუმისის ტბა (ივნისი 2020) და ლისის ტბა (2 ივლისი 2023). დასავლეთ საქართველოში, კოლხეთის ტყეში და მაღალმთაში დადასტურებული არეალი არ არის. საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. ნადირს ხრჩობით იკლავს — სხეულს არგრეხს და ახრჩობს, არა შხამით. არეალის სხვა ნაწილებში (სიცილია) ზრდასრულის საკვებში ჭარბობს წვრილი ძუძუმწოვარი; იჭერს აგრეთვე ხვლიკის კვერცხს და იშვიათად ხვლიკს. ახალგაზრდა უფრო ხვლიკის კვერცხზე ნადირობს. საქართველოში მენიუ პირდაპირ არ არის გაზომილი; მოსალოდნელია იგივე ჯგუფები — წვრილი ხვლიკი და მღრღნელი — მაგრამ ეს აქ დასკვნაა და არა ადგილობრივი აღრიცხვა.",
+    "behavior": "2021 წლის ქართული მიმოხილვა მას ღამის სახეობად ასახელებს, კატისთვალასთან ერთად. დღისით იშვიათად ჩანს; შეხვედრა უფრო გზაზე, გათხრილ მიწაზე ან ქვის აწევისასაა სავარაუდო. ცოცხლადმშობია: კვერცხები დედის სხეულში ვითარდება და იბადება ცოცხალი ნაშიერი. საქართველოში ნაშიერის რაოდენობა და ზუსტი სეზონი აქ არ არის გამოქვეყნებული. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე — არ აიყვანოთ. წითელ ნუსხაშია; ბუნებიდან ამოღება კანონით იზღუდება.",
+    "conservation": "IUCN-ით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) მოწყვლადია (VU), კრიტერიუმი B2a — მცირე ფრაგმენტირებული არეალი. ნუსხაში ავტორად Duméril & Bibron 1844 უდგას; მიღებული სახელია Eryx jaculus (Linnaeus, 1758). 2026 წლის ჩამონათვალი ოჯახად Boidae-ს იღებს. ადგილობრივ საფრთხეა მშრალი ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და გველგესლასთან აღრევის გამო მოკვლა. არ აიყვანოთ და არ მოკლათ.",
+    "interaction": "უშხამოა. ადამიანისთვის სამედიცინო რისკი არ აქვს. კბენა თავდაცვითია და შხამს არ შეიცავს. არ აიყვანოთ: ადვილად ზიანდება, წითელ ნუსხაშია და შეიძლება გველგესლას აგონდეთ. თუ თავი ფართო სამკუთხაა და გუგა ვერტიკალური ნაპრალია — გაეცით გზა; ეს შეიძლება გველგესლა იყოს.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/eryx-jaculus.jpg",
+    "image": "/images/eryx-jaculus-giorgi-1.jpg",
     "imageCredit": {
-      "photographer": "Alexandru Buzatu",
-      "url": "https://www.inaturalist.org/observations/129650363"
+      "photographer": "გიორგი იანქოშვილი",
+      "location": "კუმისის ტბა",
+      "date": "2020-06"
     },
-    "mobileImage": "https://cdn.reptiles.ge/eryx-jaculus-3.jpg",
+    "mobileImage": "/images/eryx-jaculus-ioane-1.jpg",
     "mobileImageCredit": {
-      "photographer": "Roberto Sindaco",
-      "url": "https://www.inaturalist.org/observations/619071"
+      "photographer": "იოანე როსტიაშვილი",
+      "location": "ლისის ტბა",
+      "date": "2023-07-02"
     },
     "gallery": [
+      {
+        "src": "/images/eryx-jaculus-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი იანქოშვილი",
+          "location": "კუმისის ტბა",
+          "date": "2020-06"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2023-07-02"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2023-07-02"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ლისის ტბა",
+          "date": "2023-07-02"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/eryx-jaculus.jpg",
         "credit": {
           "photographer": "Alexandru Buzatu",
-          "url": "https://www.inaturalist.org/observations/129650363"
+          "url": "https://www.inaturalist.org/observations/129650363",
+          "location": "ჩრდილოეთი ბულგარეთი",
+          "date": "2018-07-11"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
         "credit": {
           "photographer": "Leonid A. Neymark",
-          "url": "https://www.inaturalist.org/observations/50042883"
+          "url": "https://www.inaturalist.org/observations/50042883",
+          "location": "იკი-ბურული, ყალმუხეთი",
+          "date": "2015-05-16"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eryx-jaculus-3.jpg",
         "credit": {
           "photographer": "Roberto Sindaco",
-          "url": "https://www.inaturalist.org/observations/619071"
+          "url": "https://www.inaturalist.org/observations/619071",
+          "location": "რას ელ-მა, მაროკო",
+          "date": "2003-04-26"
         }
       }
     ],
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ფხვიერი ნიადაგი"
+        "value": "სამხრ.-აღმ. მშრალი"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულ. <50 სმ"
       },
       {
         "label": "შხამი",
         "value": "არა"
       },
       {
-        "label": "სტატუსი",
-        "value": "დადასტურებული"
+        "label": "კონსერვაცია",
+        "value": "VU (ეროვნული)"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "ღამის"
       },
       {
         "label": "ოჯახი",
         "value": "Boidae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "უშხამო ქვიშიანი ბოაა; ნადირს ხრჩობით იკლავს.",
+      "საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ზონაშია.",
+      "ღამის მიწისმთხრელია; დღისით იშვიათად ჩანს."
+    ],
     "identification": {
-      "summary": "მოკლე, მსხვილი უშხამო ბოა ბლაგვი კუდით — არა ბრმა გველი.",
+      "summary": "მოკლე, მსხვილი უშხამო ბოაა პატარა თვალებით და ბლაგვი კუდით. გველბრუცასგან ზომითა და თვალებით გამოირჩევა. პირველი ფოტო კუმისის ტბიდანაა (ივნისი 2020), შემდეგი — ლისის ტბიდან (2 ივლისი 2023). ბოლო კადრები სახეობის იერს არეალის სხვა ნაწილებიდან აჩვენებს.",
       "traits": [
-        "მოკლე მსხვილი სხეული და ბლაგვი კუდის წვერი.",
-        "პატარა, მაგრამ ხილული თვალები.",
-        "უშხამო მახრჩობელი (Boidae).",
-        "Xerotyphlops vermicularis ჭიასავითია, თვალები ქერცლების ქვეშაა შემცირებული."
+        "სხეული მოკლე და მსხვილია, თითქმის ცილინდრული. თავი კისრისგან სუსტად გამოიყოფა და წვრილი ქერცლითაა დაფარული — არა დიდი ფარებით, როგორც უმეტეს კოლუბრიდს. კუდი მოკლეა, წვერი ბლაგვი; ზოგჯერ თავს ჰგავს. საქართველოში 2021 წლის მიმოხილვა მას 70 სმ-მდე მცირე გველების ჯგუფში ათავსებს, ჩვეულებრივ 50 სმ-ზე მოკლეს.",
+        "თვალები პატარაა, მაგრამ ხილული. გუგა ვერტიკალური ნაპრალია. დიდი როტრალი (ცხვირის ფარი) მიწაში შეღწევას ეხმარება. ზურგის ქერცლი წინ გლუვია, უკან სუსტად კილური. მუცლის ფარები ვიწროა.",
+        "ფონი ნაცრისფერი, ქვიშისფერი, მოყავისფრო ან მოწითალოა. ზურგზე მუქი არაწესიერი ლაქები ან ზოლებია. ხშირად თვალიდან პირის კუთხემდე მუქი ზოლია. მუცელი ღიაა. ნიმუში ცვალებადია — მხოლოდ ფერზე ნუ დაეყრდნობით.",
+        "გველბრუცა (Xerotyphlops vermicularis) ჭიასავითია, თვალები ქერცლის ქვეშაა შემცირებული და სიგრძით ჩვეულებრივ გაცილებით პატარაა. ამ სახეობას პატარა, მაგრამ აშკარა თვალები და ბოას მსხვილი ტანი აქვს.",
+        "კატისთვალა (Telescopus fallax)აც ღამით გამოდის და ვერტიკალური გუგა აქვს, მაგრამ თვალები დიდია, ტანი წვრილი, თავი უფრო გამოყოფილი. ველის გველგესლას ფართო სამკუთხა თავი და კილური ქერცლი აქვს — შხამიანია. საყელოიანი ეირენისი იმავე მშრალ ზონაშია, მაგრამ თხელი კოლუბრიდია მრგვალი გუგით."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა დასავლური მახრჩობელა საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026 ჩამონათვალით დადასტურებულია. CaBOL ბარკოდი და ნაშრომის ფიგურა — თბილისი."
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ზონაშია — არა მთელ ქვეყანაში."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. უშხამო ბოაა; ნადირს ხრჩობით იკლავს."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მშრალ, ღია ადგილებში ფხვიერი ნიადაგით სამხრეთ-აღმოსავლეთში. რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებული წერტილებია თბილისი (CaBOL), კუმისის ტბა (ფოტო, ივნისი 2020) და ლისის ტბა (ფოტო, 2 ივლისი 2023). დასავლეთში და მაღალმთაში არ ეძებოთ. დღისით იშვიათად ჩანს."
       },
       {
-        "question": "არის თუ არა ეს გველბრუცა?",
-        "answer": "არა. Eryx უფრო მსხვილია, პატარა თვალებითა და ბლაგვი კუდით. გველბრუცა ტიფლოპიდია ჭიასავითი სხეულით."
+        "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
+        "answer": "არა. უშხამო ბოაა; ნადირს ხრჩობით იკლავს. ადამიანისთვის სამედიცინო რისკი არ აქვს. მაინც ნუ აიყვანთ: წითელ ნუსხაშია და შეიძლება გველგესლას აგონდეთ."
       },
       {
-        "question": "რომელი ქვესახეობაა საქართველოში?",
-        "answer": "Tarkhnishvili et al. 2026: E. j. turcicus (Werner, 1935)."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "მოკლე მსხვილი გველია პატარა თვალებით, ბლაგვი კუდით და წვრილქერცლებიანი თავით. გველბრუცა ჭიასავითია თითქმის უთვალო თავით. კატისთვალას დიდი თვალები და წვრილი ტანი აქვს."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "საქართველოში ჩვეულებრივ 50 სმ-ზე მოკლეა; 2021 წლის მიმოხილვა მას 70 სმ-მდე მცირე გველების ჯგუფში ათავსებს."
+      },
+      {
+        "question": "რითი იკვებება?",
+        "answer": "ქართული მენიუ პირდაპირ არ არის გაზომილი. არეალის სხვა ნაწილებში ჭარბობს წვრილი ძუძუმწოვარი; იჭერს ხვლიკის კვერცხსაც. კლავს ხრჩობით."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "ძირითადად ღამით და ბინდში. დღის უმეტეს ნაწილს მიწაში ატარებს. ზუსტი ქართული სეზონური კალენდარი აქ არ არის გამოქვეყნებული."
+      },
+      {
+        "question": "არის თუ არა წითელ ნუსხაში?",
+        "answer": "დიახ. 2014 წლის წითელ ნუსხაში მოწყვლადია (VU, B2a) — მცირე ფრაგმენტირებული არეალი. გლობალურად IUCN-ით Least Concern."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -3845,11 +3915,24 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "IUCN Red List — Eryx jaculus",
+        "url": "https://www.iucnredlist.org/species/157244/743082"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
         "url": "https://reptile-database.reptarium.cz/species?genus=Eryx&species=jaculus"
+      },
+      {
+        "name": "Faraone et al. 2021 — Food habits of Eryx jaculus in Sicily",
+        "url": "https://doi.org/10.1670/20-047"
       }
     ]
   },
@@ -14093,89 +14176,159 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "eryx-jaculus": {
     "commonName": "Javelin Sand Boa",
-    "location": "Georgia",
-    "description": "A harmless sand boa; biologically confirmed in the Georgia checklist.",
-    "overview": "The javelin sand boa (Eryx jaculus) is a harmless boa. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species with a broad range in the Eastern Mediterranean, the Caucasus, and North Africa. The subspecies listed for Georgia is E. j. turcicus. It is on the checklist; a CaBOL barcode and a paper figure locality are both Tbilisi. Its burrowing look can be confused with the European blind snake (Xerotyphlops vermicularis).",
-    "habitat": "Sandy and loose soils in dry open country. In Georgia a CaBOL specimen is from Tbilisi.",
-    "diet": "Small lizards and rodents; kills by constriction.",
-    "behavior": "Mostly a crepuscular or nocturnal burrower; a non-venomous constrictor.",
-    "conservation": "Biologically confirmed in the checklist. Georgia: E. j. turcicus.",
+    "location": "South-eastern Georgia",
+    "description": "A non-venomous sand boa — in Georgia only in the semi-arid south-east. Named photos on this page: Lake Kumisi, June 2020, and Lisi Lake, 2 July 2023.",
+    "overview": "The javelin sand boa (Eryx jaculus) is a non-venomous burrowing boa found in Georgia only in the semi-arid south-east. The 2026 checklist treats it as biologically confirmed and lists the subspecies E. j. turcicus. The 2021 Georgian snake survey places it in the same landscape as the Levantine viper and Urartian ratsnake — not across the whole country. A named barcode and a checklist figure are from Tbilisi. Photos on this atlas are from Lake Kumisi, June 2020 (Giorgi Iankoshvili) and Lisi Lake, 2 July 2023 (Ioane Rostiashvili). In Georgia it is usually under 50 cm; it has no venom and kills prey by constriction. Its burrowing look is easy to confuse with the European blind snake, but the build is different.",
+    "habitat": "Look in dry open country with loose soil — sandy or loamy flats, semi-desert, sparse shrub, and stony slopes. It spends most of the day underground, in a burrow, or under a stone; it usually appears at dusk or at night. The 2021 survey restricts it to south-eastern semi-arid landscape. This atlas maps Kakheti, Kvemo Kartli, and Tbilisi; that does not mean it is even across every corner of those regions. Named modern points are Tbilisi (CaBOL 1027415; also the checklist figure) and photographs from Lake Kumisi (June 2020) and Lisi Lake (2 July 2023). There is no confirmed range in western Georgia, Colchic forest, or the high mountains. A separate elevation band for Georgia is not published here.",
+    "diet": "No separate Georgian diet study is available. It kills by constriction — wrapping the body around prey, not with venom. Elsewhere in the range (Sicily) adults mainly eat small mammals; they also take lizard eggs and, less often, lizards. Juveniles forage more on lizard eggs. The Georgian menu has not been measured; the same prey groups — small lizards and rodents — are likely, but that is an inference, not a local count.",
+    "behavior": "The 2021 Georgian review lists it as nocturnal, together with the cat snake. It is rarely seen by day; encounters are more likely on a road, on freshly turned soil, or when a stone is lifted. It is live-bearing: eggs develop inside the female and young are born alive. Litter size and the exact season in Georgia are not published here. If you meet one, watch and leave it — do not pick it up. It is on the national Red List; removing it from the wild is restricted by law.",
+    "conservation": "IUCN lists it globally as Least Concern — the range is wide. Georgia’s 2014 Red List (Resolution No. 190) treats it as Vulnerable (VU), criterion B2a — a small fragmented range. The list cites Duméril & Bibron 1844 as authors; the accepted name is Eryx jaculus (Linnaeus, 1758). The 2026 checklist places it in Boidae. Local threats are conversion of dry habitat, roadkill, and killing after confusion with vipers. Do not collect it or kill it.",
+    "interaction": "Non-venomous. It poses no medical venom risk to people. A bite is defensive and contains no venom. Do not handle it: it is easily injured, it is Red Listed, and it can be mistaken for a viper. If the head is broadly triangular and the pupil is a vertical slit, give it space — that may be a viper.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Loose soil"
+        "value": "SE semi-arid"
+      },
+      {
+        "label": "Length",
+        "value": "usually <50 cm"
       },
       {
         "label": "Venom",
         "value": "None"
       },
       {
-        "label": "Status",
-        "value": "Confirmed"
+        "label": "Conservation",
+        "value": "VU (national)"
+      },
+      {
+        "label": "Activity",
+        "value": "Nocturnal"
       },
       {
         "label": "Family",
         "value": "Boidae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "A non-venomous sand boa; it kills prey by constriction.",
+      "In Georgia it occurs only in the semi-arid south-east.",
+      "A nocturnal burrower; rarely seen by day."
+    ],
     "identification": {
-      "summary": "A short, stout harmless boa with a blunt tail — not a blind snake.",
+      "summary": "A short, stout harmless boa with small eyes and a blunt tail. Size and visible eyes separate it from the blind snake. The first photo is from Lake Kumisi (June 2020), then Lisi Lake (2 July 2023). Later frames show the species from other parts of the range.",
       "traits": [
-        "Short stout body and a blunt tail tip.",
-        "Small but visible eyes.",
-        "Non-venomous constrictor (Boidae).",
-        "Xerotyphlops vermicularis is worm-like, with eyes reduced under the scales."
+        "The body is short and stout, almost cylindrical. The head is weakly set off from the neck and covered in small scales — not the large plates of most colubrids. The tail is short with a blunt tip; it can look like a second head. The 2021 Georgian review places it among small snakes to about 70 cm, usually under 50 cm.",
+        "The eyes are small but visible. The pupil is a vertical slit. A large rostral scale helps it push into soil. Dorsal scales are smooth in front and weakly keeled toward the tail. The belly scales are narrow.",
+        "The ground colour is grey, sand, brownish, or reddish. The back has darker irregular blotches or bars. A dark streak often runs from the eye to the mouth corner. The belly is pale. Pattern varies — do not rely on colour alone.",
+        "The European blind snake (Xerotyphlops vermicularis) is worm-like, with eyes reduced under the scales, and is usually much smaller. This species has small but obvious eyes and a boa’s stout body.",
+        "The cat snake (Telescopus fallax) is also nocturnal and has a vertical pupil, but the eyes are large and the body is slender, with a more distinct head. The steppe viper has a broad triangular head and keeled scales — it is venomous. The collared dwarf snake occurs in the same dry zone but is a thin colubrid with a round pupil."
       ]
     },
     "faq": [
       {
         "question": "Does the javelin sand boa occur in Georgia?",
-        "answer": "Yes. It is on the Tarkhnishvili et al. 2026 checklist. The CaBOL barcode and paper figure locality are Tbilisi."
+        "answer": "Yes. It is biologically confirmed on the 2026 checklist. It occurs only in the semi-arid south-east — not throughout the country."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. It is a non-venomous boa; it kills prey by constriction."
+        "question": "Where can it be found in Georgia?",
+        "answer": "In dry open country with loose soil in the south-east. The map marks Kakheti, Kvemo Kartli, and Tbilisi. Named points are Tbilisi (CaBOL), Lake Kumisi (photograph, June 2020), and Lisi Lake (photograph, 2 July 2023). Do not look for it in the west or the high mountains. It is rarely seen by day."
       },
       {
-        "question": "Is this the European blind snake?",
-        "answer": "No. Eryx is stouter, with small eyes and a blunt tail. The blind snake is a typhlopid with a worm-like body."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It is a non-venomous boa; it kills prey by constriction. It poses no medical venom risk. Still do not pick it up: it is Red Listed and can be mistaken for a viper."
       },
       {
-        "question": "Which subspecies occurs in Georgia?",
-        "answer": "Tarkhnishvili et al. 2026: E. j. turcicus (Werner, 1935)."
+        "question": "How can it be identified?",
+        "answer": "A short stout snake with small eyes, a blunt tail, and a head covered in small scales. The blind snake is worm-like with almost no visible eyes. The cat snake has large eyes and a slender body."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "In Georgia it is usually under 50 cm; the 2021 review places it among small snakes up to about 70 cm."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "The Georgian diet has not been measured. Elsewhere in the range, small mammals dominate; lizard eggs are also taken. It kills by constriction."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "Mainly at night and at dusk. It spends most of the day underground. An exact Georgian seasonal calendar is not published here."
+      },
+      {
+        "question": "Is it on the Georgian Red List?",
+        "answer": "Yes. The 2014 Red List lists it as Vulnerable (VU, B2a) — a small fragmented range. Globally IUCN lists it as Least Concern."
       }
     ],
     "gallery": [
       {
+        "src": "/images/eryx-jaculus-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი იანქოშვილი",
+          "location": "Lake Kumisi",
+          "date": "2020-06"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "Lisi Lake",
+          "date": "2023-07-02"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "Lisi Lake",
+          "date": "2023-07-02"
+        }
+      },
+      {
+        "src": "/images/eryx-jaculus-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "Lisi Lake",
+          "date": "2023-07-02"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/eryx-jaculus.jpg",
         "credit": {
           "photographer": "Alexandru Buzatu",
-          "url": "https://www.inaturalist.org/observations/129650363"
+          "url": "https://www.inaturalist.org/observations/129650363",
+          "location": "northern Bulgaria",
+          "date": "2018-07-11"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
         "credit": {
           "photographer": "Leonid A. Neymark",
-          "url": "https://www.inaturalist.org/observations/50042883"
+          "url": "https://www.inaturalist.org/observations/50042883",
+          "location": "Iki-Burul District, Kalmykia",
+          "date": "2015-05-16"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eryx-jaculus-3.jpg",
         "credit": {
           "photographer": "Roberto Sindaco",
-          "url": "https://www.inaturalist.org/observations/619071"
+          "url": "https://www.inaturalist.org/observations/619071",
+          "location": "Ras el Ma, Morocco",
+          "date": "2003-04-26"
         }
       }
     ],
     "imageCredit": {
-      "photographer": "Alexandru Buzatu",
-      "url": "https://www.inaturalist.org/observations/129650363"
+      "photographer": "გიორგი იანქოშვილი",
+      "location": "Lake Kumisi",
+      "date": "2020-06"
     },
     "mobileImageCredit": {
-      "photographer": "Roberto Sindaco",
-      "url": "https://www.inaturalist.org/observations/619071"
+      "photographer": "იოანე როსტიაშვილი",
+      "location": "Lisi Lake",
+      "date": "2023-07-02"
     }
   },
   "eumeces-schneiderii": {

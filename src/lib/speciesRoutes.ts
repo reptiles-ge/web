@@ -155,7 +155,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "xerotyphlops-vermicularis",
   ],
   "eirenis-collaris": ["eirenis-modestus"],
-  "eryx-jaculus": ["xerotyphlops-vermicularis"],
+  "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
   "emys-orbicularis": ["mauremys-caspica", "trachemys-scripta"],
   "mauremys-caspica": ["emys-orbicularis", "trachemys-scripta"],

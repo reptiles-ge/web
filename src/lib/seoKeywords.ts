@@ -81,6 +81,15 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Coluber najadum",
     ],
   },
+  "eryx-jaculus": {
+    ka: ["ქვიშიანი ბოა", "Eryx jaculus turcicus"],
+    en: [
+      "javelin boa",
+      "sand boa",
+      "western sand boa",
+      "Eryx jaculus turcicus",
+    ],
+  },
   "eirenis-modestus": {
     ka: ["Coronella modesta", "Contia modesta"],
     en: [

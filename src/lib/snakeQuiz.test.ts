@@ -112,7 +112,7 @@ test("quiz mobile covers use tighter shots only where desktop crops badly", () =
   );
   assert.equal(
     mobileOf("eryx-jaculus"),
-    "https://cdn.reptiles.ge/eryx-jaculus-2.jpg",
+    "/images/eryx-jaculus-ioane-1.jpg",
   );
   assert.equal(
     mobileOf("platyceps-najadum"),
