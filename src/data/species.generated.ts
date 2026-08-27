@@ -353,9 +353,45 @@ export const species: Species[] = [
     "behavior": "ძირითადად ბინდსა და ღამითაა აქტიური. დღისით იმალება. ქვირითობისას შეიძლება დღისითაც გამოჩნდეს არაღრმა წყალთან. მშრალ ამინდში ღამით წყალთან მიდის დასალევად. ბორჯომის ხეობაში გამრავლების პიკი აპრილ–ივნისშია დაფიქსირებული. ღია ადგილების გომბეშოა: ბორჯომში სეზონში ერთზე მეტ ქვირითს ყრის, ტყის გომბეშო კი — ჩვეულებრივ ერთს. ქვირითი წყალში გრძელი თასმის სახით იდება. მდედრი, როგორც წესი, სამი ზამთრის შემდეგ მწიფდება; ამავე უბანში უძველესი მდედრები 9–12 წლამდეა აღრიცხული. იზამთრებს ხმელეთზე — სოროში, ორმოში, ქვის ქვეშ; ზოგჯერ წყალშიც. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის საშიში არ არის.",
     "conservation": "IUCN-ის 2023 წლის შეფასებით Bufotes viridis ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის — იქ ამფიბიებიდან შეტანილია კავკასიური სალამანდრა და სირიული მყვარი. ხშირად გვხვდება ბაღებში, პარკებსა და დასახლებულ ადგილებში. ადგილობრივი საფრთხეა მდელოების გაქრობა და ჭაობების დაშრობა; ტყის გაქრობა, პირიქით, ღია ადგილების სახეობას შეიძლება შეუწყოს ხელი. AmphibiaWeb-ის მიხედვით შეტანილია ბერნის კონვენციის II დანართში.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/bufotes-viridis.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/bufotes-viridis-mobile.jpg",
+    "image": "/images/bufotes-viridis-ioane-1.jpg",
+    "imageCredit": {
+      "photographer": "იოანე როსტიაშვილი",
+      "date": "2022-09-20"
+    },
+    "mobileImage": "/images/bufotes-viridis-ioane-1.jpg",
+    "mobileImageCredit": {
+      "photographer": "იოანე როსტიაშვილი",
+      "date": "2022-09-20"
+    },
     "gallery": [
+      {
+        "src": "/images/bufotes-viridis-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "date": "2022-09-20"
+        }
+      },
+      {
+        "src": "/images/bufotes-viridis-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "2026-07-04"
+        }
+      },
+      {
+        "src": "/images/bufotes-viridis-armen-1.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2020-11-05"
+        }
+      },
+      {
+        "src": "/images/bufotes-viridis-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "date": "2022-09-20"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
       },
@@ -6261,10 +6297,10 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური და იშვიათად ჩანს. დღისით იმალება. ბორჯომის ხეობაში, საშუალო სიმაღლეზე, პირველი ზრდასრულები მაისის დასაწყისში ჩნდებიან, უკანასკნელნი — სექტემბერში; ბათუმის მხარეს და მაღალმთაში ეს პერიოდი შეიძლება განსხვავდებოდეს. ქვირითობა გვიან გაზაფხულზე და ზაფხულშია. შეჯვარება ხმელეთზე ან წყალშია. მდედრი კვერცხებს ნაკადულში დებს; ბორჯომის პოპულაციაში საშუალოდ დაახლოებით 17 კვერცხი. ლიფსიტები ნაკადულში რჩებიან და მეტამორფოზამდე, როგორც წესი, 2–4 წელი სჭირდებათ. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. კანი ლორწოს გამოყოფს, რომელიც თვალს ან პირს შეიძლება გააღიზიანოს. შეხების შემდეგ ხელები დაიბანეთ.",
     "conservation": "IUCN-ის მიხედვით მოწყვლადია (Vulnerable). 2009 წლის შეფასებით დაკავებული ფართობი 2 000 კმ²-ზე ნაკლებია, გავრცელება მკვეთრად ფრაგმენტირებულია და ჰაბიტატის ხარისხი მცირდება. საქართველოში მთავარი საფრთხეებია ტყის ჩეხა, ნაკადულის გამოყენება ხის გასატანად და პირუტყვის ზეწოლა. შეტანილია საქართველოს წითელ წიგნში. დაცულ ტერიტორიებს შორისაა ბორჯომი–ხარაგაულის ეროვნული პარკი და კინტრიში. არ აიყვანოთ და არ გადაიტანოთ — სახეობა შინაურ ცხოველადაც აგროვებენ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/mertensiella-caucasica.jpg",
+    "image": "/images/mertensiella-caucasica-giorgi-1.jpg",
     "imageCredit": {
-      "photographer": "david_broek",
-      "url": "https://www.inaturalist.org/observations/383087185"
+      "photographer": "გიორგი იანქოშვილი",
+      "date": "2017-12-15"
     },
     "mobileImage": "https://cdn.reptiles.ge/mertensiella-caucasica-mobile.jpg",
     "mobileImageCredit": {
@@ -6272,6 +6308,41 @@ export const species: Species[] = [
       "url": "https://www.inaturalist.org/observations/383087171"
     },
     "gallery": [
+      {
+        "src": "/images/mertensiella-caucasica-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი იანქოშვილი",
+          "date": "2017-12-15"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-1.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-2.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-3.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-4.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-1.jpg",
         "credit": {
@@ -11644,6 +11715,34 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/bufotes-viridis-ioane-1.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "date": "2022-09-20"
+        }
+      },
+      {
+        "src": "/images/bufotes-viridis-zakro-1.jpg",
+        "credit": {
+          "photographer": "Zakro Songulashvili",
+          "date": "2026-07-04"
+        }
+      },
+      {
+        "src": "/images/bufotes-viridis-armen-1.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2020-11-05"
+        }
+      },
+      {
+        "src": "/images/bufotes-viridis-ioane-2.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "date": "2022-09-20"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/bufotes-viridis.jpg"
       },
       {
@@ -11658,7 +11757,15 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "src": "https://cdn.reptiles.ge/bufotes-viridis-3.jpg"
       }
-    ]
+    ],
+    "imageCredit": {
+      "photographer": "Ioane Rostiashvili",
+      "date": "2022-09-20"
+    },
+    "mobileImageCredit": {
+      "photographer": "Ioane Rostiashvili",
+      "date": "2022-09-20"
+    }
   },
   "coronella-austriaca": {
     "commonName": "Smooth snake",
@@ -16093,6 +16200,41 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/mertensiella-caucasica-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი იანქოშვილი",
+          "date": "2017-12-15"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-1.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-2.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-3.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
+        "src": "/images/mertensiella-caucasica-armen-4.jpg",
+        "credit": {
+          "photographer": "Armen Seropian",
+          "date": "2019-02-17"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/mertensiella-caucasica-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
@@ -16166,8 +16308,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "david_broek",
-      "url": "https://www.inaturalist.org/observations/383087185"
+      "photographer": "გიორგი იანქოშვილი",
+      "date": "2017-12-15"
     },
     "mobileImageCredit": {
       "photographer": "david_broek",
