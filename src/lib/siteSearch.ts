@@ -174,6 +174,8 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "მელა",
       "fox",
       "vulpes",
+      "ციყვი",
+      "squirrel",
     ],
     icon: "hub",
   },
@@ -659,7 +661,7 @@ function speciesGroupText(species: Species) {
   extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
   extra.push(
     group === "mammal"
-      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel"
+      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel"
       : "",
   );
   return extra;

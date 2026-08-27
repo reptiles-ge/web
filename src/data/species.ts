@@ -229,8 +229,11 @@ export const featuredSpeciesIds = [
   "emberiza-citrinella",
   "picus-viridis",
   "cuculus-canorus",
+  "ficedula-hypoleuca",
+  "ficedula-semitorquata",
   "vulpes-vulpes",
   "mustela-nivalis",
+  "sciurus-anomalus",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;

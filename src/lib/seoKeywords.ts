@@ -248,6 +248,34 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Cuculus canorus canorus",
     ],
   },
+  "ficedula-hypoleuca": {
+    ka: [
+      "ჭრელი ბუზიჭერია",
+      "მემატლიასებრნი",
+      "Motacilla hypoleuca",
+      "Muscicapa hypoleuca",
+    ],
+    en: [
+      "pied flycatcher",
+      "western pied flycatcher",
+      "Motacilla hypoleuca",
+      "Muscicapa hypoleuca",
+      "Ficedula hypoleuca hypoleuca",
+    ],
+  },
+  "ficedula-semitorquata": {
+    ka: [
+      "ნახევართეთრყელა მემატლია",
+      "ნახევართეთრყელა ბუზიჭერია",
+      "მემატლიასებრნი",
+      "Muscicapa semitorquata",
+    ],
+    en: [
+      "semicollared flycatcher",
+      "half-collared flycatcher",
+      "Muscicapa semitorquata",
+    ],
+  },
   "vulpes-vulpes": {
     ka: [
       "ჩვეულებრივი მელა",
@@ -281,6 +309,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Mustela nivalis dinniki",
     ],
   },
+  "sciurus-anomalus": {
+    ka: [
+      "სპარსული ციყვი",
+      "ციყვი",
+      "Sciurus persicus",
+      "Sciurus anomalus anomalus",
+    ],
+    en: [
+      "Persian squirrel",
+      "golden squirrel",
+      "Transcaucasian squirrel",
+      "Sciurus persicus",
+      "Sciurus anomalus anomalus",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {
@@ -301,12 +344,18 @@ export function uniqueKeywords(values: Array<string | undefined | null>) {
 
 export function siteKeywords(locale: AppLocale) {
   return locale === "en"
-    ? ["Georgia reptiles", "Caucasus reptiles", "reptile atlas"]
+    ? [
+        "animals of Georgia",
+        "Georgia reptiles",
+        "Caucasus reptiles",
+        "species atlas",
+      ]
     : [
+        "საქართველოს ცხოველები",
+        "ცხოველთა ატლასი",
         "ქვეწარმავლები",
         "საქართველოს ქვეწარმავლები",
         "კავკასია",
-        "ქვეწარმავლების ატლასი",
       ];
 }
 

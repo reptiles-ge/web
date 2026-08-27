@@ -32,6 +32,12 @@ const KA_SLUG_OVERRIDES: Record<string, string> = {
 
 const KA_SLUG_ALIASES: Record<string, string[]> = {
   "pelodytes-caucasicus": ["kavkasiuri-jvarula"],
+  "ficedula-hypoleuca": ["chreli-buzicheria"],
+  "ficedula-semitorquata": [
+    "naxevartetqela-mematlia",
+    "naxevartetqela-buzicheria",
+  ],
+  "sciurus-anomalus": ["sparsuli-tsiqvi"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
@@ -190,6 +196,8 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-portschinskii": ["darevskia-obscura", "darevskia-valentini"],
   "darevskia-praticola": ["darevskia-pontica"],
   "darevskia-raddei": ["darevskia-obscura"],
+  "ficedula-hypoleuca": ["ficedula-semitorquata"],
+  "ficedula-semitorquata": ["ficedula-hypoleuca"],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};

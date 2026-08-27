@@ -26,12 +26,13 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import {
   getSpeciesHeroSources,
   isPlaceholderBody,
 } from "@/lib/speciesContent";
 import {
+  speciesFallbackDescriptionKey,
   speciesMetaDescription,
   speciesMetaTitle,
   speciesTitleIntentKey,
@@ -85,15 +86,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       t(speciesTitleIntentKey(group, raw.danger)),
     );
     const description = isPlaceholderBody(item.overview)
-      ? group === "snake" && isVenomousDanger(raw.danger)
-        ? t("descriptionVenomous", {
-            name: item.commonName,
-            scientific: item.scientificName,
-          })
-        : t("descriptionDefault", {
-            name: item.commonName,
-            scientific: item.scientificName,
-          })
+      ? t(speciesFallbackDescriptionKey(group, raw.danger), {
+          name: item.commonName,
+          scientific: item.scientificName,
+        })
       : speciesMetaDescription(item.overview);
     const url = speciesPageUrl(locale, item.id);
     const keywords = speciesSeoKeywords(item, locale);

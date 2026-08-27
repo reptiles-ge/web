@@ -4,6 +4,8 @@
     "about": "About",
     "atlas": "Atlas",
     "discover": "Discover",
+    "groups": "Groups",
+    "reptiles": "Reptiles",
     "snakes": "Snakes",
     "quizzes": "Quizzes",
     "new": "New",
@@ -53,8 +55,8 @@
   },
   "hero": {
     "brand": "Reptiles",
-    "title": "Reptiles of Georgia — species, range, identification",
-    "subtitle": "Species profiles, regional maps, and field photos — in Georgian and English.",
+    "title": "Animals of Georgia — species, range, identification",
+    "subtitle": "Species profiles from Georgia — reptiles through birds and mammals. Maps and field photos in Georgian and English.",
     "viewSpecies": "Species",
     "exploreRegions": "Explore by region",
     "moreAboutViper": "Venomous snakes in Georgia",
@@ -79,7 +81,7 @@
   },
   "cta": {
     "eyebrow": "Atlas",
-    "title": "Atlas of Georgia’s reptiles",
+    "title": "Species atlas",
     "subtitle": "Species profiles, regional maps, and field photos.",
     "button": "Species",
     "secondary": "Venomous snakes in Georgia",
@@ -96,7 +98,7 @@
     "knowledge": {
       "eyebrow": "Guides",
       "title": "Guides for questions people actually ask",
-      "subtitle": "Venomous-snake ID, a photo quiz, and the species catalog.",
+      "subtitle": "Venomous-snake ID, the species catalog, and other animal groups.",
       "yard": {
         "title": "Snakes in the yard",
         "body": "How to get snakes out of the yard — what works, what doesn’t, and what to do if one already appeared.",
@@ -136,6 +138,16 @@
         "title": "Turtles in Georgia",
         "body": "One land tortoise, two native freshwater turtles, and the introduced slider.",
         "cta": "Turtles"
+      },
+      "birds": {
+        "title": "Birds in Georgia",
+        "body": "Species profiles with named sources — not a complete national list yet.",
+        "cta": "Birds"
+      },
+      "mammals": {
+        "title": "Mammals in Georgia",
+        "body": "Species profiles with named sources — not a complete national list yet.",
+        "cta": "Mammals"
       }
     },
     "regions": {
@@ -145,8 +157,8 @@
     },
     "seo": {
       "eyebrow": "Digital atlas",
-      "title": "Georgia’s reptiles in one place",
-      "p1": "Reptiles.ge is a bilingual atlas of reptiles in Georgia. Identification, habitat, region, and safer encounters — for hikers, students, and researchers.",
+      "title": "Georgia’s animals in one atlas",
+      "p1": "Reptiles.ge is a bilingual atlas of animals in Georgia. Identification, habitat, region, and safer encounters — for hikers, students, and researchers. Reptiles are still the deepest layer.",
       "p2": "Species profiles with field photos, maps for twelve regions, and a guide to medically significant snakes. New profiles and sources are added in the same structure.",
       "links": {
         "species": "Species atlas",
@@ -168,7 +180,7 @@
     }
   },
   "footer": {
-    "tagline": "A bilingual digital atlas of Georgia’s reptiles — species profiles, regional maps, and field photography.",
+    "tagline": "A bilingual atlas of Georgia’s animals — species profiles, regional maps, and field photography.",
     "rights": "All rights reserved.",
     "forCurious": "For the curious.",
     "exploreTitle": "Explore",
@@ -250,7 +262,7 @@
     "faqIntroAfter": ".",
     "related": "Similar species",
     "relatedTitle": "Related species",
-    "allSpecies": "Atlas of Georgia’s reptiles",
+    "allSpecies": "Species atlas",
     "guidesEyebrow": "Related guides",
     "guidesTitle": "Continue with related pages",
     "quizCtaEyebrow": "Quiz",
@@ -460,16 +472,16 @@
   },
   "about": {
     "metaTitle": "About",
-    "metaDescription": "Reptiles — Georgia’s bilingual reptile atlas: how profiles are written, and which sources we use.",
+    "metaDescription": "Reptiles — Georgia’s bilingual animal atlas: how profiles are written, and which sources we use. Reptiles remain the deepest layer.",
     "back": "Home",
     "brand": "Reptiles",
     "eyebrow": "About the company",
-    "title": "Atlas of Georgia’s reptiles",
+    "title": "Atlas of animals of Georgia",
     "subtitle": "Species profiles, regional maps, and field photos — for hikers, students, and researchers.",
     "heroImageAlt": "Misty Caucasus ridge at dusk",
     "companyEyebrow": "Who we are",
-    "companyTitle": "Reptiles — a reptile atlas",
-    "companyBody1": "We build a bilingual atlas of reptiles of Georgia and the Caucasus — sourced, and useful in the field.",
+    "companyTitle": "Reptiles — atlas of animals of Georgia",
+    "companyBody1": "We build a bilingual atlas of animals of Georgia — sourced, and useful in the field. Reptiles and amphibians are still the deepest layer; birds and mammals are added in the same structure.",
     "companyBody2": "Our work connects science with public understanding: clear identification, regional context, venom risk, and conservation status — without noise or speculation.",
     "companyBody3": "Every profile is curated against established biodiversity sources and updated as taxonomy, Red List status, and field evidence change.",
     "pillars": {
@@ -519,8 +531,8 @@
     }
   },
   "site": {
-    "title": "Reptiles — Atlas of Georgia’s reptiles",
-    "description": "Reptiles of Georgia — species profiles, range, venomous snakes, and field photos. In Georgian and English."
+    "title": "Reptiles — atlas of animals of Georgia",
+    "description": "A species atlas of Georgia’s animals: profiles, range, and identification. Reptiles and venomous snakes are already here — in Georgian and English."
   },
   "notFound": {
     "eyebrow": "Lost in the atlas",
@@ -559,14 +571,17 @@
     "titleBird": "range and identification in Georgia",
     "titleMammal": "range and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
-    "descriptionDefault": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus."
+    "descriptionReptile": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
+    "descriptionAmphibian": "{name} ({scientific}) — range, biology, and conservation status. Amphibians of Georgia.",
+    "descriptionBird": "{name} ({scientific}) — range, biology, and conservation status. Birds of Georgia.",
+    "descriptionMammal": "{name} ({scientific}) — range, biology, and conservation status. Mammals of Georgia."
   },
   "speciesAtlas": {
-    "metaTitle": "Species atlas — reptiles of Georgia",
-    "metaDescription": "Reptiles of Georgia: species profiles, distribution maps, photos, venom risk, and regional records.",
+    "metaTitle": "Species atlas — animals of Georgia",
+    "metaDescription": "Animals of Georgia in one catalog: species profiles, photos, and identification. Reptiles are the most complete group so far.",
     "eyebrow": "Species atlas",
-    "title": "Atlas of Georgia’s reptiles",
-    "subtitle": "Explore reptiles recorded in Georgia — field descriptions, range maps, photography, and the facts that matter for identification and safety.",
+    "title": "Species atlas",
+    "subtitle": "Species recorded in Georgia — reptiles, amphibians, birds, and mammals. Descriptions, photos, and identification notes.",
     "heroImageAlt": "A viper on a mossy rock in a misty mountain valley",
     "breadcrumbHome": "Home",
     "breadcrumbSpecies": "Species",
@@ -593,7 +608,7 @@
       "pathwayMammalsTitle": "{count} mammals",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
-      "expandingNote": "Turtles and amphibians are full categories — with the same depth, maps, and photography."
+      "expandingNote": "Birds and mammals are in the catalog under the same standard. Reptiles and amphibians are still the most complete layer."
     },
     "explorerEyebrow": "Explorer",
     "explorerTitle": "Browse the catalog",
@@ -653,8 +668,14 @@
     "seoEyebrow": "Field context",
     "seo": {
       "reptilesTitle": "Reptiles of Georgia",
-      "reptilesP1": "Georgia sits between the Black Sea, the Greater Caucasus, and the arid east — a short geographic span that supports vipers of high mountains and Colchic forests, water snakes of rivers and wetlands, racers of dry foothills, and a widespread legless lizard often mistaken for a snake. This atlas focuses first on well-documented reptiles of Georgia, with bilingual accounts, Georgia-specific range notes, and field photography.",
-      "reptilesP2": "Species richness here is shaped by elevation, humidity, and refuge habitats. Western Colchic landscapes favor moisture-linked snakes such as Natrix; eastern semi-arid basins hold Macrovipera lebetina and fast colubrids; alpine and subalpine belts hold Caucasus endemics including Vipera dinniki. Counts on this page reflect published profiles in the atlas — snakes, lizards, turtles, and amphibians.",
+      "reptilesP1": "Georgia sits between the Black Sea, the Greater Caucasus, and the arid east — a short geographic span that supports vipers of high mountains and Colchic forests, water snakes of rivers and wetlands, racers of dry foothills, and a widespread legless lizard often mistaken for a snake. Reptile profiles here are bilingual, with Georgia-specific range notes and field photography.",
+      "reptilesP2": "Species richness here is shaped by elevation, humidity, and refuge habitats. Western Colchic landscapes favor moisture-linked snakes such as Natrix; eastern semi-arid basins hold Macrovipera lebetina and fast colubrids; alpine and subalpine belts hold Caucasus endemics including Vipera dinniki. This section is about reptiles — snakes, lizards, and turtles.",
+      "amphibiansTitle": "Amphibians of Georgia",
+      "amphibiansP1": "Frogs, toads, newts, and the Caucasian salamander sit in the same catalog, with dedicated guides. This is not a complete national list — only published profiles.",
+      "birdsTitle": "Birds of Georgia",
+      "birdsP1": "Bird profiles follow the same rule: named sources, no invented maps. The list is growing and does not replace the national avifauna checklist.",
+      "mammalsTitle": "Mammals of Georgia",
+      "mammalsP1": "Mammal pages use the same profile structure. Few are published yet — absence from this catalog does not mean the species is absent from Georgia.",
       "venomousTitle": "Venomous snakes of Georgia",
       "venomousP1": "Only a minority of Georgia’s snakes are medically significant. In this atlas, “venomous” means moderate or high risk to humans: the Levantine viper (Macrovipera lebetina), Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), Transcaucasian long-nosed viper (Vipera transcaucasiana), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi). Most other snakes here — grass snake, dice snake, racers, smooth snake, cat snake — are harmless to people, though several are frequently misidentified.",
       "venomousP2": "Safe encounter practice is simple: do not handle wild snakes, keep distance, and learn the lookalikes common in your region. Open each profile for identification traits, habitat, and conservation status. This is educational natural-history guidance, not emergency medical advice.",
@@ -678,7 +699,7 @@
     "photosTitle": "Photography",
     "photosBody": "Images are selected for identification value and field context. Credits appear on species pages when photographer attribution is available.",
     "contributorsTitle": "The organization",
-    "contributorsBody": "Reptiles builds a bilingual atlas of Georgia’s reptiles — from established biodiversity sources, updated as taxonomy and conservation data change.",
+    "contributorsBody": "Reptiles builds a bilingual atlas of animals of Georgia — from established biodiversity sources, updated as taxonomy and conservation data change. Reptiles remain the deepest layer.",
     "contributorsLink": "About Reptiles"
   },
   "venomousSnakes": {
@@ -1154,8 +1175,8 @@
     "faq2A": "Streams, ponds, wetlands, and humid forests — especially in breeding season. Regional pages add local context.",
     "faq3Q": "How do I tell frogs from toads?",
     "faq3A": "Skin texture, body shape, size, and calls help. Each profile’s identification section lists concrete traits.",
-    "faq4Q": "Why are amphibians on a reptiles site?",
-    "faq4A": "Georgia’s herpetofauna is one field unit — reptiles and amphibians together. That is why amphibians are in this atlas.",
+    "faq4Q": "Why are amphibians grouped with reptiles?",
+    "faq4A": "Georgia’s herpetofauna is one field unit — reptiles and amphibians together. That is why amphibians have their own category in this atlas.",
     "faq5Q": "Should I handle amphibians?",
     "faq5A": "Better not — their skin is sensitive and populations are vulnerable. Observe and compare with the atlas.",
     "ctaEyebrow": "Next step",
@@ -1176,7 +1197,7 @@
     "statExtra": "Current focus",
     "statExtraValue": "Buntings and woodpeckers",
     "guideEyebrow": "Guide",
-    "guideTitle": "Birds in the nature atlas",
+    "guideTitle": "Birds in the animal atlas",
     "guideP1": "Reptiles.ge is adding bird profiles using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
     "guideP2": "The 2024 annotated checklist of the birds of Georgia (Budagashvili & Javakhishvili) is the country-status source used here. This hub is not a substitute for that full list of 400+ species.",
     "speciesEyebrow": "Catalog",
@@ -1195,8 +1216,8 @@
     "faq1A": "No. This hub publishes individual species pages as they are written. The 2024 national checklist is the reference for the full avifauna.",
     "faq2Q": "Which bird is in the atlas now?",
     "faq2A": "Two profiles so far: yellowhammer (Emberiza citrinella), a winter visitor; and European green woodpecker (Picus viridis), a year-round resident.",
-    "faq3Q": "Why are birds on a reptiles website?",
-    "faq3A": "The site is expanding into a Georgian nature atlas. Bird pages use the same structure as reptiles and amphibians.",
+    "faq3Q": "How are birds added to the atlas?",
+    "faq3A": "Bird pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national bird list.",
     "faq4Q": "Are regional maps shown for birds?",
     "faq4A": "Only when a profile has named regional records. The yellowhammer and green woodpecker pages do not colour the administrative map: the checklist confirms country status, not a complete region list.",
     "faq5Q": "Should I handle wild birds?",
@@ -1207,8 +1228,8 @@
   },
   "mammals": {
     "metaTitle": "Mammals in Georgia — species profiles",
-    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources. Current species include the red fox (Vulpes vulpes) and the least weasel (Mustela nivalis).",
-    "keywords": "mammals in Georgia, Georgia mammals, red fox, least weasel, Vulpes vulpes, Mustela nivalis, მელა, დედოფალა, fox Georgia, weasel Georgia",
+    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources. Current species include red fox, least weasel, and Caucasian squirrel.",
+    "keywords": "mammals in Georgia, Georgia mammals, red fox, least weasel, Caucasian squirrel, Vulpes vulpes, Mustela nivalis, Sciurus anomalus, მელა, დედოფალა, კავკასიური ციყვი",
     "breadcrumbCurrent": "Mammals",
     "heroImageAlt": "Red fox at a woodland edge, with reddish fur and a bushy tail",
     "title": "Mammals in Georgia",
@@ -1217,9 +1238,9 @@
     "statSpecies": "Mammals in the atlas",
     "statFamilies": "Families",
     "statExtra": "Current focus",
-    "statExtraValue": "Canids and mustelids",
+    "statExtraValue": "Canids, mustelids, squirrels",
     "guideEyebrow": "Guide",
-    "guideTitle": "Mammals in the nature atlas",
+    "guideTitle": "Mammals in the animal atlas",
     "guideP1": "Reptiles.ge is adding mammal profiles using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
     "guideP2": "Country occurrence here rests on national mammal lists, IUCN, and hunting documents. This hub is not a substitute for a full list of 100+ species.",
     "speciesEyebrow": "Catalog",
@@ -1237,11 +1258,11 @@
     "faq1Q": "Does this site cover all Georgian mammals?",
     "faq1A": "No. This hub publishes individual species pages as they are written. National mammal checklists remain the reference for the full fauna.",
     "faq2Q": "Which mammals are in the atlas now?",
-    "faq2A": "Two profiles so far: red fox (Vulpes vulpes) and least weasel (Mustela nivalis), both year-round native species in Georgia.",
-    "faq3Q": "Why are mammals on a reptiles website?",
-    "faq3A": "The site is expanding into a Georgian nature atlas. Mammal pages use the same structure as reptiles, amphibians, and birds.",
+    "faq2A": "Three profiles so far: red fox (Vulpes vulpes), least weasel (Mustela nivalis), and Caucasian squirrel (Sciurus anomalus) — all year-round native species in Georgia.",
+    "faq3Q": "How are mammals added to the atlas?",
+    "faq3A": "Mammal pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national mammal list.",
     "faq4Q": "Are regional maps shown for mammals?",
-    "faq4A": "Only when a profile has named regional records. The red fox and least weasel pages do not colour the administrative map: country occurrence is confirmed, a municipality list is not compiled here.",
+    "faq4A": "Only when a profile has named regional records. The fox, weasel, and squirrel pages do not colour the administrative map: country occurrence is confirmed, a municipality list is not compiled here.",
     "faq5Q": "Should I handle wild mammals?",
     "faq5A": "No. Watch from a distance. A bite or saliva can carry rabies risk; do not pick up wild animals.",
     "ctaEyebrow": "Next step",

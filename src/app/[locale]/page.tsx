@@ -92,6 +92,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   const description = t("description");
   const stats = getAtlasStats();
   const org = organizationJsonLd({ description });
+  const datasetId = `${homeUrl}#atlas`;
   const termsId = `${homeUrl}#atlas-terms`;
 
   const graph = {
@@ -107,7 +108,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         description,
         inLanguage: locale,
         isPartOf: { "@id": siteEntityId("website") },
-        about: { "@id": termsId },
+        about: [{ "@id": datasetId }, { "@id": termsId }],
         potentialAction: {
           "@type": "SearchAction",
           target: {
@@ -119,10 +120,11 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
       },
       {
         "@type": "Dataset",
+        "@id": datasetId,
         name:
           locale === "en"
-            ? "Atlas of reptiles of Georgia"
-            : "საქართველოს ქვეწარმავლების ატლასი",
+            ? "Atlas of animals of Georgia"
+            : "საქართველოს ცხოველთა ატლასი",
         description,
         url: homeUrl,
         creator: { "@id": siteEntityId("organization") },

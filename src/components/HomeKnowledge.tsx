@@ -29,6 +29,14 @@ const pathways = [
     key: "amphibians" as const,
     href: "/amphibians" as const,
   },
+  {
+    key: "birds" as const,
+    href: "/birds" as const,
+  },
+  {
+    key: "mammals" as const,
+    href: "/mammals" as const,
+  },
 ];
 
 export async function HomeKnowledge() {

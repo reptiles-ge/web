@@ -906,6 +906,60 @@ function SeoAuthoritySection() {
 
           <section>
             <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+              {t("seo.amphibiansTitle")}
+            </h2>
+            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+              {t("seo.amphibiansP1")}
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/amphibians"
+                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+              >
+                {t("seo.amphibiansTitle")}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+              {t("seo.birdsTitle")}
+            </h2>
+            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+              {t("seo.birdsP1")}
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/birds"
+                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+              >
+                {t("seo.birdsTitle")}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+              {t("seo.mammalsTitle")}
+            </h2>
+            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+              {t("seo.mammalsP1")}
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/mammals"
+                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+              >
+                {t("seo.mammalsTitle")}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
               {t("seo.venomousTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">

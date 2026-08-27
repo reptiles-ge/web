@@ -23,6 +23,24 @@ export function speciesTitleIntentKey(
   return "titleAmphibian";
 }
 
+export function speciesFallbackDescriptionKey(
+  group: AnimalGroup,
+  danger?: DangerLevel,
+):
+  | "descriptionVenomous"
+  | "descriptionReptile"
+  | "descriptionAmphibian"
+  | "descriptionBird"
+  | "descriptionMammal" {
+  if (group === "snake" && isVenomousDanger(danger)) {
+    return "descriptionVenomous";
+  }
+  if (group === "amphibian") return "descriptionAmphibian";
+  if (group === "bird") return "descriptionBird";
+  if (group === "mammal") return "descriptionMammal";
+  return "descriptionReptile";
+}
+
 export function speciesMetaTitle(
   commonName: string,
   scientificName: string,

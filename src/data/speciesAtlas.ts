@@ -305,6 +305,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "ficedula-hypoleuca": {
+    group: "bird",
+    habitats: ["forest"],
+  },
+  "ficedula-semitorquata": {
+    group: "bird",
+    habitats: ["forest"],
+  },
   "vulpes-vulpes": {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],
@@ -312,6 +320,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "mustela-nivalis": {
     group: "mammal",
     habitats: ["grassland", "forest", "mountain"],
+  },
+  "sciurus-anomalus": {
+    group: "mammal",
+    habitats: ["forest"],
   },
 };
 

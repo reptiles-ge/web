@@ -6,7 +6,7 @@ import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link, usePathname } from "@/i18n/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useState } from "react";
 
@@ -76,14 +76,28 @@ export function Navbar() {
 
   const links = [
     { href: "/species" as const, label: t("species") },
-    { href: "/snakes" as const, label: t("snakes") },
     { href: "/quiz" as const, label: t("quizzes"), badge: t("new") },
     { href: "/regions" as const, label: t("atlas") },
   ];
+  const reptileGroupLinks = [
+    { href: "/snakes" as const, label: t("snakes") },
+    { href: "/lizards" as const, label: t("lizards") },
+    { href: "/turtles" as const, label: t("turtles") },
+  ];
+  const otherGroupLinks = [
+    { href: "/amphibians" as const, label: t("amphibians") },
+    { href: "/birds" as const, label: t("birds") },
+    { href: "/mammals" as const, label: t("mammals") },
+  ];
+  const groupLinks = [...reptileGroupLinks, ...otherGroupLinks];
   const mobileLinks = [
     ...links,
     { href: "/about" as const, label: t("about") },
   ];
+  const [groupsOpen, setGroupsOpen] = useState(false);
+  const groupsActive = groupLinks.some(
+    (link) => pathname === link.href || pathname.startsWith(`${link.href}/`),
+  );
 
   useEffect(() => {
     if (!darkHero) {
@@ -102,6 +116,7 @@ export function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
+    setGroupsOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -156,25 +171,92 @@ export function Navbar() {
           />
         </Link>
         <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
-          {links.map((link) => {
-            const className = `text-[13px] font-medium tracking-wide transition-colors ${
+          <Link
+            href="/species"
+            className={`relative text-[13px] font-medium tracking-wide transition-colors ${
               scrolled
                 ? "text-foreground/70 hover:text-foreground"
                 : "text-white/70 hover:text-white"
-            }`;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative ${className}`}
-              >
-                {link.label}
-                {"badge" in link && link.badge ? (
-                  <NavNewBadge label={link.badge} />
-                ) : null}
-              </Link>
-            );
-          })}
+            }`}
+          >
+            {t("species")}
+          </Link>
+          <div className="relative">
+            <button
+              type="button"
+              className={`inline-flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors ${
+                scrolled
+                  ? "text-foreground/70 hover:text-foreground"
+                  : "text-white/70 hover:text-white"
+              } ${groupsActive || groupsOpen ? (scrolled ? "text-foreground" : "text-white") : ""}`}
+              aria-expanded={groupsOpen}
+              aria-haspopup="true"
+              onClick={() => setGroupsOpen((open) => !open)}
+            >
+              {t("groups")}
+              <ChevronDown
+                className={`size-3.5 transition-transform ${groupsOpen ? "rotate-180" : ""}`}
+                strokeWidth={1.75}
+              />
+            </button>
+            {groupsOpen ? (
+              <>
+                <button
+                  type="button"
+                  className="fixed inset-0 z-40 cursor-default"
+                  aria-label={t("closeMenu")}
+                  onClick={() => setGroupsOpen(false)}
+                />
+                <div className="absolute left-1/2 top-full z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-border bg-background py-2 shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+                  <p className="px-4 pb-1 pt-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    {t("reptiles")}
+                  </p>
+                  {reptileGroupLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setGroupsOpen(false)}
+                      className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                  <div className="my-2 border-t border-border" />
+                  {otherGroupLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setGroupsOpen(false)}
+                      className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </div>
+          {links
+            .filter((link) => link.href !== "/species")
+            .map((link) => {
+              const className = `text-[13px] font-medium tracking-wide transition-colors ${
+                scrolled
+                  ? "text-foreground/70 hover:text-foreground"
+                  : "text-white/70 hover:text-white"
+              }`;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative ${className}`}
+                >
+                  {link.label}
+                  {"badge" in link && link.badge ? (
+                    <NavNewBadge label={link.badge} />
+                  ) : null}
+                </Link>
+              );
+            })}
         </nav>
         <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
           <SpeciesSearch variant={chromeVariant} />
@@ -249,6 +331,40 @@ export function Navbar() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </Link>
+                {link.href === "/species" ? (
+                  <div className="mb-2 mt-1 px-3">
+                    <p className="pb-2 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                      {t("groups")}
+                    </p>
+                    <p className="px-1 pb-1 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                      {t("reptiles")}
+                    </p>
+                    <div className="grid grid-cols-2 gap-1">
+                      {reptileGroupLinks.map((group) => (
+                        <Link
+                          key={group.href}
+                          href={group.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                        >
+                          {group.label}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="mt-2 grid grid-cols-2 gap-1">
+                      {otherGroupLinks.map((group) => (
+                        <Link
+                          key={group.href}
+                          href={group.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                        >
+                          {group.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
               </li>
             ))}
           </ul>
