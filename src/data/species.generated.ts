@@ -4549,12 +4549,12 @@ export const species: Species[] = [
       "location": "სტამბოლი",
       "date": "2012-09-29"
     },
-    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
+    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/6/69/Erinaceus_concolor_202662874.jpg",
     "mobileImageCredit": {
-      "photographer": "David Osipov",
-      "url": "https://commons.wikimedia.org/wiki/File:Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
-      "location": "ორხევი, თბილისი",
-      "date": "2023-04-05"
+      "photographer": "Jan Ebr",
+      "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
+      "location": "თურქეთი",
+      "date": "2022-05-08"
     },
     "gallery": [
       {
@@ -16928,10 +16928,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "date": "2012-09-29"
     },
     "mobileImageCredit": {
-      "photographer": "David Osipov",
-      "url": "https://commons.wikimedia.org/wiki/File:Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
-      "location": "Orkhevi, Tbilisi",
-      "date": "2023-04-05"
+      "photographer": "Jan Ebr",
+      "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
+      "location": "Turkey",
+      "date": "2022-05-08"
     }
   },
   "eryx-jaculus": {
