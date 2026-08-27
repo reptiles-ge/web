@@ -319,6 +319,38 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Muscicapa semitorquata",
     ],
   },
+  "canis-lupus": {
+    ka: [
+      "მგელი",
+      "რუხი მგელი",
+      "ნაცრისფერი მგელი",
+      "Canis lupus cubanensis",
+      "Canis lupus lupus",
+    ],
+    en: [
+      "gray wolf",
+      "wolf",
+      "timber wolf",
+      "Canis lupus cubanensis",
+      "Canis lupus lupus",
+      "Caucasus wolf",
+    ],
+  },
+  "canis-aureus": {
+    ka: [
+      "ტურა",
+      "ოქროს ტურა",
+      "Canis aureus moreoticus",
+      "Canis aureus caucasica",
+    ],
+    en: [
+      "common jackal",
+      "Asiatic jackal",
+      "Eurasian golden jackal",
+      "Canis aureus moreoticus",
+      "Canis aureus caucasica",
+    ],
+  },
   "vulpes-vulpes": {
     ka: [
       "ჩვეულებრივი მელა",
@@ -334,6 +366,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Canis vulpes",
       "Vulpes vulpes caucasica",
       "Vulpes vulpes alpherakyi",
+    ],
+  },
+  "meles-canescens": {
+    ka: [
+      "ევროპული მაჩვი",
+      "Meles meles",
+      "Meles meles minor",
+      "Meles canescens",
+      "კავკასიური მაჩვი",
+    ],
+    en: [
+      "European badger",
+      "Eurasian badger",
+      "Southwest Asian badger",
+      "Transcaucasian badger",
+      "Meles meles",
+      "Meles meles minor",
     ],
   },
   "mustela-nivalis": {
@@ -352,6 +401,38 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Mustela nivalis dinniki",
     ],
   },
+  "ursus-arctos": {
+    ka: [
+      "დათვი",
+      "მურა",
+      "Ursus arctos arctos",
+      "Ursus arctos syriacus",
+      "Ursus arctos caucasicus",
+    ],
+    en: [
+      "grizzly",
+      "Eurasian brown bear",
+      "Ursus arctos arctos",
+      "Ursus arctos syriacus",
+      "Ursus arctos caucasicus",
+    ],
+  },
+  "capreolus-capreolus": {
+    ka: [
+      "შველი",
+      "ევროპული შველი",
+      "ნუკრი",
+      "Cervus capreolus",
+      "Capreolus capreolus caucasicus",
+    ],
+    en: [
+      "roe deer",
+      "western roe deer",
+      "European roe",
+      "Cervus capreolus",
+      "Capreolus capreolus caucasicus",
+    ],
+  },
   "sciurus-anomalus": {
     ka: [
       "სპარსული ციყვი",
@@ -365,6 +446,63 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Transcaucasian squirrel",
       "Sciurus persicus",
       "Sciurus anomalus anomalus",
+    ],
+  },
+  "panthera-pardus": {
+    ka: [
+      "ჯიქი",
+      "ლეოპარდი",
+      "წინააზიური ჯიქი",
+      "სპარსული ჯიქი",
+      "ვეფხვი",
+      "Panthera pardus tulliana",
+      "Panthera pardus ciscaucasica",
+      "Panthera pardus saxicolor",
+    ],
+    en: [
+      "Persian leopard",
+      "Anatolian leopard",
+      "leopard",
+      "vepkhi",
+      "Panthera pardus tulliana",
+      "Panthera pardus ciscaucasica",
+      "Panthera pardus saxicolor",
+    ],
+  },
+  "sus-scrofa": {
+    ka: [
+      "ტახი",
+      "ნეზვი",
+      "გოჭი",
+      "Sus scrofa attila",
+      "Sus scrofa domesticus",
+    ],
+    en: [
+      "Eurasian wild pig",
+      "wild pig",
+      "wild swine",
+      "Sus scrofa attila",
+      "Sus scrofa domesticus",
+    ],
+  },
+  "erinaceus-concolor": {
+    ka: [
+      "აღმოსავლეთევროპული ზღარბი",
+      "თეთრმკერდა ზღარბი",
+      "სამხრეთული თეთრმკერდა ზღარბი",
+      "ზღარბი",
+      "Erinaceus europaeus",
+      "Erinaceus concolor transcaucasicus",
+      "Erinaceus europaeus transcaucasicus",
+    ],
+    en: [
+      "European hedgehog",
+      "eastern hedgehog",
+      "white-breasted hedgehog",
+      "white-chested hedgehog",
+      "Erinaceus europaeus",
+      "Erinaceus concolor transcaucasicus",
+      "Erinaceus europaeus transcaucasicus",
     ],
   },
 };

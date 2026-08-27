@@ -38,10 +38,26 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "naxevartetqela-buzicheria",
   ],
   "sciurus-anomalus": ["sparsuli-tsiqvi"],
+  "capreolus-capreolus": ["shveli"],
+  "ursus-arctos": ["datvi", "mura-dathvi"],
+  "canis-aureus": ["tura"],
+  "panthera-pardus": ["jiqi", "jiki", "leopardi", "kavkasiuri-jiqi"],
+  "sus-scrofa": ["taxi", "gareuli-gori"],
+  "erinaceus-concolor": [
+    "evropuli-zgarbi",
+    "tetrmkerda-zgharbi",
+    "aghmosavletevropuli-zgharbi",
+  ],
+  "canis-lupus": ["mgeli"],
+  "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
   "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
+  "capreolus-capreolus": ["sus-scrofa"],
+  "ursus-arctos": ["canis-lupus", "sus-scrofa"],
+  "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
+  "meles-canescens": ["mustela-nivalis"],
   "pseudopus-apodus": [
     "anguis-colchica",
     "natrix-natrix",
@@ -227,6 +243,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-raddei": ["darevskia-obscura"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
+  "vulpes-vulpes": ["canis-lupus"],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
