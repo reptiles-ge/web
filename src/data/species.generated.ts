@@ -2664,15 +2664,15 @@ export const species: Species[] = [
     "location": "აღმოსავლეთი და ცენტრალური საქართველო",
     "description": "პატარა უშხამო გველი ქვიან მშრალ ადგილებში. საქართველოში დადასტურებულია აღმოსავლეთსა და ცენტრში; დასახელებული ადგილია თბილისი.",
     "overview": "წყნარი ეირენისი (Eirenis modestus) პატარა უშხამო გველია აღმოსავლეთ და ცენტრალურ საქართველოში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; ქვესახეობა აქ ნომინოტიპურია — E. m. modestus. დასახელებული ნიმუში თბილისიდანაა. 2021 წლის ქართული გველების კვლევა მას მშრალი კლიმატის, ქვიანი ან ბალახოვანი ადგილის სახეობებს მიაკუთვნებს და ძირითადად აღმოსავლეთს უკავშირებს. დასავლეთ საქართველოსა და კოლხეთში დასახელებული ჩანაწერი ამ გვერდზე არ არის. ზრდასრული სიგრძე სახეობის დონეზე ჩვეულებრივ 70 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 67 სმ-ია, უმეტესობა ამაზე მცირეა. ადამიანისთვის უვნებელია — შხამი არ აქვს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ხშირად ერევა საყელოიან ეირენისს (Eirenis collaris), რომელიც ჩამონათვალში სამხრეთ-აღმოსავლეთს უკავშირდება.",
-    "habitat": "2021 წლის ქართული გველების კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. 2026 წლის ჩამონათვალი საქართველოში აღმოსავლეთსა და ცენტრს ასახელებს; ფიგურაზე ნიმუში თბილისიდანაა. ამ ატლასის რუკაზე აღნიშნულია თბილისი, ქვემო ქართლი, შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და სამცხე — ჯავახეთი — ეს ჩამონათვალის ფორმულირებასა და თბილისის ნიმუშს ეყრდნობა და არა მუნიციპალიტეტების სრულ ჩამონათვალს. გავრცელების ნდობა საშუალოა. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. სახეობის დონეზე ცხოვრობს მშრალ ქვიან ფერდობზე, სტეპში, მეჩხერ ბუჩქნარსა და სასოფლო ადგილის კიდეზე; დღისით ხშირად ბრტყელი ქვის ქვეშაა. საქართველოსთვის ზღვის დონის დიაპაზონი ცალკე არ არის გამოქვეყნებული. თბილისის ნიმუშები დაბლობსა და მთისწინეთს უკავშირდება. აღმოსავლეთ ანატოლიაში ლიტერატურაში მითითებულია დაახლოებით 2000 მ-მდე — ეს ქართულ სიმაღლედ არ უნდა ჩაითვალოს. მთელი არეალი მოიცავს თურქეთს, კავკასიას, ბერძნულ კუნძულებსა და მეზობელ რეგიონებს; ტიპის მასალა საქართველოდან არ არის.",
+    "habitat": "2021 წლის ქართული გველების კვლევა სახეობას მშრალ კლიმატზე დამოკიდებულად მიიჩნევს: ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. 2026 წლის ჩამონათვალი საქართველოში აღმოსავლეთსა და ცენტრს ასახელებს; ფიგურაზე ნიმუში თბილისიდანაა. დასახელებული ფოტოა კუს ტბიდან, თბილისში. ამ ატლასის რუკაზე აღნიშნულია თბილისი, ქვემო ქართლი, შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და სამცხე — ჯავახეთი — ეს ჩამონათვალის ფორმულირებასა და თბილისის ნიმუშს ეყრდნობა და არა მუნიციპალიტეტების სრულ ჩამონათვალს. გავრცელების ნდობა საშუალოა. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. სახეობის დონეზე ცხოვრობს მშრალ ქვიან ფერდობზე, სტეპში, მეჩხერ ბუჩქნარსა და სასოფლო ადგილის კიდეზე; დღისით ხშირად ბრტყელი ქვის ქვეშაა. საქართველოსთვის ზღვის დონის დიაპაზონი ცალკე არ არის გამოქვეყნებული. თბილისის ნიმუშები დაბლობსა და მთისწინეთს უკავშირდება. აღმოსავლეთ ანატოლიაში ლიტერატურაში მითითებულია დაახლოებით 2000 მ-მდე — ეს ქართულ სიმაღლედ არ უნდა ჩაითვალოს. მთელი არეალი მოიცავს თურქეთს, კავკასიას, ბერძნულ კუნძულებსა და მეზობელ რეგიონებს; ტიპის მასალა საქართველოდან არ არის.",
     "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. დასავლეთ თურქეთში 14 ინდივიდის კუჭის შიგთავსში ძირითადად მწერები იყო, აგრეთვე ფეხსახსრიანები (მათ შორის სკოლოპენდრები) და იშვიათად პატარა ხვლიკი. სხვა ლიტერატურაში დასახელებულია აგრეთვე ობობები, მორიელები და წვრილი ხვლიკები. იკვებება ძირითადად ქვის ქვეშ მცხოვრები უხერხემლოებით. შხამი არ აქვს — მსხვერპლს პირით იჭერს.",
     "behavior": "მალულია. სახეობის დონეზე აქტიურია დაახლოებით აპრილიდან ნოემბრამდე; ნადირობს გამთენიისას ან ბინდში, ზოგჯერ დღისითაც ჩანს. დღის სიცხეში ხშირად ქვის ქვეშ რჩება. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. საფრთხისას უპირატესად გარბის. არ აიყვანოთ — შხამი არ აქვს, მაგრამ პატარა გველსაც შეუძლია უკბინოს. კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში 3–8 შედარებით დიდი კვერცხია, ჩვეულებრივ ივნის–ივლისში. ნაშიერი დაახლოებით 8–12 სმ-ია. შეწყვილების სეზონი და ქართული კლაჩის ზომა აქ არ არის გაზომილი. იმავე მშრალ აღმოსავლეთში შეიძლება შეხვდეთ საყელოიან ეირენისს (სამხრეთ-აღმოსავლეთში), სპილენძას, გველბრუცას და, იშვიათად, კატისთვალა გველს (Telescopus fallax) — გუგა, ზომა და თავის ნახატი განასხვავებს.",
     "conservation": "IUCN Red List-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და კონკრეტული გლობალური საფრთხე არ არის გამოყოფილი. საქართველოს 2014 წლის წითელ ნუსხაში არ არის; იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. ქართული სურათი ჯერ არათანაბარია: დასახელებული თანამედროვე ადგილი თბილისია, ხოლო აღმოსავლეთ–ცენტრალური არეალი ჩამონათვალის განზოგადებაა და არა სრული რუკა. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა და შხამიან გველთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
+    "image": "/images/eirenis-modestus-giorgi-1.jpg",
     "imageCredit": {
-      "photographer": "Roberto Sindaco",
-      "url": "https://www.inaturalist.org/observations/105717471"
+      "photographer": "გიორგი იანქოშვილი",
+      "date": "2018-02-07"
     },
     "mobileImage": "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg",
     "mobileImageCredit": {
@@ -2681,10 +2681,40 @@ export const species: Species[] = [
     },
     "gallery": [
       {
+        "src": "/images/eirenis-modestus-giorgi-1.jpg",
+        "credit": {
+          "photographer": "გიორგი იანქოშვილი",
+          "date": "2018-02-07"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-papuna-1.jpg",
+        "credit": {
+          "photographer": "პაპუნა ედილაშვილი",
+          "location": "კუს ტბა, თბილისი",
+          "date": "2022-05-20"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-andro-1.jpg",
+        "credit": {
+          "photographer": "ანდრო სოლომანაშვილი",
+          "location": "თბილისი",
+          "date": "2019-05-12"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
         "credit": {
           "photographer": "Roberto Sindaco",
           "url": "https://www.inaturalist.org/observations/105717471"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-zakro-1.jpg",
+        "credit": {
+          "photographer": "ზაქრო სონგულაშვილი",
+          "date": "2026-07-30"
         }
       },
       {
@@ -2745,7 +2775,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "მშრალ ქვიან ან ბალახოვან ადგილზე, ხშირად ქვის ქვეშ — აღმოსავლეთსა და ცენტრში. ამ ატლასის რუკაზე თბილისი, ქვემო და შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და სამცხე — ჯავახეთია. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. გავრცელების ნდობა საშუალოა."
+        "answer": "მშრალ ქვიან ან ბალახოვან ადგილზე, ხშირად ქვის ქვეშ — აღმოსავლეთსა და ცენტრში. ამ ატლასის რუკაზე თბილისი, ქვემო და შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და სამცხე — ჯავახეთია. დასახელებული ფოტოა კუს ტბიდან, თბილისში. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. გავრცელების ნდობა საშუალოა."
       },
       {
         "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
@@ -2772,7 +2802,7 @@ export const species: Species[] = [
         "answer": "ორივე პატარა უშხამო Eirenis-ია. საყელოიანს საყელო უფრო მკაფიო აქვს; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, წყნარს — აღმოსავლეთსა და ცენტრში. შუა ტანზე ქერცლის რიგები ხშირად 15 წინააღმდეგ 17–18, მაგრამ ეს ხელში ასათვლელი ნიშანი არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-27T12:31:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2950,7 +2980,7 @@ export const species: Species[] = [
         "answer": "თბილ სეზონზე; ხშირად დღისით. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. მოსალოდნელია მშრალ ქვიან ან ბალახოვან ადგილებში."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-27T12:31:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13131,7 +13161,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Eastern and central Georgia",
     "description": "A small harmless snake of dry stony ground. Confirmed in Georgia in the east and centre; the named locality is Tbilisi.",
     "overview": "The ring-headed dwarf snake (Eirenis modestus) is a small, non-venomous snake of eastern and central Georgia. It belongs to the colubrid family (Colubridae). The 2026 Georgian checklist treats it as biologically confirmed; the subspecies here is nominotypical E. m. modestus. A named specimen is from Tbilisi. The 2021 Georgian snake survey places it among dry-climate species of rocky or grassland settings, mostly in the east. This page has no named western or Colchic locality. Adults are usually under 70 cm; the measured maximum is about 67 cm, and most individuals are smaller. It is harmless to people — it has no venom. IUCN lists it as Least Concern. It is often confused with the collared dwarf snake (Eirenis collaris), which the checklist places in the southeast.",
-    "habitat": "The 2021 Georgian snake survey treats the species as tied to a dry climate: rocky or grassland sites, mostly in eastern Georgia. The 2026 checklist names eastern and central Georgia; a figure specimen is from Tbilisi. This atlas marks Tbilisi, Kvemo Kartli, Shida Kartli, Mtskheta — Mtianeti, Kakheti, and Samtskhe — Javakheti — based on that checklist wording and the Tbilisi specimen, not a full list of municipalities. Distribution confidence is medium. There is no named western or Colchic point on this page. Across the species range it lives on dry stony slopes, steppe, sparse shrub, and field edges; by day it often hides under flat stones. A separate Georgian elevation range has not been published. Tbilisi specimens belong to lowland and foothill country. Eastern Anatolian literature cites about 2000 m — that should not be read as a Georgian ceiling. The wider range includes Turkey, the Caucasus, Greek islands, and neighbouring regions; type material is not from Georgia.",
+    "habitat": "The 2021 Georgian snake survey treats the species as tied to a dry climate: rocky or grassland sites, mostly in eastern Georgia. The 2026 checklist names eastern and central Georgia; a figure specimen is from Tbilisi. A named photograph is from Turtle Lake in Tbilisi. This atlas marks Tbilisi, Kvemo Kartli, Shida Kartli, Mtskheta — Mtianeti, Kakheti, and Samtskhe — Javakheti — based on that checklist wording and the Tbilisi specimen, not a full list of municipalities. Distribution confidence is medium. There is no named western or Colchic point on this page. Across the species range it lives on dry stony slopes, steppe, sparse shrub, and field edges; by day it often hides under flat stones. A separate Georgian elevation range has not been published. Tbilisi specimens belong to lowland and foothill country. Eastern Anatolian literature cites about 2000 m — that should not be read as a Georgian ceiling. The wider range includes Turkey, the Caucasus, Greek islands, and neighbouring regions; type material is not from Georgia.",
     "diet": "There is no separate Georgian diet study. In western Turkey, stomachs of 14 individuals held mostly insects, other arthropods (including centipedes), and rarely a small lizard. Other literature also lists spiders, scorpions, and small lizards. It feeds mainly on invertebrates that live under stones. It has no venom — prey is seized with the mouth.",
     "behavior": "It is secretive. At species level it is active from about April to November; it hunts at dawn or dusk and is sometimes seen by day. In heat it often stays under stones. Hourly and seasonal calendars have not been published for Georgia. When threatened it usually flees. Do not pick it up — it is not venomous, but even a small snake can bite. It lays eggs; species-level literature cites 3–8 relatively large eggs, usually in June–July. Hatchlings are about 8–12 cm. Mating season and clutch size in Georgia are not measured here. In the same dry east you may also meet the collared dwarf snake (southeast), the smooth snake, the worm snake, and rarely the European cat snake (Telescopus fallax) — pupil, size, and head pattern separate them.",
     "conservation": "IUCN lists it as Least Concern — the range is wide and no specific global threat is singled out. It is not on Georgia’s 2014 Red List; the snakes listed there are Dinnik’s viper and the Caucasus viper. The 2026 checklist treats it as biologically confirmed; distribution accuracy is scored medium. The Georgian picture is still uneven: the named modern locality is Tbilisi, and the east–central range is a checklist summary, not a complete map. Local threats include habitat change and killing after confusion with a venomous snake. Do not pick it up.",
@@ -13178,7 +13208,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where might I encounter it in Georgia?",
-        "answer": "On dry stony or grassy ground, often under stones — in the east and centre. This atlas marks Tbilisi, Kvemo and Shida Kartli, Mtskheta — Mtianeti, Kakheti, and Samtskhe — Javakheti. There is no named western or Colchic point here. Distribution confidence is medium."
+        "answer": "On dry stony or grassy ground, often under stones — in the east and centre. This atlas marks Tbilisi, Kvemo and Shida Kartli, Mtskheta — Mtianeti, Kakheti, and Samtskhe — Javakheti. A named photograph is from Turtle Lake in Tbilisi. There is no named western or Colchic point here. Distribution confidence is medium."
       },
       {
         "question": "Is it venomous or dangerous to people?",
@@ -13207,10 +13237,40 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "/images/eirenis-modestus-giorgi-1.jpg",
+        "credit": {
+          "photographer": "Giorgi Iankoshvili",
+          "date": "2018-02-07"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-papuna-1.jpg",
+        "credit": {
+          "photographer": "Papuna Edilashvili",
+          "location": "Turtle Lake, Tbilisi",
+          "date": "2022-05-20"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-andro-1.jpg",
+        "credit": {
+          "photographer": "Andro Solomanashvili",
+          "location": "Tbilisi",
+          "date": "2019-05-12"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/eirenis-modestus.jpg",
         "credit": {
           "photographer": "Roberto Sindaco",
           "url": "https://www.inaturalist.org/observations/105717471"
+        }
+      },
+      {
+        "src": "/images/eirenis-modestus-zakro-1.jpg",
+        "credit": {
+          "photographer": "Zakro Songulashvili",
+          "date": "2026-07-30"
         }
       },
       {
@@ -13229,8 +13289,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "Roberto Sindaco",
-      "url": "https://www.inaturalist.org/observations/105717471"
+      "photographer": "Giorgi Iankoshvili",
+      "date": "2018-02-07"
     },
     "mobileImageCredit": {
       "photographer": "Titouan Roguet",
