@@ -212,7 +212,7 @@ export const species: Species[] = [
         "answer": "ნაშრომის ფიგურა ნიგოეთიდანაა; ბარკოდები მთისძირიდან, ბანისხევიდან და ლანჩხუთიდან (Tarkhnishvili et al. 2026)."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -324,7 +324,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-27T01:09:11+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -659,7 +659,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი და გზა დაუთმეთ. არ მოკლათ და არ აიყვანოთ. უცნობი გველი გველგესლა შეიძლება იყოს."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -817,7 +817,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/cuculus-canorus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/cuculus-canorus.mp3",
       "recordist": "Stephen Barlow",
       "url": "https://xeno-canto.org/654374",
       "location": "Fenn's Moss"
@@ -856,7 +856,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -1728,7 +1728,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3171,7 +3171,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/emberiza-citrinella.mp3",
+      "src": "https://cdn.reptiles.ge/audio/emberiza-citrinella.mp3",
       "recordist": "Hannu Varkki",
       "url": "https://commons.wikimedia.org/wiki/File:Emberiza_citrinella_-_Yellowhammer_XC457380.mp3"
     },
@@ -3209,7 +3209,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -3949,7 +3949,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/ficedula-hypoleuca.mp3",
+      "src": "https://cdn.reptiles.ge/audio/ficedula-hypoleuca.mp3",
       "recordist": "Olivier Grimm",
       "url": "https://commons.wikimedia.org/wiki/File:Ficedula_hypoleuca_-_European_Pied_Flycatcher_XC486275.mp3",
       "location": "ტამელა",
@@ -3989,7 +3989,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალზე ეროვნულადაც LC-ია. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -4204,7 +4204,7 @@ export const species: Species[] = [
         "answer": "IUCN-ის წითელ ნუსხაზეა როგორც Least Concern და არა როგორც ამჟამინდელი საფრთხის კატეგორია. ადრე Near Threatened იყო. 2024 წლის ქართული ჩამონათვალი ეროვნულადაც LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. უვნებელია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:21:36+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -4892,7 +4892,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/jynx-torquilla.mp3",
+      "src": "https://cdn.reptiles.ge/audio/jynx-torquilla.mp3",
       "recordist": "Kim Erlend Vidal",
       "url": "https://commons.wikimedia.org/wiki/File:Jynx_torquilla_-_Eurasian_Wryneck_XC561861.mp3",
       "location": "როდეი, ნურლანი",
@@ -4932,7 +4932,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად Least Concern-ია და 2024 წლის ჩამონათვალში ეროვნულადაც LC-ია. 2014 წლის საქართველოს წითელ ნუსხაში არ არის. ნუ დაიჭერთ ველურ ფრინველებს."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -6109,7 +6109,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-27T01:09:11+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6274,7 +6274,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/mustela-nivalis.mp3",
+      "src": "https://cdn.reptiles.ge/audio/mustela-nivalis.mp3",
       "recordist": "Jose Manuel Unanue",
       "url": "https://xeno-canto.org/1146321",
       "location": "მენდარო",
@@ -6318,7 +6318,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "McDonald et al. 2019 — IUCN Red List, Mustela nivalis",
@@ -6935,7 +6935,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და სხვა ტბაში არ გადაიტანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7194,7 +7194,7 @@ export const species: Species[] = [
         "answer": "დღისით, თბილ ამინდში, კლდეებსა და ქვებზე. საქართველოში სეზონის ზუსტი თვეები 2026 წლის ჩამონათვალში არ არის მითითებული."
       }
     ],
-    "updatedAt": "2026-08-26T10:22:41+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7491,7 +7491,7 @@ export const species: Species[] = [
         "answer": "გლობალურად Near Threatened (2009). საქართველოს წითელ ნუსხაში NT-ად არის მითითებული. ველური ამფიბია არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T01:33:34+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7891,7 +7891,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/picus-viridis.mp3",
+      "src": "https://cdn.reptiles.ge/audio/picus-viridis.mp3",
       "recordist": "Walter Wallner",
       "url": "https://xeno-canto.org/1139426",
       "location": "Burgenland",
@@ -7931,7 +7931,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -8419,7 +8419,7 @@ export const species: Species[] = [
         "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
       }
     ],
-    "updatedAt": "2026-08-27T01:29:19+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -8608,7 +8608,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში მოწყვლადია შესახლებული ციყვის გამო. IUCN-ის LC ნადირობის ნებართვად ნუ ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Yiğit et al. 2016/2017 — IUCN Red List, Sciurus anomalus",
@@ -9587,7 +9587,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით მოწყვლადია ფრაგმენტირებული, 20,000 კმ²-ზე ნაკლები არეალის გამო; საქართველოს წითელ ნუსხაში VU სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-26T10:22:41+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -9796,7 +9796,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-27T01:09:11+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10191,7 +10191,7 @@ export const species: Species[] = [
         "answer": "2014 წლის სახელმწიფო ნუსხა სხვა სახელებს მიჰყვება (დინიკის და კავკასიური გველგესლა). IUCN-ის NT გაყოფილ კავკასიურ ტაქსონს ეხება. ძველ წითელ წიგნებში იყო; ეს 2014 წლის ნუსხა არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T01:10:11+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10353,7 +10353,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/vulpes-vulpes.mp3",
+      "src": "https://cdn.reptiles.ge/audio/vulpes-vulpes.mp3",
       "recordist": "Paul Driver",
       "url": "https://xeno-canto.org/1070195"
     },
@@ -10391,7 +10391,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-27T10:49:25+04:00",
+    "updatedAt": "2026-08-27T11:00:20+04:00",
     "sources": [
       {
         "name": "Hoffmann & Sillero-Zubiri 2016 — IUCN Red List, Vulpes vulpes",
