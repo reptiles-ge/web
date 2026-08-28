@@ -294,7 +294,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის (იქ ქორცქვიტაა VU). ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:28:05+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -669,7 +669,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; ბუდეს არ მიუახლოვდეთ. გლობალურად LC-ია. 2014 წლის წითელ ნუსხაში VU D1-ია; 2024 წლის ჩამონათვალი ეროვნულად LC-ს უთითებს. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:28:05+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -1245,7 +1245,7 @@ export const species: Species[] = [
         "answer": "უვნებელია, თუ არ აიყვანთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:17:49+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -1505,7 +1505,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში საფრთხის ქვეშ მყოფ ტაქსონად ამ გვერდზე არ არის განხილული. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T17:16:01+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Hoffmann et al. 2018 — IUCN Red List, Canis aureus (global)",
@@ -1769,7 +1769,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება. საერთაშორისო ვაჭრობა CITES-ის დანართ II-ით რეგულირდება."
       }
     ],
-    "updatedAt": "2026-08-28T17:16:01+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Boitani, Phillips & Jhala 2023 — IUCN Red List, Canis lupus",
@@ -2031,7 +2031,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. სააგენტო წერს, რომ საქართველოს წითელ ნუსხაში არ არის. სანადირო სახეობად არის შეტანილი; სეზონი და კვოტა ოფიციალური წესით დგინდება. დაცულ ტერიტორიაზე ნადირობა აკრძალულია, თუ სხვა რამ არ არის დადგენილი."
       }
     ],
-    "updatedAt": "2026-08-28T17:16:01+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Lovari et al. 2016 — IUCN Red List, Capreolus capreolus",
@@ -2283,7 +2283,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელ ნუსხაში შეტანილია VU-დ (ლაკლაკი). 2024 წლის ჩამონათვალი ეროვნულად LC-ს უთითებს. ველური ფრინველი და ბუდე არ დაარღვიოთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:31:24+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Budagashvili, Shoshitashvili & Uguzashvili 2024 — White Storks in Georgia (Caucasiana 3)",
@@ -9010,7 +9010,7 @@ export const species: Species[] = [
         "answer": "გლობალურად გადაშენების საფრთხესთან ახლოსაა. საქართველოში მოწყვლადია წითელ ნუსხაში. CITES-ის I დანართშია. ნადირობა აკრძალულია."
       }
     ],
-    "updatedAt": "2026-08-28T20:35:15+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Loy et al. 2022 — IUCN Red List, Lutra lutra",
@@ -9212,7 +9212,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "https://cdn.reptiles.ge/audio/lynx-lynx.mp3",
+      "src": "/audio/lynx-lynx.mp3",
       "recordist": "Stanislas Wroza",
       "url": "https://xeno-canto.org/626659",
       "location": "ლა-ტურ-დიუ-მე, იურა",
@@ -9256,7 +9256,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის CR სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T20:35:15+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Breitenmoser et al. 2015 — IUCN Red List, Lynx lynx (errata 2017)",
@@ -11430,7 +11430,7 @@ export const species: Species[] = [
         "answer": "კი. წითელ ნუსხაში CR-ია, ნადირობა აკრძალულია, CITES I დანართშია. ქვესახეობა გლობალურად Endangered-ია, სახეობა Vulnerable."
       }
     ],
-    "updatedAt": "2026-08-28T17:19:51+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Ghoddousi & Khorozyan 2023 — IUCN Red List, Panthera pardus ssp. tulliana",
@@ -13247,7 +13247,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში მოწყვლადია შესახლებული ციყვის გამო. IUCN-ის LC ნადირობის ნებართვად ნუ ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-28T10:51:09+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Yiğit et al. 2016/2017 — IUCN Red List, Sciurus anomalus",
@@ -13475,7 +13475,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. ბუდესთან შეიძლება თავდაცვითი შეტევა; არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:28:05+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -13712,7 +13712,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T17:19:51+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "Keuling & Leus 2019 — IUCN Red List, Sus scrofa",
@@ -14730,7 +14730,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის EN სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T17:19:51+04:00",
+    "updatedAt": "2026-08-28T20:38:10+04:00",
     "sources": [
       {
         "name": "McLellan et al. 2017 — IUCN Red List, Ursus arctos",
