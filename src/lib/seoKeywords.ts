@@ -2,6 +2,15 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
+  "eremias-arguta": {
+    ka: ["ფსვენი", "სტეპის ფსვენი", "Eremias arguta transcaucasica"],
+    en: [
+      "steppe runner",
+      "steppe racerunner",
+      "racerunner",
+      "Eremias arguta transcaucasica",
+    ],
+  },
   "ablepharus-pannonicus": {
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
     en: [
@@ -99,6 +108,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta trilineata media",
     ],
   },
+  "darevskia-pontica": {
+    ka: [
+      "მდელოს ხვლიკი",
+      "პონტური მდელოს ხვლიკი",
+      "Lacerta praticola pontica",
+      "Darevskia praticola pontica",
+    ],
+    en: [
+      "Pontic lizard",
+      "meadow lizard",
+      "Colchic meadow lizard",
+      "Lacerta praticola pontica",
+      "Darevskia praticola pontica",
+    ],
+  },
   "darevskia-derjugini": {
     ka: [
       "კავკასიური ტყის ხვლიკი",
@@ -146,6 +170,88 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta saxicola dahli",
     ],
   },
+  "darevskia-portschinskii": {
+    ka: [
+      "Lacerta portschinskii",
+      "Lacerta saxicola portschinskii",
+    ],
+    en: [
+      "Kura lizard",
+      "Portschinsky's lizard",
+      "Lacerta portschinskii",
+      "Lacerta saxicola portschinskii",
+    ],
+  },
+  "darevskia-clarkorum": {
+    ka: [
+      "ლაზური ხვლიკი",
+      "ჭარნალის ხვლიკი",
+      "Lacerta clarkorum",
+      "Darevskia dryada",
+      "Lacerta dryada",
+    ],
+    en: [
+      "Clark's lizard",
+      "Clarks' lizard",
+      "Charnali lizard",
+      "Laz lizard",
+      "Lacerta clarkorum",
+      "Darevskia dryada",
+      "Lacerta dryada",
+    ],
+  },
+  "darevskia-mixta": {
+    ka: [
+      "ქართული კლდის ხვლიკი",
+      "Lacerta mixta",
+      "Lacerta saxicola mixta",
+    ],
+    en: [
+      "Georgian lizard",
+      "Ajarian lizard",
+      "mixed lizard",
+      "bastard rock lizard",
+      "Lacerta mixta",
+      "Lacerta saxicola mixta",
+    ],
+  },
+  "darevskia-adjarica": {
+    ka: [
+      "აჭარული ხვლიკი",
+      "Lacerta parvula adjarica",
+      "Darevskia parvula adjarica",
+    ],
+    en: [
+      "Adjarian rock lizard",
+      "red-bellied lizard",
+      "Lacerta parvula adjarica",
+      "Darevskia parvula adjarica",
+    ],
+  },
+  "darevskia-praticola": {
+    ka: [
+      "მდელოს ხვლიკი",
+      "Lacerta praticola",
+      "Darevskia praticola praticola",
+    ],
+    en: [
+      "meadow lizard",
+      "Lacerta praticola",
+      "Darevskia praticola praticola",
+    ],
+  },
+  "darevskia-valentini": {
+    ka: [
+      "Lacerta valentini",
+      "Lacerta saxicola valentini",
+    ],
+    en: [
+      "Valentin's rock lizard",
+      "Caucasian rock lizard",
+      "Lacerta valentini",
+      "Lacerta saxicola valentini",
+    ],
+  },
   "platyceps-najadum": {
     ka: ["წენგოსფერი მცურავი", "Coluber najadum"],
     en: [
@@ -161,6 +267,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "sand boa",
       "western sand boa",
       "Eryx jaculus turcicus",
+    ],
+  },
+  "eirenis-collaris": {
+    ka: [
+      "Coluber collaris",
+      "Contia collaris",
+      "ჯუჯა გველი",
+    ],
+    en: [
+      "collared dwarf racer",
+      "Collared Dwarf Racer",
+      "Coluber collaris",
+      "Contia collaris",
     ],
   },
   "eirenis-modestus": {

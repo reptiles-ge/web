@@ -170,7 +170,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "coronella-austriaca",
     "xerotyphlops-vermicularis",
   ],
-  "eirenis-collaris": ["eirenis-modestus"],
+  "eirenis-collaris": [
+    "eirenis-modestus",
+    "coronella-austriaca",
+    "xerotyphlops-vermicularis",
+  ],
   "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
   "testudo-graeca": [
@@ -264,7 +268,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "anguis-colchica",
   ],
   "eremias-velox": ["eremias-arguta"],
-  "eremias-arguta": ["eremias-velox"],
+  "eremias-arguta": ["eremias-velox", "ophisops-elegans"],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "lacerta-agilis": [
     "lacerta-strigata",
@@ -277,7 +281,18 @@ const LOOKALIKES: Record<string, string[]> = {
     "ophisops-elegans",
   ],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
-  "darevskia-adjarica": ["darevskia-mixta"],
+  "darevskia-adjarica": [
+    "darevskia-clarkorum",
+    "darevskia-derjugini",
+    "darevskia-mixta",
+  ],
+  "darevskia-mixta": [
+    "darevskia-clarkorum",
+    "darevskia-caucasica",
+    "darevskia-derjugini",
+    "darevskia-adjarica",
+    "darevskia-brauneri",
+  ],
   "darevskia-alpina": ["darevskia-caucasica", "darevskia-brauneri"],
   "darevskia-armeniaca": [
     "darevskia-valentini",
@@ -286,7 +301,11 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "darevskia-caucasica": ["darevskia-daghestanica", "darevskia-mixta"],
   "darevskia-daghestanica": ["darevskia-caucasica", "darevskia-derjugini"],
-  "darevskia-clarkorum": ["darevskia-mixta", "darevskia-caucasica"],
+  "darevskia-clarkorum": [
+    "darevskia-adjarica",
+    "darevskia-derjugini",
+    "darevskia-mixta",
+  ],
   "darevskia-dahli": [
     "darevskia-mixta",
     "darevskia-portschinskii",
@@ -297,8 +316,18 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-pontica",
     "darevskia-mixta",
   ],
-  "darevskia-portschinskii": ["darevskia-obscura", "darevskia-valentini"],
-  "darevskia-praticola": ["darevskia-pontica"],
+  "darevskia-portschinskii": [
+    "darevskia-dahli",
+    "darevskia-obscura",
+    "darevskia-valentini",
+  ],
+  "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
+  "darevskia-pontica": [
+    "darevskia-praticola",
+    "darevskia-derjugini",
+    "lacerta-agilis",
+  ],
+  "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],

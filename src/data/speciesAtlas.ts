@@ -111,7 +111,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "eremias-arguta": {
     group: "lizard",
-    habitats: ["grassland", "forest"],
+    habitats: ["grassland"],
   },
   "ophisops-elegans": {
     group: "lizard",
@@ -179,11 +179,11 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "darevskia-praticola": {
     group: "lizard",
-    habitats: ["mountain", "forest"],
+    habitats: ["forest", "grassland"],
   },
   "darevskia-pontica": {
     group: "lizard",
-    habitats: ["mountain", "forest"],
+    habitats: ["forest", "grassland"],
   },
   "darevskia-obscura": {
     group: "lizard",
@@ -195,7 +195,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "darevskia-valentini": {
     group: "lizard",
-    habitats: ["mountain", "forest"],
+    habitats: ["mountain", "grassland"],
   },
   "xerotyphlops-vermicularis": {
     group: "snake",
