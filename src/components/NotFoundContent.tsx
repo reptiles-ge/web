@@ -1,9 +1,9 @@
+import { CoverImage } from "@/components/CoverImage";
 import { NotFoundAnalytics } from "@/components/NotFoundAnalytics";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 const pathways = [
   { href: "/snakes" as const, key: "snakes" as const },
@@ -22,10 +22,9 @@ export async function NotFoundContent() {
     >
       <NotFoundAnalytics />
       <div className="absolute inset-0">
-        <Image
+        <CoverImage
           src={images.cta}
           alt={t("imageAlt")}
-          fill
           priority
           sizes="100vw"
           className="object-cover object-center opacity-55"

@@ -2,6 +2,7 @@
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
+import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
@@ -15,6 +16,7 @@ import {
   resolvePhotoCredit,
   type Species,
 } from "@/data/species";
+import { pictureSources } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { usesDangerScale } from "@/lib/speciesRisk";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -44,7 +46,6 @@ import {
 } from "@/lib/clusterGuides";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
@@ -85,6 +86,13 @@ export function SpeciesProfile({
   }, [species, t, tHubs]);
   const { gallery, primary, mobileHeroSrc, desktopHeroSrc } =
     getSpeciesHeroSources(species);
+  const heroDesktopSources = pictureSources(desktopHeroSrc, {
+    sizes: "100vw",
+    media: "(min-width: 1024px)",
+  });
+  const heroPrimarySources = pictureSources(mobileHeroSrc ?? desktopHeroSrc, {
+    sizes: "100vw",
+  });
   const heroCredit = resolvePhotoCredit(
     species.imageCredit,
     primary?.credit,
@@ -161,11 +169,19 @@ export function SpeciesProfile({
           {desktopHeroSrc ? (
             <picture className="absolute inset-0 block h-full w-full">
               {mobileHeroSrc ? (
-                <source
-                  media="(min-width: 1024px)"
-                  srcSet={desktopHeroSrc}
-                />
+                <>
+                  {heroDesktopSources.map((source) => (
+                    <source key={source.key} {...source.props} />
+                  ))}
+                  <source
+                    media="(min-width: 1024px)"
+                    srcSet={desktopHeroSrc}
+                  />
+                </>
               ) : null}
+              {heroPrimarySources.map((source) => (
+                <source key={source.key} {...source.props} />
+              ))}
               <img
                 src={mobileHeroSrc ?? desktopHeroSrc}
                 alt={mobileHeroSrc ? mobileImageAlt : imageAlt}
@@ -341,14 +357,14 @@ export function SpeciesProfile({
         </section>
 
         {gallery.length > 0 ? (
-          <SpeciesGallery
-            images={gallery}
-            name={species.commonName}
-            scientificName={species.scientificName}
-            location={species.location}
-            tone="background"
-            speciesId={species.id}
-          />
+        <SpeciesGallery
+          images={gallery}
+          name={species.commonName}
+          scientificName={species.scientificName}
+          location={species.location}
+          tone="background"
+          speciesId={species.id}
+        />
         ) : null}
 
         <SpeciesRangeMap
@@ -500,14 +516,13 @@ export function SpeciesProfile({
                       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
                     >
                       {cover ? (
-                        <Image
+                        <CoverImage
                           src={cover}
                           alt={speciesImageAlt(
                             item.commonName,
                             item.scientificName,
                             item.location,
                           )}
-                          fill
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                         />

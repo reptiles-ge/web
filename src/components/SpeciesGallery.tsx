@@ -3,12 +3,12 @@
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { hasPhotoCredit, type GalleryImage } from "@/data/species";
+import { pictureSources } from "@/data/optimizedImages";
 import { trackEvent } from "@/lib/analytics";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type SpeciesGalleryProps = {
@@ -128,17 +128,22 @@ export function SpeciesGallery({
                     className="absolute inset-0 w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                     aria-label={photoAlt}
                   >
-                    <Image
-                      src={photo.src}
-                      alt={photoAlt}
-                      fill
-                      sizes={
-                        featured
-                          ? "100vw"
-                          : "(max-width: 768px) 50vw, 33vw"
-                      }
-                      className="object-cover"
-                    />
+                    <picture>
+                      {pictureSources(photo.src, {
+                        sizes: featured
+                          ? "(max-width: 1480px) 100vw, 1400px"
+                          : "(max-width: 768px) 50vw, (max-width: 1480px) 33vw, 460px",
+                      }).map((source) => (
+                        <source key={source.key} {...source.props} />
+                      ))}
+                      <img
+                        src={photo.src}
+                        alt={photoAlt}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover text-transparent"
+                      />
+                    </picture>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
                     {!hasPhotoCredit(photo.credit) ? (
                       <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
@@ -213,19 +218,25 @@ export function SpeciesGallery({
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative min-h-0 flex-1">
-              <Image
-                src={activePhoto.src}
-                alt={speciesPhotoAlt(
-                  name,
-                  scientificName,
-                  location,
-                  activePhoto.credit,
-                )}
-                fill
-                sizes="92vw"
-                className="object-contain"
-                priority
-              />
+              <picture>
+                {pictureSources(activePhoto.src, {
+                  sizes: "(max-width: 1196px) 92vw, 1100px",
+                }).map((source) => (
+                  <source key={source.key} {...source.props} />
+                ))}
+                <img
+                  src={activePhoto.src}
+                  alt={speciesPhotoAlt(
+                    name,
+                    scientificName,
+                    location,
+                    activePhoto.credit,
+                  )}
+                  decoding="async"
+                  fetchPriority="high"
+                  className="absolute inset-0 h-full w-full object-contain text-transparent"
+                />
+              </picture>
             </div>
             <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
               <PhotoCreditCaption

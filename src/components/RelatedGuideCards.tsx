@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
@@ -12,7 +13,6 @@ import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function RelatedGuideCard({
@@ -73,10 +73,9 @@ export function RelatedGuideCard({
       >
         <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">{copy}</div>
         <div className="relative min-h-[200px] bg-muted sm:min-h-[260px]">
-          <Image
+          <CoverImage
             src={imageSrc}
             alt=""
-            fill
             sizes="(max-width: 640px) 100vw, 65vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           />

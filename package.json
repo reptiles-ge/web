@@ -12,7 +12,10 @@
     "test": "tsx --test src/lib/snakeQuiz.test.ts",
     "species:compile": "tsx scripts/compile-species.ts",
     "images:unused": "node scripts/remove-unused-images.js",
-    "images:unused:delete": "node scripts/remove-unused-images.js --delete"
+    "images:unused:delete": "node scripts/remove-unused-images.js --delete",
+    "images:optimize": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts",
+    "images:optimize:dry": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --dry-run",
+    "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only"
   },
   "dependencies": {
     "@date-fns/tz": "^1.5.0",
@@ -29,6 +32,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#chore/installable-from-git",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

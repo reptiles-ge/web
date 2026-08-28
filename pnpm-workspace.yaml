@@ -1,0 +1,3 @@
+onlyBuiltDependencies:
+  - "@reptiles-ge/img-compression"
+  - sharp

@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import type { Species } from "@/data/species";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
@@ -9,7 +10,6 @@ import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
 
 type SpeciesCardProps = {
   species: Species;
@@ -58,15 +58,13 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
       className="group flex gap-3.5 rounded-2xl border border-border/80 bg-background/70 p-3 transition-all duration-300 hover:border-primary/35 hover:bg-background hover:shadow-[0_12px_28px_-20px_rgba(47,107,79,0.45)]"
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-secondary">
-        <Image
+        <CoverImage
           src={cover}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          fill
-          loading="lazy"
           sizes="72px"
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />

@@ -38,6 +38,7 @@ import {
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import { galleryImageObjects } from "@/lib/photoMeta";
+import { CoverImagePreload } from "@/components/CoverImage";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -284,28 +285,19 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         {desktopHeroSrc ? (
           mobileHeroSrc ? (
             <>
-              <link
-                rel="preload"
-                as="image"
-                href={mobileHeroSrc}
+              <CoverImagePreload
+                src={mobileHeroSrc}
+                sizes="100vw"
                 media="(max-width: 1023px)"
-                fetchPriority="high"
               />
-              <link
-                rel="preload"
-                as="image"
-                href={desktopHeroSrc}
+              <CoverImagePreload
+                src={desktopHeroSrc}
+                sizes="100vw"
                 media="(min-width: 1024px)"
-                fetchPriority="high"
               />
             </>
           ) : (
-            <link
-              rel="preload"
-              as="image"
-              href={desktopHeroSrc}
-              fetchPriority="high"
-            />
+            <CoverImagePreload src={desktopHeroSrc} sizes="100vw" />
           )
         ) : null}
         <JsonLd

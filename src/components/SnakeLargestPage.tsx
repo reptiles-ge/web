@@ -1,6 +1,7 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
@@ -15,7 +16,6 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 export function SnakeLargestPage({
@@ -117,14 +117,13 @@ export function SnakeLargestPage({
                   href={speciesHref(lizard.id, locale)}
                   className="relative block aspect-[16/10] overflow-hidden rounded-[28px] bg-ink"
                 >
-                  <Image
+                  <CoverImage
                     src={lizard.image}
                     alt={speciesImageAlt(
                       lizard.commonName,
                       lizard.scientificName,
                       lizard.location,
                     )}
-                    fill
                     sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover"
                   />
@@ -157,14 +156,13 @@ function LargestRow({
         className="group grid gap-5 py-7 sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 lg:grid-cols-[9rem_1fr_auto]"
       >
         <span className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
-          <Image
+          <CoverImage
             src={species.mobileImage ?? species.image}
             alt={speciesImageAlt(
               species.commonName,
               species.scientificName,
               species.location,
             )}
-            fill
             sizes="(max-width: 640px) 100vw, 144px"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />

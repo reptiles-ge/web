@@ -2,6 +2,7 @@
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
@@ -25,7 +26,6 @@ import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
@@ -83,10 +83,9 @@ export function RegionProfile({ region }: RegionProfileProps) {
               "7rem",
           }}
         >
-          <Image
+          <CoverImage
             src={heroSrc}
             alt={heroAlt}
-            fill
             priority
             sizes="100vw"
             className="object-cover object-center"
@@ -364,14 +363,13 @@ function PhotoSpeciesCard({
       }
       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
     >
-      <Image
+      <CoverImage
         src={species.mobileImage ?? species.image}
         alt={speciesImageAlt(
           species.commonName,
           species.scientificName,
           species.location,
         )}
-        fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
       />

@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { getSpeciesById, images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
@@ -10,7 +11,6 @@ import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
 import { useMemo } from "react";
 
 export function SpeciesDetail() {
@@ -28,10 +28,9 @@ export function SpeciesDetail() {
     >
       <div className="mx-auto grid max-w-[1400px] items-center gap-16 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-24 lg:px-10">
         <div className="relative aspect-[4/5] overflow-hidden rounded-[32px]">
-          <Image
+          <CoverImage
             src={images.detail}
             alt={t("imageAlt")}
-            fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover object-[center_35%] transition-transform duration-[1.4s] ease-out hover:scale-[1.03]"
           />

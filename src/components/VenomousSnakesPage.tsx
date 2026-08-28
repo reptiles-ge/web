@@ -1,6 +1,7 @@
 "use client";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
@@ -21,7 +22,6 @@ import {
   Plus,
   Shield,
 } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -62,10 +62,9 @@ export function VenomousSnakesPage({
             paddingTop: "7rem",
           }}
         >
-          <Image
+          <CoverImage
             src={heroSrc}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
             className="object-cover object-[50%_35%]"
@@ -405,10 +404,9 @@ export function VenomousSnakesPage({
         <ContentAttribution />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
-          <Image
+          <CoverImage
             src={heroSrc}
             alt=""
-            fill
             sizes="100vw"
             className="object-cover opacity-50"
             aria-hidden

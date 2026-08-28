@@ -6,6 +6,7 @@ import {
   countAtlasFacets,
 } from "@/components/species-atlas/AtlasFilterSheet";
 import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
+import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -31,7 +32,6 @@ import { formatContentDate } from "@/lib/formatDate";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
@@ -345,10 +345,9 @@ export function SpeciesAtlas({
             paddingTop: "7rem",
           }}
         >
-          <Image
+          <CoverImage
             src={images.hero}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
             className="object-cover"
@@ -851,10 +850,9 @@ function RecentSpeciesRow({ species }: { species: Species }) {
         !(species.mobileImage ?? species.image).includes(
           "species-placeholder",
         ) ? (
-          <Image
+          <CoverImage
             src={species.mobileImage ?? species.image}
             alt=""
-            fill
             sizes="84px"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />

@@ -1,6 +1,7 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
@@ -14,7 +15,6 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 export function LizardComparePage({
@@ -172,14 +172,13 @@ function CompareCard({
       className="group block overflow-hidden rounded-[24px] border border-border bg-card"
     >
       <span className="relative block aspect-[5/4] bg-ink">
-        <Image
+        <CoverImage
           src={species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          fill
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
