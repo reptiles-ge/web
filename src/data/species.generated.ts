@@ -1993,7 +1993,7 @@ export const species: Species[] = [
         "answer": "გლობალურად IUCN-ით Vulnerableა (2009). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ჩამონათვალში კანდიდატია. ველური ცხოველი არ აიყვანოთ."
       }
     ],
-    "updatedAt": "2026-08-28T11:11:49+04:00",
+    "updatedAt": "2026-08-28T11:16:02+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6765,10 +6765,10 @@ export const species: Species[] = [
       "photographer": "hossein_nabizadeh",
       "url": "https://www.inaturalist.org/observations/106854529"
     },
-    "mobileImage": "https://cdn.reptiles.ge/lacerta-strigata-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/lacerta-strigata.jpg",
     "mobileImageCredit": {
-      "photographer": "Natiq",
-      "url": "https://www.inaturalist.org/observations/310036164"
+      "photographer": "hossein_nabizadeh",
+      "url": "https://www.inaturalist.org/observations/106854529"
     },
     "gallery": [
       {
@@ -18917,8 +18917,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "url": "https://www.inaturalist.org/observations/106854529"
     },
     "mobileImageCredit": {
-      "photographer": "Natiq",
-      "url": "https://www.inaturalist.org/observations/310036164"
+      "photographer": "hossein_nabizadeh",
+      "url": "https://www.inaturalist.org/observations/106854529"
     }
   },
   "lissotriton-lantzi": {
