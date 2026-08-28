@@ -2283,7 +2283,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელ ნუსხაში შეტანილია VU-დ (ლაკლაკი). 2024 წლის ჩამონათვალი ეროვნულად LC-ს უთითებს. ველური ფრინველი და ბუდე არ დაარღვიოთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:04:38+04:00",
+    "updatedAt": "2026-08-28T20:31:10+04:00",
     "sources": [
       {
         "name": "Budagashvili, Shoshitashvili & Uguzashvili 2024 — White Storks in Georgia (Caucasiana 3)",
@@ -9010,7 +9010,7 @@ export const species: Species[] = [
         "answer": "გლობალურად გადაშენების საფრთხესთან ახლოსაა. საქართველოში მოწყვლადია წითელ ნუსხაში. CITES-ის I დანართშია. ნადირობა აკრძალულია."
       }
     ],
-    "updatedAt": "2026-08-28T20:17:49+04:00",
+    "updatedAt": "2026-08-28T20:31:10+04:00",
     "sources": [
       {
         "name": "Loy et al. 2022 — IUCN Red List, Lutra lutra",
