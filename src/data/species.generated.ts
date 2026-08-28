@@ -8991,7 +8991,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. უშხამოა. გველგესლასთან ამოსაცნობად ნახეთ მრგვალი გუგა, ვიწრო თავი და წყალთან კავშირი."
       }
     ],
-    "updatedAt": "2026-08-28T17:16:01+04:00",
+    "updatedAt": "2026-08-28T17:19:51+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -9480,7 +9480,7 @@ export const species: Species[] = [
         "answer": "კი. წითელ ნუსხაში CR-ია, ნადირობა აკრძალულია, CITES I დანართშია. ქვესახეობა გლობალურად Endangered-ია, სახეობა Vulnerable."
       }
     ],
-    "updatedAt": "2026-08-28T11:01:05+04:00",
+    "updatedAt": "2026-08-28T17:19:51+04:00",
     "sources": [
       {
         "name": "Ghoddousi & Khorozyan 2023 — IUCN Red List, Panthera pardus ssp. tulliana",
@@ -11546,7 +11546,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T10:51:09+04:00",
+    "updatedAt": "2026-08-28T17:19:51+04:00",
     "sources": [
       {
         "name": "Keuling & Leus 2019 — IUCN Red List, Sus scrofa",
@@ -12564,7 +12564,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის EN სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T10:51:09+04:00",
+    "updatedAt": "2026-08-28T17:19:51+04:00",
     "sources": [
       {
         "name": "McLellan et al. 2017 — IUCN Red List, Ursus arctos",
