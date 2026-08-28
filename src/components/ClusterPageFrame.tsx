@@ -13,7 +13,6 @@ import {
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
 

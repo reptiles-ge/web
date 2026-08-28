@@ -24,7 +24,6 @@ import {
   ArrowUpRight,
   Plus,
 } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
