@@ -400,14 +400,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური. დღისით იმალება ხის გვირგვინში ან ფუღუროში; ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიულია. მამლის ტერიტორიული ხმა სწრაფი, ერთნაირი სასტვენების სერიაა („პუ-პუ-პუ“), რომელიც რამდენიმე წამს გრძელდება და შეიძლება ბევრჯერ განმეორდეს; ეს ჩვეულებრივი ბუს რხევადი ჰუჰუსგან განსხვავდება. ბუდობს ხის ფუღუროში, სახეობის დონეზე ხშირად სხვა ფრინველის, მათ შორის კოდალას, ძველ ღრუებში; ხელოვნურ ყუთსაც იკავებს. ქართული ენციკლოპედია ნაყარს აპრილში 4–6 კვერცხს უთითებს და კრუხობას დაახლოებით ერთ თვეს; ეს ენციკლოპედიური ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. არეალის სხვა ნაწილებში ნაყარის ზომა მღრღნელების სიმრავლეს მიჰყვება. 2024 წლის ჩამონათვალი სახეობას საქართველოში მთელი წლის რეზიდენტად იღებს: შორ მანძილზე სეზონურ მიგრანტად არ არის მიჩნეული. ჩრდილოეთ პოპულაციებში ირუპტიული გადაადგილებაა ცნობილი, როცა ნადავლი იკლებს — ეს ქართული სტატუსი არ არის. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ.",
     "conservation": "BirdLife International Aegolius funereus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ ბუსნაირებიდან შეტანილია ბუხრინწა (Tyto alba, EN D1). საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ქართული ენციკლოპედია სახეობას საქართველოში მცირერიცხოვან და იშვიათად მიიჩნევს; ეს ენციკლოპედიური შეფასებაა და არა IUCN-ის ეროვნული კატეგორია. სახეობის დონეზე დოკუმენტირებული წნეხია ძველი ტყის და ფუღუროიანი ხეების კარგვა; ეს საქართველოსთვის რანგირებული საფრთხის სია არ არის. CITES-ის II დანართშია — საერთაშორისო ვაჭრობა რეგულირდება. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის შხამი არ აქვს და უვნებელია, თუ არ მიეკარებით. ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aegolius_funereus_%28Tengmalm%27s_Owl%29%2C_Oulu%2C_Finland.jpg",
+    "image": "/images/species/aegolius-funereus-veronesi-1.jpg",
     "imageCredit": {
       "photographer": "Francesco Veronesi",
       "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
       "location": "ოულუ, ფინეთი",
       "date": "2015-01-15"
     },
-    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_1.jpg",
+    "mobileImage": "/images/species/aegolius-funereus-moning-1.jpg",
     "mobileImageCredit": {
       "photographer": "Christoph Moning",
       "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
@@ -416,7 +416,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aegolius_funereus_%28Tengmalm%27s_Owl%29%2C_Oulu%2C_Finland.jpg",
+        "src": "/images/species/aegolius-funereus-veronesi-1.jpg",
         "credit": {
           "photographer": "Francesco Veronesi",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
@@ -425,7 +425,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_1.jpg",
+        "src": "/images/species/aegolius-funereus-moning-1.jpg",
         "credit": {
           "photographer": "Christoph Moning",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
@@ -434,7 +434,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
+        "src": "/images/species/aegolius-funereus-tencate-cavity-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
@@ -443,7 +443,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Tengmalm%27s_owl_%28Aegolius_funereus%29.jpg",
+        "src": "/images/species/aegolius-funereus-tencate-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg",
@@ -494,7 +494,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Aegolius_funereus_-_Boreal_Owl_XC103673.mp3",
+      "src": "/audio/aegolius-funereus.mp3",
       "recordist": "Alexander Kürthy",
       "url": "https://xeno-canto.org/103673",
       "location": "ვოლოვეცი, სლოვაკეთი",
@@ -534,7 +534,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T23:47:37+04:00",
+    "updatedAt": "2026-08-28T23:53:26+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -12339,7 +12339,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T23:17:11+04:00",
+    "updatedAt": "2026-08-28T23:53:26+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -14854,7 +14854,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. ბუდესთან შეიძლება თავდაცვითი შეტევა; არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T23:17:11+04:00",
+    "updatedAt": "2026-08-28T23:53:26+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -18184,7 +18184,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aegolius_funereus_%28Tengmalm%27s_Owl%29%2C_Oulu%2C_Finland.jpg",
+        "src": "/images/species/aegolius-funereus-veronesi-1.jpg",
         "credit": {
           "photographer": "Francesco Veronesi",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
@@ -18193,7 +18193,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_1.jpg",
+        "src": "/images/species/aegolius-funereus-moning-1.jpg",
         "credit": {
           "photographer": "Christoph Moning",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
@@ -18202,7 +18202,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
+        "src": "/images/species/aegolius-funereus-tencate-cavity-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
@@ -18211,7 +18211,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Tengmalm%27s_owl_%28Aegolius_funereus%29.jpg",
+        "src": "/images/species/aegolius-funereus-tencate-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg",
