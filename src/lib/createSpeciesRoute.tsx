@@ -38,6 +38,8 @@ import {
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import { galleryImageObjects } from "@/lib/photoMeta";
+import { pictureSources } from "@/data/optimizedImages";
+import { pickOptimizedImages } from "@/lib/optimizedImages";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -277,35 +279,52 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           }
         : null;
 
-    const { mobileHeroSrc, desktopHeroSrc } = getSpeciesHeroSources(raw);
+    const { gallery, mobileHeroSrc, desktopHeroSrc } =
+      getSpeciesHeroSources(raw);
+    const optimized = pickOptimizedImages([
+      desktopHeroSrc,
+      mobileHeroSrc,
+      ...gallery.map((photo) => photo.src),
+    ]);
+
+    const heroPreload = (src: string | null, media?: string) => {
+      if (!src) return null;
+      const best = pictureSources(optimized, src, {
+        sizes: "100vw",
+        ...(media ? { media } : {}),
+      })[0];
+
+      return best ? (
+        <link
+          rel="preload"
+          as="image"
+          type={best.props.type}
+          imageSrcSet={best.props.srcSet}
+          imageSizes={best.props.sizes}
+          {...(media ? { media } : {})}
+          fetchPriority="high"
+        />
+      ) : (
+        <link
+          rel="preload"
+          as="image"
+          href={src}
+          {...(media ? { media } : {})}
+          fetchPriority="high"
+        />
+      );
+    };
 
     return (
       <>
         {desktopHeroSrc ? (
           mobileHeroSrc ? (
             <>
-              <link
-                rel="preload"
-                as="image"
-                href={mobileHeroSrc}
-                media="(max-width: 1023px)"
-                fetchPriority="high"
-              />
-              <link
-                rel="preload"
-                as="image"
-                href={desktopHeroSrc}
-                media="(min-width: 1024px)"
-                fetchPriority="high"
-              />
+              {heroPreload(mobileHeroSrc, "(max-width: 1023px)")}
+              {heroPreload(desktopHeroSrc, "(min-width: 1024px)")}
             </>
           ) : (
-            <link
-              rel="preload"
-              as="image"
-              href={desktopHeroSrc}
-              fetchPriority="high"
-            />
+            heroPreload(desktopHeroSrc)
           )
         ) : null}
         <JsonLd
@@ -313,7 +332,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
           )}
         />
-        <SpeciesProfile species={raw} related={related} />
+        <SpeciesProfile
+          species={raw}
+          related={related}
+          optimized={optimized}
+        />
       </>
     );
   }

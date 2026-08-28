@@ -15,6 +15,10 @@ import {
   resolvePhotoCredit,
   type Species,
 } from "@/data/species";
+import {
+  pictureSources,
+  type OptimizedImageMap,
+} from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { usesDangerScale } from "@/lib/speciesRisk";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -53,11 +57,13 @@ import { useEffect, useMemo } from "react";
 type SpeciesProfileProps = {
   species: Species;
   related: Species[];
+  optimized?: OptimizedImageMap;
 };
 
 export function SpeciesProfile({
   species: rawSpecies,
   related: rawRelated,
+  optimized = {},
 }: SpeciesProfileProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("profile");
@@ -85,6 +91,15 @@ export function SpeciesProfile({
   }, [species, t, tHubs]);
   const { gallery, primary, mobileHeroSrc, desktopHeroSrc } =
     getSpeciesHeroSources(species);
+  const heroDesktopSources = pictureSources(optimized, desktopHeroSrc, {
+    sizes: "100vw",
+    media: "(min-width: 1024px)",
+  });
+  const heroPrimarySources = pictureSources(
+    optimized,
+    mobileHeroSrc ?? desktopHeroSrc,
+    { sizes: "100vw" },
+  );
   const heroCredit = resolvePhotoCredit(
     species.imageCredit,
     primary?.credit,
@@ -161,11 +176,19 @@ export function SpeciesProfile({
           {desktopHeroSrc ? (
             <picture className="absolute inset-0 block h-full w-full">
               {mobileHeroSrc ? (
-                <source
-                  media="(min-width: 1024px)"
-                  srcSet={desktopHeroSrc}
-                />
+                <>
+                  {heroDesktopSources.map((source) => (
+                    <source key={source.key} {...source.props} />
+                  ))}
+                  <source
+                    media="(min-width: 1024px)"
+                    srcSet={desktopHeroSrc}
+                  />
+                </>
               ) : null}
+              {heroPrimarySources.map((source) => (
+                <source key={source.key} {...source.props} />
+              ))}
               <img
                 src={mobileHeroSrc ?? desktopHeroSrc}
                 alt={mobileHeroSrc ? mobileImageAlt : imageAlt}
@@ -341,14 +364,15 @@ export function SpeciesProfile({
         </section>
 
         {gallery.length > 0 ? (
-          <SpeciesGallery
-            images={gallery}
-            name={species.commonName}
-            scientificName={species.scientificName}
-            location={species.location}
-            tone="background"
-            speciesId={species.id}
-          />
+        <SpeciesGallery
+          images={gallery}
+          name={species.commonName}
+          scientificName={species.scientificName}
+          location={species.location}
+          tone="background"
+          speciesId={species.id}
+          optimized={optimized}
+        />
         ) : null}
 
         <SpeciesRangeMap

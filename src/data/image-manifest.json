@@ -1,0 +1,225 @@
+{
+  "version": 1,
+  "entries": {
+    "canis-aureus-bukvic-1.jpg": {
+      "sourceHash": "2725e768b7b0ecb410eb5b235e900bd0f5313f2cf72e11e66986bcaac4cd2e39",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-aureus-bukvic-1.jpg",
+      "originalSize": 4005614,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-bukvic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 40128
+        },
+        {
+          "key": "optimized/canis-aureus-bukvic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 54368
+        },
+        {
+          "key": "optimized/canis-aureus-bukvic-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 143165
+        },
+        {
+          "key": "optimized/canis-aureus-bukvic-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 202652
+        }
+      ],
+      "updatedAt": "2026-08-28T20:59:30.283Z"
+    },
+    "canis-aureus-danube-1.jpg": {
+      "sourceHash": "616ca31b67bc0902154b38473d599a2bd03f877510d69d1f36021403b5cef397",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-aureus-danube-1.jpg",
+      "originalSize": 1042225,
+      "width": 2400,
+      "height": 1620,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-danube-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 810,
+          "byteSize": 138376
+        },
+        {
+          "key": "optimized/canis-aureus-danube-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 810,
+          "byteSize": 196758
+        },
+        {
+          "key": "optimized/canis-aureus-danube-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1620,
+          "byteSize": 402335
+        },
+        {
+          "key": "optimized/canis-aureus-danube-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1620,
+          "byteSize": 566186
+        }
+      ],
+      "updatedAt": "2026-08-28T20:59:55.467Z"
+    },
+    "canis-aureus-kerkini-1.jpg": {
+      "sourceHash": "0c87215c66e8b55435b32e75ba451d626680bf374017f8286292410ffdd86274",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-aureus-kerkini-1.jpg",
+      "originalSize": 2442916,
+      "width": 2130,
+      "height": 1420,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-kerkini-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 141031
+        },
+        {
+          "key": "optimized/canis-aureus-kerkini-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 236394
+        },
+        {
+          "key": "optimized/canis-aureus-kerkini-1-2130.avif",
+          "format": "avif",
+          "width": 2130,
+          "height": 1420,
+          "byteSize": 332369
+        },
+        {
+          "key": "optimized/canis-aureus-kerkini-1-2130.webp",
+          "format": "webp",
+          "width": 2130,
+          "height": 1420,
+          "byteSize": 559768
+        }
+      ],
+      "updatedAt": "2026-08-28T20:59:54.491Z"
+    },
+    "canis-aureus-lagodekhi-1.jpg": {
+      "sourceHash": "e8077ae24e82e0e9904cd39e05fac86e02b65e56a97740862ecc8ee86683a005",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-aureus-lagodekhi-1.jpg",
+      "originalSize": 109068,
+      "width": 1024,
+      "height": 738,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-lagodekhi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 738,
+          "byteSize": 40417
+        },
+        {
+          "key": "optimized/canis-aureus-lagodekhi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 738,
+          "byteSize": 47142
+        }
+      ],
+      "updatedAt": "2026-08-28T20:59:49.847Z"
+    },
+    "canis-aureus-stankovic-1.jpg": {
+      "sourceHash": "e1987810f28457213bc3d10c63e7b9acd3cda02e51d81cc7c87d75a4a486cb04",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-aureus-stankovic-1.jpg",
+      "originalSize": 3838926,
+      "width": 2290,
+      "height": 2489,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-stankovic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1304,
+          "byteSize": 98893
+        },
+        {
+          "key": "optimized/canis-aureus-stankovic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1304,
+          "byteSize": 130022
+        },
+        {
+          "key": "optimized/canis-aureus-stankovic-1-2290.avif",
+          "format": "avif",
+          "width": 2290,
+          "height": 2489,
+          "byteSize": 354152
+        },
+        {
+          "key": "optimized/canis-aureus-stankovic-1-2290.webp",
+          "format": "webp",
+          "width": 2290,
+          "height": 2489,
+          "byteSize": 461070
+        }
+      ],
+      "updatedAt": "2026-08-28T20:59:56.385Z"
+    },
+    "canis-aureus-yarkon-1.jpg": {
+      "sourceHash": "d4e553bd68d726031a104bdedbe60d5d460676dac2f7dec6b3b74fba64d237b1",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-aureus-yarkon-1.jpg",
+      "originalSize": 2784834,
+      "width": 2400,
+      "height": 1711,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-yarkon-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 856,
+          "byteSize": 102924
+        },
+        {
+          "key": "optimized/canis-aureus-yarkon-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 856,
+          "byteSize": 158774
+        },
+        {
+          "key": "optimized/canis-aureus-yarkon-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1711,
+          "byteSize": 320595
+        },
+        {
+          "key": "optimized/canis-aureus-yarkon-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1711,
+          "byteSize": 466440
+        }
+      ],
+      "updatedAt": "2026-08-28T20:59:56.429Z"
+    }
+  }
+}
