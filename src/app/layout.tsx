@@ -20,15 +20,14 @@ const GTM_ID = "GTM-NM65ZMML";
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
+  display: "optional",
+  preload: false,
 });
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   variable: "--font-noto-georgian",
   subsets: ["georgian", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
+  display: "optional",
 });
 
 type Props = {
