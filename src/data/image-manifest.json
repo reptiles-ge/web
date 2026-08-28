@@ -28626,6 +28626,73 @@
       ],
       "updatedAt": "2026-08-28T21:58:55.184Z"
     },
+    "sus-scrofa-sow-1.jpg": {
+      "sourceHash": "3874f4ce793fb6b23f48ff5f872a9a9261ed6db72c0d9db262b352b914942fb8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "sus-scrofa-sow-1.jpg",
+      "originalSize": 4571645,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/sus-scrofa-sow-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25739
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 41476
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82475
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 130830
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 157276
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 239830
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 432261
+        },
+        {
+          "key": "optimized/sus-scrofa-sow-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 620562
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:06.484Z"
+    },
     "telescopus-fallax-2.jpg": {
       "sourceHash": "b6f1ecc72f97ea272dd05fe21b1bd7efc5c860898827d7f3d6a2a7c58e0e09ba",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -28759,6 +28826,4502 @@
         }
       ],
       "updatedAt": "2026-08-28T21:59:01.275Z"
+    },
+    "telescopus-fallax-4.jpg": {
+      "sourceHash": "2b68275e6ee1c366022b1f36c728bfad46b312d0e57e4197f59ad04283c083fe",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-4.jpg",
+      "originalSize": 653498,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21954
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32738
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88597
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 128740
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 199835
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 292838
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 562751
+        },
+        {
+          "key": "optimized/telescopus-fallax-4-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 836340
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:05.418Z"
+    },
+    "telescopus-fallax-5.jpg": {
+      "sourceHash": "7893fb96817491f22627115c90c9c3399af77f92feca7ef898e91d24b1bf6086",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-5.jpg",
+      "originalSize": 212886,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16668
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25212
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47153
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68234
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 79069
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 115684
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 159006
+        },
+        {
+          "key": "optimized/telescopus-fallax-5-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 213256
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:04.198Z"
+    },
+    "telescopus-fallax-6.jpg": {
+      "sourceHash": "dafd087611f9e5dc7359d2b0ff650fd7601e440441ae0262695d53ca2b4dcbc6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-6.jpg",
+      "originalSize": 209504,
+      "width": 1280,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-6-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 23901
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 36564
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 70560
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 110482
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 132327
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 203386
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 1920,
+          "byteSize": 163504
+        },
+        {
+          "key": "optimized/telescopus-fallax-6-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 1920,
+          "byteSize": 225776
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:11.002Z"
+    },
+    "telescopus-fallax-7.jpg": {
+      "sourceHash": "1e6b9966a3a35303e6be862467e58696db443b41fec3aa2721dc55667df1a724",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-7.jpg",
+      "originalSize": 249891,
+      "width": 2400,
+      "height": 1773,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 295,
+          "byteSize": 12885
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 295,
+          "byteSize": 18604
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 591,
+          "byteSize": 35278
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 591,
+          "byteSize": 50342
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 887,
+          "byteSize": 67373
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 887,
+          "byteSize": 96842
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1773,
+          "byteSize": 201956
+        },
+        {
+          "key": "optimized/telescopus-fallax-7-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1773,
+          "byteSize": 240020
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:13.440Z"
+    },
+    "telescopus-fallax-lasha-1.jpg": {
+      "sourceHash": "9e4809f2b84042451c29a30b4c600e48201544656daf2cd6ad2173d4117f4ce1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-lasha-1.jpg",
+      "originalSize": 306768,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-lasha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 44874
+        },
+        {
+          "key": "optimized/telescopus-fallax-lasha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 71188
+        },
+        {
+          "key": "optimized/telescopus-fallax-lasha-1-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 132430
+        },
+        {
+          "key": "optimized/telescopus-fallax-lasha-1-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 204666
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:10.123Z"
+    },
+    "telescopus-fallax-malkhaz-1.jpg": {
+      "sourceHash": "ea07724023c7e1e2533e8b510a3ee0eafee40d83510a7803e7efd8238e0df0ed",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-malkhaz-1.jpg",
+      "originalSize": 328128,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-malkhaz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31373
+        },
+        {
+          "key": "optimized/telescopus-fallax-malkhaz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 50388
+        },
+        {
+          "key": "optimized/telescopus-fallax-malkhaz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 89053
+        },
+        {
+          "key": "optimized/telescopus-fallax-malkhaz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 151634
+        },
+        {
+          "key": "optimized/telescopus-fallax-malkhaz-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 134353
+        },
+        {
+          "key": "optimized/telescopus-fallax-malkhaz-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 222798
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:11.286Z"
+    },
+    "telescopus-fallax-mobile.jpg": {
+      "sourceHash": "8314cd1ffcf18853748b826d35bfb09c0caaf38d1a77fd87370f2cc032a8d852",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax-mobile.jpg",
+      "originalSize": 472223,
+      "width": 1800,
+      "height": 2400,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 39528
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 60088
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 111347
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 163520
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 210695
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 292146
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 2400,
+          "byteSize": 392726
+        },
+        {
+          "key": "optimized/telescopus-fallax-mobile-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 2400,
+          "byteSize": 502640
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:20.632Z"
+    },
+    "telescopus-fallax.jpg": {
+      "sourceHash": "13c6dfaf130499d2782966917622777c657e2b04754814097d99ad2b969d3600",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "telescopus-fallax.jpg",
+      "originalSize": 266618,
+      "width": 2400,
+      "height": 1596,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15966
+        },
+        {
+          "key": "optimized/telescopus-fallax-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25298
+        },
+        {
+          "key": "optimized/telescopus-fallax-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 42467
+        },
+        {
+          "key": "optimized/telescopus-fallax-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 66162
+        },
+        {
+          "key": "optimized/telescopus-fallax-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 80186
+        },
+        {
+          "key": "optimized/telescopus-fallax-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 120100
+        },
+        {
+          "key": "optimized/telescopus-fallax-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1596,
+          "byteSize": 198147
+        },
+        {
+          "key": "optimized/telescopus-fallax-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1596,
+          "byteSize": 274910
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:19.399Z"
+    },
+    "tenuidactylus-caspius-2.jpg": {
+      "sourceHash": "21153035027f8e4a31645e7ef0dd83e5560f145854a5e5d4405b1f8f24e4255c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "tenuidactylus-caspius-2.jpg",
+      "originalSize": 125930,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8712
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12178
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24539
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33944
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43253
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60090
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 82385
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 108074
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:17.024Z"
+    },
+    "tenuidactylus-caspius-3.jpg": {
+      "sourceHash": "269bbc6cb11e166df19c95f5b68793f5b144d613c8adf13a73fa48bbb27c983c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "tenuidactylus-caspius-3.jpg",
+      "originalSize": 96283,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8510
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11764
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20383
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29474
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 33517
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48234
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 60958
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-3-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 86976
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:19.897Z"
+    },
+    "tenuidactylus-caspius-mobile.jpg": {
+      "sourceHash": "a78efd1ed6d1d252a6a98010527e076809e05287f458c52aa132f9e8d4616ced",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "tenuidactylus-caspius-mobile.jpg",
+      "originalSize": 189769,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13153
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16030
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 34655
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 43314
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 57540
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 70872
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 125159
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-mobile-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 138784
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:23.471Z"
+    },
+    "tenuidactylus-caspius.jpg": {
+      "sourceHash": "b43af577096b9860b69be1bd6a5d5df905849f26f73fee3ab1a3a9f6e3b92a22",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "tenuidactylus-caspius.jpg",
+      "originalSize": 341136,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19873
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28472
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 68866
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 99248
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 121638
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 172096
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 252690
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 334076
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:25.736Z"
+    },
+    "testudo-graeca-2.jpg": {
+      "sourceHash": "dba939cb5fd7d59ac3aeac35c6885a41f0a912813e430c767fb681c5496028dc",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "testudo-graeca-2.jpg",
+      "originalSize": 399952,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41895
+        },
+        {
+          "key": "optimized/testudo-graeca-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 65752
+        },
+        {
+          "key": "optimized/testudo-graeca-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 121625
+        },
+        {
+          "key": "optimized/testudo-graeca-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 189210
+        },
+        {
+          "key": "optimized/testudo-graeca-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 217063
+        },
+        {
+          "key": "optimized/testudo-graeca-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 328644
+        },
+        {
+          "key": "optimized/testudo-graeca-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 315748
+        },
+        {
+          "key": "optimized/testudo-graeca-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 437864
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:30.202Z"
+    },
+    "testudo-graeca-3.jpg": {
+      "sourceHash": "b4bad2aee33fbe092c180e4ff3a829442430d6a1248df33ed19e545381e86479",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "testudo-graeca-3.jpg",
+      "originalSize": 341167,
+      "width": 2048,
+      "height": 1371,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23802
+        },
+        {
+          "key": "optimized/testudo-graeca-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 37810
+        },
+        {
+          "key": "optimized/testudo-graeca-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 75489
+        },
+        {
+          "key": "optimized/testudo-graeca-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 119582
+        },
+        {
+          "key": "optimized/testudo-graeca-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 133575
+        },
+        {
+          "key": "optimized/testudo-graeca-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 204390
+        },
+        {
+          "key": "optimized/testudo-graeca-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1371,
+          "byteSize": 271225
+        },
+        {
+          "key": "optimized/testudo-graeca-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1371,
+          "byteSize": 374860
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:28.995Z"
+    },
+    "testudo-graeca.jpg": {
+      "sourceHash": "1434173ee558f8baf8edaa530a1871fab6c188182016cc81ae30ac84520763f8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "testudo-graeca.jpg",
+      "originalSize": 353378,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9153
+        },
+        {
+          "key": "optimized/testudo-graeca-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12396
+        },
+        {
+          "key": "optimized/testudo-graeca-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36180
+        },
+        {
+          "key": "optimized/testudo-graeca-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49114
+        },
+        {
+          "key": "optimized/testudo-graeca-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73459
+        },
+        {
+          "key": "optimized/testudo-graeca-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 103856
+        },
+        {
+          "key": "optimized/testudo-graeca-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 166446
+        },
+        {
+          "key": "optimized/testudo-graeca-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 228260
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:31.077Z"
+    },
+    "trachemys-scripta-2.jpg": {
+      "sourceHash": "7d9691a2fed96feffc301e89d2b3740f61748cd9f5ab82fbb0211280c629a97d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "trachemys-scripta-2.jpg",
+      "originalSize": 389543,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23902
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 38714
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79973
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 125386
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154124
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 229562
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 314119
+        },
+        {
+          "key": "optimized/trachemys-scripta-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 419696
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:33.559Z"
+    },
+    "trachemys-scripta-3.jpg": {
+      "sourceHash": "56e7cce2aa51af73cd65a2095e8d82f9b286373af6e9e5723ac6228e53ce840e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "trachemys-scripta-3.jpg",
+      "originalSize": 372039,
+      "width": 1307,
+      "height": 871,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29959
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 38988
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 102837
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 137638
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 198707
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 265996
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-1307.avif",
+          "format": "avif",
+          "width": 1307,
+          "height": 871,
+          "byteSize": 241562
+        },
+        {
+          "key": "optimized/trachemys-scripta-3-1307.webp",
+          "format": "webp",
+          "width": 1307,
+          "height": 871,
+          "byteSize": 308918
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:36.939Z"
+    },
+    "trachemys-scripta-mobile.jpg": {
+      "sourceHash": "f7e98b7b09406a07d1c49f62af5b0b8e67d2802857b29ac7ad8318dd34d39bc5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "trachemys-scripta-mobile.jpg",
+      "originalSize": 240184,
+      "width": 1707,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15651
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 23742
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 52267
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 76928
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 99955
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 143796
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-1707.avif",
+          "format": "avif",
+          "width": 1707,
+          "height": 960,
+          "byteSize": 175676
+        },
+        {
+          "key": "optimized/trachemys-scripta-mobile-1707.webp",
+          "format": "webp",
+          "width": 1707,
+          "height": 960,
+          "byteSize": 234466
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:37.344Z"
+    },
+    "trachemys-scripta.jpg": {
+      "sourceHash": "cabe243c9162ebdd0e7e1e3dc5251577dca3deac3c1c9ad1a1b7d679677ffdb1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "trachemys-scripta.jpg",
+      "originalSize": 212589,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12625
+        },
+        {
+          "key": "optimized/trachemys-scripta-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18352
+        },
+        {
+          "key": "optimized/trachemys-scripta-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 39718
+        },
+        {
+          "key": "optimized/trachemys-scripta-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55576
+        },
+        {
+          "key": "optimized/trachemys-scripta-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 74576
+        },
+        {
+          "key": "optimized/trachemys-scripta-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 99576
+        },
+        {
+          "key": "optimized/trachemys-scripta-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 163971
+        },
+        {
+          "key": "optimized/trachemys-scripta-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 200906
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:37.226Z"
+    },
+    "triturus-karelinii-2.jpg": {
+      "sourceHash": "d96b24ea2d6cd70f3b936d1680df9ef237e728d2e69a0fce99a9099355340a78",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "triturus-karelinii-2.jpg",
+      "originalSize": 316682,
+      "width": 1465,
+      "height": 2000,
+      "derivatives": [
+        {
+          "key": "optimized/triturus-karelinii-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 546,
+          "byteSize": 22737
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 546,
+          "byteSize": 32720
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1092,
+          "byteSize": 69436
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1092,
+          "byteSize": 97138
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1638,
+          "byteSize": 125799
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1638,
+          "byteSize": 173538
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-1465.avif",
+          "format": "avif",
+          "width": 1465,
+          "height": 2000,
+          "byteSize": 183177
+        },
+        {
+          "key": "optimized/triturus-karelinii-2-1465.webp",
+          "format": "webp",
+          "width": 1465,
+          "height": 2000,
+          "byteSize": 225022
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:39.717Z"
+    },
+    "triturus-karelinii-3.jpg": {
+      "sourceHash": "20f59bb9d232fa2f676513decbb8d48f9024175b5499212ecb078475c16978ff",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "triturus-karelinii-3.jpg",
+      "originalSize": 365318,
+      "width": 2048,
+      "height": 1361,
+      "derivatives": [
+        {
+          "key": "optimized/triturus-karelinii-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8733
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10592
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 27295
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 34940
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 54169
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 66412
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1361,
+          "byteSize": 175830
+        },
+        {
+          "key": "optimized/triturus-karelinii-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1361,
+          "byteSize": 190012
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:43.515Z"
+    },
+    "triturus-karelinii.jpg": {
+      "sourceHash": "e2b30d331e4d848b5def665b0533be7aadc2a782c64cbdf4a27c252a8bc7de4f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "triturus-karelinii.jpg",
+      "originalSize": 174869,
+      "width": 1280,
+      "height": 670,
+      "derivatives": [
+        {
+          "key": "optimized/triturus-karelinii-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 209,
+          "byteSize": 18815
+        },
+        {
+          "key": "optimized/triturus-karelinii-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 209,
+          "byteSize": 28694
+        },
+        {
+          "key": "optimized/triturus-karelinii-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 419,
+          "byteSize": 65676
+        },
+        {
+          "key": "optimized/triturus-karelinii-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 419,
+          "byteSize": 100748
+        },
+        {
+          "key": "optimized/triturus-karelinii-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 628,
+          "byteSize": 129141
+        },
+        {
+          "key": "optimized/triturus-karelinii-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 628,
+          "byteSize": 197598
+        },
+        {
+          "key": "optimized/triturus-karelinii-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 670,
+          "byteSize": 144981
+        },
+        {
+          "key": "optimized/triturus-karelinii-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 670,
+          "byteSize": 211958
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:43.682Z"
+    },
+    "ursus-arctos-cub-1.jpg": {
+      "sourceHash": "9cad7c0a6a0b90d43923cdc15861d9550b8d8f6acfcf04b05a0f2b52a4ab19cd",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-cub-1.jpg",
+      "originalSize": 522054,
+      "width": 1280,
+      "height": 969,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-cub-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 303,
+          "byteSize": 31174
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 303,
+          "byteSize": 50006
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 606,
+          "byteSize": 113790
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 606,
+          "byteSize": 180152
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 908,
+          "byteSize": 233284
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 908,
+          "byteSize": 370424
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 969,
+          "byteSize": 278824
+        },
+        {
+          "key": "optimized/ursus-arctos-cub-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 969,
+          "byteSize": 428276
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:46.962Z"
+    },
+    "ursus-arctos-female-1.jpg": {
+      "sourceHash": "64b4172ff3c2ad5864afa2d08635d9935cddabed7fc10afbd09af12ec7928e5f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-female-1.jpg",
+      "originalSize": 317058,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-female-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20626
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32212
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67833
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 103518
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 133096
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 203832
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 159392
+        },
+        {
+          "key": "optimized/ursus-arctos-female-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 236408
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:47.679Z"
+    },
+    "ursus-arctos-female-2.jpg": {
+      "sourceHash": "bfdb21e89ce3ab4c4ba8a0895bdc8a47df5803194748a1a773146320d30b6be3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-female-2.jpg",
+      "originalSize": 287806,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-female-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18846
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28410
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59797
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 89390
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119497
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 181076
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 143803
+        },
+        {
+          "key": "optimized/ursus-arctos-female-2-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 210054
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:49.200Z"
+    },
+    "ursus-arctos-mirza-1.jpg": {
+      "sourceHash": "fdf666b5c844ba25500d4c4a9a3947c2028e6242ca7b447496ed44edf70becd8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-mirza-1.jpg",
+      "originalSize": 207737,
+      "width": 1024,
+      "height": 521,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-mirza-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 204,
+          "byteSize": 20342
+        },
+        {
+          "key": "optimized/ursus-arctos-mirza-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 204,
+          "byteSize": 30142
+        },
+        {
+          "key": "optimized/ursus-arctos-mirza-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 407,
+          "byteSize": 63141
+        },
+        {
+          "key": "optimized/ursus-arctos-mirza-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 407,
+          "byteSize": 104258
+        },
+        {
+          "key": "optimized/ursus-arctos-mirza-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 521,
+          "byteSize": 90627
+        },
+        {
+          "key": "optimized/ursus-arctos-mirza-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 521,
+          "byteSize": 145560
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:47.934Z"
+    },
+    "ursus-arctos-paposhvili-1.jpg": {
+      "sourceHash": "21a8bb8e87bc0ae8cc3aa7efdba1318d913c283be9216b392424ea066b941030",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-paposhvili-1.jpg",
+      "originalSize": 251074,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-paposhvili-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24328
+        },
+        {
+          "key": "optimized/ursus-arctos-paposhvili-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 37966
+        },
+        {
+          "key": "optimized/ursus-arctos-paposhvili-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 71510
+        },
+        {
+          "key": "optimized/ursus-arctos-paposhvili-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109604
+        },
+        {
+          "key": "optimized/ursus-arctos-paposhvili-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 113696
+        },
+        {
+          "key": "optimized/ursus-arctos-paposhvili-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 164626
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:50.553Z"
+    },
+    "ursus-arctos-paw-1.jpg": {
+      "sourceHash": "672d27c5f177bef869ce8f13786cb2ce94e61023df88bcd4febe30431f8f30e4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-paw-1.jpg",
+      "originalSize": 344817,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-paw-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21377
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29504
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81535
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 115656
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 164746
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 223904
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 259791
+        },
+        {
+          "key": "optimized/ursus-arctos-paw-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 329774
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:06.194Z"
+    },
+    "ursus-arctos-toma-1.jpg": {
+      "sourceHash": "5cc58211e050195881fdae1322f610e50813e7b0476d98e9872915b6cb46b19e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-toma-1.jpg",
+      "originalSize": 416712,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-toma-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 59825
+        },
+        {
+          "key": "optimized/ursus-arctos-toma-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 90750
+        },
+        {
+          "key": "optimized/ursus-arctos-toma-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 199470
+        },
+        {
+          "key": "optimized/ursus-arctos-toma-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 319476
+        }
+      ],
+      "updatedAt": "2026-08-28T21:59:51.144Z"
+    },
+    "ursus-arctos-tracks-1.jpg": {
+      "sourceHash": "bdd9ae2fab46b46ff2dd9b280497ebd25a2ca43674e4d4a0458c7a8752f33d60",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-tracks-1.jpg",
+      "originalSize": 763789,
+      "width": 960,
+      "height": 1707,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-tracks-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 69111
+        },
+        {
+          "key": "optimized/ursus-arctos-tracks-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 99292
+        },
+        {
+          "key": "optimized/ursus-arctos-tracks-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1423,
+          "byteSize": 295540
+        },
+        {
+          "key": "optimized/ursus-arctos-tracks-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1423,
+          "byteSize": 437146
+        },
+        {
+          "key": "optimized/ursus-arctos-tracks-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 1707,
+          "byteSize": 441153
+        },
+        {
+          "key": "optimized/ursus-arctos-tracks-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 1707,
+          "byteSize": 641464
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:04.721Z"
+    },
+    "ursus-arctos-zauri-1.jpg": {
+      "sourceHash": "bc384dc3892bddc7611cc7c7dedfb4843d3a66013b39e40d6b71f42f9dac06bb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ursus-arctos-zauri-1.jpg",
+      "originalSize": 313856,
+      "width": 1024,
+      "height": 731,
+      "derivatives": [
+        {
+          "key": "optimized/ursus-arctos-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 26754
+        },
+        {
+          "key": "optimized/ursus-arctos-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 38490
+        },
+        {
+          "key": "optimized/ursus-arctos-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 90786
+        },
+        {
+          "key": "optimized/ursus-arctos-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 132686
+        },
+        {
+          "key": "optimized/ursus-arctos-zauri-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 150668
+        },
+        {
+          "key": "optimized/ursus-arctos-zauri-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 213564
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:03.935Z"
+    },
+    "vipera-cover-on-mobile.webp": {
+      "sourceHash": "4b41a582b51d2ec93afa9298b4c853ad8627c138ec0b6f8be0c5ccae83f34528",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-cover-on-mobile.webp",
+      "originalSize": 134696,
+      "width": 1200,
+      "height": 1680,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-cover-on-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 560,
+          "byteSize": 26382
+        },
+        {
+          "key": "optimized/vipera-cover-on-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 560,
+          "byteSize": 40346
+        },
+        {
+          "key": "optimized/vipera-cover-on-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 73368
+        },
+        {
+          "key": "optimized/vipera-cover-on-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 103546
+        },
+        {
+          "key": "optimized/vipera-cover-on-mobile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1680,
+          "byteSize": 111561
+        },
+        {
+          "key": "optimized/vipera-cover-on-mobile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1680,
+          "byteSize": 150086
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:00.126Z"
+    },
+    "vipera-darevskii-2.jpg": {
+      "sourceHash": "fcb0a903a55946716e6d06fa7609c6ec955dd36b54ec5bee341b0b5263b62c18",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-2.jpg",
+      "originalSize": 255481,
+      "width": 1600,
+      "height": 1301,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 325,
+          "byteSize": 28516
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 325,
+          "byteSize": 46972
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 651,
+          "byteSize": 80799
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 651,
+          "byteSize": 127808
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 976,
+          "byteSize": 131347
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 976,
+          "byteSize": 201972
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1301,
+          "byteSize": 197519
+        },
+        {
+          "key": "optimized/vipera-darevskii-2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1301,
+          "byteSize": 272406
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:10.466Z"
+    },
+    "vipera-darevskii-3.jpg": {
+      "sourceHash": "0a392341c3bb19aeaad76b44d6d019983b18231b2a786384140c0e48da0f5cd4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-3.jpg",
+      "originalSize": 136332,
+      "width": 1364,
+      "height": 1375,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 403,
+          "byteSize": 31625
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 403,
+          "byteSize": 52994
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 806,
+          "byteSize": 81845
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 806,
+          "byteSize": 132394
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1210,
+          "byteSize": 139817
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1210,
+          "byteSize": 215720
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-1364.avif",
+          "format": "avif",
+          "width": 1364,
+          "height": 1375,
+          "byteSize": 116192
+        },
+        {
+          "key": "optimized/vipera-darevskii-3-1364.webp",
+          "format": "webp",
+          "width": 1364,
+          "height": 1375,
+          "byteSize": 211808
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:11.107Z"
+    },
+    "vipera-darevskii-4.jpg": {
+      "sourceHash": "34f965bf6fde26b0edfc6071590e952db1bc6bc781d298615be168059b164e0e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-4.jpg",
+      "originalSize": 317157,
+      "width": 1838,
+      "height": 1561,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 339,
+          "byteSize": 27605
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 339,
+          "byteSize": 45754
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 679,
+          "byteSize": 77909
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 679,
+          "byteSize": 125064
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1019,
+          "byteSize": 135552
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1019,
+          "byteSize": 209340
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-1838.avif",
+          "format": "avif",
+          "width": 1838,
+          "height": 1561,
+          "byteSize": 250344
+        },
+        {
+          "key": "optimized/vipera-darevskii-4-1838.webp",
+          "format": "webp",
+          "width": 1838,
+          "height": 1561,
+          "byteSize": 334522
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:14.506Z"
+    },
+    "vipera-darevskii-guram-1.jpg": {
+      "sourceHash": "c80d7cda6f8d121a45e22cf182d671ecd30246ac2dffa0df8302742784ef91df",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-guram-1.jpg",
+      "originalSize": 158224,
+      "width": 1000,
+      "height": 743,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-guram-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 297,
+          "byteSize": 31024
+        },
+        {
+          "key": "optimized/vipera-darevskii-guram-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 297,
+          "byteSize": 48688
+        },
+        {
+          "key": "optimized/vipera-darevskii-guram-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 594,
+          "byteSize": 90255
+        },
+        {
+          "key": "optimized/vipera-darevskii-guram-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 594,
+          "byteSize": 142772
+        },
+        {
+          "key": "optimized/vipera-darevskii-guram-1-1000.avif",
+          "format": "avif",
+          "width": 1000,
+          "height": 743,
+          "byteSize": 124824
+        },
+        {
+          "key": "optimized/vipera-darevskii-guram-1-1000.webp",
+          "format": "webp",
+          "width": 1000,
+          "height": 743,
+          "byteSize": 180728
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:12.609Z"
+    },
+    "vipera-darevskii-mobile.jpg": {
+      "sourceHash": "ceb64804e04b179ed06e04c3b77cec906f011528af65e06d46a6b61368c3a053",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-mobile.jpg",
+      "originalSize": 230095,
+      "width": 900,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 54138
+        },
+        {
+          "key": "optimized/vipera-darevskii-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 87266
+        },
+        {
+          "key": "optimized/vipera-darevskii-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 134642
+        },
+        {
+          "key": "optimized/vipera-darevskii-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 245766
+        },
+        {
+          "key": "optimized/vipera-darevskii-mobile-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 1200,
+          "byteSize": 162470
+        },
+        {
+          "key": "optimized/vipera-darevskii-mobile-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 1200,
+          "byteSize": 267298
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:16.452Z"
+    },
+    "vipera-darevskii-tadevosyan-1.jpg": {
+      "sourceHash": "b1dcdc0c71d8ee649836739671d738de5eb3c9bd25adec909981104b2ea3419b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-tadevosyan-1.jpg",
+      "originalSize": 298356,
+      "width": 1015,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-tadevosyan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 404,
+          "byteSize": 31988
+        },
+        {
+          "key": "optimized/vipera-darevskii-tadevosyan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 404,
+          "byteSize": 53142
+        },
+        {
+          "key": "optimized/vipera-darevskii-tadevosyan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 807,
+          "byteSize": 79695
+        },
+        {
+          "key": "optimized/vipera-darevskii-tadevosyan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 807,
+          "byteSize": 127352
+        },
+        {
+          "key": "optimized/vipera-darevskii-tadevosyan-1-1015.avif",
+          "format": "avif",
+          "width": 1015,
+          "height": 1024,
+          "byteSize": 110027
+        },
+        {
+          "key": "optimized/vipera-darevskii-tadevosyan-1-1015.webp",
+          "format": "webp",
+          "width": 1015,
+          "height": 1024,
+          "byteSize": 170482
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:16.627Z"
+    },
+    "vipera-darevskii.jpg": {
+      "sourceHash": "c1b112243cc57410139c439bed7f8cdaadc46c057f430cb97abc0e244b1db7e2",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii.jpg",
+      "originalSize": 602587,
+      "width": 2400,
+      "height": 1638,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 273,
+          "byteSize": 29264
+        },
+        {
+          "key": "optimized/vipera-darevskii-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 273,
+          "byteSize": 46080
+        },
+        {
+          "key": "optimized/vipera-darevskii-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 546,
+          "byteSize": 97304
+        },
+        {
+          "key": "optimized/vipera-darevskii-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 546,
+          "byteSize": 165832
+        },
+        {
+          "key": "optimized/vipera-darevskii-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 819,
+          "byteSize": 179328
+        },
+        {
+          "key": "optimized/vipera-darevskii-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 819,
+          "byteSize": 315788
+        },
+        {
+          "key": "optimized/vipera-darevskii-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1638,
+          "byteSize": 404190
+        },
+        {
+          "key": "optimized/vipera-darevskii-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1638,
+          "byteSize": 742106
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:30.219Z"
+    },
+    "vipera-dinnik-2.webp": {
+      "sourceHash": "80bf04fe0b8712c30a0bd4a561517dba1c0d4b90d950b4452bd486b4c3a577b1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik-2.webp",
+      "originalSize": 451154,
+      "width": 1276,
+      "height": 957,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20314
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32320
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 51780
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81140
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 88563
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 136146
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-1276.avif",
+          "format": "avif",
+          "width": 1276,
+          "height": 957,
+          "byteSize": 112656
+        },
+        {
+          "key": "optimized/vipera-dinnik-2-1276.webp",
+          "format": "webp",
+          "width": 1276,
+          "height": 957,
+          "byteSize": 167110
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:21.665Z"
+    },
+    "vipera-dinnik-3.webp": {
+      "sourceHash": "b9e626c663d7a43087f2f45077ddd0758869c39efe530d8e66281575c2436566",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik-3.webp",
+      "originalSize": 108084,
+      "width": 800,
+      "height": 534,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23801
+        },
+        {
+          "key": "optimized/vipera-dinnik-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35874
+        },
+        {
+          "key": "optimized/vipera-dinnik-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 91455
+        },
+        {
+          "key": "optimized/vipera-dinnik-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 122952
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:19.169Z"
+    },
+    "vipera-dinnik-4.webp": {
+      "sourceHash": "82ebb0edc3ed87a5213c7436f858a09d7f0703f8e7ace97de1429848e5eaa2c1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik-4.webp",
+      "originalSize": 278068,
+      "width": 1200,
+      "height": 789,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 12219
+        },
+        {
+          "key": "optimized/vipera-dinnik-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 18168
+        },
+        {
+          "key": "optimized/vipera-dinnik-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 526,
+          "byteSize": 30481
+        },
+        {
+          "key": "optimized/vipera-dinnik-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 526,
+          "byteSize": 45766
+        },
+        {
+          "key": "optimized/vipera-dinnik-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 789,
+          "byteSize": 62199
+        },
+        {
+          "key": "optimized/vipera-dinnik-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 789,
+          "byteSize": 90436
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:21.461Z"
+    },
+    "vipera-dinnik-5.webp": {
+      "sourceHash": "d06f13267732cd7832aa565b6da9d8e3e2383e70ee69833fe6b3a7c2579f961d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik-5.webp",
+      "originalSize": 285480,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17231
+        },
+        {
+          "key": "optimized/vipera-dinnik-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28102
+        },
+        {
+          "key": "optimized/vipera-dinnik-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 49962
+        },
+        {
+          "key": "optimized/vipera-dinnik-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 79152
+        },
+        {
+          "key": "optimized/vipera-dinnik-5-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 85545
+        },
+        {
+          "key": "optimized/vipera-dinnik-5-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 132112
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:24.900Z"
+    },
+    "vipera-dinnik-6.webp": {
+      "sourceHash": "a5c9045cae2f1675befbd85128c1a52417af7890ab162c7c227bba7b95864a18",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik-6.webp",
+      "originalSize": 606224,
+      "width": 1600,
+      "height": 1038,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-6-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 15008
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 23644
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 519,
+          "byteSize": 42849
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 519,
+          "byteSize": 67804
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 778,
+          "byteSize": 72174
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 778,
+          "byteSize": 112684
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1038,
+          "byteSize": 132357
+        },
+        {
+          "key": "optimized/vipera-dinnik-6-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1038,
+          "byteSize": 202672
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:27.425Z"
+    },
+    "vipera-dinnik-7.jpg": {
+      "sourceHash": "520260ff624c07d6e2b3b6650b4d081dbc517ce5954b4ee818c90854f2985fa7",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik-7.jpg",
+      "originalSize": 120822,
+      "width": 600,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 55400
+        },
+        {
+          "key": "optimized/vipera-dinnik-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 84764
+        },
+        {
+          "key": "optimized/vipera-dinnik-7-600.avif",
+          "format": "avif",
+          "width": 600,
+          "height": 800,
+          "byteSize": 95878
+        },
+        {
+          "key": "optimized/vipera-dinnik-7-600.webp",
+          "format": "webp",
+          "width": 600,
+          "height": 800,
+          "byteSize": 150780
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:24.271Z"
+    },
+    "vipera-dinnik.webp": {
+      "sourceHash": "5ab37ad22497842e5cf57b2c4e12e93e07ab6cac29a5033866e47e9ddc57e1a4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinnik.webp",
+      "originalSize": 324462,
+      "width": 1600,
+      "height": 1038,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinnik-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 15088
+        },
+        {
+          "key": "optimized/vipera-dinnik-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 23676
+        },
+        {
+          "key": "optimized/vipera-dinnik-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 519,
+          "byteSize": 43394
+        },
+        {
+          "key": "optimized/vipera-dinnik-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 519,
+          "byteSize": 66550
+        },
+        {
+          "key": "optimized/vipera-dinnik-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 778,
+          "byteSize": 68847
+        },
+        {
+          "key": "optimized/vipera-dinnik-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 778,
+          "byteSize": 106486
+        },
+        {
+          "key": "optimized/vipera-dinnik-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1038,
+          "byteSize": 112844
+        },
+        {
+          "key": "optimized/vipera-dinnik-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1038,
+          "byteSize": 162660
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:30.372Z"
+    },
+    "vipera-dinniki-truso-2.jpg": {
+      "sourceHash": "876f79c0a81214fe88d59481a025ace8e549d5dec108a1e763e2a22097fa7023",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-truso-2.jpg",
+      "originalSize": 360191,
+      "width": 631,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-truso-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 649,
+          "byteSize": 76982
+        },
+        {
+          "key": "optimized/vipera-dinniki-truso-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 649,
+          "byteSize": 117948
+        },
+        {
+          "key": "optimized/vipera-dinniki-truso-2-631.avif",
+          "format": "avif",
+          "width": 631,
+          "height": 1024,
+          "byteSize": 173270
+        },
+        {
+          "key": "optimized/vipera-dinniki-truso-2-631.webp",
+          "format": "webp",
+          "width": 631,
+          "height": 1024,
+          "byteSize": 272188
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:30.706Z"
+    },
+    "vipera-kaznakovi-2.webp": {
+      "sourceHash": "1a18b5a1603c4b5d83cf0dd166da5b7bcedbd5765b1fb36151439f6be6f14439",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-2.webp",
+      "originalSize": 987050,
+      "width": 2400,
+      "height": 1846,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 308,
+          "byteSize": 25925
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 308,
+          "byteSize": 41774
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 615,
+          "byteSize": 83142
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 615,
+          "byteSize": 125744
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 923,
+          "byteSize": 159020
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 923,
+          "byteSize": 232172
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1846,
+          "byteSize": 398311
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1846,
+          "byteSize": 532750
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:35.682Z"
+    },
+    "vipera-kaznakovi-3.webp": {
+      "sourceHash": "d58629cf4fca774b75f9f78d6457185888a263f1660372da87ab4580c1a35369",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-3.webp",
+      "originalSize": 395022,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14333
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21568
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37549
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54828
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63418
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 91406
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 135996
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 183430
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:38.804Z"
+    },
+    "vipera-kaznakovi-4.webp": {
+      "sourceHash": "684877d4407511abe0cea01b8587715c17ac3a8c747b9ff3b9d25f62afc85af0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-4.webp",
+      "originalSize": 329162,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15605
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22616
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38074
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52090
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 61430
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83444
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 124753
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-4-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 163566
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:39.237Z"
+    },
+    "vipera-kaznakovi-6.webp": {
+      "sourceHash": "519360aabbc784f9ba2f08908a409d4a0c19b54dc1a16a7d685cc7fb265d2562",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-6.webp",
+      "originalSize": 416228,
+      "width": 2048,
+      "height": 1465,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-6-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 18178
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 27504
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 572,
+          "byteSize": 47122
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 572,
+          "byteSize": 65460
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 858,
+          "byteSize": 80031
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 858,
+          "byteSize": 106426
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1465,
+          "byteSize": 167130
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-6-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1465,
+          "byteSize": 207832
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:39.207Z"
+    },
+    "vipera-kaznakovi-7.webp": {
+      "sourceHash": "e4d7ab1386a261b16ab401744737d3938f9c51ed4cf3fa579aa30e6f154450bd",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-7.webp",
+      "originalSize": 867444,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18973
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 28762
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 53145
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 79688
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 93397
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 136576
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 229989
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-7-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 315804
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:42.426Z"
+    },
+    "vipera-kaznakovi-giorgi-1.jpg": {
+      "sourceHash": "8de9e3a1023b5e15c5d1c5e3e62733357faa24e4187b8d0fbdcea210d02b978a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-giorgi-1.jpg",
+      "originalSize": 87099,
+      "width": 800,
+      "height": 778,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 389,
+          "byteSize": 23416
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 389,
+          "byteSize": 35184
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 778,
+          "byteSize": 68948
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 778,
+          "byteSize": 90348
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:40.957Z"
+    },
+    "vipera-kaznakovi-mobile.webp": {
+      "sourceHash": "11db46516fe56afcdeb5e77d7aaad41a4c8209f559e1ffb4a677b84f1c05f372",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-mobile.webp",
+      "originalSize": 129620,
+      "width": 800,
+      "height": 1120,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 560,
+          "byteSize": 42237
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 560,
+          "byteSize": 61590
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 121733
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 142266
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:42.396Z"
+    },
+    "vipera-kaznakovi-sandro-1.jpg": {
+      "sourceHash": "bfaee412fbf204ba29a00905b4c9784102d7d2442db81931b4faa3370e8d428d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-sandro-1.jpg",
+      "originalSize": 120742,
+      "width": 1197,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 321,
+          "byteSize": 24640
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 321,
+          "byteSize": 38822
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 642,
+          "byteSize": 67425
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 642,
+          "byteSize": 98712
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-1-1197.avif",
+          "format": "avif",
+          "width": 1197,
+          "height": 960,
+          "byteSize": 111210
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-1-1197.webp",
+          "format": "webp",
+          "width": 1197,
+          "height": 960,
+          "byteSize": 149764
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:44.063Z"
+    },
+    "vipera-kaznakovi-sandro-2.jpg": {
+      "sourceHash": "e88e5e5f978be5994d15770393b7f923aec1fc1a717303859bc8627105c17858",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-sandro-2.jpg",
+      "originalSize": 332952,
+      "width": 1998,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 410,
+          "byteSize": 33150
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 410,
+          "byteSize": 50574
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 820,
+          "byteSize": 93594
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 820,
+          "byteSize": 132972
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1230,
+          "byteSize": 160071
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1230,
+          "byteSize": 218694
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-1998.avif",
+          "format": "avif",
+          "width": 1998,
+          "height": 2048,
+          "byteSize": 299721
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-2-1998.webp",
+          "format": "webp",
+          "width": 1998,
+          "height": 2048,
+          "byteSize": 383650
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:49.339Z"
+    },
+    "vipera-kaznakovi-sandro-3.jpg": {
+      "sourceHash": "123b5b10e57411b6fdf63afaa31dc7d85dfac6c6ef80f0fe0ff60cf8b8e5208d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-sandro-3.jpg",
+      "originalSize": 97241,
+      "width": 1199,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 240,
+          "byteSize": 19066
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 240,
+          "byteSize": 30448
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 480,
+          "byteSize": 52937
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 480,
+          "byteSize": 78596
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-3-1199.avif",
+          "format": "avif",
+          "width": 1199,
+          "height": 720,
+          "byteSize": 87965
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-3-1199.webp",
+          "format": "webp",
+          "width": 1199,
+          "height": 720,
+          "byteSize": 120860
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:46.589Z"
+    },
+    "vipera-kaznakovi-sandro-4.jpg": {
+      "sourceHash": "b50d065234a2185ec7d04f4bef3bc38fff42aca67eaa6d7f291350e45d4970d1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-sandro-4.jpg",
+      "originalSize": 86279,
+      "width": 1296,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 296,
+          "byteSize": 13475
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 296,
+          "byteSize": 19272
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 593,
+          "byteSize": 38549
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 593,
+          "byteSize": 51420
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 889,
+          "byteSize": 66324
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 889,
+          "byteSize": 87696
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-1296.avif",
+          "format": "avif",
+          "width": 1296,
+          "height": 960,
+          "byteSize": 72406
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-4-1296.webp",
+          "format": "webp",
+          "width": 1296,
+          "height": 960,
+          "byteSize": 93252
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:48.233Z"
+    },
+    "vipera-kaznakovi-sandro-5.jpg": {
+      "sourceHash": "3ffebcd1a11b1c604d73ce3d61236f4572e7ba7a47189c54011c959ad680fc2e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-sandro-5.jpg",
+      "originalSize": 112475,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14670
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21088
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44802
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61698
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 79240
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 104018
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 97199
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-sandro-5-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 125936
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:50.940Z"
+    },
+    "vipera-kaznakovi-zakro-1.jpg": {
+      "sourceHash": "7d45a5d572fcb40e03b4a7ab578883558be688097ee97ee19669e89ee5c1d766",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-zakro-1.jpg",
+      "originalSize": 199228,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-zakro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15583
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zakro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22910
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zakro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40972
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zakro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58028
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zakro-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 57395
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zakro-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 80500
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:51.017Z"
+    },
+    "vipera-kaznakovi-zauri-1.jpg": {
+      "sourceHash": "cd0ab18753e575eb247105f77d38f448149f5b0e12df491b81e78868612798d6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-zauri-1.jpg",
+      "originalSize": 220972,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22774
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 37438
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60382
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 95084
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 87879
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 130620
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:54.058Z"
+    },
+    "vipera-kaznakovi-zauri-2.jpg": {
+      "sourceHash": "d871bf4eefafb1383aaa53bd2c896e8fa901fb411bb3b52832f29df7e45b4f1e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-zauri-2.jpg",
+      "originalSize": 397123,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35594
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 55328
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 112347
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 191122
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 184424
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 303780
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:53.282Z"
+    },
+    "vipera-kaznakovi-zauri-3.jpg": {
+      "sourceHash": "cb87bdd0472a1a26d1b90d1147e23b8fd9b467948d75234c9c2a6f7481ccfae8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi-zauri-3.jpg",
+      "originalSize": 392078,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 38188
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 57262
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 118833
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 202078
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-3-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 178920
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-zauri-3-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 305936
+        }
+      ],
+      "updatedAt": "2026-08-28T22:00:56.242Z"
+    },
+    "vipera-kaznakovi.webp": {
+      "sourceHash": "3888fb408c4e974db02fd1f54749a5a4e6ca4324edbe8ba959aac15a1cdbd6cc",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-kaznakovi.webp",
+      "originalSize": 995084,
+      "width": 2400,
+      "height": 1846,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 308,
+          "byteSize": 25924
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 308,
+          "byteSize": 41798
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 615,
+          "byteSize": 82724
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 615,
+          "byteSize": 125804
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 923,
+          "byteSize": 158153
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 923,
+          "byteSize": 234462
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1846,
+          "byteSize": 401351
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1846,
+          "byteSize": 531390
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:02.789Z"
+    },
+    "vipera-renardi-2.jpg": {
+      "sourceHash": "71ff86bf84ac4db006e32ef767176642fc5cc635f17f40d32d89547f9d32415a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-2.jpg",
+      "originalSize": 355746,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19568
+        },
+        {
+          "key": "optimized/vipera-renardi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32388
+        },
+        {
+          "key": "optimized/vipera-renardi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59174
+        },
+        {
+          "key": "optimized/vipera-renardi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94918
+        },
+        {
+          "key": "optimized/vipera-renardi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 110900
+        },
+        {
+          "key": "optimized/vipera-renardi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 168622
+        },
+        {
+          "key": "optimized/vipera-renardi-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 279196
+        },
+        {
+          "key": "optimized/vipera-renardi-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 373388
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:04.868Z"
+    },
+    "vipera-renardi-3.jpg": {
+      "sourceHash": "7b6b0daffeb9522b0ea8dc0a97d4e26e1c2e7d8b0d5dca7006b15966e345c23b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-3.jpg",
+      "originalSize": 805730,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24133
+        },
+        {
+          "key": "optimized/vipera-renardi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35490
+        },
+        {
+          "key": "optimized/vipera-renardi-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 101640
+        },
+        {
+          "key": "optimized/vipera-renardi-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 150494
+        },
+        {
+          "key": "optimized/vipera-renardi-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 239004
+        },
+        {
+          "key": "optimized/vipera-renardi-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 361518
+        },
+        {
+          "key": "optimized/vipera-renardi-3-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 684587
+        },
+        {
+          "key": "optimized/vipera-renardi-3-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 1130734
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:12.065Z"
+    },
+    "vipera-renardi-4.jpg": {
+      "sourceHash": "2e25aefb6d22dc1a441704dba065cbcbd0395d8beb8862282086f8efe3bacd75",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-4.jpg",
+      "originalSize": 778057,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32651
+        },
+        {
+          "key": "optimized/vipera-renardi-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 50204
+        },
+        {
+          "key": "optimized/vipera-renardi-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 121560
+        },
+        {
+          "key": "optimized/vipera-renardi-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 192314
+        },
+        {
+          "key": "optimized/vipera-renardi-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 248877
+        },
+        {
+          "key": "optimized/vipera-renardi-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 409358
+        },
+        {
+          "key": "optimized/vipera-renardi-4-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 622511
+        },
+        {
+          "key": "optimized/vipera-renardi-4-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 1011000
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:10.542Z"
+    },
+    "vipera-renardi-5.jpg": {
+      "sourceHash": "a16aa3816bbefc59c3f8b25a30c64f0f32f4cbd5da1ed19530a46b8300d4067d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-5.jpg",
+      "originalSize": 524214,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26514
+        },
+        {
+          "key": "optimized/vipera-renardi-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 42866
+        },
+        {
+          "key": "optimized/vipera-renardi-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 91448
+        },
+        {
+          "key": "optimized/vipera-renardi-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 148160
+        },
+        {
+          "key": "optimized/vipera-renardi-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 170902
+        },
+        {
+          "key": "optimized/vipera-renardi-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 280420
+        },
+        {
+          "key": "optimized/vipera-renardi-5-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 410504
+        },
+        {
+          "key": "optimized/vipera-renardi-5-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 597882
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:17.782Z"
+    },
+    "vipera-renardi-6.jpg": {
+      "sourceHash": "49cf56e8c93ce377ae6fb707679f24ed4b404c59fe9232aaab20bde3ae8dbe42",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-6.jpg",
+      "originalSize": 750029,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-6-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 33105
+        },
+        {
+          "key": "optimized/vipera-renardi-6-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 50448
+        },
+        {
+          "key": "optimized/vipera-renardi-6-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 121557
+        },
+        {
+          "key": "optimized/vipera-renardi-6-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 190310
+        },
+        {
+          "key": "optimized/vipera-renardi-6-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 251527
+        },
+        {
+          "key": "optimized/vipera-renardi-6-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 397300
+        },
+        {
+          "key": "optimized/vipera-renardi-6-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 603576
+        },
+        {
+          "key": "optimized/vipera-renardi-6-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 949758
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:19.775Z"
+    },
+    "vipera-renardi-7.jpg": {
+      "sourceHash": "65a200c73beef062c4d42548f90a41a85c12f30cb118b47b8e3f6e72f31e5146",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-7.jpg",
+      "originalSize": 403789,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22797
+        },
+        {
+          "key": "optimized/vipera-renardi-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 37550
+        },
+        {
+          "key": "optimized/vipera-renardi-7-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 71270
+        },
+        {
+          "key": "optimized/vipera-renardi-7-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109674
+        },
+        {
+          "key": "optimized/vipera-renardi-7-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 132837
+        },
+        {
+          "key": "optimized/vipera-renardi-7-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 199424
+        },
+        {
+          "key": "optimized/vipera-renardi-7-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 322976
+        },
+        {
+          "key": "optimized/vipera-renardi-7-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 419700
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:25.236Z"
+    },
+    "vipera-renardi-mobile.webp": {
+      "sourceHash": "e4470cd22306b3b841282d924d271f1100922e2f76031804da32877249aeb80e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-mobile.webp",
+      "originalSize": 169164,
+      "width": 800,
+      "height": 533,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 33323
+        },
+        {
+          "key": "optimized/vipera-renardi-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 49844
+        },
+        {
+          "key": "optimized/vipera-renardi-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 133184
+        },
+        {
+          "key": "optimized/vipera-renardi-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 189764
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:15.666Z"
+    },
+    "vipera-renardi.jpg": {
+      "sourceHash": "607a1cd06f6ce591c15924a1f62ae56a561b899fa42e560fea8170756e0844b2",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi.jpg",
+      "originalSize": 849360,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28391
+        },
+        {
+          "key": "optimized/vipera-renardi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 46234
+        },
+        {
+          "key": "optimized/vipera-renardi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109803
+        },
+        {
+          "key": "optimized/vipera-renardi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 178592
+        },
+        {
+          "key": "optimized/vipera-renardi-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 251458
+        },
+        {
+          "key": "optimized/vipera-renardi-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 400896
+        },
+        {
+          "key": "optimized/vipera-renardi-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 701807
+        },
+        {
+          "key": "optimized/vipera-renardi-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 1176892
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:31.918Z"
+    },
+    "vipera-transcaucasiana-2.jpg": {
+      "sourceHash": "8fa31849093ff7fe00beb333598dd537dfd446bf6ec18e63703a70f77f3296b9",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-transcaucasiana-2.jpg",
+      "originalSize": 388162,
+      "width": 1922,
+      "height": 1441,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-transcaucasiana-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28686
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 45028
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 89523
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 149106
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 159217
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 261350
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-1922.avif",
+          "format": "avif",
+          "width": 1922,
+          "height": 1441,
+          "byteSize": 301213
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-2-1922.webp",
+          "format": "webp",
+          "width": 1922,
+          "height": 1441,
+          "byteSize": 440766
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:29.337Z"
+    },
+    "vipera-transcaucasiana-3.jpg": {
+      "sourceHash": "fa2fe3b8273eba8109b3b9fc3e62e3bf763bf4519e0cb5c24293736ed31ea46b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-transcaucasiana-3.jpg",
+      "originalSize": 361569,
+      "width": 2048,
+      "height": 1305,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-transcaucasiana-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 255,
+          "byteSize": 18429
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 255,
+          "byteSize": 31766
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 510,
+          "byteSize": 62477
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 510,
+          "byteSize": 103532
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 765,
+          "byteSize": 122878
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 765,
+          "byteSize": 190258
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1305,
+          "byteSize": 307698
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1305,
+          "byteSize": 386126
+        }
+      ],
+      "updatedAt": "2026-08-28T22:01:27.614Z"
     }
   }
 }
