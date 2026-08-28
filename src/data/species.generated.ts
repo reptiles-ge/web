@@ -1161,6 +1161,14 @@ export const species: Species[] = [
           "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg",
           "date": "2006-05-27"
         }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/buteo-buteo-szczepanek-1.jpg",
+        "credit": {
+          "photographer": "Marek Szczepanek",
+          "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_1_(Marek_Szczepanek).jpg",
+          "date": "2018-04-09"
+        }
       }
     ],
     "stats": [
@@ -1330,6 +1338,10 @@ export const species: Species[] = [
       {
         "name": "Wikimedia Commons — Buteo buteo (Lukasz Lukasik, CC BY-SA 3.0)",
         "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Buteo buteo (Marek Szczepanek, CC BY-SA 3.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_1_(Marek_Szczepanek).jpg"
       },
       {
         "name": "xeno-canto XC728944 — Buteo buteo (Tanguy Loïs, CC BY-NC-SA 4.0)",
@@ -9256,7 +9268,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის CR სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T20:38:10+04:00",
+    "updatedAt": "2026-08-28T20:41:37+04:00",
     "sources": [
       {
         "name": "Breitenmoser et al. 2015 — IUCN Red List, Lynx lynx (errata 2017)",
@@ -17357,6 +17369,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "Lukasz Lukasik",
           "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg",
           "date": "2006-05-27"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/buteo-buteo-szczepanek-1.jpg",
+        "credit": {
+          "photographer": "Marek Szczepanek",
+          "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_1_(Marek_Szczepanek).jpg",
+          "date": "2018-04-09"
         }
       }
     ],
