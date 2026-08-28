@@ -97,9 +97,13 @@ export function SpeciesCarousel() {
         ref={trackRef}
         className="species-carousel-track no-scrollbar mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 pr-6 lg:pr-10"
       >
-        {featured.map((item) => (
+        {featured.map((item, index) => (
           <div key={item.id} className="snap-start">
-            <SpeciesCard species={item} />
+            <SpeciesCard
+              species={item}
+              source="carousel"
+              position={index + 1}
+            />
           </div>
         ))}
         <div className="w-2 shrink-0" />

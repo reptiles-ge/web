@@ -5,6 +5,7 @@ import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
 import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
 import { regions, type Region as RegionData } from "@/data/regions";
+import { trackEvent, type MapContext } from "@/lib/analytics";
 import { regionHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
 import {
@@ -21,6 +22,7 @@ type GeorgiaMapProps = {
   highlightedIds?: string[];
   interactive?: boolean;
   selectionMode?: "panel" | "navigate";
+  mapContext?: MapContext;
 };
 
 export function GeorgiaMap({
@@ -28,6 +30,7 @@ export function GeorgiaMap({
   highlightedIds = [],
   interactive = true,
   selectionMode = "panel",
+  mapContext = "home",
 }: GeorgiaMapProps) {
   const router = useRouter();
   const reactId = useId();
@@ -72,13 +75,18 @@ export function GeorgiaMap({
   const handleSelect = useCallback(
     (id: string) => {
       if (!interactive) return;
+      trackEvent("map_region_select", {
+        region_id: id,
+        map_context: mapContext,
+        action: selectionMode === "navigate" ? "navigate" : "panel",
+      });
       if (selectionMode === "navigate") {
         router.push(regionHref(id));
         return;
       }
       setSelectedId(id);
     },
-    [interactive, selectionMode, router],
+    [interactive, selectionMode, router, mapContext],
   );
 
   const handleClose = useCallback(() => {

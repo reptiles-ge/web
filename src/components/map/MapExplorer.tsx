@@ -30,7 +30,7 @@ export function MapExplorer() {
         </Reveal>
 
         <div className="mt-14 lg:mt-20">
-          <GeorgiaMap selectionMode="navigate" />
+          <GeorgiaMap selectionMode="navigate" mapContext="home" />
         </div>
 
         <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground/80">

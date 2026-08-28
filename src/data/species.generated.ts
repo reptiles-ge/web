@@ -800,7 +800,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში საფრთხის ქვეშ მყოფ ტაქსონად ამ გვერდზე არ არის განხილული. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T17:09:23+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Hoffmann et al. 2018 — IUCN Red List, Canis aureus (global)",
@@ -1064,7 +1064,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება. საერთაშორისო ვაჭრობა CITES-ის დანართ II-ით რეგულირდება."
       }
     ],
-    "updatedAt": "2026-08-28T10:51:09+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Boitani, Phillips & Jhala 2023 — IUCN Red List, Canis lupus",
@@ -1326,7 +1326,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. სააგენტო წერს, რომ საქართველოს წითელ ნუსხაში არ არის. სანადირო სახეობად არის შეტანილი; სეზონი და კვოტა ოფიციალური წესით დგინდება. დაცულ ტერიტორიაზე ნადირობა აკრძალულია, თუ სხვა რამ არ არის დადგენილი."
       }
     ],
-    "updatedAt": "2026-08-28T10:51:09+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Lovari et al. 2016 — IUCN Red List, Capreolus capreolus",
@@ -5138,7 +5138,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელ ნუსხაში ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. IUCN-ის LC ნადირობის ნებართვად ნუ ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-28T03:21:56+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Amori et al. 2021 — IUCN Red List, Erinaceus concolor",
@@ -8052,7 +8052,7 @@ export const species: Species[] = [
         "answer": "შხამიანი არ არის. დაჭერისას შეიძლება უკბინოს. არ აიყვანოთ. გლობალურად Meles meles ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელ ნუსხაში არ არის. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T03:14:32+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Abramov & Puzachenko 2013 — Zootaxa 3681, Meles canescens",
@@ -8816,12 +8816,12 @@ export const species: Species[] = [
     "behavior": "თბილ სეზონზე აქტიურია, ძირითადად დღისით. ხშირად იბანაობს ან მზეზე თბება ნაპირზე, ქვაზე და წყალზე გადახრილ ტოტზე. ცივ თვეებში ზამთრობს წყალთან ახლოს, მშრალ სოროში ან ნაპრალში; ზუსტი თვეები სიმაღლესა და კლიმატზეა დამოკიდებული და საქართველოს ყველა პოპულაციის ერთი კალენდარი ამ გვერდზე არ არის. კვერცხისმდებია. სახეობის არეალში შეწყვილება ჩვეულებრივ გაზაფხულზეა, კვერცხს ზაფხულში დებს ტენიან ადგილას — ნიადაგი, დამპალი მცენარეულობა, ქვის ღობე; ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე. საფრთხისას კლოაკიდან უსიამოვნო სუნის სეკრეტს გამოყოფს ან მკვდარს თამაშობს. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ — შხამი არ აქვს. ხშირად გველგესლაში ერევათ მუქი ლაქების გამო.",
     "conservation": "IUCN-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ შედის. ქვეყანაში ფართოდაა გავრცელებული და წყალთან ადგილობრივად ჩვეულებრივია. ბერნის კონვენციის II დანართშია. მთავარი ზეწოლა წყლის დაბინძურება, ნაპირის შეცვლა და დევნაა — ადამიანები ხშირად შხამიან გველად მიიჩნევენ. ზოგ ევროპულ ქვეყანაში ადგილობრივი პოპულაციები მცირდება ჰაბიტატის დაკარგვისა და დაბინძურების გამო; საქართველოს პოპულაციის ცალკე ტრენდი ამ გვერდზე არ არის გამოქვეყნებული.",
     "danger": "Harmless",
-    "image": "/images/natrix-tessellata-sandro-1.jpg",
+    "image": "https://cdn.reptiles.ge/natrix-tessellata-sandro-1.jpg",
     "imageCredit": {
       "photographer": "სანდრო ხახვა",
       "date": "2024-08-04"
     },
-    "mobileImage": "/images/natrix-tessellata-sandro-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/natrix-tessellata-sandro-1.jpg",
     "mobileImageCredit": {
       "photographer": "სანდრო ხახვა",
       "date": "2024-08-04"
@@ -8852,7 +8852,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -8860,7 +8860,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-3.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -8868,7 +8868,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-4.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-4.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -8883,14 +8883,14 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-tessellata-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2024-08-04"
         }
       },
       {
-        "src": "/images/natrix-tessellata-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-sandro-2.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
           "date": "2024-08-04"
@@ -8991,7 +8991,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. უშხამოა. გველგესლასთან ამოსაცნობად ნახეთ მრგვალი გუგა, ვიწრო თავი და წყალთან კავშირი."
       }
     ],
-    "updatedAt": "2026-08-27T18:23:55+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -9348,14 +9348,14 @@ export const species: Species[] = [
     "behavior": "მარტოული მტაცებელია. აქტიურია ძირითადად ღამით და შებინდებისას; ცივ სეზონში დღისითაც შეიძლება გამოჩნდეს. ტერიტორიას ნიშნავს ბილიკზე ნაკაწრით, შარდით, განავლითა და ხეზე ნაკაწრით. ქვესახეობაში შეწყვილების პიკი ხშირად იანვარ–მარტია; ორსულობა დაახლოებით 90–106 დღე, ხშირად 1–4 ლეკვი. ეს ციფრები არეალის სხვა ნაწილიდანაა. საქართველოში გამრავლება ამ გვერდზე დადასტურებული არ არის. IUCN 2023 წერს, რომ კავკასიის პოპულაცია ჯერ არ არის სტაბილური: ფართოდ მოძრავი მამლები ჩნდებიან, მაგრამ დედლებისა და ბუდობის რაოდენობა არასაკმარისია.   საქართველოში რეალისტური შეხვედრა ფოტოხაფანგზეა ან კვალზე — არა ტურისტულ გარანტირებულ დანახვაზე. ტერიტორიული ხმა ხშირად ხერხისებრი, განმეორებადი ყიჟინაა. ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1077461 (Marc Anderson, ჩრდილოეთ ტული, ბოტსვანა, 2023-09-07), აფრიკული ქვესახეობა P. p. pardus — არა კავკასიური tulliana.",
     "conservation": "სახეობა Panthera pardus IUCN-ზე მოწყვლადია (Vulnerable). ქვესახეობა P. p. tulliana 2023 წელს Endangered C2a(i)-ია: მსოფლიოში დაახლოებით 750–1044 ინდივიდი, მათ შორის 450–626 ზრდასრული, ტენდენცია კლებადი. სამხრეთ კავკასიაში კამერით დათვლილი მინიმუმი (Khorozyan et al. 2022, IUCN-ში) იყო 6–17 აზერბაიჯანში, 3–9 სომხეთში და 1 საქართველოში. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ჯიქი CR-ია კრიტერიუმით D1 — ძალზე მცირე პოპულაცია. სამოქმედო გეგმა წერს, რომ 1977 წლიდან იურიდიულად დაცულია; ნადირობა აკრძალულია. CITES-ის I დანართშია — კომერციული საერთაშორისო ვაჭრობა აკრძალულია. საფრთხეებია ბრაკონიერობა, საკვები სახეობების შემცირება, ჰაბიტატის დანაწევრება და საზღვრის ინფრასტრუქტურა. საბჭოთა პერიოდში კავკასიაში ჯიქზე ნადირობა სახელმწიფო პრემიითაც მიმდინარეობდა 1970-იანებამდე. ველური ინდივიდი არ აიყვანოთ და ნუ აცნობებთ მდებარეობას სოციალურ ქსელში პირდაპირ კოორდინატებით.",
     "interaction": "შხამიანი არ არის. დიდი მტაცებელია: შეიძლება დაიცვას თავი ან ნადირი, იშვიათად შეუტიოს ადამიანს არეალის სხვა ნაწილებში. საქართველოში ადამიანზე თავდასხმის დადასტურებული სერია ამ გვერდზე არ არის. თუ კვალს ან ცხოველს ნახავთ, დატოვეთ ადგილი, არ მიუახლოვდეთ ლეკვებს და არ აჭმიოთ. პირუტყვის დანაკლისი შესაძლებელია, მაგრამ აქ რაოდენობა არ არის გაზომილი. ნაკბენის შემთხვევაში მიმართეთ ექიმს.",
-    "image": "/images/panthera-pardus-assaf-1.jpg",
+    "image": "https://cdn.reptiles.ge/panthera-pardus-assaf-1.jpg",
     "imageCredit": {
       "photographer": "Tamar Assaf",
       "url": "https://commons.wikimedia.org/wiki/File:Persian_Leopard_sitting.jpg"
     },
     "gallery": [
       {
-        "src": "/images/panthera-pardus-thunderjag-1.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-thunderjag-1.jpg",
         "credit": {
           "photographer": "ThunderJag",
           "url": "https://commons.wikimedia.org/wiki/File:Persian_Leopard_(Panthera_pardus_saxicolor).jpg",
@@ -9363,28 +9363,28 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/panthera-pardus-assaf-1.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-assaf-1.jpg",
         "credit": {
           "photographer": "Tamar Assaf",
           "url": "https://commons.wikimedia.org/wiki/File:Persian_Leopard_sitting.jpg"
         }
       },
       {
-        "src": "/images/panthera-pardus-burkhard-1.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-burkhard-1.jpg",
         "credit": {
           "photographer": "Marcel Burkhard",
           "url": "https://commons.wikimedia.org/wiki/File:Persischerleopardcele4.jpg"
         }
       },
       {
-        "src": "/images/panthera-pardus-burkhard-2.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-burkhard-2.jpg",
         "credit": {
           "photographer": "Marcel Burkhard",
           "url": "https://commons.wikimedia.org/wiki/File:Persischer_leopard2cele4.jpg"
         }
       },
       {
-        "src": "/images/panthera-pardus-museum-2.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-museum-2.jpg",
         "credit": {
           "photographer": "Jonathan Cardy",
           "url": "https://commons.wikimedia.org/wiki/File:Caucasus_Leopard_in_Georgian_National_Museum_02.JPG",
@@ -11391,14 +11391,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და ღამითაა აქტიური; დღის დასვენება ხშირია, მოკლე დასვენება შუადღისას. ნადირობის მაღალ წნევაზე უფრო ღამის აქტიურობისკენ იწევს. დედალი გოჭებთან ერთად კოლტში (ხმოვან ჯგუფში) დადის; ზრდასრული მამალი გამრავლების სეზონის გარეთ ხშირად მარტოა. ირულებს ტალახში და შემდეგ ხეზე იწმენდს — ეს ტერიტორიის ნიშანიც არის. სახეობის დონეზე ორსულობა დაახლოებით 112–130 დღეა, ხშირად 5–7 გოჭი; იშვიათად მეტი ან ნაკლები. მშობიარობის წინ დედალი ჯგუფს ტოვებს და ბუდეს აშენებს. ზომიერ სარტყელში გოჭები ძირითადად გაზაფხულზე იბადებიან. ქართული ენციკლოპედია ხურაობას ნოემბერ–დეკემბერს უთითებს; ეს მეორადი წყაროა და ამ გვერდზე გაზომილ ქართულ კალენდრად არ არის მიღებული. გოჭს სხეულზე გრძივი ღია ზოლები აქვს; ეს ნიმუში დაახლოებით 2–6 თვეში ქრება. კვალი წყვილი ჩლიქია; რბილ მიწაზე უკანა პატარა ჩლიქებიც (ნამჩლიქები) ხშირად ჩანს. ამოთხრილი მიწა და ტალახის ამობანა ტყეში ხშირი ნიშანია. ხმა კოლტში ხშირია; ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1104344 (Marc Anderson, მანგო ლაგუნა, კუინზლენდი, ავსტრალია, 2018-08-30).",
     "conservation": "Keuling და Leus Sus scrofa-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2019). გლობალურად ძირითადი საფრთხე არ არის დასახელებული; ადგილობრივად შეიძლება იყოს ჰაბიტატის შემცირება, ნადირობა, კულტურის ზიანის გამო დევნა და შინაურ ღორთან შეჯვარება. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ნადირობის ობიექტად არის შეტანილი (ბრძანება №175); კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. ქართული ენციკლოპედია წერს, რომ რაოდენობა ქვეყანაში 2000 სულს არ აღემატება; წელი და აღწერის მეთოდი აქ არ არის, ამიტომ ეს მიმდინარე აღწერად არ ჩაითვალოს. 2007 წელს აფრიკული ღორის ცხელება საქართველოში დადასტურდა; პირველი კლინიკური შემთხვევები პოთთან უკავშირდება, სავარაუდოდ გემის ნარჩენი ხორციდან. დაავადება შინაურ და გარეულ ღორებს ეხება და ადამიანს არ გადაედოება. იმდროინდელ FAO-ს შეჯამებაში გარეულ ღორში შემთხვევა ჯერ დადასტურებული არ იყო, მაგრამ კონტაქტი თავისუფლად მოვლილ შინაურ ღორებთან შესაძლებლად იყო მიჩნეული. ეროვნული პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება დაარტყას ან ეშვით დაჭრას, განსაკუთრებით დედალი გოჭებთან ან კუთხეში მოქცეული მამალი. არ აჭმიოთ და არ მიუახლოვდეთ. ძაღლები შეაჩერეთ. აფრიკული ღორის ცხელება ადამიანისთვის საშიში არ არის. თუ ხორცი მოიპოვება კანონიერად, სახეობის დონეზე ნედლი ან ნაკლებად მოხარშული ხორცი შეიძლება ტრიქინელას რისკი იყოს; საქართველოს ცალკე გამოკვლევა ამ გვერდზე არ არის.",
-    "image": "/images/sus-scrofa-forest-1.jpg",
+    "image": "https://cdn.reptiles.ge/sus-scrofa-forest-1.jpg",
     "imageCredit": {
       "photographer": "Volodymyr Burdiak",
       "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
       "location": "ტერნოპილის ოლქი",
       "date": "2021-11-06"
     },
-    "mobileImage": "/images/sus-scrofa-frontal-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/sus-scrofa-frontal-1.jpg",
     "mobileImageCredit": {
       "photographer": "Richard Bartz",
       "url": "https://commons.wikimedia.org/wiki/File:Wild_Boar_frontal.jpg",
@@ -11407,7 +11407,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/sus-scrofa-forest-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-forest-1.jpg",
         "credit": {
           "photographer": "Volodymyr Burdiak",
           "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
@@ -11416,7 +11416,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sus-scrofa-frontal-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-frontal-1.jpg",
         "credit": {
           "photographer": "Richard Bartz",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_Boar_frontal.jpg",
@@ -11425,7 +11425,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sus-scrofa-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-1.jpg",
         "credit": {
           "photographer": "Bramans",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_boar_(Sus_scrofa).jpg",
@@ -11434,7 +11434,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sus-scrofa-2.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-2.jpg",
         "credit": {
           "photographer": "NasserHalaweh",
           "url": "https://commons.wikimedia.org/wiki/File:Suidae_Sus_scrofa_scrofa_4.jpg",
@@ -11443,7 +11443,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sus-scrofa-piglet-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-piglet-1.jpg",
         "credit": {
           "photographer": "Sander van der Wel",
           "url": "https://commons.wikimedia.org/wiki/File:Sus_scrofa_piglet.jpg",
@@ -11452,7 +11452,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/sus-scrofa-sow-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-sow-1.jpg",
         "credit": {
           "photographer": "df7ii",
           "url": "https://commons.wikimedia.org/wiki/File:Frischlinge_mit_Bachen.jpg",
@@ -11797,7 +11797,7 @@ export const species: Species[] = [
         "answer": "გვერდი აუარეთ და არ აიყვანოთ. ადამიანს არ ეძებს. თუ ვერტიკალური გუგით გველს ვერ არწმუნებთ, მიიჩნიეთ შხამიანად."
       }
     ],
-    "updatedAt": "2026-08-27T13:05:35+04:00",
+    "updatedAt": "2026-08-28T17:16:01+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -12394,7 +12394,7 @@ export const species: Species[] = [
     "behavior": "ხშირად შებინდებისას და ღამით მოძრაობს, განსაკუთრებით ადამიანთან ახლოს; შორეულ ტყეში დღისითაც ჩანს. ზამთარში, საკვების დეფიციტზე, ბუნაგში იძინებს — ეს ღრმა ძილია, არა სრული ჰიბერნაცია, როგორც ზოგ მღრღნელში; შეიძლება გაიღვიძოს. ზუსტი კალენდარი საქართველოში ყველა პოპულაციაზე ერთნაირად არ არის გაზომილი; ვაშლოვანის უფრო რბილ ზამთარში იგივე ხანგრძლივობა ნაგულისხმევად ნუ ჩათვალეთ. მაკეობა სახეობის დონეზე გადადებული იმპლანტაციით მიმდინარეობს; ლეკვები იბადებიან ბუნაგში, ჩვეულებრივ ზამთარში, ხშირად ერთი-რამდენიმე; დედასთან რჩებიან დაახლოებით ორ წლამდე. ეს ფართო არეალის ციფრებია და არა ქართული ბუდობის ნიმუში. კვალი მცენარისძირია: ხუთი თითი, წინა თათზე გრძელი კლანჭები; უკანა ანაბეჭდი ადამიანის ტერფს უფრო ჰგავს, ვიდრე მგლისას. ხმა ადამიანთან ახლოს იშვიათად ისმის; ამ გვერდზე ქართული ჩანაწერი არ არის. მოცემულია xeno-canto XC1168186 (Stanislas Wroza, კუოსამო — რინე, ფინეთი, 2026-05-24) — მამრის გუგუნი და ყნოსვა დედალთან.",
     "conservation": "McLellan და თანაავტორები Ursus arctos-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2017); გლობალური ტენდენცია სტაბილურია, მაგრამ სამხრეთის ფრაგმენტირებული პოპულაციები ცალკე საფრთხის ქვეშ შეიძლება იყოს. IUCN-ის 2017 შეფასება მცირე კავკასიონის პოპულაციას (სამხრეთ და აღმოსავლეთ სომხეთი ჩრდილო-დასავლეთ ირანამდე) Endangered-ად განიხილავს; ეს რეგიონული შეფასებაა და არა საქართველოს წითელი ნუსხის ჩანაწერი. საქართველოში 2014 წლის დადგენილება №190 სახეობას EN-ად აფასებს, კრიტერიუმი C2(aI), მიზეზი — მცირე, ფრაგმენტირებული პოპულაცია. ნადირობა დაშვებული არ არის. CITES-ში საქართველოს პოპულაცია დანართ II-შია (დანართი I სხვა ქვეყნებისა და U. a. isabellinus-ისთვისაა). Lortkipanidze 2010 მინიმუმ დაახლოებით 450 ინდივიდს ითვლის დაახლოებით 34 000 კმ² ჰაბიტატზე, სიმჭიდროვით დაახლოებით 13 / 1000 კმ² ცენტრალურ საქართველოში; ეს მინიმუმია და არა სრული აღწერა. 2014 წელს ბორჯომ-ხარაგაულში 38–47 ინდივიდი (95% CI). 2022–2024 წლების ნიმუშებში 228 უნიკალური გენოტიპი იქნა გამოყოფილი აჭარის პარკებიდან, ბორჯომ-ხარაგაულიდან, ალგეთიდან და ვაშლოვანიდან — ეს შერჩეული დაცული ტერიტორიების ნიმუშია და არა ქვეყნის ჯამი; დიდი კავკასიონის დიდი ნაწილი ამ სერიაში არ არის. მთავარი დასახელებული საფრთხეებია უკანონო ნადირობა, ჰაბიტატის ფრაგმენტაცია და კონფლიქტი მეფუტკრეებსა და მეცხოველეებთან.",
     "interaction": "შხამი არ აქვს და საჭმელად არ განიხილება. დიდი ცხოველია: შეიძლება უკბინოს ან დაარტყას, თუ მოულოდნელად შეხვდებით, განსაკუთრებით დედას ლეკვებთან ან ნადირთან. არ მიუახლოვდეთ, არ აჭამოთ, არ აუშვათ ძაღლი. ბილიკზე ხმა გამოსცით, რომ არ გააოცოთ. საკვები ბანაკში დაცულად შეინახეთ. ფუტკრის სკასა და პირუტყვზე ზარალი რეალურია ზოგ სოფელში, განსაკუთრებით ბორჯომ-ხარაგაულის მიდამოებში — ეს კონფლიქტია და არა იმის ნიშანი, რომ დათვი ადამიანზე ნადირობს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი. ველური ცხოველი არ აიყვანოთ.",
-    "image": "/images/ursus-arctos-female-1.jpg",
+    "image": "https://cdn.reptiles.ge/ursus-arctos-female-1.jpg",
     "imageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg",
@@ -12403,7 +12403,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/ursus-arctos-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -12411,7 +12411,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ursus-arctos-mirza-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-mirza-1.jpg",
         "credit": {
           "photographer": "მირზა ხინკილაძე",
           "location": "თუშეთის დაცული ტერიტორიები",
@@ -12419,21 +12419,21 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ursus-arctos-toma-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-toma-1.jpg",
         "credit": {
           "photographer": "თომა შენგელიძე",
           "date": "2025-05-24"
         }
       },
       {
-        "src": "/images/ursus-arctos-paposhvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-paposhvili-1.jpg",
         "credit": {
           "photographer": "ნიკა პაპოშვილი",
           "date": "2020-07-30"
         }
       },
       {
-        "src": "/images/ursus-arctos-female-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-female-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg",
@@ -12442,7 +12442,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ursus-arctos-female-2.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-female-2.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_3.jpg",
@@ -12451,7 +12451,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ursus-arctos-cub-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-cub-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_mother_and_cub.jpg",
@@ -12460,7 +12460,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ursus-arctos-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-tracks-1.jpg",
         "credit": {
           "photographer": "RodicaB",
           "url": "https://commons.wikimedia.org/wiki/File:Urme_de_urs_in_sare.jpg",
@@ -12469,7 +12469,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/ursus-arctos-paw-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-paw-1.jpg",
         "credit": {
           "photographer": "Craig Morgan",
           "url": "https://commons.wikimedia.org/wiki/File:Grizzly_rear_paw_print.jpg",
@@ -20788,7 +20788,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-2.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Lisi Lake",
@@ -20796,7 +20796,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-3.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Lisi Lake",
@@ -20804,7 +20804,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-4.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-4.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Lisi Lake",
@@ -20819,14 +20819,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-tessellata-sandro-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-sandro-1.jpg",
         "credit": {
           "photographer": "Sandro Khakhva",
           "date": "2024-08-04"
         }
       },
       {
-        "src": "/images/natrix-tessellata-sandro-2.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-sandro-2.jpg",
         "credit": {
           "photographer": "Sandro Khakhva",
           "date": "2024-08-04"
@@ -21186,7 +21186,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/panthera-pardus-thunderjag-1.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-thunderjag-1.jpg",
         "credit": {
           "photographer": "ThunderJag",
           "url": "https://commons.wikimedia.org/wiki/File:Persian_Leopard_(Panthera_pardus_saxicolor).jpg",
@@ -21194,28 +21194,28 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/panthera-pardus-assaf-1.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-assaf-1.jpg",
         "credit": {
           "photographer": "Tamar Assaf",
           "url": "https://commons.wikimedia.org/wiki/File:Persian_Leopard_sitting.jpg"
         }
       },
       {
-        "src": "/images/panthera-pardus-burkhard-1.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-burkhard-1.jpg",
         "credit": {
           "photographer": "Marcel Burkhard",
           "url": "https://commons.wikimedia.org/wiki/File:Persischerleopardcele4.jpg"
         }
       },
       {
-        "src": "/images/panthera-pardus-burkhard-2.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-burkhard-2.jpg",
         "credit": {
           "photographer": "Marcel Burkhard",
           "url": "https://commons.wikimedia.org/wiki/File:Persischer_leopard2cele4.jpg"
         }
       },
       {
-        "src": "/images/panthera-pardus-museum-2.jpg",
+        "src": "https://cdn.reptiles.ge/panthera-pardus-museum-2.jpg",
         "credit": {
           "photographer": "Jonathan Cardy",
           "url": "https://commons.wikimedia.org/wiki/File:Caucasus_Leopard_in_Georgian_National_Museum_02.JPG",
@@ -22612,7 +22612,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/sus-scrofa-forest-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-forest-1.jpg",
         "credit": {
           "photographer": "Volodymyr Burdiak",
           "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD_%D1%83_%D0%BB%D1%96%D1%81%D1%96.jpg",
@@ -22621,7 +22621,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sus-scrofa-frontal-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-frontal-1.jpg",
         "credit": {
           "photographer": "Richard Bartz",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_Boar_frontal.jpg",
@@ -22630,7 +22630,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sus-scrofa-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-1.jpg",
         "credit": {
           "photographer": "Bramans",
           "url": "https://commons.wikimedia.org/wiki/File:Wild_boar_(Sus_scrofa).jpg",
@@ -22639,7 +22639,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sus-scrofa-2.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-2.jpg",
         "credit": {
           "photographer": "NasserHalaweh",
           "url": "https://commons.wikimedia.org/wiki/File:Suidae_Sus_scrofa_scrofa_4.jpg",
@@ -22648,7 +22648,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sus-scrofa-piglet-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-piglet-1.jpg",
         "credit": {
           "photographer": "Sander van der Wel",
           "url": "https://commons.wikimedia.org/wiki/File:Sus_scrofa_piglet.jpg",
@@ -22657,7 +22657,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/sus-scrofa-sow-1.jpg",
+        "src": "https://cdn.reptiles.ge/sus-scrofa-sow-1.jpg",
         "credit": {
           "photographer": "df7ii",
           "url": "https://commons.wikimedia.org/wiki/File:Frischlinge_mit_Bachen.jpg",
@@ -23343,7 +23343,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/ursus-arctos-zauri-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
           "location": "Borjomi-Kharagauli National Park",
@@ -23351,7 +23351,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ursus-arctos-mirza-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-mirza-1.jpg",
         "credit": {
           "photographer": "მირზა ხინკილაძე",
           "location": "Tusheti Protected Areas",
@@ -23359,21 +23359,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ursus-arctos-toma-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-toma-1.jpg",
         "credit": {
           "photographer": "თომა შენგელიძე",
           "date": "2025-05-24"
         }
       },
       {
-        "src": "/images/ursus-arctos-paposhvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-paposhvili-1.jpg",
         "credit": {
           "photographer": "ნიკა პაპოშვილი",
           "date": "2020-07-30"
         }
       },
       {
-        "src": "/images/ursus-arctos-female-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-female-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_1.jpg",
@@ -23382,7 +23382,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ursus-arctos-female-2.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-female-2.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_female_3.jpg",
@@ -23391,7 +23391,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ursus-arctos-cub-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-cub-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_brown_bear_(Ursus_arctos_arctos)_mother_and_cub.jpg",
@@ -23400,7 +23400,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ursus-arctos-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-tracks-1.jpg",
         "credit": {
           "photographer": "RodicaB",
           "url": "https://commons.wikimedia.org/wiki/File:Urme_de_urs_in_sare.jpg",
@@ -23409,7 +23409,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/ursus-arctos-paw-1.jpg",
+        "src": "https://cdn.reptiles.ge/ursus-arctos-paw-1.jpg",
         "credit": {
           "photographer": "Craig Morgan",
           "url": "https://commons.wikimedia.org/wiki/File:Grizzly_rear_paw_print.jpg",

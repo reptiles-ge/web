@@ -232,7 +232,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                       `section.${section.key}.body` as Parameters<typeof t>[0],
                     )}
                   </p>
-                  <SpeciesGuideList
+          <SpeciesGuideList species={species} locale={locale} />
                     species={section.items}
                     locale={locale}
                   />
