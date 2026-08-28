@@ -19,7 +19,7 @@ export const species: Species[] = [
     "interaction": "შხამი არ აქვს და ადამიანისთვის უვნებელია. არ აიყვანოთ: პატარა სცინკი ადვილად ზიანდება, კუდი შეიძლება მოიწყვიტოს, კანი კი თხელია. ნახვისას გადაიღეთ ახლო ფოტო ზურგიდან და გვერდიდან, აღნიშნეთ ადგილი და დატოვეთ ცხოველი ადგილზე. ვაშლოვანის ახალი დადასტურება სამეცნიერო ჩანაწერს სჭირდება.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/ablepharus-pannonicus-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/ablepharus-pannonicus-2.jpg",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg"
@@ -59,7 +59,7 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "ძალიან პატარა, გლუვქერცლიანი სცინკი შერწყმული ქუთუთოებით. საქართველოში მხოლოდ ვაშლოვანის ისტორიული ჩანაწერია; ამ გვერდის გმირი კადრი ამოცნობის პორტრეტი არ არის.",
+      "summary": "ძალიან პატარა, გლუვქერცლიანი სცინკი შერწყმული ქუთუთოებით. საქართველოში მხოლოდ ვაშლოვანის ისტორიული ჩანაწერია.",
       "traits": [
         "ქუთუთოები შერწყმულია გამჭვირვალე „სათვალედ“ — თვალს ვერ ახამხამებს, ამიტომ გველის თვალს ჰგავს. გვარის სახელი სწორედ ქუთუთოს არქონას აღნიშნავს (ablepharine თვალი).",
         "სხეული წვრილი და წაგრძელებულია, ქერცლი გლუვი და მბზინავი. კიდურები მოკლეა, მაგრამ ხუთთითიანი — არ არის უკიდურო. ყურის ხვრელი ძალიან პატარაა. ზურგი ხშირად ბრინჯაო–ზეთისხილისფერია, ზოგჯერ სამი გრძივი მუქი ხაზით; თვალის გავლით გვერდზე მუქი, ღია კიდეებიანი ზოლი. მუცელი მოთეთრო–მომწვანო. ეს შეფერილობა Anderson-ის სახეობრივი აღწერაა და არა ქართული ნიმუშის გაზომვა.",
@@ -97,7 +97,7 @@ export const species: Species[] = [
         "answer": "ქუთუთოები შერწყმულია და გამჭვირვალეა, ამიტომ თვალი გველისას ჰგავს. გველი არ არის. წითელ ნუსხაში იგივე სახეობა აზიური შიშველთვალაა."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T12:12:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2630,7 +2630,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ თავი, გვერდი და კლოაკის მიდამო და დატოვეთ. არ აიყვანოთ. სხვა კლდის ხვლიკთან აღრევა ჩვეულებრივია — ფერი საკმარისი არ არის."
       }
     ],
-    "updatedAt": "2026-08-28T12:08:45+04:00",
+    "updatedAt": "2026-08-28T12:12:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2812,7 +2812,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ ხვლიკი კლდის ვერტიკალზეა ბრტყელი თავით — ეს სხვა Darevskiaა, არა აუცილებლად ეს სახეობა."
       }
     ],
-    "updatedAt": "2026-08-28T12:08:45+04:00",
+    "updatedAt": "2026-08-28T12:12:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6820,7 +6820,7 @@ export const species: Species[] = [
         "answer": "დღისით. სახეობის დონეზე გამოღვიძება სამხრეთსა და მთაში დაახლოებით მარტ–აპრილშია; კავკასიაში მწვანე ლაცერტების პიკი მაისშია აღწერილი. ეს ყველა ადგილის კალენდარი არ არის."
       }
     ],
-    "updatedAt": "2026-08-28T12:08:45+04:00",
+    "updatedAt": "2026-08-28T12:12:26+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6972,7 +6972,7 @@ export const species: Species[] = [
         "answer": "დღისით. ქართული სეზონური კალენდარი ამ გვერდზე არ არის. სხვა რეგიონებში გაზაფხულიდან შემოდგომამდეა აღწერილი — ეს ყველა ქართული ადგილის კალენდარი არ არის."
       }
     ],
-    "updatedAt": "2026-08-28T12:08:45+04:00",
+    "updatedAt": "2026-08-28T12:12:22+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -14303,7 +14303,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "A very small, smooth-scaled skink with fused eyelids. In Georgia only the historical Vashlovani record is cited; the hero photograph on this page is not a field-guide portrait.",
+      "summary": "A very small, smooth-scaled skink with fused eyelids. In Georgia only the historical Vashlovani record is cited.",
       "traits": [
         "The eyelids are fused into a transparent spectacle — the animal cannot blink, so the eye looks like a snake’s. The genus name refers to this lidless (ablepharine) eye.",
         "The body is slender and elongate, with smooth, shiny scales. Limbs are short but five-toed — it is not legless. The ear opening is minute. Dorsum is often bronze-olive, sometimes with three dark longitudinal lines; a dark, light-edged band runs through the eye along the side. Underside greenish-white. That colour description is Anderson’s species-level account, not a measurement of a Georgian specimen.",
