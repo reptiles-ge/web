@@ -44,6 +44,7 @@ type Target = {
 type CliOptions = {
   speciesIds: string[];
   all: boolean;
+  emitOnly: boolean;
   dryRun: boolean;
   force: boolean;
   limit: number | undefined;
@@ -53,6 +54,7 @@ type CliOptions = {
 function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
   let all = false;
+  let emitOnly = false;
   let dryRun = false;
   let force = false;
   let limit: number | undefined;
@@ -69,6 +71,9 @@ function parseArguments(argv: string[]): CliOptions {
         break;
       case "--all":
         all = true;
+        break;
+      case "--emit-only":
+        emitOnly = true;
         break;
       case "--dry-run":
         dryRun = true;
@@ -92,7 +97,7 @@ function parseArguments(argv: string[]): CliOptions {
   if (all && speciesIds.length > 0) {
     throw new Error("Pass either --all or --species, not both.");
   }
-  if (!all && speciesIds.length === 0) {
+  if (!all && !emitOnly && speciesIds.length === 0) {
     throw new Error(
       "Pass --species <id> (comma-separated for several), or --all for every species.",
     );
@@ -104,7 +109,7 @@ function parseArguments(argv: string[]): CliOptions {
     throw new Error("--concurrency requires a positive integer.");
   }
 
-  return { speciesIds, all, dryRun, force, limit, concurrency };
+  return { speciesIds, all, emitOnly, dryRun, force, limit, concurrency };
 }
 
 function loadEnv() {
@@ -345,6 +350,15 @@ async function run() {
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
   const byKey = collectSources();
+
+  if (options.emitOnly) {
+    const current = await loadManifest(manifestStorage, MANIFEST_KEY, (message) =>
+      console.warn(`  warning  ${message}`),
+    );
+    await generateDataFile(current, byKey, storage, config);
+    return 0;
+  }
+
   const discovered = collectTargets(options.speciesIds, options.all);
   const targets =
     options.limit === undefined ? discovered : discovered.slice(0, options.limit);
