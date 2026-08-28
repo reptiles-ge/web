@@ -152,14 +152,14 @@ export const species: Species[] = [
     "conservation": "BirdLife International Accipiter nisus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს; ტენდენცია სტაბილურად არის მითითებული. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს პოპულაციის აქტუალური აღწერა ამ გვერდზე არ არის. აბულაძის 2011 წლის შეჯამება რამდენიმე ასეულ მობუდარ წყვილზე საუბრობს; ეს იმდროინდელი შეფასებაა და არა ახალი ეროვნული ცენზი. 2014 წლის საქართველოს წითელ ნუსხაში (დადგენილება №190) შეტანილია ქორცქვიტა (Accipiter brevipes, VU) და არა მიმინო. სახელმწიფო აღრიცხვის ნუსხებში მიმინო მაინც ფიგურირებს. ადგილობრივი წნეხი დოკუმენტირებულია ბათუმის ბოსტნეში: უკანონო სროლა და ტრადიციული დაჭერა ბაზიერობისთვის აჭარაში. ველური ფრინველი ნებართვის გარეშე არ დაიჭიროთ. გლობალურად ისტორიული ორგანოქლორიდული პესტიციდები კვერცხის ნაჭუჭს ათხელებდა; აკრძალვის შემდეგ მრავალ ქვეყანაში პოპულაცია აღდგა. ეს საქართველოს ცალკე მონიტორინგის სერია არ არის.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს. ბაღში შეიძლება პატარა ფრინველი დაიჭიროს. ველური ფრინველის დაჭერა არ შეიძლება; ბრჭყალები ძლიერია.",
     "danger": "Harmless",
-    "image": "/images/accipiter-nisus-sharp-male.jpg",
+    "image": "https://cdn.reptiles.ge/accipiter-nisus-sharp-male.jpg",
     "imageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_sparrowhawk_(Accipiter_nisus_nisus)_male.jpg",
       "location": "კამნორ ჰილი, ოქსფორდშირი",
       "date": "2024-03-17"
     },
-    "mobileImage": "/images/accipiter-nisus-sharp-female.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/accipiter-nisus-sharp-female.jpg",
     "mobileImageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:Sparrowhawk_(Accipiter_nisus_nisus)_female.jpg",
@@ -168,7 +168,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/accipiter-nisus-sharp-male.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-sharp-male.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_sparrowhawk_(Accipiter_nisus_nisus)_male.jpg",
@@ -177,7 +177,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/accipiter-nisus-sharp-female.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-sharp-female.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Sparrowhawk_(Accipiter_nisus_nisus)_female.jpg",
@@ -186,7 +186,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/accipiter-nisus-zjeroen-1.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-zjeroen-1.jpg",
         "credit": {
           "photographer": "Meneer Zjeroen",
           "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_Meneer_Zjeroen.jpg",
@@ -195,7 +195,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/accipiter-nisus-knoch-flight.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-knoch-flight.jpg",
         "credit": {
           "photographer": "Christian Knoch",
           "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_-in_flight-8.jpg",
@@ -203,7 +203,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/accipiter-nisus-mecnarowski-1.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-mecnarowski-1.jpg",
         "credit": {
           "photographer": "Martin Mecnarowski",
           "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_1_(Martin_Mecnarowski).jpg",
@@ -1094,14 +1094,14 @@ export const species: Species[] = [
     "conservation": "BirdLife International Buteo buteo-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS ევროპისთვის Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ეს სახეობა არ არის; იქ შეტანილია ველის კაკაჩა (Buteo rufinus rufinus) VU-ით. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ბათუმის შემოდგომის აღრიცხვა გავლითი ნაკადის მაჩვენებელია და არა ეროვნული მობუდარი მონიტორინგის სერია. Sándor და სხვ. და BRC-ის ლიტერატურა აღნიშნავენ მტაცებელთა სროლას ბათუმის დერეფანში; ეს დოკუმენტირებული წნეხია და არა ამ გვერდზე ცალკე გაზომილი კაკაჩის დანაკლისი. ველური ფრინველი არ დაიჭიროთ. EUNIS უთითებს ევროკავშირის ფრინველების დირექტივას; ეს საქართველოს კანონი არ არის.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს, თუ არ აიყვანთ. ბრჭყალები ძლიერია; დაჭერა არ შეიძლება.",
     "danger": "Harmless",
-    "image": "/images/buteo-buteo-sevan-1.jpg",
+    "image": "https://cdn.reptiles.ge/buteo-buteo-sevan-1.jpg",
     "imageCredit": {
       "photographer": "Wowan1978",
       "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
       "location": "სევანი, სომხეთი",
       "date": "2024-08-17"
     },
-    "mobileImage": "/images/buteo-buteo-sharp-vulpinus.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/buteo-buteo-sharp-vulpinus.jpg",
     "mobileImageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
@@ -1110,7 +1110,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/buteo-buteo-sevan-1.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-sevan-1.jpg",
         "credit": {
           "photographer": "Wowan1978",
           "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
@@ -1119,7 +1119,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/buteo-buteo-sharp-vulpinus.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-sharp-vulpinus.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
@@ -1128,7 +1128,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/buteo-buteo-serbia-1.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-serbia-1.jpg",
         "credit": {
           "photographer": "VezeIvan",
           "url": "https://commons.wikimedia.org/wiki/File:Common_Buzzard_Buteo_buteo.jpg",
@@ -1137,7 +1137,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/buteo-buteo-yerpo-juv.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-yerpo-juv.jpg",
         "credit": {
           "photographer": "Yerpo",
           "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_juv_Log_(2).jpg",
@@ -1146,7 +1146,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/buteo-buteo-lukasik-1.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-lukasik-1.jpg",
         "credit": {
           "photographer": "Lukasz Lukasik",
           "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg",
@@ -8847,13 +8847,13 @@ export const species: Species[] = [
     "behavior": "მტკნარ წყალში ხშირად უფრო ღამით და ბინდშია აქტიური, ვიდრე დღისით; დღისით ნახვა შესაძლებელია იქ, სადაც ადამიანი ნაკლებია. არ ბინადრობს ზამთარში. ბუდეს ჰოლტს უწოდებენ: ნაპირის ფესვები, გამოქვაბული, ქვა ან თხრილი გვირაბი, ზოგჯერ წყლის ქვეშ შესასვლელით. ტერიტორიას ნიშნავს ექსკრემენტით (სპრეინტი) ქვაზე, ხიდთან ან მორებზე; სპრეინტში ხშირად ჩანს თევზის ქერცლი და ძვალი. სახეობის დონეზე ორსულობა დაახლოებით 61–74 დღეა; ნაშიერი ჩვეულებრივ 2–3, იშვიათად 1–5; დედალი მარტო ზრდის. საქართველოსთვის ცალკე ბუდობის კალენდარი ამ გვერდზე არ არის. ნაკვალევი ხუთთითიანია, აპკით; ბახვისწყალზე 2022 წელს ძირითადად კვალი დაფიქსირდა. ამ გვერდის ფოტოები საქართველოდან არ არის.",
     "conservation": "Loy და თანაავტორები Lutra lutra-ს IUCN Red List-ზე გადაშენების საფრთხესთან ახლოს აფასებენ (2022); ტენდენცია კლებადი. წინა გლობალური შეფასება Roos et al. 2015 იგივე კატეგორიითაა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) წავი VU-ა, კრიტერიუმი B1(bI), მიზეზი არეალის შემცირება. CITES-ის I დანართშია. ნადირობა აკრძალულია წითელი ნუსხის გამო. Gorgadze 2004 ძველ წითელ წიგნში კრიტიკულად საფრთხის ქვეშ ან თითქმის გადაშენებულად აღნიშნავს; 2012–2013 წლის აღწერა ამას ძველ მონაცემად მიიჩნევს. Yoxon და Yoxon Gorgadze-ის აღწერას ასე აჯამებენ: არ არის უხვი, მაგრამ სტაბილურად ჩანს, პოპულაცია >300 — ეს მეორადი შეჯამებაა და არა ამ გვერდზე გაკეთებული აღწერა. სამხრეთ კავკასიის რუკა ეროვნულ სტატუსს VU-ს უწერს და პოპულაციას „მცირეს“ უწოდებს. დოკუმენტირებული ზეწოლაა ნაპირის ტყის კარგვა, წყლის დაბინძურება, თევზის მარაგის შემცირება, ბრაკონიერობა და კონფლიქტი თევზის მეურნეობებთან; Gorgadze აღწერისას აუზებთან ხშირად ხაფანგს ხედავდა.   ჰესები და კალაპოტის სამუშაოები ლიტერატურაში ჰაბიტატის საფრთხედაა დასახელებული. 2019 წელს რადიო თავისუფლებამ გაავრცელა ცნობა თბილისში, მტკვრის ნაპირზე მოკლულ ინდივიდზე; ეს საინფორმაციო ცნობაა და არა საველე აღწერა. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს. არ აჭმიოთ და არ აიყვანოთ. თევზის აუზთან კონფლიქტი რეალურია; სახეობა დაცულია და მოკვლა ან ხაფანგი უკანონოა. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა.",
-    "image": "/images/lutra-lutra-christensen-1.jpg",
+    "image": "https://cdn.reptiles.ge/lutra-lutra-christensen-1.jpg",
     "imageCredit": {
       "photographer": "Erik Christensen",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_otter.3.JPG",
       "date": "2018-03-04"
     },
-    "mobileImage": "/images/lutra-lutra-baranowski-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/lutra-lutra-baranowski-1.jpg",
     "mobileImageCredit": {
       "photographer": "Tomasz Baranowski",
       "url": "https://commons.wikimedia.org/wiki/File:Is_it_spring_already%3F_(26741486398).jpg",
@@ -8862,7 +8862,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/lutra-lutra-christensen-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-christensen-1.jpg",
         "credit": {
           "photographer": "Erik Christensen",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_otter.3.JPG",
@@ -8870,7 +8870,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/lutra-lutra-baranowski-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-baranowski-1.jpg",
         "credit": {
           "photographer": "Tomasz Baranowski",
           "url": "https://commons.wikimedia.org/wiki/File:Is_it_spring_already%3F_(26741486398).jpg",
@@ -8879,7 +8879,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/lutra-lutra-ibanez-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-ibanez-1.jpg",
         "credit": {
           "photographer": "José Ibañez",
           "url": "https://commons.wikimedia.org/wiki/File:Nutria_-_Alto_Tajo.jpg",
@@ -8888,7 +8888,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/lutra-lutra-hokkanen-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-hokkanen-1.jpg",
         "credit": {
           "photographer": "J Hokkanen",
           "url": "https://commons.wikimedia.org/wiki/File:2023_04_04_Puurij%C3%A4rvi_02.jpg",
@@ -8897,7 +8897,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/lutra-lutra-spraint-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-spraint-1.jpg",
         "credit": {
           "photographer": "Huges4981",
           "url": "https://commons.wikimedia.org/wiki/File:Heces_de_nutria_europea.jpg",
@@ -13292,14 +13292,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური. დღისით იმალება ხის გვირგვინში ან ტანთან; ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიულია და წლის განმავლობაში ადგილზე რჩება; შორ მანძილზე მიგრანტი არ არის. მამლის ტერიტორიული ხმა რხევადი ჰუჰუა; კონტაქტის ხმა მოკლე, მკვეთრი „კი-ვიკ“-ია. ორივე სქესს ორივე ტიპის ხმა შეუძლია; ცნობილი „ტუიტ-ტუო“ ხშირად წყვილის დუეტია და არა ერთი ფრინველის ერთი ფრაზა. ბუდობს ხის ფუღუროში, იშვიათად შენობის ღრუებსა ან სკვარის ბუდეში; ხელოვნურ ყუთსაც იკავებს. სახეობის დონეზე ნაყარი ხშირად ორი ან სამი თეთრი კვერცხია; ინკუბაცია დაახლოებით 28–30 დღე (BTO-ს გაერთიანებული სამეფოს ნიმუში). ნაშიერი ბუდეს ფრენამდე რამდენიმე დღით ადრე ტოვებს და ახლომდებარე ტოტებზე იმალება. ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარ რეზიდენტად იღებს. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ; ბუდესთან შეიძლება თავდაცვითი შეტევა.",
     "conservation": "BirdLife International Strix aluco-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ ბუსნაირებიდან შეტანილია ბუხრინწა (Tyto alba, EN D1). საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. სახეობის დონეზე დოკუმენტირებული წნეხია ძველი ფუღუროიანი ხეების კარგვა, გზაზე დაღუპვა და მღრღნელების საწინააღმდეგო შხამის მეორადი მოწამვლა; ეს საქართველოსთვის რანგირებული საფრთხის სია არ არის. CITES-ის II დანართშია — საერთაშორისო ვაჭრობა რეგულირდება. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის შხამი არ აქვს და უვნებელია, თუ არ მიეკარებით. ბუდესთან შეიძლება თავზე შეტევა. ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/strix-aluco-trepte-1.jpg",
+    "image": "https://cdn.reptiles.ge/strix-aluco-trepte-1.jpg",
     "imageCredit": {
       "photographer": "Andreas Trepte",
       "url": "https://commons.wikimedia.org/wiki/File:Waldkauz-Strix_aluco.jpg",
       "location": "მარბურგი",
       "date": "2013-05-19"
     },
-    "mobileImage": "/images/strix-aluco-gaebler-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg",
     "mobileImageCredit": {
       "photographer": "Michael Gäbler",
       "url": "https://commons.wikimedia.org/wiki/File:Strix_aluco_(Linnaeus,_1758).jpg",
@@ -13308,7 +13308,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/strix-aluco-trepte-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-trepte-1.jpg",
         "credit": {
           "photographer": "Andreas Trepte",
           "url": "https://commons.wikimedia.org/wiki/File:Waldkauz-Strix_aluco.jpg",
@@ -13317,7 +13317,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/strix-aluco-gaebler-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg",
         "credit": {
           "photographer": "Michael Gäbler",
           "url": "https://commons.wikimedia.org/wiki/File:Strix_aluco_(Linnaeus,_1758).jpg",
@@ -13326,7 +13326,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/strix-aluco-nottsexminer-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-nottsexminer-1.jpg",
         "credit": {
           "photographer": "nottsexminer",
           "url": "https://commons.wikimedia.org/wiki/File:Tawny_Owl_(4746698631).jpg",
@@ -13335,7 +13335,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/strix-aluco-gavrilovic-chicks-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-gavrilovic-chicks-1.jpg",
         "credit": {
           "photographer": "Zoran Gavrilović",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%A0umska_sova_(Strix_aluco),_mladunci;_Tawny_Owl_chicks.jpg",
@@ -16611,7 +16611,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/accipiter-nisus-sharp-male.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-sharp-male.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_sparrowhawk_(Accipiter_nisus_nisus)_male.jpg",
@@ -16620,7 +16620,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/accipiter-nisus-sharp-female.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-sharp-female.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Sparrowhawk_(Accipiter_nisus_nisus)_female.jpg",
@@ -16629,7 +16629,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/accipiter-nisus-zjeroen-1.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-zjeroen-1.jpg",
         "credit": {
           "photographer": "Meneer Zjeroen",
           "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_Meneer_Zjeroen.jpg",
@@ -16638,7 +16638,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/accipiter-nisus-knoch-flight.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-knoch-flight.jpg",
         "credit": {
           "photographer": "Christian Knoch",
           "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_-in_flight-8.jpg",
@@ -16646,7 +16646,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/accipiter-nisus-mecnarowski-1.jpg",
+        "src": "https://cdn.reptiles.ge/accipiter-nisus-mecnarowski-1.jpg",
         "credit": {
           "photographer": "Martin Mecnarowski",
           "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_1_(Martin_Mecnarowski).jpg",
@@ -17266,7 +17266,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/buteo-buteo-sevan-1.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-sevan-1.jpg",
         "credit": {
           "photographer": "Wowan1978",
           "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
@@ -17275,7 +17275,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/buteo-buteo-sharp-vulpinus.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-sharp-vulpinus.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
@@ -17284,7 +17284,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/buteo-buteo-serbia-1.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-serbia-1.jpg",
         "credit": {
           "photographer": "VezeIvan",
           "url": "https://commons.wikimedia.org/wiki/File:Common_Buzzard_Buteo_buteo.jpg",
@@ -17293,7 +17293,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/buteo-buteo-yerpo-juv.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-yerpo-juv.jpg",
         "credit": {
           "photographer": "Yerpo",
           "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_juv_Log_(2).jpg",
@@ -17302,7 +17302,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/buteo-buteo-lukasik-1.jpg",
+        "src": "https://cdn.reptiles.ge/buteo-buteo-lukasik-1.jpg",
         "credit": {
           "photographer": "Lukasz Lukasik",
           "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg",
@@ -22682,7 +22682,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/lutra-lutra-christensen-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-christensen-1.jpg",
         "credit": {
           "photographer": "Erik Christensen",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_otter.3.JPG",
@@ -22690,7 +22690,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/lutra-lutra-baranowski-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-baranowski-1.jpg",
         "credit": {
           "photographer": "Tomasz Baranowski",
           "url": "https://commons.wikimedia.org/wiki/File:Is_it_spring_already%3F_(26741486398).jpg",
@@ -22699,7 +22699,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/lutra-lutra-ibanez-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-ibanez-1.jpg",
         "credit": {
           "photographer": "José Ibañez",
           "url": "https://commons.wikimedia.org/wiki/File:Nutria_-_Alto_Tajo.jpg",
@@ -22708,7 +22708,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/lutra-lutra-hokkanen-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-hokkanen-1.jpg",
         "credit": {
           "photographer": "J Hokkanen",
           "url": "https://commons.wikimedia.org/wiki/File:2023_04_04_Puurij%C3%A4rvi_02.jpg",
@@ -22717,7 +22717,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/lutra-lutra-spraint-1.jpg",
+        "src": "https://cdn.reptiles.ge/lutra-lutra-spraint-1.jpg",
         "credit": {
           "photographer": "Huges4981",
           "url": "https://commons.wikimedia.org/wiki/File:Heces_de_nutria_europea.jpg",
@@ -25853,7 +25853,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/strix-aluco-trepte-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-trepte-1.jpg",
         "credit": {
           "photographer": "Andreas Trepte",
           "url": "https://commons.wikimedia.org/wiki/File:Waldkauz-Strix_aluco.jpg",
@@ -25862,7 +25862,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/strix-aluco-gaebler-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg",
         "credit": {
           "photographer": "Michael Gäbler",
           "url": "https://commons.wikimedia.org/wiki/File:Strix_aluco_(Linnaeus,_1758).jpg",
@@ -25871,7 +25871,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/strix-aluco-nottsexminer-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-nottsexminer-1.jpg",
         "credit": {
           "photographer": "nottsexminer",
           "url": "https://commons.wikimedia.org/wiki/File:Tawny_Owl_(4746698631).jpg",
@@ -25880,7 +25880,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/strix-aluco-gavrilovic-chicks-1.jpg",
+        "src": "https://cdn.reptiles.ge/strix-aluco-gavrilovic-chicks-1.jpg",
         "credit": {
           "photographer": "Zoran Gavrilović",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%A0umska_sova_(Strix_aluco),_mladunci;_Tawny_Owl_chicks.jpg",
