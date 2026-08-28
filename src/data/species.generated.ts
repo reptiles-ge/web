@@ -459,40 +459,40 @@ export const species: Species[] = [
     "behavior": "ძირითადად ბინდსა და ღამითაა აქტიური. დღისით იმალება. ქვირითობისას შეიძლება დღისითაც გამოჩნდეს არაღრმა წყალთან. მშრალ ამინდში ღამით წყალთან მიდის დასალევად. ბორჯომის ხეობაში გამრავლების პიკი აპრილ–ივნისშია დაფიქსირებული. ღია ადგილების გომბეშოა: ბორჯომში სეზონში ერთზე მეტ ქვირითს ყრის, ტყის გომბეშო კი — ჩვეულებრივ ერთს. ქვირითი წყალში გრძელი თასმის სახით იდება. მდედრი, როგორც წესი, სამი ზამთრის შემდეგ მწიფდება; ამავე უბანში უძველესი მდედრები 9–12 წლამდეა აღრიცხული. იზამთრებს ხმელეთზე — სოროში, ორმოში, ქვის ქვეშ; ზოგჯერ წყალშიც. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის საშიში არ არის.",
     "conservation": "IUCN-ის 2023 წლის შეფასებით Bufotes viridis ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის — იქ ამფიბიებიდან შეტანილია კავკასიური სალამანდრა და სირიული მყვარი. ხშირად გვხვდება ბაღებში, პარკებსა და დასახლებულ ადგილებში. ადგილობრივი საფრთხეა მდელოების გაქრობა და ჭაობების დაშრობა; ტყის გაქრობა, პირიქით, ღია ადგილების სახეობას შეიძლება შეუწყოს ხელი. AmphibiaWeb-ის მიხედვით შეტანილია ბერნის კონვენციის II დანართში.",
     "danger": "Harmless",
-    "image": "/images/bufotes-viridis-ioane-1.jpg",
+    "image": "https://cdn.reptiles.ge/bufotes-viridis-ioane-1.jpg",
     "imageCredit": {
       "photographer": "იოანე როსტიაშვილი",
       "date": "2022-09-20"
     },
-    "mobileImage": "/images/bufotes-viridis-ioane-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/bufotes-viridis-ioane-1.jpg",
     "mobileImageCredit": {
       "photographer": "იოანე როსტიაშვილი",
       "date": "2022-09-20"
     },
     "gallery": [
       {
-        "src": "/images/bufotes-viridis-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "date": "2022-09-20"
         }
       },
       {
-        "src": "/images/bufotes-viridis-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "2026-07-04"
         }
       },
       {
-        "src": "/images/bufotes-viridis-armen-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-armen-1.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2020-11-05"
         }
       },
       {
-        "src": "/images/bufotes-viridis-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "date": "2022-09-20"
@@ -697,7 +697,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-aureus-bukvic-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-bukvic-1.jpg",
         "credit": {
           "photographer": "Ivan Bukvic",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%A0akal_na_oprezu.jpg",
@@ -2534,7 +2534,7 @@ export const species: Species[] = [
         "answer": "2014 წლის ქართულ წითელ ნუსხაში არ არის. გლობალურად IUCN-ით ნაკლებად საფრთხის ქვეშაა (LC)."
       }
     ],
-    "updatedAt": "2026-08-28T16:20:04+04:00",
+    "updatedAt": "2026-08-28T16:27:13+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3755,7 +3755,7 @@ export const species: Species[] = [
     "behavior": "ფარული ჯუჯა გველი; მრგვალი გუგა, უშხამო.",
     "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — E. c. collaris.",
     "danger": "Harmless",
-    "image": "/images/eirenis-collaris-ioane-1.jpg",
+    "image": "https://cdn.reptiles.ge/eirenis-collaris-ioane-1.jpg",
     "imageCredit": {
       "photographer": "იოანე როსტიაშვილი",
       "location": "იაღლუჯის გორები",
@@ -3764,7 +3764,7 @@ export const species: Species[] = [
     "mobileImage": "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
     "gallery": [
       {
-        "src": "/images/eirenis-collaris-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "იაღლუჯის გორები",
@@ -3772,7 +3772,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eirenis-collaris-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "იაღლუჯის გორები",
@@ -3780,7 +3780,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eirenis-collaris-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-3.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "იაღლუჯის გორები",
@@ -3788,35 +3788,35 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-1.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-2.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-2.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-3.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-3.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-4.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-4.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-5.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-5.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი",
           "date": "2019-07-15"
@@ -3907,7 +3907,7 @@ export const species: Species[] = [
     "behavior": "მალულია. სახეობის დონეზე აქტიურია დაახლოებით აპრილიდან ნოემბრამდე; ნადირობს გამთენიისას ან ბინდში, ზოგჯერ დღისითაც ჩანს. დღის სიცხეში ხშირად ქვის ქვეშ რჩება. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. საფრთხისას უპირატესად გარბის. არ აიყვანოთ — შხამი არ აქვს, მაგრამ პატარა გველსაც შეუძლია უკბინოს. კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში 3–8 შედარებით დიდი კვერცხია, ჩვეულებრივ ივნის–ივლისში. ნაშიერი დაახლოებით 8–12 სმ-ია. შეწყვილების სეზონი და ქართული კლაჩის ზომა აქ არ არის გაზომილი. იმავე მშრალ აღმოსავლეთში შეიძლება შეხვდეთ საყელოიან ეირენისს (სამხრეთ-აღმოსავლეთში), სპილენძას, გველბრუცას და, იშვიათად, კატისთვალა გველს (Telescopus fallax) — გუგა, ზომა და თავის ნახატი განასხვავებს.",
     "conservation": "IUCN Red List-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და კონკრეტული გლობალური საფრთხე არ არის გამოყოფილი. საქართველოს 2014 წლის წითელ ნუსხაში არ არის; იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. ქართული სურათი ჯერ არათანაბარია: დასახელებული თანამედროვე ადგილი თბილისია, ხოლო აღმოსავლეთ–ცენტრალური არეალი ჩამონათვალის განზოგადებაა და არა სრული რუკა. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა და შხამიან გველთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
     "danger": "Harmless",
-    "image": "/images/eirenis-modestus-giorgi-1.jpg",
+    "image": "https://cdn.reptiles.ge/eirenis-modestus-giorgi-1.jpg",
     "imageCredit": {
       "photographer": "გიორგი იანქოშვილი",
       "date": "2018-02-07"
@@ -3919,14 +3919,14 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/eirenis-modestus-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი იანქოშვილი",
           "date": "2018-02-07"
         }
       },
       {
-        "src": "/images/eirenis-modestus-papuna-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-papuna-1.jpg",
         "credit": {
           "photographer": "პაპუნა ედილაშვილი",
           "location": "კუს ტბა, თბილისი",
@@ -3934,7 +3934,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eirenis-modestus-andro-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-andro-1.jpg",
         "credit": {
           "photographer": "ანდრო სოლომანაშვილი",
           "location": "თბილისი",
@@ -3949,7 +3949,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eirenis-modestus-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-zakro-1.jpg",
         "credit": {
           "photographer": "ზაქრო სონგულაშვილი",
           "date": "2026-07-30"
@@ -5239,13 +5239,13 @@ export const species: Species[] = [
     "conservation": "IUCN-ით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) მოწყვლადია (VU), კრიტერიუმი B2a — მცირე ფრაგმენტირებული არეალი. ნუსხაში ავტორად Duméril & Bibron 1844 უდგას; მიღებული სახელია Eryx jaculus (Linnaeus, 1758). 2026 წლის ჩამონათვალი ოჯახად Boidae-ს იღებს. ადგილობრივ საფრთხეა მშრალი ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და გველგესლასთან აღრევის გამო მოკვლა. არ აიყვანოთ და არ მოკლათ.",
     "interaction": "უშხამოა. ადამიანისთვის სამედიცინო რისკი არ აქვს. კბენა თავდაცვითია და შხამს არ შეიცავს. არ აიყვანოთ: ადვილად ზიანდება, წითელ ნუსხაშია და შეიძლება გველგესლას აგონდეთ. თუ თავი ფართო სამკუთხაა და გუგა ვერტიკალური ნაპრალია — გაეცით გზა; ეს შეიძლება გველგესლა იყოს.",
     "danger": "Harmless",
-    "image": "/images/eryx-jaculus-giorgi-1.jpg",
+    "image": "https://cdn.reptiles.ge/eryx-jaculus-giorgi-1.jpg",
     "imageCredit": {
       "photographer": "გიორგი იანქოშვილი",
       "location": "კუმისის ტბა",
       "date": "2020-06"
     },
-    "mobileImage": "/images/eryx-jaculus-ioane-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/eryx-jaculus-ioane-1.jpg",
     "mobileImageCredit": {
       "photographer": "იოანე როსტიაშვილი",
       "location": "ლისის ტბა",
@@ -5253,7 +5253,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/eryx-jaculus-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი იანქოშვილი",
           "location": "კუმისის ტბა",
@@ -5261,7 +5261,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eryx-jaculus-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-ioane-3.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -5269,7 +5269,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eryx-jaculus-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -5277,7 +5277,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/eryx-jaculus-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -7408,7 +7408,7 @@ export const species: Species[] = [
     "behavior": "ამიერკავკასიაში აქტიური სეზონი ჩვეულებრივ აპრილიდან ოქტომბრის ბოლომდეა; ზოგი წყარო გამოსვლას მარტის ბოლოდანაც აღნიშნავს. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში — ბინდსა და ღამით. იზამთრებს კლდის ნაპრალსა და სოროში. კვერცხისმდებია — საქართველოს სხვა გველგესლები ცოცხლადმშობია. შეწყვილება აპრილ–მაისშია. ქართული წყაროები ზაფხულში დაახლოებით 15–20 კვერცხს ასახელებენ; ნაშიერი დაახლოებით 23–25 სმ-ია და იჩეკება დაახლოებით 35–45 დღეში. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
     "conservation": "IUCN-ის 2021 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2014 წლის საქართველოს წითელ ნუსხაში არ არის — იქ შეტანილია დინიკის და კავკასიური გველგესლა. ძველ ქართულ ენციკლოპედიაში ზოგჯერ წითელ წიგნშია ნახსენები; ეს 2014 წლის ნუსხას არ ემთხვევა. საფრთხეებია ჰაბიტატის გარდაქმნა, ურბანიზაცია, გადაჭარბებული ძოვება და ადამიანის დევნა. მღრღნელებზე ნადირობით მონაწილეობს მშრალი ლანდშაფტის კვებით ჯაჭვში.",
     "danger": "High",
-    "image": "/images/macrovipera-lebetina-nika-3.png",
+    "image": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-3.png",
     "imageCredit": {
       "photographer": "ნიკა მელიქიშვილი"
     },
@@ -7484,7 +7484,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი კიკუაშვილი",
           "location": "ფერადი უდაბნო",
@@ -7492,7 +7492,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-giorgi-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-2.jpg",
         "credit": {
           "photographer": "გიორგი კიკუაშვილი",
           "location": "ფერადი უდაბნო",
@@ -7500,25 +7500,25 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-2.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-3.png",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-3.png",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-4.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-4.jpg",
         "credit": {
           "photographer": "ნიკა მელიქიშვილი"
         }
@@ -8133,42 +8133,42 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური და იშვიათად ჩანს. დღისით იმალება. ბორჯომის ხეობაში, საშუალო სიმაღლეზე, პირველი ზრდასრულები მაისის დასაწყისში ჩნდებიან, უკანასკნელნი — სექტემბერში; ბათუმის მხარეს და მაღალმთაში ეს პერიოდი შეიძლება განსხვავდებოდეს. ქვირითობა გვიან გაზაფხულზე და ზაფხულშია. შეჯვარება ხმელეთზე ან წყალშია. მდედრი კვერცხებს ნაკადულში დებს; ბორჯომის პოპულაციაში საშუალოდ დაახლოებით 17 კვერცხი. ლიფსიტები ნაკადულში რჩებიან და მეტამორფოზამდე, როგორც წესი, 2–4 წელი სჭირდებათ. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. კანი ლორწოს გამოყოფს, რომელიც თვალს ან პირს შეიძლება გააღიზიანოს. შეხების შემდეგ ხელები დაიბანეთ.",
     "conservation": "IUCN-ის მიხედვით მოწყვლადია (Vulnerable). 2009 წლის შეფასებით დაკავებული ფართობი 2 000 კმ²-ზე ნაკლებია, გავრცელება მკვეთრად ფრაგმენტირებულია და ჰაბიტატის ხარისხი მცირდება. საქართველოში მთავარი საფრთხეებია ტყის ჩეხა, ნაკადულის გამოყენება ხის გასატანად და პირუტყვის ზეწოლა. შეტანილია საქართველოს წითელ წიგნში. დაცულ ტერიტორიებს შორისაა ბორჯომი–ხარაგაულის ეროვნული პარკი და კინტრიში. არ აიყვანოთ და არ გადაიტანოთ — სახეობა შინაურ ცხოველადაც აგროვებენ.",
     "danger": "Harmless",
-    "image": "/images/mertensiella-caucasica-armen-3.jpg",
+    "image": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-3.jpg",
     "imageCredit": {
       "photographer": "Armen Seropian",
       "date": "2019-02-17"
     },
     "gallery": [
       {
-        "src": "/images/mertensiella-caucasica-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი იანქოშვილი",
           "date": "2017-12-15"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-1.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-2.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-2.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-3.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-3.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-4.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-4.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
@@ -14732,28 +14732,28 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/bufotes-viridis-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-ioane-1.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "date": "2022-09-20"
         }
       },
       {
-        "src": "/images/bufotes-viridis-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-zakro-1.jpg",
         "credit": {
           "photographer": "Zakro Songulashvili",
           "date": "2026-07-04"
         }
       },
       {
-        "src": "/images/bufotes-viridis-armen-1.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-armen-1.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2020-11-05"
         }
       },
       {
-        "src": "/images/bufotes-viridis-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/bufotes-viridis-ioane-2.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "date": "2022-09-20"
@@ -14911,7 +14911,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-aureus-bukvic-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-bukvic-1.jpg",
         "credit": {
           "photographer": "Ivan Bukvic",
           "url": "https://commons.wikimedia.org/wiki/File:%C5%A0akal_na_oprezu.jpg",
@@ -17014,7 +17014,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/eirenis-collaris-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-1.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Iagluji Hills",
@@ -17022,7 +17022,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eirenis-collaris-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-2.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Iagluji Hills",
@@ -17030,7 +17030,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eirenis-collaris-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-3.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Iagluji Hills",
@@ -17038,35 +17038,35 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-1.jpg",
         "credit": {
           "photographer": "Nika Melikishvili",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-2.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-2.jpg",
         "credit": {
           "photographer": "Nika Melikishvili",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-3.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-3.jpg",
         "credit": {
           "photographer": "Nika Melikishvili",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-4.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-4.jpg",
         "credit": {
           "photographer": "Nika Melikishvili",
           "date": "2019-07-15"
         }
       },
       {
-        "src": "/images/eirenis-collaris-nika-5.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-collaris-nika-5.jpg",
         "credit": {
           "photographer": "Nika Melikishvili",
           "date": "2019-07-15"
@@ -17169,14 +17169,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/eirenis-modestus-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-giorgi-1.jpg",
         "credit": {
           "photographer": "Giorgi Iankoshvili",
           "date": "2018-02-07"
         }
       },
       {
-        "src": "/images/eirenis-modestus-papuna-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-papuna-1.jpg",
         "credit": {
           "photographer": "Papuna Edilashvili",
           "location": "Turtle Lake, Tbilisi",
@@ -17184,7 +17184,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eirenis-modestus-andro-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-andro-1.jpg",
         "credit": {
           "photographer": "Andro Solomanashvili",
           "location": "Tbilisi",
@@ -17199,7 +17199,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eirenis-modestus-zakro-1.jpg",
+        "src": "https://cdn.reptiles.ge/eirenis-modestus-zakro-1.jpg",
         "credit": {
           "photographer": "Zakro Songulashvili",
           "date": "2026-07-30"
@@ -18163,7 +18163,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/eryx-jaculus-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი იანქოშვილი",
           "location": "Lake Kumisi",
@@ -18171,7 +18171,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eryx-jaculus-ioane-3.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-ioane-3.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "Lisi Lake",
@@ -18179,7 +18179,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eryx-jaculus-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "Lisi Lake",
@@ -18187,7 +18187,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/eryx-jaculus-ioane-2.jpg",
+        "src": "https://cdn.reptiles.ge/eryx-jaculus-ioane-2.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "Lisi Lake",
@@ -19783,7 +19783,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-1.jpg",
         "credit": {
           "photographer": "Giorgi Kikuashvili",
           "location": "Colored Desert",
@@ -19791,7 +19791,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-giorgi-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-2.jpg",
         "credit": {
           "photographer": "Giorgi Kikuashvili",
           "location": "Colored Desert",
@@ -19799,25 +19799,25 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-1.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg",
         "credit": {
           "photographer": "Nika Melikishvili"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-2.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-2.jpg",
         "credit": {
           "photographer": "Nika Melikishvili"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-3.png",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-3.png",
         "credit": {
           "photographer": "Nika Melikishvili"
         }
       },
       {
-        "src": "/images/macrovipera-lebetina-nika-4.jpg",
+        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-4.jpg",
         "credit": {
           "photographer": "Nika Melikishvili"
         }
@@ -20252,35 +20252,35 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/mertensiella-caucasica-giorgi-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-giorgi-1.jpg",
         "credit": {
           "photographer": "გიორგი იანქოშვილი",
           "date": "2017-12-15"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-1.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-1.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-2.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-2.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-3.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-3.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
         }
       },
       {
-        "src": "/images/mertensiella-caucasica-armen-4.jpg",
+        "src": "https://cdn.reptiles.ge/mertensiella-caucasica-armen-4.jpg",
         "credit": {
           "photographer": "Armen Seropian",
           "date": "2019-02-17"
