@@ -97,7 +97,7 @@ export const species: Species[] = [
         "answer": "ქუთუთოები შერწყმულია და გამჭვირვალეა, ამიტომ თვალი გველისას ჰგავს. გველი არ არის. წითელ ნუსხაში იგივე სახეობა აზიური შიშველთვალაა."
       }
     ],
-    "updatedAt": "2026-08-28T12:12:22+04:00",
+    "updatedAt": "2026-08-28T12:13:44+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
