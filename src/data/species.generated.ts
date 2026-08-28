@@ -254,7 +254,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/accipiter-nisus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/accipiter-nisus.mp3",
       "recordist": "David Darrell-Lambert",
       "url": "https://xeno-canto.org/1164691",
       "location": "Victoria Park, Greater London",
@@ -629,7 +629,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/aquila-chrysaetos.mp3",
+      "src": "https://cdn.reptiles.ge/audio/aquila-chrysaetos.mp3",
       "recordist": "Lars Edenius",
       "url": "https://xeno-canto.org/1045328",
       "location": "Vindeln, Västerbottens län",
@@ -1205,7 +1205,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/buteo-buteo.mp3",
+      "src": "https://cdn.reptiles.ge/audio/buteo-buteo.mp3",
       "recordist": "Tanguy Loïs",
       "url": "https://xeno-canto.org/728944",
       "location": "Hermeray, Yvelines",
@@ -1463,7 +1463,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/canis-aureus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/canis-aureus.mp3",
       "recordist": "Stanislas Wroza",
       "url": "https://xeno-canto.org/1134910"
     },
@@ -1725,7 +1725,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/canis-lupus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/canis-lupus.mp3",
       "recordist": "Jarek Matusiak",
       "url": "https://xeno-canto.org/961981",
       "location": "ავგუსტოვი",
@@ -1987,7 +1987,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/capreolus-capreolus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/capreolus-capreolus.mp3",
       "recordist": "Maxime Raux",
       "url": "https://xeno-canto.org/1059462",
       "location": "კასტელანი",
@@ -2244,7 +2244,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/ciconia-ciconia.mp3",
+      "src": "https://cdn.reptiles.ge/audio/ciconia-ciconia.mp3",
       "recordist": "Petter Westberg",
       "url": "https://xeno-canto.org/1103936",
       "location": "Fulltofta, Hörby, Skåne"
@@ -8966,7 +8966,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/lutra-lutra.mp3",
+      "src": "https://cdn.reptiles.ge/audio/lutra-lutra.mp3",
       "recordist": "Lars Edenius",
       "url": "https://xeno-canto.org/961007",
       "location": "Bådahällan, უმეოს მუნიციპალიტეტი",
@@ -9010,7 +9010,7 @@ export const species: Species[] = [
         "answer": "გლობალურად გადაშენების საფრთხესთან ახლოსაა. საქართველოში მოწყვლადია წითელ ნუსხაში. CITES-ის I დანართშია. ნადირობა აკრძალულია."
       }
     ],
-    "updatedAt": "2026-08-28T20:31:10+04:00",
+    "updatedAt": "2026-08-28T20:35:15+04:00",
     "sources": [
       {
         "name": "Loy et al. 2022 — IUCN Red List, Lutra lutra",
@@ -9212,7 +9212,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/lynx-lynx.mp3",
+      "src": "https://cdn.reptiles.ge/audio/lynx-lynx.mp3",
       "recordist": "Stanislas Wroza",
       "url": "https://xeno-canto.org/626659",
       "location": "ლა-ტურ-დიუ-მე, იურა",
@@ -9256,7 +9256,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის CR სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T20:32:53+04:00",
+    "updatedAt": "2026-08-28T20:35:15+04:00",
     "sources": [
       {
         "name": "Breitenmoser et al. 2015 — IUCN Red List, Lynx lynx (errata 2017)",
@@ -11386,7 +11386,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/panthera-pardus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/panthera-pardus.mp3",
       "recordist": "Marc Anderson",
       "url": "https://xeno-canto.org/1077461",
       "location": "ჩრდილოეთ ტული, ბოტსვანა",
@@ -13203,7 +13203,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/sciurus-anomalus.mp3",
+      "src": "https://cdn.reptiles.ge/audio/sciurus-anomalus.mp3",
       "recordist": "Stuart Fisher",
       "url": "https://xeno-canto.org/961887",
       "location": "სარიერი, სტამბოლი",
@@ -13435,7 +13435,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/strix-aluco.mp3",
+      "src": "https://cdn.reptiles.ge/audio/strix-aluco.mp3",
       "recordist": "Thierry THOMAS",
       "url": "https://xeno-canto.org/1174406",
       "location": "სენტ-ოდილი, ერო",
@@ -13668,7 +13668,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/sus-scrofa.mp3",
+      "src": "https://cdn.reptiles.ge/audio/sus-scrofa.mp3",
       "recordist": "Marc Anderson",
       "url": "https://xeno-canto.org/1104344",
       "location": "მანგო ლაგუნა",
@@ -14686,7 +14686,7 @@ export const species: Species[] = [
       ]
     },
     "audio": {
-      "src": "/audio/ursus-arctos.mp3",
+      "src": "https://cdn.reptiles.ge/audio/ursus-arctos.mp3",
       "recordist": "Stanislas Wroza",
       "url": "https://xeno-canto.org/1168186",
       "location": "კუოსამო — რინე",
