@@ -634,6 +634,22 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Ardea ciconia",
     ],
   },
+  "aegypius-monachus": {
+    ka: [
+      "შავი სვავი",
+      "ლეშიჭამია",
+      "ქორისებრნი",
+      "Vultur monachus",
+      "Aegipius monachus",
+    ],
+    en: [
+      "Eurasian black vulture",
+      "black vulture",
+      "monk vulture",
+      "Vultur monachus",
+      "Aegipius monachus",
+    ],
+  },
   "aquila-chrysaetos": {
     ka: [
       "ოქროსფერი არწივი",
