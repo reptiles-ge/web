@@ -155,6 +155,50 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta saxicola dahli",
     ],
   },
+  "darevskia-mixta": {
+    ka: [
+      "ქართული კლდის ხვლიკი",
+      "Lacerta mixta",
+      "Lacerta saxicola mixta",
+    ],
+    en: [
+      "Georgian lizard",
+      "Ajarian lizard",
+      "mixed lizard",
+      "bastard rock lizard",
+      "Lacerta mixta",
+      "Lacerta saxicola mixta",
+    ],
+  },
+  "darevskia-adjarica": {
+    ka: [
+      "აჭარული ხვლიკი",
+      "Lacerta parvula adjarica",
+      "Darevskia parvula adjarica",
+    ],
+    en: [
+      "Adjarian rock lizard",
+      "red-bellied lizard",
+      "Lacerta parvula adjarica",
+      "Darevskia parvula adjarica",
+    ],
+  },
+  "darevskia-clarkorum": {
+    ka: [
+      "ჭარნალის ხვლიკი",
+      "Darevskia dryada",
+      "Lacerta clarkorum",
+      "Lacerta dryada",
+    ],
+    en: [
+      "Clark's lizard",
+      "Clarks' lizard",
+      "Charnali lizard",
+      "Darevskia dryada",
+      "Lacerta clarkorum",
+      "Lacerta dryada",
+    ],
+  },
   "darevskia-valentini": {
     ka: [
       "Lacerta valentini",

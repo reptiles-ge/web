@@ -242,6 +242,7 @@ export const regions: Region[] = [
       "eirenis-modestus",
       "lacerta-media",
       "paralaudakia-caucasia",
+      "darevskia-adjarica",
       "darevskia-armeniaca",
       "darevskia-obscura",
       "darevskia-raddei",

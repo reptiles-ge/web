@@ -281,7 +281,18 @@ const LOOKALIKES: Record<string, string[]> = {
     "ophisops-elegans",
   ],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
-  "darevskia-adjarica": ["darevskia-mixta"],
+  "darevskia-adjarica": [
+    "darevskia-clarkorum",
+    "darevskia-derjugini",
+    "darevskia-mixta",
+  ],
+  "darevskia-mixta": [
+    "darevskia-clarkorum",
+    "darevskia-caucasica",
+    "darevskia-derjugini",
+    "darevskia-adjarica",
+    "darevskia-brauneri",
+  ],
   "darevskia-alpina": ["darevskia-caucasica", "darevskia-brauneri"],
   "darevskia-armeniaca": [
     "darevskia-valentini",
@@ -290,7 +301,11 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "darevskia-caucasica": ["darevskia-daghestanica", "darevskia-mixta"],
   "darevskia-daghestanica": ["darevskia-caucasica", "darevskia-derjugini"],
-  "darevskia-clarkorum": ["darevskia-mixta", "darevskia-caucasica"],
+  "darevskia-clarkorum": [
+    "darevskia-adjarica",
+    "darevskia-derjugini",
+    "darevskia-mixta",
+  ],
   "darevskia-dahli": [
     "darevskia-mixta",
     "darevskia-portschinskii",
