@@ -2446,13 +2446,14 @@ export const species: Species[] = [
     "scientificName": "Darevskia daghestanica",
     "genus": "Darevskia",
     "family": "Lacertidae",
-    "location": "თუშეთი; ახმეტა (თბათანა); ზემო თერგი",
-    "description": "ბაზალური კლდის ხვლიკი, არა D. caucasica-ს ქვესახეობა; თერგის ზემო დინებაში უწყვეტი არეალი — ფერი საკმარისი არ არის.",
-    "overview": "დაღესტნური ხვლიკი (Darevskia daghestanica) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ხშირად D. caucasica-ს და-სახეობად ან ქვესახეობად ითვლებოდა, მაგრამ ბაზალური ხაზია, თანაბარ მანძილზე D. caucasica-ს, D. mixta-სა და D. clarkorum-ისგან. პოპულაციებს შორის ღრმა გენეტიკური სხვაობაა ნაჩვენები. დისკუსიაში caucasica-სთან უწყვეტი არეალი თერგის ზემო დინებაშია და ჰიბრიდიზაცია შესაძლებელია. ბარკოდი თუშეთიდანაა; ფიგურა — ახმეტის მუნიციპალიტეტი, თბათანას მთა.",
-    "habitat": "სახელდებული ადგილები: თუშეთი (ბარკოდი); ახმეტის მუნიციპალიტეტი, თბათანას მთა (ფიგურა). დისკუსია — თერგის ზემო დინება caucasica-სთან კონტაქტისთვის.",
-    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
-    "behavior": "",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებულია. პოპულაციებს შორის ღრმა გენეტიკური სხვაობა აღწერილია; ინფრასპეციფიკური სახელები ნაშრომში არ გამოიყენება.",
+    "location": "თუშეთი; ახმეტა (თბათანა)",
+    "description": "უშხამო კლდის ხვლიკი ჩრდილო-აღმოსავლეთ საქართველოს მთებში. ფერით კავკასიონის ხვლიკისგან ვერ გაირჩევა.",
+    "overview": "დაღესტნური ხვლიკი (Darevskia daghestanica) უშხამო კლდის ხვლიკია, რომელიც საქართველოში დადასტურებულია ჩრდილო-აღმოსავლეთის მთებში. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). ადამიანისთვის უვნებელია: შხამი არ აქვს. თავ-ტანი ლიტერატურაში დაახლოებით 4.4–5.8 სმ-ია; კუდი ხშირად სხეულზე გრძელია. 2026 წლის ქართული ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. დასახელებული თანამედროვე წერტილებია თუშეთი (შტრიხკოდი) და ახმეტის მუნიციპალიტეტი, თბათანას მთა (ფიგურა). მთელ ქვეყანაში არ ეძებოთ: დასავლეთისა და სამხრეთის ვაკეებზე არ არის მოსალოდნელი. ადრე ხშირად კავკასიონის ხვლიკის (Darevskia caucasica) და-სახეობად ან ქვესახეობად ითვლებოდა; ახლა ცალკე სახეობად რჩება.",
+    "habitat": "საქართველოში დასახელებული თანამედროვე წერტილები ორია. Tarkhnishvili და სხვების 2026 წლის ჩამონათვალში შტრიხკოდი თუშეთიდანაა; თავის ქერცლის ფიგურა — ახმეტის მუნიციპალიტეტი, თბათანას მთა. ორივე კახეთის მთიანეთია. ამ ატლასის რუკაზე კახეთი სწორედ ამ ჩანაწერების რეგიონია და არ ნიშნავს, რომ სახეობა ალაზნის ველზე ან კახეთის მშრალ ვაკეზე გვხვდება. Darevsky (1967) და Doronin (2015, 2022) სახეობას მთის პეტროფილურ, ზომიერად მშრალ ადგილებზე ათავსებენ: კლდე, ფერდობი, მდინარის ხეობა. ძირითადი არეალი დიდი კავკასიონის ჩრდილოეთ მაკროფერდობზეა — დაღესტნიდან ჩრდილოეთ ოსეთის დარიალის ხეობამდე; სამხრეთით შედის თუშეთში და აზერბაიჯანში. 1963 წელს დარევსკიმ იზოლირებული პოპულაცია აღწერა დიდი ლიახვის ხეობაში, ჯავის (ძაუს) ზემოთ, როკის უღელტეხილის გზაზე; Doronin და სხვები (2022) ამ პოპულაციის არსებობას 2021 წელს ადასტურებენ. ეს სამხრეთ-დასავლეთის იზოლატია და მთელ შიდა ქართლს არ ნიშნავს; რუკაზე ამიტომ არ არის გაშლილი. 2026 წლის დისკუსია caucasica-სთან უწყვეტ არეალს თერგის ზემო დინებაში ასახელებს, სადაც ჰიბრიდიზაცია შესაძლებელია — ეს საკონტაქტო ზონის მითითებაა და არა ცალკე დადასტურებული სია ყველა თემისთვის. caucasica-ს კომპლექსის სიმაღლე ლიტერატურაში დაახლოებით 500–3200 მ-ია; საქართველოს პოპულაციების გაზომილი დიაპაზონი აქ ცალკე არ არის გამოქვეყნებული. ტყეში, კლდის გარეშე, სახეობა გამონაკლისად აღწერილია; ჩვეულებრივ კლდეზე ან ქვაზე ეძებეთ.",
+    "diet": "საქართველოში კუჭის შიგთავსი ამ სახეობაზე არ არის გამოქვეყნებული. კავკასიური კლდის ხვლიკები Darevsky-ს აღწერით ძირითადად წვრილ უხერხემლოებს ჭამენ — ობობას, ხოჭოს, ბუზს, კალიისებრს, ჭიანჭველას. იგივე მოსალოდნელია აქაც, მაგრამ ქართული მენიუ გაზომილი არ არის.",
+    "behavior": "დღის აქტიური კლდის ხვლიკია. სხეული გაბრტყელებულია, რაც ნაპრალში შესვლას ეხმარება. Tarkhnishvili და სხვები (2020) მას ძირითადად კლდის სახეობად თვლიან, რომელიც კლდიდან მოშორებითაც გვხვდება. Doronin და სხვები (2021) ტყის ბიოტოპსაც აღწერენ, სადაც კლდის გამონაკლისი არ იყო. საქართველოში საათობრივი ან სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. კვერცხისმდებია. შიდა დაღესტანში (Kidov და სხვ. 2024) მსხვილებული მდედრები მაისის შუა–ბოლოში დაიჭირეს; კვერცხი მაისის ბოლოდან ივნისის შუამდე დაიდო, ნაყოფი 1–5, ხელოვნურ ინკუბაციაში 36–51 დღე. ეს დაღესტნის გაზომვაა და არა თუშეთის კალენდარი. კუდი შეიძლება მოიწყვიტოს — მოკლე ან რეგენერირებული კუდი სახეობას არ ცვლის.",
+    "conservation": "IUCN Red List სახეობას 2009 წელს (შეფასება 2008) ნაკლებად საფრთხის ქვეშ ათავსებს (Least Concern): პოპულაცია სავარაუდოდ დიდია და სწრაფი კლება არ ჩანს. ეს გლობალური სტატუსია. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ Darevskia-დან შეტანილია თურქული, დალის და აჭარული ხვლიკები. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სანდოობა საშუალოა. პოპულაციებს შორის ღრმა გენეტიკური სხვაობა აღწერილია; ინფრასპეციფიკური სახელები ჩამონათვალში არ გამოიყენება. ლიახვის იზოლატი ვიწროა — ლოკალური საფრთხე იქ შეიძლება განსხვავებული იყოს, მაგრამ ცალკე ეროვნული შეფასება არ არის. არ აიყვანოთ.",
+    "interaction": "შხამი არ აქვს და ადამიანისთვის უვნებელია. არ აიყვანოთ: კუდი ადვილად მოიწყდება, ცხოველი სტრესდება. ნახვისას გადაიღეთ ზურგი, გვერდი და თავის ქერცელი, აღნიშნეთ ადგილი და სიმაღლე, დატოვეთ ცხოველი ადგილზე. ფერი სახეობას არ ადასტურებს — განსაკუთრებით თუშეთში და თბათანასთან, სადაც კავკასიონის ხვლიკიც დასახელებულია.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/darevskia-daghestanica.jpg",
     "mobileImage": "https://cdn.reptiles.ge/darevskia-daghestanica-mobile.jpg",
@@ -2470,15 +2471,23 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "თუშეთი / თერგის ზემო დინება"
+        "value": "თუშეთი / თბათანა"
+      },
+      {
+        "label": "სიგრძე",
+        "value": "თავ-ტანი ~4.4–5.8 სმ"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "ბიოლოგიურად დადასტურებული"
+        "label": "კონსერვაცია",
+        "value": "IUCN LC"
+      },
+      {
+        "label": "ჩამონათვალი",
+        "value": "დადასტურებული"
       },
       {
         "label": "ოჯახი",
@@ -2487,40 +2496,86 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლითა და გავრცელებით, არა ფერით. ეს არ არის D. caucasica ქვესახეობის რანგში.",
+      "summary": "პატარა კლდის Darevskia გაბრტყელებული თავით. საქართველოში ჩრდილო-აღმოსავლეთის მთებშია; ფერი კავკასიონის ხვლიკისგან არ ჰყოფს.",
       "traits": [
-        "ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
-        "ბაზალური ხაზი, არა caucasica-ს ქვესახეობა — თანაბარ მანძილზე caucasica, mixta, clarkorum.",
-        "უწყვეტი არეალი caucasica-სთან თერგის ზემო დინებაში.",
-        "ნაშრომის ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს (თბათანა)."
+        "სხეული წვრილი და გაბრტყელებულია, თავი შედარებით ვიწრო და ბრტყელი, უკანა ფეხები გრძელი — ეს ნიშნები Roitberg-თან caucasica-სგან გამიჯვნას ეხმარება კონტაქტის ზონაში, არა ფოტოს ერთი შეხედვით. ქერცელი ზურგზე გლუვი ან სუსტად ამოწეულია. თბათანას ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს; საველე ფოტოზე ეს დეტალი ხშირად არ ჩანს.",
+        "ზურგი ხშირად მურა-ნაცრისფერი, მოყვითალო-მურა ან ფერფლისფერია. ხერხემლის გასწვრივ შეიძლება ორი პარალელური მუქი წერტილოვანი რიგი ან ბადისებრი ნახატი იყოს; ზოგჯერ ნახატი სუსტია ან არ ჩანს. გვერდის ღია ზოლები ხშირად თხემის ფირფიტებამდე არ აღწევს — ეს კლასიკური განმსაზღვრელების ნიშანია და არა ყოველი ინდივიდის გარანტია. ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
+        "ზომა პატარაა. ლექტოტიპის თავ-ტანი 49 მმ-ია (დაღესტანი, ლევაში; Doronin 2014). შიდა დაღესტანში მსხვილებული მდედრები 43.95–56.20 მმ-ია. კუდი ხშირად სხეულზე გრძელია; ლექტოტიპის კუდი დაზიანებულია და სრულ სიგრძეს არ იძლევა. საქართველოს ნიმუშების სერია აქ არ არის გამოქვეყნებული.",
+        "კავკასიონის ხვლიკი (D. caucasica) თერგის ზემო დინებაში უწყვეტ არეალშია და თბათანასთანაც დასახელებულია. ფერით ვერ გაირჩევა. caucasica-ს ხშირად უფრო მკაფიო გვერდითი ზოლები აქვს; daghestanica-ს კონტაქტის ზონაში უფრო მეტი ქერცელია სხეულის შუაწელზე, მუცელზე და ბარძაყის ფორების რიგში, თავი უფრო ვიწრო და ბრტყელი. საველე პირობებში უსაფრთხო განსხვავება არის ადგილი: თუშეთი daghestanica-სთვის დასახელებულია, თრუსო/ზაქაგორი — caucasica-სთვის. ართვინის ხვლიკი (D. derjugini) იგივე გვარისაა, მაგრამ მიწაზე მცხოვრები ტყის სახეობაა, არა კლდის ვერტიკალისა. აჭარული ხვლიკი (D. mixta) დასავლეთისა და ცენტრალური საკონტაქტო ზონისაა, არა თუშეთის ჩანაცვლება."
       ]
     },
     "faq": [
       {
-        "question": "არის თუ არა ეს D. caucasica?",
-        "answer": "ფერით ვერ გაირჩევა. ნაშრომი daghestanica-ს ბაზალურ ხაზად ტოვებს, არა caucasica-ს ქვესახეობად. არეალები თერგის ზემო დინებაში უწყვეტია."
+        "question": "გვხვდება თუ არა საქართველოში?",
+        "answer": "კი. 2026 წლის ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. ეს არ ნიშნავს, რომ მთელ ქვეყანაშია."
       },
       {
-        "question": "არის თუ არა კანდიდატი სახეობა?",
-        "answer": "არა. ჩამონათვალში ბიოლოგიურად დადასტურებულია."
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "დასახელებული თანამედროვე წერტილებია თუშეთი და ახმეტის მუნიციპალიტეტი (თბათანას მთა). ცალკე, იზოლირებული პოპულაცია აღწერილია დიდი ლიახვის ხეობაში ჯავის ზემოთ. დასავლეთისა და სამხრეთის ვაკეზე არ ეძებოთ."
       },
       {
-        "question": "სად ასახელებს ნაშრომი საქართველოში?",
-        "answer": "ბარკოდი — თუშეთი. ფიგურა — ახმეტა, თბათანას მთა. დისკუსია — თერგის ზემო დინება caucasica-სთან."
+        "question": "არის თუ არა შხამიანი ან ადამიანისთვის საშიში?",
+        "answer": "არა. შხამი არ აქვს. არ აიყვანოთ — კუდი ადვილად მოიწყდება."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
+        "question": "როგორ გავარჩიო კავკასიონის ხვლიკისგან?",
+        "answer": "ფერით ვერ გაირჩევა. საჭიროა ადგილი და, თუ შესაძლებელია, ქერცლის დათვლა. თუშეთი ამ სახეობისთვის დასახელებულია; თრუსო — caucasica-სთვის. თბათანასთან ორივე შეიძლება იყოს."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "პატარა ხვლიკია. თავ-ტანი ლიტერატურაში დაახლოებით 4.4–5.8 სმ-ია. ქართული სერია აქ არ არის გაზომილი."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "მოსალოდნელია წვრილი უხერხემლოები. საქართველოში კუჭის შიგთავსი გამოქვეყნებული არ არის."
+      },
+      {
+        "question": "არის თუ არა წითელ ნუსხაში?",
+        "answer": "2014 წლის ქართულ წითელ ნუსხაში არ არის. გლობალურად IUCN-ით ნაკლებად საფრთხის ქვეშაა (LC)."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T16:20:04+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Darevsky 1967 — Скальные ящерицы Кавказа"
+      },
+      {
+        "name": "Doronin 2014 — Review of type specimens of Darevskia (caucasica)",
+        "url": "https://doi.org/10.31610/trudyzin/2014.318.4.371"
+      },
+      {
+        "name": "Doronin et al. 2021 — Phylogeography of the Darevskia (caucasica) complex",
+        "url": "https://doi.org/10.31610/trudyzin/2021.325.1.49"
+      },
+      {
+        "name": "Doronin et al. 2022 — New records of Darevskia in the Caucasus",
+        "url": "https://doi.org/10.31610/trudyzin/2022.326.4.274"
+      },
+      {
+        "name": "Roitberg 1994 — Morphological analysis of L. caucasica and L. c. daghestanica in the contact zone"
+      },
+      {
+        "name": "Tarkhnishvili, Gabelaia & Adriaens 2020 — Phenotypic divergence in Caucasian rock lizards",
+        "url": "https://doi.org/10.1093/biolinnean/blaa021"
+      },
+      {
+        "name": "Kidov et al. 2024 — Reproduction of Darevskia daghestanica in Intra-Mountain Dagestan",
+        "url": "https://doi.org/10.18500/1814-6090-2024-24-1-2-61-65"
+      },
+      {
+        "name": "Tuniyev et al. 2009 — IUCN Red List, Darevskia daghestanica",
+        "url": "https://www.iucnredlist.org/species/164587/114550548"
+      },
+      {
+        "name": "Tuniyev & Ananjeva 2024 — High herpetological diversity in the Caucasian Ecoregion"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
@@ -15958,25 +16013,34 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "darevskia-daghestanica": {
     "commonName": "Daghestanian Rock Lizard",
-    "location": "Tusheti; Akhmeta (Tbatana); upper Tergi",
-    "description": "A basal rock lizard, not a subspecies of D. caucasica; contiguous on the upper Tergi — colour is not enough.",
-    "overview": "The Daghestanian rock lizard (Darevskia daghestanica) is biologically confirmed in Tarkhnishvili et al. 2026. It has commonly been treated as a sister species or even a subspecies of D. caucasica, but it is a basal lineage equidistant from D. caucasica, D. mixta, and D. clarkorum. Deep genetic differences among populations are shown. The discussion places contiguous ranges with caucasica in the upper Tergi (Terek), where they may hybridize. A barcode is from Tusheti; the figure is from Akhmeta district, Tbatana Mountain.",
-    "habitat": "Named places: Tusheti (barcode); Akhmeta district, Tbatana Mountain (figure). Discussion: upper Tergi for contact with caucasica.",
-    "diet": "The paper does not specify diet for this species.",
-    "behavior": "",
-    "conservation": "Biologically confirmed in the checklist. Deep genetic differences among populations are described; the paper does not apply infraspecific names.",
+    "location": "Tusheti; Akhmeta (Tbatana)",
+    "description": "A harmless rock lizard of north-eastern Georgia's mountains. Colour will not separate it from the Caucasian rock lizard.",
+    "overview": "The Daghestanian rock lizard (Darevskia daghestanica) is a harmless rock lizard confirmed in the mountains of north-eastern Georgia. It belongs to the true lizards (Lacertidae). It has no venom and is not dangerous to people. Head–body length in the literature is about 4.4–5.8 cm; the tail is often longer than the body. The 2026 Georgian checklist treats the species as biologically confirmed. Named modern points are Tusheti (barcode) and Akhmeta municipality, Tbatana Mountain (figure). Do not look for it across the whole country: it is not expected on western or southern lowlands. It was often treated as a sister species or subspecies of the Caucasian rock lizard (Darevskia caucasica); it is kept as a separate species.",
+    "habitat": "Two modern Georgian points are named. In Tarkhnishvili and co-authors (2026) a barcode is from Tusheti; the scalation figure is from Akhmeta municipality, Tbatana Mountain. Both are in the mountains of Kakheti. On this atlas map Kakheti reflects those records; it does not mean the species occurs on the Alazani plain or in Kakheti's dry lowlands. Darevsky (1967) and Doronin (2015, 2022) place it on montane rocky, moderately dry ground: cliffs, slopes, and river gorges. The main range is the northern macroslope of the Greater Caucasus from Dagestan to the Darial Gorge in North Ossetia; it enters Tusheti and Azerbaijan to the south. In 1963 Darevsky described an isolated population in the Greater Liakhvi gorge above Java (Dzau), on the road toward the Roki Pass; Doronin and co-authors (2022) confirmed that population in 2021. That isolate is a south-western locality, not a reason to map all of Shida Kartli, so it is not expanded on the map. The 2026 discussion names a contiguous range with D. caucasica on the upper Tergi (Terek), where hybridization is possible — a contact-zone note, not a complete list of villages. Elevation for the caucasica complex in the literature is about 500–3200 m; a measured range for Georgian populations is not published here. Occasional records come from forest without rock outcrops; look first on rock or stone.",
+    "diet": "Stomach contents from Georgia have not been published for this species. Caucasian rock lizards in Darevsky's account feed mainly on small invertebrates — spiders, beetles, flies, grasshoppers, ants. The same is expected here, but a Georgian diet has not been measured.",
+    "behavior": "A day-active rock lizard. The body is flattened, which helps it enter crevices. Tarkhnishvili and co-authors (2020) treat it as mainly saxicolous but also found away from rocks. Doronin and co-authors (2021) describe a forest site without rocky outcrops. No separate hourly or seasonal calendar has been published for Georgia. It lays eggs. In intra-mountain Dagestan (Kidov and co-authors 2024) breeding females were taken in mid-to-late May; eggs were laid from late May to mid-June, clutch size 1–5, artificial incubation 36–51 days. That is a Dagestan measurement, not a Tusheti calendar. The tail can be shed — a short or regenerated tail does not change the species.",
+    "conservation": "IUCN listed the species as Least Concern in 2009 (assessment 2008): the population is presumed large and not declining fast enough for a higher category. That is a global status. It is not on Georgia's 2014 Red List (Resolution No. 190); among Darevskia that list includes Clark's, Dahl's, and the Adjarian rock lizards. The 2026 checklist treats it as biologically confirmed; distribution confidence is medium. Deep genetic differences among populations are described; the checklist does not apply infraspecific names. The Liakhvi isolate is narrow — local pressure there could differ, but there is no separate national assessment. Do not collect animals.",
+    "interaction": "It has no venom and is not dangerous to people. Do not pick it up: the tail breaks easily and handling stresses the animal. Photograph the back, the flank, and the head scales, note the place and elevation, and leave the lizard where it is. Colour does not confirm the species — especially in Tusheti and near Tbatana, where D. caucasica is also named.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Tusheti / upper Tergi"
+        "value": "Tusheti / Tbatana"
+      },
+      {
+        "label": "Length",
+        "value": "SVL ~4.4–5.8 cm"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Biologically confirmed"
+        "label": "Conservation",
+        "value": "IUCN LC"
+      },
+      {
+        "label": "Checklist",
+        "value": "Confirmed"
       },
       {
         "label": "Family",
@@ -15985,30 +16049,42 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "Colour is not enough. Field ID among Darevskia needs scalation and range, not colour. This is not D. caucasica at subspecies rank.",
+      "summary": "A small saxicolous Darevskia with a relatively flattened head. In Georgia it is a north-eastern mountain lizard; colour will not separate it from D. caucasica.",
       "traits": [
-        "Colour does not separate Darevskia species.",
-        "A basal lineage, not a subspecies of caucasica — equidistant from caucasica, mixta, and clarkorum.",
-        "Contiguous range with caucasica on the upper Tergi.",
-        "Checklist figures show head scalation and preanal plates (Tbatana)."
+        "The body is slim and flattened, the head relatively narrow and flat, the hind legs long — characters Roitberg used in the contact zone with D. caucasica, not a one-glance photo ID. Dorsal scales are smooth or weakly convex. The Tbatana figures show head scalation and preanal plates; that detail is often invisible in a field snapshot.",
+        "The back is often brownish-grey, yellowish-brown, or ashy. A vertebral mark may be two parallel rows of dark specks or a reticulate pattern; sometimes it is faint or absent. Light lateral stripes often stop short of the parietal shields — a character in classical keys, not a guarantee for every individual. Colour does not separate Darevskia species.",
+        "It is a small lizard. The lectotype has a 49 mm snout–vent length (Dagestan, Levashi; Doronin 2014). Breeding females in intra-mountain Dagestan measured 43.95–56.20 mm. The tail is often longer than the body; the lectotype tail is damaged and does not give a full length. A measured Georgian series is not published here.",
+        "The Caucasian rock lizard (D. caucasica) has a contiguous range on the upper Tergi and is also named at Tbatana. Colour will not tell them apart. D. caucasica often has clearer lateral stripes; in contact, D. daghestanica tends to have more scales around midbody, more ventrals, more femoral pores, and a narrower, flatter head. In the field the safer split is place: Tusheti is named for daghestanica, Truso/Zakagori for caucasica. Derjugin's lizard (D. derjugini) is in the same genus but is a ground-dwelling forest species, not a cliff lizard. The Adjarian rock lizard (D. mixta) belongs to western and central contact zones, not as a Tusheti substitute."
       ]
     },
     "faq": [
       {
-        "question": "Is this D. caucasica?",
-        "answer": "Colour will not tell you. The paper keeps daghestanica as a basal lineage, not a subspecies of caucasica. Ranges are contiguous on the upper Tergi."
+        "question": "Is it found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats the species as biologically confirmed. That does not mean it occurs throughout the country."
       },
       {
-        "question": "Is it a candidate species?",
-        "answer": "No. It is biologically confirmed in the checklist."
+        "question": "Where can it be found in Georgia?",
+        "answer": "Named modern points are Tusheti and Akhmeta municipality (Tbatana Mountain). A separate isolated population is described in the Greater Liakhvi gorge above Java. Do not look on western or southern lowlands."
       },
       {
-        "question": "Where does the paper name it in Georgia?",
-        "answer": "Barcode: Tusheti. Figure: Akhmeta, Tbatana Mountain. Discussion: upper Tergi with caucasica."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. Do not pick it up — the tail breaks easily."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification Harmless. No venom."
+        "question": "How do I tell it from the Caucasian rock lizard?",
+        "answer": "Colour will not tell you. Use locality and, if possible, scalation. Tusheti is named for this species; Truso for D. caucasica. Near Tbatana either may occur."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "It is a small lizard. Head–body length in the literature is about 4.4–5.8 cm. A Georgian series is not measured here."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Small invertebrates are expected. Stomach contents from Georgia have not been published."
+      },
+      {
+        "question": "Is it on the Georgian Red List?",
+        "answer": "No. It is not on the 2014 national Red List. Globally IUCN lists it as Least Concern."
       }
     ],
     "gallery": [
