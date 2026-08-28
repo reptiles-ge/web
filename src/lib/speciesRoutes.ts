@@ -58,6 +58,11 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
   "accipiter-nisus": ["mimino", "korisebri-mimino"],
   "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
+  "aegypius-monachus": [
+    "cinereous-vulture",
+    "black-vulture",
+    "shavi-svavi",
+  ],
   "procyon-lotor": [
     "enoti",
     "chveulebrivi-enoti",
@@ -347,6 +352,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
   "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus"],
+  "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
   "vulpes-vulpes": ["canis-lupus"],
   "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
 };

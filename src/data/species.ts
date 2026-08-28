@@ -236,6 +236,7 @@ export const featuredSpeciesIds = [
   "buteo-buteo",
   "ciconia-ciconia",
   "aquila-chrysaetos",
+  "aegypius-monachus",
   "accipiter-nisus",
   "vulpes-vulpes",
   "canis-aureus",
