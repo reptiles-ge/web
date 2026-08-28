@@ -32,7 +32,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#chore/installable-from-git",
+    "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#feat/og-images",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

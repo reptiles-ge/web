@@ -29,6 +29,7 @@ import {
   siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
+  openGraphJpeg,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -83,6 +84,14 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const ogImage = guide.heroImage
       ? absoluteUrl(guide.heroImage)
       : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
+    const ogImageTag = guide.heroImage
+      ? {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        }
+      : openGraphJpeg(ogImage, title);
 
     return {
       title,
@@ -99,14 +108,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
         type: "website",
         locale: locale === "en" ? "en_US" : siteConfig.locale,
         siteName: siteConfig.name,
-        images: [
-          {
-            url: ogImage,
-            width: 1200,
-            height: 630,
-            alt: title,
-          },
-        ],
+        images: [ogImageTag],
       },
       twitter: {
         card: "summary_large_image",

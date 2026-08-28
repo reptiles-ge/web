@@ -1,6 +1,6 @@
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
-import { absoluteUrl, CDN_BASE, siteConfig } from "@/lib/site";
+import { absoluteUrl, CDN_BASE, SITE_OG_IMAGE_URL, openGraphJpeg, siteConfig } from "@/lib/site";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
@@ -52,20 +52,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      {
-        url: "https://cdn.reptiles.ge/og-landing.jpg",
-        width: 1024,
-        height: 541,
-        alt: siteConfig.title,
-      },
-    ],
+    images: [openGraphJpeg(SITE_OG_IMAGE_URL, siteConfig.title)],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["https://cdn.reptiles.ge/og-landing.jpg"],
+    images: [SITE_OG_IMAGE_URL],
   },
   robots: {
     index: true,

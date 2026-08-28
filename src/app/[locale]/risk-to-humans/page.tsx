@@ -1,6 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { RiskToHumansPage } from "@/components/RiskToHumansPage";
-import { getCatalogSpecies } from "@/data/species";
+import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { getCatalogByDanger } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -8,11 +8,12 @@ import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
 import {
   absoluteUrl,
-  cdnOgImageUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
+  speciesOgImageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = t("metaTitle");
   const description = t("metaDescription");
   const url = absoluteUrl(localePath(locale, PATH));
-  const ogImage = cdnOgImageUrl(OG_SPECIES);
+  const hero = getSpeciesById(OG_SPECIES);
+  const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
 
   return {
     title,
@@ -56,14 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       locale: locale === "en" ? "en_US" : siteConfig.locale,
       siteName: siteConfig.name,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      images: [openGraphJpeg(ogImage, title)],
     },
     twitter: {
       card: "summary_large_image",

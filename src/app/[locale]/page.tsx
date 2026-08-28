@@ -16,6 +16,8 @@ import {
   organizationJsonLd,
   siteConfig,
   siteEntityId,
+  SITE_OG_IMAGE_URL,
+  openGraphJpeg,
   speciesPageUrl,
   websiteJsonLd,
 } from "@/lib/site";
@@ -44,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t("description");
   const url = absoluteUrl(localePath(locale, "/"));
   const alternates = localeAlternates(locale, "/");
-  const ogImage = "https://cdn.reptiles.ge/og-landing.jpg";
+  const ogImage = SITE_OG_IMAGE_URL;
 
   return {
     title: {
@@ -60,14 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: locale === "en" ? "en_US" : siteConfig.locale,
       siteName: siteConfig.name,
-      images: [
-        {
-          url: ogImage,
-          width: 1024,
-          height: 541,
-          alt: title,
-        },
-      ],
+      images: [openGraphJpeg(ogImage, title)],
     },
     twitter: {
       card: "summary_large_image",

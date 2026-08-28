@@ -46,8 +46,8 @@ importers:
         version: 19.2.4(react@19.2.4)
     devDependencies:
       '@reptiles-ge/img-compression':
-        specifier: github:reptiles-ge/img-compression#chore/installable-from-git
-        version: https://codeload.github.com/reptiles-ge/img-compression/tar.gz/64bad2c8c9b958bd98a859cc9564bead7c4711c5(@types/node@20.19.43)(next@16.2.12(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
+        specifier: github:reptiles-ge/img-compression#feat/og-images
+        version: https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28(@types/node@20.19.43)(next@16.2.12(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.3.3
@@ -847,8 +847,8 @@ packages:
     resolution: {integrity: sha512-7FNeNl8NCE7aINx7WXiKQrPYZWC/hvrTsmk6zmxbI7LTXE7hVek/n8AfVgpe2y82zl3w0HvCHN0bVKMBoJcC0w==}
     engines: {node: '>= 10.0.0'}
 
-  '@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/64bad2c8c9b958bd98a859cc9564bead7c4711c5':
-    resolution: {tarball: https://codeload.github.com/reptiles-ge/img-compression/tar.gz/64bad2c8c9b958bd98a859cc9564bead7c4711c5}
+  '@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28':
+    resolution: {tarball: https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28}
     version: 0.1.0
     engines: {node: '>=20.11'}
     hasBin: true
@@ -3251,7 +3251,7 @@ snapshots:
       '@parcel/watcher-win32-arm64': 2.6.0
       '@parcel/watcher-win32-x64': 2.6.0
 
-  '@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/64bad2c8c9b958bd98a859cc9564bead7c4711c5(@types/node@20.19.43)(next@16.2.12(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)':
+  '@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28(@types/node@20.19.43)(next@16.2.12(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)':
     dependencies:
       sharp: 0.35.4(@types/node@20.19.43)
     optionalDependencies:

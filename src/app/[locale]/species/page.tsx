@@ -5,16 +5,17 @@ import {
   hasActiveAtlasFilters,
   parseAtlasFilters,
 } from "@/data/speciesAtlas";
-import { getCatalogSpecies } from "@/data/species";
+import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
-  cdnOgImageUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
+  speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
@@ -44,7 +45,8 @@ export async function generateMetadata({
   const description = t("metaDescription");
   const path = "/species";
   const url = absoluteUrl(localePath(locale, path));
-  const ogImage = cdnOgImageUrl("vipera-kaznakovi");
+  const hero = getSpeciesById("vipera-kaznakovi");
+  const ogImage = speciesOgImageUrl("vipera-kaznakovi", hero?.image);
   const filtered = hasActiveAtlasFilters(parseAtlasFilters(await searchParams));
 
   return {
@@ -58,14 +60,7 @@ export async function generateMetadata({
       type: "website",
       locale: locale === "en" ? "en_US" : siteConfig.locale,
       siteName: siteConfig.name,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      images: [openGraphJpeg(ogImage, title)],
     },
     twitter: {
       card: "summary_large_image",
