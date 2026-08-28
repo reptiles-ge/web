@@ -390,6 +390,7 @@ export const regions: Region[] = [
       "pelodytes-caucasicus",
       "hyla-savignyi",
       "tenuidactylus-caspius",
+      "ablepharus-pannonicus",
       "eumeces-schneiderii",
       "eremias-velox",
       "ophisops-elegans",

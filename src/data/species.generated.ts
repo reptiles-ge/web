@@ -9,13 +9,14 @@ export const species: Species[] = [
     "scientificName": "Ablepharus pannonicus",
     "genus": "Ablepharus",
     "family": "Scincidae",
-    "location": "ვაშლოვანი — ერთი ისტორიული ჩანაწერი",
-    "description": "პატარა შიშველთვალა სცინკი — საქართველოში მხოლოდ ვაშლოვანის 1973 წლის ჩანაწერი; შემდგომი დადასტურება არ არის.",
-    "overview": "შიშველთვალა სცინკი (Ablepharus pannonicus) სცინკების ოჯახის პატარა ხვლიკია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად ასახელებს, ფართო არეალით დასავლეთ და ცენტრალურ აზიაში. საქართველოში Bakradze and Darevsky (1973) იუწყებიან ვაშლოვანის ნაკრძალიდან (აღმოსავლეთ საქართველო). შემდგომი დადასტურება არ არის; ბარკოდირებული ნიმუში ჩამონათვალში არ არის. ადამიანისთვის უვნებელია.",
-    "habitat": "ერთადერთი მოხსენებული ლოკალიტეტი ვაშლოვანის ნაკრძალია. ჰაბიტატის ტიპი ჩამონათვალში არ არის გაშლილი; სხვა რეგიონები აქ არ არის მიწერილი.",
-    "diet": "წვრილი უხერხემლოები; ჩამონათვალი დიეტას არ აკონკრეტებს.",
-    "behavior": "პატარა, ფარული სცინკი შერწყმული ქუთუთოებით („გველის თვალი“). არ აურიოთ კოხტა გველთავას (Ophisops) ან გრძელფეხა სცინკს.",
-    "conservation": "ჩამონათვალში სახეობა დადასტურებულია, მაგრამ საქართველოს ჩანაწერი ერთია და არ არის განმეორებული. გლობალური IUCN კატეგორია ამ გვერდზე არ არის მითითებული.",
+    "location": "ვაშლოვანი, კახეთი — ერთი ისტორიული ჩანაწერი",
+    "description": "უშხამო, ძალიან პატარა სცინკი შერწყმული ქუთუთოებით. საქართველოში მხოლოდ ვაშლოვანის 1973 წლის ჩანაწერია; შემდგომი დადასტურება არ არის.",
+    "overview": "შიშველთვალა სცინკი (Ablepharus pannonicus) უშხამო, ძალიან პატარა სცინკია შერწყმული ქუთუთოებით; საქართველოში მხოლოდ ვაშლოვანის 1973 წლის ჩანაწერია და შემდგომი დადასტურება არ არის. სცინკების ოჯახისაა (Scincidae). 2014 წლის წითელ ნუსხაში იწერება აზიური შიშველთვალა — CR D2, წერტილოვანი არეალის გამო. 2026 წლის ქართული ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს, მაგრამ ბარკოდირებული ნიმუში არ აქვს. გლობალურად IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern); ეს არ ცვლის საქართველოს კრიტიკულ სტატუსს. არეალი დასავლეთ და ცენტრალურ აზიაშია. მთელ ქვეყანაში არ ეძებოთ. ადამიანისთვის უვნებელია.",
+    "habitat": "საქართველოში დასახელებული ლოკალიტეტი ერთია: ვაშლოვანის ნაკრძალი, აღმოსავლეთ საქართველო — დღევანდელი კახეთი. წყაროა Bakradze and Darevsky (1973). Tarkhnishvili et al. 2026 პირდაპირ წერს: შემდგომი დადასტურება არ არის. ამ ატლასის რუკაზე კახეთი სწორედ ამ ჩანაწერის რეგიონია და არ ნიშნავს, რომ სახეობა კახეთში ფართოდ ან მუდმივად გვხვდება. სხვა ადმინისტრაციული რეგიონები აქ არ არის მიწერილი. დაცული ტერიტორიების ზოგი აღწერა სახეობას ვაშლოვანში კავკასიური იშვიათობის სახით ასახელებს; ეს იგივე ისტორიული ჩანაწერის გამეორებაა და არა ახალი საველე დადასტურება. ჰაბიტატის ტიპი ქართულ ჩამონათვალში არ არის გაშლილი. არეალის სხვა ნაწილებში (მაგ. ირანი) ხშირად ნახევარუდაბნო, სტეპი, მთის კალთა, ფოთლოვანი საფარი და ქვიანი ადგილია; ეს საქართველოსთვის გაზომილი ჰაბიტატი არ არის. სიმაღლის დიაპაზონი საქართველოსთვის გამოქვეყნებული არ არის. თუ დღეს ვაშლოვანში პატარა „გველისთვალა“ სცინკს ნახავთ, ჩანაწერი დოკუმენტირებას საჭიროებს და არა ავტომატურ დადასტურებას.",
+    "diet": "საქართველოში კუჭის შიგთავსი ამ სახეობაზე არ არის გამოქვეყნებული. არეალის სხვა ნაწილებში Anderson (1999) წვრილ ხოჭოებს, კალიისებრებსა და ჭიანჭველებს ასახელებს. მოსალოდნელია წვრილი უხერხემლოები, მაგრამ ქართული მენიუ აქ არ არის გაზომილი.",
+    "behavior": "ქერცლოვანთა მონაცემთა ბაზა (The Reptile Database) სახეობას დღის აქტიურად მიიჩნევს. სხეული წვრილია, კიდურები მოკლე — ხშირად ფოთლის ან ქვის ქვეშ იძვრება და ადვილად რჩება შეუმჩნეველი. საქართველოში საათობრივი ან სეზონური კალენდარი ცალკე არ არის აღწერილი. დასავლეთ ირანში გაზაფხულზე საკვერცხეები აქტიურია, შემოდგომაზე სქესობრივი აქტივობა არ ჩანს; იქვე ვარაუდობენ ცხიმის დაგროვებას ზამთრის წინ. ეს ირანული სეზონურობაა და არა ვაშლოვანის გაზომვა. კვერცხისმდებია (კვერცხის გარსის ჯირკვლები აღწერილია); ნაყოფის რიცხვი საქართველოში უცნობია. კუდი შეიძლება მოიწყვიტოს — ნახავთ თუ არა მოკლე ან რეგენერირებულ კუდს, ეს სახეობას არ ცვლის. არ აურიოთ კოხტა გველთავასთან (Ophisops elegans): მასაც შერწყმული ქუთუთოები აქვს, მაგრამ ლაცერტიდია, უფრო დიდი და სწრაფი ღია ადგილზე. გრძელფეხა სცინკი (Eumeces schneiderii) იგივე ოჯახისაა, მაგრამ ბევრად დიდია და თვალის რგოლი ჩანს. ბოხმეჭას (Anguis colchica) კიდურები არ აქვს. ორზოლიანი შიშველთვალა (Ablepharus bivittatus) 2026 წლის ქართულ ჩამონათვალში არ არის; ცნობილია სომხეთიდან, აზერბაიჯანიდან და ჩრდილოეთ ირანიდან.",
+    "conservation": "საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) სახეობაა გადაშენების უკიდურესი საფრთხის წინაშე (CR D2) — კრიტერიუმი წერტილოვან არეალს ეყრდნობა. ეს ეროვნული სტატუსია და გამომდინარეობს იმისგან, რომ ქვეყანაში ცნობილია ერთი, ვიწრო ლოკალიტეტი. IUCN Red List სახეობას გლობალურად ნაკლებად საფრთხის ქვეშ ათავსებს (Least Concern): არეალი ფართოა. კავკასიური ეკორეგიონის 2024 წლის მიმოხილვა გლობალურ LC-ს იმეორებს და საქართველოსთვის სამხრეთ-აღმოსავლეთს (ვაშლოვანი) ასახელებს. ეს არ აუქმებს 2014 წლის ქართულ CR D2-ს. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სანდოობა ჩამონათვალში საშუალოა; ბარკოდი არ არის. თუ პოპულაცია საქართველოში ჯერ კიდევ არსებობს, ის, სავარაუდოდ, ძალიან მცირე ან ლოკალურია — ეს ვარაუდია და არა ახალი აღრიცხვა. არ აიყვანოთ.",
+    "interaction": "შხამი არ აქვს და ადამიანისთვის უვნებელია. არ აიყვანოთ: პატარა სცინკი ადვილად ზიანდება, კუდი შეიძლება მოიწყვიტოს, კანი კი თხელია. ნახვისას გადაიღეთ ახლო ფოტო ზურგიდან და გვერდიდან, აღნიშნეთ ადგილი და დატოვეთ ცხოველი ადგილზე. ვაშლოვანის ახალი დადასტურება სამეცნიერო ჩანაწერს სჭირდება.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg",
     "mobileImage": "https://cdn.reptiles.ge/ablepharus-pannonicus-mobile.jpg",
@@ -36,44 +37,64 @@ export const species: Species[] = [
         "value": "ვაშლოვანი (1973)"
       },
       {
+        "label": "სიგრძე",
+        "value": "თავ-ტანი ~3.5–6 სმ"
+      },
+      {
         "label": "შხამი",
         "value": "არა — უვნებელი"
       },
       {
-        "label": "ოჯახი",
-        "value": "Scincidae"
+        "label": "კონსერვაცია",
+        "value": "CR D2 (საქ.)"
       },
       {
         "label": "ჩამონათვალი",
         "value": "დადასტურებული"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Scincidae"
       }
     ],
     "facts": [],
     "identification": {
-      "summary": "ძალიან პატარა სცინკი შერწყმული ქუთუთოებით. საქართველოში მხოლოდ ვაშლოვანის ისტორიული ჩანაწერია.",
+      "summary": "ძალიან პატარა, გლუვქერცლიანი სცინკი შერწყმული ქუთუთოებით. საქართველოში მხოლოდ ვაშლოვანის ისტორიული ჩანაწერია; ამ გვერდის გმირი კადრი ამოცნობის პორტრეტი არ არის.",
       "traits": [
-        "შერწყმული ქუთუთოები — „გველის თვალის“ იერი.",
-        "გლუვი სცინკის ქერცლები; კიდურები მოკლეა, სხეული წვრილი.",
-        "გრძელფეხა სცინკზე ბევრად პატარაა.",
-        "ადამიანისთვის უშხამოა."
+        "ქუთუთოები შერწყმულია გამჭვირვალე „სათვალედ“ — თვალს ვერ ახამხამებს, ამიტომ გველის თვალს ჰგავს. გვარის სახელი სწორედ ქუთუთოს არქონას აღნიშნავს (ablepharine თვალი).",
+        "სხეული წვრილი და წაგრძელებულია, ქერცლი გლუვი და მბზინავი. კიდურები მოკლეა, მაგრამ ხუთთითიანი — არ არის უკიდურო. ყურის ხვრელი ძალიან პატარაა. ზურგი ხშირად ბრინჯაო–ზეთისხილისფერია, ზოგჯერ სამი გრძივი მუქი ხაზით; თვალის გავლით გვერდზე მუქი, ღია კიდეებიანი ზოლი. მუცელი მოთეთრო–მომწვანო. ეს შეფერილობა Anderson-ის სახეობრივი აღწერაა და არა ქართული ნიმუშის გაზომვა.",
+        "ზომა პატარაა. გვარის დონეზე თავ-ტანის სიგრძე ჩვეულებრივ 6 სმ-მდეა (Greer 1974). Anderson-თან ხშირად დაახლოებით 3.5 სმ თავ-ტანი და დაახლოებით 9.5 სმ სრული სიგრძეა. საქართველოს ნიმუშის სიგრძე აქ არ არის გამოქვეყნებული.",
+        "კოხტა გველთავა (Ophisops elegans) სამხრეთ-აღმოსავლეთში სპორადულადაა; ლაცერტიდია, არა სცინკი — ქერცელი სხვანაირია, სხეული უფრო დიდი და სწრაფი. გრძელფეხა სცინკი (Eumeces schneiderii) იგივე ოჯახისაა, მაგრამ ზრდასრული რამდენიმეჯერ დიდია და ქუთუთოს რგოლი ჩანს. ბოხმეჭა უკიდუროა. თუ ხვლიკს მოძრავი ქუთუთოები აქვს, ეს სახეობა არ არის."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა საქართველოში?",
-        "answer": "ჩამონათვალი ასახელებს Bakradze and Darevsky (1973) ჩანაწერს ვაშლოვანის ნაკრძალიდან. შემდგომი დადასტურება არ არის."
+        "answer": "2026 წლის ჩამონათვალი სახეობას ინარჩუნებს Bakradze and Darevsky (1973) ჩანაწერის მიხედვით — ვაშლოვანის ნაკრძალი. შემდგომი დადასტურება არ არის. ეს არ ნიშნავს, რომ სახეობა ჩამონათვალიდან ამოღებულია."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "უვნებელია. შხამი არ აქვს."
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ერთადერთი დასახელებული ადგილი ვაშლოვანია (კახეთი). სხვა რეგიონი აქ არ არის მიწერილი. იქაც შეხვედრა დღეს დაუდასტურებელია."
       },
       {
-        "question": "რატომ არის ჩანაწერი სუსტი?",
-        "answer": "Tarkhnishvili et al. 2026 პირდაპირ წერს: შემდგომი დადასტურება არ არის. ეს არ ნიშნავს, რომ სახეობა ჩამონათვალიდან ამოღებულია."
+        "question": "არის თუ არა შხამიანი ან ადამიანისთვის საშიში?",
+        "answer": "არა. შხამი არ აქვს. არ აიყვანოთ — პატარაა და ადვილად ზიანდება."
       },
       {
-        "question": "რით განსხვავდება გველთავასგან?",
-        "answer": "Ophisops lacertidია შერწყმული ქუთუთოებით, მაგრამ უფრო დიდი და სწრაფი ღია ადგილების ხვლიკია. Ablepharus პატარა სცინკია გლუვი ქერცლებით."
+        "question": "რამდენად დიდია?",
+        "answer": "ძალიან პატარა ხვლიკია. ლიტერატურაში თავ-ტანი ხშირად დაახლოებით 3.5 სმ-ია, გვარის ზღვარი დაახლოებით 6 სმ. ქართული ნიმუში გაზომილი არ არის."
+      },
+      {
+        "question": "როგორ გავარჩიო გველთავასგან?",
+        "answer": "ორივეს შერწყმული ქუთუთოები აქვს. Ablepharus პატარა სცინკია გლუვი ქერცლითა და მოკლე კიდურებით. Ophisops უფრო დიდი, სწრაფი ლაცერტიდია ღია ადგილზე."
+      },
+      {
+        "question": "რატომ არის წითელ ნუსხაში CR?",
+        "answer": "2014 წლის ნუსხა CR D2-ს აძლევს წერტილოვანი არეალის გამო — ქვეყანაში ცნობილია ერთი ვიწრო ლოკალიტეტი. გლობალურად IUCN-ით LC-ია, რადგან არეალი აზიაში ფართოა."
+      },
+      {
+        "question": "რატომ ჰქვია შიშველთვალა?",
+        "answer": "ქუთუთოები შერწყმულია და გამჭვირვალეა, ამიტომ თვალი გველისას ჰგავს. გველი არ არის. წითელ ნუსხაში იგივე სახეობა აზიური შიშველთვალაა."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -83,7 +104,32 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Bakradze & Darevsky 1973 — The lidless skink Ablepharus pannonicus in the Caucasus"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "IUCN Red List — Ablepharus pannonicus",
+        "url": "https://www.iucnredlist.org/species/164747/1068301"
+      },
+      {
+        "name": "Anderson 1999 — The lizards of Iran"
+      },
+      {
+        "name": "Greer 1974 — The generic relationships of the scincid lizard genus Leiolopisma and its relatives"
+      },
+      {
+        "name": "Heirani, Karamiani & Azadbakht 2026 — Female reproductive system of Ablepharus pannonicus",
+        "url": "https://doi.org/10.36253/a_h-16392"
+      },
+      {
+        "name": "Karamiani, Rastegar-Pouyani & Rastegar-Pouyani 2018 — Habitat suitability of A. grayanus and A. pannonicus",
+        "url": "https://doi.org/10.16373/j.cnki.ahr.170064"
+      },
+      {
+        "name": "Tuniyev & Ananjeva 2024 — High herpetological diversity in the Caucasian Ecoregion"
       },
       {
         "name": "The Reptile Database",
@@ -2497,8 +2543,8 @@ export const species: Species[] = [
     "conservation": "საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) მოწყვლადია (VU, კრიტერიუმი B1) — მცირე, დანაწევრებული არეალი. IUCN Red List-ის 2009 წლის შეფასებით ახლოსაა საფრთხესთან (Near Threatened). 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. პოპულაციები ხშირად იზოლირებულია. საფრთხედ ლიტერატურაში დასახელებულია ჰაბიტატის გარდაქმნა და ურბანიზაცია. ჩამონათვალში კანდიდატი სახეობა არ არის.",
     "interaction": "შხამი არ აქვს და ადამიანისთვის უვნებელია. კბენა მცირე ხვლიკისგან სამედიცინო საფრთხეს არ წარმოადგენს. არ აიყვანოთ: კუდი ადვილად წყდება, ხოლო სხვა Darevskia-სთან აღრევა საველედ ხშირია. გადაიღეთ ფოტო თავის, გვერდისა და კლოაკის მიდამოზე და დატოვეთ ადგილზე.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/darevskia-dahli.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/darevskia-dahli-mobile.jpg",
+    "image": "https://cdn.reptiles.ge/darevskia-dahli-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-dahli-2.jpg",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/darevskia-dahli.jpg"
@@ -2584,7 +2630,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ თავი, გვერდი და კლოაკის მიდამო და დატოვეთ. არ აიყვანოთ. სხვა კლდის ხვლიკთან აღრევა ჩვეულებრივია — ფერი საკმარისი არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T12:08:45+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -2647,8 +2693,16 @@ export const species: Species[] = [
     "interaction": "შხამი არ აქვს და ადამიანისთვის სამედიცინოდ უვნებელია. შეიძლება უკბინოს, თუ დაიჭერთ; ნაკბენი მტკივნეულია, მაგრამ შხამიანი არ არის. ფოტო გადაიღეთ შორიდან და დატოვეთ ადგილზე.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/darevskia-derjugini.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/darevskia-derjugini-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg",
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-26"
+    },
     "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini.jpg"
+      },
       {
         "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg",
         "credit": {
@@ -2680,9 +2734,6 @@ export const species: Species[] = [
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
           "date": "2015-05-26"
         }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/darevskia-derjugini.jpg"
       },
       {
         "src": "https://cdn.reptiles.ge/darevskia-derjugini-2.jpg"
@@ -2761,7 +2812,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ ხვლიკი კლდის ვერტიკალზეა ბრტყელი თავით — ეს სხვა Darevskiaა, არა აუცილებლად ეს სახეობა."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-28T12:08:45+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6769,7 +6820,7 @@ export const species: Species[] = [
         "answer": "დღისით. სახეობის დონეზე გამოღვიძება სამხრეთსა და მთაში დაახლოებით მარტ–აპრილშია; კავკასიაში მწვანე ლაცერტების პიკი მაისშია აღწერილი. ეს ყველა ადგილის კალენდარი არ არის."
       }
     ],
-    "updatedAt": "2026-08-19T11:40:55+04:00",
+    "updatedAt": "2026-08-28T12:08:45+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6818,17 +6869,19 @@ export const species: Species[] = [
     "conservation": "IUCN-მა 2009 წელს ნაკლებად საფრთხის ქვეშ შეაფასა (Agasyan და თანაავტორები) ფართო არეალისა და სავარაუდოდ დიდი პოპულაციის გამო. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. Tarkhnishvili et al. 2026 კანდიდატად იღებს: ცალკე სტატუსს ირიბად უჭერს მხარს ფილოგენია და პარაპატრია დასავლეთ ანატოლიაში, მაგრამ საკონტაქტო ზონა L. trilineata-ს ჯგუფთან შეუსწავლელია (Ahmadzadeh et al. 2013). ციტოქრომ b-ის სხვაობა L. trilineata-სთან 6.5%-მდეა — ეს ამ ატლასში სახეობრივ რანგს არ ადასტურებს. Cyrén-მა 1933 წელს სახეობად აიყვანა; მოგვიანებით ხშირად L. trilineata-ს ქვესახეობად რჩებოდა, სანამ Schmidtler (1986) სახეობრივ რანგს აღადგენდა. საქართველოსთვის ადგილობრივი საფრთხეები აქ არ არის გაზომილი; ჰაბიტატის გარდაქმნა აშკარა წნეხია. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
     "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ. ველური ცხოველი არ გეყოლოთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/lacerta-media.jpg",
+    "image": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
     "imageCredit": {
-      "photographer": "reisegali",
-      "url": "https://www.inaturalist.org/observations/212425978"
-    },
-    "mobileImage": "https://cdn.reptiles.ge/lacerta-media-mobile.jpg",
-    "mobileImageCredit": {
-      "photographer": "Dr. Fabio Mao Valletta",
-      "url": "https://www.inaturalist.org/observations/134144756"
+      "photographer": "Vojtěch Víta",
+      "url": "https://www.inaturalist.org/observations/240512685"
     },
     "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/240512685"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/lacerta-media.jpg",
         "credit": {
@@ -6841,13 +6894,6 @@ export const species: Species[] = [
         "credit": {
           "photographer": "Yaman Omran",
           "url": "https://www.inaturalist.org/observations/68053814"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
-        "credit": {
-          "photographer": "Vojtěch Víta",
-          "url": "https://www.inaturalist.org/observations/240512685"
         }
       }
     ],
@@ -6926,7 +6972,7 @@ export const species: Species[] = [
         "answer": "დღისით. ქართული სეზონური კალენდარი ამ გვერდზე არ არის. სხვა რეგიონებში გაზაფხულიდან შემოდგომამდეა აღწერილი — ეს ყველა ქართული ადგილის კალენდარი არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T12:08:45+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -9747,7 +9793,7 @@ export const species: Species[] = [
         "answer": "საქართველოს წითელ ნუსხაში EN A2aა. გლობალურად Least Concern (2021). ველური ამფიბია არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T12:08:45+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -12240,7 +12286,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და სხვა გუბეში არ გადაიტანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T12:08:45+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -14221,57 +14267,78 @@ export const species: Species[] = [
 export const speciesEn: Record<string, SpeciesTranslation> = {
   "ablepharus-pannonicus": {
     "commonName": "Asian Snake-Eyed Skink",
-    "location": "Vashlovani — a single historical record",
-    "description": "A tiny snake-eyed skink — in Georgia only a 1973 Vashlovani record; no later confirmation.",
-    "overview": "The Asian snake-eyed skink (Ablepharus pannonicus) is a small scincid. Tarkhnishvili et al. 2026 list it as biologically confirmed, with a broad range in western and Central Asia. In Georgia, Bakradze and Darevsky (1973) reported it from Vashlovani Nature Reserve (eastern Georgia). No further confirmation is available; the checklist has no barcoded specimen. It is harmless to people.",
-    "habitat": "The only cited locality is Vashlovani Nature Reserve. Habitat type is not expanded in the checklist; other regions are not assigned here.",
-    "diet": "Small invertebrates; the checklist does not specify diet.",
-    "behavior": "A tiny, secretive skink with fused eyelids (“snake eye”). Do not confuse it with the snake-eyed lizard (Ophisops) or Schneider’s skink.",
-    "conservation": "The species is confirmed on the checklist, but the Georgian record is a single unreplicated report. No global IUCN category is given on this page.",
+    "location": "Vashlovani, Kakheti — a single historical record",
+    "description": "A tiny, harmless skink with fused eyelids. In Georgia only a 1973 Vashlovani record; no later confirmation.",
+    "overview": "The Asian snake-eyed skink (Ablepharus pannonicus) is a tiny harmless skink with fused eyelids, known in Georgia only from a 1973 Vashlovani record. No later confirmation is available. It belongs to the skink family (Scincidae). Georgia’s 2014 Red List names it აზიური შიშველთვალა and lists it as Critically Endangered (CR D2) because the national range is a point locality. The 2026 Georgian checklist treats the species as biologically confirmed but has no barcoded specimen. Globally IUCN lists it as Least Concern; that does not replace the national CR status. The species ranges across western and Central Asia. Do not expect it across Georgia. It is harmless to people.",
+    "habitat": "The only named Georgian locality is Vashlovani Nature Reserve in eastern Georgia — today’s Kakheti. The source is Bakradze and Darevsky (1973). Tarkhnishvili et al. 2026 state that no further confirmation is available. The map on this atlas marks Kakheti as the region of that record; it does not mean the species is widespread or currently present throughout Kakheti. No other administrative regions are assigned here. Some protected-area texts still present it as a Caucasian rarity of Vashlovani; that repeats the same historical record, not a new field confirmation. Habitat type is not described in the Georgian checklist. Elsewhere in the range (for example Iran) it is often found in semi-desert, steppe, mountain slopes, leaf litter and rocky ground; that is not a measured Georgian habitat. Elevation in Georgia is not published. A small “snake-eyed” skink in Vashlovani today would need documentation; it would not automatically confirm the old record.",
+    "diet": "No Georgian stomach-content study is published for this species. Elsewhere, Anderson (1999) lists small beetles, acridids and ants. Small invertebrates are expected, but the Georgian diet has not been measured.",
+    "behavior": "The Reptile Database treats the species as diurnal. The body is slender and the limbs are short, so it often moves under leaf litter or stones and is easy to miss. No separate hourly or seasonal calendar is published for Georgia. In western Iran, ovaries are active in spring and sexual activity is absent in autumn; the authors suggest fat storage before winter. That is Iranian seasonality, not a Vashlovani measurement. It lays eggs (eggshell glands are described); clutch size in Georgia is unknown. The tail can be shed; a short or regenerated tail does not change the identification. Do not confuse it with the snake-eyed lizard (Ophisops elegans): that species also has fused eyelids, but it is a lacertid — larger and fast on open ground. Schneider’s skink (Eumeces schneiderii) is in the same family but much larger, with a visible eyelid ring. The slow worm (Anguis colchica) has no limbs. The two-streaked snake-eyed skink (Ablepharus bivittatus) is not on the 2026 Georgian checklist; it is known from Armenia, Azerbaijan and northern Iran.",
+    "conservation": "Georgia’s 2014 Red List (Resolution No. 190) lists the species as Critically Endangered (CR D2), based on a very restricted (point) range. That national status follows from a single, narrow locality. The IUCN Red List places the species globally as Least Concern because the Asian range is wide. A 2024 Caucasian ecoregion review also uses LC and names south-east Georgia (Vashlovani). That does not cancel the 2014 Georgian CR D2 listing. The 2026 checklist treats it as biologically confirmed; distribution confidence is medium; there is no barcode. If a Georgian population still exists, it is likely very small or local — an inference, not a new census. Do not handle it.",
+    "interaction": "It has no venom and is harmless to people. Do not pick it up: the animal is small, easily injured, and may drop its tail. Photograph the back and side at close range, note the locality, and leave it where it is. A new Vashlovani record needs a documented scientific report.",
     "stats": [
       {
         "label": "Habitat",
         "value": "Vashlovani (1973)"
       },
       {
+        "label": "Length",
+        "value": "SVL ~3.5–6 cm"
+      },
+      {
         "label": "Venom",
         "value": "None — harmless"
       },
       {
-        "label": "Family",
-        "value": "Scincidae"
+        "label": "Conservation",
+        "value": "CR D2 (Georgia)"
       },
       {
         "label": "Checklist",
         "value": "Confirmed"
+      },
+      {
+        "label": "Family",
+        "value": "Scincidae"
       }
     ],
     "facts": [],
     "identification": {
-      "summary": "A very small skink with fused eyelids. In Georgia only the historical Vashlovani record is cited.",
+      "summary": "A very small, smooth-scaled skink with fused eyelids. In Georgia only the historical Vashlovani record is cited; the hero photograph on this page is not a field-guide portrait.",
       "traits": [
-        "Fused eyelids — a “snake-eyed” look.",
-        "Smooth skink scales; short limbs and a slender body.",
-        "Much smaller than Schneider’s skink.",
-        "Harmless to people."
+        "The eyelids are fused into a transparent spectacle — the animal cannot blink, so the eye looks like a snake’s. The genus name refers to this lidless (ablepharine) eye.",
+        "The body is slender and elongate, with smooth, shiny scales. Limbs are short but five-toed — it is not legless. The ear opening is minute. Dorsum is often bronze-olive, sometimes with three dark longitudinal lines; a dark, light-edged band runs through the eye along the side. Underside greenish-white. That colour description is Anderson’s species-level account, not a measurement of a Georgian specimen.",
+        "It is tiny. At genus level, snout–vent length is usually up to about 6 cm (Greer 1974). Anderson often gives about 3.5 cm SVL and about 9.5 cm total length. No published length exists for a Georgian specimen.",
+        "The snake-eyed lizard (Ophisops elegans) occurs sporadically in the south-east; it is a lacertid, not a skink — different scales, larger and faster. Schneider’s skink (Eumeces schneiderii) is the same family but several times larger as an adult, with a visible eyelid ring. The slow worm is legless. If the lizard can blink, it is not this species."
       ]
     },
     "faq": [
       {
         "question": "Does it occur in Georgia?",
-        "answer": "The checklist cites Bakradze and Darevsky (1973) from Vashlovani Nature Reserve. No further confirmation is available."
+        "answer": "The 2026 checklist retains the species from Bakradze and Darevsky (1973) at Vashlovani Nature Reserve. No further confirmation is available. That does not remove it from the checklist."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Harmless. It has no venom."
+        "question": "Where might I see it in Georgia?",
+        "answer": "The only named place is Vashlovani (Kakheti). No other region is assigned here. Even there, a present-day encounter is unconfirmed."
       },
       {
-        "question": "Why is the record weak?",
-        "answer": "Tarkhnishvili et al. 2026 state that no further confirmation is available. That does not remove the species from the checklist."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. Do not handle it — it is small and easily injured."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "It is a very small lizard. Literature often gives about 3.5 cm snout–vent length, with a genus-level upper figure near 6 cm. The Georgian specimen was not measured in sources used here."
       },
       {
         "question": "How does it differ from the snake-eyed lizard?",
-        "answer": "Ophisops is a lacertid with fused eyelids, but a larger, fast lizard of open ground. Ablepharus is a tiny skink with smooth scales."
+        "answer": "Both have fused eyelids. Ablepharus is a tiny skink with smooth scales and short limbs. Ophisops is a larger, fast lacertid of open ground."
+      },
+      {
+        "question": "Why is it listed as CR on the Georgian Red List?",
+        "answer": "The 2014 list uses CR D2 because of a point range — one narrow locality in the country. Globally IUCN lists it as LC because the Asian range is wide."
+      },
+      {
+        "question": "Why is it called snake-eyed?",
+        "answer": "The eyelids are fused and transparent, so the eye resembles a snake’s. It is not a snake. The Red List Georgian name is აზიური შიშველთვალა."
       }
     ],
     "gallery": [
@@ -16134,6 +16201,9 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "https://cdn.reptiles.ge/darevskia-derjugini.jpg"
+      },
+      {
         "src": "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg",
         "credit": {
           "photographer": "ზაური ხაჩიძე",
@@ -16166,15 +16236,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/darevskia-derjugini.jpg"
-      },
-      {
         "src": "https://cdn.reptiles.ge/darevskia-derjugini-2.jpg"
       },
       {
         "src": "https://cdn.reptiles.ge/darevskia-derjugini-3.jpg"
       }
-    ]
+    ],
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-26"
+    }
   },
   "darevskia-mixta": {
     "commonName": "Mixed Rock Lizard",
@@ -19222,6 +19294,13 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
+        "credit": {
+          "photographer": "Vojtěch Víta",
+          "url": "https://www.inaturalist.org/observations/240512685"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/lacerta-media.jpg",
         "credit": {
           "photographer": "reisegali",
@@ -19234,22 +19313,11 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "Yaman Omran",
           "url": "https://www.inaturalist.org/observations/68053814"
         }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/lacerta-media-3.jpg",
-        "credit": {
-          "photographer": "Vojtěch Víta",
-          "url": "https://www.inaturalist.org/observations/240512685"
-        }
       }
     ],
     "imageCredit": {
-      "photographer": "reisegali",
-      "url": "https://www.inaturalist.org/observations/212425978"
-    },
-    "mobileImageCredit": {
-      "photographer": "Dr. Fabio Mao Valletta",
-      "url": "https://www.inaturalist.org/observations/134144756"
+      "photographer": "Vojtěch Víta",
+      "url": "https://www.inaturalist.org/observations/240512685"
     }
   },
   "lacerta-strigata": {

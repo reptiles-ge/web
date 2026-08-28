@@ -2,6 +2,14 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
+  "ablepharus-pannonicus": {
+    ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
+    en: [
+      "Asian snake-eyed skink",
+      "lidless skink",
+      "snake-eyed skink",
+    ],
+  },
   "vipera-dinniki": {
     ka: ["დინიკის გველგესლა", "Pelias dinniki"],
     en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],

@@ -261,6 +261,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "ablepharus-pannonicus": [
     "ophisops-elegans",
     "eumeces-schneiderii",
+    "anguis-colchica",
   ],
   "eremias-velox": ["eremias-arguta"],
   "eremias-arguta": ["eremias-velox"],
