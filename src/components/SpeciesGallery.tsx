@@ -3,12 +3,13 @@
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { hasPhotoCredit, type GalleryImage } from "@/data/species";
+import { trackEvent } from "@/lib/analytics";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SpeciesGalleryProps = {
   images: GalleryImage[];
@@ -16,6 +17,7 @@ type SpeciesGalleryProps = {
   scientificName: string;
   location: string;
   tone?: "background" | "surface";
+  speciesId: string;
 };
 
 export function SpeciesGallery({
@@ -24,10 +26,12 @@ export function SpeciesGallery({
   scientificName,
   location,
   tone = "background",
+  speciesId,
 }: SpeciesGalleryProps) {
   const t = useTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
   const [active, setActive] = useState<number | null>(null);
+  const opened = useRef(false);
 
   useEffect(() => {
     if (active === null) return;
@@ -110,7 +114,17 @@ export function SpeciesGallery({
                 >
                   <button
                     type="button"
-                    onClick={() => setActive(index)}
+                    onClick={() => {
+                      if (!opened.current) {
+                        opened.current = true;
+                        trackEvent("gallery_open", {
+                          species_id: speciesId,
+                          image_count: photos.length,
+                          image_index: index,
+                        });
+                      }
+                      setActive(index);
+                    }}
                     className="absolute inset-0 w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                     aria-label={photoAlt}
                   >

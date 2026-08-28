@@ -167,6 +167,7 @@ export function VenomousSnakesPage({
           title={t("quizCtaTitle")}
           body={t("quizCtaBody")}
           cta={t("quizCta")}
+          source="other"
         />
 
         <section id="species" className="scroll-mt-28 bg-background py-20 lg:py-28">
