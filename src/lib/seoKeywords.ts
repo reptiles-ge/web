@@ -544,6 +544,25 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Cuculus canorus canorus",
     ],
   },
+  "buteo-buteo": {
+    ka: [
+      "კაკაჩა",
+      "ჩვეულებრივი არწივი",
+      "სტეპის კაკაჩა",
+      "ქორისებრნი",
+      "Buteo buteo vulpinus",
+      "Buteo buteo menetriesi",
+      "Falco buteo",
+    ],
+    en: [
+      "Eurasian buzzard",
+      "steppe buzzard",
+      "common eagle",
+      "Buteo buteo vulpinus",
+      "Buteo buteo menetriesi",
+      "Falco buteo",
+    ],
+  },
   "strix-aluco": {
     ka: [
       "ტყის ბუ",

@@ -233,6 +233,7 @@ export const featuredSpeciesIds = [
   "strix-aluco",
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
+  "buteo-buteo",
   "ciconia-ciconia",
   "aquila-chrysaetos",
   "accipiter-nisus",

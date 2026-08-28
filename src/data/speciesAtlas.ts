@@ -321,6 +321,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest"],
   },
+  "buteo-buteo": {
+    group: "bird",
+    habitats: ["forest", "grassland", "mountain"],
+  },
   "accipiter-nisus": {
     group: "bird",
     habitats: ["forest", "grassland"],

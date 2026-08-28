@@ -57,6 +57,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
   "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
   "accipiter-nisus": ["mimino", "korisebri-mimino"],
+  "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
@@ -338,6 +339,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-raddei": ["darevskia-obscura"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
+  "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus"],
   "vulpes-vulpes": ["canis-lupus"],
 };
 
