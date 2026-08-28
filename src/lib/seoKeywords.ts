@@ -201,22 +201,6 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Darevskia parvula adjarica",
     ],
   },
-  "darevskia-clarkorum": {
-    ka: [
-      "ჭარნალის ხვლიკი",
-      "Darevskia dryada",
-      "Lacerta clarkorum",
-      "Lacerta dryada",
-    ],
-    en: [
-      "Clark's lizard",
-      "Clarks' lizard",
-      "Charnali lizard",
-      "Darevskia dryada",
-      "Lacerta clarkorum",
-      "Lacerta dryada",
-    ],
-  },
   "darevskia-praticola": {
     ka: [
       "მდელოს ხვლიკი",
