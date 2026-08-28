@@ -2,15 +2,17 @@
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import type { SpeciesSource } from "@/data/species";
+import { trackEvent } from "@/lib/analytics";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 type SpeciesSourcesProps = {
   sources: SpeciesSource[];
+  speciesId: string;
 };
 
-export function SpeciesSources({ sources }: SpeciesSourcesProps) {
+export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
   const t = useTranslations("profile");
 
   if (sources.length === 0) return null;
@@ -48,6 +50,12 @@ export function SpeciesSources({ sources }: SpeciesSourcesProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition-colors hover:text-primary"
+                    onClick={() =>
+                      trackEvent("source_click", {
+                        species_id: speciesId,
+                        link_type: "source",
+                      })
+                    }
                   >
                     {source.name}
                   </a>

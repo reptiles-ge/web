@@ -1,6 +1,7 @@
 "use client";
 
 import { hasPhotoCredit, type PhotoCredit } from "@/data/species";
+import { trackEvent } from "@/lib/analytics";
 import type { AppLocale } from "@/i18n/routing";
 import { formatPhotoDate } from "@/lib/formatDate";
 import { useLocale, useTranslations } from "next-intl";
@@ -9,12 +10,14 @@ type PhotoCreditCaptionProps = {
   credit?: PhotoCredit;
   variant?: "hero" | "thumb" | "lightbox";
   className?: string;
+  speciesId?: string;
 };
 
 export function PhotoCreditCaption({
   credit,
   variant = "thumb",
   className = "",
+  speciesId,
 }: PhotoCreditCaptionProps) {
   const t = useTranslations("profile");
   const locale = useLocale() as AppLocale;
@@ -29,7 +32,15 @@ export function PhotoCreditCaption({
         target="_blank"
         rel="noopener noreferrer"
         className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
-        onClick={(event) => event.stopPropagation()}
+        onClick={(event) => {
+          event.stopPropagation();
+          if (speciesId) {
+            trackEvent("source_click", {
+              species_id: speciesId,
+              link_type: "photo_credit",
+            });
+          }
+        }}
       >
         {credit.photographer}
       </a>

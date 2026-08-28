@@ -187,7 +187,11 @@ export function SpeciesProfile({
               className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
               style={{ top: "5.75rem" }}
             >
-              <PhotoCreditCaption credit={heroCredit} variant="hero" />
+              <PhotoCreditCaption
+                credit={heroCredit}
+                variant="hero"
+                speciesId={species.id}
+              />
             </div>
           ) : null}
           {mobileHeroCredit && mobileHeroSrc ? (
@@ -195,7 +199,11 @@ export function SpeciesProfile({
               className="pointer-events-none absolute right-6 z-[5] lg:hidden"
               style={{ top: "5.25rem" }}
             >
-              <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
+              <PhotoCreditCaption
+                credit={mobileHeroCredit}
+                variant="hero"
+                speciesId={species.id}
+              />
             </div>
           ) : null}
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">

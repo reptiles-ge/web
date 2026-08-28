@@ -14,6 +14,7 @@ import {
   splitHubSpecies,
 } from "@/lib/clusterGuides";
 import { quizHref } from "@/lib/quizzes";
+import { trackEvent } from "@/lib/analytics";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
@@ -392,7 +393,17 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                     <button
                       type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
+                      onClick={() => {
+                        const next = isOpen ? null : index;
+                        setOpen(next);
+                        if (next !== null) {
+                          trackEvent("faq_open", {
+                            page_type: "hub",
+                            entity_id: hubId,
+                            faq_index: next,
+                          });
+                        }
+                      }}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
                       <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">

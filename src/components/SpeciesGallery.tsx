@@ -146,7 +146,11 @@ export function SpeciesGallery({
                       </span>
                     ) : null}
                   </button>
-                  <PhotoCreditCaption credit={photo.credit} variant="thumb" />
+                  <PhotoCreditCaption
+                    credit={photo.credit}
+                    variant="thumb"
+                    speciesId={speciesId}
+                  />
                 </figure>
               );
             })}
@@ -227,6 +231,7 @@ export function SpeciesGallery({
               <PhotoCreditCaption
                 credit={activePhoto.credit}
                 variant="lightbox"
+                speciesId={speciesId}
               />
               <p className="text-[12px] tracking-[0.2em] text-white/35">
                 {active + 1} / {photos.length}

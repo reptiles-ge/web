@@ -2,6 +2,7 @@
 
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
+import { trackEvent } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -97,6 +98,9 @@ export function ContactPage() {
               <a
                 href="mailto:nika@shamiladze.com"
                 className="group inline-flex max-w-full items-center gap-3"
+                onClick={() =>
+                  trackEvent("contact_click", { page_type: "contact" })
+                }
               >
                 <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
                   nika@shamiladze.com
