@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import {
   getRegionsForSpecies,
@@ -14,7 +15,6 @@ import { speciesImageAlt } from "@/lib/speciesMeta";
 import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function SpeciesGuideRow({
@@ -60,14 +60,13 @@ export function SpeciesGuideRow({
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
     >
       <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
-        <Image
+        <CoverImage
           src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          fill
           sizes="(max-width: 640px) 100vw, 144px"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />

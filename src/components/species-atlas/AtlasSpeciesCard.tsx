@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import {
   getSpeciesAtlasMeta,
@@ -16,7 +17,6 @@ import { trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 type AtlasSpeciesCardProps = {
@@ -71,17 +71,14 @@ export function AtlasSpeciesCard({
 
       <div className="relative aspect-[4/5] overflow-hidden bg-ink sm:aspect-[5/6]">
         {imageSrc ? (
-          <Image
+          <CoverImage
             src={imageSrc}
             alt={speciesImageAlt(
               species.commonName,
               species.scientificName,
               species.location,
             )}
-            fill
             priority={eager}
-            loading={eager ? "eager" : "lazy"}
-            quality={75}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />

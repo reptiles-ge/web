@@ -39,7 +39,6 @@ import {
 } from "@/lib/speciesMeta";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { pictureSources } from "@/data/optimizedImages";
-import { pickOptimizedImages } from "@/lib/optimizedImages";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -279,17 +278,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           }
         : null;
 
-    const { gallery, mobileHeroSrc, desktopHeroSrc } =
+    const { mobileHeroSrc, desktopHeroSrc } =
       getSpeciesHeroSources(raw);
-    const optimized = pickOptimizedImages([
-      desktopHeroSrc,
-      mobileHeroSrc,
-      ...gallery.map((photo) => photo.src),
-    ]);
-
     const heroPreload = (src: string | null, media?: string) => {
       if (!src) return null;
-      const best = pictureSources(optimized, src, {
+      const best = pictureSources(src, {
         sizes: "100vw",
         ...(media ? { media } : {}),
       })[0];
@@ -332,11 +325,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
           )}
         />
-        <SpeciesProfile
-          species={raw}
-          related={related}
-          optimized={optimized}
-        />
+        <SpeciesProfile species={raw} related={related} />
       </>
     );
   }

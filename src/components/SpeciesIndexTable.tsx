@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import {
   getRegionsForSpecies,
@@ -17,7 +18,6 @@ import {
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 
@@ -208,14 +208,13 @@ export function SpeciesIndexTable({
                       <td className="py-3 pr-4">
                         <Link href={href} className="block" onClick={onClick}>
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
-                            <Image
+                            <CoverImage
                               src={item.mobileImage ?? item.image}
                               alt={speciesImageAlt(
                                 item.commonName,
                                 item.scientificName,
                                 item.location,
                               )}
-                              fill
                               sizes="56px"
                               className="object-cover"
                             />
@@ -307,14 +306,13 @@ function IndexCard({
       className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
     >
       <span className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square">
-        <Image
+        <CoverImage
           src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          fill
           sizes="(max-width: 640px) 100vw, 88px"
           className="object-cover"
         />

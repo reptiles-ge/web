@@ -1,6 +1,7 @@
 "use client";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
@@ -48,10 +49,9 @@ export function ClusterPageFrame({
           className="relative flex min-h-[88svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-16 lg:min-h-[92svh] lg:pb-20"
           style={{ paddingTop: "7rem" }}
         >
-          <Image
+          <CoverImage
             src={heroSrc}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
             className={`object-cover ${heroObjectClass}`}

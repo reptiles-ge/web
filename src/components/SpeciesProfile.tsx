@@ -15,10 +15,7 @@ import {
   resolvePhotoCredit,
   type Species,
 } from "@/data/species";
-import {
-  pictureSources,
-  type OptimizedImageMap,
-} from "@/data/optimizedImages";
+import { pictureSources } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { usesDangerScale } from "@/lib/speciesRisk";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -57,13 +54,11 @@ import { useEffect, useMemo } from "react";
 type SpeciesProfileProps = {
   species: Species;
   related: Species[];
-  optimized?: OptimizedImageMap;
 };
 
 export function SpeciesProfile({
   species: rawSpecies,
   related: rawRelated,
-  optimized = {},
 }: SpeciesProfileProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("profile");
@@ -91,15 +86,13 @@ export function SpeciesProfile({
   }, [species, t, tHubs]);
   const { gallery, primary, mobileHeroSrc, desktopHeroSrc } =
     getSpeciesHeroSources(species);
-  const heroDesktopSources = pictureSources(optimized, desktopHeroSrc, {
+  const heroDesktopSources = pictureSources(desktopHeroSrc, {
     sizes: "100vw",
     media: "(min-width: 1024px)",
   });
-  const heroPrimarySources = pictureSources(
-    optimized,
-    mobileHeroSrc ?? desktopHeroSrc,
-    { sizes: "100vw" },
-  );
+  const heroPrimarySources = pictureSources(mobileHeroSrc ?? desktopHeroSrc, {
+    sizes: "100vw",
+  });
   const heroCredit = resolvePhotoCredit(
     species.imageCredit,
     primary?.credit,
@@ -371,7 +364,6 @@ export function SpeciesProfile({
           location={species.location}
           tone="background"
           speciesId={species.id}
-          optimized={optimized}
         />
         ) : null}
 

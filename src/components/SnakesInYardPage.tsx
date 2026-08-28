@@ -1,6 +1,7 @@
 "use client";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
@@ -47,10 +48,9 @@ export function SnakesInYardPage({
           className="relative flex min-h-[88svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-16 lg:min-h-[92svh] lg:pb-20"
           style={{ paddingTop: "7rem" }}
         >
-          <Image
+          <CoverImage
             src={heroSrc}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
                 className="object-cover object-[50%_45%]"
@@ -156,10 +156,9 @@ export function SnakesInYardPage({
             </Reveal>
             <Reveal delay={80}>
               <figure className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-ink sm:aspect-[5/6]">
-                <Image
+                <CoverImage
                   src={coverSrc}
                   alt={t("coverImageAlt")}
-                  fill
                   sizes="(max-width: 1024px) 100vw, 44vw"
                   className="object-cover"
                 />

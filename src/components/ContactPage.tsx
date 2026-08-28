@@ -1,12 +1,12 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -23,10 +23,9 @@ export function ContactPage() {
             animate={{ scale: 1 }}
             transition={{ duration: 1.6, ease }}
           >
-            <Image
+            <CoverImage
               src={images.cta}
               alt={t("imageAlt")}
-              fill
               priority
               sizes="(max-width: 1024px) 100vw, 55vw"
               className="object-cover"

@@ -1,6 +1,7 @@
 "use client";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
@@ -62,10 +63,9 @@ export function VenomousSnakesPage({
             paddingTop: "7rem",
           }}
         >
-          <Image
+          <CoverImage
             src={heroSrc}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
             className="object-cover object-[50%_35%]"

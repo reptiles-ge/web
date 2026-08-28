@@ -37,7 +37,7 @@ import {
   ShieldAlert,
   X,
 } from "lucide-react";
-import Image from "next/image";
+import { CoverImage } from "@/components/CoverImage";
 import { useLocale, useTranslations } from "next-intl";
 import {
   startTransition,
@@ -156,10 +156,9 @@ function Thumb({
 
   return (
     <span className="relative size-12 shrink-0 overflow-hidden rounded-[14px] bg-ink">
-      <Image
+      <CoverImage
         src={item.image}
         alt=""
-        fill
         sizes="48px"
         className="object-cover transition-transform duration-500 group-hover/item:scale-105"
       />

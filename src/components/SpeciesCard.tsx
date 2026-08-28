@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
@@ -9,7 +10,6 @@ import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { MapPin } from "lucide-react";
 import { useLocale } from "next-intl";
-import Image from "next/image";
 
 type SpeciesCardProps = {
   species: Species;
@@ -37,15 +37,13 @@ export function SpeciesCard({
       }
       className="group relative block h-[560px] w-[320px] shrink-0 overflow-hidden rounded-[28px] bg-ink sm:w-[380px]"
     >
-      <Image
+      <CoverImage
         src={cover}
         alt={speciesImageAlt(
           species.commonName,
           species.scientificName,
           species.location,
         )}
-        fill
-        quality={90}
         sizes="(max-width: 640px) 320px, 380px"
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
       />

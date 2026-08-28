@@ -1,11 +1,11 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const SOURCE_LINKS = [
   {
@@ -36,10 +36,9 @@ export function AboutPage() {
             paddingTop: "7rem",
           }}
         >
-          <Image
+          <CoverImage
             src={images.cta}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
             className="object-cover"

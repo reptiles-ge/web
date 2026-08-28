@@ -1,6 +1,7 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { Species } from "@/data/species";
@@ -10,7 +11,6 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 export function TurtleIdentifyPage({
@@ -193,14 +193,13 @@ function TurtleCard({
   return (
     <Link href={speciesHref(species.id, locale)} className="group block">
       <span className="relative block aspect-[5/4] overflow-hidden rounded-2xl bg-ink">
-        <Image
+        <CoverImage
           src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          fill
           sizes="(max-width: 1024px) 80vw, 360px"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />

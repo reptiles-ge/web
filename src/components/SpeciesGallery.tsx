@@ -3,10 +3,7 @@
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { hasPhotoCredit, type GalleryImage } from "@/data/species";
-import {
-  pictureSources,
-  type OptimizedImageMap,
-} from "@/data/optimizedImages";
+import { pictureSources } from "@/data/optimizedImages";
 import { trackEvent } from "@/lib/analytics";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -21,7 +18,6 @@ type SpeciesGalleryProps = {
   location: string;
   tone?: "background" | "surface";
   speciesId: string;
-  optimized?: OptimizedImageMap;
 };
 
 export function SpeciesGallery({
@@ -31,7 +27,6 @@ export function SpeciesGallery({
   location,
   tone = "background",
   speciesId,
-  optimized = {},
 }: SpeciesGalleryProps) {
   const t = useTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
@@ -134,10 +129,10 @@ export function SpeciesGallery({
                     aria-label={photoAlt}
                   >
                     <picture>
-                      {pictureSources(optimized, photo.src, {
+                      {pictureSources(photo.src, {
                         sizes: featured
-                          ? "100vw"
-                          : "(max-width: 768px) 50vw, 33vw",
+                          ? "(max-width: 1480px) 100vw, 1400px"
+                          : "(max-width: 768px) 50vw, (max-width: 1480px) 33vw, 460px",
                       }).map((source) => (
                         <source key={source.key} {...source.props} />
                       ))}
@@ -224,8 +219,8 @@ export function SpeciesGallery({
           >
             <div className="relative min-h-0 flex-1">
               <picture>
-                {pictureSources(optimized, activePhoto.src, {
-                  sizes: "92vw",
+                {pictureSources(activePhoto.src, {
+                  sizes: "(max-width: 1196px) 92vw, 1100px",
                 }).map((source) => (
                   <source key={source.key} {...source.props} />
                 ))}

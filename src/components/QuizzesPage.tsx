@@ -1,3 +1,4 @@
+import { CoverImage } from "@/components/CoverImage";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -5,7 +6,6 @@ import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
 import { quizHref } from "@/lib/quizzes";
 import { ArrowRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 export type QuizCardModel = QuizDefinition & {
   image: string;
@@ -157,10 +157,9 @@ function FeaturedQuizCard({
   const inner = (
     <div className="grid sm:grid-cols-[14rem_1fr] lg:grid-cols-[18rem_1fr]">
       <div className="relative h-44 sm:h-auto">
-        <Image
+        <CoverImage
           src={item.image}
           alt={item.imageAlt}
-          fill
           priority
           sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 100vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"

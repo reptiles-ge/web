@@ -1,21 +1,20 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 export function FinalCTA() {
   const t = useTranslations("cta");
 
   return (
     <section className="relative flex min-h-[78svh] items-center overflow-hidden bg-ink lg:min-h-[85svh]">
-      <Image
+      <CoverImage
         src={images.cta}
         alt={t("imageAlt")}
-        fill
         sizes="100vw"
         className="object-cover object-center"
       />

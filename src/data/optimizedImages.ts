@@ -1,37 +1,39 @@
+import { optimizedBaseUrl, optimizedImages } from "./optimizedImages.generated";
+
 export type OptimizedImageFormat = "avif" | "webp";
 
-export type OptimizedImageSource = {
-  format: OptimizedImageFormat;
-  url: string;
+export type OptimizedImageEntry = {
+  path: string;
   width: number;
   height: number;
+  widths: number[];
 };
-
-export type OptimizedImageAsset = {
-  width: number;
-  height: number;
-  sources: OptimizedImageSource[];
-};
-
-export type OptimizedImageMap = Record<string, OptimizedImageAsset>;
 
 export const OPTIMIZED_IMAGE_FORMATS: OptimizedImageFormat[] = ["avif", "webp"];
 
-export const OPTIMIZED_IMAGE_MIME_TYPES: Record<OptimizedImageFormat, string> = {
-  avif: "image/avif",
-  webp: "image/webp",
-};
+export const OPTIMIZED_IMAGE_MIME_TYPES: Record<OptimizedImageFormat, string> =
+  {
+    avif: "image/avif",
+    webp: "image/webp",
+  };
+
+export function optimizedEntry(
+  src: string | null | undefined,
+): OptimizedImageEntry | null {
+  if (!src) return null;
+  return optimizedImages[src] ?? null;
+}
 
 export function optimizedSrcSet(
-  asset: OptimizedImageAsset,
+  entry: OptimizedImageEntry,
   format: OptimizedImageFormat,
-): string | null {
-  const candidates = asset.sources
-    .filter((source) => source.format === format)
-    .sort((a, b) => a.width - b.width)
-    .map((source) => `${source.url} ${source.width}w`);
-
-  return candidates.length === 0 ? null : candidates.join(", ");
+): string {
+  return entry.widths
+    .map(
+      (width) =>
+        `${optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
+    )
+    .join(", ");
 }
 
 export type PictureSource = {
@@ -45,27 +47,19 @@ export type PictureSource = {
 };
 
 export function pictureSources(
-  optimized: OptimizedImageMap,
   src: string | null | undefined,
   options: { sizes: string; media?: string },
 ): PictureSource[] {
-  if (!src) return [];
-  const asset = optimized[src];
-  if (!asset) return [];
+  const entry = optimizedEntry(src);
+  if (!entry) return [];
 
-  return OPTIMIZED_IMAGE_FORMATS.flatMap((format) => {
-    const srcSet = optimizedSrcSet(asset, format);
-    if (!srcSet) return [];
-    return [
-      {
-        key: `${options.media ?? "all"}-${format}`,
-        props: {
-          type: OPTIMIZED_IMAGE_MIME_TYPES[format],
-          srcSet,
-          sizes: options.sizes,
-          ...(options.media ? { media: options.media } : {}),
-        },
-      },
-    ];
-  });
+  return OPTIMIZED_IMAGE_FORMATS.map((format) => ({
+    key: `${options.media ?? "all"}-${format}`,
+    props: {
+      type: OPTIMIZED_IMAGE_MIME_TYPES[format],
+      srcSet: optimizedSrcSet(entry, format),
+      sizes: options.sizes,
+      ...(options.media ? { media: options.media } : {}),
+    },
+  }));
 }
