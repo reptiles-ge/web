@@ -296,7 +296,7 @@ async function generateDataFile(
 ) {
   const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
 
-  const assets: [string, ReturnType<typeof compactAsset>][] = [];
+  const assets: [string, NonNullable<ReturnType<typeof compactAsset>>][] = [];
   let skippedNoGain = 0;
 
   for (const [key, entry] of Object.entries(manifest.entries).sort(([a], [b]) =>
