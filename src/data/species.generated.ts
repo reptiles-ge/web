@@ -3451,22 +3451,22 @@ export const species: Species[] = [
     "scientificName": "Darevskia valentini",
     "genus": "Darevskia",
     "family": "Lacertidae",
-    "location": "ნინოწმინდა — საღამოს ტბა, კირხბულაქი",
-    "description": "ფენოტიპურად განსხვავებული კლდის ხვლიკი obscura/portschinskii-სთან ვიწრო კონტაქტითა და ფართო ინტროგრესიით — ფერი საკმარისი არ არის.",
-    "overview": "ვალენტინის ხვლიკი (Darevskia valentini) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ახლოსაა D. rudis-თან, D. obscura-სა და D. portschinskii-სთან, მაგრამ ფენოტიპურად განსხვავებულია და obscura-სა და portschinskii-სთან ვიწრო საკონტაქტო ზონას ქმნის. საკონტაქტო ზონებში ამ სამ სახეობას შორის ფართო გენთა ინტროგრესიაა. ნომინოტიპური ქვესახეობა D. v. valentini. ბარკოდები საღამოს ტბიდან და კირხბულაქის მდინარიდანაა; ფიგურა — ნინოწმინდის მუნიციპალიტეტი, საღამოს ტბა (იგივე ადგილი, სადაც armeniacaა ნაჩვენები — სხვა, პართენოგენური ტაქსონი). ერთ-ერთი მშობელია პართენოგენ armeniaca-სი.",
-    "habitat": "სახელდებული ადგილები: ნინოწმინდა, საღამოს ტბა (ფიგურა და ბარკოდი); კირხბულაქის მდინარე (ბარკოდი).",
-    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
-    "behavior": "",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებულია. obscura-სა და portschinskii-სთან ინტროგრესია საკონტაქტო ზონებში აღწერილია.",
+    "location": "სამცხე — ჯავახეთი — ნინოწმინდა (საღამოს ტბა), კირხბულაქი",
+    "description": "უშხამო კლდის ხვლიკი ჯავახეთის მაღალმთიანზე. ფერი ამოცნობისთვის საკმარისი არ არის.",
+    "overview": "ვალენტინის ხვლიკი (Darevskia valentini) საქართველოში გვხვდება: უშხამო კლდის ხვლიკი სამცხე — ჯავახეთის მაღალმთიანზე. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). შხამი არ აქვს და ადამიანისთვის საშიში არ არის. ინგლისურად Valentin's lizard ან Caucasian rock lizard. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს, არა კანდიდატად. ნომინალური ქვესახეობაა D. v. valentini. ტიპის ადგილი სომხეთშია (ბასარჩაი / ბაზარქენთი), არა საქართველოში. მთელ ქვეყანაში ნუ ივარაუდებთ: დასახელებული ჩანაწერები ნინოწმინდის მუნიციპალიტეტშია — საღამოს ტბა და კირხბულაქის მდინარე. ამ ატლასის რუკა სამცხე — ჯავახეთს აჩვენებს ამ ჩანაწერებიდან და არ ნიშნავს, რომ სახეობა მხოლოდ ორ წერტილშია. IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის.",
+    "habitat": "საქართველოში გვხვდება. დასავლეთის ნოტიო ტყეში, კოლხეთში ან აღმოსავლეთის დაბლობზე ნუ ივარაუდებთ. Tarkhnishvili et al. 2026 ფიგურას ნინოწმინდის მუნიციპალიტეტიდან, საღამოს ტბიდან ასახელებს; ბარკოდები საღამოს ტბიდან და კირხბულაქის მდინარიდანაა. გავრცელების სანდოობა საშუალოა. იგივე საღამოს ტბაზე ნაჩვენებია პართენოგენი სომხური კლდის ხვლიკიც (Darevskia armeniaca) — სხვა ტაქსონი, რომელსაც valentini ერთ-ერთი მშობელია. Barateli და თანაავტორები (2022) საღამოს ტბის პოპულაციას დაახლოებით 2 015 მ-ზე ზომავენ. სახეობის დონეზე მცირე კავკასიონში ხშირად 1 900–3 110 მ-ია აღწერილი (Galoyan et al. 2019); IUCN 1 300–3 000 მ-ს ასახელებს, თურქული ჩანაწერების ჩათვლით. ეს სრული ქართული სიმაღლის ზღვარი არ არის. კირხბულაქის ბარკოდის ზუსტი სიმაღლე ამ გვერდზე არ არის. ჰაბიტატი მაღალმთიანი მდელო და სტეპია ქვიანი გორაკებით, კლდოვანი გამონაშვერით, გზისა და მდინარის პირის კლდით, ტბის ნაპირით — არა შიშველი უდაბნო და არა სველი კოლხური ტყე. შეხვდებით ქვაზე, სადაც თბება და თავს აფარებს. Petrosyan et al. 2019 მოდელში არეალი რამდენიმე იზოლირებული მაღალმთიანი მდელო–სტეპის ბლოკია, მათ შორის სამხრეთი საქართველო — ეს პროგნოზია და არა დამატებითი დასახელებული ქართული წერტილი. ამ ატლასის რუკა სხვა ადმინისტრაციულ რეგიონს ამ ეტაპზე არ აჩვენებს; ეს არ ნიშნავს, რომ ყოველი შესაფერისი მთა შემოწმებულია.",
+    "diet": "ქართული კუჭის შიგთავსის კვლევა ამ გვერდზე არ არის. სომხურ მაღალმთიან პოპულაციებში ძირითადად ფეხსახსრიანებს ჭამს: ხშირად ხოჭოსა და ბუზს, იშვიათად სხვა მწერსა და ობობას; იშვიათად მცენარეულ ნაწილსაც (Galoyan et al. 2019). ეს სომხური მენიუა და არა ყველა ქართული ადგილის სია.",
+    "behavior": "დღისითაა აქტიური. კლდის ხვლიკია: თბება ქვაზე, თავს ნაპრალში აფარებს. სომხეთში გამოზამთრების შემდეგ ზედაპირზე აპრილის ბოლოდან მაისის შუამდე ჩნდება, წყვილდება მალევე, კვერცხს იდებს ივნისის მეორე ნახევარში; ზედაპირზე სექტემბრის ბოლომდეც აღინიშნა (Galoyan et al. 2019). ეს სომხური კალენდარია, არა ქართული საათობრივი ცხრილი. საღამოს ტბაზე ქართული ნიმუში მაის–ივნისშია აღებული (Barateli et al. 2022). იქ ნაყარი 2–6 კვერცხი იყო; სომხურ მასალაში საშუალოდ დაახლოებით ექვსი, მაქსიმუმ 12-მდე. ორივე ერთი ნაყარია სეზონში, როგორც Darevsky-ს კლასიკური აღწერა. დაჭერისას კუდი შეიძლება მოეწყვიტოს; შეიძლება უკბინოს კიდეც. დააკვირდით და ადგილზე დატოვეთ. ნუ აიყვანთ.",
+    "conservation": "IUCN-მა 2009 წელს ნაკლებად საფრთხის ქვეშ შეაფასა (Tok და თანაავტორები) ფართო არეალისა და სავარაუდოდ დიდი პოპულაციის გამო. შეფასება ძველია. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად იღებს. obscura-სა და portschinskii-სთან ვიწრო საკონტაქტო ზონაში გენების გადასვლა (ინტროგრესია) აღწერილია — ეს ტაქსონომიური სირთულეა, არა წითელი ნუსხის კატეგორია. ქართული პოპულაციის ტენდენცია აქ არ არის გაზომილი. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
+    "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ. ველური ცხოველი არ გეყოლოთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/darevskia-valentini.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/darevskia-valentini-mobile.jpg",
+    "image": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg",
     "gallery": [
       {
-        "src": "https://cdn.reptiles.ge/darevskia-valentini.jpg"
+        "src": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg"
       },
       {
-        "src": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg"
+        "src": "https://cdn.reptiles.ge/darevskia-valentini.jpg"
       },
       {
         "src": "https://cdn.reptiles.ge/darevskia-valentini-3.jpg"
@@ -3475,15 +3475,27 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ნინოწმინდა / საღამო"
+        "value": "ჯავახეთის მაღალმთიანი"
+      },
+      {
+        "label": "ზომა",
+        "value": "თავ-ტანი ~6–8 სმ"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "დღის"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "ბიოლოგიურად დადასტურებული"
+        "label": "კონსერვაცია",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "ჩამონათვალი",
+        "value": "დადასტურებული"
       },
       {
         "label": "ოჯახი",
@@ -3492,30 +3504,46 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლითა და გავრცელებით, არა ფერით. ნაშრომი ფენოტიპურ განსხვავებას ასახელებს, მაგრამ საკონტაქტო ზონებში ინტროგრესია ფართოა.",
+      "summary": "შედარებით დიდი კლდის ხვლიკი ჯავახეთის მაღალმთიანზე. ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლით, ზომითა და გავრცელებითაა.",
       "traits": [
-        "ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
-        "ფენოტიპურად განსხვავებულია obscura-სა და portschinskii-სგან; portschinskii არსებითად უფრო პატარაა.",
-        "ვიწრო საკონტაქტო ზონა და ფართო ინტროგრესია obscura/portschinskii-სთან.",
-        "ნაშრომის ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს (საღამოს ტბა)."
+        "შედარებით მსხვილი Darevskiaა კარგად განვითარებული კიდურებით — კლდეზე და ქვაზეა, არა დიდი მიწის ლაცერტა (Lacerta). ზურგი ხშირად მომწვანო-ყავისფერი ან მკვეთრი მწვანეა; მუცელი ყვითელი ან თეთრი. საფეთქლის ზოლზე მუქი რგოლებია ღია ცენტრით. ეს ტიპიური იერსახეა Darevsky-სა და Galoyan et al. 2019-ის მიხედვით და სახეობებს ფერით არ ჰყოფს.",
+        "თავ-ტანი (ცხვირიდან კლოაკამდე) ხშირად დაახლოებით 6–7 სმ-ია; სომხურ მასალაში მდედრს 7,9 სმ-მდე მიაღწია. ამ გვარში უჩვეულოდ მდედრი ხშირად მამრზე დიდია. ქართული სრული საზომი სერია ამ გვერდზე არ არის. კუდით სრული სიგრძე აქ არ არის გაზომილი.",
+        "სომხური კლდის ხვლიკი (D. armeniaca) პართენოგენია: მდედრები მამრის გარეშე მრავლდებიან. valentini ერთ-ერთი მშობელია (მეორე — D. mixta). იგივე საღამოს ტბაზე თანაარსებობენ. armeniaca-ს ხშირად უფრო მქრქალი მწვანე ზურგი და გვერდზე ღია ლაქები აქვს; ყურის ფირფიტასა და შუა საფეთქლის ქერცლს შორის ჩვეულებრივ ერთი რიგი ქერცლია, valentini-ში — რამდენიმე. ფერი მაინც საკმარისი არ არის.",
+        "მტკვრის ხვლიკი (D. portschinskii) არსებითად უფრო პატარაა და ცენტრალური მცირე კავკასიონის ენდემია (მაგ. ქოჯორი). მესხური კლდის ხვლიკი (D. obscura) ჩამონათვალში კანდიდატია rudis-ის კომპლექსიდან. სამივეს შორის ვიწრო კონტაქტი და ფართო გენთა გადასვლაა აღწერილი — საკონტაქტო ზონაში მხოლოდ ფერით ნუ გადაწყვეტთ. ნაშრომის ფიგურები თავის ქერცლსა და პრეანალურ ფირფიტებს აჩვენებს (საღამოს ტბა)."
       ]
     },
     "faq": [
       {
-        "question": "არის თუ არა ეს D. obscura, D. portschinskii ან D. armeniaca?",
-        "answer": "ფერით ვერ გაირჩევა. obscura და portschinskii ახლო სახეობებია ჰიბრიდული ზონებით; portschinskii არსებითად უფრო პატარაა. armeniaca პართენოგენია (მშობელი valentini) და იგივე საღამოს ტბაზეა ნაჩვენები."
+        "question": "გვხვდება თუ არა ვალენტინის ხვლიკი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. ფიგურა — ნინოწმინდა, საღამოს ტბა. ბარკოდები — საღამოს ტბა და კირხბულაქის მდინარე."
+      },
+      {
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "სამცხე — ჯავახეთის მაღალმთიანზე, დასახელებული ჩანაწერებით ნინოწმინდის მხარეს: საღამოს ტბის მიდამოები და კირხბულაქი. ქვიან მდელოზე, კლდესა და ტბის ნაპირზე. მთელ საქართველოში ნუ ივარაუდებთ."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "შედარებით დიდი კლდის ხვლიკი. ფერი საკმარისი არ არის. შეადარეთ პართენოგენ armeniaca-ს იგივე ტბაზე, პატარა portschinskii-ს და obscura-ს. ქერცლის რიგები ყურთან და გავრცელება უფრო სანდოა, ვიდრე ზურგის ფერი."
+      },
+      {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "თავ-ტანი ხშირად დაახლოებით 6–7 სმ-ია; სომხურ მასალაში მდედრს 7,9 სმ-მდე მიაღწია. ქართული სრული საზომი სერია ამ გვერდზე არ არის."
       },
       {
         "question": "არის თუ არა კანდიდატი სახეობა?",
-        "answer": "არა. ჩამონათვალში ბიოლოგიურად დადასტურებულია."
+        "answer": "არა. ჩამონათვალში ბიოლოგიურად დადასტურებულია. obscura ამ კომპლექსში კანდიდატია; valentini — არა."
       },
       {
-        "question": "სად ასახელებს ნაშრომი საქართველოში?",
-        "answer": "ფიგურა — ნინოწმინდა, საღამოს ტბა. ბარკოდები — საღამოს ტბა და კირხბულაქის მდინარე."
+        "question": "რით განსხვავდება სომხური კლდის ხვლიკისგან?",
+        "answer": "armeniaca პართენოგენია (მშობელი valentini). იგივე საღამოს ტბაზეა. ყურის ფირფიტასა და საფეთქლის ქერცლს შორის armeniaca-ში ჩვეულებრივ ერთი რიგია, valentini-ში რამდენიმე. ფერით საიმედოდ ვერ გაირჩევა."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
+        "question": "როდის არის აქტიური?",
+        "answer": "დღისით. ქართული სრული სეზონური კალენდარი ამ გვერდზე არ არის. სომხეთში გაზაფხულიდან შემოდგომამდეა აღწერილი; საღამოს ტბის ქართული ნიმუში მაის–ივნისშია."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -3525,10 +3553,34 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Barateli et al. 2022 — Reproductive effort of unisexual and bisexual Darevskia",
+        "url": "https://doi.org/10.1016/j.jcz.2022.11.002"
       },
       {
-        "name": "The Reptile Database",
+        "name": "Galoyan et al. 2019 — Natural history of Valentin’s rock lizard in Armenia",
+        "url": "https://doi.org/10.24272/j.issn.2095-8137.2019.036"
+      },
+      {
+        "name": "Arribas et al. 2022 — Taxonomy of Darevskia valentini and D. rudis",
+        "url": "https://doi.org/10.11646/zootaxa.5224.1.1"
+      },
+      {
+        "name": "Tok et al. 2009 — IUCN Red List, Darevskia valentini",
+        "url": "https://www.iucnredlist.org/species/164707/5919336"
+      },
+      {
+        "name": "Petrosyan et al. 2019 — Ecological modelling of D. armeniaca and parental species",
+        "url": "https://www.salamandra-journal.com/index.php/home/contents/2019-vol-55/1928"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "Darevsky 1967 — Rock lizards of the Caucasus"
+      },
+      {
+        "name": "The Reptile Database — Darevskia valentini",
         "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=valentini"
       }
     ]
@@ -3748,12 +3800,12 @@ export const species: Species[] = [
     "genus": "Eirenis",
     "family": "Colubridae",
     "location": "სამხრეთ-აღმოსავლეთი საქართველო",
-    "description": "პატარა უშხამო ჯუჯა გველი საყელოთი; ჩამონათვალში ბიოლოგიურად დადასტურებულია.",
-    "overview": "საყელოიანი ეირენისი (Eirenis collaris) კოლუბრიდების პატარა, უშხამო გველია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად განიხილავს, აღმოსავლეთ ხმელთაშუაზღვიური/კავკასიური არეალით. საქართველოში მითითებულია სამხრეთ-აღმოსავლეთი. ქვესახეობა E. c. collaris. ნაშრომის ფიგურაზე ნიმუში მითითებულია დედოფლისწყაროს მუნიციპალიტეტიდან, თარიბანიდან. ხშირად ერევა წყნარ ეირენისს (Eirenis modestus).",
-    "habitat": "ქვიანი და მშრალი ღია ადგილები თავშესაფრით ქვების ქვეშ. ჩამონათვალი — სამხრეთ-აღმოსავლეთი საქართველო; ნაშრომის ფიგურაზე ნიმუში — დედოფლისწყარო, თარიბანა.",
-    "diet": "ძირითადად მწერები და სხვა წვრილი უხერხემლოები.",
-    "behavior": "ფარული ჯუჯა გველი; მრგვალი გუგა, უშხამო.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებული სახეობაა. საქართველოში — E. c. collaris.",
+    "description": "პატარა უშხამო გველი მუქი საყელოთი. საქართველოში დადასტურებულია სამხრეთ-აღმოსავლეთში; დასახელებული ადგილია დედოფლისწყარო, თარიბანა.",
+    "overview": "საყელოიანი ეირენისი (Eirenis collaris) პატარა უშხამო გველია სამხრეთ-აღმოსავლეთ საქართველოში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს; ქვესახეობა აქ ნომინოტიპურია — E. c. collaris. დასახელებული ნიმუში დედოფლისწყაროს მუნიციპალიტეტიდანაა, თარიბანიდან. ზრდასრული სიგრძე სახეობის დონეზე ჩვეულებრივ 40 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 40 სმ-ია. ადამიანისთვის უვნებელია — შხამი არ აქვს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). ხშირად ერევა წყნარ ეირენისს (Eirenis modestus), რომელიც ჩამონათვალში აღმოსავლეთსა და ცენტრალურ საქართველოს უკავშირდება. მთელ ქვეყანაში არ ეძებოთ.",
+    "habitat": "2026 წლის ჩამონათვალი საქართველოში სამხრეთ-აღმოსავლეთს ასახელებს; ფიგურაზე ნიმუში დედოფლისწყაროდანაა, თარიბანიდან. ამ ატლასის რუკაზე აღნიშნულია კახეთი, თბილისი და ქვემო ქართლი — ეს ჩამონათვალის ფორმულირებას, თარიბანის ნიმუშსა და საიტის ფოტოებს (იაღლუჯის გორები) ეყრდნობა და არა მუნიციპალიტეტების სრულ ჩამონათვალს. გავრცელების ნდობა საშუალოა. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. სახეობის დონეზე ცხოვრობს მშრალ ქვიან ან ნახევრად უდაბნო ადგილზე, რბილ ქვიან-ქვიშიან ნიადაგზე და მუხნარის ბალახოვან ფერდობზე; ხშირად ქვის, მიწის გორგლის ან ნაპრალის ქვეშაა და ზოგჯერ გველბრუცასთან ერთად გვხვდება. საქართველოსთვის ზღვის დონის დიაპაზონი ცალკე არ არის გამოქვეყნებული. თარიბანა და იაღლუჯი დაბლობსა და მთისწინეთს უკავშირდება. სახეობის დონეზე ლიტერატურაში მითითებულია დაახლოებით 1700 მ-მდე — ეს ქართულ სიმაღლედ არ უნდა ჩაითვალოს. მთელი არეალი მოიცავს აღმოსავლეთ თურქეთს, სამხრეთ კავკასიას, დაღესტანს, ერაყსა და დასავლეთ ირანს; ტიპის მასალა კასპიისპირა ბეშბარმაყიდანაა (აზერბაიჯანი) და არა საქართველოდან.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. სახეობის დონეზე ლიტერატურაში დასახელებულია მორიელები, სკოლოპენდრები, ჭიები, ხოჭოები და სხვა მწერები, აგრეთვე ობობები და პატარა ხვლიკები. იკვებება ძირითადად ქვის ქვეშ მცხოვრები უხერხემლოებით. შხამი არ აქვს — მსხვერპლს პირით იჭერს.",
+    "behavior": "მალულია. დღის სიცხეში ხშირად ქვის ან მიწის ქვეშ რჩება. საქართველოში საათობრივი და სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული; ამ ატლასის დასახელებული ფოტოები მაისსა და ივლისშია გადაღებული. სახეობის დონეზე კვერცხისმდებია: ლიტერატურაში 4–8 კვერცხია, ზაფხულში; ნაშიერი აგვისტო–სექტემბერში იჩეკება, სიგრძით დაახლოებით 10–13 სმ. შეწყვილების სეზონი და ქართული კლაჩის ზომა აქ არ არის გაზომილი. ზამთრის თავშესაფარი საქართველოში ცალკე არ არის აღწერილი; სახეობის დონეზე აღნიშნულია ჯგუფური გამოზამთრება მიწის ქვეშ. საფრთხისას უპირატესად გარბის. არ აიყვანოთ — შხამი არ აქვს, მაგრამ პატარა გველსაც შეუძლია უკბინოს. იმავე მშრალ სამხრეთ-აღმოსავლეთში შეიძლება შეხვდეთ წყნარ ეირენისს, სპილენძას, გველბრუცას და, იშვიათად, კატისთვალა გველს — გუგა, ზომა და კისრის ნახატი განასხვავებს.",
+    "conservation": "IUCN Red List-ის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა და კონკრეტული გლობალური საფრთხე არ არის გამოყოფილი. საქართველოს 2014 წლის წითელ ნუსხაში არ არის; იქ გველებიდან შეტანილია დინიკის და კავკასიური გველგესლა. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. ქართული სურათი ჯერ ვიწროა: დასახელებული ადგილი თარიბანაა, ხოლო სამხრეთ-აღმოსავლეთი არეალი ჩამონათვალის განზოგადებაა და არა სრული რუკა. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა და შხამიან გველთან აღრევის გამო მოკვლა. არ აიყვანოთ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/eirenis-collaris-ioane-1.jpg",
     "imageCredit": {
@@ -3761,7 +3813,6 @@ export const species: Species[] = [
       "location": "იაღლუჯის გორები",
       "date": "2024-05-12"
     },
-    "mobileImage": "https://cdn.reptiles.ge/eirenis-collaris-mobile.jpg",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/eirenis-collaris-ioane-1.jpg",
@@ -3835,47 +3886,71 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ქვიანი / მშრალი ღია"
+        "value": "ქვიანი მშრალი / სამხ.-აღმ."
+      },
+      {
+        "label": "სიგრძე",
+        "value": "ჩვეულებრივ <40 სმ"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "დადასტურებული"
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
       },
       {
         "label": "ოჯახი",
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "აღწერა 1832 წელს (Ménétries) როგორც Coluber collaris. ტიპის ადგილი კასპიისპირა ბეშბარმაყია (აზერბაიჯანი) და არა საქართველო. ძველ კატალოგებში ზოგჯერ E. modestus-თან ერთად ირეოდა.",
+      "2026 წლის ჩამონათვალის ფიგურაზე ნიმუში თარიბანიდანაა (დედოფლისწყარო); იქვე მითითებულია ბარკოდი CaBOL-ID 1007176. საქართველოში გამოიყენება E. c. collaris.",
+      "ქართული სახელი საყელოიანი ეირენისი კისრის მუქ ზოლს ასახავს; ინგლისური collared dwarf snake / dwarf racer — იმავე ნიშანსა და პატარა ზომას."
+    ],
     "identification": {
-      "summary": "პატარა უშხამო ჯუჯა გველი გამოკვეთილი საყელოთი.",
+      "summary": "პატარა, გამხდარი უშხამო გველია მრგვალი გუგით და მუქი საყელოთი კისერზე. ზურგი ზეთისხილისფერი ან ღია ყავისფერია. არ არის გველგესლა და არ არის ჭიასავითი გველბრუცა.",
       "traits": [
-        "პატარა, გამხდარი კოლუბრიდი — არა დიდი მცურავი.",
-        "სახელი საყელოს ნიშანს ასახავს.",
-        "მრგვალი გუგა; უშხამო.",
-        "ერევა წყნარ ეირენისს, რომელიც აღმოსავლეთსა და ცენტრალურ საქართველოშია მითითებული."
+        "სხეული გამხდარი და მოკლეა — ჯუჯა გველის იერით და არა დიდი მცურავის. თავი კისრისგან სუსტად გამოიყოფა, დინგი მომრგვალებულია. გუგა მრგვალია. ზურგის ქერცელი გლუვია. სახეობის დონეზე შუა ტანზე ხშირად 15 რიგია (ზოგჯერ 15–17). წყნარ ეირენისს შუა ტანზე ხშირად 17–18 რიგი აქვს. ქერცლის დასათვლელად გველი არ აიყვანოთ. ზრდასრული სიგრძე ჩვეულებრივ 40 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 40 სმ.",
+        "ზურგი ზეთისხილისფერი ან ღია ყავისფერია; თითოეულ ქერცელს ხშირად ღია შუა და მუქი კიდე აქვს. კისერზე მუქი საყელოა, რომელიც ქვემოთ ვიწროვდება — აქედან ქართული სახელი. თავზე ზოგჯერ სუსტი განივი ზოლი და ორი თავის ზურგის ლაქაა. მუცელი მოყვითალო-თეთრია. თურქულ ქვესახეობა E. c. macrospilotus-ს ზურგზე მუქი ლაქების რიგი აქვს; საქართველოში ჩამონათვალი ნომინოტიპურ E. c. collaris-ს ასახელებს.",
+        "წყნარი ეირენისი (Eirenis modestus) მსგავსი იერისაა, მაგრამ უფრო დიდია (ჩვეულებრივ 70 სმ-ზე მოკლე) და საყელო ზრდასრულში ხშირად ფერმკრთალდება; ჩამონათვალი მას აღმოსავლეთსა და ცენტრში ასახელებს, ამ სახეობას — სამხრეთ-აღმოსავლეთში (დასახელებული ადგილი — დედოფლისწყარო, თარიბანა). სპილენძა (Coronella austriaca) უფრო მასიურია, ზურგზე წვრილი ლაქების ორი რიგი აქვს და უფრო ტყის პირსა და ნოტიო ადგილს უკავშირდება. გველბრუცა (Xerotyphlops vermicularis) ჭიასავითია, თვალები შემცირებულია. კატისთვალა გველს (Telescopus fallax) გუგა ვერტიკალურია.",
+        "შხამი არ აქვს. გუგა მრგვალია — ვერტიკალური ნაპრალი გველგესლაზე ან გიურზაზე მიუთითებს. თუ შეხვდებით, დაიცავით მანძილი. არ აიყვანოთ: პატარა უშხამო გველიც ადვილად ზიანდება, ხოლო უცნობი გველი შეიძლება შხამიანი იყოს."
       ]
     },
     "faq": [
       {
         "question": "გვხვდება თუ არა საყელოიანი ეირენისი საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026: სამხრეთ-აღმოსავლეთი საქართველო. ნაშრომის ფიგურაზე ნიმუში — დედოფლისწყარო, თარიბანა."
+        "answer": "დიახ. 2026 წლის ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს სამხრეთ-აღმოსავლეთ საქართველოში. დასახელებული ადგილია დედოფლისწყარო, თარიბანა. მთელ ქვეყანაში არ ეძებოთ."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. უშხამო ჯუჯა გველია."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მშრალ ქვიან ადგილზე, ხშირად ქვის ქვეშ — სამხრეთ-აღმოსავლეთში. ამ ატლასის რუკაზე კახეთი, თბილისი და ქვემო ქართლია. დასახელებული სამეცნიერო ადგილია თარიბანა; დასახელებული ფოტოა იაღლუჯის გორებიდან. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის. გავრცელების ნდობა საშუალოა."
       },
       {
-        "question": "როგორ განვასხვავოთ წყნარი ეირენისისგან?",
-        "answer": "ორივე პატარა უშხამო Eirenis-ია. E. collaris სახელს საყელოს უნდა; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, E. modestus-ს — აღმოსავლეთსა და ცენტრში."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. საფრთხისას უპირატესად გარბის. პატარა გველსაც შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
       },
       {
-        "question": "არის თუ არა ეს ბრმა გველი ან მახრჩობელა?",
-        "answer": "არა. Eirenis-ს ჩვეულებრივი თვალები და კოლუბრიდის ქერცლები აქვს, არა ჭიასავითი სხეული (გველბრუცა) და არა მსხვილი მახრჩობელას აგებულება."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა გამხდარი გველი, მრგვალი გუგა, გლუვი ქერცელი, ზურგი ზეთისხილისფერი ან ღია ყავისფერი, კისერზე მუქი საყელო. წყნარ ეირენისს საყელო ზრდასრულში ხშირად უფრო სუსტი აქვს და აღმოსავლეთ–ცენტრშია მითითებული. გველბრუცა ჭიასავითია. არ აიყვანოთ დასათვლელად."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "სახეობის დონეზე ზრდასრული ჩვეულებრივ 40 სმ-ზე მოკლეა; გაზომილი მაქსიმუმი დაახლოებით 40 სმ-ია. საქართველოსთვის ცალკე გაზომილი სიგრძე ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს და კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში 4–8 კვერცხია, ზაფხულში. კვება ქართულად არ არის ცალკე შესწავლილი; სახეობის დონეზე ძირითადად მწერები, სხვა ქვისქვეშა უხერხემლოები და იშვიათად პატარა ხვლიკი."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "საქართველოში საათობრივი კალენდარი ცალკე არ არის გამოქვეყნებული. მოსალოდნელია თბილი სეზონი ქვის ქვეშ მშრალ ადგილებში. ამ ატლასის ფოტოები მაისსა და ივლისშია."
+      },
+      {
+        "question": "რით განსხვავდება წყნარი ეირენისისგან?",
+        "answer": "ორივე პატარა უშხამო Eirenis-ია. საყელოიანს საყელო უფრო მკაფიო აქვს და ჩვეულებრივ უფრო მოკლეა; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, წყნარს — აღმოსავლეთსა და ცენტრში. შუა ტანზე ქერცლის რიგები ხშირად 15 წინააღმდეგ 17–18, მაგრამ ეს ხელში ასათვლელი ნიშანი არ არის."
       }
     ],
     "updatedAt": "2026-08-28T17:09:23+04:00",
@@ -3885,7 +3960,20 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
+      },
+      {
+        "name": "Mahlow et al. 2013 — Annotated checklist of the genus Eirenis",
+        "url": "https://doi.org/10.3897/vz.63.e31413"
+      },
+      {
+        "name": "Tuniyev et al. 2010 — IUCN Red List account for Eirenis collaris",
+        "url": "https://www.iucnredlist.org/species/164639/5914518"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       },
       {
         "name": "The Reptile Database",
@@ -16728,25 +16816,38 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "darevskia-valentini": {
     "commonName": "Valentin's Lizard",
-    "location": "Ninotsminda — Saghamo Lake, Kirkhbulaki",
-    "description": "A phenotypically distinct rock lizard with a narrow contact and broad introgression with obscura/portschinskii — colour is not enough.",
-    "overview": "Valentin’s lizard (Darevskia valentini) is biologically confirmed in Tarkhnishvili et al. 2026. It is closely related to D. rudis, D. obscura, and D. portschinskii, but is phenotypically distinct and forms a narrow contact zone with D. obscura and D. portschinskii. There is broad gene introgression among these three across their contact zones. Nominotypical subspecies D. v. valentini. Barcodes are from Saghamo Lake and the Kirkhbulaki River; the figure is from Ninotsminda district, Saghamo Lake (the same place figured for armeniaca — a different, parthenogenetic taxon). It is a parental species of parthenogenetic armeniaca.",
-    "habitat": "Named places: Ninotsminda, Saghamo Lake (figure and barcode); Kirkhbulaki River (barcode).",
-    "diet": "The paper does not specify diet for this species.",
-    "behavior": "",
-    "conservation": "Biologically confirmed in the checklist. Introgression with obscura and portschinskii across contact zones is described.",
+    "location": "Samtskhe — Javakheti — Ninotsminda (Saghamo Lake), Kirkhbulaki",
+    "description": "A harmless rock lizard of the Javakheti highlands. Colour is not enough to identify it.",
+    "overview": "Valentin's lizard (Darevskia valentini) occurs in Georgia as a harmless rock lizard of the Samtskhe — Javakheti highlands. It belongs to the true lizard family (Lacertidae). It has no venom and is not dangerous to people. Other English names include Valentin's rock lizard and Caucasian rock lizard. The 2026 Georgian checklist treats it as biologically confirmed, not as a candidate species. The nominotypical subspecies is D. v. valentini. The type locality is in Armenia (Basarchay / Bazarkent), not in Georgia. Do not assume it throughout the country: named records are in Ninotsminda Municipality — Saghamo Lake and the Kirkhbulaki River. This atlas map marks Samtskhe — Javakheti from those records; it does not mean the species is limited to two points. IUCN lists it as Least Concern. It is not on Georgia’s 2014 Red List.",
+    "habitat": "It occurs in Georgia. Do not assume it in humid western forest, Colchis, or the eastern lowlands. Tarkhnishvili et al. 2026 figure a specimen from Ninotsminda Municipality, Saghamo Lake; barcodes are from Saghamo Lake and the Kirkhbulaki River. Distribution confidence is medium. The same Saghamo Lake site is also figured for the parthenogenetic Armenian rock lizard (Darevskia armeniaca) — a different taxon for which valentini is a parental species. Barateli and co-authors (2022) measure the Saghamo Lake population at about 2,015 m. At species level in the Lesser Caucasus it is often described from 1,900–3,110 m (Galoyan et al. 2019); IUCN gives 1,300–3,000 m, including Turkish records. That is not a measured Georgian elevational limit. The exact elevation of the Kirkhbulaki barcode is not given on this page. Habitat is high-elevation meadow and steppe with stony mounds, rocky outcrops, roadside and river cliffs, and lake shores — not barren desert and not wet Colchic forest. Look for it on stones used for basking and shelter. Petrosyan et al. 2019 model the range as several isolated highland meadow and steppe blocks, including southern Georgia — that is a prediction, not extra named Georgian points. This atlas does not currently map other administrative regions; that does not mean every suitable highland has been surveyed.",
+    "diet": "This page has no Georgian stomach-content study. In highland Armenian populations it eats arthropods: mainly beetles and flies, less often other insects and spiders, and rarely plant fragments (Galoyan et al. 2019). That is an Armenian menu, not a list for every Georgian site.",
+    "behavior": "It is active by day. It is a rock lizard: it basks on stones and hides in crevices. In Armenia it appears after winter from late April to mid-May, mates soon after emergence, and lays eggs in the second half of June; animals were still on the surface in late September (Galoyan et al. 2019). That is an Armenian calendar, not a Georgian hourly table. The Georgian Saghamo sample was taken in May–June (Barateli et al. 2022). Clutch size there was 2–6 eggs; Armenian material averages about six, up to 12. Both describe one clutch a season, as in Darevsky’s classic account. If grabbed, the tail may break and the lizard may bite. Watch it and leave it where it is. Do not pick it up.",
+    "conservation": "IUCN assessed it as Least Concern in 2009 (Tok and co-authors) because of a wide range and a presumably large population. That assessment is old. It is not on Georgia’s 2014 Red List (Resolution No. 190). Tarkhnishvili et al. 2026 treat it as biologically confirmed. Gene flow (introgression) with obscura and portschinskii in narrow contact zones is described — that is a taxonomic complication, not a Red List category. A Georgian population trend is not measured here. It is not listed on CITES. Do not take wild lizards.",
+    "interaction": "It is not venomous and poses no medical risk. If handled it may bite; the tail may break. Leave it where it is. Do not keep wild animals.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Ninotsminda / Saghamo"
+        "value": "Javakheti highlands"
+      },
+      {
+        "label": "Size",
+        "value": "SVL ~6–8 cm"
+      },
+      {
+        "label": "Activity",
+        "value": "Diurnal"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Biologically confirmed"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Checklist",
+        "value": "Confirmed"
       },
       {
         "label": "Family",
@@ -16755,38 +16856,54 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "Colour is not enough. Field ID among Darevskia needs scalation and range, not colour. The paper names a phenotypic difference, but introgression in contact zones is broad.",
+      "summary": "A relatively large rock lizard of the Javakheti highlands. Colour is not enough. Field ID among Darevskia needs scalation, size and range.",
       "traits": [
-        "Colour does not separate Darevskia species.",
-        "Phenotypically distinct from obscura and portschinskii; portschinskii is substantially smaller.",
-        "Narrow contact and broad introgression with obscura/portschinskii.",
-        "Checklist figures show head scalation and preanal plates (Saghamo Lake)."
+        "It is a relatively large Darevskia with well-developed limbs — a rock lizard, not a large ground Lacerta. The back is often greenish-brown or bright green; the belly yellow or white. The temporal stripe has dark rings with pale centres. That is typical appearance from Darevsky and Galoyan et al. 2019 and does not separate species by colour.",
+        "Snout–vent length is often about 6–7 cm; in Armenian material females reached 7.9 cm. Unlike most lizards in this genus, females are often larger than males. A full Georgian measurement series is not on this page. Total length including the tail is not measured here.",
+        "The Armenian rock lizard (D. armeniaca) is a parthenogen: females reproduce without males. valentini is one parent (the other is D. mixta). They co-occur at the same Saghamo Lake. armeniaca often has a duller green back and pale flank spots; usually one scale row sits between the ear plate and the mid-temporal scale, versus several in valentini. Colour is still not enough.",
+        "The Kura lizard (D. portschinskii) is substantially smaller and is endemic to the central Lesser Caucasus (e.g. Kojori). The Meskhetian rock lizard (D. obscura) is a checklist candidate in the rudis complex. Narrow contact and broad gene flow among the three are described — do not decide by colour in a contact zone. Checklist figures show head scalation and preanal plates (Saghamo Lake)."
       ]
     },
     "faq": [
       {
-        "question": "Is this D. obscura, D. portschinskii, or D. armeniaca?",
-        "answer": "Colour will not tell you. obscura and portschinskii are close species with hybrid zones; portschinskii is substantially smaller. armeniaca is a parthenogen (parent valentini) figured at the same Saghamo Lake."
+        "question": "Is Valentin's lizard found in Georgia?",
+        "answer": "Yes. It is biologically confirmed in the 2026 checklist. Figure: Ninotsminda, Saghamo Lake. Barcodes: Saghamo Lake and the Kirkhbulaki River."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "In the Samtskhe — Javakheti highlands, with named records in the Ninotsminda area: around Saghamo Lake and Kirkhbulaki. Look on stony meadow, rock and lake shore. Do not assume it throughout Georgia."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "It is a relatively large rock lizard. Colour is not enough. Compare it with parthenogenetic armeniaca at the same lake, smaller portschinskii, and obscura. Scale rows by the ear and geography are more reliable than back colour."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. If grabbed it may bite; the tail may break. Leave it where it is."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Snout–vent length is often about 6–7 cm; Armenian females reached 7.9 cm. A full Georgian measurement series is not on this page."
       },
       {
         "question": "Is it a candidate species?",
-        "answer": "No. It is biologically confirmed in the checklist."
+        "answer": "No. It is biologically confirmed in the checklist. obscura is a candidate in this complex; valentini is not."
       },
       {
-        "question": "Where does the paper name it in Georgia?",
-        "answer": "Figure: Ninotsminda, Saghamo Lake. Barcodes: Saghamo Lake and Kirkhbulaki River."
+        "question": "How does it differ from the Armenian rock lizard?",
+        "answer": "armeniaca is a parthenogen (parent valentini). They occur at the same Saghamo Lake. armeniaca usually has one scale row between the ear plate and the mid-temporal scale, valentini several. Colour will not tell you reliably."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification Harmless. No venom."
+        "question": "When is it active?",
+        "answer": "By day. A full Georgian seasonal calendar is not on this page. In Armenia it is described from spring to autumn; the Georgian Saghamo sample is from May–June."
       }
     ],
     "gallery": [
       {
-        "src": "https://cdn.reptiles.ge/darevskia-valentini.jpg"
+        "src": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg"
       },
       {
-        "src": "https://cdn.reptiles.ge/darevskia-valentini-2.jpg"
+        "src": "https://cdn.reptiles.ge/darevskia-valentini.jpg"
       },
       {
         "src": "https://cdn.reptiles.ge/darevskia-valentini-3.jpg"
@@ -16960,56 +17077,80 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "eirenis-collaris": {
     "commonName": "Collared Dwarf Snake",
     "location": "Southeastern Georgia",
-    "description": "A small harmless dwarf snake with a collar; biologically confirmed in the checklist.",
-    "overview": "The collared dwarf snake (Eirenis collaris) is a small, harmless colubrid. Tarkhnishvili et al. 2026 treat it as a biologically confirmed species with an Eastern Mediterranean/Caucasus range. In Georgia it is recorded in the southeast. The subspecies is E. c. collaris. A paper figure locality is Taribana, Dedoplistskaro district. It is often confused with the ring-headed dwarf snake (Eirenis modestus).",
-    "habitat": "Stony, dry open ground with cover under rocks. The checklist places it in southeastern Georgia; a paper figure specimen is from Taribana, Dedoplistskaro district.",
-    "diet": "Mostly insects and other small invertebrates.",
-    "behavior": "A secretive dwarf snake; round pupil, non-venomous.",
-    "conservation": "Biologically confirmed in the checklist. Georgia: E. c. collaris.",
+    "description": "A small harmless snake with a dark collar. Confirmed in Georgia in the southeast; the named locality is Taribana, Dedoplistskaro.",
+    "overview": "The collared dwarf snake (Eirenis collaris) is a small, non-venomous snake of southeastern Georgia. It belongs to the colubrid family (Colubridae). The 2026 Georgian checklist treats it as biologically confirmed; the subspecies here is nominotypical E. c. collaris. A named specimen is from Taribana in Dedoplistskaro municipality. Adults are usually under 40 cm; the measured maximum is about 40 cm. It is harmless to people — it has no venom. IUCN lists it as Least Concern. It is often confused with the ring-headed dwarf snake (Eirenis modestus), which the checklist places in eastern and central Georgia. Do not look for it across the whole country.",
+    "habitat": "The 2026 checklist names southeastern Georgia; a figure specimen is from Taribana, Dedoplistskaro district. This atlas marks Kakheti, Tbilisi, and Kvemo Kartli — based on that checklist wording, the Taribana specimen, and site photographs from the Iagluji Hills, not a full list of municipalities. Distribution confidence is medium. There is no named western or Colchic point on this page. Across the species range it lives in dry stony or semi-desert ground, soft stony–sandy soil, and grassy oak hillsides; it is often under stones, earth clods, or in cracks, sometimes with the worm snake. A separate Georgian elevation range has not been published. Taribana and Iagluji belong to lowland and foothill country. Species-level literature cites about 1700 m — that should not be read as a Georgian ceiling. The wider range includes eastern Turkey, the southern Caucasus, Dagestan, Iraq, and western Iran; type material is from Beshbarmak near the Caspian (Azerbaijan), not Georgia.",
+    "diet": "There is no separate Georgian diet study. Species-level literature lists scorpions, centipedes, worms, beetles and other insects, plus spiders and small lizards. It feeds mainly on invertebrates that live under stones. It has no venom — prey is seized with the mouth.",
+    "behavior": "It is secretive. In heat it often stays under stones or soil. Hourly and seasonal calendars have not been published for Georgia; dated photographs on this atlas are from May and July. At species level it lays eggs: literature cites 4–8 eggs in summer; hatchlings emerge in August–September at about 10–13 cm. Mating season and clutch size in Georgia are not measured here. Overwintering sites in Georgia are not described separately; species-level accounts mention communal hibernation underground. When threatened it usually flees. Do not pick it up — it is not venomous, but even a small snake can bite. In the same dry southeast you may also meet the ring-headed dwarf snake, the smooth snake, the worm snake, and rarely the European cat snake — pupil, size, and neck pattern separate them.",
+    "conservation": "IUCN lists it as Least Concern — the range is wide and no specific global threat is singled out. It is not on Georgia’s 2014 Red List; the snakes listed there are Dinnik’s viper and the Caucasus viper. The 2026 checklist treats it as biologically confirmed; distribution accuracy is scored medium. The Georgian picture is still narrow: the named locality is Taribana, and the southeastern range is a checklist summary, not a complete map. Local threats include habitat change and killing after confusion with a venomous snake. Do not pick it up.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Stony / dry open"
+        "value": "Dry stony / southeast"
+      },
+      {
+        "label": "Length",
+        "value": "Usually <40 cm"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Confirmed"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
       },
       {
         "label": "Family",
         "value": "Colubridae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "Described in 1832 (Ménétries) as Coluber collaris. The type locality is Beshbarmak near the Caspian (Azerbaijan), not Georgia. Older catalogues sometimes mixed it with E. modestus.",
+      "The 2026 checklist figure specimen is from Taribana (Dedoplistskaro); barcode CaBOL-ID 1007176 is listed there. Georgia is treated as E. c. collaris.",
+      "The Georgian name საყელოიანი ეირენისი refers to the dark neck band; English collared dwarf snake / dwarf racer refers to the same mark and small size."
+    ],
     "identification": {
-      "summary": "A small harmless dwarf snake named for a collar marking.",
+      "summary": "A small, slender, non-venomous snake with a round pupil and a dark collar on the neck. The back is olive or light brown. It is not a viper and not a worm-like blind snake.",
       "traits": [
-        "Small, slender colubrid — not a large racer.",
-        "The name refers to a collar mark.",
-        "Round pupil; non-venomous.",
-        "Confused with E. modestus, which the checklist places in eastern and central Georgia."
+        "The body is slender and short — a dwarf-snake build, not a large racer. The head is weakly set off from the neck; the snout is rounded. The pupil is round. Dorsal scales are smooth. At species level there are often 15 mid-body rows (sometimes 15–17). The ring-headed dwarf snake often has 17–18. Do not pick the snake up to count scales. Adults are usually under 40 cm; the measured maximum is about 40 cm.",
+        "The back is olive or light brown; each scale often has a pale centre and dark edges. A dark collar on the neck tapers toward the throat — the source of the common name. The head may show a weak cross-band and two parietal spots. The belly is yellowish-white. The Turkish subspecies E. c. macrospilotus has a row of dark dorsal spots; the Georgian checklist names nominotypical E. c. collaris.",
+        "The ring-headed dwarf snake (Eirenis modestus) looks similar but is larger (usually under 70 cm) and the collar often fades in adults; the checklist places it in the east and centre, and this species in the southeast (named locality Taribana, Dedoplistskaro). The smooth snake (Coronella austriaca) is stouter, has two rows of small dorsal spots, and is more tied to forest edge and moister ground. The worm snake (Xerotyphlops vermicularis) is worm-like, with reduced eyes. The European cat snake (Telescopus fallax) has a vertical pupil.",
+        "It has no venom. A round pupil points away from vipers and the blunt-nosed viper. If you meet one, keep distance. Do not pick it up: a small harmless snake is easily injured, and an unidentified snake may be venomous."
       ]
     },
     "faq": [
       {
         "question": "Does the collared dwarf snake occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026: southeastern Georgia. A paper figure specimen is from Taribana, Dedoplistskaro district."
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed in southeastern Georgia. The named locality is Taribana, Dedoplistskaro. Do not look for it across the whole country."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. It is a non-venomous dwarf snake."
+        "question": "Where might I encounter it in Georgia?",
+        "answer": "On dry stony ground, often under stones, in the southeast. This atlas marks Kakheti, Tbilisi, and Kvemo Kartli. The named scientific locality is Taribana; a named photograph is from the Iagluji Hills. There is no named western or Colchic point here. Distribution confidence is medium."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. When threatened it usually flees. Even a small snake can bite — do not pick it up. A vertical pupil points to a viper or the blunt-nosed viper."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "A small slender snake, round pupil, smooth scales, olive or light-brown back, dark collar on the neck. In the ring-headed dwarf snake the collar is often weaker in adults and the checklist range is east–central. The worm snake is worm-like. Do not pick it up to count scales."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "At species level adults are usually under 40 cm; the measured maximum is about 40 cm. A separate Georgian length series is not on this page."
+      },
+      {
+        "question": "What does it eat, and does it lay eggs?",
+        "answer": "It lays eggs; species-level literature cites 4–8 eggs in summer. Diet has not been studied separately in Georgia; at species level mainly insects and other under-stone invertebrates, rarely a small lizard."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "An hourly calendar has not been published for Georgia. Expect the warm season on dry ground under stones. Photographs on this atlas are from May and July."
       },
       {
         "question": "How does it differ from the ring-headed dwarf snake?",
-        "answer": "Both are small harmless Eirenis. E. collaris is named for a collar; the checklist places it in the southeast, and E. modestus in eastern and central Georgia."
-      },
-      {
-        "question": "Is this a blind snake or a sand boa?",
-        "answer": "No. Eirenis has normal eyes and colubrid scales, not a worm-like body (blind snake) or a stout boa build."
+        "answer": "Both are small harmless Eirenis. The collared species usually keeps a clearer collar and is typically shorter; the checklist places it in the southeast and E. modestus in the east and centre. Mid-body scale rows are often 15 versus 17–18, but that is not a hand-count field mark."
       }
     ],
     "gallery": [

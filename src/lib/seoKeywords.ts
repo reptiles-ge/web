@@ -146,6 +146,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta saxicola dahli",
     ],
   },
+  "darevskia-valentini": {
+    ka: [
+      "Lacerta valentini",
+      "Lacerta saxicola valentini",
+    ],
+    en: [
+      "Valentin's rock lizard",
+      "Caucasian rock lizard",
+      "Lacerta valentini",
+      "Lacerta saxicola valentini",
+    ],
+  },
   "platyceps-najadum": {
     ka: ["წენგოსფერი მცურავი", "Coluber najadum"],
     en: [
@@ -161,6 +173,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "sand boa",
       "western sand boa",
       "Eryx jaculus turcicus",
+    ],
+  },
+  "eirenis-collaris": {
+    ka: [
+      "Coluber collaris",
+      "Contia collaris",
+      "ჯუჯა გველი",
+    ],
+    en: [
+      "collared dwarf racer",
+      "Collared Dwarf Racer",
+      "Coluber collaris",
+      "Contia collaris",
     ],
   },
   "eirenis-modestus": {

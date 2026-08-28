@@ -170,7 +170,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "coronella-austriaca",
     "xerotyphlops-vermicularis",
   ],
-  "eirenis-collaris": ["eirenis-modestus"],
+  "eirenis-collaris": [
+    "eirenis-modestus",
+    "coronella-austriaca",
+    "xerotyphlops-vermicularis",
+  ],
   "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
   "testudo-graeca": [
@@ -298,6 +302,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-mixta",
   ],
   "darevskia-portschinskii": ["darevskia-obscura", "darevskia-valentini"],
+  "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
   "darevskia-praticola": ["darevskia-pontica"],
   "darevskia-raddei": ["darevskia-obscura"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],

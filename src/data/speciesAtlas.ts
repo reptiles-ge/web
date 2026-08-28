@@ -195,7 +195,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "darevskia-valentini": {
     group: "lizard",
-    habitats: ["mountain", "forest"],
+    habitats: ["mountain", "grassland"],
   },
   "xerotyphlops-vermicularis": {
     group: "snake",
