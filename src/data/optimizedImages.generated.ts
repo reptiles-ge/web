@@ -4603,6 +4603,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 763,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4615,6 +4617,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 846,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4627,6 +4631,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 848,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4639,6 +4645,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 769,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4651,6 +4659,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4663,6 +4673,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4675,6 +4687,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4687,6 +4701,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1356,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -4700,6 +4716,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1184,
     "height": 1800,
     "widths": [
+      400,
+      800,
       1184
     ],
     "formats": [
@@ -4712,6 +4730,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1800,
     "height": 1350,
     "widths": [
+      400,
+      800,
       1200,
       1800
     ],
@@ -4725,6 +4745,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1800,
     "height": 1350,
     "widths": [
+      400,
+      800,
       1200,
       1800
     ],
@@ -4738,6 +4760,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1800,
     "height": 1205,
     "widths": [
+      400,
+      800,
       1200,
       1800
     ],
@@ -4751,6 +4775,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1800,
     "height": 1200,
     "widths": [
+      400,
+      800,
       1200,
       1800
     ],
@@ -4764,6 +4790,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4776,6 +4804,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4788,6 +4818,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1701,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -4800,6 +4832,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1440,
     "widths": [
+      400,
+      800,
       1200,
       1920
     ],
@@ -4812,6 +4846,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1500,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -4824,6 +4860,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1600,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -4836,6 +4874,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1800,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -4848,6 +4888,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1600,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -4861,6 +4903,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1800,
     "height": 1200,
     "widths": [
+      400,
+      800,
       1200,
       1800
     ],
@@ -4873,6 +4917,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -4885,6 +4931,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1600,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -4897,6 +4945,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 800,
     "height": 533,
     "widths": [
+      400,
       800
     ],
     "formats": [
@@ -4908,6 +4957,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 800,
     "height": 533,
     "widths": [
+      400,
       800
     ],
     "formats": [
@@ -4919,6 +4969,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2200,
     "height": 1434,
     "widths": [
+      400,
+      800,
       1200,
       2200
     ],
@@ -4932,6 +4984,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 800,
     "height": 521,
     "widths": [
+      400,
       800
     ],
     "formats": [
@@ -4943,6 +4996,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 800,
     "height": 533,
     "widths": [
+      400,
       800
     ],
     "formats": [
@@ -4954,6 +5008,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 768,
     "height": 1024,
     "widths": [
+      400,
       768
     ],
     "formats": [
@@ -4966,6 +5021,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 552,
     "height": 368,
     "widths": [
+      400,
       552
     ],
     "formats": [
@@ -4977,6 +5033,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [
+      400,
       771
     ],
     "formats": [
@@ -4989,6 +5046,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [
+      400,
       771
     ],
     "formats": [
@@ -5001,6 +5059,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [
+      400,
       771
     ],
     "formats": [
@@ -5013,6 +5072,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [
+      400,
       771
     ],
     "formats": [
@@ -5025,6 +5085,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 812,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5037,6 +5099,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 728,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5049,6 +5113,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 767,
     "height": 1024,
     "widths": [
+      400,
       767
     ],
     "formats": [
@@ -5061,6 +5126,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1384,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5074,6 +5141,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1365,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5087,6 +5156,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5100,6 +5171,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 760,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5112,6 +5185,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 756,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5124,6 +5199,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 686,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5136,6 +5213,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5148,6 +5227,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5160,6 +5241,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5172,6 +5255,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5184,6 +5269,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1280,
     "height": 910,
     "widths": [
+      400,
+      800,
       1200,
       1280
     ],
@@ -5197,6 +5284,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5210,6 +5299,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1800,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -5223,6 +5314,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2240,
     "height": 1488,
     "widths": [
+      400,
+      800,
       1200,
       2240
     ],
@@ -5236,6 +5329,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2240,
     "height": 1488,
     "widths": [
+      400,
+      800,
       1200,
       2240
     ],
@@ -5249,6 +5344,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1350,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -5262,6 +5359,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1800,
     "widths": [
+      400,
+      800,
       1200,
       2400
     ],
@@ -5275,6 +5374,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1728,
     "height": 1296,
     "widths": [
+      400,
+      800,
       1200,
       1728
     ],
@@ -5288,6 +5389,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1728,
     "height": 1296,
     "widths": [
+      400,
+      800,
       1200,
       1728
     ],
@@ -5300,6 +5403,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1280,
     "widths": [
+      400,
+      800,
       1200,
       1920
     ],
@@ -5312,6 +5417,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5324,6 +5431,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2000,
     "height": 1375,
     "widths": [
+      400,
+      800,
       1200,
       2000
     ],
@@ -5336,6 +5445,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1365,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5349,6 +5460,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1536,
     "height": 2048,
     "widths": [
+      400,
+      800,
       1200,
       1536
     ],
@@ -5361,6 +5474,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1280,
     "widths": [
+      400,
+      800,
       1200,
       1920
     ],
@@ -5373,6 +5488,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1866,
     "height": 2048,
     "widths": [
+      400,
+      800,
       1200,
       1866
     ],
@@ -5386,6 +5503,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5398,6 +5517,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5410,6 +5531,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5422,6 +5545,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5434,6 +5559,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 778,
     "widths": [
+      400,
+      800,
       1024
     ],
     "formats": [
@@ -5446,6 +5573,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1440,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5458,6 +5587,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 900,
     "height": 600,
     "widths": [
+      400,
+      800,
       900
     ],
     "formats": [
@@ -5470,6 +5601,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1977,
     "height": 1977,
     "widths": [
+      400,
+      800,
       1200,
       1977
     ],
@@ -5483,6 +5616,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1365,
     "widths": [
+      400,
+      800,
       1200,
       2048
     ],
@@ -5495,6 +5630,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 793,
     "height": 573,
     "widths": [
+      400,
       793
     ],
     "formats": [
@@ -5507,8 +5643,2632 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [
+      400,
+      800,
       1200,
       2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/phoenicolacerta-laevis-mobile.jpg": {
+    "path": "phoenicolacerta-laevis-mobile",
+    "width": 2048,
+    "height": 1057,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/phoenicolacerta-laevis.jpg": {
+    "path": "phoenicolacerta-laevis",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-lours-1.jpg": {
+    "path": "picus-viridis-lours-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-mannweiler-1.jpg": {
+    "path": "picus-viridis-mannweiler-1",
+    "width": 1920,
+    "height": 1297,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-sharp-female.jpg": {
+    "path": "picus-viridis-sharp-female",
+    "width": 1280,
+    "height": 1920,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-sharp-male.jpg": {
+    "path": "picus-viridis-sharp-male",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-skot-1.jpg": {
+    "path": "picus-viridis-skot-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-zauri-1.jpg": {
+    "path": "picus-viridis-zauri-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/picus-viridis-zauri-2.jpg": {
+    "path": "picus-viridis-zauri-2",
+    "width": 1024,
+    "height": 681,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-2.webp": {
+    "path": "platyceps-najadum-2",
+    "width": 2400,
+    "height": 1214,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-3.webp": {
+    "path": "platyceps-najadum-3",
+    "width": 2400,
+    "height": 1594,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-4.webp": {
+    "path": "platyceps-najadum-4",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-5.webp": {
+    "path": "platyceps-najadum-5",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-6.webp": {
+    "path": "platyceps-najadum-6",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-7.webp": {
+    "path": "platyceps-najadum-7",
+    "width": 2032,
+    "height": 1524,
+    "widths": [
+      400,
+      800,
+      1200,
+      2032
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum-shota-1.jpg": {
+    "path": "platyceps-najadum-shota-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [
+      400,
+      768
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/platyceps-najadum.webp": {
+    "path": "platyceps-najadum",
+    "width": 2400,
+    "height": 1597,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-2.webp": {
+    "path": "pseudopus-apodus-2",
+    "width": 2200,
+    "height": 990,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-3.webp": {
+    "path": "pseudopus-apodus-3",
+    "width": 2200,
+    "height": 1650,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-4.webp": {
+    "path": "pseudopus-apodus-4",
+    "width": 2200,
+    "height": 1650,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-5.webp": {
+    "path": "pseudopus-apodus-5",
+    "width": 2200,
+    "height": 1466,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-6.webp": {
+    "path": "pseudopus-apodus-6",
+    "width": 2200,
+    "height": 1247,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-7.webp": {
+    "path": "pseudopus-apodus-7",
+    "width": 2200,
+    "height": 1650,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-mobile.webp": {
+    "path": "pseudopus-apodus-mobile",
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-zakro-1.jpg": {
+    "path": "pseudopus-apodus-zakro-1",
+    "width": 1000,
+    "height": 667,
+    "widths": [
+      400,
+      800,
+      1000
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus.webp": {
+    "path": "pseudopus-apodus",
+    "width": 2200,
+    "height": 1467,
+    "widths": [
+      400,
+      800,
+      1200,
+      2200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-2.jpg": {
+    "path": "rana-macrocnemis-2",
+    "width": 2048,
+    "height": 1537,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-3.jpg": {
+    "path": "rana-macrocnemis-3",
+    "width": 2048,
+    "height": 1511,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-sandro-1.jpg": {
+    "path": "rana-macrocnemis-sandro-1",
+    "width": 1024,
+    "height": 834,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-sandro-2.jpg": {
+    "path": "rana-macrocnemis-sandro-2",
+    "width": 1024,
+    "height": 827,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-zauri-1.jpg": {
+    "path": "rana-macrocnemis-zauri-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-zauri-2.jpg": {
+    "path": "rana-macrocnemis-zauri-2",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis-zauri-3.jpg": {
+    "path": "rana-macrocnemis-zauri-3",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/rana-macrocnemis.jpg": {
+    "path": "rana-macrocnemis",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-alacam-1.jpg": {
+    "path": "sciurus-anomalus-alacam-1",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-cate-1.jpg": {
+    "path": "sciurus-anomalus-cate-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-cebeci-1.jpg": {
+    "path": "sciurus-anomalus-cebeci-1",
+    "width": 2250,
+    "height": 1555,
+    "widths": [
+      400,
+      800,
+      1200,
+      2250
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-cebeci-2.jpg": {
+    "path": "sciurus-anomalus-cebeci-2",
+    "width": 2250,
+    "height": 1542,
+    "widths": [
+      400,
+      800,
+      1200,
+      2250
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-nest-1.jpg": {
+    "path": "sciurus-anomalus-nest-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-ustun-1.jpg": {
+    "path": "sciurus-anomalus-ustun-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-vake-1.jpg": {
+    "path": "sciurus-anomalus-vake-1",
+    "width": 1992,
+    "height": 2574,
+    "widths": [
+      400,
+      800,
+      1200,
+      1992
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sciurus-anomalus-zauri-1.jpg": {
+    "path": "sciurus-anomalus-zauri-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/aegypius-monachus-kochiashvili-1.jpg": {
+    "path": "species/aegypius-monachus-kochiashvili-1",
+    "width": 1024,
+    "height": 723,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/aegypius-monachus-tsiskarauli-1.jpg": {
+    "path": "species/aegypius-monachus-tsiskarauli-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/aegypius-monachus-tsiskarauli-2.jpg": {
+    "path": "species/aegypius-monachus-tsiskarauli-2",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-gabunia-1.jpg": {
+    "path": "species/capra-aegagrus-gabunia-1",
+    "width": 892,
+    "height": 596,
+    "widths": [
+      400,
+      800,
+      892
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-gndasar-1.jpg": {
+    "path": "species/capra-aegagrus-gndasar-1",
+    "width": 1920,
+    "height": 1260,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-horns-1.jpg": {
+    "path": "species/capra-aegagrus-horns-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-kerdikoshvili-1.jpg": {
+    "path": "species/capra-aegagrus-kerdikoshvili-1",
+    "width": 960,
+    "height": 720,
+    "widths": [
+      400,
+      800,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-3.jpg": {
+    "path": "species/capra-aegagrus-malkhasyan-3",
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-4.jpg": {
+    "path": "species/capra-aegagrus-malkhasyan-4",
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-6.jpg": {
+    "path": "species/capra-aegagrus-malkhasyan-6",
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-9.jpg": {
+    "path": "species/capra-aegagrus-malkhasyan-9",
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/lynx-lynx-bohringer-1.jpg": {
+    "path": "species/lynx-lynx-bohringer-1",
+    "width": 1800,
+    "height": 1200,
+    "widths": [
+      400,
+      800,
+      1200,
+      1800
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/lynx-lynx-delgado-1.jpg": {
+    "path": "species/lynx-lynx-delgado-1",
+    "width": 1200,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/lynx-lynx-ebr-1.jpg": {
+    "path": "species/lynx-lynx-ebr-1",
+    "width": 1800,
+    "height": 1199,
+    "widths": [
+      400,
+      800,
+      1200,
+      1800
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/lynx-lynx-portrait-1.jpg": {
+    "path": "species/lynx-lynx-portrait-1",
+    "width": 1800,
+    "height": 1268,
+    "widths": [
+      400,
+      800,
+      1200,
+      1800
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/lynx-lynx-tracks-1.jpg": {
+    "path": "species/lynx-lynx-tracks-1",
+    "width": 1350,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      1350
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/procyon-lotor-khinkiladze-1.jpg": {
+    "path": "species/procyon-lotor-khinkiladze-1",
+    "width": 720,
+    "height": 540,
+    "widths": [
+      400,
+      720
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/procyon-lotor-shushtakashvili-1.jpg": {
+    "path": "species/procyon-lotor-shushtakashvili-1",
+    "width": 720,
+    "height": 960,
+    "widths": [
+      400,
+      720
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/procyon-lotor-tatulishvili-1.jpg": {
+    "path": "species/procyon-lotor-tatulishvili-1",
+    "width": 772,
+    "height": 1024,
+    "widths": [
+      400,
+      772
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/species/procyon-lotor-tatulishvili-2.jpg": {
+    "path": "species/procyon-lotor-tatulishvili-2",
+    "width": 775,
+    "height": 1024,
+    "widths": [
+      400,
+      775
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg": {
+    "path": "strix-aluco-gaebler-1",
+    "width": 1654,
+    "height": 2082,
+    "widths": [
+      400,
+      800,
+      1200,
+      1654
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-gavrilovic-chicks-1.jpg": {
+    "path": "strix-aluco-gavrilovic-chicks-1",
+    "width": 1920,
+    "height": 1550,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-nottsexminer-1.jpg": {
+    "path": "strix-aluco-nottsexminer-1",
+    "width": 1920,
+    "height": 2560,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-trepte-1.jpg": {
+    "path": "strix-aluco-trepte-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sus-scrofa-1.jpg": {
+    "path": "sus-scrofa-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sus-scrofa-2.jpg": {
+    "path": "sus-scrofa-2",
+    "width": 2400,
+    "height": 1760,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sus-scrofa-forest-1.jpg": {
+    "path": "sus-scrofa-forest-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sus-scrofa-frontal-1.jpg": {
+    "path": "sus-scrofa-frontal-1",
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sus-scrofa-piglet-1.jpg": {
+    "path": "sus-scrofa-piglet-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/sus-scrofa-sow-1.jpg": {
+    "path": "sus-scrofa-sow-1",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-2.jpg": {
+    "path": "telescopus-fallax-2",
+    "width": 2400,
+    "height": 1714,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-3.jpg": {
+    "path": "telescopus-fallax-3",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-4.jpg": {
+    "path": "telescopus-fallax-4",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-5.jpg": {
+    "path": "telescopus-fallax-5",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-6.jpg": {
+    "path": "telescopus-fallax-6",
+    "width": 1280,
+    "height": 1920,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-7.jpg": {
+    "path": "telescopus-fallax-7",
+    "width": 2400,
+    "height": 1773,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-lasha-1.jpg": {
+    "path": "telescopus-fallax-lasha-1",
+    "width": 771,
+    "height": 1024,
+    "widths": [
+      400,
+      771
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-malkhaz-1.jpg": {
+    "path": "telescopus-fallax-malkhaz-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax-mobile.jpg": {
+    "path": "telescopus-fallax-mobile",
+    "width": 1800,
+    "height": 2400,
+    "widths": [
+      400,
+      800,
+      1200,
+      1800
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/telescopus-fallax.jpg": {
+    "path": "telescopus-fallax",
+    "width": 2400,
+    "height": 1596,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/tenuidactylus-caspius-2.jpg": {
+    "path": "tenuidactylus-caspius-2",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/tenuidactylus-caspius-3.jpg": {
+    "path": "tenuidactylus-caspius-3",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/tenuidactylus-caspius-mobile.jpg": {
+    "path": "tenuidactylus-caspius-mobile",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/tenuidactylus-caspius.jpg": {
+    "path": "tenuidactylus-caspius",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-2.jpg": {
+    "path": "testudo-graeca-2",
+    "width": 1536,
+    "height": 2048,
+    "widths": [
+      400,
+      800,
+      1200,
+      1536
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca-3.jpg": {
+    "path": "testudo-graeca-3",
+    "width": 2048,
+    "height": 1371,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/testudo-graeca.jpg": {
+    "path": "testudo-graeca",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-2.jpg": {
+    "path": "trachemys-scripta-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-3.jpg": {
+    "path": "trachemys-scripta-3",
+    "width": 1307,
+    "height": 871,
+    "widths": [
+      400,
+      800,
+      1200,
+      1307
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta-mobile.jpg": {
+    "path": "trachemys-scripta-mobile",
+    "width": 1707,
+    "height": 960,
+    "widths": [
+      400,
+      800,
+      1200,
+      1707
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/trachemys-scripta.jpg": {
+    "path": "trachemys-scripta",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/triturus-karelinii-2.jpg": {
+    "path": "triturus-karelinii-2",
+    "width": 1465,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1200,
+      1465
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/triturus-karelinii-3.jpg": {
+    "path": "triturus-karelinii-3",
+    "width": 2048,
+    "height": 1361,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/triturus-karelinii.jpg": {
+    "path": "triturus-karelinii",
+    "width": 1280,
+    "height": 670,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-cub-1.jpg": {
+    "path": "ursus-arctos-cub-1",
+    "width": 1280,
+    "height": 969,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-female-1.jpg": {
+    "path": "ursus-arctos-female-1",
+    "width": 1280,
+    "height": 853,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-female-2.jpg": {
+    "path": "ursus-arctos-female-2",
+    "width": 1280,
+    "height": 853,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-mirza-1.jpg": {
+    "path": "ursus-arctos-mirza-1",
+    "width": 1024,
+    "height": 521,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-paposhvili-1.jpg": {
+    "path": "ursus-arctos-paposhvili-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-paw-1.jpg": {
+    "path": "ursus-arctos-paw-1",
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-toma-1.jpg": {
+    "path": "ursus-arctos-toma-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [
+      400,
+      768
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-tracks-1.jpg": {
+    "path": "ursus-arctos-tracks-1",
+    "width": 960,
+    "height": 1707,
+    "widths": [
+      400,
+      800,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/ursus-arctos-zauri-1.jpg": {
+    "path": "ursus-arctos-zauri-1",
+    "width": 1024,
+    "height": 731,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp": {
+    "path": "vipera-cover-on-mobile",
+    "width": 1200,
+    "height": 1680,
+    "widths": [
+      400,
+      800,
+      1200
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-2.jpg": {
+    "path": "vipera-darevskii-2",
+    "width": 1600,
+    "height": 1301,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-3.jpg": {
+    "path": "vipera-darevskii-3",
+    "width": 1364,
+    "height": 1375,
+    "widths": [
+      400,
+      800,
+      1200,
+      1364
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-4.jpg": {
+    "path": "vipera-darevskii-4",
+    "width": 1838,
+    "height": 1561,
+    "widths": [
+      400,
+      800,
+      1200,
+      1838
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-guram-1.jpg": {
+    "path": "vipera-darevskii-guram-1",
+    "width": 1000,
+    "height": 743,
+    "widths": [
+      400,
+      800,
+      1000
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg": {
+    "path": "vipera-darevskii-mobile",
+    "width": 900,
+    "height": 1200,
+    "widths": [
+      400,
+      800,
+      900
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-tadevosyan-1.jpg": {
+    "path": "vipera-darevskii-tadevosyan-1",
+    "width": 1015,
+    "height": 1024,
+    "widths": [
+      400,
+      800,
+      1015
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii.jpg": {
+    "path": "vipera-darevskii",
+    "width": 2400,
+    "height": 1638,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik-2.webp": {
+    "path": "vipera-dinnik-2",
+    "width": 1276,
+    "height": 957,
+    "widths": [
+      400,
+      800,
+      1200,
+      1276
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik-3.webp": {
+    "path": "vipera-dinnik-3",
+    "width": 800,
+    "height": 534,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik-4.webp": {
+    "path": "vipera-dinnik-4",
+    "width": 1200,
+    "height": 789,
+    "widths": [
+      400,
+      800,
+      1200
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik-5.webp": {
+    "path": "vipera-dinnik-5",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik-6.webp": {
+    "path": "vipera-dinnik-6",
+    "width": 1600,
+    "height": 1038,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik-7.jpg": {
+    "path": "vipera-dinnik-7",
+    "width": 600,
+    "height": 800,
+    "widths": [
+      400,
+      600
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinnik.webp": {
+    "path": "vipera-dinnik",
+    "width": 1600,
+    "height": 1038,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg": {
+    "path": "vipera-dinniki-truso-2",
+    "width": 631,
+    "height": 1024,
+    "widths": [
+      400,
+      631
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp": {
+    "path": "vipera-kaznakovi-2",
+    "width": 2400,
+    "height": 1846,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-3.webp": {
+    "path": "vipera-kaznakovi-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-4.webp": {
+    "path": "vipera-kaznakovi-4",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-6.webp": {
+    "path": "vipera-kaznakovi-6",
+    "width": 2048,
+    "height": 1465,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-7.webp": {
+    "path": "vipera-kaznakovi-7",
+    "width": 2048,
+    "height": 1152,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-giorgi-1.jpg": {
+    "path": "vipera-kaznakovi-giorgi-1",
+    "width": 800,
+    "height": 778,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-mobile.webp": {
+    "path": "vipera-kaznakovi-mobile",
+    "width": 800,
+    "height": 1120,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg": {
+    "path": "vipera-kaznakovi-sandro-1",
+    "width": 1197,
+    "height": 960,
+    "widths": [
+      400,
+      800,
+      1197
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-2.jpg": {
+    "path": "vipera-kaznakovi-sandro-2",
+    "width": 1998,
+    "height": 2048,
+    "widths": [
+      400,
+      800,
+      1200,
+      1998
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-3.jpg": {
+    "path": "vipera-kaznakovi-sandro-3",
+    "width": 1199,
+    "height": 720,
+    "widths": [
+      400,
+      800,
+      1199
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-4.jpg": {
+    "path": "vipera-kaznakovi-sandro-4",
+    "width": 1296,
+    "height": 960,
+    "widths": [
+      400,
+      800,
+      1200,
+      1296
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-5.jpg": {
+    "path": "vipera-kaznakovi-sandro-5",
+    "width": 1440,
+    "height": 960,
+    "widths": [
+      400,
+      800,
+      1200,
+      1440
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-zakro-1.jpg": {
+    "path": "vipera-kaznakovi-zakro-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-1.jpg": {
+    "path": "vipera-kaznakovi-zauri-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-2.jpg": {
+    "path": "vipera-kaznakovi-zauri-2",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-3.jpg": {
+    "path": "vipera-kaznakovi-zauri-3",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-kaznakovi.webp": {
+    "path": "vipera-kaznakovi",
+    "width": 2400,
+    "height": 1846,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-2.jpg": {
+    "path": "vipera-renardi-2",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-3.jpg": {
+    "path": "vipera-renardi-3",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-4.jpg": {
+    "path": "vipera-renardi-4",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-5.jpg": {
+    "path": "vipera-renardi-5",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-6.jpg": {
+    "path": "vipera-renardi-6",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-7.jpg": {
+    "path": "vipera-renardi-7",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-mobile.webp": {
+    "path": "vipera-renardi-mobile",
+    "width": 800,
+    "height": 533,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi.jpg": {
+    "path": "vipera-renardi",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg": {
+    "path": "vipera-transcaucasiana-2",
+    "width": 1922,
+    "height": 1441,
+    "widths": [
+      400,
+      800,
+      1200,
+      1922
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-3.jpg": {
+    "path": "vipera-transcaucasiana-3",
+    "width": 2048,
+    "height": 1305,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg": {
+    "path": "vipera-transcaucasiana-4",
+    "width": 2048,
+    "height": 1329,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-5.jpg": {
+    "path": "vipera-transcaucasiana-5",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-6.jpg": {
+    "path": "vipera-transcaucasiana-6",
+    "width": 1500,
+    "height": 1000,
+    "widths": [
+      400,
+      800,
+      1200,
+      1500
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-dzegvi.jpg": {
+    "path": "vipera-transcaucasiana-dzegvi",
+    "width": 472,
+    "height": 1024,
+    "widths": [
+      400,
+      472
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-mobile.webp": {
+    "path": "vipera-transcaucasiana-mobile",
+    "width": 800,
+    "height": 1067,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-1.jpg": {
+    "path": "vipera-transcaucasiana-zauri-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-2.jpg": {
+    "path": "vipera-transcaucasiana-zauri-2",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-3.jpg": {
+    "path": "vipera-transcaucasiana-zauri-3",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-4.jpg": {
+    "path": "vipera-transcaucasiana-zauri-4",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-5.jpg": {
+    "path": "vipera-transcaucasiana-zauri-5",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri.jpg": {
+    "path": "vipera-transcaucasiana-zauri",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana.jpg": {
+    "path": "vipera-transcaucasiana",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-billington-1.jpg": {
+    "path": "vulpes-vulpes-billington-1",
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-cubs-1.jpg": {
+    "path": "vulpes-vulpes-cubs-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-lours-1.jpg": {
+    "path": "vulpes-vulpes-lours-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-mallnitz-1.jpg": {
+    "path": "vulpes-vulpes-mallnitz-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-portrait-1.jpg": {
+    "path": "vulpes-vulpes-portrait-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [
+      400,
+      800,
+      1200,
+      1920
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-zauri-1.jpg": {
+    "path": "vulpes-vulpes-zauri-1",
+    "width": 1024,
+    "height": 681,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-2.jpg": {
+    "path": "xerotyphlops-vermicularis-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-3.jpg": {
+    "path": "xerotyphlops-vermicularis-3",
+    "width": 2048,
+    "height": 1465,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-mobile.jpg": {
+    "path": "xerotyphlops-vermicularis-mobile",
+    "width": 1025,
+    "height": 1367,
+    "widths": [
+      400,
+      800,
+      1025
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-zakro-1.jpg": {
+    "path": "xerotyphlops-vermicularis-zakro-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis.jpg": {
+    "path": "xerotyphlops-vermicularis",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-2.jpg": {
+    "path": "zamenis-hohenackeri-2",
+    "width": 1024,
+    "height": 740,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-3.jpg": {
+    "path": "zamenis-hohenackeri-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-mobile.jpg": {
+    "path": "zamenis-hohenackeri-mobile",
+    "width": 1280,
+    "height": 960,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri.jpg": {
+    "path": "zamenis-hohenackeri",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-2.jpg": {
+    "path": "zamenis-longissimus-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-3.jpg": {
+    "path": "zamenis-longissimus-3",
+    "width": 2048,
+    "height": 1536,
+    "widths": [
+      400,
+      800,
+      1200,
+      2048
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg": {
+    "path": "zamenis-longissimus-4",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-5.jpg": {
+    "path": "zamenis-longissimus-5",
+    "width": 2400,
+    "height": 1595,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-6.jpg": {
+    "path": "zamenis-longissimus-6",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-7.jpg": {
+    "path": "zamenis-longissimus-7",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus-mobile.jpg": {
+    "path": "zamenis-longissimus-mobile",
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/zamenis-longissimus.jpg": {
+    "path": "zamenis-longissimus",
+    "width": 1024,
+    "height": 683,
+    "widths": [
+      400,
+      800,
+      1024
     ],
     "formats": [
       "avif",
