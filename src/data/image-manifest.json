@@ -18381,12 +18381,26 @@
     },
     "macrovipera-lebetina-nino-2.jpg": {
       "sourceHash": "3eed8b8fcffd62b3877001de94805d46a7cf0727124d53105c6a1fc1a35e15b2",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "macrovipera-lebetina-nino-2.jpg",
       "originalSize": 335566,
       "width": 767,
       "height": 1024,
       "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-nino-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 534,
+          "byteSize": 54151
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nino-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 534,
+          "byteSize": 83806
+        },
         {
           "key": "optimized/macrovipera-lebetina-nino-2-767.avif",
           "format": "avif",
@@ -18402,16 +18416,30 @@
           "byteSize": 230700
         }
       ],
-      "updatedAt": "2026-08-28T21:24:24.976Z"
+      "updatedAt": "2026-08-28T21:45:30.396Z"
     },
     "macrovipera-lebetina-shota-1.jpg": {
       "sourceHash": "7514844df0798e0dc7d0d1d29cb3e9381f771c8fa03c8348e54730c1a5c5e061",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "macrovipera-lebetina-shota-1.jpg",
       "originalSize": 203734,
       "width": 767,
       "height": 1024,
       "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-shota-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 534,
+          "byteSize": 33053
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-shota-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 534,
+          "byteSize": 49274
+        },
         {
           "key": "optimized/macrovipera-lebetina-shota-1-767.avif",
           "format": "avif",
@@ -18427,16 +18455,30 @@
           "byteSize": 111684
         }
       ],
-      "updatedAt": "2026-08-28T21:24:26.016Z"
+      "updatedAt": "2026-08-28T21:45:30.759Z"
     },
     "macrovipera-lebetina-shota-2.jpg": {
       "sourceHash": "db9551719f0d961f632149c2a937c73a95216e042c498f9fba7cf7f46ba7955f",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "macrovipera-lebetina-shota-2.jpg",
       "originalSize": 301293,
       "width": 767,
       "height": 1024,
       "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-shota-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 534,
+          "byteSize": 47909
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-shota-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 534,
+          "byteSize": 75002
+        },
         {
           "key": "optimized/macrovipera-lebetina-shota-2-767.avif",
           "format": "avif",
@@ -18452,16 +18494,44 @@
           "byteSize": 214930
         }
       ],
-      "updatedAt": "2026-08-28T21:24:26.500Z"
+      "updatedAt": "2026-08-28T21:45:32.287Z"
     },
     "macrovipera-lebetina-zakro-1.jpg": {
       "sourceHash": "e3072aae87fc7ee76e3f265f02439f17eab9b88704833ab6ee2fef72330a1ffc",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "macrovipera-lebetina-zakro-1.jpg",
       "originalSize": 258991,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18988
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26968
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59413
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81004
+        },
         {
           "key": "optimized/macrovipera-lebetina-zakro-1-1024.avif",
           "format": "avif",
@@ -18477,16 +18547,44 @@
           "byteSize": 117140
         }
       ],
-      "updatedAt": "2026-08-28T21:24:26.665Z"
+      "updatedAt": "2026-08-28T21:45:33.663Z"
     },
     "macrovipera-lebetina-zakro-2.jpg": {
       "sourceHash": "848ff784f481c97fc7ba672953974324d8865fec9c87aab41823d0154e85d004",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "macrovipera-lebetina-zakro-2.jpg",
       "originalSize": 135459,
       "width": 1000,
       "height": 667,
       "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16280
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25650
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 42524
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-zakro-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60586
+        },
         {
           "key": "optimized/macrovipera-lebetina-zakro-2-1000.avif",
           "format": "avif",
@@ -18502,16 +18600,44 @@
           "byteSize": 77632
         }
       ],
-      "updatedAt": "2026-08-28T21:24:26.959Z"
+      "updatedAt": "2026-08-28T21:45:34.836Z"
     },
     "macrovipera-lebetina.webp": {
       "sourceHash": "f6ed5292972f048991f19fb416f9db7346d7205f57cd18f22f289c81bec9b5a0",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "macrovipera-lebetina.webp",
       "originalSize": 175226,
       "width": 1200,
       "height": 798,
       "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20260
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 31380
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 67431
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 100004
+        },
         {
           "key": "optimized/macrovipera-lebetina-1200.avif",
           "format": "avif",
@@ -18527,16 +18653,44 @@
           "byteSize": 195254
         }
       ],
-      "updatedAt": "2026-08-28T21:24:28.138Z"
+      "updatedAt": "2026-08-28T21:45:37.323Z"
     },
     "malpolon-insignitus-2.jpg": {
       "sourceHash": "5b2dbeea8eb982e7a519e10af265169012c7cdc7bd2b038718f404f4fa58189b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "malpolon-insignitus-2.jpg",
       "originalSize": 111091,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/malpolon-insignitus-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6449
+        },
+        {
+          "key": "optimized/malpolon-insignitus-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8638
+        },
+        {
+          "key": "optimized/malpolon-insignitus-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 14492
+        },
+        {
+          "key": "optimized/malpolon-insignitus-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20184
+        },
         {
           "key": "optimized/malpolon-insignitus-2-1200.avif",
           "format": "avif",
@@ -18566,16 +18720,44 @@
           "byteSize": 64184
         }
       ],
-      "updatedAt": "2026-08-28T21:24:29.558Z"
+      "updatedAt": "2026-08-28T21:45:38.694Z"
     },
     "malpolon-insignitus-3.jpg": {
       "sourceHash": "ba767d505f45bc7b13f9dd6915a6b5d477a5a69b566bfcda3edc2a13e0b77ebe",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "malpolon-insignitus-3.jpg",
       "originalSize": 562167,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/malpolon-insignitus-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37691
+        },
+        {
+          "key": "optimized/malpolon-insignitus-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 57212
+        },
+        {
+          "key": "optimized/malpolon-insignitus-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 134904
+        },
+        {
+          "key": "optimized/malpolon-insignitus-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 213682
+        },
         {
           "key": "optimized/malpolon-insignitus-3-1200.avif",
           "format": "avif",
@@ -18605,16 +18787,44 @@
           "byteSize": 698752
         }
       ],
-      "updatedAt": "2026-08-28T21:24:33.426Z"
+      "updatedAt": "2026-08-28T21:45:44.990Z"
     },
     "malpolon-insignitus-mobile.jpg": {
       "sourceHash": "b94ba0e0717d801a027c9e4db5742afe636d3729b35c622c332c49c604e31f60",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "malpolon-insignitus-mobile.jpg",
       "originalSize": 227477,
       "width": 2048,
       "height": 2008,
       "derivatives": [
+        {
+          "key": "optimized/malpolon-insignitus-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 392,
+          "byteSize": 14174
+        },
+        {
+          "key": "optimized/malpolon-insignitus-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 392,
+          "byteSize": 19260
+        },
+        {
+          "key": "optimized/malpolon-insignitus-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 784,
+          "byteSize": 40417
+        },
+        {
+          "key": "optimized/malpolon-insignitus-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 784,
+          "byteSize": 54662
+        },
         {
           "key": "optimized/malpolon-insignitus-mobile-1200.avif",
           "format": "avif",
@@ -18644,16 +18854,44 @@
           "byteSize": 205508
         }
       ],
-      "updatedAt": "2026-08-28T21:24:33.328Z"
+      "updatedAt": "2026-08-28T21:45:45.539Z"
     },
     "malpolon-insignitus.jpg": {
       "sourceHash": "a396bb7b58a15b11a62e3c05f03d4d0140bb91b7b793bc1c18e92a682473df95",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "malpolon-insignitus.jpg",
       "originalSize": 119915,
       "width": 2048,
       "height": 1264,
       "derivatives": [
+        {
+          "key": "optimized/malpolon-insignitus-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 247,
+          "byteSize": 8172
+        },
+        {
+          "key": "optimized/malpolon-insignitus-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 247,
+          "byteSize": 11436
+        },
+        {
+          "key": "optimized/malpolon-insignitus-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 494,
+          "byteSize": 20519
+        },
+        {
+          "key": "optimized/malpolon-insignitus-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 494,
+          "byteSize": 29084
+        },
         {
           "key": "optimized/malpolon-insignitus-1200.avif",
           "format": "avif",
@@ -18683,16 +18921,44 @@
           "byteSize": 89226
         }
       ],
-      "updatedAt": "2026-08-28T21:24:32.648Z"
+      "updatedAt": "2026-08-28T21:45:48.768Z"
     },
     "mauremys-caspica-2.jpg": {
       "sourceHash": "33cde2b5349455bb9853037c0da01ffe82b1fcd94bcea28df5829bac53a24a0a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mauremys-caspica-2.jpg",
       "originalSize": 414482,
       "width": 1583,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 518,
+          "byteSize": 39212
+        },
+        {
+          "key": "optimized/mauremys-caspica-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 518,
+          "byteSize": 61780
+        },
+        {
+          "key": "optimized/mauremys-caspica-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1035,
+          "byteSize": 101991
+        },
+        {
+          "key": "optimized/mauremys-caspica-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1035,
+          "byteSize": 157402
+        },
         {
           "key": "optimized/mauremys-caspica-2-1200.avif",
           "format": "avif",
@@ -18722,16 +18988,44 @@
           "byteSize": 362068
         }
       ],
-      "updatedAt": "2026-08-28T21:24:35.166Z"
+      "updatedAt": "2026-08-28T21:45:53.374Z"
     },
     "mauremys-caspica-3.jpg": {
       "sourceHash": "b5650da6676fc666f9d32a33d900e5d4e1598a8ce3145be0dc312b1be8433fe7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mauremys-caspica-3.jpg",
       "originalSize": 311333,
       "width": 2048,
       "height": 1473,
       "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 288,
+          "byteSize": 21740
+        },
+        {
+          "key": "optimized/mauremys-caspica-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 288,
+          "byteSize": 29980
+        },
+        {
+          "key": "optimized/mauremys-caspica-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 575,
+          "byteSize": 74225
+        },
+        {
+          "key": "optimized/mauremys-caspica-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 575,
+          "byteSize": 104428
+        },
         {
           "key": "optimized/mauremys-caspica-3-1200.avif",
           "format": "avif",
@@ -18761,16 +19055,44 @@
           "byteSize": 304216
         }
       ],
-      "updatedAt": "2026-08-28T21:24:39.170Z"
+      "updatedAt": "2026-08-28T21:45:54.853Z"
     },
     "mauremys-caspica-mobile.jpg": {
       "sourceHash": "72734e41cea882a8ba626c0470239d11030a16d068d61df9db236425288d5f59",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mauremys-caspica-mobile.jpg",
       "originalSize": 327973,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21840
+        },
+        {
+          "key": "optimized/mauremys-caspica-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32550
+        },
+        {
+          "key": "optimized/mauremys-caspica-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67246
+        },
+        {
+          "key": "optimized/mauremys-caspica-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101860
+        },
         {
           "key": "optimized/mauremys-caspica-mobile-1200.avif",
           "format": "avif",
@@ -18800,16 +19122,44 @@
           "byteSize": 358672
         }
       ],
-      "updatedAt": "2026-08-28T21:24:39.157Z"
+      "updatedAt": "2026-08-28T21:46:00.197Z"
     },
     "mauremys-caspica.jpg": {
       "sourceHash": "707e287ff396040528378e3d6514b56fbe95c7ab15e736ff445f9b1e67dfc762",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mauremys-caspica.jpg",
       "originalSize": 360660,
       "width": 1463,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 560,
+          "byteSize": 34388
+        },
+        {
+          "key": "optimized/mauremys-caspica-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 560,
+          "byteSize": 55204
+        },
+        {
+          "key": "optimized/mauremys-caspica-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 96203
+        },
+        {
+          "key": "optimized/mauremys-caspica-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 155014
+        },
         {
           "key": "optimized/mauremys-caspica-1200.avif",
           "format": "avif",
@@ -18839,16 +19189,44 @@
           "byteSize": 333292
         }
       ],
-      "updatedAt": "2026-08-28T21:24:42.037Z"
+      "updatedAt": "2026-08-28T21:46:01.883Z"
     },
     "meles-canescens-armenia-tracks-1.jpg": {
       "sourceHash": "351711f648f506e6f9ee7a82e2675248514584df8395aa1f05ee2d9d3d9255da",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "meles-canescens-armenia-tracks-1.jpg",
       "originalSize": 3305251,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/meles-canescens-armenia-tracks-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 64058
+        },
+        {
+          "key": "optimized/meles-canescens-armenia-tracks-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 103788
+        },
+        {
+          "key": "optimized/meles-canescens-armenia-tracks-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 240602
+        },
+        {
+          "key": "optimized/meles-canescens-armenia-tracks-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 377264
+        },
         {
           "key": "optimized/meles-canescens-armenia-tracks-1-1200.avif",
           "format": "avif",
@@ -18878,16 +19256,44 @@
           "byteSize": 1239364
         }
       ],
-      "updatedAt": "2026-08-28T21:24:47.170Z"
+      "updatedAt": "2026-08-28T21:46:13.017Z"
     },
     "meles-canescens-bafra-1.jpg": {
       "sourceHash": "bb1dc17775788a4576aaad16f111add116148409981d5ed3967d148dd7ba3267",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "meles-canescens-bafra-1.jpg",
       "originalSize": 2290000,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/meles-canescens-bafra-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16644
+        },
+        {
+          "key": "optimized/meles-canescens-bafra-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20850
+        },
+        {
+          "key": "optimized/meles-canescens-bafra-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46557
+        },
+        {
+          "key": "optimized/meles-canescens-bafra-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59702
+        },
         {
           "key": "optimized/meles-canescens-bafra-1-1200.avif",
           "format": "avif",
@@ -18917,16 +19323,44 @@
           "byteSize": 237578
         }
       ],
-      "updatedAt": "2026-08-28T21:24:44.643Z"
+      "updatedAt": "2026-08-28T21:46:08.841Z"
     },
     "meles-canescens-vashlovani-1.jpg": {
       "sourceHash": "96d3cff641086197fb4366e26b2cf69bdfe7317086cc108c3614039ba7198ef4",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "meles-canescens-vashlovani-1.jpg",
       "originalSize": 219773,
       "width": 1024,
       "height": 680,
       "derivatives": [
+        {
+          "key": "optimized/meles-canescens-vashlovani-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19286
+        },
+        {
+          "key": "optimized/meles-canescens-vashlovani-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25580
+        },
+        {
+          "key": "optimized/meles-canescens-vashlovani-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 55626
+        },
+        {
+          "key": "optimized/meles-canescens-vashlovani-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 77936
+        },
         {
           "key": "optimized/meles-canescens-vashlovani-1-1024.avif",
           "format": "avif",
@@ -18942,16 +19376,44 @@
           "byteSize": 119834
         }
       ],
-      "updatedAt": "2026-08-28T21:24:41.328Z"
+      "updatedAt": "2026-08-28T21:46:11.878Z"
     },
     "meles-canescens-yalova-1.jpg": {
       "sourceHash": "944e1ea1ab4c3e71c0bac82d6f5451466adc9422f9600225afea572cb07aa308",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "meles-canescens-yalova-1.jpg",
       "originalSize": 2151543,
       "width": 1152,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/meles-canescens-yalova-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 53621
+        },
+        {
+          "key": "optimized/meles-canescens-yalova-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 86802
+        },
+        {
+          "key": "optimized/meles-canescens-yalova-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 144681
+        },
+        {
+          "key": "optimized/meles-canescens-yalova-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 237032
+        },
         {
           "key": "optimized/meles-canescens-yalova-1-1152.avif",
           "format": "avif",
@@ -18967,16 +19429,44 @@
           "byteSize": 364998
         }
       ],
-      "updatedAt": "2026-08-28T21:24:44.880Z"
+      "updatedAt": "2026-08-28T21:46:17.158Z"
     },
     "mertensiella-caucasica-2.jpg": {
       "sourceHash": "2cda8445a9da6c581071e656736bb9c78c5c39402dd8564bbdaa3aaddecf47db",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-2.jpg",
       "originalSize": 246584,
       "width": 2048,
       "height": 1534,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 12655
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 15316
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 599,
+          "byteSize": 44597
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 599,
+          "byteSize": 53404
+        },
         {
           "key": "optimized/mertensiella-caucasica-2-1200.avif",
           "format": "avif",
@@ -19006,16 +19496,44 @@
           "byteSize": 253638
         }
       ],
-      "updatedAt": "2026-08-28T21:24:47.089Z"
+      "updatedAt": "2026-08-28T21:46:18.110Z"
     },
     "mertensiella-caucasica-3.jpg": {
       "sourceHash": "c9225c62969112fd30e38fd398a4ff54a65b9a913dc569a56824e5ace4e1daca",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-3.jpg",
       "originalSize": 362097,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 30527
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41710
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 128817
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 175136
+        },
         {
           "key": "optimized/mertensiella-caucasica-3-1200.avif",
           "format": "avif",
@@ -19045,16 +19563,44 @@
           "byteSize": 387260
         }
       ],
-      "updatedAt": "2026-08-28T21:24:49.341Z"
+      "updatedAt": "2026-08-28T21:46:23.530Z"
     },
     "mertensiella-caucasica-armen-1.jpg": {
       "sourceHash": "a92240478c6349dff04a272ec4263d44050c7ab8ad56cb65212c32a4ce4f0759",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-armen-1.jpg",
       "originalSize": 175639,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16689
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25600
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44342
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67880
+        },
         {
           "key": "optimized/mertensiella-caucasica-armen-1-1024.avif",
           "format": "avif",
@@ -19070,16 +19616,44 @@
           "byteSize": 97818
         }
       ],
-      "updatedAt": "2026-08-28T21:24:47.579Z"
+      "updatedAt": "2026-08-28T21:46:20.686Z"
     },
     "mertensiella-caucasica-armen-2.jpg": {
       "sourceHash": "40c4f3fcc5131166c83d77baa363d8d098607af93a030ca9f11980e7532728fd",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-armen-2.jpg",
       "originalSize": 191048,
       "width": 1024,
       "height": 635,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 248,
+          "byteSize": 15755
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 248,
+          "byteSize": 23634
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 496,
+          "byteSize": 49644
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 496,
+          "byteSize": 76370
+        },
         {
           "key": "optimized/mertensiella-caucasica-armen-2-1024.avif",
           "format": "avif",
@@ -19095,16 +19669,44 @@
           "byteSize": 122824
         }
       ],
-      "updatedAt": "2026-08-28T21:24:48.246Z"
+      "updatedAt": "2026-08-28T21:46:23.778Z"
     },
     "mertensiella-caucasica-armen-3.jpg": {
       "sourceHash": "a4fd6cecb65ed4bec390e6e9087db1ebe5145f48c5830260ee9a91983a276949",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-armen-3.jpg",
       "originalSize": 246557,
       "width": 1024,
       "height": 673,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 20748
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 32598
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 526,
+          "byteSize": 63654
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 526,
+          "byteSize": 101526
+        },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-1024.avif",
           "format": "avif",
@@ -19120,16 +19722,44 @@
           "byteSize": 160232
         }
       ],
-      "updatedAt": "2026-08-28T21:24:48.497Z"
+      "updatedAt": "2026-08-28T21:46:27.170Z"
     },
     "mertensiella-caucasica-armen-4.jpg": {
       "sourceHash": "5dd01779e4f3327102f21f5b2874d62d1dda746f16cee69499f0854abbbbeb32",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-armen-4.jpg",
       "originalSize": 173682,
       "width": 1024,
       "height": 614,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-armen-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 240,
+          "byteSize": 15948
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 240,
+          "byteSize": 23338
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 480,
+          "byteSize": 44622
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 480,
+          "byteSize": 66892
+        },
         {
           "key": "optimized/mertensiella-caucasica-armen-4-1024.avif",
           "format": "avif",
@@ -19145,16 +19775,44 @@
           "byteSize": 102192
         }
       ],
-      "updatedAt": "2026-08-28T21:24:48.668Z"
+      "updatedAt": "2026-08-28T21:46:26.957Z"
     },
     "mertensiella-caucasica-giorgi-1.jpg": {
       "sourceHash": "8031afb12778bff7cdf8acb05e7f0c9be6d97a02704aac6dfc1c80220952361a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "mertensiella-caucasica-giorgi-1.jpg",
       "originalSize": 249461,
       "width": 1024,
       "height": 642,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 251,
+          "byteSize": 21914
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 251,
+          "byteSize": 34262
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 502,
+          "byteSize": 67611
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 502,
+          "byteSize": 105038
+        },
         {
           "key": "optimized/mertensiella-caucasica-giorgi-1-1024.avif",
           "format": "avif",
@@ -19170,7 +19828,7 @@
           "byteSize": 164096
         }
       ],
-      "updatedAt": "2026-08-28T21:24:49.428Z"
+      "updatedAt": "2026-08-28T21:46:29.603Z"
     },
     "mertensiella-caucasica-lasha-1.jpg": {
       "sourceHash": "468518ffbadfd9b3dbfe5198f82ba9abed9bea9a22cdb9182a38e09f4e6525c2",
