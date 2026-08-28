@@ -23,6 +23,7 @@ const PUBLIC_ROOT = path.join(process.cwd(), "public");
 const MANIFEST_ROOT = path.join(process.cwd(), "src/data");
 const MANIFEST_KEY = "image-manifest.json";
 const OUT_FILE = path.join(process.cwd(), "src/data/optimizedImages.generated.ts");
+const CHECKPOINT_INTERVAL = 25;
 
 const PLACEHOLDER_MARKERS = [
   "species-placeholder.png",
@@ -37,6 +38,7 @@ type Target = {
 
 type CliOptions = {
   speciesIds: string[];
+  all: boolean;
   dryRun: boolean;
   force: boolean;
   limit: number | undefined;
@@ -45,6 +47,7 @@ type CliOptions = {
 
 function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
+  let all = false;
   let dryRun = false;
   let force = false;
   let limit: number | undefined;
@@ -58,6 +61,9 @@ function parseArguments(argv: string[]): CliOptions {
         for (const id of (argv[index] ?? "").split(",")) {
           if (id.trim()) speciesIds.push(id.trim());
         }
+        break;
+      case "--all":
+        all = true;
         break;
       case "--dry-run":
         dryRun = true;
@@ -78,9 +84,12 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  if (speciesIds.length === 0) {
+  if (all && speciesIds.length > 0) {
+    throw new Error("Pass either --all or --species, not both.");
+  }
+  if (!all && speciesIds.length === 0) {
     throw new Error(
-      "Refusing to run over every species. Pass --species <id> (comma-separated for several).",
+      "Pass --species <id> (comma-separated for several), or --all for every species.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
@@ -90,7 +99,7 @@ function parseArguments(argv: string[]): CliOptions {
     throw new Error("--concurrency requires a positive integer.");
   }
 
-  return { speciesIds, dryRun, force, limit, concurrency };
+  return { speciesIds, all, dryRun, force, limit, concurrency };
 }
 
 function loadEnv() {
@@ -135,7 +144,7 @@ function collectSources(): Map<string, string> {
   return byKey;
 }
 
-function collectTargets(ids: string[]): Target[] {
+function collectTargets(ids: string[], all: boolean): Target[] {
   const wanted = new Set(ids);
   const known = new Set(species.map((item) => item.id));
   for (const id of wanted) {
@@ -151,7 +160,7 @@ function collectTargets(ids: string[]): Target[] {
   };
 
   for (const item of species) {
-    if (!wanted.has(item.id)) continue;
+    if (!all && !wanted.has(item.id)) continue;
     add(item.image);
     add(item.mobileImage);
     for (const photo of item.gallery) add(photo.src);
@@ -253,8 +262,9 @@ async function run() {
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
   const byKey = collectSources();
-  const all = collectTargets(options.speciesIds);
-  const targets = options.limit === undefined ? all : all.slice(0, options.limit);
+  const discovered = collectTargets(options.speciesIds, options.all);
+  const targets =
+    options.limit === undefined ? discovered : discovered.slice(0, options.limit);
 
   const manifest = await loadManifest(manifestStorage, MANIFEST_KEY, (message) =>
     console.warn(`  warning  ${message}`),
@@ -266,9 +276,8 @@ async function run() {
       `AVIF q${config.avifQuality}, WebP q${config.webpQuality}.`,
   );
   console.log(
-    `Species: ${options.speciesIds.join(", ")}. ${targets.length} image(s)${
-      options.dryRun ? " (dry run)" : ""
-    }.`,
+    `Species: ${options.all ? "all" : options.speciesIds.join(", ")}. ` +
+      `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 
   let originalBytes = 0;
@@ -276,6 +285,19 @@ async function run() {
   let processed = 0;
   let skipped = 0;
   const failures: string[] = [];
+
+  let sinceCheckpoint = 0;
+  let checkpointChain: Promise<void> = Promise.resolve();
+  const checkpoint = () => {
+    if (options.dryRun) return checkpointChain;
+    checkpointChain = checkpointChain.then(() =>
+      saveManifest(manifestStorage, MANIFEST_KEY, {
+        ...emptyManifest(),
+        entries: Object.fromEntries(entries),
+      }),
+    );
+    return checkpointChain;
+  };
 
   let cursor = 0;
   const worker = async () => {
@@ -343,6 +365,12 @@ async function run() {
         failures.push(`${target.key}: ${message}`);
         console.error(`${position} ${"failed".padEnd(11)} ${target.key}: ${message}`);
       }
+
+      sinceCheckpoint += 1;
+      if (sinceCheckpoint >= CHECKPOINT_INTERVAL) {
+        sinceCheckpoint = 0;
+        await checkpoint();
+      }
     }
   };
 
@@ -351,11 +379,11 @@ async function run() {
   );
 
   if (!options.dryRun) {
+    await checkpoint();
     const updated: Manifest = {
       ...emptyManifest(),
       entries: Object.fromEntries(entries),
     };
-    await saveManifest(manifestStorage, MANIFEST_KEY, updated);
     await generateDataFile(updated, byKey, storage);
   }
 
