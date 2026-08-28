@@ -117,6 +117,7 @@ export function SnakeRangePage({
           <div className="mt-12 lg:mt-16">
             <GeorgiaMap
               selectionMode="navigate"
+              mapContext="guide"
               highlightedIds={highlightedIds}
             />
           </div>

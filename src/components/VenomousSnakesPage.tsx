@@ -216,7 +216,7 @@ export function VenomousSnakesPage({
                 <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                   {t("vipersBody")}
                 </p>
-                <SpeciesGuideList species={vipers} locale={locale} />
+                <SpeciesGuideList species={vipers} locale={locale} source="guide" />
               </div>
               {rearFanged.length > 0 ? (
                 <div>
@@ -226,7 +226,7 @@ export function VenomousSnakesPage({
                   <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                     {t("rearFangedBody")}
                   </p>
-                  <SpeciesGuideList species={rearFanged} locale={locale} />
+                  <SpeciesGuideList species={rearFanged} locale={locale} source="guide" />
                 </div>
               ) : null}
             </div>

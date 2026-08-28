@@ -94,7 +94,7 @@ export function RegionsIndex() {
               </p>
             </Reveal>
             <div className="mt-12 lg:mt-16">
-              <GeorgiaMap selectionMode="navigate" />
+              <GeorgiaMap selectionMode="navigate" mapContext="region_page" />
             </div>
             <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground/80">
               {t("mapHint")}

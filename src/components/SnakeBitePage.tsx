@@ -148,7 +148,7 @@ export function SnakeBitePage({
               {t("speciesBody")}
             </p>
           </Reveal>
-          <SpeciesGuideList species={species} locale={locale} />
+          <SpeciesGuideList species={species} locale={locale} source="guide" />
         </div>
       </section>
     </ClusterPageFrame>

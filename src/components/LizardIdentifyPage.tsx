@@ -111,7 +111,7 @@ export function LizardIdentifyPage({
               {t("darevskiaBody")}
             </p>
           </Reveal>
-          <SpeciesGuideList species={darevskia} locale={locale} />
+          <SpeciesGuideList species={darevskia} locale={locale} source="guide" />
         </div>
       </section>
 

@@ -176,7 +176,7 @@ function IdGroup({
             <TurtleCard species={species[0]} locale={locale} />
           </div>
         ) : (
-          <SpeciesGuideList species={species} locale={locale} />
+          <SpeciesGuideList species={species} locale={locale} source="guide" />
         )}
       </div>
     </section>
