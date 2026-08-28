@@ -1913,8 +1913,8 @@ export const species: Species[] = [
     "conservation": "Tarkhnishvili et al. 2026 ჩამონათვალში კანდიდატია: ჰიბრიდული წარმოშობის ჰიპოთეზა სახეობრივ რანგს დამატებით მტკიცებულებას უტოვებს. IUCN Red List-ზე Tuniyev და თანაავტორები 2009 წელს Vulnerable-ად აფასებენ (VU; შეფასების იდენტიფიკატორი e.T11120A114549788). Tuniyev 2024 იგივე VU კატეგორიას უთითებს კრიტერიუმით B1ab(i, iii, v). საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) Darevskia-დან შეტანილია D. clarkorum, D. dahli და D. mixta; D. alpina ამ ნუსხაში არ არის. CITES-ში სახეობის დონეზე ამ გვერდზე არ იკითხება. Doronin 2013 აღნიშნავს, რომ ბიოტოპები უარესდება როგორც ადამიანის ზემოქმედებით, ისე კლიმატის ცვლილებით — ეს კავკასიური შეფასებაა და არა საქართველოს ეროვნული ტენდენცია. ამ ატლასში ქართული პოპულაციის ზომა არ არის გაზომილი.",
     "interaction": "შხამი არ აქვს. ადამიანისთვის საშიში არ არის. თუ დაიჭირეთ, შეიძლება უკბინოს. ველური ხვლიკი არ აიყვანოთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/darevskia-alpina.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/darevskia-alpina-mobile.jpg",
+    "image": "https://cdn.reptiles.ge/darevskia-alpina-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-alpina.jpg",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/darevskia-alpina.jpg"
@@ -4496,7 +4496,7 @@ export const species: Species[] = [
         "answer": "IUCN-ით ახლოსაა საფრთხესთან. საქართველოს 2014 წლის წითელ ნუსხაში არ არის."
       }
     ],
-    "updatedAt": "2026-08-28T11:11:49+04:00",
+    "updatedAt": "2026-08-28T11:14:01+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6864,7 +6864,7 @@ export const species: Species[] = [
         "answer": "დღისით. კავკასიური ლიტერატურა გამოღვიძებას დაახლოებით მარტში ასახელებს, რბილ ქართულ ზამთარში ზოგჯერ თებერვალში; ზრდასრული სექტემბრიდან იზამთრებს. ეს ყველა ადგილის კალენდარი არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T11:14:01+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -11682,7 +11682,7 @@ export const species: Species[] = [
         "answer": "საქართველოს 2014 წლის წითელ ნუსხაში მოწყვლადია (VU). CITES-ის II დანართშია. ველური ინდივიდის შეგროვება აკრძალული ან მკაცრად შეზღუდულია."
       }
     ],
-    "updatedAt": "2026-08-28T11:11:49+04:00",
+    "updatedAt": "2026-08-28T11:14:01+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
