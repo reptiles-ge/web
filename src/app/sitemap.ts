@@ -67,7 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/", atlasLastModified));
     push(pageEntry(locale, "/contact", atlasLastModified));
     push(pageEntry(locale, "/about", atlasLastModified));
-    push(pageEntry(locale, "/roadmap", atlasLastModified));
     push(pageEntry(locale, "/species", atlasLastModified));
     push(pageEntry(locale, "/venomous-snakes", atlasLastModified));
     push(pageEntry(locale, "/snakes-in-the-yard", atlasLastModified));

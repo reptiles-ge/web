@@ -2,7 +2,6 @@
   "nav": {
     "species": "Species",
     "about": "About",
-    "roadmap": "Roadmap",
     "atlas": "Atlas",
     "discover": "Discover",
     "groups": "Groups",
@@ -194,7 +193,6 @@
     "yard": "Snakes in the yard",
     "regions": "Regions",
     "about": "About",
-    "roadmap": "Roadmap",
     "contact": "Contact",
     "venomousTitle": "Venomous species",
     "venomousAll": "Safety guide",
@@ -526,171 +524,10 @@
       "snakes": "Snakes in Georgia",
       "lizards": "Lizards in Georgia",
       "turtles": "Turtles in Georgia",
-        "amphibians": "Amphibians in Georgia",
-        "birds": "Birds in Georgia",
-        "mammals": "Mammals in Georgia",
-        "venomous": "Venomous snakes in Georgia"
-    }
-  },
-  "roadmap": {
-    "metaTitle": "Roadmap — Caucasian Encyclopedia",
-    "metaDescription": "First complete the living record — reptiles, amphibians, animals, and the rest. Then the Caucasian Atlas: habitats, geography, and conservation.",
-    "back": "Home",
-    "heroImageAlt": "Misty Caucasus ridge at dusk",
-    "eyebrow": "A multi-year scientific programme",
-    "brand": "Caucasian Encyclopedia",
-    "title": "The digital atlas of Caucasian living nature",
-    "lead": "This is no longer only reptiles.ge. It is the first layer of a larger work: a comprehensive digital encyclopedia of the Caucasus.",
-    "principleEyebrow": "The order of the work",
-    "principle": "Before the Caucasian Atlas, the aim is to complete the living record — reptiles, amphibians, animals, and every further group — species by species.",
-    "legendLabel": "Horizon",
-    "openLayer": "Open layer",
-    "bioEyebrow": "The living record",
-    "bioTitle": "Fill the species first",
-    "bioLead": "The atlas of land comes after the atlas of life. Each group is completed before geography becomes the main layer.",
-    "platformEyebrow": "In parallel",
-    "platformTitle": "Platform evolution",
-    "platformLead": "The instrument grows with the collection — from a species database to a knowledge graph.",
-    "graphEyebrow": "Phase 12",
-    "graphTitle": "The knowledge graph",
-    "graphLead": "Not only a catalogue of names. A web of relations: species, habitat, place, ecosystem, protection, observation, and science.",
-    "destEyebrow": "After the living record",
-    "destTitle": "Caucasian Encyclopedia",
-    "destSubtitle": "The Digital Atlas of Caucasian Biodiversity",
-    "destNote": "The atlas is the destination. Completing reptiles, amphibians, animals, and the rest is the work that leads there.",
-    "closing": "A living digital atlas of the Caucasus — species by species, habitat by habitat, region by region.",
-    "cta": "Begin with the species already here",
-    "status": {
-      "active": "Active / in progress",
-      "next": "Next",
-      "planned": "Planned",
-      "future": "Future",
-      "longterm": "Long-term"
-    },
-    "arc": {
-      "reptiles": "Reptiles",
-      "vertebrates": "Vertebrates",
-      "wildlife": "Wildlife",
-      "biodiversity": "Biodiversity",
-      "atlas": "Encyclopedia / Atlas"
-    },
-    "chapters": {
-      "life": {
-        "eyebrow": "Chapter I",
-        "title": "Complete the living knowledge",
-        "lead": "Reptiles, amphibians, birds, mammals, fish, invertebrates, plants, fungi — fill every profile before the map becomes the centre."
-      },
-      "atlas": {
-        "eyebrow": "Chapter II",
-        "title": "Then the Caucasian Atlas",
-        "lead": "Habitats, geography, protected areas, and the knowledge graph — after the species record is in place."
-      }
-    },
-    "platform": {
-      "a": "Species database",
-      "b": "Bilingual encyclopedia",
-      "c": "Interactive maps",
-      "d": "Advanced search & filtering",
-      "e": "Species × habitat × geography",
-      "f": "Community, observations, photography",
-      "g": "Scientific knowledge graph",
-      "h": "Complete Caucasian Biodiversity Atlas"
-    },
-    "graph": {
-      "nodes": {
-        "species": "Species",
-        "habitat": "Habitat",
-        "location": "Location",
-        "ecosystem": "Ecosystem",
-        "protected": "Protected area",
-        "observation": "Photography / observation",
-        "science": "Scientific information"
-      }
-    },
-    "destPillars": {
-      "species": "Species",
-      "geography": "Geography",
-      "habitats": "Habitats",
-      "ecosystems": "Ecosystems",
-      "conservation": "Conservation",
-      "photography": "Photography",
-      "science": "Science"
-    },
-    "phases": {
-      "p01": {
-        "title": "Reptiles of the Caucasus",
-        "lead": "Complete this foundation first — every profile, map, and identification layer for the reptiles of the Caucasus.",
-        "taxa": ["Snakes", "Lizards", "Turtles", "Crocodilians — regional context"],
-        "layers": ["Species profiles", "Distribution maps", "Identification", "Photography", "Georgian + English", "Taxonomy", "Habitat", "Conservation"]
-      },
-      "p02": {
-        "title": "Amphibians of the Caucasus",
-        "lead": "Next: fill the amphibian record to the same depth as reptiles.",
-        "taxa": ["Frogs", "Toads", "Salamanders", "Newts"],
-        "layers": ["Species profiles", "Distribution maps", "Identification", "Habitat", "Conservation", "Photography"]
-      },
-      "p03": {
-        "title": "Birds of the Caucasus",
-        "lead": "Then complete the bird volume — one of the largest bodies of species information.",
-        "taxa": ["Raptors", "Songbirds", "Waterbirds", "Forest birds", "Mountain birds", "Migrants", "Residents"],
-        "layers": ["Species profiles", "Distribution maps", "Seasonal occurrence", "Identification", "Photography", "Calls — later"]
-      },
-      "p04": {
-        "title": "Mammals of the Caucasus",
-        "lead": "Then complete the mammal volume — from small species to the large carnivores of the high ranges.",
-        "taxa": ["Carnivores", "Ungulates", "Rodents", "Bats", "Insectivores", "Small mammals", "Large mammals"],
-        "layers": ["Species profiles", "Distribution maps", "Habitat", "Conservation", "Photography"],
-        "examples": ["Brown Bear", "Wolf", "Eurasian Lynx", "Golden Jackal", "Caucasian Leopard", "Chamois", "Wild Goat"]
-      },
-      "p05": {
-        "title": "Freshwater biodiversity",
-        "lead": "Then complete the freshwater record — rivers, lakes, wetlands, and the fish that live there.",
-        "taxa": ["Freshwater fish", "Endemic species", "Rivers", "Lakes", "Wetlands"],
-        "layers": ["Aquatic ecosystems"]
-      },
-      "p06": {
-        "title": "Invertebrates of the Caucasus",
-        "lead": "Then fill one of the largest remaining volumes: invertebrates of the Caucasus.",
-        "taxa": ["Butterflies", "Moths", "Beetles", "Dragonflies", "Bees", "Wasps", "Spiders", "Mollusks", "Other invertebrates"]
-      },
-      "p07": {
-        "title": "Plants of the Caucasus",
-        "lead": "Then complete the plant record — flora as the architecture of habitat.",
-        "taxa": ["Trees", "Shrubs", "Flowers", "Grasses", "Alpine flora", "Endemic plants", "Medicinal plants", "Forest flora", "Steppe flora"]
-      },
-      "p08": {
-        "title": "Fungi & additional life",
-        "lead": "Then the remaining kingdoms that finish the living inventory.",
-        "taxa": ["Fungi", "Lichens", "Other biological groups"]
-      },
-      "p09": {
-        "title": "The Caucasus as an ecosystem",
-        "lead": "After the living record is filled: the land itself as the unit of knowledge.",
-        "taxa": ["Forests", "Alpine", "Subalpine", "Meadows", "Steppes", "Semi-deserts", "Wetlands", "Rivers", "Lakes", "Caves", "Coast", "High mountains"],
-        "layers": ["Species → Habitat → Ecosystem"]
-      },
-      "p10": {
-        "title": "Caucasian Atlas",
-        "lead": "The geographic atlas comes after the species volumes are complete.",
-        "taxa": ["Georgia", "Armenia", "Azerbaijan", "North Caucasus", "Black Sea", "Caspian", "Greater Caucasus", "Lesser Caucasus"],
-        "layers": ["Interactive maps", "Species distribution", "Biodiversity hotspots", "Protected areas", "Mountain systems", "Rivers & lakes", "Habitats", "Endemism"]
-      },
-      "p11": {
-        "title": "Protected areas of the Caucasus",
-        "lead": "Parks and reserves as places where species, habitat, and law meet.",
-        "taxa": ["National parks", "Nature reserves", "Protected landscapes", "Wildlife refuges", "Important biodiversity areas"],
-        "layers": ["Location", "Map", "Ecosystems", "Species", "Photographs", "Conservation"]
-      },
-      "p12": {
-        "title": "The knowledge graph",
-        "lead": "Ask the atlas — not only look up a name.",
-        "questions": [
-          "Which species live in this region?",
-          "In which habitat does this species occur?",
-          "Where, in protected areas, might it be seen?",
-          "Which endemic species belong to this mountain system?"
-        ]
-      }
+      "amphibians": "Amphibians in Georgia",
+      "birds": "Birds in Georgia",
+      "mammals": "Mammals in Georgia",
+      "venomous": "Venomous snakes in Georgia"
     }
   },
   "attribution": {

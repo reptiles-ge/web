@@ -1,10 +1,6 @@
 export const pathnames = {
   "/": "/",
   "/about": "/about",
-  "/roadmap": {
-    ka: "/gza",
-    en: "/roadmap",
-  },
   "/contact": "/contact",
   "/species": "/species",
   "/species/[id]": "/species/[id]",

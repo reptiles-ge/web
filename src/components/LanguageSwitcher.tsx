@@ -7,7 +7,6 @@ import { routing, type AppLocale } from "@/i18n/routing";
 const STATIC_LOCALE_PATHS = [
   "/",
   "/about",
-  "/roadmap",
   "/contact",
   "/species",
   "/snakes",
