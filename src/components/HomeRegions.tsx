@@ -1,3 +1,4 @@
+import { CoverImage } from "@/components/CoverImage";
 import {
   localizeRegionText,
   regions,
@@ -9,7 +10,6 @@ import type { AppLocale } from "@/i18n/routing";
 import { regionHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 const FEATURED_REGION_IDS = ["adjara", "kakheti", "mtskheta-mtianeti"] as const;
 
