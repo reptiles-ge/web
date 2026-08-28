@@ -1,5 +1,6 @@
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { getRegionContent } from "@/data/regionContent";
@@ -13,7 +14,6 @@ import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { regionHref } from "@/lib/speciesRoutes";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 const REGIONS_HERO = "https://cdn.reptiles.ge/regions-hero-1.jpg";
