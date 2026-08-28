@@ -510,7 +510,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; ბუდეს არ მიუახლოვდეთ. გლობალურად NT-ია. 2014 წლის წითელ ნუსხაში EN D1-ია; 2024 წლის ჩამონათვალი ეროვნულად NT-ს უთითებს. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T22:53:51+04:00",
+    "updatedAt": "2026-08-28T22:59:26+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -2228,7 +2228,7 @@ export const species: Species[] = [
         "answer": "კი. საქართველოს 2014 წლის წითელ ნუსხაში CR-ია და ნადირობა აკრძალულია. გლობალურად Near Threatened-ია. 2021 წლის სამეცნიერო რევიზია Endangered-ს გვთავაზობს; იურიდიული ნუსხა აქ შეცვლილად არ იკითხება."
       }
     ],
-    "updatedAt": "2026-08-28T22:53:51+04:00",
+    "updatedAt": "2026-08-28T22:59:26+04:00",
     "sources": [
       {
         "name": "Weinberg & Ambarli 2020 — IUCN Red List, Capra aegagrus",
@@ -9947,7 +9947,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის CR სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T20:41:37+04:00",
+    "updatedAt": "2026-08-28T22:59:26+04:00",
     "sources": [
       {
         "name": "Breitenmoser et al. 2015 — IUCN Red List, Lynx lynx (errata 2017)",
@@ -11976,6 +11976,226 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "otus-scops",
+    "commonName": "ჩვეულებრივი წყრომი",
+    "scientificName": "Otus scops",
+    "genus": "Otus",
+    "family": "Strigidae",
+    "location": "მობუდარი მიგრანტი საქართველოში",
+    "description": "პატარა ბუ ყურის კონებითა და ყვითელი თვალებით. საქართველოში 2024 წლის ეროვნულ ჩამონათვალში დადასტურებულია როგორც მობუდარი მიგრანტი; ზამთარში არ რჩება.",
+    "overview": "ჩვეულებრივი წყრომი (Otus scops) პატარა ბუა ოჯახიდან Strigidae და საქართველოში დადასტურებული მობუდარი მიგრანტია. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს BB; M-ად: მობუდარი, რომელიც არამობუდარ სეზონზე ადგილზე არ არის, და გადამფრენიც. სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A). არსებობის ხარისხი მაღალია (H); მტკიცებულებაა ფოტო, ხმის ჩანაწერი და რგოლის მონაცემი. SABUKO-ს სიაში ქართული სახელია წყრომი; იხმარება აგრეთვე ჩვეულებრივი წყრომი. ზრდასრული სახეობის დონეზე სიგრძე ხშირად დაახლოებით 16–21 სმ-ია, ყურის კონებითა და ყვითელი თვალებით. პირდაპირი საფრთხე ადამიანისთვის არ არის. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. 2024 წლის ჩამონათვალი იგივე კატეგორიას ეროვნულადაც უთითებს.",
+    "habitat": "საქართველოში ეძებეთ მობუდარ სეზონზე და გადაფრენისას — არა ზამთარში. ეს გვერდი მუნიციპალიტეტების რუკას არ აფერადებს. 2024 წლის ჩამონათვალი ქვეყნის დონეზე მობუდარ-მიგრანტობას ადასტურებს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. მთელ ქვეყანაში, მათ შორის უხეო მაღალ პლატოზე ან მკვრივ დახურულ ტყეში, თანაბრად ნუ ივარაუდებთ. სახეობის დონეზე ჰაბიტატი ნახევრად ღია ადგილია ხეებით: ტყის პირი, მეჩხერი ფოთლოვანი ტყე, პარკი, ბაღი, ხეებიანი სასოფლო ადგილი და კლდოვანი ლანდშაფტი მცენარეულობით. მკვრივ დახურულ ტყეში ნაკლებად ტიპიურია. NPLG საქართველოში მობუდარ ფრინველად ასახელებს. საქართველოსთვის ცალკე სიმაღლის სარტყელი აქ არ არის გამოქვეყნებული. ატლასის რუკა ცარიელია, სანამ დასახელებული ქართული ლოკალიტეტები ისეთი წყაროებიდან არ შეგროვდება, რომლებიც მათ ნამდვილად უთითებენ.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ძირითადი საკვები მწერია: ჩრჩილი, კალია, ხოჭო, ციკადა; იღებს აგრეთვე ობობას, მატლსა და ჭიაყელას. წვრილი ხერხემლიანი — თაგვი, პატარა ფრინველი, ხვლიკი, ბაყაყი — იშვიათია და დიეტის მცირე წილს შეადგენს. ნადავლს ხშირად ტოტიდან იჭერს ან შუქთან მისულ მწერს იღებს. ეს სახეობის დონის კვებაა და არა გაზომილი ქართული მენიუ.",
+    "behavior": "ძირითადად ღამითაა აქტიური, განსაკუთრებით მზის ჩასვლიდან შუაღამემდე. დღისით ტოტზე დგას გასწორებული, ყურის კონები ხშირად ჩაკეცილია; ქერქის ფერს ემთხვევა და ხშირად ჯერ ისმის, მერე ჩანს. მამლის ტერიტორიული ხმა მოკლე, ერთმარცვლიანი სასტვენია, რომელიც ყოველ ორ-სამ წამში მეორდება და შეიძლება ათეულ წუთს გაგრძელდეს; მდედრის ხმა მსგავსია, ოდნავ მაღალი. საქართველოში ზაფხულის ღამეს ეს მონოტონური სასტვენი ამოცნობის მთავარი ნიშანია. ბუდობს ხის ფუღუროში, იშვიათად კედლის ღრუებსა ან სხვა ფრინველის ძველ ბუდეში; ხელოვნურ ყუთსაც იკავებს. სახეობის დონეზე ნაყარი ხშირად სამი-ხუთი თეთრი კვერცხია; კრუხობს ძირითადად მდედრი, დაახლოებით 24–25 დღე. ნაშიერი ბუდეს დაახლოებით სამ-ოთხ კვირაში ტოვებს. ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარ მიგრანტად იღებს: ზამთარში ადგილზე არ რჩება. არეალის სხვა ნაწილებში ევროპული პოპულაციები ძირითადად საჰარის სამხრეთით იზამთრებენ; ხმელთაშუაზღვისპირეთის ნაწილი რეზიდენტია — ეს ქართული სტატუსი არ არის. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ.",
+    "conservation": "BirdLife International Otus scops-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ ბუსნაირებიდან შეტანილია ბუხრინწა (Tyto alba, EN D1). საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. სახეობის დონეზე დოკუმენტირებული წნეხია ჰაბიტატის დაკარგვა და ფრაგმენტაცია, მწერების შემცირება პესტიციდებით და ფუღუროიანი ხეების კარგვა; ეს საქართველოსთვის რანგირებული საფრთხის სია არ არის. CITES-ის II დანართშია — საერთაშორისო ვაჭრობა რეგულირდება. ველური ფრინველი არ დაიჭიროთ.",
+    "interaction": "ადამიანისთვის შხამი არ აქვს და უვნებელია, თუ არ მიეკარებით. ველური ფრინველის დაჭერა არ შეიძლება.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Eurasian_Scops-owl_%28Otus_scops%29_%2835671157991%29.jpg",
+    "imageCredit": {
+      "photographer": "Imran Shah",
+      "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
+      "location": "ჯუტიალი, გილგიტი",
+      "date": "2017-05-31"
+    },
+    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Otus_scops_botanical_garden.jpg",
+    "mobileImageCredit": {
+      "photographer": "Carpodacus",
+      "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
+      "location": "ტაშკენტის ბოტანიკური ბაღი",
+      "date": "2024-04-14"
+    },
+    "gallery": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Eurasian_Scops-owl_%28Otus_scops%29_%2835671157991%29.jpg",
+        "credit": {
+          "photographer": "Imran Shah",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
+          "location": "ჯუტიალი, გილგიტი",
+          "date": "2017-05-31"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Otus_scops_botanical_garden.jpg",
+        "credit": {
+          "photographer": "Carpodacus",
+          "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
+          "location": "ტაშკენტის ბოტანიკური ბაღი",
+          "date": "2024-04-14"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Eurasian_Scops-owl_%28Otus_scops%29_%2850276324636%29.jpg",
+        "credit": {
+          "photographer": "Imran Shah",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(50276324636).jpg",
+          "location": "პაკისტანი",
+          "date": "2020-07-25"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Eurasian_Scops_Owl_%28Otus_scops%29_%288079442507%29.jpg",
+        "credit": {
+          "photographer": "Ron Knight",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops_Owl_(Otus_scops)_(8079442507).jpg",
+          "location": "ტაშკენტი",
+          "date": "2011-05-18"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "კვება",
+        "value": "მწერები"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "მობუდარი მიგრანტი"
+      },
+      {
+        "label": "ზომა",
+        "value": "16–21 სმ"
+      },
+      {
+        "label": "ჰაბიტატი",
+        "value": "ღია ტყე და პარკი"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Strigidae"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს სახელით Strix scops. 2024 წლის ქართული ჩამონათვალი სახელებისთვის IOC World Bird List-სა და OSME Region List-ს მიჰყვება: რიგი Strigiformes, ოჯახი Strigidae, გვარი Otus. ინგლისური სახელია Eurasian Scops Owl (2024 წლის ჩამონათვალი); SABUKO წერს Eurasian Scops-Owl. კვიპროსის წყრომი (Otus cyprius) სიმღერისა და შეფერილობის მიხედვით ცალკე სახეობად გამოიყო; ქართულ ჩამონათვალში არ არის.",
+      "კავკასიისთვის მოსალოდნელი ქვესახეობაა O. s. scops (Linnaeus, 1758). NPLG საქართველოში ამ ქვესახეობას ასახელებს („ევროპული წყრომი“). Birds of the World scops-ს საფრანგეთიდან და იტალიიდან ამიერკავკასიამდე ათავსებს. აღმოსავლეთის pulchellus და turanicus სხვა არეალისაა. ველში ამოცნობა სახეობამდეა.",
+      "ქართულად იხმარება წყრომი (SABUKO) და ჩვეულებრივი წყრომი. ინგლისურად Eurasian scops owl, აგრეთვე European scops owl და common scops owl. NPLG გვარის სახელადაც წყრომს იყენებს; საქართველოში ამ გვარიდან ჩამონათვალში მხოლოდ ეს სახეობაა.",
+      "2024 წლის ჩამონათვალის კოდებია BB; M, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო), SR (ხმის ჩანაწერი) და RD (რგოლის მონაცემი). ეს ქვეყნის დონის დადასტურებაა და არა რეგიონული რუკა."
+    ],
+    "identification": {
+      "summary": "პატარა კომპაქტური ბუა ყურის კონებითა და ყვითელი თვალებით, ქერქისფერი შენიღბვით. საქართველოში 2024 წლის ჩამონათვალით მობუდარი მიგრანტია. ჩვეულებრივი აბნევა ჭოტია, რომელსაც ყურის კონები არ აქვს და უფრო დღისითაც ჩანს.",
+      "traits": [
+        "სიგრძე სახეობის დონეზე ხშირად დაახლოებით 16–21 სმ-ია; ფრთების შლილი ლიტერატურაში დაახლოებით 47–64 სმ-ის დიაპაზონში იხსენიება; მასა ხშირად დაახლოებით 60–135 გ. ციფრები წყაროებს შორის ოდნავ განსხვავდება. მდედრი, როგორც წესი, მამრზე მძიმეა. თავი პატარა ყურის კონებით; დღისით კონები შეიძლება ჩაკეცილი იყოს. თვალები ყვითელია — არა მუქი. ნისკარტი მოკლე და კაუჭიანი. ფრთები შედარებით გრძელი და ვიწროა, რაც შორ მანძილზე მიგრაციას ეთანხმება; კუდი მოკლეა.",
+        "შეფერილობა რუხ-ყავისფერიდან მოწითალომდე იცვლება; ორივე ტიპი ქერქს ჰგავს, გრძივი მუქი ზოლებითა და წინწკლებით. მხარზე ხშირად ღია ხაზი ჩანს. ქვედა მხარე ზედაზე ღიაა და ჭრელია. ახალგაზრდა უფრო ფაფუკია. ველში ამოცნობა სახეობამდეა და არა ფერის ტიპამდე. ღამით ერთმარცვლიანი, რიტმულად განმეორებული სასტვენი ჭოტის ხმისგან განსხვავდება.",
+        "ჭოტი (Athene noctua) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; ზომით ახლოსაა, მაგრამ ყურის კონები არ აქვს, ტანი უფრო მკვეთრად ლაქებიანია და ხშირად ბინდსა და დღისითაც ჩანს. ჩვეულებრივი ბუ (Strix aluco) გაცილებით დიდია, ყურის კონების გარეშე, მუქი თვალებით; ამ ატლასში ცალკე გვერდი აქვს. ყურებიანი ბუ (Asio otus) უფრო დიდია, გრძელი ყურის კონებითა და ნარინჯისფერი თვალებით, მთელი წლის რეზიდენტი. ზარნაშო (Bubo bubo) ბევრად დიდია. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია; 2014 წლის წითელ ნუსხაშია. ფერმკრთალი წყრომი (Otus brucei) 2024 წლის ქართულ ჩამონათვალში არ არის. კვიპროსის წყრომი (Otus cyprius) ცალკე სახეობადაა გამოყოფილი და კვიპროსისაა.",
+        "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ზაფხულის ღამეს პატარა, ყვითელთვალა, ყურის კონებიანი ბუ ერთი და იმავე სასტვენით ეს სახეობაა და არა ზარნაშო."
+      ]
+    },
+    "audio": {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/0/08/Otus_scops_-_Eurasian_Scops_Owl_XC481631.mp3",
+      "recordist": "Alexander Kürthy",
+      "url": "https://xeno-canto.org/481631",
+      "location": "სლოვაკეთი",
+      "date": "2019-06-01"
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა ჩვეულებრივი წყრომი საქართველოში?",
+        "answer": "კი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას დადასტურებულ მობუდარ მიგრანტად იღებს (BB; M). მტკიცებულებაა ფოტო, ხმა და რგოლის მონაცემი."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ნახევრად ღია ადგილას ხეებით: ტყის პირზე, პარკში, ბაღში, ხეებიან სასოფლო ადგილას. ამ გვერდზე მუნიციპალიტეტების სია არ არის და რეგიონული რუკა არ არის შეფერილი. არსებობა ქვეყნის დონეზეა დადასტურებული და არა რეგიონების მიხედვით."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა ზომა, ყურის კონები, ყვითელი თვალები, ქერქისფერი შეფერილობა. ღამით ისმის მოკლე სასტვენი, რომელიც ყოველ ორ-სამ წამში მეორდება. ჭოტს ყურის კონები არ აქვს და უფრო დღისითაც ჩანს."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე სიგრძე ხშირად დაახლოებით 16–21 სმ-ია, ფრთების შლილი ლიტერატურაში დაახლოებით 47–64 სმ. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად მწერებს; იშვიათად წვრილ ხერხემლიანსაც. საქართველოში კვება ცალკე ამ გვერდზე არ არის შესწავლილი."
+      },
+      {
+        "question": "როდის არის საქართველოში?",
+        "answer": "მობუდარ სეზონზე და გადაფრენისას, 2024 წლის ჩამონათვალის მიხედვით. ზამთარში რეზიდენტად არ არის მიჩნეული. ყველაზე ადვილად ღამით ისმის."
+      },
+      {
+        "question": "ბუდობს თუ არა საქართველოში?",
+        "answer": "კი. 2024 წლის ჩამონათვალის BB მობუდარს ნიშნავს. ბუდე ჩვეულებრივ ხის ფუღუროშია. ქართული ნაყარის თარიღები ამ გვერდზე ცხრილად არ არის."
+      },
+      {
+        "question": "საშიშია ან დაცულია?",
+        "answer": "შხამი არ აქვს. არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
+      }
+    ],
+    "updatedAt": "2026-08-28T23:12:50+04:00",
+    "sources": [
+      {
+        "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
+        "url": "https://www.sabuko.org/wp-content/uploads/2024/12/Sandgrouse-461ThebirdsofGeorgia-anupdatedchecklistusingcitizenscienceplatforms.pdf"
+      },
+      {
+        "name": "SABUKO — Bird checklist",
+        "url": "http://sabuko.ge/bird-checklist/"
+      },
+      {
+        "name": "BirdLife DataZone — Eurasian Scops-owl",
+        "url": "https://datazone.birdlife.org/species/factsheet/eurasian-scops-owl-otus-scops"
+      },
+      {
+        "name": "IUCN Red List — Otus scops",
+        "url": "https://www.iucnredlist.org/species/155019854/206523296"
+      },
+      {
+        "name": "IOC World Bird List",
+        "url": "https://www.worldbirdnames.org/"
+      },
+      {
+        "name": "Avibase — Georgia bird checklist",
+        "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
+      },
+      {
+        "name": "NPLG Wiki Dictionaries — წყრომი",
+        "url": "https://www.nplg.gov.ge/wikidict/index.php/%E1%83%AC%E1%83%A7%E1%83%A0%E1%83%9D%E1%83%9B%E1%83%98"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "Holt et al. — Birds of the World (Otus scops)",
+        "url": "https://birdsoftheworld.org/bow/species/eursco1/cur/introduction"
+      },
+      {
+        "name": "Animal Diversity Web — Otus scops",
+        "url": "https://animaldiversity.org/accounts/Otus_scops/"
+      },
+      {
+        "name": "The Owl Pages — Eurasian Scops Owl",
+        "url": "https://www.owlpages.com/owls/species.php?s=510"
+      },
+      {
+        "name": "Flint et al. 2015 — Cyprus Scops Owl taxonomy (Zootaxa)",
+        "url": "https://doi.org/10.11646/zootaxa.4040.3.3"
+      },
+      {
+        "name": "Wikimedia Commons — Eurasian Scops-owl, Jutial (Imran Shah, CC BY-SA 2.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Otus scops, Tashkent botanical garden (Carpodacus, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Eurasian Scops-owl (Imran Shah, CC BY-SA 2.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(50276324636).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Eurasian Scops Owl, Tashkent (Ron Knight, CC BY 2.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops_Owl_(Otus_scops)_(8079442507).jpg"
+      },
+      {
+        "name": "Wikimedia Commons / xeno-canto XC481631 — Otus scops (Alexander Kürthy, CC BY-SA 4.0)",
+        "url": "https://xeno-canto.org/481631"
+      }
+    ]
+  },
+  {
     "id": "panthera-pardus",
     "commonName": "კავკასიური ჯიქი",
     "scientificName": "Panthera pardus",
@@ -13591,7 +13811,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა, მაგრამ საქართველოში შემოტანილი ინვაზიური სახეობაა და 2014 წლის წითელ ნუსხაში არ არის. დაცვა აქ არ სჭირდება; პრიორიტეტია მონიტორინგი და კონფლიქტის შემცირება."
       }
     ],
-    "updatedAt": "2026-08-28T22:33:15+04:00",
+    "updatedAt": "2026-08-28T22:59:26+04:00",
     "sources": [
       {
         "name": "Timm et al. 2016 — IUCN Red List, Procyon lotor",
@@ -14373,7 +14593,7 @@ export const species: Species[] = [
       "traits": [
         "სიგრძე სახეობის დონეზე დაახლოებით 37–46 სმ-ია, ფრთების შლილი დაახლოებით 81–105 სმ, მასა ხშირად დაახლოებით 385–800 გ. მდედრი, როგორც წესი, მამრზე დიდია (დაახლოებით 5% სიგრძით და 25%-ზე მეტი მასით). თავი დიდი და მრგვალა; ყურის კონები არ აქვს. სახის დისკი მკაფიოა, თვალები მუქი ყავისფერი ან შავი — არა ყვითელი. ნისკარტი მოკლე, მოყვითალო, კაუჭიანი. ტანი მკვრივია, ფრთები ფართო, კუდი შედარებით მოკლე.",
         "შეფერილობა ორ მთავარ ტიპს მოიცავს: რუხ-ყავისფერი და მოწითალო-ყავისფერი; შუალედებიც არის. ორივეში ქვედა მხარე ღიაა გრძივი მუქი ზოლებით. ზურგზე ღია და მუქი ლაქები შენიღბვას იძლევა. ახალგაზრდა უფრო ფაფუკი და განივად ზოლიანია, თვალი მაინც მუქია. NPLG ამიერკავკასიაში, მათ შორის საქართველოში, რუხ და მურა-ყავისფერ ტიპებს ასახელებს. ველში ამოცნობა სახეობამდეა და არა ფერის ტიპამდე.",
-        "ყურებიანი ბუ (Asio otus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; მას გრძელი ყურის კონები და ნარინჯისფერი თვალები აქვს, ტანი უფრო წვრილია. ჭაობის ბუ (Asio flammeus) ღია ადგილის სახეობაა, დღისითაც ჩანს, ყურის კონები მოკლეა. ზარნაშო (Bubo bubo) ბევრად დიდია, ყურის კონებითა და ნარინჯისფერი თვალებით. ჭოტი (Athene noctua) პატარაა, ყვითელი თვალებით. წყრომი (Otus scops) პატარაა, ყურის კონებიანი, საქართველოში მობუდარი მიგრანტი. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია, თითქმის თეთრი; 2014 წლის წითელ ნუსხაშია. ბუკიოტი (Aegolius funereus) პატარა ტყის ბუა ყვითელი თვალებით. ამ ატლასში იმ სახეობების ცალკე გვერდები ჯერ არ არის.",
+        "ყურებიანი ბუ (Asio otus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; მას გრძელი ყურის კონები და ნარინჯისფერი თვალები აქვს, ტანი უფრო წვრილია. ჭაობის ბუ (Asio flammeus) ღია ადგილის სახეობაა, დღისითაც ჩანს, ყურის კონები მოკლეა. ზარნაშო (Bubo bubo) ბევრად დიდია, ყურის კონებითა და ნარინჯისფერი თვალებით. ჭოტი (Athene noctua) პატარაა, ყვითელი თვალებით. წყრომი (Otus scops) პატარაა, ყურის კონებიანი, საქართველოში მობუდარი მიგრანტი. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია, თითქმის თეთრი; 2014 წლის წითელ ნუსხაშია. ბუკიოტი (Aegolius funereus) პატარა ტყის ბუა ყვითელი თვალებით. ამ ატლასში წყრომს ცალკე გვერდი აქვს; დანარჩენ ჩამოთვლილ სახეობებს ჯერ არა.",
         "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ტყის ღამის „ჰუჰუ“ მრგვალთავიანი, უყურო, მუქთვალა ბუ ეს სახეობაა და არა ზარნაშო."
       ]
     },
@@ -25778,6 +25998,142 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "url": "https://www.inaturalist.org/observations/61378800"
     }
   },
+  "otus-scops": {
+    "commonName": "Eurasian scops owl",
+    "location": "Breeding migrant in Georgia",
+    "description": "A small owl with ear tufts and yellow eyes. Confirmed in Georgia as a breeding migrant on the 2024 national bird checklist; it does not stay through the winter.",
+    "overview": "The Eurasian scops owl (Otus scops) is a small owl (family Strigidae) confirmed in Georgia as a breeding migrant. The 2024 annotated checklist of the birds of Georgia codes it BB; M: a breeder absent in the non-breeding season, and also a passage migrant. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs, sound recordings and ringing data. SABUKO lists the Georgian name წყრომი; ჩვეულებრივი წყრომი is also used. Adults are often about 16–21 cm long at species level, with ear tufts and yellow eyes. It is not a threat to people. IUCN lists the species as Least Concern. The 2024 checklist assigns the same category nationally.",
+    "habitat": "In Georgia look during the breeding season and on passage — not in winter. This page does not colour a municipality-by-municipality map. The 2024 checklist confirms country-level breeding-migrant status but does not publish a regional gazetteer. Do not assume it evenly across the whole country, including treeless high plateaus or closed dense forest. Species-level habitat is semi-open country with trees: woodland edge, open deciduous stands, parks, gardens, farmland with trees, and rocky ground with vegetation. Closed dense forest is less typical. NPLG treats it as a breeding bird in Georgia. A separate national elevation band for Georgia is not published here. The atlas map is left uncoloured until named Georgian localities are taken from sources that actually list them.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range the main prey is insects: moths, grasshoppers, beetles and cicadas; spiders, caterpillars and earthworms are also taken. Small vertebrates — mice, small birds, lizards, frogs — are occasional and a small share of the diet. Prey is often taken from a perch, or insects drawn to lights. That is species-level diet, not a measured Georgian menu.",
+    "behavior": "It is mainly active at night, especially from dusk to midnight. By day it stands upright on a branch, often with the ear tufts flattened; the plumage matches bark, so it is often heard before it is seen. The male territorial call is a short, one-note whistle repeated every two or three seconds, sometimes for tens of minutes; the female’s call is similar, slightly higher. In Georgia that monotonous whistle on summer nights is the main identification cue. Nesting is usually in a tree hole, less often in a wall cavity or an old nest of another bird; nest boxes are used. Species-level clutches are often three to five white eggs; the female does most of the incubation, about 24–25 days. Young leave the nest after about three to four weeks. Those figures are from the wider range, not a Georgian nest sample on this page. The 2024 checklist treats the species as a breeding migrant in Georgia: it does not remain through the winter. Elsewhere, European populations mostly winter south of the Sahara; some Mediterranean birds are resident — that is not the Georgian status. Do not handle it.",
+    "conservation": "BirdLife International assesses Otus scops as Least Concern on the IUCN Red List. The 2024 Georgian checklist assigns LC globally and nationally. It is not on Georgia’s 2014 Red List (Resolution No. 190); among owls that list includes barn owl (Tyto alba, EN D1). A Georgian population trend is not measured on this page. Documented pressures at species level include habitat loss and fragmentation, fewer insects after pesticide use, and loss of cavity trees; that is not a ranked national threat list for Georgia. It is listed on CITES Appendix II, so international trade is regulated. Do not catch wild birds.",
+    "interaction": "It is not venomous and is harmless unless approached. Wild birds must not be taken.",
+    "stats": [
+      {
+        "label": "Diet",
+        "value": "Insects"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Breeding migrant"
+      },
+      {
+        "label": "Size",
+        "value": "16–21 cm"
+      },
+      {
+        "label": "Habitat",
+        "value": "Open woodland and parks"
+      },
+      {
+        "label": "Family",
+        "value": "Strigidae"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "Described by Linnaeus in 1758 as Strix scops. The 2024 Georgian checklist follows IOC and the OSME Region List for names: order Strigiformes, family Strigidae, genus Otus. The English name on the 2024 checklist is Eurasian Scops Owl; SABUKO writes Eurasian Scops-Owl. Cyprus scops owl (Otus cyprius) was split on song and plumage; it is not on the Georgian list.",
+      "The subspecies expected in the Caucasus is O. s. scops (Linnaeus, 1758). NPLG assigns this subspecies to Georgia (“European scops owl”). Birds of the World places scops from France and Italy east to Transcaucasia. The eastern forms pulchellus and turanicus belong to other parts of the range. Field identification is to species.",
+      "Georgian names in use are წყრომი (SABUKO) and ჩვეულებრივი წყრომი. English names are Eurasian scops owl, also European scops owl and common scops owl. NPLG also uses წყრომი for the genus; this is the only Otus species on the Georgian checklist.",
+      "2024 checklist codes: BB; M, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photo), SR (sound recording) and RD (ringing data). That is country-level confirmation, not a regional map."
+    ],
+    "identification": {
+      "summary": "A small compact owl with ear tufts, yellow eyes and bark-like camouflage. Confirmed in Georgia as a breeding migrant on the 2024 checklist. The usual confusion is little owl, which has no ear tufts and is more often seen by day.",
+      "traits": [
+        "Length at species level is often about 16–21 cm; wingspan in the literature is cited in a range of about 47–64 cm; mass is often about 60–135 g. Published figures differ slightly. Females are typically heavier than males. The head has small ear tufts; by day the tufts may be flattened. The eyes are yellow, not dark. The bill is short and hooked. The wings are relatively long and narrow, matching long-distance migration; the tail is short.",
+        "Plumage runs from grey-brown to rufous; both types resemble bark, with dark lengthways streaks and fine speckling. A pale line on the shoulder is often visible. The underparts are paler and mottled. Juveniles are fluffier. Field identification is to species, not colour type. At night the short, rhythmically repeated whistle is unlike little owl.",
+        "Little owl (Athene noctua) is also a year-round resident on the 2024 Georgian checklist; it is similar in size but has no ear tufts, a more boldly spotted body, and is often active at dusk and by day. Tawny owl (Strix aluco) is much larger, with no ear tufts and dark eyes; this atlas has a separate page. Long-eared owl (Asio otus) is larger, with long ear tufts and orange eyes, and is a year-round resident. Eurasian eagle-owl (Bubo bubo) is much larger. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Pallid scops owl (Otus brucei) is not on the 2024 Georgian checklist. Cyprus scops owl (Otus cyprius) is a separate species confined to Cyprus.",
+        "It is not a threat to people. Do not handle it. A small yellow-eyed owl with ear tufts giving a single repeated whistle on Georgian summer nights is this species, not eagle-owl."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is Eurasian scops owl found in Georgia?",
+        "answer": "Yes. The 2024 annotated checklist of the birds of Georgia treats it as a confirmed breeding migrant (BB; M). Evidence is photographs, sound recordings and ringing data."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "In semi-open places with trees: woodland edge, parks, gardens and farmland with trees. This page has no municipality list and does not colour a regional map. Presence is confirmed at country level, not by region."
+      },
+      {
+        "question": "How can it be identified?",
+        "answer": "Small size, ear tufts, yellow eyes, bark-like plumage. At night listen for a short whistle repeated every two or three seconds. Little owl has no ear tufts and is more often seen by day."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "About 16–21 cm long at species level; wingspan in the literature is about 47–64 cm. There is no separate measured Georgian series on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly insects; small vertebrates only occasionally. Diet in Georgia is not separately studied on this page."
+      },
+      {
+        "question": "When is it in Georgia?",
+        "answer": "In the breeding season and on passage, according to the 2024 checklist. It is not treated there as a year-round resident. It is easiest to detect at night by voice."
+      },
+      {
+        "question": "Does it breed in Georgia?",
+        "answer": "Yes. BB on the 2024 checklist means a breeding bird. The nest is usually a tree hole. Georgian clutch dates are not tabulated here."
+      },
+      {
+        "question": "Is it dangerous or protected?",
+        "answer": "It is not venomous. Do not approach. It is Least Concern globally and nationally on the 2024 checklist. It is not on Georgia’s 2014 Red List. Do not catch wild birds."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Eurasian_Scops-owl_%28Otus_scops%29_%2835671157991%29.jpg",
+        "credit": {
+          "photographer": "Imran Shah",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
+          "location": "Jutial, Gilgit",
+          "date": "2017-05-31"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Otus_scops_botanical_garden.jpg",
+        "credit": {
+          "photographer": "Carpodacus",
+          "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
+          "location": "Tashkent Botanical Garden",
+          "date": "2024-04-14"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Eurasian_Scops-owl_%28Otus_scops%29_%2850276324636%29.jpg",
+        "credit": {
+          "photographer": "Imran Shah",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(50276324636).jpg",
+          "location": "Pakistan",
+          "date": "2020-07-25"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Eurasian_Scops_Owl_%28Otus_scops%29_%288079442507%29.jpg",
+        "credit": {
+          "photographer": "Ron Knight",
+          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops_Owl_(Otus_scops)_(8079442507).jpg",
+          "location": "Tashkent",
+          "date": "2011-05-18"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Imran Shah",
+      "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
+      "location": "Jutial, Gilgit",
+      "date": "2017-05-31"
+    },
+    "mobileImageCredit": {
+      "photographer": "Carpodacus",
+      "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
+      "location": "Tashkent Botanical Garden",
+      "date": "2024-04-14"
+    }
+  },
   "panthera-pardus": {
     "commonName": "Caucasian leopard",
     "location": "Rare vagrant in Georgia",
@@ -27418,7 +27774,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "traits": [
         "Length at species level is about 37–46 cm, wingspan about 81–105 cm, mass often about 385–800 g. Females are typically larger than males (about 5% longer and more than 25% heavier). The head is large and round, with no ear tufts. The facial disc is clear; the eyes are dark brown or black, not yellow. The bill is short, yellowish and hooked. The body is stocky, the wings broad, the tail relatively short.",
         "Plumage has two main types: grey-brown and rufous-brown, with intermediates. In both, the underparts are pale with dark lengthways streaks. The back is mottled for camouflage. Juveniles are fluffier and more barred across; the eye is still dark. NPLG notes grey and dark-brown types in Transcaucasia, including Georgia. Field identification is to species, not colour type.",
-        "Long-eared owl (Asio otus) is also a year-round resident on the 2024 Georgian checklist; it has long ear tufts, orange eyes and a slimmer body. Short-eared owl (Asio flammeus) is an open-country bird, often active by day, with short ear tufts. Eurasian eagle-owl (Bubo bubo) is much larger, with ear tufts and orange eyes. Little owl (Athene noctua) is small, with yellow eyes. Eurasian scops owl (Otus scops) is small, tufted, and a breeding migrant in Georgia. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Boreal owl (Aegolius funereus) is a smaller forest owl with yellow eyes. This atlas does not yet have separate pages for those species.",
+        "Long-eared owl (Asio otus) is also a year-round resident on the 2024 Georgian checklist; it has long ear tufts, orange eyes and a slimmer body. Short-eared owl (Asio flammeus) is an open-country bird, often active by day, with short ear tufts. Eurasian eagle-owl (Bubo bubo) is much larger, with ear tufts and orange eyes. Little owl (Athene noctua) is small, with yellow eyes. Eurasian scops owl (Otus scops) is small, tufted, and a breeding migrant in Georgia. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Boreal owl (Aegolius funereus) is a smaller forest owl with yellow eyes. This atlas has a separate page for Eurasian scops owl; it does not yet have pages for the other species listed here.",
         "It is not a threat to people. Do not handle it. A round-headed, dark-eyed owl without ear tufts hooting at night in Georgian woodland is this species, not eagle-owl."
       ]
     },

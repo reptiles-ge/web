@@ -313,6 +313,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest"],
   },
+  "otus-scops": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
   "ficedula-hypoleuca": {
     group: "bird",
     habitats: ["forest"],

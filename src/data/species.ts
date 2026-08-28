@@ -231,6 +231,7 @@ export const featuredSpeciesIds = [
   "jynx-torquilla",
   "cuculus-canorus",
   "strix-aluco",
+  "otus-scops",
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
   "buteo-buteo",

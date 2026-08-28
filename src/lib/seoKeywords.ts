@@ -578,6 +578,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Strix aluco willkonskii",
     ],
   },
+  "otus-scops": {
+    ka: [
+      "წყრომი",
+      "ბუსებრნი",
+      "Strix scops",
+      "Otus scops scops",
+    ],
+    en: [
+      "European scops owl",
+      "common scops owl",
+      "Eurasian Scops-Owl",
+      "Strix scops",
+      "Otus scops scops",
+    ],
+  },
   "accipiter-nisus": {
     ka: [
       "მიმინო",
