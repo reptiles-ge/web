@@ -15437,12 +15437,40 @@
     },
     "images/species/aegolius-funereus-moning-1.jpg": {
       "sourceHash": "af78c3b0e87b29c417db1daefe558e9e0381f3b65d79e77cb98ecec136d31716",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "images/species/aegolius-funereus-moning-1.jpg",
       "originalSize": 2220288,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/images/species/aegolius-funereus-moning-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13756
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-moning-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17782
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-moning-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36230
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-moning-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52982
+        },
         {
           "key": "optimized/images/species/aegolius-funereus-moning-1-1200.avif",
           "format": "avif",
@@ -15472,16 +15500,44 @@
           "byteSize": 227802
         }
       ],
-      "updatedAt": "2026-08-28T21:23:35.497Z"
+      "updatedAt": "2026-08-28T21:42:46.821Z"
     },
     "images/species/aegolius-funereus-tencate-1.jpg": {
       "sourceHash": "93c99a04f916806c9ad5e880c17e9521d226be4f21c82b805dcc1b13437946ab",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "images/species/aegolius-funereus-tencate-1.jpg",
       "originalSize": 4336454,
       "width": 2127,
       "height": 2569,
       "derivatives": [
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 484,
+          "byteSize": 37406
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 484,
+          "byteSize": 59884
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 966,
+          "byteSize": 114183
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 966,
+          "byteSize": 185230
+        },
         {
           "key": "optimized/images/species/aegolius-funereus-tencate-1-1200.avif",
           "format": "avif",
@@ -15511,16 +15567,44 @@
           "byteSize": 760378
         }
       ],
-      "updatedAt": "2026-08-28T21:23:41.596Z"
+      "updatedAt": "2026-08-28T21:42:59.776Z"
     },
     "images/species/aegolius-funereus-tencate-cavity-1.jpg": {
       "sourceHash": "6e944987109b0364f957c88c792855ade06f21f55a31899aa075daf01978bb7f",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "images/species/aegolius-funereus-tencate-cavity-1.jpg",
       "originalSize": 7678173,
       "width": 2400,
       "height": 1842,
       "derivatives": [
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-cavity-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 307,
+          "byteSize": 33553
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-cavity-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 307,
+          "byteSize": 53750
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-cavity-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 614,
+          "byteSize": 104470
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-tencate-cavity-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 614,
+          "byteSize": 185558
+        },
         {
           "key": "optimized/images/species/aegolius-funereus-tencate-cavity-1-1200.avif",
           "format": "avif",
@@ -15550,16 +15634,30 @@
           "byteSize": 1027890
         }
       ],
-      "updatedAt": "2026-08-28T21:23:43.288Z"
+      "updatedAt": "2026-08-28T21:43:01.117Z"
     },
     "images/species/aegolius-funereus-veronesi-1.jpg": {
       "sourceHash": "91f2ac361dc15327617cf4bca1796394935cde6121f23cc81c8a7056aeedb006",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "images/species/aegolius-funereus-veronesi-1.jpg",
       "originalSize": 849869,
       "width": 766,
       "height": 1100,
       "derivatives": [
+        {
+          "key": "optimized/images/species/aegolius-funereus-veronesi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 574,
+          "byteSize": 39613
+        },
+        {
+          "key": "optimized/images/species/aegolius-funereus-veronesi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 574,
+          "byteSize": 67066
+        },
         {
           "key": "optimized/images/species/aegolius-funereus-veronesi-1-766.avif",
           "format": "avif",
@@ -15575,16 +15673,30 @@
           "byteSize": 187788
         }
       ],
-      "updatedAt": "2026-08-28T21:23:36.640Z"
+      "updatedAt": "2026-08-28T21:43:03.149Z"
     },
     "jynx-torquilla-chorokhi-1.jpg": {
       "sourceHash": "681ef22fe9e8da0f6a2fbd8fab6f6cb98ed33dfecde796e47a4b05e892916815",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-chorokhi-1.jpg",
       "originalSize": 136853,
       "width": 800,
       "height": 519,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-chorokhi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 12136
+        },
+        {
+          "key": "optimized/jynx-torquilla-chorokhi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 16048
+        },
         {
           "key": "optimized/jynx-torquilla-chorokhi-1-800.avif",
           "format": "avif",
@@ -15600,16 +15712,44 @@
           "byteSize": 43236
         }
       ],
-      "updatedAt": "2026-08-28T21:23:36.915Z"
+      "updatedAt": "2026-08-28T21:43:02.709Z"
     },
     "jynx-torquilla-dalous-1.jpg": {
       "sourceHash": "9869e34acf1df460944029e1fcdf1b3306a497a093676815e1387cbc28656c51",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-dalous-1.jpg",
       "originalSize": 2523452,
       "width": 2400,
       "height": 1599,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-dalous-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18234
+        },
+        {
+          "key": "optimized/jynx-torquilla-dalous-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21610
+        },
+        {
+          "key": "optimized/jynx-torquilla-dalous-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42800
+        },
+        {
+          "key": "optimized/jynx-torquilla-dalous-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50506
+        },
         {
           "key": "optimized/jynx-torquilla-dalous-1-1200.avif",
           "format": "avif",
@@ -15639,16 +15779,44 @@
           "byteSize": 226916
         }
       ],
-      "updatedAt": "2026-08-28T21:23:43.959Z"
+      "updatedAt": "2026-08-28T21:43:09.363Z"
     },
     "jynx-torquilla-hobern-1.jpg": {
       "sourceHash": "d46946d3f20a3f3fdabadf670aea138bc33ca09bd245edf0656b528227d48bcd",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-hobern-1.jpg",
       "originalSize": 1921973,
       "width": 2400,
       "height": 1685,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-hobern-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 281,
+          "byteSize": 15075
+        },
+        {
+          "key": "optimized/jynx-torquilla-hobern-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 281,
+          "byteSize": 19666
+        },
+        {
+          "key": "optimized/jynx-torquilla-hobern-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 562,
+          "byteSize": 35292
+        },
+        {
+          "key": "optimized/jynx-torquilla-hobern-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 562,
+          "byteSize": 48868
+        },
         {
           "key": "optimized/jynx-torquilla-hobern-1-1200.avif",
           "format": "avif",
@@ -15678,16 +15846,44 @@
           "byteSize": 192174
         }
       ],
-      "updatedAt": "2026-08-28T21:23:42.665Z"
+      "updatedAt": "2026-08-28T21:43:10.194Z"
     },
     "jynx-torquilla-reigada-1.jpg": {
       "sourceHash": "43896e4641abc237f738bb68909fdeab64a2891f3731496c6596a0c338ce7c76",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-reigada-1.jpg",
       "originalSize": 2290436,
       "width": 1936,
       "height": 1936,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-reigada-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 9002
+        },
+        {
+          "key": "optimized/jynx-torquilla-reigada-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 12312
+        },
+        {
+          "key": "optimized/jynx-torquilla-reigada-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 30028
+        },
+        {
+          "key": "optimized/jynx-torquilla-reigada-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 45084
+        },
         {
           "key": "optimized/jynx-torquilla-reigada-1-1200.avif",
           "format": "avif",
@@ -15717,16 +15913,44 @@
           "byteSize": 224852
         }
       ],
-      "updatedAt": "2026-08-28T21:23:45.465Z"
+      "updatedAt": "2026-08-28T21:43:17.728Z"
     },
     "jynx-torquilla-ronning-1.jpg": {
       "sourceHash": "43e70199d9e3a9084e71a417691c0f1ac059a785a1394a58145a5c680e7b9363",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-ronning-1.jpg",
       "originalSize": 2121337,
       "width": 2400,
       "height": 1604,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-ronning-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22839
+        },
+        {
+          "key": "optimized/jynx-torquilla-ronning-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34950
+        },
+        {
+          "key": "optimized/jynx-torquilla-ronning-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 68766
+        },
+        {
+          "key": "optimized/jynx-torquilla-ronning-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 103416
+        },
         {
           "key": "optimized/jynx-torquilla-ronning-1-1200.avif",
           "format": "avif",
@@ -15756,16 +15980,44 @@
           "byteSize": 500810
         }
       ],
-      "updatedAt": "2026-08-28T21:23:48.849Z"
+      "updatedAt": "2026-08-28T21:43:27.794Z"
     },
     "jynx-torquilla-shrestha-1.jpg": {
       "sourceHash": "84f575fdd91cab257c482ddd0b0b5e8ecdf0e649fe34df333a66d7b15baadd9c",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-shrestha-1.jpg",
       "originalSize": 6891393,
       "width": 2400,
       "height": 3361,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-shrestha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 561,
+          "byteSize": 13866
+        },
+        {
+          "key": "optimized/jynx-torquilla-shrestha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 561,
+          "byteSize": 18068
+        },
+        {
+          "key": "optimized/jynx-torquilla-shrestha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1121,
+          "byteSize": 43182
+        },
+        {
+          "key": "optimized/jynx-torquilla-shrestha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1121,
+          "byteSize": 60176
+        },
         {
           "key": "optimized/jynx-torquilla-shrestha-1-1200.avif",
           "format": "avif",
@@ -15795,16 +16047,44 @@
           "byteSize": 452078
         }
       ],
-      "updatedAt": "2026-08-28T21:23:50.600Z"
+      "updatedAt": "2026-08-28T21:43:27.250Z"
     },
     "jynx-torquilla-zauri-1.jpg": {
       "sourceHash": "63d867427fd76db36c4cd3fcced1f9fa6c11f4e5dd4de2125fe88ec906102d82",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-zauri-1.jpg",
       "originalSize": 162776,
       "width": 1024,
       "height": 681,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16931
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24692
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 42228
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 60202
+        },
         {
           "key": "optimized/jynx-torquilla-zauri-1-1024.avif",
           "format": "avif",
@@ -15820,16 +16100,44 @@
           "byteSize": 84732
         }
       ],
-      "updatedAt": "2026-08-28T21:23:45.400Z"
+      "updatedAt": "2026-08-28T21:43:36.158Z"
     },
     "jynx-torquilla-zauri-2.jpg": {
       "sourceHash": "371e89abca4c83cd54d75f43fad51ee1e1cdf9fd0c3bdbcea596ad82e4bd68a9",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-zauri-2.jpg",
       "originalSize": 192494,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21229
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30602
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52989
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76762
+        },
         {
           "key": "optimized/jynx-torquilla-zauri-2-1024.avif",
           "format": "avif",
@@ -15845,16 +16153,44 @@
           "byteSize": 106040
         }
       ],
-      "updatedAt": "2026-08-28T21:23:47.226Z"
+      "updatedAt": "2026-08-28T21:43:36.330Z"
     },
     "jynx-torquilla-zauri-3.jpg": {
       "sourceHash": "767bce0525a427d7a791ada5b09a82a63cff9cddc5dec70bda5daebf7d25ee75",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-zauri-3.jpg",
       "originalSize": 187209,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-zauri-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21102
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29750
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53114
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 74236
+        },
         {
           "key": "optimized/jynx-torquilla-zauri-3-1024.avif",
           "format": "avif",
@@ -15870,16 +16206,44 @@
           "byteSize": 102678
         }
       ],
-      "updatedAt": "2026-08-28T21:23:47.529Z"
+      "updatedAt": "2026-08-28T21:43:39.425Z"
     },
     "jynx-torquilla-zauri-4.jpg": {
       "sourceHash": "faf0b5b52e60c645d91fc47e13730679778894312e89308b5c00a089a18d6789",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "jynx-torquilla-zauri-4.jpg",
       "originalSize": 205078,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/jynx-torquilla-zauri-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20940
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 31956
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49324
+        },
+        {
+          "key": "optimized/jynx-torquilla-zauri-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 77260
+        },
         {
           "key": "optimized/jynx-torquilla-zauri-4-1024.avif",
           "format": "avif",
@@ -15895,16 +16259,44 @@
           "byteSize": 107502
         }
       ],
-      "updatedAt": "2026-08-28T21:23:49.209Z"
+      "updatedAt": "2026-08-28T21:43:39.591Z"
     },
     "lacerta-agilis-2.jpg": {
       "sourceHash": "c03fcbceac6fe98579e4ded259fa6fdb37c52bc690f12f6fa36c2a429b375276",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-agilis-2.jpg",
       "originalSize": 329684,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23897
+        },
+        {
+          "key": "optimized/lacerta-agilis-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 39494
+        },
+        {
+          "key": "optimized/lacerta-agilis-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67203
+        },
+        {
+          "key": "optimized/lacerta-agilis-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109782
+        },
         {
           "key": "optimized/lacerta-agilis-2-1200.avif",
           "format": "avif",
@@ -15934,16 +16326,44 @@
           "byteSize": 364646
         }
       ],
-      "updatedAt": "2026-08-28T21:23:52.408Z"
+      "updatedAt": "2026-08-28T21:43:46.855Z"
     },
     "lacerta-agilis-3.jpg": {
       "sourceHash": "c22a4a46439adcf42f3f89b767745cb372ce306b6a890507f16abbafc58768e5",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-agilis-3.jpg",
       "originalSize": 210825,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 23819
+        },
+        {
+          "key": "optimized/lacerta-agilis-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 36124
+        },
+        {
+          "key": "optimized/lacerta-agilis-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 64049
+        },
+        {
+          "key": "optimized/lacerta-agilis-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 95698
+        },
         {
           "key": "optimized/lacerta-agilis-3-1200.avif",
           "format": "avif",
@@ -15973,16 +16393,44 @@
           "byteSize": 201476
         }
       ],
-      "updatedAt": "2026-08-28T21:23:53.686Z"
+      "updatedAt": "2026-08-28T21:43:46.603Z"
     },
     "lacerta-agilis-mobile.jpg": {
       "sourceHash": "2e725c8c0fb7e1c0698298903976ec379d7feb7218390fc0ed87e207c3dbb525",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-agilis-mobile.jpg",
       "originalSize": 269484,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6639
+        },
+        {
+          "key": "optimized/lacerta-agilis-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8188
+        },
+        {
+          "key": "optimized/lacerta-agilis-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17898
+        },
+        {
+          "key": "optimized/lacerta-agilis-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22608
+        },
         {
           "key": "optimized/lacerta-agilis-mobile-1200.avif",
           "format": "avif",
@@ -16012,16 +16460,44 @@
           "byteSize": 125440
         }
       ],
-      "updatedAt": "2026-08-28T21:23:53.772Z"
+      "updatedAt": "2026-08-28T21:43:52.925Z"
     },
     "lacerta-agilis-sandro-1.jpg": {
       "sourceHash": "b20ce69f88ea5b1e61e9d04e25abb0c9f35a6ac5faadc46cc6ea3742641ecb38",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-agilis-sandro-1.jpg",
       "originalSize": 153173,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13898
+        },
+        {
+          "key": "optimized/lacerta-agilis-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18216
+        },
+        {
+          "key": "optimized/lacerta-agilis-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37227
+        },
+        {
+          "key": "optimized/lacerta-agilis-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51018
+        },
         {
           "key": "optimized/lacerta-agilis-sandro-1-1024.avif",
           "format": "avif",
@@ -16037,16 +16513,44 @@
           "byteSize": 74520
         }
       ],
-      "updatedAt": "2026-08-28T21:23:53.161Z"
+      "updatedAt": "2026-08-28T21:43:52.079Z"
     },
     "lacerta-agilis-sandro-2.jpg": {
       "sourceHash": "f410ddc6aa316bebc64f97cd07023681f96bc8212753723df4b5162b86fd4472",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-agilis-sandro-2.jpg",
       "originalSize": 161655,
       "width": 1024,
       "height": 648,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-sandro-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 253,
+          "byteSize": 13854
+        },
+        {
+          "key": "optimized/lacerta-agilis-sandro-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 253,
+          "byteSize": 18822
+        },
+        {
+          "key": "optimized/lacerta-agilis-sandro-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 506,
+          "byteSize": 39730
+        },
+        {
+          "key": "optimized/lacerta-agilis-sandro-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 506,
+          "byteSize": 54250
+        },
         {
           "key": "optimized/lacerta-agilis-sandro-2-1024.avif",
           "format": "avif",
@@ -16062,16 +16566,44 @@
           "byteSize": 82170
         }
       ],
-      "updatedAt": "2026-08-28T21:23:53.548Z"
+      "updatedAt": "2026-08-28T21:43:56.220Z"
     },
     "lacerta-agilis.jpg": {
       "sourceHash": "83acdf486c52a8041c1ea0ca65cbb465e1174feea94158a3f3054470baa61f59",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-agilis.jpg",
       "originalSize": 189797,
       "width": 1600,
       "height": 1200,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17410
+        },
+        {
+          "key": "optimized/lacerta-agilis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25744
+        },
+        {
+          "key": "optimized/lacerta-agilis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55244
+        },
+        {
+          "key": "optimized/lacerta-agilis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 78866
+        },
         {
           "key": "optimized/lacerta-agilis-1200.avif",
           "format": "avif",
@@ -16101,16 +16633,44 @@
           "byteSize": 200778
         }
       ],
-      "updatedAt": "2026-08-28T21:23:56.502Z"
+      "updatedAt": "2026-08-28T21:43:58.285Z"
     },
     "lacerta-media-2.jpg": {
       "sourceHash": "9de32914895c84056177ab9c4825baa0966ba5661c6d4b19737c9226b38bbccc",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-media-2.jpg",
       "originalSize": 217514,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-media-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14188
+        },
+        {
+          "key": "optimized/lacerta-media-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21278
+        },
+        {
+          "key": "optimized/lacerta-media-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44068
+        },
+        {
+          "key": "optimized/lacerta-media-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 63932
+        },
         {
           "key": "optimized/lacerta-media-2-1200.avif",
           "format": "avif",
@@ -16140,16 +16700,44 @@
           "byteSize": 227584
         }
       ],
-      "updatedAt": "2026-08-28T21:23:57.774Z"
+      "updatedAt": "2026-08-28T21:44:01.113Z"
     },
     "lacerta-media-3.jpg": {
       "sourceHash": "6689792e0a1603e6dcd88f3d9563cdda2164c58a2bfda7cc78e78f711efcd14a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-media-3.jpg",
       "originalSize": 297495,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-media-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18055
+        },
+        {
+          "key": "optimized/lacerta-media-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28468
+        },
+        {
+          "key": "optimized/lacerta-media-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58192
+        },
+        {
+          "key": "optimized/lacerta-media-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 93120
+        },
         {
           "key": "optimized/lacerta-media-3-1200.avif",
           "format": "avif",
@@ -16179,16 +16767,44 @@
           "byteSize": 340446
         }
       ],
-      "updatedAt": "2026-08-28T21:23:58.698Z"
+      "updatedAt": "2026-08-28T21:44:07.433Z"
     },
     "lacerta-media.jpg": {
       "sourceHash": "53eaf6014722772f1ff525ecaf9404eec7cf577a2e0335aad383b4c509f79742",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-media.jpg",
       "originalSize": 65478,
       "width": 858,
       "height": 570,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-media-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11530
+        },
+        {
+          "key": "optimized/lacerta-media-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16526
+        },
+        {
+          "key": "optimized/lacerta-media-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 31897
+        },
+        {
+          "key": "optimized/lacerta-media-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 47286
+        },
         {
           "key": "optimized/lacerta-media-858.avif",
           "format": "avif",
@@ -16204,16 +16820,44 @@
           "byteSize": 53504
         }
       ],
-      "updatedAt": "2026-08-28T21:23:54.902Z"
+      "updatedAt": "2026-08-28T21:44:06.755Z"
     },
     "lacerta-strigata-2.jpg": {
       "sourceHash": "78fdc547a83759fa93c20ee030950cd818531c4642e5f5b8e7006cbff72a9caa",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-strigata-2.jpg",
       "originalSize": 280321,
       "width": 1696,
       "height": 1273,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20571
+        },
+        {
+          "key": "optimized/lacerta-strigata-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32726
+        },
+        {
+          "key": "optimized/lacerta-strigata-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 64029
+        },
+        {
+          "key": "optimized/lacerta-strigata-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 95026
+        },
         {
           "key": "optimized/lacerta-strigata-2-1200.avif",
           "format": "avif",
@@ -16243,16 +16887,44 @@
           "byteSize": 260352
         }
       ],
-      "updatedAt": "2026-08-28T21:23:59.907Z"
+      "updatedAt": "2026-08-28T21:44:14.521Z"
     },
     "lacerta-strigata-3.jpg": {
       "sourceHash": "2df1ed08a119020b726dad62af4dfab0e54c9a79973cf2c12edead430909df9c",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "lacerta-strigata-3.jpg",
       "originalSize": 349907,
       "width": 2048,
       "height": 1148,
       "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 224,
+          "byteSize": 19232
+        },
+        {
+          "key": "optimized/lacerta-strigata-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 224,
+          "byteSize": 31006
+        },
+        {
+          "key": "optimized/lacerta-strigata-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 448,
+          "byteSize": 58406
+        },
+        {
+          "key": "optimized/lacerta-strigata-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 448,
+          "byteSize": 93350
+        },
         {
           "key": "optimized/lacerta-strigata-3-1200.avif",
           "format": "avif",
@@ -16282,7 +16954,7 @@
           "byteSize": 339126
         }
       ],
-      "updatedAt": "2026-08-28T21:24:01.615Z"
+      "updatedAt": "2026-08-28T21:44:16.327Z"
     },
     "lacerta-strigata.jpg": {
       "sourceHash": "89edf332d4e79346775a899be24adf09f0e8471f9a751bd8ff3e1c6df4d8cf25",

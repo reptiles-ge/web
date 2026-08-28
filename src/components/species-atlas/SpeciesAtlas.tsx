@@ -6,6 +6,7 @@ import {
   countAtlasFacets,
 } from "@/components/species-atlas/AtlasFilterSheet";
 import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
+import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -31,7 +32,6 @@ import { formatContentDate } from "@/lib/formatDate";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
-import { CoverImage } from "@/components/CoverImage";
 import { useLocale, useTranslations } from "next-intl";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 

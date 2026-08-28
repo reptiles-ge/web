@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { useRouter } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -37,7 +38,6 @@ import {
   ShieldAlert,
   X,
 } from "lucide-react";
-import { CoverImage } from "@/components/CoverImage";
 import { useLocale, useTranslations } from "next-intl";
 import {
   startTransition,

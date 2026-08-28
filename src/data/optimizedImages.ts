@@ -7,9 +7,8 @@ export type OptimizedImageEntry = {
   width: number;
   height: number;
   widths: number[];
+  formats: OptimizedImageFormat[];
 };
-
-export const OPTIMIZED_IMAGE_FORMATS: OptimizedImageFormat[] = ["avif", "webp"];
 
 export const OPTIMIZED_IMAGE_MIME_TYPES: Record<OptimizedImageFormat, string> =
   {
@@ -53,7 +52,7 @@ export function pictureSources(
   const entry = optimizedEntry(src);
   if (!entry) return [];
 
-  return OPTIMIZED_IMAGE_FORMATS.map((format) => ({
+  return entry.formats.map((format) => ({
     key: `${options.media ?? "all"}-${format}`,
     props: {
       type: OPTIMIZED_IMAGE_MIME_TYPES[format],
