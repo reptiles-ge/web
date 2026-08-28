@@ -108,6 +108,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta trilineata media",
     ],
   },
+  "darevskia-pontica": {
+    ka: [
+      "მდელოს ხვლიკი",
+      "პონტური მდელოს ხვლიკი",
+      "Lacerta praticola pontica",
+      "Darevskia praticola pontica",
+    ],
+    en: [
+      "Pontic lizard",
+      "meadow lizard",
+      "Colchic meadow lizard",
+      "Lacerta praticola pontica",
+      "Darevskia praticola pontica",
+    ],
+  },
   "darevskia-derjugini": {
     ka: [
       "კავკასიური ტყის ხვლიკი",
@@ -153,6 +168,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Dahl's lizard",
       "Lacerta dahli",
       "Lacerta saxicola dahli",
+    ],
+  },
+  "darevskia-portschinskii": {
+    ka: [
+      "Lacerta portschinskii",
+      "Lacerta saxicola portschinskii",
+    ],
+    en: [
+      "Kura lizard",
+      "Portschinsky's lizard",
+      "Lacerta portschinskii",
+      "Lacerta saxicola portschinskii",
     ],
   },
   "darevskia-clarkorum": {

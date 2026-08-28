@@ -3046,7 +3046,7 @@ export const species: Species[] = [
     "location": "დასავლეთი საქართველო (აჭარის გარეშე) — საირმე, ჩხოროწყუ, ბანისხევი",
     "description": "უშხამო კლდის ხვლიკი დასავლეთის ნოტიო ტყის ხეობებში. აჭარაში არ არის; ფერი საკმარისი არ არის.",
     "overview": "კოლხური კლდის ხვლიკი (Darevskia mixta) საქართველოში გვხვდება: უშხამო კლდის ხვლიკი დასავლეთის ნოტიო ტყის ხეობებში, აჭარის გარეშე. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). შხამი არ აქვს და ადამიანისთვის საშიში არ არის. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს, არა კანდიდატად. ტიპის ადგილი აბასთუმანია. თავ-ტანი ხშირად დაახლოებით 5–6 სმ-ია. IUCN-ით ახლოსაა საფრთხესთან (Near Threatened). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. მთელ ქვეყანაში ნუ ივარაუდებთ: სახელდებული თანამედროვე წერტილებია საირმე, ჩხოროწყუ და ბანისხევი. ამ ატლასის რუკა სამეგრელო — ზემო სვანეთს, იმერეთს და სამცხე — ჯავახეთს აჩვენებს ამ ჩანაწერებიდან და არ ნიშნავს, რომ სახეობა მხოლოდ სამ წერტილშია. ინგლისურ წყაროებში ხშირად Ajarian lizard ან Mixed rock lizard; ჩამონათვალი გვთავაზობს Georgian lizard-ს, რადგან აჭარაში არ არის.",
-    "habitat": "საქართველოში გვხვდება. აჭარაში, კოლხეთის დაბლობზე ან აღმოსავლეთის მშრალ ვაკეზე ნუ ივარაუდებთ. Tarkhnishvili et al. 2026 ფიგურას საირმიდან ასახელებს; COI ბარკოდები საირმიდან და ჩხოროწყუდანაა; ბანისხევის მიმდევრობა ნაშრომშია დასახელებული. გავრცელების სანდოობა საშუალოა. Gabelaia და თანაავტორები (2015) არეალს მესხეთის ქედის აღმოსავლეთ ნაწილსა და დიდი კავკასიონის სამხრეთ კალთაზე ათავსებენ — რიონისა და ხობის ხეობებს შორის; 26 დასახელებული ადგილიდან ნიმუში ზეკარის უღელტეხილიდან, ბორჯომის ხეობიდან, რიონის ხეობიდან და სამეგრელოს ქედიდანაა. დაბლობზე და დაახლოებით 250–280 მ-ზე ქვემოთ არ უპოვიათ. ჰაბიტატი ნოტიო ტყის ხეობაა კლდითა და ქვით, სადაც თბება და თავს ნაპრალში აფარებს — არა ღია მშრალი სტეპი. მიკროჰაბიტატში ტენიანობა და ტემპერატურა მნიშვნელოვანია; მშრალ ან ზედმეტად თბილ ადგილს თავს არიდებს (Tarkhnishvili 2012). ლიხის ქედზე განმეორებით ძებნას სახეობა არ დაუდასტურებია, თუმცა იქ სხვა კლდის ხვლიკი (D. obscura / rudis s.l.) არის. აჭარასა და აბასთუმანის ხეობის დასავლეთით Gabelaia et al. 2015-ის გამოკვლევებში არ დადასტურდა. თურქეთის გირესუნის ერთი ძველი ეგზემპლარი, სავარაუდოდ, არასწორადაა განსაზღვრული; ზუსტი ადგილის გარეშე შემდგომი ჩანაწერები ამ გვერდზე დადასტურებულად არ ითვლება. ამ ატლასი სხვა ადმინისტრაციულ რეგიონს ამ ეტაპზე არ აჩვენებს; ეს არ ნიშნავს, რომ ყოველი შესაფერისი ხეობა შემოწმებულია.",
+    "habitat": "საქართველოში გვხვდება. აჭარაში, კოლხეთის დაბლობზე ან აღმოსავლეთის მშრალ ვაკეზე ნუ ივარაუდებთ. Tarkhnishvili et al. 2026 ფიგურას საირმიდან ასახელებს; COI ბარკოდები საირმიდან და ჩხოროწყუდანაა; ბანისხევის მიმდევრობა ნაშრომშია დასახელებული. გავრცელების სანდოობა საშუალოა. Gabelaia და თანაავტორები (2015) არეალს მესხეთის ქედის აღმოსავლეთ ნაწილსა და დიდი კავკასიონის სამხრეთ კალთაზე ათავსებენ — რიონისა და ხობის ხეობებს შორის; 26 დასახელებული ადგილიდან ნიმუში ზეკარის უღელტეხილიდან, ბორჯომის ხეობიდან, რიონის ხეობიდან და სამეგრელოს ქედიდანაა. დაბლობზე და დაახლოებით 250–280 მ-ზე ქვემოთ არ უპოვიათ. ჰაბიტატი ნოტიო ტყის ხეობაა კლდითა და ქვით, სადაც თბება და თავს ნაპრალში აფარებს — არა ღია მშრალი სტეპი. მიკროჰაბიტატში ტენიანობა და ტემპერატურა მნიშვნელოვანია; მშრალ ან ზედმეტად თბილ ადგილს თავს არიდებს (Tarkhnishvili 2012). ლიხის ქედზე განმეორებით ძებნას სახეობა არ დაუდასტურებია, თუმცა იქ სხვა კლდის ხვლიკი (D. obscura / rudis s.l.) არის. აჭარასა და აბასთუმანის ხეობის დასავლეთით Gabelaia et al. 2015-ის გამოკვლევებში არ დადასტურდა. თურქეთის გირესუნის ერთი ძველი ეგზემპლარი, სავარაუდოდ, არასწორადაა განსაზღვრული; ზუსტი ადგილის გარეშე შემდგომი ჩანაწერები ამ გვერდზე დადასტურებულად არ ითვლება. ამ ატლასის რუკა სხვა ადმინისტრაციულ რეგიონს ამ ეტაპზე არ აჩვენებს; ეს არ ნიშნავს, რომ ყოველი შესაფერისი ხეობა შემოწმებულია.",
     "diet": "ქართული კუჭის შიგთავსის კვლევა ამ სახეობაზე ამ გვერდზე არ არის. კლდის ხვლიკივით მოსალოდნელია წვრილი უხერხემლოები, მაგრამ მენიუ აქ არ არის გაზომილი. შხამი არ აქვს; ნადირს პირში იჭერს.",
     "behavior": "დღისითაა აქტიური. კლდის ხვლიკია: თბება ქვაზე, თავს ნაპრალში აფარებს, ტერიტორიულია. ქართული საათობრივი ან სეზონური კალენდარი ამ გვერდზე არ არის. კვერცხისმდებია. მატრილინეული წინაპარია პართენოგენების — სომხური კლდის ხვლიკის (D. armeniaca) და დალის ხვლიკის (D. dahli); ეს სხვა ტაქსონებია და სამხრეთ/აღმოსავლეთ საქართველოში უფროა მოსალოდნელი, არა იგივე დასავლეთის ხეობაში ავტომატურად. დაჭერისას კუდი შეიძლება მოეწყვიტოს; შეიძლება უკბინოს კიდეც. დააკვირდით და ადგილზე დატოვეთ. ნუ აიყვანთ.",
     "conservation": "IUCN-მა 2009 წელს ახლოს საფრთხესთან შეაფასა (Tuniyev და თანაავტორები). შეფასება ძველია; არეალი ვიწროა და ჰაბიტატი ნოტიო ტყის ხეობებზეა მიბმული. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად იღებს. ქართული პოპულაციის ტენდენცია აქ არ არის გაზომილი. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
@@ -3359,12 +3359,13 @@ export const species: Species[] = [
     "genus": "Darevskia",
     "family": "Lacertidae",
     "location": "ცენტრალური მცირე კავკასიონი — ქოჯორი; ჰიბრიდული ზონა ტანას ხეობაში",
-    "description": "მცირე კავკასიონის ენდემი, არსებითად უფრო პატარა ვიდრე obscura/valentini; ფერი საკმარისი არ არის.",
-    "overview": "მტკვრის ხვლიკი (Darevskia portschinskii) Tarkhnishvili et al. 2026-ში ბიოლოგიურად დადასტურებულია. ახლოსაა D. rudis-თან, D. obscura-სა და D. valentini-სთან, მაგრამ არსებითად უფრო პატარაა და სამივესთან ვიწრო საკონტაქტო ზონას ქმნის. obscura-სთან ჰიბრიდული ზონა ტანას ხეობაშია. ცენტრალური მცირე კავკასიონის ენდემია. ბარკოდი ქოჯორიდანაა — იქვეა dahli-ის ბარკოდიც; ეს სხვა ტაქსონია. ქვესახეობები: D. p. portschinskii და D. p. nigrita.",
-    "habitat": "ცენტრალური მცირე კავკასიონის ენდემი. სახელდებული ადგილები: ქოჯორი (ბარკოდი); ტანას ხეობა (ჰიბრიდული ზონა obscura-სთან).",
-    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
-    "behavior": "",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებულია. obscura-სა და valentini-სთან გენთა ინტროგრესია საკონტაქტო ზონებში აღწერილია.",
+    "description": "უშხამო კლდის ხვლიკი თრიალეთის მთის ტყეში. საქართველოში დადასტურებულია; მთელ ქვეყანაში არ გვხვდება. ფერი საკმარისი არ არის.",
+    "overview": "მტკვრის ხვლიკი (Darevskia portschinskii) უშხამო კლდის ხვლიკია საქართველოს ცენტრალურ მცირე კავკასიონზე. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). შხამი არ აქვს და ადამიანისთვის საშიში არ არის. ინგლისურად Kura lizard ან Portschinsky's lizard. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს, არა კანდიდატად. ორსქესიანია: ველზე მამრებსაც და მდედრებსაც ხედავთ — ეს პრაქტიკული განსხვავებაა პართენოგენ დალის ხვლიკისგან (D. dahli), რომელსაც ეს სახეობა ერთ-ერთი მშობელია. ქართულ ნიმუშებში ზრდასრული სხეულის სიგრძე (თავიდან კლოაკამდე) ჩვეულებრივ დაახლოებით 5.4–5.8 სმ-ია. ტიპის ადგილი თბილისია (Kessler, 1878), არა სომხეთი. მთელ საქართველოში ნუ ივარაუდებთ: დასახელებული თანამედროვე წერტილი ქოჯორია; obscura-სთან ჰიბრიდული ზონა ტანას ხეობაშია. სახეობა მცირე კავკასიონის ცენტრალური ნაწილის ენდემია და სომხეთსა და აზერბაიჯანშიცაა — საქართველოს ენდემი არ არის. IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის.",
+    "habitat": "საქართველოში გვხვდება. დასავლეთის ნოტიო ტყეში, კოლხეთში, აჭარაში ან ჯავახეთის მაღალმთიანზე ნუ ივარაუდებთ. 2026 წლის ჩამონათვალი ცენტრალურ მცირე კავკასიონს ასახელებს; გავრცელების ნდობა საშუალოა. ბარკოდი ქოჯორიდანაა (CaBOL-ID 1027436). თბილისის მიმდებარე ერთ კლდოვან ამონაკვეთზე (დაახლ. 1 ჰა, 1003–1042 მ) 1960-იანი წლებიდან თანაარსებობს დალის ხვლიკთან; იქ dahli დაახლოებით ხუთჯერ უფრო მრავლად იყო. 2008–2009 წლების აღრიცხვაში dahli-ს 82 ადგილიდან 28-ზე ერთად იყო, ძირითადად თრიალეთის მთის ტყეში. თანაარსებობის სიმაღლე ხშირად დაახლოებით 800–1200 მ-ია; ეს სრული ქართული ზღვარი არ არის. IUCN 300–1700 მ-ს ასახელებს სახეობის დონეზე, სომხეთისა და აზერბაიჯანის ჩათვლით. ჰაბიტატი კლდოვანი ამონაკვეთია მთის ტყეში, მდინარის პირის კლდე და მშრალი ბუჩქნარი ფერდობი — არა სველი კოლხური ტყე და არა შიშველი უდაბნო. იგივე კლდეზე dahli წყლის წყაროსთან უფრო მჭიდროდაა მიბმული; მტკვრის ხვლიკი უფრო თანაბრადაა განაწილებული და სუბოპტიმალურ ადგილზეც უფრო ხშირია. ქვესახეობა D. p. nigrita ბაქრაძემ 1976-ში აღწერა დმანისის მიდამოდან (ქვემო ქართლი) — უფრო მუქი ზურგით; არეალი სამხრეთ-აღმოსავლეთ საქართველო და ჩრდილოეთ სომხეთი. IUCN 2009 წელს გორს დასავლეთ კიდედ ასახელებს და ივრის შუა დინებაზე იზოლირებულ პოპულაციასაც მოიხსენიებს; ეს ძველი შეფასებაა და ამ გვერდზე დამოუკიდებლად არ არის გადამოწმებული. ამ ატლასის რუკა რეგიონულ ჩანაწერებს ასახავს და არ ნიშნავს, რომ სახეობა მონიშნულ რეგიონში ყველგან თანაბარია.",
+    "diet": "ცალკე ქართული კუჭის შიგთავსის კვლევა ამ სახეობაზე არ არის. კლდის ხვლიკები, როგორც წესი, წვრილ უხერხემლოებს იჭერენ — მწერებს, ობობასებრს და სხვა ფეხსახსრიანებს. 2010 წლის კვლევა დალის ხვლიკთან შეჯიბრს საკვებსა და თავშესაფარზე ასახელებს და მენიუში არსებით სხვაობას არ აღნიშნავს. საქართველოში ზუსტი მენიუ გაზომილი არ არის.",
+    "behavior": "დღისითაა აქტიური. კლდის ხვლიკია: თბება ქვაზე, თავს ნაპრალში აფარებს. თბილისის მიმდებარე კვლევა აკვირვებას აპრილიდან ოქტომბრამდე ატარებდა, გაზაფხულისა და შემოდგომის აქტიურობის პერიოდებში. ეს ერთი უბნის კალენდარია და არა სრული ქართული საათობრივი ცხრილი. კვერცხისმდებია; სეზონში ჩვეულებრივ ერთი ნაყარია. კლასიკურ ლიტერატურაში 2–5 კვერცხია; ქოჯორის ქართულ ნიმუშში 1–3. დალის ხვლიკის მამრი არ არის — პირიქით, ამ სახეობის მამრი ზოგჯერ პართენოგენს კბენს შეწყვილებისას, მაგრამ ამით სქესობრივი პოპულაცია არ წარმოიქმნება. დაჭერისას კუდი შეიძლება მოეწყვიტოს; შეიძლება უკბინოს კიდეც. დააკვირდით და ადგილზე დატოვეთ. ნუ აიყვანთ.",
+    "conservation": "IUCN-მა 2009 წელს ნაკლებად საფრთხის ქვეშ შეაფასა (Tuniyev და თანაავტორები) ფართო არეალის გამო; ტენდენცია იქ კლებადია მითითებული. შეფასება ძველია. იმავე ანგარიშში სახეობა შეცდომით პართენოგენურადაა აღწერილი — ეს დალის ხვლიკს ეხება, არა მტკვრის ხვლიკს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; დალის ხვლიკი იქ მოწყვლადია (VU). Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად იღებს. obscura-სა და valentini-სთან ვიწრო საკონტაქტო ზონაში გენების გადასვლა (ინტროგრესია) აღწერილია — ეს ტაქსონომიური სირთულეა, არა წითელი ნუსხის კატეგორია. ქართული პოპულაციის ტენდენცია აქ არ არის გაზომილი. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
+    "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ. ველური ცხოველი არ გეყოლოთ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/darevskia-portschinskii.jpg",
     "mobileImage": "https://cdn.reptiles.ge/darevskia-portschinskii-mobile.jpg",
@@ -3382,60 +3383,122 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ცენტრალური მცირე კავკასიონი"
+        "value": "მთის ტყე, კლდე"
+      },
+      {
+        "label": "ზომა",
+        "value": "თავ-ტანი ~5.4–5.8 სმ"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "დღის"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "ბიოლოგიურად დადასტურებული"
+        "label": "კონსერვაცია",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "ზღვის დონიდან",
+        "value": "დასახ. ~800–1200 მ"
       },
       {
         "label": "ოჯახი",
         "value": "Lacertidae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "აღწერა 1878 წელს (Kessler), თავდაპირველად Lacerta portschinskii. ტიპის ადგილი თბილისია. გვარი Darevskia Arribas 1997-ის შემდეგ. სინონიმები: Lacerta saxicola portschinskii.",
+      "2026 წლის ჩამონათვალის ნიმუში და COI შტრიხკოდი ქოჯორიდანაა (CaBOL-ID 1027436). უახლოესი შედარება სომხური portschinskii-ა; შემდეგი — obscura (ნიმუში ახალდაბიდან, დეპონირებული როგორც D. rudis).",
+      "ქვესახეობები ჩამონათვალში: D. p. portschinskii და D. p. nigrita (Bakradze, 1976; ტიპის ადგილი დმანისი)."
+    ],
     "identification": {
-      "summary": "ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლითა და გავრცელებით, არა ფერით. ნაშრომის დიაგნოზი: არსებითად უფრო პატარაა, ვიდრე obscura, valentini და rudis.",
+      "summary": "პატარა კლდის ხვლიკია თრიალეთის მთის ტყეში. ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ზომით, გავრცელებით, სქესითა და ქერცლითაა — არა ზურგის ფერით.",
       "traits": [
-        "ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
-        "არსებითად უფრო პატარაა, ვიდრე obscura / valentini / rudis — ეს ნაშრომის ნიშანია, არა ფერი.",
-        "ვიწრო საკონტაქტო ზონა სამივესთან; ჰიბრიდული ზონა obscura-სთან ტანას ხეობაში.",
-        "ცენტრალური მცირე კავკასიონის ენდემი."
+        "სხეული პატარა და გაბრტყელებულია, კიდურები კარგად განვითარებული — კლდეზე და ქვაზეა, არა დიდი მიწის ლაცერტა (Lacerta) და არა ჯოჯო (Paralaudakia). ქართულ ნიმუშებში თავ-ტანი ჩვეულებრივ დაახლოებით 5.4–5.8 სმ-ია; ლიტერატურაში მაქსიმუმი დაახლოებით 67 მმ-მდეა. ეს ნაშრომის ნიშანია obscura-სა და valentini-სთან შედარებით: ისინი არსებითად უფრო დიდია. კუდი სხეულზე გრძელია და ადვილად წყდება. ქერცლის დასათვლად ხვლიკი არ აიყვანოთ.",
+        "ზურგი რუხი, მოყავისფრო ან ზეთისხილისფერია, ხშირად მუქი ლაქებით. მუცელი შეიძლება მოყვითალო იყოს. ქვესახეობა nigrita უფრო მუქი ზურგითაა აღწერილი. ეს ტონები სხვა კლდის ხვლიკებშიცაა — ფერი სახეობას არ ჰყოფს.",
+        "დალის ხვლიკი (D. dahli) ხშირად იგივე კლდეზეა და ზომით ქართულ ნიმუშებში ახლოსაა. განსხვავება: portschinskii ორსქესიანია; dahli თითქმის მხოლოდ მდედრია. ზუსტი გარჩევა თავის ქერცლითა და ანალური მიდამოთი; ფერით ვერ გაირჩევა. ქოჯორში ორივეს ბარკოდია — ეს სხვა ტაქსონებია.",
+        "მესხური კლდის ხვლიკი (D. obscura) ჩამონათვალში კანდიდატია rudis-ის კომპლექსიდან და არსებითად უფრო დიდია. ჰიბრიდული ზონა ტანას ხეობაშია — საკონტაქტო ზონაში მხოლოდ ფერით ნუ გადაწყვეტთ. ვალენტინის ხვლიკი (D. valentini) ჯავახეთის მაღალმთიანზეა (მაგ. საღამოს ტბა) და ასევე უფრო დიდია. კოლხური კლდის ხვლიკი (D. mixta) დასავლეთ საქართველოს ენდემია და dahli-ს მეორე მშობელია; მტკვრის ხვლიკთან თითქმის არ ემთხვევა."
       ]
     },
     "faq": [
       {
-        "question": "არის თუ არა ეს D. obscura, D. valentini ან D. dahli?",
-        "answer": "ფერით ვერ გაირჩევა. obscura და valentini ახლო სახეობებია ჰიბრიდული ზონებით; portschinskii არსებითად უფრო პატარაა. dahli მისი პართენოგენური შთამომავალია (მშობელი mixta-სთან ერთად) და ქოჯორშიცაა დასახელებული."
+        "question": "გვხვდება თუ არა მტკვრის ხვლიკი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. ტიპის ადგილი თბილისია. დასახელებული თანამედროვე წერტილი ქოჯორია. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "არის თუ არა კანდიდატი სახეობა?",
-        "answer": "არა. ჩამონათვალში ბიოლოგიურად დადასტურებულია."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "რეალურად — კლდოვან ამონაკვეთზე მთის ტყეში, უფრო თრიალეთის მიდამოებში, დაახლოებით 800–1200 მ-ზე იქ, სადაც დალის ხვლიკთან ერთადაა აღრიცხული. ქოჯორი დასახელებული თანამედროვე წერტილია; ტანას ხეობა obscura-სთან კონტაქტის ადგილია. აფხაზეთში, აჭარაში ან კოლხეთის დაბლობზე ნუ ეძებთ."
       },
       {
-        "question": "სად ასახელებს ნაშრომი საქართველოში?",
-        "answer": "ცენტრალური მცირე კავკასიონი. ბარკოდი — ქოჯორი. ჰიბრიდული ზონა obscura-სთან — ტანას ხეობა."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს და სამედიცინო საფრთხეს არ წარმოადგენს. არ აიყვანოთ: კუდი ადვილად წყდება."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა კლდის ხვლიკი; მამრები და მდედრები. ფერი საკმარისი არ არის. იგივე კლდეზე დალის ხვლიკი თითქმის მხოლოდ მდედრია. obscura და valentini არსებითად უფრო დიდია და სხვა არეალშია, გარდა ტანას საკონტაქტო ზონისა."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ქართულ ნიმუშებში ზრდასრული სხეულის სიგრძე ჩვეულებრივ დაახლოებით 5.4–5.8 სმ-ია. ლიტერატურაში მაქსიმუმი დაახლოებით 67 მმ-მდეა. მთლიანი სიგრძე კუდის გამო მეტია; კუდი ადვილად წყდება და სიგრძეს ცვლის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "კვება ქართულად ცალკე არ არის შესწავლილი. კლდის ხვლიკები ძირითადად წვრილ უხერხემლოებს იჭერენ. შხამი არ აქვს."
+      },
+      {
+        "question": "როდის არის აქტიური და როგორ მრავლდება?",
+        "answer": "დღის აქტიურია. თბილისის მიმდებარე კვლევა აპრილიდან ოქტომბრამდე აკვირდებოდა. კვერცხს დებს; ქოჯორში 1–3 კვერცხი, კლასიკურ ლიტერატურაში 2–5. ჩვეულებრივ ერთი ნაყარი სეზონში."
+      },
+      {
+        "question": "არის თუ არა ეს D. dahli, D. obscura ან D. valentini?",
+        "answer": "ფერით ვერ გაირჩევა. dahli პართენოგენია და ხშირად იგივე კლდეზეა. obscura და valentini უფრო დიდია; ტანას ხეობაში obscura-სთან ჰიბრიდული ზონაა. არა, კანდიდატი სახეობა არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T19:42:12+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Tarkhnishvili et al. 2010 — Unisexual rock lizard and its progenitors in Georgia",
+        "url": "https://doi.org/10.1111/j.1095-8312.2010.01498.x"
       },
       {
-        "name": "The Reptile Database",
+        "name": "Barateli et al. 2021 — habitat occupancy of D. portschinskii and D. dahli near Tbilisi",
+        "url": "https://doi.org/10.3897/herpetozoa.34.e63072"
+      },
+      {
+        "name": "Barateli et al. 2022 — Reproductive effort of unisexual and bisexual Darevskia",
+        "url": "https://doi.org/10.1016/j.jcz.2022.11.002"
+      },
+      {
+        "name": "Tarkhnishvili et al. 2013 — hybrid zone with D. obscura in the Tana valley, cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Murphy et al. 2000 — phylogenetic constraints on parthenogenesis in lacertids",
+        "url": "https://doi.org/10.1111/j.1096-3642.2000.tb02208.x"
+      },
+      {
+        "name": "Bakradze 1976 — Lacerta portschinskii nigrita"
+      },
+      {
+        "name": "Darevsky 1967 — Rock lizards of the Caucasus"
+      },
+      {
+        "name": "Tuniyev et al. 2009 — IUCN Red List, Darevskia portschinskii",
+        "url": "https://www.iucnredlist.org/species/164654/114556728"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "The Reptile Database — Darevskia portschinskii",
         "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=portschinskii"
       }
     ]
@@ -17018,56 +17081,89 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "darevskia-portschinskii": {
     "commonName": "Portschinsky's Lizard",
     "location": "Central Lesser Caucasus — Kojori; hybrid zone in the Tana valley",
-    "description": "A Lesser Caucasus endemic, substantially smaller than obscura/valentini; colour is not enough.",
-    "overview": "Portschinsky’s lizard (Darevskia portschinskii) is biologically confirmed in Tarkhnishvili et al. 2026. It is closely related to D. rudis, D. obscura, and D. valentini, but is substantially smaller and forms a narrow contact zone with all three. A hybrid zone with D. obscura is present in the Tana River valley. It is endemic to the central Lesser Caucasus. A barcode is from Kojori — dahli is also barcoded there; that is a different taxon. Subspecies: D. p. portschinskii and D. p. nigrita.",
-    "habitat": "Endemic to the central Lesser Caucasus. Named places: Kojori (barcode); Tana River valley (hybrid zone with obscura).",
-    "diet": "The paper does not specify diet for this species.",
-    "behavior": "",
-    "conservation": "Biologically confirmed in the checklist. Gene introgression with obscura and valentini across contact zones is described.",
+    "description": "A harmless rock lizard of Trialeti mountain forest. Confirmed in Georgia; not countrywide. Colour will not separate it from other Darevskia.",
+    "overview": "The Kura lizard (Darevskia portschinskii) is a harmless rock lizard of Georgia’s central Lesser Caucasus. It belongs to the lacertid family (Lacertidae). It has no venom and is not dangerous to people. English names include Kura lizard and Portschinsky’s lizard. The 2026 Georgian checklist treats it as biologically confirmed, not a candidate. It is bisexual: you see males and females in the field — the practical difference from parthenogenetic Dahl’s lizard (D. dahli), of which this species is one parent. In Georgian samples, adult snout–vent length is usually about 5.4–5.8 cm. The type locality is Tbilisi (Kessler, 1878), not Armenia. Do not expect it throughout Georgia: the named modern point is Kojori; a hybrid zone with D. obscura is in the Tana River valley. The species is endemic to the central Lesser Caucasus and also occurs in Armenia and Azerbaijan — it is not a Georgia-only endemic. IUCN lists it as Least Concern. It is not on Georgia’s 2014 Red List.",
+    "habitat": "It occurs in Georgia. Do not assume it in western humid forest, Colchis, Adjara, or the Javakheti highlands. The 2026 checklist places it in the central Lesser Caucasus; distribution confidence is medium. The barcode is from Kojori (CaBOL-ID 1027436). On one rocky outcrop of about 1 ha near Tbilisi (1003–1042 m), known since the mid-1960s, it coexists with Dahl’s lizard; dahli was about five times more abundant there. In the 2008–2009 survey it shared 28 of dahli’s 82 sites, mainly in Trialeti mountain forest. Shared elevations are often about 800–1200 m; that is not a complete Georgian limit. IUCN gives 300–1700 m at species level, including Armenia and Azerbaijan. Habitat is rocky outcrops in mountain forest, riverside rock, and dry shrubby slopes — not wet Colchic forest and not bare desert. On the same rocks dahli is more tightly tied to a water source; the Kura lizard is more evenly spread and more often in suboptimal spots. Subspecies D. p. nigrita was described by Bakradze in 1976 from near Dmanisi (Kvemo Kartli) — a darker dorsum; the range is south-eastern Georgia and northern Armenia. IUCN 2009 names Gori as a western edge and an isolated population on the middle Iori; that assessment is old and is not independently checked on this page. This atlas map shows regional records, not even density inside a region.",
+    "diet": "There is no separate Georgian stomach-content study for this species. Rock lizards usually take small invertebrates — insects, spiders, and other arthropods. The 2010 study treats competition with Dahl’s lizard as food and cover, and notes no marked menu difference. The Georgian diet has not been measured on this page.",
+    "behavior": "It is active by day. It is a rock lizard: it basks on stone and hides in crevices. A study near Tbilisi observed animals from April to October, in spring and autumn activity periods. That is one site’s calendar, not a full Georgian timetable. It lays eggs; usually one clutch per season. Classic literature gives 2–5 eggs; Georgian samples from Kojori had 1–3. Dahl’s lizard has no males — instead, males of this species sometimes bite the parthenogen in mating attempts, which does not create a sexual population. If caught, the tail may break off; it may also bite. Watch it and leave it. Do not pick it up.",
+    "conservation": "IUCN assessed it as Least Concern in 2009 (Tuniyev and co-authors) because of a wide range; the account lists a decreasing trend. The assessment is old. The same account wrongly describes the species as parthenogenetic — that applies to Dahl’s lizard, not the Kura lizard. It is not on Georgia’s 2014 Red List (Decree No. 190); Dahl’s lizard is Vulnerable (VU) there. Tarkhnishvili et al. 2026 treat it as biologically confirmed. Gene flow (introgression) with obscura and valentini in narrow contact zones is described — that is a taxonomic issue, not a Red List category. Georgian population trend is not measured here. It is not on CITES. Do not take wild lizards.",
+    "interaction": "It is not venomous and poses no medical risk. If handled it may bite; the tail may break off. Leave it where it is. Do not keep wild animals.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Central Lesser Caucasus"
+        "value": "Mountain forest, rock"
+      },
+      {
+        "label": "Size",
+        "value": "SVL ~5.4–5.8 cm"
+      },
+      {
+        "label": "Activity",
+        "value": "Diurnal"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Biologically confirmed"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
+      },
+      {
+        "label": "Elevation",
+        "value": "Named ~800–1200 m"
       },
       {
         "label": "Family",
         "value": "Lacertidae"
       }
     ],
-    "facts": [],
+    "facts": [
+      "Described in 1878 (Kessler) as Lacerta portschinskii. Type locality Tbilisi. Genus Darevskia after Arribas 1997. Synonyms include Lacerta saxicola portschinskii.",
+      "The 2026 checklist voucher and COI barcode are from Kojori (CaBOL-ID 1027436). The closest match is Armenian portschinskii; next is obscura (a specimen from Akhaldaba deposited as D. rudis).",
+      "Subspecies in the checklist: D. p. portschinskii and D. p. nigrita (Bakradze, 1976; type locality Dmanisi)."
+    ],
     "identification": {
-      "summary": "Colour is not enough. Field ID among Darevskia needs scalation and range, not colour. Paper diagnosis: substantially smaller than obscura, valentini, and rudis.",
+      "summary": "A small rock lizard of Trialeti mountain forest. Colour is not enough. Field ID among Darevskia uses size, range, sex, and scalation — not dorsal colour.",
       "traits": [
-        "Colour does not separate Darevskia species.",
-        "Substantially smaller than obscura / valentini / rudis — that is a paper character, not colour.",
-        "Narrow contact with all three; hybrid zone with obscura in the Tana valley.",
-        "Endemic to the central Lesser Caucasus."
+        "The body is small and flattened, with well-developed limbs — it is on rock and stone, not a large ground lacertid (Lacerta) and not a Caucasian agama (Paralaudakia). In Georgian samples snout–vent length is usually about 5.4–5.8 cm; literature maxima reach about 67 mm. That is the checklist character versus obscura and valentini: those are substantially larger. The tail is longer than the body and breaks easily. Do not pick the lizard up to count scales.",
+        "The back is grey, brownish, or olive, often with dark spots. The belly may be yellowish. Subspecies nigrita is described with a much darker dorsum. These tones occur in other rock lizards — colour does not separate the species.",
+        "Dahl’s lizard (D. dahli) often shares the same rocks. Size in Georgian samples is similar. The difference: portschinskii is bisexual; dahli is almost only females. Reliable separation uses head scalation and the anal region; colour will not do it. Both are barcoded at Kojori — they are different taxa.",
+        "The Meskhetian rock lizard (D. obscura) is a candidate in the rudis complex in the checklist and is substantially larger. A hybrid zone is in the Tana valley — do not decide by colour in the contact zone. Valentin’s lizard (D. valentini) is on the Javakheti highlands (e.g. Lake Saghamo) and is also larger. The Georgian lizard (D. mixta) is a western Georgia endemic and the other parent of dahli; overlap with the Kura lizard is almost nil."
       ]
     },
     "faq": [
       {
-        "question": "Is this D. obscura, D. valentini, or D. dahli?",
-        "answer": "Colour will not tell you. obscura and valentini are close species with hybrid zones; portschinskii is substantially smaller. dahli is its parthenogenetic descendant (with mixta) and is also named at Kojori."
+        "question": "Is the Kura lizard found in Georgia?",
+        "answer": "Yes. It is biologically confirmed in the 2026 checklist. The type locality is Tbilisi. The named modern point is Kojori. It does not occur throughout the country."
       },
       {
-        "question": "Is it a candidate species?",
-        "answer": "No. It is biologically confirmed in the checklist."
+        "question": "Where might I see it in Georgia?",
+        "answer": "On rocky outcrops in mountain forest, mainly in the Trialeti area, often about 800–1200 m where it has been recorded with Dahl’s lizard. Kojori is the named modern point; the Tana valley is the contact with obscura. Do not look for it in Abkhazia, Adjara, or the Colchis lowlands."
       },
       {
-        "question": "Where does the paper name it in Georgia?",
-        "answer": "Central Lesser Caucasus. Barcode: Kojori. Hybrid zone with obscura: Tana River valley."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom and poses no medical risk. Do not pick it up: the tail breaks easily."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification Harmless. No venom."
+        "question": "How can I identify it?",
+        "answer": "A small rock lizard with males and females. Colour is not enough. On the same rocks Dahl’s lizard is almost only females. obscura and valentini are substantially larger and mostly in other ranges, except the Tana contact zone."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "In Georgian samples adult snout–vent length is usually about 5.4–5.8 cm. Literature maxima reach about 67 mm. Total length is greater because of the tail; the tail breaks easily and changes length."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Diet has not been studied separately in Georgia. Rock lizards mainly take small invertebrates. It has no venom."
+      },
+      {
+        "question": "When is it active and how does it breed?",
+        "answer": "It is active by day. The study near Tbilisi watched it from April to October. It lays eggs; Kojori samples had 1–3 eggs, classic literature 2–5. Usually one clutch per season."
+      },
+      {
+        "question": "Is this D. dahli, D. obscura, or D. valentini?",
+        "answer": "Colour will not tell you. dahli is parthenogenetic and often on the same rocks. obscura and valentini are larger; there is a hybrid zone with obscura in the Tana valley. It is not a candidate species."
       }
     ],
     "gallery": [

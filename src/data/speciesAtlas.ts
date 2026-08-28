@@ -183,7 +183,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "darevskia-pontica": {
     group: "lizard",
-    habitats: ["mountain", "forest"],
+    habitats: ["forest", "grassland"],
   },
   "darevskia-obscura": {
     group: "lizard",
