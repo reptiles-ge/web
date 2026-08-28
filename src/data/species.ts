@@ -250,6 +250,8 @@ export const featuredSpeciesIds = [
   "sus-scrofa",
   "panthera-pardus",
   "lynx-lynx",
+  "procyon-lotor",
+  "capra-aegagrus",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;

@@ -1235,8 +1235,8 @@
   },
   "mammals": {
     "metaTitle": "Mammals in Georgia — species profiles",
-    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources. Current species include red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, and Caucasian leopard.",
-    "keywords": "mammals in Georgia, Georgia mammals, red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი",
+    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources. Current species include red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, and raccoon.",
+    "keywords": "mammals in Georgia, Georgia mammals, red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, raccoon, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Mammals",
     "heroImageAlt": "Red fox at a woodland edge, with reddish fur and a bushy tail",
     "title": "Mammals in Georgia",
@@ -1245,14 +1245,15 @@
     "statSpecies": "Mammals in the atlas",
     "statFamilies": "Families",
     "statExtra": "Current focus",
-    "statExtraValue": "Canids, bears, deer, mustelids, squirrels, pigs",
+    "statExtraValue": "Canids, bears, deer, mustelids, squirrels, pigs, raccoons",
     "statExtraItems": [
       "Canids",
       "Bears",
       "Deer",
       "Mustelids",
       "Squirrels",
-      "Pigs"
+      "Pigs",
+      "Raccoons"
     ],
     "guideEyebrow": "Guide",
     "guideTitle": "Mammals in the animal atlas",
@@ -1273,7 +1274,7 @@
     "faq1Q": "Does this site cover all Georgian mammals?",
     "faq1A": "No. This hub publishes individual species pages as they are written. National mammal checklists remain the reference for the full fauna.",
     "faq2Q": "Which mammals are in the atlas now?",
-    "faq2A": "Several profiles so far, including red fox, golden jackal, grey wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, southern white-breasted hedgehog, wild boar, and Caucasian leopard. The leopard is a rare vagrant, not a resident density.",
+    "faq2A": "Several profiles so far, including red fox, golden jackal, grey wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, southern white-breasted hedgehog, wild boar, Caucasian leopard, and raccoon. The leopard is a rare vagrant, not a resident density. The raccoon is introduced.",
     "faq3Q": "How are mammals added to the atlas?",
     "faq3A": "Mammal pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national mammal list.",
     "faq4Q": "Are regional maps shown for mammals?",

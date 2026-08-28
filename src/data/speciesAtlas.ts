@@ -389,6 +389,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["forest", "mountain", "grassland"],
   },
+  "procyon-lotor": {
+    group: "mammal",
+    habitats: ["forest", "wetland", "grassland"],
+  },
+  "capra-aegagrus": {
+    group: "mammal",
+    habitats: ["mountain", "forest"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {

@@ -811,6 +811,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Felis lynx",
     ],
   },
+  "capra-aegagrus": {
+    ka: [
+      "ველური თხა",
+      "ბეზოარული თხა",
+      "Capra aegagrus aegagrus",
+      "Capra hircus aegagrus",
+    ],
+    en: [
+      "bezoar goat",
+      "bezoar ibex",
+      "wild goat",
+      "Capra aegagrus aegagrus",
+      "Capra hircus aegagrus",
+    ],
+  },
   "panthera-pardus": {
     ka: [
       "ჯიქი",
@@ -846,6 +861,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "wild swine",
       "Sus scrofa attila",
       "Sus scrofa domesticus",
+    ],
+  },
+  "procyon-lotor": {
+    ka: [
+      "ჩვეულებრივი ენოტი",
+      "ჩრდილოამერიკული ენოტი",
+      "Procyon lotor",
+    ],
+    en: [
+      "common raccoon",
+      "northern raccoon",
+      "North American raccoon",
+      "racoon",
     ],
   },
   "erinaceus-concolor": {
