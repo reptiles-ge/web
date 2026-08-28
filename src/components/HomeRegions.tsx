@@ -57,10 +57,9 @@ export async function HomeRegions() {
                 className="group relative block overflow-hidden rounded-[24px] bg-ink"
               >
                 <div className="relative aspect-[5/6] sm:aspect-[4/5]">
-                  <Image
+                  <CoverImage
                     src={getRegionHeroImage(region.id)}
                     alt={t("imageAlt", { name })}
-                    fill
                     sizes="(max-width: 640px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
