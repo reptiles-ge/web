@@ -3139,7 +3139,7 @@ export const species: Species[] = [
         "answer": "დღისით. ქართული სრული სეზონური კალენდარი ამ გვერდზე არ არის. ნოტიო ხეობებში თბილ სეზონზეა მოსალოდნელი."
       }
     ],
-    "updatedAt": "2026-08-28T19:37:11+04:00",
+    "updatedAt": "2026-08-28T19:44:53+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3270,13 +3270,14 @@ export const species: Species[] = [
     "scientificName": "Darevskia pontica",
     "genus": "Darevskia",
     "family": "Lacertidae",
-    "location": "ჩრდილო-დასავლეთი საქართველო (პონტური პოპულაციები)",
-    "description": "კანდიდატი მდელოს ხვლიკი ჩრდილო-დასავლეთ საქართველოდან; praticola-სგან რანგი ღიაა — ფერი საკმარისი არ არის.",
-    "overview": "კოლხური მდელოს ხვლიკი (Darevskia pontica) Tarkhnishvili et al. 2026-ში კანდიდატი სახეობაა. praticola-ს ანგარიში ჩრდილო-დასავლეთ საქართველოს პონტურ პოპულაციებს აქ ცალკე გამოყოფს. ზოგიერთ ნიშანში ფენოტიპურად ამოცნობადია, მაგრამ გამოქვეყნებული განხილვები ძალიან მცირე გენეტიკურ სხვაობას და D. praticola sensu lato-სგან ეფექტური გენეტიკური იზოლაციის არარსებობას აღნიშნავს; რანგი (სახეობა vs ქვესახეობა) წყაროებსა და ბაზებში არაერთგვაროვანია. ამ ანგარიშში ბარკოდები და სახელდებული სოფელი არ არის.",
-    "habitat": "პონტური პოპულაციები ჩრდილო-დასავლეთ საქართველოში (praticola-ს ანგარიში). ამ ტაქსონის ანგარიში სოფელს ან ბარკოდს არ ასახელებს.",
-    "diet": "ნაშრომი სახეობის კვებას არ აკონკრეტებს.",
-    "behavior": "",
-    "conservation": "ჩამონათვალში კანდიდატი სახეობაა. რანგი praticola-სგან დამატებით იზოლაციის მტკიცებულებას საჭიროებს.",
+    "location": "აფხაზეთი — გაგრა (ტიპის ადგილი); ჩრდილო-დასავლეთი პონტური პოპულაციები",
+    "description": "უშხამო მდელოს ხვლიკი ჩრდილო-დასავლეთ საქართველოდან; ჩამონათვალში კანდიდატია. ფერი საკმარისი არ არის.",
+    "overview": "კოლხური მდელოს ხვლიკი (Darevskia pontica) საქართველოში გვხვდება: უშხამო, მიწაზე მცხოვრები მდელოს ხვლიკი ჩრდილო-დასავლეთის პონტურ არეალში. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). შხამი არ აქვს და ადამიანისთვის საშიში არ არის. 2026 წლის ქართული ჩამონათვალი მას კანდიდატ სახეობად იღებს: ჩრდილო-დასავლეთ საქართველოს პონტურ პოპულაციებს მდელოს ხვლიკისგან (Darevskia praticola) გამოყოფს, მაგრამ ეფექტური გენეტიკური იზოლაცია ნაჩვენები არ არის. ტიპის ადგილი გაგრაა, აფხაზეთის შავიზღვისპირეთში — არა აღმოსავლეთ საქართველო. ამ ატლასის რუკა აფხაზეთს აჩვენებს ამ დასახელებული ჩანაწერიდან და არ ნიშნავს, რომ სახეობა მხოლოდ ერთ ქალაქშია. IUCN-ს ცალკე შეფასება D. pontica-ზე არ აქვს; მდელოს ხვლიკის კომპლექსი 2009 წელს ახლოსაა საფრთხესთან (Near Threatened). საქართველოს 2014 წლის წითელ ნუსხაში არ არის.",
+    "habitat": "საქართველოში გვხვდება. აღმოსავლეთის დაბლობზე, ჯავახეთის მაღალმთიანზე ან მხოლოდ კლდის ვერტიკალზე ნუ ივარაუდებთ. Lantz და Cyrén-მა 1918 წელს აღწერეს როგორც Lacerta praticola pontica; ტიპის ადგილი გაგრაა (Doronin 2016 ადგილს აზუსტებს აფხაზეთში, გაგრის მიდამოებში). Tuniyev და თანაავტორები (2011) ლექტოტიპად გამოყოფენ ზრდასრულ მამრს ZISP 22853, შეგროვებულს 1911 წლის ივნისში. 2026 წლის ჩამონათვალის pontica-ს ანგარიში სოფელს ან ბარკოდს არ ასახელებს; praticola-ს ანგარიში ჩრდილო-დასავლეთ საქართველოს პონტურ პოპულაციებს აქ გამოყოფს. გავრცელების სანდოობა საშუალოა. ამ ატლასი ამ ეტაპზე მხოლოდ აფხაზეთს რუკავს — დასახელებული ტიპის ადგილის გამო და არა იმიტომ, რომ ყოველი კოლხური მდელო შემოწმებულია. პირველ აღწერაში ანანურის (არაგვის ხეობა) არატიპიური ცხოველებიც მოხვდა; Doronin 2016 მათ ნომინალურ praticola-ს უკავშირებს და არა pontica-ს. ჰაბიტატი მდელო, ტყის პირი და ფოთლოვანი ტყის ფსკერია — მიწაზე, ბალახსა და ფოთოლში, არა კლდის Darevskia-ს ვერტიკალზე (Freitas და თანაავტორები 2016). ქართული სრული სიმაღლის ზღვარი ამ გვერდზე არ არის გაზომილი.",
+    "diet": "ქართული კუჭის შიგთავსის კვლევა ამ გვერდზე არ არის. მდელოს ხვლიკის კომპლექსში მოსალოდნელია წვრილი უხერხემლოები — მწერები, ობობები და მსგავსი ნადავლი. შხამი არ აქვს; ნადავლს ყბით იჭერს. ეს მოლოდინია და არა ქართული მენიუს სია.",
+    "behavior": "დღისითაა აქტიური. მიწაზე მცხოვრებია: თბება ქვაზე ან გზის პირზე, თავს ბალახში, ფოთოლსა და ფესვებს შორის აფარებს. ქართული საათობრივი კალენდარი ამ გვერდზე არ არის. ჩრდილო-დასავლეთ კავკასიაში (კრასნოდარის მხარე, არა საქართველო) კვერცხს ჩვეულებრივ იდებს ივნისში; ნაყარი ხშირად 1–6 კვერცხია, სეზონში ერთი (Kidov და თანაავტორები 2016, 2017). იქ თავ-ტანი ხშირად დაახლოებით 4,2–6,2 სმ-ია; მდედრი ჩვეულებრივ მამრზე დიდია. ეს რუსული მასალაა და არა ქართული საზომი სერია. დაჭერისას კუდი შეიძლება მოეწყვიტოს; შეიძლება უკბინოს კიდეც. დააკვირდით და ადგილზე დატოვეთ. ნუ აიყვანთ.",
+    "conservation": "2026 წლის ჩამონათვალში კანდიდატი სახეობაა: რანგი praticola-სგან დამატებით იზოლაციის მტკიცებულებას საჭიროებს. IUCN-მა 2009 წელს Darevskia praticola შეაფასა როგორც ახლოს საფრთხესთან (Near Threatened, Agasyan და თანაავტორები); იმ შეფასებაში pontica ცალკე სახეობად არ არის გამოყოფილი. D. pontica-ს ცალკე IUCN სტატუსი არ აქვს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის — იქ Darevskia-დან შეტანილია სხვა სახეობები, მაგალითად clarkorum, dahli და mixta. ქართული პოპულაციის ტენდენცია აქ არ არის გაზომილი. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
+    "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ. ველური ცხოველი არ გეყოლოთ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/darevskia-pontica.jpg",
     "mobileImage": "https://cdn.reptiles.ge/darevskia-pontica-mobile.jpg",
@@ -3294,14 +3295,26 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ჩრდილო-დასავლეთი საქართველო"
+        "value": "აფხაზეთი, პონტური მდელო–ტყე"
+      },
+      {
+        "label": "ზომა",
+        "value": "თავ-ტანი ~4–6 სმ"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "დღის"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
+        "label": "კონსერვაცია",
+        "value": "ცალკე IUCN არა"
+      },
+      {
+        "label": "ჩამონათვალი",
         "value": "კანდიდატი"
       },
       {
@@ -3311,44 +3324,93 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლითა და გავრცელებით, არა ფერით. ნაშრომი ზოგიერთ ნიშანში ფენოტიპურ დიაგნოზს უშვებს, მაგრამ იზოლაციას არ ადასტურებს.",
+      "summary": "პატარა, მიწაზე მცხოვრები მდელოს ხვლიკი ჩრდილო-დასავლეთის პონტურ არეალში. ფერი საკმარისი არ არის. Darevskia-ს შორის საველე ამოცნობა ქერცლით, ცხოვრების წესითა და გავრცელებითაა.",
       "traits": [
-        "ფერი Darevskia-ს სახეობებს არ ჰყოფს.",
-        "პონტური მდელოს ხვლიკი; არ აურიოთ აღმოსავლურ/ცენტრალურ D. praticola-ს მხოლოდ ფერით.",
-        "ზოგიერთ ნიშანში ფენოტიპურად ამოცნობადი, გენეტიკური იზოლაცია დამტკიცებული არ არის.",
-        "ნაშრომი ამ ანგარიშში ქერცლის სიას არ იძლევა — არ გამოიცნოთ კლდის სახეობა ფერით."
+        "კლდის Darevskia არ არის: მოკლე კიდურებიანი, მიწაზე მცხოვრები ხვლიკია მდელოზე და ტყის პირზე. ზურგი ხშირად ყავისფერ-ნაცრისფერია მუქი ლაქებით; ხშირად ჩანს ფართო მუქი ზურგის ზოლი. ეს ტიპიური იერსახეა და სახეობებს ფერით არ ჰყოფს.",
+        "თავ-ტანი (ცხვირიდან კლოაკამდე) ჩრდილო-დასავლეთ კავკასიურ მასალაში ხშირად დაახლოებით 4–6 სმ-ია. ქართული სრული საზომი სერია ამ გვერდზე არ არის. კუდით სრული სიგრძე აქ არ არის გაზომილი.",
+        "Tuniyev და თანაავტორები (2011) pontica-ს ხშირად 6 წყვილი ნიკაპის ფარით (ქვედა ყბის ფირფიტით) აღწერენ, რომელთაგან სამი შუა ნაკერს ქმნის; praticola-ში ხშირად 5 წყვილია, ორი შუა ნაკერით. Doronin 2016 აღნიშნავს, რომ აღმოსავლეთ საქართველოშიც (მაგ. ცივ–გომბორის ქედი) ზოგს 6 წყვილი აქვს — ნიშანი სასარგებლოა, მაგრამ ერთეულ ცხოველზე საკმარისი არ არის.",
+        "მდელოს ხვლიკი (D. praticola) ამ ატლასში აღმოსავლეთისა და ცენტრალური საქართველოს ხაზია (სიონი, თუშურები). pontica აქ ჩრდილო-დასავლეთის პონტური პოპულაციებია. ფერით საიმედოდ ვერ გაირჩევა; გავრცელება უფრო სანდოა, ვიდრე ზურგის ელფერი. რანგი სახეობა თუ ქვესახეობა წყაროებში არაერთგვაროვანია.",
+        "ართვინის ხვლიკი (D. derjugini) დასავლეთ საქართველოშიც მიწაზე მცხოვრები ტყის Darevskiaა და ბიოლოგიურად დადასტურებულია. ხშირად უფრო ტყის სიღრმესა და ნაკადულის პირს უკავშირდება. ფერით ნუ გადაწყვეტთ. მდელოს ხვლიკი (Lacerta agilis) დასავლეთში უფრო დიდია და სხვა გვარისაა — არა პატარა Darevskia."
       ]
     },
     "faq": [
       {
-        "question": "არის თუ არა ეს D. praticola?",
-        "answer": "pontica აქ NW პონტური პოპულაციებია, ცალკე კანდიდატი. ნაშრომი მცირე გენეტიკურ სხვაობას და იზოლაციის ნაკლებობას აღნიშნავს. ფერით ვერ გაირჩევა."
+        "question": "გვხვდება თუ არა კოლხური მდელოს ხვლიკი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში კანდიდატი სახეობაა. ტიპის ადგილი გაგრაა, აფხაზეთში. ჩამონათვალის pontica-ს ანგარიში სხვა სოფელს ან ბარკოდს არ ასახელებს."
+      },
+      {
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "ჩრდილო-დასავლეთის პონტურ არეალში. დასახელებული წერტილი გაგრაა. ამ ატლასის რუკა აფხაზეთს აჩვენებს. მდელოზე, ტყის პირსა და ფოთოლში, არა მხოლოდ კლდეზე. მთელ საქართველოში ნუ ივარაუდებთ."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა, მიწაზე მცხოვრები მდელოს ხვლიკი. ფერი საკმარისი არ არის. შეადარეთ აღმოსავლურ D. praticola-ს, დასავლურ D. derjugini-ს და უფრო დიდ L. agilis-ს. გავრცელება და ნიკაპის ფარები უფრო სანდოა, ვიდრე ზურგის ფერი."
+      },
+      {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ჩრდილო-დასავლეთ კავკასიურ მასალაში თავ-ტანი ხშირად დაახლოებით 4–6 სმ-ია. ქართული სრული საზომი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "არის თუ არა იგივე, რაც მდელოს ხვლიკი?",
+        "answer": "ამ ატლასში pontica ჩრდილო-დასავლეთის პონტური პოპულაციებია, ცალკე კანდიდატი; praticola — აღმოსავლეთი და ცენტრალური საქართველო. ზოგი ბაზა pontica-ს ქვესახეობად ტოვებს. ფერით ვერ გაირჩევა."
       },
       {
         "question": "რატომ არის კანდიდატი სახეობა?",
-        "answer": "რანგი სახეობა vs ქვესახეობა არაერთგვაროვანია; ეფექტური გენეტიკური იზოლაცია praticola sensu lato-სგან ნაჩვენები არ არის."
+        "answer": "რანგი სახეობა თუ ქვესახეობა არაერთგვაროვანია. Tuniyev 2011 სახეობად იღებს; Freitas 2016 კავკასიურ pontica-ს praticola-სთან აერთიანებს; Reptile Database ქვესახეობად ტოვებს. ჩამონათვალი იზოლაციას დამტკიცებულად არ იღებს."
       },
       {
-        "question": "სად ასახელებს ნაშრომი საქართველოში?",
-        "answer": "praticola-ს ანგარიში — ჩრდილო-დასავლეთი საქართველოს პონტური პოპულაციები. pontica-ს ანგარიში სოფელს ან ბარკოდს არ ასახელებს."
-      },
-      {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია Harmless. შხამი არ აქვს."
+        "question": "როდის არის აქტიური?",
+        "answer": "დღისით. ქართული სრული სეზონური კალენდარი ამ გვერდზე არ არის. ჩრდილო-დასავლეთ კავკასიაში კვერცხი ჩვეულებრივ ივნისშია აღწერილი — ეს იქაური კალენდარია."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T19:44:53+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Lantz & Cyrén 1918 — Note sur Lacerta praticola Eversm."
       },
       {
-        "name": "The Reptile Database",
-        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=pontica"
+        "name": "Tuniyev et al. 2011 — Systematic and geographical variability of the meadow lizard",
+        "url": "https://doi.org/10.30906/1026-2296-2011-18-4-295-316"
+      },
+      {
+        "name": "Doronin 2016 — Type specimens of the Darevskia (praticola) complex",
+        "url": "https://doi.org/10.31610/trudyzin/2016.320.2.158"
+      },
+      {
+        "name": "Freitas et al. 2016 — Cryptic diversity in Darevskia praticola",
+        "url": "https://doi.org/10.1080/14772000.2015.1111267"
+      },
+      {
+        "name": "Speybroeck et al. 2020 — Species list of the European herpetofauna",
+        "url": "https://doi.org/10.3897/zookeys.960.54076"
+      },
+      {
+        "name": "Kidov et al. 2016 — Age, growth and reproduction of Darevskia pontica in the Northwest Caucasus",
+        "url": "https://doi.org/10.18384/2310-7189-2016-4-17-25"
+      },
+      {
+        "name": "Kidov et al. 2017 — Reproduction of Darevskia pontica on the north-east of the range",
+        "url": "https://doi.org/10.18384/2310-7189-2017-1-12-20"
+      },
+      {
+        "name": "Agasyan et al. 2009 — IUCN Red List, Darevskia praticola",
+        "url": "https://www.iucnredlist.org/species/157245/5058913"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "The Reptile Database — Darevskia praticola",
+        "url": "https://reptile-database.reptarium.cz/species?genus=Darevskia&species=praticola"
       }
     ]
   },
@@ -17013,24 +17075,37 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "darevskia-pontica": {
     "commonName": "Pontic Meadow Lizard",
-    "location": "Northwestern Georgia (Pontic populations)",
-    "description": "A candidate meadow lizard from northwestern Georgia; rank versus praticola is open — colour is not enough.",
-    "overview": "The Pontic meadow lizard (Darevskia pontica) is a candidate species in Tarkhnishvili et al. 2026. The praticola account splits Pontic populations from northwestern Georgia here. They are phenotypically diagnosable in some characters, but published discussions also note very small genetic differentiation and lack of demonstrated effective genetic isolation from D. praticola sensu lato; rank (species vs subspecies) remains inconsistent across sources and databases. This account lists no barcodes and no named village.",
-    "habitat": "Pontic populations in northwestern Georgia (praticola account). This taxon’s own account names neither a village nor a barcode.",
-    "diet": "The paper does not specify diet for this species.",
-    "behavior": "",
-    "conservation": "Candidate species in the checklist. Rank relative to praticola still needs evidence of isolation.",
+    "location": "Abkhazia — Gagra (type locality); northwestern Pontic populations",
+    "description": "A harmless meadow lizard of northwestern Georgia; a checklist candidate. Colour is not enough.",
+    "overview": "The Pontic meadow lizard (Darevskia pontica) occurs in Georgia as a harmless ground-dwelling meadow lizard of the northwestern Pontic range. It belongs to the true lizard family (Lacertidae). It has no venom and is not dangerous to people. The 2026 Georgian checklist treats it as a candidate species: it splits Pontic populations of northwestern Georgia from the meadow lizard (Darevskia praticola), but effective genetic isolation is not demonstrated. The type locality is Gagra, on the Black Sea coast of Abkhazia — not eastern Georgia. This atlas map marks Abkhazia from that named record; it does not mean the species is limited to one town. IUCN has no separate assessment for D. pontica; the meadow-lizard complex was listed as Near Threatened in 2009. It is not on Georgia’s 2014 Red List.",
+    "habitat": "It occurs in Georgia. Do not assume it on the eastern plains, the Javakheti highlands, or only on vertical rock. Lantz and Cyrén described it in 1918 as Lacerta praticola pontica; the type locality is Gagra (Doronin 2016 specifies the vicinity of Gagra, Abkhazia). Tuniyev and co-authors (2011) designated an adult male lectotype, ZISP 22853, collected in June 1911. The 2026 checklist’s pontica account names neither a village nor a barcode; the praticola account splits Pontic populations of northwestern Georgia here. Distribution confidence is medium. This atlas currently maps only Abkhazia — because of the named type locality, not because every Colchic meadow has been surveyed. The original description also included atypical animals from Ananuri (Aragvi valley); Doronin 2016 links those to nominotypical praticola, not pontica. Habitat is meadow, forest edge and deciduous forest floor — on the ground in grass and leaf litter, not on a rock Darevskia cliff (Freitas and co-authors 2016). A full Georgian elevational limit is not measured on this page.",
+    "diet": "This page has no Georgian stomach-content study. In the meadow-lizard complex the expected diet is small invertebrates — insects, spiders and similar prey. It has no venom; it seizes prey in the jaws. That is an expectation, not a Georgian menu.",
+    "behavior": "It is active by day. It is a ground lizard: it basks on stones or roadsides and hides in grass, leaf litter and among roots. A Georgian hourly calendar is not on this page. In the northwestern Caucasus (Krasnodar Territory, not Georgia) eggs are usually laid in June; clutches are often 1–6 eggs, one clutch a season (Kidov and co-authors 2016, 2017). Snout–vent length there is often about 4.2–6.2 cm; females are generally larger than males. That is Russian material, not a Georgian measurement series. If grabbed, the tail may break and the lizard may bite. Watch it and leave it where it is. Do not pick it up.",
+    "conservation": "It is a candidate species in the 2026 checklist: rank versus praticola still needs evidence of isolation. IUCN assessed Darevskia praticola as Near Threatened in 2009 (Agasyan and co-authors); that assessment does not treat pontica as a separate species. D. pontica has no separate IUCN status. It is not on Georgia’s 2014 Red List (Resolution No. 190) — the Darevskia species listed there include clarkorum, dahli and mixta, not this taxon. A Georgian population trend is not measured here. It is not listed on CITES. Do not take wild lizards.",
+    "interaction": "It is not venomous and poses no medical risk. If handled it may bite; the tail may break. Leave it where it is. Do not keep wild animals.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Northwestern Georgia"
+        "value": "Abkhazia, Pontic meadow–forest"
+      },
+      {
+        "label": "Size",
+        "value": "SVL ~4–6 cm"
+      },
+      {
+        "label": "Activity",
+        "value": "Diurnal"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
+        "label": "Conservation",
+        "value": "No separate IUCN"
+      },
+      {
+        "label": "Checklist",
         "value": "Candidate"
       },
       {
@@ -17040,30 +17115,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "Colour is not enough. Field ID among Darevskia needs scalation and range, not colour. The paper allows phenotypic diagnosis in some characters but does not demonstrate isolation.",
+      "summary": "A small, ground-dwelling meadow lizard of the northwestern Pontic range. Colour is not enough. Field ID among Darevskia needs scalation, habits and range.",
       "traits": [
-        "Colour does not separate Darevskia species.",
-        "A Pontic meadow lizard; do not treat eastern/central D. praticola as the same by colour.",
-        "Phenotypically diagnosable in some characters; genetic isolation is not demonstrated.",
-        "This account gives no scalation list — do not guess a rock species by colour."
+        "It is not a rock Darevskia: it is a short-limbed ground lizard of meadow and forest edge. The back is often brownish-grey with dark spots; a broad dark vertebral stripe is often visible. That is typical appearance and does not separate species by colour.",
+        "Snout–vent length in northwestern Caucasian material is often about 4–6 cm. A full Georgian measurement series is not on this page. Total length including the tail is not measured here.",
+        "Tuniyev and co-authors (2011) often describe pontica with 6 pairs of chin shields (inframaxillary plates), three of them meeting on the midline; praticola often has 5 pairs, with two meeting. Doronin 2016 notes that some eastern Georgian animals (e.g. the Tsiv–Gombori range) also have 6 pairs — useful, but not enough on a single animal.",
+        "The meadow lizard (D. praticola) on this atlas is the eastern and central Georgian line (Sioni, Tushurebi). pontica here is the northwestern Pontic populations. Colour will not tell them apart; geography is more reliable than back tint. Rank as species or subspecies is inconsistent across sources.",
+        "Derjugin’s lizard (D. derjugini) is also a ground-dwelling forest Darevskia in western Georgia and is biologically confirmed. It is more often tied to forest interior and stream banks. Do not decide by colour. The sand lizard (Lacerta agilis) in the west is larger and another genus — not a small Darevskia."
       ]
     },
     "faq": [
       {
-        "question": "Is this D. praticola?",
-        "answer": "pontica here is the NW Pontic populations, a separate candidate. The paper notes very small genetic differentiation and no demonstrated isolation. Colour will not tell them apart."
+        "question": "Is the Pontic meadow lizard found in Georgia?",
+        "answer": "Yes. It is a candidate species in the 2026 checklist. The type locality is Gagra, in Abkhazia. The checklist’s pontica account names no other village or barcode."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "In the northwestern Pontic range. The named point is Gagra. This atlas map marks Abkhazia. Look on meadow, forest edge and leaf litter, not only on rock. Do not assume it throughout Georgia."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "It is a small ground-dwelling meadow lizard. Colour is not enough. Compare it with eastern D. praticola, western D. derjugini, and larger L. agilis. Range and chin shields are more reliable than back colour."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. If grabbed it may bite; the tail may break. Leave it where it is."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "In northwestern Caucasian material snout–vent length is often about 4–6 cm. A full Georgian measurement series is not on this page."
+      },
+      {
+        "question": "Is it the same as the meadow lizard?",
+        "answer": "On this atlas pontica is the northwestern Pontic populations, a separate candidate; praticola is eastern and central Georgia. Some databases keep pontica as a subspecies. Colour will not tell them apart."
       },
       {
         "question": "Why is it a candidate species?",
-        "answer": "Rank as species vs subspecies is inconsistent; effective genetic isolation from praticola sensu lato is not shown."
+        "answer": "Rank as species or subspecies is inconsistent. Tuniyev 2011 treats it as a species; Freitas 2016 groups Caucasian pontica with praticola; the Reptile Database keeps it as a subspecies. The checklist does not treat isolation as demonstrated."
       },
       {
-        "question": "Where does the paper name it in Georgia?",
-        "answer": "The praticola account: Pontic populations of northwestern Georgia. The pontica account names no village or barcode."
-      },
-      {
-        "question": "Is it venomous?",
-        "answer": "Site classification Harmless. No venom."
+        "question": "When is it active?",
+        "answer": "By day. A full Georgian seasonal calendar is not on this page. In the northwestern Caucasus eggs are usually described in June — that is a calendar from there."
       }
     ],
     "gallery": [
