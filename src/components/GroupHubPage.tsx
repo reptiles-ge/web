@@ -223,12 +223,9 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               {sections.map((section) => (
                 <div key={section.key}>
                   <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-tight">
-                    {t(
-                      `section.${section.key}.title` as Parameters<
-                        typeof t
-                      >[0],
-                      { count: section.items.length },
-                    )}
+                    {t(`section.${section.key}.title` as "speciesTitle", {
+                      count: section.items.length,
+                    })}
                   </h3>
                   <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                     {t(
