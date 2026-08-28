@@ -14,6 +14,7 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname === "/contact") return false;
   if (pathname === "/") return true;
   if (pathname === "/about") return true;
+  if (pathname === "/roadmap") return true;
   if (pathname === "/venomous-snakes") return true;
   if (pathname === "/snakes-in-the-yard") return true;
   if (
@@ -78,6 +79,7 @@ export function Navbar() {
     { href: "/species" as const, label: t("species") },
     { href: "/quiz" as const, label: t("quizzes"), badge: t("new") },
     { href: "/regions" as const, label: t("atlas") },
+    { href: "/roadmap" as const, label: t("roadmap") },
   ];
   const reptileGroupLinks = [
     { href: "/snakes" as const, label: t("snakes") },
@@ -100,6 +102,7 @@ export function Navbar() {
       badge: t("new"),
     },
     { kind: "link" as const, href: "/regions" as const, label: t("atlas") },
+    { kind: "link" as const, href: "/roadmap" as const, label: t("roadmap") },
     { kind: "link" as const, href: "/about" as const, label: t("about") },
   ];
   const [groupsOpen, setGroupsOpen] = useState(false);
