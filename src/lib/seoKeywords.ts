@@ -125,6 +125,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["გველხოკერა"],
     en: ["European glass lizard", "sheltopusik"],
   },
+  "darevskia-daghestanica": {
+    ka: [
+      "დაღესტნური კლდის ხვლიკი",
+      "Lacerta daghestanica",
+      "Lacerta caucasica daghestanica",
+    ],
+    en: [
+      "Dagestan lizard",
+      "Dagestan rock lizard",
+      "Lacerta daghestanica",
+      "Lacerta caucasica daghestanica",
+    ],
+  },
   "darevskia-dahli": {
     ka: ["Lacerta dahli", "Lacerta saxicola dahli"],
     en: [
