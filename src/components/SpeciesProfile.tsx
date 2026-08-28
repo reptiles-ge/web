@@ -2,6 +2,7 @@
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
+import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
@@ -45,7 +46,6 @@ import {
 } from "@/lib/clusterGuides";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ArrowUpRight, MapPin } from "lucide-react";
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
