@@ -156,10 +156,9 @@ export function ClusterPageFrame({
         <ContentAttribution />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
-          <Image
+          <CoverImage
             src={heroSrc}
             alt=""
-            fill
             sizes="100vw"
             className="object-cover opacity-50"
             aria-hidden
