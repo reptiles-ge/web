@@ -25,6 +25,7 @@ import {
   speciesAlternates,
   speciesOgImageUrl,
   speciesPageUrl,
+  openGraphJpeg,
 } from "@/lib/site";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import {
@@ -38,7 +39,7 @@ import {
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import { galleryImageObjects } from "@/lib/photoMeta";
-import { CoverImagePreload } from "@/components/CoverImage";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -95,6 +96,9 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const url = speciesPageUrl(locale, item.id);
     const keywords = speciesSeoKeywords(item, locale);
 
+    const ogImage = speciesOgImageUrl(item.id, item.image);
+    const ogImageTag = openGraphJpeg(ogImage, title);
+
     return {
       title: {
         absolute: title,
@@ -110,20 +114,13 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         title,
         description,
         modifiedTime: raw.updatedAt,
-        images: [
-          {
-            url: speciesOgImageUrl(item.id, item.image),
-            width: 1200,
-            height: 630,
-            alt: title,
-          },
-        ],
+        images: [ogImageTag],
       },
       twitter: {
         card: "summary_large_image",
         title,
         description,
-        images: [speciesOgImageUrl(item.id, item.image)],
+        images: [ogImage],
       },
       robots: {
         index: true,

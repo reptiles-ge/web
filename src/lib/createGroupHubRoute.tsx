@@ -17,6 +17,7 @@ import {
   siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
+  openGraphJpeg,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -58,14 +59,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         type: "website",
         locale: locale === "en" ? "en_US" : siteConfig.locale,
         siteName: siteConfig.name,
-        images: [
-          {
-            url: ogImage,
-            width: 1200,
-            height: 630,
-            alt: title,
-          },
-        ],
+        images: [openGraphJpeg(ogImage, title)],
       },
       twitter: {
         card: "summary_large_image",

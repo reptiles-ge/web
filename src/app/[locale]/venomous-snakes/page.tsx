@@ -1,15 +1,17 @@
 import { JsonLd } from "@/components/JsonLd";
 import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
+import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
-  cdnOgImageUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
+  speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
 import { hasLocale } from "next-intl";
@@ -37,7 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = t("metaTitle");
   const description = t("metaDescription");
   const url = absoluteUrl(localePath(locale, PATH));
-  const ogImage = cdnOgImageUrl(OG_SPECIES);
+  const hero = getSpeciesById(OG_SPECIES);
+  const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
 
   return {
     title,
@@ -54,14 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: locale === "en" ? "en_US" : siteConfig.locale,
       siteName: siteConfig.name,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
+      images: [openGraphJpeg(ogImage, title)],
     },
     twitter: {
       card: "summary_large_image",

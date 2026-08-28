@@ -3,13 +3,17 @@ import path from "node:path";
 import {
   emptyManifest,
   loadManifest,
+  ogImageKey,
   optimizeAndStore,
   planOptimization,
+  renderAndStoreOgImage,
   resolveImageConfig,
+  resolveOgImageConfig,
   saveManifest,
   type ImageConfig,
   type Manifest,
   type ManifestEntry,
+  type OgImageConfig,
 } from "@reptiles-ge/img-compression";
 import {
   BunnyStorageAdapter,
@@ -186,6 +190,26 @@ function collectTargets(ids: string[], all: boolean): Target[] {
   return [...targets.values()].sort((a, b) => a.key.localeCompare(b.key));
 }
 
+function collectCoverKeys(ids: string[], all: boolean): Set<string> {
+  const wanted = new Set(ids);
+  const keys = new Set<string>();
+
+  const add = (src: string | undefined) => {
+    if (!src) return;
+    const key = toStorageKey(src);
+    if (key) keys.add(key);
+  };
+
+  if (all) add(siteImages.hero);
+
+  for (const item of species) {
+    if (!all && !wanted.has(item.id)) continue;
+    add(item.image);
+  }
+
+  return keys;
+}
+
 async function readSource(target: Target): Promise<Buffer> {
   if (target.src.startsWith("http")) {
     const response = await fetch(target.src);
@@ -226,6 +250,52 @@ function formatBytes(bytes: number) {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+}
+
+type OgStatus = "written" | "skipped" | "planned";
+
+async function ensureOgImage(input: {
+  target: Target;
+  source: Buffer;
+  storage: StorageAdapter;
+  config: ImageConfig;
+  og: OgImageConfig;
+  force: boolean;
+  dryRun: boolean;
+}): Promise<{ status: OgStatus; key: string; bytes?: number; quality?: number; enlarged?: boolean }> {
+  const key = ogImageKey(input.og, input.target.key);
+  if (!input.force && (await input.storage.exists(key))) {
+    return { status: "skipped", key };
+  }
+  if (input.dryRun) {
+    return { status: "planned", key };
+  }
+
+  const stored = await renderAndStoreOgImage({
+    key: input.target.key,
+    source: input.source,
+    alt: input.target.key,
+    storage: input.storage,
+    og: input.og,
+    config: input.config,
+  });
+
+  return {
+    status: "written",
+    key,
+    bytes: stored.byteSize,
+    quality: stored.quality,
+    enlarged: stored.enlarged,
+  };
+}
+
+function formatOgResult(result: Awaited<ReturnType<typeof ensureOgImage>>) {
+  if (result.status === "skipped") return `og skipped ${result.key}`;
+  if (result.status === "planned") return `og planned ${result.key}`;
+  const size = result.bytes === undefined ? "" : ` ${formatBytes(result.bytes)}`;
+  const quality = result.quality === undefined ? "" : ` q${result.quality}`;
+  const enlarged = result.enlarged ? " enlarged" : "";
+  return `og written ${result.key}${size}${quality}${enlarged}`;
 }
 
 function compactAsset(
@@ -345,6 +415,7 @@ async function run() {
     maxWidth: MAX_WIDTH,
     additionalWidths: ADDITIONAL_WIDTHS,
   });
+  const og = resolveOgImageConfig();
   const storage = createStorage();
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
@@ -359,6 +430,7 @@ async function run() {
   }
 
   const discovered = collectTargets(options.speciesIds, options.all);
+  const coverKeys = collectCoverKeys(options.speciesIds, options.all);
   const targets =
     options.limit === undefined ? discovered : discovered.slice(0, options.limit);
 
@@ -369,7 +441,8 @@ async function run() {
 
   console.log(
     `Storage: ${storage.name}. Widths: ${[...config.additionalWidths, config.maxWidth].join(", ")}. ` +
-      `AVIF q${config.avifQuality}, WebP q${config.webpQuality}.`,
+      `AVIF q${config.avifQuality}, WebP q${config.webpQuality}. ` +
+      `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
     `Species: ${options.all ? "all" : options.speciesIds.join(", ")}. ` +
@@ -380,6 +453,9 @@ async function run() {
   let optimizedBytes = 0;
   let processed = 0;
   let skipped = 0;
+  let ogWritten = 0;
+  let ogSkipped = 0;
+  let ogPlanned = 0;
   const failures: string[] = [];
 
   let sinceCheckpoint = 0;
@@ -407,6 +483,32 @@ async function run() {
 
       try {
         const source = await readSource(target);
+        const wantsOg = coverKeys.has(target.key);
+
+        const ogLine = wantsOg
+          ? await (async () => {
+              try {
+                const ogResult = await ensureOgImage({
+                  target,
+                  source,
+                  storage,
+                  config,
+                  og,
+                  force: options.force,
+                  dryRun: options.dryRun,
+                });
+                if (ogResult.status === "written") ogWritten += 1;
+                if (ogResult.status === "skipped") ogSkipped += 1;
+                if (ogResult.status === "planned") ogPlanned += 1;
+                return ` | ${formatOgResult(ogResult)}`;
+              } catch (error) {
+                const message =
+                  error instanceof Error ? error.message : String(error);
+                failures.push(`og ${target.key}: ${message}`);
+                return ` | og failed ${message}`;
+              }
+            })()
+          : "";
 
         if (options.dryRun) {
           const plan = await planOptimization({
@@ -420,7 +522,7 @@ async function run() {
           originalBytes += plan.originalSize;
           console.log(
             `${position} ${(plan.upToDate ? "up-to-date" : "planned").padEnd(11)} ${target.key} ` +
-              `→ ${plan.derivatives.map((item) => `${item.width}.${item.format}`).join(", ")}`,
+              `→ ${plan.derivatives.map((item) => `${item.width}.${item.format}`).join(", ")}${ogLine}`,
           );
           if (plan.upToDate) skipped += 1;
           else processed += 1;
@@ -455,7 +557,9 @@ async function run() {
                 100 -
                 (result.record.optimizedSize / result.record.originalSize) * 100
               ).toFixed(1)}% smaller)`;
-        console.log(`${position} ${result.status.padEnd(11)} ${target.key}${saving}`);
+        console.log(
+          `${position} ${result.status.padEnd(11)} ${target.key}${saving}${ogLine}`,
+        );
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         failures.push(`${target.key}: ${message}`);
@@ -489,10 +593,14 @@ async function run() {
       `Dry run: ${processed} would be processed, ${skipped} already up to date, ` +
         `${failures.length} unreadable. Nothing was written.`,
     );
+    console.log(
+      `OG: ${ogPlanned} would be written, ${ogSkipped} already present.`,
+    );
   } else {
     console.log(
       `Processed ${processed}, skipped ${skipped}, failed ${failures.length} of ${targets.length}.`,
     );
+    console.log(`OG: wrote ${ogWritten}, skipped ${ogSkipped}.`);
     if (originalBytes > 0) {
       console.log(
         `Originals ${formatBytes(originalBytes)}, AVIF at full width ` +

@@ -45,61 +45,80 @@ export function absoluteImageUrl(src: string) {
 
 export const CDN_BASE = "https://cdn.reptiles.ge";
 
-const cdnOgJpgSpeciesIds = new Set([
-  "elaphe-dione",
-  "vipera-darevskii",
-  "vipera-renardi",
-  "vipera-transcaucasiana",
-  "zamenis-longissimus",
-]);
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+export const OG_IMAGE_TYPE = "image/jpeg";
+export const SITE_OG_IMAGE_URL = `${CDN_BASE}/og/hero-img.jpg`;
+export const FALLBACK_OG_IMAGE_URL = `${CDN_BASE}/og/vipera-dinnik.jpg`;
 
-export function cdnOgExt(speciesId: string): "webp" | "jpg" {
-  return cdnOgJpgSpeciesIds.has(speciesId) ? "jpg" : "webp";
+const PLACEHOLDER_OG_MARKERS = [
+  "species-placeholder.png",
+  "species-placeholder.svg",
+  "species-placeholder.jpg",
+];
+
+function isPlaceholderOgSrc(src: string) {
+  return PLACEHOLDER_OG_MARKERS.some((marker) => src.includes(marker));
 }
 
-export function cdnOgImageUrl(speciesId: string) {
-  return `${CDN_BASE}/og/${speciesId}.${cdnOgExt(speciesId)}`;
+function storageKeyFromSrc(src: string): string | null {
+  if (!src || isPlaceholderOgSrc(src)) return null;
+  if (src.startsWith(`${CDN_BASE}/`)) {
+    const key = decodeURIComponent(src.slice(CDN_BASE.length + 1));
+    if (!key || key.startsWith("og/") || key.startsWith("optimized/")) {
+      return null;
+    }
+    return key;
+  }
+  if (src.startsWith("/")) return src.slice(1);
+  return null;
 }
 
-export const cdnOgSpeciesIds = new Set([
-  "vipera-dinniki",
-  "macrovipera-lebetina",
-  "vipera-kaznakovi",
-  "pseudopus-apodus",
-  "coronella-austriaca",
-  "elaphe-urartica",
-  "natrix-tessellata",
-  "dolichophis-schmidti",
-  "platyceps-najadum",
-  "natrix-natrix",
-  "telescopus-fallax",
-  "elaphe-dione",
-  "vipera-darevskii",
-  "vipera-renardi",
-  "vipera-transcaucasiana",
-  "zamenis-longissimus",
-]);
+export function ogImageUrlFromSrc(src: string): string | null {
+  const key = storageKeyFromSrc(src);
+  if (!key) return null;
+  const lastSlash = key.lastIndexOf("/");
+  const directory = lastSlash === -1 ? "" : key.slice(0, lastSlash);
+  const fileName = lastSlash === -1 ? key : key.slice(lastSlash + 1);
+  const lastDot = fileName.lastIndexOf(".");
+  const baseName = lastDot > 0 ? fileName.slice(0, lastDot) : fileName;
+  if (!baseName) return null;
+  return directory === ""
+    ? `${CDN_BASE}/og/${baseName}.jpg`
+    : `${CDN_BASE}/og/${directory}/${baseName}.jpg`;
+}
 
-const missingHeroSpeciesIds = new Set([
-  "darevskia-alpina",
-  "darevskia-valentini",
-  "dolichophis-caspius",
-]);
+export function openGraphJpeg(url: string, alt: string) {
+  return {
+    url,
+    width: OG_IMAGE_WIDTH,
+    height: OG_IMAGE_HEIGHT,
+    type: OG_IMAGE_TYPE,
+    alt,
+  };
+}
 
 export function speciesOgImageUrl(
-  speciesId: string,
+  _speciesId: string,
   fallbackImageSrc?: string,
 ) {
-  if (cdnOgSpeciesIds.has(speciesId)) {
-    return cdnOgImageUrl(speciesId);
+  if (fallbackImageSrc) {
+    const fromPipeline = ogImageUrlFromSrc(fallbackImageSrc);
+    if (fromPipeline) return fromPipeline;
+    if (
+      fallbackImageSrc.startsWith("http://") ||
+      fallbackImageSrc.startsWith("https://")
+    ) {
+      return absoluteImageUrl(fallbackImageSrc);
+    }
+    if (
+      fallbackImageSrc.startsWith("/") &&
+      !isPlaceholderOgSrc(fallbackImageSrc)
+    ) {
+      return absoluteUrl(fallbackImageSrc);
+    }
   }
-  if (fallbackImageSrc?.startsWith("/")) {
-    return absoluteUrl(fallbackImageSrc);
-  }
-  if (fallbackImageSrc && !missingHeroSpeciesIds.has(speciesId)) {
-    return absoluteImageUrl(fallbackImageSrc);
-  }
-  return cdnOgImageUrl("vipera-dinniki");
+  return FALLBACK_OG_IMAGE_URL;
 }
 
 type PathnameHref = Parameters<typeof getPathname>[0]["href"];
