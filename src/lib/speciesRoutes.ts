@@ -316,7 +316,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-pontica",
     "darevskia-mixta",
   ],
-  "darevskia-portschinskii": ["darevskia-obscura", "darevskia-valentini"],
+  "darevskia-portschinskii": [
+    "darevskia-dahli",
+    "darevskia-obscura",
+    "darevskia-valentini",
+  ],
   "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
   "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],

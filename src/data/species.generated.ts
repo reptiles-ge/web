@@ -2507,7 +2507,7 @@ export const species: Species[] = [
         "answer": "დღისით. ქართული სრული სეზონური კალენდარი ამ გვერდზე არ არის. თურქულ შეგროვებებში დღის საათებია, მოღრუბლული ამინდის ჩათვლით."
       }
     ],
-    "updatedAt": "2026-08-28T19:38:07+04:00",
+    "updatedAt": "2026-08-28T19:38:24+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
