@@ -585,7 +585,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევიდან არ გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T16:37:58+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -646,14 +646,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და ღამითაა აქტიური; დღისითაც ჩანს. ფონიჭალის კამერა-ხაფანგებზე (2020–2021) დეტექციები დილის საათებში, დაახლოებით 6–12 საათზე, უფრო ხშირი იყო, ვიდრე შუადღის ძაღლის პიკზე — ეს ერთი ადგილის ნიმუშია და არა ეროვნული კალენდარი. ხშირად წყვილად ან მცირე ოჯახურ ჯგუფად ცხოვრობს. ტერიტორიას ყვირილითაც აღნიშნავს; ხმა მელას ყეფასა და მგლის ყმუილს შორის არის და საქართველოშიც გამოიყენება გამოკითხვებში. ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1134910 (Stanislas Wroza). ბუდობს სოროში, რომელსაც თვითონ თხრის ან სხვა ცხოველისას იკავებს. სახეობის დონეზე ორსულობა დაახლოებით 63 დღეა; ნაგები ხშირად რამდენიმე ლეკვია (ლიტერატურაში 1–9, საშუალო ხშირად დაახლოებით 4–6). ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. კვალი ძაღლისას ჰგავს და მელასაზე დიდია.",
     "conservation": "Hoffmann და თანაავტორები Canis aureus-ს IUCN Red List-ზე გლობალურად ნაკლებად საფრთხის ქვეშ აფასებენ (2018). ევროპის რეგიონულ შეფასებაში (Ranc et al. 2025) ასევე LC-ია და პოპულაცია იზრდება; ეს შეფასება საქართველოს ცალკე ქვეყნად native სიაში არ ასახელებს, კავკასიას კი ფართო არეალში მოიხსენიებს. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ამ გვერდზე საფრთხის ქვეშ მყოფ ტაქსონად არ არის განხილული. ნადირობის ობიექტად არის შეტანილი; 2011 წლის მოპოვების წესებში ტურაზე ნადირობა აკრძალულია 1 თებერვლიდან 1 სექტემბრამდე — მოქმედი სეზონი და კვოტა ოფიციალური წესით უნდა შემოწმდეს და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. CITES-ის დანართებში სახეობის დონეზე არ არის. ევროკავშირის ჰაბიტატების დირექტივა საქართველოში არ მოქმედებს. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, საგზაო დაღუპვა და კონფლიქტი შინაურ ცხოველზე; ეროვნული ტენდენცია აქ არ არის გაზომილი, თუმცა 2020 წლის ქართული გენეტიკური კვლევა ორივე სახეობის — ტურასა და მგლის — სიმრავლის ზრდას აღნიშნავს. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება უკბინოს. საქართველოში გარეულ ხორცისმჭამელებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აჭმიოთ და არ აიყვანოთ. ძაღლები აცერით. დაუცველ ეზოში შეიძლება წვრილი პირუტყვი ან ფრინველი წაიღოს — ეს სახეობის ოპორტუნისტული კვების ნაწილია და არ ნიშნავს, რომ ადამიანზე ნადირობს.",
-    "image": "/images/canis-aureus-stankovic-1.jpg",
+    "image": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
     "imageCredit": {
       "photographer": "Mladen Stankovic",
       "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
       "location": "სერბეთი",
       "date": "2024-11-24"
     },
-    "mobileImage": "/images/canis-aureus-stankovic-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
     "mobileImageCredit": {
       "photographer": "Mladen Stankovic",
       "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
@@ -662,7 +662,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/canis-aureus-lagodekhi-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-lagodekhi-1.jpg",
         "credit": {
           "photographer": "ლაგოდეხის დაცული ტერიტორიები",
           "location": "ლაგოდეხის დაცული ტერიტორიები",
@@ -670,7 +670,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-aureus-kerkini-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal_(Canis_aureus_moreotica).jpg",
@@ -679,7 +679,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-aureus-stankovic-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
         "credit": {
           "photographer": "Mladen Stankovic",
           "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
@@ -688,7 +688,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-aureus-danube-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-danube-1.jpg",
         "credit": {
           "photographer": "Didier Delavaud",
           "url": "https://commons.wikimedia.org/wiki/File:Chacal_dor%C3%A9,_delta_du_Danube.jpg",
@@ -706,7 +706,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-aureus-yarkon-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-yarkon-1.jpg",
         "credit": {
           "photographer": "Вых Пыхманн",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal.jpg",
@@ -800,7 +800,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში საფრთხის ქვეშ მყოფ ტაქსონად ამ გვერდზე არ არის განხილული. ნადირობის ობიექტია; სეზონი და კვოტა ოფიციალური წესით დგინდება."
       }
     ],
-    "updatedAt": "2026-08-28T10:51:09+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Hoffmann et al. 2018 — IUCN Red List, Canis aureus (global)",
@@ -901,14 +901,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და ღამითაა აქტიური; დღისითაც ჩანს იქ, სადაც შეწუხება დაბალია. ცხოვრობს ოჯახურ ჯგუფში (ხროვა): ჩვეულებრივ მშობლები და მათი შთამომავლობა. მარტო ან წყვილადაც გადაადგილდება. სახეობის დონეზე ორსულობა დაახლოებით 63 დღეა; ლეკვები ხშირად გაზაფხულზე იბადებიან, ხშირად 4–7. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუნაგის ნიმუში. კვალი დიდი ძაღლისას ჰგავს, მაგრამ ხშირად უფრო ოვალური და უფრო დიდია; წინა თათს ხუთი თითი აქვს (ნემსი ბეჭზე ბეჭდში ხშირად არ ჩანს), უკანას ოთხი, კლანჭები ჩვეულებრივ ჩანს. ყეფა იშვიათია; უფრო დამახასიათებელია ყმუილი. ველური ცხოველი არ აიყვანოთ და არ აჭმიოთ.",
     "conservation": "Boitani, Phillips და Jhala Canis lupus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2018 შეფასება, 2023 წლის შესწორებული ვერსია); გლობალური ტენდენცია სტაბილურად ფასდება, თუმცა ზოგი რეგიონული პოპულაცია საფრთხის ქვეშაა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ნადირობის ობიექტად არის შეტანილი; კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. CITES-ის დანართ II-შია (საქართველოს პოპულაცია); დანართ I ეხება მხოლოდ ბჰუტანის, ინდოეთის, ნეპალისა და პაკისტანის პოპულაციებს. Shakarashvili et al. 2020 საქართველოში ბოლო ათწლეულებში რაოდენობის ზრდას აღნიშნავს. ეროვნული აღწერა ამ გვერდზე არ არის დადასტურებული. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, კონფლიქტი პირუტყვზე, ჰიბრიდიზაცია თავისუფლად მოსიარულე ძაღლებთან და საგზაო დაღუპვა. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. შეიძლება უკბინოს. დიდი მტაცებელია; პირუტყვზე ნადირობა საქართველოში დოკუმენტირებული კონფლიქტია. Kopaliani et al. 2014 აღნიშნავს 2000-იანი წლებიდან პირუტყვზე თავდასხმების სიხშირის ზრდის ანგარიშებს და ადამიანზე თავდასხმის რამდენიმე შეტყობინებას — ეს შეტყობინებებია და არა ამ გვერდზე გადამოწმებული კლინიკური სერია. საქართველოში გარეულ ხორცისმჭამელებთან ერთად ცოფის წყაროდ არის დასახელებული. არ აჭმიოთ, არ აიყვანოთ, ძაღლები აცერით. შეხვედრისას დატოვეთ დისტანცია და უკან დაიხიეთ ნელა; ნუ გაექცევით და ნუ მიაწვებით.",
-    "image": "/images/canis-lupus-eurasian-1.jpg",
+    "image": "https://cdn.reptiles.ge/canis-lupus-eurasian-1.jpg",
     "imageCredit": {
       "photographer": "Mas3cf",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
       "location": "ბარდუ",
       "date": "2016-02-24"
     },
-    "mobileImage": "/images/canis-lupus-eurasian-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/canis-lupus-eurasian-1.jpg",
     "mobileImageCredit": {
       "photographer": "Mas3cf",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
@@ -917,14 +917,14 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/canis-lupus-gareja-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-gareja-1.jpg",
         "credit": {
           "location": "დავით გარეჯის უდაბნო",
           "date": "2019-12-07"
         }
       },
       {
-        "src": "/images/canis-lupus-pescheray-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-pescheray-1.jpg",
         "credit": {
           "photographer": "Clément Bardot",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_(Canis_lupus_).jpg",
@@ -933,7 +933,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-lupus-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-portrait-1.jpg",
         "credit": {
           "photographer": "Pieter-Paul G",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Wolf.jpg",
@@ -941,7 +941,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-lupus-eurasian-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-eurasian-1.jpg",
         "credit": {
           "photographer": "Mas3cf",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
@@ -950,7 +950,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-lupus-sainte-croix-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-sainte-croix-1.jpg",
         "credit": {
           "photographer": "Musicaline",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_commun_DSCF1575.jpg",
@@ -959,7 +959,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-lupus-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-tracks-1.jpg",
         "credit": {
           "photographer": "Frank Vassen",
           "url": "https://commons.wikimedia.org/wiki/File:Fresh_Wolf_tracks,_Bia%C5%82owie%C5%BCa_Forest,_Poland_(4664117735).jpg",
@@ -968,7 +968,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/canis-lupus-innsbruck-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-innsbruck-1.jpg",
         "credit": {
           "photographer": "Wilfredor",
           "url": "https://commons.wikimedia.org/wiki/File:Canis_lupus_lupus_in_Alpenzoo,_Innsbruck.jpg",
@@ -1166,7 +1166,7 @@ export const species: Species[] = [
     "behavior": "ძირითადად შებინდებისას და გამთენიისასაა აქტიური; დღისითაც ჩანს, განსაკუთრებით დაბალ შეწუხებაზე. მამალი რქებს ოქტომბერ–ნოემბერში იცვლის; ახალი რქა ხავერდით იზრდება. შეჯვარება სახეობის დონეზე ივლის–აგვისტოშია. ამის შემდეგ ჩანასახი რამდენიმე თვე გაყინულ მდგომარეობაში რჩება (ემბრიონული დიაპაუზა) და აქტიური განვითარება ზამთრის ბოლოს იწყება; ნუკრი მაის–ივნისში იბადება, ხშირად ერთი ან ორი. ნუკრს თეთრი ხალები აქვს და პირველ დღეებში ბალახში იმალება — ეს მიტოვება არ არის. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. კვალი ორნაკვთიანია, წაგრძელებული; სირბილისას უკანა ნაკვთი წინას ფარავს. გაქცევისას თეთრი კუდის ფირფიტა იშლება. ველში ხმა ისმის, განსაკუთრებით შეშფოთებისას; ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1059462 (Maxime Raux, კასტელანი, ალპ-დე-ოტ-პროვანსი, საფრანგეთი, 2025-07-18).",
     "conservation": "Lovari და თანაავტორები Capreolus capreolus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016). ველური ბუნების ეროვნული სააგენტო წერს, რომ წითელ ნუსხაში არ არის; 2014 წლის დადგენილება №190 ამ გვერდზე შველის ჩანაწერად არ იკითხება. საქართველოს სანადირო ძუძუმწოვრების ნუსხაში შეტანილია როგორც შველი; კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. EUNIS ბერნის კონვენციის III დანართს ასახელებს ირმისებრთა ოჯახის დონეზე; ეს ეროვნულ ნადირობის აკრძალვას არ ნიშნავს. აჭარის მონიტორინგში კამერა-ხაფანგმა 2020–2021 წლებში სამივე დაცულ ტერიტორიაზე დააფიქსირა; ყველაზე მეტი ფოტო მტირალაზე იყო. ალგეთის ინდიკატორ-სიაში საფრთხედ დასახელებულია ბრაკონიერობა, შეწუხება და დაავადება. ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. ჩვეულებრივ ადამიანს არ ესხმის. მამალმა შეჯვარების სეზონში შეიძლება რქით დაარტყას, თუ ძალიან ახლოს მიხვალთ. ნუკრი ბალახში დამალული ნორმაა — არ აიყვანოთ. ძაღლები აკონტროლეთ ტყეში. გზაზე ღამით შეჯახების რისკი რეალურია. არ აჭმიოთ.",
-    "image": "/images/capreolus-capreolus-buck-1.jpg",
+    "image": "https://cdn.reptiles.ge/capreolus-capreolus-buck-1.jpg",
     "imageCredit": {
       "photographer": "Divlja Srbija",
       "url": "https://commons.wikimedia.org/wiki/File:Srnda%C4%87_na_detelini.jpg",
@@ -1174,7 +1174,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/capreolus-capreolus-buck-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-buck-1.jpg",
         "credit": {
           "photographer": "Divlja Srbija",
           "url": "https://commons.wikimedia.org/wiki/File:Srnda%C4%87_na_detelini.jpg",
@@ -1182,7 +1182,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-portrait-1.jpg",
         "credit": {
           "photographer": "DidierFy",
           "url": "https://commons.wikimedia.org/wiki/File:Capreolus_capreolus_03.2025_(1).jpg",
@@ -1190,7 +1190,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-antlers-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-antlers-1.jpg",
         "credit": {
           "photographer": "Netty3979",
           "url": "https://commons.wikimedia.org/wiki/File:Rehbock.jpg",
@@ -1198,7 +1198,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-summer-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-summer-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Ree_-_roe_deer_-_Capreolus_capreolus.jpg",
@@ -1206,7 +1206,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-male-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-male-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Roe_deer_(Capreolus_capreolus)_male_Dobruja.jpg",
@@ -1215,7 +1215,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-winter-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-winter-1.jpg",
         "credit": {
           "photographer": "caroline legg",
           "url": "https://commons.wikimedia.org/wiki/File:Capreolus_capreolus_(51717308436).jpg",
@@ -1223,7 +1223,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-fawn-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-fawn-1.jpg",
         "credit": {
           "photographer": "Nagy Sándor",
           "url": "https://commons.wikimedia.org/wiki/File:One_week_old_roe_deer_fawn_(Capreolus_capreolus)_waiting_for_its_mother_in_tall_grass_Hungary_2019.05.28._10-14.jpg",
@@ -1232,7 +1232,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/capreolus-capreolus-running-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-running-1.jpg",
         "credit": {
           "photographer": "Qubix02",
           "url": "https://commons.wikimedia.org/wiki/File:Sarna_w_biegu.jpg",
@@ -3878,7 +3878,7 @@ export const species: Species[] = [
         "answer": "არა. Eirenis-ს ჩვეულებრივი თვალები და კოლუბრიდის ქერცლები აქვს, არა ჭიასავითი სხეული (გველბრუცა) და არა მსხვილი მახრჩობელას აგებულება."
       }
     ],
-    "updatedAt": "2026-08-27T13:05:35+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4040,7 +4040,7 @@ export const species: Species[] = [
         "answer": "ორივე პატარა უშხამო Eirenis-ია. საყელოიანს საყელო უფრო მკაფიო აქვს; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, წყნარს — აღმოსავლეთსა და ცენტრში. შუა ტანზე ქერცლის რიგები ხშირად 15 წინააღმდეგ 17–18, მაგრამ ეს ხელში ასათვლელი ნიშანი არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T12:46:36+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4993,14 +4993,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური. დღისით იმალება ფოთლისა და ბალახის ბუდეში ბუჩქის, ფესვის ან სხვა საფარის ქვეშ. სახეობის დონის აღწერებში ბუდე სოროშიც არის; ვიკის ზოგი ანგარიში ამბობს, რომ ეს სახეობა სოროს არ თხრის. ეს ორი სურათი არ ემთხვევა; ეს გვერდი ერთს ეროვნულ წესად არ ირჩევს. ცივ სეზონში არეალის ცივ ნაწილებში იზამთრებს; საქართველოსთვის დაწყებისა და დამთავრების თარიღები ამ გვერდზე არ არის გაზომილი. ჩვეულებრივ მარტოულია, გარდა გამრავლებისა და დედისა ნაშიერებთან. საფრთხისას იკეცება ბურთად, ისე რომ რბილი მუცელი და სახე ეკლებით იფარება. ზოგჯერ სხეულს საკუთარი ნერწყვით იფარავს (self-anointing); ამ ქცევის ფუნქცია სრულად არ არის დადგენილი. გამრავლება თბილ თვეებშია; ლიტერატურაში ნაშიერების რაოდენობა რამდენიმედან დაახლოებით შვიდამდეა აღნიშნული. ეს რეგიონული ან სახეობის დონის ციფრებია და არა ქართული ბუდის ნიმუში. ამ გვერდზე ქართული ხმის ჩანაწერი არ არის.",
     "conservation": "Amori, Hutterer, Kryštufek, Yiğit, Mitsainas და Palomo Erinaceus concolor-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2021 გამოქვეყნება; შეფასება 2016-ის განახლებაა). გლობალური არეალი ანატოლიიდან სამხრეთ კავკასიამდე და ლევანტამდეა. Eliava et al. 2007 საქართველოში LC-ს უთითებს. საქართველოს 2014 წლის წითელი ნუსხა (დადგენილება №190) ამ გვერდზე მას საფრთხის ქვეშ მყოფ ტაქსონად არ განიხილავს. სახეობის დონეზე დასახელებული ზეწოლაა გზაზე დაღუპვა, ჰაბიტატის კარგვა და პესტიციდი; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ და შინაურად ნუ გახდით.",
     "interaction": "შხამი არ აქვს და შეხებით შხამიანი არ არის. ეკლები კანის დაცვაა და არა შხამიანი ქვეწარმავლის იარაღი. დაჭერისას ან ძაღლისა და კატის მიერ კუთხეში მოქცევისას შეიძლება უკბინოს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება და არა ეს სახეობა. არ აჭმიოთ და არ აიყვანოთ. ბაღში ხშირად ჩნდება და უხერხემლოებს ჭამს; ეს სასარგებლოა ბაღისთვის, თუ არ იყენებთ ძლიერ პესტიციდს. შინაური „ზღარბი“ ჩვეულებრივ აფრიკული სახეობაა (Atelerix), არა ეს ტაქსონი.",
-    "image": "/images/erinaceus-concolor-1.jpg",
+    "image": "https://cdn.reptiles.ge/erinaceus-concolor-1.jpg",
     "imageCredit": {
       "photographer": "Nevit Dilmen",
       "url": "https://commons.wikimedia.org/wiki/File:Hedgehog_1210127.jpg",
       "location": "სტამბოლი",
       "date": "2012-09-29"
     },
-    "mobileImage": "/images/erinaceus-concolor-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/erinaceus-concolor-2.jpg",
     "mobileImageCredit": {
       "photographer": "Jan Ebr",
       "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
@@ -5009,7 +5009,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/erinaceus-concolor-orkhevi-1.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-orkhevi-1.jpg",
         "credit": {
           "photographer": "David Osipov",
           "url": "https://commons.wikimedia.org/wiki/File:Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
@@ -5018,7 +5018,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/erinaceus-concolor-1.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-1.jpg",
         "credit": {
           "photographer": "Nevit Dilmen",
           "url": "https://commons.wikimedia.org/wiki/File:Hedgehog_1210127.jpg",
@@ -5027,7 +5027,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/erinaceus-concolor-2.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-2.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
@@ -5036,7 +5036,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/erinaceus-concolor-3.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-3.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202738952.jpg",
@@ -5045,7 +5045,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/erinaceus-concolor-israel-1.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-israel-1.jpg",
         "credit": {
           "photographer": "Nadav Kavalerchik",
           "url": "https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_17010_Hedgehog.jpg",
@@ -5054,7 +5054,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/erinaceus-concolor-4.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-4.jpg",
         "credit": {
           "photographer": "Eran Finkle",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_-_D7-10-3855.JPG",
@@ -5387,7 +5387,7 @@ export const species: Species[] = [
         "answer": "დიახ. 2014 წლის წითელ ნუსხაში მოწყვლადია (VU, B2a) — მცირე ფრაგმენტირებული არეალი. გლობალურად IUCN-ით Least Concern."
       }
     ],
-    "updatedAt": "2026-08-27T14:00:04+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7607,7 +7607,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-27T17:40:58+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -7925,14 +7925,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამით და შებინდებისასაა აქტიური. დღისითაც ჩანს, განსაკუთრებით დაბალ შეწუხებაზე. დღის გამოჩენა თავისთავად დაავადებას არ ნიშნავს. ცხოვრობს სოროში — რთულ მიწის სისტემაში რამდენიმე შესასვლელითა და ამოყრილი მიწის გროვით. სორო შეიძლება თაობებს გამოიყენონ. სახეობის დონეზე, Meles-ში ხშირია გადადებული იმპლანტაცია: შეწყვილება გაზაფხულ–ზაფხულში, ნაშიერები ჩვეულებრივ ზამთრის ბოლოს ან ადრე გაზაფხულზე; ნაშთში ხშირად რამდენიმე ბელი. ეს ფართო არეალის ბიოლოგიაა და არა ქართული ბუნაგის ნიმუში. კვალი განიერია, ხუთი თითით; წინა თათზე გრძელი თხრის კლანჭები ჩანს. ამ გვერდზე ნაჩვენებია სომხეთის, ვაიოც ძორის, 2026 წლის 18 აგვისტოს კვალი და არა ქართული სერია.",
     "conservation": "Kranz და თანაავტორები Meles meles-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016); შეფასება მოიცავს იმ პოპულაციებს, რომლებსაც ახლა ხშირად Meles canescens ეწოდება. Meles canescens ცალკე IUCN სტატუსი არ აქვს (MDD: Not Evaluated). საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ეროვნული რუკა ნაციონალურ სტატუსად NE-ს უთითებს და პოპულაციას „მცირედ“ აღწერს; ეს იმ რუკის ფორმულირებაა და არა ამ გვერდის ცალკე აღწერა. ნადირობის ობიექტად არის შეტანილი სახელით მაჩვი; ლათინური ხაზი ოფიციალურ ნუსხაში წერია როგორც Martes meles — ეს ნომენკლატურული შეცდომაა და იგულისხმება მაჩვი და არა კვერნა. კვოტა და სეზონი სააგენტოს დოკუმენტებით დგინდება და ამ გვერდზე მიმდინარე რიცხვებად არ არის გადმოტანილი. ადგილობრივი ზეწოლა შეიძლება იყოს ნადირობა, საგზაო დაღუპვა და კონფლიქტი ნათესსა და ფუტკარზე; ეროვნული ტენდენცია აქ არ არის გაზომილი. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. დაჭერისას ან კუთხეში მოქცევისას შეიძლება უკბინოს. ძლიერი ყბა და გრძელი კლანჭები აქვს. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი; საქართველოს ლიტერატურაში ძირითად წყაროდ უფრო მელა, ტურა, მგელი და ძაღლი სახელდება. არ აჭმიოთ და არ აიყვანოთ. ძაღლები აცერით.",
-    "image": "/images/meles-canescens-vashlovani-1.jpg",
+    "image": "https://cdn.reptiles.ge/meles-canescens-vashlovani-1.jpg",
     "imageCredit": {
       "photographer": "Sarah Murray",
       "url": "https://commons.wikimedia.org/wiki/File:Vashlovani_17789_(14642185845).jpg",
       "location": "ვაშლოვანი",
       "date": "2014-06-06"
     },
-    "mobileImage": "/images/meles-canescens-bafra-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/meles-canescens-bafra-1.jpg",
     "mobileImageCredit": {
       "photographer": "Ömer Selim Kaya",
       "url": "https://www.inaturalist.org/observations/346611381",
@@ -7941,7 +7941,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/meles-canescens-vashlovani-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-vashlovani-1.jpg",
         "credit": {
           "photographer": "Sarah Murray",
           "url": "https://commons.wikimedia.org/wiki/File:Vashlovani_17789_(14642185845).jpg",
@@ -7950,7 +7950,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/meles-canescens-bafra-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-bafra-1.jpg",
         "credit": {
           "photographer": "Ömer Selim Kaya",
           "url": "https://www.inaturalist.org/observations/346611381",
@@ -7959,7 +7959,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/meles-canescens-yalova-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-yalova-1.jpg",
         "credit": {
           "photographer": "Mehmet",
           "url": "https://www.inaturalist.org/observations/307030985",
@@ -7968,7 +7968,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/meles-canescens-armenia-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-armenia-tracks-1.jpg",
         "credit": {
           "photographer": "Kjetil Kjernsmo",
           "url": "https://www.inaturalist.org/observations/392279425",
@@ -8314,7 +8314,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში არა. 2026 წლის ჩამონათვალი M. djanashvilii-ს ცალკე სახეობად არ იღებს. მტირალას ღია ფორმა გენეტიკურად ნომინალური სახეობის სხვა პოპულაციებისგან არ განსხვავდება. ბორჯომი–მესხეთში არის ცალკე ხაზი (M. sp. 1); ველში ცხოველი იგივენაირად ამოიცნობა."
       }
     ],
-    "updatedAt": "2026-08-27T16:43:24+04:00",
+    "updatedAt": "2026-08-28T17:09:23+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -8844,7 +8844,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-1.jpg",
         "credit": {
           "photographer": "იოანე როსტიაშვილი",
           "location": "ლისის ტბა",
@@ -8876,7 +8876,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/natrix-tessellata-beka-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-beka-1.jpg",
         "credit": {
           "photographer": "ბექა ჭანკოტაძე",
           "date": "2021-08-01"
@@ -11654,7 +11654,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/telescopus-fallax-malkhaz-1.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-malkhaz-1.jpg",
         "credit": {
           "photographer": "მალხაზ გაბესკირია",
           "location": "იაღლუჯას მთა, რუსთავი",
@@ -14876,7 +14876,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/canis-aureus-lagodekhi-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-lagodekhi-1.jpg",
         "credit": {
           "photographer": "Lagodekhi Protected Areas",
           "location": "Lagodekhi Protected Areas",
@@ -14884,7 +14884,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-aureus-kerkini-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal_(Canis_aureus_moreotica).jpg",
@@ -14893,7 +14893,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-aureus-stankovic-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-stankovic-1.jpg",
         "credit": {
           "photographer": "Mladen Stankovic",
           "url": "https://commons.wikimedia.org/wiki/File:MDYA3194_(cropped).jpg",
@@ -14902,7 +14902,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-aureus-danube-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-danube-1.jpg",
         "credit": {
           "photographer": "Didier Delavaud",
           "url": "https://commons.wikimedia.org/wiki/File:Chacal_dor%C3%A9,_delta_du_Danube.jpg",
@@ -14920,7 +14920,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-aureus-yarkon-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-aureus-yarkon-1.jpg",
         "credit": {
           "photographer": "Вых Пыхманн",
           "url": "https://commons.wikimedia.org/wiki/File:Golden_jackal.jpg",
@@ -15030,14 +15030,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/canis-lupus-gareja-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-gareja-1.jpg",
         "credit": {
           "location": "David Gareja desert",
           "date": "2019-12-07"
         }
       },
       {
-        "src": "/images/canis-lupus-pescheray-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-pescheray-1.jpg",
         "credit": {
           "photographer": "Clément Bardot",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_(Canis_lupus_).jpg",
@@ -15046,7 +15046,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-lupus-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-portrait-1.jpg",
         "credit": {
           "photographer": "Pieter-Paul G",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Wolf.jpg",
@@ -15054,7 +15054,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-lupus-eurasian-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-eurasian-1.jpg",
         "credit": {
           "photographer": "Mas3cf",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
@@ -15063,7 +15063,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-lupus-sainte-croix-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-sainte-croix-1.jpg",
         "credit": {
           "photographer": "Musicaline",
           "url": "https://commons.wikimedia.org/wiki/File:Loup_gris_commun_DSCF1575.jpg",
@@ -15072,7 +15072,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-lupus-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-tracks-1.jpg",
         "credit": {
           "photographer": "Frank Vassen",
           "url": "https://commons.wikimedia.org/wiki/File:Fresh_Wolf_tracks,_Bia%C5%82owie%C5%BCa_Forest,_Poland_(4664117735).jpg",
@@ -15081,7 +15081,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/canis-lupus-innsbruck-1.jpg",
+        "src": "https://cdn.reptiles.ge/canis-lupus-innsbruck-1.jpg",
         "credit": {
           "photographer": "Wilfredor",
           "url": "https://commons.wikimedia.org/wiki/File:Canis_lupus_lupus_in_Alpenzoo,_Innsbruck.jpg",
@@ -15194,7 +15194,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/capreolus-capreolus-buck-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-buck-1.jpg",
         "credit": {
           "photographer": "Divlja Srbija",
           "url": "https://commons.wikimedia.org/wiki/File:Srnda%C4%87_na_detelini.jpg",
@@ -15202,7 +15202,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-portrait-1.jpg",
         "credit": {
           "photographer": "DidierFy",
           "url": "https://commons.wikimedia.org/wiki/File:Capreolus_capreolus_03.2025_(1).jpg",
@@ -15210,7 +15210,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-antlers-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-antlers-1.jpg",
         "credit": {
           "photographer": "Netty3979",
           "url": "https://commons.wikimedia.org/wiki/File:Rehbock.jpg",
@@ -15218,7 +15218,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-summer-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-summer-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Ree_-_roe_deer_-_Capreolus_capreolus.jpg",
@@ -15226,7 +15226,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-male-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-male-1.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:Roe_deer_(Capreolus_capreolus)_male_Dobruja.jpg",
@@ -15235,7 +15235,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-winter-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-winter-1.jpg",
         "credit": {
           "photographer": "caroline legg",
           "url": "https://commons.wikimedia.org/wiki/File:Capreolus_capreolus_(51717308436).jpg",
@@ -15243,7 +15243,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-fawn-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-fawn-1.jpg",
         "credit": {
           "photographer": "Nagy Sándor",
           "url": "https://commons.wikimedia.org/wiki/File:One_week_old_roe_deer_fawn_(Capreolus_capreolus)_waiting_for_its_mother_in_tall_grass_Hungary_2019.05.28._10-14.jpg",
@@ -15252,7 +15252,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/capreolus-capreolus-running-1.jpg",
+        "src": "https://cdn.reptiles.ge/capreolus-capreolus-running-1.jpg",
         "credit": {
           "photographer": "Qubix02",
           "url": "https://commons.wikimedia.org/wiki/File:Sarna_w_biegu.jpg",
@@ -18009,7 +18009,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/erinaceus-concolor-orkhevi-1.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-orkhevi-1.jpg",
         "credit": {
           "photographer": "David Osipov",
           "url": "https://commons.wikimedia.org/wiki/File:Southern_White-breasted_Hedgehog_in_Orkhevi.jpg",
@@ -18018,7 +18018,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/erinaceus-concolor-1.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-1.jpg",
         "credit": {
           "photographer": "Nevit Dilmen",
           "url": "https://commons.wikimedia.org/wiki/File:Hedgehog_1210127.jpg",
@@ -18027,7 +18027,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/erinaceus-concolor-2.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-2.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202662874.jpg",
@@ -18036,7 +18036,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/erinaceus-concolor-3.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-3.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_202738952.jpg",
@@ -18045,7 +18045,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/erinaceus-concolor-israel-1.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-israel-1.jpg",
         "credit": {
           "photographer": "Nadav Kavalerchik",
           "url": "https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_17010_Hedgehog.jpg",
@@ -18054,7 +18054,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/erinaceus-concolor-4.jpg",
+        "src": "https://cdn.reptiles.ge/erinaceus-concolor-4.jpg",
         "credit": {
           "photographer": "Eran Finkle",
           "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_concolor_-_D7-10-3855.JPG",
@@ -20125,7 +20125,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/meles-canescens-vashlovani-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-vashlovani-1.jpg",
         "credit": {
           "photographer": "Sarah Murray",
           "url": "https://commons.wikimedia.org/wiki/File:Vashlovani_17789_(14642185845).jpg",
@@ -20134,7 +20134,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/meles-canescens-bafra-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-bafra-1.jpg",
         "credit": {
           "photographer": "Ömer Selim Kaya",
           "url": "https://www.inaturalist.org/observations/346611381",
@@ -20143,7 +20143,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/meles-canescens-yalova-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-yalova-1.jpg",
         "credit": {
           "photographer": "Mehmet",
           "url": "https://www.inaturalist.org/observations/307030985",
@@ -20152,7 +20152,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/meles-canescens-armenia-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/meles-canescens-armenia-tracks-1.jpg",
         "credit": {
           "photographer": "Kjetil Kjernsmo",
           "url": "https://www.inaturalist.org/observations/392279425",
@@ -20780,7 +20780,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-tessellata-ioane-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-ioane-1.jpg",
         "credit": {
           "photographer": "Ioane Rostiashvili",
           "location": "Lisi Lake",
@@ -20812,7 +20812,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/natrix-tessellata-beka-1.jpg",
+        "src": "https://cdn.reptiles.ge/natrix-tessellata-beka-1.jpg",
         "credit": {
           "photographer": "Beka Chankotadze",
           "date": "2021-08-01"
@@ -22764,7 +22764,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/telescopus-fallax-malkhaz-1.jpg",
+        "src": "https://cdn.reptiles.ge/telescopus-fallax-malkhaz-1.jpg",
         "credit": {
           "photographer": "Malkhaz Gabeskiria",
           "location": "Iagluji Mountain, Rustavi",
