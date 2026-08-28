@@ -1,11 +1,14 @@
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl, CDN_BASE, siteConfig } from "@/lib/site";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+
+const GTM_ID = "GTM-NM65ZMML";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -84,6 +87,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: Props) {
   const locale = await getLocale().catch(() => routing.defaultLocale);
+  const isProd = process.env.NODE_ENV === "production";
 
   return (
     <html
@@ -92,12 +96,23 @@ export default async function RootLayout({ children }: Props) {
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
+      {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <head>
         <link rel="preconnect" href={CDN_BASE} />
         <link rel="dns-prefetch" href={CDN_BASE} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
+        {isProd ? (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        ) : null}
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

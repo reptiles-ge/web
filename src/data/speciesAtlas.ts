@@ -35,7 +35,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "pelobates-syriacus": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["grassland", "wetland"],
   },
   "pelodytes-caucasicus": {
     group: "amphibian",

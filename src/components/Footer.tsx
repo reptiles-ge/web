@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { Logo } from "@/components/Logo";
@@ -86,7 +87,8 @@ export function Footer() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(shouldHideFooter(pathname));
   const venomous = useMemo(
-    () => getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),
+    () =>
+      getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),
     [locale],
   );
 
@@ -107,7 +109,10 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.7fr_1.05fr_0.6fr] lg:gap-12">
           <div>
-            <Link href="/" className="inline-flex transition-opacity hover:opacity-90">
+            <Link
+              href="/"
+              className="inline-flex transition-opacity hover:opacity-90"
+            >
               <Logo size={52} showWordmark wordmarkClassName="text-[19px]" />
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
