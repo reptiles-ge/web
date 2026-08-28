@@ -1,8 +1,8 @@
+import { CoverImage, CoverImagePreload } from "@/components/CoverImage";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 export async function Hero() {
   const t = await getTranslations("hero");
@@ -12,13 +12,12 @@ export async function Hero() {
       id="top"
       className="relative flex min-h-[100svh] w-full items-end overflow-hidden bg-ink pb-16 pt-28 sm:pb-20 lg:min-h-[92svh] lg:items-center lg:pb-24 lg:pt-32"
     >
+      <CoverImagePreload src={images.hero} sizes="100vw" />
       <div className="absolute inset-0">
-        <Image
+        <CoverImage
           src={images.hero}
           alt={t("imageAlt")}
-          fill
-          preload
-          fetchPriority="high"
+          priority
           sizes="100vw"
           className="object-cover object-[center_35%] scale-105 hero-drift"
         />

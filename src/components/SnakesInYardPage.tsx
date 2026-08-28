@@ -349,10 +349,9 @@ export function SnakesInYardPage({
         <ContentAttribution />
 
         <section className="relative flex min-h-[60svh] items-center overflow-hidden bg-ink py-24">
-          <Image
+          <CoverImage
             src={heroSrc}
             alt=""
-            fill
             sizes="100vw"
             className="object-cover opacity-45"
             aria-hidden

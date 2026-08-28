@@ -12339,12 +12339,40 @@
     },
     "eremias-arguta-3.jpg": {
       "sourceHash": "5ce5d97bb3209c36cb63ae8b3700b9c2e606a948c5f803009349558f3fdc76bf",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-arguta-3.jpg",
       "originalSize": 581889,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28752
+        },
+        {
+          "key": "optimized/eremias-arguta-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44738
+        },
+        {
+          "key": "optimized/eremias-arguta-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119648
+        },
+        {
+          "key": "optimized/eremias-arguta-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 188220
+        },
         {
           "key": "optimized/eremias-arguta-3-1200.avif",
           "format": "avif",
@@ -12374,16 +12402,44 @@
           "byteSize": 696990
         }
       ],
-      "updatedAt": "2026-08-28T21:22:34.341Z"
+      "updatedAt": "2026-08-28T21:39:38.591Z"
     },
     "eremias-arguta-mobile.jpg": {
       "sourceHash": "17f6b40bfd4199cefb7e077d6bf32905778096a976bd5e9cbce69a69cb19597d",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-arguta-mobile.jpg",
       "originalSize": 163708,
       "width": 1920,
       "height": 1280,
       "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14067
+        },
+        {
+          "key": "optimized/eremias-arguta-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17984
+        },
+        {
+          "key": "optimized/eremias-arguta-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35529
+        },
+        {
+          "key": "optimized/eremias-arguta-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46338
+        },
         {
           "key": "optimized/eremias-arguta-mobile-1200.avif",
           "format": "avif",
@@ -12413,16 +12469,44 @@
           "byteSize": 144364
         }
       ],
-      "updatedAt": "2026-08-28T21:22:33.789Z"
+      "updatedAt": "2026-08-28T21:39:44.728Z"
     },
     "eremias-arguta.jpg": {
       "sourceHash": "05e84116d7e09df21c549a9d7b17f9446810e0669dc1cbc107832a096c09cb08",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-arguta.jpg",
       "originalSize": 394272,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21317
+        },
+        {
+          "key": "optimized/eremias-arguta-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 37262
+        },
+        {
+          "key": "optimized/eremias-arguta-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 62137
+        },
+        {
+          "key": "optimized/eremias-arguta-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109536
+        },
         {
           "key": "optimized/eremias-arguta-1200.avif",
           "format": "avif",
@@ -12452,16 +12536,44 @@
           "byteSize": 367494
         }
       ],
-      "updatedAt": "2026-08-28T21:22:35.741Z"
+      "updatedAt": "2026-08-28T21:39:45.888Z"
     },
     "eremias-velox-2.jpg": {
       "sourceHash": "55bf8072941f75c05772da8f02bced8e6f7dc2ef8541c47f6e555a639805f60c",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-velox-2.jpg",
       "originalSize": 164206,
       "width": 1280,
       "height": 853,
       "derivatives": [
+        {
+          "key": "optimized/eremias-velox-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18775
+        },
+        {
+          "key": "optimized/eremias-velox-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30030
+        },
+        {
+          "key": "optimized/eremias-velox-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52933
+        },
+        {
+          "key": "optimized/eremias-velox-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 80054
+        },
         {
           "key": "optimized/eremias-velox-2-1200.avif",
           "format": "avif",
@@ -12491,16 +12603,44 @@
           "byteSize": 144760
         }
       ],
-      "updatedAt": "2026-08-28T21:22:36.889Z"
+      "updatedAt": "2026-08-28T21:39:48.977Z"
     },
     "eremias-velox-3.jpg": {
       "sourceHash": "c2f577474ad73bf9e928dbe527460e263654fef4004fa64ebddd0fbea5fc6e64",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-velox-3.jpg",
       "originalSize": 575974,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/eremias-velox-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24698
+        },
+        {
+          "key": "optimized/eremias-velox-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37742
+        },
+        {
+          "key": "optimized/eremias-velox-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 104380
+        },
+        {
+          "key": "optimized/eremias-velox-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 164224
+        },
         {
           "key": "optimized/eremias-velox-3-1200.avif",
           "format": "avif",
@@ -12530,16 +12670,44 @@
           "byteSize": 739780
         }
       ],
-      "updatedAt": "2026-08-28T21:22:41.112Z"
+      "updatedAt": "2026-08-28T21:39:58.264Z"
     },
     "eremias-velox-mobile.jpg": {
       "sourceHash": "ce62ebd2f1262cdd1a9d78bf07fa57ebd17ffaa62f45d26dc1605120764fbd57",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-velox-mobile.jpg",
       "originalSize": 313297,
       "width": 2048,
       "height": 1306,
       "derivatives": [
+        {
+          "key": "optimized/eremias-velox-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 255,
+          "byteSize": 17863
+        },
+        {
+          "key": "optimized/eremias-velox-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 255,
+          "byteSize": 30216
+        },
+        {
+          "key": "optimized/eremias-velox-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 510,
+          "byteSize": 53483
+        },
+        {
+          "key": "optimized/eremias-velox-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 510,
+          "byteSize": 87100
+        },
         {
           "key": "optimized/eremias-velox-mobile-1200.avif",
           "format": "avif",
@@ -12569,16 +12737,44 @@
           "byteSize": 314402
         }
       ],
-      "updatedAt": "2026-08-28T21:22:40.237Z"
+      "updatedAt": "2026-08-28T21:39:57.762Z"
     },
     "eremias-velox.jpg": {
       "sourceHash": "2dd2c2367fd7b1666537c1756f8a149fa0dec262ab6e84b41d25887f9da25d64",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-velox.jpg",
       "originalSize": 225107,
       "width": 2048,
       "height": 1152,
       "derivatives": [
+        {
+          "key": "optimized/eremias-velox-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 17451
+        },
+        {
+          "key": "optimized/eremias-velox-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 27978
+        },
+        {
+          "key": "optimized/eremias-velox-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 46869
+        },
+        {
+          "key": "optimized/eremias-velox-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 72792
+        },
         {
           "key": "optimized/eremias-velox-1200.avif",
           "format": "avif",
@@ -12608,16 +12804,44 @@
           "byteSize": 237516
         }
       ],
-      "updatedAt": "2026-08-28T21:22:41.342Z"
+      "updatedAt": "2026-08-28T21:40:05.204Z"
     },
     "erinaceus-concolor-1.jpg": {
       "sourceHash": "3482537677517cc0432fd386cf4dbd0ed9eec8950ead8e0f6b54a23abbca7914",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "erinaceus-concolor-1.jpg",
       "originalSize": 4955136,
       "width": 2400,
       "height": 1800,
       "derivatives": [
+        {
+          "key": "optimized/erinaceus-concolor-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22302
+        },
+        {
+          "key": "optimized/erinaceus-concolor-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33486
+        },
+        {
+          "key": "optimized/erinaceus-concolor-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74547
+        },
+        {
+          "key": "optimized/erinaceus-concolor-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 110544
+        },
         {
           "key": "optimized/erinaceus-concolor-1-1200.avif",
           "format": "avif",
@@ -12647,16 +12871,44 @@
           "byteSize": 658044
         }
       ],
-      "updatedAt": "2026-08-28T21:22:44.325Z"
+      "updatedAt": "2026-08-28T21:40:09.835Z"
     },
     "erinaceus-concolor-2.jpg": {
       "sourceHash": "397b4b72ab136d0e136ac6eef4d3ec7fcbfa12193fec2989a43ffb01a31b6cdf",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "erinaceus-concolor-2.jpg",
       "originalSize": 877011,
       "width": 2048,
       "height": 1897,
       "derivatives": [
+        {
+          "key": "optimized/erinaceus-concolor-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 370,
+          "byteSize": 18351
+        },
+        {
+          "key": "optimized/erinaceus-concolor-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 370,
+          "byteSize": 27788
+        },
+        {
+          "key": "optimized/erinaceus-concolor-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 741,
+          "byteSize": 48340
+        },
+        {
+          "key": "optimized/erinaceus-concolor-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 741,
+          "byteSize": 77112
+        },
         {
           "key": "optimized/erinaceus-concolor-2-1200.avif",
           "format": "avif",
@@ -12686,16 +12938,44 @@
           "byteSize": 326710
         }
       ],
-      "updatedAt": "2026-08-28T21:22:49.329Z"
+      "updatedAt": "2026-08-28T21:40:14.263Z"
     },
     "erinaceus-concolor-3.jpg": {
       "sourceHash": "1c8e1942a1e8f900ac5b8c3e6609940e6d3bbfa1bc3e180563618e2d1fa7dcba",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "erinaceus-concolor-3.jpg",
       "originalSize": 1352182,
       "width": 2048,
       "height": 1044,
       "derivatives": [
+        {
+          "key": "optimized/erinaceus-concolor-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 204,
+          "byteSize": 13064
+        },
+        {
+          "key": "optimized/erinaceus-concolor-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 204,
+          "byteSize": 20132
+        },
+        {
+          "key": "optimized/erinaceus-concolor-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 408,
+          "byteSize": 42352
+        },
+        {
+          "key": "optimized/erinaceus-concolor-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 408,
+          "byteSize": 67814
+        },
         {
           "key": "optimized/erinaceus-concolor-3-1200.avif",
           "format": "avif",
@@ -12725,16 +13005,44 @@
           "byteSize": 327712
         }
       ],
-      "updatedAt": "2026-08-28T21:22:46.564Z"
+      "updatedAt": "2026-08-28T21:40:17.581Z"
     },
     "erinaceus-concolor-4.jpg": {
       "sourceHash": "2a4414bd7a5f2505680927fa37973cb43296d245f2ccff34f5bb5a55af5539c7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "erinaceus-concolor-4.jpg",
       "originalSize": 242793,
       "width": 1024,
       "height": 768,
       "derivatives": [
+        {
+          "key": "optimized/erinaceus-concolor-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27844
+        },
+        {
+          "key": "optimized/erinaceus-concolor-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 41436
+        },
+        {
+          "key": "optimized/erinaceus-concolor-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 70967
+        },
+        {
+          "key": "optimized/erinaceus-concolor-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 104798
+        },
         {
           "key": "optimized/erinaceus-concolor-4-1024.avif",
           "format": "avif",
@@ -12750,16 +13058,44 @@
           "byteSize": 150870
         }
       ],
-      "updatedAt": "2026-08-28T21:22:44.033Z"
+      "updatedAt": "2026-08-28T21:40:18.072Z"
     },
     "erinaceus-concolor-israel-1.jpg": {
       "sourceHash": "7c0f12def4baedc63cbd7538f483fa606eb0b88c6ebffa6a298ad89a406aff98",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "erinaceus-concolor-israel-1.jpg",
       "originalSize": 1162034,
       "width": 2272,
       "height": 1704,
       "derivatives": [
+        {
+          "key": "optimized/erinaceus-concolor-israel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20497
+        },
+        {
+          "key": "optimized/erinaceus-concolor-israel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31584
+        },
+        {
+          "key": "optimized/erinaceus-concolor-israel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 56260
+        },
+        {
+          "key": "optimized/erinaceus-concolor-israel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 84852
+        },
         {
           "key": "optimized/erinaceus-concolor-israel-1-1200.avif",
           "format": "avif",
@@ -12789,16 +13125,44 @@
           "byteSize": 360446
         }
       ],
-      "updatedAt": "2026-08-28T21:22:48.755Z"
+      "updatedAt": "2026-08-28T21:40:26.445Z"
     },
     "erinaceus-concolor-orkhevi-1.jpg": {
       "sourceHash": "958a4c559c2804153620bf9b2cdf781c6a6a16de3a5e47b64ff4f3cefb9b004d",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "erinaceus-concolor-orkhevi-1.jpg",
       "originalSize": 7786646,
       "width": 2088,
       "height": 4640,
       "derivatives": [
+        {
+          "key": "optimized/erinaceus-concolor-orkhevi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 889,
+          "byteSize": 98429
+        },
+        {
+          "key": "optimized/erinaceus-concolor-orkhevi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 889,
+          "byteSize": 161646
+        },
+        {
+          "key": "optimized/erinaceus-concolor-orkhevi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1778,
+          "byteSize": 316564
+        },
+        {
+          "key": "optimized/erinaceus-concolor-orkhevi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1778,
+          "byteSize": 514448
+        },
         {
           "key": "optimized/erinaceus-concolor-orkhevi-1-1200.avif",
           "format": "avif",
@@ -12828,16 +13192,44 @@
           "byteSize": 2150628
         }
       ],
-      "updatedAt": "2026-08-28T21:23:09.525Z"
+      "updatedAt": "2026-08-28T21:40:48.149Z"
     },
     "eryx-jaculus-2.jpg": {
       "sourceHash": "49b66c7a5ef013c81cad647986e0cf12a3ac07cecded7e5441dc82745fd3eea6",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus-2.jpg",
       "originalSize": 435871,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22883
+        },
+        {
+          "key": "optimized/eryx-jaculus-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 37020
+        },
+        {
+          "key": "optimized/eryx-jaculus-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 74813
+        },
+        {
+          "key": "optimized/eryx-jaculus-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 123068
+        },
         {
           "key": "optimized/eryx-jaculus-2-1200.avif",
           "format": "avif",
@@ -12867,16 +13259,30 @@
           "byteSize": 432070
         }
       ],
-      "updatedAt": "2026-08-28T21:22:53.076Z"
+      "updatedAt": "2026-08-28T21:40:40.096Z"
     },
     "eryx-jaculus-3.jpg": {
       "sourceHash": "d4aed19d5dc9ab4249b85ec32c7343f9a86f5793c14dc5a718d3430145df020b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus-3.jpg",
       "originalSize": 147981,
       "width": 800,
       "height": 537,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 269,
+          "byteSize": 18816
+        },
+        {
+          "key": "optimized/eryx-jaculus-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 269,
+          "byteSize": 27916
+        },
         {
           "key": "optimized/eryx-jaculus-3-800.avif",
           "format": "avif",
@@ -12892,16 +13298,44 @@
           "byteSize": 93752
         }
       ],
-      "updatedAt": "2026-08-28T21:22:50.367Z"
+      "updatedAt": "2026-08-28T21:40:43.912Z"
     },
     "eryx-jaculus-giorgi-1.jpg": {
       "sourceHash": "c89a62e3c78882f2891e7bb4b51ef7e4050ebd2d4f352beeab9b5170f1061e9a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus-giorgi-1.jpg",
       "originalSize": 327705,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30906
+        },
+        {
+          "key": "optimized/eryx-jaculus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 49706
+        },
+        {
+          "key": "optimized/eryx-jaculus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 89780
+        },
+        {
+          "key": "optimized/eryx-jaculus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 158188
+        },
         {
           "key": "optimized/eryx-jaculus-giorgi-1-1024.avif",
           "format": "avif",
@@ -12917,16 +13351,30 @@
           "byteSize": 233968
         }
       ],
-      "updatedAt": "2026-08-28T21:22:51.055Z"
+      "updatedAt": "2026-08-28T21:40:55.987Z"
     },
     "eryx-jaculus-ioane-1.jpg": {
       "sourceHash": "57a8f5943fee9fe254b7c231351fd8224a14b290e505cb54d251011538647216",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus-ioane-1.jpg",
       "originalSize": 186847,
       "width": 771,
       "height": 1024,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 26032
+        },
+        {
+          "key": "optimized/eryx-jaculus-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 37564
+        },
         {
           "key": "optimized/eryx-jaculus-ioane-1-771.avif",
           "format": "avif",
@@ -12942,16 +13390,30 @@
           "byteSize": 94562
         }
       ],
-      "updatedAt": "2026-08-28T21:22:51.773Z"
+      "updatedAt": "2026-08-28T21:40:49.848Z"
     },
     "eryx-jaculus-ioane-2.jpg": {
       "sourceHash": "4130e1cf1b46cdc51bb18858ffc094496fca8c1aa28d0aab13ac3c9018c7085f",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus-ioane-2.jpg",
       "originalSize": 137772,
       "width": 771,
       "height": 1024,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-ioane-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 16922
+        },
+        {
+          "key": "optimized/eryx-jaculus-ioane-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 22914
+        },
         {
           "key": "optimized/eryx-jaculus-ioane-2-771.avif",
           "format": "avif",
@@ -12967,16 +13429,30 @@
           "byteSize": 59392
         }
       ],
-      "updatedAt": "2026-08-28T21:22:52.520Z"
+      "updatedAt": "2026-08-28T21:40:51.287Z"
     },
     "eryx-jaculus-ioane-3.jpg": {
       "sourceHash": "93d8cd3a06955e15b5def18105f236ef6a49f12bb17962d4fa37a25bb1b9f86b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus-ioane-3.jpg",
       "originalSize": 129712,
       "width": 771,
       "height": 1024,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-ioane-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 16712
+        },
+        {
+          "key": "optimized/eryx-jaculus-ioane-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 22266
+        },
         {
           "key": "optimized/eryx-jaculus-ioane-3-771.avif",
           "format": "avif",
@@ -12992,16 +13468,44 @@
           "byteSize": 58050
         }
       ],
-      "updatedAt": "2026-08-28T21:22:52.873Z"
+      "updatedAt": "2026-08-28T21:40:52.678Z"
     },
     "eryx-jaculus.jpg": {
       "sourceHash": "ebec808e93bc2996df1ac88564b287fdd65cf3e6b19e64198f792cab7c49afea",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eryx-jaculus.jpg",
       "originalSize": 211214,
       "width": 1080,
       "height": 810,
       "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 38921
+        },
+        {
+          "key": "optimized/eryx-jaculus-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 59110
+        },
+        {
+          "key": "optimized/eryx-jaculus-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 114967
+        },
+        {
+          "key": "optimized/eryx-jaculus-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 198696
+        },
         {
           "key": "optimized/eryx-jaculus-1080.avif",
           "format": "avif",
@@ -13017,16 +13521,44 @@
           "byteSize": 278644
         }
       ],
-      "updatedAt": "2026-08-28T21:22:54.223Z"
+      "updatedAt": "2026-08-28T21:40:55.504Z"
     },
     "eumeces-schneiderii-2.jpg": {
       "sourceHash": "e44874936e3dfdc807dded25a982272acb7d635dcdc8331d0b67db7bb493db87",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eumeces-schneiderii-2.jpg",
       "originalSize": 255505,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/eumeces-schneiderii-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16272
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21252
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57244
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 69992
+        },
         {
           "key": "optimized/eumeces-schneiderii-2-1200.avif",
           "format": "avif",
@@ -13056,16 +13588,44 @@
           "byteSize": 254932
         }
       ],
-      "updatedAt": "2026-08-28T21:22:57.776Z"
+      "updatedAt": "2026-08-28T21:41:01.736Z"
     },
     "eumeces-schneiderii-3.jpg": {
       "sourceHash": "961c41fb3fd27b61c7ab7997ebd0fde127ff2f98a31ee0cf8109bd0761d201d2",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eumeces-schneiderii-3.jpg",
       "originalSize": 264564,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/eumeces-schneiderii-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13964
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20242
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53122
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76404
+        },
         {
           "key": "optimized/eumeces-schneiderii-3-1200.avif",
           "format": "avif",
@@ -13095,16 +13655,44 @@
           "byteSize": 292020
         }
       ],
-      "updatedAt": "2026-08-28T21:22:58.455Z"
+      "updatedAt": "2026-08-28T21:41:01.726Z"
     },
     "eumeces-schneiderii-mobile.jpg": {
       "sourceHash": "a17d98f346d8949b098626f8668c9b442f3a47b7f4c8df2a195a63adbd6aa8c7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eumeces-schneiderii-mobile.jpg",
       "originalSize": 636147,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/eumeces-schneiderii-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 69757
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 103216
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 232237
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 355732
+        },
         {
           "key": "optimized/eumeces-schneiderii-mobile-1200.avif",
           "format": "avif",
@@ -13134,16 +13722,44 @@
           "byteSize": 789728
         }
       ],
-      "updatedAt": "2026-08-28T21:23:02.209Z"
+      "updatedAt": "2026-08-28T21:41:12.800Z"
     },
     "eumeces-schneiderii.jpg": {
       "sourceHash": "d0d25d0fb3c5308b2a3d64b5309c45836af58fab0d7d4c850d0eb2e6f06c0d11",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eumeces-schneiderii.jpg",
       "originalSize": 546721,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/eumeces-schneiderii-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32345
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 51412
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 116659
+        },
+        {
+          "key": "optimized/eumeces-schneiderii-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 191638
+        },
         {
           "key": "optimized/eumeces-schneiderii-1200.avif",
           "format": "avif",
@@ -13173,16 +13789,44 @@
           "byteSize": 687430
         }
       ],
-      "updatedAt": "2026-08-28T21:23:08.630Z"
+      "updatedAt": "2026-08-28T21:41:12.015Z"
     },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-crowbared-1.jpg",
       "originalSize": 6549216,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-crowbared-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9032
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-crowbared-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11766
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-crowbared-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21836
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-crowbared-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29610
+        },
         {
           "key": "optimized/ficedula-hypoleuca-crowbared-1-1200.avif",
           "format": "avif",
@@ -13212,7 +13856,7 @@
           "byteSize": 137312
         }
       ],
-      "updatedAt": "2026-08-28T21:23:04.321Z"
+      "updatedAt": "2026-08-28T21:41:19.884Z"
     },
     "ficedula-hypoleuca-lapa-1.jpg": {
       "sourceHash": "5ec5ed6748f6db46cf71d5186f6d9fa459f8f1b87bdd6018ba37a0811965f196",

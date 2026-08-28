@@ -6,6 +6,7 @@ type CoverImageProps = {
   sizes: string;
   className?: string;
   priority?: boolean;
+  "aria-hidden"?: boolean;
 };
 
 export function CoverImage({
@@ -14,6 +15,7 @@ export function CoverImage({
   sizes,
   className,
   priority = false,
+  "aria-hidden": ariaHidden,
 }: CoverImageProps) {
   return (
     <picture>
@@ -24,6 +26,7 @@ export function CoverImage({
       <img
         src={src}
         alt={alt}
+        aria-hidden={ariaHidden}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         fetchPriority={priority ? "high" : "auto"}
@@ -32,5 +35,44 @@ export function CoverImage({
         }`}
       />
     </picture>
+  );
+}
+
+type CoverImagePreloadProps = {
+  src: string | null | undefined;
+  sizes: string;
+  media?: string;
+};
+
+export function CoverImagePreload({ src, sizes, media }: CoverImagePreloadProps) {
+  if (!src) return null;
+
+  const best = pictureSources(src, {
+    sizes,
+    ...(media ? { media } : {}),
+  })[0];
+
+  if (!best) {
+    return (
+      <link
+        rel="preload"
+        as="image"
+        href={src}
+        {...(media ? { media } : {})}
+        fetchPriority="high"
+      />
+    );
+  }
+
+  return (
+    <link
+      rel="preload"
+      as="image"
+      type={best.props.type}
+      imageSrcSet={best.props.srcSet}
+      imageSizes={best.props.sizes}
+      {...(media ? { media } : {})}
+      fetchPriority="high"
+    />
   );
 }
