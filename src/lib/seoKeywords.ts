@@ -155,6 +155,24 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta saxicola dahli",
     ],
   },
+  "darevskia-clarkorum": {
+    ka: [
+      "ლაზური ხვლიკი",
+      "ჭარნალის ხვლიკი",
+      "Lacerta clarkorum",
+      "Darevskia dryada",
+      "Lacerta dryada",
+    ],
+    en: [
+      "Clark's lizard",
+      "Clarks' lizard",
+      "Charnali lizard",
+      "Laz lizard",
+      "Lacerta clarkorum",
+      "Darevskia dryada",
+      "Lacerta dryada",
+    ],
+  },
   "darevskia-mixta": {
     ka: [
       "ქართული კლდის ხვლიკი",
