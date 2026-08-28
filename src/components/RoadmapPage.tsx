@@ -2,9 +2,11 @@
 
 import { Fragment } from "react";
 import { Reveal } from "@/components/Reveal";
+import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 type Status = "active" | "next" | "planned" | "future" | "longterm";
 type PhaseId =
@@ -337,55 +339,6 @@ function Glyph({ kind }: { kind: GlyphKind }) {
   );
 }
 
-function Topography() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.18]"
-      viewBox="0 0 1200 800"
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden
-    >
-      {[
-        "M-40 620C180 540 320 700 560 620C800 540 980 700 1240 580",
-        "M-40 540C200 460 360 620 600 530C840 440 1000 610 1240 500",
-        "M-40 460C220 390 380 540 620 450C860 360 1020 520 1240 420",
-        "M-40 380C240 320 400 460 640 370C880 280 1040 440 1240 340",
-        "M-40 300C260 250 420 390 660 300C900 210 1060 360 1240 260",
-        "M80 220C300 160 480 280 700 210C920 140 1080 250 1220 180",
-      ].map((d) => (
-        <path
-          key={d}
-          d={d}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
-      ))}
-      <path
-        d="M0 720 L80 640 L160 680 L260 520 L340 600 L430 430 L520 560 L610 360 L720 500 L820 280 L920 460 L1040 240 L1200 420 L1200 800 L0 800 Z"
-        fill="currentColor"
-        opacity="0.22"
-      />
-    </svg>
-  );
-}
-
-function CompassMark() {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      className="size-14 text-white/35"
-      fill="none"
-      aria-hidden
-    >
-      <circle cx="32" cy="32" r="30" stroke="currentColor" strokeWidth="0.6" />
-      <circle cx="32" cy="32" r="6" stroke="currentColor" strokeWidth="0.6" />
-      <path d="M32 4v10M32 50v10M4 32h10M50 32h10" stroke="currentColor" strokeWidth="0.6" />
-      <path d="M32 14 L36 32 L32 28 L28 32 Z" fill="currentColor" />
-    </svg>
-  );
-}
-
 export function RoadmapPage() {
   const t = useTranslations("roadmap");
 
@@ -393,92 +346,81 @@ export function RoadmapPage() {
     <div className="min-h-screen bg-background">
       <main>
         <section
-          className="relative flex min-h-[92svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 text-ink-foreground sm:pb-16 lg:min-h-[96svh] lg:pb-20"
+          className="relative flex min-h-[62svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 text-ink-foreground sm:pb-12 lg:min-h-[68svh] lg:pb-16"
           style={{ paddingTop: "7rem" }}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_0%,rgba(90,122,96,0.28),transparent_62%)]" />
-          <div className="absolute inset-0 text-[#c8d4c4]">
-            <Topography />
-          </div>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(8,12,10,0.35),transparent_28%,rgba(8,12,10,0.55)_70%,rgba(8,12,10,0.92))]" />
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.09]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #f4f6f2 1px, transparent 1px), linear-gradient(to bottom, #f4f6f2 1px, transparent 1px)",
-              backgroundSize: "72px 72px",
-            }}
+          <Image
+            src={images.cta}
+            alt={t("heroImageAlt")}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[50%_40%]"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <div className="mb-8 flex items-start justify-between gap-6 sm:mb-12">
-              <p className="font-mono text-[11px] tracking-[0.22em] text-white/40">
-                {t("coords")}
-              </p>
-              <CompassMark />
-            </div>
-
             <Reveal>
               <Link
                 href="/"
-                className="mb-6 inline-flex items-center gap-2 text-[13px] font-medium text-white/50 transition-colors hover:text-white"
+                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
               >
                 <ArrowLeft className="size-3.5" />
                 {t("back")}
               </Link>
-              <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-white/45">
-                {t("eyebrow")}
-              </p>
-              <p className="mt-4 font-display text-[clamp(2.6rem,7vw,4.4rem)] font-semibold leading-[0.92] tracking-tight text-white">
+              <p className="font-display text-[clamp(2.4rem,6vw,3.75rem)] font-semibold leading-none tracking-tight text-white">
                 {t("brand")}
               </p>
-              <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.45rem,3.4vw,2.35rem)] font-semibold leading-[1.12] text-white/88">
+              <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+                {t("eyebrow")}
+              </p>
+              <h1 className="mt-3 max-w-3xl font-display text-balance-tight text-[clamp(1.75rem,4.5vw,3.25rem)] font-semibold leading-[1.08] text-white sm:mt-4">
                 {t("title")}
               </h1>
-              <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-white/62 sm:text-[17px]">
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
                 {t("lead")}
               </p>
-              <div className="mt-8 max-w-2xl border-l border-white/20 pl-5">
-                <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/40">
-                  {t("principleEyebrow")}
-                </p>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/78 sm:text-[16px]">
-                  {t("principle")}
-                </p>
-              </div>
+              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/80 sm:text-[16px]">
+                {t("principle")}
+              </p>
             </Reveal>
+          </div>
+        </section>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 sm:mt-12">
+        <section className="border-t border-border bg-background py-8 lg:py-10">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <p className="text-[11px] font-medium uppercase tracking-[0.26em] text-muted-foreground">
+              {t("principleEyebrow")}
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
               {ARC.map((key, index) => (
                 <div key={key} className="flex items-center gap-3">
                   {index > 0 ? (
                     <span
                       aria-hidden
-                      className="hidden h-px w-7 bg-white/20 sm:block"
+                      className="hidden h-px w-6 bg-border sm:block"
                     />
                   ) : null}
-                  <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-white/75">
+                  <span className="rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground/75">
                     {t(`arc.${key}`)}
                   </span>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="border-t border-border bg-background py-8 lg:py-10">
-          <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-3 px-6 lg:px-10">
-            <p className="mr-2 text-[11px] font-medium uppercase tracking-[0.26em] text-muted-foreground">
-              {t("legendLabel")}
-            </p>
-            {STATUSES.map((status) => (
-              <span
-                key={status}
-                className={`rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] ${STATUS_CLASS[status]}`}
-              >
-                {t(`status.${status}`)}
-              </span>
-            ))}
+            <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-border pt-6">
+              <p className="mr-2 text-[11px] font-medium uppercase tracking-[0.26em] text-muted-foreground">
+                {t("legendLabel")}
+              </p>
+              {STATUSES.map((status) => (
+                <span
+                  key={status}
+                  className={`rounded-full border px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] ${STATUS_CLASS[status]}`}
+                >
+                  {t(`status.${status}`)}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -703,10 +645,14 @@ export function RoadmapPage() {
         </section>
 
         <section className="relative overflow-hidden border-t border-border bg-ink py-20 text-ink-foreground lg:py-28">
-          <div className="absolute inset-0 text-[#c8d4c4] opacity-50">
-            <Topography />
-          </div>
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/70 to-ink" />
+          <Image
+            src={images.cta}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-[50%_55%] opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/78 to-ink/92" />
           <div className="relative z-10 mx-auto max-w-[1400px] px-6 text-center lg:px-10">
             <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-white/40">
               {t("destEyebrow")}
