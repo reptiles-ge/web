@@ -206,7 +206,12 @@ const LOOKALIKES: Record<string, string[]> = {
     "pelobates-syriacus",
     "hyla-orientalis",
   ],
-  "bufo-verrucosissimus": ["bufotes-viridis"],
+  "bufo-verrucosissimus": [
+    "bufotes-viridis",
+    "pelodytes-caucasicus",
+    "rana-macrocnemis",
+    "pelobates-syriacus",
+  ],
   "rana-macrocnemis": ["pelophylax-ridibundus"],
   "pelodytes-caucasicus": [
     "pelobates-syriacus",

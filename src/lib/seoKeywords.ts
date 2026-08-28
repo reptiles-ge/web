@@ -195,6 +195,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
 
+  "bufo-verrucosissimus": {
+    ka: [
+      "კოლხური გომბეშო",
+      "Bufo bufo verrucosissimus",
+      "Bufo bufo",
+    ],
+    en: [
+      "Colchic toad",
+      "Caucasus toad",
+      "Caucasian common toad",
+      "Bufo bufo verrucosissimus",
+      "common toad",
+    ],
+  },
   "bufotes-viridis": {
     ka: ["Bufo viridis", "Pseudepidalea viridis", "Bufotes sitibundus"],
     en: [

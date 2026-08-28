@@ -233,16 +233,27 @@ export const species: Species[] = [
     "scientificName": "Bufo verrucosissimus",
     "genus": "Bufo",
     "family": "Bufonidae",
-    "location": "ბორჯომი / ახალდაბა",
-    "description": "კავკასიური გომბეშო — ჩამონათვალში კანდიდატი სახეობაა B. bufo-სთან მიმართებით.",
-    "overview": "კავკასიური გომბეშო (Bufo verrucosissimus) Tarkhnishvili et al. 2026-ში კანდიდატი სახეობაა. Sinsch et al. (2008) მიიჩნევს, რომ ცალკე სახეობრივი სტატუსის მყარი მტკიცებულება არ არის; საქართველოს B. verrucosissimus-ისა და სლოვენიის ნომინალური B. bufo-ს Cyt b სხვაობა 2%-ზე ნაკლებია. ანატოლიაში მკვეთრი გეოგრაფიული საზღვარი არ ჩანს. ჩამონათვალი მაინც ცალკე სახეობად ასახელებს უმრავლესობის მიხედვით, მაგრამ სტატუსი ვალიდაციას საჭიროებს. ნომინალური ქვესახეობა B. v. verrucosissimus. ბარკოდი ახალდაბიდანაა. ნაშრომის ფიგურა ბორჯომი, ახალდაბაა.",
-    "habitat": "ბარკოდი და ფიგურა — ბორჯომი, ახალდაბა.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "ჩამონათვალში კანდიდატი სახეობაა B. bufo-სთან მიმართებით. ცალკე სახეობრივი რანგი ვალიდაციას საჭიროებს.",
+    "location": "ნოტიო ტყე",
+    "description": "უშხამო ტყის გომბეშო ყავისფერი, მეჭეჭებიანი კანით. საქართველოში ნოტიო ტყეშია დადასტურებული.",
+    "overview": "კავკასიური გომბეშო (Bufo verrucosissimus) ნოტიო ტყის უშხამო გომბეშოა და საქართველოში დადასტურებულია. გომბეშოსებრთა ოჯახისაა. კბენით შხამი არ აქვს და ადამიანისთვის საშიში არ არის. ბორჯომის ხეობის კვლევით მამრის სიგრძე ჩვეულებრივ დაახლოებით 7–8.5 სმ-ია, მდედრისა — 10–13 სმ; მდედრი, როგორც წესი, მამრზე დიდია. 2026 წლის ქართული ჩამონათვალი სახელს ინარჩუნებს, მაგრამ სახეობრივ რანგს კანდიდატად მიიჩნევს ჩვეულებრივ გომბეშოსთან (Bufo bufo) მიმართებით. IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ინგლისურად Caucasian toad ან Colchic toad.",
+    "habitat": "საქართველოში გვხვდება. მთელი ქვეყნის თანაბარი მკვიდრი არ არის და მშრალ აღმოსავლეთ ვაკეზე ნუ ივარაუდებთ. 1996 წლის ქართული მიმოხილვა 20 ლოკალიტეტს ასახელებს: აფხაზეთში — ახალი ათონი, სოხუმი, გაგრა, ბედია, გუდაუთა, წებელდა, ჯუფშარა და ლაშიფსე; დასავლეთსა და ცენტრში — კვალითი, ქუთაისი, ხარაგაული, ქვერეთი ჭიათურასთან, ახალდაბა, წაღვერი, ბანისხევი; აღმოსავლეთში — არაგვის ხეობა, ბურსას ხეობა (ყვარელი) და ლაგოდეხი; აჭარაში — ბათუმი, მტირალა და ჭარნალის ხეობა. თბილისის ჩანაწერი (ჯანაშვილი 1956) იმავე ნაშრომში შეცდომადაა მიჩნეული და ამ ატლასის რუკაზე აღარ არის. 2026 წლის ბარკოდი ახალდაბიდანაა; ნაშრომის ფიგურა — ბორჯომი, ახალდაბა. ამ გვერდის ფოტოები 2015 წლის 16 მაისს ბორჯომ-ხარაგაულის ეროვნულ პარკშია გადაღებული (ზაური ხაჩიძე). ჩამონათვალში გავრცელების ნდობა საშუალოა. არეალი ჰგავს კავკასიური ჯვრიანასას: სამხრეთ კავკასიონის ტყიანი კალთები, მესხეთი და თრიალეთის დასავლეთი მთისწინეთი. ეძებეთ ნოტიო, დაჩრდილულ ფართოფოთლოვან ან შერეულ ტყეში, ბუჩქნარში, ტყის პირასა და გაწმენდილ ადგილზე. ქვირითობს სუფთა, წყნარ ან ნელა მდინარე წყალში — ნაკადულში, წყაროში, გუბეში, გაჟონვის აუზში; დიდ მუდმივ წყალსატევზეც შეიძლება გადავიდეს. ბორჯომის შესწავლის ადგილი დაახლოებით 900–1200 მ-ია — ეს ერთი უბნის დიაპაზონია და არა სახეობის ზღვის დონის საზღვარი საქართველოში. სახეობის დონეზე IUCN 0–3000 მ-ს უთითებს.",
+    "diet": "ზრდასრული ხმელეთზე ნადირობს უხერხემლოებზე — ფოთლის ნაგვში, ქვისა და მორების ქვეშ, სადაც ნადავლი მეტია. ქართული კუჭის შიგთავსის კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის აღწერაა. ნუ მიიჩნევთ ბაღის მავნებლების „ბიოლოგიურ კონტროლად“.",
+    "behavior": "ძირითადად ხმელეთზე ცხოვრობს და სველ, დაჩრდილულ ადგილს ანიჭებს უპირატესობას. წყვილი ხშირად ხმელეთზე იკვრება; შემდეგ ყოველწლიურად ახალ ქვირითობის ადგილს ეძებს და ძველ წყალსატევზე იშვიათად ბრუნდება. თუ უბანში უფრო დიდი, მუდმივი წყალი გამოჩნდება, მამლები წყლის პირას ელოდებიან მდედრებს. ბორჯომის ხეობაში გამრავლების პიკი აპრილ–ივნისშია დაფიქსირებული. ტყის „ყავისფერი“ უკუდო ამფიბიების ჯგუფშია: მდედრი სეზონში ჩვეულებრივ ერთ ქვირითს ყრის, ღია ადგილების მწვანე გომბეშოსგან განსხვავებით. იმავე უბანში მამლები 2–9 წლისაა აღრიცხული, მდედრები — 3–10 წლისა; მდედრების უმეტესობა 5–7 წლისაა, მამლებისა — 3–5. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ.",
+    "conservation": "IUCN-ის 2023 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern); 2009 წელს Near Threatened იყო. საქართველოს 2014 წლის წითელ ნუსხაში არ არის — იქ ამფიბიებიდან შეტანილია კავკასიური სალამანდრა და სირიული მყვარი. IUCN ასახელებს დაცულ ტერიტორიებს საქართველოში; ამ გვერდის ფოტო ბორჯომ-ხარაგაულის ეროვნული პარკიდანაა. მთავარი დოკუმენტირებული წნეხია ტყის ჭრა, ძოვება, ქვირითობის წყლის დაბინძურება და გზაზე დაღუპვა გამრავლების მიგრაციისას. კავკასიაში დამატებით არის დასახელებული ინტროდუცირებული ენოტი; ეს საქართველოს ყველა პოპულაციაზე გაზომილი ზემოქმედება არ არის. CITES-ში არ შედის. 2026 წლის ჩამონათვალი სახეობად ასახელებს უმრავლესობის მიხედვით, მაგრამ სტატუსს კანდიდატად ტოვებს: Sinsch et al. (2008) ცალკე სახეობის მყარ მტკიცებულებას არ ხედავს; საქართველოს მასალასა და სლოვენიის ნომინალურ B. bufo-ს შორის Cyt b სხვაობა 2%-ზე ნაკლებია და ანატოლიაში მკვეთრი გეოგრაფიული საზღვარი არ ჩანს. ველში ცხოველი იგივენაირად ამოიცნობა. ნომინალური ქვესახეობა B. v. verrucosissimus. ველური ამფიბია არ დაიჭიროთ.",
+    "interaction": "ადამიანისთვის შხამიანი არ არის და სამედიცინო საფრთხეს არ წარმოადგენს. თვალის უკან ჯირკვლების სეკრეტი შეიძლება თვალს ან პირს გააღიზიანოს; ნუ აიყვანთ და შეხების შემდეგ ხელები დაიბანეთ. ძაღლს პირით აღება შეიძლება ავნოს.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/bufo-verrucosissimus.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/bufo-verrucosissimus-mobile.jpg",
+    "image": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg",
+    "imageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-16"
+    },
+    "mobileImage": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-2.jpg",
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-16"
+    },
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg",
@@ -281,15 +292,23 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ბორჯომი / ახალდაბა"
+        "value": "ნოტიო ტყე"
+      },
+      {
+        "label": "ზომა",
+        "value": "♂ ~7–8.5 სმ, ♀ ~10–13 სმ"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "ხმელეთი; ქვირითობა IV–VI"
       },
       {
         "label": "შხამი",
-        "value": "არა"
+        "value": "არა — უვნებელი"
       },
       {
-        "label": "სტატუსი",
-        "value": "კანდიდატი"
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
       },
       {
         "label": "ოჯახი",
@@ -298,30 +317,47 @@ export const species: Species[] = [
     ],
     "facts": [],
     "identification": {
-      "summary": "კავკასიური გომბეშო (Bufo) — არა მწვანე გომბეშო (Bufotes viridis). ჩამონათვალში კანდიდატია B. bufo-სთან.",
+      "summary": "მოკლე, მეჭეჭებიანი ტყის გომბეშოა ყავისფერი ან რუხი ზურგით, ჰორიზონტალური გუგით და თვალის უკან დიდი ჯირკვლებით. საქართველოში ყველაზე ხშირად მწვანე გომბეშოს ერევა.",
       "traits": [
-        "Bufo; ნომინალური ქვესახეობა B. v. verrucosissimus.",
-        "კანდიდატი სახეობა B. bufo-სთან მიმართებით.",
-        "ბარკოდი და ფიგურა: ახალდაბა / ბორჯომი.",
-        "არ არის Bufotes viridis."
+        "სხეული მსხვილია, უკანა ფეხები შედარებით მოკლე; ხტუნვის ნაცვლად ხშირად დაცოცავს. კანი ზურგზე დიდი მომრგვალო მეჭეჭებითაა, მუცელზე — წვრილით. ზურგი ნაცრისფერი, ღია ყავისფერი ან მოწითალო-ყავისფერია, ხშირად მუქი ლაქებით; მწვანე ლაქებიანი მოზაიკა არ აქვს. მუცელი ნაცრისფერი ან მოყვითალოა.",
+        "თვალის უკან დიდი ჯირკვლებია — პაროტოიდები. ისინი თავდაცვით სეკრეტს გამოყოფენ, რომელიც თვალს ან პირს შეიძლება გააღიზიანოს. გუგა ჰორიზონტალური ნაპრალია. ბორჯომის მასალაში მამრის სიგრძე ჩვეულებრივ დაახლოებით 7–8.5 სმ-ია, მდედრისა — 10–13 სმ.",
+        "მწვანე გომბეშოს (Bufotes viridis) ზურგზე არათანაბარი მწვანე ან ზეთისხილისფერი ლაქები აქვს და ღია ადგილებშია. კავკასიური გომბეშო უფრო ტყეშია. ბორჯომის ხეობაში ორივე გვხვდება, მაგრამ სხვადასხვა მიკროჰაბიტატში.",
+        "კავკასიური ჯვრიანა პატარა და წვრილია, ვერტიკალური გუგით და ზურგზე ირიბი ჯვრით. სირიულ მყვარს გუგა ვერტიკალური აქვს და უკანა ფეხზე — მყარი „ნიჩაბი“; Tarkhnishvili et al. 2026 მას აღმოსავლეთ საქართველოში ასახელებს. მცირეაზიური და ტბორის ბაყაყებს ჰორიზონტალური გუგა და გვერდითი კანის ნაოჭები აქვთ, კანი უფრო გლუვია. აღმოსავლური ვასაკა მწვანეა თითის დისკებით და ხეზე ადის.",
+        "შხამიანი არ არის. ნოტიო ტყეში, ნაკადულის ან ტყის გუბის პირას ყავისფერი მეჭეჭებიანი გომბეშო ჰორიზონტალური გუგით ამ სახეობას ემთხვევა უფრო, ვიდრე მწვანე გომბეშოს. ნუ აიყვანთ."
       ]
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა Bufo verrucosissimus საქართველოში?",
-        "answer": "დიახ. შედის ჩამონათვალში. ბარკოდი ახალდაბიდანაა; ფიგურა ბორჯომი, ახალდაბაა."
+        "question": "გვხვდება თუ არა კავკასიური გომბეშო საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში შედის. 1996 წლის მიმოხილვა 20 ქართულ ლოკალიტეტს ასახელებს. ბარკოდი ახალდაბიდანაა."
       },
       {
-        "question": "რატომ არის კანდიდატი სახეობა?",
-        "answer": "Tarkhnishvili et al. 2026: Sinsch et al. (2008) ცალკე სახეობის მყარ მტკიცებულებას არ ხედავს; Cyt b სხვაობა ნომინალურ B. bufo-სთან 2%-ზე ნაკლებია. ჩამონათვალი უმრავლესობას მიჰყვება, მაგრამ სტატუსი ვალიდაციას საჭიროებს."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "ნოტიო ტყეში — კოლხეთის დასავლეთში, ბორჯომ-ხარაგაულში, აჭარაში, არაგვის ხეობასა და კახეთის ტყიან აღმოსავლეთში (ლაგოდეხი, ყვარელი). მშრალ აღმოსავლეთ ვაკეზე ნუ ივარაუდებთ. თბილისის ძველი ჩანაწერი შეცდომადაა მიჩნეული."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "მოკლე, მეჭეჭებიანი გომბეშო ყავისფერი ან რუხი ზურგით, ჰორიზონტალური გუგით და თვალის უკან დიდი ჯირკვლებით. მწვანე ლაქებიანი მოზაიკა არ აქვს."
       },
       {
         "question": "რით განსხვავდება მწვანე გომბეშოსგან?",
-        "answer": "ეს არის Bufo verrucosissimus, არა Bufotes viridis. მწვანე გომბეშო ამ ჩამონათვალში დადასტურებულია და sitibundus არ არის გამოყოფილი."
+        "answer": "კავკასიური გომბეშო ყავისფერია და უფრო ტყეშია. მწვანე გომბეშოს ზურგზე მწვანე ლაქები აქვს და ღია ადგილებშია. ბორჯომში ორივეა, მაგრამ სხვადასხვა ადგილას."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "საიტის კლასიფიკაცია: Harmless. შხამი: არა."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. კბენით შხამი არ აქვს. თვალის უკან ჯირკვლების სეკრეტი შეიძლება თვალს ან პირს გააღიზიანოს; შეხების შემდეგ ხელები დაიბანეთ და არ აიყვანოთ."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "ბორჯომის კვლევით მამრი ჩვეულებრივ დაახლოებით 7–8.5 სმ-ია, მდედრი — 10–13 სმ. მდედრი, როგორც წესი, მამრზე დიდია."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "ძირითადად ხმელეთზე ცხოვრობს. ბორჯომის ხეობაში გამრავლების პიკი აპრილ–ივნისშია. ქვირითობის ადგილს ხშირად ყოველ წელს იცვლის."
+      },
+      {
+        "question": "ცალკე სახეობაა თუ ჩვეულებრივი გომბეშო?",
+        "answer": "ამ ატლასში Bufo verrucosissimus-ად არის მოცემული. 2026 წლის ჩამონათვალი სახეობრივ რანგს კანდიდატად ტოვებს Bufo bufo-სთან. ველში ამოცნობა არ იცვლება."
       }
     ],
     "updatedAt": "2026-08-27T11:00:20+04:00",
@@ -331,11 +367,35 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
+        "name": "Tarkhnishvili 1996 — The distribution and ecology of the amphibians of Georgia and the Caucasus",
+        "url": "http://eprints.iliauni.edu.ge/503/1/Amphibian%20biogeography%2096.pdf"
+      },
+      {
+        "name": "Tarkhnishvili 1994 — Breeding of Bufo verrucosissimus",
+        "url": "https://doi.org/10.1163/156853894x00290"
+      },
+      {
+        "name": "Tarkhnishvili 1993 — Anurans of Borjomi Canyon",
+        "url": "http://eprints.iliauni.edu.ge/781/"
+      },
+      {
+        "name": "Gokhelashvili & Tarkhnishvili 1994 — Age structure of six Georgian anuran populations",
+        "url": "http://eprints.iliauni.edu.ge/645/"
+      },
+      {
         "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
       },
       {
-        "name": "AmphibiaWeb",
-        "url": "https://amphibiaweb.org/cgi/amphib_query?where-genus=Bufo&where-species=verrucosissimus"
+        "name": "IUCN SSC Amphibian Specialist Group 2023 — Bufo verrucosissimus",
+        "url": "https://www.iucnredlist.org/species/39421/2926184"
+      },
+      {
+        "name": "Frost — Amphibian Species of the World (Bufo verrucosissimus)",
+        "url": "https://amphibiansoftheworld.amnh.org/Amphibia/Anura/Bufonidae/Bufo/Bufo-verrucosissimus"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -8833,15 +8893,6 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/panthera-pardus-museum-1.jpg",
-        "credit": {
-          "photographer": "Jonathan Cardy",
-          "url": "https://commons.wikimedia.org/wiki/File:Caucasus_Leopard_in_Georgian_National_Museum_01.JPG",
-          "location": "სიმონ ჯანაშიას სახელობის საქართველოს მუზეუმი, თბილისი",
-          "date": "2014-06-18"
-        }
-      },
-      {
         "src": "/images/panthera-pardus-museum-2.jpg",
         "credit": {
           "photographer": "Jonathan Cardy",
@@ -13668,25 +13719,34 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "bufo-verrucosissimus": {
     "commonName": "Caucasian Toad",
-    "location": "Borjomi / Akhaldaba",
-    "description": "Caucasian toad — a candidate species versus B. bufo in the checklist.",
-    "overview": "The Caucasian toad (Bufo verrucosissimus) is a candidate species in Tarkhnishvili et al. 2026. Sinsch et al. (2008) find no firm evidence of separate species status; Cyt b difference between Georgian B. verrucosissimus and nominal B. bufo from Slovenia is less than 2%. There is no sharp geographic border in Anatolia. The checklist still lists it as a separate species following the majority of authors, but the status requires validation. Nominotypical subspecies B. v. verrucosissimus. The barcode is from Akhaldaba. The checklist figure is Borjomi, Akhaldaba.",
-    "habitat": "Barcode and figure — Borjomi, Akhaldaba.",
-    "diet": "",
-    "behavior": "",
-    "conservation": "Candidate species versus B. bufo in the checklist. Separate species rank still needs validation.",
+    "location": "humid forest",
+    "description": "A harmless forest toad with warty brown skin. Confirmed in humid forest in Georgia.",
+    "overview": "The Caucasian toad (Bufo verrucosissimus) is a harmless forest toad confirmed in Georgia. It belongs to the true toad family (Bufonidae). It has no venomous bite and is not dangerous to people. In Borjomi Canyon, males are usually about 7–8.5 cm long and females about 10–13 cm; females are generally larger than males. The 2026 Georgian checklist keeps this name but treats species rank as a candidate relative to the common toad (Bufo bufo). IUCN assesses it as Least Concern. It is not on Georgia’s 2014 Red List. It is also called Colchic toad.",
+    "habitat": "It occurs in Georgia. It is not evenly distributed across the country; do not assume it on the dry eastern plains. A 1996 Georgian review lists 20 localities: in Abkhazia — New Athos, Sukhumi, Gagra, Bedia, Gudauta, Tsebelda, Jupshara and Lashipse; in the west and centre — Kvaliti, Kutaisi, Kharagauli, Kvereti near Chiatura, Akhaldaba, Tsagveri and Baniskhevi; in the east — the Aragvi valley, the Bursa valley (Kvareli) and Lagodekhi; in Adjara — Batumi, Mt Mtirala and the Charnali valley. The Tbilisi record (Djanashvili 1956) is treated as likely an error in that paper and is not marked on this atlas map. The 2026 barcode is from Akhaldaba; the checklist figure is Borjomi, Akhaldaba. Photos on this page were taken on 16 May 2015 in Borjomi-Kharagauli National Park (Zauri Khachidze). Distribution confidence in the checklist is medium. The range resembles that of the Caucasian parsley frog: wooded southern slopes of the Greater Caucasus, the Meskheti range and the western foothills of Trialeti. Look for it in damp, shaded broadleaf or mixed forest, scrub, forest edges and clearings. It breeds in clear still or slow water — brooks, springs, puddles and seepage pools; it may also use a larger, more permanent water body. The Borjomi study site lies at about 900–1200 m — a local study range, not a country-wide elevation limit. At species level IUCN cites 0–3000 m.",
+    "diet": "Adults hunt invertebrates on land, in leaf litter and under stones or logs where prey is abundant. There is no Georgian stomach-content study on this page; this is a species-level description. Do not treat it as biological control of garden pests.",
+    "behavior": "It lives mainly on land and prefers wet, shaded sites. Pairs often form on land; they then search for a new breeding site each year and show little fidelity to last year’s pool. If a larger, more permanent water body appears, males wait for females at the water. In Borjomi Canyon the peak of breeding has been recorded in April–June. It belongs to the forest “brown anuran” guild: females usually lay one clutch a year, unlike the open-country green toad. In the same canyon, recorded males were 2–9 years old and females 3–10; most females were 5–7 years, most males 3–5. If you find one, leave it where it is and do not pick it up. Wash your hands after any contact.",
+    "conservation": "IUCN’s 2023 assessment lists it as Least Concern; in 2009 it was Near Threatened. It is not on Georgia’s 2014 Red List — the amphibians listed there are the Caucasian salamander and the eastern spadefoot. IUCN notes protected areas in Georgia; the photos on this page are from Borjomi-Kharagauli National Park. Documented pressures are logging, grazing, pollution of breeding water and road deaths during breeding movements. In the Caucasus the introduced raccoon is also named as a threat; that is not a measured effect on every Georgian population. It is not listed on CITES. The 2026 checklist follows most authors in listing it as a species but leaves the rank a candidate: Sinsch et al. (2008) see no firm evidence of separate species status; Cyt b difference between Georgian material and nominal B. bufo from Slovenia is less than 2%, and there is no sharp geographic border in Anatolia. Field identification does not change. The nominotypical subspecies is B. v. verrucosissimus. Do not catch wild amphibians.",
+    "interaction": "It is not venomous and poses no medical risk to people. Secretions from the glands behind the eyes can irritate eyes or mouth; do not pick it up, and wash your hands after contact. A dog that mouths one may be harmed.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Borjomi / Akhaldaba"
+        "value": "humid forest"
+      },
+      {
+        "label": "Size",
+        "value": "♂ ~7–8.5 cm, ♀ ~10–13 cm"
+      },
+      {
+        "label": "Activity",
+        "value": "terrestrial; breeding IV–VI"
       },
       {
         "label": "Venom",
-        "value": "None"
+        "value": "None — harmless"
       },
       {
-        "label": "Status",
-        "value": "Candidate"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
       },
       {
         "label": "Family",
@@ -13695,30 +13755,47 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "facts": [],
     "identification": {
-      "summary": "Caucasian toad (Bufo) — not the green toad (Bufotes viridis). Candidate versus B. bufo in the checklist.",
+      "summary": "A short, warty forest toad with a brown or grey back, a horizontal pupil and large glands behind the eyes. In Georgia it is most often confused with the green toad.",
       "traits": [
-        "Bufo; nominotypical subspecies B. v. verrucosissimus.",
-        "Candidate species versus B. bufo.",
-        "Barcode and figure: Akhaldaba / Borjomi.",
-        "Not Bufotes viridis."
+        "The body is stocky, with relatively short hind legs; it often crawls rather than making long jumps. The back has large rounded warts, the belly finer ones. The back is grey, light brown or reddish-brown, often with dark spots; there is no green-spotted mosaic. The belly is grey or yellowish.",
+        "Large glands sit behind the eyes (parotoids). They produce a defensive secretion that can irritate eyes or mouth. The pupil is a horizontal slit. In the Borjomi sample males are usually about 7–8.5 cm long and females about 10–13 cm.",
+        "The green toad (Bufotes viridis) has irregular green or olive spots and lives in open country. The Caucasian toad is more a forest animal. Both occur in Borjomi Canyon, but in different microhabitats.",
+        "The Caucasian parsley frog is small and slender, with a vertical pupil and an oblique cross on the back. The eastern spadefoot has a vertical pupil and a hard digging “spade” on the hind foot; Tarkhnishvili et al. 2026 place it in eastern Georgia. The long-legged wood frog and marsh frog have horizontal pupils and dorsolateral folds, and smoother skin. The eastern tree frog is green, with toe pads, and climbs.",
+        "It is not venomous. In damp forest, by a brook or a forest pool, a brown warty toad with a horizontal pupil matches this species more than the green toad. Do not pick it up."
       ]
     },
     "faq": [
       {
-        "question": "Does Bufo verrucosissimus occur in Georgia?",
-        "answer": "Yes. It is on the checklist. The barcode is from Akhaldaba; the figure is Borjomi, Akhaldaba."
+        "question": "Does the Caucasian toad occur in Georgia?",
+        "answer": "Yes. It is on the 2026 checklist. A 1996 review lists 20 Georgian localities. The barcode is from Akhaldaba."
       },
       {
-        "question": "Why is it a candidate species?",
-        "answer": "Tarkhnishvili et al. 2026: Sinsch et al. (2008) see no firm evidence of separate species status; Cyt b difference from nominal B. bufo is less than 2%. The checklist follows the majority of authors, but the status still needs validation."
+        "question": "Where might I find it in Georgia?",
+        "answer": "In humid forest — western Colchis, Borjomi-Kharagauli, Adjara, the Aragvi valley and wooded eastern Kakheti (Lagodekhi, Kvareli). Do not assume it on the dry eastern plains. The old Tbilisi record is treated as an error."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "A short, warty toad with a brown or grey back, a horizontal pupil and large glands behind the eyes. It lacks a green-spotted mosaic."
       },
       {
         "question": "How does it differ from the green toad?",
-        "answer": "This is Bufo verrucosissimus, not Bufotes viridis. The green toad is confirmed in this checklist and sitibundus is not split."
+        "answer": "The Caucasian toad is brown and more a forest animal. The green toad has green spots and lives in open country. Both occur in Borjomi, but in different places."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Site classification: Harmless. Venom: none."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venomous bite. Secretions from the glands behind the eyes can irritate eyes or mouth; wash your hands after contact and do not pick it up."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "In the Borjomi study males are usually about 7–8.5 cm and females about 10–13 cm. Females are generally larger than males."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "It lives mainly on land. In Borjomi Canyon the peak of breeding is April–June. Breeding sites often change from year to year."
+      },
+      {
+        "question": "Is it a separate species from the common toad?",
+        "answer": "This atlas treats it as Bufo verrucosissimus. The 2026 checklist leaves species rank a candidate versus Bufo bufo. Field identification does not change."
       }
     ],
     "gallery": [
@@ -13755,7 +13832,17 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "src": "https://cdn.reptiles.ge/bufo-verrucosissimus-3.jpg"
       }
-    ]
+    ],
+    "imageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-16"
+    },
+    "mobileImageCredit": {
+      "photographer": "ზაური ხაჩიძე",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-16"
+    }
   },
   "bufotes-viridis": {
     "commonName": "Green Toad",
@@ -20099,15 +20186,6 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Marcel Burkhard",
           "url": "https://commons.wikimedia.org/wiki/File:Persischer_leopard2cele4.jpg"
-        }
-      },
-      {
-        "src": "/images/panthera-pardus-museum-1.jpg",
-        "credit": {
-          "photographer": "Jonathan Cardy",
-          "url": "https://commons.wikimedia.org/wiki/File:Caucasus_Leopard_in_Georgian_National_Museum_01.JPG",
-          "location": "Simon Janashia Museum of Georgia, Tbilisi",
-          "date": "2014-06-18"
         }
       },
       {
