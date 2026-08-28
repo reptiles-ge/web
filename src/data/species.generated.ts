@@ -255,8 +255,10 @@ export const species: Species[] = [
     },
     "audio": {
       "src": "/audio/accipiter-nisus.mp3",
-      "recordist": "Romuald Mikusek",
-      "url": "https://xeno-canto.org/381222"
+      "recordist": "David Darrell-Lambert",
+      "url": "https://xeno-canto.org/1164691",
+      "location": "Victoria Park, Greater London",
+      "date": "2026-08-08"
     },
     "faq": [
       {
@@ -292,7 +294,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის (იქ ქორცქვიტაა VU). ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:08:58+04:00",
+    "updatedAt": "2026-08-28T20:17:49+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -379,8 +381,8 @@ export const species: Species[] = [
         "url": "https://commons.wikimedia.org/wiki/File:Accipiter_nisus_1_(Martin_Mecnarowski).jpg"
       },
       {
-        "name": "xeno-canto XC381222 — Accipiter nisus (Romuald Mikusek, CC BY-NC-SA 4.0)",
-        "url": "https://xeno-canto.org/381222"
+        "name": "xeno-canto XC1164691 — Accipiter nisus (David Darrell-Lambert, CC BY-NC-SA 4.0)",
+        "url": "https://xeno-canto.org/1164691"
       }
     ]
   },
@@ -625,6 +627,13 @@ export const species: Species[] = [
         "ბექობის არწივი (Aquila heliaca) 2024 წლის ჩამონათვალში საქართველოში რეზიდენტი, მიგრანტი და მოზამთრეა; ზრდასრულს ღია თავი და თეთრი ლაქები აქვს მხრებზე, უფრო მეტად დაბლობისა და ღია ადგილის ფრინველია და არა მაღალი მთის კლდის ბუდობის ტიპიური სილუეტი. ველის არწივი (Aquila nipalensis) ჩამონათვალში ზაფხულის სტუმარი და მიგრანტია, არა YR-R. დიდი მყივანი არწივი (Clanga clanga) და მცირე მყივანი (Clanga pomarina) უფრო კომპაქტურები არიან, სხვა ფრთის ნახატით. თეთრკუდა არწივი (Haliaeetus albicilla) უფრო მასიურია, სოლისებრი კუდით; ზრდასრულს კუდი თეთრია. ჩვეულებრივი კაკაჩა (Buteo buteo) გაცილებით პატარაა. ორბი, სვავი და ბატკანძერი სხვა სილუეტისა და ფრენის წესისაა. ამ ატლასში ამ არწივების ცალკე გვერდები ჯერ არ არის.",
         "პირდაპირი საფრთხე ადამიანისთვის ჩვეულ ლაშქრობაზე არ არის. არ აიყვანოთ. მთაში დიდი მუქი არწივი ოქროსფერი კეფით, ხოლო ახალგაზრდაში თეთრი კუდის ძირით, უფრო ეს სახეობაა, ვიდრე კაკაჩა."
       ]
+    },
+    "audio": {
+      "src": "/audio/aquila-chrysaetos.mp3",
+      "recordist": "Lars Edenius",
+      "url": "https://xeno-canto.org/1045328",
+      "location": "Vindeln, Västerbottens län",
+      "date": "2022-10-04"
     },
     "faq": [
       {
@@ -1236,7 +1245,7 @@ export const species: Species[] = [
         "answer": "უვნებელია, თუ არ აიყვანთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:11:09+04:00",
+    "updatedAt": "2026-08-28T20:17:49+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -8980,7 +8989,7 @@ export const species: Species[] = [
         "answer": "გლობალურად გადაშენების საფრთხესთან ახლოსაა. საქართველოში მოწყვლადია წითელ ნუსხაში. CITES-ის I დანართშია. ნადირობა აკრძალულია."
       }
     ],
-    "updatedAt": "2026-08-28T20:05:08+04:00",
+    "updatedAt": "2026-08-28T20:17:49+04:00",
     "sources": [
       {
         "name": "Loy et al. 2022 — IUCN Red List, Lutra lutra",
@@ -13387,9 +13396,10 @@ export const species: Species[] = [
     },
     "audio": {
       "src": "/audio/strix-aluco.mp3",
-      "recordist": "Vianney Bajart",
-      "url": "https://commons.wikimedia.org/wiki/File:Strix_aluco_male.oga",
-      "date": "2018-04-21"
+      "recordist": "Thierry THOMAS",
+      "url": "https://xeno-canto.org/1174406",
+      "location": "სენტ-ოდილი, ერო",
+      "date": "2026-08-28"
     },
     "faq": [
       {
@@ -13425,7 +13435,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. ბუდესთან შეიძლება თავდაცვითი შეტევა; არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:04:38+04:00",
+    "updatedAt": "2026-08-28T20:17:49+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -13488,8 +13498,8 @@ export const species: Species[] = [
         "url": "https://commons.wikimedia.org/wiki/File:%C5%A0umska_sova_(Strix_aluco),_mladunci;_Tawny_Owl_chicks.jpg"
       },
       {
-        "name": "Wikimedia Commons — male hoot (Vianney Bajart, CC BY-SA 4.0)",
-        "url": "https://commons.wikimedia.org/wiki/File:Strix_aluco_male.oga"
+        "name": "xeno-canto XC1174406 — Strix aluco (Thierry THOMAS, CC BY-NC-SA 4.0)",
+        "url": "https://xeno-canto.org/1174406"
       }
     ]
   },
