@@ -22,7 +22,6 @@ export function CoverImage({
       {pictureSources(src, { sizes }).map((source) => (
         <source key={source.key} {...source.props} />
       ))}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
