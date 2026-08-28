@@ -292,7 +292,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის (იქ ქორცქვიტაა VU). ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:04:38+04:00",
+    "updatedAt": "2026-08-28T20:08:58+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -1076,6 +1076,255 @@ export const species: Species[] = [
       {
         "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
         "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      }
+    ]
+  },
+  {
+    "id": "buteo-buteo",
+    "commonName": "ჩვეულებრივი კაკაჩა",
+    "scientificName": "Buteo buteo",
+    "genus": "Buteo",
+    "family": "Accipitridae",
+    "location": "მთელი წლის რეზიდენტი, მიგრანტი და მოზამთრე საქართველოში",
+    "description": "საშუალო ზომის ფართოფრთიანი მტაცებელი ფრინველი, არა არწივი. საქართველოში 2024 წლის ეროვნულ ჩამონათვალში დადასტურებულია როგორც მთელი წლის რეზიდენტი, მიგრანტი და მოზამთრე. ბათუმის შემოდგომის დერეფანში მასობრივად გადის ვულპინუსის (სტეპის) ფორმა.",
+    "overview": "ჩვეულებრივი კაკაჩა (Buteo buteo) საშუალო ზომის მტაცებელია ოჯახიდან Accipitridae. ქართულ ორნითოლოგიურ სიებში სახელია ჩვეულებრივი კაკაჩა; ხალხურად ხშირად „ჩვეულებრივ არწივს“ ეძახიან, მაგრამ არწივი სხვა გვარია (Aquila და მომიჯნავეები). 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს YR-R; M; WV-ად: მობუდარი რეზიდენტი, გავლით მიგრანტი და მოზამთრე. სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A). არსებობის ხარისხი მაღალია (H); მტკიცებულებაა ფოტო. სახეობის დონეზე სიგრძე დაახლოებით 40–58 სმ-ია, ფრთების შლილი დაახლოებით 109–140 სმ. პირდაპირი საფრთხე ადამიანისთვის არ არის. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. 2024 წლის ჩამონათვალი იგივე კატეგორიას ეროვნულადაც უთითებს.",
+    "habitat": "ეს გვერდი მუნიციპალიტეტების რუკას არ აფერადებს. 2024 წლის ჩამონათვალი ქვეყნის დონეზე რეზიდენტობას, მიგრაციას და ზამთარში ყოფნას ადასტურებს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. მთელ ქვეყანაში, მათ შორის უხეო მაღალ პლატოზე ან მხოლოდ დახურულ ტყეში, თანაბრად ნუ ივარაუდებთ. დასახელებული აღწერები: ბათუმის მტაცებელთა აღრიცხვა (BRC) 2008 წლიდან შემოდგომაზე ითვლის გადაფრენას ადგილებში სახალვაშო და შუამთა, ბათუმის ჩრდილოეთით, აჭარაში, შავი ზღვის სანაპიროსა და მცირე კავკასიონს შორის. ამ დერეფანში სახეობის დიდი ნაწილი ქვესახეობა B. b. vulpinus-ია (სტეპის კაკაჩა); Verhelst და სხვ. (2011) 2008–2009 წლების აღრიცხვაში მას მიაკუთვნეს შემოდგომის მტაცებელთა დაახლოებით 26%. Zaitseva და სხვ. (2023) 13 წლის საშუალოდ დაახლოებით 304 819 სტეპის კაკაჩას უთითებენ სეზონზე. Hoekstra და სხვ. (2020) პიკს გვიან სექტემბერ–ოქტომბრის დასაწყისში ათავსებენ; 2014 წლის 2 ოქტომბერს დღიური რეკორდი ძირითადად ამ ფორმისგან შედგებოდა. ეს გავლითი აღრიცხვაა და არა მობუდარი პოპულაციის რუკა. სახეობის დონეზე ჰაბიტატი ნახევრად ღიაა: ტყის პირი, ფერდობი ხეებით, სასოფლო ადგილი, მდელო და მთისწინეთი, სადაც თაგვებზე სანადიროდ ადგილია. საქართველოსთვის ცალკე სიმაღლის სარტყელი აქ არ არის გამოქვეყნებული. ამ გვერდზე დასახელებული ფოტოები საქართველოში არ არის გადაღებული.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ოპორტუნისტია: ძირითადად წვრილი ძუძუმწოვრები (თაგვისნაირნი), ასევე ფრინველები, ქვეწარმავლები, ამფიბიები, მსხვილი მწერები და მიწის ჭიები; ზოგჯერ ლეში. ზამთარში ხშირად მიწაზე ან ბოძზე ზის და ნადირს ელოდება. ველში ტიპიური სურათია ფართო ფრთებით აფრენა ღია ფერდობზე ან გზის პირას ჯდომა.",
+    "behavior": "დღის აქტიურია. ხშირად ჯერ ისმის, მერე ჩანს: ტერიტორიული ხმა მკვეთრი, კატისებრი „პიი-აუ“-ს მსგავსია. აფრენისას ფრთებს ხშირად ოდნავ V-სავით იჭერს; გლაიდზე უფრო სწორია. ნადირობს მოთმინებით: ზის, აფრენს, ზოგჯერ ადგილზე ტრიალებს. ბუდეს ხეზე ან კლდეზე აშენებს ტოტებისგან. სახეობის დონეზე ნაყარი ხშირად ორიდან ოთხამდე კვერცხია; ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარ რეზიდენტადაც იღებს. შემოდგომაზე ბათუმის დერეფანში მასობრივი გავლა vulpinus-ისაა; ზამთარში ქვეყანაში ყოფნა ჩამონათვალში WV-ით არის დადასტურებული, მაგრამ ზამთრის რაოდენობა აქ არ არის ცალკე გაზომილი.",
+    "conservation": "BirdLife International Buteo buteo-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. EUNIS ევროპისთვის Least Concern-ს უთითებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) ეს სახეობა არ არის; იქ შეტანილია ველის კაკაჩა (Buteo rufinus rufinus) VU-ით. საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ბათუმის შემოდგომის აღრიცხვა გავლითი ნაკადის მაჩვენებელია და არა ეროვნული მობუდარი მონიტორინგის სერია. Sándor და სხვ. და BRC-ის ლიტერატურა აღნიშნავენ მტაცებელთა სროლას ბათუმის დერეფანში; ეს დოკუმენტირებული წნეხია და არა ამ გვერდზე ცალკე გაზომილი კაკაჩის დანაკლისი. ველური ფრინველი არ დაიჭიროთ. EUNIS უთითებს ევროკავშირის ფრინველების დირექტივას; ეს საქართველოს კანონი არ არის.",
+    "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს, თუ არ აიყვანთ. ბრჭყალები ძლიერია; დაჭერა არ შეიძლება.",
+    "danger": "Harmless",
+    "image": "/images/buteo-buteo-sevan-1.jpg",
+    "imageCredit": {
+      "photographer": "Wowan1978",
+      "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
+      "location": "სევანი, სომხეთი",
+      "date": "2024-08-17"
+    },
+    "mobileImage": "/images/buteo-buteo-sharp-vulpinus.jpg",
+    "mobileImageCredit": {
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
+      "location": "ეტოშა, ნამიბია",
+      "date": "2018-03-06"
+    },
+    "gallery": [
+      {
+        "src": "/images/buteo-buteo-sevan-1.jpg",
+        "credit": {
+          "photographer": "Wowan1978",
+          "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
+          "location": "სევანი, სომხეთი",
+          "date": "2024-08-17"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-sharp-vulpinus.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
+          "location": "ეტოშა, ნამიბია",
+          "date": "2018-03-06"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-serbia-1.jpg",
+        "credit": {
+          "photographer": "VezeIvan",
+          "url": "https://commons.wikimedia.org/wiki/File:Common_Buzzard_Buteo_buteo.jpg",
+          "location": "ბესნი ფოკი, ბელგრადი",
+          "date": "2024-01-02"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-yerpo-juv.jpg",
+        "credit": {
+          "photographer": "Yerpo",
+          "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_juv_Log_(2).jpg",
+          "location": "ლოგი, სლოვენია",
+          "date": "2025-02-07"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-lukasik-1.jpg",
+        "credit": {
+          "photographer": "Lukasz Lukasik",
+          "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg",
+          "date": "2006-05-27"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "კვება",
+        "value": "მღრღნელები"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "რეზიდენტი, მიგრანტი, მოზამთრე"
+      },
+      {
+        "label": "ზომა",
+        "value": "40–58 სმ"
+      },
+      {
+        "label": "ჰაბიტატი",
+        "value": "ტყის პირი და ღია ადგილი"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Accipitridae"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს სახელით Falco buteo. 2024 წლის ქართული ჩამონათვალი სახელებისთვის OSME Region List-ს მიჰყვება: რიგი Accipitriformes, ოჯახი Accipitridae, გვარი Buteo. IOC World Bird List Buteo buteo-ს იღებს; იაპონური და ჰიმალაური ფორმები დღეს ხშირად ცალკე სახეობებადაა, ქართულ ჩამონათვალში არ არის.",
+      "საქართველოსთვის პრაქტიკულად მნიშვნელოვანია ორი ფორმა: B. b. vulpinus (სტეპის კაკაჩა; შორი მიგრანტი, ბათუმის შემოდგომის მასა) და B. b. menetriesi (კავკასიური; სახელმძღვანელოებში ხშირად რეზიდენტი, ყირიმიდან ჩრდილოეთ ირანამდე). NPLG და ქართული ლექსიკონები სახეობას ჩვეულებრივ კაკაჩას უწოდებენ. ველში ქვესახეობამდე განსხვავება გამოცდილებას მოითხოვს და ამ გვერდზე არ არის სავალდებულო.",
+      "ქართულად ჩვეულებრივი კაკაჩა; ასევე კაკაჩა. ინგლისურად 2024 წლის ჩამონათვალი იძლევა Common Buzzard-ს; BirdLife — Eurasian Buzzard. „ჩვეულებრივი არწივი“ ძიებისას ხშირია, მაგრამ არწივი არ არის.",
+      "2024 წლის ჩამონათვალის კოდებია YR-R; M; WV, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო). ეს ქვეყნის დონის დადასტურებაა ბათუმის დასახელებულ აღრიცხვებთან ერთად და არა სრული რეგიონული რუკა."
+    ],
+    "identification": {
+      "summary": "საშუალო ზომის ფართოფრთიანი მტაცებელია მოკლე კუდით და ცვალებადი ყავისფერი შეფერილობით. საქართველოში 2024 წლის ჩამონათვალით რეზიდენტია, მიგრანტი და მოზამთრე. არწივი არ არის. ჩვეულებრივი აბნევაა კვერნაჭამია, ველის კაკაჩა და ფეხბანჯგვლიანი კაკაჩა.",
+      "traits": [
+        "სიგრძე სახეობის დონეზე დაახლოებით 40–58 სმ-ია, ფრთების შლილი დაახლოებით 109–140 სმ. NPLG უთითებს ფრთას 340–435 მმ, კუდს 175–245 მმ და მასას 800–1200 გ; დედალი, როგორც წესი, მამალზე დიდია. თავი მომრგვალებულია, ნისკარტი შედარებით მოკლე, ფრთები ფართო, კუდი საშუალო-მოკლე. ქვედა ფრთაზე ხშირად ჩანს მუქი „მძიმე“ (კარპალური ლაქა). შეფერილობა ძალიან ცვალებადია: თითქმის მუქი ყავისფერიდან ღია ქარცამდე. სქესები ველში ფერით თითქმის არ განირჩევა.",
+        "სტეპის ფორმა (B. b. vulpinus) სახელმძღვანელოებში უფრო პატარა და მოქნილია, ხშირად უფრო მოწითალო; ბათუმის შემოდგომის მასა ამ ფორმას მიეკუთვნება. კავკასიური menetriesi ტრადიციულად უფრო დიდი და უფრო ბაცი-ქვიშისფერია ქვედა მხარეზე, კუდზე ნაკლები წითლით; სახელმძღვანელოებში ხშირად რეზიდენტად იწერება. ველში ამოცნობა სახეობამდეა. ახალგაზრდა უფრო ზოლიანი და ქერცლოვანია ქვედა მხარეზე.",
+        "კვერნაჭამია (Pernis apivorus) საქართველოში ცალკე სახეობაა და ბათუმშიც მასობრივად გადის: უფრო გრძელი კუდი, მტრედისებრი თავი, ფრთები უფრო ბრტყელია აფრენისას, კარპალური ლაქა სუსტია. ველის კაკაჩა (Buteo rufinus) 2024 წლის ჩამონათვალშიც რეზიდენტი, მიგრანტი და მოზამთრეა; ხშირად უფრო ღია და მოწითალოა, უფრო გრძელი ფეხებით, კუდი უფრო ღიაა მუქი ბოლო ზოლით. ფეხბანჯგვლიანი კაკაჩა (Buteo lagopus) ჩამონათვალში M; WV-ია: თეთრი კუდი მუქი ბოლო ზოლით და ბუმბულიანი ფეხები; ხშირად ადგილზე ტრიალებს. მთის არწივი (Aquila chrysaetos) უფრო დიდია, თავი უფრო გამოწეული; ამ ატლასში იმ სახეობის გვერდი არის. ქორისებრი მიმინო (Accipiter nisus) გაცილებით პატარაა, მოკლე ფართო ფრთებით და გრძელი კუდით; ამ ატლასში იმ სახეობის გვერდიც არის. კვერნაჭამიას, ველის კაკაჩასა და ფეხბანჯგვლიანი კაკაჩის ცალკე გვერდები ჯერ არ არის.",
+        "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში გზის პირას ან ტყის პირზე აფრენილი საშუალო ყავისფერი მტაცებელი უფრო კაკაჩაა, ვიდრე არწივი."
+      ]
+    },
+    "audio": {
+      "src": "/audio/buteo-buteo.mp3",
+      "recordist": "Tanguy Loïs",
+      "url": "https://xeno-canto.org/728944",
+      "location": "Hermeray, Yvelines",
+      "date": "2020-01-16"
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა ჩვეულებრივი კაკაჩა საქართველოში?",
+        "answer": "კი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას იღებს როგორც მთელი წლის რეზიდენტს, მიგრანტს და მოზამთრეს (YR-R; M; WV), ფოტოთი."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ტყის პირზე, ფერდობზე და სასოფლო ადგილას მთელი წლის განმავლობაში, სადაც რეზიდენტია. შემოდგომაზე ყველაზე კონცენტრირებული გავლა დასახელებულია ბათუმის დერეფანში, სახალვაშოსა და შუამთას სათვალთვალო წერტილებიდან. ეს გვერდი ყველა რეგიონს არ რუკავს."
+      },
+      {
+        "question": "არწივია თუ არა? რატომ ეძახიან ჩვეულებრივ არწივს?",
+        "answer": "არა. ეს კაკაჩაა (Buteo), არა არწივი (Aquila და სხვა). ხალხური სახელი „ჩვეულებრივი არწივი“ აფრენის სილუეტის გამო იბნევა; ოფიციალური ქართული სახელია ჩვეულებრივი კაკაჩა."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "საშუალო ზომა, ფართო ფრთები, შედარებით მოკლე კუდი, ქვედა ფრთაზე ხშირად მუქი კარპალური ლაქა, ცვალებადი ყავისფერი შეფერილობა, კატისებრი ხმა. კვერნაჭამიას უფრო გრძელი კუდი და პატარა თავი აქვს. არწივი უფრო დიდია."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე სიგრძე დაახლოებით 40–58 სმ-ია, ფრთების შლილი დაახლოებით 109–140 სმ. NPLG მასას 800–1200 გ-ს უთითებს. სტეპის ფორმა უფრო პატარაა. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად წვრილ ძუძუმწოვრებს, ასევე სხვა ხერხემლიანებს და უხერხემლოებს. საქართველოში კვება ცალკე არ არის შესწავლილი ამ გვერდზე."
+      },
+      {
+        "question": "როდის არის საქართველოში?",
+        "answer": "მთელი წელი, 2024 წლის ჩამონათვალის მიხედვით. შემოდგომაზე ბათუმთან მასობრივი გავლა გვიან სექტემბერ–ოქტომბრის დასაწყისშია დოკუმენტირებული. ზუსტი ჩამოსვლის და გამგზავრების ცხრილი მთელი ქვეყნისთვის აქ არ არის."
+      },
+      {
+        "question": "საშიშია ან დაცულია?",
+        "answer": "უვნებელია, თუ არ აიყვანთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
+      }
+    ],
+    "updatedAt": "2026-08-28T20:09:54+04:00",
+    "sources": [
+      {
+        "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
+        "url": "https://www.sabuko.org/wp-content/uploads/2024/12/Sandgrouse-461ThebirdsofGeorgia-anupdatedchecklistusingcitizenscienceplatforms.pdf"
+      },
+      {
+        "name": "SABUKO — Bird checklist",
+        "url": "http://sabuko.ge/bird-checklist/"
+      },
+      {
+        "name": "BirdLife DataZone — Eurasian Buzzard",
+        "url": "https://datazone.birdlife.org/species/factsheet/eurasian-buzzard-buteo-buteo"
+      },
+      {
+        "name": "EUNIS — Buteo buteo",
+        "url": "https://eunis.eea.europa.eu/species/926"
+      },
+      {
+        "name": "IOC World Bird List",
+        "url": "https://www.worldbirdnames.org/"
+      },
+      {
+        "name": "Avibase — Georgia bird checklist",
+        "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "NPLG Wiki Dictionaries — ჩვეულებრივი კაკაჩა",
+        "url": "https://www.nplg.gov.ge/wikidict/index.php/%E1%83%A9%E1%83%95%E1%83%94%E1%83%A3%E1%83%9A%E1%83%94%E1%83%91%E1%83%A0%E1%83%98%E1%83%95%E1%83%98_%E1%83%99%E1%83%90%E1%83%99%E1%83%90%E1%83%A9%E1%83%90"
+      },
+      {
+        "name": "Wehrmann et al. 2019 — Batumi Raptor Count dataset (ZooKeys 836)",
+        "url": "https://doi.org/10.3897/zookeys.836.29252"
+      },
+      {
+        "name": "Verhelst, Jansen & Vansteelant 2011 — Autumn raptor bottleneck in south-west Georgia (Ardea)",
+        "url": "https://doi.org/10.5253/078.099.0203"
+      },
+      {
+        "name": "Hoekstra et al. 2020 — Batumi Raptor Count (British Birds)",
+        "url": "https://digital.csic.es/bitstream/10261/230301/1/Hoekstra%20et%20al%202020%20-%20Brit%20Birds.pdf"
+      },
+      {
+        "name": "Sándor et al. — Raptor shooting in the Batumi bottleneck (OSME)",
+        "url": "https://osme.org/wp-content/uploads/2023/07/Understanding-hunters-habits-and-motivations-for-shooting-raptors-in-the-Batumi-raptor-migration-bottleneck-southwest-Georgia.pdf"
+      },
+      {
+        "name": "Zaitseva et al. 2023 — Thirteen years of counting migration in Batumi",
+        "url": "https://doi.org/10.19074/1814-8654-2023-2-197-201"
+      },
+      {
+        "name": "Orta, Boesman, Marks & Garcia 2022 — Birds of the World (Buteo buteo)",
+        "url": "https://birdsoftheworld.org/bow/species/combuz1/cur/introduction"
+      },
+      {
+        "name": "RSPB — Buzzard",
+        "url": "https://www.rspb.org.uk/birds-and-wildlife/buzzard"
+      },
+      {
+        "name": "BTO BirdFacts — Buzzard",
+        "url": "https://www.bto.org/learn/about-birds/birdfacts/buzzard"
+      },
+      {
+        "name": "Wikimedia Commons — Steppe buzzard (Charles J. Sharp, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Buzzard on a rock by Sevan (Wowan1978, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Common Buzzard, Serbia (VezeIvan, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Common_Buzzard_Buteo_buteo.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — juvenile, Log (Yerpo, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_juv_Log_(2).jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Buteo buteo (Lukasz Lukasik, CC BY-SA 3.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg"
+      },
+      {
+        "name": "xeno-canto XC728944 — Buteo buteo (Tanguy Loïs, CC BY-NC-SA 4.0)",
+        "url": "https://xeno-canto.org/728944"
       }
     ]
   },
@@ -8962,7 +9211,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის CR სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T20:04:38+04:00",
+    "updatedAt": "2026-08-28T20:08:58+04:00",
     "sources": [
       {
         "name": "Breitenmoser et al. 2015 — IUCN Red List, Lynx lynx (errata 2017)",
@@ -16928,6 +17177,150 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "mobileImageCredit": {
       "photographer": "Ioane Rostiashvili",
       "date": "2022-09-20"
+    }
+  },
+  "buteo-buteo": {
+    "commonName": "Common buzzard",
+    "location": "Year-round resident, migrant and winter visitor in Georgia",
+    "description": "A medium-sized, broad-winged bird of prey, not an eagle. Confirmed in Georgia on the 2024 national bird checklist as a year-round resident, a passage migrant, and a winter visitor. The steppe form dominates the autumn passage at Batumi.",
+    "overview": "The common buzzard (Buteo buteo) is a medium-sized raptor in the family Accipitridae. Georgian ornithological lists use ჩვეულებრივი კაკაჩა. The folk name ჩვეულებრივი არწივი (“common eagle”) is a mix-up: eagles belong to Aquila and related genera. The 2024 annotated checklist of the birds of Georgia codes it YR-R; M; WV: a breeding resident, a bird of passage, and a winter visitor. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs. Adults are about 40–58 cm long at species level, with a wingspan of about 109–140 cm. It is not a threat to people. IUCN lists the species as Least Concern. The 2024 checklist assigns the same category nationally.",
+    "habitat": "This page does not colour a municipality-by-municipality map. The 2024 checklist confirms country-level resident, migrant, and winter-visitor status but does not publish a regional gazetteer. Do not assume it occurs evenly across Georgia, including treeless high plateaus or only closed forest. Named records: the Batumi Raptor Count has monitored autumn passage since 2008 from watchpoints at Sakhalvasho and Shuamta, north of Batumi in Adjara, between the Black Sea and the Lesser Caucasus. Most birds in that bottleneck are the subspecies B. b. vulpinus (steppe buzzard). Verhelst et al. (2011) attributed about 26% of autumn raptors in the 2008–2009 counts to that form. Zaitseva et al. (2023) give a 13-year average of about 304,819 steppe buzzards per autumn. Hoekstra et al. (2020) place the peak in late September to early October; the record day of 2 October 2014 was mainly this form. Those figures describe passage, not a breeding-distribution map. Species-level habitat is semi-open country: woodland edge, slopes with trees, farmland, grassland, and foothills with hunting ground for small mammals. A separate national elevation band for Georgia is not published here. Photographs on this page were not taken in Georgia.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range it is an opportunist: mainly small mammals (voles and mice), also birds, reptiles, amphibians, large insects, and earthworms; carrion is taken. In winter it is often seen on the ground or on a post, waiting. In the field, a broad-winged raptor soaring over a slope or perched by a road is behaving typically.",
+    "behavior": "It is active by day. It is often heard before it is seen: the territorial call is a sharp, cat-like “pee-ow”. In soaring flight the wings are often held in a shallow V; in a glide they are flatter. It hunts by sitting, soaring, and sometimes hovering. The nest is a stick structure in a tree or on a cliff. Species-level clutches are often two to four eggs; those figures are from the wider range, not a Georgian nest sample on this page. The 2024 checklist treats the species as a breeding resident in Georgia. The mass autumn movement at Batumi is vulpinus. Winter presence is coded WV on the checklist; a separate winter count for Georgia is not given here.",
+    "conservation": "BirdLife International assesses Buteo buteo as Least Concern on the IUCN Red List. EUNIS reports Least Concern in Europe. The 2024 Georgian bird checklist assigns global and national Red List category LC. The species is not on Georgia’s 2014 Red List (Government Resolution No. 190); long-legged buzzard (Buteo rufinus rufinus) is listed there as VU. A Georgia-specific population trend is not quantified on this page. The Batumi autumn counts measure passage and are not a national breeding-monitoring series. Sándor et al. and the BRC literature document raptor shooting in the Batumi bottleneck; that is a recorded pressure, not a measured buzzard loss on this page. Do not catch or keep wild birds. EUNIS notes the EU Birds Directive; that instrument does not apply in Georgia.",
+    "interaction": "It is not a threat to people if left alone. The talons are strong; wild birds must not be captured.",
+    "stats": [
+      {
+        "label": "Diet",
+        "value": "Small mammals"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Resident, migrant, winter visitor"
+      },
+      {
+        "label": "Size",
+        "value": "40–58 cm"
+      },
+      {
+        "label": "Habitat",
+        "value": "Woodland edge and open country"
+      },
+      {
+        "label": "Family",
+        "value": "Accipitridae"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "Described by Linnaeus in 1758 as Falco buteo. The 2024 Georgian checklist follows the OSME Region List for names: order Accipitriformes, family Accipitridae, genus Buteo. IOC World Bird List treats Buteo buteo as this species; Japanese and Himalayan forms are often split and are not on the Georgian list.",
+      "Two forms matter in Georgia: B. b. vulpinus (steppe buzzard; long-distance migrant, the Batumi autumn mass) and B. b. menetriesi (Caucasian; often treated as resident from Crimea to northern Iran). NPLG and Georgian dictionaries use ჩვეულებრივი კაკაჩა. Subspecies identification in the field needs experience and is not required on this page.",
+      "Georgian is ჩვეულებრივი კაკაჩა, also კაკაჩა. English names include Common Buzzard (2024 checklist) and Eurasian Buzzard (BirdLife). The folk name ჩვეულებრივი არწივი appears in searches; this page is the buzzard, not an eagle.",
+      "2024 checklist codes: YR-R; M; WV, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph). That is country-level confirmation plus the named Batumi counts, not a complete regional map."
+    ],
+    "identification": {
+      "summary": "A medium-sized, broad-winged raptor with a fairly short tail and highly variable brown plumage. In Georgia it is a resident, migrant, and winter visitor on the 2024 checklist. It is not an eagle. Usual confusion is with European honey-buzzard, long-legged buzzard, and rough-legged buzzard.",
+      "traits": [
+        "Length about 40–58 cm at species level, wingspan about 109–140 cm. NPLG gives wing 340–435 mm, tail 175–245 mm, and mass 800–1200 g; females are generally larger than males. The head is rounded, the bill relatively short, the wings broad, the tail medium-short. The underwing often shows a dark carpal “comma”. Plumage ranges from almost dark chocolate to pale sandy. Sexes are alike in the field.",
+        "The steppe form (B. b. vulpinus) is treated in handbooks as smaller and more agile, often more rufous; the Batumi autumn mass is assigned to this form. Caucasian B. b. menetriesi is traditionally larger and duller sandy below, with less rufous on the tail, and is often listed as resident. Field identification on this page is to species. Juveniles are more barred and scaly below.",
+        "European honey-buzzard (Pernis apivorus) is a separate species and also passes Batumi in large numbers: longer tail, pigeon-like head, flatter wings when soaring, weaker carpal patch. Long-legged buzzard (Buteo rufinus) is also YR-R; M; WV on the 2024 checklist: often paler and more rufous, longer legs, paler tail with a dark terminal band. Rough-legged buzzard (Buteo lagopus) is M; WV: white tail with a dark band and feathered tarsi; it often hovers. Golden eagle (Aquila chrysaetos) is larger, with a more protruding head; this atlas has a page for that species. Eurasian sparrowhawk (Accipiter nisus) is much smaller, with short broad wings and a long tail; this atlas has a page for that species too. This atlas does not yet have separate pages for honey-buzzard, long-legged buzzard, or rough-legged buzzard.",
+        "It is not a threat to people. Leave it alone. A medium brown raptor soaring over a Georgian slope or perched by a road is more likely this species than an eagle."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is the common buzzard found in Georgia?",
+        "answer": "Yes. The 2024 annotated checklist of the birds of Georgia lists it as a year-round resident, migrant, and winter visitor (YR-R; M; WV), with photographs."
+      },
+      {
+        "question": "Where can I see it in Georgia?",
+        "answer": "At woodland edges, slopes, and farmland year-round where it is resident. The most concentrated autumn passage is documented in the Batumi bottleneck from the Sakhalvasho and Shuamta watchpoints. This page does not map every region."
+      },
+      {
+        "question": "Is it an eagle? Why do people call it ჩვეულებრივი არწივი?",
+        "answer": "No. It is a buzzard (Buteo), not an eagle (Aquila and related genera). The folk name means “common eagle” and comes from the soaring silhouette. The official Georgian name is ჩვეულებრივი კაკაჩა."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "Medium size, broad wings, fairly short tail, often a dark carpal patch on the underwing, variable brown plumage, and a cat-like call. Honey-buzzard has a longer tail and a small head. Eagles are larger."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "About 40–58 cm long at species level, wingspan about 109–140 cm. NPLG gives mass as 800–1200 g. The steppe form is smaller. A separate measured series from Georgia is not given on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly small mammals, plus other vertebrates and invertebrates. Diet has not been studied separately in Georgia on this page."
+      },
+      {
+        "question": "When is it present in Georgia?",
+        "answer": "All year, according to the 2024 checklist. Mass autumn passage near Batumi is documented in late September to early October. Exact arrival and departure dates for the whole country are not tabulated on this page."
+      },
+      {
+        "question": "Is it dangerous or protected?",
+        "answer": "It is harmless if left alone. It is globally Least Concern and is coded LC nationally on the 2024 checklist. It is not on Georgia’s 2014 Red List. Do not catch wild birds."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/images/buteo-buteo-sevan-1.jpg",
+        "credit": {
+          "photographer": "Wowan1978",
+          "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
+          "location": "Lake Sevan, Armenia",
+          "date": "2024-08-17"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-sharp-vulpinus.jpg",
+        "credit": {
+          "photographer": "Charles J. Sharp",
+          "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
+          "location": "Etosha, Namibia",
+          "date": "2018-03-06"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-serbia-1.jpg",
+        "credit": {
+          "photographer": "VezeIvan",
+          "url": "https://commons.wikimedia.org/wiki/File:Common_Buzzard_Buteo_buteo.jpg",
+          "location": "Besni Fok, Belgrade",
+          "date": "2024-01-02"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-yerpo-juv.jpg",
+        "credit": {
+          "photographer": "Yerpo",
+          "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_juv_Log_(2).jpg",
+          "location": "Log, Slovenia",
+          "date": "2025-02-07"
+        }
+      },
+      {
+        "src": "/images/buteo-buteo-lukasik-1.jpg",
+        "credit": {
+          "photographer": "Lukasz Lukasik",
+          "url": "https://commons.wikimedia.org/wiki/File:Buteo_buteo_2_(Lukasz_Lukasik).jpg",
+          "date": "2006-05-27"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Wowan1978",
+      "url": "https://commons.wikimedia.org/wiki/File:Buzzard_on_a_rock_by_Sevan.jpg",
+      "location": "Lake Sevan, Armenia",
+      "date": "2024-08-17"
+    },
+    "mobileImageCredit": {
+      "photographer": "Charles J. Sharp",
+      "url": "https://commons.wikimedia.org/wiki/File:Steppe_buzzard_(Buteo_buteo_vulpinus).jpg",
+      "location": "Etosha, Namibia",
+      "date": "2018-03-06"
     }
   },
   "canis-aureus": {
