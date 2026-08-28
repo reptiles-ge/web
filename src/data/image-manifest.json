@@ -1,6 +1,1152 @@
 {
   "version": 1,
   "entries": {
+    "ablepharus-pannonicus-2.jpg": {
+      "sourceHash": "4cfd65664efeedd493dbcb42bbb4b886040910640659e27fe2562001a8726eed",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "ablepharus-pannonicus-2.jpg",
+      "originalSize": 106854,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/ablepharus-pannonicus-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 48538
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 67334
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 67140
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 90012
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:54.617Z"
+    },
+    "ablepharus-pannonicus-3.jpg": {
+      "sourceHash": "56c4523eae56997b286b964a4278107f2d6fecee2eef39bc96b7d2e5ffc6db2f",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "ablepharus-pannonicus-3.jpg",
+      "originalSize": 60149,
+      "width": 522,
+      "height": 522,
+      "derivatives": [
+        {
+          "key": "optimized/ablepharus-pannonicus-3-522.avif",
+          "format": "avif",
+          "width": 522,
+          "height": 522,
+          "byteSize": 41076
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-3-522.webp",
+          "format": "webp",
+          "width": 522,
+          "height": 522,
+          "byteSize": 58314
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:52.928Z"
+    },
+    "ablepharus-pannonicus.jpg": {
+      "sourceHash": "e8c862d72d8a33c3d87bda18b10f09a03808a424376e99c3ae7c2814383db2d6",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "ablepharus-pannonicus.jpg",
+      "originalSize": 526272,
+      "width": 1944,
+      "height": 1944,
+      "derivatives": [
+        {
+          "key": "optimized/ablepharus-pannonicus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 217520
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 377030
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-1944.avif",
+          "format": "avif",
+          "width": 1944,
+          "height": 1944,
+          "byteSize": 391126
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-1944.webp",
+          "format": "webp",
+          "width": 1944,
+          "height": 1944,
+          "byteSize": 615116
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:58.852Z"
+    },
+    "accipiter-nisus-knoch-flight.jpg": {
+      "sourceHash": "c51543106d1bce8eb04934f27d5a47ad1d83c657abc8255fd7365b7c340efc6f",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "accipiter-nisus-knoch-flight.jpg",
+      "originalSize": 205311,
+      "width": 900,
+      "height": 601,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-knoch-flight-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 601,
+          "byteSize": 15174
+        },
+        {
+          "key": "optimized/accipiter-nisus-knoch-flight-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 601,
+          "byteSize": 22114
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:52.516Z"
+    },
+    "accipiter-nisus-mecnarowski-1.jpg": {
+      "sourceHash": "46c27cc78b2cebf8db8711bea02072314fb65deb14a49ac6f280af0f30660472",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "accipiter-nisus-mecnarowski-1.jpg",
+      "originalSize": 477963,
+      "width": 850,
+      "height": 607,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-mecnarowski-1-850.avif",
+          "format": "avif",
+          "width": 850,
+          "height": 607,
+          "byteSize": 59983
+        },
+        {
+          "key": "optimized/accipiter-nisus-mecnarowski-1-850.webp",
+          "format": "webp",
+          "width": 850,
+          "height": 607,
+          "byteSize": 90312
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:54.309Z"
+    },
+    "accipiter-nisus-sharp-female.jpg": {
+      "sourceHash": "5854c2eab7b4e5e87803ad6bf7f8d0850a2fdc9d2ad9f135ea4f1133c428c728",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "accipiter-nisus-sharp-female.jpg",
+      "originalSize": 417258,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-sharp-female-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 81620
+        },
+        {
+          "key": "optimized/accipiter-nisus-sharp-female-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 123070
+        },
+        {
+          "key": "optimized/accipiter-nisus-sharp-female-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 161543
+        },
+        {
+          "key": "optimized/accipiter-nisus-sharp-female-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 240032
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:59.507Z"
+    },
+    "accipiter-nisus-sharp-male.jpg": {
+      "sourceHash": "f0b7d99fa81aab7db2948c59c696daad2cbf52112c2ed1b7095968bba17bef77",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "accipiter-nisus-sharp-male.jpg",
+      "originalSize": 552672,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-sharp-male-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 113544
+        },
+        {
+          "key": "optimized/accipiter-nisus-sharp-male-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 169658
+        },
+        {
+          "key": "optimized/accipiter-nisus-sharp-male-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 248464
+        },
+        {
+          "key": "optimized/accipiter-nisus-sharp-male-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 353704
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:01.098Z"
+    },
+    "accipiter-nisus-zjeroen-1.jpg": {
+      "sourceHash": "890a7af55152af71e0c0d866bf92e6aac79557f6fbd8008923cb28052b47b004",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "accipiter-nisus-zjeroen-1.jpg",
+      "originalSize": 483229,
+      "width": 1000,
+      "height": 1500,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-zjeroen-1-1000.avif",
+          "format": "avif",
+          "width": 1000,
+          "height": 1500,
+          "byteSize": 138938
+        },
+        {
+          "key": "optimized/accipiter-nisus-zjeroen-1-1000.webp",
+          "format": "webp",
+          "width": 1000,
+          "height": 1500,
+          "byteSize": 178510
+        }
+      ],
+      "updatedAt": "2026-08-28T21:18:58.265Z"
+    },
+    "anguis-colchica-2.jpg": {
+      "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-2.jpg",
+      "originalSize": 180660,
+      "width": 1200,
+      "height": 658,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 658,
+          "byteSize": 107742
+        },
+        {
+          "key": "optimized/anguis-colchica-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 658,
+          "byteSize": 159246
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:00.018Z"
+    },
+    "anguis-colchica-3.jpg": {
+      "sourceHash": "c19a072200ca3fad650fb4714be47079f2b169e2fbef19b51446d6f4c966402f",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-3.jpg",
+      "originalSize": 286842,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 108290
+        },
+        {
+          "key": "optimized/anguis-colchica-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 195226
+        },
+        {
+          "key": "optimized/anguis-colchica-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 211291
+        },
+        {
+          "key": "optimized/anguis-colchica-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 338336
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:04.244Z"
+    },
+    "anguis-colchica-mobile.jpg": {
+      "sourceHash": "0db6ff49fa37e3d8b267044e05afb350f99626e07cf9b8881b58927e575032ea",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-mobile.jpg",
+      "originalSize": 194320,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-mobile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 74605
+        },
+        {
+          "key": "optimized/anguis-colchica-mobile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 99364
+        },
+        {
+          "key": "optimized/anguis-colchica-mobile-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 150839
+        },
+        {
+          "key": "optimized/anguis-colchica-mobile-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 191450
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:03.625Z"
+    },
+    "anguis-colchica-sandro-1.jpg": {
+      "sourceHash": "f80bdbb816d518328b64c08e0c9f61f6e730711ca988be1d969e21b556e1e12e",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-sandro-1.jpg",
+      "originalSize": 163525,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-sandro-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 54511
+        },
+        {
+          "key": "optimized/anguis-colchica-sandro-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 67696
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:02.019Z"
+    },
+    "anguis-colchica-sandro-2.jpg": {
+      "sourceHash": "cd23fdc77445d7d9d7b2f75514068168d289cc564ee3f885eb4259ce3099e95e",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-sandro-2.jpg",
+      "originalSize": 151247,
+      "width": 1024,
+      "height": 749,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-sandro-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 749,
+          "byteSize": 48825
+        },
+        {
+          "key": "optimized/anguis-colchica-sandro-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 749,
+          "byteSize": 59466
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:02.844Z"
+    },
+    "anguis-colchica-sandro-3.jpg": {
+      "sourceHash": "450857b33f619d6e56dd4c4f5b67c4e7df59862150ad1c3f40b23af65f9635e2",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-sandro-3.jpg",
+      "originalSize": 187048,
+      "width": 1024,
+      "height": 760,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-sandro-3-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 760,
+          "byteSize": 67157
+        },
+        {
+          "key": "optimized/anguis-colchica-sandro-3-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 760,
+          "byteSize": 89726
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:03.433Z"
+    },
+    "anguis-colchica-zauri-1.jpg": {
+      "sourceHash": "6f9c7639248a97e3da390bc489613cabc0eb6dc752c705e0a1c57bd86ff42ab2",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-zauri-1.jpg",
+      "originalSize": 247161,
+      "width": 1024,
+      "height": 738,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-zauri-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 738,
+          "byteSize": 97566
+        },
+        {
+          "key": "optimized/anguis-colchica-zauri-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 738,
+          "byteSize": 150034
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:06.640Z"
+    },
+    "anguis-colchica-zauri-2.jpg": {
+      "sourceHash": "60e07720d0201423bfe62531c5089b2970addbdbf80dd9ed87934f5092b38e53",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-zauri-2.jpg",
+      "originalSize": 218965,
+      "width": 1024,
+      "height": 612,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-zauri-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 612,
+          "byteSize": 90667
+        },
+        {
+          "key": "optimized/anguis-colchica-zauri-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 612,
+          "byteSize": 137066
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:05.064Z"
+    },
+    "anguis-colchica-zauri-3.jpg": {
+      "sourceHash": "66ac248087fbb476c33582ce177c7953606e23316e11acdaa350e40d8378b200",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica-zauri-3.jpg",
+      "originalSize": 190804,
+      "width": 1024,
+      "height": 731,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-zauri-3-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 69842
+        },
+        {
+          "key": "optimized/anguis-colchica-zauri-3-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 102018
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:04.741Z"
+    },
+    "anguis-colchica.jpg": {
+      "sourceHash": "dc1b0cecede3ea0635746b6a846723d5488d06a067ddc390a8485e2ae87c1fe5",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "anguis-colchica.jpg",
+      "originalSize": 124588,
+      "width": 1000,
+      "height": 668,
+      "derivatives": [
+        {
+          "key": "optimized/anguis-colchica-1000.avif",
+          "format": "avif",
+          "width": 1000,
+          "height": 668,
+          "byteSize": 86213
+        },
+        {
+          "key": "optimized/anguis-colchica-1000.webp",
+          "format": "webp",
+          "width": 1000,
+          "height": 668,
+          "byteSize": 126250
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:05.551Z"
+    },
+    "bufo-verrucosissimus-2.jpg": {
+      "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufo-verrucosissimus-2.jpg",
+      "originalSize": 301109,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 159903
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 220860
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 242661
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 291922
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:08.991Z"
+    },
+    "bufo-verrucosissimus-3.jpg": {
+      "sourceHash": "39baf4aec7a98097717636e8054cf0a4dbdfa16c4f7f49a666fa5186b9cc6d7c",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufo-verrucosissimus-3.jpg",
+      "originalSize": 122421,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 25584
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 36722
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 57544
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 77702
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:09.293Z"
+    },
+    "bufo-verrucosissimus-zauri-1.jpg": {
+      "sourceHash": "c3392416b76d7c5878a6571c15b8735ee124c8c7a7267afa999984382c3d0226",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufo-verrucosissimus-zauri-1.jpg",
+      "originalSize": 275801,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-zauri-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 107530
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-zauri-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 181720
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:07.816Z"
+    },
+    "bufo-verrucosissimus-zauri-2.jpg": {
+      "sourceHash": "f4d22ee04008e6245def6beb7b03ac0740dca5f106f318b229037a007fa095f4",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufo-verrucosissimus-zauri-2.jpg",
+      "originalSize": 176552,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-zauri-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 64056
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-zauri-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 100566
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:08.205Z"
+    },
+    "bufo-verrucosissimus-zauri-3.jpg": {
+      "sourceHash": "f276fc3cc2580c2b082431b0cb4f75917f75067765918085835f33d7204e3427",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufo-verrucosissimus-zauri-3.jpg",
+      "originalSize": 166040,
+      "width": 1024,
+      "height": 681,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-zauri-3-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 681,
+          "byteSize": 61220
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-zauri-3-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 681,
+          "byteSize": 91178
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:08.785Z"
+    },
+    "bufo-verrucosissimus.jpg": {
+      "sourceHash": "f7930f5a723195270e7e7bef2ebe36af634278e5325889d9b01ae2f8cd82c8cd",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufo-verrucosissimus.jpg",
+      "originalSize": 305680,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 35458
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 48482
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 76015
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 105550
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:11.435Z"
+    },
+    "bufotes-viridis-2.jpg": {
+      "sourceHash": "ebd33200e7cda77c954d290def5554327e864d623c9e31c32d07ee1140adbcda",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-2.jpg",
+      "originalSize": 267226,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 74405
+        },
+        {
+          "key": "optimized/bufotes-viridis-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 117430
+        },
+        {
+          "key": "optimized/bufotes-viridis-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 169598
+        },
+        {
+          "key": "optimized/bufotes-viridis-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 237484
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:13.472Z"
+    },
+    "bufotes-viridis-3.jpg": {
+      "sourceHash": "1de5344a555e3620fa9790689651f8318b825383b19cd34349705bae01aaf90a",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-3.jpg",
+      "originalSize": 123851,
+      "width": 1200,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 99016
+        },
+        {
+          "key": "optimized/bufotes-viridis-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 107484
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:11.371Z"
+    },
+    "bufotes-viridis-armen-1.jpg": {
+      "sourceHash": "8a62f7e1b3bfae9e25304ead98c2124e9302a72cfcf2357d021d350401944e16",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-armen-1.jpg",
+      "originalSize": 109929,
+      "width": 687,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-armen-1-687.avif",
+          "format": "avif",
+          "width": 687,
+          "height": 1024,
+          "byteSize": 37190
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-1-687.webp",
+          "format": "webp",
+          "width": 687,
+          "height": 1024,
+          "byteSize": 52654
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:10.705Z"
+    },
+    "bufotes-viridis-ioane-1.jpg": {
+      "sourceHash": "82e5ee74ca35af03d3f3dd068cf1082306aa1b8285374e49db7a54088faa5f41",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-ioane-1.jpg",
+      "originalSize": 186001,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-ioane-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 61308
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 100530
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:12.145Z"
+    },
+    "bufotes-viridis-ioane-2.jpg": {
+      "sourceHash": "b47fbac9317f663689b64be799484e03f85411f4c0eb1848d63089d357ddbc5d",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-ioane-2.jpg",
+      "originalSize": 188705,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-ioane-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 77113
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 97494
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:12.800Z"
+    },
+    "bufotes-viridis-lasha-1.jpg": {
+      "sourceHash": "1407208719ce7046733b06b57159d56d5fb817bf60d8d22ceda656b0dc9cf5ca",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-lasha-1.jpg",
+      "originalSize": 130354,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-lasha-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 45185
+        },
+        {
+          "key": "optimized/bufotes-viridis-lasha-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 60584
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:12.991Z"
+    },
+    "bufotes-viridis-zakro-1.jpg": {
+      "sourceHash": "1f4a7c3896f38c360c11abe3c983a6cf553377aa604b3a1b4c897ca7ea6fe353",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis-zakro-1.jpg",
+      "originalSize": 214479,
+      "width": 766,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-zakro-1-766.avif",
+          "format": "avif",
+          "width": 766,
+          "height": 1024,
+          "byteSize": 80069
+        },
+        {
+          "key": "optimized/bufotes-viridis-zakro-1-766.webp",
+          "format": "webp",
+          "width": 766,
+          "height": 1024,
+          "byteSize": 116926
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:13.664Z"
+    },
+    "bufotes-viridis.jpg": {
+      "sourceHash": "cb1013a41ba7ccfc10535f4bff96c65a756b66c1cd11ace6cc7d58fff9b68d8b",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "bufotes-viridis.jpg",
+      "originalSize": 406630,
+      "width": 2000,
+      "height": 1335,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 112924
+        },
+        {
+          "key": "optimized/bufotes-viridis-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 175254
+        },
+        {
+          "key": "optimized/bufotes-viridis-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1335,
+          "byteSize": 266276
+        },
+        {
+          "key": "optimized/bufotes-viridis-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1335,
+          "byteSize": 347404
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:17.247Z"
+    },
+    "buteo-buteo-lukasik-1.jpg": {
+      "sourceHash": "4ffb838ffa33e8b0c0afca163b9c7e65c9151327e43dbbe60ccf86f8d2edc82d",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "buteo-buteo-lukasik-1.jpg",
+      "originalSize": 653702,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-lukasik-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 74640
+        },
+        {
+          "key": "optimized/buteo-buteo-lukasik-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 130958
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:14.705Z"
+    },
+    "buteo-buteo-serbia-1.jpg": {
+      "sourceHash": "c277968d2da80b1cec4773fa7db566ed73487a93294c862f6121d1e98769223a",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "buteo-buteo-serbia-1.jpg",
+      "originalSize": 441002,
+      "width": 1194,
+      "height": 896,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-serbia-1-1194.avif",
+          "format": "avif",
+          "width": 1194,
+          "height": 896,
+          "byteSize": 143001
+        },
+        {
+          "key": "optimized/buteo-buteo-serbia-1-1194.webp",
+          "format": "webp",
+          "width": 1194,
+          "height": 896,
+          "byteSize": 211206
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:15.929Z"
+    },
+    "buteo-buteo-sevan-1.jpg": {
+      "sourceHash": "056b001881b1e8625faf11b626c7885feeb4cef7a1cf271dbaf21f146e436d56",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "buteo-buteo-sevan-1.jpg",
+      "originalSize": 504719,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-sevan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68444
+        },
+        {
+          "key": "optimized/buteo-buteo-sevan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101176
+        },
+        {
+          "key": "optimized/buteo-buteo-sevan-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 252425
+        },
+        {
+          "key": "optimized/buteo-buteo-sevan-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 289940
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:17.793Z"
+    },
+    "buteo-buteo-sharp-vulpinus.jpg": {
+      "sourceHash": "8ec45d1028c5d264b800124949e88da80917b90fca5f04c3c1d86d50cc5c43ca",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "buteo-buteo-sharp-vulpinus.jpg",
+      "originalSize": 8577356,
+      "width": 2400,
+      "height": 3601,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-sharp-vulpinus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 108556
+        },
+        {
+          "key": "optimized/buteo-buteo-sharp-vulpinus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 168350
+        },
+        {
+          "key": "optimized/buteo-buteo-sharp-vulpinus-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3601,
+          "byteSize": 357105
+        },
+        {
+          "key": "optimized/buteo-buteo-sharp-vulpinus-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3601,
+          "byteSize": 555454
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:20.792Z"
+    },
+    "buteo-buteo-szczepanek-1.jpg": {
+      "sourceHash": "6e81aff964760762dcb6972dd5d63be9086c0896ccb3ea6b6a303592c972ba00",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "buteo-buteo-szczepanek-1.jpg",
+      "originalSize": 162969,
+      "width": 369,
+      "height": 550,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-szczepanek-1-369.avif",
+          "format": "avif",
+          "width": 369,
+          "height": 550,
+          "byteSize": 15878
+        },
+        {
+          "key": "optimized/buteo-buteo-szczepanek-1-369.webp",
+          "format": "webp",
+          "width": 369,
+          "height": 550,
+          "byteSize": 23994
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:17.850Z"
+    },
+    "buteo-buteo-yerpo-juv.jpg": {
+      "sourceHash": "abffb2c88e5300f6db37f8ab38f413165ffd8a98d0c50cf694fbf9a879827099",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "buteo-buteo-yerpo-juv.jpg",
+      "originalSize": 625498,
+      "width": 1920,
+      "height": 1758,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-yerpo-juv-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1099,
+          "byteSize": 107635
+        },
+        {
+          "key": "optimized/buteo-buteo-yerpo-juv-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1099,
+          "byteSize": 159912
+        },
+        {
+          "key": "optimized/buteo-buteo-yerpo-juv-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1758,
+          "byteSize": 237040
+        },
+        {
+          "key": "optimized/buteo-buteo-yerpo-juv-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1758,
+          "byteSize": 342420
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:21.496Z"
+    },
     "canis-aureus-bukvic-1.jpg": {
       "sourceHash": "2725e768b7b0ecb410eb5b235e900bd0f5313f2cf72e11e66986bcaac4cd2e39",
       "configFingerprint": "0100eec4d43ce879",
@@ -220,6 +1366,1117 @@
         }
       ],
       "updatedAt": "2026-08-28T20:59:56.429Z"
+    },
+    "canis-lupus-eurasian-1.jpg": {
+      "sourceHash": "871fb5fdceeff8d97ef9d8c8ccea81c18dae1facf6cd9e43cf182b36391729cc",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-eurasian-1.jpg",
+      "originalSize": 5276838,
+      "width": 2400,
+      "height": 1859,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-eurasian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 929,
+          "byteSize": 65932
+        },
+        {
+          "key": "optimized/canis-lupus-eurasian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 929,
+          "byteSize": 88448
+        },
+        {
+          "key": "optimized/canis-lupus-eurasian-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1859,
+          "byteSize": 180815
+        },
+        {
+          "key": "optimized/canis-lupus-eurasian-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1859,
+          "byteSize": 254198
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:27.339Z"
+    },
+    "canis-lupus-gareja-1.jpg": {
+      "sourceHash": "602123f722eb8218efce20555ce3ded25803ec9a3d9f9f5fe5b8b119b9932279",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-gareja-1.jpg",
+      "originalSize": 89362,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-gareja-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 22019
+        },
+        {
+          "key": "optimized/canis-lupus-gareja-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 25874
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:23.128Z"
+    },
+    "canis-lupus-innsbruck-1.jpg": {
+      "sourceHash": "1230cdfaceb3277508ec60358cece42887d3e0fd4ef3442fc0e145469dc215a4",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-innsbruck-1.jpg",
+      "originalSize": 748501,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-innsbruck-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 156032
+        },
+        {
+          "key": "optimized/canis-lupus-innsbruck-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 251670
+        },
+        {
+          "key": "optimized/canis-lupus-innsbruck-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 364174
+        },
+        {
+          "key": "optimized/canis-lupus-innsbruck-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 571638
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:26.670Z"
+    },
+    "canis-lupus-pescheray-1.jpg": {
+      "sourceHash": "3f59360331d1542ef3da3d78d0dfbced8e52cf17f5191416a019c89a1c8f2060",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-pescheray-1.jpg",
+      "originalSize": 6303714,
+      "width": 2400,
+      "height": 2777,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-pescheray-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1388,
+          "byteSize": 221869
+        },
+        {
+          "key": "optimized/canis-lupus-pescheray-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1388,
+          "byteSize": 341048
+        },
+        {
+          "key": "optimized/canis-lupus-pescheray-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2777,
+          "byteSize": 639208
+        },
+        {
+          "key": "optimized/canis-lupus-pescheray-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2777,
+          "byteSize": 997012
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:31.805Z"
+    },
+    "canis-lupus-portrait-1.jpg": {
+      "sourceHash": "2b4f7b65d34d8c9e9401f232904237268fe72f040f0b9044ca245c79e7e7623d",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-portrait-1.jpg",
+      "originalSize": 3778116,
+      "width": 2048,
+      "height": 3072,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-portrait-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 95037
+        },
+        {
+          "key": "optimized/canis-lupus-portrait-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 121678
+        },
+        {
+          "key": "optimized/canis-lupus-portrait-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 3072,
+          "byteSize": 232204
+        },
+        {
+          "key": "optimized/canis-lupus-portrait-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 3072,
+          "byteSize": 303022
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:29.833Z"
+    },
+    "canis-lupus-sainte-croix-1.jpg": {
+      "sourceHash": "d58d4391c98d5f211dcd54aeb9fb63e582b4d532ab025a4f8a50e6a420425d1c",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-sainte-croix-1.jpg",
+      "originalSize": 477667,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-sainte-croix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 94409
+        },
+        {
+          "key": "optimized/canis-lupus-sainte-croix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 133006
+        },
+        {
+          "key": "optimized/canis-lupus-sainte-croix-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 212034
+        },
+        {
+          "key": "optimized/canis-lupus-sainte-croix-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 286956
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:30.997Z"
+    },
+    "canis-lupus-tracks-1.jpg": {
+      "sourceHash": "de7d306d6d2a3c8f1a0897832923f62836dca0ba9d2a82030c05b4046f4e5619",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "canis-lupus-tracks-1.jpg",
+      "originalSize": 4132184,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-tracks-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 219084
+        },
+        {
+          "key": "optimized/canis-lupus-tracks-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 346030
+        },
+        {
+          "key": "optimized/canis-lupus-tracks-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 671352
+        },
+        {
+          "key": "optimized/canis-lupus-tracks-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 1051834
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:35.730Z"
+    },
+    "capreolus-capreolus-antlers-1.jpg": {
+      "sourceHash": "82d08ed4e02a4141db5b98e8a0c93db5795fc0f46e9dbd9a48497a0edde28aa4",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-antlers-1.jpg",
+      "originalSize": 729046,
+      "width": 1914,
+      "height": 1277,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-antlers-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 142215
+        },
+        {
+          "key": "optimized/capreolus-capreolus-antlers-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 212376
+        },
+        {
+          "key": "optimized/capreolus-capreolus-antlers-1-1914.avif",
+          "format": "avif",
+          "width": 1914,
+          "height": 1277,
+          "byteSize": 270073
+        },
+        {
+          "key": "optimized/capreolus-capreolus-antlers-1-1914.webp",
+          "format": "webp",
+          "width": 1914,
+          "height": 1277,
+          "byteSize": 374264
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:36.255Z"
+    },
+    "capreolus-capreolus-buck-1.jpg": {
+      "sourceHash": "5c0673c3dcf8c0acb26ab236ef972317e5265cab3c8b90b10e5857de382c9dbe",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-buck-1.jpg",
+      "originalSize": 592052,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-buck-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86418
+        },
+        {
+          "key": "optimized/capreolus-capreolus-buck-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 125962
+        },
+        {
+          "key": "optimized/capreolus-capreolus-buck-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 306162
+        },
+        {
+          "key": "optimized/capreolus-capreolus-buck-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 422576
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:35.998Z"
+    },
+    "capreolus-capreolus-fawn-1.jpg": {
+      "sourceHash": "1b69c55b72ba748407637db78ea533a6399278510faa3f5114608c6ad451d102",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-fawn-1.jpg",
+      "originalSize": 1502328,
+      "width": 1920,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-fawn-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 313620
+        },
+        {
+          "key": "optimized/capreolus-capreolus-fawn-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 510604
+        },
+        {
+          "key": "optimized/capreolus-capreolus-fawn-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1920,
+          "byteSize": 770697
+        },
+        {
+          "key": "optimized/capreolus-capreolus-fawn-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1920,
+          "byteSize": 1208600
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:39.586Z"
+    },
+    "capreolus-capreolus-male-1.jpg": {
+      "sourceHash": "d06ddca5b6a2f49bd6c995796906298ec1c74bdb77d0bab341ff20cf68d70ecf",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-male-1.jpg",
+      "originalSize": 708705,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-male-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 145855
+        },
+        {
+          "key": "optimized/capreolus-capreolus-male-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 223862
+        },
+        {
+          "key": "optimized/capreolus-capreolus-male-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 391393
+        },
+        {
+          "key": "optimized/capreolus-capreolus-male-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 511022
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:40.770Z"
+    },
+    "capreolus-capreolus-portrait-1.jpg": {
+      "sourceHash": "6d800e267e86b2b8c1bc28eba261bc3b0a775546e06a7a3ac5fd60ae80a99799",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-portrait-1.jpg",
+      "originalSize": 1994159,
+      "width": 1920,
+      "height": 2560,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-portrait-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 437085
+        },
+        {
+          "key": "optimized/capreolus-capreolus-portrait-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 706616
+        },
+        {
+          "key": "optimized/capreolus-capreolus-portrait-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 2560,
+          "byteSize": 1032826
+        },
+        {
+          "key": "optimized/capreolus-capreolus-portrait-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 2560,
+          "byteSize": 1598984
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:50.279Z"
+    },
+    "capreolus-capreolus-running-1.jpg": {
+      "sourceHash": "39a46212a5b3d9e3212c4fd2208240d6855908828868ecc3a1ebfaa628b6f016",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-running-1.jpg",
+      "originalSize": 308478,
+      "width": 1920,
+      "height": 1329,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-running-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 831,
+          "byteSize": 37296
+        },
+        {
+          "key": "optimized/capreolus-capreolus-running-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 831,
+          "byteSize": 55932
+        },
+        {
+          "key": "optimized/capreolus-capreolus-running-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1329,
+          "byteSize": 84155
+        },
+        {
+          "key": "optimized/capreolus-capreolus-running-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1329,
+          "byteSize": 115124
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:40.363Z"
+    },
+    "capreolus-capreolus-summer-1.jpg": {
+      "sourceHash": "3bfda2af56d46f05d754c168fd6f2c1015d041a511aea368358b647fe5f4e74f",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-summer-1.jpg",
+      "originalSize": 730885,
+      "width": 1920,
+      "height": 1326,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-summer-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 829,
+          "byteSize": 148144
+        },
+        {
+          "key": "optimized/capreolus-capreolus-summer-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 829,
+          "byteSize": 242304
+        },
+        {
+          "key": "optimized/capreolus-capreolus-summer-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1326,
+          "byteSize": 350134
+        },
+        {
+          "key": "optimized/capreolus-capreolus-summer-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1326,
+          "byteSize": 506024
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:45.079Z"
+    },
+    "capreolus-capreolus-winter-1.jpg": {
+      "sourceHash": "5cd2e2e23e0c28bed879829bf30488194adc9b065705aeddb6bc05f11405750c",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "capreolus-capreolus-winter-1.jpg",
+      "originalSize": 553110,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/capreolus-capreolus-winter-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118084
+        },
+        {
+          "key": "optimized/capreolus-capreolus-winter-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 174536
+        },
+        {
+          "key": "optimized/capreolus-capreolus-winter-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 255221
+        },
+        {
+          "key": "optimized/capreolus-capreolus-winter-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 378346
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:47.197Z"
+    },
+    "coronella-austriaca-2.webp": {
+      "sourceHash": "215454ab1940308b40306450d6e8f06a4f52246248542649ef6990a948579013",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-2.webp",
+      "originalSize": 259550,
+      "width": 2200,
+      "height": 1417,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 773,
+          "byteSize": 113937
+        },
+        {
+          "key": "optimized/coronella-austriaca-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 773,
+          "byteSize": 160224
+        },
+        {
+          "key": "optimized/coronella-austriaca-2-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1417,
+          "byteSize": 270542
+        },
+        {
+          "key": "optimized/coronella-austriaca-2-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1417,
+          "byteSize": 312000
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:48.196Z"
+    },
+    "coronella-austriaca-3.webp": {
+      "sourceHash": "c2b1180d8f7cdcc8ed671153c51aa1ca34f6b0d71e093f87989031e135ec2e73",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-3.webp",
+      "originalSize": 423842,
+      "width": 2200,
+      "height": 1466,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 161872
+        },
+        {
+          "key": "optimized/coronella-austriaca-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 263440
+        },
+        {
+          "key": "optimized/coronella-austriaca-3-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1466,
+          "byteSize": 398830
+        },
+        {
+          "key": "optimized/coronella-austriaca-3-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1466,
+          "byteSize": 494872
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:51.598Z"
+    },
+    "coronella-austriaca-4.webp": {
+      "sourceHash": "d4cad26fe4640612211b075933ad30fbf0c94aa2eb903c6e211d167c13be3ab2",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-4.webp",
+      "originalSize": 360900,
+      "width": 2200,
+      "height": 1650,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 147011
+        },
+        {
+          "key": "optimized/coronella-austriaca-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 224198
+        },
+        {
+          "key": "optimized/coronella-austriaca-4-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1650,
+          "byteSize": 331971
+        },
+        {
+          "key": "optimized/coronella-austriaca-4-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1650,
+          "byteSize": 422978
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:52.714Z"
+    },
+    "coronella-austriaca-5.webp": {
+      "sourceHash": "093de8372a1db5528f7c02911654dbb8769f560d1e0a6eb56383b39cf5e5fd72",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-5.webp",
+      "originalSize": 172886,
+      "width": 2200,
+      "height": 1466,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86347
+        },
+        {
+          "key": "optimized/coronella-austriaca-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118990
+        },
+        {
+          "key": "optimized/coronella-austriaca-5-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1466,
+          "byteSize": 163323
+        },
+        {
+          "key": "optimized/coronella-austriaca-5-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1466,
+          "byteSize": 209970
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:52.033Z"
+    },
+    "coronella-austriaca-6.webp": {
+      "sourceHash": "24b3841abd153216b71f694656fdd15eb4fced9d14f3a1bed3a9fe8e2bb87867",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-6.webp",
+      "originalSize": 200022,
+      "width": 2200,
+      "height": 1441,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-6-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 88288
+        },
+        {
+          "key": "optimized/coronella-austriaca-6-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 122706
+        },
+        {
+          "key": "optimized/coronella-austriaca-6-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1441,
+          "byteSize": 185655
+        },
+        {
+          "key": "optimized/coronella-austriaca-6-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1441,
+          "byteSize": 230456
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:53.753Z"
+    },
+    "coronella-austriaca-7.webp": {
+      "sourceHash": "7545f928d8c8970b66eb7ee617395765ffc3fbb52889587a026ee167104e0ae8",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-7.webp",
+      "originalSize": 437784,
+      "width": 2200,
+      "height": 1237,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-7-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 162770
+        },
+        {
+          "key": "optimized/coronella-austriaca-7-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 263448
+        },
+        {
+          "key": "optimized/coronella-austriaca-7-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1237,
+          "byteSize": 404436
+        },
+        {
+          "key": "optimized/coronella-austriaca-7-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1237,
+          "byteSize": 509352
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:58.246Z"
+    },
+    "coronella-austriaca-mobile.webp": {
+      "sourceHash": "d6e3f864583de86739a95655247fb00ac7f3d9d44eba5adcdc980716f376aeaf",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-mobile.webp",
+      "originalSize": 169490,
+      "width": 1200,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-mobile-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 172412
+        },
+        {
+          "key": "optimized/coronella-austriaca-mobile-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 198952
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:54.260Z"
+    },
+    "coronella-austriaca-sandro-1.jpg": {
+      "sourceHash": "29d8e6300f0aee8ae25dd3b47c846819fe118b3d879361b8c2b558278306ee97",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-sandro-1.jpg",
+      "originalSize": 103204,
+      "width": 1393,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 827,
+          "byteSize": 77125
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 827,
+          "byteSize": 107302
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-1-1393.avif",
+          "format": "avif",
+          "width": 1393,
+          "height": 960,
+          "byteSize": 94319
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-1-1393.webp",
+          "format": "webp",
+          "width": 1393,
+          "height": 960,
+          "byteSize": 124294
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:55.130Z"
+    },
+    "coronella-austriaca-sandro-2.jpg": {
+      "sourceHash": "8d56e802fe011fc08001e7134dd726ffbf5ec18c6a4a158e6dac79c10ea2597a",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-sandro-2.jpg",
+      "originalSize": 115601,
+      "width": 1330,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-sandro-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 866,
+          "byteSize": 93510
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 866,
+          "byteSize": 135346
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-2-1330.avif",
+          "format": "avif",
+          "width": 1330,
+          "height": 960,
+          "byteSize": 104804
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-2-1330.webp",
+          "format": "webp",
+          "width": 1330,
+          "height": 960,
+          "byteSize": 143770
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:56.435Z"
+    },
+    "coronella-austriaca-sandro-3.jpg": {
+      "sourceHash": "a782c423a13686525d459bde9b8d110e19d199074df6208e7f979a5ad5077df7",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-sandro-3.jpg",
+      "originalSize": 214092,
+      "width": 2048,
+      "height": 1614,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-sandro-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 946,
+          "byteSize": 87928
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 946,
+          "byteSize": 121564
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1614,
+          "byteSize": 188583
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1614,
+          "byteSize": 242386
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:58.203Z"
+    },
+    "coronella-austriaca-sandro-4.jpg": {
+      "sourceHash": "d85453ca717d6f740582138cb1b0b6c26f74262f28f8fd6b6a2c46080355be67",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-sandro-4.jpg",
+      "originalSize": 101779,
+      "width": 1244,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-sandro-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 926,
+          "byteSize": 86375
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 926,
+          "byteSize": 119878
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-4-1244.avif",
+          "format": "avif",
+          "width": 1244,
+          "height": 960,
+          "byteSize": 89430
+        },
+        {
+          "key": "optimized/coronella-austriaca-sandro-4-1244.webp",
+          "format": "webp",
+          "width": 1244,
+          "height": 960,
+          "byteSize": 122272
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:57.953Z"
+    },
+    "coronella-austriaca-shota-1.jpg": {
+      "sourceHash": "b7df5fb5bed481ae4b764d1ee789a17cb61509c2ce9b709076de177bb779e4b7",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-shota-1.jpg",
+      "originalSize": 108207,
+      "width": 767,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-shota-1-767.avif",
+          "format": "avif",
+          "width": 767,
+          "height": 1024,
+          "byteSize": 39751
+        },
+        {
+          "key": "optimized/coronella-austriaca-shota-1-767.webp",
+          "format": "webp",
+          "width": 767,
+          "height": 1024,
+          "byteSize": 53754
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:57.348Z"
+    },
+    "coronella-austriaca-zauri-1.jpg": {
+      "sourceHash": "d981d84c5616d4ece358f433e30c1f9294ac89784c6c8c5792e175f99ea468d1",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-zauri-1.jpg",
+      "originalSize": 275622,
+      "width": 1024,
+      "height": 600,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-zauri-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 600,
+          "byteSize": 117072
+        },
+        {
+          "key": "optimized/coronella-austriaca-zauri-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 600,
+          "byteSize": 194864
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:58.500Z"
+    },
+    "coronella-austriaca-zauri-2.jpg": {
+      "sourceHash": "059145d802db5ca9b20bbcef7303212fd7928bd36e64d6f7ac4e9db0734687e2",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-zauri-2.jpg",
+      "originalSize": 197680,
+      "width": 1024,
+      "height": 786,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-zauri-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 786,
+          "byteSize": 69213
+        },
+        {
+          "key": "optimized/coronella-austriaca-zauri-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 786,
+          "byteSize": 104504
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:58.991Z"
+    },
+    "coronella-austriaca-zauri-3.jpg": {
+      "sourceHash": "f4401046e1136f19efca8e779e5c03deb9cd57a1a526490c562e97d28f0aa47f",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "coronella-austriaca-zauri-3.jpg",
+      "originalSize": 343628,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-zauri-3-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 149408
+        },
+        {
+          "key": "optimized/coronella-austriaca-zauri-3-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 250840
+        }
+      ],
+      "updatedAt": "2026-08-28T21:19:59.740Z"
+    },
+    "cuculus-canorus-chick-1.jpg": {
+      "sourceHash": "9f8db4ae80b122d7c1ebf1063cb867d44252bc3d90cc2c872176663762570c6d",
+      "configFingerprint": "0100eec4d43ce879",
+      "originalKey": "cuculus-canorus-chick-1.jpg",
+      "originalSize": 465955,
+      "width": 1160,
+      "height": 870,
+      "derivatives": [
+        {
+          "key": "optimized/cuculus-canorus-chick-1-1160.avif",
+          "format": "avif",
+          "width": 1160,
+          "height": 870,
+          "byteSize": 173870
+        },
+        {
+          "key": "optimized/cuculus-canorus-chick-1-1160.webp",
+          "format": "webp",
+          "width": 1160,
+          "height": 870,
+          "byteSize": 299696
+        }
+      ],
+      "updatedAt": "2026-08-28T21:20:00.183Z"
     }
   }
 }
