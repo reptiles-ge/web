@@ -232,6 +232,7 @@ export const featuredSpeciesIds = [
   "cuculus-canorus",
   "strix-aluco",
   "otus-scops",
+  "aegolius-funereus",
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
   "buteo-buteo",

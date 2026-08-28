@@ -593,6 +593,24 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Otus scops scops",
     ],
   },
+  "aegolius-funereus": {
+    ka: [
+      "მიკიოტი",
+      "ომიდი",
+      "ბუსებრნი",
+      "Strix funerea",
+      "Aegolius funereus caucasicus",
+      "Nyctala caucasica",
+    ],
+    en: [
+      "Boreal owl",
+      "Tengmalm's Owl",
+      "Richardson's owl",
+      "Strix funerea",
+      "Aegolius funereus caucasicus",
+      "Nyctala caucasica",
+    ],
+  },
   "accipiter-nisus": {
     ka: [
       "მიმინო",
