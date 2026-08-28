@@ -104,7 +104,7 @@ export function LizardSpeciesIndexPage({
               {t("featuredBody")}
             </p>
           </Reveal>
-          <SpeciesGuideList species={featured} locale={locale} />
+          <SpeciesGuideList species={featured} locale={locale} source="guide" />
         </div>
       </section>
 

@@ -6,7 +6,7 @@ import {
   localizeRegionText,
 } from "@/data/regions";
 import type { Species } from "@/data/species";
-import { isVenomousDanger } from "@/data/speciesAtlas";
+import { isVenomousDanger, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import {
@@ -15,6 +15,7 @@ import {
   getSpeciesSizeStat,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import Image from "next/image";
 import { useMemo, useState } from "react";
@@ -54,6 +55,34 @@ export function SpeciesIndexTable({
 
   const dash = t("emDash");
   const showFilters = showDangerFilter || showFamilyFilter;
+  const group = species[0]
+    ? getSpeciesAtlasMeta(species[0].id).group
+    : undefined;
+
+  function emitIndexFilter(
+    nextDanger: DangerFilter,
+    nextFamily: string,
+    resultCount: number,
+  ) {
+    trackEvent("index_filter", {
+      page_type: "guide",
+      group,
+      danger_filter: nextDanger,
+      family_filter: nextFamily,
+      result_count: resultCount,
+    });
+  }
+
+  function countFiltered(nextDanger: DangerFilter, nextFamily: string) {
+    return species.filter((item) => {
+      if (nextDanger === "venomous" && !isVenomousDanger(item.danger))
+        return false;
+      if (nextDanger === "harmless" && isVenomousDanger(item.danger))
+        return false;
+      if (nextFamily !== "all" && item.family !== nextFamily) return false;
+      return true;
+    }).length;
+  }
 
   return (
     <div>
@@ -65,7 +94,11 @@ export function SpeciesIndexTable({
               <button
                 key={key}
                 type="button"
-                onClick={() => setDanger(key)}
+                onClick={() => {
+                  if (key === danger) return;
+                  setDanger(key);
+                  emitIndexFilter(key, family, countFiltered(key, family));
+                }}
                 className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
                   active
                     ? "border-ink bg-ink text-ink-foreground"
@@ -82,7 +115,11 @@ export function SpeciesIndexTable({
         <div className={showDangerFilter ? "mt-3 flex flex-wrap gap-2" : "flex flex-wrap gap-2"}>
           <button
             type="button"
-            onClick={() => setFamily("all")}
+            onClick={() => {
+              if (family === "all") return;
+              setFamily("all");
+              emitIndexFilter(danger, "all", countFiltered(danger, "all"));
+            }}
             className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
               family === "all"
                 ? "border-ink bg-ink text-ink-foreground"
@@ -97,7 +134,11 @@ export function SpeciesIndexTable({
               <button
                 key={name}
                 type="button"
-                onClick={() => setFamily(name)}
+                onClick={() => {
+                  if (family === name) return;
+                  setFamily(name);
+                  emitIndexFilter(danger, name, countFiltered(danger, name));
+                }}
                 className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
                   active
                     ? "border-ink bg-ink text-ink-foreground"
@@ -127,6 +168,7 @@ export function SpeciesIndexTable({
                   rangePending={tShared("rangePending")}
                   venomousYes={t("venomousYes")}
                   venomousNo={t("venomousNo")}
+                  position={index + 1}
                 />
               </Reveal>
             ))}
@@ -146,19 +188,25 @@ export function SpeciesIndexTable({
                 </tr>
               </thead>
               <tbody>
-                {filtered.map((item) => {
+                {filtered.map((item, rowIndex) => {
                   const href = speciesHref(item.id, locale);
                   const range = formatRange(item.id, locale, tShared("rangePending"));
                   const size = getSpeciesSizeStat(item) ?? dash;
                   const habitat = getSpeciesHabitatStat(item) ?? dash;
                   const activity = getSpeciesActivityStat(item) ?? dash;
+                  const onClick = () =>
+                    trackSpeciesClick({
+                      species_id: item.id,
+                      source: "index",
+                      position: rowIndex + 1,
+                    });
                   return (
                     <tr
                       key={item.id}
                       className="border-b border-border/80 last:border-b-0"
                     >
                       <td className="py-3 pr-4">
-                        <Link href={href} className="block">
+                        <Link href={href} className="block" onClick={onClick}>
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
                             <Image
                               src={item.mobileImage ?? item.image}
@@ -175,7 +223,7 @@ export function SpeciesIndexTable({
                         </Link>
                       </td>
                       <td className="py-3 pr-4">
-                        <Link href={href} className="group block">
+                        <Link href={href} className="group block" onClick={onClick}>
                           <span className="font-display text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary">
                             {item.commonName}
                           </span>
@@ -230,6 +278,7 @@ function IndexCard({
   rangePending,
   venomousYes,
   venomousNo,
+  position,
 }: {
   species: Species;
   locale: AppLocale;
@@ -237,6 +286,7 @@ function IndexCard({
   rangePending: string;
   venomousYes: string;
   venomousNo: string;
+  position: number;
 }) {
   const href = speciesHref(species.id, locale);
   const range = formatRange(species.id, locale, rangePending);
@@ -245,7 +295,17 @@ function IndexCard({
   const activity = getSpeciesActivityStat(species) ?? dash;
 
   return (
-    <Link href={href} className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]">
+    <Link
+      href={href}
+      onClick={() =>
+        trackSpeciesClick({
+          species_id: species.id,
+          source: "index",
+          position,
+        })
+      }
+      className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
+    >
       <span className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square">
         <Image
           src={species.mobileImage ?? species.image}

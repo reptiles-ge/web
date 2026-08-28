@@ -1,6 +1,7 @@
 "use client";
 
 import type { SpeciesAudio } from "@/data/species";
+import { trackEvent } from "@/lib/analytics";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { Loader2, Pause, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -14,7 +15,13 @@ function formatTime(seconds: number) {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
+export function SpeciesVoicePlayer({
+  audio,
+  speciesId,
+}: {
+  audio: SpeciesAudio;
+  speciesId: string;
+}) {
   const t = useTranslations("profile");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
@@ -82,6 +89,7 @@ export function SpeciesVoicePlayer({ audio }: { audio: SpeciesAudio }) {
         el.src = audio.src;
       }
       setLoading(true);
+      trackEvent("voice_play", { species_id: speciesId });
       void el.play().catch(() => {
         setPlaying(false);
         setLoading(false);

@@ -3,7 +3,7 @@
 
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import {
   generateSnakeQuiz,
@@ -83,6 +83,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const feedbackRef = useRef<HTMLParagraphElement>(null);
   const abandonSent = useRef(false);
+  const hintedQuestions = useRef(new Set<number>());
 
   const [playing, setPlaying] = useState(false);
   const [questions, setQuestions] = useState<SnakeQuizQuestion[] | null>(null);
@@ -107,17 +108,12 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       setHintOpen(false);
       setPlaying(true);
       abandonSent.current = false;
-      const payload = {
+      hintedQuestions.current = new Set();
+      trackEvent("quiz_start", {
         quiz_id: quizId,
-        length: next.length,
-        mode: "default",
-      };
-      if (reason === "restart") {
-        trackEvent("quiz_restarted", payload);
-        trackEvent("quiz_retry_clicked", payload);
-      } else {
-        trackEvent("quiz_started", payload);
-      }
+        method: reason,
+        question_count: next.length,
+      });
     },
     [snakes, quizId],
   );
@@ -125,13 +121,9 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
   useEffect(() => {
     try {
       const raw = sessionStorage.getItem(draftKey(quizId));
-      if (!raw) {
-        trackEvent("quiz_view", { quiz_id: quizId });
-        return;
-      }
+      if (!raw) return;
       const draft = JSON.parse(raw) as Draft;
       if (!Array.isArray(draft.questions) || draft.questions.length === 0) {
-        trackEvent("quiz_view", { quiz_id: quizId });
         return;
       }
       setQuestions(draft.questions);
@@ -142,7 +134,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       setComplete(false);
       setPlaying(true);
     } catch {
-      trackEvent("quiz_view", { quiz_id: quizId });
+      return;
     } finally {
       setDraftReady(true);
     }
@@ -179,25 +171,17 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       if (abandonSent.current) return;
       if (!playing || complete || !questions) return;
       abandonSent.current = true;
-      trackEvent("quiz_abandoned", {
+      trackEvent("quiz_abandon", {
         quiz_id: quizId,
-        question: index + 1,
-        answered: answers.length,
+        question_index: index + 1,
+        answered_count: answers.length,
       });
     }
 
-    function onVisibility() {
-      if (document.visibilityState === "hidden") onHide();
-      if (document.visibilityState === "visible") {
-        abandonSent.current = false;
-      }
-    }
-
-    document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("pagehide", onHide);
     return () => {
-      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("pagehide", onHide);
+      onHide();
     };
   }, [playing, complete, questions, index, answers.length, quizId]);
 
@@ -215,12 +199,12 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
     const correct = optionId === question.correctId;
     setSelectedId(optionId);
     setAnswers((current) => [...current, { selectedId: optionId, correct }]);
-    trackEvent("quiz_answered", {
+    trackEvent("quiz_answer", {
       quiz_id: quizId,
-      question: index + 1,
-      species: question.correctId,
-      selected_answer: optionId,
-      correct,
+      question_index: index + 1,
+      species_id: question.correctId,
+      selected_id: optionId,
+      is_correct: correct,
       difficulty,
     });
   }
@@ -257,11 +241,9 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       );
       setComplete(true);
       sessionStorage.removeItem(draftKey(quizId));
-      trackEvent("quiz_completed", {
+      trackEvent("quiz_complete", {
         quiz_id: quizId,
-        correct: answers.filter((item) => item.correct).length,
-        incorrect:
-          questions.length - answers.filter((item) => item.correct).length,
+        correct_count: answers.filter((item) => item.correct).length,
         total: questions.length,
         percent,
       });
@@ -417,11 +399,12 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                     onClick={() => {
                       const next = !hintOpen;
                       setHintOpen(next);
-                      if (next) {
-                        trackEvent("quiz_hint_used", {
+                      if (next && !hintedQuestions.current.has(index)) {
+                        hintedQuestions.current.add(index);
+                        trackEvent("quiz_hint", {
                           quiz_id: quizId,
-                          question: index + 1,
-                          species: question.correctId,
+                          question_index: index + 1,
+                          species_id: question.correctId,
                           difficulty: question.difficulty,
                         });
                       }
@@ -528,11 +511,10 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                       <Link
                         href={speciesHref(question.correctId, locale)}
                         onClick={() =>
-                          trackEvent("species_page_clicked", {
-                            quiz_id: quizId,
+                          trackSpeciesClick({
+                            species_id: question.correctId,
                             source: "quiz_question",
-                            species: question.correctId,
-                            question: index + 1,
+                            position: index + 1,
                           })
                         }
                         className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
@@ -559,11 +541,10 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                 <Link
                   href={speciesHref(question.correctId, locale)}
                   onClick={() =>
-                    trackEvent("species_page_clicked", {
-                      quiz_id: quizId,
+                    trackSpeciesClick({
+                      species_id: question.correctId,
                       source: "quiz_question",
-                      species: question.correctId,
-                      question: index + 1,
+                      position: index + 1,
                     })
                   }
                   className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
@@ -712,7 +693,7 @@ function ResultOverlay({
           text,
           url: shareUrl,
         });
-        trackEvent("quiz_share_clicked", {
+        trackEvent("quiz_share", {
           quiz_id: quizId,
           method: "share",
           percent,
@@ -726,17 +707,13 @@ function ResultOverlay({
       await navigator.clipboard.writeText(`${text} ${shareUrl}`);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
-      trackEvent("quiz_share_clicked", {
+      trackEvent("quiz_share", {
         quiz_id: quizId,
         method: "copy",
         percent,
       });
     } catch {
-      trackEvent("quiz_share_clicked", {
-        quiz_id: quizId,
-        method: "copy_failed",
-        percent,
-      });
+      return;
     }
   }
 
@@ -795,12 +772,10 @@ function ResultOverlay({
               <Link
                 href={speciesHref(item.correctId, locale)}
                 onClick={() =>
-                  trackEvent("species_page_clicked", {
-                    quiz_id: quizId,
+                  trackSpeciesClick({
+                    species_id: item.correctId,
                     source: "quiz_result",
-                    species: item.correctId,
-                    question: questionIndex + 1,
-                    correct: answer.correct,
+                    position: questionIndex + 1,
                   })
                 }
                 className="flex min-w-0 items-center gap-2.5 rounded-[20px] border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
@@ -860,13 +835,6 @@ function ResultOverlay({
         </Link>
         <Link
           href="/snakes"
-          onClick={() =>
-            trackEvent("species_page_clicked", {
-              quiz_id: quizId,
-              source: "quiz_complete",
-              target: "snakes_hub",
-            })
-          }
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
         >
           {t("discoverSnakes")}

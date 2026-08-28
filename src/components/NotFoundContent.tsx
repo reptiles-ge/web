@@ -1,3 +1,4 @@
+import { NotFoundAnalytics } from "@/components/NotFoundAnalytics";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -19,6 +20,7 @@ export async function NotFoundContent() {
       data-hide-footer
       className="relative flex min-h-svh flex-col overflow-hidden bg-ink text-ink-foreground"
     >
+      <NotFoundAnalytics />
       <div className="absolute inset-0">
         <Image
           src={images.cta}

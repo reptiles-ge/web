@@ -74,6 +74,7 @@ export function SnakeIdentifyPage({
           title={t("quizCtaTitle")}
           body={t("quizCtaBody")}
           cta={t("quizCta")}
+          source="other"
         />
       </Reveal>
 
@@ -157,7 +158,7 @@ export function SnakeIdentifyPage({
               </Link>
             </div>
           )}
-          <SpeciesGuideList species={venomous} locale={locale} />
+          <SpeciesGuideList species={venomous} locale={locale} source="guide" />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { MapPin } from "lucide-react";
@@ -12,15 +13,28 @@ import Image from "next/image";
 
 type SpeciesCardProps = {
   species: Species;
+  source?: SpeciesClickSource;
+  position?: number;
 };
 
-export function SpeciesCard({ species }: SpeciesCardProps) {
+export function SpeciesCard({
+  species,
+  source = "carousel",
+  position,
+}: SpeciesCardProps) {
   const locale = useLocale() as AppLocale;
   const cover = species.mobileImage ?? species.image;
 
   return (
     <Link
       href={speciesHref(species.id, locale)}
+      onClick={() =>
+        trackSpeciesClick({
+          species_id: species.id,
+          source,
+          position,
+        })
+      }
       className="group relative block h-[560px] w-[320px] shrink-0 overflow-hidden rounded-[28px] bg-ink sm:w-[380px]"
     >
       <Image

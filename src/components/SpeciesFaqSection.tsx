@@ -2,6 +2,7 @@
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import type { SpeciesFaq } from "@/data/species";
+import { trackEvent, type PageType } from "@/lib/analytics";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -10,9 +11,16 @@ import { useState } from "react";
 type SpeciesFaqSectionProps = {
   items: SpeciesFaq[];
   name: string;
+  entityId: string;
+  pageType: PageType;
 };
 
-export function SpeciesFaqSection({ items, name }: SpeciesFaqSectionProps) {
+export function SpeciesFaqSection({
+  items,
+  name,
+  entityId,
+  pageType,
+}: SpeciesFaqSectionProps) {
   const t = useTranslations("profile");
   const [open, setOpen] = useState<number | null>(0);
 
@@ -51,7 +59,17 @@ export function SpeciesFaqSection({ items, name }: SpeciesFaqSectionProps) {
                   <button
                     type="button"
                     aria-expanded={isOpen}
-                    onClick={() => setOpen(isOpen ? null : index)}
+                    onClick={() => {
+                      const next = isOpen ? null : index;
+                      setOpen(next);
+                      if (next !== null) {
+                        trackEvent("faq_open", {
+                          page_type: pageType,
+                          entity_id: entityId,
+                          faq_index: next,
+                        });
+                      }
+                    }}
                     className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                   >
                     <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">

@@ -1,3 +1,4 @@
+import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
@@ -195,11 +196,13 @@ function FeaturedQuizCard({
   );
 
   return (
-    <Link
+    <QuizCtaLink
       href={href}
+      quizId={item.id}
+      source="quiz_index"
       className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
     >
       {inner}
-    </Link>
+    </QuizCtaLink>
   );
 }

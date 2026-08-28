@@ -11,6 +11,7 @@ import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
@@ -20,10 +21,12 @@ export function SpeciesGuideRow({
   species,
   locale,
   index,
+  source = "hub",
 }: {
   species: Species;
   locale: AppLocale;
   index: number;
+  source?: SpeciesClickSource;
 }) {
   const tShared = useTranslations("groupHubShared");
   const tDanger = useTranslations("danger");
@@ -47,6 +50,13 @@ export function SpeciesGuideRow({
   return (
     <Link
       href={speciesHref(species.id, locale)}
+      onClick={() =>
+        trackSpeciesClick({
+          species_id: species.id,
+          source,
+          position: index + 1,
+        })
+      }
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
     >
       <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
@@ -107,15 +117,22 @@ export function SpeciesGuideRow({
 export function SpeciesGuideList({
   species,
   locale,
+  source = "hub",
 }: {
   species: Species[];
   locale: AppLocale;
+  source?: SpeciesClickSource;
 }) {
   return (
     <div className="mt-12 divide-y divide-border border-y border-border">
       {species.map((item, index) => (
         <Reveal key={item.id} delay={Math.min(index * 40, 320)}>
-          <SpeciesGuideRow species={item} locale={locale} index={index} />
+          <SpeciesGuideRow
+            species={item}
+            locale={locale}
+            index={index}
+            source={source}
+          />
         </Reveal>
       ))}
     </div>

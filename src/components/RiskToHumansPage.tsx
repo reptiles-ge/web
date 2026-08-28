@@ -261,7 +261,7 @@ export function RiskToHumansPage({
                     {t(`${level}SpeciesBody`)}
                   </p>
                   {species.length > 0 ? (
-                    <SpeciesGuideList species={species} locale={locale} />
+                    <SpeciesGuideList species={species} locale={locale} source="guide" />
                   ) : null}
                   {level === "Harmless" ? (
                     <Link

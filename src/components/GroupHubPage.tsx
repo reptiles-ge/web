@@ -1,6 +1,7 @@
 "use client";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
@@ -13,6 +14,7 @@ import {
   splitHubSpecies,
 } from "@/lib/clusterGuides";
 import { quizHref } from "@/lib/quizzes";
+import { trackEvent } from "@/lib/analytics";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
@@ -107,13 +109,15 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                   {tShared("ctaAllSpecies")}
                 </Link>
                 {hubId === "snakes" ? (
-                  <Link
+                  <QuizCtaLink
                     href={quizHref("snake", locale)}
+                    quizId="snake"
+                    source="hub"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
                   >
                     {tSnakes("ctaQuiz")}
                     <ArrowUpRight className="size-4" />
-                  </Link>
+                  </QuizCtaLink>
                 ) : null}
               </div>
             </Reveal>
@@ -235,6 +239,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                   <SpeciesGuideList
                     species={section.items}
                     locale={locale}
+                    source="hub"
                   />
                 </div>
               ))}
@@ -388,7 +393,17 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                     <button
                       type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
+                      onClick={() => {
+                        const next = isOpen ? null : index;
+                        setOpen(next);
+                        if (next !== null) {
+                          trackEvent("faq_open", {
+                            page_type: "hub",
+                            entity_id: hubId,
+                            faq_index: next,
+                          });
+                        }
+                      }}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
                       <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">

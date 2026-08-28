@@ -20,6 +20,7 @@ import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { REGION_SECTION_IDS } from "@/lib/toc";
@@ -281,7 +282,12 @@ export function RegionProfile({ region }: RegionProfileProps) {
         ) : null}
 
         {faq.length > 0 ? (
-          <RegionFaqSection items={faq} name={name} nameIn={nameIn} />
+          <RegionFaqSection
+            items={faq}
+            name={name}
+            nameIn={nameIn}
+            regionId={region.id}
+          />
         ) : null}
 
         <ContentAttribution />
@@ -350,6 +356,12 @@ function PhotoSpeciesCard({
   return (
     <Link
       href={speciesHref(species.id, locale)}
+      onClick={() =>
+        trackSpeciesClick({
+          species_id: species.id,
+          source: "region",
+        })
+      }
       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
     >
       <Image
@@ -387,10 +399,12 @@ function RegionFaqSection({
   items,
   name,
   nameIn,
+  regionId,
 }: {
   items: { question: string; answer: string }[];
   name: string;
   nameIn: string;
+  regionId: string;
 }) {
   const t = useTranslations("regions");
   const [open, setOpen] = useState<number | null>(0);
@@ -423,7 +437,17 @@ function RegionFaqSection({
                     <button
                       type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
+                      onClick={() => {
+                        const next = isOpen ? null : index;
+                        setOpen(next);
+                        if (next !== null) {
+                          trackEvent("faq_open", {
+                            page_type: "region",
+                            entity_id: regionId,
+                            faq_index: next,
+                          });
+                        }
+                      }}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
                       <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">

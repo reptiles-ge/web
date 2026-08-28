@@ -4,6 +4,7 @@
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { useRouter } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import {
   chromeIconButtonBase,
   chromeIconButtonClass,
@@ -290,6 +291,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const [recent, setRecent] = useState<SearchDocument[]>([]);
   const [modKey, setModKey] = useState("");
   const deferredQuery = useDeferredValue(query);
+  const lastSearchKey = useRef("");
+  const queryEntry = useRef<"type" | "suggestion">("type");
 
   const index = useMemo(() => buildSearchIndex(locale), [locale]);
   const searched = useMemo(
@@ -353,9 +356,32 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     setOpen(false);
     setQuery("");
     setFilter("all");
+    lastSearchKey.current = "";
     desktopInputRef.current?.blur();
     mobileInputRef.current?.blur();
   }, []);
+
+  const openSearch = useCallback(
+    (method: "click" | "shortcut" | "mobile") => {
+      setOpen((was) => {
+        if (!was) trackEvent("search_open", { entry_method: method });
+        return true;
+      });
+    },
+    [],
+  );
+
+  function changeFilter(value: SearchFilter) {
+    if (value !== filter) {
+      trackEvent("search_filter", {
+        search_filter: value,
+        search_term: query.trim()
+          ? truncateSearchTerm(query)
+          : undefined,
+      });
+    }
+    setFilter(value);
+  }
 
   useEffect(() => {
     function onShortcut(event: globalThis.KeyboardEvent) {
@@ -367,7 +393,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         closeSearch();
         return;
       }
-      setOpen(true);
+      openSearch("shortcut");
       const mobile = window.matchMedia("(max-width: 767px)").matches;
       window.requestAnimationFrame(() => {
         (mobile ? mobileInputRef : desktopInputRef).current?.focus();
@@ -376,22 +402,63 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
     window.addEventListener("keydown", onShortcut);
     return () => window.removeEventListener("keydown", onShortcut);
-  }, [closeSearch, open]);
+  }, [closeSearch, open, openSearch]);
+
+  useEffect(() => {
+    if (!open) return;
+    const q = deferredQuery.trim();
+    if (q.length < 2) return;
+    const count = flattenGroups(searched.groups).length;
+    const key = `${q}|${filter}|${count}`;
+    const timer = window.setTimeout(() => {
+      if (lastSearchKey.current === key) return;
+      lastSearchKey.current = key;
+      const term = truncateSearchTerm(q);
+      trackEvent("search_query", {
+        search_term: term,
+        search_filter: filter,
+        result_count: count,
+        has_results: count > 0,
+        entry_method: queryEntry.current,
+      });
+      queryEntry.current = "type";
+      if (count === 0) {
+        trackEvent("search_no_result", {
+          search_term: term,
+          search_filter: filter,
+        });
+      }
+    }, 500);
+    return () => window.clearTimeout(timer);
+  }, [open, deferredQuery, filter, searched.groups]);
 
   const goTo = useCallback(
     (item: SearchDocument) => {
+      const term = query.trim();
+      const isRecent =
+        !term && recent.some((entry) => entry.key === item.key);
+      const position = flat.findIndex((entry) => entry.key === item.key) + 1;
+      trackEvent("search_result_click", {
+        search_term: term ? truncateSearchTerm(term) : undefined,
+        search_filter: filter,
+        result_kind: item.kind,
+        result_id: item.id,
+        result_position: position > 0 ? position : undefined,
+        result_count: flat.length,
+        is_recent: isRecent,
+      });
       setRecent(resolveRecent(index, writeRecent({ kind: item.kind, id: item.id })));
       closeSearch();
       startTransition(() => {
         router.push(item.href);
       });
     },
-    [closeSearch, index, router],
+    [closeSearch, filter, flat, index, query, recent, router],
   );
 
   function onKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
     if (!open) {
-      if (event.key === "ArrowDown") setOpen(true);
+      if (event.key === "ArrowDown") openSearch("click");
       return;
     }
 
@@ -458,8 +525,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             hint={t("noResultsHint")}
             suggestions={suggestions}
             onPick={(value) => {
+              queryEntry.current = "suggestion";
               setQuery(value);
-              setOpen(true);
+              openSearch("click");
             }}
           />
         ) : (
@@ -508,7 +576,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         type="button"
         aria-label={t("open")}
         aria-expanded={open}
-        onClick={() => setOpen(true)}
+        onClick={() => openSearch("mobile")}
         className={`${chromeIconButtonBase} md:hidden ${iconButtonClass}`}
       >
         <Search className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
@@ -536,7 +604,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
           aria-label={t("open")}
           placeholder={t("placeholder")}
           autoComplete="off"
-          onFocus={() => setOpen(true)}
+          onFocus={() => openSearch("click")}
           onBlur={(event) => {
             const next = event.relatedTarget as Node | null;
             if (!rootRef.current?.contains(next)) {
@@ -632,7 +700,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             <div className="-mx-4 w-[calc(100%+2rem)]">
               <FilterBar
                 value={filter}
-                onChange={setFilter}
+                onChange={changeFilter}
                 labels={filterLabels}
               />
             </div>
@@ -643,7 +711,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             <div className="border-b border-border/60">
               <FilterBar
                 value={filter}
-                onChange={setFilter}
+                onChange={changeFilter}
                 labels={filterLabels}
               />
             </div>

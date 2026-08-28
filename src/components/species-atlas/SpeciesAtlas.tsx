@@ -28,11 +28,12 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
+import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
 type SpeciesAtlasProps = {
   initialFilters?: AtlasFilters;
@@ -209,6 +210,8 @@ export function SpeciesAtlas({
   const [filters, setFilters] = useState<AtlasFilters>(initialFilters);
   const [filterOpen, setFilterOpen] = useState(false);
   const deferredQuery = useDeferredValue(filters.query);
+  const skipAtlasFilter = useRef(true);
+  const lastQuery = useRef(filters.query);
 
   const catalog = useMemo(
     () =>
@@ -252,6 +255,37 @@ export function SpeciesAtlas({
     () => filterAtlasSpecies(catalog, activeFilters),
     [catalog, activeFilters],
   );
+
+  useEffect(() => {
+    if (skipAtlasFilter.current) {
+      skipAtlasFilter.current = false;
+      lastQuery.current = filters.query;
+      return;
+    }
+    const queryChanged = lastQuery.current !== filters.query;
+    lastQuery.current = filters.query;
+    const delay = queryChanged ? 500 : 0;
+    const timer = window.setTimeout(() => {
+      const isDefault =
+        filters.group === defaultAtlasFilters.group &&
+        filters.danger === defaultAtlasFilters.danger &&
+        filters.habitat === defaultAtlasFilters.habitat &&
+        filters.region === defaultAtlasFilters.region &&
+        !filters.query.trim();
+      trackEvent("atlas_filter", {
+        action: isDefault ? "reset" : "apply",
+        group_filter: filters.group,
+        danger_filter: filters.danger,
+        habitat_filter: filters.habitat,
+        region_filter: filters.region,
+        search_term: filters.query.trim()
+          ? truncateSearchTerm(filters.query)
+          : undefined,
+        result_count: filtered.length,
+      });
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [filters, filtered.length]);
 
   const groupCounts = useMemo(() => {
     const counts: Record<AnimalGroup | "all", number> = {
@@ -679,7 +713,7 @@ export function SpeciesAtlas({
               </p>
             </Reveal>
             <div className="mt-12 lg:mt-16">
-              <GeorgiaMap selectionMode="navigate" />
+              <GeorgiaMap selectionMode="navigate" mapContext="atlas" />
             </div>
             <div className="mt-10 flex justify-center">
               <Link

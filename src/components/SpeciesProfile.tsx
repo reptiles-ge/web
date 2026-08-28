@@ -19,6 +19,8 @@ import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { usesDangerScale } from "@/lib/speciesRisk";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { formatContentDate } from "@/lib/formatDate";
+import { getRegionsForSpecies } from "@/data/regions";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import {
   filterDisplayStats,
   getSpeciesHeroSources,
@@ -46,7 +48,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 type SpeciesProfileProps = {
   species: Species;
@@ -109,6 +111,18 @@ export function SpeciesProfile({
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const showIdentification = hasRealIdentification(species.identification);
+
+  useEffect(() => {
+    trackEvent("species_view", {
+      species_id: species.id,
+      group,
+      page_type: "species",
+      scientific_name: species.scientificName,
+      has_gallery: gallery.length > 0,
+      has_range: getRegionsForSpecies(species.id).length > 0,
+      has_identification: showIdentification,
+    });
+  }, [species.id, species.scientificName, group, gallery.length, showIdentification]);
   const biologyBlocks = useMemo(
     () =>
       [
@@ -173,7 +187,11 @@ export function SpeciesProfile({
               className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
               style={{ top: "5.75rem" }}
             >
-              <PhotoCreditCaption credit={heroCredit} variant="hero" />
+              <PhotoCreditCaption
+                credit={heroCredit}
+                variant="hero"
+                speciesId={species.id}
+              />
             </div>
           ) : null}
           {mobileHeroCredit && mobileHeroSrc ? (
@@ -181,7 +199,11 @@ export function SpeciesProfile({
               className="pointer-events-none absolute right-6 z-[5] lg:hidden"
               style={{ top: "5.25rem" }}
             >
-              <PhotoCreditCaption credit={mobileHeroCredit} variant="hero" />
+              <PhotoCreditCaption
+                credit={mobileHeroCredit}
+                variant="hero"
+                speciesId={species.id}
+              />
             </div>
           ) : null}
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -231,7 +253,10 @@ export function SpeciesProfile({
                 {species.location}
               </span>
               {species.audio ? (
-                <SpeciesVoicePlayer audio={species.audio} />
+                <SpeciesVoicePlayer
+                  audio={species.audio}
+                  speciesId={species.id}
+                />
               ) : null}
               {usesDangerScale(group) ? (
                 <SpeciesRiskChip species={species} variant="hero" linked />
@@ -322,6 +347,7 @@ export function SpeciesProfile({
             scientificName={species.scientificName}
             location={species.location}
             tone="background"
+            speciesId={species.id}
           />
         ) : null}
 
@@ -345,6 +371,8 @@ export function SpeciesProfile({
             body={t("quizCtaBody", { name: species.commonName })}
             cta={t("quizCta")}
             className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
+            source="species"
+            speciesId={species.id}
           />
         ) : null}
 
@@ -390,7 +418,12 @@ export function SpeciesProfile({
         ) : null}
 
         {species.faq && species.faq.length > 0 ? (
-          <SpeciesFaqSection items={species.faq} name={species.commonName} />
+          <SpeciesFaqSection
+            items={species.faq}
+            name={species.commonName}
+            entityId={species.id}
+            pageType="species"
+          />
         ) : null}
 
         <ContentAttribution
@@ -401,7 +434,7 @@ export function SpeciesProfile({
           }
         />
 
-        <SpeciesSources sources={species.sources} />
+        <SpeciesSources sources={species.sources} speciesId={species.id} />
 
         {guideLinks.length > 0 ? (
           <section className="border-t border-border bg-surface py-16 lg:py-20">
@@ -446,7 +479,7 @@ export function SpeciesProfile({
                 </Link>
               </div>
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((item) => {
+                {related.map((item, relatedIndex) => {
                   const cover =
                     item.mobileImage && !isPlaceholderMedia(item.mobileImage)
                       ? item.mobileImage
@@ -457,6 +490,13 @@ export function SpeciesProfile({
                     <Link
                       key={item.id}
                       href={speciesHref(item.id, locale)}
+                      onClick={() =>
+                        trackSpeciesClick({
+                          species_id: item.id,
+                          source: "related",
+                          position: relatedIndex + 1,
+                        })
+                      }
                       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
                     >
                       {cover ? (

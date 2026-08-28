@@ -12,6 +12,7 @@ import {
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
@@ -56,6 +57,14 @@ export function AtlasSpeciesCard({
     >
       <Link
         href={speciesHref(species.id, locale)}
+        onClick={() =>
+          trackSpeciesClick({
+            species_id: species.id,
+            source: "atlas",
+            position: index + 1,
+            group: meta.group,
+          })
+        }
         className="absolute inset-0 z-10"
         aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
       />

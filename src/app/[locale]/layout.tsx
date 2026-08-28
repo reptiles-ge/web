@@ -1,9 +1,9 @@
+import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { ClarityInit } from "@/components/ClarityInit";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { routing } from "@/i18n/routing";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -32,11 +32,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages}>
       <ScrollToTop />
+      <AnalyticsPageContext />
       <Navbar />
       {children}
       <Footer />
       <SpeedInsights />
-      {isProd ? <GoogleAnalytics gaId="G-7TTKJPY059" /> : null}
       {isProd ? <ClarityInit /> : null}
     </NextIntlClientProvider>
   );

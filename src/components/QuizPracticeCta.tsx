@@ -1,7 +1,43 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { trackEvent, type QuizCtaSource } from "@/lib/analytics";
 import { quizHref } from "@/lib/quizzes";
 import { ArrowUpRight } from "lucide-react";
+import type { ReactNode } from "react";
+
+export function QuizCtaLink({
+  href,
+  quizId,
+  source,
+  speciesId,
+  className,
+  children,
+}: {
+  href: ReturnType<typeof quizHref>;
+  quizId: string;
+  source: QuizCtaSource;
+  speciesId?: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className={className}
+      onClick={() =>
+        trackEvent("quiz_cta_click", {
+          quiz_id: quizId,
+          source,
+          species_id: speciesId,
+        })
+      }
+    >
+      {children}
+    </Link>
+  );
+}
 
 export function QuizPracticeCta({
   locale,
@@ -10,6 +46,8 @@ export function QuizPracticeCta({
   body,
   cta,
   className = "border-t border-border bg-surface pt-8 pb-8 lg:pt-10 lg:pb-10",
+  source = "other",
+  speciesId,
 }: {
   locale: AppLocale;
   eyebrow: string;
@@ -17,6 +55,8 @@ export function QuizPracticeCta({
   body: string;
   cta: string;
   className?: string;
+  source?: QuizCtaSource;
+  speciesId?: string;
 }) {
   return (
     <section className={className}>
@@ -33,13 +73,16 @@ export function QuizPracticeCta({
               {body}
             </p>
           </div>
-          <Link
+          <QuizCtaLink
             href={quizHref("snake", locale)}
+            quizId="snake"
+            source={source}
+            speciesId={speciesId}
             className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
           >
             {cta}
             <ArrowUpRight className="size-3.5" />
-          </Link>
+          </QuizCtaLink>
         </div>
       </div>
     </section>
