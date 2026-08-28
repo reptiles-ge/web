@@ -1236,7 +1236,7 @@ export const species: Species[] = [
         "answer": "უვნებელია, თუ არ აიყვანთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:09:54+04:00",
+    "updatedAt": "2026-08-28T20:11:09+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
