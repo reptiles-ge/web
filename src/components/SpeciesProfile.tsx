@@ -516,14 +516,13 @@ export function SpeciesProfile({
                       className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
                     >
                       {cover ? (
-                        <Image
+                        <CoverImage
                           src={cover}
                           alt={speciesImageAlt(
                             item.commonName,
                             item.scientificName,
                             item.location,
                           )}
-                          fill
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                         />
