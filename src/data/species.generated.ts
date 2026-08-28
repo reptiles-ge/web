@@ -517,7 +517,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; ბუდეს არ მიუახლოვდეთ. გლობალურად NT-ია. 2014 წლის წითელ ნუსხაში EN D1-ია; 2024 წლის ჩამონათვალი ეროვნულად NT-ს უთითებს. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T22:16:17+04:00",
+    "updatedAt": "2026-08-28T22:28:10+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -2077,26 +2077,32 @@ export const species: Species[] = [
     "location": "მუდმივი საქართველოში, შეზღუდული არეალი",
     "description": "ველური თხა ციცაბო, ხშირად ტყიან მთის ფერდობებზე. ზრდასრულ მამალს ნამგლისებრი რქა და მუქი წვერი აქვს. საქართველოში მუდმივია, მაგრამ პოპულაცია მცირეა და გეოგრაფიულად შეზღუდული.",
     "overview": "ნიამორი (Capra aegagrus) ველური თხაა ძროხისებრთა ოჯახიდან; საქართველოში დღეს გამრავლების პოპულაციები მხოლოდ თუშეთსა და ჩრდილოეთ ხევსურეთშია. ინგლისურად wild goat და bezoar goat; „bezoar ibex“ კავკასიურ–ანატოლიური ფორმის პოპულარული სახელია და არა ცალკე სახეობა. IUCN საქართველოს native resident ქვეყნად ასახელებს. არეალი დიდი კავკასიონის ჩრდილოეთ ფერდზეა. შხამი არ აქვს. ადამიანისთვის პრაქტიკული საკითხია შეწუხება, უკანონო ნადირობა და პირუტყვის დაავადება — არა ნაკბენი. IUCN სახეობას გლობალურად Near Threatened-ად აფასებს. საქართველოს 2014 წლის წითელ ნუსხაში გადაშენების კრიტიკული საფრთხის ქვეშაა (CR).",
-    "habitat": "დიდ კავკასიონზე ძირითადად შერეული ტყის სარტყლის ციცაბო, კლდოვან და ხრეშიან ფერდობებზე ცხოვრობს და არა ისე ალპურ საძოვარზე, როგორც აღმოსავლური ჯიხვი. IUCN წერს, რომ შეჯვარების სეზონის გარეთ მამალი დედალზე უფრო მაღლა იკავებს ადგილს. ეს გვერდი მუნიციპალიტეტებს არ რუკავს. დასახელებული ქართული ადგილები მუდმივი პოპულაციით: თუშეთის დაცული ტერიტორიები (ნაკრძალი, ეროვნული პარკი და დაცული ლანდშაფტი) და ფშავ-ხევსურეთის დაცული ტერიტორიები ჩრდილოეთ ხევსურეთში, მათ შორის შატილისკენ ფერდობები და შატილისწყლის ხეობა რუსეთის საზღვართან (NACRES / CNF, 2021). იმ აღწერაში ბირთვული ჰაბიტატი თუშეთში დაახლოებით 79 კმ², ხევსურეთში 39 კმ² იყო. ლაგოდეხის დაცულ ტერიტორიებზე (ყაბალისა და ლაგოდეხის ხეობები) მამლები ფოტოხაფანგით 2016 წლის ბოლოს – 2017 წლის დასაწყისში და 2021 წლის გაზაფხულზე გადაიღეს; ისინი არ დარჩენილან და აქ დაღესტნიდან მოსულ სტუმრებად იკითხება, არა ქართულ გამრავლების ჯგუფად. მცირე კავკასიონი ისტორიული არეალია: აჭარის მთები და მესხეთის ქედი ბორჯომამდე (რადე 1899; დინიკი 1914; ვერეშჩაგინი 1959). ბორჯომის მიდამოებიდან XX საუკუნის დასაწყისში გაქრა (გეპტნერი და სხვ. 1961); ჯანაშვილი (1977) წერს, რომ მცირე ჯგუფები 1970-იანებამდე დარჩა. არაბული (1985) 1980-იანების დასაწყისში არსიანის ქედზე, აჭარის აღმოსავლეთში, 65 ინდივიდს ითვლიდა. 2002 და 2006–2007 წლების მოკლე აღწერებმა მცირე კავკასიონზე კვალი ვერ იპოვა. 2020 წლის იანვარში მამალი ხიჭაურთან, აჭარაში, დაინახეს; NACRES ამას თურქეთიდან სეზონურ გადმოსვლად მიიჩნევს. APA 2006 წლიდან აწყურის საგუშაგოზე, ბორჯომ-ხარაგაულის ეროვნულ პარკში, რეინტროდუქციის გალიას ასახელებს; ეს გვერდი ამ პროექტს თავისუფლად მცხოვრებ ქართულ პოპულაციად არ იღებს. ნუ ივარაუდებთ გავრცელებას დანარჩენ საქართველოში, მათ შორის სვანეთში, ჯავახეთსა და დასახლებულ დაბლობზე. ეროვნული სიმაღლის სარტყელი აქ გაზომილი არ არის.",
+    "habitat": "დიდ კავკასიონზე ძირითადად შერეული ტყის სარტყლის ციცაბო, კლდოვან და ხრეშიან ფერდობებზე ცხოვრობს და არა ისე ალპურ საძოვარზე, როგორც აღმოსავლური ჯიხვი. IUCN წერს, რომ შეჯვარების სეზონის გარეთ მამალი დედალზე უფრო მაღლა იკავებს ადგილს. ეს გვერდი მუნიციპალიტეტებს არ რუკავს. დასახელებული ქართული ადგილები მუდმივი პოპულაციით: თუშეთის დაცული ტერიტორიები (ნაკრძალი, ეროვნული პარკი და დაცული ლანდშაფტი) და ფშავ-ხევსურეთის დაცული ტერიტორიები ჩრდილოეთ ხევსურეთში, მათ შორის შატილისკენ ფერდობები და შატილისწყლის ხეობა რუსეთის საზღვართან (NACRES / CNF, 2021). იმ აღწერაში ბირთვული ჰაბიტატი თუშეთში დაახლოებით 79 კმ², ხევსურეთში 39 კმ² იყო. ლაგოდეხის დაცულ ტერიტორიებზე (ყაბალისა და ლაგოდეხის ხეობები) მამლები ფოტოხაფანგით 2016 წლის ბოლოს – 2017 წლის დასაწყისში და 2021 წლის გაზაფხულზე გადაიღეს; ისინი არ დარჩენილან და აქ დაღესტნიდან მოსულ სტუმრებად იკითხება, არა ქართულ გამრავლების ჯგუფად. მცირე კავკასიონი ისტორიული არეალია: აჭარის მთები და მესხეთის ქედი ბორჯომამდე (რადე 1899; დინიკი 1914; ვერეშჩაგინი 1959). ბორჯომის მიდამოებიდან XX საუკუნის დასაწყისში გაქრა (გეპტნერი და სხვ. 1961); ჯანაშვილი (1977) წერს, რომ მცირე ჯგუფები 1970-იანებამდე დარჩა. არაბული (1985) 1980-იანების დასაწყისში არსიანის ქედზე, აჭარის აღმოსავლეთში, 65 ინდივიდს ითვლიდა. 2002 და 2006–2007 წლების მოკლე აღწერებმა მცირე კავკასიონზე კვალი ვერ იპოვა. 2020 წლის იანვარში მამალი ხიჭაურთან, აჭარაში, დაინახეს; NACRES ამას თურქეთიდან სეზონურ გადმოსვლად მიიჩნევს. APA 2006 წლიდან აწყურის საგუშაგოზე, ბორჯომ-ხარაგაულის ეროვნულ პარკში, რეინტროდუქციის გალიას ასახელებს. ამ გვერდზე არის 2015 წლის 17 მაისის ფოტო იმავე პარკიდან (ვასილ გაბუნია) — ზრდასრული მამალი ტყეში. ეს დასახელებული ლოკაციაა და არა 2021 წლის აღწერის გამრავლების პოპულაცია; NACRES თავისუფლად მცხოვრებ ქართულ პოპულაციად მხოლოდ თუშეთსა და ჩრდილოეთ ხევსურეთს იღებს. ნუ ივარაუდებთ გავრცელებას დანარჩენ საქართველოში, მათ შორის სვანეთში, ჯავახეთსა და დასახლებულ დაბლობზე. ეროვნული სიმაღლის სარტყელი აქ გაზომილი არ არის.",
     "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში მცენარისმჭამელია: ბალახი, ბალახოვანი მცენარეები და ბუჩქები. კავკასიაში ღვიასა და მუხაზე უფრო ადვილად ადის, ვიდრე ჯიხვი (Weinberg). საკვები სეზონისა და მწვანე მასის მიხედვით იცვლება. მტაცებელი არ არის. საქართველოში, სადაც არეალები იკვეთება, ჯიქის ნადავლია; დიდ კავკასიონზე მგელი, ფოცხვერი, მურა დათვი და ოქროსფერი არწივი სულ მცირე ნაზარდს იღებენ, თუმცა მტაცებლის გავლენა იქ ზოგადად დაბლად არის შეფასებული.",
     "behavior": "საქართველოში ძალიან ფრთხილია. NACRES მოპირდაპირე ფერდიდან ითვლიდა, ხშირად 2 კმ-ზე მეტი მანძილიდან, რადგან არეალში შესვლა ცხოველებს მხედველობიდან გააძევებდა. 2021 წლის აღწერებში ჯგუფები ძირითადად პატარა იყო: ხევსურეთში დაკვირვებების დაახლოებით 80% ერთი ან ორი ინდივიდი იყო; თუშეთში ჯგუფების ნახევარზე მეტი დედალი ნაზარდით. საშუალო ჯგუფი ხევსურეთში 2.96, თუშეთში 1.93 იყო. დიდი მამლების ჯგუფი იშვიათია; 20 მამლის ჯგუფი ერთხელ ნახეს შატილისწყლის ხეობაში. კავკასიაში გრძელი სეზონური მიგრაცია ტიპური არ არის, გარდა იმისა, რომ მამალი შეჯვარების გარეთ დედლებისგან შორს შეიძლება იდგეს. დიდ კავკასიონზე, დაღესტანში, შეჯვარება დაახლოებით ნოემბრის შუიდან დეკემბრის მეორე ათეულამდეა და ჯიხვზე გვიანია. ექვთიმიშვილმა (1954) გამრავლება საქართველოში შეისწავლა; ნაზარდი ჩვეულებრივ მაისში იბადება, მაგრამ წინა შეჯვარების მიხედვით შეიძლება გადაიწიოს. NACRES-მა 2021 წლის მაისის ბოლოს ხევსურეთში დედალი ნაზარდით ვერ ნახა და მშობიარობა იმ წელს დაგვიანებულად ჩათვალა. სახეობის დონეზე ტყუპი ხშირია. კვალი ორნაკვთიანი ჩლიქია კლდესა და ხრეშზე. ამ გვერდზე ქართული ხმის ჩანაწერი არ არის.",
     "conservation": "Weinberg და Ambarli (2020) Capra aegagrus-ს IUCN Red List-ზე Near Threatened-ად აფასებენ. 2014 წლის დადგენილება №190 ნიამორს CR-ად ასახელებს კრიტერიუმით C2 a(ii). იმავე ცხრილში ავტორად ლინე, 1758 არის მითითებული; მიღებული ავტორია ერქსლები, 1777. ნადირობა აკრძალულია. 1982 წლიდანაა დაცული და 1982 წლის წითელ წიგნში შემცირებადი არეალის სახეობად იყო შეტანილი. ილიას სახელმწიფო უნივერსიტეტის 2021 წლის სამეცნიერო რევიზია (კოპალიანი და გურიელიძე) Endangered-ს გვთავაზობს; ეს სამეცნიერო წინადადებაა და არა 2014 წლის იურიდიული ნუსხის შეცვლა. NACRES (2021) თუშეთში 363, ხევსურეთში 114, სულ 477 ინდივიდს აფასებს — 2013 წლის დაახლოებით 350-თან შედარებით მეტი. თუშეთი სტაბილურ, მაგრამ დაბალ დონეზეა აღწერილი. ორივე დაცულ ტერიტორიაზე მთავარ საფრთხედ დასახელებულია ბრაკონიერობა გვიან შემოდგომასა და ზამთარში, საერთო საძოვარი პირუტყვთან, მწყემსები და ძაღლები, და დაავადების რისკი შინაური ფარიდან. საფეხმავლო ბილიკები ბირთვულ ჰაბიტატს არ კვეთს; თუშეთში ფეიერვერკი და ხმამაღალი დღესასწაული შეწუხებად არის დასახელებული. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. ჩვეულებრივ ადამიანს არ უახლოვდება. კლდეზე ახლო ფოტოს ნუ ცდილობთ და ჯგუფს ბილიკიდან ნუ გაჰყვებით. თუშეთსა და ხევსურეთში ძაღლები აკონტროლეთ. ნადირობა უკანონოა. არ აჭმიოთ. შინაურ თხასთან ჰიბრიდიზაცია სახეობის არეალის ნაწილში დოკუმენტირებული საფრთხეა; საქართველოსთვის აქ გაზომილი არ არის.",
-    "image": "/images/species/capra-aegagrus-malkhasyan-9.jpg",
+    "image": "/images/species/capra-aegagrus-gabunia-1.jpg",
     "imageCredit": {
-      "photographer": "Alexander Malkhasyan",
-      "url": "https://commons.wikimedia.org/wiki/File:9_Bezoar_Goat.jpg",
-      "location": "სომხეთი",
-      "date": "2019-12-15"
+      "photographer": "ვასილ გაბუნია",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-17"
     },
-    "mobileImage": "/images/species/capra-aegagrus-malkhasyan-6.jpg",
+    "mobileImage": "/images/species/capra-aegagrus-gabunia-1.jpg",
     "mobileImageCredit": {
-      "photographer": "Alexander Malkhasyan",
-      "url": "https://commons.wikimedia.org/wiki/File:6_Bezoar_Goat.jpg",
-      "location": "სომხეთი",
-      "date": "2019-12-23"
+      "photographer": "ვასილ გაბუნია",
+      "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+      "date": "2015-05-17"
     },
     "gallery": [
+      {
+        "src": "/images/species/capra-aegagrus-gabunia-1.jpg",
+        "credit": {
+          "photographer": "ვასილ გაბუნია",
+          "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+          "date": "2015-05-17"
+        }
+      },
       {
         "src": "/images/species/capra-aegagrus-malkhasyan-9.jpg",
         "credit": {
@@ -2190,7 +2196,7 @@ export const species: Species[] = [
         "სახეობის დონეზე (Handbook of the Mammals of the World) მამლის თავ–სხეულის სიგრძე დაახლოებით 129–152 სმ, კუდი 11–13 სმ, მხრის სიმაღლე მამალში 73–90 სმ, დედალში 55–60 სმ; მასა მამალში დაახლოებით 45–90 კგ, დედალში 25–55 კგ. საქართველოსთვის გაზომილი სერია ამ გვერდზე არ არის. რქა ორივე სქესს აქვს. მამლის რქა ნამგლისებრად ზევით და უკან იხრება, გვერდიდან შეკუმშულია, წინა კილზე კვანძებით; იშვიათად აღემატება დაახლოებით 127 სმ-ს, დაფიქსირებული მაქსიმუმი 152 სმ. დედლის რქა თხელია, ჩვეულებრივ 33 სმ-ზე ნაკლები და წინა კვანძები არ აქვს.",
         "NACRES-ის საველე კლასები საქართველოში: ზრდასრული მამალი (დაახლოებით 5–6 წელი და მეტი) — თავი მთლიანად შავი, სხეული თეთრიდან ვერცხლისფერ-რუხამდე, შავი ზოლებით; ახალგაზრდა მამალი (2–5 წელი) — თავი ჯერ არ არის სრულად შავი, წვერი არის, სხეული ჯერ ყავისფერია და რუხდება; ზრდასრული დედალი — მოყავისფრო, თხელი წვეტიანი რქა ყურებზე აშკარად გრძელი, წვერი არ აქვს, თვალზე მუქი ხაზი, თეთრი მუცლისა და ყავისფერი გვერდის გამყოფი ხაზი და ზოლები ზურგზე; ერთწლიანი მამალი — დედლის ზომის, რქა დედლის სიგრძის, მაგრამ ფუძეზე უფრო განიერი; ნაზარდი — პატარა, რქა არ ჩანს ან მხოლოდ ყურის სიგრძისაა. ზრდასრულ მამალს ნიკაპიდან მუქი წვერი აქვს.",
         "აღმოსავლური ჯიხვი (Capra cylindricornis) აღმოსავლეთ დიდ კავკასიონზეა: ზრდასრული მამლის რქა ღია სპირალია და არა უბრალო ნამგალი; ჯიხვი უფრო ხის ზედა ზოლის ზემოთ რჩება. დასავლური ჯიხვი (Capra caucasica) დასავლეთი დიდი კავკასიონის ცხოველია და დღევანდელი ქართული ნიამორის პოპულაცია არ არის. არჩვი (Rupicapra) უფრო პატარაა, მოკლე კაუჭისებრი რქით. შინაური თხა (Capra hircus) ამ ველური სახეობის შთამომავალია; სოფლის ფარაში ჭრელი ფერი და ჩამოკიდებული ყური ხშირია და ველური ნიამორის საველე ნიშანი არ არის. შველი ირმისებრია რქით (ანტლერით) და არა თხის რქით. ამ ატლასში ჯიხვისა და არჩვის გვერდები ჯერ არ არის.",
-        "შხამიანი არ არის. შორიდან დააკვირდით. ამ გვერდის ფოტოები C. a. aegagrus-ისაა სომხეთიდან და მუზეუმის რქის ნიმუში; იგივე ქვესახეობაა, რაც საქართველოში, მაგრამ ქართული ლოკალები არ არის."
+        "შხამიანი არ არის. შორიდან დააკვირდით. გმირის ფოტო ბორჯომ-ხარაგაულის ეროვნული პარკიდანაა (ვასილ გაბუნია, 2015-05-17). დანარჩენი გალერეა C. a. aegagrus-ია სომხეთიდან და მუზეუმის რქის ნიმუში."
       ]
     },
     "faq": [
@@ -2200,7 +2206,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება ვნახო საქართველოში?",
-        "answer": "რეალისტურად მხოლოდ ამ ორ მთიან მხარეში, ჩვეულებრივ შორიდან, ციცაბო ტყიან ფერდობებსა და კლდეებზე. ეროვნული რიცხვის უმეტესობა თუშეთშია. ლაგოდეხის ჩანაწერები სტუმარი მამლებია. ბორჯომსა და აჭარაში ველურ პოპულაციად ნუ ელით."
+        "answer": "რეალისტურად თუშეთსა და ჩრდილოეთ ხევსურეთში, ჩვეულებრივ შორიდან, ციცაბო ტყიან ფერდობებსა და კლდეებზე. ეროვნული რიცხვის უმეტესობა თუშეთშია. ლაგოდეხის ჩანაწერები სტუმარი მამლებია. ბორჯომ-ხარაგაულში 2015 წლის ფოტო არის; APA იქ რეინტროდუქციის გალიასაც ასახელებს. ეს არ ნიშნავს, რომ იქ დღეს თუშეთის მსგავსი ველური პოპულაციაა."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -2227,7 +2233,7 @@ export const species: Species[] = [
         "answer": "კი. საქართველოს 2014 წლის წითელ ნუსხაში CR-ია და ნადირობა აკრძალულია. გლობალურად Near Threatened-ია. 2021 წლის სამეცნიერო რევიზია Endangered-ს გვთავაზობს; იურიდიული ნუსხა აქ შეცვლილად არ იკითხება."
       }
     ],
-    "updatedAt": "2026-08-28T22:15:39+04:00",
+    "updatedAt": "2026-08-28T22:28:10+04:00",
     "sources": [
       {
         "name": "Weinberg & Ambarli 2020 — IUCN Red List, Capra aegagrus",
@@ -2276,6 +2282,9 @@ export const species: Species[] = [
       {
         "name": "Adjara TV News 2020 — ნიამორი ხიჭაურთან",
         "url": "https://ajaratv.ge/article/53834"
+      },
+      {
+        "name": "ვასილ გაბუნია — ნიამორი, ბორჯომ-ხარაგაულის ეროვნული პარკი (2015-05-17)"
       },
       {
         "name": "Wikimedia Commons — 9 Bezoar Goat (Alexander Malkhasyan, CC BY-SA 4.0)",
@@ -8044,7 +8053,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; კოლონიას არ მიუახლოვდეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელი ნუსხა VU D1-ია; 2024 წლის ჩამონათვალი ეროვნულად NT-ს უთითებს. ველური ფრინველი არ აიყვანოთ."
       }
     ],
-    "updatedAt": "2026-08-28T22:21:49+04:00",
+    "updatedAt": "2026-08-28T22:28:10+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -13422,7 +13431,7 @@ export const species: Species[] = [
     "location": "შემოტანილი საქართველოში",
     "description": "საშუალო ზომის ენოტისებრი ძუძუმწოვარი შავი სახის ნიღბით და რგოლებიანი კუდით. საქართველოში მშობლიური არ არის; შემოტანილი და დამკვიდრებული სახეობაა.",
     "overview": "ენოტი (Procyon lotor) ძუძუმწოვარია ენოტისებრთა ოჯახიდან (Procyonidae). სამშობლოა ჩრდილოეთ და ცენტრალური ამერიკა. საქართველოში პირდაპირი გამოშვება დოკუმენტირებული არ არის: კავკასიაში შეიყვანეს აზერბაიჯანში 1941 წელს და შემდეგ გავრცელდა აღმოსავლეთ საქართველოში. სახეობის დონეზე თავ-ტანი ხშირად დაახლოებით 40–70 სმ-ია, კუდი 20–40 სმ, მასა ხშირად დაახლოებით 4–9 კგ. შხამი არ აქვს. ადამიანისთვის მთავარი რისკი ნაკბენი და პათოგენებია და არა შხამი. IUCN გლობალურად ნაკლებად საფრთხის ქვეშ აფასებს. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. აქ ინვაზიურ სახეობად განიხილება და არა დაცვის ობიექტად.",
-    "habitat": "უპირატესობას ანიჭებს ტყეს წყალთან, მდინარის ჭალას, ტბის პირს, ბაღსა და დასახლების კიდეს. სახეობის დონეზე ჰაბიტატი ფართოა: ფოთლოვანი ტყე, ჭაობი, სასოფლო ადგილი და ქალაქის პარკი. საქართველოსთვის ცალკე სიმაღლის დიაპაზონი მეტრებში ამ გვერდზე არ არის გამოქვეყნებული. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს და მთელ ქვეყანაში თანაბარ სიმჭიდროვეს არ ივარაუდებს. Saveljev და თანაავტორები (2021) წერენ, რომ საქართველოში პირდაპირ არ გამოუშვიათ; აღმოსავლეთ საქართველოში ლაგოდეხის მიდამოებში 1950-იანი წლებიდან ჩნდება (Yazan 1967; Pavlov et al. 1973). ქიტიაშვილი (2020) სახეობას უკვე მტკვრის, ალაზნისა და იორის აუზებში ასახელებს. დასავლეთ საქართველოში იგივე ნაშრომი ბოლო დაახლოებით 30 წელში აფხაზეთში, სოხუმის მიდამოებში აღნიშნავს; მიმდინარე სანაპირო არეალი იქ პსოუდან ენგურამდეა აღწერილი. აჭარაში კვალი დასახელებულია, მაგრამ დამატებით დადასტურებას საჭიროებს. Kalandarishvili და Heltai (2019) კამერა-ხაფანგებითა და ფოტოებით ასახელებენ ლაგოდეხის დაცულ ტერიტორიებს (ყველაზე ადრეული მათ მიერ მოყვანილი კადრი 2012), ალაზნის ველს, თელავს, გურჯაანს, ცივ-გომბორის ქედს, შუამთას, იორის პლატოს (გზაზე დაღუპული ინდივიდი, კოორდინატები 41.83990, 45.13414), LEPL ეროვნულ სანერგეს ქვემო ქართლში და თბილისის ეროვნული პარკის მიდამოებს (მამკოდა, გლდანი). ამ გვერდის ფოტო ლაგოდეხის დაცულ ტერიტორიაზეა გადაღებული 2022 წლის 12 ივლისს (მირზა ხინკილაძე); ეს დასახელებული ფოტოჩანაწერია და არა რუკული რეგიონი. შუამთაზე დედალი სამი ლეკვით გამრავლებას მთაში ადასტურებს. იორის ჭალების 2020 წლის სამონადირეო გეგმა სახეობას იქ ინვაზიურად და ნადირობის ობიექტად ასახელებს.",
+    "habitat": "უპირატესობას ანიჭებს ტყეს წყალთან, მდინარის ჭალას, ტბის პირს, ბაღსა და დასახლების კიდეს. სახეობის დონეზე ჰაბიტატი ფართოა: ფოთლოვანი ტყე, ჭაობი, სასოფლო ადგილი და ქალაქის პარკი. საქართველოსთვის ცალკე სიმაღლის დიაპაზონი მეტრებში ამ გვერდზე არ არის გამოქვეყნებული. ეს გვერდი ადმინისტრაციულ რეგიონებს არ რუკავს და მთელ ქვეყანაში თანაბარ სიმჭიდროვეს არ ივარაუდებს. Saveljev და თანაავტორები (2021) წერენ, რომ საქართველოში პირდაპირ არ გამოუშვიათ; აღმოსავლეთ საქართველოში ლაგოდეხის მიდამოებში 1950-იანი წლებიდან ჩნდება (Yazan 1967; Pavlov et al. 1973). ქიტიაშვილი (2020) სახეობას უკვე მტკვრის, ალაზნისა და იორის აუზებში ასახელებს. დასავლეთ საქართველოში იგივე ნაშრომი ბოლო დაახლოებით 30 წელში აფხაზეთში, სოხუმის მიდამოებში აღნიშნავს; მიმდინარე სანაპირო არეალი იქ პსოუდან ენგურამდეა აღწერილი. აჭარაში კვალი დასახელებულია, მაგრამ დამატებით დადასტურებას საჭიროებს. Kalandarishvili და Heltai (2019) კამერა-ხაფანგებითა და ფოტოებით ასახელებენ ლაგოდეხის დაცულ ტერიტორიებს (ყველაზე ადრეული მათ მიერ მოყვანილი კადრი 2012), ალაზნის ველს, თელავს, გურჯაანს, ცივ-გომბორის ქედს, შუამთას, იორის პლატოს (გზაზე დაღუპული ინდივიდი, კოორდინატები 41.83990, 45.13414), LEPL ეროვნულ სანერგეს ქვემო ქართლში და თბილისის ეროვნული პარკის მიდამოებს (მამკოდა, გლდანი). ამ გვერდის ფოტოებია ლაგოდეხის დაცულ ტერიტორიაზე 2022 წლის 12 ივლისს (მირზა ხინკილაძე) და სიღნაღში 2021 წლის 22 ივლისს (გიგა შუშტაკაშვილი). ეს დასახელებული ფოტოჩანაწერებია და არა რუკული რეგიონები. შუამთაზე დედალი სამი ლეკვით გამრავლებას მთაში ადასტურებს. იორის ჭალების 2020 წლის სამონადირეო გეგმა სახეობას იქ ინვაზიურად და ნადირობის ობიექტად ასახელებს.",
     "diet": "ცალკე ქართული კუჭის ან ექსკრემენტის კვლევა ამ გვერდზე არ არის. სახეობის დონეზე ოპორტუნისტული ყოვლისმჭამელია: უხერხემლოები, კიბოსნაირები, ბაყაყი, თევზი, ფრინველის კვერცხი და ბარტყი, წვრილი ძუძუმწოვარი, ხილი, თხილი, სიმინდი და დასახლებასთან საკვების ნარჩენი. საქართველოში რეალისტური სურათი იგივე ფართო მენიუა წყლის პირასა და ეზოში, მაგრამ ადგილობრივი წილი აქ არ არის გაზომილი. ადგილობრივები ასახელებენ ზიანს კულტურაზე, შინაურ ფრინველსა და ნადირ ფრინველზე; Kalandarishvili და Heltai წერენ, რომ ამ ზიანის რაოდენობრივი ჩანაწერი არ აქვთ. კავკასიის ამფიბიების ლიტერატურაში ენოტი დასახელებულია როგორც პოტენციური მტაცებელი; ეს საქართველოს ყველა პოპულაციაზე გაზომილი ეფექტი არ არის.",
     "behavior": "ძირითადად ღამით და შებინდებისასაა აქტიური; დღისითაც ჩანს. კარგად ცურავს და ხეზე ადის. წინა თათები ხუთთითიანი და ძალიან მოქნილია; კვალი ადამიანის პატარა ხელის ანაბეჭდს ჰგავს. ბუდობს ფუღუროში, სოროში, კლდის ნაპრალში ან შენობის სხვენში. ნამდვილი ზამთრის ძილი არ აქვს; ცივ ამინდში აქტივობა იკლებს და დიდხანს შეიძლება ბუნაგში დარჩეს. სახეობის დონეზე შეჯვარება ხშირად ზამთრის ბოლოსა და ადრე გაზაფხულზეა; ლეკვები (ხშირად 2–5, ლიტერატურაში 1–7) გაზაფხულზე იბადებიან, ორსულობა დაახლოებით 63 დღე. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. შუამთის ფოტო (დედალი სამი ლეკვით) და ლაგოდეხის ახალგაზრდა ინდივიდები გამრავლებას ადასტურებენ, მაგრამ ეროვნული კალენდარი აქ არ არის.",
     "conservation": "Timm და თანაავტორები Procyon lotor-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016); ეს გლობალური სტატუსია მშობლიურ არეალზე და არ ნიშნავს, რომ საქართველოში დაცვა სჭირდება. Saveljev et al. 2021 აღნიშნავენ, რომ IUCN-ის იმ შეფასების რუკა ევრაზიულ ინტროდუქციას სრულად არ ასახავს. Eliava et al. 2007 საქართველოში შემოტანილ სახეობად ასახელებს და იმ სიაში DD-ს უთითებს; ეს 2007 წლის ეროვნული მონაცემთა შეფასებაა და არა 2014 წლის წითელი ნუსხის კატეგორია. დადგენილება №190-ში არ არის. ევროკავშირში კავშირის საზრუნავის ინვაზიურ სახეობათა ნუსხაშია; ეს რეგულაცია საქართველოში პირდაპირ არ მოქმედებს. CITES-ის დანართებში სახეობის დონეზე არ არის. იორის ჭალების 2020 წლის გეგმა მას ინვაზიურ ნადირობის ობიექტად ასახელებს; მოქმედი სეზონი და კვოტა ოფიციალური წესით უნდა შემოწმდეს. ეკოლოგიური როლი საქართველოში ინვაზიური მეზოპრედატორია: კონკურენცია მშობლიურ მტაცებლებთან და ზეწოლა მიწაზე მობუდარ ფრინველსა და ამფიბიებზე დასახელებულია, მაგრამ ეროვნული ზემოქმედების ციფრი აქ არ არის. ველური ცხოველი არ აიყვანოთ და ნუ გაუშვებთ შინაურ ენოტს ბუნებაში.",
@@ -13484,6 +13493,28 @@ export const species: Species[] = [
           "location": "ლაგოდეხის დაცული ტერიტორია",
           "date": "2022-07-12"
         }
+      },
+      {
+        "src": "/images/species/procyon-lotor-tatulishvili-1.jpg",
+        "credit": {
+          "photographer": "გიო ტატულიშვილი",
+          "date": "2021-06-25"
+        }
+      },
+      {
+        "src": "/images/species/procyon-lotor-tatulishvili-2.jpg",
+        "credit": {
+          "photographer": "გიო ტატულიშვილი",
+          "date": "2021-06-25"
+        }
+      },
+      {
+        "src": "/images/species/procyon-lotor-shushtakashvili-1.jpg",
+        "credit": {
+          "photographer": "გიგა შუშტაკაშვილი",
+          "location": "სიღნაღი",
+          "date": "2021-07-22"
+        }
       }
     ],
     "stats": [
@@ -13535,7 +13566,7 @@ export const species: Species[] = [
       },
       {
         "question": "სად შეიძლება ვნახო საქართველოში?",
-        "answer": "უფრო ტყესა და წყლის პირას აღმოსავლეთში: ლაგოდეხი, ალაზნის ველი, იორი, გომბორი, თბილისის მიდამოები. ამ გვერდის ფოტო ლაგოდეხის დაცულ ტერიტორიაზეა (2022-07-12). დასავლეთში დადასტურებულია აფხაზეთის სანაპირო; აჭარა და მთელი დასავლეთი ამ გვერდზე არ არის მიჩნეული თანაბარ არეალად. რუკა არ არის შეფერილი."
+        "answer": "უფრო ტყესა და წყლის პირას აღმოსავლეთში: ლაგოდეხი, ალაზნის ველი, სიღნაღი, იორი, გომბორი, თბილისის მიდამოები. ამ გვერდზე დასახელებული ფოტოებია ლაგოდეხიდან (2022-07-12) და სიღნაღიდან (2021-07-22). დასავლეთში დადასტურებულია აფხაზეთის სანაპირო; აჭარა და მთელი დასავლეთი ამ გვერდზე არ არის მიჩნეული თანაბარ არეალად. რუკა არ არის შეფერილი."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -13562,7 +13593,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა, მაგრამ საქართველოში შემოტანილი ინვაზიური სახეობაა და 2014 წლის წითელ ნუსხაში არ არის. დაცვა აქ არ სჭირდება; პრიორიტეტია მონიტორინგი და კონფლიქტის შემცირება."
       }
     ],
-    "updatedAt": "2026-08-28T22:15:39+04:00",
+    "updatedAt": "2026-08-28T22:28:10+04:00",
     "sources": [
       {
         "name": "Timm et al. 2016 — IUCN Red List, Procyon lotor",
@@ -13618,6 +13649,12 @@ export const species: Species[] = [
       },
       {
         "name": "მირზა ხინკილაძე — ენოტი, ლაგოდეხის დაცული ტერიტორია (2022-07-12)"
+      },
+      {
+        "name": "გიო ტატულიშვილი — ენოტი (2021-06-25)"
+      },
+      {
+        "name": "გიგა შუშტაკაშვილი — ენოტი, სიღნაღი (2021-07-22)"
       },
       {
         "name": "Wikimedia Commons — Raccoon, Central Park (Rhododendrites, CC BY-SA 4.0)",
@@ -18738,7 +18775,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Year-round in Georgia, restricted range",
     "description": "A wild goat of steep, often forested mountain slopes. Adult males have scimitar-shaped horns and a dark beard. In Georgia it is a resident species with a small, geographically limited population.",
     "overview": "The wild goat (Capra aegagrus), Georgian ნიამორი, is a native mountain goat now limited in Georgia to Tusheti and northern Khevsureti. It belongs to the cattle family (Bovidae). English names include wild goat and bezoar goat; “bezoar ibex” is a popular name for the Caucasian–Anatolian form, not a separate species. IUCN lists Georgia as a native resident. Current breeding populations sit on the northern slope of the Greater Caucasus. It is not a venomous animal. The practical human issues are disturbance, illegal hunting, and livestock disease — not a bite. IUCN assesses the species globally as Near Threatened. Georgia’s 2014 Red List treats it as Critically Endangered (CR).",
-    "habitat": "In the Greater Caucasus it is mainly a mixed-forest mountain goat of steep, rugged slopes, cliffs and scree, not an animal of open alpine pasture in the way East Caucasian tur often is. IUCN notes that males tend to use higher ground than females outside the rut. This page does not colour a municipality-by-municipality map. Named Georgian sites with a resident population: Tusheti Protected Areas (strict nature reserve, national park and protected landscape) and Pshav-Khevsureti Protected Areas in northern Khevsureti, including slopes toward Shatili and the Shatilistskali gorge near the Russian border (NACRES / CNF, 2021). Core habitat mapped in that survey was about 79 km² in Tusheti and 39 km² in Khevsureti. Camera-trap males have been photographed in Lagodekhi Protected Areas (Kabali and Lagodekhi gorges, late 2016–early 2017 and again in spring 2021); those animals did not stay and are treated here as visitors from Dagestan, not a Georgian breeding group. The Lesser Caucasus range is historical: Adjara mountains and the Meskheti ridge to Borjomi (Radde 1899; Dinnik 1914; Vereshchagin 1959). It disappeared from the Borjomi area in the early twentieth century (Geptner et al. 1961); Janashvili (1977) wrote that small groups lasted into the 1970s. Arabuli (1985) counted 65 animals on the Arsiani ridge in eastern Adjara in the early 1980s. Brief surveys in 2002 and 2006–2007 found no sign on the Lesser Caucasus. A male was reported near Khichauri, Adjara, in January 2020; NACRES treats it as a likely seasonal movement from Turkey. APA describes a reintroduction enclosure at Atskuri in Borjomi-Kharagauli National Park since 2006; this page does not treat that project as a free-ranging Georgian population. Do not assume occurrence across the rest of Georgia, including Svaneti, Javakheti, or settled lowlands. A measured national elevation belt is not published here.",
+    "habitat": "In the Greater Caucasus it is mainly a mixed-forest mountain goat of steep, rugged slopes, cliffs and scree, not an animal of open alpine pasture in the way East Caucasian tur often is. IUCN notes that males tend to use higher ground than females outside the rut. This page does not colour a municipality-by-municipality map. Named Georgian sites with a resident population: Tusheti Protected Areas (strict nature reserve, national park and protected landscape) and Pshav-Khevsureti Protected Areas in northern Khevsureti, including slopes toward Shatili and the Shatilistskali gorge near the Russian border (NACRES / CNF, 2021). Core habitat mapped in that survey was about 79 km² in Tusheti and 39 km² in Khevsureti. Camera-trap males have been photographed in Lagodekhi Protected Areas (Kabali and Lagodekhi gorges, late 2016–early 2017 and again in spring 2021); those animals did not stay and are treated here as visitors from Dagestan, not a Georgian breeding group. The Lesser Caucasus range is historical: Adjara mountains and the Meskheti ridge to Borjomi (Radde 1899; Dinnik 1914; Vereshchagin 1959). It disappeared from the Borjomi area in the early twentieth century (Geptner et al. 1961); Janashvili (1977) wrote that small groups lasted into the 1970s. Arabuli (1985) counted 65 animals on the Arsiani ridge in eastern Adjara in the early 1980s. Brief surveys in 2002 and 2006–2007 found no sign on the Lesser Caucasus. A male was reported near Khichauri, Adjara, in January 2020; NACRES treats it as a likely seasonal movement from Turkey. APA describes a reintroduction enclosure at Atskuri in Borjomi-Kharagauli National Park since 2006. This page includes a photograph from that park dated 17 May 2015 (Vasil Gabunia) — an adult male in woodland. That is a named locality, not a 2021 census of a breeding population; NACRES still treats free-ranging Georgian breeding populations as Tusheti and northern Khevsureti only. Do not assume occurrence across the rest of Georgia, including Svaneti, Javakheti, or settled lowlands. A measured national elevation belt is not published here.",
     "diet": "There is no separate Georgian diet study on this page. Across the range it is a herbivore: grasses, herbs and shrubs. In the Caucasus it can climb trees such as juniper and oak more readily than tur (Weinberg). Diet shifts with season and green forage. It is not a predator. In Georgia it is prey for leopard where their ranges meet; wolf, lynx, brown bear and golden eagle can take at least young animals in the Greater Caucasus, though predator impact there is generally judged low.",
     "behavior": "It is shy in Georgia. NACRES counted from opposite slopes, often 2 km or more away, because walking into the range would push animals out of view. Groups in the 2021 counts were mostly small: in Khevsureti about 80% of observations were one or two animals; in Tusheti just over half of groups were a female with kids. Average group size was 2.96 in Khevsureti and 1.93 in Tusheti. Large male bands are uncommon; one group of 20 males was seen in the Shatilistskali gorge. Distinct long-distance seasonal migration is not typical in the Caucasus, except that males may stay away from females outside the rut. In the Greater Caucasus the rut is about mid-November to the second decade of December in Daghestan, later than sympatric tur. Ekvtimishvili (1954) studied reproduction in Georgia; births are normally in May but can shift with the previous rut. NACRES saw no females with kids in late May 2021 in Khevsureti and judged births delayed that year. Twins are frequent at species level. Tracks are cloven hooves on rock and scree. There is no Georgian sound recording on this page.",
     "conservation": "Weinberg and Ambarli (2020) assess Capra aegagrus as Near Threatened on the IUCN Red List. Government Resolution No. 190 (2014) lists ნიამორი as CR, criterion C2 a(ii). The same table attributes the name to Linnaeus, 1758; the accepted author is Erxleben, 1777. Hunting is prohibited. Protected since 1982 and in the 1982 Georgian Red Data Book as a shrinking-range species. Ilia State University’s 2021 scientific revision (Kopaliani and Gurielidze) proposed Endangered; that is a scientific proposal, not a change to the legal 2014 list. NACRES (2021) estimated 363 animals in Tusheti and 114 in Khevsureti, 477 in total, up from a combined figure of about 350 in 2013. Tusheti is described as stable but low. Main threats named for both protected areas are poaching in late autumn and winter, livestock on shared pastures, herders and livestock-guarding dogs, and disease risk from domestic stock. Hiking trails are not said to cross core habitat; fireworks and loud festival music in Tusheti are noted as possible disturbance. Do not handle wild animals.",
@@ -18781,7 +18818,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "At species level (Handbook of the Mammals of the World treatment) male head–body length is about 129–152 cm, tail 11–13 cm, shoulder height 73–90 cm in males and 55–60 cm in females; mass about 45–90 kg in males and 25–55 kg in females. There is no measured Georgian series on this page. Both sexes have horns. Male horns curve up and back in a scimitar, are compressed side-to-side, keeled in front, and bear knobs on the keel; they rarely exceed about 127 cm, with a recorded maximum of 152 cm. Female horns are thinner, usually under about 33 cm, and lack frontal knobs.",
         "NACRES field classes used in Georgia: adult male (about 5–6 years and older) — head wholly black, body white to silvery grey, with black stripes; young male (2–5 years) — head not fully black, beard present, body still brownish turning grey; adult female — brownish, thin spiky horns clearly longer than the ears, no beard, a dark line through the eye, a line separating the white belly from the brown flanks, and a stripe along the spine; yearling male — female-sized, horns about as long as a female’s but broader at the base; kid — small, horns absent or only as long as the ears. Adult males have a dark beard from the chin.",
         "East Caucasian tur (Capra cylindricornis, ჯიხვი) shares the eastern Greater Caucasus: adult male horns form an open spiral, not a simple scimitar, and tur is more a species of ground above the timberline. West Caucasian tur (Capra caucasica) is a western Greater Caucasus animal and is not the current Georgian bezoar-goat population. Chamois (Rupicapra, არჩვი) is smaller, with short hooked horns. Domestic goat (Capra hircus) is the descendant of this wild species; mixed colours and floppy ears are common in village stock and are not a field mark of wild ნიამორი. Roe deer is a forest deer with antlers, not horns. This atlas does not yet have pages for tur or chamois.",
-        "It is not venomous. Watch from a long distance. The photographs on this page are of C. a. aegagrus in Armenia and a museum horn set; they show the same subspecies as Georgia, not Georgian localities."
+        "It is not venomous. Watch from a long distance. The hero photograph is from Borjomi-Kharagauli National Park (Vasil Gabunia, 17 May 2015). The rest of the gallery is C. a. aegagrus from Armenia and a museum horn set."
       ]
     },
     "faq": [
@@ -18791,7 +18828,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can I see it in Georgia?",
-        "answer": "Realistically only in those two mountain districts, usually from a long way off on steep forested slopes and cliffs. Tusheti holds most of the national total. Lagodekhi records are visiting males. Do not expect it in Borjomi or Adjara as a wild population."
+        "answer": "Realistically in Tusheti and northern Khevsureti, usually from a long way off on steep forested slopes and cliffs. Tusheti holds most of the national total. Lagodekhi records are visiting males. There is a 2015 photograph from Borjomi-Kharagauli; APA also names a reintroduction enclosure there. That is not the same as a Tusheti-scale wild population."
       },
       {
         "question": "How can I identify it?",
@@ -18819,6 +18856,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "gallery": [
+      {
+        "src": "/images/species/capra-aegagrus-gabunia-1.jpg",
+        "credit": {
+          "photographer": "ვასილ გაბუნია",
+          "location": "Borjomi-Kharagauli National Park",
+          "date": "2015-05-17"
+        }
+      },
       {
         "src": "/images/species/capra-aegagrus-malkhasyan-9.jpg",
         "credit": {
@@ -18875,16 +18920,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "Alexander Malkhasyan",
-      "url": "https://commons.wikimedia.org/wiki/File:9_Bezoar_Goat.jpg",
-      "location": "Armenia",
-      "date": "2019-12-15"
+      "photographer": "ვასილ გაბუნია",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-17"
     },
     "mobileImageCredit": {
-      "photographer": "Alexander Malkhasyan",
-      "url": "https://commons.wikimedia.org/wiki/File:6_Bezoar_Goat.jpg",
-      "location": "Armenia",
-      "date": "2019-12-23"
+      "photographer": "ვასილ გაბუნია",
+      "location": "Borjomi-Kharagauli National Park",
+      "date": "2015-05-17"
     }
   },
   "capreolus-capreolus": {
@@ -26742,7 +26785,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Introduced in Georgia",
     "description": "A medium-sized procyonid with a black facial mask and a ringed tail. It is not native to Georgia; it is introduced and established.",
     "overview": "The raccoon (Procyon lotor) is a mammal in the raccoon family (Procyonidae). It is native to North and Central America. There is no documented direct release in Georgia: it was introduced to the Caucasus in Azerbaijan in 1941 and later spread into eastern Georgia. At species level, head–body length is often about 40–70 cm, the tail 20–40 cm, and mass often about 4–9 kg. It has no venom. The main human risk is a bite and pathogens, not poison. IUCN lists it globally as Least Concern. It is not on Georgia’s 2014 Red List. Here it is treated as an invasive species, not a conservation target.",
-    "habitat": "It prefers woodland near water, river floodplains, lake edges, gardens, and the margins of settlements. Species-level habitat is broad: deciduous forest, wetland, farmland, and urban parks. A Georgia-specific elevation range in metres is not published on this page. This page does not map administrative regions and does not assume even density across the country. Saveljev and co-authors (2021) state that raccoons were not released directly in Georgia; they first appeared in eastern Georgia near Lagodekhi in the 1950s (Yazan 1967; Pavlov et al. 1973). Kitiashvili (2020) already records them in the Mtkvari, Alazani, and Iori basins. For western Georgia the same paper notes appearance in Abkhazia near Sokhumi in about the last 30 years; the coastal range there is described from the Psou River to the Enguri. Footprints in Adjara have been claimed but still need confirmation. Kalandarishvili and Heltai (2019) name camera-trap and photo records from Lagodekhi Protected Areas (earliest frame they cite is 2012), the Alazani valley, Telavi, Gurjaani, the Tsiv-Gombori range, Shuamta, the Iori plateau (a roadkill at 41.83990, 45.13414), the LEPL National Nursery in Kvemo Kartli, and the vicinity of Tbilisi National Park (Mamkoda, Gldani). The photo on this page was taken in Lagodekhi Protected Areas on 12 July 2022 (Mirza Khinkiladze); that is a named photographic record, not a mapped region. A female with three kits at Shuamta confirms breeding in the mountains. The 2020 Iori floodplain hunting-farm plan lists the species there as invasive and as a hunting object.",
+    "habitat": "It prefers woodland near water, river floodplains, lake edges, gardens, and the margins of settlements. Species-level habitat is broad: deciduous forest, wetland, farmland, and urban parks. A Georgia-specific elevation range in metres is not published on this page. This page does not map administrative regions and does not assume even density across the country. Saveljev and co-authors (2021) state that raccoons were not released directly in Georgia; they first appeared in eastern Georgia near Lagodekhi in the 1950s (Yazan 1967; Pavlov et al. 1973). Kitiashvili (2020) already records them in the Mtkvari, Alazani, and Iori basins. For western Georgia the same paper notes appearance in Abkhazia near Sokhumi in about the last 30 years; the coastal range there is described from the Psou River to the Enguri. Footprints in Adjara have been claimed but still need confirmation. Kalandarishvili and Heltai (2019) name camera-trap and photo records from Lagodekhi Protected Areas (earliest frame they cite is 2012), the Alazani valley, Telavi, Gurjaani, the Tsiv-Gombori range, Shuamta, the Iori plateau (a roadkill at 41.83990, 45.13414), the LEPL National Nursery in Kvemo Kartli, and the vicinity of Tbilisi National Park (Mamkoda, Gldani). The photo on this page was taken in Lagodekhi Protected Areas on 12 July 2022 (Mirza Khinkiladze); another on this page is from Sighnaghi on 22 July 2021 (Giga Shushtakashvili). Those are named photographic records, not mapped regions. A female with three kits at Shuamta confirms breeding in the mountains. The 2020 Iori floodplain hunting-farm plan lists the species there as invasive and as a hunting object.",
     "diet": "There is no separate Georgian stomach or scat study on this page. At species level it is an opportunistic omnivore: invertebrates, crustaceans, frogs, fish, birds’ eggs and nestlings, small mammals, fruit, nuts, maize, and food waste near people. The realistic picture in Georgia is the same broad menu along water and in yards, but local shares have not been measured here. Residents report damage to crops, poultry, and game birds; Kalandarishvili and Heltai note that they have no quantitative record of that damage. Caucasian amphibian literature names the raccoon as a potential predator; that is not a measured effect on every Georgian population.",
     "behavior": "It is mainly active at night and at dusk; it can also be seen by day. It swims and climbs well. The forefeet have five long, highly mobile digits; tracks look like a small human handprint. It dens in a tree hollow, burrow, rock crevice, or building loft. It does not truly hibernate; in cold weather activity drops and it may stay in the den for long periods. At species level mating is often in late winter and early spring; kits (often 2–5, in the literature 1–7) are born in spring after about 63 days’ gestation. Those figures come from the wider range, not a Georgian den sample. The Shuamta photo of a female with three kits and young animals at Lagodekhi confirm breeding, but a national calendar is not given here.",
     "conservation": "Timm and co-authors assess Procyon lotor as Least Concern on the IUCN Red List (2016); that is a global status for the native range and does not mean the species needs protection in Georgia. Saveljev et al. 2021 note that the IUCN account’s map does not fully show the Eurasian introductions. Eliava et al. 2007 list it in Georgia as an introduced species and mark it DD in that table; that is a 2007 national-data score, not the 2014 Red List category. It is not in Decree No. 190. In the European Union it is on the list of invasive alien species of Union concern; that regulation does not apply directly in Georgia. It is not listed on the CITES appendices at species level. The 2020 Iori floodplain plan treats it as an invasive hunting object; current season and quota must be checked in official rules. Its ecological role in Georgia is that of an invasive mesopredator: competition with native carnivores and pressure on ground-nesting birds and amphibians are named, but a national impact figure is not given here. Do not keep wild animals and do not release pet raccoons into the wild.",
@@ -26796,7 +26839,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "question": "Where can it be seen in Georgia?",
-        "answer": "Mainly in woodland and along water in the east: Lagodekhi, the Alazani valley, the Iori, Gombori, and the Tbilisi area. The photo on this page is from Lagodekhi Protected Areas (2022-07-12). In the west the Abkhazian coast is documented; Adjara and all of western Georgia are not treated here as even range. The map is not coloured."
+        "answer": "Mainly in woodland and along water in the east: Lagodekhi, the Alazani valley, Sighnaghi, the Iori, Gombori, and the Tbilisi area. Named photos on this page are from Lagodekhi Protected Areas (2022-07-12) and Sighnaghi (2021-07-22). In the west the Abkhazian coast is documented; Adjara and all of western Georgia are not treated here as even range. The map is not coloured."
       },
       {
         "question": "How can it be identified?",
@@ -26865,6 +26908,28 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "Mirza Khinkiladze",
           "location": "Lagodekhi Protected Areas",
           "date": "2022-07-12"
+        }
+      },
+      {
+        "src": "/images/species/procyon-lotor-tatulishvili-1.jpg",
+        "credit": {
+          "photographer": "Gio Tatulishvili",
+          "date": "2021-06-25"
+        }
+      },
+      {
+        "src": "/images/species/procyon-lotor-tatulishvili-2.jpg",
+        "credit": {
+          "photographer": "Gio Tatulishvili",
+          "date": "2021-06-25"
+        }
+      },
+      {
+        "src": "/images/species/procyon-lotor-shushtakashvili-1.jpg",
+        "credit": {
+          "photographer": "Giga Shushtakashvili",
+          "location": "Sighnaghi",
+          "date": "2021-07-22"
         }
       }
     ],
