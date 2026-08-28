@@ -313,6 +313,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest"],
   },
+  "otus-scops": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
   "ficedula-hypoleuca": {
     group: "bird",
     habitats: ["forest"],
@@ -336,6 +340,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "aquila-chrysaetos": {
     group: "bird",
     habitats: ["mountain", "forest", "grassland"],
+  },
+  "aegypius-monachus": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
+  "gyps-fulvus": {
+    group: "bird",
+    habitats: ["mountain", "grassland"],
   },
   "vulpes-vulpes": {
     group: "mammal",
@@ -388,6 +400,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "lynx-lynx": {
     group: "mammal",
     habitats: ["forest", "mountain", "grassland"],
+  },
+  "procyon-lotor": {
+    group: "mammal",
+    habitats: ["forest", "wetland", "grassland"],
+  },
+  "capra-aegagrus": {
+    group: "mammal",
+    habitats: ["mountain", "forest"],
   },
 };
 

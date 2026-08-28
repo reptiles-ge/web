@@ -578,6 +578,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Strix aluco willkonskii",
     ],
   },
+  "otus-scops": {
+    ka: [
+      "წყრომი",
+      "ბუსებრნი",
+      "Strix scops",
+      "Otus scops scops",
+    ],
+    en: [
+      "European scops owl",
+      "common scops owl",
+      "Eurasian Scops-Owl",
+      "Strix scops",
+      "Otus scops scops",
+    ],
+  },
   "accipiter-nisus": {
     ka: [
       "მიმინო",
@@ -632,6 +647,39 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "stork",
       "Ciconia ciconia ciconia",
       "Ardea ciconia",
+    ],
+  },
+  "aegypius-monachus": {
+    ka: [
+      "შავი სვავი",
+      "ლეშიჭამია",
+      "ქორისებრნი",
+      "Vultur monachus",
+      "Aegipius monachus",
+    ],
+    en: [
+      "Eurasian black vulture",
+      "black vulture",
+      "monk vulture",
+      "Vultur monachus",
+      "Aegipius monachus",
+    ],
+  },
+  "gyps-fulvus": {
+    ka: [
+      "ჩვეულებრივი ორბი",
+      "თეთრთავა ორბი",
+      "ლეშიჭამია",
+      "ქორისებრნი",
+      "Gyps fulvus fulvus",
+      "Vultur fulvus",
+    ],
+    en: [
+      "Eurasian griffon",
+      "Eurasian Griffon Vulture",
+      "griffon",
+      "Gyps fulvus fulvus",
+      "Vultur fulvus",
     ],
   },
   "aquila-chrysaetos": {
@@ -811,6 +859,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Felis lynx",
     ],
   },
+  "capra-aegagrus": {
+    ka: [
+      "ველური თხა",
+      "ბეზოარული თხა",
+      "Capra aegagrus aegagrus",
+      "Capra hircus aegagrus",
+    ],
+    en: [
+      "bezoar goat",
+      "bezoar ibex",
+      "wild goat",
+      "Capra aegagrus aegagrus",
+      "Capra hircus aegagrus",
+    ],
+  },
   "panthera-pardus": {
     ka: [
       "ჯიქი",
@@ -846,6 +909,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "wild swine",
       "Sus scrofa attila",
       "Sus scrofa domesticus",
+    ],
+  },
+  "procyon-lotor": {
+    ka: [
+      "ჩვეულებრივი ენოტი",
+      "ჩრდილოამერიკული ენოტი",
+      "Procyon lotor",
+    ],
+    en: [
+      "common raccoon",
+      "northern raccoon",
+      "North American raccoon",
+      "racoon",
     ],
   },
   "erinaceus-concolor": {

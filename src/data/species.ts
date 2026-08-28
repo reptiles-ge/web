@@ -231,11 +231,14 @@ export const featuredSpeciesIds = [
   "jynx-torquilla",
   "cuculus-canorus",
   "strix-aluco",
+  "otus-scops",
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
   "buteo-buteo",
   "ciconia-ciconia",
   "aquila-chrysaetos",
+  "aegypius-monachus",
+  "gyps-fulvus",
   "accipiter-nisus",
   "vulpes-vulpes",
   "canis-aureus",
@@ -250,6 +253,8 @@ export const featuredSpeciesIds = [
   "sus-scrofa",
   "panthera-pardus",
   "lynx-lynx",
+  "procyon-lotor",
+  "capra-aegagrus",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;

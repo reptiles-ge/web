@@ -54,10 +54,30 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
   "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
   "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
+  "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
   "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
   "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
   "accipiter-nisus": ["mimino", "korisebri-mimino"],
   "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
+  "aegypius-monachus": [
+    "cinereous-vulture",
+    "black-vulture",
+    "shavi-svavi",
+  ],
+  "gyps-fulvus": [
+    "orbi",
+    "tetrtava-orbi",
+    "chveulebrivi-orbi",
+    "griffon",
+    "eurasian-griffon",
+  ],
+  "procyon-lotor": [
+    "enoti",
+    "chveulebrivi-enoti",
+    "raccoon",
+    "racoon",
+  ],
+  "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
@@ -337,10 +357,14 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],
+  "otus-scops": ["strix-aluco"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
   "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus"],
+  "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
+  "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
   "vulpes-vulpes": ["canis-lupus"],
+  "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
