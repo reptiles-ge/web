@@ -401,13 +401,13 @@ export const species: Species[] = [
     "conservation": "BirdLife International Aegypius monachus-ს IUCN Red List-ზე საფრთხესთან ახლოს აფასებს (NT). 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად NT-ს უთითებს და აღნიშნავს, რომ ეროვნული სტატუსი EN-დან NT-მდე გაუმჯობესდა. საქართველოს მთავრობის 2014 წლის დადგენილება №190 სახეობას წითელ ნუსხაში შეაქვს როგორც სვავი, Aegypius monachus, სტატუსით EN, კრიტერიუმი D1 (ძალზე მცირე პოპულაცია). ეს სამართლებრივი ნუსხაა; 2024 წლის ორნითოლოგიური ჩამონათვალი მას ეროვნულად NT-ად კოდავს. ევროპის ფრინველების წითელი ნუსხის 2015 წლის დანართი საქართველოსთვის უთითებს 9–30 მობუდარ წყვილს (2005–2012, საშუალო ხარისხი). Flyway Action Plan ცხრილში საქართველოა 50 მობუდარი წყვილი (2016, ხარისხი G, ტენდენცია სტაბილური). VCF (2024) იმავე დაახლოებით 50 წყვილს იმეორებს როგორც ბოლო შეფასებას. 2020-იანი წლების სრული ეროვნული აღწერა ამ გვერდზე არ არის. გავაშელიშვილი და სხვ. (2006) ბუდობის შეზღუდვას უკავშირებენ ადამიანის შეწუხებას (სეზონური ძოვება) და კლიმატს (ნალექი), და არა საკვების ან ბუდის ხეების აშკარა დეფიციტს იმ ნიმუშში. სახეობის დონეზე მთავარი საფრთხეებია მოწამლული სატყუარა, ჰაბიტატის დეგრადაცია, შეჯახება ელექტროგაყვანილობასა და ქარის ტურბინებთან, უკანონო სროლა და ბუდის ადგილების შეწუხება. ველური ფრინველი არ დაიჭიროთ და არ მოკლათ.",
     "interaction": "ჩვეულ შეხვედრაზე ადამიანისთვის საფრთხეს არ წარმოადგენს. შხამიანი არ არის. დიდი ბრჭყალები და ნისკარტი აქვს; დაჭერა არ შეიძლება. ბუდესთან წყვილი შეიძლება აგრესიული იყოს. არ აიყვანოთ და ბუდეს არ მიუახლოვდეთ. წითელ ნუსხაში შეტანილი სახეობის დაჭერა ან მოკვლა კანონით იკრძალება. მოწამლული სატყუარა ლეშიჭამიებისთვის პირდაპირი რისკია.",
     "danger": "Harmless",
-    "image": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
+    "image": "https://cdn.reptiles.ge/species/aegypius-monachus-kochiashvili-1.jpg",
     "imageCredit": {
       "photographer": "ვაჟიკო ქოჩიაშვილი",
       "location": "ვაშლოვანის დაცული ტერიტორია",
       "date": "2020-08-05"
     },
-    "mobileImage": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/species/aegypius-monachus-kochiashvili-1.jpg",
     "mobileImageCredit": {
       "photographer": "ვაჟიკო ქოჩიაშვილი",
       "location": "ვაშლოვანის დაცული ტერიტორია",
@@ -415,7 +415,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/aegypius-monachus-kochiashvili-1.jpg",
         "credit": {
           "photographer": "ვაჟიკო ქოჩიაშვილი",
           "location": "ვაშლოვანის დაცული ტერიტორია",
@@ -423,14 +423,14 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aegypius-monachus-tsiskarauli-2.jpg",
+        "src": "https://cdn.reptiles.ge/species/aegypius-monachus-tsiskarauli-2.jpg",
         "credit": {
           "photographer": "მამუკა ცისკარაული",
           "date": "31 მაისი"
         }
       },
       {
-        "src": "/images/species/aegypius-monachus-tsiskarauli-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/aegypius-monachus-tsiskarauli-1.jpg",
         "credit": {
           "photographer": "მამუკა ცისკარაული",
           "date": "31 მაისი"
@@ -510,7 +510,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; ბუდეს არ მიუახლოვდეთ. გლობალურად NT-ია. 2014 წლის წითელ ნუსხაში EN D1-ია; 2024 წლის ჩამონათვალი ეროვნულად NT-ს უთითებს. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T22:34:06+04:00",
+    "updatedAt": "2026-08-28T22:53:51+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -2069,13 +2069,13 @@ export const species: Species[] = [
     "behavior": "საქართველოში ძალიან ფრთხილია. NACRES მოპირდაპირე ფერდიდან ითვლიდა, ხშირად 2 კმ-ზე მეტი მანძილიდან, რადგან არეალში შესვლა ცხოველებს მხედველობიდან გააძევებდა. 2021 წლის აღწერებში ჯგუფები ძირითადად პატარა იყო: ხევსურეთში დაკვირვებების დაახლოებით 80% ერთი ან ორი ინდივიდი იყო; თუშეთში ჯგუფების ნახევარზე მეტი დედალი ნაზარდით. საშუალო ჯგუფი ხევსურეთში 2.96, თუშეთში 1.93 იყო. დიდი მამლების ჯგუფი იშვიათია; 20 მამლის ჯგუფი ერთხელ ნახეს შატილისწყლის ხეობაში. კავკასიაში გრძელი სეზონური მიგრაცია ტიპური არ არის, გარდა იმისა, რომ მამალი შეჯვარების გარეთ დედლებისგან შორს შეიძლება იდგეს. დიდ კავკასიონზე, დაღესტანში, შეჯვარება დაახლოებით ნოემბრის შუიდან დეკემბრის მეორე ათეულამდეა და ჯიხვზე გვიანია. ექვთიმიშვილმა (1954) გამრავლება საქართველოში შეისწავლა; ნაზარდი ჩვეულებრივ მაისში იბადება, მაგრამ წინა შეჯვარების მიხედვით შეიძლება გადაიწიოს. NACRES-მა 2021 წლის მაისის ბოლოს ხევსურეთში დედალი ნაზარდით ვერ ნახა და მშობიარობა იმ წელს დაგვიანებულად ჩათვალა. სახეობის დონეზე ტყუპი ხშირია. კვალი ორნაკვთიანი ჩლიქია კლდესა და ხრეშზე. ამ გვერდზე ქართული ხმის ჩანაწერი არ არის.",
     "conservation": "Weinberg და Ambarli (2020) Capra aegagrus-ს IUCN Red List-ზე Near Threatened-ად აფასებენ. 2014 წლის დადგენილება №190 ნიამორს CR-ად ასახელებს კრიტერიუმით C2 a(ii). იმავე ცხრილში ავტორად ლინე, 1758 არის მითითებული; მიღებული ავტორია ერქსლები, 1777. ნადირობა აკრძალულია. 1982 წლიდანაა დაცული და 1982 წლის წითელ წიგნში შემცირებადი არეალის სახეობად იყო შეტანილი. ილიას სახელმწიფო უნივერსიტეტის 2021 წლის სამეცნიერო რევიზია (კოპალიანი და გურიელიძე) Endangered-ს გვთავაზობს; ეს სამეცნიერო წინადადებაა და არა 2014 წლის იურიდიული ნუსხის შეცვლა. NACRES (2021) თუშეთში 363, ხევსურეთში 114, სულ 477 ინდივიდს აფასებს — 2013 წლის დაახლოებით 350-თან შედარებით მეტი. თუშეთი სტაბილურ, მაგრამ დაბალ დონეზეა აღწერილი. ორივე დაცულ ტერიტორიაზე მთავარ საფრთხედ დასახელებულია ბრაკონიერობა გვიან შემოდგომასა და ზამთარში, საერთო საძოვარი პირუტყვთან, მწყემსები და ძაღლები, და დაავადების რისკი შინაური ფარიდან. საფეხმავლო ბილიკები ბირთვულ ჰაბიტატს არ კვეთს; თუშეთში ფეიერვერკი და ხმამაღალი დღესასწაული შეწუხებად არის დასახელებული. ველური ცხოველი არ აიყვანოთ.",
     "interaction": "შხამი არ აქვს. ჩვეულებრივ ადამიანს არ უახლოვდება. კლდეზე ახლო ფოტოს ნუ ცდილობთ და ჯგუფს ბილიკიდან ნუ გაჰყვებით. თუშეთსა და ხევსურეთში ძაღლები აკონტროლეთ. ნადირობა უკანონოა. არ აჭმიოთ. შინაურ თხასთან ჰიბრიდიზაცია სახეობის არეალის ნაწილში დოკუმენტირებული საფრთხეა; საქართველოსთვის აქ გაზომილი არ არის.",
-    "image": "/images/species/capra-aegagrus-gabunia-1.jpg",
+    "image": "https://cdn.reptiles.ge/species/capra-aegagrus-gabunia-1.jpg",
     "imageCredit": {
       "photographer": "ვასილ გაბუნია",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
       "date": "2015-05-17"
     },
-    "mobileImage": "/images/species/capra-aegagrus-gabunia-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/species/capra-aegagrus-gabunia-1.jpg",
     "mobileImageCredit": {
       "photographer": "ვასილ გაბუნია",
       "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -2083,7 +2083,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/capra-aegagrus-gabunia-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-gabunia-1.jpg",
         "credit": {
           "photographer": "ვასილ გაბუნია",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
@@ -2091,7 +2091,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-kerdikoshvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-kerdikoshvili-1.jpg",
         "credit": {
           "photographer": "ნიკა ქერდიკოშვილი",
           "location": "თუშეთი",
@@ -2099,7 +2099,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-9.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-9.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:9_Bezoar_Goat.jpg",
@@ -2108,7 +2108,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-6.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-6.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:6_Bezoar_Goat.jpg",
@@ -2117,7 +2117,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-3.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-3.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:3_Bezoar_Goat.jpg",
@@ -2126,7 +2126,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-4.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-4.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:4_Bezoar_Goat.jpg",
@@ -2135,7 +2135,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-gndasar-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-gndasar-1.jpg",
         "credit": {
           "photographer": "gailhampshire",
           "url": "https://commons.wikimedia.org/wiki/File:Bezoar_ibex_are_a_subspecies_of_the_wild_goat,_and_native_to_Armenia_-_50613102552.jpg",
@@ -2144,7 +2144,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-horns-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-horns-1.jpg",
         "credit": {
           "photographer": "Emőke Dénes",
           "url": "https://commons.wikimedia.org/wiki/File:Em_-_Capra_aegagrus_aegagrus_horns_-_4.jpg",
@@ -2228,7 +2228,7 @@ export const species: Species[] = [
         "answer": "კი. საქართველოს 2014 წლის წითელ ნუსხაში CR-ია და ნადირობა აკრძალულია. გლობალურად Near Threatened-ია. 2021 წლის სამეცნიერო რევიზია Endangered-ს გვთავაზობს; იურიდიული ნუსხა აქ შეცვლილად არ იკითხება."
       }
     ],
-    "updatedAt": "2026-08-28T22:33:15+04:00",
+    "updatedAt": "2026-08-28T22:53:51+04:00",
     "sources": [
       {
         "name": "Weinberg & Ambarli 2020 — IUCN Red List, Capra aegagrus",
@@ -9807,7 +9807,7 @@ export const species: Species[] = [
     "behavior": "ჩვეულებრივ მარტოული და ტერიტორიულია. ძირითადად შებინდებისას და ღამის პირველ ნახევარში ნადირობს; დღისითაც შეიძლება გამოჩნდეს, განსაკუთრებით შეწყვილების პერიოდში. ნადირს ჩასაფრებით იჭერს. სახეობის დონეზე შეწყვილება თებერვლიდან აპრილის დასაწყისამდეა, პიკი მარტის მეორე ნახევარში; მაკეობა დაახლოებით 68–73 დღე; ლეკვები ჩვეულებრივ მაისის ბოლოს ან ივნისის დასაწყისში იბადებიან, ხშირად 1–4, დედასთან რჩებიან დაახლოებით ათ თვემდე. ეს ფართო არეალის ციფრებია და არა ქართული ბუნაგის ნიმუში. კვალი კატისებრია: მომრგვალებული, ჩვეულებრივ კლანჭის ანაბეჭდის გარეშე, რადგან კლანჭები სიარულისას იკეცება; მგლის კვალზე კლანჭები ხშირად ჩანს. თითოეულ ინდივიდს ლაქების უნიკალური განლაგება აქვს — ამიტომ კამერა-ხაფანგით ინდივიდების დათვლა შესაძლებელია. ხმა ადამიანთან ახლოს იშვიათად ისმის; შეწყვილებისას უფრო ხშირად იძახის. ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC626659 (Stanislas Wroza, ლა-ტურ-დიუ-მე, იურა, საფრანგეთი, 2021-02-26).",
     "conservation": "Breitenmoser და თანაავტორები Lynx lynx-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2015, errata 2017). გლობალური სტატუსი არ ნიშნავს, რომ ყველა ადგილობრივი პოპულაცია უსაფრთხოა. საქართველოში 2014 წლის დადგენილება №190 სახეობას CR-ად აფასებს, კრიტერიუმი C2(aI), მიზეზი — მცირე, ფრაგმენტირებული პოპულაცია. ნადირობა დაშვებული არ არის. CITES-ში დანართ II-შია; ბერნის კონვენციაში დანართ III. CBD-ის მეხუთე ეროვნული ანგარიში წითელ ნუსხაში CR-ად ასახელებს და აღნიშნავს, რომ 2012 წლის კვლევამ ნახევრადმშრალ ეკოსისტემაში შესაძლოა მოსალოდნელზე მეტი ინდივიდი აჩვენა. NACRES 2022 ვაშლოვანში 9–14 ინდივიდს ითვლის (სიმჭიდროვე 2.25–3.52 / 100 კმ²) და ჭაჭუნაში მინიმუმ ორს; ნახევრადმშრალი არეალის მინიმუმი დაახლოებით 11 ინდივიდი — ეს ამ ორი არეალის შეფასებაა და არა ქვეყნის ჯამი. 2012 წლის ვაშლოვანის შეფასება ახლოს იყო (დაახლოებით 10 ინდივიდი); ავტორები პოპულაციას ამ არეალში შედარებით სტაბილურად მიიჩნევენ. Askerov და თანაავტორები 2020 წერენ, რომ კავკასიის ტყეებში სახეობა საკმაოდ ფართოდ ჩანს, მაგრამ სპეციალური ეროვნული აღწერა არ არის. დასახელებული საფრთხეებია ბრაკონიერობა, ნადირის შემცირება, ჰაბიტატის ფრაგმენტაცია და, ნახევრადმშრალ ზონაში, ურეგულირებელი ძოვება.",
     "interaction": "შხამი არ აქვს და საჭმელად არ განიხილება. ჩვეულებრივ ადამიანს გაურბის. დიდი კატაა: შეიძლება დაიცვას თავი, ლეკვები ან ნადირი, თუ მოულოდნელად შეხვდებით. არ მიუახლოვდეთ, არ აჭამოთ, არ აუშვათ ძაღლი. ზოგ სოფელში შეიძლება ცხვარი ან თხა დაკლას — ეს კონფლიქტია და არა იმის ნიშანი, რომ ადამიანზე ნადირობს. დადასტურებული თავდასხმების ქართული სერია ამ გვერდზე არ არის. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი. ველური ცხოველი არ აიყვანოთ.",
-    "image": "/images/species/lynx-lynx-ebr-1.jpg",
+    "image": "https://cdn.reptiles.ge/species/lynx-lynx-ebr-1.jpg",
     "imageCredit": {
       "photographer": "Jan Ebr",
       "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx_dinniki_115107752.jpg",
@@ -9816,7 +9816,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/lynx-lynx-ebr-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-ebr-1.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx_dinniki_115107752.jpg",
@@ -9825,7 +9825,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/lynx-lynx-delgado-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-delgado-1.jpg",
         "credit": {
           "photographer": "Carlos Delgado",
           "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx_-_05.jpg",
@@ -9834,7 +9834,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/lynx-lynx-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-portrait-1.jpg",
         "credit": {
           "photographer": "Wilfredo Rafael Rodriguez Hernandez",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Carpathian_Lynx.jpg",
@@ -9843,7 +9843,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/lynx-lynx-bohringer-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-bohringer-1.jpg",
         "credit": {
           "photographer": "Böhringer Friedrich",
           "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx,_Luchs_03.JPG",
@@ -9852,7 +9852,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/lynx-lynx-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-tracks-1.jpg",
         "credit": {
           "photographer": "Sillerkiil",
           "url": "https://commons.wikimedia.org/wiki/File:Ilvese_j%C3%A4ljed_K%C3%B5rvemaal._2020._aasta_jaanuar..jpg",
@@ -13485,7 +13485,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/procyon-lotor-khinkiladze-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-khinkiladze-1.jpg",
         "credit": {
           "photographer": "მირზა ხინკილაძე",
           "location": "ლაგოდეხის დაცული ტერიტორია",
@@ -13493,21 +13493,21 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/procyon-lotor-tatulishvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-tatulishvili-1.jpg",
         "credit": {
           "photographer": "გიო ტატულიშვილი",
           "date": "2021-06-25"
         }
       },
       {
-        "src": "/images/species/procyon-lotor-tatulishvili-2.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-tatulishvili-2.jpg",
         "credit": {
           "photographer": "გიო ტატულიშვილი",
           "date": "2021-06-25"
         }
       },
       {
-        "src": "/images/species/procyon-lotor-shushtakashvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-shushtakashvili-1.jpg",
         "credit": {
           "photographer": "გიგა შუშტაკაშვილი",
           "location": "სიღნაღი",
@@ -17746,7 +17746,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/aegypius-monachus-kochiashvili-1.jpg",
         "credit": {
           "photographer": "Vazhiko Kochiashvili",
           "location": "Vashlovani Protected Areas",
@@ -17754,14 +17754,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aegypius-monachus-tsiskarauli-2.jpg",
+        "src": "https://cdn.reptiles.ge/species/aegypius-monachus-tsiskarauli-2.jpg",
         "credit": {
           "photographer": "Mamuka Tsiskarauli",
           "date": "31 May"
         }
       },
       {
-        "src": "/images/species/aegypius-monachus-tsiskarauli-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/aegypius-monachus-tsiskarauli-1.jpg",
         "credit": {
           "photographer": "Mamuka Tsiskarauli",
           "date": "31 May"
@@ -18848,7 +18848,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/capra-aegagrus-gabunia-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-gabunia-1.jpg",
         "credit": {
           "photographer": "ვასილ გაბუნია",
           "location": "Borjomi-Kharagauli National Park",
@@ -18856,7 +18856,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-kerdikoshvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-kerdikoshvili-1.jpg",
         "credit": {
           "photographer": "ნიკა ქერდიკოშვილი",
           "location": "Tusheti",
@@ -18864,7 +18864,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-9.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-9.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:9_Bezoar_Goat.jpg",
@@ -18873,7 +18873,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-6.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-6.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:6_Bezoar_Goat.jpg",
@@ -18882,7 +18882,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-3.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-3.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:3_Bezoar_Goat.jpg",
@@ -18891,7 +18891,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-malkhasyan-4.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-malkhasyan-4.jpg",
         "credit": {
           "photographer": "Alexander Malkhasyan",
           "url": "https://commons.wikimedia.org/wiki/File:4_Bezoar_Goat.jpg",
@@ -18900,7 +18900,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-gndasar-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-gndasar-1.jpg",
         "credit": {
           "photographer": "gailhampshire",
           "url": "https://commons.wikimedia.org/wiki/File:Bezoar_ibex_are_a_subspecies_of_the_wild_goat,_and_native_to_Armenia_-_50613102552.jpg",
@@ -18909,7 +18909,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/capra-aegagrus-horns-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/capra-aegagrus-horns-1.jpg",
         "credit": {
           "photographer": "Emőke Dénes",
           "url": "https://commons.wikimedia.org/wiki/File:Em_-_Capra_aegagrus_aegagrus_horns_-_4.jpg",
@@ -24263,7 +24263,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/lynx-lynx-ebr-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-ebr-1.jpg",
         "credit": {
           "photographer": "Jan Ebr",
           "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx_dinniki_115107752.jpg",
@@ -24272,7 +24272,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/lynx-lynx-delgado-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-delgado-1.jpg",
         "credit": {
           "photographer": "Carlos Delgado",
           "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx_-_05.jpg",
@@ -24281,7 +24281,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/lynx-lynx-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-portrait-1.jpg",
         "credit": {
           "photographer": "Wilfredo Rafael Rodriguez Hernandez",
           "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_a_Carpathian_Lynx.jpg",
@@ -24290,7 +24290,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/lynx-lynx-bohringer-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-bohringer-1.jpg",
         "credit": {
           "photographer": "Böhringer Friedrich",
           "url": "https://commons.wikimedia.org/wiki/File:Lynx_lynx,_Luchs_03.JPG",
@@ -24299,7 +24299,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/lynx-lynx-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/lynx-lynx-tracks-1.jpg",
         "credit": {
           "photographer": "Sillerkiil",
           "url": "https://commons.wikimedia.org/wiki/File:Ilvese_j%C3%A4ljed_K%C3%B5rvemaal._2020._aasta_jaanuar..jpg",
@@ -26902,7 +26902,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/procyon-lotor-khinkiladze-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-khinkiladze-1.jpg",
         "credit": {
           "photographer": "Mirza Khinkiladze",
           "location": "Lagodekhi Protected Areas",
@@ -26910,21 +26910,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/procyon-lotor-tatulishvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-tatulishvili-1.jpg",
         "credit": {
           "photographer": "Gio Tatulishvili",
           "date": "2021-06-25"
         }
       },
       {
-        "src": "/images/species/procyon-lotor-tatulishvili-2.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-tatulishvili-2.jpg",
         "credit": {
           "photographer": "Gio Tatulishvili",
           "date": "2021-06-25"
         }
       },
       {
-        "src": "/images/species/procyon-lotor-shushtakashvili-1.jpg",
+        "src": "https://cdn.reptiles.ge/species/procyon-lotor-shushtakashvili-1.jpg",
         "credit": {
           "photographer": "Giga Shushtakashvili",
           "location": "Sighnaghi",
