@@ -176,7 +176,6 @@ export function Navbar() {
         >
           <Logo
             size={44}
-            priority={pathname !== "/"}
             showWordmark
             wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
               scrolled || menuOpen ? "text-foreground" : "text-white"
@@ -321,9 +320,7 @@ export function Navbar() {
         <nav
           aria-label={t("openMenu")}
           className={`fixed inset-x-0 top-[4.25rem] z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-[28px] border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)] ${
-            menuOpen
-              ? "translate-y-0 opacity-100"
-              : "-translate-y-2 opacity-0"
+            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
           }`}
         >
           <ul className="space-y-1">

@@ -39,7 +39,7 @@ import {
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import { galleryImageObjects } from "@/lib/photoMeta";
-import { CoverImagePreload } from "@/components/CoverImage";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,

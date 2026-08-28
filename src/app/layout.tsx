@@ -1,11 +1,18 @@
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
-import { absoluteUrl, CDN_BASE, SITE_OG_IMAGE_URL, openGraphJpeg, siteConfig } from "@/lib/site";
+import {
+  absoluteUrl,
+  CDN_BASE,
+  SITE_OG_IMAGE_URL,
+  openGraphJpeg,
+  siteConfig,
+} from "@/lib/site";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { preconnect } from "react-dom";
 import "./globals.css";
 
 const GTM_ID = "GTM-NM65ZMML";
@@ -82,6 +89,8 @@ export default async function RootLayout({ children }: Props) {
   const locale = await getLocale().catch(() => routing.defaultLocale);
   const isProd = process.env.NODE_ENV === "production";
 
+  preconnect(CDN_BASE);
+
   return (
     <html
       lang={locale}
@@ -91,8 +100,6 @@ export default async function RootLayout({ children }: Props) {
     >
       {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <head>
-        <link rel="preconnect" href={CDN_BASE} />
-        <link rel="dns-prefetch" href={CDN_BASE} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
