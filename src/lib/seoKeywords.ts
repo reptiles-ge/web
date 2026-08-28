@@ -2,6 +2,15 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
+  "eremias-arguta": {
+    ka: ["ფსვენი", "სტეპის ფსვენი", "Eremias arguta transcaucasica"],
+    en: [
+      "steppe runner",
+      "steppe racerunner",
+      "racerunner",
+      "Eremias arguta transcaucasica",
+    ],
+  },
   "ablepharus-pannonicus": {
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
     en: [

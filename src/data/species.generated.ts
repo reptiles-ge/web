@@ -3546,7 +3546,7 @@ export const species: Species[] = [
         "answer": "დღისით. ქართული სრული სეზონური კალენდარი ამ გვერდზე არ არის. სომხეთში გაზაფხულიდან შემოდგომამდეა აღწერილი; საღამოს ტბის ქართული ნიმუში მაის–ივნისშია."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T19:19:37+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -3953,7 +3953,7 @@ export const species: Species[] = [
         "answer": "ორივე პატარა უშხამო Eirenis-ია. საყელოიანს საყელო უფრო მკაფიო აქვს და ჩვეულებრივ უფრო მოკლეა; ჩამონათვალი მას სამხრეთ-აღმოსავლეთში ასახელებს, წყნარს — აღმოსავლეთსა და ცენტრში. შუა ტანზე ქერცლის რიგები ხშირად 15 წინააღმდეგ 17–18, მაგრამ ეს ხელში ასათვლელი ნიშანი არ არის."
       }
     ],
-    "updatedAt": "2026-08-28T17:09:23+04:00",
+    "updatedAt": "2026-08-28T19:19:37+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4858,90 +4858,138 @@ export const species: Species[] = [
     "genus": "Eremias",
     "family": "Lacertidae",
     "location": "სამხრეთ-აღმოსავლეთი საქართველო — სპორადულად",
-    "description": "ფსვენი სამხრეთ-აღმოსავლეთიდან — სპორადული; სიმპატრიული მარდი ფსვენისგან განსხვავებული.",
-    "overview": "ფერადი ფსვენი (Eremias arguta) ლაცერტიდი ხვლიკია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად ასახელებს, სიმპატრიული ფსვენებისგან განსხვავებულს. საქართველოს სამხრეთ-აღმოსავლეთში სპორადულად გვხვდება. ქვესახეობა E. a. transcaucasica. ბარკოდირებული ნიმუში სამუხის ველიდანაა. ადამიანისთვის უვნებელია.",
-    "habitat": "სამხრეთ-აღმოსავლეთი საქართველო, სპორადულად. ბარკოდი სამუხის ველიდანაა.",
-    "diet": "წვრილი უხერხემლოები; ჩამონათვალი დიეტას არ აკონკრეტებს.",
-    "behavior": "დღის ღია ადგილების ხვლიკი. იმავე არეალშია, სადაც მარდი ფსვენი — არ აურიოთ.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებულია. გლობალური IUCN კატეგორია ამ გვერდზე არ არის მითითებული.",
+    "description": "უშხამო სტეპის ხვლიკი სამხრეთ-აღმოსავლეთიდან. სპორადულია; ადვილად ერევა უფრო ჩვეულებრივ მარდ ფსვენს.",
+    "overview": "ფერადი ფსვენი (Eremias arguta) უშხამო სტეპის ხვლიკია სამხრეთ-აღმოსავლეთ საქართველოში. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს და სიმპატრიული ფსვენებისგან განსხვავებულად ასახელებს. საქართველოში სპორადულად გვხვდება, არა მთელ ქვეყანაში. ჩამონათვალის ქვესახეობაა E. a. transcaucasica Darevsky, 1953; ტიპის ადგილი სომხეთშია (მეც-მაზრა), არა საქართველოში. დასახელებული ბარკოდი სამუხის ველიდანაა (დედოფლისწყაროს მუნიციპალიტეტი; CaBOL-ID 1039481). ამ ატლასის დასახელებული ფოტო იგივე მუნიციპალიტეტიდანაა, 2025 წლის სექტემბერი. შხამი არ აქვს. გლობალურად IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის.",
+    "habitat": "ჩამონათვალი სამხრეთ-აღმოსავლეთს ასახელებს; გავრცელების ნდობა საშუალოა. დასახელებული გენეტიკური ნიმუში სამუხის ველიდანაა, დედოფლისწყაროს მუნიციპალიტეტში. ამ ატლასის რუკა კახეთს აჩვენებს ამ ჩანაწერებიდან და არ ნიშნავს, რომ სახეობა მთელ კახეთშია ან რომ ყოველი მშრალი ველი შემოწმებულია. დასავლეთის, კოლხეთის ან მაღალმთიანი ჯავახეთის დასახელებული წერტილი აქ არ არის. ისტორიული ქართული ჩანაწერები Nikolskii 1913-სა და Muskhelishvili 1970-ზე დგას; ამ გვერდზე დამატებითი მუნიციპალიტეტები მათგან არ არის გამოგონილი. სახეობის დონეზე ღია, მშრალ ადგილზეა — სტეპი, ნახევრად უდაბნო, ქვიშიანი ან თიხნარი ნიადაგი მეჩხერი ბალახით; ტყეში ნუ ივარაუდებთ. საქართველოსთვის გამოქვეყნებული სიმაღლის ზღვარი ცალკე არ არის. სამუხი და დედოფლისწყაროს მშრალი დაბლობი დაბალ სიმაღლეს უკავშირდება; ქვესახეობის ტიპის ადგილი სომხეთში დაახლოებით 2100 მ-ზეა — ეს ქართულ სიმაღლედ არ უნდა ჩაითვალოს. მთელი არეალი ფართოა: აღმოსავლეთ ევროპიდან შუა აზიამდე; სამხრეთ კავკასია სამხრეთ კიდეს უკავშირდება.",
+    "diet": "ქართული კუჭის შიგთავსის კვლევა ამ გვერდზე არ არის. სახეობის დონეზე ძირითადად წვრილ უხერხემლოებს ჭამს — ხოჭოებს, სხვა მწერებს, ობობებს; ევროპულ ლიტერატურაში პატარა ლოკოკინაცაა დასახელებული. შხამი არ აქვს — მსხვერპლს პირით იჭერს.",
+    "behavior": "დღისითაა აქტიური. ღია ადგილის სწრაფი ხვლიკია: თბება მიწაზე, საფრთხისას სწრაფად გარბის და ხშირად სოროში ან ბალახის ფესვთან იმალება. საქართველოში სრული სეზონური კალენდარი ცალკე არ არის გამოქვეყნებული. ამ ატლასის ქართული ფოტო სექტემბრის ბოლოსაა, დედოფლისწყაროში — ეს ერთი დაკვირვებაა და არა სრული ფენოლოგია. ევროპულ პოპულაციებში ზედაპირზე ხშირად მარტ–აპრილიდან ჩნდება და სექტემბერ–ოქტომბერში იწყებს გამოზამთრებას; ეს ევროპული კალენდარია. კვერცხისმდებია. სახეობის დონეზე ევროპულ ლიტერატურაში 3–11 კვერცხია; ქართული ნაყარის ზომა აქ არ არის გაზომილი. დაჭერისას კუდი შეიძლება მოეწყვიტოს; შეიძლება უკბინოს კიდეც. დააკვირდით და ადგილზე დატოვეთ.",
+    "conservation": "IUCN-მა 2018 წელს ნაკლებად საფრთხის ქვეშ შეაფასა (Aghasyan და თანაავტორები) ფართო არეალის გამო; პოპულაციის ტენდენცია გლობალურად სტაბილურადაა მითითებული. შეფასება სახეობის დონისაა და ქართულ სპორადულ პოპულაციას ცალკე არ ზომავს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ჩამონათვალი სამხრეთ-აღმოსავლეთში სპორადულს უწოდებს — ეს იშვიათობაა და არა წითელი ნუსხის კატეგორია. სომხეთში იგივე ქვესახეობის სევანის იზოლატი ეროვნულად კრიტიკულადაა შეფასებული; ეს სომხური სიტუაციაა და არ უნდა გადმოიტანოთ ავტომატურად საქართველოზე. Tarkhnishvili et al. 2026 აღნიშნავს, რომ COI-ით ნომინალურად ერთი სახეობის შიგნით, მათ შორის E. arguta-ში, დიდი გეოგრაფიული განსხვავებაა; ქართული ნიმუში აქ მაინც E. arguta-დ რჩება. ადგილობრივი საფრთხე შეიძლება იყოს მშრალი სტეპის გარდაქმნა. ველური ხვლიკი არ დაიჭიროთ.",
+    "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/eremias-arguta.jpg",
+    "image": "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg",
     "imageCredit": {
-      "photographer": "Nikita Sevastianov",
-      "url": "https://www.inaturalist.org/observations/41042387"
+      "photographer": "Aurélien Grimaud",
+      "url": "https://www.inaturalist.org/observations/318012787",
+      "location": "დედოფლისწყაროს მუნიციპალიტეტი",
+      "date": "2025-09-29"
     },
     "mobileImage": "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg",
     "mobileImageCredit": {
       "photographer": "Aurélien Grimaud",
-      "url": "https://www.inaturalist.org/observations/318012787"
+      "url": "https://www.inaturalist.org/observations/318012787",
+      "location": "დედოფლისწყაროს მუნიციპალიტეტი",
+      "date": "2025-09-29"
     },
     "gallery": [
+      {
+        "src": "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg",
+        "credit": {
+          "photographer": "Aurélien Grimaud",
+          "url": "https://www.inaturalist.org/observations/318012787",
+          "location": "დედოფლისწყაროს მუნიციპალიტეტი",
+          "date": "2025-09-29"
+        }
+      },
       {
         "src": "https://cdn.reptiles.ge/eremias-arguta.jpg",
         "credit": {
           "photographer": "Nikita Sevastianov",
-          "url": "https://www.inaturalist.org/observations/41042387"
+          "url": "https://www.inaturalist.org/observations/41042387",
+          "location": "ვოლგოგრადის ოლქი, რუსეთი",
+          "date": "2017-06-17"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eremias-arguta-2.jpg",
         "credit": {
           "photographer": "Наталья Бешко",
-          "url": "https://www.inaturalist.org/observations/93553764"
+          "url": "https://www.inaturalist.org/observations/93553764",
+          "location": "უზბეკეთი",
+          "date": "2010-05-10"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eremias-arguta-3.jpg",
         "credit": {
           "photographer": "Eugene Popov",
-          "url": "https://www.inaturalist.org/observations/11997409"
+          "url": "https://www.inaturalist.org/observations/11997409",
+          "location": "ასტრახანის ოლქი, რუსეთი",
+          "date": "2009-04-26"
         }
       }
     ],
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "სამხრ.–აღმ. — სპორადულად"
+        "value": "ღია სტეპი / სამხრ.–აღმ."
+      },
+      {
+        "label": "ზომა",
+        "value": "თავ-ტანი ~6–8 სმ"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "დღის"
       },
       {
         "label": "შხამი",
         "value": "არა — უვნებელი"
       },
       {
-        "label": "ოჯახი",
-        "value": "Lacertidae"
+        "label": "კონსერვაცია",
+        "value": "ნაკლ. საფრთხე (LC)"
       },
       {
         "label": "ჩამონათვალი",
         "value": "დადასტურებული"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Lacertidae"
       }
     ],
     "facts": [],
     "identification": {
-      "summary": "სპორადული ფსვენი სამხრეთ-აღმოსავლეთში. შეადარეთ უფრო ჩვეულებრივ მარდ ფსვენს.",
+      "summary": "შედარებით მსხვილი, ღია ადგილის ფსვენი ლაქებიანი ან თვალაკებიანი ზურგით. საქართველოში უპირველესად მარდ ფსვენსა და კოხტა გველთავას შეადარეთ. ფერი საკმარისი არ არის.",
       "traits": [
-        "დღის ლაცერტიდი; ჩამონათვალში სიმპატრიული ფსვენებისგან განსხვავებული.",
-        "ქვესახეობა E. a. transcaucasica.",
-        "საქართველოში სპორადულია, არა ფართოდ ჩვეულებრივი.",
-        "ადამიანისთვის უშხამოა."
+        "სხეული უფრო მასიურია და კიდურები შედარებით მოკლე, ვიდრე მარდ ფსვენში (Eremias velox). თავი წაწვეტებულია, მაგრამ არა ისე გამხდარი, როგორც გრძელკუდა ფსვენებში. სახეობის დონეზე თავ-ტანი (ცხვირიდან კლოაკამდე) ხშირად დაახლოებით 6–8 სმ-ია; კუდი სხეულზე ბევრად გრძელი არ არის. ქართული გაზომილი სერია ამ გვერდზე არ არის. ქვედა ქუთუთო მოძრავია — ეს გველთავასგან ჰყოფს.",
+        "ზურგი რუხი, ქვიშისფერი ან ზეთისხილისფერია ღია თვალაკებით (ოცელები) ან არარეგულარული მუქი ლაქებით — აქედან ქართული სახელი. ნაშიერს ნახატი უფრო კონტრასტული აქვს. ზრდასრულში ზოლები სუსტია ან არ არის; მარდ ფსვენს ხშირად გრძივი ზოლები და გვერდზე ლურჯი თვალაკები აქვს. ფერის ცვალებადობა დიდია: გალერეის ნაწილი საქართველოს გარეთაა და სხვა ქვესახეობას აჩვენებს.",
+        "საველე ქერცლის ნიშანი (Anderson 1999): ქვეთვალის ფირფიტა (სუბოკულარი) პირის ნაპირს არ აღწევს. მარდ ფსვენში იგივე ფირფიტა ჩვეულებრივ პირს აღწევს. ეს ხელში ასათვლელი ნიშანია — არ აიყვანოთ. ბარძაყის ფორების ორი რიგი ერთმანეთისგან შედარებით ფართოდაა გამოყოფილი.",
+        "მარდი ფსვენი იმავე სამხრეთ-აღმოსავლეთში უფრო ჩვეულებრივია: ჩამონათვალი მას „საკმაოდ ჩვეულებრივს“ უწოდებს, ამ სახეობას — სპორადულს. უფრო გამხდარია, კუდი გრძელი, სირბილი უფრო გამოკვეთილი. კოხტა გველთავა (Ophisops elegans) პატარაა და ქუთუთოები შერწყმული აქვს — თვალი „გველისებურია“. ზოლებიანი ხვლიკი (Lacerta strigata) უფრო დიდია და ხშირად მწვანე. აზიური შიშველთვალა (Ablepharus pannonicus) წვრილი სცინკია, არა ფსვენი."
       ]
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026: სპორადულად სამხრეთ-აღმოსავლეთში. ბარკოდი სამუხის ველიდანაა."
+        "question": "გვხვდება თუ არა ფერადი ფსვენი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია და სამხრეთ-აღმოსავლეთში სპორადულადაა მითითებული. დასახელებული ბარკოდი სამუხის ველიდანაა. მთელ ქვეყანაში ნუ ივარაუდებთ."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "უვნებელია. შხამი არ აქვს."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მშრალ ღია სტეპზე სამხრეთ-აღმოსავლეთში. დასახელებული ადგილია დედოფლისწყაროს მუნიციპალიტეტი — სამუხის ველი. ამ ატლასის რუკა კახეთს აჩვენებს. დასავლეთისა და კოლხეთის დასახელებული წერტილი აქ არ არის."
+      },
+      {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "შედარებით მსხვილი ღია ადგილის ხვლიკი ღია თვალაკებიანი ან ლაქებიანი ზურგით და მოძრავი ქუთუთოთი. მარდ ფსვენი უფრო გამხდარია და ხშირად ზოლიანია. გველთავას ქუთუთო შერწყმული აქვს. ფერი საკმარისი არ არის."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "სახეობის დონეზე თავ-ტანი ხშირად დაახლოებით 6–8 სმ-ია. ქართული სრული საზომი სერია ამ გვერდზე არ არის."
       },
       {
         "question": "რით განსხვავდება მარდი ფსვენისგან?",
-        "answer": "E. velox იმავე სამხრეთ-აღმოსავლეთში უფრო ჩვეულებრივია. ჩამონათვალი E. arguta-ს სიმპატრიული ფსვენებისგან განსხვავებულ სახეობად ასახელებს."
+        "answer": "ორივე Eremias-ია და სამხრეთ-აღმოსავლეთში თანაარსებობს. მარდი უფრო ჩვეულებრივია, გამხდარი და გრძელკუდა; ფერადს უფრო მასიური სხეული და თვალაკებიანი ნახატი აქვს. ქვეთვალის ფირფიტა ფერადში პირს არ აღწევს — ეს ხელში ასათვლელი ნიშანია."
       },
       {
-        "question": "რომელია უფრო იშვიათი?",
-        "answer": "ჩამონათვალი E. velox-ს „საკმაოდ ჩვეულებრივს“ უწოდებს, E. arguta-ს — სპორადულს."
+        "question": "რას ჭამს და კვერცხებს დებს თუ ცოცხლად შობს?",
+        "answer": "კვერცხისმდებია. ქართული ნაყარი აქ არ არის გაზომილი; სახეობის დონეზე ევროპულ ლიტერატურაში 3–11 კვერცხია. კვება ქართულად არ არის ცალკე შესწავლილი; სახეობის დონეზე წვრილი უხერხემლოები."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "დღისით, თბილ სეზონზე ღია ადგილზე. საქართველოში სრული კალენდარი ცალკე არ არის. ამ ატლასის ქართული ფოტო სექტემბრის ბოლოსაა, დედოფლისწყაროში."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -4951,10 +4999,31 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Darevsky 1953 — On the taxonomic position of Transcaucasian Eremias arguta"
       },
       {
-        "name": "The Reptile Database",
+        "name": "Muskhelishvili 1970 — Georgian records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Nikolskii 1913 — Historical records cited in Tarkhnishvili et al. 2026"
+      },
+      {
+        "name": "Poyarkov, Orlova & Chirikova 2014 — Mitochondrial phylogeography of Eremias arguta",
+        "url": "https://doi.org/10.11646/zootaxa.3895.2.4"
+      },
+      {
+        "name": "Aghasyan et al. 2018 — IUCN Red List, Eremias arguta",
+        "url": "https://www.iucnredlist.org/species/157260/745511"
+      },
+      {
+        "name": "Anderson 1999 — scalation diagnosis, cited in The Reptile Database"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "The Reptile Database — Eremias arguta",
         "url": "https://reptile-database.reptarium.cz/species?genus=Eremias&species=arguta"
       }
     ]
@@ -17892,88 +17961,136 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "eremias-arguta": {
     "commonName": "Steppe-Runner",
     "location": "Southeast Georgia — sporadic",
-    "description": "A racerunner of the southeast — sporadic; distinct from the sympatric rapid racerunner.",
-    "overview": "The steppe-runner (Eremias arguta) is a lacertid. Tarkhnishvili et al. 2026 list it as biologically confirmed and distinct from sympatric racerunners. It is found sporadically in southeast Georgia. The subspecies is E. a. transcaucasica. A barcoded specimen is from Samukhi Valley. It is harmless to people.",
-    "habitat": "Southeast Georgia, sporadically. The barcode is from Samukhi Valley.",
-    "diet": "Small invertebrates; the checklist does not specify diet.",
-    "behavior": "A diurnal lizard of open ground. It overlaps with the rapid racerunner — do not confuse the two.",
-    "conservation": "Biologically confirmed in the checklist. No global IUCN category is given on this page.",
+    "description": "A harmless steppe lizard of the southeast. It is sporadic and easily confused with the more common rapid racerunner.",
+    "overview": "The steppe-runner (Eremias arguta) is a harmless open-ground lizard of southeast Georgia. It belongs to the true lizards (Lacertidae). The 2026 Georgian checklist treats it as biologically confirmed and distinct from sympatric racerunners. In Georgia it is sporadic, not nationwide. The checklist subspecies is E. a. transcaucasica Darevsky, 1953; the type locality is in Armenia (Mets-Mazra), not Georgia. The named barcode is from Samukhi Valley (Dedoplistskaro Municipality; CaBOL-ID 1039481). The named photograph on this atlas is from the same municipality, September 2025. It has no venom. Globally it is Least Concern on the IUCN Red List. It is not on Georgia’s 2014 Red List.",
+    "habitat": "The checklist names southeast Georgia; distribution confidence is medium. The named genetic specimen is from Samukhi Valley, Dedoplistskaro Municipality. This atlas map shows Kakheti from those records; that does not mean the species occurs throughout Kakheti, or that every dry valley has been surveyed. There is no named western, Colchic, or high Javakheti locality on this page. Historical Georgian records rest on Nikolskii 1913 and Muskhelishvili 1970; further municipalities are not inferred from them here. At species level it uses open dry ground — steppe, semi-desert, sandy or clay soils with sparse grass; do not expect it in forest. A published elevation range for Georgia is not available. Samukhi and the dry Dedoplistskaro lowland are low elevation; the subspecies type locality in Armenia is about 2,100 m — that is not a Georgian elevation. The global range is wide, from eastern Europe to Central Asia; the South Caucasus lies near the southern edge.",
+    "diet": "No Georgian stomach-content study is on this page. At species level it eats mainly small invertebrates — beetles, other insects, spiders; European literature also names small snails. It has no venom; prey is seized in the jaws.",
+    "behavior": "It is active by day. It is a fast lizard of open ground: it basks on the soil, flees quickly, and often hides in a burrow or at a grass tussock. A full Georgian seasonal calendar has not been published separately. The Georgian photograph on this atlas is from late September in Dedoplistskaro — one observation, not a complete phenology. In European populations animals often appear from March–April and enter winter shelter in September–October; that is a European calendar. It lays eggs. At species level, European literature reports 3–11 eggs; Georgian clutch size is not measured here. If seized, the tail may break off; it may also bite. Watch it and leave it where it is.",
+    "conservation": "IUCN assessed it as Least Concern in 2018 (Aghasyan and co-authors) because the range is wide; the global population trend is given as stable. That assessment is species-wide and does not measure the sporadic Georgian population on its own. It is not on Georgia’s 2014 Red List (Decree No. 190). The checklist calls it sporadic in the southeast — that is rarity, not a Red List category. In Armenia the Sevan isolate of the same subspecies is nationally assessed as Critically Endangered; that is an Armenian situation and should not be copied automatically onto Georgia. Tarkhnishvili et al. 2026 note large geographic COI differences within some nominal species, including E. arguta; the Georgian specimen is still treated here as E. arguta. Local pressure may include conversion of dry steppe. Do not catch wild lizards.",
+    "interaction": "It is not venomous and poses no medical risk. If handled it may bite; the tail may break off. Leave it where it is.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "SE — sporadic"
+        "value": "Open steppe / SE Georgia"
+      },
+      {
+        "label": "Size",
+        "value": "SVL ~6–8 cm"
+      },
+      {
+        "label": "Activity",
+        "value": "Diurnal"
       },
       {
         "label": "Venom",
         "value": "None — harmless"
       },
       {
-        "label": "Family",
-        "value": "Lacertidae"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
       },
       {
         "label": "Checklist",
         "value": "Confirmed"
+      },
+      {
+        "label": "Family",
+        "value": "Lacertidae"
       }
     ],
     "facts": [],
     "identification": {
-      "summary": "A sporadic racerunner of the southeast. Compare it with the more common rapid racerunner.",
+      "summary": "A relatively stocky open-ground racerunner with a spotted or ocellate back. In Georgia compare it first with the rapid racerunner and the snake-eyed lizard. Colour alone is not enough.",
       "traits": [
-        "A diurnal lacertid; listed as distinct from sympatric racerunners.",
-        "Subspecies E. a. transcaucasica.",
-        "Sporadic in Georgia, not described as fairly common.",
-        "Harmless to people."
+        "The body is more robust and the legs relatively shorter than in the rapid racerunner (Eremias velox). The snout is pointed, but not as slender as in long-tailed racerunners. At species level snout–vent length is often about 6–8 cm; the tail is not much longer than the body. A measured Georgian series is not on this page. The lower eyelid is movable — that separates it from the snake-eyed lizard.",
+        "The back is grey, sandy, or olive with pale ocelli or irregular dark spots — the source of the Georgian name. Juveniles are more contrasty. Adults rarely show strong stripes; the rapid racerunner often has longitudinal stripes and blue flank ocelli. Pattern varies widely: some gallery photos are from outside Georgia and show other subspecies.",
+        "A scalation character (Anderson 1999): the subocular scale does not reach the lip. In the rapid racerunner that scale usually does. This is an in-hand character — do not pick the animal up. The two rows of femoral pores are separated by a relatively wide gap.",
+        "The rapid racerunner is more common in the same southeast (checklist: “fairly common” versus “sporadic”). It is slimmer, longer-tailed, and a more obvious sprinter. The snake-eyed lizard (Ophisops elegans) is smaller and has fused eyelids — the eye looks snake-like. The green lizard Lacerta strigata is larger and often green. The Asian snake-eyed skink (Ablepharus pannonicus) is a tiny skink, not a racerunner."
       ]
     },
     "faq": [
       {
-        "question": "Does it occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026: sporadically in the southeast. The barcode is from Samukhi Valley."
+        "question": "Does the steppe-runner occur in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed and sporadic in the southeast. The named barcode is from Samukhi Valley. Do not assume it occurs throughout the country."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Harmless. It has no venom."
+        "question": "Where might I find it in Georgia?",
+        "answer": "On dry open steppe in the southeast. The named locality is Dedoplistskaro Municipality — Samukhi Valley. This atlas map shows Kakheti. There is no named western or Colchic point on this page."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. If seized it may bite; the tail may break off. Leave it where it is."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "A relatively stocky open-ground lizard with a spotted or ocellate back and a movable eyelid. The rapid racerunner is slimmer and often striped. The snake-eyed lizard has fused eyelids. Colour alone is not enough."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "At species level snout–vent length is often about 6–8 cm. A full Georgian measurement series is not on this page."
       },
       {
         "question": "How does it differ from the rapid racerunner?",
-        "answer": "E. velox is fairly common in the same southeast. The checklist treats E. arguta as a distinct species from sympatric racerunners."
+        "answer": "Both are Eremias and overlap in the southeast. The rapid racerunner is more common, slimmer, and longer-tailed; the steppe-runner is stockier with an ocellate pattern. In the steppe-runner the subocular does not reach the lip — that is an in-hand character."
       },
       {
-        "question": "Which is rarer?",
-        "answer": "The checklist calls E. velox “fairly common” and E. arguta sporadic."
+        "question": "What does it eat, and does it lay eggs?",
+        "answer": "It lays eggs. Georgian clutch size is not measured here; at species level European literature reports 3–11 eggs. Diet has not been studied separately in Georgia; at species level it eats small invertebrates."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "By day, in the warm season on open ground. A full Georgian calendar has not been published separately. The Georgian photograph on this atlas is from late September in Dedoplistskaro."
       }
     ],
     "gallery": [
       {
+        "src": "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg",
+        "credit": {
+          "photographer": "Aurélien Grimaud",
+          "url": "https://www.inaturalist.org/observations/318012787",
+          "location": "Dedoplistskaro Municipality",
+          "date": "2025-09-29"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/eremias-arguta.jpg",
         "credit": {
           "photographer": "Nikita Sevastianov",
-          "url": "https://www.inaturalist.org/observations/41042387"
+          "url": "https://www.inaturalist.org/observations/41042387",
+          "location": "Volgograd Oblast, Russia",
+          "date": "2017-06-17"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eremias-arguta-2.jpg",
         "credit": {
           "photographer": "Наталья Бешко",
-          "url": "https://www.inaturalist.org/observations/93553764"
+          "url": "https://www.inaturalist.org/observations/93553764",
+          "location": "Uzbekistan",
+          "date": "2010-05-10"
         }
       },
       {
         "src": "https://cdn.reptiles.ge/eremias-arguta-3.jpg",
         "credit": {
           "photographer": "Eugene Popov",
-          "url": "https://www.inaturalist.org/observations/11997409"
+          "url": "https://www.inaturalist.org/observations/11997409",
+          "location": "Astrakhan Oblast, Russia",
+          "date": "2009-04-26"
         }
       }
     ],
     "imageCredit": {
-      "photographer": "Nikita Sevastianov",
-      "url": "https://www.inaturalist.org/observations/41042387"
+      "photographer": "Aurélien Grimaud",
+      "url": "https://www.inaturalist.org/observations/318012787",
+      "location": "Dedoplistskaro Municipality",
+      "date": "2025-09-29"
     },
     "mobileImageCredit": {
       "photographer": "Aurélien Grimaud",
-      "url": "https://www.inaturalist.org/observations/318012787"
+      "url": "https://www.inaturalist.org/observations/318012787",
+      "location": "Dedoplistskaro Municipality",
+      "date": "2025-09-29"
     }
   },
   "eremias-velox": {

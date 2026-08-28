@@ -268,7 +268,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "anguis-colchica",
   ],
   "eremias-velox": ["eremias-arguta"],
-  "eremias-arguta": ["eremias-velox"],
+  "eremias-arguta": ["eremias-velox", "ophisops-elegans"],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "lacerta-agilis": [
     "lacerta-strigata",

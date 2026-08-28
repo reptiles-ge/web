@@ -111,7 +111,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "eremias-arguta": {
     group: "lizard",
-    habitats: ["grassland", "forest"],
+    habitats: ["grassland"],
   },
   "ophisops-elegans": {
     group: "lizard",

@@ -394,6 +394,7 @@ export const regions: Region[] = [
       "ablepharus-pannonicus",
       "eumeces-schneiderii",
       "eremias-velox",
+      "eremias-arguta",
       "ophisops-elegans",
       "lacerta-strigata",
       "lacerta-media",
