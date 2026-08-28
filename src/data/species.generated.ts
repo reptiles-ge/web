@@ -360,7 +360,7 @@ export const species: Species[] = [
         "answer": "ამ ატლასში Bufo verrucosissimus-ად არის მოცემული. 2026 წლის ჩამონათვალი სახეობრივ რანგს კანდიდატად ტოვებს Bufo bufo-სთან. ველში ამოცნობა არ იცვლება."
       }
     ],
-    "updatedAt": "2026-08-28T11:01:05+04:00",
+    "updatedAt": "2026-08-28T11:11:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -1993,7 +1993,7 @@ export const species: Species[] = [
         "answer": "გლობალურად IUCN-ით Vulnerableა (2009). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ჩამონათვალში კანდიდატია. ველური ცხოველი არ აიყვანოთ."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T11:11:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -4399,6 +4399,15 @@ export const species: Species[] = [
     },
     "gallery": [
       {
+        "src": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
+        "credit": {
+          "photographer": "joepon",
+          "url": "https://www.inaturalist.org/observations/370280848",
+          "location": "სენ-ე-მარნი",
+          "date": "2026-06-07"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/emys-orbicularis.jpg",
         "credit": {
           "photographer": "Полина Яковлевна Нехаева (Лихачева)",
@@ -4414,15 +4423,6 @@ export const species: Species[] = [
           "url": "https://www.inaturalist.org/observations/4474575",
           "location": "ლაზდიაი",
           "date": "2016-10-27"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
-        "credit": {
-          "photographer": "joepon",
-          "url": "https://www.inaturalist.org/observations/370280848",
-          "location": "სენ-ე-მარნი",
-          "date": "2026-06-07"
         }
       }
     ],
@@ -4496,7 +4496,7 @@ export const species: Species[] = [
         "answer": "IUCN-ით ახლოსაა საფრთხესთან. საქართველოს 2014 წლის წითელ ნუსხაში არ არის."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T11:11:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -6751,13 +6751,14 @@ export const species: Species[] = [
     "scientificName": "Lacerta strigata",
     "genus": "Lacerta",
     "family": "Lacertidae",
-    "location": "ნახევრადმშრალი ჰაბიტატები ქვეყნის მასშტაბით",
-    "description": "დასავლეთაზიური ლაცერტა ნახევრადმშრალ ჰაბიტატებში — უახლოესი ნათესავებისგან 10 მილიონ წელზე მეტია გამოყოფილი.",
-    "overview": "ზოლიანი ხვლიკი (Lacerta strigata) ლაცერტიდი ხვლიკია. Tarkhnishvili et al. 2026 მას ბიოლოგიურად დადასტურებულ სახეობად ასახელებს: დასავლეთ აზია და კავკასია; უახლოესი ნათესავებისგან გამოყოფა >10 მილიონი წელი (Kumar et al. 2017). საქართველოში ნახევრადმშრალ ჰაბიტატებში ქვეყნის მასშტაბით. ფიგურა — დედოფლისწყაროს მუნიციპალიტეტი, ჩანქაანი (ნაშიერი); ბარკოდი ჩანქაანიდან. ადამიანისთვის უვნებელია.",
-    "habitat": "ნახევრადმშრალი ჰაბიტატები ქვეყნის მასშტაბით. ფიგურა და ბარკოდი დედოფლისწყარო, ჩანქაანი.",
-    "diet": "წვრილი უხერხემლოები; ჩამონათვალი დიეტას არ აკონკრეტებს.",
-    "behavior": "დღის ლაცერტა. შეადარეთ მარდ და საშუალო ხვლიკს; ნაშიერებს ზოლები უფრო გამოკვეთილი აქვთ.",
-    "conservation": "ჩამონათვალში ბიოლოგიურად დადასტურებულია. გლობალური IUCN კატეგორია ამ გვერდზე არ არის მითითებული.",
+    "location": "ნახევრადმშრალი ჰაბიტატები — დედოფლისწყარო",
+    "description": "საქართველოს ნახევრადმშრალი ადგილების უშხამო ლაცერტიდი. ნაშიერს ხუთი ღია ზოლი აქვს; ზრდასრულს წინ ხშირად მწვანე აქვს, უკან — მოყავისფრო.",
+    "overview": "ზოლიანი ხვლიკი (Lacerta strigata) საქართველოში დადასტურებული უშხამო ლაცერტიდი ხვლიკია ნახევრადმშრალ ჰაბიტატებში. ნამდვილი ხვლიკების ოჯახისაა (Lacertidae). შხამი არ აქვს და ადამიანისთვის საშიში არ არის. ინგლისურად Caspian green lizard, Caucasus emerald lizard ან five-streaked lizard. ზრდასრულის თავ-ტანის სიგრძე ჩვეულებრივ დაახლოებით 7–11 სმ-ია; სახეობის დონეზე სრული სიგრძე დაახლოებით 30 სმ-მდე შეიძლება იყოს. IUCN-ით ნაკლებად საფრთხის ქვეშაა (Least Concern). საქართველოს 2014 წლის წითელ ნუსხაში არ არის. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. ეიხვალდმა 1831 წელს აღწერა. ძველ წიგნებში ზოგჯერ ევროპულ მწვანე ხვლიკს (Lacerta viridis) ან სამზოლიან ხვლიკს (Lacerta trilineata) მიაკუთვნებდნენ; ახლა ცალკე სახეობაა.",
+    "habitat": "საქართველოში გვხვდება. ყველა რეგიონში ან კოლხეთის ნოტიო ტყეში ნუ ივარაუდებთ. Tarkhnishvili et al. 2026 მას ნახევრადმშრალ ჰაბიტატებში ქვეყნის მასშტაბით ათავსებს და გავრცელების სანდოობას საშუალოდ აფასებს. ნაშრომის ფიგურა ზოლიანი ნაშიერია დედოფლისწყაროს მუნიციპალიტეტიდან, ჩანქაანიდან; ბარკოდი იმავე ადგილიდანაა. ამ ატლასის რუკაზე ამ ეტაპზე კახეთია აღნიშნული — იმ დასახელებული ჩანაწერის რეგიონი. სხვა ადმინისტრაციული რეგიონები მხოლოდ ამ ფიგურითა და ბარკოდით არ ივსება. ძველი კავკასიური ლიტერატურა აღმოსავლეთ საქართველოს სახეობად განიხილავს: Langerwerf (1980), Muskhelishvili 1970-ის ციტირებით, აღმოსავლეთ საქართველოში ადგილობრივ სიმჭიდროვეს დაახლოებით 400 ინდივიდს ჰექტარზე ასახელებს — ეს ადგილობრივი მაღალი რიცხვია და არა ქვეყნის საშუალო. The Reptile Database არეალს აღმოსავლეთ საქართველოდ აჯამებს და აფხაზეთსაც ასახელებს; აფხაზეთის ჩანაწერი ამ გვერდზე ცალკე არ არის გადამოწმებული. ეძებეთ სტეპში, მთის სტეპში, ნახევარუდაბნოში, მდინარის პირას, მდელოს კიდეზე, ქარსაფარ ზოლსა და ყანის ან ბაღის პირას, ჩვეულებრივ ბუჩქთან, მაყვალთან ან მკვრივ ბალახთან და არა შიშველ ადგილზე (Langerwerf 1980, Bannikov et al. 1977-ის შეჯამებით). სახეობის დონეზე სიმაღლე მონაცემთა ბაზებში დაახლოებით 2 800–3 000 მ-მდეა; ეს ქართული გაზომილი ზღვარი არ არის. თავშესაფარი ხშირად მღრღნელის სორო, ქვის გროვა ან თვითონ ამოთხრილი მოკლე სოროა.",
+    "diet": "ქართული კუჭის შიგთავსის კვლევა ამ გვერდზე არ არის. სახეობის დონეზე წვრილ უხერხემლოებს ჭამს. Langerwerf (1980) საბჭოთა ლიტერატურიდან ხშირ ნადირად ხოჭოებს ასახელებს; ასევე ობობებს, ტილებს, ლოკოკინებს, ჭიანჭველებს, ბუზებსა და ნახევარხეშეშებს, დამატებით კი კალიას, ჩრჩილსა და ციკადას. ეს რეგიონული შეჯამებაა და არა ყველა ქართული ადგილის მენიუ. ბაღის მავნებლების კონტროლად ნუ მიიჩნევთ.",
+    "behavior": "დღისითაა აქტიური. კავკასიაში Langerwerf (1980) ზრდასრულის გამოღვიძებას დაახლოებით მარტის შუაში ასახელებს, როცა ჰაერი დაახლოებით 16–18 °C-ია; რბილ ქართულ ზამთარში აქტივობა თებერვალში შეიძლება დაიწყოს. ზრდასრული ჩვეულებრივ სექტემბერში იზამთრებს; ნაშიერი ოქტომბერ–ნოემბერამდე შეიძლება დარჩეს. ეს ლიტერატურული ფანჯარაა და არა ყველა ქართული ადგილის კალენდარი. შეწყვილება მაისის დასაწყისიდანაა აღწერილი, კვერცხის დება — მაისის ბოლოდან ივლისის დასაწყისამდე. ველში მდედრი ჩვეულებრივ ორ ნაყარს დებს, თითოში დაახლოებით 6–11 კვერცხს; ინკუბაცია დაახლოებით ექვსი კვირაა, ნაშიერი ივლისის ბოლოდან სექტემბრის შუამდე გამოდის, თავ-ტანით დაახლოებით 30–32 მმ. სქესობრივ სიმწიფეს დაახლოებით 22–23 თვეში აღწევს. ირანული კვლევა (Hejazi et al. 2016) კასპიის სანაპიროზე მსგავს ნაყარს, 6–10 კვერცხს, ასახელებს — ეს ირანული გამრავლებაა და არა ქართული. დაჭერისას კუდი შეიძლება მოეწყვიტოს; შეიძლება უკბინოს კიდეც. დააკვირდით და ადგილზე დატოვეთ. ნუ აიყვანთ.",
+    "conservation": "IUCN-მა 2009 წელს ნაკლებად საფრთხის ქვეშ შეაფასა (2017 წლის შესწორებული ვერსია; Tuniyev და თანაავტორები). საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად იღებს; სხვა Lacerta-სგან ღრმა გამოყოფას Kumar et al. 2017-ით ასახელებს. Saberi-Pirooz et al. 2021 მას გვარის დანარჩენი სახეობების და-ძმად აღადგენს — ეს ტაქსონომიისთვისაა და არა საველე ნიშანი. საქართველოსთვის ადგილობრივი საფრთხეები ამ გვერდზე არ არის გაზომილი; სტეპისა და ნახევარუდაბნოს გარდაქმნა აშკარა წნეხია. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
+    "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ. ველური ცხოველი არ გეყოლოთ.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/lacerta-strigata.jpg",
     "imageCredit": {
@@ -6795,47 +6796,72 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "ნახევრადმშრალი — ფართოდ"
+        "value": "ნახევრადმშრალი; კახეთის ჩანაწერი"
+      },
+      {
+        "label": "ზომა",
+        "value": "თავ-ტანი ~7–11 სმ"
+      },
+      {
+        "label": "აქტიურობა",
+        "value": "დღის; ~III–IX"
       },
       {
         "label": "შხამი",
         "value": "არა — უვნებელი"
       },
       {
-        "label": "ოჯახი",
-        "value": "Lacertidae"
+        "label": "კონსერვაცია",
+        "value": "Least Concern (LC)"
       },
       {
-        "label": "ჩამონათვალი",
-        "value": "დადასტურებული"
+        "label": "ოჯახი",
+        "value": "Lacertidae"
       }
     ],
     "facts": [],
     "identification": {
-      "summary": "ლაცერტა ნახევრადმშრალ ადგილებში ქვეყნის მასშტაბით. შეადარეთ L. agilis-ს და L. media-ს.",
+      "summary": "საშუალო ზომის მიწის ლაცერტა. ნაშიერი ყავისფერია ხუთი ღია ზოლით; ზრდასრული მამრი წინ ხშირად კაშკაშა მწვანეა, უკან — ზეთისხილისფერ-ყავისფერი. შეადარეთ მარდ და საშუალო ხვლიკს — მხოლოდ ფერი საკმარისი არ არის.",
       "traits": [
-        "დღის ლაცერტიდი; ნაშრომის ფიგურა ნაშიერია ზოლებით.",
-        "ნახევრადმშრალი ჰაბიტატები, არა მხოლოდ სამხრეთ-აღმოსავლეთი.",
-        "L. agilis-ისგან განსხვავებით აღმოსავლეთში სიმაღლეზე არ არის შეზღუდული.",
-        "ადამიანისთვის უშხამოა."
+        "მკვრივი ლაცერტიდია კარგად განვითარებული კიდურებით — არა Darevskia-ს კლდის ხვლიკი და არა სცინკი. კისერზე ქერცლის საყელო ძლიერ დაკბილულია. ზურგზე წვრილი ქერცლია; მუცელზე ექვსი (იშვიათად რვა) გრძივი მწკრივი უფრო დიდი ფირფიტაა. ეს ხელში დასათვლელია; ველში უფრო ზომა, ნახატი და ჰაბიტატი მუშაობს.",
+        "ნაშიერი ზეთისხილისფერ-ყავისფერია ზურგსა და გვერდებზე ხუთი ვიწრო მოთეთრო ზოლით, ზოლებს შორის წვრილი მუქი ლაქებით. ესაა 2026 წლის ჩამონათვალის ფიგურის ნახატი ჩანქაანიდან. ზოლები ასაკთან ერთად ქრება და მდედრში უფრო დიდხანს შეიძლება დარჩეს. ზრდასრული მამრი სხეულის წინა ორ მესამედზე კაშკაშა მწვანე ხდება; უკანა ნაწილი, უკანა ფეხები და კუდი ზეთისხილისფერ-ყავისფერი რჩება. შეწყვილების სეზონზე მამრის თავი, ყელი და კისრის გვერდები მუქ ლურჯად შეიძლება შეიცვალოს. მდედრი უფრო ბაცი მწვანეა, ხშირად ლაქებს ან ზოლის კვალს ინარჩუნებს; მუცელი თეთრი ან ღიაა, მამრის ქვედა მხარე მომწვანო ან მოყვითალო.",
+        "მარდი ხვლიკი (Lacerta agilis) დასავლეთ საქართველოში ფართოდაა; აღმოსავლეთში 2026 წლის ჩამონათვალი მას მხოლოდ დაახლოებით 600–800 მ-ზე ზემოთ ათავსებს. ზოლიანი ხვლიკი ნახევრადმშრალი ადგილის ცხოველია და აღმოსავლეთში სიმაღლეზე შეზღუდულად არ არის აღწერილი. ორივეს ნაშიერი ზოლიანი შეიძლება იყოს. მხოლოდ ფერით ნუ ამოიცნობთ.",
+        "საშუალო ხვლიკი (Lacerta media) L. trilineata-ს კომპლექსის კანდიდატი სახეობაა. საქართველოში ძირითადად აღმოსავლეთის ნახევრადმშრალშია, სპორადულად ჩრდილო-დასავლეთში. დიდი მწვანე ლაცერტაა. სადაც ორივეა, შეადარეთ ზომა, ნაშიერის ზოლები და პროფილები; მწვანე ზრდასრული ადვილად ერევა.",
+        "კოხტა გველთავა (Ophisops elegans) უფრო პატარაა, სამხრეთ-აღმოსავლეთის ღია მშრალ ადგილზეა და შერწყმული ქუთუთოები აქვს — თვალი უქუთუთო ჩანს. კლდის ხვლიკები (Darevskia) უფრო პატარაა, ჩვეულებრივ კლდეზე ან კედელზე, და ამ სახეობის ხუთზოლიანი ნაშიერის ნახატი არ აქვთ. არც ერთი ეს ხვლიკი შხამიანი არ არის."
       ]
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა საქართველოში?",
-        "answer": "დიახ. Tarkhnishvili et al. 2026: ნახევრადმშრალ ჰაბიტატებში ქვეყნის მასშტაბით. ფიგურა ჩანქაანიდანაა (დედოფლისწყარო)."
+        "question": "გვხვდება თუ არა ზოლიანი ხვლიკი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში დადასტურებულია. დასახელებული ფიგურა და ბარკოდი ჩანქაანიდანაა, დედოფლისწყაროს მუნიციპალიტეტი."
       },
       {
-        "question": "არის თუ არა შხამიანი?",
-        "answer": "უვნებელია. შხამი არ აქვს."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "ნახევრადმშრალ ადგილზე — სტეპში, ნახევარუდაბნოში, მდინარის პირას და ბუჩქიან ყანის კიდეზე. ამ ატლასი კახეთს რუკავს დედოფლისწყაროს დასახელებული ჩანაწერიდან. ძველი ლიტერატურა აღმოსავლეთ ქართულად განიხილავს. დასავლეთის სველ ტყეში ნუ ივარაუდებთ."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "საშუალო ლაცერტა. ნაშიერი ყავისფერია ხუთი ღია ზოლით. ზრდასრული მამრი წინ ხშირად მწვანეა, უკან მოყავისფრო, შეწყვილებისას ლურჯი ყელით. მხოლოდ ფერი სხვა მწვანე ხვლიკისგან არ ჰყოფს."
+      },
+      {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს. დაჭერისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "თავ-ტანი ჩვეულებრივ დაახლოებით 7–11 სმ-ია. სახეობის დონეზე სრული სიგრძე დაახლოებით 30 სმ-მდე შეიძლება იყოს. ქართული საზომი სერია ამ გვერდზე არ არის."
       },
       {
         "question": "რით განსხვავდება მარდი ხვლიკისგან?",
-        "answer": "L. agilis დასავლეთში ყველგანაა, აღმოსავლეთში 600–800 მ-ზე ზემოთ. L. strigata ნახევრადმშრალ ჰაბიტატებში ფართოდაა. ფერი საკმარისი არ არის."
+        "answer": "აღმოსავლეთში L. agilis დაახლოებით 600–800 მ-ზე ზემოთაა; L. strigata ნახევრადმშრალი ადგილის ლაცერტაა და იქ სიმაღლეზე შეზღუდულად არ არის აღწერილი. ორივეს ნაშიერი ზოლიანი შეიძლება იყოს."
       },
       {
         "question": "რით განსხვავდება საშუალო ხვლიკისგან?",
-        "answer": "L. media კანდიდატია L. trilineata-ს კომპლექსში და ძირითადად აღმოსავლეთ საქართველოს ნახევრადმშრალ ადგილებშია. შეადარეთ პროფილები."
+        "answer": "L. media უფრო დიდი კანდიდატი სახეობაა, ძირითადად აღმოსავლეთის ნახევრადმშრალში. მწვანე ზრდასრული ემთხვევა. შეადარეთ პროფილები; ფერს ნუ დაეყრდნობით."
+      },
+      {
+        "question": "როდის არის აქტიური?",
+        "answer": "დღისით. კავკასიური ლიტერატურა გამოღვიძებას დაახლოებით მარტში ასახელებს, რბილ ქართულ ზამთარში ზოგჯერ თებერვალში; ზრდასრული სექტემბრიდან იზამთრებს. ეს ყველა ადგილის კალენდარი არ არის."
       }
     ],
     "updatedAt": "2026-08-18T23:01:11+04:00",
@@ -6845,11 +6871,31 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "Iankoshvili & Tarkhnishvili 2021 — Georgian herpetofauna records cited in Tarkhnishvili et al. 2026"
+        "name": "Muskhelishvili 1970 — Reptiles of Eastern Georgia (cited in Langerwerf 1980)"
       },
       {
-        "name": "The Reptile Database",
+        "name": "Langerwerf 1980 — The Caucasian green lizard, Lacerta strigata",
+        "url": "https://www.thebhs.org/publications/the-herpetological-bulletin/issue-number-1-summer-1980/2074-hb001-03/file"
+      },
+      {
+        "name": "Tuniyev et al. 2009 — IUCN Red List, Lacerta strigata (errata 2017)",
+        "url": "https://www.iucnredlist.org/species/157287/114558813"
+      },
+      {
+        "name": "Hejazi et al. 2016 — Reproductive biology of Lacerta strigata in Iran",
+        "url": "https://intjmorphol.com/wp-content/uploads/2016/07/art_05_342.pdf"
+      },
+      {
+        "name": "Saberi-Pirooz et al. 2021 — Pleistocene climate and genetic structure of Lacerta strigata",
+        "url": "https://doi.org/10.1002/ece3.7543"
+      },
+      {
+        "name": "The Reptile Database — Lacerta strigata",
         "url": "https://reptile-database.reptarium.cz/species?genus=Lacerta&species=strigata"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
       }
     ]
   },
@@ -9800,7 +9846,7 @@ export const species: Species[] = [
         "answer": "ამ ჩამონათვალში არა. 2024–2026 წლის ქართული ტაქსონომია P. bedriagae-ს P. ridibundus-ის უმცროს სინონიმად ან გეოგრაფიულ ქვესახეობად იღებს. ველში სახელი Pelophylax ridibundus გამოიყენეთ."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T11:11:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10647,7 +10693,7 @@ export const species: Species[] = [
         "answer": "გლობალურად Least Concern (2023). CBG საქართველოს წითელ ნუსხაშიც LC-ს უთითებს. ველური ამფიბია არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-28T11:11:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -11531,15 +11577,15 @@ export const species: Species[] = [
     "conservation": "მშობლიური, ბიოლოგიურად დადასტურებული სახეობა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) მოწყვლადია (VU); ნუსხაში სტატუსის წყაროდ IUCN არის მითითებული. გლობალურად IUCN-იც VU-ს უთითებს (შეფასება 1996); ევროპის რეგიონული შეფასებაც VU-ა (2009). TFTSG 2023 აღნიშნავს, რომ გლობალური შეფასება მოძველებულია. CITES-ის II დანართშია, როგორც Testudinidae-ს ოჯახის სახეობა — ველური ინდივიდის შეგროვება და ვაჭრობა რეგულირებულია. T. g. nikolskii ჩამონათვალში იშვიათად ითვლება; ამ გვერდზე ქვესახეობის ცალკე ეროვნული კატეგორია არ არის ციტირებული. სახეობის დონეზე მთავარი ზეწოლაა ჰაბიტატის დაკარგვა, ხანძარი, სოფლის მეურნეობა და შეგროვება შინაურ ან სავაჭრო მიზნით. ეროვნული პოპულაციის ტენდენცია აქ ციფრებით არ არის გაზომილი. ველური კუ სახლში ნუ წაიყვანეთ.",
     "interaction": "შხამი არ აქვს და ადამიანზე არ ნადირობს. შეიძლება უკბინოს, თუ აიყვანენ. ნიჟარა და ფეხები ადვილად ზიანდება. ნახვისას გადადგით გზიდან და ნუ წაიყვანთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/testudo-graeca.jpg",
+    "image": "https://cdn.reptiles.ge/testudo-graeca-3.jpg",
     "imageCredit": {
-      "photographer": "Serge Larin",
-      "url": "https://www.inaturalist.org/observations/18922293"
+      "photographer": "Cuora",
+      "url": "https://www.inaturalist.org/observations/96663399"
     },
-    "mobileImage": "https://cdn.reptiles.ge/testudo-graeca-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/testudo-graeca-3.jpg",
     "mobileImageCredit": {
-      "photographer": "Cristina Florentina Alistar",
-      "url": "https://www.inaturalist.org/observations/12352082"
+      "photographer": "Cuora",
+      "url": "https://www.inaturalist.org/observations/96663399"
     },
     "gallery": [
       {
@@ -11636,7 +11682,7 @@ export const species: Species[] = [
         "answer": "საქართველოს 2014 წლის წითელ ნუსხაში მოწყვლადია (VU). CITES-ის II დანართშია. ველური ინდივიდის შეგროვება აკრძალული ან მკაცრად შეზღუდულია."
       }
     ],
-    "updatedAt": "2026-08-18T23:01:11+04:00",
+    "updatedAt": "2026-08-28T11:11:49+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -17126,6 +17172,15 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
+        "src": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
+        "credit": {
+          "photographer": "joepon",
+          "url": "https://www.inaturalist.org/observations/370280848",
+          "location": "Seine-et-Marne",
+          "date": "2026-06-07"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/emys-orbicularis.jpg",
         "credit": {
           "photographer": "Полина Яковлевна Нехаева (Лихачева)",
@@ -17141,15 +17196,6 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "url": "https://www.inaturalist.org/observations/4474575",
           "location": "Lazdijai",
           "date": "2016-10-27"
-        }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/emys-orbicularis-3.jpg",
-        "credit": {
-          "photographer": "joepon",
-          "url": "https://www.inaturalist.org/observations/370280848",
-          "location": "Seine-et-Marne",
-          "date": "2026-06-07"
         }
       }
     ],
@@ -18764,57 +18810,83 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   },
   "lacerta-strigata": {
     "commonName": "Striped Lizard",
-    "location": "Semiarid habitats throughout the country",
-    "description": "A West Asian Lacerta of semiarid habitats — split from closest relatives more than 10 million years ago.",
-    "overview": "The striped lizard (Lacerta strigata) is a lacertid. Tarkhnishvili et al. 2026 list it as biologically confirmed: West Asia and the Caucasus, separated from closest relatives >10 Mya (Kumar et al. 2017). In Georgia it is found in semiarid habitats throughout the country. The figure is a juvenile from Dedoplistskaro district, Chankaani; the barcode is from Chankaani. It is harmless to people.",
-    "habitat": "Semiarid habitats throughout the country. Figure and barcode: Dedoplistskaro, Chankaani.",
-    "diet": "Small invertebrates; the checklist does not specify diet.",
-    "behavior": "A diurnal Lacerta. Compare it with the sand lizard and Caucasian green lizard; juveniles often show clearer stripes.",
-    "conservation": "Biologically confirmed in the checklist. No global IUCN category is given on this page.",
+    "location": "Semiarid habitats — Dedoplistskaro",
+    "description": "A harmless lacertid of semiarid ground in Georgia. Juveniles show five pale stripes; adults are often green in front and brownish behind.",
+    "overview": "The striped lizard (Lacerta strigata) is a harmless lacertid confirmed in Georgia, mainly in semiarid country. It belongs to the true lizard family (Lacertidae). It has no venom and is not dangerous to people. English names also include Caspian green lizard, Caucasus emerald lizard and five-streaked lizard. Adults usually have a snout–vent length of about 7–11 cm; total length at species level can reach about 30 cm. IUCN lists it as Least Concern. It is not on Georgia’s 2014 Red List. The 2026 Georgian checklist treats it as biologically confirmed. Eichwald described it in 1831. Older books sometimes placed it under the European green lizard or the three-lined lizard; it is now a separate species.",
+    "habitat": "It occurs in Georgia. Do not assume it in every region or in humid Colchic forest. Tarkhnishvili et al. 2026 place it in semiarid habitats throughout the country and rate distribution confidence as medium. The checklist figure is a striped juvenile from Dedoplistskaro Municipality, Chankaani; the barcode is from the same locality. This atlas map currently marks Kakheti, the region of that named record. It does not list other administrative regions from that figure and barcode alone. Older Caucasian literature treats it as an eastern Georgian species: Langerwerf (1980), citing Muskhelishvili (1970), reports local densities of about 400 animals per hectare in eastern Georgia — a high local count, not a country-wide density. The Reptile Database summarises the range as eastern Georgia and also lists Abkhazia; that Abkhazia record is not independently checked on this page. Look for it in steppe, mountain-steppe, semi-desert, riverbanks, meadow edges, shelterbelts and the margins of fields or gardens, usually near bushes, bramble or dense weeds rather than bare ground (Langerwerf 1980, summarising Bannikov et al. 1977). Species-level elevation in databases reaches about 2,800–3,000 m; that is not a measured Georgian limit. Cover is often a rodent burrow, a rock pile or a short burrow the lizard digs itself.",
+    "diet": "This page has no Georgian stomach-content study. At species level it eats small invertebrates. Langerwerf (1980), from Soviet literature, lists beetles as frequent prey, with spiders, woodlice, snails, ants, flies and bugs also recorded, and grasshoppers, moths and cicadas as additional items. That is a regional diet summary, not a menu for every Georgian site. Do not treat it as garden pest control.",
+    "behavior": "It is active by day. In the Caucasus, literature summarised by Langerwerf (1980) has adults leaving winter shelter around mid-March when air temperatures reach about 16–18 °C; in mild Georgian winters activity may start in February. Adults usually enter hibernation in September; young may stay active into October–November. These are literature windows, not a calendar for every Georgian site. Mating is described from early May, with egg-laying from late May into early July. Females in the wild usually lay two clutches of about 6–11 eggs; incubation is about six weeks, and hatchlings appear from late July to mid-September with a snout–vent length of about 30–32 mm. Sexual maturity is given at about 22–23 months. An Iranian study (Hejazi et al. 2016) found a similar clutch of 6–10 eggs on the Caspian coast — that is Iranian, not Georgian, breeding. If seized, the tail can break off (tail autotomy); the lizard may also bite. Watch it and leave it where it is. Do not pick it up.",
+    "conservation": "IUCN assessed it as Least Concern in 2009 (errata version 2017; Tuniyev et al.). It is not on Georgia’s 2014 Red List (Government Resolution No. 190). Tarkhnishvili et al. 2026 accept it as biologically confirmed; they cite a deep split from other Lacerta (Kumar et al. 2017). Saberi-Pirooz et al. 2021 recover it as sister to the rest of the genus — useful for taxonomy, not a field mark. Local threats are not quantified for Georgia on this page; habitat conversion of steppe and semi-desert is the obvious pressure. It is not listed on CITES. Do not collect wild lizards.",
+    "interaction": "Not venomous and not a medical threat. It may bite if handled, and the tail can break. Leave it in place. Do not keep wild animals.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Semiarid — widespread"
+        "value": "semiarid; Kakheti record"
+      },
+      {
+        "label": "Size",
+        "value": "SVL ~7–11 cm"
+      },
+      {
+        "label": "Activity",
+        "value": "diurnal; ~III–IX"
       },
       {
         "label": "Venom",
         "value": "None — harmless"
       },
       {
-        "label": "Family",
-        "value": "Lacertidae"
+        "label": "Conservation",
+        "value": "Least Concern (LC)"
       },
       {
-        "label": "Checklist",
-        "value": "Confirmed"
+        "label": "Family",
+        "value": "Lacertidae"
       }
     ],
     "facts": [],
     "identification": {
-      "summary": "A Lacerta of semiarid ground throughout Georgia. Compare L. agilis and L. media.",
+      "summary": "A medium ground lizard of the genus Lacerta. Juveniles are brown with five pale stripes; adult males are often bright green on the front of the body and olive-brown behind. Compare the sand lizard and the Caucasian green lizard — colour alone is not enough.",
       "traits": [
-        "A diurnal lacertid; the checklist figure is a striped juvenile.",
-        "Semiarid habitats, not only the southeast.",
-        "Unlike L. agilis, not restricted to elevation in the east.",
-        "Harmless to people."
+        "A robust lacertid with well-developed limbs, not a Darevskia rock lizard and not a skink. The collar of scales across the neck is strongly toothed. The back has small scales; the belly has six (rarely eight) longitudinal rows of larger plates. Those counts help in the hand; in the field, size, pattern and habitat matter more.",
+        "Juveniles are olive-brown with five narrow whitish stripes along the back and sides, and small dark spots between the stripes. That is the pattern in the 2026 checklist figure from Chankaani. The stripes fade with age and may linger longer in females. Adult males become bright green over the front two-thirds of the body; the hindquarters, hind legs and tail stay olive-brown. In the breeding season the male’s head, throat and sides of the neck can turn deep blue. Females are a duller green, often keep some spots or a trace of stripes, and have a white or pale belly; the male’s underside is greenish or yellowish.",
+        "The sand lizard (Lacerta agilis) is widespread in western Georgia; in the east the 2026 checklist places it only above about 600–800 m. The striped lizard is a semiarid-ground animal and is not described as elevation-restricted in the east. Young of both can look striped. Do not identify on colour alone.",
+        "The Caucasian green lizard (Lacerta media) is a candidate species in the L. trilineata complex. In Georgia it is mainly in semiarid east, with sporadic records in the northwest. It is a large green Lacerta. Where both occur, compare size, juvenile striping and the species profiles; green adults are easy to confuse.",
+        "The snake-eyed lizard (Ophisops elegans) is smaller, of open dry ground in the southeast, and has fused eyelids so the eye looks lidless. Rock lizards (Darevskia) are smaller, usually on rocks or walls, and lack the five-stripe juvenile pattern of this species. None of these lizards is venomous."
       ]
     },
     "faq": [
       {
-        "question": "Does it occur in Georgia?",
-        "answer": "Yes. Tarkhnishvili et al. 2026: semiarid habitats throughout the country. The figure is from Chankaani (Dedoplistskaro)."
+        "question": "Does the striped lizard occur in Georgia?",
+        "answer": "Yes. The 2026 checklist confirms it. The named figure and barcode are from Chankaani, Dedoplistskaro Municipality."
       },
       {
-        "question": "Is it venomous?",
-        "answer": "Harmless. It has no venom."
+        "question": "Where might I find it in Georgia?",
+        "answer": "In semiarid ground — steppe, semi-desert, riverbanks and bushy field edges. This atlas maps Kakheti from the named Dedoplistskaro record. Older literature treats it as eastern Georgian. Do not assume it in wet western forest."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "A medium Lacerta. Young are brown with five pale stripes. Adult males are often green in front and brownish behind, with a blue throat in the breeding season. Colour alone does not separate it from other green lizards."
+      },
+      {
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom. If grabbed it may bite, and the tail can break. Leave it where it is."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "Snout–vent length is usually about 7–11 cm. Total length at species level can reach about 30 cm. This page has no Georgian measurement series."
       },
       {
         "question": "How does it differ from the sand lizard?",
-        "answer": "L. agilis is everywhere in the west and above 600–800 m in the east. L. strigata is widespread in semiarid habitats. Colour is not enough."
+        "answer": "In the east, L. agilis is placed above about 600–800 m; L. strigata is the semiarid-ground Lacerta and is not described as elevation-limited there. Young of both can be striped."
       },
       {
         "question": "How does it differ from the Caucasian green lizard?",
-        "answer": "L. media is a candidate in the L. trilineata complex and is mainly in semiarid eastern Georgia. Compare the profiles."
+        "answer": "L. media is a larger candidate species, mainly in semiarid eastern Georgia. Green adults overlap. Compare the profiles; do not rely on colour."
+      },
+      {
+        "question": "When is it active?",
+        "answer": "By day. Caucasian literature has emergence around March, sometimes February in mild Georgian winters, and adult hibernation from September. That is not a calendar for every site."
       }
     ],
     "gallery": [
@@ -22345,12 +22417,12 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "imageCredit": {
-      "photographer": "Serge Larin",
-      "url": "https://www.inaturalist.org/observations/18922293"
+      "photographer": "Cuora",
+      "url": "https://www.inaturalist.org/observations/96663399"
     },
     "mobileImageCredit": {
-      "photographer": "Cristina Florentina Alistar",
-      "url": "https://www.inaturalist.org/observations/12352082"
+      "photographer": "Cuora",
+      "url": "https://www.inaturalist.org/observations/96663399"
     }
   },
   "trachemys-scripta": {

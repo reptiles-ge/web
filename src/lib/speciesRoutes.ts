@@ -258,7 +258,11 @@ const LOOKALIKES: Record<string, string[]> = {
   "eremias-arguta": ["eremias-velox"],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "lacerta-agilis": ["lacerta-strigata", "lacerta-media"],
-  "lacerta-strigata": ["lacerta-agilis", "lacerta-media"],
+  "lacerta-strigata": [
+    "lacerta-agilis",
+    "lacerta-media",
+    "ophisops-elegans",
+  ],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
   "darevskia-adjarica": ["darevskia-mixta"],
   "darevskia-alpina": ["darevskia-caucasica", "darevskia-brauneri"],

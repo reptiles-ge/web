@@ -73,6 +73,15 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Testudo graeca ibera",
     ],
   },
+  "lacerta-strigata": {
+    ka: [],
+    en: [
+      "Caspian green lizard",
+      "Caucasus emerald lizard",
+      "five-streaked lizard",
+      "striated lizard",
+    ],
+  },
   "paralaudakia-caucasia": {
     ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
     en: [

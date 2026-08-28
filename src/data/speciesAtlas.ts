@@ -123,7 +123,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "lacerta-strigata": {
     group: "lizard",
-    habitats: ["grassland", "forest"],
+    habitats: ["grassland"],
   },
   "lacerta-media": {
     group: "lizard",
