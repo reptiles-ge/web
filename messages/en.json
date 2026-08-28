@@ -1246,6 +1246,14 @@
     "statFamilies": "Families",
     "statExtra": "Current focus",
     "statExtraValue": "Canids, bears, deer, mustelids, squirrels, pigs",
+    "statExtraItems": [
+      "Canids",
+      "Bears",
+      "Deer",
+      "Mustelids",
+      "Squirrels",
+      "Pigs"
+    ],
     "guideEyebrow": "Guide",
     "guideTitle": "Mammals in the animal atlas",
     "guideP1": "Reptiles.ge is adding mammal profiles using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",

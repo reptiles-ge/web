@@ -43,6 +43,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
   const clusterCards = HUB_CLUSTER_CARDS[hubId];
   const sections = splitHubSpecies(hubId, species);
+  const extraItems = readStatExtraItems(t);
 
   return (
     <div className="min-h-screen bg-background">
@@ -120,31 +121,56 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
         </section>
 
         <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {species.length}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statSpecies")}
-              </p>
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div
+              className={`grid gap-8 sm:gap-6 ${
+                extraItems ? "sm:grid-cols-2" : "sm:grid-cols-3"
+              }`}
+            >
+              <div>
+                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                  {species.length}
+                </p>
+                <p className="mt-2 text-[13px] text-muted-foreground">
+                  {t("statSpecies")}
+                </p>
+              </div>
+              <div>
+                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                  {familyCount}
+                </p>
+                <p className="mt-2 text-[13px] text-muted-foreground">
+                  {t("statFamilies")}
+                </p>
+              </div>
+              {extraItems ? null : (
+                <div>
+                  <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                    {hubId === "snakes" ? venomousCount : t("statExtraValue")}
+                  </p>
+                  <p className="mt-2 text-[13px] text-muted-foreground">
+                    {t("statExtra")}
+                  </p>
+                </div>
+              )}
             </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {familyCount}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statFamilies")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {hubId === "snakes" ? venomousCount : t("statExtraValue")}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statExtra")}
-              </p>
-            </div>
+            {extraItems ? (
+              <div className="mt-8 border-t border-border pt-8">
+                <ul className="flex flex-wrap gap-2">
+                  {extraItems.map((item) => (
+                    <li
+                      key={item}
+                      className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 text-[13px] font-medium leading-tight text-foreground"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-[13px] text-muted-foreground">
+                  {t("statExtra")}
+                </p>
+              </div>
+            ) : null}
           </div>
         </section>
 
@@ -299,6 +325,21 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
       </main>
     </div>
   );
+}
+
+function readStatExtraItems(
+  t: ReturnType<typeof useTranslations>,
+): string[] | null {
+  if (!t.has("statExtraItems")) return null;
+  const items = t.raw("statExtraItems");
+  if (
+    Array.isArray(items) &&
+    items.length > 0 &&
+    items.every((item) => typeof item === "string")
+  ) {
+    return items;
+  }
+  return null;
 }
 
 const faqLinkClassName =
