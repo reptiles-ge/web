@@ -211,6 +211,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "triturus-karelinii": [
     "ommatotriton-ophryticus",
     "lissotriton-lantzi",
+    "mertensiella-caucasica",
   ],
   "hyla-orientalis": [
     "hyla-savignyi",
@@ -218,6 +219,13 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufotes-viridis",
   ],
   "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
+  "pelobates-syriacus": [
+    "pelodytes-caucasicus",
+    "bufotes-viridis",
+    "pelophylax-ridibundus",
+    "rana-macrocnemis",
+    "bufo-verrucosissimus",
+  ],
   "bufotes-viridis": [
     "bufo-verrucosissimus",
     "pelobates-syriacus",
@@ -257,7 +265,11 @@ const LOOKALIKES: Record<string, string[]> = {
   "eremias-velox": ["eremias-arguta"],
   "eremias-arguta": ["eremias-velox"],
   "ophisops-elegans": ["ablepharus-pannonicus"],
-  "lacerta-agilis": ["lacerta-strigata", "lacerta-media"],
+  "lacerta-agilis": [
+    "lacerta-strigata",
+    "lacerta-media",
+    "darevskia-derjugini",
+  ],
   "lacerta-strigata": [
     "lacerta-agilis",
     "lacerta-media",
@@ -273,8 +285,16 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "darevskia-caucasica": ["darevskia-daghestanica", "darevskia-mixta"],
   "darevskia-clarkorum": ["darevskia-mixta", "darevskia-caucasica"],
-  "darevskia-dahli": ["darevskia-mixta", "darevskia-portschinskii"],
-  "darevskia-derjugini": ["darevskia-praticola"],
+  "darevskia-dahli": [
+    "darevskia-mixta",
+    "darevskia-portschinskii",
+    "darevskia-armeniaca",
+  ],
+  "darevskia-derjugini": [
+    "darevskia-praticola",
+    "darevskia-pontica",
+    "darevskia-mixta",
+  ],
   "darevskia-portschinskii": ["darevskia-obscura", "darevskia-valentini"],
   "darevskia-praticola": ["darevskia-pontica"],
   "darevskia-raddei": ["darevskia-obscura"],

@@ -82,6 +82,28 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "striated lizard",
     ],
   },
+  "lacerta-media": {
+    ka: ["Lacerta trilineata media"],
+    en: [
+      "medium lizard",
+      "three-lined lizard",
+      "Levant green lizard",
+      "Lacerta trilineata media",
+    ],
+  },
+  "darevskia-derjugini": {
+    ka: [
+      "კავკასიური ტყის ხვლიკი",
+      "ართვინის ხვლიკი",
+      "Lacerta derjugini",
+    ],
+    en: [
+      "Artvin lizard",
+      "Artwin lizard",
+      "Derjugin's lizard",
+      "Lacerta derjugini",
+    ],
+  },
   "paralaudakia-caucasia": {
     ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
     en: [
@@ -94,6 +116,14 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   "pseudopus-apodus": {
     ka: ["გველხოკერა"],
     en: ["European glass lizard", "sheltopusik"],
+  },
+  "darevskia-dahli": {
+    ka: ["Lacerta dahli", "Lacerta saxicola dahli"],
+    en: [
+      "Dahl's lizard",
+      "Lacerta dahli",
+      "Lacerta saxicola dahli",
+    ],
   },
   "platyceps-najadum": {
     ka: ["წენგოსფერი მცურავი", "Coluber najadum"],
@@ -311,6 +341,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "banded newt",
       "Triturus vittatus",
       "Triturus vittatus ophryticus",
+    ],
+  },
+  "triturus-karelinii": {
+    ka: [
+      "სავარცხლიანი ტრიტონი",
+      "Triturus cristatus karelinii",
+      "southern crested newt",
+    ],
+    en: [
+      "southern crested newt",
+      "Karelin's crested newt",
+      "Triturus cristatus karelinii",
+      "crested newt",
     ],
   },
   "emberiza-citrinella": {
