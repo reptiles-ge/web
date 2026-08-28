@@ -6702,10 +6702,10 @@ export const species: Species[] = [
     "conservation": "IUCN-მა 2009 წელს ნაკლებად საფრთხის ქვეშ შეაფასა (Agasyan et al. 2010; პოპულაციის ტენდენცია კლებადი, მაგრამ გლობალურად ფართო არეალი). საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. Tarkhnishvili et al. 2026 ბიოლოგიურად დადასტურებულად იღებს. ბერნის კონვენციის II დანართშია; ეს ჩარჩო საქართველოში ევროკავშირის ჰაბიტატების დირექტივას ავტომატურად არ ცვლის. ადგილობრივად სხვადასხვა სიტუაციაა: დასავლეთში ჩამონათვალი ფართო გავრცელებას ასახელებს, ხოლო იორის ხეობის ფორმა ძალიან შეზღუდულია. Doronin et al. 2019 თიანეთთან ერთ პოპულაციას ვარაუდობს, 1 000-ზე ნაკლები ინდივიდით — ეს ადგილობრივი შეფასებაა და არა სახეობის ქვეყნის სტატუსი. საფრთხეები სახეობის დონეზეა ჰაბიტატის გარდაქმნა, ინტენსიური სოფლის მეურნეობა და გზაზე დაღუპვა; საქართველოსთვის ცალკე გაზომილი წნეხი აქ არ არის. CITES-ში არ შედის. ველური ხვლიკი არ დაიჭიროთ.",
     "interaction": "შხამიანი არ არის და სამედიცინო საფრთხე არ არის. ხელში აღებისას შეიძლება უკბინოს; კუდი შეიძლება მოეწყვიტოს. ადგილზე დატოვეთ. ველური ცხოველი არ გეყოლოთ.",
     "danger": "Harmless",
-    "image": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
+    "image": "https://cdn.reptiles.ge/lacerta-agilis-sandro-1.jpg",
     "imageCredit": {
-      "photographer": "zaharozaur",
-      "url": "https://www.inaturalist.org/observations/204166502"
+      "photographer": "სანდრო ხახვა",
+      "date": "2024-04-07"
     },
     "mobileImage": "https://cdn.reptiles.ge/lacerta-agilis-mobile.jpg",
     "mobileImageCredit": {
@@ -6713,13 +6713,6 @@ export const species: Species[] = [
       "url": "https://www.inaturalist.org/observations/47606873"
     },
     "gallery": [
-      {
-        "src": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
-        "credit": {
-          "photographer": "zaharozaur",
-          "url": "https://www.inaturalist.org/observations/204166502"
-        }
-      },
       {
         "src": "https://cdn.reptiles.ge/lacerta-agilis-sandro-1.jpg",
         "credit": {
@@ -6746,6 +6739,13 @@ export const species: Species[] = [
         "credit": {
           "photographer": "Kamilya Medeubaeva",
           "url": "https://www.inaturalist.org/observations/275472082"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
+        "credit": {
+          "photographer": "zaharozaur",
+          "url": "https://www.inaturalist.org/observations/204166502"
         }
       }
     ],
@@ -19163,13 +19163,6 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
-        "credit": {
-          "photographer": "zaharozaur",
-          "url": "https://www.inaturalist.org/observations/204166502"
-        }
-      },
-      {
         "src": "https://cdn.reptiles.ge/lacerta-agilis-sandro-1.jpg",
         "credit": {
           "photographer": "სანდრო ხახვა",
@@ -19196,11 +19189,18 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "Kamilya Medeubaeva",
           "url": "https://www.inaturalist.org/observations/275472082"
         }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/lacerta-agilis.jpg",
+        "credit": {
+          "photographer": "zaharozaur",
+          "url": "https://www.inaturalist.org/observations/204166502"
+        }
       }
     ],
     "imageCredit": {
-      "photographer": "zaharozaur",
-      "url": "https://www.inaturalist.org/observations/204166502"
+      "photographer": "სანდრო ხახვა",
+      "date": "2024-04-07"
     },
     "mobileImageCredit": {
       "photographer": "Andrzej Oleksa",
