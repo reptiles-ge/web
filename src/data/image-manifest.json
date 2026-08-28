@@ -13860,12 +13860,40 @@
     },
     "ficedula-hypoleuca-lapa-1.jpg": {
       "sourceHash": "5ec5ed6748f6db46cf71d5186f6d9fa459f8f1b87bdd6018ba37a0811965f196",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-lapa-1.jpg",
       "originalSize": 4006677,
       "width": 2400,
       "height": 1615,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-lapa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 269,
+          "byteSize": 6107
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-lapa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 269,
+          "byteSize": 7374
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-lapa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 538,
+          "byteSize": 15180
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-lapa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 538,
+          "byteSize": 20178
+        },
         {
           "key": "optimized/ficedula-hypoleuca-lapa-1-1200.avif",
           "format": "avif",
@@ -13895,16 +13923,44 @@
           "byteSize": 300694
         }
       ],
-      "updatedAt": "2026-08-28T21:23:07.623Z"
+      "updatedAt": "2026-08-28T21:41:20.552Z"
     },
     "ficedula-hypoleuca-lepik-1.jpg": {
       "sourceHash": "9b2e15d81425f9eef069652b29b6379d96f39fe65ea1cbd7026b375ec08dce71",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-lepik-1.jpg",
       "originalSize": 3878132,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-lepik-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19814
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-lepik-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27064
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-lepik-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 55196
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-lepik-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79636
+        },
         {
           "key": "optimized/ficedula-hypoleuca-lepik-1-1200.avif",
           "format": "avif",
@@ -13934,16 +13990,44 @@
           "byteSize": 386886
         }
       ],
-      "updatedAt": "2026-08-28T21:23:10.884Z"
+      "updatedAt": "2026-08-28T21:41:28.383Z"
     },
     "ficedula-hypoleuca-rinaud-1.jpg": {
       "sourceHash": "cd38b20931b55851d03bcc3093735349ea6365ab88666b9973421d7a5d0ef49a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-rinaud-1.jpg",
       "originalSize": 3270964,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-rinaud-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13456
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-rinaud-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19590
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-rinaud-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33018
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-rinaud-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46610
+        },
         {
           "key": "optimized/ficedula-hypoleuca-rinaud-1-1200.avif",
           "format": "avif",
@@ -13973,16 +14057,44 @@
           "byteSize": 620844
         }
       ],
-      "updatedAt": "2026-08-28T21:23:14.988Z"
+      "updatedAt": "2026-08-28T21:41:29.417Z"
     },
     "ficedula-hypoleuca-sharp-1.jpg": {
       "sourceHash": "276f9a9f603b2ac5d9347dbf21855589b133708ac39db202daa7ef45e0431e7c",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-sharp-1.jpg",
       "originalSize": 1467134,
       "width": 1800,
       "height": 1200,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-sharp-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14469
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-sharp-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18940
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-sharp-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38465
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-sharp-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50526
+        },
         {
           "key": "optimized/ficedula-hypoleuca-sharp-1-1200.avif",
           "format": "avif",
@@ -14012,16 +14124,44 @@
           "byteSize": 249328
         }
       ],
-      "updatedAt": "2026-08-28T21:23:16.529Z"
+      "updatedAt": "2026-08-28T21:41:34.719Z"
     },
     "ficedula-hypoleuca-strzelecki-1.jpg": {
       "sourceHash": "872b6428f7a438308c6fa077ac880ab00c4353b2cbb58859fd698a04c6bb6286",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-strzelecki-1.jpg",
       "originalSize": 702847,
       "width": 1620,
       "height": 1080,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-strzelecki-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10852
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-strzelecki-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12342
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-strzelecki-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25206
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-strzelecki-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 30780
+        },
         {
           "key": "optimized/ficedula-hypoleuca-strzelecki-1-1200.avif",
           "format": "avif",
@@ -14051,16 +14191,44 @@
           "byteSize": 138554
         }
       ],
-      "updatedAt": "2026-08-28T21:23:12.438Z"
+      "updatedAt": "2026-08-28T21:41:34.089Z"
     },
     "ficedula-hypoleuca-virtala-1.jpg": {
       "sourceHash": "3aa1d7d231f5cdcc26fed2a4c9a5d636f5a0b497a9c213da45546118c564f73b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-virtala-1.jpg",
       "originalSize": 2385251,
       "width": 1398,
       "height": 2079,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-virtala-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 595,
+          "byteSize": 15715
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-virtala-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 595,
+          "byteSize": 18952
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-virtala-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1190,
+          "byteSize": 43341
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-virtala-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1190,
+          "byteSize": 62532
+        },
         {
           "key": "optimized/ficedula-hypoleuca-virtala-1-1200.avif",
           "format": "avif",
@@ -14090,16 +14258,44 @@
           "byteSize": 202932
         }
       ],
-      "updatedAt": "2026-08-28T21:23:16.003Z"
+      "updatedAt": "2026-08-28T21:41:45.153Z"
     },
     "ficedula-hypoleuca-zauri-1.jpg": {
       "sourceHash": "0467917394e9bd73f70a14cdd0905233ac108db9f3696aaf448cd4541d255349",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-zauri-1.jpg",
       "originalSize": 209600,
       "width": 1024,
       "height": 683,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20863
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32414
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 56218
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 89368
+        },
         {
           "key": "optimized/ficedula-hypoleuca-zauri-1-1024.avif",
           "format": "avif",
@@ -14115,16 +14311,44 @@
           "byteSize": 126354
         }
       ],
-      "updatedAt": "2026-08-28T21:23:13.785Z"
+      "updatedAt": "2026-08-28T21:41:38.911Z"
     },
     "ficedula-hypoleuca-zauri-2.jpg": {
       "sourceHash": "8fc657765d29e7e7a4422cb4e67896c569c9a0ec06b19c75e1d416f97f9a2c22",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-zauri-2.jpg",
       "originalSize": 109045,
       "width": 1024,
       "height": 683,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10788
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13878
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 26703
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32458
+        },
         {
           "key": "optimized/ficedula-hypoleuca-zauri-2-1024.avif",
           "format": "avif",
@@ -14140,16 +14364,44 @@
           "byteSize": 44318
         }
       ],
-      "updatedAt": "2026-08-28T21:23:15.476Z"
+      "updatedAt": "2026-08-28T21:41:42.454Z"
     },
     "ficedula-hypoleuca-zauri-3.jpg": {
       "sourceHash": "12c96a91274b4b1078330c6c8b97512cf3b4b6f039363bea7c6fff5df3f17f5a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-hypoleuca-zauri-3.jpg",
       "originalSize": 101794,
       "width": 1024,
       "height": 683,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7351
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9884
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 17173
+        },
+        {
+          "key": "optimized/ficedula-hypoleuca-zauri-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 22602
+        },
         {
           "key": "optimized/ficedula-hypoleuca-zauri-3-1024.avif",
           "format": "avif",
@@ -14165,16 +14417,44 @@
           "byteSize": 31626
         }
       ],
-      "updatedAt": "2026-08-28T21:23:15.993Z"
+      "updatedAt": "2026-08-28T21:41:44.658Z"
     },
     "ficedula-semitorquata-asman-1.jpg": {
       "sourceHash": "4749aec4fd0aa81acc1f354a18cc3e92e12744cd302dfdb549a5bdb7d111e9f7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-semitorquata-asman-1.jpg",
       "originalSize": 378433,
       "width": 848,
       "height": 1272,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-semitorquata-asman-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 14608
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-asman-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 18158
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-asman-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 31725
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-asman-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 40628
+        },
         {
           "key": "optimized/ficedula-semitorquata-asman-1-848.avif",
           "format": "avif",
@@ -14190,16 +14470,30 @@
           "byteSize": 44840
         }
       ],
-      "updatedAt": "2026-08-28T21:23:16.886Z"
+      "updatedAt": "2026-08-28T21:41:47.762Z"
     },
     "ficedula-semitorquata-castro-1.jpg": {
       "sourceHash": "d645c8dc5c3c82314deceba6c624a0de786d391b81e155ba8786a5a154332650",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-semitorquata-castro-1.jpg",
       "originalSize": 439932,
       "width": 716,
       "height": 670,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-semitorquata-castro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 374,
+          "byteSize": 10541
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-castro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 374,
+          "byteSize": 13840
+        },
         {
           "key": "optimized/ficedula-semitorquata-castro-1-716.avif",
           "format": "avif",
@@ -14215,16 +14509,44 @@
           "byteSize": 32686
         }
       ],
-      "updatedAt": "2026-08-28T21:23:16.885Z"
+      "updatedAt": "2026-08-28T21:41:47.545Z"
     },
     "ficedula-semitorquata-medenica-1.jpg": {
       "sourceHash": "2f42f1be6b3782161a9bf8cf54f78ab5b958789780633f2383561eeed78d172b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "ficedula-semitorquata-medenica-1.jpg",
       "originalSize": 581304,
       "width": 1400,
       "height": 1050,
       "derivatives": [
+        {
+          "key": "optimized/ficedula-semitorquata-medenica-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20669
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-medenica-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29308
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-medenica-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 59051
+        },
+        {
+          "key": "optimized/ficedula-semitorquata-medenica-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82630
+        },
         {
           "key": "optimized/ficedula-semitorquata-medenica-1-1200.avif",
           "format": "avif",
@@ -14254,16 +14576,44 @@
           "byteSize": 169384
         }
       ],
-      "updatedAt": "2026-08-28T21:23:20.207Z"
+      "updatedAt": "2026-08-28T21:41:52.390Z"
     },
     "hemorrhois-ravergieri-2.jpg": {
       "sourceHash": "3fe876996c8a9e89c6ccb7e0babfb33522bd978e106918f1a02a18dcfbe4affa",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hemorrhois-ravergieri-2.jpg",
       "originalSize": 373398,
       "width": 1790,
       "height": 1195,
       "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25286
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 43596
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 75135
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 133778
+        },
         {
           "key": "optimized/hemorrhois-ravergieri-2-1200.avif",
           "format": "avif",
@@ -14293,16 +14643,44 @@
           "byteSize": 370052
         }
       ],
-      "updatedAt": "2026-08-28T21:23:21.187Z"
+      "updatedAt": "2026-08-28T21:42:00.865Z"
     },
     "hemorrhois-ravergieri-3.jpg": {
       "sourceHash": "c6bcad4d7503d569930e66b49fee396df036eb951029bd33348e4565eaa35ab5",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hemorrhois-ravergieri-3.jpg",
       "originalSize": 479892,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23465
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34462
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88540
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 129480
+        },
         {
           "key": "optimized/hemorrhois-ravergieri-3-1200.avif",
           "format": "avif",
@@ -14332,16 +14710,44 @@
           "byteSize": 525238
         }
       ],
-      "updatedAt": "2026-08-28T21:23:22.786Z"
+      "updatedAt": "2026-08-28T21:42:05.374Z"
     },
     "hemorrhois-ravergieri-mobile.jpg": {
       "sourceHash": "763404363ec8ffa06d387276e2fdca5a311b904fadce09215ad96c4b65a6e5e7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hemorrhois-ravergieri-mobile.jpg",
       "originalSize": 288026,
       "width": 1200,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 60201
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 91476
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 148639
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 245142
+        },
         {
           "key": "optimized/hemorrhois-ravergieri-mobile-1200.avif",
           "format": "avif",
@@ -14357,16 +14763,44 @@
           "byteSize": 361282
         }
       ],
-      "updatedAt": "2026-08-28T21:23:19.786Z"
+      "updatedAt": "2026-08-28T21:42:05.260Z"
     },
     "hemorrhois-ravergieri.jpg": {
       "sourceHash": "5fc6cb14f25ee3c8851be6a0dcebeb27e69b1e27afd54d8e7277fe5925107d38",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hemorrhois-ravergieri.jpg",
       "originalSize": 551600,
       "width": 2048,
       "height": 1151,
       "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 224,
+          "byteSize": 21101
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 224,
+          "byteSize": 35622
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 83040
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 137814
+        },
         {
           "key": "optimized/hemorrhois-ravergieri-1200.avif",
           "format": "avif",
@@ -14396,16 +14830,111 @@
           "byteSize": 599654
         }
       ],
-      "updatedAt": "2026-08-28T21:23:26.857Z"
+      "updatedAt": "2026-08-28T21:42:14.217Z"
+    },
+    "hero-img.webp": {
+      "sourceHash": "68547aa3b9d8fca3394acd50e063d14ca5cc3210e5bb638f72509776d5f2fcc0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "hero-img.webp",
+      "originalSize": 175328,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/hero-img-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13673
+        },
+        {
+          "key": "optimized/hero-img-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18776
+        },
+        {
+          "key": "optimized/hero-img-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39779
+        },
+        {
+          "key": "optimized/hero-img-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58116
+        },
+        {
+          "key": "optimized/hero-img-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73844
+        },
+        {
+          "key": "optimized/hero-img-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 104242
+        },
+        {
+          "key": "optimized/hero-img-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 144568
+        },
+        {
+          "key": "optimized/hero-img-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 192648
+        }
+      ],
+      "updatedAt": "2026-08-28T21:42:16.531Z"
     },
     "hyla-orientalis-2.jpg": {
       "sourceHash": "051427b8a4a6165f010b87174beb98db43441437246a48a2b6927d5475120b59",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-orientalis-2.jpg",
       "originalSize": 194273,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 22598
+        },
+        {
+          "key": "optimized/hyla-orientalis-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 33662
+        },
+        {
+          "key": "optimized/hyla-orientalis-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 56143
+        },
+        {
+          "key": "optimized/hyla-orientalis-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 83754
+        },
         {
           "key": "optimized/hyla-orientalis-2-1200.avif",
           "format": "avif",
@@ -14435,16 +14964,44 @@
           "byteSize": 164964
         }
       ],
-      "updatedAt": "2026-08-28T21:23:25.634Z"
+      "updatedAt": "2026-08-28T21:42:27.270Z"
     },
     "hyla-orientalis-3.jpg": {
       "sourceHash": "02f5b54a124b53c6744f6774a414092c577e46b2f059773010127e578b9455cc",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-orientalis-3.jpg",
       "originalSize": 176146,
       "width": 1920,
       "height": 1280,
       "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11319
+        },
+        {
+          "key": "optimized/hyla-orientalis-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15532
+        },
+        {
+          "key": "optimized/hyla-orientalis-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33638
+        },
+        {
+          "key": "optimized/hyla-orientalis-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47844
+        },
         {
           "key": "optimized/hyla-orientalis-3-1200.avif",
           "format": "avif",
@@ -14474,16 +15031,44 @@
           "byteSize": 176166
         }
       ],
-      "updatedAt": "2026-08-28T21:23:26.316Z"
+      "updatedAt": "2026-08-28T21:42:24.698Z"
     },
     "hyla-orientalis-mobile.jpg": {
       "sourceHash": "c731e1950f4ab68f91e71d2bb1e5163e11db76dc41ae0c981d70f4bb0cbda73d",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-orientalis-mobile.jpg",
       "originalSize": 193228,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24443
+        },
+        {
+          "key": "optimized/hyla-orientalis-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34940
+        },
+        {
+          "key": "optimized/hyla-orientalis-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 64622
+        },
+        {
+          "key": "optimized/hyla-orientalis-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 92236
+        },
         {
           "key": "optimized/hyla-orientalis-mobile-1200.avif",
           "format": "avif",
@@ -14513,16 +15098,44 @@
           "byteSize": 182118
         }
       ],
-      "updatedAt": "2026-08-28T21:23:27.477Z"
+      "updatedAt": "2026-08-28T21:42:30.524Z"
     },
     "hyla-orientalis.jpg": {
       "sourceHash": "36916702e8381f9b1294da7a2585c43dc121895b64ec20ca1fb17854fc71378a",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-orientalis.jpg",
       "originalSize": 243465,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 33404
+        },
+        {
+          "key": "optimized/hyla-orientalis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 46292
+        },
+        {
+          "key": "optimized/hyla-orientalis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 86470
+        },
+        {
+          "key": "optimized/hyla-orientalis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 114074
+        },
         {
           "key": "optimized/hyla-orientalis-1200.avif",
           "format": "avif",
@@ -14552,16 +15165,44 @@
           "byteSize": 234366
         }
       ],
-      "updatedAt": "2026-08-28T21:23:30.382Z"
+      "updatedAt": "2026-08-28T21:42:34.066Z"
     },
     "hyla-savignyi-2.jpg": {
       "sourceHash": "cff19d99af1b343b1dcd32cc21bf11b94c1db07bd591c59faac5004d44ea669f",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-savignyi-2.jpg",
       "originalSize": 224415,
       "width": 1381,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 594,
+          "byteSize": 27537
+        },
+        {
+          "key": "optimized/hyla-savignyi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 594,
+          "byteSize": 43610
+        },
+        {
+          "key": "optimized/hyla-savignyi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1186,
+          "byteSize": 64029
+        },
+        {
+          "key": "optimized/hyla-savignyi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1186,
+          "byteSize": 104194
+        },
         {
           "key": "optimized/hyla-savignyi-2-1200.avif",
           "format": "avif",
@@ -14591,16 +15232,44 @@
           "byteSize": 223126
         }
       ],
-      "updatedAt": "2026-08-28T21:23:31.857Z"
+      "updatedAt": "2026-08-28T21:42:38.611Z"
     },
     "hyla-savignyi-3.jpg": {
       "sourceHash": "b23733c54940ff2f59dcee22a6ace3a99ad80aee5ed7ab837c6da9a95be89d49",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-savignyi-3.jpg",
       "originalSize": 133076,
       "width": 2048,
       "height": 1365,
       "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10469
+        },
+        {
+          "key": "optimized/hyla-savignyi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13434
+        },
+        {
+          "key": "optimized/hyla-savignyi-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 26907
+        },
+        {
+          "key": "optimized/hyla-savignyi-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33792
+        },
         {
           "key": "optimized/hyla-savignyi-3-1200.avif",
           "format": "avif",
@@ -14630,16 +15299,44 @@
           "byteSize": 111102
         }
       ],
-      "updatedAt": "2026-08-28T21:23:31.384Z"
+      "updatedAt": "2026-08-28T21:42:39.584Z"
     },
     "hyla-savignyi-mobile.jpg": {
       "sourceHash": "963a1d9314feb0c40815715adc06c5de72fb5b0d76c10f45f06cb262d8dbaa0d",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-savignyi-mobile.jpg",
       "originalSize": 74613,
       "width": 1500,
       "height": 1000,
       "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6075
+        },
+        {
+          "key": "optimized/hyla-savignyi-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7442
+        },
+        {
+          "key": "optimized/hyla-savignyi-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 14035
+        },
+        {
+          "key": "optimized/hyla-savignyi-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 18230
+        },
         {
           "key": "optimized/hyla-savignyi-mobile-1200.avif",
           "format": "avif",
@@ -14669,16 +15366,44 @@
           "byteSize": 41700
         }
       ],
-      "updatedAt": "2026-08-28T21:23:30.823Z"
+      "updatedAt": "2026-08-28T21:42:42.286Z"
     },
     "hyla-savignyi.jpg": {
       "sourceHash": "1eb398e3ef50832ca19349eabf74e755192444b264e496952236b3749e710605",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "hyla-savignyi.jpg",
       "originalSize": 193124,
       "width": 1331,
       "height": 1500,
       "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 451,
+          "byteSize": 11415
+        },
+        {
+          "key": "optimized/hyla-savignyi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 451,
+          "byteSize": 15786
+        },
+        {
+          "key": "optimized/hyla-savignyi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 902,
+          "byteSize": 31963
+        },
+        {
+          "key": "optimized/hyla-savignyi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 902,
+          "byteSize": 43166
+        },
         {
           "key": "optimized/hyla-savignyi-1200.avif",
           "format": "avif",
@@ -14708,7 +15433,7 @@
           "byteSize": 93634
         }
       ],
-      "updatedAt": "2026-08-28T21:23:33.934Z"
+      "updatedAt": "2026-08-28T21:42:44.113Z"
     },
     "images/species/aegolius-funereus-moning-1.jpg": {
       "sourceHash": "af78c3b0e87b29c417db1daefe558e9e0381f3b65d79e77cb98ecec136d31716",
