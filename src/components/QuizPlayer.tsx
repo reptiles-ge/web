@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
+import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
@@ -15,7 +16,6 @@ import {
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
 import { ArrowRight, Check, Lightbulb, RotateCcw, Share2 } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import {
   useCallback,
@@ -781,10 +781,9 @@ function ResultOverlay({
                 className="flex min-w-0 items-center gap-2.5 rounded-[20px] border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
               >
                 <span className="relative size-12 shrink-0 overflow-hidden rounded-2xl sm:size-16">
-                  <Image
+                  <CoverImage
                     src={species.image}
                     alt={species.imageAlt}
-                    fill
                     sizes="64px"
                     className="object-cover"
                   />

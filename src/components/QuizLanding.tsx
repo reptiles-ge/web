@@ -1,3 +1,4 @@
+import { CoverImage } from "@/components/CoverImage";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -5,7 +6,6 @@ import { SNAKE_LOOKALIKE_PAIRS } from "@/lib/clusterGuides";
 import type { SnakeQuizSpecies } from "@/lib/snakeQuiz";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { getLocale, getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 const LOOKALIKE_BODIES = [
   "lookalike1Body",
@@ -170,10 +170,9 @@ function LookalikeThumb({
       href={speciesHref(species.id, locale)}
       className="relative size-14 overflow-hidden rounded-2xl sm:size-16"
     >
-      <Image
+      <CoverImage
         src={species.image}
         alt={species.commonName}
-        fill
         sizes="64px"
         className="object-cover"
       />

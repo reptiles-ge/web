@@ -10706,12 +10706,40 @@
     },
     "elaphe-dione-2.jpg": {
       "sourceHash": "bfc568e86c8ceadeca8570659a3822d18efd962fd3693704f6affdb4c135db14",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-dione-2.jpg",
       "originalSize": 290513,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16192
+        },
+        {
+          "key": "optimized/elaphe-dione-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25554
+        },
+        {
+          "key": "optimized/elaphe-dione-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46603
+        },
+        {
+          "key": "optimized/elaphe-dione-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73078
+        },
         {
           "key": "optimized/elaphe-dione-2-1200.avif",
           "format": "avif",
@@ -10741,16 +10769,44 @@
           "byteSize": 299948
         }
       ],
-      "updatedAt": "2026-08-28T21:22:01.303Z"
+      "updatedAt": "2026-08-28T21:37:51.074Z"
     },
     "elaphe-dione-3.jpg": {
       "sourceHash": "dbc6d2684281bfb001159c34466d7c030ba515dabb1137b8f7bda99dadb668a6",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-dione-3.jpg",
       "originalSize": 319764,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21058
+        },
+        {
+          "key": "optimized/elaphe-dione-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 30928
+        },
+        {
+          "key": "optimized/elaphe-dione-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59205
+        },
+        {
+          "key": "optimized/elaphe-dione-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84380
+        },
         {
           "key": "optimized/elaphe-dione-3-1200.avif",
           "format": "avif",
@@ -10780,16 +10836,44 @@
           "byteSize": 318112
         }
       ],
-      "updatedAt": "2026-08-28T21:21:58.681Z"
+      "updatedAt": "2026-08-28T21:37:53.965Z"
     },
     "elaphe-dione-5.jpg": {
       "sourceHash": "3e72b6c8da3cda518f52cbdf4691d79737f2a19bc38e14d0534755ee4c3d9853",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-dione-5.jpg",
       "originalSize": 650444,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28589
+        },
+        {
+          "key": "optimized/elaphe-dione-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 47190
+        },
+        {
+          "key": "optimized/elaphe-dione-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97701
+        },
+        {
+          "key": "optimized/elaphe-dione-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 168034
+        },
         {
           "key": "optimized/elaphe-dione-5-1200.avif",
           "format": "avif",
@@ -10819,16 +10903,44 @@
           "byteSize": 795160
         }
       ],
-      "updatedAt": "2026-08-28T21:22:02.290Z"
+      "updatedAt": "2026-08-28T21:38:03.306Z"
     },
     "elaphe-dione-6.jpg": {
       "sourceHash": "dc8a2d9428b268a323c2e83caad2afba00bce4ca126d284a6898584d85b27043",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-dione-6.jpg",
       "originalSize": 291860,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-6-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17113
+        },
+        {
+          "key": "optimized/elaphe-dione-6-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26386
+        },
+        {
+          "key": "optimized/elaphe-dione-6-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48893
+        },
+        {
+          "key": "optimized/elaphe-dione-6-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 74712
+        },
         {
           "key": "optimized/elaphe-dione-6-1200.avif",
           "format": "avif",
@@ -10858,16 +10970,44 @@
           "byteSize": 283196
         }
       ],
-      "updatedAt": "2026-08-28T21:22:00.874Z"
+      "updatedAt": "2026-08-28T21:38:03.914Z"
     },
     "elaphe-dione-7.jpg": {
       "sourceHash": "b08456223bc308416df1de79ab8ed0d8b4db915b9178ef4a4e1c0aff55627dd8",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-dione-7.jpg",
       "originalSize": 501774,
       "width": 2400,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23865
+        },
+        {
+          "key": "optimized/elaphe-dione-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34594
+        },
+        {
+          "key": "optimized/elaphe-dione-7-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 88375
+        },
+        {
+          "key": "optimized/elaphe-dione-7-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 130390
+        },
         {
           "key": "optimized/elaphe-dione-7-1200.avif",
           "format": "avif",
@@ -10897,16 +11037,44 @@
           "byteSize": 552950
         }
       ],
-      "updatedAt": "2026-08-28T21:22:03.065Z"
+      "updatedAt": "2026-08-28T21:38:12.547Z"
     },
     "elaphe-dione-mobile.jpg": {
       "sourceHash": "b1f5325dceb260af93e55122e6fe9f6153bc9bbd4931f3aa432e2be44cbbd51e",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-dione-mobile.jpg",
       "originalSize": 174679,
       "width": 1800,
       "height": 1200,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15802
+        },
+        {
+          "key": "optimized/elaphe-dione-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25950
+        },
+        {
+          "key": "optimized/elaphe-dione-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40904
+        },
+        {
+          "key": "optimized/elaphe-dione-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65800
+        },
         {
           "key": "optimized/elaphe-dione-mobile-1200.avif",
           "format": "avif",
@@ -10936,16 +11104,44 @@
           "byteSize": 171090
         }
       ],
-      "updatedAt": "2026-08-28T21:22:09.136Z"
+      "updatedAt": "2026-08-28T21:38:11.100Z"
     },
     "elaphe-urartica-2.webp": {
       "sourceHash": "106fa6dd5b81da4609a4faf8c601f722ae7b5b02e249261ced685a6b1d639e58",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-2.webp",
       "originalSize": 394238,
       "width": 2400,
       "height": 1599,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14487
+        },
+        {
+          "key": "optimized/elaphe-urartica-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24026
+        },
+        {
+          "key": "optimized/elaphe-urartica-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33244
+        },
+        {
+          "key": "optimized/elaphe-urartica-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54172
+        },
         {
           "key": "optimized/elaphe-urartica-2-1200.avif",
           "format": "avif",
@@ -10975,16 +11171,44 @@
           "byteSize": 193112
         }
       ],
-      "updatedAt": "2026-08-28T21:22:08.188Z"
+      "updatedAt": "2026-08-28T21:38:20.513Z"
     },
     "elaphe-urartica-3.webp": {
       "sourceHash": "fd1f4a978d89116eb0eb711b21c285d8d802ad9135dc8540181fddd6a7afeecc",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-3.webp",
       "originalSize": 1351162,
       "width": 2400,
       "height": 1602,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28182
+        },
+        {
+          "key": "optimized/elaphe-urartica-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 44452
+        },
+        {
+          "key": "optimized/elaphe-urartica-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 98916
+        },
+        {
+          "key": "optimized/elaphe-urartica-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 159388
+        },
         {
           "key": "optimized/elaphe-urartica-3-1200.avif",
           "format": "avif",
@@ -11014,16 +11238,44 @@
           "byteSize": 738684
         }
       ],
-      "updatedAt": "2026-08-28T21:22:09.897Z"
+      "updatedAt": "2026-08-28T21:38:21.885Z"
     },
     "elaphe-urartica-4.webp": {
       "sourceHash": "5418a70d1e672908abecc8bf00ec9568e9e3e9eb59954dd7724db91d3311392b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-4.webp",
       "originalSize": 836990,
       "width": 2400,
       "height": 1350,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 19400
+        },
+        {
+          "key": "optimized/elaphe-urartica-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 30210
+        },
+        {
+          "key": "optimized/elaphe-urartica-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 62377
+        },
+        {
+          "key": "optimized/elaphe-urartica-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 96396
+        },
         {
           "key": "optimized/elaphe-urartica-4-1200.avif",
           "format": "avif",
@@ -11053,16 +11305,44 @@
           "byteSize": 442318
         }
       ],
-      "updatedAt": "2026-08-28T21:22:09.371Z"
+      "updatedAt": "2026-08-28T21:38:32.349Z"
     },
     "elaphe-urartica-5.webp": {
       "sourceHash": "4dac02daecdfc41d7876c57643d7ec4924c2d19f0b6c0e369c7f7dec826140ec",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-5.webp",
       "originalSize": 1752224,
       "width": 1800,
       "height": 2400,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 75628
+        },
+        {
+          "key": "optimized/elaphe-urartica-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 106592
+        },
+        {
+          "key": "optimized/elaphe-urartica-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 225283
+        },
+        {
+          "key": "optimized/elaphe-urartica-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 359858
+        },
         {
           "key": "optimized/elaphe-urartica-5-1200.avif",
           "format": "avif",
@@ -11092,16 +11372,44 @@
           "byteSize": 1011036
         }
       ],
-      "updatedAt": "2026-08-28T21:22:17.143Z"
+      "updatedAt": "2026-08-28T21:38:33.071Z"
     },
     "elaphe-urartica-6.webp": {
       "sourceHash": "6fc370f6e1b8135b48d0fa2dd646de61acce1884463b705698bc8e425cecf561",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-6.webp",
       "originalSize": 552710,
       "width": 2400,
       "height": 1800,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-6-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17153
+        },
+        {
+          "key": "optimized/elaphe-urartica-6-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27544
+        },
+        {
+          "key": "optimized/elaphe-urartica-6-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44802
+        },
+        {
+          "key": "optimized/elaphe-urartica-6-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 65714
+        },
         {
           "key": "optimized/elaphe-urartica-6-1200.avif",
           "format": "avif",
@@ -11131,16 +11439,44 @@
           "byteSize": 254868
         }
       ],
-      "updatedAt": "2026-08-28T21:22:16.261Z"
+      "updatedAt": "2026-08-28T21:38:44.076Z"
     },
     "elaphe-urartica-7.webp": {
       "sourceHash": "ce1e5ad47c88f255f59b4e5d3567f225f49db496e1cf103c049bf86b6a9b4cba",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-7.webp",
       "originalSize": 687406,
       "width": 1800,
       "height": 2400,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 39595
+        },
+        {
+          "key": "optimized/elaphe-urartica-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 58996
+        },
+        {
+          "key": "optimized/elaphe-urartica-7-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 100019
+        },
+        {
+          "key": "optimized/elaphe-urartica-7-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 139628
+        },
         {
           "key": "optimized/elaphe-urartica-7-1200.avif",
           "format": "avif",
@@ -11170,16 +11506,44 @@
           "byteSize": 350762
         }
       ],
-      "updatedAt": "2026-08-28T21:22:17.699Z"
+      "updatedAt": "2026-08-28T21:38:44.192Z"
     },
     "elaphe-urartica-ioane-1.jpg": {
       "sourceHash": "3ae0ca38a98ddd6057aefb326507205b8e5afa659cdffafe74c0d4d2876d3819",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-ioane-1.jpg",
       "originalSize": 172134,
       "width": 1080,
       "height": 1434,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 39020
+        },
+        {
+          "key": "optimized/elaphe-urartica-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 63144
+        },
+        {
+          "key": "optimized/elaphe-urartica-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 102064
+        },
+        {
+          "key": "optimized/elaphe-urartica-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 169448
+        },
         {
           "key": "optimized/elaphe-urartica-ioane-1-1080.avif",
           "format": "avif",
@@ -11195,16 +11559,44 @@
           "byteSize": 229344
         }
       ],
-      "updatedAt": "2026-08-28T21:22:11.792Z"
+      "updatedAt": "2026-08-28T21:38:48.317Z"
     },
     "elaphe-urartica-mobile.webp": {
       "sourceHash": "5a16e2e6f00650b47fd82977e038dba343aedcfdf205020256f5e76f4e8a64df",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica-mobile.webp",
       "originalSize": 167288,
       "width": 899,
       "height": 1600,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-mobile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 712,
+          "byteSize": 19871
+        },
+        {
+          "key": "optimized/elaphe-urartica-mobile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 712,
+          "byteSize": 30364
+        },
+        {
+          "key": "optimized/elaphe-urartica-mobile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1424,
+          "byteSize": 46660
+        },
+        {
+          "key": "optimized/elaphe-urartica-mobile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1424,
+          "byteSize": 69610
+        },
         {
           "key": "optimized/elaphe-urartica-mobile-899.avif",
           "format": "avif",
@@ -11220,16 +11612,44 @@
           "byteSize": 82522
         }
       ],
-      "updatedAt": "2026-08-28T21:22:14.617Z"
+      "updatedAt": "2026-08-28T21:38:48.506Z"
     },
     "elaphe-urartica.webp": {
       "sourceHash": "cc69dee049448f9e71df687e231aab9351cb59bf3c39c0979064b81688415c33",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "elaphe-urartica.webp",
       "originalSize": 710304,
       "width": 2400,
       "height": 1599,
       "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22698
+        },
+        {
+          "key": "optimized/elaphe-urartica-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 38490
+        },
+        {
+          "key": "optimized/elaphe-urartica-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58574
+        },
+        {
+          "key": "optimized/elaphe-urartica-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97824
+        },
         {
           "key": "optimized/elaphe-urartica-1200.avif",
           "format": "avif",
@@ -11259,16 +11679,44 @@
           "byteSize": 367712
         }
       ],
-      "updatedAt": "2026-08-28T21:22:20.122Z"
+      "updatedAt": "2026-08-28T21:38:58.695Z"
     },
     "emberiza-citrinella-gailhampshire-1.jpg": {
       "sourceHash": "5a0427645634ccf93da699b1de83fbdc40c2bee61b49bcf63bd822a148756095",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emberiza-citrinella-gailhampshire-1.jpg",
       "originalSize": 815174,
       "width": 1920,
       "height": 1643,
       "derivatives": [
+        {
+          "key": "optimized/emberiza-citrinella-gailhampshire-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 342,
+          "byteSize": 30313
+        },
+        {
+          "key": "optimized/emberiza-citrinella-gailhampshire-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 342,
+          "byteSize": 48918
+        },
+        {
+          "key": "optimized/emberiza-citrinella-gailhampshire-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 685,
+          "byteSize": 109755
+        },
+        {
+          "key": "optimized/emberiza-citrinella-gailhampshire-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 685,
+          "byteSize": 164896
+        },
         {
           "key": "optimized/emberiza-citrinella-gailhampshire-1-1200.avif",
           "format": "avif",
@@ -11298,16 +11746,44 @@
           "byteSize": 544496
         }
       ],
-      "updatedAt": "2026-08-28T21:22:24.678Z"
+      "updatedAt": "2026-08-28T21:39:00.145Z"
     },
     "emberiza-citrinella-gorbunova-1.jpg": {
       "sourceHash": "e8a5e533384e9136b4e77368142fbab456855085fad874c06bf8dd6fd105e356",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emberiza-citrinella-gorbunova-1.jpg",
       "originalSize": 380693,
       "width": 1920,
       "height": 1280,
       "derivatives": [
+        {
+          "key": "optimized/emberiza-citrinella-gorbunova-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11024
+        },
+        {
+          "key": "optimized/emberiza-citrinella-gorbunova-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14604
+        },
+        {
+          "key": "optimized/emberiza-citrinella-gorbunova-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29900
+        },
+        {
+          "key": "optimized/emberiza-citrinella-gorbunova-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42898
+        },
         {
           "key": "optimized/emberiza-citrinella-gorbunova-1-1200.avif",
           "format": "avif",
@@ -11337,16 +11813,44 @@
           "byteSize": 198296
         }
       ],
-      "updatedAt": "2026-08-28T21:22:21.256Z"
+      "updatedAt": "2026-08-28T21:39:04.883Z"
     },
     "emberiza-citrinella-lours-1.jpg": {
       "sourceHash": "860769ffcc02d74ecd49b50a0dd5438d233fd900b2412147e85b1315a1641c3c",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emberiza-citrinella-lours-1.jpg",
       "originalSize": 384948,
       "width": 1920,
       "height": 2652,
       "derivatives": [
+        {
+          "key": "optimized/emberiza-citrinella-lours-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 553,
+          "byteSize": 14191
+        },
+        {
+          "key": "optimized/emberiza-citrinella-lours-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 553,
+          "byteSize": 20670
+        },
+        {
+          "key": "optimized/emberiza-citrinella-lours-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1105,
+          "byteSize": 35475
+        },
+        {
+          "key": "optimized/emberiza-citrinella-lours-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1105,
+          "byteSize": 52834
+        },
         {
           "key": "optimized/emberiza-citrinella-lours-1-1200.avif",
           "format": "avif",
@@ -11376,16 +11880,44 @@
           "byteSize": 172062
         }
       ],
-      "updatedAt": "2026-08-28T21:22:23.630Z"
+      "updatedAt": "2026-08-28T21:39:06.584Z"
     },
     "emberiza-citrinella-sharp-1.jpg": {
       "sourceHash": "e824ef7e8dae1e414ff9b9c33283bb0513c43b84dd001170018177033d0e08d7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emberiza-citrinella-sharp-1.jpg",
       "originalSize": 2174583,
       "width": 1559,
       "height": 1559,
       "derivatives": [
+        {
+          "key": "optimized/emberiza-citrinella-sharp-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 19922
+        },
+        {
+          "key": "optimized/emberiza-citrinella-sharp-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 27660
+        },
+        {
+          "key": "optimized/emberiza-citrinella-sharp-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 56047
+        },
+        {
+          "key": "optimized/emberiza-citrinella-sharp-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 82100
+        },
         {
           "key": "optimized/emberiza-citrinella-sharp-1-1200.avif",
           "format": "avif",
@@ -11415,16 +11947,44 @@
           "byteSize": 230226
         }
       ],
-      "updatedAt": "2026-08-28T21:22:25.951Z"
+      "updatedAt": "2026-08-28T21:39:12.948Z"
     },
     "emberiza-citrinella-trepte-1.jpg": {
       "sourceHash": "9cb425a8207c003607b8432bd7d3daab3bf8a51598e80806af1f4c23bbdb805b",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emberiza-citrinella-trepte-1.jpg",
       "originalSize": 434144,
       "width": 1920,
       "height": 1280,
       "derivatives": [
+        {
+          "key": "optimized/emberiza-citrinella-trepte-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9727
+        },
+        {
+          "key": "optimized/emberiza-citrinella-trepte-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13216
+        },
+        {
+          "key": "optimized/emberiza-citrinella-trepte-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31198
+        },
+        {
+          "key": "optimized/emberiza-citrinella-trepte-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45098
+        },
         {
           "key": "optimized/emberiza-citrinella-trepte-1-1200.avif",
           "format": "avif",
@@ -11454,16 +12014,44 @@
           "byteSize": 217682
         }
       ],
-      "updatedAt": "2026-08-28T21:22:26.100Z"
+      "updatedAt": "2026-08-28T21:39:15.266Z"
     },
     "emberiza-citrinella-zauri-1.jpg": {
       "sourceHash": "23c8de0a15939a482d11cc03690d238ce506db7d1b29e4035771b52bf38a21d6",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emberiza-citrinella-zauri-1.jpg",
       "originalSize": 223595,
       "width": 1024,
       "height": 683,
       "derivatives": [
+        {
+          "key": "optimized/emberiza-citrinella-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19836
+        },
+        {
+          "key": "optimized/emberiza-citrinella-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 30974
+        },
+        {
+          "key": "optimized/emberiza-citrinella-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 59868
+        },
+        {
+          "key": "optimized/emberiza-citrinella-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 88846
+        },
         {
           "key": "optimized/emberiza-citrinella-zauri-1-1024.avif",
           "format": "avif",
@@ -11479,16 +12067,44 @@
           "byteSize": 132694
         }
       ],
-      "updatedAt": "2026-08-28T21:22:25.015Z"
+      "updatedAt": "2026-08-28T21:39:17.804Z"
     },
     "emys-orbicularis-2.jpg": {
       "sourceHash": "f1b7068c53a9ec307af976e4b5e05467bf9ed2c3abfbc9b61a7182f071ad57b8",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emys-orbicularis-2.jpg",
       "originalSize": 133091,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 5386
+        },
+        {
+          "key": "optimized/emys-orbicularis-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 5518
+        },
+        {
+          "key": "optimized/emys-orbicularis-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 16111
+        },
+        {
+          "key": "optimized/emys-orbicularis-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 17336
+        },
         {
           "key": "optimized/emys-orbicularis-2-1200.avif",
           "format": "avif",
@@ -11518,16 +12134,44 @@
           "byteSize": 76408
         }
       ],
-      "updatedAt": "2026-08-28T21:22:27.632Z"
+      "updatedAt": "2026-08-28T21:39:19.385Z"
     },
     "emys-orbicularis-3.jpg": {
       "sourceHash": "73365089f1c7f8b26a19ac95ecc991bdecea0953cd85f6a95385c690a0a822d7",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emys-orbicularis-3.jpg",
       "originalSize": 455553,
       "width": 1536,
       "height": 2048,
       "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 46464
+        },
+        {
+          "key": "optimized/emys-orbicularis-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 73490
+        },
+        {
+          "key": "optimized/emys-orbicularis-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 133063
+        },
+        {
+          "key": "optimized/emys-orbicularis-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 209272
+        },
         {
           "key": "optimized/emys-orbicularis-3-1200.avif",
           "format": "avif",
@@ -11557,16 +12201,44 @@
           "byteSize": 511288
         }
       ],
-      "updatedAt": "2026-08-28T21:22:34.067Z"
+      "updatedAt": "2026-08-28T21:39:29.631Z"
     },
     "emys-orbicularis.jpg": {
       "sourceHash": "570f39ed670f7627eb96220fc57f01a109401d5af9910ece012498bef0cfe4c6",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "emys-orbicularis.jpg",
       "originalSize": 226836,
       "width": 2048,
       "height": 1366,
       "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13228
+        },
+        {
+          "key": "optimized/emys-orbicularis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19756
+        },
+        {
+          "key": "optimized/emys-orbicularis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 39185
+        },
+        {
+          "key": "optimized/emys-orbicularis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60144
+        },
         {
           "key": "optimized/emys-orbicularis-1200.avif",
           "format": "avif",
@@ -11596,16 +12268,44 @@
           "byteSize": 197744
         }
       ],
-      "updatedAt": "2026-08-28T21:22:30.180Z"
+      "updatedAt": "2026-08-28T21:39:26.134Z"
     },
     "eremias-arguta-2.jpg": {
       "sourceHash": "69679956f979a9ade95553b3bbe9a64d152508510b62ad3107b025103c7c2b46",
-      "configFingerprint": "0100eec4d43ce879",
+      "configFingerprint": "a895f8e025dcc7fa",
       "originalKey": "eremias-arguta-2.jpg",
       "originalSize": 358094,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26122
+        },
+        {
+          "key": "optimized/eremias-arguta-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44936
+        },
+        {
+          "key": "optimized/eremias-arguta-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74640
+        },
+        {
+          "key": "optimized/eremias-arguta-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 125312
+        },
         {
           "key": "optimized/eremias-arguta-2-1200.avif",
           "format": "avif",
@@ -11635,7 +12335,7 @@
           "byteSize": 376146
         }
       ],
-      "updatedAt": "2026-08-28T21:22:31.723Z"
+      "updatedAt": "2026-08-28T21:39:34.689Z"
     },
     "eremias-arguta-3.jpg": {
       "sourceHash": "5ce5d97bb3209c36cb63ae8b3700b9c2e606a948c5f803009349558f3fdc76bf",
