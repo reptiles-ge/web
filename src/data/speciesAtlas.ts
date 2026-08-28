@@ -317,6 +317,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "aegolius-funereus": {
+    group: "bird",
+    habitats: ["forest", "mountain"],
+  },
   "ficedula-hypoleuca": {
     group: "bird",
     habitats: ["forest"],

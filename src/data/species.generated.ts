@@ -387,6 +387,222 @@ export const species: Species[] = [
     ]
   },
   {
+    "id": "aegolius-funereus",
+    "commonName": "ბუკიოტი",
+    "scientificName": "Aegolius funereus",
+    "genus": "Aegolius",
+    "family": "Strigidae",
+    "location": "მთელი წლის რეზიდენტი საქართველოში",
+    "description": "პატარა ტყის ბუ ყვითელი თვალებით, მრგვალი სახის დისკით და ყურის კონების გარეშე. საქართველოში 2024 წლის ეროვნულ ჩამონათვალში დადასტურებულია როგორც მთელი წლის რეზიდენტი და მობუდარი.",
+    "overview": "ბუკიოტი (Aegolius funereus) პატარა ტყის ბუა ოჯახიდან Strigidae და საქართველოში დადასტურებული მთელი წლის რეზიდენტია. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას კოდავს YR-R-ად: მობუდარი, წლის განმავლობაში ადგილზე. სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A). არსებობის ხარისხი მაღალია (H); მტკიცებულებაა ფოტო, სამეცნიერო პუბლიკაცია და მუზეუმის ეგზემპლარი. SABUKO-ს სიაში ქართული სახელია ბუკიოტი; იხმარება აგრეთვე მიკიოტი და ომიდი. ინგლისურად 2024 წლის ჩამონათვალი წერს Tengmalm’s Owl; IOC-ის სახელია Boreal Owl. ზრდასრული სახეობის დონეზე სიგრძე ხშირად დაახლოებით 21–28 სმ-ია, ყურის კონების გარეშე, ყვითელი თვალებით. პირდაპირი საფრთხე ადამიანისთვის არ არის. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა. 2024 წლის ჩამონათვალი იგივე კატეგორიას ეროვნულადაც უთითებს.",
+    "habitat": "საქართველოში ეძებეთ ტყეში და არა ღია სტეპზე ან უხეო პლატოზე. ეს გვერდი მუნიციპალიტეტების რუკას არ აფერადებს. 2024 წლის ჩამონათვალი ქვეყნის დონეზე რეზიდენტობას ადასტურებს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. NPLG კავკასიაში, მათ შორის საქართველოში, წიწვიან და ფოთლოვან ტყეებში ასახელებს. ქართული ენციკლოპედია წერს, რომ სახეობა საქართველოში მცირერიცხოვანი და იშვიათია, გვხვდება წიწვოვან და შერეულ ტყეში, ასევე ანთროპოგენურ ლანდშაფტში, და ვერტიკალურად დაახლოებით 1200 მ-მდე აღწევს; ეს ენციკლოპედიური ფიგურაა და არა ამ გვერდზე გაზომილი ეროვნული სიმაღლის ჭერი. სახეობის დონეზე ჰაბიტატი ტაიგის ან სუბალპური ტყეა, ხშირად წიწვოვანი ან შერეული, სადაც არის ფუღურო ბუდობისთვის. მთელ ქვეყანაში თანაბრად ნუ ივარაუდებთ. ატლასის რუკა ცარიელია, სანამ დასახელებული ქართული ლოკალიტეტები ისეთი წყაროებიდან არ შეგროვდება, რომლებიც მათ ნამდვილად უთითებენ.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში ძირითადი ნადავლი ტყის წვრილი ძუძუმწოვარია, განსაკუთრებით მემინდვრიები, თაგვები და ბიგები. იღებს აგრეთვე წვრილ ფრინველს. ნადავლის წილი იცვლება მღრღნელების რაოდენობის ციკლით. სმენა ასიმეტრიული ყურის ხვრელებით ზუსტია და ნადავლს ფოთლის ან თოვლის ქვეშაც პოულობს. ნადავლს ჩვეულებრივ მთლიანად ყლაპავს; მონელებადი ნაწილი მოგვიანებით ბურთის სახით ამოაგდებს. ეს სახეობის დონის კვებაა და არა გაზომილი ქართული მენიუ.",
+    "behavior": "ძირითადად ღამითაა აქტიური. დღისით იმალება ხის გვირგვინში ან ფუღუროში; ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიულია. მამლის ტერიტორიული ხმა სწრაფი, ერთნაირი სასტვენების სერიაა („პუ-პუ-პუ“), რომელიც რამდენიმე წამს გრძელდება და შეიძლება ბევრჯერ განმეორდეს; ეს ჩვეულებრივი ბუს რხევადი ჰუჰუსგან განსხვავდება. ბუდობს ხის ფუღუროში, სახეობის დონეზე ხშირად სხვა ფრინველის, მათ შორის კოდალას, ძველ ღრუებში; ხელოვნურ ყუთსაც იკავებს. ქართული ენციკლოპედია ნაყარს აპრილში 4–6 კვერცხს უთითებს და კრუხობას დაახლოებით ერთ თვეს; ეს ენციკლოპედიური ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. არეალის სხვა ნაწილებში ნაყარის ზომა მღრღნელების სიმრავლეს მიჰყვება. 2024 წლის ჩამონათვალი სახეობას საქართველოში მთელი წლის რეზიდენტად იღებს: შორ მანძილზე სეზონურ მიგრანტად არ არის მიჩნეული. ჩრდილოეთ პოპულაციებში ირუპტიული გადაადგილებაა ცნობილი, როცა ნადავლი იკლებს — ეს ქართული სტატუსი არ არის. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ.",
+    "conservation": "BirdLife International Aegolius funereus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ ბუსნაირებიდან შეტანილია ბუხრინწა (Tyto alba, EN D1). საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ქართული ენციკლოპედია სახეობას საქართველოში მცირერიცხოვან და იშვიათად მიიჩნევს; ეს ენციკლოპედიური შეფასებაა და არა IUCN-ის ეროვნული კატეგორია. სახეობის დონეზე დოკუმენტირებული წნეხია ძველი ტყის და ფუღუროიანი ხეების კარგვა; ეს საქართველოსთვის რანგირებული საფრთხის სია არ არის. CITES-ის II დანართშია — საერთაშორისო ვაჭრობა რეგულირდება. ველური ფრინველი არ დაიჭიროთ.",
+    "interaction": "ადამიანისთვის შხამი არ აქვს და უვნებელია, თუ არ მიეკარებით. ველური ფრინველის დაჭერა არ შეიძლება.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aegolius_funereus_%28Tengmalm%27s_Owl%29%2C_Oulu%2C_Finland.jpg",
+    "imageCredit": {
+      "photographer": "Francesco Veronesi",
+      "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
+      "location": "ოულუ, ფინეთი",
+      "date": "2015-01-15"
+    },
+    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_1.jpg",
+    "mobileImageCredit": {
+      "photographer": "Christoph Moning",
+      "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
+      "location": "ლინდბერგი, გერმანია",
+      "date": "2010-05-08"
+    },
+    "gallery": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aegolius_funereus_%28Tengmalm%27s_Owl%29%2C_Oulu%2C_Finland.jpg",
+        "credit": {
+          "photographer": "Francesco Veronesi",
+          "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
+          "location": "ოულუ, ფინეთი",
+          "date": "2015-01-15"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_1.jpg",
+        "credit": {
+          "photographer": "Christoph Moning",
+          "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
+          "location": "ლინდბერგი, გერმანია",
+          "date": "2010-05-08"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
+        "credit": {
+          "photographer": "Bouke ten Cate",
+          "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
+          "location": "ინლანდეტი, ნორვეგია",
+          "date": "2017-05-14"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Tengmalm%27s_owl_%28Aegolius_funereus%29.jpg",
+        "credit": {
+          "photographer": "Bouke ten Cate",
+          "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg",
+          "location": "ნორვეგია",
+          "date": "2017-05-13"
+        }
+      }
+    ],
+    "stats": [
+      {
+        "label": "კვება",
+        "value": "წვრილი ძუძუმწოვრები"
+      },
+      {
+        "label": "სტატუსი საქართველოში",
+        "value": "მთელი წლის რეზიდენტი"
+      },
+      {
+        "label": "ზომა",
+        "value": "21–28 სმ"
+      },
+      {
+        "label": "ჰაბიტატი",
+        "value": "მთის ტყე"
+      },
+      {
+        "label": "ოჯახი",
+        "value": "Strigidae"
+      },
+      {
+        "label": "კონსერვაცია",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "აღწერა ლინემ 1758 წელს სახელით Strix funerea. 2024 წლის ქართული ჩამონათვალი სახელებისთვის IOC World Bird List-სა და OSME Region List-ს მიჰყვება: რიგი Strigiformes, ოჯახი Strigidae, გვარი Aegolius. ინგლისური სახელია Tengmalm’s Owl (2024 წლის ჩამონათვალი); SABUKO წერს Boreal (or Tengmalm’s) Owl. IOC-ის ინგლისური სახელია Boreal Owl. ჩრდილოეთ ამერიკაში იშვიათად Richardson’s owl-საც უწოდებენ.",
+      "კავკასიისთვის მოსალოდნელი ქვესახეობაა A. f. caucasicus (Buturlin, 1907); სინონიმია Nyctala caucasica. NPLG საქართველოში ამ ქვესახეობას ასახელებს („კავკასიური ბუკიოტი“). ITIS და IOC მას ვალიდურ ქვესახეობად იღებს. ნომინალური funereus ევროპის სხვა ნაწილისაა; ჩრდილოეთ ამერიკის richardsoni სხვა არეალისაა. ველში ამოცნობა სახეობამდეა.",
+      "ქართულად იხმარება ბუკიოტი (SABUKO), აგრეთვე მიკიოტი და ომიდი. NPLG გვარის სახელადაც ბუკიოტს იყენებს; საქართველოში ამ გვარიდან ჩამონათვალში მხოლოდ ეს სახეობაა.",
+      "2024 წლის ჩამონათვალის კოდებია YR-R, მონაცემის ხარისხი A, გლობალური და ეროვნული წითელი ნუსხა LC, არსებობის ხარისხი H, მტკიცებულება PH (ფოტო), MP (პუბლიკაცია) და S (მუზეუმის ეგზემპლარი). ეს ქვეყნის დონის დადასტურებაა და არა რეგიონული რუკა."
+    ],
+    "identification": {
+      "summary": "პატარა კომპაქტური ტყის ბუა ყურის კონების გარეშე, ყვითელი თვალებით და სრული მრგვალი სახის დისკით. საქართველოში 2024 წლის ჩამონათვალით მთელი წლის რეზიდენტია. ჩვეულებრივი აბნევა ჭოტი და წყრომია.",
+      "traits": [
+        "სიგრძე სახეობის დონეზე ხშირად დაახლოებით 21–28 სმ-ია. ქართული ენციკლოპედია უთითებს 21–27 სმ-ს და 120–190 გ-ს; ეს ენციკლოპედიური დიაპაზონია და არა ქართული გაზომილი სერია. მდედრი, როგორც წესი, მამრზე დიდია. თავი დიდი და კვადრატულია; ყურის კონები არ აქვს. სახის დისკი სრული და მრგვალა, მუქი ნაპირით, რომელზეც ღია წვეთებია. თვალები ყვითელია — არა მუქი. ნისკარტი მოკლე და კაუჭიანი, ღია. თითები ბრჭყალებამდე შებუმბულია.",
+        "ზურგი მურა-ყავისფერია თეთრი ლაქებით, განსაკუთრებით მხრებზე. ქვედა მხარე ღიაა გრძივი მუქი ზოლებით ან წინწკლებით. NPLG კავკასიურ ქვესახეობას უფრო დაწინწკლულ მუცელსა და მხრებზე მუქ ფერს უთითებს; ველში ამოცნობა სახეობამდეა. ახალგაზრდა სახეობის დონეზე უფრო მუქი შოკოლადისფერია, სახეზე ღია წარბით. ღამით სწრაფი სასტვენების სერია ჩვეულებრივი ბუს ჰუჰუსგან განსხვავდება.",
+        "ჭოტი (Athene noctua) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; ზომით ახლოსაა და თვალები ყვითელია, მაგრამ სახის დისკი ნაკლებად სრულია, ტანი უფრო მკვეთრად ლაქებიანია და ხშირად ბინდსა და დღისითაც ჩანს ღია ადგილას. წყრომი (Otus scops) პატარაა ყურის კონებით; საქართველოში მობუდარი მიგრანტია და ამ ატლასში ცალკე გვერდი აქვს. ჩვეულებრივი ბუ (Strix aluco) გაცილებით დიდია, მუქი თვალებით; ამ ატლასში ცალკე გვერდი აქვს. ყურებიანი ბუ (Asio otus) უფრო დიდია, გრძელი ყურის კონებითა და ნარინჯისფერი თვალებით. ზარნაშო (Bubo bubo) ბევრად დიდია. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია; 2014 წლის წითელ ნუსხაშია.",
+        "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ტყის ღამეს პატარა, ყვითელთვალა, უყურო ბუ სწრაფი სასტვენების სერიით ეს სახეობაა და არა ზარნაშო."
+      ]
+    },
+    "audio": {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Aegolius_funereus_-_Boreal_Owl_XC103673.mp3",
+      "recordist": "Alexander Kürthy",
+      "url": "https://xeno-canto.org/103673",
+      "location": "ვოლოვეცი, სლოვაკეთი",
+      "date": "2012-05-11"
+    },
+    "faq": [
+      {
+        "question": "გვხვდება თუ არა ბუკიოტი საქართველოში?",
+        "answer": "კი. 2024 წლის საქართველოს ფრინველების ანოტირებული ჩამონათვალი მას დადასტურებულ მთელი წლის რეზიდენტად იღებს (YR-R): მობუდარი, წლის განმავლობაში ადგილზე. მტკიცებულებაა ფოტო, პუბლიკაცია და მუზეუმის ეგზემპლარი."
+      },
+      {
+        "question": "სად შეიძლება ვნახო საქართველოში?",
+        "answer": "ტყეში, განსაკუთრებით წიწვოვან ან შერეულ მთის ტყეში. ამ გვერდზე მუნიციპალიტეტების სია არ არის და რეგიონული რუკა არ არის შეფერილი. არსებობა ქვეყნის დონეზეა დადასტურებული და არა რეგიონების მიხედვით."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "პატარა ზომა, ყურის კონების გარეშე, ყვითელი თვალები, სრული მრგვალი სახის დისკი, თეთრლაქებიანი ზურგი. ღამით ისმის სწრაფი სასტვენების სერია. წყრომს ყურის კონები აქვს; ჩვეულებრივ ბუს თვალები მუქია და უფრო დიდია."
+      },
+      {
+        "question": "რა ზომისაა?",
+        "answer": "სახეობის დონეზე სიგრძე ხშირად დაახლოებით 21–28 სმ-ია. ქართული ენციკლოპედია უთითებს 21–27 სმ-ს. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის."
+      },
+      {
+        "question": "რას ჭამს?",
+        "answer": "ძირითადად წვრილ ძუძუმწოვრებს, განსაკუთრებით მღრღნელებს; აგრეთვე წვრილ ფრინველებს. საქართველოში კვება ცალკე ამ გვერდზე არ არის შესწავლილი."
+      },
+      {
+        "question": "როდის არის საქართველოში?",
+        "answer": "მთელი წელი, 2024 წლის ჩამონათვალის მიხედვით. იქ გავლით მიგრანტად ან მხოლოდ მოზამთრედ არ არის მიჩნეული. ყველაზე ადვილად ღამით ისმის."
+      },
+      {
+        "question": "ბუდობს თუ არა საქართველოში?",
+        "answer": "კი. 2024 წლის ჩამონათვალის YR-R მობუდარ რეზიდენტს ნიშნავს. ბუდე ჩვეულებრივ ხის ფუღუროშია. ქართული ნაყარის თარიღები ამ გვერდზე ცხრილად არ არის."
+      },
+      {
+        "question": "საშიშია ან დაცულია?",
+        "answer": "შხამი არ აქვს. არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
+      }
+    ],
+    "updatedAt": "2026-08-28T23:47:37+04:00",
+    "sources": [
+      {
+        "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
+        "url": "https://www.sabuko.org/wp-content/uploads/2024/12/Sandgrouse-461ThebirdsofGeorgia-anupdatedchecklistusingcitizenscienceplatforms.pdf"
+      },
+      {
+        "name": "SABUKO — Bird checklist",
+        "url": "http://sabuko.ge/bird-checklist/"
+      },
+      {
+        "name": "BirdLife DataZone — Boreal Owl",
+        "url": "https://datazone.birdlife.org/species/factsheet/boreal-owl-aegolius-funereus"
+      },
+      {
+        "name": "IUCN Red List — Aegolius funereus",
+        "url": "https://www.iucnredlist.org/species/22689362/201898946"
+      },
+      {
+        "name": "IOC World Bird List",
+        "url": "https://www.worldbirdnames.org/"
+      },
+      {
+        "name": "Avibase — Georgia bird checklist",
+        "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
+      },
+      {
+        "name": "NPLG Wiki Dictionaries — ბუკიოტი",
+        "url": "https://www.nplg.gov.ge/wikidict/index.php/%E1%83%91%E1%83%A3%E1%83%99%E1%83%98%E1%83%9D%E1%83%A2%E1%83%98"
+      },
+      {
+        "name": "ქართული ენციკლოპედია — ბუკიოტი",
+        "url": "https://www.georgianencyclopedia.ge/ka/form/24454"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "Hayward & Hayward — Birds of the World (Aegolius funereus)",
+        "url": "https://birdsoftheworld.org/bow/species/borowl/cur/introduction"
+      },
+      {
+        "name": "ITIS — Aegolius funereus caucasicus",
+        "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=687105"
+      },
+      {
+        "name": "Wikimedia Commons — Tengmalm's Owl, Oulu (Francesco Veronesi, CC BY-SA 2.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — A. f. funereus, Lindberg (Christoph Moning, CC BY 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — nest cavity, Innlandet (Bouke ten Cate, CC BY 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg"
+      },
+      {
+        "name": "Wikimedia Commons — Tengmalm's owl (Bouke ten Cate, CC BY-SA 4.0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg"
+      },
+      {
+        "name": "Wikimedia Commons / xeno-canto XC103673 — Aegolius funereus (Alexander Kürthy, CC BY-SA 4.0)",
+        "url": "https://xeno-canto.org/103673"
+      }
+    ]
+  },
+  {
     "id": "aegypius-monachus",
     "commonName": "სვავი",
     "scientificName": "Aegypius monachus",
@@ -12078,7 +12294,7 @@ export const species: Species[] = [
       "traits": [
         "სიგრძე სახეობის დონეზე ხშირად დაახლოებით 16–21 სმ-ია; ფრთების შლილი ლიტერატურაში დაახლოებით 47–64 სმ-ის დიაპაზონში იხსენიება; მასა ხშირად დაახლოებით 60–135 გ. ციფრები წყაროებს შორის ოდნავ განსხვავდება. მდედრი, როგორც წესი, მამრზე მძიმეა. თავი პატარა ყურის კონებით; დღისით კონები შეიძლება ჩაკეცილი იყოს. თვალები ყვითელია — არა მუქი. ნისკარტი მოკლე და კაუჭიანი. ფრთები შედარებით გრძელი და ვიწროა, რაც შორ მანძილზე მიგრაციას ეთანხმება; კუდი მოკლეა.",
         "შეფერილობა რუხ-ყავისფერიდან მოწითალომდე იცვლება; ორივე ტიპი ქერქს ჰგავს, გრძივი მუქი ზოლებითა და წინწკლებით. მხარზე ხშირად ღია ხაზი ჩანს. ქვედა მხარე ზედაზე ღიაა და ჭრელია. ახალგაზრდა უფრო ფაფუკია. ველში ამოცნობა სახეობამდეა და არა ფერის ტიპამდე. ღამით ერთმარცვლიანი, რიტმულად განმეორებული სასტვენი ჭოტის ხმისგან განსხვავდება.",
-        "ჭოტი (Athene noctua) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; ზომით ახლოსაა, მაგრამ ყურის კონები არ აქვს, ტანი უფრო მკვეთრად ლაქებიანია და ხშირად ბინდსა და დღისითაც ჩანს. ჩვეულებრივი ბუ (Strix aluco) გაცილებით დიდია, ყურის კონების გარეშე, მუქი თვალებით; ამ ატლასში ცალკე გვერდი აქვს. ყურებიანი ბუ (Asio otus) უფრო დიდია, გრძელი ყურის კონებითა და ნარინჯისფერი თვალებით, მთელი წლის რეზიდენტი. ზარნაშო (Bubo bubo) ბევრად დიდია. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია; 2014 წლის წითელ ნუსხაშია. ფერმკრთალი წყრომი (Otus brucei) 2024 წლის ქართულ ჩამონათვალში არ არის. კვიპროსის წყრომი (Otus cyprius) ცალკე სახეობადაა გამოყოფილი და კვიპროსისაა.",
+        "ჭოტი (Athene noctua) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; ზომით ახლოსაა, მაგრამ ყურის კონები არ აქვს, ტანი უფრო მკვეთრად ლაქებიანია და ხშირად ბინდსა და დღისითაც ჩანს.       ჩვეულებრივი ბუ (Strix aluco) გაცილებით დიდია, ყურის კონების გარეშე, მუქი თვალებით; ამ ატლასში ცალკე გვერდი აქვს. ბუკიოტი (Aegolius funereus) პატარა ტყის ბუა ყურის კონების გარეშე და ყვითელი თვალებით; ამ ატლასში ცალკე გვერდი აქვს. ყურებიანი ბუ (Asio otus) უფრო დიდია, გრძელი ყურის კონებითა და ნარინჯისფერი თვალებით, მთელი წლის რეზიდენტი. ზარნაშო (Bubo bubo) ბევრად დიდია. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია; 2014 წლის წითელ ნუსხაშია. ფერმკრთალი წყრომი (Otus brucei) 2024 წლის ქართულ ჩამონათვალში არ არის. კვიპროსის წყრომი (Otus cyprius) ცალკე სახეობადაა გამოყოფილი და კვიპროსისაა.",
         "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ზაფხულის ღამეს პატარა, ყვითელთვალა, ყურის კონებიანი ბუ ერთი და იმავე სასტვენით ეს სახეობაა და არა ზარნაშო."
       ]
     },
@@ -14593,7 +14809,7 @@ export const species: Species[] = [
       "traits": [
         "სიგრძე სახეობის დონეზე დაახლოებით 37–46 სმ-ია, ფრთების შლილი დაახლოებით 81–105 სმ, მასა ხშირად დაახლოებით 385–800 გ. მდედრი, როგორც წესი, მამრზე დიდია (დაახლოებით 5% სიგრძით და 25%-ზე მეტი მასით). თავი დიდი და მრგვალა; ყურის კონები არ აქვს. სახის დისკი მკაფიოა, თვალები მუქი ყავისფერი ან შავი — არა ყვითელი. ნისკარტი მოკლე, მოყვითალო, კაუჭიანი. ტანი მკვრივია, ფრთები ფართო, კუდი შედარებით მოკლე.",
         "შეფერილობა ორ მთავარ ტიპს მოიცავს: რუხ-ყავისფერი და მოწითალო-ყავისფერი; შუალედებიც არის. ორივეში ქვედა მხარე ღიაა გრძივი მუქი ზოლებით. ზურგზე ღია და მუქი ლაქები შენიღბვას იძლევა. ახალგაზრდა უფრო ფაფუკი და განივად ზოლიანია, თვალი მაინც მუქია. NPLG ამიერკავკასიაში, მათ შორის საქართველოში, რუხ და მურა-ყავისფერ ტიპებს ასახელებს. ველში ამოცნობა სახეობამდეა და არა ფერის ტიპამდე.",
-        "ყურებიანი ბუ (Asio otus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; მას გრძელი ყურის კონები და ნარინჯისფერი თვალები აქვს, ტანი უფრო წვრილია. ჭაობის ბუ (Asio flammeus) ღია ადგილის სახეობაა, დღისითაც ჩანს, ყურის კონები მოკლეა. ზარნაშო (Bubo bubo) ბევრად დიდია, ყურის კონებითა და ნარინჯისფერი თვალებით. ჭოტი (Athene noctua) პატარაა, ყვითელი თვალებით. წყრომი (Otus scops) პატარაა, ყურის კონებიანი, საქართველოში მობუდარი მიგრანტი. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია, თითქმის თეთრი; 2014 წლის წითელ ნუსხაშია. ბუკიოტი (Aegolius funereus) პატარა ტყის ბუა ყვითელი თვალებით. ამ ატლასში წყრომს ცალკე გვერდი აქვს; დანარჩენ ჩამოთვლილ სახეობებს ჯერ არა.",
+        "ყურებიანი ბუ (Asio otus) 2024 წლის ჩამონათვალში საქართველოშიც მთელი წლის რეზიდენტია; მას გრძელი ყურის კონები და ნარინჯისფერი თვალები აქვს, ტანი უფრო წვრილია. ჭაობის ბუ (Asio flammeus) ღია ადგილის სახეობაა, დღისითაც ჩანს, ყურის კონები მოკლეა. ზარნაშო (Bubo bubo) ბევრად დიდია, ყურის კონებითა და ნარინჯისფერი თვალებით. ჭოტი (Athene noctua) პატარაა, ყვითელი თვალებით. წყრომი (Otus scops) პატარაა, ყურის კონებიანი, საქართველოში მობუდარი მიგრანტი. ბუხრინწა (Tyto alba) გულისებრი სახითაა, ღია, თითქმის თეთრი; 2014 წლის წითელ ნუსხაშია. ბუკიოტი (Aegolius funereus) პატარა ტყის ბუა ყვითელი თვალებით. ამ ატლასში წყრომსა და ბუკიოტს ცალკე გვერდები აქვთ; დანარჩენ ჩამოთვლილ სახეობებს ჯერ არა.",
         "პირდაპირი საფრთხე ადამიანისთვის არ არის. არ აიყვანოთ. საქართველოში ტყის ღამის „ჰუჰუ“ მრგვალთავიანი, უყურო, მუქთვალა ბუ ეს სახეობაა და არა ზარნაშო."
       ]
     },
@@ -17879,6 +18095,142 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "url": "https://commons.wikimedia.org/wiki/File:Sparrowhawk_(Accipiter_nisus_nisus)_female.jpg",
       "location": "near Kecskemét",
       "date": "2022-07-28"
+    }
+  },
+  "aegolius-funereus": {
+    "commonName": "Tengmalm's owl",
+    "location": "Year-round resident in Georgia",
+    "description": "A small forest owl with yellow eyes, a round facial disc and no ear tufts. Confirmed in Georgia as a year-round resident and breeder on the 2024 national bird checklist.",
+    "overview": "Tengmalm's owl (Aegolius funereus) is a small forest owl (family Strigidae) confirmed in Georgia as a year-round resident. The 2024 annotated checklist of the birds of Georgia codes it YR-R: a breeder present throughout the year. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs, a published source and a museum specimen. SABUKO lists the Georgian name ბუკიოტი; მიკიოტი and ომიდი are also used. The 2024 checklist English name is Tengmalm’s Owl; IOC uses Boreal Owl. Adults are often about 21–28 cm long at species level, with no ear tufts and yellow eyes. It is not a threat to people. IUCN lists the species as Least Concern. The 2024 checklist assigns the same category nationally.",
+    "habitat": "In Georgia look in woodland — not on open steppe or treeless plateau. This page does not colour a municipality-by-municipality map. The 2024 checklist confirms country-level resident status but does not publish a regional gazetteer. NPLG records the species in the Caucasus, including Georgia, in both coniferous and deciduous forest. The Georgian Encyclopaedia describes it as scarce and rare in Georgia, in coniferous and mixed forest and also anthropogenic landscape, reaching about 1,200 m; that is an encyclopaedia figure, not a measured national elevation ceiling on this page. Species-level habitat is boreal or subalpine forest, often coniferous or mixed, with cavities for nesting. Do not assume it evenly across the whole country. The atlas map is left uncoloured until named Georgian localities are taken from sources that actually list them.",
+    "diet": "There is no separate Georgian diet study on this page. Across the range the main prey is small forest mammals, especially voles, mice and shrews. Small birds are also taken. Prey share tracks rodent cycles. Asymmetric ear openings give precise hearing, so prey can be located under leaf litter or snow. Prey is usually swallowed whole; indigestible remains are later regurgitated as pellets. That is species-level diet, not a measured Georgian menu.",
+    "behavior": "It is mainly active at night. By day it hides in the canopy or a cavity; it is often heard before it is seen. It is territorial. The male territorial song is a rapid series of even whistles (“po-po-po”), lasting a few seconds and often repeated; it is unlike the quavering hoot of tawny owl. Nesting is in a tree hole; at species level this is often an old cavity of another bird, including woodpeckers; nest boxes are used. The Georgian Encyclopaedia gives clutches of 4–6 eggs in April and incubation of about one month; those are encyclopaedia figures, not a Georgian nest sample on this page. Elsewhere clutch size tracks vole abundance. The 2024 checklist treats the species as a year-round resident in Georgia: it is not classed as a long-distance seasonal migrant. Irruptive movements are known in northern populations when prey crashes — that is not the Georgian status. Do not handle it.",
+    "conservation": "BirdLife International assesses Aegolius funereus as Least Concern on the IUCN Red List. The 2024 Georgian checklist assigns LC globally and nationally. It is not on Georgia’s 2014 Red List (Resolution No. 190); among owls that list includes barn owl (Tyto alba, EN D1). A Georgian population trend is not measured on this page. The Georgian Encyclopaedia treats the species as scarce and rare in Georgia; that is an encyclopaedia judgement, not an IUCN national category. Documented pressures at species level include loss of old forest and cavity trees; that is not a ranked national threat list for Georgia. It is listed on CITES Appendix II, so international trade is regulated. Do not catch wild birds.",
+    "interaction": "It is not venomous and is harmless unless approached. Wild birds must not be taken.",
+    "stats": [
+      {
+        "label": "Diet",
+        "value": "Small mammals"
+      },
+      {
+        "label": "Status in Georgia",
+        "value": "Year-round resident"
+      },
+      {
+        "label": "Size",
+        "value": "21–28 cm"
+      },
+      {
+        "label": "Habitat",
+        "value": "Mountain forest"
+      },
+      {
+        "label": "Family",
+        "value": "Strigidae"
+      },
+      {
+        "label": "Conservation",
+        "value": "LC"
+      }
+    ],
+    "facts": [
+      "Described by Linnaeus in 1758 as Strix funerea. The 2024 Georgian checklist follows IOC and the OSME Region List for names: order Strigiformes, family Strigidae, genus Aegolius. The English name on the 2024 checklist is Tengmalm’s Owl; SABUKO writes Boreal (or Tengmalm’s) Owl. The IOC English name is Boreal Owl. In North America it is occasionally called Richardson’s owl.",
+      "The subspecies expected in the Caucasus is A. f. caucasicus (Buturlin, 1907); synonym Nyctala caucasica. NPLG assigns this subspecies to Georgia (“Caucasian boreal owl”). ITIS and IOC treat it as a valid subspecies. Nominate funereus belongs to other parts of Europe; North American richardsoni belongs to another part of the range. Field identification is to species.",
+      "Georgian names in use are ბუკიოტი (SABUKO), also მიკიოტი and ომიდი. NPLG also uses ბუკიოტი for the genus; this is the only Aegolius species on the Georgian checklist.",
+      "2024 checklist codes: YR-R, data quality A, global and national Red List LC, occurrence quality H, evidence PH (photograph), MP (publication) and S (museum specimen). That is country-level confirmation, not a regional map."
+    ],
+    "identification": {
+      "summary": "A small compact forest owl with no ear tufts, yellow eyes and a complete round facial disc. Confirmed in Georgia as a year-round resident on the 2024 checklist. The usual confusion is little owl and Eurasian scops owl.",
+      "traits": [
+        "Length at species level is often about 21–28 cm. The Georgian Encyclopaedia gives 21–27 cm and 120–190 g; that is an encyclopaedia range, not a measured Georgian series. Females are usually larger than males. The head is large and square; there are no ear tufts. The facial disc is complete and round, with a dark rim spotted pale. The eyes are yellow, not dark. The bill is short, hooked and pale. The toes are feathered to the claws.",
+        "The back is brown with white spots, especially on the shoulders. The underparts are pale with dark lengthways streaks or speckling. NPLG describes the Caucasian subspecies as more heavily speckled below and darker on the shoulders; field identification is to species. Juveniles at species level are darker chocolate-brown, with a pale facial eyebrow. At night the rapid whistle series is unlike tawny owl.",
+        "Little owl (Athene noctua) is also a year-round resident on the 2024 Georgian checklist; it is similar in size with yellow eyes, but the facial disc is less complete, the body is more boldly spotted, and it is often active at dusk and by day in open country. Eurasian scops owl (Otus scops) is small with ear tufts; it is a breeding migrant in Georgia and this atlas has a separate page. Tawny owl (Strix aluco) is much larger, with dark eyes; this atlas has a separate page. Long-eared owl (Asio otus) is larger, with long ear tufts and orange eyes. Eurasian eagle-owl (Bubo bubo) is much larger. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List.",
+        "It is not a threat to people. Do not handle it. A small yellow-eyed owl without ear tufts giving a rapid series of whistles at night in Georgian woodland is this species, not eagle-owl."
+      ]
+    },
+    "faq": [
+      {
+        "question": "Is Tengmalm's owl found in Georgia?",
+        "answer": "Yes. The 2024 annotated checklist of the birds of Georgia treats it as a confirmed year-round resident (YR-R): a breeder present all year. Evidence is photographs, a published source and a museum specimen."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "In woodland, especially coniferous or mixed mountain forest. This page has no municipality list and does not colour a regional map. Presence is confirmed at country level, not by region."
+      },
+      {
+        "question": "How can it be identified?",
+        "answer": "Small size, no ear tufts, yellow eyes, a complete round facial disc, white-spotted back. At night listen for a rapid series of even whistles. Eurasian scops owl has ear tufts; tawny owl has dark eyes and is larger."
+      },
+      {
+        "question": "How large is it?",
+        "answer": "About 21–28 cm long at species level. The Georgian Encyclopaedia gives 21–27 cm. There is no separate measured Georgian series on this page."
+      },
+      {
+        "question": "What does it eat?",
+        "answer": "Mainly small mammals, especially rodents; also small birds. Diet in Georgia is not separately studied on this page."
+      },
+      {
+        "question": "When is it in Georgia?",
+        "answer": "All year, according to the 2024 checklist. It is not treated there as a passage migrant or winter visitor only. It is easiest to detect at night by voice."
+      },
+      {
+        "question": "Does it breed in Georgia?",
+        "answer": "Yes. YR-R on the 2024 checklist means a breeding resident. The nest is usually a tree hole. Georgian clutch dates are not tabulated here."
+      },
+      {
+        "question": "Is it dangerous or protected?",
+        "answer": "It is not venomous. Do not approach. It is Least Concern globally and nationally on the 2024 checklist. It is not on Georgia’s 2014 Red List. Do not catch wild birds."
+      }
+    ],
+    "gallery": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Aegolius_funereus_%28Tengmalm%27s_Owl%29%2C_Oulu%2C_Finland.jpg",
+        "credit": {
+          "photographer": "Francesco Veronesi",
+          "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
+          "location": "Oulu, Finland",
+          "date": "2015-01-15"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/0/04/Aegolius_funereus_funereus_%28Tengmalm%27s_Owl%29%2C_Lindberg%2C_Germany_1.jpg",
+        "credit": {
+          "photographer": "Christoph Moning",
+          "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
+          "location": "Lindberg, Germany",
+          "date": "2010-05-08"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
+        "credit": {
+          "photographer": "Bouke ten Cate",
+          "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
+          "location": "Innlandet, Norway",
+          "date": "2017-05-14"
+        }
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Tengmalm%27s_owl_%28Aegolius_funereus%29.jpg",
+        "credit": {
+          "photographer": "Bouke ten Cate",
+          "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg",
+          "location": "Norway",
+          "date": "2017-05-13"
+        }
+      }
+    ],
+    "imageCredit": {
+      "photographer": "Francesco Veronesi",
+      "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
+      "location": "Oulu, Finland",
+      "date": "2015-01-15"
+    },
+    "mobileImageCredit": {
+      "photographer": "Christoph Moning",
+      "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
+      "location": "Lindberg, Germany",
+      "date": "2010-05-08"
     }
   },
   "aegypius-monachus": {
@@ -26045,7 +26397,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "traits": [
         "Length at species level is often about 16–21 cm; wingspan in the literature is cited in a range of about 47–64 cm; mass is often about 60–135 g. Published figures differ slightly. Females are typically heavier than males. The head has small ear tufts; by day the tufts may be flattened. The eyes are yellow, not dark. The bill is short and hooked. The wings are relatively long and narrow, matching long-distance migration; the tail is short.",
         "Plumage runs from grey-brown to rufous; both types resemble bark, with dark lengthways streaks and fine speckling. A pale line on the shoulder is often visible. The underparts are paler and mottled. Juveniles are fluffier. Field identification is to species, not colour type. At night the short, rhythmically repeated whistle is unlike little owl.",
-        "Little owl (Athene noctua) is also a year-round resident on the 2024 Georgian checklist; it is similar in size but has no ear tufts, a more boldly spotted body, and is often active at dusk and by day. Tawny owl (Strix aluco) is much larger, with no ear tufts and dark eyes; this atlas has a separate page. Long-eared owl (Asio otus) is larger, with long ear tufts and orange eyes, and is a year-round resident. Eurasian eagle-owl (Bubo bubo) is much larger. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Pallid scops owl (Otus brucei) is not on the 2024 Georgian checklist. Cyprus scops owl (Otus cyprius) is a separate species confined to Cyprus.",
+        "Little owl (Athene noctua) is also a year-round resident on the 2024 Georgian checklist; it is similar in size but has no ear tufts, a more boldly spotted body, and is often active at dusk and by day.       Tawny owl (Strix aluco) is much larger, with no ear tufts and dark eyes; this atlas has a separate page. Tengmalm's owl (Aegolius funereus) is a small forest owl with no ear tufts and yellow eyes; this atlas has a separate page. Long-eared owl (Asio otus) is larger, with long ear tufts and orange eyes, and is a year-round resident. Eurasian eagle-owl (Bubo bubo) is much larger. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Pallid scops owl (Otus brucei) is not on the 2024 Georgian checklist. Cyprus scops owl (Otus cyprius) is a separate species confined to Cyprus.",
         "It is not a threat to people. Do not handle it. A small yellow-eyed owl with ear tufts giving a single repeated whistle on Georgian summer nights is this species, not eagle-owl."
       ]
     },
@@ -27774,7 +28126,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       "traits": [
         "Length at species level is about 37–46 cm, wingspan about 81–105 cm, mass often about 385–800 g. Females are typically larger than males (about 5% longer and more than 25% heavier). The head is large and round, with no ear tufts. The facial disc is clear; the eyes are dark brown or black, not yellow. The bill is short, yellowish and hooked. The body is stocky, the wings broad, the tail relatively short.",
         "Plumage has two main types: grey-brown and rufous-brown, with intermediates. In both, the underparts are pale with dark lengthways streaks. The back is mottled for camouflage. Juveniles are fluffier and more barred across; the eye is still dark. NPLG notes grey and dark-brown types in Transcaucasia, including Georgia. Field identification is to species, not colour type.",
-        "Long-eared owl (Asio otus) is also a year-round resident on the 2024 Georgian checklist; it has long ear tufts, orange eyes and a slimmer body. Short-eared owl (Asio flammeus) is an open-country bird, often active by day, with short ear tufts. Eurasian eagle-owl (Bubo bubo) is much larger, with ear tufts and orange eyes. Little owl (Athene noctua) is small, with yellow eyes. Eurasian scops owl (Otus scops) is small, tufted, and a breeding migrant in Georgia. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Boreal owl (Aegolius funereus) is a smaller forest owl with yellow eyes. This atlas has a separate page for Eurasian scops owl; it does not yet have pages for the other species listed here.",
+        "Long-eared owl (Asio otus) is also a year-round resident on the 2024 Georgian checklist; it has long ear tufts, orange eyes and a slimmer body. Short-eared owl (Asio flammeus) is an open-country bird, often active by day, with short ear tufts. Eurasian eagle-owl (Bubo bubo) is much larger, with ear tufts and orange eyes. Little owl (Athene noctua) is small, with yellow eyes. Eurasian scops owl (Otus scops) is small, tufted, and a breeding migrant in Georgia. Barn owl (Tyto alba) has a heart-shaped face and is pale; it is on the 2014 Red List. Boreal owl (Aegolius funereus) is a smaller forest owl with yellow eyes. This atlas has separate pages for Eurasian scops owl and Tengmalm's owl; it does not yet have pages for the other species listed here.",
         "It is not a threat to people. Do not handle it. A round-headed, dark-eyed owl without ear tufts hooting at night in Georgian woodland is this species, not eagle-owl."
       ]
     },
