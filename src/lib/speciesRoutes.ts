@@ -173,9 +173,26 @@ const LOOKALIKES: Record<string, string[]> = {
   "eirenis-collaris": ["eirenis-modestus"],
   "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
-  "emys-orbicularis": ["mauremys-caspica", "trachemys-scripta"],
-  "mauremys-caspica": ["emys-orbicularis", "trachemys-scripta"],
-  "trachemys-scripta": ["emys-orbicularis", "mauremys-caspica"],
+  "testudo-graeca": [
+    "emys-orbicularis",
+    "mauremys-caspica",
+    "trachemys-scripta",
+  ],
+  "emys-orbicularis": [
+    "mauremys-caspica",
+    "trachemys-scripta",
+    "testudo-graeca",
+  ],
+  "mauremys-caspica": [
+    "emys-orbicularis",
+    "trachemys-scripta",
+    "testudo-graeca",
+  ],
+  "trachemys-scripta": [
+    "emys-orbicularis",
+    "mauremys-caspica",
+    "testudo-graeca",
+  ],
   "mertensiella-caucasica": [
     "lissotriton-lantzi",
     "ommatotriton-ophryticus",
@@ -212,7 +229,18 @@ const LOOKALIKES: Record<string, string[]> = {
     "rana-macrocnemis",
     "pelobates-syriacus",
   ],
-  "rana-macrocnemis": ["pelophylax-ridibundus"],
+  "rana-macrocnemis": [
+    "pelophylax-ridibundus",
+    "pelodytes-caucasicus",
+    "bufo-verrucosissimus",
+    "bufotes-viridis",
+  ],
+  "pelophylax-ridibundus": [
+    "rana-macrocnemis",
+    "hyla-orientalis",
+    "bufotes-viridis",
+    "pelodytes-caucasicus",
+  ],
   "pelodytes-caucasicus": [
     "pelobates-syriacus",
     "rana-macrocnemis",

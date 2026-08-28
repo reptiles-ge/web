@@ -60,6 +60,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: ["ველის გველგესლა", "სტეპის გველგესლა", "გველგესლა"],
     en: ["eastern steppe viper", "steppe viper"],
   },
+  "testudo-graeca": {
+    ka: [
+      "ხმელეთის კუ",
+      "ხმელთაშუაზღვის კუ",
+      "Testudo graeca ibera",
+    ],
+    en: [
+      "Greek tortoise",
+      "spur-thighed tortoise",
+      "Mediterranean tortoise",
+      "Testudo graeca ibera",
+    ],
+  },
   "paralaudakia-caucasia": {
     ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
     en: [
@@ -157,6 +170,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Natrix megalocephala",
     ],
   },
+  "rana-macrocnemis": {
+    ka: [
+      "კავკასიური მურა ბაყაყი",
+      "მურა ბაყაყი",
+      "Rana camerani",
+    ],
+    en: [
+      "long-legged wood frog",
+      "Anatolian brown frog",
+      "Caucasus frog",
+      "Rana camerani",
+    ],
+  },
   "pelodytes-caucasicus": {
     ka: [
       "კავკასიური ჯვარულა",
@@ -194,6 +220,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Hyla arborea savignyi",
     ],
   },
+  "pelophylax-ridibundus": {
+    ka: [
+      "ტბის ბაყაყი",
+      "Rana ridibunda",
+      "Pelophylax bedriagae",
+    ],
+    en: [
+      "lake frog",
+      "Eurasian marsh frog",
+      "Rana ridibunda",
+      "Pelophylax bedriagae",
+    ],
+  },
 
   "bufo-verrucosissimus": {
     ka: [
@@ -207,6 +246,14 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Caucasian common toad",
       "Bufo bufo verrucosissimus",
       "common toad",
+    ],
+  },
+  "emys-orbicularis": {
+    ka: ["ევროპული ჭაობის კუ", "Emys orbicularis persica"],
+    en: [
+      "European pond terrapin",
+      "pond turtle",
+      "Emys orbicularis persica",
     ],
   },
   "bufotes-viridis": {

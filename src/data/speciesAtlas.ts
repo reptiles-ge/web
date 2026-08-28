@@ -63,7 +63,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "pelophylax-ridibundus": {
     group: "amphibian",
-    habitats: ["wetland", "forest"],
+    habitats: ["wetland"],
   },
   "testudo-graeca": {
     group: "turtle",
