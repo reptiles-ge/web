@@ -395,52 +395,45 @@ export const species: Species[] = [
     "location": "მთელი წლის რეზიდენტი და მიგრანტი საქართველოში",
     "description": "ძალიან დიდი, თითქმის ერთფეროვნად მუქი ლეშიჭამია ფრინველი. საქართველოში 2024 წლის ეროვნულ ჩამონათვალში დადასტურებულია როგორც მობუდარი რეზიდენტი და მიგრანტი. ბუდობა დოკუმენტირებულია სამხრეთ-აღმოსავლეთის მშრალ ზონაში.",
     "overview": "სვავი (Aegypius monachus) ძალიან დიდი ლეშიჭამია ფრინველია; საქართველოში 2024 წლის ჩამონათვალში დადასტურებულია როგორც მობუდარი რეზიდენტი და მიგრანტი. ოჯახია Accipitridae, გვარი Aegypius; გვარში ეს ერთადერთი სახეობაა. ქართულად ოფიციალური სახელია სვავი. 2024 წლის ანოტირებული ჩამონათვალი კოდავს YR-R; M-ად: მობუდარი, წლის განმავლობაში ქვეყანაში აღნიშნული, და გავლით მიგრანტი. სეზონურობის მონაცემი მაღალი ხარისხისაა (კოდი A). არსებობის ხარისხი მაღალია (H); მტკიცებულებაა ფოტო. ზრდასრული ერთფეროვნად მუქი ყავისფერი ან შავია, უფრო ღია, მოცისფრო-ნაცრისფერი თავით და მასიური ნისკარტით. პირდაპირი საფრთხე ადამიანისთვის ჩვეულ შეხვედრაზე არ არის; ბუდესთან მიახლოება არ შეიძლება. გლობალურად IUCN-ის მიხედვით საფრთხესთან ახლოსაა (NT). 2014 წლის საქართველოს წითელ ნუსხაში შეტანილია როგორც გადაშენების საფრთხის წინაშე (EN, D1). 2024 წლის ჩამონათვალი ეროვნულ კატეგორიად NT-ს უთითებს; ეს ორი შეფასება არ ემთხვევა.",
-    "habitat": "ეს გვერდი მუნიციპალიტეტების რუკას არ აფერადებს. 2024 წლის ჩამონათვალი ქვეყნის დონეზე რეზიდენტობასა და მიგრაციას ადასტურებს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. მთელ საქართველოში, მათ შორის კოლხეთის დაბლობზე ან მაღალ ალპურ ქედზე, თანაბრად ნუ ივარაუდებთ. გავაშელიშვილი, მაკგრედი და ჯავახიშვილი (2006) 1994–2002 წლების აღწერით ბუდობას ზღუდავენ სამხრეთ-აღმოსავლეთ საქართველოს დაახლოებით 1993 კმ²-ზე, 100–900 მ სიმაღლეზე: სტეპი (Bothriochloa ischaemum), ნახევრად უდაბნო (Artemisia fragrans) და მშრალი ტყე (Juniperus, Paliurus, Pistacia). ყველა ნაპოვნი ბუდე (31) მოზრდილ ღვიაზე იყო, უმეტესად ჩრდილოეთის ციცაბო ფერდობზე. დასახელებული დაცული ტერიტორიები იმ ნაშრომშია: ვაშლოვანის ნაკრძალი (2002 წელს იქაური წყვილების დაახლოებით ნახევარი), კორუღის, ივრისა და ჭაჭუნის საკრძალვები. აბულაძე (1983) ბუდობას სხვა ადგილებშიც იუწყებოდა; 2006 წლისთვის იმ ადგილებში ბუდობა აღარ უნახავთ. 2024 წლის ივლისში SABUKO-მ ბუდეში ჯერ კიდევ მყოფი ბარტყი მონიშნა; VCF უთითებს, რომ ბოლო შეფასებით დაახლოებით 50 მობუდარი წყვილია, უმეტესად საქართველო–დასავლეთ აზერბაიჯანის საზღვრისპირა საძოვრებზე. ეს დასახელებული ბუდობის არეალია და არა სრული ეროვნული რუკა. ამ გვერდზე დასახელებული ფოტოები საქართველოში არ არის გადაღებული.",
+    "habitat": "ეს გვერდი მუნიციპალიტეტების რუკას არ აფერადებს. 2024 წლის ჩამონათვალი ქვეყნის დონეზე რეზიდენტობასა და მიგრაციას ადასტურებს, მაგრამ რეგიონულ გაზეთირს არ აქვეყნებს. მთელ საქართველოში, მათ შორის კოლხეთის დაბლობზე ან მაღალ ალპურ ქედზე, თანაბრად ნუ ივარაუდებთ. გავაშელიშვილი, მაკგრედი და ჯავახიშვილი (2006) 1994–2002 წლების აღწერით ბუდობას ზღუდავენ სამხრეთ-აღმოსავლეთ საქართველოს დაახლოებით 1993 კმ²-ზე, 100–900 მ სიმაღლეზე: სტეპი (Bothriochloa ischaemum), ნახევრად უდაბნო (Artemisia fragrans) და მშრალი ტყე (Juniperus, Paliurus, Pistacia). ყველა ნაპოვნი ბუდე (31) მოზრდილ ღვიაზე იყო, უმეტესად ჩრდილოეთის ციცაბო ფერდობზე. დასახელებული დაცული ტერიტორიები იმ ნაშრომშია: ვაშლოვანის ნაკრძალი (2002 წელს იქაური წყვილების დაახლოებით ნახევარი), კორუღის, ივრისა და ჭაჭუნის საკრძალვები. აბულაძე (1983) ბუდობას სხვა ადგილებშიც იუწყებოდა; 2006 წლისთვის იმ ადგილებში ბუდობა აღარ უნახავთ. 2024 წლის ივლისში SABUKO-მ ბუდეში ჯერ კიდევ მყოფი ბარტყი მონიშნა; VCF უთითებს, რომ ბოლო შეფასებით დაახლოებით 50 მობუდარი წყვილია, უმეტესად საქართველო–დასავლეთ აზერბაიჯანის საზღვრისპირა საძოვრებზე. ეს დასახელებული ბუდობის არეალია და არა სრული ეროვნული რუკა. ამ გვერდზეა ვაჟიკო ქოჩიაშვილის ფოტო ვაშლოვანის დაცული ტერიტორიიდან (2020-08-05) და მამუკა ცისკარაულის ფოტოები (31 მაისი), რომელთა ლოკალიტეტი აქ არ არის დასახელებული.",
     "diet": "ლეშიჭამიაა: იკვებება მკვდარი ცხოველებით და არა ტიპიური ცოცხალი ნადირით. საქართველოს სამხრეთ-აღმოსავლეთ ბუდობის არეალში 2006 წლის ნაშრომი უკავშირებს საკვებს ზამთრის (ოქტომბერი–აპრილი) ცხვრის ფარებსა და ექსტენსიური მეცხოველეობის მაღალ სიკვდილიანობას; იმავე არეალში ზაფხულის ძოვება თითქმის არ არის. VCF (2024) იმავე საძოვრებს ასახელებს კავკასიაში ყველაზე მაღალი წლის განმავლობაში სიმკვრივის ექსტენსიურ ფარად. ცალკე ქართული მენიუს პროცენტული კვლევა ამ გვერდზე არ არის. სახეობის დონეზე იღებს მსხვილ ძუძუმწოვართა ლეშს, მათ შორის შინაურ პირუტყვს. ველური ფრინველი არ აჭამოთ და მოწამლული სატყუარა არ დადოთ.",
     "behavior": "დღის აქტიურია. ფრენაში ფრთები ძალიან გრძელი და განიერია, ბოლოებში „თითებიანი“; კუდი მოკლე და სოლისებრია. აფრენისას ფრთებს ხშირად თითქმის ჰორიზონტალურად იჭერს და არა ღრმა V-ით, რაც ორბისგან განასხვავებს. ბუდობს ფხვიერ კოლონიებში ან ცალკეულ წყვილებად; საქართველოში 2002 წელს იდენტიფიცირებულ წყვილებს შორის უახლოესი მეზობლის საშუალო მანძილი დაახლოებით 1.1 კმ იყო (დიაპაზონი 440–2469 მ), უმოკლესი ბუდეებს შორის 20 მ. სახეობის დონეზე ჩვეულებრივ ერთი კვერცხია; ინკუბაცია და ბუდეში ყოფნა ხანგრძლივია. საქართველოსთვის ცალკე კვერცხის თარიღების სერია ამ გვერდზე არ არის. 2024 წლის 30 ივლისს SABUKO-მ ბუდეში მყოფი ბარტყი (7.1 კგ) GPS-ით მონიშნა. 2024 წლის ჩამონათვალი სახეობას მიგრანტადაც კოდავს. VCF უთითებს, რომ კავკასიური სვავები, ცენტრალური აზიის მსგავსად, ბუდობის ადგილებს ზამთარში ტოვებენ და უფრო სამხრეთით იზამთრებენ, ევროპის უფრო ადგილობრივი პოპულაციებისგან განსხვავებით; ქართული GPS-მარშრუტების სრული ანალიზი ამ გვერდზე არ არის. ხმა ჰაერში იშვიათია; ბუდესთან შეიძლება ისმოდეს სტვენა ან ყიჟინა. ველური ფრინველი არ აიყვანოთ და ბუდეს არ მიუახლოვდეთ.",
     "conservation": "BirdLife International Aegypius monachus-ს IUCN Red List-ზე საფრთხესთან ახლოს აფასებს (NT). 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად NT-ს უთითებს და აღნიშნავს, რომ ეროვნული სტატუსი EN-დან NT-მდე გაუმჯობესდა. საქართველოს მთავრობის 2014 წლის დადგენილება №190 სახეობას წითელ ნუსხაში შეაქვს როგორც სვავი, Aegypius monachus, სტატუსით EN, კრიტერიუმი D1 (ძალზე მცირე პოპულაცია). ეს სამართლებრივი ნუსხაა; 2024 წლის ორნითოლოგიური ჩამონათვალი მას ეროვნულად NT-ად კოდავს. ევროპის ფრინველების წითელი ნუსხის 2015 წლის დანართი საქართველოსთვის უთითებს 9–30 მობუდარ წყვილს (2005–2012, საშუალო ხარისხი). Flyway Action Plan ცხრილში საქართველოა 50 მობუდარი წყვილი (2016, ხარისხი G, ტენდენცია სტაბილური). VCF (2024) იმავე დაახლოებით 50 წყვილს იმეორებს როგორც ბოლო შეფასებას. 2020-იანი წლების სრული ეროვნული აღწერა ამ გვერდზე არ არის. გავაშელიშვილი და სხვ. (2006) ბუდობის შეზღუდვას უკავშირებენ ადამიანის შეწუხებას (სეზონური ძოვება) და კლიმატს (ნალექი), და არა საკვების ან ბუდის ხეების აშკარა დეფიციტს იმ ნიმუშში. სახეობის დონეზე მთავარი საფრთხეებია მოწამლული სატყუარა, ჰაბიტატის დეგრადაცია, შეჯახება ელექტროგაყვანილობასა და ქარის ტურბინებთან, უკანონო სროლა და ბუდის ადგილების შეწუხება. ველური ფრინველი არ დაიჭიროთ და არ მოკლათ.",
     "interaction": "ჩვეულ შეხვედრაზე ადამიანისთვის საფრთხეს არ წარმოადგენს. შხამიანი არ არის. დიდი ბრჭყალები და ნისკარტი აქვს; დაჭერა არ შეიძლება. ბუდესთან წყვილი შეიძლება აგრესიული იყოს. არ აიყვანოთ და ბუდეს არ მიუახლოვდეთ. წითელ ნუსხაში შეტანილი სახეობის დაჭერა ან მოკვლა კანონით იკრძალება. მოწამლული სატყუარა ლეშიჭამიებისთვის პირდაპირი რისკია.",
     "danger": "Harmless",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/44/Black_Vulture_in_flight.jpg",
+    "image": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
     "imageCredit": {
-      "photographer": "BirdingInSpain",
-      "url": "https://commons.wikimedia.org/wiki/File:Black_Vulture_in_flight.jpg",
-      "location": "ლერიდა, კატალონია",
-      "date": "2009-12-04"
+      "photographer": "ვაჟიკო ქოჩიაშვილი",
+      "location": "ვაშლოვანის დაცული ტერიტორია",
+      "date": "2020-08-05"
     },
-    "mobileImage": "https://upload.wikimedia.org/wikipedia/commons/d/db/Cinereous.vulture2.jpg",
+    "mobileImage": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
     "mobileImageCredit": {
-      "photographer": "Mistvan",
-      "url": "https://commons.wikimedia.org/wiki/File:Cinereous.vulture2.jpg",
-      "location": "ოლომოუცის ზოოპარკი",
-      "date": "2007-09-01"
+      "photographer": "ვაჟიკო ქოჩიაშვილი",
+      "location": "ვაშლოვანის დაცული ტერიტორია",
+      "date": "2020-08-05"
     },
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/4/44/Black_Vulture_in_flight.jpg",
+        "src": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
         "credit": {
-          "photographer": "BirdingInSpain",
-          "url": "https://commons.wikimedia.org/wiki/File:Black_Vulture_in_flight.jpg",
-          "location": "ლერიდა, კატალონია",
-          "date": "2009-12-04"
+          "photographer": "ვაჟიკო ქოჩიაშვილი",
+          "location": "ვაშლოვანის დაცული ტერიტორია",
+          "date": "2020-08-05"
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/d/db/Cinereous.vulture2.jpg",
+        "src": "/images/species/aegypius-monachus-tsiskarauli-2.jpg",
         "credit": {
-          "photographer": "Mistvan",
-          "url": "https://commons.wikimedia.org/wiki/File:Cinereous.vulture2.jpg",
-          "location": "ოლომოუცის ზოოპარკი",
-          "date": "2007-09-01"
+          "photographer": "მამუკა ცისკარაული",
+          "date": "31 მაისი"
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/Eurasian_Black_Vulture.jpg",
+        "src": "/images/species/aegypius-monachus-tsiskarauli-1.jpg",
         "credit": {
-          "photographer": "Alastair Rae",
-          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Black_Vulture.jpg",
-          "location": "მონღოლეთი",
-          "date": "2010-09-07"
+          "photographer": "მამუკა ცისკარაული",
+          "date": "31 მაისი"
         }
       }
     ],
@@ -517,7 +510,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; ბუდეს არ მიუახლოვდეთ. გლობალურად NT-ია. 2014 წლის წითელ ნუსხაში EN D1-ია; 2024 წლის ჩამონათვალი ეროვნულად NT-ს უთითებს. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T22:28:10+04:00",
+    "updatedAt": "2026-08-28T22:34:06+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -572,16 +565,10 @@ export const species: Species[] = [
         "url": "https://avibase.bsc-eoc.org/checklist.jsp?region=GE"
       },
       {
-        "name": "Wikimedia Commons — Black Vulture in flight (BirdingInSpain, CC BY-SA 3.0)",
-        "url": "https://commons.wikimedia.org/wiki/File:Black_Vulture_in_flight.jpg"
+        "name": "მამუკა ცისკარაული — სვავი (31 მაისი)"
       },
       {
-        "name": "Wikimedia Commons — Cinereous vulture, Zoo Olomouc (Mistvan, CC BY-SA 3.0)",
-        "url": "https://commons.wikimedia.org/wiki/File:Cinereous.vulture2.jpg"
-      },
-      {
-        "name": "Wikimedia Commons — Eurasian Black Vulture, Mongolia (Alastair Rae, CC BY-SA 2.0)",
-        "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Black_Vulture.jpg"
+        "name": "ვაჟიკო ქოჩიაშვილი — სვავი, ვაშლოვანის დაცული ტერიტორია (2020-08-05)"
       }
     ]
   },
@@ -2077,7 +2064,7 @@ export const species: Species[] = [
     "location": "მუდმივი საქართველოში, შეზღუდული არეალი",
     "description": "ველური თხა ციცაბო, ხშირად ტყიან მთის ფერდობებზე. ზრდასრულ მამალს ნამგლისებრი რქა და მუქი წვერი აქვს. საქართველოში მუდმივია, მაგრამ პოპულაცია მცირეა და გეოგრაფიულად შეზღუდული.",
     "overview": "ნიამორი (Capra aegagrus) ველური თხაა ძროხისებრთა ოჯახიდან; საქართველოში დღეს გამრავლების პოპულაციები მხოლოდ თუშეთსა და ჩრდილოეთ ხევსურეთშია. ინგლისურად wild goat და bezoar goat; „bezoar ibex“ კავკასიურ–ანატოლიური ფორმის პოპულარული სახელია და არა ცალკე სახეობა. IUCN საქართველოს native resident ქვეყნად ასახელებს. არეალი დიდი კავკასიონის ჩრდილოეთ ფერდზეა. შხამი არ აქვს. ადამიანისთვის პრაქტიკული საკითხია შეწუხება, უკანონო ნადირობა და პირუტყვის დაავადება — არა ნაკბენი. IUCN სახეობას გლობალურად Near Threatened-ად აფასებს. საქართველოს 2014 წლის წითელ ნუსხაში გადაშენების კრიტიკული საფრთხის ქვეშაა (CR).",
-    "habitat": "დიდ კავკასიონზე ძირითადად შერეული ტყის სარტყლის ციცაბო, კლდოვან და ხრეშიან ფერდობებზე ცხოვრობს და არა ისე ალპურ საძოვარზე, როგორც აღმოსავლური ჯიხვი. IUCN წერს, რომ შეჯვარების სეზონის გარეთ მამალი დედალზე უფრო მაღლა იკავებს ადგილს. ეს გვერდი მუნიციპალიტეტებს არ რუკავს. დასახელებული ქართული ადგილები მუდმივი პოპულაციით: თუშეთის დაცული ტერიტორიები (ნაკრძალი, ეროვნული პარკი და დაცული ლანდშაფტი) და ფშავ-ხევსურეთის დაცული ტერიტორიები ჩრდილოეთ ხევსურეთში, მათ შორის შატილისკენ ფერდობები და შატილისწყლის ხეობა რუსეთის საზღვართან (NACRES / CNF, 2021). იმ აღწერაში ბირთვული ჰაბიტატი თუშეთში დაახლოებით 79 კმ², ხევსურეთში 39 კმ² იყო. ლაგოდეხის დაცულ ტერიტორიებზე (ყაბალისა და ლაგოდეხის ხეობები) მამლები ფოტოხაფანგით 2016 წლის ბოლოს – 2017 წლის დასაწყისში და 2021 წლის გაზაფხულზე გადაიღეს; ისინი არ დარჩენილან და აქ დაღესტნიდან მოსულ სტუმრებად იკითხება, არა ქართულ გამრავლების ჯგუფად. მცირე კავკასიონი ისტორიული არეალია: აჭარის მთები და მესხეთის ქედი ბორჯომამდე (რადე 1899; დინიკი 1914; ვერეშჩაგინი 1959). ბორჯომის მიდამოებიდან XX საუკუნის დასაწყისში გაქრა (გეპტნერი და სხვ. 1961); ჯანაშვილი (1977) წერს, რომ მცირე ჯგუფები 1970-იანებამდე დარჩა. არაბული (1985) 1980-იანების დასაწყისში არსიანის ქედზე, აჭარის აღმოსავლეთში, 65 ინდივიდს ითვლიდა. 2002 და 2006–2007 წლების მოკლე აღწერებმა მცირე კავკასიონზე კვალი ვერ იპოვა. 2020 წლის იანვარში მამალი ხიჭაურთან, აჭარაში, დაინახეს; NACRES ამას თურქეთიდან სეზონურ გადმოსვლად მიიჩნევს. APA 2006 წლიდან აწყურის საგუშაგოზე, ბორჯომ-ხარაგაულის ეროვნულ პარკში, რეინტროდუქციის გალიას ასახელებს. ამ გვერდზე არის 2015 წლის 17 მაისის ფოტო იმავე პარკიდან (ვასილ გაბუნია) — ზრდასრული მამალი ტყეში. ეს დასახელებული ლოკაციაა და არა 2021 წლის აღწერის გამრავლების პოპულაცია; NACRES თავისუფლად მცხოვრებ ქართულ პოპულაციად მხოლოდ თუშეთსა და ჩრდილოეთ ხევსურეთს იღებს. ნუ ივარაუდებთ გავრცელებას დანარჩენ საქართველოში, მათ შორის სვანეთში, ჯავახეთსა და დასახლებულ დაბლობზე. ეროვნული სიმაღლის სარტყელი აქ გაზომილი არ არის.",
+    "habitat": "დიდ კავკასიონზე ძირითადად შერეული ტყის სარტყლის ციცაბო, კლდოვან და ხრეშიან ფერდობებზე ცხოვრობს და არა ისე ალპურ საძოვარზე, როგორც აღმოსავლური ჯიხვი. IUCN წერს, რომ შეჯვარების სეზონის გარეთ მამალი დედალზე უფრო მაღლა იკავებს ადგილს. ეს გვერდი მუნიციპალიტეტებს არ რუკავს. დასახელებული ქართული ადგილები მუდმივი პოპულაციით: თუშეთის დაცული ტერიტორიები (ნაკრძალი, ეროვნული პარკი და დაცული ლანდშაფტი) და ფშავ-ხევსურეთის დაცული ტერიტორიები ჩრდილოეთ ხევსურეთში, მათ შორის შატილისკენ ფერდობები და შატილისწყლის ხეობა რუსეთის საზღვართან (NACRES / CNF, 2021). ამ გვერდზე არის 2016 წლის 20 თებერვლის ფოტო თუშეთიდან (ნიკა ქერდიკოშვილი) — ორი ინდივიდი ციცაბო, ტყიან ფერდზე. იმ აღწერაში ბირთვული ჰაბიტატი თუშეთში დაახლოებით 79 კმ², ხევსურეთში 39 კმ² იყო. ლაგოდეხის დაცულ ტერიტორიებზე (ყაბალისა და ლაგოდეხის ხეობები) მამლები ფოტოხაფანგით 2016 წლის ბოლოს – 2017 წლის დასაწყისში და 2021 წლის გაზაფხულზე გადაიღეს; ისინი არ დარჩენილან და აქ დაღესტნიდან მოსულ სტუმრებად იკითხება, არა ქართულ გამრავლების ჯგუფად. მცირე კავკასიონი ისტორიული არეალია: აჭარის მთები და მესხეთის ქედი ბორჯომამდე (რადე 1899; დინიკი 1914; ვერეშჩაგინი 1959). ბორჯომის მიდამოებიდან XX საუკუნის დასაწყისში გაქრა (გეპტნერი და სხვ. 1961); ჯანაშვილი (1977) წერს, რომ მცირე ჯგუფები 1970-იანებამდე დარჩა. არაბული (1985) 1980-იანების დასაწყისში არსიანის ქედზე, აჭარის აღმოსავლეთში, 65 ინდივიდს ითვლიდა. 2002 და 2006–2007 წლების მოკლე აღწერებმა მცირე კავკასიონზე კვალი ვერ იპოვა. 2020 წლის იანვარში მამალი ხიჭაურთან, აჭარაში, დაინახეს; NACRES ამას თურქეთიდან სეზონურ გადმოსვლად მიიჩნევს. APA 2006 წლიდან აწყურის საგუშაგოზე, ბორჯომ-ხარაგაულის ეროვნულ პარკში, რეინტროდუქციის გალიას ასახელებს. ამ გვერდზე არის 2015 წლის 17 მაისის ფოტო იმავე პარკიდან (ვასილ გაბუნია) — ზრდასრული მამალი ტყეში. ეს დასახელებული ლოკაციაა და არა 2021 წლის აღწერის გამრავლების პოპულაცია; NACRES თავისუფლად მცხოვრებ ქართულ პოპულაციად მხოლოდ თუშეთსა და ჩრდილოეთ ხევსურეთს იღებს. ნუ ივარაუდებთ გავრცელებას დანარჩენ საქართველოში, მათ შორის სვანეთში, ჯავახეთსა და დასახლებულ დაბლობზე. ეროვნული სიმაღლის სარტყელი აქ გაზომილი არ არის.",
     "diet": "ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის. არეალის სხვა ნაწილებში მცენარისმჭამელია: ბალახი, ბალახოვანი მცენარეები და ბუჩქები. კავკასიაში ღვიასა და მუხაზე უფრო ადვილად ადის, ვიდრე ჯიხვი (Weinberg). საკვები სეზონისა და მწვანე მასის მიხედვით იცვლება. მტაცებელი არ არის. საქართველოში, სადაც არეალები იკვეთება, ჯიქის ნადავლია; დიდ კავკასიონზე მგელი, ფოცხვერი, მურა დათვი და ოქროსფერი არწივი სულ მცირე ნაზარდს იღებენ, თუმცა მტაცებლის გავლენა იქ ზოგადად დაბლად არის შეფასებული.",
     "behavior": "საქართველოში ძალიან ფრთხილია. NACRES მოპირდაპირე ფერდიდან ითვლიდა, ხშირად 2 კმ-ზე მეტი მანძილიდან, რადგან არეალში შესვლა ცხოველებს მხედველობიდან გააძევებდა. 2021 წლის აღწერებში ჯგუფები ძირითადად პატარა იყო: ხევსურეთში დაკვირვებების დაახლოებით 80% ერთი ან ორი ინდივიდი იყო; თუშეთში ჯგუფების ნახევარზე მეტი დედალი ნაზარდით. საშუალო ჯგუფი ხევსურეთში 2.96, თუშეთში 1.93 იყო. დიდი მამლების ჯგუფი იშვიათია; 20 მამლის ჯგუფი ერთხელ ნახეს შატილისწყლის ხეობაში. კავკასიაში გრძელი სეზონური მიგრაცია ტიპური არ არის, გარდა იმისა, რომ მამალი შეჯვარების გარეთ დედლებისგან შორს შეიძლება იდგეს. დიდ კავკასიონზე, დაღესტანში, შეჯვარება დაახლოებით ნოემბრის შუიდან დეკემბრის მეორე ათეულამდეა და ჯიხვზე გვიანია. ექვთიმიშვილმა (1954) გამრავლება საქართველოში შეისწავლა; ნაზარდი ჩვეულებრივ მაისში იბადება, მაგრამ წინა შეჯვარების მიხედვით შეიძლება გადაიწიოს. NACRES-მა 2021 წლის მაისის ბოლოს ხევსურეთში დედალი ნაზარდით ვერ ნახა და მშობიარობა იმ წელს დაგვიანებულად ჩათვალა. სახეობის დონეზე ტყუპი ხშირია. კვალი ორნაკვთიანი ჩლიქია კლდესა და ხრეშზე. ამ გვერდზე ქართული ხმის ჩანაწერი არ არის.",
     "conservation": "Weinberg და Ambarli (2020) Capra aegagrus-ს IUCN Red List-ზე Near Threatened-ად აფასებენ. 2014 წლის დადგენილება №190 ნიამორს CR-ად ასახელებს კრიტერიუმით C2 a(ii). იმავე ცხრილში ავტორად ლინე, 1758 არის მითითებული; მიღებული ავტორია ერქსლები, 1777. ნადირობა აკრძალულია. 1982 წლიდანაა დაცული და 1982 წლის წითელ წიგნში შემცირებადი არეალის სახეობად იყო შეტანილი. ილიას სახელმწიფო უნივერსიტეტის 2021 წლის სამეცნიერო რევიზია (კოპალიანი და გურიელიძე) Endangered-ს გვთავაზობს; ეს სამეცნიერო წინადადებაა და არა 2014 წლის იურიდიული ნუსხის შეცვლა. NACRES (2021) თუშეთში 363, ხევსურეთში 114, სულ 477 ინდივიდს აფასებს — 2013 წლის დაახლოებით 350-თან შედარებით მეტი. თუშეთი სტაბილურ, მაგრამ დაბალ დონეზეა აღწერილი. ორივე დაცულ ტერიტორიაზე მთავარ საფრთხედ დასახელებულია ბრაკონიერობა გვიან შემოდგომასა და ზამთარში, საერთო საძოვარი პირუტყვთან, მწყემსები და ძაღლები, და დაავადების რისკი შინაური ფარიდან. საფეხმავლო ბილიკები ბირთვულ ჰაბიტატს არ კვეთს; თუშეთში ფეიერვერკი და ხმამაღალი დღესასწაული შეწუხებად არის დასახელებული. ველური ცხოველი არ აიყვანოთ.",
@@ -2101,6 +2088,14 @@ export const species: Species[] = [
           "photographer": "ვასილ გაბუნია",
           "location": "ბორჯომ-ხარაგაულის ეროვნული პარკი",
           "date": "2015-05-17"
+        }
+      },
+      {
+        "src": "/images/species/capra-aegagrus-kerdikoshvili-1.jpg",
+        "credit": {
+          "photographer": "ნიკა ქერდიკოშვილი",
+          "location": "თუშეთი",
+          "date": "2016-02-20"
         }
       },
       {
@@ -2196,7 +2191,7 @@ export const species: Species[] = [
         "სახეობის დონეზე (Handbook of the Mammals of the World) მამლის თავ–სხეულის სიგრძე დაახლოებით 129–152 სმ, კუდი 11–13 სმ, მხრის სიმაღლე მამალში 73–90 სმ, დედალში 55–60 სმ; მასა მამალში დაახლოებით 45–90 კგ, დედალში 25–55 კგ. საქართველოსთვის გაზომილი სერია ამ გვერდზე არ არის. რქა ორივე სქესს აქვს. მამლის რქა ნამგლისებრად ზევით და უკან იხრება, გვერდიდან შეკუმშულია, წინა კილზე კვანძებით; იშვიათად აღემატება დაახლოებით 127 სმ-ს, დაფიქსირებული მაქსიმუმი 152 სმ. დედლის რქა თხელია, ჩვეულებრივ 33 სმ-ზე ნაკლები და წინა კვანძები არ აქვს.",
         "NACRES-ის საველე კლასები საქართველოში: ზრდასრული მამალი (დაახლოებით 5–6 წელი და მეტი) — თავი მთლიანად შავი, სხეული თეთრიდან ვერცხლისფერ-რუხამდე, შავი ზოლებით; ახალგაზრდა მამალი (2–5 წელი) — თავი ჯერ არ არის სრულად შავი, წვერი არის, სხეული ჯერ ყავისფერია და რუხდება; ზრდასრული დედალი — მოყავისფრო, თხელი წვეტიანი რქა ყურებზე აშკარად გრძელი, წვერი არ აქვს, თვალზე მუქი ხაზი, თეთრი მუცლისა და ყავისფერი გვერდის გამყოფი ხაზი და ზოლები ზურგზე; ერთწლიანი მამალი — დედლის ზომის, რქა დედლის სიგრძის, მაგრამ ფუძეზე უფრო განიერი; ნაზარდი — პატარა, რქა არ ჩანს ან მხოლოდ ყურის სიგრძისაა. ზრდასრულ მამალს ნიკაპიდან მუქი წვერი აქვს.",
         "აღმოსავლური ჯიხვი (Capra cylindricornis) აღმოსავლეთ დიდ კავკასიონზეა: ზრდასრული მამლის რქა ღია სპირალია და არა უბრალო ნამგალი; ჯიხვი უფრო ხის ზედა ზოლის ზემოთ რჩება. დასავლური ჯიხვი (Capra caucasica) დასავლეთი დიდი კავკასიონის ცხოველია და დღევანდელი ქართული ნიამორის პოპულაცია არ არის. არჩვი (Rupicapra) უფრო პატარაა, მოკლე კაუჭისებრი რქით. შინაური თხა (Capra hircus) ამ ველური სახეობის შთამომავალია; სოფლის ფარაში ჭრელი ფერი და ჩამოკიდებული ყური ხშირია და ველური ნიამორის საველე ნიშანი არ არის. შველი ირმისებრია რქით (ანტლერით) და არა თხის რქით. ამ ატლასში ჯიხვისა და არჩვის გვერდები ჯერ არ არის.",
-        "შხამიანი არ არის. შორიდან დააკვირდით. გმირის ფოტო ბორჯომ-ხარაგაულის ეროვნული პარკიდანაა (ვასილ გაბუნია, 2015-05-17). დანარჩენი გალერეა C. a. aegagrus-ია სომხეთიდან და მუზეუმის რქის ნიმუში."
+        "შხამიანი არ არის. შორიდან დააკვირდით. გმირის ფოტო ბორჯომ-ხარაგაულის ეროვნული პარკიდანაა (ვასილ გაბუნია, 2015-05-17). გალერეაშია თუშეთის კადრი (ნიკა ქერდიკოშვილი, 2016-02-20). დანარჩენი გალერეა C. a. aegagrus-ია სომხეთიდან და მუზეუმის რქის ნიმუში."
       ]
     },
     "faq": [
@@ -2233,7 +2228,7 @@ export const species: Species[] = [
         "answer": "კი. საქართველოს 2014 წლის წითელ ნუსხაში CR-ია და ნადირობა აკრძალულია. გლობალურად Near Threatened-ია. 2021 წლის სამეცნიერო რევიზია Endangered-ს გვთავაზობს; იურიდიული ნუსხა აქ შეცვლილად არ იკითხება."
       }
     ],
-    "updatedAt": "2026-08-28T22:28:10+04:00",
+    "updatedAt": "2026-08-28T22:33:15+04:00",
     "sources": [
       {
         "name": "Weinberg & Ambarli 2020 — IUCN Red List, Capra aegagrus",
@@ -2285,6 +2280,9 @@ export const species: Species[] = [
       },
       {
         "name": "ვასილ გაბუნია — ნიამორი, ბორჯომ-ხარაგაულის ეროვნული პარკი (2015-05-17)"
+      },
+      {
+        "name": "ნიკა ქერდიკოშვილი — ნიამორი, თუშეთი (2016-02-20)"
       },
       {
         "name": "Wikimedia Commons — 9 Bezoar Goat (Alexander Malkhasyan, CC BY-SA 4.0)",
@@ -13593,7 +13591,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა, მაგრამ საქართველოში შემოტანილი ინვაზიური სახეობაა და 2014 წლის წითელ ნუსხაში არ არის. დაცვა აქ არ სჭირდება; პრიორიტეტია მონიტორინგი და კონფლიქტის შემცირება."
       }
     ],
-    "updatedAt": "2026-08-28T22:28:10+04:00",
+    "updatedAt": "2026-08-28T22:33:15+04:00",
     "sources": [
       {
         "name": "Timm et al. 2016 — IUCN Red List, Procyon lotor",
@@ -17668,7 +17666,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Year-round resident and migrant in Georgia",
     "description": "A very large, almost uniformly dark scavenging raptor. Confirmed in Georgia as a breeding resident and a migrant on the 2024 national bird checklist. Nesting is documented in the south-east dry zone.",
     "overview": "The cinereous vulture (Aegypius monachus) is a very large scavenger; in Georgia the 2024 checklist confirms it as a breeding resident and a migrant. It belongs to Accipitridae; Aegypius is a monotypic genus. In Georgian the official name is სვავი. The 2024 annotated checklist of the birds of Georgia codes it YR-R; M: a breeder recorded in the country through the year, and a passage migrant. Seasonality is classed as high-quality (code A). Occurrence quality is high (H), with photographs. Adults are uniformly dark brown to black, with a paler bluish-grey head and a massive bill. It is not a threat to people on ordinary encounters; nests should not be approached. IUCN lists the species as Near Threatened. Georgia’s 2014 Red List treats it as Endangered (EN, D1). The 2024 checklist assigns national category NT; those two national assessments disagree.",
-    "habitat": "This page does not colour a municipality-by-municipality map. The 2024 checklist confirms country-level resident and migrant status but does not publish a regional gazetteer. Do not assume it occurs evenly on the Colchis lowland or on high alpine ridges. Gavashelishvili, McGrady and Javakhishvili (2006), from surveys in 1994–2002, restrict breeding to about 1,993 km² in south-east Georgia at 100–900 m: steppe (Bothriochloa ischaemum), semi-desert (Artemisia fragrans) and arid woodland (Juniperus, Paliurus, Pistacia). All 31 nests found were in mature juniper, mostly on steep north-facing slopes. Named protected areas in that paper are Vashlovani Nature Reserve (about half the pairs in 2002), and the Korugi, Iori and Chachuna sanctuaries. Abuladze (1983) reported breeding elsewhere in the country; by 2006 no breeding had been seen in those areas. In July 2024 SABUKO tagged a chick still in the nest. VCF states that the last estimate was about 50 breeding pairs, mostly along the Georgia–western Azerbaijan border pastures. That is a named breeding range, not a full national map. Photos on this page were not taken in Georgia.",
+    "habitat": "This page does not colour a municipality-by-municipality map. The 2024 checklist confirms country-level resident and migrant status but does not publish a regional gazetteer. Do not assume it occurs evenly on the Colchis lowland or on high alpine ridges. Gavashelishvili, McGrady and Javakhishvili (2006), from surveys in 1994–2002, restrict breeding to about 1,993 km² in south-east Georgia at 100–900 m: steppe (Bothriochloa ischaemum), semi-desert (Artemisia fragrans) and arid woodland (Juniperus, Paliurus, Pistacia). All 31 nests found were in mature juniper, mostly on steep north-facing slopes. Named protected areas in that paper are Vashlovani Nature Reserve (about half the pairs in 2002), and the Korugi, Iori and Chachuna sanctuaries. Abuladze (1983) reported breeding elsewhere in the country; by 2006 no breeding had been seen in those areas. In July 2024 SABUKO tagged a chick still in the nest. VCF states that the last estimate was about 50 breeding pairs, mostly along the Georgia–western Azerbaijan border pastures. That is a named breeding range, not a full national map. This page includes a photograph by Vazhiko Kochiashvili from Vashlovani Protected Areas (2020-08-05) and photographs by Mamuka Tsiskarauli (31 May) without a named locality here.",
     "diet": "It is a scavenger: it feeds on dead animals, not as a typical hunter of live large prey. In the south-east Georgian breeding range the 2006 paper links food to winter (October–April) sheep flocks and high mortality under extensive livestock farming; grazing there is almost absent in other seasons. VCF (2024) names the same pastures as among the highest year-round densities of extensive livestock in the Caucasus. No separate percentage diet study for Georgia is given on this page. At species level it takes large-mammal carcasses, including livestock. Do not bait wild birds or put out poisoned carcasses.",
     "behavior": "It is active by day. In flight the wings are very long and broad, with fingered tips; the tail is short and wedge-shaped. When soaring it often holds the wings almost flat, not in a deep V, which helps separate it from griffon vulture. It nests in loose clusters or as scattered pairs. In Georgia in 2002 the mean nearest-neighbour distance among identified pairs was about 1.1 km (range 440–2,469 m); the shortest distance between nests was 20 m. At species level the clutch is usually one egg; incubation and nestling periods are long. A separate Georgian egg-date series is not given on this page. On 30 July 2024 SABUKO tagged a nestling (7.1 kg) still in the nest. The 2024 checklist also codes the species as a migrant. VCF states that Caucasian cinereous vultures, like those in Central Asia, leave the breeding grounds in winter and winter farther south, unlike more sedentary European birds; a full analysis of Georgian GPS tracks is not on this page. Voice is rarely heard in flight; hisses or grunts may occur at the nest. Do not handle wild birds or approach nests.",
     "conservation": "BirdLife International lists Aegypius monachus as Near Threatened on the IUCN Red List. The 2024 Georgian checklist gives global and national category NT and notes that national status improved from EN to NT. Government of Georgia Decree No. 190 (2014) places the species on the Red List as სვავი, Aegypius monachus, EN, criterion D1 (very small population). That is the legal list; the 2024 ornithological checklist codes it nationally as NT. The 2015 European Red List of Birds annex gives Georgia 9–30 breeding pairs (2005–2012, medium quality). The Flyway Action Plan table lists Georgia at 50 breeding pairs (2016, quality G, trend stable). VCF (2024) repeats about 50 pairs as the last estimate. A complete 2020s national census is not on this page. Gavashelishvili et al. (2006) linked the restricted nesting range to human disturbance (seasonal grazing) and climate (rainfall), not to an obvious lack of food or nest trees in that sample. At species level main threats are poisoning, habitat degradation, collision with power lines and wind turbines, illegal shooting, and nest disturbance. Do not catch or kill wild birds.",
@@ -17748,44 +17746,37 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/4/44/Black_Vulture_in_flight.jpg",
+        "src": "/images/species/aegypius-monachus-kochiashvili-1.jpg",
         "credit": {
-          "photographer": "BirdingInSpain",
-          "url": "https://commons.wikimedia.org/wiki/File:Black_Vulture_in_flight.jpg",
-          "location": "Lleida, Catalonia",
-          "date": "2009-12-04"
+          "photographer": "Vazhiko Kochiashvili",
+          "location": "Vashlovani Protected Areas",
+          "date": "2020-08-05"
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/d/db/Cinereous.vulture2.jpg",
+        "src": "/images/species/aegypius-monachus-tsiskarauli-2.jpg",
         "credit": {
-          "photographer": "Mistvan",
-          "url": "https://commons.wikimedia.org/wiki/File:Cinereous.vulture2.jpg",
-          "location": "Olomouc Zoo",
-          "date": "2007-09-01"
+          "photographer": "Mamuka Tsiskarauli",
+          "date": "31 May"
         }
       },
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/Eurasian_Black_Vulture.jpg",
+        "src": "/images/species/aegypius-monachus-tsiskarauli-1.jpg",
         "credit": {
-          "photographer": "Alastair Rae",
-          "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Black_Vulture.jpg",
-          "location": "Mongolia",
-          "date": "2010-09-07"
+          "photographer": "Mamuka Tsiskarauli",
+          "date": "31 May"
         }
       }
     ],
     "imageCredit": {
-      "photographer": "BirdingInSpain",
-      "url": "https://commons.wikimedia.org/wiki/File:Black_Vulture_in_flight.jpg",
-      "location": "Lleida, Catalonia",
-      "date": "2009-12-04"
+      "photographer": "Vazhiko Kochiashvili",
+      "location": "Vashlovani Protected Areas",
+      "date": "2020-08-05"
     },
     "mobileImageCredit": {
-      "photographer": "Mistvan",
-      "url": "https://commons.wikimedia.org/wiki/File:Cinereous.vulture2.jpg",
-      "location": "Olomouc Zoo",
-      "date": "2007-09-01"
+      "photographer": "Vazhiko Kochiashvili",
+      "location": "Vashlovani Protected Areas",
+      "date": "2020-08-05"
     }
   },
   "anguis-colchica": {
@@ -18775,7 +18766,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "location": "Year-round in Georgia, restricted range",
     "description": "A wild goat of steep, often forested mountain slopes. Adult males have scimitar-shaped horns and a dark beard. In Georgia it is a resident species with a small, geographically limited population.",
     "overview": "The wild goat (Capra aegagrus), Georgian ნიამორი, is a native mountain goat now limited in Georgia to Tusheti and northern Khevsureti. It belongs to the cattle family (Bovidae). English names include wild goat and bezoar goat; “bezoar ibex” is a popular name for the Caucasian–Anatolian form, not a separate species. IUCN lists Georgia as a native resident. Current breeding populations sit on the northern slope of the Greater Caucasus. It is not a venomous animal. The practical human issues are disturbance, illegal hunting, and livestock disease — not a bite. IUCN assesses the species globally as Near Threatened. Georgia’s 2014 Red List treats it as Critically Endangered (CR).",
-    "habitat": "In the Greater Caucasus it is mainly a mixed-forest mountain goat of steep, rugged slopes, cliffs and scree, not an animal of open alpine pasture in the way East Caucasian tur often is. IUCN notes that males tend to use higher ground than females outside the rut. This page does not colour a municipality-by-municipality map. Named Georgian sites with a resident population: Tusheti Protected Areas (strict nature reserve, national park and protected landscape) and Pshav-Khevsureti Protected Areas in northern Khevsureti, including slopes toward Shatili and the Shatilistskali gorge near the Russian border (NACRES / CNF, 2021). Core habitat mapped in that survey was about 79 km² in Tusheti and 39 km² in Khevsureti. Camera-trap males have been photographed in Lagodekhi Protected Areas (Kabali and Lagodekhi gorges, late 2016–early 2017 and again in spring 2021); those animals did not stay and are treated here as visitors from Dagestan, not a Georgian breeding group. The Lesser Caucasus range is historical: Adjara mountains and the Meskheti ridge to Borjomi (Radde 1899; Dinnik 1914; Vereshchagin 1959). It disappeared from the Borjomi area in the early twentieth century (Geptner et al. 1961); Janashvili (1977) wrote that small groups lasted into the 1970s. Arabuli (1985) counted 65 animals on the Arsiani ridge in eastern Adjara in the early 1980s. Brief surveys in 2002 and 2006–2007 found no sign on the Lesser Caucasus. A male was reported near Khichauri, Adjara, in January 2020; NACRES treats it as a likely seasonal movement from Turkey. APA describes a reintroduction enclosure at Atskuri in Borjomi-Kharagauli National Park since 2006. This page includes a photograph from that park dated 17 May 2015 (Vasil Gabunia) — an adult male in woodland. That is a named locality, not a 2021 census of a breeding population; NACRES still treats free-ranging Georgian breeding populations as Tusheti and northern Khevsureti only. Do not assume occurrence across the rest of Georgia, including Svaneti, Javakheti, or settled lowlands. A measured national elevation belt is not published here.",
+    "habitat": "In the Greater Caucasus it is mainly a mixed-forest mountain goat of steep, rugged slopes, cliffs and scree, not an animal of open alpine pasture in the way East Caucasian tur often is. IUCN notes that males tend to use higher ground than females outside the rut. This page does not colour a municipality-by-municipality map. Named Georgian sites with a resident population: Tusheti Protected Areas (strict nature reserve, national park and protected landscape) and Pshav-Khevsureti Protected Areas in northern Khevsureti, including slopes toward Shatili and the Shatilistskali gorge near the Russian border (NACRES / CNF, 2021). This page includes a photograph from Tusheti dated 20 February 2016 (Nika Kerdikoshvili) — two animals on a steep, wooded slope. Core habitat mapped in that survey was about 79 km² in Tusheti and 39 km² in Khevsureti. Camera-trap males have been photographed in Lagodekhi Protected Areas (Kabali and Lagodekhi gorges, late 2016–early 2017 and again in spring 2021); those animals did not stay and are treated here as visitors from Dagestan, not a Georgian breeding group. The Lesser Caucasus range is historical: Adjara mountains and the Meskheti ridge to Borjomi (Radde 1899; Dinnik 1914; Vereshchagin 1959). It disappeared from the Borjomi area in the early twentieth century (Geptner et al. 1961); Janashvili (1977) wrote that small groups lasted into the 1970s. Arabuli (1985) counted 65 animals on the Arsiani ridge in eastern Adjara in the early 1980s. Brief surveys in 2002 and 2006–2007 found no sign on the Lesser Caucasus. A male was reported near Khichauri, Adjara, in January 2020; NACRES treats it as a likely seasonal movement from Turkey. APA describes a reintroduction enclosure at Atskuri in Borjomi-Kharagauli National Park since 2006. This page includes a photograph from that park dated 17 May 2015 (Vasil Gabunia) — an adult male in woodland. That is a named locality, not a 2021 census of a breeding population; NACRES still treats free-ranging Georgian breeding populations as Tusheti and northern Khevsureti only. Do not assume occurrence across the rest of Georgia, including Svaneti, Javakheti, or settled lowlands. A measured national elevation belt is not published here.",
     "diet": "There is no separate Georgian diet study on this page. Across the range it is a herbivore: grasses, herbs and shrubs. In the Caucasus it can climb trees such as juniper and oak more readily than tur (Weinberg). Diet shifts with season and green forage. It is not a predator. In Georgia it is prey for leopard where their ranges meet; wolf, lynx, brown bear and golden eagle can take at least young animals in the Greater Caucasus, though predator impact there is generally judged low.",
     "behavior": "It is shy in Georgia. NACRES counted from opposite slopes, often 2 km or more away, because walking into the range would push animals out of view. Groups in the 2021 counts were mostly small: in Khevsureti about 80% of observations were one or two animals; in Tusheti just over half of groups were a female with kids. Average group size was 2.96 in Khevsureti and 1.93 in Tusheti. Large male bands are uncommon; one group of 20 males was seen in the Shatilistskali gorge. Distinct long-distance seasonal migration is not typical in the Caucasus, except that males may stay away from females outside the rut. In the Greater Caucasus the rut is about mid-November to the second decade of December in Daghestan, later than sympatric tur. Ekvtimishvili (1954) studied reproduction in Georgia; births are normally in May but can shift with the previous rut. NACRES saw no females with kids in late May 2021 in Khevsureti and judged births delayed that year. Twins are frequent at species level. Tracks are cloven hooves on rock and scree. There is no Georgian sound recording on this page.",
     "conservation": "Weinberg and Ambarli (2020) assess Capra aegagrus as Near Threatened on the IUCN Red List. Government Resolution No. 190 (2014) lists ნიამორი as CR, criterion C2 a(ii). The same table attributes the name to Linnaeus, 1758; the accepted author is Erxleben, 1777. Hunting is prohibited. Protected since 1982 and in the 1982 Georgian Red Data Book as a shrinking-range species. Ilia State University’s 2021 scientific revision (Kopaliani and Gurielidze) proposed Endangered; that is a scientific proposal, not a change to the legal 2014 list. NACRES (2021) estimated 363 animals in Tusheti and 114 in Khevsureti, 477 in total, up from a combined figure of about 350 in 2013. Tusheti is described as stable but low. Main threats named for both protected areas are poaching in late autumn and winter, livestock on shared pastures, herders and livestock-guarding dogs, and disease risk from domestic stock. Hiking trails are not said to cross core habitat; fireworks and loud festival music in Tusheti are noted as possible disturbance. Do not handle wild animals.",
@@ -18818,7 +18809,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "At species level (Handbook of the Mammals of the World treatment) male head–body length is about 129–152 cm, tail 11–13 cm, shoulder height 73–90 cm in males and 55–60 cm in females; mass about 45–90 kg in males and 25–55 kg in females. There is no measured Georgian series on this page. Both sexes have horns. Male horns curve up and back in a scimitar, are compressed side-to-side, keeled in front, and bear knobs on the keel; they rarely exceed about 127 cm, with a recorded maximum of 152 cm. Female horns are thinner, usually under about 33 cm, and lack frontal knobs.",
         "NACRES field classes used in Georgia: adult male (about 5–6 years and older) — head wholly black, body white to silvery grey, with black stripes; young male (2–5 years) — head not fully black, beard present, body still brownish turning grey; adult female — brownish, thin spiky horns clearly longer than the ears, no beard, a dark line through the eye, a line separating the white belly from the brown flanks, and a stripe along the spine; yearling male — female-sized, horns about as long as a female’s but broader at the base; kid — small, horns absent or only as long as the ears. Adult males have a dark beard from the chin.",
         "East Caucasian tur (Capra cylindricornis, ჯიხვი) shares the eastern Greater Caucasus: adult male horns form an open spiral, not a simple scimitar, and tur is more a species of ground above the timberline. West Caucasian tur (Capra caucasica) is a western Greater Caucasus animal and is not the current Georgian bezoar-goat population. Chamois (Rupicapra, არჩვი) is smaller, with short hooked horns. Domestic goat (Capra hircus) is the descendant of this wild species; mixed colours and floppy ears are common in village stock and are not a field mark of wild ნიამორი. Roe deer is a forest deer with antlers, not horns. This atlas does not yet have pages for tur or chamois.",
-        "It is not venomous. Watch from a long distance. The hero photograph is from Borjomi-Kharagauli National Park (Vasil Gabunia, 17 May 2015). The rest of the gallery is C. a. aegagrus from Armenia and a museum horn set."
+        "It is not venomous. Watch from a long distance. The hero photograph is from Borjomi-Kharagauli National Park (Vasil Gabunia, 17 May 2015). The gallery includes a Tusheti frame (Nika Kerdikoshvili, 20 February 2016). The rest is C. a. aegagrus from Armenia and a museum horn set."
       ]
     },
     "faq": [
@@ -18862,6 +18853,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
           "photographer": "ვასილ გაბუნია",
           "location": "Borjomi-Kharagauli National Park",
           "date": "2015-05-17"
+        }
+      },
+      {
+        "src": "/images/species/capra-aegagrus-kerdikoshvili-1.jpg",
+        "credit": {
+          "photographer": "ნიკა ქერდიკოშვილი",
+          "location": "Tusheti",
+          "date": "2016-02-20"
         }
       },
       {
