@@ -199,6 +199,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta dryada",
     ],
   },
+  "darevskia-praticola": {
+    ka: [
+      "მდელოს ხვლიკი",
+      "Lacerta praticola",
+      "Darevskia praticola praticola",
+    ],
+    en: [
+      "meadow lizard",
+      "Lacerta praticola",
+      "Darevskia praticola praticola",
+    ],
+  },
   "darevskia-valentini": {
     ka: [
       "Lacerta valentini",
