@@ -32,10 +32,9 @@ export function RegionsIndex() {
             paddingTop: "7rem",
           }}
         >
-          <Image
+          <CoverImage
             src={REGIONS_HERO}
             alt={t("heroImageAlt")}
-            fill
             priority
             sizes="100vw"
             className="object-cover object-[50%_45%]"
