@@ -42,6 +42,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "ursus-arctos": ["datvi", "mura-dathvi"],
   "canis-aureus": ["tura"],
   "panthera-pardus": ["jiqi", "jiki", "leopardi", "kavkasiuri-jiqi"],
+  "lynx-lynx": ["fotsxveri", "lynx", "evraziuli-fotsxveri"],
   "sus-scrofa": ["taxi", "gareuli-gori"],
   "erinaceus-concolor": [
     "evropuli-zgarbi",
@@ -50,12 +51,19 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   ],
   "canis-lupus": ["mgeli"],
   "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
+  "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
   "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
+  "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
+  "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
+  "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
+  "accipiter-nisus": ["mimino", "korisebri-mimino"],
+  "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
   "capreolus-capreolus": ["sus-scrofa"],
   "ursus-arctos": ["canis-lupus", "sus-scrofa"],
+  "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
   "meles-canescens": ["mustela-nivalis"],
   "pseudopus-apodus": [
@@ -331,6 +339,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-raddei": ["darevskia-obscura"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
+  "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus"],
   "vulpes-vulpes": ["canis-lupus"],
 };
 

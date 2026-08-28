@@ -544,6 +544,52 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Cuculus canorus canorus",
     ],
   },
+  "buteo-buteo": {
+    ka: [
+      "კაკაჩა",
+      "ჩვეულებრივი არწივი",
+      "სტეპის კაკაჩა",
+      "ქორისებრნი",
+      "Buteo buteo vulpinus",
+      "Buteo buteo menetriesi",
+      "Falco buteo",
+    ],
+    en: [
+      "Eurasian buzzard",
+      "steppe buzzard",
+      "common eagle",
+      "Buteo buteo vulpinus",
+      "Buteo buteo menetriesi",
+      "Falco buteo",
+    ],
+  },
+  "strix-aluco": {
+    ka: [
+      "ტყის ბუ",
+      "რუხი ბუ",
+      "ჩვეულებრივი ტყის ბუ",
+      "ბუსებრნი",
+      "Strix aluco willkonskii",
+    ],
+    en: [
+      "brown owl",
+      "Eurasian tawny owl",
+      "forest owl",
+      "Strix aluco willkonskii",
+    ],
+  },
+  "accipiter-nisus": {
+    ka: [
+      "მიმინო",
+      "ქორისებრნი",
+      "Accipiter nisus nisus",
+    ],
+    en: [
+      "sparrowhawk",
+      "northern sparrowhawk",
+      "Accipiter nisus nisus",
+    ],
+  },
   "ficedula-hypoleuca": {
     ka: [
       "ჭრელი ბუზიჭერია",
@@ -570,6 +616,38 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "semicollared flycatcher",
       "half-collared flycatcher",
       "Muscicapa semitorquata",
+    ],
+  },
+  "ciconia-ciconia": {
+    ka: [
+      "ლაკლაკი",
+      "ყარყატი",
+      "თეთრი ლაკლაკი",
+      "Ciconia ciconia ciconia",
+      "Ardea ciconia",
+    ],
+    en: [
+      "western white stork",
+      "European white stork",
+      "stork",
+      "Ciconia ciconia ciconia",
+      "Ardea ciconia",
+    ],
+  },
+  "aquila-chrysaetos": {
+    ka: [
+      "ოქროსფერი არწივი",
+      "არწივი",
+      "Aquila chrysaetos homeyeri",
+      "Aquila chrysaetus",
+      "Falco chrysaetos",
+    ],
+    en: [
+      "Mediterranean Golden Eagle",
+      "golden eagle",
+      "Aquila chrysaetos homeyeri",
+      "Aquila chrysaetus",
+      "Falco chrysaetos",
     ],
   },
   "canis-lupus": {
@@ -638,6 +716,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Meles meles minor",
     ],
   },
+  "lutra-lutra": {
+    ka: [
+      "წავი",
+      "ევრაზიული წავი",
+      "Mustela lutra",
+      "Lutra vulgaris",
+      "Lutra lutra meridionalis",
+    ],
+    en: [
+      "European otter",
+      "common otter",
+      "European river otter",
+      "Mustela lutra",
+      "Lutra vulgaris",
+      "Lutra lutra meridionalis",
+    ],
+  },
   "mustela-nivalis": {
     ka: [
       "სინდიოფალა",
@@ -699,6 +794,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Transcaucasian squirrel",
       "Sciurus persicus",
       "Sciurus anomalus anomalus",
+    ],
+  },
+  "lynx-lynx": {
+    ka: [
+      "ევრაზიული ფოცხვერი",
+      "კავკასიური ფოცხვერი",
+      "Lynx lynx dinniki",
+      "Felis lynx",
+    ],
+    en: [
+      "European lynx",
+      "Caucasian lynx",
+      "Caucasus lynx",
+      "Lynx lynx dinniki",
+      "Felis lynx",
     ],
   },
   "panthera-pardus": {

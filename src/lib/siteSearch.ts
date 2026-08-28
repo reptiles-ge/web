@@ -190,6 +190,9 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "შველი",
       "roe deer",
       "capreolus",
+      "წავი",
+      "otter",
+      "lutra",
     ],
     icon: "hub",
   },
@@ -672,10 +675,10 @@ function speciesGroupText(species: Species) {
   extra.push(group === "lizard" ? "ხვლიკი lizards" : "");
   extra.push(group === "turtle" ? "კუ turtles tortoise" : "");
   extra.push(group === "amphibian" ? "ამფიბია amphibian" : "");
-  extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
+      extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
   extra.push(
     group === "mammal"
-      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard"
+      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"
       : "",
   );
   return extra;

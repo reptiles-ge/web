@@ -309,6 +309,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "strix-aluco": {
+    group: "bird",
+    habitats: ["forest"],
+  },
   "ficedula-hypoleuca": {
     group: "bird",
     habitats: ["forest"],
@@ -316,6 +320,22 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "ficedula-semitorquata": {
     group: "bird",
     habitats: ["forest"],
+  },
+  "buteo-buteo": {
+    group: "bird",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "accipiter-nisus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "ciconia-ciconia": {
+    group: "bird",
+    habitats: ["wetland", "grassland"],
+  },
+  "aquila-chrysaetos": {
+    group: "bird",
+    habitats: ["mountain", "forest", "grassland"],
   },
   "vulpes-vulpes": {
     group: "mammal",
@@ -332,6 +352,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "mustela-nivalis": {
     group: "mammal",
     habitats: ["grassland", "forest", "mountain"],
+  },
+  "lutra-lutra": {
+    group: "mammal",
+    habitats: ["wetland", "forest", "mountain"],
   },
   "meles-canescens": {
     group: "mammal",
@@ -360,6 +384,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "panthera-pardus": {
     group: "mammal",
     habitats: ["mountain", "forest", "grassland"],
+  },
+  "lynx-lynx": {
+    group: "mammal",
+    habitats: ["forest", "mountain", "grassland"],
   },
 };
 
