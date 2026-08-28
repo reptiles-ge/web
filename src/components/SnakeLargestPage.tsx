@@ -1,6 +1,7 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
@@ -15,7 +16,6 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 export function SnakeLargestPage({
