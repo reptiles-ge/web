@@ -40,6 +40,8 @@ type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
 function isStaticLocalePath(pathname: string): pathname is StaticLocalePath {
   return (STATIC_LOCALE_PATHS as readonly string[]).includes(pathname);
 }
+import { pushPageContext, trackEvent } from "@/lib/analytics";
+import { resolvePageContext } from "@/lib/pageContext";
 import { quizHref, resolveQuizBySlug } from "@/lib/quizzes";
 import {
   regionHref,
@@ -233,6 +235,21 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   function selectLocale(code: AppLocale) {
     const slug = typeof params.slug === "string" ? params.slug : undefined;
     const id = typeof params.id === "string" ? params.id : undefined;
+    if (code !== locale) {
+      const context = resolvePageContext(pathname, locale, { slug, id });
+      trackEvent("language_change", {
+        language: code,
+        previous_language: locale,
+        page_type: context.page_type,
+        entity_id: context.entity_id,
+      });
+      pushPageContext({
+        language: code,
+        page_type: context.page_type,
+        group: context.group,
+        entity_id: context.entity_id,
+      });
+    }
     const hub = (
       ["snakes", "lizards", "turtles", "amphibians"] as const
     ).find((item) => pathname === `/${item}/[slug]`);

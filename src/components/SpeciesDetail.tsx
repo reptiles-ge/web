@@ -5,6 +5,7 @@ import { getSpeciesById, images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
+import { trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import { ArrowUpRight } from "lucide-react";
@@ -67,6 +68,12 @@ export function SpeciesDetail() {
           <Reveal delay={200}>
             <Link
               href={speciesHref("vipera-dinniki", locale)}
+              onClick={() =>
+                trackSpeciesClick({
+                  species_id: "vipera-dinniki",
+                  source: "home_spotlight",
+                })
+              }
               className="group mt-12 inline-flex items-center gap-2 text-[14px] font-medium text-white"
             >
               <span className="border-b border-white/30 pb-1 transition-colors group-hover:border-white">
