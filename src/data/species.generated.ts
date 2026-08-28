@@ -9097,7 +9097,7 @@ export const species: Species[] = [
         "url": "https://commons.wikimedia.org/wiki/File:Heces_de_nutria_europea.jpg"
       },
       {
-        "name": "xeno-canto XC961007 — Lutra lutra (Lars Edenius)",
+        "name": "xeno-canto XC961007 — Lutra lutra (Lars Edenius, CC BY-NC-SA 4.0)",
         "url": "https://xeno-canto.org/961007"
       }
     ]
@@ -9113,7 +9113,7 @@ export const species: Species[] = [
     "overview": "ფოცხვერი (Lynx lynx) ძუძუმწოვარია კატისებრთა ოჯახიდან (Felidae) და საქართველოში მშობლიური მუდმივი სახეობაა. შეტანილია ეროვნულ ძუძუმწოვრების ჩამონათვალებში. კავკასიაში ჩვეულებრივ განიხილება ქვესახეობა L. l. dinniki (Satunin, 1915); ველში ამოცნობა სახეობამდეა. IUCN Cat Specialist Group სახეობის დონეზე ტანის სიგრძეს დაახლოებით 90–120 სმ, კუდს 19–23 სმ და მასას 17–25 კგ აძლევს; სამხრეთის პოპულაციები ხშირად უფრო მსუბუქია. საქართველოსთვის ცალკე გაზომილი სერია ამ გვერდზე არ არის. შხამი არ აქვს. ადამიანისთვის რისკი არის იშვიათი შეხვედრა ან პირუტყვის ზარალი — არა შხამი. IUCN სახეობას გლობალურად ნაკლებად საფრთხის ქვეშ აფასებს. საქართველოს 2014 წლის წითელ ნუსხაში კრიტიკულად საფრთხის ქვეშაა (CR).",
     "habitat": "სახეობის დონეზე ძირითადად ტყეს უკავშირდება, სადაც საკმარისი საფარი და ნადირია; უფრო ღია და მშრალ ლანდშაფტშიც შეიძლება იყოს, თუ დევნა არ არის ძლიერი. Bukhnikashvili და Kandaurov 2002 წერს დასავლეთ და აღმოსავლეთ საქართველოს იზოლირებულ პოპულაციებზე, ჰაბიტატად — მთის და მეჩხერ ტყეს, სუბალპურ და ალპურ მდელოს; სიმაღლედ იმავე ჩამონათვალში მოყვანილია 250–3000 მ ძველი წითელი წიგნის მიხედვით. ეს სარტყელი სრულად არ ფარავს შემდგომ დადასტურებულ ნახევრადმშრალ დაბლობს. NACRES 2022 წელს ვაშლოვანსა და ჭაჭუნაში ფოცხვერს ნახევრადმშრალ, შედარებით ღია ლანდშაფტში იღებს, იშვიათი ხეებითა და მშრალი ტყის ლაქებით — არა მხოლოდ მაღალმთის ტყეში. Askerov და თანაავტორები 2020 კამერა-ხაფანგის მასალას ასახელებენ ლაგოდეხიდან, თუშეთიდან, ვაშლოვანიდან, ბორჯომ-ხარაგაულიდან, ფშავ-ხევსურეთიდან, მტირალადან და კინტრიშიდან; ასევე დაცული ტერიტორიების გარეთ. ეს დასახელებული დაცული ტერიტორიებია და არა სრული რეგიონული რუკა. ამ გვერდზეა 2019 წლის 26 აპრილის ფოტო დიდი კავკასიონიდან (Jan Ebr; iNaturalist, კოორდინატები დაახლოებით 42.56° ჩ, 44.71° ა). მთელ ქვეყანაში, მათ შორის დასახლებულ დაბლობზე, თანაბარ სიმჭიდროვეს ნუ ივარაუდებთ. ქვეყნის სრული სიმაღლის სარტყელი ამ გვერდზე არ არის ხელახლა გაზომილი.",
     "diet": "მტაცებელია. ჩრდილოეთ და ცენტრალურ ევროპაში ხშირად ძირითადი ნადირი მცირე ჩლიქოსანია, განსაკუთრებით შველი. საქართველოს ნახევრადმშრალ აღმოსავლეთში NACRES 2022 წერს, რომ ვაშლოვანში თითქმის მთლიანად პატარა ნადირზეა დამოკიდებული — კურდღელი, ხოხობი და გავაზი; იქვე მთავარ საფრთხედ ნადირის ბრაკონიერობაა მიჩნეული. Soyumert და თანაავტორები 2019 წელს დასავლეთ აზიაში კურდღელს მთავარ ნადირად აჩვენებენ მსგავს ჰაბიტატში — ეს ანატოლიური კამერა-ხაფანგის შედეგია და არა ქართული კუჭის ანალიზი. სახეობის დონეზე იშვიათად იღებს მელას, ფრინველს, ღორს ან შინაურ ცხვარსა და თხას. სრული ეროვნული მენიუ ამ გვერდზე არ არის.",
-    "behavior": "ჩვეულებრივ მარტოული და ტერიტორიულია. ძირითადად შებინდებისას და ღამის პირველ ნახევარში ნადირობს; დღისითაც შეიძლება გამოჩნდეს, განსაკუთრებით შეწყვილების პერიოდში. ნადირს ჩასაფრებით იჭერს. სახეობის დონეზე შეწყვილება თებერვლიდან აპრილის დასაწყისამდეა, პიკი მარტის მეორე ნახევარში; მაკეობა დაახლოებით 68–73 დღე; ლეკვები ჩვეულებრივ მაისის ბოლოს ან ივნისის დასაწყისში იბადებიან, ხშირად 1–4, დედასთან რჩებიან დაახლოებით ათ თვემდე. ეს ფართო არეალის ციფრებია და არა ქართული ბუნაგის ნიმუში. კვალი კატისებრია: მომრგვალებული, ჩვეულებრივ კლანჭის ანაბეჭდის გარეშე, რადგან კლანჭები სიარულისას იკეცება; მგლის კვალზე კლანჭები ხშირად ჩანს. თითოეულ ინდივიდს ლაქების უნიკალური განლაგება აქვს — ამიტომ კამერა-ხაფანგით ინდივიდების დათვლა შესაძლებელია. ხმა ადამიანთან ახლოს იშვიათად ისმის; შეწყვილებისას უფრო ხშირად იძახის. ამ გვერდზე ქართული ჩანაწერი არ არის.",
+    "behavior": "ჩვეულებრივ მარტოული და ტერიტორიულია. ძირითადად შებინდებისას და ღამის პირველ ნახევარში ნადირობს; დღისითაც შეიძლება გამოჩნდეს, განსაკუთრებით შეწყვილების პერიოდში. ნადირს ჩასაფრებით იჭერს. სახეობის დონეზე შეწყვილება თებერვლიდან აპრილის დასაწყისამდეა, პიკი მარტის მეორე ნახევარში; მაკეობა დაახლოებით 68–73 დღე; ლეკვები ჩვეულებრივ მაისის ბოლოს ან ივნისის დასაწყისში იბადებიან, ხშირად 1–4, დედასთან რჩებიან დაახლოებით ათ თვემდე. ეს ფართო არეალის ციფრებია და არა ქართული ბუნაგის ნიმუში. კვალი კატისებრია: მომრგვალებული, ჩვეულებრივ კლანჭის ანაბეჭდის გარეშე, რადგან კლანჭები სიარულისას იკეცება; მგლის კვალზე კლანჭები ხშირად ჩანს. თითოეულ ინდივიდს ლაქების უნიკალური განლაგება აქვს — ამიტომ კამერა-ხაფანგით ინდივიდების დათვლა შესაძლებელია. ხმა ადამიანთან ახლოს იშვიათად ისმის; შეწყვილებისას უფრო ხშირად იძახის. ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC626659 (Stanislas Wroza, ლა-ტურ-დიუ-მე, იურა, საფრანგეთი, 2021-02-26).",
     "conservation": "Breitenmoser და თანაავტორები Lynx lynx-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2015, errata 2017). გლობალური სტატუსი არ ნიშნავს, რომ ყველა ადგილობრივი პოპულაცია უსაფრთხოა. საქართველოში 2014 წლის დადგენილება №190 სახეობას CR-ად აფასებს, კრიტერიუმი C2(aI), მიზეზი — მცირე, ფრაგმენტირებული პოპულაცია. ნადირობა დაშვებული არ არის. CITES-ში დანართ II-შია; ბერნის კონვენციაში დანართ III. CBD-ის მეხუთე ეროვნული ანგარიში წითელ ნუსხაში CR-ად ასახელებს და აღნიშნავს, რომ 2012 წლის კვლევამ ნახევრადმშრალ ეკოსისტემაში შესაძლოა მოსალოდნელზე მეტი ინდივიდი აჩვენა. NACRES 2022 ვაშლოვანში 9–14 ინდივიდს ითვლის (სიმჭიდროვე 2.25–3.52 / 100 კმ²) და ჭაჭუნაში მინიმუმ ორს; ნახევრადმშრალი არეალის მინიმუმი დაახლოებით 11 ინდივიდი — ეს ამ ორი არეალის შეფასებაა და არა ქვეყნის ჯამი. 2012 წლის ვაშლოვანის შეფასება ახლოს იყო (დაახლოებით 10 ინდივიდი); ავტორები პოპულაციას ამ არეალში შედარებით სტაბილურად მიიჩნევენ. Askerov და თანაავტორები 2020 წერენ, რომ კავკასიის ტყეებში სახეობა საკმაოდ ფართოდ ჩანს, მაგრამ სპეციალური ეროვნული აღწერა არ არის. დასახელებული საფრთხეებია ბრაკონიერობა, ნადირის შემცირება, ჰაბიტატის ფრაგმენტაცია და, ნახევრადმშრალ ზონაში, ურეგულირებელი ძოვება.",
     "interaction": "შხამი არ აქვს და საჭმელად არ განიხილება. ჩვეულებრივ ადამიანს გაურბის. დიდი კატაა: შეიძლება დაიცვას თავი, ლეკვები ან ნადირი, თუ მოულოდნელად შეხვდებით. არ მიუახლოვდეთ, არ აჭამოთ, არ აუშვათ ძაღლი. ზოგ სოფელში შეიძლება ცხვარი ან თხა დაკლას — ეს კონფლიქტია და არა იმის ნიშანი, რომ ადამიანზე ნადირობს. დადასტურებული თავდასხმების ქართული სერია ამ გვერდზე არ არის. ნებისმიერ ველურ ძუძუმწოვარს თეორიულად შეიძლება ჰქონდეს ცოფი. ველური ცხოველი არ აიყვანოთ.",
     "image": "/images/species/lynx-lynx-ebr-1.jpg",
@@ -9211,6 +9211,13 @@ export const species: Species[] = [
         "შხამიანი არ არის. არ მიუახლოვდეთ. ტყეში ან ნახევრადმშრალ ხევში მომრგვალებული კატის ანაბეჭდი კლანჭების გარეშე უფრო ამ სახეობისაა, ვიდრე მგლისა. კამერა-ხაფანგზე ინდივიდი ლაქების განლაგებით გამოირჩევა."
       ]
     },
+    "audio": {
+      "src": "/audio/lynx-lynx.mp3",
+      "recordist": "Stanislas Wroza",
+      "url": "https://xeno-canto.org/626659",
+      "location": "ლა-ტურ-დიუ-მე, იურა",
+      "date": "2021-02-26"
+    },
     "faq": [
       {
         "question": "გვხვდება თუ არა ფოცხვერი საქართველოში?",
@@ -9237,6 +9244,10 @@ export const species: Species[] = [
         "answer": "მუდმივია და არ მიგრირებს, როგორც ბევრი ფრინველი. ძირითადად შებინდებისას და ღამით ნადირობს. შეწყვილება სახეობის დონეზე გვიან ზამთარში და ადრე გაზაფხულზეა."
       },
       {
+        "question": "ისმის თუ არა ხმა?",
+        "answer": "ადამიანთან ახლოს იშვიათად; შეწყვილებისას უფრო ხშირად. ამ გვერდის ჩანაწერი საფრანგეთიდანაა (xeno-canto XC626659); ქართული ჩანაწერი აქ არ არის."
+      },
+      {
         "question": "საშიშია?",
         "answer": "შხამიანი არ არის და ჩვეულებრივ ადამიანს გაურბის. არ მიუახლოვდეთ, განსაკუთრებით ლეკვებთან. არ აჭამოთ."
       },
@@ -9245,7 +9256,7 @@ export const species: Species[] = [
         "answer": "საქართველოში წითელი ნუსხის CR სტატუსი აქვს; ნადირობა დაშვებული არ არის. გლობალურად IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა."
       }
     ],
-    "updatedAt": "2026-08-28T20:08:58+04:00",
+    "updatedAt": "2026-08-28T20:32:53+04:00",
     "sources": [
       {
         "name": "Breitenmoser et al. 2015 — IUCN Red List, Lynx lynx (errata 2017)",
@@ -9326,6 +9337,10 @@ export const species: Species[] = [
       {
         "name": "Wikimedia Commons — Lynx tracks, Kõrvemaa (Sillerkiil, CC BY-SA 4.0)",
         "url": "https://commons.wikimedia.org/wiki/File:Ilvese_j%C3%A4ljed_K%C3%B5rvemaal._2020._aasta_jaanuar..jpg"
+      },
+      {
+        "name": "xeno-canto XC626659 — Lynx lynx (Stanislas Wroza, CC BY-NC-SA 4.0)",
+        "url": "https://xeno-canto.org/626659"
       }
     ]
   },
@@ -22783,7 +22798,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "overview": "The Eurasian lynx (Lynx lynx) is a mammal in the cat family (Felidae) and a native resident in Georgia. It appears on national mammal checklists. In the Caucasus it is usually treated as subspecies L. l. dinniki (Satunin, 1915); field identification is to species. The IUCN Cat Specialist Group gives species-level body length of about 90–120 cm, tail 19–23 cm, and mass 17–25 kg; southern populations are often lighter. A measured Georgian series is not on this page. It has no venom. The human risk is a rare encounter or livestock loss — not poison. IUCN lists the species globally as Least Concern. Georgia’s 2014 Red List treats it as Critically Endangered (CR).",
     "habitat": "At species level it is mainly tied to forest with cover and prey; it can also use more open, dry country if persecution is not severe. Bukhnikashvili and Kandaurov (2002) record isolated populations in western and eastern Georgia, in mountain and light forest and subalpine and alpine meadows; the same list cites 250–3000 m from an older Red Data Book. That belt does not fully cover later confirmed semi-arid lowlands. NACRES (2022) photographed lynx in Vashlovani and Chachuna in a relatively open semi-arid landscape with scattered trees and patches of dry woodland — not only high mountain forest. Askerov and co-authors (2020) name camera-trap material from Lagodekhi, Tusheti, Vashlovani, Borjomi-Kharagauli, Pshav-Khevsureti, Mtirala, and Kintrishi, and also outside protected areas. Those are named sites, not a complete regional map. This page includes a photograph from 26 April 2019 from the Greater Caucasus (Jan Ebr; iNaturalist, about 42.56° N, 44.71° E). Do not assume even density across the country, including settled lowlands. A full national elevation belt has not been re-measured on this page.",
     "diet": "It is a carnivore. In northern and central Europe the main prey is often a small ungulate, especially roe deer. In Georgia’s eastern semi-arid zone NACRES (2022) writes that in Vashlovani it depends almost entirely on smaller prey — hare, pheasant, and chukar; poaching of those prey species is named as a main pressure. Soyumert and co-authors (2019) show hares as the main prey in similar western Asian habitat — that is an Anatolian camera-trap result, not a Georgian stomach analysis. At species level it also takes foxes, birds, wild boar, or domestic sheep and goats at times. There is no complete national diet study on this page.",
-    "behavior": "It is usually solitary and territorial. It hunts mainly at dusk and in the first half of the night; it can also appear by day, especially in the mating season. It stalks and ambushes prey. At species level mating is from February to early April, peaking in the second half of March; gestation is about 68–73 days; kittens are usually born in late May or early June, often 1–4, and stay with the female until about ten months. Those figures come from the wider range, not a Georgian den sample. Tracks are cat-like: round, usually without claw marks because the claws retract when walking; wolf tracks often show claws. Each animal has a unique spot pattern, so camera traps can count individuals. Calls are uncommon near people and more frequent in the mating season. No Georgian recording is on this page.",
+    "behavior": "It is usually solitary and territorial. It hunts mainly at dusk and in the first half of the night; it can also appear by day, especially in the mating season. It stalks and ambushes prey. At species level mating is from February to early April, peaking in the second half of March; gestation is about 68–73 days; kittens are usually born in late May or early June, often 1–4, and stay with the female until about ten months. Those figures come from the wider range, not a Georgian den sample. Tracks are cat-like: round, usually without claw marks because the claws retract when walking; wolf tracks often show claws. Each animal has a unique spot pattern, so camera traps can count individuals. Calls are uncommon near people and more frequent in the mating season. No Georgian recording is on this page; the clip is xeno-canto XC626659 (Stanislas Wroza, La Tour-du-Meix, Jura, France, 26 February 2021).",
     "conservation": "Breitenmoser and co-authors assess Lynx lynx as Least Concern on the IUCN Red List (2015, errata 2017). Global status does not mean every local population is secure. In Georgia, Government Resolution No. 190 of 2014 lists the species as CR, criterion C2(aI), for a small, fragmented population. Hunting is not allowed. It is on CITES Appendix II and Bern Convention Appendix III. Georgia’s Fifth CBD National Report lists it as CR and notes that 2012 work in the semi-arid ecosystem suggested more individuals than expected. NACRES (2022) estimates 9–14 animals in Vashlovani (density 2.25–3.52 / 100 km²) and at least two in Chachuna; a minimum of about 11 in that semi-arid system — those two areas, not a national total. The 2012 Vashlovani estimate was similar (about 10); the authors treat that local population as relatively stable. Askerov and co-authors (2020) write that the species is fairly widespread in Caucasus forests, but there is no dedicated national census. Named pressures are poaching, prey decline, habitat fragmentation, and, in the semi-arid zone, unregulated grazing.",
     "interaction": "It has no venom and is not treated as food. It usually avoids people. It is a large cat: it may defend itself, kittens, or a kill if you meet it suddenly. Do not approach, feed, or let a dog chase it. In some villages it may kill sheep or goats — that is conflict, not evidence that it hunts people. A documented series of attacks on people in Georgia is not on this page. Any wild mammal can theoretically carry rabies. Do not handle wild animals.",
     "stats": [
@@ -22851,6 +22866,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "When is it active?",
         "answer": "It is resident and does not migrate like many birds. It hunts mainly at dusk and at night. At species level mating is in late winter and early spring."
+      },
+      {
+        "question": "Can you hear it?",
+        "answer": "Rarely near people; more often in the mating season. The clip on this page is from France (xeno-canto XC626659); there is no Georgian recording here."
       },
       {
         "question": "Is it dangerous?",
