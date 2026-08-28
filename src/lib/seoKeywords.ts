@@ -650,6 +650,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Aegipius monachus",
     ],
   },
+  "gyps-fulvus": {
+    ka: [
+      "ჩვეულებრივი ორბი",
+      "თეთრთავა ორბი",
+      "ლეშიჭამია",
+      "ქორისებრნი",
+      "Gyps fulvus fulvus",
+      "Vultur fulvus",
+    ],
+    en: [
+      "Eurasian griffon",
+      "Eurasian Griffon Vulture",
+      "griffon",
+      "Gyps fulvus fulvus",
+      "Vultur fulvus",
+    ],
+  },
   "aquila-chrysaetos": {
     ka: [
       "ოქროსფერი არწივი",

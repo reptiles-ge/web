@@ -339,7 +339,11 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "aegypius-monachus": {
     group: "bird",
-    habitats: ["grassland", "mountain"],
+    habitats: ["grassland"],
+  },
+  "gyps-fulvus": {
+    group: "bird",
+    habitats: ["mountain", "grassland"],
   },
   "vulpes-vulpes": {
     group: "mammal",
