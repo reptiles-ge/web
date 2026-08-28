@@ -112,7 +112,6 @@ const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {
   "malpolon-insignitus": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
   "natrix-natrix": "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg",
   "natrix-tessellata": "https://cdn.reptiles.ge/natrix-tessellata-mobile.webp",
-  "platyceps-najadum": "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
   "vipera-darevskii": "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg",
   "vipera-dinniki": "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
   "vipera-renardi": "https://cdn.reptiles.ge/vipera-renardi-2.jpg",

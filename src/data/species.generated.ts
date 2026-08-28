@@ -6864,7 +6864,7 @@ export const species: Species[] = [
         "answer": "დღისით. კავკასიური ლიტერატურა გამოღვიძებას დაახლოებით მარტში ასახელებს, რბილ ქართულ ზამთარში ზოგჯერ თებერვალში; ზრდასრული სექტემბრიდან იზამთრებს. ეს ყველა ადგილის კალენდარი არ არის."
       }
     ],
-    "updatedAt": "2026-08-28T11:14:01+04:00",
+    "updatedAt": "2026-08-28T11:18:58+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -10252,7 +10252,6 @@ export const species: Species[] = [
     "interaction": "შხამი არ აქვს და ადამიანისთვის სამედიცინოდ უვნებელია. არ აიყვანოთ: დიდ გველს შეუძლია უკბინოს და ნაკბენი მტკივნეულია. თუ გუგა ვერტიკალური ნაპრალია, ეს სახეობა არ არის — დაიცავით მანძილი და გაეცით გზა. ფოტო გადაიღეთ შორიდან და დატოვეთ ადგილზე.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/platyceps-najadum.webp",
-    "mobileImage": "https://cdn.reptiles.ge/platyceps-najadum-mobile.webp",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/platyceps-najadum.webp"
