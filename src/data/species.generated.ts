@@ -2456,7 +2456,7 @@ export const species: Species[] = [
     "interaction": "შხამი არ აქვს და ადამიანისთვის უვნებელია. არ აიყვანოთ: კუდი ადვილად მოიწყდება, ცხოველი სტრესდება. ნახვისას გადაიღეთ ზურგი, გვერდი და თავის ქერცელი, აღნიშნეთ ადგილი და სიმაღლე, დატოვეთ ცხოველი ადგილზე. ფერი სახეობას არ ადასტურებს — განსაკუთრებით თუშეთში და თბათანასთან, სადაც კავკასიონის ხვლიკიც დასახელებულია.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/darevskia-daghestanica.jpg",
-    "mobileImage": "https://cdn.reptiles.ge/darevskia-daghestanica-mobile.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/darevskia-daghestanica-3.jpg",
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/darevskia-daghestanica.jpg"
