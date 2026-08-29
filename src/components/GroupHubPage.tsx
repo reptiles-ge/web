@@ -6,6 +6,7 @@ import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import type { Species } from "@/data/species";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -25,7 +26,7 @@ import {
   Plus,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 type GroupHubPageProps = {
   hubId: GroupHubId;
@@ -117,6 +118,15 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                     {tSnakes("ctaQuiz")}
                     <ArrowUpRight className="size-4" />
                   </QuizCtaLink>
+                ) : null}
+                {hubId === "turtles" ? (
+                  <Link
+                    href="/turtles/identifikacia"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  >
+                    {t("ctaIdentify")}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
                 ) : null}
               </div>
             </Reveal>
@@ -243,8 +253,22 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 </div>
               ))}
             </div>
+
+            {hubId === "turtles" ? (
+              <Reveal delay={80}>
+                <Link
+                  href="/turtles/saxeoebebi"
+                  className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  {t("speciesIndexCta")}
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              </Reveal>
+            ) : null}
           </div>
         </section>
+
+        {hubId === "turtles" ? <TurtlesHubSections /> : null}
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -312,6 +336,15 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                   {tShared("ctaAllSpecies")}
                   <ArrowRight className="size-4" />
                 </Link>
+                {hubId === "turtles" ? (
+                  <Link
+                    href="/turtles/identifikacia"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  >
+                    {t("ctaIdentify")}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                ) : null}
                 <Link
                   href="/regions"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
@@ -362,10 +395,31 @@ function SnakesFaq5Answer() {
   });
 }
 
+function TurtlesFaq4Answer() {
+  const t = useTranslations("turtles");
+
+  return t.rich("faq4A", {
+    identify: (chunks) => (
+      <Link href="/turtles/identifikacia" className={faqLinkClassName}>
+        {chunks}
+      </Link>
+    ),
+  });
+}
+
+function hubFaqIndices(hubId: GroupHubId, t: ReturnType<typeof useTranslations>) {
+  const max = hubId === "turtles" ? 8 : 5;
+  const indices: number[] = [];
+  for (let n = 1; n <= max; n += 1) {
+    if (t.has(`faq${n}Q`)) indices.push(n);
+  }
+  return indices;
+}
+
 function FaqSection({ hubId }: { hubId: GroupHubId }) {
   const t = useTranslations(hubId);
   const [open, setOpen] = useState<number | null>(0);
-  const items = [1, 2, 3, 4, 5] as const;
+  const items = useMemo(() => hubFaqIndices(hubId, t), [hubId, t]);
 
   return (
     <section className="border-t border-border bg-surface py-24 lg:py-32">
@@ -426,6 +480,8 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                         <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {hubId === "snakes" && n === 5 ? (
                             <SnakesFaq5Answer />
+                          ) : hubId === "turtles" && n === 4 ? (
+                            <TurtlesFaq4Answer />
                           ) : (
                             t(`faq${n}A`)
                           )}

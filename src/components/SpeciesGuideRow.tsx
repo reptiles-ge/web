@@ -46,6 +46,22 @@ export function SpeciesGuideRow({
         ? { dot: "bg-gold", text: "text-gold" }
         : { dot: "bg-primary", text: "text-primary" };
   const riskLabel = riskChip ? tDanger(riskChip.level) : null;
+  const turtleType =
+    group === "turtle"
+      ? species.id === "testudo-graeca"
+        ? tShared("turtleTypeLand")
+        : tShared("turtleTypeWater")
+      : null;
+  const turtleStatus =
+    group === "turtle"
+      ? species.id === "trachemys-scripta"
+        ? tShared("turtleStatusIntroduced")
+        : tShared("turtleStatusNative")
+      : null;
+  const profileCta =
+    group === "turtle"
+      ? tShared("openProfileNamed", { name: species.commonName })
+      : tShared("openProfile");
 
   return (
     <Link
@@ -77,6 +93,16 @@ export function SpeciesGuideRow({
           <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
+          {turtleType ? (
+            <span className="text-[12px] font-medium text-foreground/75">
+              {turtleType}
+            </span>
+          ) : null}
+          {turtleStatus ? (
+            <span className="text-[12px] font-medium text-foreground/75">
+              {turtleStatus}
+            </span>
+          ) : null}
           {riskLabel ? (
             <span
               className={`inline-flex items-center gap-1.5 text-[12px] font-medium ${tone.text}`}
@@ -98,16 +124,16 @@ export function SpeciesGuideRow({
         <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-muted-foreground line-clamp-2">
           {species.description}
         </p>
-        <p className="mt-3 text-[12px] text-muted-foreground/80">
-          {regions.length > 0
-            ? `${regions.join(" · ")}${extra > 0 ? ` +${extra}` : ""}`
-            : tShared("rangePending")}
-        </p>
+        {regions.length > 0 ? (
+          <p className="mt-3 text-[12px] text-muted-foreground/80">
+            {`${regions.join(" · ")}${extra > 0 ? ` +${extra}` : ""}`}
+          </p>
+        ) : null}
       </div>
 
-      <span className="inline-flex items-center gap-1.5 self-start text-[13px] font-medium text-foreground/70 transition-colors group-hover:text-primary sm:self-center">
-        {tShared("openProfile")}
-        <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      <span className="inline-flex max-w-[12rem] items-center gap-1.5 self-start text-[13px] font-medium text-foreground/70 transition-colors group-hover:text-primary sm:self-center sm:text-right">
+        {profileCta}
+        <ArrowUpRight className="size-3.5 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </span>
     </Link>
   );

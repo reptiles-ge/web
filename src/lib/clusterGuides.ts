@@ -471,9 +471,9 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
   turtles: [
     { kind: "page", href: "/turtles/saxeoebebi", key: "turtleIndex" },
+    { kind: "page", href: "/turtles/identifikacia", key: "turtleIdentify" },
     { kind: "page", href: "/turtles/xmelis-kuebi", key: "turtleLand" },
     { kind: "page", href: "/turtles/tsqlis-kuebi", key: "turtleWater" },
-    { kind: "page", href: "/turtles/identifikacia", key: "turtleIdentify" },
     { kind: "species", id: "testudo-graeca", key: "tortoise" },
     { kind: "species", id: "trachemys-scripta", key: "slider" },
   ],

@@ -142,7 +142,6 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 - Landing is indexable. Question / score / session are **client state** — never add `/quiz/.../result` or query-param indexable modes.
 - Intent: this quiz owns `რომელი გველია` / Georgia snake quiz. Canonical how-to remains `/gvelebi/shxamiani-gvelis-amocnoba`. Do not add `/quiz/gvelis-amocnoba`.
 - Second live quiz needs a new registry entry + unique intent — do not clone `SnakeQuiz` page folders.
-- Tests: `npm test` (`src/lib/snakeQuiz.test.ts`).
 
 ## SEO
 
@@ -158,7 +157,6 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 npm run dev              # compile species, then next dev
 npm run build
 npm run lint
-npm test
 npm run species:compile
 ```
 

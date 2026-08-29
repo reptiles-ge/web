@@ -35,7 +35,7 @@ import {
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
-  speciesMetaTitle,
+  speciesPageMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import { galleryImageObjects } from "@/lib/photoMeta";
@@ -82,7 +82,9 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const item = localizeSpecies(raw, locale);
     const group = getSpeciesAtlasMeta(raw.id).group;
-    const title = speciesMetaTitle(
+    const title = speciesPageMetaTitle(
+      raw.id,
+      locale,
       item.commonName,
       item.scientificName,
       t(speciesTitleIntentKey(group, raw.danger)),

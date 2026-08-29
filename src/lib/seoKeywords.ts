@@ -36,7 +36,13 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "macrovipera-lebetina": {
-    ka: ["Macrovipera lebetina", "Vipera lebetina"],
+    ka: [
+      "გიურზა",
+      "გიუზა",
+      "giurza",
+      "Macrovipera lebetina",
+      "Vipera lebetina",
+    ],
     en: [
       "Levantine viper",
       "blunt-nosed viper",
@@ -46,11 +52,17 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "vipera-kaznakovi": {
-    ka: ["კავკასიური გველგესლა", "გველგესლა", "Pelias kaznakovi"],
+    ka: [
+      "კავკასიური გველგესლა",
+      "გველგესლა",
+      "შხამიანი გველგესლა",
+      "Pelias kaznakovi",
+    ],
     en: [
       "Caucasus viper",
       "Caucasian viper",
       "Kaznakov's viper",
+      "venomous viper Georgia",
       "Pelias kaznakovi",
     ],
   },
@@ -58,6 +70,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: [
       "ცხვირრქოსანი გველგესლა",
       "გველგესლა",
+      "შხამიანი გველგესლა",
       "Vipera ammodytes",
       "Vipera transcaucasiana",
     ],
@@ -65,6 +78,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Transcaucasian long-nosed viper",
       "nose-horned viper",
       "Transcaucasian sand viper",
+      "venomous viper Georgia",
       "Vipera transcaucasiana",
       "Vipera ammodytes transcaucasiana",
     ],
@@ -253,10 +267,15 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "platyceps-najadum": {
-    ka: ["წენგოსფერი მცურავი", "Coluber najadum"],
+    ka: [
+      "წენგოსფერი მცურავი",
+      "უშხამო მცურავი",
+      "Coluber najadum",
+    ],
     en: [
       "Dahl's whip snake",
       "slender whip snake",
+      "non-venomous whip snake",
       "Coluber najadum",
     ],
   },
@@ -340,12 +359,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["smooth snake", "Coronella"],
   },
   "natrix-natrix": {
-    ka: ["ანკარა", "დიდთავა ანკარა", "Natrix megalocephala"],
+    ka: [
+      "ანკარა",
+      "ანკარა გველი",
+      "გველი ანკარა",
+      "უშხამო ანკარა",
+      "დიდთავა ანკარა",
+      "Natrix megalocephala",
+    ],
     en: [
       "grass snake",
       "ringed snake",
       "ring snake",
       "eastern grass snake",
+      "non-venomous grass snake",
       "Natrix megalocephala",
     ],
   },
@@ -449,8 +476,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["Caucasian salamander", "Salamandra caucasica"],
   },
   "natrix-tessellata": {
-    ka: ["წყლის გველი", "dice snake"],
-    en: ["tessellated water snake", "water snake"],
+    ka: [
+      "წყლის ანკარა",
+      "წყლის გველი",
+      "უშხამო ანკარა",
+      "dice snake",
+    ],
+    en: [
+      "dice snake",
+      "tessellated water snake",
+      "water snake Georgia",
+      "non-venomous water snake",
+    ],
   },
   "lissotriton-lantzi": {
     ka: [
@@ -469,12 +506,17 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
   "ommatotriton-ophryticus": {
     ka: [
+      "ტრიტონი",
+      "ტრიტონი საქართველოში",
+      "ტრიტონი წყლის",
+      "კავკასიური ტრიტონი",
       "მცირეაზიური ტრიტონი",
       "ზოლებიანი ტრიტონი",
       "Triturus vittatus",
       "Triturus vittatus ophryticus",
     ],
     en: [
+      "newt Georgia",
       "Caucasian banded newt",
       "northern banded newt",
       "Asia Minor newt",

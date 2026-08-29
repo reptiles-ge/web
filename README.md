@@ -23,7 +23,6 @@ Open [http://localhost:3000](http://localhost:3000). Species MDX is compiled aut
 
 ```bash
 npm run lint
-npm test
 npm run species:compile
 ```
 
@@ -42,7 +41,6 @@ Agents and contributors: read **[AGENTS.md](./AGENTS.md)** before changing taxon
 | `npm run dev` | Compile species, start Next.js |
 | `npm run build` | Production build |
 | `npm run species:compile` | MDX → generated catalog |
-| `npm test` | Snake quiz unit tests |
 | `npm run images:optimize` | Image pipeline (CDN / OG) |
 
 ## License
