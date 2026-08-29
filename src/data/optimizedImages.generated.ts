@@ -3905,7 +3905,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/athene-noctua-cebeci-turkey-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/athene-noctua-cebeci-turkey-1.jpg": {
     "path": "images/species/athene-noctua-cebeci-turkey-1",
     "width": 2400,
     "height": 1625,
@@ -3920,7 +3920,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/athene-noctua-tencate-building-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/athene-noctua-tencate-building-1.jpg": {
     "path": "images/species/athene-noctua-tencate-building-1",
     "width": 2400,
     "height": 1600,
@@ -3935,7 +3935,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/athene-noctua-vassen-ambula-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/athene-noctua-vassen-ambula-1.jpg": {
     "path": "images/species/athene-noctua-vassen-ambula-1",
     "width": 2400,
     "height": 1800,
@@ -3950,7 +3950,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/athene-noctua-voikhansky-haifa-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/athene-noctua-voikhansky-haifa-1.jpg": {
     "path": "images/species/athene-noctua-voikhansky-haifa-1",
     "width": 2400,
     "height": 1800,
@@ -4113,7 +4113,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/coturnix-coturnix-atom-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-atom-1.jpg": {
     "path": "images/species/coturnix-coturnix-atom-1",
     "width": 1070,
     "height": 713,
@@ -4127,7 +4127,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/coturnix-coturnix-moning-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-1.jpg": {
     "path": "images/species/coturnix-coturnix-moning-1",
     "width": 1660,
     "height": 1250,
@@ -4142,7 +4142,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/coturnix-coturnix-moning-male-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-male-1.jpg": {
     "path": "images/species/coturnix-coturnix-moning-male-1",
     "width": 1600,
     "height": 1200,
@@ -4157,7 +4157,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/coturnix-coturnix-moning-wagenitz-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-wagenitz-1.jpg": {
     "path": "images/species/coturnix-coturnix-moning-wagenitz-1",
     "width": 1200,
     "height": 900,
@@ -4171,7 +4171,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/falco-peregrinus-flight-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/falco-peregrinus-flight-1.jpg": {
     "path": "images/species/falco-peregrinus-flight-1",
     "width": 1678,
     "height": 1118,
@@ -4186,7 +4186,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/falco-peregrinus-flight-2.jpg": {
+  "https://cdn.reptiles.ge/images/species/falco-peregrinus-flight-2.jpg": {
     "path": "images/species/falco-peregrinus-flight-2",
     "width": 2400,
     "height": 1800,
@@ -4201,7 +4201,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/falco-peregrinus-hunt-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/falco-peregrinus-hunt-1.jpg": {
     "path": "images/species/falco-peregrinus-hunt-1",
     "width": 1200,
     "height": 800,
@@ -4215,7 +4215,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/falco-peregrinus-juvenile-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/falco-peregrinus-juvenile-1.jpg": {
     "path": "images/species/falco-peregrinus-juvenile-1",
     "width": 828,
     "height": 568,
@@ -4229,7 +4229,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/falco-peregrinus-perch-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/falco-peregrinus-perch-1.jpg": {
     "path": "images/species/falco-peregrinus-perch-1",
     "width": 1938,
     "height": 1938,
@@ -4453,7 +4453,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/phasianus-colchicus-female-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/phasianus-colchicus-female-1.jpg": {
     "path": "images/species/phasianus-colchicus-female-1",
     "width": 1920,
     "height": 1280,
@@ -4468,7 +4468,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/phasianus-colchicus-male-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/phasianus-colchicus-male-1.jpg": {
     "path": "images/species/phasianus-colchicus-male-1",
     "width": 1920,
     "height": 1280,
@@ -4483,7 +4483,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/phasianus-colchicus-male-2.jpg": {
+  "https://cdn.reptiles.ge/images/species/phasianus-colchicus-male-2.jpg": {
     "path": "images/species/phasianus-colchicus-male-2",
     "width": 1920,
     "height": 1280,
@@ -4498,7 +4498,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/phasianus-colchicus-male-3.jpg": {
+  "https://cdn.reptiles.ge/images/species/phasianus-colchicus-male-3.jpg": {
     "path": "images/species/phasianus-colchicus-male-3",
     "width": 1920,
     "height": 1280,
@@ -4648,7 +4648,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-morffew-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-morffew-1.jpg": {
     "path": "images/species/streptopelia-turtur-morffew-1",
     "width": 2400,
     "height": 2380,
@@ -4663,7 +4663,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-popescu-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-popescu-1.jpg": {
     "path": "images/species/streptopelia-turtur-popescu-1",
     "width": 2400,
     "height": 2400,
@@ -4678,7 +4678,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-sharp-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-sharp-1.jpg": {
     "path": "images/species/streptopelia-turtur-sharp-1",
     "width": 2201,
     "height": 2201,
@@ -4693,7 +4693,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-sharp-flight-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-sharp-flight-1.jpg": {
     "path": "images/species/streptopelia-turtur-sharp-flight-1",
     "width": 2400,
     "height": 2400,
@@ -4708,7 +4708,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-veljkovic-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-veljkovic-1.jpg": {
     "path": "images/species/streptopelia-turtur-veljkovic-1",
     "width": 2400,
     "height": 1837,
@@ -4723,7 +4723,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-yuvalr-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-yuvalr-1.jpg": {
     "path": "images/species/streptopelia-turtur-yuvalr-1",
     "width": 2112,
     "height": 3168,
@@ -4738,7 +4738,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/streptopelia-turtur-zerocool-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-zerocool-1.jpg": {
     "path": "images/species/streptopelia-turtur-zerocool-1",
     "width": 2400,
     "height": 1800,
@@ -4753,7 +4753,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-amsel-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-amsel-1.jpg": {
     "path": "images/species/turdus-merula-amsel-1",
     "width": 1920,
     "height": 1437,
@@ -4768,7 +4768,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-karatavuk-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-karatavuk-1.jpg": {
     "path": "images/species/turdus-merula-karatavuk-1",
     "width": 2400,
     "height": 1572,
@@ -4783,7 +4783,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-krakow-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-krakow-1.jpg": {
     "path": "images/species/turdus-merula-krakow-1",
     "width": 1920,
     "height": 1282,
@@ -4798,7 +4798,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-merel-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-merel-1.jpg": {
     "path": "images/species/turdus-merula-merel-1",
     "width": 1920,
     "height": 1328,
@@ -4813,7 +4813,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-sharp-female.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-sharp-female.jpg": {
     "path": "images/species/turdus-merula-sharp-female",
     "width": 1920,
     "height": 1920,
@@ -4828,7 +4828,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-trepte-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-trepte-1.jpg": {
     "path": "images/species/turdus-merula-trepte-1",
     "width": 1280,
     "height": 960,
@@ -4843,7 +4843,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/turdus-merula-wills-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/turdus-merula-wills-1.jpg": {
     "path": "images/species/turdus-merula-wills-1",
     "width": 1920,
     "height": 1440,
@@ -4858,7 +4858,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/tyto-alba-bjoertvedt-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/tyto-alba-bjoertvedt-1.jpg": {
     "path": "images/species/tyto-alba-bjoertvedt-1",
     "width": 2400,
     "height": 1959,
@@ -4873,7 +4873,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/tyto-alba-legg-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/tyto-alba-legg-1.jpg": {
     "path": "images/species/tyto-alba-legg-1",
     "width": 2184,
     "height": 2400,
@@ -4888,7 +4888,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/tyto-alba-legg-face-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/tyto-alba-legg-face-1.jpg": {
     "path": "images/species/tyto-alba-legg-face-1",
     "width": 2400,
     "height": 2315,
@@ -4903,7 +4903,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/tyto-alba-vezenkovic-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/tyto-alba-vezenkovic-1.jpg": {
     "path": "images/species/tyto-alba-vezenkovic-1",
     "width": 2400,
     "height": 1800,
@@ -4918,7 +4918,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/tyto-alba-vezenkovic-guttata-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/tyto-alba-vezenkovic-guttata-1.jpg": {
     "path": "images/species/tyto-alba-vezenkovic-guttata-1",
     "width": 2400,
     "height": 1800,
