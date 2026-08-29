@@ -791,6 +791,11 @@
   "groupHubShared": {
     "breadcrumbHome": "მთავარი",
     "openProfile": "სრული პროფილი",
+    "openProfileNamed": "{name} — სრული პროფილი",
+    "turtleTypeLand": "ხმელეთი",
+    "turtleTypeWater": "მტკნარი წყალი",
+    "turtleStatusNative": "მშობლიური",
+    "turtleStatusIntroduced": "შემოყვანილი",
     "rangePending": "არეალი მზადდება",
     "ctaAllSpecies": "ყველა სახეობა",
     "ctaRegions": "რეგიონების ატლასი",
@@ -803,7 +808,7 @@
     "hubs": {
       "snakes": "გველები საქართველოში",
       "lizards": "ხვლიკები საქართველოში",
-      "turtles": "კუები",
+      "turtles": "კუები საქართველოში",
       "amphibians": "ამფიბიები",
       "birds": "ფრინველები საქართველოში",
       "mammals": "ძუძუმწოვრები საქართველოში"
@@ -959,7 +964,7 @@
         "eyebrow": "ამოცნობა",
         "title": "ეს რა კუა?",
         "body": "ხმელეთი vs წყალი, მშობლიური vs შემოტანილი — ნიშნები პროფილიდან.",
-        "cta": "ამოცნობის გიდი"
+        "cta": "კუს ამოცნობა"
       },
       "amphibianIndex": {
         "eyebrow": "კატალოგი",

@@ -791,6 +791,11 @@
   "groupHubShared": {
     "breadcrumbHome": "Home",
     "openProfile": "Full profile",
+    "openProfileNamed": "{name} — full profile",
+    "turtleTypeLand": "Land",
+    "turtleTypeWater": "Freshwater",
+    "turtleStatusNative": "Native",
+    "turtleStatusIntroduced": "Introduced",
     "rangePending": "Range pending",
     "ctaAllSpecies": "All species",
     "ctaRegions": "Regions atlas",
@@ -803,7 +808,7 @@
     "hubs": {
       "snakes": "Snakes in Georgia",
       "lizards": "Lizards in Georgia",
-      "turtles": "Turtles",
+      "turtles": "Turtles in Georgia",
       "amphibians": "Amphibians",
       "birds": "Birds in Georgia",
       "mammals": "Mammals in Georgia"
@@ -959,7 +964,7 @@
         "eyebrow": "ID",
         "title": "What turtle is this?",
         "body": "Land vs water, native vs introduced — traits from the profiles.",
-        "cta": "ID guide"
+        "cta": "Identify a turtle"
       },
       "amphibianIndex": {
         "eyebrow": "Catalog",
