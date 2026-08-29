@@ -1939,7 +1939,6 @@
       "shellPattern": "Shell pattern",
       "headMark": "Head mark",
       "neckMark": "Neck mark",
-      "plastron": "Plastron",
       "fieldMark": "Easiest field mark",
       "status": "Status"
     },
@@ -1950,7 +1949,6 @@
         "shellPattern": "Yellowish–brown, often dark blotches",
         "headMark": "Rounded head; keratinous beak",
         "neckMark": "—",
-        "plastron": "—",
         "fieldMark": "Dome + columnar legs (+ thigh spurs)",
         "status": "Native"
       },
@@ -1960,7 +1958,6 @@
         "shellPattern": "Dark; often yellow dots",
         "headMark": "Dark head with yellow dots; no red ear",
         "neckMark": "Dots / short streaks",
-        "plastron": "Movable hinge (Emys)",
         "fieldMark": "Dark shell + yellow dots; no red ear",
         "status": "Native"
       },
@@ -1970,7 +1967,6 @@
         "shellPattern": "More striped than speckled",
         "headMark": "No red ear",
         "neckMark": "Often pale lengthwise stripes",
-        "plastron": "Practically rigid",
         "fieldMark": "Lengthwise neck stripes; no red ear",
         "status": "Native"
       },
@@ -1980,7 +1976,6 @@
         "shellPattern": "Often bolder striping",
         "headMark": "T. s. elegans: broad red stripe behind eye",
         "neckMark": "—",
-        "plastron": "—",
         "fieldMark": "Red stripe behind the eye",
         "status": "Introduced"
       }
