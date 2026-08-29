@@ -22,6 +22,7 @@ type ClusterPageFrameProps = {
   ctaHash?: string;
   heroObjectClass?: string;
   stats?: ReactNode;
+  attributionSourcesHref?: string;
   children: ReactNode;
 };
 
@@ -31,6 +32,7 @@ export function ClusterPageFrame({
   ctaHash = "#content",
   heroObjectClass = "object-[50%_35%]",
   stats,
+  attributionSourcesHref,
   children,
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
@@ -152,7 +154,7 @@ export function ClusterPageFrame({
 
         <ClusterFaq guideId={guideId} />
 
-        <ContentAttribution />
+        <ContentAttribution sourcesHref={attributionSourcesHref} />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage
