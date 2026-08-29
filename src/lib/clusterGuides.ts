@@ -190,7 +190,7 @@ export type ClusterGuideConfig = {
   heroSpeciesId: string;
   heroImage?: string;
   matches: (species: Species) => boolean;
-  faqCount: 4 | 5;
+  faqCount: 4 | 5 | 8;
   schema: "collection" | "article";
   primaryCta: "hash" | "tel";
 };
@@ -347,8 +347,8 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "turtleIdentify",
     heroSpeciesId: "testudo-graeca",
     matches: isTurtleSpecies,
-    faqCount: 4,
-    schema: "article",
+    faqCount: 8,
+    schema: "collection",
     primaryCta: "hash",
   },
   "amphibian-index": {
@@ -471,9 +471,9 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
   turtles: [
     { kind: "page", href: "/turtles/saxeoebebi", key: "turtleIndex" },
+    { kind: "page", href: "/turtles/identifikacia", key: "turtleIdentify" },
     { kind: "page", href: "/turtles/xmelis-kuebi", key: "turtleLand" },
     { kind: "page", href: "/turtles/tsqlis-kuebi", key: "turtleWater" },
-    { kind: "page", href: "/turtles/identifikacia", key: "turtleIdentify" },
     { kind: "species", id: "testudo-graeca", key: "tortoise" },
     { kind: "species", id: "trachemys-scripta", key: "slider" },
   ],
