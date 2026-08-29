@@ -42,7 +42,6 @@ const MATRIX_ROWS = [
   "shellPattern",
   "headMark",
   "neckMark",
-  "plastron",
   "fieldMark",
   "status",
 ] as const;
