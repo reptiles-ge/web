@@ -8,7 +8,7 @@ alwaysApply: false
 
 1. Edit `src/content/species/{id}/ka.mdx` **and** `en.mdx`. Folder name = frontmatter `id`.
 2. KA owns `id`, taxonomy, `danger`, images, `sources`. EN translates text (credits may overlay).
-3. Run `npm run species:compile`. Never hand-edit `species.generated.ts`.
+3. Run `npm run species:compile` (also `predev` / `prebuild`). Never commit or hand-edit `species.generated.ts`.
 4. Register in `featuredSpeciesIds` (`src/data/species.ts`) and `speciesAtlasMeta` (`speciesAtlas.ts`).
 5. KA slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES`.
 6. Lookalikes: add both directions in `LOOKALIKES` (`speciesRoutes.ts`). No new YAML keys unless compile reads them.

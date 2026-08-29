@@ -41,5 +41,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+src/data/species.generated.ts
+
 tmp/
 *.tmp

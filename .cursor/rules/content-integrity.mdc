@@ -13,5 +13,5 @@ Public atlas of Georgia’s animals (KA canonical). Empty is better than invente
 - Bite/venom pages: educational, 112, no `MedicalWebPage`. Malpolon = Moderate, not გიურზა.
 - Photos: do not call CDN images Georgia-field-verified without evidence.
 - Both `ka.mdx` and `en.mdx` / both `messages/ka.json` and `en.json`. No code comments.
-- Do not edit `src/data/species.generated.ts`. Lookalikes live in `LOOKALIKES` (`speciesRoutes.ts`), not MDX YAML.
+- Do not commit or hand-edit `src/data/species.generated.ts` (gitignored; produced by compile). Lookalikes live in `LOOKALIKES` (`speciesRoutes.ts`), not MDX YAML.
 - No `/konservacia` routes. Quiz results must not become URLs. Map for agents: `AGENTS.md`.
