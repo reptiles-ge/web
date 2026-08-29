@@ -3534,7 +3534,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aegolius-funereus-moning-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aegolius-funereus-moning-1.jpg": {
     "path": "images/species/aegolius-funereus-moning-1",
     "width": 2048,
     "height": 1365,
@@ -3549,7 +3549,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aegolius-funereus-tencate-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-1.jpg": {
     "path": "images/species/aegolius-funereus-tencate-1",
     "width": 2127,
     "height": 2569,
@@ -3564,7 +3564,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aegolius-funereus-tencate-cavity-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-cavity-1.jpg": {
     "path": "images/species/aegolius-funereus-tencate-cavity-1",
     "width": 2400,
     "height": 1842,
@@ -3579,7 +3579,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aegolius-funereus-veronesi-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aegolius-funereus-veronesi-1.jpg": {
     "path": "images/species/aegolius-funereus-veronesi-1",
     "width": 766,
     "height": 1100,
@@ -3592,7 +3592,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aquila-chrysaetos-flight-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-1.jpg": {
     "path": "images/species/aquila-chrysaetos-flight-1",
     "width": 2400,
     "height": 3000,
@@ -3607,7 +3607,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aquila-chrysaetos-flight-2.jpg": {
+  "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-2.jpg": {
     "path": "images/species/aquila-chrysaetos-flight-2",
     "width": 2400,
     "height": 1600,
@@ -3622,7 +3622,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aquila-chrysaetos-juvenile-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-juvenile-1.jpg": {
     "path": "images/species/aquila-chrysaetos-juvenile-1",
     "width": 640,
     "height": 587,
@@ -3635,7 +3635,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/aquila-chrysaetos-perch-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-perch-1.jpg": {
     "path": "images/species/aquila-chrysaetos-perch-1",
     "width": 2400,
     "height": 1600,
@@ -3650,7 +3650,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/ciconia-ciconia-flight-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-flight-1.jpg": {
     "path": "images/species/ciconia-ciconia-flight-1",
     "width": 2400,
     "height": 1602,
@@ -3665,7 +3665,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/ciconia-ciconia-juvenile-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-juvenile-1.jpg": {
     "path": "images/species/ciconia-ciconia-juvenile-1",
     "width": 2400,
     "height": 1546,
@@ -3680,7 +3680,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/ciconia-ciconia-nest-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-nest-1.jpg": {
     "path": "images/species/ciconia-ciconia-nest-1",
     "width": 2400,
     "height": 1597,
@@ -3695,7 +3695,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/ciconia-ciconia-standing-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-1.jpg": {
     "path": "images/species/ciconia-ciconia-standing-1",
     "width": 2400,
     "height": 1600,
@@ -3710,7 +3710,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/ciconia-ciconia-standing-2.jpg": {
+  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-2.jpg": {
     "path": "images/species/ciconia-ciconia-standing-2",
     "width": 2004,
     "height": 3006,
@@ -3725,7 +3725,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/gyps-fulvus-colony-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/gyps-fulvus-colony-1.jpg": {
     "path": "images/species/gyps-fulvus-colony-1",
     "width": 2400,
     "height": 1800,
@@ -3740,7 +3740,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/gyps-fulvus-flight-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-1.jpg": {
     "path": "images/species/gyps-fulvus-flight-1",
     "width": 1748,
     "height": 1292,
@@ -3755,7 +3755,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/gyps-fulvus-flight-2.jpg": {
+  "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-2.jpg": {
     "path": "images/species/gyps-fulvus-flight-2",
     "width": 2400,
     "height": 1800,
@@ -3770,7 +3770,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/gyps-fulvus-flight-3.jpg": {
+  "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-3.jpg": {
     "path": "images/species/gyps-fulvus-flight-3",
     "width": 2400,
     "height": 1800,
@@ -3785,7 +3785,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/gyps-fulvus-head-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/gyps-fulvus-head-1.jpg": {
     "path": "images/species/gyps-fulvus-head-1",
     "width": 2400,
     "height": 1600,
@@ -3800,7 +3800,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/otus-scops-botanical-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/otus-scops-botanical-1.jpg": {
     "path": "images/species/otus-scops-botanical-1",
     "width": 2400,
     "height": 1805,
@@ -3815,7 +3815,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/otus-scops-jutial-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/otus-scops-jutial-1.jpg": {
     "path": "images/species/otus-scops-jutial-1",
     "width": 1939,
     "height": 1421,
@@ -3830,7 +3830,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/otus-scops-pakistan-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/otus-scops-pakistan-1.jpg": {
     "path": "images/species/otus-scops-pakistan-1",
     "width": 1991,
     "height": 1411,
@@ -3845,7 +3845,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/otus-scops-tashkent-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/otus-scops-tashkent-1.jpg": {
     "path": "images/species/otus-scops-tashkent-1",
     "width": 960,
     "height": 640,
@@ -3859,7 +3859,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/procyon-lotor-central-park-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/procyon-lotor-central-park-1.jpg": {
     "path": "images/species/procyon-lotor-central-park-1",
     "width": 2400,
     "height": 1880,
@@ -3874,7 +3874,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/procyon-lotor-female-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/procyon-lotor-female-1.jpg": {
     "path": "images/species/procyon-lotor-female-1",
     "width": 2372,
     "height": 1764,
@@ -3889,7 +3889,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/procyon-lotor-portrait-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/procyon-lotor-portrait-1.jpg": {
     "path": "images/species/procyon-lotor-portrait-1",
     "width": 1280,
     "height": 1080,
@@ -3904,7 +3904,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
-  "/images/species/procyon-lotor-tracks-1.jpg": {
+  "https://cdn.reptiles.ge/images/species/procyon-lotor-tracks-1.jpg": {
     "path": "images/species/procyon-lotor-tracks-1",
     "width": 2400,
     "height": 3585,

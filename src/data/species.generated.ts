@@ -400,14 +400,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური. დღისით იმალება ხის გვირგვინში ან ფუღუროში; ხშირად ჯერ ისმის, მერე ჩანს. ტერიტორიულია. მამლის ტერიტორიული ხმა სწრაფი, ერთნაირი სასტვენების სერიაა („პუ-პუ-პუ“), რომელიც რამდენიმე წამს გრძელდება და შეიძლება ბევრჯერ განმეორდეს; ეს ჩვეულებრივი ბუს რხევადი ჰუჰუსგან განსხვავდება. ბუდობს ხის ფუღუროში, სახეობის დონეზე ხშირად სხვა ფრინველის, მათ შორის კოდალას, ძველ ღრუებში; ხელოვნურ ყუთსაც იკავებს. ქართული ენციკლოპედია ნაყარს აპრილში 4–6 კვერცხს უთითებს და კრუხობას დაახლოებით ერთ თვეს; ეს ენციკლოპედიური ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. არეალის სხვა ნაწილებში ნაყარის ზომა მღრღნელების სიმრავლეს მიჰყვება. 2024 წლის ჩამონათვალი სახეობას საქართველოში მთელი წლის რეზიდენტად იღებს: შორ მანძილზე სეზონურ მიგრანტად არ არის მიჩნეული. ჩრდილოეთ პოპულაციებში ირუპტიული გადაადგილებაა ცნობილი, როცა ნადავლი იკლებს — ეს ქართული სტატუსი არ არის. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ.",
     "conservation": "BirdLife International Aegolius funereus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ ბუსნაირებიდან შეტანილია ბუხრინწა (Tyto alba, EN D1). საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. ქართული ენციკლოპედია სახეობას საქართველოში მცირერიცხოვან და იშვიათად მიიჩნევს; ეს ენციკლოპედიური შეფასებაა და არა IUCN-ის ეროვნული კატეგორია. სახეობის დონეზე დოკუმენტირებული წნეხია ძველი ტყის და ფუღუროიანი ხეების კარგვა; ეს საქართველოსთვის რანგირებული საფრთხის სია არ არის. CITES-ის II დანართშია — საერთაშორისო ვაჭრობა რეგულირდება. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის შხამი არ აქვს და უვნებელია, თუ არ მიეკარებით. ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/species/aegolius-funereus-veronesi-1.jpg",
+    "image": "https://cdn.reptiles.ge/images/species/aegolius-funereus-veronesi-1.jpg",
     "imageCredit": {
       "photographer": "Francesco Veronesi",
       "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
       "location": "ოულუ, ფინეთი",
       "date": "2015-01-15"
     },
-    "mobileImage": "/images/species/aegolius-funereus-moning-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/images/species/aegolius-funereus-moning-1.jpg",
     "mobileImageCredit": {
       "photographer": "Christoph Moning",
       "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
@@ -416,7 +416,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/aegolius-funereus-veronesi-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-veronesi-1.jpg",
         "credit": {
           "photographer": "Francesco Veronesi",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
@@ -425,7 +425,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aegolius-funereus-moning-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-moning-1.jpg",
         "credit": {
           "photographer": "Christoph Moning",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
@@ -434,7 +434,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aegolius-funereus-tencate-cavity-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-cavity-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
@@ -443,7 +443,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aegolius-funereus-tencate-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg",
@@ -938,14 +938,14 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. ტერიტორიული წყვილი ბუდობის ადგილს წლების განმავლობაში იკავებს; ერთ წყვილს შეიძლება რამდენიმე (ნაშრომში ოთხამდე) ბუდე ჰქონდეს და მონაცვლეობით გამოიყენოს. კავკასიაში აბულაძე და შერგალინი ხეზე ბუდობას არ აფიქსირებდნენ: ბუდეები მიუვალ კლდეებზე, ნიშებში და ტყის სარტყლის კანიონის კედლებზე იყო. წყვილები ბუდის ადგილზე თებერვლის ბოლოდან მარტის დასაწყისამდე ჩნდებიან; კვერცხი ძირითადად მარტის მეორე ნახევარში იდება, ინკუბაცია დაახლოებით 44–45 დღე. 41 კონტროლირებულ ნაყარში უმეტესად ორი კვერცხი იყო (საშუალო 1.85). გამოჩეკა მაისის პირველ ორ კვირაში; ბუდის დატოვება ივლისის ბოლოდან აგვისტოს დასაწყისამდე. წარმატებულ ბუდეებში მხოლოდ ერთი ბარტყი გადარჩა ბუდის დატოვებამდე (n = 43). 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარ რეზიდენტად იღებს და გავლით მიგრანტად არ კოდავს. ზამთარში კავკასიაში უფრო მომთაბარეა, ვიდრე ბუდობის სეზონზე. ხმა ხშირად იშვიათია; NPLG უთითებს ყივილს „კეკ-კეკ-კეკ“. ველური ფრინველი არ აიყვანოთ და ბუდეს არ მიუახლოვდეთ.",
     "conservation": "BirdLife International Aquila chrysaetos-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2021). 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს მთავრობის 2014 წლის დადგენილება №190 სახეობას წითელ ნუსხაში შეაქვს როგორც მთის არწივი, Aquila chrysaetus (ასეა დაწერილი დადგენილებაში), სტატუსით VU, კრიტერიუმი D1 (მცირე პოპულაცია). ეს სამართლებრივი ნუსხაა; 2024 წლის ორნითოლოგიური ჩამონათვალი მას ეროვნულად LC-ად კოდავს. ევროპის ფრინველების წითელი ნუსხის დანართი საქართველოსთვის უთითებს 25–35 მობუდარ წყვილს (2018–2019, ნაწილობრივი მეთოდი), მოკლევადიან ტენდენციას სტაბილურს (2005–2018) და გაურკვეველ გრძელვადიან ტენდენციას. აბულაძე და შერგალინი (2002) საქართველოში „არაუმეტეს 30“ მობუდარ წყვილს ასახელებდნენ, აღმოსავლეთ საქართველოს დიდი კავკასიონის სამხრეთ კალთაზე დაახლოებით 20 წყვილით; 1990-იან წლებში შესაძლო ზრდას 35–40-მდე განიხილავდნენ. 2020-იანი წლების სრული ეროვნული აღწერა ამ გვერდზე არ არის. იმავე ნაშრომში ისტორიული კლება უკავშირდება 1940–1970 წლებს, საკვების კლებას, მახეებს, მოწამლულ სატყუარას, ბუდის ადგილების შეწუხებას და მტაცებელი ფრინველების განადგურების კამპანიას; 2002 წლისთვის მთავარ საფრთხედ რჩებოდა უკანონო სროლა, მახეები და შხამი. ველური ფრინველი არ დაიჭიროთ და არ მოკლათ.",
     "interaction": "ჩვეულ შეხვედრაზე ადამიანისთვის საფრთხეს არ წარმოადგენს. დიდი ბრჭყალები აქვს; ბუდესთან წყვილი აგრესიულია. არ აიყვანოთ და ბუდეს არ მიუახლოვდეთ. შხამიანი არ არის. წითელ ნუსხაში შეტანილი სახეობის დაჭერა ან მოკვლა კანონით იკრძალება.",
-    "image": "/images/species/aquila-chrysaetos-perch-1.jpg",
+    "image": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-perch-1.jpg",
     "imageCredit": {
       "photographer": "Juan Lacruz",
       "url": "https://commons.wikimedia.org/wiki/File:Chrysaetos_La_Ca%C3%B1ada_20120114_1.jpg",
       "location": "ლა კანიადა, ავილა",
       "date": "2012-01-14"
     },
-    "mobileImage": "/images/species/aquila-chrysaetos-flight-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-1.jpg",
     "mobileImageCredit": {
       "photographer": "Giles Laurent",
       "url": "https://commons.wikimedia.org/wiki/File:015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
@@ -954,7 +954,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/aquila-chrysaetos-perch-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-perch-1.jpg",
         "credit": {
           "photographer": "Juan Lacruz",
           "url": "https://commons.wikimedia.org/wiki/File:Chrysaetos_La_Ca%C3%B1ada_20120114_1.jpg",
@@ -963,7 +963,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aquila-chrysaetos-flight-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-1.jpg",
         "credit": {
           "photographer": "Giles Laurent",
           "url": "https://commons.wikimedia.org/wiki/File:015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
@@ -972,7 +972,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aquila-chrysaetos-flight-2.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-2.jpg",
         "credit": {
           "photographer": "Giles Laurent",
           "url": "https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
@@ -981,7 +981,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/aquila-chrysaetos-juvenile-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-juvenile-1.jpg",
         "credit": {
           "photographer": "Steve Maliszewski",
           "url": "https://commons.wikimedia.org/wiki/File:Aquila_chrysaetos_-_Juvenile_Golden_Eagle_-_Isle_of_Arran_Scotland.jpg",
@@ -1071,7 +1071,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; ბუდეს არ მიუახლოვდეთ. გლობალურად LC-ია. 2014 წლის წითელ ნუსხაში VU D1-ია; 2024 წლის ჩამონათვალი ეროვნულად LC-ს უთითებს. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:38:10+04:00",
+    "updatedAt": "2026-08-29T10:53:34+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -2810,14 +2810,14 @@ export const species: Species[] = [
     "behavior": "დღის აქტიურია. ხშირად ჯგუფურად ან წყვილად დაფრინავს მაღალ სვრილზე, კისერი გაშლილია და არა S-ებურად ჩაკეცილი, როგორც ყანჩას. ბუდესთან მთავარი ხმა ნისკარტის კაკუნია, არა სიმღერა. ამ გვერდზე ქართული ჩანაწერი არ არის; მოცემულია xeno-canto XC1103936 (Petter Westberg, ფულტოფტა, ჰერბი, სკონე, შვედეთი). საკუთარ ბუდეს აშენებს: დიდი ტოტების გროვა დასახლების საყრდენზე, ხშირად რამდენიმე წყვილი ერთ დასახლებაში. 2024 წლის აღწერაში 202 დაკავებული ბუდოდან უმეტესობას ორი ან სამი ბარტყი ჰყავდა; ოთხი ბარტყი იშვიათი იყო. კვერცხის რაოდენობა, ინკუბაციის ხანგრძლივობა და გამოფრენის ასაკი საქართველოში ცალკე აქ არ არის გაზომილი. სახეობის დონის სახელმძღვანელოები ხშირად დაახლოებით სამ კვერცხს, დაახლოებით ერთთვიან ინკუბაციას და დაახლოებით ორთვიან ბარტყობას უთითებენ — ეს არ არის ქართული სერია. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარად და მიგრანტად იღებს, არა მოზამთრედ. ადგილობრივი პოპულაციის ზამთრის სადგომები თანამგზავრული მონიშვნით ამ გვერდზე არ არის რუკაზე. სახეობის დონეზე დასავლეთ პალეარქტიკის ფრინველები ძირითადად აფრიკაში იზამთრებენ; ეს ქართული ფრინველების დადასტურებული მარშრუტი არ არის. ზუსტი ჩამოსვლისა და წასვლის თარიღები საქართველოსთვის აქ არ არის ცხრილად.",
     "conservation": "BirdLife International Ciconia ciconia-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2025 წლის შეფასება). გლობალური არეალი და პოპულაცია დიდია. საქართველოში ორი შეფასება ერთმანეთს არ ემთხვევა და ორივე უნდა წაიკითხოს. 2014 წლის წითელი ნუსხა (დადგენილება №190) სახეობას შეტანილად ტოვებს როგორც ლაკლაკი, VU, კრიტერიუმი D1 (მცირე პოპულაცია) — ეს მოქმედი სამართლებრივი ნუსხაა ამ გვერდის წყაროებში. 2024 წლის ორნითოლოგიური ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. 2024 წლის აღწერამ 202 დაკავებული ბუდო დააფიქსირა, 2018–2020 წლების 105-თან შედარებით; 23 განმეორებით აღწერილ დასახლებაში 40%-იანი ზრდა სტატისტიკურად მნიშვნელოვანი არ იყო. უფრო ძველი ციფრებია: 1984-ში 74 დაკავებული ბუდო, 1994–1995-ში დაახლოებით 60 წყვილი, 2013–2014-ში 104. ნაშრომი მომავალ საფრთხედ ასახელებს ქარის ენერგიის განვითარებას სამცხე–ჯავახეთში, სადაც დიდი მფრინავი ფრინველები რისკის ქვეშ არიან. ელექტროგადამცემ ხაზებზე დარტყმა სახეობის დონეზე ცნობილია; საქართველოსთვის ცალკე დანაკარგის სტატისტიკა აქ არ არის. ევროკავშირის ფრინველების დირექტივა საქართველოში არ მოქმედებს. ველური ფრინველი და ბუდე არ დაარღვიოთ.",
     "interaction": "ადამიანისთვის საფრთხეს არ წარმოადგენს; შხამიანი არ არის. საქართველოში ბუდობს სოფლებში, ამიტომ ადამიანთან სიახლოვე ჩვეულებრივია. ნისკარტი ძლიერია — არ მიიხედოთ, არ აჭამოთ და ბარტყები არ აიყვანოთ. ბუდის გადატანა ან ხაზიდან ჩამოგდება სპეციალისტის საქმეა, არა შემთხვევითი ჩარევის.",
-    "image": "/images/species/ciconia-ciconia-standing-1.jpg",
+    "image": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-1.jpg",
     "imageCredit": {
       "photographer": "Lidine Mia",
       "url": "https://commons.wikimedia.org/wiki/File:Cigogne_blanche_(Ciconia_ciconia)_-_4278.jpg",
       "location": "ბრუშის არხი",
       "date": "2018-06-30"
     },
-    "mobileImage": "/images/species/ciconia-ciconia-standing-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-2.jpg",
     "mobileImageCredit": {
       "photographer": "Charles J. Sharp",
       "url": "https://commons.wikimedia.org/wiki/File:White_stork_(Ciconia_ciconia)_standing.jpg",
@@ -2826,7 +2826,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/ciconia-ciconia-standing-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-1.jpg",
         "credit": {
           "photographer": "Lidine Mia",
           "url": "https://commons.wikimedia.org/wiki/File:Cigogne_blanche_(Ciconia_ciconia)_-_4278.jpg",
@@ -2835,7 +2835,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-standing-2.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-2.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:White_stork_(Ciconia_ciconia)_standing.jpg",
@@ -2844,7 +2844,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-flight-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-flight-1.jpg",
         "credit": {
           "photographer": "Jakub Hałun",
           "url": "https://commons.wikimedia.org/wiki/File:Ciconia_ciconia_in_flight,_Rust,_Burgenland,_Austria,_20220425_1342_5091.jpg",
@@ -2853,7 +2853,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-nest-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-nest-1.jpg",
         "credit": {
           "photographer": "Bartosz Czarnecki",
           "url": "https://commons.wikimedia.org/wiki/File:Ciconia_ciconia_nest_Czarniz.jpg",
@@ -2862,7 +2862,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-juvenile-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-juvenile-1.jpg",
         "credit": {
           "photographer": "Gzen92",
           "url": "https://commons.wikimedia.org/wiki/File:Cigogne_blanche_juv%C3%A9nile_(Ciconia_ciconia).jpg",
@@ -2952,7 +2952,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელ ნუსხაში შეტანილია VU-დ (ლაკლაკი). 2024 წლის ჩამონათვალი ეროვნულად LC-ს უთითებს. ველური ფრინველი და ბუდე არ დაარღვიოთ."
       }
     ],
-    "updatedAt": "2026-08-28T20:38:10+04:00",
+    "updatedAt": "2026-08-29T10:53:34+04:00",
     "sources": [
       {
         "name": "Budagashvili, Shoshitashvili & Uguzashvili 2024 — White Storks in Georgia (Caucasiana 3)",
@@ -8132,14 +8132,14 @@ export const species: Species[] = [
     "conservation": "BirdLife International Gyps fulvus-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს (2021). 2024 წლის ქართული ჩამონათვალი გლობალურ კატეგორიად LC-ს უთითებს, ეროვნულად — NT-ს. საქართველოს მთავრობის 2014 წლის დადგენილება №190 სახეობას წითელ ნუსხაში შეაქვს როგორც ორბი, Gyps fulvus Hablizl, 1783, სტატუსით VU, კრიტერიუმი D1 (მცირე პოპულაცია). ეს სამართლებრივი ნუსხაა; 2024 წლის ორნითოლოგიური ჩამონათვალი მას ეროვნულად NT-ად კოდავს. ევროპის ფრინველების წითელი ნუსხის დანართი საქართველოსთვის უთითებს 120–1 300 მობუდარ წყვილს (2013–2017, ნაწილობრივი მეთოდი) და მოკლევადიან მზარდ ტენდენციას (2005–2017, ნაწილობრივი); გრძელვადიანი ტენდენცია უცნობია. ეს წყვილების დიაპაზონი ნაწილობრივი შეფასებაა და არა სრული აღწერა. ზემოთ მოცემული რიცხვები კოლონიების ნიმუშია. აბულაძე (2014), Birds of the World-ის ციტირებით, საქართველოში 1973 წლიდან ბრაკონიერების მიერ მოკლულ 11 ფრინველს ასახელებს. ვაშლოვანის ანგარიში მოწამვლას, შეწუხებას, საკვების ნაკლებობას, საბუდარ ადგილზე კონკურენციასა და ჰაბიტატის ცვლილებას ზოგადად ორბების კლების ფაქტორებად ასახელებს; ეროვნულ დანაკარგს არ ზომავს. ველური ფრინველი არ დაიჭიროთ და არ მოკლათ.",
     "interaction": "ჩვეულ შეხვედრაზე ადამიანისთვის საფრთხეს არ წარმოადგენს. შხამიანი არ არის. ნისკარტი მძორზეა გათვლილი; არ აიყვანოთ. კოლონიები ვიზიტორებზე მგრძნობიარეა. ბუდეს არ მიუახლოვდეთ. წითელ ნუსხაში შეტანილი სახეობის დაჭერა ან მოკვლა კანონით იკრძალება. მოწამლული სატყუარა ლეშიჭამიებისთვის პირდაპირი რისკია.",
     "danger": "Harmless",
-    "image": "/images/species/gyps-fulvus-flight-1.jpg",
+    "image": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-1.jpg",
     "imageCredit": {
       "photographer": "BirdingInSpain",
       "url": "https://commons.wikimedia.org/wiki/File:Griffon_Vulture,_Gyps_fulvus,_in_flight.jpg",
       "location": "მონსეკი, ლერიდა",
       "date": "2010-01-24"
     },
-    "mobileImage": "/images/species/gyps-fulvus-flight-2.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-2.jpg",
     "mobileImageCredit": {
       "photographer": "Artemy Voikhansky",
       "url": "https://commons.wikimedia.org/wiki/File:The_flight_of_a_griffon.jpg",
@@ -8148,7 +8148,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/gyps-fulvus-flight-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-1.jpg",
         "credit": {
           "photographer": "BirdingInSpain",
           "url": "https://commons.wikimedia.org/wiki/File:Griffon_Vulture,_Gyps_fulvus,_in_flight.jpg",
@@ -8157,7 +8157,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-flight-2.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-2.jpg",
         "credit": {
           "photographer": "Artemy Voikhansky",
           "url": "https://commons.wikimedia.org/wiki/File:The_flight_of_a_griffon.jpg",
@@ -8166,7 +8166,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-head-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-head-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Griffon_vulture_(Gyps_fulvus).jpg",
@@ -8175,7 +8175,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-colony-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-colony-1.jpg",
         "credit": {
           "photographer": "Juan Arrago",
           "url": "https://commons.wikimedia.org/wiki/File:20240606_173239_DSCN0826_colonia_de_buitres_leonados_en_la_Hoz_del_Durat%C3%B3n.jpg",
@@ -8184,7 +8184,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-flight-3.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-3.jpg",
         "credit": {
           "photographer": "Juan Arrago",
           "url": "https://commons.wikimedia.org/wiki/File:20240606_171157_DSCN0805_Buitre_leonado_vuelo_Hoz_de_Durat%C3%B3n.jpg",
@@ -8267,7 +8267,7 @@ export const species: Species[] = [
         "answer": "ჩვეულ შეხვედრაზე უვნებელია; კოლონიას არ მიუახლოვდეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა. 2014 წლის წითელი ნუსხა VU D1-ია; 2024 წლის ჩამონათვალი ეროვნულად NT-ს უთითებს. ველური ფრინველი არ აიყვანოთ."
       }
     ],
-    "updatedAt": "2026-08-28T22:28:10+04:00",
+    "updatedAt": "2026-08-29T10:53:34+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -12202,14 +12202,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამითაა აქტიური, განსაკუთრებით მზის ჩასვლიდან შუაღამემდე. დღისით ტოტზე დგას გასწორებული, ყურის კონები ხშირად ჩაკეცილია; ქერქის ფერს ემთხვევა და ხშირად ჯერ ისმის, მერე ჩანს. მამლის ტერიტორიული ხმა მოკლე, ერთმარცვლიანი სასტვენია, რომელიც ყოველ ორ-სამ წამში მეორდება და შეიძლება ათეულ წუთს გაგრძელდეს; მდედრის ხმა მსგავსია, ოდნავ მაღალი. საქართველოში ზაფხულის ღამეს ეს მონოტონური სასტვენი ამოცნობის მთავარი ნიშანია. ბუდობს ხის ფუღუროში, იშვიათად კედლის ღრუებსა ან სხვა ფრინველის ძველ ბუდეში; ხელოვნურ ყუთსაც იკავებს. სახეობის დონეზე ნაყარი ხშირად სამი-ხუთი თეთრი კვერცხია; კრუხობს ძირითადად მდედრი, დაახლოებით 24–25 დღე. ნაშიერი ბუდეს დაახლოებით სამ-ოთხ კვირაში ტოვებს. ეს ფართო არეალის ციფრებია და არა ამ გვერდზე ქართული ბუდეების ნიმუში. 2024 წლის ჩამონათვალი სახეობას საქართველოში მობუდარ მიგრანტად იღებს: ზამთარში ადგილზე არ რჩება. არეალის სხვა ნაწილებში ევროპული პოპულაციები ძირითადად საჰარის სამხრეთით იზამთრებენ; ხმელთაშუაზღვისპირეთის ნაწილი რეზიდენტია — ეს ქართული სტატუსი არ არის. თუ შეხვდებით, დატოვეთ ადგილზე და არ აიყვანოთ.",
     "conservation": "BirdLife International Otus scops-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებს. 2024 წლის ქართული ჩამონათვალი გლობალურ და ეროვნულ კატეგორიად LC-ს უთითებს. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის; იქ ბუსნაირებიდან შეტანილია ბუხრინწა (Tyto alba, EN D1). საქართველოს პოპულაციის ტენდენცია ამ გვერდზე არ არის გაზომილი. სახეობის დონეზე დოკუმენტირებული წნეხია ჰაბიტატის დაკარგვა და ფრაგმენტაცია, მწერების შემცირება პესტიციდებით და ფუღუროიანი ხეების კარგვა; ეს საქართველოსთვის რანგირებული საფრთხის სია არ არის. CITES-ის II დანართშია — საერთაშორისო ვაჭრობა რეგულირდება. ველური ფრინველი არ დაიჭიროთ.",
     "interaction": "ადამიანისთვის შხამი არ აქვს და უვნებელია, თუ არ მიეკარებით. ველური ფრინველის დაჭერა არ შეიძლება.",
-    "image": "/images/species/otus-scops-jutial-1.jpg",
+    "image": "https://cdn.reptiles.ge/images/species/otus-scops-jutial-1.jpg",
     "imageCredit": {
       "photographer": "Imran Shah",
       "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
       "location": "ჯუტიალი, გილგიტი",
       "date": "2017-05-31"
     },
-    "mobileImage": "/images/species/otus-scops-botanical-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/images/species/otus-scops-botanical-1.jpg",
     "mobileImageCredit": {
       "photographer": "Carpodacus",
       "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
@@ -12218,7 +12218,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/otus-scops-jutial-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-jutial-1.jpg",
         "credit": {
           "photographer": "Imran Shah",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
@@ -12227,7 +12227,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/otus-scops-botanical-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-botanical-1.jpg",
         "credit": {
           "photographer": "Carpodacus",
           "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
@@ -12236,7 +12236,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/otus-scops-pakistan-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-pakistan-1.jpg",
         "credit": {
           "photographer": "Imran Shah",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(50276324636).jpg",
@@ -12245,7 +12245,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/otus-scops-tashkent-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-tashkent-1.jpg",
         "credit": {
           "photographer": "Ron Knight",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops_Owl_(Otus_scops)_(8079442507).jpg",
@@ -12336,7 +12336,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T23:53:26+04:00",
+    "updatedAt": "2026-08-29T10:53:34+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -13867,14 +13867,14 @@ export const species: Species[] = [
     "behavior": "ძირითადად ღამით და შებინდებისასაა აქტიური; დღისითაც ჩანს. კარგად ცურავს და ხეზე ადის. წინა თათები ხუთთითიანი და ძალიან მოქნილია; კვალი ადამიანის პატარა ხელის ანაბეჭდს ჰგავს. ბუდობს ფუღუროში, სოროში, კლდის ნაპრალში ან შენობის სხვენში. ნამდვილი ზამთრის ძილი არ აქვს; ცივ ამინდში აქტივობა იკლებს და დიდხანს შეიძლება ბუნაგში დარჩეს. სახეობის დონეზე შეჯვარება ხშირად ზამთრის ბოლოსა და ადრე გაზაფხულზეა; ლეკვები (ხშირად 2–5, ლიტერატურაში 1–7) გაზაფხულზე იბადებიან, ორსულობა დაახლოებით 63 დღე. ეს ციფრები ფართო არეალიდანაა და არა ქართული ბუდობის ნიმუში. შუამთის ფოტო (დედალი სამი ლეკვით) და ლაგოდეხის ახალგაზრდა ინდივიდები გამრავლებას ადასტურებენ, მაგრამ ეროვნული კალენდარი აქ არ არის.",
     "conservation": "Timm და თანაავტორები Procyon lotor-ს IUCN Red List-ზე ნაკლებად საფრთხის ქვეშ აფასებენ (2016); ეს გლობალური სტატუსია მშობლიურ არეალზე და არ ნიშნავს, რომ საქართველოში დაცვა სჭირდება. Saveljev et al. 2021 აღნიშნავენ, რომ IUCN-ის იმ შეფასების რუკა ევრაზიულ ინტროდუქციას სრულად არ ასახავს. Eliava et al. 2007 საქართველოში შემოტანილ სახეობად ასახელებს და იმ სიაში DD-ს უთითებს; ეს 2007 წლის ეროვნული მონაცემთა შეფასებაა და არა 2014 წლის წითელი ნუსხის კატეგორია. დადგენილება №190-ში არ არის. ევროკავშირში კავშირის საზრუნავის ინვაზიურ სახეობათა ნუსხაშია; ეს რეგულაცია საქართველოში პირდაპირ არ მოქმედებს. CITES-ის დანართებში სახეობის დონეზე არ არის. იორის ჭალების 2020 წლის გეგმა მას ინვაზიურ ნადირობის ობიექტად ასახელებს; მოქმედი სეზონი და კვოტა ოფიციალური წესით უნდა შემოწმდეს. ეკოლოგიური როლი საქართველოში ინვაზიური მეზოპრედატორია: კონკურენცია მშობლიურ მტაცებლებთან და ზეწოლა მიწაზე მობუდარ ფრინველსა და ამფიბიებზე დასახელებულია, მაგრამ ეროვნული ზემოქმედების ციფრი აქ არ არის. ველური ცხოველი არ აიყვანოთ და ნუ გაუშვებთ შინაურ ენოტს ბუნებაში.",
     "interaction": "შხამი არ აქვს. შეიძლება უკბინოს, განსაკუთრებით თუ კუთხეშია მოქცეული ან ლეკვებს იცავს. ნაკბენი ან ნერწყვი შეიძლება ცოფის რისკი იყოს; საქართველოში ცოფის დოკუმენტირებული წყაროები ამ გვერდზე ძირითადად სხვა გარეულ ხორცისმჭამელებზეა და არა ამ სახეობის ეროვნულ კვლევაზე. არ აჭმიოთ და არ აიყვანოთ. ძაღლები აცერით. დაუცველ ეზოში შეიძლება ქათამი, კვერცხი ან ნაყოფი წაიღოს. მშობლიურ არეალში ცნობილია ენოტის მრგვალი ჭია (Baylisascaris procyonis); საქართველოში ამ პარაზიტის არსებობა ამ გვერდზე არ არის დადასტურებული.",
-    "image": "/images/species/procyon-lotor-central-park-1.jpg",
+    "image": "https://cdn.reptiles.ge/images/species/procyon-lotor-central-park-1.jpg",
     "imageCredit": {
       "photographer": "Rhododendrites",
       "url": "https://commons.wikimedia.org/wiki/File:Raccoon_in_Central_Park_(35264).jpg",
       "location": "ცენტრალური პარკი",
       "date": "2022-09-03"
     },
-    "mobileImage": "/images/species/procyon-lotor-female-1.jpg",
+    "mobileImage": "https://cdn.reptiles.ge/images/species/procyon-lotor-female-1.jpg",
     "mobileImageCredit": {
       "photographer": "D. Gordon E. Robertson",
       "url": "https://commons.wikimedia.org/wiki/File:Raccoon_female.jpg",
@@ -13883,7 +13883,7 @@ export const species: Species[] = [
     },
     "gallery": [
       {
-        "src": "/images/species/procyon-lotor-central-park-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-central-park-1.jpg",
         "credit": {
           "photographer": "Rhododendrites",
           "url": "https://commons.wikimedia.org/wiki/File:Raccoon_in_Central_Park_(35264).jpg",
@@ -13892,7 +13892,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/procyon-lotor-female-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-female-1.jpg",
         "credit": {
           "photographer": "D. Gordon E. Robertson",
           "url": "https://commons.wikimedia.org/wiki/File:Raccoon_female.jpg",
@@ -13901,7 +13901,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/procyon-lotor-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-portrait-1.jpg",
         "credit": {
           "photographer": "Darkone",
           "url": "https://commons.wikimedia.org/wiki/File:Raccoon_(Procyon_lotor)_2.jpg",
@@ -13909,7 +13909,7 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "/images/species/procyon-lotor-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-tracks-1.jpg",
         "credit": {
           "photographer": "Gormo",
           "url": "https://commons.wikimedia.org/wiki/File:Procyon_lotor_tracks_in_mud.jpg",
@@ -14024,7 +14024,7 @@ export const species: Species[] = [
         "answer": "გლობალურად ნაკლებად საფრთხის ქვეშაა, მაგრამ საქართველოში შემოტანილი ინვაზიური სახეობაა და 2014 წლის წითელ ნუსხაში არ არის. დაცვა აქ არ სჭირდება; პრიორიტეტია მონიტორინგი და კონფლიქტის შემცირება."
       }
     ],
-    "updatedAt": "2026-08-28T22:59:26+04:00",
+    "updatedAt": "2026-08-29T10:53:34+04:00",
     "sources": [
       {
         "name": "Timm et al. 2016 — IUCN Red List, Procyon lotor",
@@ -18181,7 +18181,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/aegolius-funereus-veronesi-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-veronesi-1.jpg",
         "credit": {
           "photographer": "Francesco Veronesi",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_(Tengmalm%27s_Owl),_Oulu,_Finland.jpg",
@@ -18190,7 +18190,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aegolius-funereus-moning-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-moning-1.jpg",
         "credit": {
           "photographer": "Christoph Moning",
           "url": "https://commons.wikimedia.org/wiki/File:Aegolius_funereus_funereus_(Tengmalm%27s_Owl),_Lindberg,_Germany_1.jpg",
@@ -18199,7 +18199,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aegolius-funereus-tencate-cavity-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-cavity-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Ruigpootuil_-_Tengmalm%27s_owl_-_Aegolius_funereus_3.jpg",
@@ -18208,7 +18208,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aegolius-funereus-tencate-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-1.jpg",
         "credit": {
           "photographer": "Bouke ten Cate",
           "url": "https://commons.wikimedia.org/wiki/File:Tengmalm%27s_owl_(Aegolius_funereus).jpg",
@@ -18549,7 +18549,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/aquila-chrysaetos-perch-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-perch-1.jpg",
         "credit": {
           "photographer": "Juan Lacruz",
           "url": "https://commons.wikimedia.org/wiki/File:Chrysaetos_La_Ca%C3%B1ada_20120114_1.jpg",
@@ -18558,7 +18558,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aquila-chrysaetos-flight-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-1.jpg",
         "credit": {
           "photographer": "Giles Laurent",
           "url": "https://commons.wikimedia.org/wiki/File:015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
@@ -18567,7 +18567,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aquila-chrysaetos-flight-2.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-flight-2.jpg",
         "credit": {
           "photographer": "Giles Laurent",
           "url": "https://commons.wikimedia.org/wiki/File:016_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_(Switzerland)_Photo_by_Giles_Laurent.jpg",
@@ -18576,7 +18576,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/aquila-chrysaetos-juvenile-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/aquila-chrysaetos-juvenile-1.jpg",
         "credit": {
           "photographer": "Steve Maliszewski",
           "url": "https://commons.wikimedia.org/wiki/File:Aquila_chrysaetos_-_Juvenile_Golden_Eagle_-_Isle_of_Arran_Scotland.jpg",
@@ -19748,7 +19748,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/ciconia-ciconia-standing-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-1.jpg",
         "credit": {
           "photographer": "Lidine Mia",
           "url": "https://commons.wikimedia.org/wiki/File:Cigogne_blanche_(Ciconia_ciconia)_-_4278.jpg",
@@ -19757,7 +19757,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-standing-2.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-standing-2.jpg",
         "credit": {
           "photographer": "Charles J. Sharp",
           "url": "https://commons.wikimedia.org/wiki/File:White_stork_(Ciconia_ciconia)_standing.jpg",
@@ -19766,7 +19766,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-flight-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-flight-1.jpg",
         "credit": {
           "photographer": "Jakub Hałun",
           "url": "https://commons.wikimedia.org/wiki/File:Ciconia_ciconia_in_flight,_Rust,_Burgenland,_Austria,_20220425_1342_5091.jpg",
@@ -19775,7 +19775,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-nest-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-nest-1.jpg",
         "credit": {
           "photographer": "Bartosz Czarnecki",
           "url": "https://commons.wikimedia.org/wiki/File:Ciconia_ciconia_nest_Czarniz.jpg",
@@ -19784,7 +19784,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/ciconia-ciconia-juvenile-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/ciconia-ciconia-juvenile-1.jpg",
         "credit": {
           "photographer": "Gzen92",
           "url": "https://commons.wikimedia.org/wiki/File:Cigogne_blanche_juv%C3%A9nile_(Ciconia_ciconia).jpg",
@@ -23536,7 +23536,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/gyps-fulvus-flight-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-1.jpg",
         "credit": {
           "photographer": "BirdingInSpain",
           "url": "https://commons.wikimedia.org/wiki/File:Griffon_Vulture,_Gyps_fulvus,_in_flight.jpg",
@@ -23545,7 +23545,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-flight-2.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-2.jpg",
         "credit": {
           "photographer": "Artemy Voikhansky",
           "url": "https://commons.wikimedia.org/wiki/File:The_flight_of_a_griffon.jpg",
@@ -23554,7 +23554,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-head-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-head-1.jpg",
         "credit": {
           "photographer": "Alexis Lours",
           "url": "https://commons.wikimedia.org/wiki/File:Griffon_vulture_(Gyps_fulvus).jpg",
@@ -23563,7 +23563,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-colony-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-colony-1.jpg",
         "credit": {
           "photographer": "Juan Arrago",
           "url": "https://commons.wikimedia.org/wiki/File:20240606_173239_DSCN0826_colonia_de_buitres_leonados_en_la_Hoz_del_Durat%C3%B3n.jpg",
@@ -23572,7 +23572,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/gyps-fulvus-flight-3.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/gyps-fulvus-flight-3.jpg",
         "credit": {
           "photographer": "Juan Arrago",
           "url": "https://commons.wikimedia.org/wiki/File:20240606_171157_DSCN0805_Buitre_leonado_vuelo_Hoz_de_Durat%C3%B3n.jpg",
@@ -26431,7 +26431,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/otus-scops-jutial-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-jutial-1.jpg",
         "credit": {
           "photographer": "Imran Shah",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(35671157991).jpg",
@@ -26440,7 +26440,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/otus-scops-botanical-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-botanical-1.jpg",
         "credit": {
           "photographer": "Carpodacus",
           "url": "https://commons.wikimedia.org/wiki/File:Otus_scops_botanical_garden.jpg",
@@ -26449,7 +26449,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/otus-scops-pakistan-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-pakistan-1.jpg",
         "credit": {
           "photographer": "Imran Shah",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops-owl_(Otus_scops)_(50276324636).jpg",
@@ -26458,7 +26458,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/otus-scops-tashkent-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/otus-scops-tashkent-1.jpg",
         "credit": {
           "photographer": "Ron Knight",
           "url": "https://commons.wikimedia.org/wiki/File:Eurasian_Scops_Owl_(Otus_scops)_(8079442507).jpg",
@@ -27569,7 +27569,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     ],
     "gallery": [
       {
-        "src": "/images/species/procyon-lotor-central-park-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-central-park-1.jpg",
         "credit": {
           "photographer": "Rhododendrites",
           "url": "https://commons.wikimedia.org/wiki/File:Raccoon_in_Central_Park_(35264).jpg",
@@ -27578,7 +27578,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/procyon-lotor-female-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-female-1.jpg",
         "credit": {
           "photographer": "D. Gordon E. Robertson",
           "url": "https://commons.wikimedia.org/wiki/File:Raccoon_female.jpg",
@@ -27587,7 +27587,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/procyon-lotor-portrait-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-portrait-1.jpg",
         "credit": {
           "photographer": "Darkone",
           "url": "https://commons.wikimedia.org/wiki/File:Raccoon_(Procyon_lotor)_2.jpg",
@@ -27595,7 +27595,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         }
       },
       {
-        "src": "/images/species/procyon-lotor-tracks-1.jpg",
+        "src": "https://cdn.reptiles.ge/images/species/procyon-lotor-tracks-1.jpg",
         "credit": {
           "photographer": "Gormo",
           "url": "https://commons.wikimedia.org/wiki/File:Procyon_lotor_tracks_in_mud.jpg",
