@@ -336,6 +336,15 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                   {tShared("ctaAllSpecies")}
                   <ArrowRight className="size-4" />
                 </Link>
+                {hubId === "turtles" ? (
+                  <Link
+                    href="/turtles/identifikacia"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  >
+                    {t("ctaIdentify")}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                ) : null}
                 <Link
                   href="/regions"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
