@@ -1,0 +1,20 @@
+---
+description: Species MDX pipeline, catalog registration, and profile fields
+globs: src/content/species/**/*.mdx,src/data/species.ts,src/data/speciesAtlas.ts,scripts/compile-species.ts
+alwaysApply: false
+---
+
+# Species profiles
+
+1. Edit `src/content/species/{id}/ka.mdx` **and** `en.mdx`. Folder name = frontmatter `id`.
+2. KA owns `id`, taxonomy, `danger`, images, `sources`. EN translates text (credits may overlay).
+3. Run `npm run species:compile`. Never hand-edit `species.generated.ts`.
+4. Register in `featuredSpeciesIds` (`src/data/species.ts`) and `speciesAtlasMeta` (`speciesAtlas.ts`).
+5. KA slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES`.
+6. Lookalikes: add both directions in `LOOKALIKES` (`speciesRoutes.ts`). No new YAML keys unless compile reads them.
+7. Range map: only if id is in `regions[].speciesIds` — do not list 12 regions in `location` without a source.
+8. Placeholders are hidden (`speciesContent.ts`). Skip `stats.სიგრძე` / IUCN / Red List if uncited.
+9. IUCN links must be species-specific (`/details/…`), not `https://www.iucnredlist.org/`.
+10. Unpublished: `unpublishedSpeciesIds` (currently `dolichophis-caspius`). Keep out of quiz and public profiles.
+
+Reference: `macrovipera-lebetina`, `paralaudakia-caucasia`, `pseudopus-apodus`.
