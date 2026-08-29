@@ -6755,12 +6755,13 @@ export const species: Species[] = [
     "genus": "Dolichophis",
     "family": "Colubridae",
     "location": "აღმოსავლეთ საქართველო",
-    "description": "სწრაფი, უშხამო მცურავი სპილენძისფერი ან მოწითალო ზურგითა და დამახასიათებელი წითელი–ნარინჯისფერი მუცლით — აღმოსავლეთ საქართველოს მშრალი ლანდშაფტების მკვიდრი.",
-    "overview": "წითელმუცელა მცურავი (Dolichophis schmidti) Colubridae ოჯახის უშხამო, სწრაფი სახეობაა — ინგლისურად red-bellied racer ან Schmidt's whip snake. აღწერილია 1909 წელს ა. ნიკოლსკის მიერ; სახელი რუსი იქთიოლოგის პეტრ იულიევიჩ შმიდტის პატივსაცემად ეწოდა. გავრცელებულია კავკასიასა და ახლო აღმოსავლეთში — დაღესტნიდან თურქმენეთამდე, სამხრეთით სირიამდე, იორდანიამდე და ჩრდილოეთ ირანამდე; საქართველოში ძირითადად აღმოსავლეთის მშრალ, ქვიან და ბალახოვან ადგილებში. ზრდასრულები ხშირად ერთგვაროვანი სპილენძისფერი ან მოწითალო-ყავისფერია, მუცელი — წითელი ან ნარინჯისფერი; ახალგაზრდებს ზურგზე აქვთ მუქი ლაქებიანი ნახატი. სიგრძე ჩვეულებრივ 1–1.5 მ-მდეა (საქართველოში დაფიქსირებულია დაახლოებით 82–158 სმ). IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern).",
-    "habitat": "ევრიტოპულია: ბინადრობს კლდოვან და ქვიან მდინარის ნაპირებზე, უდაბნოებსა და ნახევრადუდაბნოებში, კლდოვან ამონაკვეთებსა და ფერდობებზე, მთის სტეპში, სასოფლო-სამეურნეო ველებში, ბაღებსა და ვენახებში — ზღვის დონიდან დაახლოებით 2,000 მ-მდე. ადამიანის სიახლოვესაც გვხვდება და ანთროპოგენურ სტრუქტურებსაც იყენებს. საქართველოში დამოკიდებულია შედარებით მშრალ კლიმატზე და ძირითადად აღმოსავლეთის ქვიან–ბალახოვან ლანდშაფტებშია გავრცელებული.",
-    "diet": "ხშირად ნადირობს მღრღნელების კოლონიებთან ახლოს — ძირითადი საკვები მღრღნელებია; აგრეთვე იკვებება ხვლიკებით, ფრინველებითა და სხვა გველებით. სწრაფი მდევარია და მსხვერპლს აქტიურად მისდევს; შხამი არ აქვს.",
-    "behavior": "დღის აქტიურია — სწრაფი და მოძრავი მცურავია. საფრთხისას უპირატესად გარბის, თუმცა კუთხეში მოქცევისას შეიძლება აგრესიულად დაიცვას თავი; ადამიანისთვის მაინც უვნებელია. ზრდასრულებს ზურგი ხშირად ერთგვაროვანი მოწითალოა, ახალგაზრდებს — ლაქებიანი; დამახასიათებელი წითელი–ნარინჯისფერი მუცელი სახეობის სახელსაც განსაზღვრავს და კასპიურ მცურავს (Dolichophis caspius) განასხვავებს. კვერცხისმდებია: დედალი დებს დაახლოებით 5–11 კვერცხს. საქართველოში დოკუმენტირებულია მასობრივი ზამთრობა ანთროპოგენურ თავშესაფრებში — ერთ ჰიბერნაკულუმში ასზე მეტი ინდივიდი აღირიცხა.",
-    "conservation": "IUCN Red List-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოშიც LC სტატუსი აქვს. არეალი ფართოა და სახეობა ადამიანის შეცვლილ ლანდშაფტსაც იტანს. ადგილობრივ საფრთხეებს შორისაა ჰაბიტატის გარდაქმნა, გზებზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. ეკოსისტემისთვის სასარგებლოა — ამცირებს მღრღნელებს.",
+    "description": "უშხამო, სწრაფი მცურავი აღმოსავლეთ საქართველოს მშრალ ზონაში. მუცელი წითელი ან ნარინჯისფერია; არ არის გველგესლა.",
+    "overview": "წითელმუცელა მცურავი (Dolichophis schmidti) უშხამო, სწრაფი გველია აღმოსავლეთ საქართველოს მშრალ ქვიან და ბალახოვან ადგილებში. ანკარასებრთა ოჯახისაა (Colubridae). 2026 წლის ქართული ჩამონათვალი სახეობას იღებს, მაგრამ კანდიდატად ტოვებს: ადრე Coluber jugularis-ის ქვესახეობად ითვლებოდა და კასპიურ მცურავთან (Dolichophis caspius) კონტაქტის ზოლში პოპულაციური კვლევა ჯერ საკმარისი არ არის. დასახელებული ბარკოდირებული ნიმუში თბილისიდანაა. 2021 წლის ქართული გველების კვლევა მას მშრალ კლიმატზე დამოკიდებულ დიდ გველებს მიაკუთვნებს — ძირითადად აღმოსავლეთის ქვიან ან ბალახოვან ლანდშაფტში; მთელ ქვეყანაში არ ეძებოთ. სიგრძით საქართველოს დიდ გველებს ეკუთვნის (ლიტერატურაში მაქსიმუმი 120 სმ-ს აღემატება). ერთ ქართულ ზამთრის აგრეგაციაში გაზომილია 82–158 სმ. ადამიანისთვის უვნებელია. IUCN-ის 2017 წლის შეფასებით გლობალურად ნაკლებად საფრთხის ქვეშაა (Least Concern).",
+    "habitat": "საქართველოში რეალურად შეხვდებით აღმოსავლეთის მშრალ ქვიან ან ბალახოვან ადგილზე — სტეპი, კლდოვანი ფერდობი, მდინარის ქვიანი ნაპირი, სასოფლო-სამეურნეო ველი, ბაღი და ვენახი. 2021 წლის კვლევა სახეობას ათავსებს იმ ჯგუფში, რომელიც მშრალ კლიმატზეა დამოკიდებული და ძირითადად აღმოსავლეთში გვხვდება — არა კოლხეთის ნოტიო ზონაში. დასახელებული თანამედროვე გენეტიკური წერტილი თბილისია (CaBOL-ID 1027412); ჩამონათვალის თავის ფოტოებიც თბილისიდანაა. ამ ატლასის რუკა რეგიონულ ჩანაწერებს ასახავს და არ ნიშნავს, რომ სახეობა ყველა მონიშნულ რეგიონში თანაბრად გავრცელებულია. დასავლეთ საქართველოსა და მაღალმთის ტენიან ზონაში არ ეძებოთ. სახეობის დონეზე ლიტერატურაში ხშირად ზღვის დონიდან დაახლოებით 2,000 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული. ფართო არეალი კავკასიიდან ანატოლიამდე, ჩრდილოეთ ირანამდე და თურქმენეთამდეა; ლექტოტიპის ადგილი მუღანის სტეპია (აზერბაიჯანი) და არა საქართველო. 2015 წლის ერთ ნაშრომში D. caspius-ის ფენოტიპი D. schmidti-ის ცნობილ რეგიონშია მითითებული; 2026 წლის ჩამონათვალი ამას დადასტურებას სთხოვს — უახლოესი ადგილობრივი D. caspius რამდენიმე ასეული კილომეტრითაა.",
+    "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. 2021 წლის ქართული მიმოხილვა მას მიაკუთვნებს გველებს, რომლებიც ძირითადად წვრილ ძუძუმწოვრებს, ქვეწარმავლებს ან ფრინველებს იჭერენ. არეალის სხვა ნაწილებში იკვებება ხვლიკებით, მღრღნელებით, ფრინველებითა და სხვა გველებით. შხამი არ აქვს — ნადირობს სისწრაფით. საქართველოში მენიუ პირდაპირ არ არის გაზომილი.",
+    "behavior": "საქართველოს გველების უმეტესობის მსგავსად დღის აქტიურია; 2021 წლის მიმოხილვა ღამის სახეობებში მას არ ასახელებს. საათობრივი კალენდარი საქართველოში ცალკე არ არის აღწერილი; მოსალოდნელია თბილი სეზონი მშრალ ქვიან ადგილებში. საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება დაიცვას თავი. არ აიყვანოთ — შხამი არ აქვს, მაგრამ დიდ გველს შეუძლია მტკივნეულად უკბინოს. კვერცხისმდებია. სახეობის დონეზე ლიტერატურაში ხშირად დაახლოებით 5–11 კვერცხია მითითებული; საქართველოს კლაჩის ზომა აქ არ არის გამოქვეყნებული. 2026 წელს საქართველოში დაფიქსირდა მასობრივი ზამთრობა რკინაბეტონის სეპტიკურ ავზში: 133 ინდივიდი სხვადასხვა ასაკის, ერთ წენგოსფერ მცურავთან (Platyceps najadum) და ერთ წყლის ანკარასთან (Natrix tessellata) ერთად. ეს არის სახეობისთვის დოკუმენტირებული ყველაზე დიდი აგრეგაცია და კავკასიაში პირველი სახეობათაშორისი გველების ზამთრის თავშესაფარი — და არა იმის მტკიცება, რომ ყოველთვის ასე იზამთრებს. გაზომილი სიგრძე იყო 82–158 სმ, მასა 82–753 გ; სქესთა თანაფარდობა თითქმის თანაბარი, ოდნავ მეტი დედალი. გველები ტერმინალურ კამერაში იყვნენ, სადაც ტემპერატურა დაახლოებით 11 °C იყო; მშენებლობის გამო გადაიყვანეს და გაზაფხულზე გაუშვეს.",
+    "conservation": "IUCN Red List-ის 2017 წლის შეფასებით ნაკლებად საფრთხის ქვეშაა (Least Concern) — არეალი ფართოა. საქართველოს 2014 წლის წითელ ნუსხაში არ არის. 2026 წლის ჩამონათვალში კანდიდატია; გავრცელების სიზუსტე საშუალოდაა შეფასებული. ადგილობრივ საფრთხეა ჰაბიტატის გარდაქმნა, გზაზე დაღუპვა და შხამიან გველთან აღრევის გამო მოკვლა. 2026 წლის ზამთრის თავშესაფარი აჩვენებს, რომ ადამიანის ნაგებობაც შეიძლება კრიტიკული იყოს — და რომ მშენებლობამ შეიძლება ასეთი ადგილი გაანადგუროს. არ აიყვანოთ და არ მოკლათ.",
+    "interaction": "შხამი არ აქვს და ადამიანისთვის სამედიცინოდ უვნებელია. არ აიყვანოთ: დიდ გველს შეუძლია უკბინოს და ნაკბენი მტკივნეულია. თუ გუგა ვერტიკალური ნაპრალია, ეს სახეობა არ არის — დაიცავით მანძილი და გაეცით გზა. ფოტო გადაიღეთ შორიდან და დატოვეთ ადგილზე.",
     "danger": "Harmless",
     "image": "https://cdn.reptiles.ge/dolichophis-schmidti.webp",
     "mobileImage": "https://cdn.reptiles.ge/dolichophis-schmidti-mobile.webp",
@@ -6790,11 +6791,11 @@ export const species: Species[] = [
     "stats": [
       {
         "label": "ჰაბიტატი",
-        "value": "აღმ. საქართველო"
+        "value": "მშრალი ქვიანი / აღმ. საქ."
       },
       {
         "label": "სიგრძე",
-        "value": "დაახლ. 1–1.5 მ"
+        "value": "საქ. 82–158 სმ"
       },
       {
         "label": "შხამი",
@@ -6806,7 +6807,7 @@ export const species: Species[] = [
       },
       {
         "label": "ზღვის დონიდან",
-        "value": "0–2,000 მ"
+        "value": "სახეობა ~0–2,000 მ"
       },
       {
         "label": "ოჯახი",
@@ -6814,41 +6815,52 @@ export const species: Species[] = [
       }
     ],
     "facts": [
-      "სახელი ეწოდა რუსი იქთიოლოგის პეტრ იულიევიჩ შმიდტის პატივსაცემად; სახეობა აღწერა ა. ნიკოლსკიმ 1909 წელს.",
-      "მუცლის წითელი–ნარინჯისფერი შეფერილობა სახეობის მთავარი ამოცნობის ნიშანია და კასპიური მცურავისგან განასხვავებს.",
-      "უშხამოა და ადამიანისთვის უვნებელი — მიუხედავად სწრაფი რეაქციისა და თავდაცვითი ქცევისა.",
-      "საქართველოში დაფიქსირდა ერთ-ერთი ყველაზე დიდი ზამთრის აგრეგაცია — ერთ თავშესაფარში 100-ზე მეტი ინდივიდი."
+      "აღწერა 1909 წელს (Nikolsky), თავდაპირველად Coluber schmidti. ლექტოტიპის ადგილი მუღანის სტეპია (აზერბაიჯანი). ძველ ქართულ ლიტერატურაში ხშირად Coluber jugularis schmidti ან C. j. erythrogaster იწერებოდა. თანამედროვე გვარი Dolichophis Nagy et al. 2004-ის შემდეგ დამკვიდრდა. სახელი, სავარაუდოდ, იქთიოლოგ პეტრ იულიევიჩ შმიდტს უკავშირდება.",
+      "2026 წლის ჩამონათვალი სახეობას კანდიდატად ტოვებს: შედის D. jugularis-ის კომპლექსის აღმოსავლეთ ჯგუფში და ნომინალური ფორმისგან გეოგრაფიულად სრულად იზოლირებული არ არის. კასპიურ მცურავთან (D. caspius) მიტოქონდრიული განსხვავება დაახლოებით 6–7%-ია, მაგრამ დასავლეთ კასპიის კონტაქტის ზოლში პოპულაციური კვლევა ჯერ საჭიროა. ეს არ ცვლის საველე დასკვნას: აღმოსავლეთ საქართველოს მშრალ ზონაში წითელმუცელა ფორმაა ის, რასაც რეალურად შეხვდებით.",
+      "2026 წლის ჩამონათვალის COI შტრიხკოდი თბილისიდანაა (CaBOL-ID 1027412; BOLD:AGI6555). იმავე ნაშრომში თავის ფოტოები თბილისიდანაა.",
+      "2026 წელს საქართველოში დაფიქსირდა 133 ინდივიდის ზამთრის აგრეგაცია ადამიანის ნაგებობაში — სახეობისთვის ყველაზე დიდი დოკუმენტირებული ჯგუფი და კავკასიაში პირველი სახეობათაშორისი გველების ჰიბერნაკულუმი."
     ],
     "identification": {
-      "summary": "წითელმუცელა მცურავი აღმოსავლეთ საქართველოს სწრაფი, უშხამო მცურავია. მთავარი ნიშანი მუცლის ფერია — ის კასპიურ მცურავსაც განასხვავებს.",
+      "summary": "უშხამო, გამხდარი–სწრაფი მცურავია მრგვალი გუგით. საკვანძო ნიშანი წითელი ან ნარინჯისფერი მუცელია — არა გველგესლა და არა გიურზა.",
       "traits": [
-        "მუცელი წითელი ან ნარინჯისფერია — სახეობის მთავარი ამოცნობის ნიშანი.",
-        "ზრდასრულებს ზურგი ხშირად ერთგვაროვანი მოწითალო/სპილენძისფერია; ახალგაზრდები უფრო ლაქებიანია.",
-        "სხეული გამხდარი და სწრაფია; სიგრძე დაახლოებით 1–1.5 მ.",
-        "გუგა მრგვალია; შხამი არ აქვს.",
-        "გვხვდება აღმოსავლეთ საქართველოს მშრალ, ქვიან და ბალახოვან ლანდშაფტებში."
+        "სხეული გამხდარი და სწრაფია, მცურავის იერით; თავი კისრისგან გამოიყოფა. თვალი შედარებით დიდია, გუგა მრგვალი. ზურგის ქერცლი სახეობის დონეზე გლუვია. 2021 წლის ქართული მიმოხილვა მას დიდ გველებს მიაკუთვნებს (მაქსიმუმი 120 სმ-ს აღემატება). ერთ ქართულ ზამთრის აგრეგაციაში გაზომილია 82–158 სმ — სხვადასხვა ასაკის ინდივიდები. ქერცლის დასათვლად გველი არ აიყვანოთ.",
+        "ზრდასრულებს ზურგი ხშირად ერთგვაროვანი სპილენძისფერი, მოწითალო ან მოწითალო-ყავისფერია. ახალგაზრდებს ზურგზე მუქი ლაქებიანი ნახატი აქვთ — ეს ასაკობრივი განსხვავებაა და არა სხვა სახეობა. მუცელი წითელი ან ნარინჯისფერია; ეს არის საველე ამოცნობის მთავარი ნიშანი და ქართული სახელის საფუძველი.",
+        "წენგოსფერი მცურავი (Platyceps najadum) უფრო გამხდარია; კისერზე აქვს მუქი, ღია კიდეებიანი ლაქები და არა ერთგვაროვანი მოწითალო ზურგი. ნაირფერ მცურავს (Hemorrhois ravergieri) მთელ ზურგზე რომბული ლაქები აქვს. ურარტუს მცურავი (Elaphe urartica) უფრო სქელია, თავი მუქი, ლაქები უფრო დიდი და მომრგვალებული. ხვლიკიჭამია გველს (Malpolon insignitus) ამოწეული „წარბი“ აქვს და ხშირად ზეთისხილისფერი ან რუხია — არა წითელი მუცელი. კასპიური მცურავი (Dolichophis caspius) ამ ატლასში ცალკე საჯარო გვერდით არ არის; 2026 წლის ჩამონათვალში კანდიდატია და მუცლის შეფერილობით განსხვავდება.",
+        "გველგესლას გუგა ვერტიკალური ნაპრალია, თავი უფრო სამკუთხა, ქერცლი უხეშად კილური; შხამიანია. გიურზა (Macrovipera lebetina) უფრო მასიურია, თავი ფართო, გუგა ვერტიკალური — სამედიცინოდ მნიშვნელოვანი შხამიანი. თუ სწრაფ გველს ვერტიკალური გუგით ხედავთ — ეს გველგესლაა ან გიურზა, არა ეს სახეობა. შხამი არ აქვს. ნაკბენი შეიძლება მტკივნეული იყოს. არ აიყვანოთ."
       ]
     },
     "faq": [
       {
-        "question": "საშიშია თუ არა წითელმუცელა მცურავი ადამიანისთვის?",
-        "answer": "არა — უშხამოა და ადამიანისთვის უვნებელი. სწრაფია და საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება დაიცვას თავი, მაგრამ რეალურ საფრთხეს არ წარმოადგენს."
+        "question": "გვხვდება თუ არა წითელმუცელა მცურავი საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალი სახეობას იღებს, მაგრამ კანდიდატად ტოვებს. დასახელებული თანამედროვე გენეტიკური წერტილი თბილისია. მთელ ქვეყანაში არ გვხვდება."
       },
       {
-        "question": "სად გვხვდება საქართველოში?",
-        "answer": "ძირითადად აღმოსავლეთ საქართველოს მშრალ, ქვიან და ბალახოვან ლანდშაფტებში — სტეპებში, კლდოვან ფერდობებზე, ვენახებსა და დასახლებების მიდამოებში. ვერტიკალურად გვხვდება ზღვის დონიდან დაახლოებით 2,000 მ-მდე."
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "უფრო ხშირია აღმოსავლეთის მშრალ, ქვიან ან ბალახოვან ადგილებში — სტეპი, კლდოვანი ფერდობი, ვენახი და დასახლების პირას. დასახელებული თანამედროვე წერტილი თბილისია. დასავლეთის ნოტიო ზონასა და კოლხეთის ტყეში არ ეძებოთ. რუკის რეგიონები არ ნიშნავს თანაბარ გავრცელებას."
       },
       {
-        "question": "რით განსხვავდება კასპიური მცურავისგან?",
-        "answer": "წითელმუცელა მცურავს აქვს დამახასიათებელი წითელი ან ნარინჯისფერი მუცელი; ზრდასრულები ხშირად სპილენძისფერი/მოწითალო არიან. კასპიური მცურავი (Dolichophis caspius) სხვაგვარადაა შეფერილი მუცელზე და საქართველოში სხვა სახეობად ითვლება."
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს და სამედიცინო საფრთხეს არ წარმოადგენს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
+      },
+      {
+        "question": "როგორ ამოვიცნო?",
+        "answer": "გამხდარი სწრაფი სხეული, მრგვალი გუგა, გლუვი ქერცლი და წითელი ან ნარინჯისფერი მუცელი. ზრდასრულებს ზურგი ხშირად ერთგვაროვანი მოწითალოა; ახალგაზრდები ლაქებიანია. წენგოსფერ მცურავს კისრის ოცელები აქვს. გიურზასა და გველგესლას გუგა ვერტიკალურია."
+      },
+      {
+        "question": "რამდენად დიდია?",
+        "answer": "საქართველოს დიდ გველებს ეკუთვნის: ლიტერატურაში მაქსიმუმი 120 სმ-ს აღემატება. ერთ ქართულ ზამთრის აგრეგაციაში (სხვადასხვა ასაკი) გაზომილია 82–158 სმ და 82–753 გ. ეს ერთი თავშესაფრის ნიმუშია და არა ქვეყნის სრული საშუალო."
       },
       {
         "question": "რას ჭამს?",
-        "answer": "ძირითადად მღრღნელებს — ხშირად მათ კოლონიებთან ახლოს ნადირობს; აგრეთვე ხვლიკებს, ფრინველებსა და სხვა გველებს. შხამი არ აქვს — მსხვერპლს სისწრაფითა და ძალით იჭერს."
+        "answer": "კვება ქართულად არ არის ცალკე შესწავლილი. 2021 წლის მიმოხილვა მას მიაკუთვნებს გველებს, რომლებიც ძირითადად წვრილ ძუძუმწოვრებს, ქვეწარმავლებს ან ფრინველებს იჭერენ. შხამი არ აქვს — ნადირობს სისწრაფით."
       },
       {
-        "question": "კვერცხებს დებს თუ ცოცხლად შობს?",
-        "answer": "კვერცხისმდებია. დედალი დებს დაახლოებით 5–11 კვერცხს; ნაშიერები დამოუკიდებლად იჩეკებიან."
+        "question": "კვერცხებს დებს? როდის არის აქტიური?",
+        "answer": "კვერცხისმდებია. სახეობის დონეზე ხშირად დაახლოებით 5–11 კვერცხია მითითებული; საქართველოს კლაჩი აქ არ არის გამოქვეყნებული. დღის აქტიურია თბილ სეზონზე. ზამთარში საქართველოში დაფიქსირებულია მასობრივი ზამთრობა ადამიანის ნაგებობაში."
+      },
+      {
+        "question": "რა უნდა გავაკეთო, თუ შევხვდები?",
+        "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — ეს შეიძლება გველგესლა ან გიურზა იყოს; გაეცით გზა."
       }
     ],
     "updatedAt": "2026-08-23T22:29:07+04:00",
@@ -6858,12 +6870,30 @@ export const species: Species[] = [
         "url": "https://doi.org/10.3897/caucasiana.5.e189214"
       },
       {
-        "name": "IUCN Red List",
-        "url": "https://www.iucnredlist.org/details/164595/0"
+        "name": "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
+        "url": "https://doi.org/10.1080/09397140.2021.1957208"
       },
       {
-        "name": "GBIF",
-        "url": "https://www.gbif.org/species/2457240"
+        "name": "Iankoshvili et al. 2026 — communal hibernaculum of Dolichophis schmidti in Georgia",
+        "url": "https://doi.org/10.33256/36.2.125130"
+      },
+      {
+        "name": "Nagy et al. 2004 — Molecular systematics of racers, whipsnakes and relatives",
+        "url": "https://doi.org/10.1111/j.1439-0469.2004.00249.x"
+      },
+      {
+        "name": "Tok et al. 2017 — IUCN Red List account for Dolichophis schmidti",
+        "url": "https://www.iucnredlist.org/species/164595/92254626"
+      },
+      {
+        "name": "საქართველოს მთავრობის დადგენილება №190 (2014) — წითელი ნუსხა",
+        "url": "https://matsne.gov.ge/ka/document/view/2256983/0"
+      },
+      {
+        "name": "Muskhelishvili 1970 — Presmykajushchiesya vostochnoi Gruzii"
+      },
+      {
+        "name": "Bannikov et al. 1977 — cited for size class in Iankoshvili & Tarkhnishvili 2021"
       },
       {
         "name": "The Reptile Database",
@@ -16059,7 +16089,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — ეს შეიძლება გველგესლა ან გიურზა იყოს; გაეცით გზა."
       }
     ],
-    "updatedAt": "2026-08-28T11:27:34+04:00",
+    "updatedAt": "2026-08-29T17:12:33+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -20030,7 +20060,7 @@ export const species: Species[] = [
         "answer": "2014 წლის სახელმწიფო ნუსხა სხვა სახელებს მიჰყვება (დინიკის და კავკასიური გველგესლა). IUCN-ის NT გაყოფილ კავკასიურ ტაქსონს ეხება. ძველ წითელ წიგნებში იყო; ეს 2014 წლის ნუსხა არ არის."
       }
     ],
-    "updatedAt": "2026-08-29T17:10:02+04:00",
+    "updatedAt": "2026-08-29T17:12:33+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -25258,20 +25288,21 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "dolichophis-schmidti": {
     "commonName": "Red-bellied racer",
     "location": "Eastern Georgia",
-    "description": "A fast, non-venomous racer with a copper or reddish back and a distinctive red–orange belly — native to the dry landscapes of eastern Georgia.",
-    "overview": "The red-bellied racer (Dolichophis schmidti), also called Schmidt's whip snake, is a non-venomous, fast species of the family Colubridae. It was described in 1909 by A. Nikolsky; the name honors Russian ichthyologist Petr Yulevich Schmidt. It occurs across the Caucasus and the Middle East — from Dagestan to Turkmenistan, and south into Syria, Jordan, and northern Iran; in Georgia mainly in dry, rocky, and grassy habitats of the east. Adults are often a uniform copper or reddish-brown, with a red or orange belly; juveniles have a dark-spotted dorsal pattern. Length is usually up to about 1–1.5 m (roughly 82–158 cm has been recorded in Georgia). It is classified as Least Concern by the IUCN.",
-    "habitat": "It is eurytopic: it inhabits rocky and stony riverbanks, deserts and semi-deserts, rocky outcrops and hillsides, montane steppe, cultivated fields, gardens, and vineyards — from sea level to roughly 2,000 m. It can occur near human habitation and uses anthropogenic structures. In Georgia it depends on a relatively dry climate and is found mainly in the rocky–grassy landscapes of the east.",
-    "diet": "It is often observed near large rodent colonies, on which it primarily preys; it also feeds on lizards, birds, and other snakes. It is a fast pursuer and actively chases prey; it has no venom.",
-    "behavior": "It is diurnal — a fast, agile racer. When threatened it prefers to flee, though if cornered it may defend itself aggressively; it remains harmless to humans. Adults often have a uniform reddish dorsum, while juveniles are spotted; the distinctive red–orange belly gives the species its name and helps separate it from the Caspian whip snake (Dolichophis caspius). It is egg-laying: females lay roughly 5–11 eggs. In Georgia, large communal wintering in anthropogenic shelters has been documented — more than a hundred individuals in a single hibernaculum.",
-    "conservation": "Classified as Least Concern on the IUCN Red List; it also holds LC status in Georgia. Its range is broad and the species tolerates human-altered landscapes. Local threats include habitat conversion, road mortality, and killing due to confusion with venomous snakes. It benefits the ecosystem by reducing rodent numbers.",
+    "description": "A fast, non-venomous racer of dry eastern Georgia. The belly is red or orange; it is not a viper.",
+    "overview": "The red-bellied racer (Dolichophis schmidti) is a fast, non-venomous snake of dry rocky and grassy habitats in eastern Georgia. It belongs to the family Colubridae. The 2026 Georgian checklist accepts the name but treats it as a candidate: it was formerly a subspecies of Coluber jugularis, and population-level work is still needed in the contact zone with the Caspian whip snake (Dolichophis caspius). The named barcode specimen is from Tbilisi. The 2021 Georgian snake survey places it among large snakes that depend on a reasonably dry climate — rocky or grassland settings, mostly in the east. Do not expect it throughout the country. It is classed among Georgia’s large snakes (maximum length over 120 cm in the literature). One Georgian winter aggregation measured 82–158 cm. It is harmless to people. IUCN assessed it as Least Concern in 2017.",
+    "habitat": "In Georgia look in dry rocky or grassy country of the east — steppe, rocky slopes, stony riverbanks, farmland, gardens, and vineyards. The 2021 survey groups it with species that depend on a reasonably dry climate and occur mostly in the east — not in humid Colchis. The named modern genetic locality is Tbilisi (CaBOL-ID 1027412); the checklist head photographs are also from Tbilisi. This atlas map shows regional records and does not mean the species is evenly present in every marked region. Do not look for it in western Georgia or in humid high mountains. Species-level literature often cites elevations to about 2,000 m; a separate Georgian elevation band is not published here. The wider range runs from the Caucasus through Anatolia to northern Iran and Turkmenistan. The lectotype locality is the Mugan steppe (Azerbaijan), not Georgia. A 2015 paper reported D. caspius phenotypes inside a well-known D. schmidti region; the 2026 checklist asks for confirmation — the nearest indigenous D. caspius are several hundred kilometres away.",
+    "diet": "There is no separate Georgian diet study for this species. The 2021 Georgian review groups it with snakes that mainly take small mammals, reptiles, or birds. Elsewhere in the range it eats lizards, rodents, birds, and other snakes. It has no venom — it hunts by speed. The menu in Georgia has not been measured directly.",
+    "behavior": "Like most of Georgia’s snakes it is diurnal; the 2021 review does not list it among nocturnal species. Hourly activity in Georgia has not been described separately; expect the warm season in dry rocky places. When threatened it usually flees; if cornered it may defend itself. Do not pick it up — it has no venom, but a large snake can bite painfully. It lays eggs. Species-level literature often cites about 5–11 eggs; clutch size in Georgia is not published here. In 2026 a large winter aggregation was found in Georgia in a reinforced septic tank: 133 individuals of mixed ages, together with one Dahl’s whip snake (Platyceps najadum) and one dice snake (Natrix tessellata). That is the largest documented aggregation of the species and the first interspecific snake hibernaculum recorded in the Caucasus — not evidence that it always winters this way. Measured length was 82–158 cm and mass 82–753 g; the sex ratio was nearly even, with a slight female bias. The snakes were in the terminal chamber at about 11 °C; they were moved because of construction and released in spring.",
+    "conservation": "The 2017 IUCN Red List assessment lists it as Least Concern — the global range is wide. It is not on Georgia’s 2014 Red List. In the 2026 checklist it is a candidate; distribution confidence is medium. Local threats include habitat conversion, road mortality, and killing after confusion with venomous snakes. The 2026 hibernaculum shows that buildings can be critical winter sites — and that construction can destroy them. Do not pick it up or kill it.",
+    "interaction": "It has no venom and is medically harmless to people. Do not pick it up: a large snake can bite, and the bite hurts. If the pupil is a vertical slit, this is not the species — keep your distance and give it room. Photograph from afar and leave it where it is.",
     "stats": [
       {
         "label": "Habitat",
-        "value": "Eastern Georgia"
+        "value": "Dry rocky / east Georgia"
       },
       {
         "label": "Length",
-        "value": "approx. 1–1.5 m"
+        "value": "GE 82–158 cm"
       },
       {
         "label": "Venom",
@@ -25283,7 +25314,7 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       },
       {
         "label": "Elevation",
-        "value": "0–2,000 m"
+        "value": "species ~0–2,000 m"
       },
       {
         "label": "Family",
@@ -25291,41 +25322,52 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       }
     ],
     "facts": [
-      "Named in honor of Russian ichthyologist Petr Yulevich Schmidt; the species was described by A. Nikolsky in 1909.",
-      "The red–orange belly is the main identification trait and distinguishes it from the Caspian whip snake.",
-      "It is non-venomous and harmless to humans — despite its speed and defensive behavior.",
-      "One of the largest winter aggregations in Georgia was recorded for this species — over 100 individuals in a single shelter."
+      "Described in 1909 (Nikolsky) as Coluber schmidti. The lectotype locality is the Mugan steppe (Azerbaijan). Older Georgian literature often used Coluber jugularis schmidti or C. j. erythrogaster. The modern genus Dolichophis follows Nagy et al. 2004. The name is probably after the ichthyologist Petr Yulevich Schmidt.",
+      "The 2026 checklist leaves it a candidate: it belongs to the eastern group of the D. jugularis complex and is not fully isolated geographically from the nominotypical form. Mitochondrial difference from D. caspius is about 6–7%, but population-level study is still needed in the western Caspian contact zone. That does not change the field picture: in dry eastern Georgia the red-bellied form is what you actually meet.",
+      "The 2026 checklist COI barcode is from Tbilisi (CaBOL-ID 1027412; BOLD:AGI6555). Head photographs in the same paper are from Tbilisi.",
+      "In 2026 a winter aggregation of 133 individuals was documented in Georgia in a man-made structure — the largest recorded group of the species and the first interspecific snake hibernaculum in the Caucasus."
     ],
     "identification": {
-      "summary": "The red-bellied racer is a fast, non-venomous snake of eastern Georgia. Belly color is the key field mark and separates it from the Caspian racer.",
+      "summary": "A fast, non-venomous racer with a round pupil. The key field mark is a red or orange belly — not a viper and not Levantine viper.",
       "traits": [
-        "The belly is red to orange — the species’ main identification trait.",
-        "Adults often have a fairly uniform reddish or copper back; juveniles are more blotched.",
-        "The body is slender and fast; length is roughly 1–1.5 m.",
-        "The pupil is round; it has no venom.",
-        "It lives in dry, rocky, and grassy landscapes of eastern Georgia."
+        "The body is slender and fast, with a racer’s build; the head is distinct from the neck. The eye is relatively large and the pupil is round. Dorsal scales are smooth at species level. The 2021 Georgian review classes it among large snakes (maximum over 120 cm). One Georgian winter aggregation measured 82–158 cm — mixed ages. Do not handle the snake to count scales.",
+        "Adults often have a fairly uniform copper, reddish, or reddish-brown back. Juveniles have a dark-spotted dorsal pattern — an age difference, not a different species. The belly is red or orange; that is the main field mark and the basis of the Georgian name.",
+        "Dahl’s whip snake (Platyceps najadum) is slimmer, with dark, pale-edged neck blotches rather than a plain reddish back. The spotted whip snake (Hemorrhois ravergieri) has rhomboid blotches along the whole back. The Urartian ratsnake (Elaphe urartica) is thicker, with a dark head and larger rounded blotches. The eastern Montpellier snake (Malpolon insignitus) has a raised “eyebrow” and is often olive or grey — not a red belly. The Caspian whip snake (Dolichophis caspius) has no separate public profile in this atlas; it is a candidate in the 2026 checklist and differs in belly colour.",
+        "A viper has a vertical slit pupil, a more triangular head, and strongly keeled scales; it is venomous. Levantine viper (Macrovipera lebetina) is heavier, with a broad head and a vertical pupil — medically significant. If you see a fast snake with a vertical pupil, it is a viper or Levantine viper, not this species. It has no venom. A bite can still hurt. Do not pick it up."
       ]
     },
     "faq": [
       {
-        "question": "Is the red-bellied racer dangerous to humans?",
-        "answer": "No — it is non-venomous and harmless to humans. It is fast and prefers to flee when threatened; if cornered it may defend itself, but it poses no real danger."
+        "question": "Is the red-bellied racer found in Georgia?",
+        "answer": "Yes. The 2026 checklist accepts the species but treats it as a candidate. The named modern genetic locality is Tbilisi. It does not occur throughout the country."
       },
       {
-        "question": "Where is it found in Georgia?",
-        "answer": "Mainly in the dry, rocky, and grassy landscapes of eastern Georgia — steppes, rocky slopes, vineyards, and near settlements. Vertically it occurs from sea level to roughly 2,000 m."
+        "question": "Where might I see it in Georgia?",
+        "answer": "Mainly in dry, rocky or grassy habitats of the east — steppe, rocky slopes, vineyards, and near settlements. The named modern locality is Tbilisi. Do not look in the humid west or Colchic forest. Mapped regions do not mean even occurrence."
       },
       {
-        "question": "How does it differ from the Caspian whip snake?",
-        "answer": "The red-bellied racer has a distinctive red or orange belly; adults are often copper/reddish. The Caspian whip snake (Dolichophis caspius) has different belly coloration and is treated as a separate species in Georgia."
+        "question": "Is it venomous or dangerous to people?",
+        "answer": "No. It has no venom and is not a medical threat. It usually flees. A large snake can bite — do not pick it up. A vertical pupil points to a viper or Levantine viper."
+      },
+      {
+        "question": "How can I identify it?",
+        "answer": "A slender, fast body, round pupil, smooth scales, and a red or orange belly. Adults are often plain reddish; juveniles are spotted. Dahl’s whip snake has neck ocelli. Levantine viper and other vipers have a vertical pupil."
+      },
+      {
+        "question": "How large does it grow?",
+        "answer": "It is one of Georgia’s large snakes: literature maxima exceed 120 cm. One Georgian winter aggregation (mixed ages) measured 82–158 cm and 82–753 g. That is one shelter sample, not a national average."
       },
       {
         "question": "What does it eat?",
-        "answer": "Mainly rodents — it often hunts near their colonies; also lizards, birds, and other snakes. It has no venom — it catches prey with speed and force."
+        "answer": "Diet has not been studied separately in Georgia. The 2021 review groups it with snakes that mainly take small mammals, reptiles, or birds. It has no venom — it hunts by speed."
       },
       {
-        "question": "Does it lay eggs or give live birth?",
-        "answer": "It is egg-laying. The female lays roughly 5–11 eggs; young hatch independently."
+        "question": "Does it lay eggs? When is it active?",
+        "answer": "It lays eggs. Species-level literature often cites about 5–11 eggs; clutch size in Georgia is not published here. It is diurnal in the warm season. In Georgia a large communal wintering in a building has been documented."
+      },
+      {
+        "question": "What should I do if I meet one?",
+        "answer": "Watch from a distance, take a photo, and leave it. Do not pick it up. If the pupil is vertical or the head is broad and triangular, it may be a viper or Levantine viper — give it room."
       }
     ],
     "gallery": [

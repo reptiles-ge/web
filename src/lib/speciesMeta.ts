@@ -80,6 +80,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
     en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
   },
+  "dolichophis-schmidti": {
+    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
+    en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
+  },
 };
 
 export function speciesPageMetaTitle(

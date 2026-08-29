@@ -266,6 +266,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta saxicola valentini",
     ],
   },
+  "dolichophis-schmidti": {
+    ka: [
+      "წითელმუცელა",
+      "Coluber schmidti",
+      "Hierophis schmidti",
+      "Coluber jugularis schmidti",
+    ],
+    en: [
+      "Schmidt's whip snake",
+      "Schmidt's racer",
+      "Coluber schmidti",
+      "Hierophis schmidti",
+    ],
+  },
   "platyceps-najadum": {
     ka: [
       "წენგოსფერი მცურავი",
