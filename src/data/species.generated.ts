@@ -6770,6 +6770,59 @@ export const species: Species[] = [
         "src": "https://cdn.reptiles.ge/dolichophis-schmidti.webp"
       },
       {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-1.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "date": "2024-03-25"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-4.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "date": "2024-04-16"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-2.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ქარელი",
+          "date": "2024-06-06"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-3.jpg",
+        "credit": {
+          "photographer": "იოანე როსტიაშვილი",
+          "location": "ქარელი",
+          "date": "2024-06-06"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-george-1.jpg",
+        "credit": {
+          "photographer": "George Bananashvili",
+          "location": "ლისის ტბა",
+          "date": "2019-06-22"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-george-2.jpg",
+        "credit": {
+          "photographer": "George Bananashvili",
+          "location": "ლისის ტბა",
+          "date": "2019-06-22"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-andro-1.jpg",
+        "credit": {
+          "photographer": "Andro Solomashvili",
+          "date": "2022-04-30"
+        }
+      },
+      {
         "src": "https://cdn.reptiles.ge/dolichophis-schmidti-2.webp"
       },
       {
@@ -6863,7 +6916,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით მანძილიდან, გადაიღეთ ფოტო და დატოვეთ. არ აიყვანოთ. თუ გუგა ვერტიკალურია ან თავი ფართო და სამკუთხაა — ეს შეიძლება გველგესლა ან გიურზა იყოს; გაეცით გზა."
       }
     ],
-    "updatedAt": "2026-08-23T22:29:07+04:00",
+    "updatedAt": "2026-08-30T02:19:50+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -25373,6 +25426,59 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     "gallery": [
       {
         "src": "https://cdn.reptiles.ge/dolichophis-schmidti.webp"
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-1.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "date": "2024-03-25"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-4.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "date": "2024-04-16"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-2.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Kareli",
+          "date": "2024-06-06"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-3.jpg",
+        "credit": {
+          "photographer": "Ioane Rostiashvili",
+          "location": "Kareli",
+          "date": "2024-06-06"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-george-1.jpg",
+        "credit": {
+          "photographer": "George Bananashvili",
+          "location": "Lisi Lake",
+          "date": "2019-06-22"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-george-2.jpg",
+        "credit": {
+          "photographer": "George Bananashvili",
+          "location": "Lisi Lake",
+          "date": "2019-06-22"
+        }
+      },
+      {
+        "src": "https://cdn.reptiles.ge/dolichophis-schmidti-andro-1.jpg",
+        "credit": {
+          "photographer": "Andro Solomashvili",
+          "date": "2022-04-30"
+        }
       },
       {
         "src": "https://cdn.reptiles.ge/dolichophis-schmidti-2.webp"

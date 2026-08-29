@@ -9940,6 +9940,321 @@
       ],
       "updatedAt": "2026-08-28T21:37:00.362Z"
     },
+    "dolichophis-schmidti-andro-1.jpg": {
+      "sourceHash": "fe1ac2cf9fe16aeffa4f594d44c40028644db39fa6e8d35c7b908d1456fa16b1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-andro-1.jpg",
+      "originalSize": 225994,
+      "width": 1024,
+      "height": 708,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-andro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 277,
+          "byteSize": 20398
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-andro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 277,
+          "byteSize": 32524
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-andro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 553,
+          "byteSize": 58566
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-andro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 553,
+          "byteSize": 95332
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-andro-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 708,
+          "byteSize": 90397
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-andro-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 708,
+          "byteSize": 141876
+        }
+      ],
+      "updatedAt": "2026-08-29T22:42:16.168Z"
+    },
+    "dolichophis-schmidti-george-1.jpg": {
+      "sourceHash": "1a482fa58d847d758d405740fb3683fc18b2e6d73909b69bac49a593ecb15018",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-george-1.jpg",
+      "originalSize": 93524,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-george-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9056
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10924
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20953
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28926
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 30017
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 40934
+        }
+      ],
+      "updatedAt": "2026-08-29T22:35:26.220Z"
+    },
+    "dolichophis-schmidti-george-2.jpg": {
+      "sourceHash": "73f096599e67b42c19c3028e188a3673db756273de466ec97cd032d196275072",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-george-2.jpg",
+      "originalSize": 97382,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-george-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9432
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11968
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21684
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28732
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 30080
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-george-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 39222
+        }
+      ],
+      "updatedAt": "2026-08-29T22:35:28.850Z"
+    },
+    "dolichophis-schmidti-ioane-1.jpg": {
+      "sourceHash": "3973d26f32f46f3ef979e9317cf345cbb020c88a09ae52643b4ba1407fb08fee",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-ioane-1.jpg",
+      "originalSize": 136569,
+      "width": 579,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 707,
+          "byteSize": 29412
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 707,
+          "byteSize": 42602
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-1-579.avif",
+          "format": "avif",
+          "width": 579,
+          "height": 1024,
+          "byteSize": 46441
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-1-579.webp",
+          "format": "webp",
+          "width": 579,
+          "height": 1024,
+          "byteSize": 67788
+        }
+      ],
+      "updatedAt": "2026-08-29T22:28:26.512Z"
+    },
+    "dolichophis-schmidti-ioane-2.jpg": {
+      "sourceHash": "bf196144ec961307768967cf6941a52df14f9e63a21a2fa34b5261b42d4f4923",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-ioane-2.jpg",
+      "originalSize": 240645,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 37768
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 55692
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-2-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 101386
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-2-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 147286
+        }
+      ],
+      "updatedAt": "2026-08-29T22:31:41.191Z"
+    },
+    "dolichophis-schmidti-ioane-3.jpg": {
+      "sourceHash": "be7019a4ca1383a54e7e4a25b49c9d0116b011b9de8f9c3cfb010acadff0153c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-ioane-3.jpg",
+      "originalSize": 164354,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 23871
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 34874
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-3-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 58442
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-3-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 83520
+        }
+      ],
+      "updatedAt": "2026-08-29T22:31:41.404Z"
+    },
+    "dolichophis-schmidti-ioane-4.jpg": {
+      "sourceHash": "2532cf9d46816a80aab16c018536e75a98e52efabadfb7a52555bf74764e6ad8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dolichophis-schmidti-ioane-4.jpg",
+      "originalSize": 298381,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 44872
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 71386
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-4-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 124350
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-ioane-4-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 186072
+        }
+      ],
+      "updatedAt": "2026-08-29T22:39:06.758Z"
+    },
     "dolichophis-schmidti-mobile.webp": {
       "sourceHash": "f20cc776f887ea3a2f72dcc47f1f11bd5af1f333a0c14cf7d184114f79d27ccf",
       "configFingerprint": "a895f8e025dcc7fa",
