@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reptiles — საქართველოს ცხოველთა ატლასი
 
-## Getting Started
+Bilingual atlas of animals of Georgia: species profiles, identification, range, and field context. Live at **[reptiles.ge](https://reptiles.ge)**.
 
-First, run the development server:
+Georgian is canonical. English is a full alternate (`/en/…`), not a machine overlay.
+
+Herpetofauna (snakes, lizards, turtles, amphibians) is the core, aligned with Tarkhnishvili et al. 2026. Birds and mammals are present as hubs and profiles.
+
+## Stack
+
+- [Next.js](https://nextjs.org) 16 (App Router) + React 19
+- [next-intl](https://next-intl.dev) (KA default, EN prefixed)
+- TypeScript, Tailwind CSS 4
+
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Species MDX is compiled automatically (`predev` / `prebuild`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm test
+npm run species:compile
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Content
 
-## Learn More
+Profiles live in `src/content/species/{scientific-id}/ka.mdx` and `en.mdx`. The compiler writes `src/data/species.generated.ts` — do not edit that file.
 
-To learn more about Next.js, take a look at the following resources:
+Range on a species or region page comes from `src/data/regions.ts`. Localities are not inferred from habitat or neighbouring regions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Agents and contributors: read **[AGENTS.md](./AGENTS.md)** before changing taxonomy, URLs, or copy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Compile species, start Next.js |
+| `npm run build` | Production build |
+| `npm run species:compile` | MDX → generated catalog |
+| `npm test` | Snake quiz unit tests |
+| `npm run images:optimize` | Image pipeline (CDN / OG) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Photographs and species text remain with their credited authors and cited sources. Source code in this repository is all rights reserved unless a license file is added.
