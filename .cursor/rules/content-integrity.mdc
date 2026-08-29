@@ -1,0 +1,17 @@
+---
+description: Scientific and medical integrity for reptiles.ge — never invent data
+alwaysApply: true
+---
+
+# Content integrity
+
+Public atlas of Georgia’s animals (KA canonical). Empty is better than invented.
+
+- Do not invent locality, region, size, IUCN/national Red List, endemic status, or venom/medical claims.
+- `regions.ts` `speciesIds`: only an explicit admin-unit record (Tarkhnishvili et al. 2026 or an already-cited profile locality). Not habitat, “Colchis”, IUCN range, or a neighbour region.
+- Candidate taxa stay candidates. Darevskia species must not be conflated.
+- Bite/venom pages: educational, 112, no `MedicalWebPage`. Malpolon = Moderate, not გიურზა.
+- Photos: do not call CDN images Georgia-field-verified without evidence.
+- Both `ka.mdx` and `en.mdx` / both `messages/ka.json` and `en.json`. No code comments.
+- Do not edit `src/data/species.generated.ts`. Lookalikes live in `LOOKALIKES` (`speciesRoutes.ts`), not MDX YAML.
+- No `/konservacia` routes. Quiz results must not become URLs. Map for agents: `AGENTS.md`.
