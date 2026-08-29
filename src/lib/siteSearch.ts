@@ -357,12 +357,21 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     icon: "guide",
   },
   "turtle-identify": {
-    title: { ka: "ეს რა კუა?", en: "What turtle is this?" },
+    title: { ka: "კუს ამოცნობა", en: "Identify a turtle" },
     subtitle: {
       ka: "ამოცნობის გიდი კუებისთვის",
       en: "Identification guide for turtles",
     },
-    keywords: ["ამოცნობა", "identify", "რა კუა", "what turtle"],
+    keywords: [
+      "ამოცნობა",
+      "identify",
+      "რა კუა",
+      "what turtle",
+      "კუს ამოცნობა",
+      "ხმელეთის კუ",
+      "წყლის კუ",
+      "წითელყურა",
+    ],
     icon: "identify",
   },
   "amphibian-index": {
