@@ -49,6 +49,51 @@ export function speciesMetaTitle(
   return `${commonName} (${scientificName}) | ${intent}`;
 }
 
+const SPECIES_META_TITLE_OVERRIDE: Partial<
+  Record<string, { ka: string; en: string }>
+> = {
+  "natrix-natrix": {
+    ka: "ჩვეულებრივი ანკარა (Natrix natrix) | უშხამო გველი საქართველოში",
+    en: "Grass snake (Natrix natrix) | Non-venomous snake in Georgia",
+  },
+  "vipera-kaznakovi": {
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",
+    en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
+  },
+  "ommatotriton-ophryticus": {
+    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
+    en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
+  },
+  "macrovipera-lebetina": {
+    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი აღმოსავლეთ საქართველოში",
+    en: "Levantine viper (Macrovipera lebetinus) | Venomous snake of eastern Georgia",
+  },
+  "natrix-tessellata": {
+    ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
+    en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
+  },
+  "vipera-transcaucasiana": {
+    ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) | შხამიანი გველი მცირე კავკასიონზე",
+    en: "Nose-horned viper (Vipera ammodytes) | Venomous snake of the Lesser Caucasus",
+  },
+  "platyceps-najadum": {
+    ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
+    en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
+  },
+};
+
+export function speciesPageMetaTitle(
+  speciesId: string,
+  locale: "ka" | "en",
+  commonName: string,
+  scientificName: string,
+  intent: string,
+) {
+  const override = SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale];
+  if (override) return override;
+  return speciesMetaTitle(commonName, scientificName, intent);
+}
+
 export function speciesImageAlt(
   commonName: string,
   scientificName: string,

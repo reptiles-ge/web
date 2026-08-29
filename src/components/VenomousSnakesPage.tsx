@@ -44,6 +44,7 @@ export function VenomousSnakesPage({
     (item) => item.danger === "Moderate",
   ).length;
   const giurza = species.find((item) => item.id === "macrovipera-lebetina");
+  const kaznakovi = species.find((item) => item.id === "vipera-kaznakovi");
   const relatedGuides = getHubPageRelatedGuides("snakes", "/venomous-snakes").filter(
     (card) =>
       card.kind === "quiz" ||
@@ -183,29 +184,57 @@ export function VenomousSnakesPage({
               </p>
             </Reveal>
 
-            {giurza ? (
-              <Reveal delay={40}>
-                <Link
-                  href={speciesHref(giurza.id, locale)}
-                  className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
-                >
-                  <div>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                      {t("featuredEyebrow")}
-                    </p>
-                    <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
-                      {giurza.commonName}
-                    </p>
-                    <p className="mt-1 text-[14px] italic text-muted-foreground">
-                      {giurza.scientificName}
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
-                    {t("openProfile")}
-                    <ArrowUpRight className="size-3.5" />
-                  </span>
-                </Link>
-              </Reveal>
+            {giurza || kaznakovi ? (
+              <div className="mt-10 grid gap-4 md:grid-cols-2">
+                {giurza ? (
+                  <Reveal delay={40}>
+                    <Link
+                      href={speciesHref(giurza.id, locale)}
+                      className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
+                    >
+                      <div>
+                        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                          {t("featuredEyebrow")}
+                        </p>
+                        <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
+                          {giurza.commonName}
+                        </p>
+                        <p className="mt-1 text-[14px] italic text-muted-foreground">
+                          {giurza.scientificName}
+                        </p>
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
+                        {t("openProfile")}
+                        <ArrowUpRight className="size-3.5" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                ) : null}
+                {kaznakovi ? (
+                  <Reveal delay={60}>
+                    <Link
+                      href={speciesHref(kaznakovi.id, locale)}
+                      className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
+                    >
+                      <div>
+                        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                          {t("featuredWestEyebrow")}
+                        </p>
+                        <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
+                          {kaznakovi.commonName}
+                        </p>
+                        <p className="mt-1 text-[14px] italic text-muted-foreground">
+                          {kaznakovi.scientificName}
+                        </p>
+                      </div>
+                      <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
+                        {t("openProfile")}
+                        <ArrowUpRight className="size-3.5" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                ) : null}
+              </div>
             ) : null}
 
             <div className="mt-14 space-y-16">

@@ -5,6 +5,7 @@ import {
   resolveSpecies,
   speciesHref,
 } from "@/lib/speciesRoutes";
+import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -17,6 +18,12 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   return legacySpeciesStaticParams();
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function LegacySpeciesRedirect({ params }: PageProps) {
