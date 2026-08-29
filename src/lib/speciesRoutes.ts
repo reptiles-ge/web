@@ -226,7 +226,14 @@ const LOOKALIKES: Record<string, string[]> = {
     "hemorrhois-ravergieri",
     "vipera-transcaucasiana",
   ],
-  "dolichophis-schmidti": ["malpolon-insignitus"],
+  "dolichophis-schmidti": [
+    "malpolon-insignitus",
+    "platyceps-najadum",
+    "hemorrhois-ravergieri",
+    "elaphe-urartica",
+    "macrovipera-lebetina",
+    "elaphe-dione",
+  ],
   "platyceps-najadum": [
     "hemorrhois-ravergieri",
     "dolichophis-schmidti",

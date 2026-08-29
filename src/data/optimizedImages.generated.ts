@@ -2248,6 +2248,100 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-andro-1.jpg": {
+    "path": "dolichophis-schmidti-andro-1",
+    "width": 1024,
+    "height": 708,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-george-1.jpg": {
+    "path": "dolichophis-schmidti-george-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-george-2.jpg": {
+    "path": "dolichophis-schmidti-george-2",
+    "width": 1024,
+    "height": 682,
+    "widths": [
+      400,
+      800,
+      1024
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-1.jpg": {
+    "path": "dolichophis-schmidti-ioane-1",
+    "width": 579,
+    "height": 1024,
+    "widths": [
+      400,
+      579
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-2.jpg": {
+    "path": "dolichophis-schmidti-ioane-2",
+    "width": 771,
+    "height": 1024,
+    "widths": [
+      400,
+      771
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-3.jpg": {
+    "path": "dolichophis-schmidti-ioane-3",
+    "width": 771,
+    "height": 1024,
+    "widths": [
+      400,
+      771
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-4.jpg": {
+    "path": "dolichophis-schmidti-ioane-4",
+    "width": 771,
+    "height": 1024,
+    "widths": [
+      400,
+      771
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
   "https://cdn.reptiles.ge/dolichophis-schmidti-mobile.webp": {
     "path": "dolichophis-schmidti-mobile",
     "width": 2048,
