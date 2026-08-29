@@ -253,8 +253,22 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 </div>
               ))}
             </div>
+
+            {hubId === "turtles" ? (
+              <Reveal delay={80}>
+                <Link
+                  href="/turtles/saxeoebebi"
+                  className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                >
+                  {t("speciesIndexCta")}
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              </Reveal>
+            ) : null}
           </div>
         </section>
+
+        {hubId === "turtles" ? <TurtlesHubSections /> : null}
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -372,10 +386,31 @@ function SnakesFaq5Answer() {
   });
 }
 
+function TurtlesFaq4Answer() {
+  const t = useTranslations("turtles");
+
+  return t.rich("faq4A", {
+    identify: (chunks) => (
+      <Link href="/turtles/identifikacia" className={faqLinkClassName}>
+        {chunks}
+      </Link>
+    ),
+  });
+}
+
+function hubFaqIndices(hubId: GroupHubId, t: ReturnType<typeof useTranslations>) {
+  const max = hubId === "turtles" ? 8 : 5;
+  const indices: number[] = [];
+  for (let n = 1; n <= max; n += 1) {
+    if (t.has(`faq${n}Q`)) indices.push(n);
+  }
+  return indices;
+}
+
 function FaqSection({ hubId }: { hubId: GroupHubId }) {
   const t = useTranslations(hubId);
   const [open, setOpen] = useState<number | null>(0);
-  const items = [1, 2, 3, 4, 5] as const;
+  const items = useMemo(() => hubFaqIndices(hubId, t), [hubId, t]);
 
   return (
     <section className="border-t border-border bg-surface py-24 lg:py-32">
@@ -436,6 +471,8 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                         <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {hubId === "snakes" && n === 5 ? (
                             <SnakesFaq5Answer />
+                          ) : hubId === "turtles" && n === 4 ? (
+                            <TurtlesFaq4Answer />
                           ) : (
                             t(`faq${n}A`)
                           )}
