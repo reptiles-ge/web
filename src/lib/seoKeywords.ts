@@ -36,7 +36,13 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "macrovipera-lebetina": {
-    ka: ["Macrovipera lebetina", "Vipera lebetina"],
+    ka: [
+      "გიურზა",
+      "გიუზა",
+      "giurza",
+      "Macrovipera lebetina",
+      "Vipera lebetina",
+    ],
     en: [
       "Levantine viper",
       "blunt-nosed viper",
@@ -483,12 +489,17 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
   "ommatotriton-ophryticus": {
     ka: [
+      "ტრიტონი",
+      "ტრიტონი საქართველოში",
+      "ტრიტონი წყლის",
+      "კავკასიური ტრიტონი",
       "მცირეაზიური ტრიტონი",
       "ზოლებიანი ტრიტონი",
       "Triturus vittatus",
       "Triturus vittatus ophryticus",
     ],
     en: [
+      "newt Georgia",
       "Caucasian banded newt",
       "northern banded newt",
       "Asia Minor newt",

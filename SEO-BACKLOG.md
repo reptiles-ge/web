@@ -165,9 +165,9 @@ Second-largest non-snake demand cluster after ანკარა/გველგ
 
 **Done when**
 
-- [ ] SERP snippet matches Georgia newt intent
-- [ ] Related amphibian navigation is clear
-- [ ] Redirects/internal links cleaned
+- [x] SERP snippet matches Georgia newt intent
+- [x] Related amphibian navigation is clear
+- [x] Redirects/internal links cleaned
 
 **Expected improvement**  
 CTR on ტრიტონი queries; amphibians become a real second pillar beside snakes.
@@ -207,9 +207,9 @@ Already a winning entity, but misspelling + photo queries leak impressions; lega
 
 **Done when**
 
-- [ ] Redirect + internal links prefer `/gvelebi/giurza`
-- [ ] Mobile hero is solid
-- [ ] No awkward keyword injection
+- [x] Redirect + internal links prefer `/gvelebi/giurza`
+- [x] Mobile hero is solid
+- [x] No awkward keyword injection
 
 **Expected improvement**  
 Consolidate authority on KA URL; pick up some typo/photo SERP CTR.

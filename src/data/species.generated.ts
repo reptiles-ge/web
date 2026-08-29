@@ -12052,8 +12052,8 @@ export const species: Species[] = [
     "genus": "Macrovipera",
     "family": "Viperidae",
     "location": "აღმოსავლეთ საქართველო",
-    "description": "აღმოსავლეთ საქართველოს ყველაზე დიდი შხამიანი გველგესლა — მშრალი, კლდოვანი ადგილების მკვიდრი.",
-    "overview": "გიურზა (Macrovipera lebetinus) აღმოსავლეთ საქართველოს მშრალი ზონის დიდი შხამიანი გველგესლაა. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. მიღებული სახელია M. lebetinus; ძველ ლიტერატურაში ხშირია lebetina. კავკასიის პოპულაციები ჩვეულებრივ ქვესახეობას M. l. obtusa მიეკუთვნება. საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ლანდშაფტშია — დასავლეთში და მაღალმთაში არ გვხვდება. ზრდასრული ხშირად დაახლოებით 1–1.5 მ-ია. ნაკბენი სამედიცინოდ მნიშვნელოვანია და სასწრაფო დახმარებას საჭიროებს. ხშირად ერევა ჩვეულებრივ ხვლიკიჭამია გველსა და დიდ უშხამო მცურავებს.",
+    "description": "აღმოსავლეთ საქართველოს ყველაზე დიდი შხამიანი გველი — მშრალი, კლდოვანი ადგილების გიურზა.",
+    "overview": "გიურზა (Macrovipera lebetinus) აღმოსავლეთ საქართველოს შხამიანი გველია — მშრალი ზონის დიდი გველგესლა, მაღალი რისკი. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. მიღებული სახელია M. lebetinus; ძველ ლიტერატურაში ხშირია lebetina. კავკასიის პოპულაციები ჩვეულებრივ ქვესახეობას M. l. obtusa მიეკუთვნება. საქართველოში მხოლოდ სამხრეთ-აღმოსავლეთის ნახევრადმშრალ ლანდშაფტშია — დასავლეთში და მაღალმთაში არ გვხვდება. ზრდასრული ხშირად დაახლოებით 1–1.5 მ-ია. ნაკბენი სამედიცინოდ მნიშვნელოვანია და სასწრაფო დახმარებას საჭიროებს. ხშირად ერევა ჩვეულებრივ ხვლიკიჭამია გველსა და დიდ უშხამო მცურავებს.",
     "habitat": "ეძებეთ მშრალ, ქვიან და კლდოვან ადგილზე — არა კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. დამახასიათებელია ივრის, მტკვრისა და ალაზნის ქვედა დინებები, შირაქი, გარეჯი და ქვემო ქართლის მშრალი მთისწინეთი. თბილისისა და რუსთავის მიდამოებში იშვიათია. ამ ატლასის რუკაზე აღნიშნულია კახეთი, ქვემო ქართლი და თბილისი. დასახელებული ადგილებია ყვარელი და ნეკრესის მონასტერი — ალაზნის ხეობა — და ფერადი უდაბნო. თავს აფარებს კლდის ნაპრალს, ქვას, მღრღნელის სოროს და ზოგჯერ ნაგებობას; ზაფხულის სიცხეში ხშირად წყალთან ახლოს ჩნდება. ქართულ წყაროებში ზედა სიმაღლე დაახლოებით 1,500 მ-ია. დასავლეთ საქართველოში დადასტურებული არეალი არ არის.",
     "diet": "ზრდასრული ძირითადად მღრღნელებს იჭერს; აგრეთვე პატარა ფრინველებს, ხვლიკებსა და სხვა მცირე ხერხემლიანებს. ახალგაზრდა უფრო პატარა ხვლიკებით ნადირობს. ნადირობს ჩასაფრებით. ზოგჯერ ბუჩქზე ან ხეზე ადის ფრინველის დასაჭერად.",
     "behavior": "ამიერკავკასიაში აქტიური სეზონი ჩვეულებრივ აპრილიდან ოქტომბრის ბოლომდეა; ზოგი წყარო გამოსვლას მარტის ბოლოდანაც აღნიშნავს. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში — ბინდსა და ღამით. იზამთრებს კლდის ნაპრალსა და სოროში. კვერცხისმდებია — საქართველოს სხვა გველგესლები ცოცხლადმშობია. შეწყვილება აპრილ–მაისშია. ქართული წყაროები ზაფხულში დაახლოებით 15–20 კვერცხს ასახელებენ; ნაშიერი დაახლოებით 23–25 სმ-ია და იჩეკება დაახლოებით 35–45 დღეში. თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს.",
@@ -12061,6 +12061,10 @@ export const species: Species[] = [
     "danger": "High",
     "image": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-3.png",
     "imageCredit": {
+      "photographer": "ნიკა მელიქიშვილი"
+    },
+    "mobileImage": "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg",
+    "mobileImageCredit": {
       "photographer": "ნიკა მელიქიშვილი"
     },
     "gallery": [
@@ -12225,6 +12229,10 @@ export const species: Species[] = [
       {
         "question": "გვხვდება თუ არა გიურზა საქართველოში?",
         "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. მხოლოდ აღმოსავლეთის ნახევრადმშრალ ზონაშია — არა მთელ ქვეყანაში."
+      },
+      {
+        "question": "გიუზა და გიურზა ერთი და იგივეა?",
+        "answer": "დიახ — გიუზა გიურზას ხშირი მართლწერის ვარიანტია. ამ ატლასში სახეობაა Macrovipera lebetinus (გიურზა)."
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
@@ -13410,7 +13418,7 @@ export const species: Species[] = [
         "answer": "მანძილი დაიცავით და არ აიყვანოთ. უვნებელია და ხშირად ამფიბიებს მიჰყვება. თუ გველის სახეობაში დარწმუნებული არ ხართ, ჩათვალეთ, რომ შეიძლება გველგესლა იყოს, და დატოვეთ უმოძრაოდ."
       }
     ],
-    "updatedAt": "2026-08-24T09:24:07+04:00",
+    "updatedAt": "2026-08-29T17:00:15+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13689,8 +13697,8 @@ export const species: Species[] = [
     "genus": "Ommatotriton",
     "family": "Salamandridae",
     "location": "მთის ტყე, სუბალპი, დასავლეთის სანაპირო",
-    "description": "უშხამო ზოლებიანი ტრიტონი საქართველოს მთის ტყეებში, სუბალპურ ტბებსა და ზოგან შავი ზღვის სანაპიროზე. ძველ წიგნებში — მცირეაზიური ტრიტონი.",
-    "overview": "კავკასიური ტრიტონი (Ommatotriton ophryticus) უშხამო ზოლებიანი ტრიტონია საქართველოს მთის ტყეებში, სუბალპურ ტბებთან და დასავლეთში ზოგან შავი ზღვის სანაპიროზე. ადამიანისთვის საშიში არ არის. ზრდასრული ჩვეულებრივ დაახლოებით 12–18 სმ-ია; მამრი მდედრზე დიდია. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. დასავლეთ საქართველოში უფრო უწყვეტია, აღმოსავლეთში — სპორადული, თელავამდე და ლაგოდეხამდე. ძველ წიგნებში იგივე ცხოველი ხშირად Triturus vittatus ophryticus ან მცირეაზიური ტრიტონის სახელითაა; ახლა ცალკე სახეობაა. ჩამონათვალში ქვესახეობაა O. o. ophryticus. ტიპური ადგილია თბილისის მიდამოები („bei Tiflis“).",
+    "description": "ტრიტონი საქართველოში — უშხამო ზოლებიანი სახეობა მთის ტყესა და სუბალპურ ტბებთან; ძველ წიგნებში მცირეაზიური ტრიტონი.",
+    "overview": "კავკასიური ტრიტონი (Ommatotriton ophryticus) საქართველოს ტრიტონია — უშხამო, ზოლებიანი ამფიბია მთის ტყესა და სუბალპურ ტბებთან. ბაყაყისგან განსხვავებით კუდიანი Caudataა; ადამიანისთვის საშიში არ არის. დასავლეთში ზოგან შავი ზღვის სანაპიროზეც გვხვდება. ზრდასრული ჩვეულებრივ დაახლოებით 12–18 სმ-ია; მამრი მდედრზე დიდია. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. დასავლეთ საქართველოში უფრო უწყვეტია, აღმოსავლეთში — სპორადული, თელავამდე და ლაგოდეხამდე. ძველ წიგნებში იგივე ცხოველი ხშირად Triturus vittatus ophryticus ან მცირეაზიური ტრიტონის სახელითაა; ახლა ცალკე სახეობაა. ჩამონათვალში ქვესახეობაა O. o. ophryticus. ტიპური ადგილია თბილისის მიდამოები („bei Tiflis“).",
     "habitat": "საქართველოში ეს ტყისა და მთის წყალსატევის ტრიტონია. ქვირითობისას ეძებეთ წიწვოვან, შერეულ ან ფოთლოვან ტყეში, სუბალპურ მდელოზე და პატარა ტბასთან, გუბესთან ან ნელ ნაკადულთან — განსაკუთრებით უთევზო წყალში. ხმელეთზე იმალება ქვის, მორის და ფოთლის ქვეშ; ზოგჯერ უფრო მშრალ ადგილზეც გამოჩნდება. სიმაღლე აქ ზღვის დონიდან დაახლოებით 2000 მ-მდეა; სანაპიროზეც გვხვდება და მხოლოდ 1200 მ-ზე მაღლა არ არის შეზღუდული. 1996 წლის მიმოხილვით დასავლეთი უფრო უწყვეტია, აღმოსავლეთი — სპორადული; სამხრეთ კავკასიონის ფერდობზე აღმოსავლეთი ზღვარი თელავთანაა. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი, სამცხე — ჯავახეთი, შიდა ქართლი, მცხეთა — მთიანეთი, კახეთი და თბილისი. დასახელებული ადგილებია, სხვათა შორის, გაგრა, სოხუმი, გუმისტა, რიწა, ფოთი, ბათუმი, კინტრიში, ჩარნალი, ოზურგეთი, ქუთაისი, აჯამეთი, ლეჩხუმი, რიონის ზემო წელი, ბანისხევი, დიდი მიტარბი, ადიგენის ტრიალას ტბა, ყაზბეგი, საგურამო, წოდორეთის ტბა, თელავის ჭიანთბა, მარიამჯვარი, ლაგოდეხი, ლიახვის ზემო წელი და ერწოს ტბა. 2026 წლის დნმ-ნიმუშები ტრიალას ტბიდან და საკისტოს ტბიდანაა. თბილისის მიდამოებში (კუების ტბა, ბეთანია, ახალდაბა / წყნეთი, ჩილი-ტბა) ისტორიული ჩანაწერებია; ნიკოლსკის ძველი პოპულაციების ნაწილი გადაშენებულად ითვლება. არეალი გრძელდება ჩრდილო-აღმოსავლეთ ანატოლიაში და რუსეთის დასავლეთ კავკასიაში; ჩრდილოეთ სომხეთის ჩანაწერები წყაროებში არ ემთხვევა.",
     "diet": "წყალში ზრდასრული იჭერს მოლუსკებს, კიბოსნაირებს, წყლის მწერებს და ხშირად სხვა ამფიბიის ლიფსიტებს. კვერცხის ჭამაც აღწერილია, განსაკუთრებით მდედრებში. მეტამორფოზის შემდეგ ნორჩი ხმელეთის წვრილ უხერხემლოებს ჭამს — კუტიებს, ბუგრებს, ხოჭოსა და ბუზის ლარვებს. ლიფსიტა ჯერ წვრილ კიბოსნაირებს იკვებება, შემდეგ მოლუსკებსა და მწერებსაც. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის აღწერაა.",
     "behavior": "ქვირითობისას წყალშია. დანარჩენ დროს ხშირად ხმელეთზეა — ქვის, ხის და ტყის ნაგვის ქვეშ. კავკასიაში ზამთარს უმეტესად ხმელეთზე ატარებს: სექტემბერ–ოქტომბერში იწყებს, დაბალ სიმაღლეზე თებერვალ–მარტში იღვიძებს, მაღალმთაში — აპრილ–მაისში. ქვირითობა ამინდისა და სიმაღლის მიხედვით გვიანი თებერვლიდან ივლისამდეა. კვერცხს ცალ-ცალკე ან მოკლე ჯაჭვად დებს წყლის მცენარეზე; ჯგუფში დაახლოებით 60–240 კვერცხია აღწერილი. ლიფსიტა წყალში რჩება და გარდაქმნამდე ჩვეულებრივ რამდენიმე თვე სჭირდება; ზოგ მთის ტბაში გვიანი ლიფსიტა ზამთარს წყალში რჩება. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და წყალსატევებს შორის არ გადაიტანოთ — კანი ლორწოს გამოყოფს და შეიძლება სოკოვანი დაავადება გადაიტანოთ. შეხების შემდეგ ხელები დაიბანეთ. ადამიანისთვის სამედიცინო საფრთხე არ არის.",
@@ -13817,19 +13825,23 @@ export const species: Species[] = [
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა კავკასიური ტრიტონი საქართველოში?",
-        "answer": "დიახ. 2026 წლის ჩამონათვალი ბიოლოგიურად დადასტურებულად მიიჩნევს. ძველ წიგნებში იგივე სახეობა ხშირად მცირეაზიური ტრიტონის ან Triturus vittatus ophryticus-ის სახელითაა. ტიპური ადგილი თბილისის მიდამოებია."
+        "question": "რა არის ტრიტონი და გვხვდება საქართველოში?",
+        "answer": "ტრიტონი კუდიანი ამფიბიაა (Caudata), არა ბაყაყი. კავკასიური ტრიტონი საქართველოში ბიოლოგიურად დადასტურებულია 2026 წლის ჩამონათვალით. ძველ წიგნებში იგივე სახეობა ხშირად მცირეაზიური ტრიტონის ან Triturus vittatus ophryticus-ის სახელითაა. ტიპური ადგილი თბილისის მიდამოებია."
       },
       {
-        "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "მთის ტყეში, სუბალპურ ტბასთან და დასავლეთში ზოგან სანაპიროზეც — უმჯობესია უთევზო გუბესა და ტბაზე. დასავლეთი უფრო უწყვეტია; აღმოსავლეთი სპორადულია თელავამდე და ლაგოდეხამდე. თბილისის ზოგი ძველი ადგილი აღარ არის დასახლებული."
+        "question": "სად შეიძლება შეხვდე — ტრიტონი წყალთან?",
+        "answer": "ქვირითობისას — უთევზო გუბესა და ტბაზე, მთის ტყეში და სუბალპში; დასავლეთში ზოგან სანაპიროზეც. დანარჩენ დროს ხშირად ხმელეთზეა ქვისა და მორის ქვეშ. დასავლეთი უფრო უწყვეტია; აღმოსავლეთი სპორადულია თელავამდე და ლაგოდეხამდე. თბილისის ზოგი ძველი ადგილი აღარ არის დასახლებული."
+      },
+      {
+        "question": "ტრიტონი ბაყაყია?",
+        "answer": "არა. ბაყაყებსა და გომბეშოებს (Anura) ზრდასრულობაში კუდი არ აქვთ. ტრიტონი კუდიანია; ამ სახეობას გვერდზე ღია ზოლი და ულაქო ყვითელი ან ნარინჯისფერი მუცელი აქვს. ბაყაყების გიდი ცალკეა ამფიბიების კლასტერში."
       },
       {
         "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
         "answer": "არა. შხამი არ აქვს და ადამიანისთვის უვნებელია. კანის სეკრეტი შეიძლება გააღიზიანოს. არ აიყვანოთ. შეხების შემდეგ ხელები დაიბანეთ."
       },
       {
-        "question": "როგორ ამოვიცნო?",
+        "question": "როგორ ამოვიცნო სხვა ტრიტონებისგან?",
         "answer": "ტრიტონი გვერდის ღია ზოლით, ყვითელი ან ნარინჯისფერი ულაქო მუცლით. შეწყვილებისას მამრს მაღალი, დაკბილული ქედი აქვს. ჩვეულებრივ ტრიტონს ზოლი არ აქვს; სავარცხლიანს მუცელზე ლაქები აქვს."
       },
       {
@@ -19623,7 +19635,7 @@ export const species: Species[] = [
         "answer": "ჩამონათვალი კანდიდატად იღებს, რადგან kaznakovi-ს კომპლექსში იზოლაცია გენომური მონაცემით სრულად არ არის დადასტურებული. IUCN-ით საფრთხეშია ვიწრო, ფრაგმენტირებული არეალისა და კლების გამო; საქართველოს წითელ ნუსხაში EN სტატუსითაა."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-29T17:00:15+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -28971,8 +28983,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "macrovipera-lebetina": {
     "commonName": "Levantine viper",
     "location": "Eastern Georgia",
-    "description": "Eastern Georgia’s largest venomous viper — a resident of dry, rocky ground.",
-    "overview": "The Levantine viper (Macrovipera lebetinus) is a large venomous snake of eastern Georgia’s dry lowlands. The 2026 Georgian checklist treats it as biologically confirmed. The accepted name is M. lebetinus; older literature often uses lebetina. Caucasian populations are usually assigned to the subspecies M. l. obtusa. In Georgia it is confined to the semi-arid south-east — not the west, and not the high mountains. Adults commonly reach about 1–1.5 m. A bite is medically significant and needs emergency care. It is often confused with the eastern Montpellier snake and with large harmless racers.",
+    "description": "Eastern Georgia’s largest venomous snake — the Levantine viper of dry, rocky ground.",
+    "overview": "The Levantine viper (Macrovipera lebetinus) is a venomous snake of eastern Georgia — a large dry-zone viper, high risk. The 2026 Georgian checklist treats it as biologically confirmed. The accepted name is M. lebetinus; older literature often uses lebetina. Caucasian populations are usually assigned to the subspecies M. l. obtusa. In Georgia it is confined to the semi-arid south-east — not the west, and not the high mountains. Adults commonly reach about 1–1.5 m. A bite is medically significant and needs emergency care. It is often confused with the eastern Montpellier snake and with large harmless racers.",
     "habitat": "Look for it on dry, stony and rocky ground — not in Colchic forest and not in the Greater Caucasus highlands. Confirmed country sources place it along the lower Iori, Mtkvari and Alazani, in Shiraki, Gareji and the dry foothills of Kvemo Kartli. It is scarce around Tbilisi and Rustavi. This atlas maps Kakheti, Kvemo Kartli and Tbilisi. Named localities from photographs on this site include Kvareli and Nekresi Monastery in the Alazani valley, and the Colored Desert. It shelters in rock crevices, under stones, in rodent burrows and sometimes in buildings; in summer heat it is often near water. Georgian sources give an upper elevation of about 1,500 m. There is no confirmed range in western Georgia.",
     "diet": "Adults take mainly rodents; also small birds, lizards and other small vertebrates. Juveniles hunt mostly small lizards. It hunts by ambush. It sometimes climbs shrubs or trees to catch birds.",
     "behavior": "In Transcaucasia the active season is usually April to late October; some sources note emergence from late March. In spring and autumn it often moves by day; in summer heat it is active at dusk and at night. It overwinters in rock crevices and burrows. It lays eggs — Georgia’s other vipers give live birth. Mating is in April–May. Georgian sources report about 15–20 eggs in summer; hatchlings are about 23–25 cm after roughly 35–45 days. If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people.",
@@ -29018,6 +29030,10 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
       {
         "question": "Is the Levantine viper found in Georgia?",
         "answer": "Yes. The 2026 checklist treats it as biologically confirmed. It occurs only in the semi-arid east — not throughout the country."
+      },
+      {
+        "question": "Are “gyurza”, “giurza” and გიუზა the same snake?",
+        "answer": "Yes — those spellings refer to the same species. In this atlas it is Macrovipera lebetinus (Levantine viper / გიურზა)."
       },
       {
         "question": "Where can it be found in Georgia?",
@@ -30197,8 +30213,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "ommatotriton-ophryticus": {
     "commonName": "Northern Banded Newt",
     "location": "mountain forest, subalpine, western coast",
-    "description": "A harmless banded newt of Georgia’s mountain forests, subalpine lakes and, in places, the Black Sea coast. Older books call it the Asia Minor newt.",
-    "overview": "The northern banded newt (Ommatotriton ophryticus) is a harmless banded newt of Georgia’s mountain forests, subalpine lakes and, in the west, locally the Black Sea coast. It is not dangerous to people. Adults are usually about 12–18 cm long; males are larger than females. The 2026 Georgian checklist treats it as biologically confirmed. In western Georgia the range is more continuous; in the east it is scattered, as far as Telavi and Lagodekhi. Older books often listed the same animal as Triturus vittatus ophryticus or the Asia Minor newt. It is now a separate species. The checklist uses the subspecies O. o. ophryticus. The type locality is near Tbilisi (“bei Tiflis”).",
+    "description": "A newt in Georgia — harmless banded species of mountain forest and subalpine lakes; older books call it the Asia Minor newt.",
+    "overview": "The northern banded newt (Ommatotriton ophryticus) is Georgia’s banded newt — a harmless tailed amphibian of mountain forests and subalpine lakes. Unlike frogs, it is a caudate (Caudata) and keeps a tail as an adult; it is not dangerous to people. In the west it also occurs locally on the Black Sea coast. Adults are usually about 12–18 cm long; males are larger than females. The 2026 Georgian checklist treats it as biologically confirmed. In western Georgia the range is more continuous; in the east it is scattered, as far as Telavi and Lagodekhi. Older books often listed the same animal as Triturus vittatus ophryticus or the Asia Minor newt. It is now a separate species. The checklist uses the subspecies O. o. ophryticus. The type locality is near Tbilisi (“bei Tiflis”).",
     "habitat": "In Georgia this is a newt of forest and mountain water. When breeding, look for it in coniferous, mixed or deciduous forest, on subalpine meadow, and at small lakes, ponds or slow streams — especially fish-free water. On land it hides under stones, logs and leaf litter; it may also appear on drier ground. Elevation in Georgia runs from the coast to about 2,000 m; it is not restricted to above 1,200 m. A 1996 review treats the west as more continuous and the east as scattered; on the southern Greater Caucasus the eastern limit is near Telavi. This atlas marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, Samtskhe — Javakheti, Shida Kartli, Mtskheta — Mtianeti, Kakheti and Tbilisi. Named sites include Gagra, Sukhumi, Gumista, Ritsa, Poti, Batumi, Kintrishi, Charnali, Ozurgeti, Kutaisi, Ajameti, Lechkhumi, the upper Rioni, Baniskhevi, Didi Mitarbi, Triala Lake in Adigeni, Kazbegi, Saguramo, Tsodoreti Lake, Chiantba near Telavi, Mariamjvari, Lagodekhi, the upper Liakhvi and Lake Ertso. The 2026 DNA samples are from Triala Lake and Sakisto Lake. The Tbilisi area (Turtle Lake, Betania, Akhaldaba / Tskhneti, Chili-Tba) has historical records; some of Nikolsky’s old sites are treated as extinct. The range continues in north-eastern Anatolia and the western Caucasus of Russia; records from northern Armenia do not agree across sources.",
     "diet": "In water, adults take molluscs, crustaceans, aquatic insects and often other amphibian larvae. Egg-eating is also described, especially in females. After metamorphosis, juveniles take small terrestrial invertebrates — springtails, aphids, beetle and fly larvae. Larvae start on tiny crustaceans, then add molluscs and insects. There is no separate Georgian diet study on this page; this is a species-level account.",
     "behavior": "It is in water when breeding. At other times it is often on land, under stones, wood and forest litter. In the Caucasus it usually overwinters on land: it enters hibernation in September–October, emerges in February–March at low elevation and in April–May in the highlands. Breeding runs from late February to July, depending on weather and altitude. Eggs are laid singly or in short chains on water plants; clutches of about 60–240 eggs are described. Larvae stay in water and usually take several months to transform; in some mountain ponds late larvae stay in water over winter. If you find one, leave it where it is. Do not pick it up or move it between water bodies — the skin produces mucus, and you can spread fungal disease. Wash your hands after any contact. It is not a medical risk to people.",
@@ -30238,19 +30254,23 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     },
     "faq": [
       {
-        "question": "Does the northern banded newt occur in Georgia?",
-        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. Older books often used Asia Minor newt or Triturus vittatus ophryticus for the same animal. The type locality is near Tbilisi."
+        "question": "What is a newt, and does it occur in Georgia?",
+        "answer": "A newt is a tailed amphibian (Caudata), not a frog. The northern banded newt is biologically confirmed in Georgia by the 2026 checklist. Older books often used Asia Minor newt or Triturus vittatus ophryticus for the same animal. The type locality is near Tbilisi."
       },
       {
-        "question": "Where can it be found in Georgia?",
-        "answer": "In mountain forest, at subalpine lakes and, in the west, locally on the coast — especially fish-free ponds and lakes. The west is more continuous; the east is scattered as far as Telavi and Lagodekhi. Some old Tbilisi sites are no longer occupied."
+        "question": "Where can it be found — is it a water newt?",
+        "answer": "When breeding — at fish-free ponds and lakes in mountain forest and the subalpine zone; in the west, locally on the coast too. At other times it is often on land under stones and logs. The west is more continuous; the east is scattered as far as Telavi and Lagodekhi. Some old Tbilisi sites are no longer occupied."
+      },
+      {
+        "question": "Is a newt a frog?",
+        "answer": "No. Adult frogs and toads (Anura) lack a tail. Newts keep a tail; this species has a pale flank stripe and an unspotted yellow or orange belly. Frog guides sit separately in the amphibian cluster."
       },
       {
         "question": "Is it venomous or dangerous to people?",
         "answer": "No. It has no venom and is harmless to people. Skin secretion can irritate. Do not pick it up. Wash your hands after contact."
       },
       {
-        "question": "How can it be identified?",
+        "question": "How can it be told from other newts?",
         "answer": "A newt with a pale flank stripe and a yellow or orange unspotted belly. Breeding males have a high, notched crest. The smooth newt lacks the stripe; the crested newt has a spotted belly."
       },
       {

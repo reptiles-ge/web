@@ -60,6 +60,14 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",
     en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
   },
+  "ommatotriton-ophryticus": {
+    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
+    en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
+  },
+  "macrovipera-lebetina": {
+    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი აღმოსავლეთ საქართველოში",
+    en: "Levantine viper (Macrovipera lebetinus) | Venomous snake of eastern Georgia",
+  },
 };
 
 export function speciesPageMetaTitle(
