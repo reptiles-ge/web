@@ -70,6 +70,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: [
       "ცხვირრქოსანი გველგესლა",
       "გველგესლა",
+      "შხამიანი გველგესლა",
       "Vipera ammodytes",
       "Vipera transcaucasiana",
     ],
@@ -77,6 +78,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Transcaucasian long-nosed viper",
       "nose-horned viper",
       "Transcaucasian sand viper",
+      "venomous viper Georgia",
       "Vipera transcaucasiana",
       "Vipera ammodytes transcaucasiana",
     ],
@@ -265,10 +267,15 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "platyceps-najadum": {
-    ka: ["წენგოსფერი მცურავი", "Coluber najadum"],
+    ka: [
+      "წენგოსფერი მცურავი",
+      "უშხამო მცურავი",
+      "Coluber najadum",
+    ],
     en: [
       "Dahl's whip snake",
       "slender whip snake",
+      "non-venomous whip snake",
       "Coluber najadum",
     ],
   },
@@ -469,8 +476,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["Caucasian salamander", "Salamandra caucasica"],
   },
   "natrix-tessellata": {
-    ka: ["წყლის გველი", "dice snake"],
-    en: ["tessellated water snake", "water snake"],
+    ka: [
+      "წყლის ანკარა",
+      "წყლის გველი",
+      "უშხამო ანკარა",
+      "dice snake",
+    ],
+    en: [
+      "dice snake",
+      "tessellated water snake",
+      "water snake Georgia",
+      "non-venomous water snake",
+    ],
   },
   "lissotriton-lantzi": {
     ka: [
