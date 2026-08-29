@@ -309,6 +309,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "apus-apus": {
+    group: "bird",
+    habitats: ["grassland", "mountain"],
+  },
   "strix-aluco": {
     group: "bird",
     habitats: ["forest"],
@@ -320,6 +324,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "aegolius-funereus": {
     group: "bird",
     habitats: ["forest", "mountain"],
+  },
+  "tyto-alba": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
+  "athene-noctua": {
+    group: "bird",
+    habitats: ["grassland"],
   },
   "ficedula-hypoleuca": {
     group: "bird",
@@ -337,9 +349,37 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "falco-peregrinus": {
+    group: "bird",
+    habitats: ["mountain", "grassland", "wetland"],
+  },
+  "glareola-pratincola": {
+    group: "bird",
+    habitats: ["wetland", "grassland"],
+  },
+  "turdus-merula": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "streptopelia-turtur": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
   "ciconia-ciconia": {
     group: "bird",
     habitats: ["wetland", "grassland"],
+  },
+  "anas-platyrhynchos": {
+    group: "bird",
+    habitats: ["wetland"],
+  },
+  "phasianus-colchicus": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
+  "coturnix-coturnix": {
+    group: "bird",
+    habitats: ["grassland"],
   },
   "aquila-chrysaetos": {
     group: "bird",
@@ -352,6 +392,18 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "gyps-fulvus": {
     group: "bird",
     habitats: ["mountain", "grassland"],
+  },
+  "corvus-corax": {
+    group: "bird",
+    habitats: ["mountain", "grassland", "forest"],
+  },
+  "pica-pica": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
+  "garrulus-glandarius": {
+    group: "bird",
+    habitats: ["forest"],
   },
   "vulpes-vulpes": {
     group: "mammal",

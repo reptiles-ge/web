@@ -1025,6 +1025,341 @@
       ],
       "updatedAt": "2026-08-28T21:28:50.871Z"
     },
+    "apus-apus-euqirneto-hand-1.jpg": {
+      "sourceHash": "2a24f41a0d703a71cb4d00daa650c86429e7789669c45215b3d76035345dc152",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "apus-apus-euqirneto-hand-1.jpg",
+      "originalSize": 705244,
+      "width": 2000,
+      "height": 2000,
+      "derivatives": [
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 9615
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 12024
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 21987
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 29466
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 37789
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 50428
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 2000,
+          "byteSize": 82884
+        },
+        {
+          "key": "optimized/apus-apus-euqirneto-hand-1-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 2000,
+          "byteSize": 107228
+        }
+      ],
+      "updatedAt": "2026-08-29T07:20:40.834Z"
+    },
+    "apus-apus-ferreira-1.jpg": {
+      "sourceHash": "f0aca5950f450e8d5d4fd1a8c0b6c6193d8a57b52ebee55b382a3746e1e5e9af",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "apus-apus-ferreira-1.jpg",
+      "originalSize": 468614,
+      "width": 1500,
+      "height": 2000,
+      "derivatives": [
+        {
+          "key": "optimized/apus-apus-ferreira-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 14500
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 15570
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 26410
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 27356
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 46636
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 47226
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-1500.avif",
+          "format": "avif",
+          "width": 1500,
+          "height": 2000,
+          "byteSize": 69136
+        },
+        {
+          "key": "optimized/apus-apus-ferreira-1-1500.webp",
+          "format": "webp",
+          "width": 1500,
+          "height": 2000,
+          "byteSize": 69926
+        }
+      ],
+      "updatedAt": "2026-08-29T07:20:41.408Z"
+    },
+    "apus-apus-moning-1.jpg": {
+      "sourceHash": "9c16ebf9b1568714ff8e98a6126e59ffaba4922379db4233a2e6a165d4f15e72",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "apus-apus-moning-1.jpg",
+      "originalSize": 267171,
+      "width": 2000,
+      "height": 1250,
+      "derivatives": [
+        {
+          "key": "optimized/apus-apus-moning-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 250,
+          "byteSize": 1719
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 250,
+          "byteSize": 2056
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 500,
+          "byteSize": 3727
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 500,
+          "byteSize": 5896
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 7337
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 11150
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1250,
+          "byteSize": 19408
+        },
+        {
+          "key": "optimized/apus-apus-moning-1-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1250,
+          "byteSize": 27282
+        }
+      ],
+      "updatedAt": "2026-08-29T07:20:41.088Z"
+    },
+    "apus-apus-moning-2.jpg": {
+      "sourceHash": "c19e5bff96d90d7d2df0705e27da5e287b35b5d57bef9cf798b2adc0c851ccd6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "apus-apus-moning-2.jpg",
+      "originalSize": 77636,
+      "width": 2000,
+      "height": 1250,
+      "derivatives": [
+        {
+          "key": "optimized/apus-apus-moning-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 250,
+          "byteSize": 1588
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 250,
+          "byteSize": 1692
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 500,
+          "byteSize": 3386
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 500,
+          "byteSize": 4846
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 5556
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 8596
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1250,
+          "byteSize": 10825
+        },
+        {
+          "key": "optimized/apus-apus-moning-2-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1250,
+          "byteSize": 17748
+        }
+      ],
+      "updatedAt": "2026-08-29T07:20:39.643Z"
+    },
+    "apus-apus-teivonen-1.jpg": {
+      "sourceHash": "7ed4b992dabd80e15252b1e4b0f719d308155f975e801323fad708f93a37bcf4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "apus-apus-teivonen-1.jpg",
+      "originalSize": 471139,
+      "width": 1600,
+      "height": 2000,
+      "derivatives": [
+        {
+          "key": "optimized/apus-apus-teivonen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 7725
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 9500
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 20867
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 26484
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 40385
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 47924
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 2000,
+          "byteSize": 63108
+        },
+        {
+          "key": "optimized/apus-apus-teivonen-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 2000,
+          "byteSize": 76294
+        }
+      ],
+      "updatedAt": "2026-08-29T07:20:45.931Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -14578,6 +14913,475 @@
       ],
       "updatedAt": "2026-08-28T21:41:52.390Z"
     },
+    "garrulus-glandarius-flickr-1.jpg": {
+      "sourceHash": "7c7856243bf9bc4207597becf3437f34b43e31f2c173517a6a31942a81c88371",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-flickr-1.jpg",
+      "originalSize": 4888902,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17121
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22218
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42740
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57840
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78770
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 108220
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 220186
+        },
+        {
+          "key": "optimized/garrulus-glandarius-flickr-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 303422
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:11.574Z"
+    },
+    "garrulus-glandarius-pyatigorsk-1.jpg": {
+      "sourceHash": "3085e5ca3cbb34d3d5de2fbf62a716a14756d1163a4e4bfa13e8ba3bc154de46",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-pyatigorsk-1.jpg",
+      "originalSize": 3307519,
+      "width": 2400,
+      "height": 3200,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 52344
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 84874
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 181113
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 290314
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 325685
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 518068
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3200,
+          "byteSize": 741468
+        },
+        {
+          "key": "optimized/garrulus-glandarius-pyatigorsk-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3200,
+          "byteSize": 1114130
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:14.952Z"
+    },
+    "garrulus-glandarius-tbilisi-1.jpg": {
+      "sourceHash": "1da6cfe36f853516a0939b7cef15d5d5b188b25e94b4716864218d62b3401bca",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-tbilisi-1.jpg",
+      "originalSize": 391924,
+      "width": 1370,
+      "height": 1370,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 16028
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 21902
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 41751
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 59752
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 75260
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 104804
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-1370.avif",
+          "format": "avif",
+          "width": 1370,
+          "height": 1370,
+          "byteSize": 92945
+        },
+        {
+          "key": "optimized/garrulus-glandarius-tbilisi-1-1370.webp",
+          "format": "webp",
+          "width": 1370,
+          "height": 1370,
+          "byteSize": 128936
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:07.089Z"
+    },
+    "garrulus-glandarius-trvants-1.jpg": {
+      "sourceHash": "61c3ab7e4252abf130a7c853f34b6f244ce2b058b3f8660c1c5c0b7c71c1ba42",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-trvants-1.jpg",
+      "originalSize": 10743412,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29418
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44364
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72791
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 109142
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 128394
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 186304
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 403632
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 566098
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:16.543Z"
+    },
+    "garrulus-glandarius-trvants-2.jpg": {
+      "sourceHash": "d3e395fb884de88ef038b0cb146e3586901f93dbbf268b842b81ed4ef2dca33b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-trvants-2.jpg",
+      "originalSize": 7809417,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14025
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16630
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29420
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 36218
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 47758
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60340
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 132042
+        },
+        {
+          "key": "optimized/garrulus-glandarius-trvants-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 190280
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:17.337Z"
+    },
+    "garrulus-glandarius-yerevan-1.jpg": {
+      "sourceHash": "f1b32b9150fb0433dc72a46ce4769c4a7499876b26e0bf96b25359aed3e84ed9",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-yerevan-1.jpg",
+      "originalSize": 847067,
+      "width": 1788,
+      "height": 1431,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 320,
+          "byteSize": 32944
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 320,
+          "byteSize": 55304
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 640,
+          "byteSize": 87299
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 640,
+          "byteSize": 150456
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 145707
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 252912
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-1788.avif",
+          "format": "avif",
+          "width": 1788,
+          "height": 1431,
+          "byteSize": 264616
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-1-1788.webp",
+          "format": "webp",
+          "width": 1788,
+          "height": 1431,
+          "byteSize": 427124
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:17.898Z"
+    },
+    "garrulus-glandarius-yerevan-2.jpg": {
+      "sourceHash": "201e8db1bbbf5fda8fb64dcd68a7e896f9215d024536bea846d81d80d632bc83",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-yerevan-2.jpg",
+      "originalSize": 773243,
+      "width": 2400,
+      "height": 1602,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11650
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16124
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 29964
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 40434
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 51134
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 70712
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1602,
+          "byteSize": 140506
+        },
+        {
+          "key": "optimized/garrulus-glandarius-yerevan-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1602,
+          "byteSize": 187080
+        }
+      ],
+      "updatedAt": "2026-08-29T07:22:20.299Z"
+    },
     "hemorrhois-ravergieri-2.jpg": {
       "sourceHash": "3fe876996c8a9e89c6ccb7e0babfb33522bd978e106918f1a02a18dcfbe4affa",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -15674,6 +16478,5106 @@
         }
       ],
       "updatedAt": "2026-08-28T22:31:00.060Z"
+    },
+    "images/species/anas-platyrhynchos-ducklings-1.jpg": {
+      "sourceHash": "fed559e8de569eec054344a4e95b88ec07d1358cf1a9d6570173baf8e9b9787f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/anas-platyrhynchos-ducklings-1.jpg",
+      "originalSize": 1576698,
+      "width": 1944,
+      "height": 1296,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13772
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20866
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41270
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61232
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73541
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 105472
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-1944.avif",
+          "format": "avif",
+          "width": 1944,
+          "height": 1296,
+          "byteSize": 145163
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-ducklings-1-1944.webp",
+          "format": "webp",
+          "width": 1944,
+          "height": 1296,
+          "byteSize": 197926
+        }
+      ],
+      "updatedAt": "2026-08-29T07:15:42.424Z"
+    },
+    "images/species/anas-platyrhynchos-female-1.jpg": {
+      "sourceHash": "95d2a1f0289d46adc7516733c5fc96a1f46d70fcd858f26fb39b93f7b4f762f0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/anas-platyrhynchos-female-1.jpg",
+      "originalSize": 2588147,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24997
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 37362
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 70459
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 111926
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 126046
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 197732
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 372862
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-female-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 541254
+        }
+      ],
+      "updatedAt": "2026-08-29T07:15:43.785Z"
+    },
+    "images/species/anas-platyrhynchos-flight-1.jpg": {
+      "sourceHash": "cd5dbb38177c3203646a22cc92b495c3ee450347c520f091aa4fd4eade7856b4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/anas-platyrhynchos-flight-1.jpg",
+      "originalSize": 2149196,
+      "width": 2400,
+      "height": 1741,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 290,
+          "byteSize": 12815
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 290,
+          "byteSize": 14548
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 580,
+          "byteSize": 35603
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 580,
+          "byteSize": 41700
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 871,
+          "byteSize": 61426
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 871,
+          "byteSize": 72944
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1741,
+          "byteSize": 158625
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1741,
+          "byteSize": 187740
+        }
+      ],
+      "updatedAt": "2026-08-29T07:15:42.277Z"
+    },
+    "images/species/anas-platyrhynchos-flight-male-1.jpg": {
+      "sourceHash": "55ac6fba69d672529c1d6cd4a55e8538e89ad348179f45104396c3aebff034fe",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/anas-platyrhynchos-flight-male-1.jpg",
+      "originalSize": 7389310,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 3899
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 4550
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 9052
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 11118
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 15528
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 20182
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 47641
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-flight-male-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 66078
+        }
+      ],
+      "updatedAt": "2026-08-29T07:15:44.381Z"
+    },
+    "images/species/anas-platyrhynchos-male-1.jpg": {
+      "sourceHash": "3d1720d664dfc8b9ed091a59a6fb2a74888b448bd39ae05b80c1608494d4a4fe",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/anas-platyrhynchos-male-1.jpg",
+      "originalSize": 9423374,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12624
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15228
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 36137
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51454
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 77598
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 114290
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 285313
+        },
+        {
+          "key": "optimized/images/species/anas-platyrhynchos-male-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 428214
+        }
+      ],
+      "updatedAt": "2026-08-29T07:15:54.195Z"
+    },
+    "images/species/aquila-chrysaetos-flight-1.jpg": {
+      "sourceHash": "dfe14b1ae62f5f72fa446143936d8b7115e3019a3bd4b6d4b7de630ab6331742",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/aquila-chrysaetos-flight-1.jpg",
+      "originalSize": 6112142,
+      "width": 2400,
+      "height": 3000,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 16681
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 22202
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 39969
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 56530
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 72091
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 101250
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3000,
+          "byteSize": 202338
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3000,
+          "byteSize": 267570
+        }
+      ],
+      "updatedAt": "2026-08-29T06:39:47.925Z"
+    },
+    "images/species/aquila-chrysaetos-flight-2.jpg": {
+      "sourceHash": "34907435911da15439427b52823ac6d37ac89f664466e896be2f4594743acd9f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/aquila-chrysaetos-flight-2.jpg",
+      "originalSize": 14287482,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10072
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12994
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20294
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29800
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 34388
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52266
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 96224
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-flight-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 145026
+        }
+      ],
+      "updatedAt": "2026-08-29T06:39:49.778Z"
+    },
+    "images/species/aquila-chrysaetos-juvenile-1.jpg": {
+      "sourceHash": "e2040a56b90eb36915cbf9fad864a62726aa42c68216d08aa02ecee6be0248c7",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/aquila-chrysaetos-juvenile-1.jpg",
+      "originalSize": 139653,
+      "width": 640,
+      "height": 587,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-juvenile-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 367,
+          "byteSize": 4252
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-juvenile-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 367,
+          "byteSize": 4770
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-juvenile-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 587,
+          "byteSize": 12206
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-juvenile-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 587,
+          "byteSize": 12834
+        }
+      ],
+      "updatedAt": "2026-08-29T06:39:49.463Z"
+    },
+    "images/species/aquila-chrysaetos-perch-1.jpg": {
+      "sourceHash": "9a6229cb0216f385cdaecc7ff65e37cd4ce9b4288faad01be2c6096e9674a477",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/aquila-chrysaetos-perch-1.jpg",
+      "originalSize": 4029950,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6763
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9166
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17651
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24212
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 31059
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 41566
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 92126
+        },
+        {
+          "key": "optimized/images/species/aquila-chrysaetos-perch-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 107586
+        }
+      ],
+      "updatedAt": "2026-08-29T06:39:54.395Z"
+    },
+    "images/species/athene-noctua-cebeci-turkey-1.jpg": {
+      "sourceHash": "730bb3ba17d4aa60882657e4c374c24d30e033d28f769842ddacee813a42ea94",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/athene-noctua-cebeci-turkey-1.jpg",
+      "originalSize": 2613500,
+      "width": 2400,
+      "height": 1625,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 271,
+          "byteSize": 11609
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 271,
+          "byteSize": 15874
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 542,
+          "byteSize": 29132
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 542,
+          "byteSize": 41186
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 813,
+          "byteSize": 51729
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 813,
+          "byteSize": 72744
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1625,
+          "byteSize": 138386
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-cebeci-turkey-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1625,
+          "byteSize": 192360
+        }
+      ],
+      "updatedAt": "2026-08-29T07:32:50.218Z"
+    },
+    "images/species/athene-noctua-tencate-building-1.jpg": {
+      "sourceHash": "7f68ae42581051c727d19b077c247d87cd83a580d965dbc8e04e962e24450294",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/athene-noctua-tencate-building-1.jpg",
+      "originalSize": 7588325,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15525
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18918
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42781
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 55518
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80119
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100914
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 211667
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-tencate-building-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 251614
+        }
+      ],
+      "updatedAt": "2026-08-29T07:32:53.205Z"
+    },
+    "images/species/athene-noctua-vassen-ambula-1.jpg": {
+      "sourceHash": "2dfefbaa746d3da022dc3361dd826ed7fc3748b4b47ee9f5f2fd09cb17bd4eba",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/athene-noctua-vassen-ambula-1.jpg",
+      "originalSize": 6370711,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15553
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21528
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 40094
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 53922
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 67077
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 90738
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 204049
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-vassen-ambula-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 287530
+        }
+      ],
+      "updatedAt": "2026-08-29T07:32:52.019Z"
+    },
+    "images/species/athene-noctua-voikhansky-haifa-1.jpg": {
+      "sourceHash": "cda6e3e47b5a033a28bf50e86458d374ec94779ced0843ccdb237b912e08b1d7",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/athene-noctua-voikhansky-haifa-1.jpg",
+      "originalSize": 4532926,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20997
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30512
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 51885
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 78238
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 90447
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 136220
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 315832
+        },
+        {
+          "key": "optimized/images/species/athene-noctua-voikhansky-haifa-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 484800
+        }
+      ],
+      "updatedAt": "2026-08-29T07:32:55.004Z"
+    },
+    "images/species/ciconia-ciconia-flight-1.jpg": {
+      "sourceHash": "2354acef5b17aa4c776a166e21df7992cd70ed8dc96dba86f8a6ca3261909d9b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/ciconia-ciconia-flight-1.jpg",
+      "originalSize": 9229467,
+      "width": 2400,
+      "height": 1602,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12471
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16342
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 45852
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 61058
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 99113
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 132906
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1602,
+          "byteSize": 311778
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1602,
+          "byteSize": 421928
+        }
+      ],
+      "updatedAt": "2026-08-29T06:39:56.487Z"
+    },
+    "images/species/ciconia-ciconia-juvenile-1.jpg": {
+      "sourceHash": "47a9f92fd0a03f06080c7a978d163407425ce60af09e4a43b9d86a91d0a06539",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/ciconia-ciconia-juvenile-1.jpg",
+      "originalSize": 2682157,
+      "width": 2400,
+      "height": 1546,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 257,
+          "byteSize": 17781
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 257,
+          "byteSize": 23890
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 515,
+          "byteSize": 47850
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 515,
+          "byteSize": 63420
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 773,
+          "byteSize": 83408
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 773,
+          "byteSize": 108170
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1546,
+          "byteSize": 205490
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-juvenile-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1546,
+          "byteSize": 265554
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:01.733Z"
+    },
+    "images/species/ciconia-ciconia-nest-1.jpg": {
+      "sourceHash": "569ae774d551f3db82f3d320786743efb14f2dc834f59a175688e0ea01903501",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/ciconia-ciconia-nest-1.jpg",
+      "originalSize": 1061481,
+      "width": 2400,
+      "height": 1597,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10684
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13220
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 33854
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 40450
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 65352
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 80748
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1597,
+          "byteSize": 188293
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-nest-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1597,
+          "byteSize": 216726
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:01.266Z"
+    },
+    "images/species/ciconia-ciconia-standing-1.jpg": {
+      "sourceHash": "30c6281f747886862e5233d34da07f8cc4c40c28471220cd197bb3a00fbbea98",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/ciconia-ciconia-standing-1.jpg",
+      "originalSize": 3515608,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24180
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32544
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97616
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 137890
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 206797
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 307056
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 599706
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 890948
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:12.578Z"
+    },
+    "images/species/ciconia-ciconia-standing-2.jpg": {
+      "sourceHash": "4ebec34871884ae77c55560d6b4a430a2dd5498ae32b65d7b03e443d3fd3aed7",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/ciconia-ciconia-standing-2.jpg",
+      "originalSize": 3642536,
+      "width": 2004,
+      "height": 3006,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 31420
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 46588
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 99410
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 147406
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 184975
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 276996
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-2004.avif",
+          "format": "avif",
+          "width": 2004,
+          "height": 3006,
+          "byteSize": 381427
+        },
+        {
+          "key": "optimized/images/species/ciconia-ciconia-standing-2-2004.webp",
+          "format": "webp",
+          "width": 2004,
+          "height": 3006,
+          "byteSize": 558648
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:14.026Z"
+    },
+    "images/species/corvus-corax-berlin-perch.jpg": {
+      "sourceHash": "980c8eadc66d7ae980d6156f5d007a4309e6482ef12905973aafc4343bd7564e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/corvus-corax-berlin-perch.jpg",
+      "originalSize": 879933,
+      "width": 1656,
+      "height": 1069,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 258,
+          "byteSize": 13780
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 258,
+          "byteSize": 18588
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 516,
+          "byteSize": 39914
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 516,
+          "byteSize": 54874
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 775,
+          "byteSize": 68534
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 775,
+          "byteSize": 93620
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-1656.avif",
+          "format": "avif",
+          "width": 1656,
+          "height": 1069,
+          "byteSize": 108595
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-berlin-perch-1656.webp",
+          "format": "webp",
+          "width": 1656,
+          "height": 1069,
+          "byteSize": 136900
+        }
+      ],
+      "updatedAt": "2026-08-29T07:14:33.928Z"
+    },
+    "images/species/corvus-corax-delso-munich.jpg": {
+      "sourceHash": "d9e2f21162d7731e05fb66a6e4c9f362c88313a03d1853251d53509b469f70aa",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/corvus-corax-delso-munich.jpg",
+      "originalSize": 5100965,
+      "width": 2400,
+      "height": 1297,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 216,
+          "byteSize": 19236
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 216,
+          "byteSize": 30498
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 432,
+          "byteSize": 54903
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 432,
+          "byteSize": 89002
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 648,
+          "byteSize": 103477
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 648,
+          "byteSize": 170334
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1297,
+          "byteSize": 302241
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-delso-munich-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1297,
+          "byteSize": 504138
+        }
+      ],
+      "updatedAt": "2026-08-29T07:14:34.831Z"
+    },
+    "images/species/corvus-corax-sharp-flight-babadag.jpg": {
+      "sourceHash": "98e495a370bc73429d7161fc791189a2363767c1f6bccafe13bae8f8764a62ed",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/corvus-corax-sharp-flight-babadag.jpg",
+      "originalSize": 7584621,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3010
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3496
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 6659
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 8582
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 10704
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 15424
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 31230
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-babadag-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 46990
+        }
+      ],
+      "updatedAt": "2026-08-29T07:14:33.944Z"
+    },
+    "images/species/corvus-corax-sharp-flight-uckermark.jpg": {
+      "sourceHash": "a9697fd33d457dbcd7289a9fc8779dda42f223d3b87f50e903ca1f5a1fa5a45d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/corvus-corax-sharp-flight-uckermark.jpg",
+      "originalSize": 3080294,
+      "width": 2400,
+      "height": 1599,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15555
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23808
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44805
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73514
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87513
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 140686
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1599,
+          "byteSize": 238542
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-sharp-flight-uckermark-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1599,
+          "byteSize": 376104
+        }
+      ],
+      "updatedAt": "2026-08-29T07:14:33.355Z"
+    },
+    "images/species/corvus-corax-urbonas-lithuania.jpg": {
+      "sourceHash": "02e745633e3999c9733557943f99a79d9c4c9dfac273b68302d51c319b8cc07e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/corvus-corax-urbonas-lithuania.jpg",
+      "originalSize": 171687,
+      "width": 800,
+      "height": 600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/corvus-corax-urbonas-lithuania-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 2966
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-urbonas-lithuania-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 2436
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-urbonas-lithuania-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 7325
+        },
+        {
+          "key": "optimized/images/species/corvus-corax-urbonas-lithuania-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 7198
+        }
+      ],
+      "updatedAt": "2026-08-29T07:14:35.604Z"
+    },
+    "images/species/coturnix-coturnix-atom-1.jpg": {
+      "sourceHash": "62247f95df4eebf40f2cdaf1b30881be1828c497dee76b8ce564127674a1491a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/coturnix-coturnix-atom-1.jpg",
+      "originalSize": 310662,
+      "width": 1070,
+      "height": 713,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/coturnix-coturnix-atom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18479
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-atom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25884
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-atom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42204
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-atom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58220
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-atom-1-1070.avif",
+          "format": "avif",
+          "width": 1070,
+          "height": 713,
+          "byteSize": 69373
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-atom-1-1070.webp",
+          "format": "webp",
+          "width": 1070,
+          "height": 713,
+          "byteSize": 91716
+        }
+      ],
+      "updatedAt": "2026-08-29T07:32:53.819Z"
+    },
+    "images/species/coturnix-coturnix-moning-1.jpg": {
+      "sourceHash": "5f07eb65e3b580ecb3bd7403663062f135e4ce78ee09e158b125364b4b692a87",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/coturnix-coturnix-moning-1.jpg",
+      "originalSize": 2291693,
+      "width": 1660,
+      "height": 1250,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 21435
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 30938
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 53518
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 78804
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 93253
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 138052
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-1660.avif",
+          "format": "avif",
+          "width": 1660,
+          "height": 1250,
+          "byteSize": 149891
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-1-1660.webp",
+          "format": "webp",
+          "width": 1660,
+          "height": 1250,
+          "byteSize": 220414
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:14.005Z"
+    },
+    "images/species/coturnix-coturnix-moning-male-1.jpg": {
+      "sourceHash": "48c59d96ae0463d293713a8204cc3148e23d60e413f0d7633e66d77ba14f1671",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/coturnix-coturnix-moning-male-1.jpg",
+      "originalSize": 2336560,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21849
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32638
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55857
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82486
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 96356
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 143840
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 145239
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-male-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 217642
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:13.544Z"
+    },
+    "images/species/coturnix-coturnix-moning-wagenitz-1.jpg": {
+      "sourceHash": "e44e6080c51d4a7a80ce8e9ee16f7b99adae535ffd8fcbdd9b54c9f811028a2b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/coturnix-coturnix-moning-wagenitz-1.jpg",
+      "originalSize": 1381912,
+      "width": 1200,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-wagenitz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16169
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-wagenitz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22244
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-wagenitz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50263
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-wagenitz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67490
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-wagenitz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 118551
+        },
+        {
+          "key": "optimized/images/species/coturnix-coturnix-moning-wagenitz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 150946
+        }
+      ],
+      "updatedAt": "2026-08-29T07:32:58.541Z"
+    },
+    "images/species/falco-peregrinus-flight-1.jpg": {
+      "sourceHash": "418623628ca47ce2abf4f3b3ee5295d45c83f2e253556ccefc2ab1302a306faf",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/falco-peregrinus-flight-1.jpg",
+      "originalSize": 1331593,
+      "width": 1678,
+      "height": 1118,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6499
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7484
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12293
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 15248
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 21741
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 27256
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-1678.avif",
+          "format": "avif",
+          "width": 1678,
+          "height": 1118,
+          "byteSize": 56587
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-1-1678.webp",
+          "format": "webp",
+          "width": 1678,
+          "height": 1118,
+          "byteSize": 55602
+        }
+      ],
+      "updatedAt": "2026-08-29T07:37:53.542Z"
+    },
+    "images/species/falco-peregrinus-flight-2.jpg": {
+      "sourceHash": "c697bc06e6f3527b6c8795e2db5ed7ae4e8b9d231bbea54accc6acdf08fb8926",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/falco-peregrinus-flight-2.jpg",
+      "originalSize": 3943445,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34059
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52094
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 117475
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 183400
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 257138
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 399480
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 790993
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-flight-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 1297792
+        }
+      ],
+      "updatedAt": "2026-08-29T07:37:57.871Z"
+    },
+    "images/species/falco-peregrinus-hunt-1.jpg": {
+      "sourceHash": "62e3846a9f804584fa5d9144c26884457a9114ffb09327fb8087704e7e3c4144",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/falco-peregrinus-hunt-1.jpg",
+      "originalSize": 491081,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/falco-peregrinus-hunt-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5348
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-hunt-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5776
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-hunt-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 8988
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-hunt-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 11246
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-hunt-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 14706
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-hunt-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 18666
+        }
+      ],
+      "updatedAt": "2026-08-29T07:37:51.039Z"
+    },
+    "images/species/falco-peregrinus-juvenile-1.jpg": {
+      "sourceHash": "998eb0dda50fdef29b23dbedca37f4fcf2e59c85b251612affbb491ab236e80f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/falco-peregrinus-juvenile-1.jpg",
+      "originalSize": 343352,
+      "width": 828,
+      "height": 568,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/falco-peregrinus-juvenile-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 274,
+          "byteSize": 24092
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-juvenile-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 274,
+          "byteSize": 35652
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-juvenile-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 549,
+          "byteSize": 58020
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-juvenile-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 549,
+          "byteSize": 91142
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-juvenile-1-828.avif",
+          "format": "avif",
+          "width": 828,
+          "height": 568,
+          "byteSize": 60543
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-juvenile-1-828.webp",
+          "format": "webp",
+          "width": 828,
+          "height": 568,
+          "byteSize": 97598
+        }
+      ],
+      "updatedAt": "2026-08-29T07:37:51.926Z"
+    },
+    "images/species/falco-peregrinus-perch-1.jpg": {
+      "sourceHash": "0286e788ad60a2fba9315366772c5bdaaa83ccdd6e0edf2da8e443778e8e1166",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/falco-peregrinus-perch-1.jpg",
+      "originalSize": 2363412,
+      "width": 1938,
+      "height": 1938,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 9094
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 13600
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 28224
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 42220
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 60983
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 78926
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-1938.avif",
+          "format": "avif",
+          "width": 1938,
+          "height": 1938,
+          "byteSize": 151718
+        },
+        {
+          "key": "optimized/images/species/falco-peregrinus-perch-1-1938.webp",
+          "format": "webp",
+          "width": 1938,
+          "height": 1938,
+          "byteSize": 195296
+        }
+      ],
+      "updatedAt": "2026-08-29T07:38:00.832Z"
+    },
+    "images/species/glareola-pratincola-dupont-1.jpg": {
+      "sourceHash": "46f4e311001b7177a7aaf20ac872616cd36b5e328c8c8fef89ab26852ce724e1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/glareola-pratincola-dupont-1.jpg",
+      "originalSize": 5241439,
+      "width": 2400,
+      "height": 1555,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 259,
+          "byteSize": 13552
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 259,
+          "byteSize": 17784
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 518,
+          "byteSize": 40360
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 518,
+          "byteSize": 55028
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 777,
+          "byteSize": 75791
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 777,
+          "byteSize": 106156
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1555,
+          "byteSize": 210059
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1555,
+          "byteSize": 284520
+        }
+      ],
+      "updatedAt": "2026-08-29T07:18:02.708Z"
+    },
+    "images/species/glareola-pratincola-dupont-2.jpg": {
+      "sourceHash": "d1967e857f2620bb2c4d84d33a067fef4c4237d84b6220bf435ddb88d9a5ed36",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/glareola-pratincola-dupont-2.jpg",
+      "originalSize": 1018336,
+      "width": 1848,
+      "height": 997,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 216,
+          "byteSize": 16292
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 216,
+          "byteSize": 20536
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 432,
+          "byteSize": 37696
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 432,
+          "byteSize": 46412
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 647,
+          "byteSize": 59697
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 647,
+          "byteSize": 75026
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-1848.avif",
+          "format": "avif",
+          "width": 1848,
+          "height": 997,
+          "byteSize": 96075
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-dupont-2-1848.webp",
+          "format": "webp",
+          "width": 1848,
+          "height": 997,
+          "byteSize": 126336
+        }
+      ],
+      "updatedAt": "2026-08-29T07:18:02.027Z"
+    },
+    "images/species/glareola-pratincola-flight-1.jpg": {
+      "sourceHash": "5a13bc9d19e263c7dca5b25f08b8d036e0914564c7c718838673ca44e56bd967",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/glareola-pratincola-flight-1.jpg",
+      "originalSize": 3554858,
+      "width": 2400,
+      "height": 1379,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 230,
+          "byteSize": 17300
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 230,
+          "byteSize": 24464
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 460,
+          "byteSize": 43934
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 460,
+          "byteSize": 62426
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 689,
+          "byteSize": 73926
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 689,
+          "byteSize": 102386
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1379,
+          "byteSize": 187561
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1379,
+          "byteSize": 261338
+        }
+      ],
+      "updatedAt": "2026-08-29T07:18:05.542Z"
+    },
+    "images/species/glareola-pratincola-ground-1.jpg": {
+      "sourceHash": "f30e87801e2bc1f2f4325a1152df3910403e7480cfc9b9f50d843dd8b6044585",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/glareola-pratincola-ground-1.jpg",
+      "originalSize": 1102828,
+      "width": 1468,
+      "height": 1038,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 283,
+          "byteSize": 18538
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 283,
+          "byteSize": 31176
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 566,
+          "byteSize": 51222
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 566,
+          "byteSize": 82508
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 849,
+          "byteSize": 90440
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 849,
+          "byteSize": 132108
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-1468.avif",
+          "format": "avif",
+          "width": 1468,
+          "height": 1038,
+          "byteSize": 116110
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-ground-1-1468.webp",
+          "format": "webp",
+          "width": 1468,
+          "height": 1038,
+          "byteSize": 176060
+        }
+      ],
+      "updatedAt": "2026-08-29T07:18:02.731Z"
+    },
+    "images/species/glareola-pratincola-matyga-1.jpg": {
+      "sourceHash": "4ebc463b5d7f78d9796622e1b3bb2bcfd9ec268bad837d8df0e2b77442915e2b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/glareola-pratincola-matyga-1.jpg",
+      "originalSize": 1898842,
+      "width": 2400,
+      "height": 1605,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24698
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 38208
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 535,
+          "byteSize": 74634
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 535,
+          "byteSize": 118462
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 131250
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 803,
+          "byteSize": 196294
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1605,
+          "byteSize": 279234
+        },
+        {
+          "key": "optimized/images/species/glareola-pratincola-matyga-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1605,
+          "byteSize": 416016
+        }
+      ],
+      "updatedAt": "2026-08-29T07:18:10.380Z"
+    },
+    "images/species/gyps-fulvus-colony-1.jpg": {
+      "sourceHash": "570228d1a235091f003b7875524fbbecbab67a7cc0b21884fb0b96ef7d9730b1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/gyps-fulvus-colony-1.jpg",
+      "originalSize": 7299934,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25553
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39094
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 98523
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 144972
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 220800
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 328038
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 703476
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-colony-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 1031122
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:22.008Z"
+    },
+    "images/species/gyps-fulvus-flight-1.jpg": {
+      "sourceHash": "14820b8964b5598fe18bf920c9747ad0b5064dec0608a43f7212348f23c44e19",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/gyps-fulvus-flight-1.jpg",
+      "originalSize": 874190,
+      "width": 1748,
+      "height": 1292,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 296,
+          "byteSize": 11166
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 296,
+          "byteSize": 13528
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 591,
+          "byteSize": 22115
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 591,
+          "byteSize": 28552
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 887,
+          "byteSize": 37770
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 887,
+          "byteSize": 47886
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-1748.avif",
+          "format": "avif",
+          "width": 1748,
+          "height": 1292,
+          "byteSize": 66071
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-1-1748.webp",
+          "format": "webp",
+          "width": 1748,
+          "height": 1292,
+          "byteSize": 80578
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:19.162Z"
+    },
+    "images/species/gyps-fulvus-flight-2.jpg": {
+      "sourceHash": "e59f8992788078151f7d5804d55ed5932e76d5131ba72b6538e4f35fa0191fbb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/gyps-fulvus-flight-2.jpg",
+      "originalSize": 7014160,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 7449
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9616
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 18055
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25396
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 30653
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 43712
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 79166
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 112586
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:23.023Z"
+    },
+    "images/species/gyps-fulvus-flight-3.jpg": {
+      "sourceHash": "175db0202c6866fb688576436a4946fe24e17f805e478abeecff623b8646782c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/gyps-fulvus-flight-3.jpg",
+      "originalSize": 6112937,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22996
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 38080
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66326
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 107132
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 125272
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 190944
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 344677
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-flight-3-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 478892
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:28.120Z"
+    },
+    "images/species/gyps-fulvus-head-1.jpg": {
+      "sourceHash": "c3cf996db66b1c1bffc1b766744f3cd84d77e5b07fa8d7b912b6bc2754c9a467",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/gyps-fulvus-head-1.jpg",
+      "originalSize": 9521257,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9887
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11824
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32382
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42526
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 70191
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 94078
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 293521
+        },
+        {
+          "key": "optimized/images/species/gyps-fulvus-head-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 447600
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:29.505Z"
+    },
+    "images/species/otus-scops-botanical-1.jpg": {
+      "sourceHash": "ae039f40a8f57c41580c19dbf52c634ea96bc507b1727cc44a335c5f0a4e0d32",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/otus-scops-botanical-1.jpg",
+      "originalSize": 3261567,
+      "width": 2400,
+      "height": 1805,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 23507
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 35654
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 75118
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 113198
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 902,
+          "byteSize": 145807
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 902,
+          "byteSize": 218182
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1805,
+          "byteSize": 435203
+        },
+        {
+          "key": "optimized/images/species/otus-scops-botanical-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1805,
+          "byteSize": 639448
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:34.595Z"
+    },
+    "images/species/otus-scops-jutial-1.jpg": {
+      "sourceHash": "56c709cd6e020bb9c2bf74f28e9b7f2327f0efe0cf3e8015459cfa905559c078",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/otus-scops-jutial-1.jpg",
+      "originalSize": 1934748,
+      "width": 1939,
+      "height": 1421,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 293,
+          "byteSize": 16597
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 293,
+          "byteSize": 20912
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 586,
+          "byteSize": 50209
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 586,
+          "byteSize": 66590
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 879,
+          "byteSize": 104026
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 879,
+          "byteSize": 140028
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-1939.avif",
+          "format": "avif",
+          "width": 1939,
+          "height": 1421,
+          "byteSize": 232659
+        },
+        {
+          "key": "optimized/images/species/otus-scops-jutial-1-1939.webp",
+          "format": "webp",
+          "width": 1939,
+          "height": 1421,
+          "byteSize": 333324
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:34.961Z"
+    },
+    "images/species/otus-scops-pakistan-1.jpg": {
+      "sourceHash": "16a30dc7754c647be7990f507b185d488101fecc15900abe650775a789889bd5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/otus-scops-pakistan-1.jpg",
+      "originalSize": 586203,
+      "width": 1991,
+      "height": 1411,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 283,
+          "byteSize": 14619
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 283,
+          "byteSize": 20016
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 567,
+          "byteSize": 43945
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 567,
+          "byteSize": 60798
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 850,
+          "byteSize": 85775
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 850,
+          "byteSize": 121040
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-1991.avif",
+          "format": "avif",
+          "width": 1991,
+          "height": 1411,
+          "byteSize": 190355
+        },
+        {
+          "key": "optimized/images/species/otus-scops-pakistan-1-1991.webp",
+          "format": "webp",
+          "width": 1991,
+          "height": 1411,
+          "byteSize": 273776
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:40.317Z"
+    },
+    "images/species/otus-scops-tashkent-1.jpg": {
+      "sourceHash": "8c7e681f0db423c1938d43764f3665e9d8d00cd3c89f76562804586ddab82450",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/otus-scops-tashkent-1.jpg",
+      "originalSize": 224070,
+      "width": 960,
+      "height": 640,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/otus-scops-tashkent-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15377
+        },
+        {
+          "key": "optimized/images/species/otus-scops-tashkent-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21304
+        },
+        {
+          "key": "optimized/images/species/otus-scops-tashkent-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35314
+        },
+        {
+          "key": "optimized/images/species/otus-scops-tashkent-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49564
+        },
+        {
+          "key": "optimized/images/species/otus-scops-tashkent-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "byteSize": 43621
+        },
+        {
+          "key": "optimized/images/species/otus-scops-tashkent-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "byteSize": 64100
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:37.362Z"
+    },
+    "images/species/phasianus-colchicus-female-1.jpg": {
+      "sourceHash": "d3d33c05bba736b1f47cb82d39a3864b575d1c711e272584f09cb1c96505dbf8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/phasianus-colchicus-female-1.jpg",
+      "originalSize": 703016,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21998
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32492
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73501
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 113760
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 149778
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 231648
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 346419
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-female-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 525490
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:06.263Z"
+    },
+    "images/species/phasianus-colchicus-male-1.jpg": {
+      "sourceHash": "e9d51b399a16bc54f4be52ed1b8a7bb52dfa8c9fee7b8789426a830c80ef4aa0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/phasianus-colchicus-male-1.jpg",
+      "originalSize": 487814,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16576
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25706
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44643
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68752
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83060
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 128864
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 191895
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 285392
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:08.807Z"
+    },
+    "images/species/phasianus-colchicus-male-2.jpg": {
+      "sourceHash": "a6d4492803d2a042d0e1a3a1315e823f860b88dfe54a826054fabde276b847e9",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/phasianus-colchicus-male-2.jpg",
+      "originalSize": 973959,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 31098
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 49996
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 110050
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 179976
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 223170
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 361654
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 500972
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-2-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 789658
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:17.358Z"
+    },
+    "images/species/phasianus-colchicus-male-3.jpg": {
+      "sourceHash": "45a6a4a1e4901ad26362d20b8bf7cf43538b8682b4b21bf0c1a9f67e10299af5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/phasianus-colchicus-male-3.jpg",
+      "originalSize": 663909,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18110
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24332
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58559
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 86832
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 117787
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 188240
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 338098
+        },
+        {
+          "key": "optimized/images/species/phasianus-colchicus-male-3-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 465860
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:20.607Z"
+    },
+    "images/species/pica-pica-delso-1.jpg": {
+      "sourceHash": "073ecb2235668efe39e9d8b0e613f2254cf58d88778f45e3912f74dfd0e5f5cb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/pica-pica-delso-1.jpg",
+      "originalSize": 7091738,
+      "width": 2400,
+      "height": 2400,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 12107
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 14360
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 28494
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 36464
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 48591
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 61196
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 134510
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 174322
+        }
+      ],
+      "updatedAt": "2026-08-29T07:16:28.770Z"
+    },
+    "images/species/pica-pica-delso-2.jpg": {
+      "sourceHash": "b312df5dcb6b404a2fc891c4eb46fbb28f938f1fd4be3be4a45a87b5b361c56b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/pica-pica-delso-2.jpg",
+      "originalSize": 9372668,
+      "width": 2400,
+      "height": 1311,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 218,
+          "byteSize": 8826
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 218,
+          "byteSize": 10766
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 437,
+          "byteSize": 17616
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 437,
+          "byteSize": 23282
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 655,
+          "byteSize": 28463
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 655,
+          "byteSize": 37854
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1311,
+          "byteSize": 69469
+        },
+        {
+          "key": "optimized/images/species/pica-pica-delso-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1311,
+          "byteSize": 95174
+        }
+      ],
+      "updatedAt": "2026-08-29T07:16:24.427Z"
+    },
+    "images/species/pica-pica-juvenile-1.jpg": {
+      "sourceHash": "2c11a660567e32007f904e5f963c925cc1e28499cad26696cb668c6d044de91f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/pica-pica-juvenile-1.jpg",
+      "originalSize": 12799768,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 30272
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 43918
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 104032
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 160662
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 212812
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 336288
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 636302
+        },
+        {
+          "key": "optimized/images/species/pica-pica-juvenile-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 1052174
+        }
+      ],
+      "updatedAt": "2026-08-29T07:16:33.569Z"
+    },
+    "images/species/pica-pica-lours-1.jpg": {
+      "sourceHash": "6e4bd5bc1f26bff65af1c40b3f2244861e0c9dfedecdc25ab7055d621a738ee1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/pica-pica-lours-1.jpg",
+      "originalSize": 2431814,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10660
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12786
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22559
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 30510
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 39971
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 55288
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 112753
+        },
+        {
+          "key": "optimized/images/species/pica-pica-lours-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 159620
+        }
+      ],
+      "updatedAt": "2026-08-29T07:16:29.858Z"
+    },
+    "images/species/pica-pica-sharp-1.jpg": {
+      "sourceHash": "a439a0df2a7f1d79d985912dcfc206f9cd901e3c9b11549a71f2be14c82e43da",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/pica-pica-sharp-1.jpg",
+      "originalSize": 6757876,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18689
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24814
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 48664
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 67136
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85224
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 121122
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 211047
+        },
+        {
+          "key": "optimized/images/species/pica-pica-sharp-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 292138
+        }
+      ],
+      "updatedAt": "2026-08-29T07:16:30.327Z"
+    },
+    "images/species/procyon-lotor-central-park-1.jpg": {
+      "sourceHash": "c61906146b85e9b426b1e73a559649ee30a304af07f7230f08d88a7eb46d84d4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/procyon-lotor-central-park-1.jpg",
+      "originalSize": 12962997,
+      "width": 2400,
+      "height": 1880,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 314,
+          "byteSize": 22771
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 314,
+          "byteSize": 34722
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 626,
+          "byteSize": 67907
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 626,
+          "byteSize": 109282
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 940,
+          "byteSize": 130933
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 940,
+          "byteSize": 212360
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1880,
+          "byteSize": 441422
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-central-park-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1880,
+          "byteSize": 742780
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:45.060Z"
+    },
+    "images/species/procyon-lotor-female-1.jpg": {
+      "sourceHash": "4a72af5ad1b032557ea32f84ca2caec5d6b4ab122273bee22c50563e5767d87c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/procyon-lotor-female-1.jpg",
+      "originalSize": 1136978,
+      "width": 2372,
+      "height": 1764,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 297,
+          "byteSize": 28676
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 297,
+          "byteSize": 42560
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 595,
+          "byteSize": 86952
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 595,
+          "byteSize": 135486
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 892,
+          "byteSize": 175084
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 892,
+          "byteSize": 267154
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-2372.avif",
+          "format": "avif",
+          "width": 2372,
+          "height": 1764,
+          "byteSize": 619704
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-female-1-2372.webp",
+          "format": "webp",
+          "width": 2372,
+          "height": 1764,
+          "byteSize": 812548
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:49.563Z"
+    },
+    "images/species/procyon-lotor-portrait-1.jpg": {
+      "sourceHash": "204cc8496342e95164e0df945006b2ecd3a3e860334ba19f64fbbaddee1213ae",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/procyon-lotor-portrait-1.jpg",
+      "originalSize": 662871,
+      "width": 1280,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 338,
+          "byteSize": 22173
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 338,
+          "byteSize": 34806
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 675,
+          "byteSize": 81933
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 675,
+          "byteSize": 135688
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1013,
+          "byteSize": 160519
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1013,
+          "byteSize": 267284
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 1080,
+          "byteSize": 182584
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-portrait-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 1080,
+          "byteSize": 308900
+        }
+      ],
+      "updatedAt": "2026-08-29T06:40:50.722Z"
+    },
+    "images/species/procyon-lotor-tracks-1.jpg": {
+      "sourceHash": "5dda6111696cc1e2eb365a0f466e7c2bdac001e651ddeacf7c82959a58603d24",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/procyon-lotor-tracks-1.jpg",
+      "originalSize": 5124656,
+      "width": 2400,
+      "height": 3585,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 598,
+          "byteSize": 53814
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 598,
+          "byteSize": 86086
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1195,
+          "byteSize": 181912
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1195,
+          "byteSize": 295320
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1793,
+          "byteSize": 347656
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1793,
+          "byteSize": 566846
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3585,
+          "byteSize": 918759
+        },
+        {
+          "key": "optimized/images/species/procyon-lotor-tracks-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3585,
+          "byteSize": 1428578
+        }
+      ],
+      "updatedAt": "2026-08-29T06:41:03.473Z"
+    },
+    "images/species/streptopelia-turtur-morffew-1.jpg": {
+      "sourceHash": "320578b38a1770df6c9264cff6f455ca0b5665acbe6eb807de6b6686f7430dcd",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-morffew-1.jpg",
+      "originalSize": 7672958,
+      "width": 2400,
+      "height": 2380,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 397,
+          "byteSize": 25841
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 397,
+          "byteSize": 36580
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 794,
+          "byteSize": 75784
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 794,
+          "byteSize": 114788
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1190,
+          "byteSize": 151743
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1190,
+          "byteSize": 234068
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2380,
+          "byteSize": 525451
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-morffew-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2380,
+          "byteSize": 823824
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:27.757Z"
+    },
+    "images/species/streptopelia-turtur-popescu-1.jpg": {
+      "sourceHash": "7d22a34afc7aae01744510d373f99d0e2cee2d081799ec2464c7e8d3e6195fd9",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-popescu-1.jpg",
+      "originalSize": 5663455,
+      "width": 2400,
+      "height": 2400,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 16092
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 22858
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 35481
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 51516
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 58851
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 85568
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 140919
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-popescu-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 200188
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:22.987Z"
+    },
+    "images/species/streptopelia-turtur-sharp-1.jpg": {
+      "sourceHash": "f326e6a2da109e6a98d0e07042d700f3d111076ee82c5b416fbbd522c4bf6411",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-sharp-1.jpg",
+      "originalSize": 1755767,
+      "width": 2201,
+      "height": 2201,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 7263
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 9130
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 18399
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 25982
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 30085
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 47308
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-2201.avif",
+          "format": "avif",
+          "width": 2201,
+          "height": 2201,
+          "byteSize": 71462
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-1-2201.webp",
+          "format": "webp",
+          "width": 2201,
+          "height": 2201,
+          "byteSize": 113298
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:24.150Z"
+    },
+    "images/species/streptopelia-turtur-sharp-flight-1.jpg": {
+      "sourceHash": "8f9a2aacc770b01bed2bcef2924240436301c6fa70ddc9f2aa75f5621fff80eb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-sharp-flight-1.jpg",
+      "originalSize": 2398068,
+      "width": 2400,
+      "height": 2400,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 10126
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 12804
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 22064
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 30562
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 41379
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 57798
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 119283
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-sharp-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 162750
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:28.907Z"
+    },
+    "images/species/streptopelia-turtur-veljkovic-1.jpg": {
+      "sourceHash": "3303a118005e2a819413461923429a4d2321452a29a0ebe3fc73d89c27ed49d5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-veljkovic-1.jpg",
+      "originalSize": 1302393,
+      "width": 2400,
+      "height": 1837,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 306,
+          "byteSize": 6319
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 306,
+          "byteSize": 8794
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 612,
+          "byteSize": 15690
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 612,
+          "byteSize": 20502
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 918,
+          "byteSize": 26590
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 918,
+          "byteSize": 34816
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1837,
+          "byteSize": 87579
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-veljkovic-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1837,
+          "byteSize": 109738
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:29.529Z"
+    },
+    "images/species/streptopelia-turtur-yuvalr-1.jpg": {
+      "sourceHash": "b21e40eded212792d8cbe34e06b7c8596e00bf475890688285e7fca1bd35a733",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-yuvalr-1.jpg",
+      "originalSize": 1804506,
+      "width": 2112,
+      "height": 3168,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 20657
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 28710
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 49822
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 66342
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 83533
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 112566
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-2112.avif",
+          "format": "avif",
+          "width": 2112,
+          "height": 3168,
+          "byteSize": 183424
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-yuvalr-1-2112.webp",
+          "format": "webp",
+          "width": 2112,
+          "height": 3168,
+          "byteSize": 248582
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:30.452Z"
+    },
+    "images/species/streptopelia-turtur-zerocool-1.jpg": {
+      "sourceHash": "131845642868f8f9fbe3c45a330714e35773f6cecef5a0eab76948cf08c0f0e4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/streptopelia-turtur-zerocool-1.jpg",
+      "originalSize": 3458331,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6329
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6722
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 11951
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 14422
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 20180
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 24956
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 51692
+        },
+        {
+          "key": "optimized/images/species/streptopelia-turtur-zerocool-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 70852
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:31.680Z"
+    },
+    "images/species/turdus-merula-amsel-1.jpg": {
+      "sourceHash": "7f695750661df26770b8464b65bdb04f78f3a3b0eb8dc894ada6f92dd4348d39",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-amsel-1.jpg",
+      "originalSize": 1239582,
+      "width": 1920,
+      "height": 1437,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 33462
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 47208
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 599,
+          "byteSize": 128860
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 599,
+          "byteSize": 200482
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 282792
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 452524
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1437,
+          "byteSize": 679728
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-amsel-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1437,
+          "byteSize": 1064568
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:52.239Z"
+    },
+    "images/species/turdus-merula-karatavuk-1.jpg": {
+      "sourceHash": "57a176910085b6397c39134d69d1231060ae3ab201a263181b44c7b449480786",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-karatavuk-1.jpg",
+      "originalSize": 6866925,
+      "width": 2400,
+      "height": 1572,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 14474
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 21360
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 524,
+          "byteSize": 35861
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 524,
+          "byteSize": 53788
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 61927
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 91634
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1572,
+          "byteSize": 158716
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-karatavuk-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1572,
+          "byteSize": 236838
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:37.702Z"
+    },
+    "images/species/turdus-merula-krakow-1.jpg": {
+      "sourceHash": "efc2cd209e7463f8c1fa3fe45245ee3bcdec7df8522a9ef3a4693720209f45c8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-krakow-1.jpg",
+      "originalSize": 620427,
+      "width": 1920,
+      "height": 1282,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18174
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28784
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 53989
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 84766
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 108562
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 170108
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1282,
+          "byteSize": 302510
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-krakow-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1282,
+          "byteSize": 419998
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:52.961Z"
+    },
+    "images/species/turdus-merula-merel-1.jpg": {
+      "sourceHash": "f770cc864a698a762a6ef2147895010505f89bdfb1a37aa6a6c59f6e0d282a5e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-merel-1.jpg",
+      "originalSize": 249417,
+      "width": 1920,
+      "height": 1328,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 277,
+          "byteSize": 6626
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 277,
+          "byteSize": 8170
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 553,
+          "byteSize": 15946
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 553,
+          "byteSize": 20138
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 830,
+          "byteSize": 28913
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 830,
+          "byteSize": 36102
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1328,
+          "byteSize": 67698
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-merel-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1328,
+          "byteSize": 80076
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:38.245Z"
+    },
+    "images/species/turdus-merula-sharp-female.jpg": {
+      "sourceHash": "e7f05edf2f0941bacb8650b8679bd66d03f0e546f09bda2925ecb15c453b8566",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-sharp-female.jpg",
+      "originalSize": 517427,
+      "width": 1920,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 10327
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 13154
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 31120
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 40152
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 63950
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 85596
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1920,
+          "byteSize": 165006
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-sharp-female-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1920,
+          "byteSize": 243448
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:46.792Z"
+    },
+    "images/species/turdus-merula-trepte-1.jpg": {
+      "sourceHash": "da3e94390e053dbd6317db4664a588d3811047183b1387c0f80fd9197cdb9843",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-trepte-1.jpg",
+      "originalSize": 430779,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35008
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 54650
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 108101
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 170544
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 186339
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 297142
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 212963
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-trepte-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 324108
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:47.543Z"
+    },
+    "images/species/turdus-merula-wills-1.jpg": {
+      "sourceHash": "a176a54501c601c708982fdae591a259357b4eeec2e0b763419b447529cd0cbf",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/turdus-merula-wills-1.jpg",
+      "originalSize": 636734,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24148
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 38246
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72610
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 114406
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 134058
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 205938
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 270175
+        },
+        {
+          "key": "optimized/images/species/turdus-merula-wills-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 388798
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:53.648Z"
+    },
+    "images/species/tyto-alba-bjoertvedt-1.jpg": {
+      "sourceHash": "9696f78db243b20ee94cc5feb6d40af1125498ecf2ab6ddff47ec28bf01537de",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/tyto-alba-bjoertvedt-1.jpg",
+      "originalSize": 3519040,
+      "width": 2400,
+      "height": 1959,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 326,
+          "byteSize": 26208
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 326,
+          "byteSize": 41912
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 653,
+          "byteSize": 74711
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 653,
+          "byteSize": 110240
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 980,
+          "byteSize": 130765
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 980,
+          "byteSize": 189650
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1959,
+          "byteSize": 328620
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-bjoertvedt-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1959,
+          "byteSize": 468478
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:55.447Z"
+    },
+    "images/species/tyto-alba-legg-1.jpg": {
+      "sourceHash": "ce09d0e0687c8cf31a03d9500191edc4cf4e98cafd1d4271b4ac00334ee53e13",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/tyto-alba-legg-1.jpg",
+      "originalSize": 3220309,
+      "width": 2184,
+      "height": 2400,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 440,
+          "byteSize": 9244
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 440,
+          "byteSize": 10628
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 879,
+          "byteSize": 29506
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 879,
+          "byteSize": 36740
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1319,
+          "byteSize": 58907
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1319,
+          "byteSize": 75696
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-2184.avif",
+          "format": "avif",
+          "width": 2184,
+          "height": 2400,
+          "byteSize": 155206
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-1-2184.webp",
+          "format": "webp",
+          "width": 2184,
+          "height": 2400,
+          "byteSize": 213760
+        }
+      ],
+      "updatedAt": "2026-08-29T07:33:58.802Z"
+    },
+    "images/species/tyto-alba-legg-face-1.jpg": {
+      "sourceHash": "19e41acd51e6c9c636e523d2fb5c6a7651a27a4e6d2b4fc3282055c8bc9527f3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/tyto-alba-legg-face-1.jpg",
+      "originalSize": 13108233,
+      "width": 2400,
+      "height": 2315,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 386,
+          "byteSize": 20234
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 386,
+          "byteSize": 28058
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 772,
+          "byteSize": 73783
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 772,
+          "byteSize": 107736
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1157,
+          "byteSize": 165046
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1157,
+          "byteSize": 244868
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2315,
+          "byteSize": 668456
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-legg-face-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2315,
+          "byteSize": 1028516
+        }
+      ],
+      "updatedAt": "2026-08-29T07:34:08.154Z"
+    },
+    "images/species/tyto-alba-vezenkovic-1.jpg": {
+      "sourceHash": "c156ae8bd68dd1a783f847c7cba01e95684d924475c1b49ede8f329dc49cfe2b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/tyto-alba-vezenkovic-1.jpg",
+      "originalSize": 4525377,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14312
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17870
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 46023
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 59566
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 109882
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 144198
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 611390
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 810286
+        }
+      ],
+      "updatedAt": "2026-08-29T07:34:04.189Z"
+    },
+    "images/species/tyto-alba-vezenkovic-guttata-1.jpg": {
+      "sourceHash": "29a5a7470f86bbe447b9c414505d45bc77de6c0157543a4c38aced219f980c02",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/tyto-alba-vezenkovic-guttata-1.jpg",
+      "originalSize": 6130005,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23538
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35732
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 84522
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 129014
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 183551
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 278494
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 868062
+        },
+        {
+          "key": "optimized/images/species/tyto-alba-vezenkovic-guttata-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 1267732
+        }
+      ],
+      "updatedAt": "2026-08-29T07:34:12.173Z"
     },
     "jynx-torquilla-chorokhi-1.jpg": {
       "sourceHash": "681ef22fe9e8da0f6a2fbd8fab6f6cb98ed33dfecde796e47a4b05e892916815",

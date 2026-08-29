@@ -28,6 +28,7 @@ const KA_SLUG_OVERRIDES: Record<string, string> = {
   "macrovipera-lebetina": "giurza",
   "paralaudakia-caucasia": "jojo",
   "pseudopus-apodus": "gvelxokera",
+  "tyto-alba": "bukhrintsa",
 };
 
 const KA_SLUG_ALIASES: Record<string, string[]> = {
@@ -53,6 +54,8 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
   "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
   "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
+  "apus-apus": ["chveulebrivi-namgala", "namgala"],
+  "streptopelia-turtur": ["gvriti", "chveulebrivi-gvriti"],
   "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
   "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
   "aegolius-funereus": [
@@ -62,9 +65,40 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "boreal-owl",
     "tengmalms-owl",
   ],
+  "tyto-alba": [
+    "buxrintsa",
+    "bukhrintsa",
+    "barn-owl",
+    "western-barn-owl",
+  ],
+  "athene-noctua": ["choti", "little-owl", "buknacho"],
   "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
+  "anas-platyrhynchos": ["gareuli-ikhvi", "ikhvi", "mallard"],
+  "coturnix-coturnix": ["mtsqeri", "mwyeri"],
+  "phasianus-colchicus": [
+    "khokhobi",
+    "kolkhuri-khokhobi",
+    "common-pheasant",
+    "pheasant",
+  ],
   "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
   "accipiter-nisus": ["mimino", "korisebri-mimino"],
+  "turdus-merula": ["shashvi", "shavi-shashvi"],
+  "falco-peregrinus": [
+    "shavardeni",
+    "chveulebrivi-shavardeni",
+    "peregrine",
+    "peregrine-falcon",
+  ],
+  "glareola-pratincola": [
+    "mertsxala",
+    "mdelos-mertsxala",
+    "zhghalfrtiana-mertsxala",
+    "mertskhala",
+    "mdelos-mertskhala",
+    "collared-pratincole",
+  ],
+  "garrulus-glandarius": ["japara", "chxikvi"],
   "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
   "aegypius-monachus": [
     "cinereous-vulture",
@@ -78,6 +112,13 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "griffon",
     "eurasian-griffon",
   ],
+  "corvus-corax": [
+    "qorani",
+    "northern-raven",
+    "common-raven",
+    "raven",
+  ],
+  "pica-pica": ["kachkachi", "eurasian-magpie", "common-magpie"],
   "procyon-lotor": [
     "enoti",
     "chveulebrivi-enoti",
@@ -88,7 +129,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
 };
 
 const LOOKALIKES: Record<string, string[]> = {
-  "capreolus-capreolus": ["sus-scrofa"],
+  "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
   "ursus-arctos": ["canis-lupus", "sus-scrofa"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
@@ -364,13 +405,21 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],
-  "otus-scops": ["strix-aluco"],
-  "aegolius-funereus": ["strix-aluco", "otus-scops"],
+  "otus-scops": ["strix-aluco", "athene-noctua"],
+  "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
+  "athene-noctua": ["otus-scops", "strix-aluco", "aegolius-funereus"],
+  "tyto-alba": ["strix-aluco", "otus-scops", "aegolius-funereus", "athene-noctua"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
-  "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus"],
+  "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus", "falco-peregrinus"],
+  "accipiter-nisus": ["falco-peregrinus", "buteo-buteo"],
+  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
   "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
+  "pica-pica": ["corvus-corax", "garrulus-glandarius"],
+  "garrulus-glandarius": ["pica-pica", "corvus-corax"],
+  "coturnix-coturnix": ["phasianus-colchicus"],
+  "phasianus-colchicus": ["coturnix-coturnix"],
   "vulpes-vulpes": ["canis-lupus"],
   "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
 };
