@@ -48,7 +48,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx  → compile →
-src/data/species.generated.ts   DO NOT EDIT
+src/data/species.generated.ts   gitignored
 src/lib/                   routing, SEO, quiz, clusters
 src/i18n/                  next-intl routing + pathnames
 messages/                  KA + EN copy
@@ -77,7 +77,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 ## Species content pipeline
 
 1. Edit **both** `ka.mdx` and `en.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, images, `sources`. EN is a translation of text fields (and optional credit overlays).
-2. `npm run species:compile` (also `predev` / `prebuild`) writes `src/data/species.generated.ts`.
+2. `npm run species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts`.
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.
 5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesRoutes.ts`.
@@ -160,7 +160,7 @@ npm run lint
 npm run species:compile
 ```
 
-`npx tsc --noEmit` after routing or catalog changes.
+`npx tsc --noEmit` after routing or catalog changes (run `species:compile` first if the generated catalog is missing).
 
 ## Open work (do not assume done)
 
@@ -172,7 +172,7 @@ npm run species:compile
 
 ## Do not
 
-- Edit `src/data/species.generated.ts` or other generated files.
+- Commit or hand-edit `src/data/species.generated.ts` (gitignored; `predev` / `prebuild` writes it).
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
 - Ship one-locale copy or one-locale MDX.

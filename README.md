@@ -28,7 +28,7 @@ npm run species:compile
 
 ## Content
 
-Profiles live in `src/content/species/{scientific-id}/ka.mdx` and `en.mdx`. The compiler writes `src/data/species.generated.ts` — do not edit that file.
+Profiles live in `src/content/species/{scientific-id}/ka.mdx` and `en.mdx`. `predev` / `prebuild` compile them to a gitignored catalog — do not commit or edit that file.
 
 Range on a species or region page comes from `src/data/regions.ts`. Localities are not inferred from habitat or neighbouring regions.
 
