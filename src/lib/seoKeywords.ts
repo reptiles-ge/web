@@ -46,11 +46,17 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "vipera-kaznakovi": {
-    ka: ["კავკასიური გველგესლა", "გველგესლა", "Pelias kaznakovi"],
+    ka: [
+      "კავკასიური გველგესლა",
+      "გველგესლა",
+      "შხამიანი გველგესლა",
+      "Pelias kaznakovi",
+    ],
     en: [
       "Caucasus viper",
       "Caucasian viper",
       "Kaznakov's viper",
+      "venomous viper Georgia",
       "Pelias kaznakovi",
     ],
   },
@@ -340,12 +346,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["smooth snake", "Coronella"],
   },
   "natrix-natrix": {
-    ka: ["ანკარა", "დიდთავა ანკარა", "Natrix megalocephala"],
+    ka: [
+      "ანკარა",
+      "ანკარა გველი",
+      "გველი ანკარა",
+      "უშხამო ანკარა",
+      "დიდთავა ანკარა",
+      "Natrix megalocephala",
+    ],
     en: [
       "grass snake",
       "ringed snake",
       "ring snake",
       "eastern grass snake",
+      "non-venomous grass snake",
       "Natrix megalocephala",
     ],
   },

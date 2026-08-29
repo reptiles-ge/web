@@ -49,6 +49,31 @@ export function speciesMetaTitle(
   return `${commonName} (${scientificName}) | ${intent}`;
 }
 
+const SPECIES_META_TITLE_OVERRIDE: Partial<
+  Record<string, { ka: string; en: string }>
+> = {
+  "natrix-natrix": {
+    ka: "ჩვეულებრივი ანკარა (Natrix natrix) | უშხამო გველი საქართველოში",
+    en: "Grass snake (Natrix natrix) | Non-venomous snake in Georgia",
+  },
+  "vipera-kaznakovi": {
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",
+    en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
+  },
+};
+
+export function speciesPageMetaTitle(
+  speciesId: string,
+  locale: "ka" | "en",
+  commonName: string,
+  scientificName: string,
+  intent: string,
+) {
+  const override = SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale];
+  if (override) return override;
+  return speciesMetaTitle(commonName, scientificName, intent);
+}
+
 export function speciesImageAlt(
   commonName: string,
   scientificName: string,
