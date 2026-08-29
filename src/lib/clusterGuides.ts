@@ -190,7 +190,7 @@ export type ClusterGuideConfig = {
   heroSpeciesId: string;
   heroImage?: string;
   matches: (species: Species) => boolean;
-  faqCount: 4 | 5 | 10;
+  faqCount: 4 | 5 | 8 | 10;
   schema: "collection" | "article";
   primaryCta: "hash" | "tel";
 };
@@ -241,7 +241,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     heroImage: "/images/guides/snake-bite-cover.png",
     matches: (species) =>
       isSnakeSpecies(species) && isVenomousDanger(species.danger),
-    faqCount: 10,
+    faqCount: 8,
     schema: "article",
     primaryCta: "tel",
   },

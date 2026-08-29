@@ -7,7 +7,6 @@ import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { formatContentDate } from "@/lib/formatDate";
-import { quizHref } from "@/lib/quizzes";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -102,12 +101,12 @@ export function SnakeBitePage({
               <ol className="mt-8 divide-y divide-border border-y border-border">
                 {DO_STEPS.map((n) => (
                   <li key={n} className="py-5">
-                    <p className="font-display text-[17px] font-medium text-foreground">
+                    <h3 className="font-display text-[17px] font-medium text-foreground">
                       <span className="mr-2 text-muted-foreground">
                         {String(n).padStart(2, "0")}
                       </span>
                       {t(`do${n}Title`)}
-                    </p>
+                    </h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                       {t(`do${n}Body`)}
                     </p>
@@ -125,9 +124,9 @@ export function SnakeBitePage({
               <ol className="mt-8 divide-y divide-border border-y border-border">
                 {DONT_STEPS.map((n) => (
                   <li key={n} className="py-5">
-                    <p className="font-display text-[17px] font-medium text-foreground">
+                    <h3 className="font-display text-[17px] font-medium text-foreground">
                       {t(`dont${n}Title`)}
-                    </p>
+                    </h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
                       {t(`dont${n}Body`)}
                     </p>
@@ -248,14 +247,6 @@ export function SnakeBitePage({
                     {chunks}
                   </Link>
                 ),
-                quiz: (chunks) => (
-                  <Link
-                    href={quizHref("snake", locale)}
-                    className={inlineLinkClassName}
-                  >
-                    {chunks}
-                  </Link>
-                ),
               })}
             </p>
           </Reveal>
@@ -269,10 +260,11 @@ export function SnakeBitePage({
               {t("speciesEyebrow")}
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("speciesTitle", { count: species.length })}
+              {t("speciesTitle")}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
               {t.rich("speciesBody", {
+                count: species.length,
                 venomous: (chunks) => (
                   <Link href="/venomous-snakes" className={inlineLinkClassName}>
                     {chunks}

@@ -84,12 +84,12 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const ogImage = guide.heroImage
       ? absoluteUrl(guide.heroImage)
       : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
-    const ogImageTag = guide.heroImage
+      const ogImageTag = guide.heroImage
       ? {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: t("heroImageAlt"),
         }
       : openGraphJpeg(ogImage, title);
 
