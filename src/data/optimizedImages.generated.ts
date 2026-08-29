@@ -3592,6 +3592,333 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
+  "/images/species/aquila-chrysaetos-flight-1.jpg": {
+    "path": "images/species/aquila-chrysaetos-flight-1",
+    "width": 2400,
+    "height": 3000,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/aquila-chrysaetos-flight-2.jpg": {
+    "path": "images/species/aquila-chrysaetos-flight-2",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/aquila-chrysaetos-juvenile-1.jpg": {
+    "path": "images/species/aquila-chrysaetos-juvenile-1",
+    "width": 640,
+    "height": 587,
+    "widths": [
+      400,
+      640
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/aquila-chrysaetos-perch-1.jpg": {
+    "path": "images/species/aquila-chrysaetos-perch-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/ciconia-ciconia-flight-1.jpg": {
+    "path": "images/species/ciconia-ciconia-flight-1",
+    "width": 2400,
+    "height": 1602,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/ciconia-ciconia-juvenile-1.jpg": {
+    "path": "images/species/ciconia-ciconia-juvenile-1",
+    "width": 2400,
+    "height": 1546,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/ciconia-ciconia-nest-1.jpg": {
+    "path": "images/species/ciconia-ciconia-nest-1",
+    "width": 2400,
+    "height": 1597,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/ciconia-ciconia-standing-1.jpg": {
+    "path": "images/species/ciconia-ciconia-standing-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/ciconia-ciconia-standing-2.jpg": {
+    "path": "images/species/ciconia-ciconia-standing-2",
+    "width": 2004,
+    "height": 3006,
+    "widths": [
+      400,
+      800,
+      1200,
+      2004
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/gyps-fulvus-colony-1.jpg": {
+    "path": "images/species/gyps-fulvus-colony-1",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/gyps-fulvus-flight-1.jpg": {
+    "path": "images/species/gyps-fulvus-flight-1",
+    "width": 1748,
+    "height": 1292,
+    "widths": [
+      400,
+      800,
+      1200,
+      1748
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/gyps-fulvus-flight-2.jpg": {
+    "path": "images/species/gyps-fulvus-flight-2",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/gyps-fulvus-flight-3.jpg": {
+    "path": "images/species/gyps-fulvus-flight-3",
+    "width": 2400,
+    "height": 1800,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/gyps-fulvus-head-1.jpg": {
+    "path": "images/species/gyps-fulvus-head-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/otus-scops-botanical-1.jpg": {
+    "path": "images/species/otus-scops-botanical-1",
+    "width": 2400,
+    "height": 1805,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/otus-scops-jutial-1.jpg": {
+    "path": "images/species/otus-scops-jutial-1",
+    "width": 1939,
+    "height": 1421,
+    "widths": [
+      400,
+      800,
+      1200,
+      1939
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/otus-scops-pakistan-1.jpg": {
+    "path": "images/species/otus-scops-pakistan-1",
+    "width": 1991,
+    "height": 1411,
+    "widths": [
+      400,
+      800,
+      1200,
+      1991
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/otus-scops-tashkent-1.jpg": {
+    "path": "images/species/otus-scops-tashkent-1",
+    "width": 960,
+    "height": 640,
+    "widths": [
+      400,
+      800,
+      960
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/procyon-lotor-central-park-1.jpg": {
+    "path": "images/species/procyon-lotor-central-park-1",
+    "width": 2400,
+    "height": 1880,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/procyon-lotor-female-1.jpg": {
+    "path": "images/species/procyon-lotor-female-1",
+    "width": 2372,
+    "height": 1764,
+    "widths": [
+      400,
+      800,
+      1200,
+      2372
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/procyon-lotor-portrait-1.jpg": {
+    "path": "images/species/procyon-lotor-portrait-1",
+    "width": 1280,
+    "height": 1080,
+    "widths": [
+      400,
+      800,
+      1200,
+      1280
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/procyon-lotor-tracks-1.jpg": {
+    "path": "images/species/procyon-lotor-tracks-1",
+    "width": 2400,
+    "height": 3585,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
   "https://cdn.reptiles.ge/jynx-torquilla-chorokhi-1.jpg": {
     "path": "jynx-torquilla-chorokhi-1",
     "width": 800,
@@ -4072,20 +4399,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "macrovipera-lebetina-4",
     "width": 1500,
     "height": 1000,
-    "widths": [
-      400,
-      800,
-      1200,
-      1500
-    ],
-    "formats": [
-      "avif"
-    ]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp": {
-    "path": "macrovipera-lebetina-5",
-    "width": 1500,
-    "height": 998,
     "widths": [
       400,
       800,
