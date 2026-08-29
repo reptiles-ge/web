@@ -220,9 +220,10 @@ Consolidate authority on KA URL; pick up some typo/photo SERP CTR.
 
 **GSC evidence (Coverage export)**
 
-- Critical: Discovered – currently not indexed → **68 pages** (validation Started)
+- Critical: Discovered – currently not indexed → **68 pages** (validation Started 8/11/26; list as of 8/21/26)
 - Also listed: Page with redirect (3), Alternate with proper canonical (1), Duplicate Google chose different canonical (1), Crawled – not indexed (1)
 - Indexed count recovered strongly mid-August (good sign — do not panic)
+- **All 68 examples show Last crawled = N/A** → discovered (sitemap/links) but not fetched yet. Crawl-queue issue on a young site, not “thin content” for most of these.
 
 **Do**
 
@@ -235,17 +236,39 @@ Consolidate authority on KA URL; pick up some typo/photo SERP CTR.
 4. Confirm sitemap includes them; no accidental `noindex`.
 5. Do **not** spam Request Indexing for every URL.
 
+**Triage (2026-08-29 — full GSC example list)**
+
+| Bucket | Count | Action |
+| --- | ---: | --- |
+| **Must index (KA)** | ~27 | Wait for crawl; already in sitemap + footer/hub links. Optional: Request Indexing only for 3–5 priority hubs if still N/A after 2+ weeks |
+| **OK delayed (EN)** | ~41 | Do not force; `x-default` = KA. Indexing will lag |
+| **Should not force** | 0 in this list | No quiz-results / unpublished / broken paths in the 68 |
+
+**Must-index KA (want these crawled)**
+
+- Site: `/about`, `/contact`, `/species`
+- Hubs/indexes: `/amfibiebi`, `/amfibiebi/saxeoebebi`, `/amfibiebi/bayayi`, `/amfibiebi/bayayi/saxeoebebi`, `/amfibiebi/tritoni-salamandra`, `/kuebi` (+ land/water/index/identify), `/xvlikebi` (+ index/identify/glass-compare), `/gvelebi/saxeoebebi`, `/gvelebi/shxamiani-gvelis-amocnoba`, `/gvelebi/didi-gvelebi`
+- Species: `/gvelebi/tsxvirrkosani-gvelgesla`, `/gvelebi/dinikis-gvelgesla`, `/gvelebi/darevskis-gvelgesla`, `/gvelebi/velis-gvelgesla`, `/gvelebi/aghmosavluri-xvlikichamia-gveli`, `/xvlikebi/sashualo-xvliki`
+- Region: `/regions/samegrelo` (OK if slow — fauna incomplete by design)
+
+**OK delayed (EN mirrors)** — entire `/en/…` set in the list (hubs, guides, vipers, Darevskia, regions, turtles, etc.). Correct public URLs; secondary locale.
+
+**Not a bug**
+
+- `/en/amphibians/newts` = intentional EN slug for `/amphibians/tritoni-salamandra`
+- No legacy `/species/{id}` in this Discovery bucket (good — those are redirects elsewhere)
+
 **Done when**
 
-- [x] URL list reviewed and bucketed *(partial — no GSC URL export in repo; bucketed from Performance appendix + code audit)*
-- [x] Important orphans linked from parent hubs *(გიურზა + კავკასიური გველგესლა featured on venomous hub; species already on hubs/guides/atlas via `speciesHref`)*
-- [x] No thin pages pushed for indexing *(sitemap = hubs + guides + published catalog only; legacy `/species/{id}` is 301 + `noindex`)*
+- [x] URL list reviewed and bucketed
+- [x] Important orphans linked from parent hubs *(footer + hubs already link these; venomous featured cards added earlier)*
+- [x] No thin pages pushed for indexing
+- [x] No mass Request Indexing
 
 **Note (2026-08-29)**  
-Full 68-URL triage still needs a Coverage export from GSC UI. Until then: do not mass-Request-Indexing; wait for crawl after Tasks 1–4 + redirect hardening.
+Do not rebuild pages for this bucket. Re-check Coverage in 2–4 weeks; expect N/A → crawled as Google works the queue. If a **KA must-index** hub is still Discovered-not-indexed after that, Request Indexing for that URL only (not the whole EN set).
 
 ---
-
 ### Task 6 — Legacy `/species/…` consolidation (sitewide)
 
 **GSC evidence**
