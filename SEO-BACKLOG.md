@@ -350,6 +350,8 @@ From Performance export (imp ≥ 50 and CTR &lt; 4%):
 
 Tasks 1–3 address the worst of these. Others become candidates after the first re-measure.
 
+**Watchlist CTR pass (2026-08-29):** `natrix-tessellata`, `vipera-transcaucasiana`, `platyceps-najadum` — title/meta/FAQ lead updated like Tasks 1–2.
+
 ---
 
 ## Appendix — turtle note (why not prioritized)

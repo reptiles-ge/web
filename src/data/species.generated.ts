@@ -12263,7 +12263,7 @@ export const species: Species[] = [
         "answer": "დაიცავით მანძილი, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. ადამიანს თავს არ ესხმის, თუ გზას დაუთმობთ."
       }
     ],
-    "updatedAt": "2026-08-29T10:25:39+04:00",
+    "updatedAt": "2026-08-29T17:03:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13465,8 +13465,8 @@ export const species: Species[] = [
     "genus": "Natrix",
     "family": "Colubridae",
     "location": "საქართველო — წყალთან",
-    "description": "უშხამო, ნახევრადწყლის გველი კუბიკური ლაქებით. საქართველოში მდინარეების, ტბებისა და ნაპირების მკვიდრია; ადამიანისთვის უვნებელია.",
-    "overview": "წყლის ანკარა (Natrix tessellata) უშხამო, ნახევრადწყლის გველია, რომელიც საქართველოში მდინარეებთან, ტბებთან და ნაპირებთან ფართოდ გვხვდება. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. გავრცელებულია ცენტრალური და აღმოსავლეთ ევრაზიის დიდ ნაწილზე. საქართველოში წყლის ჰაბიტატების უმეტესობას იკავებს; ამ ატლასის რუკაზე აღნიშნულია ყველა 12 რეგიონი, თუმცა გავრცელება საშუალო სიზუსტითაა დადგენილი — სახეობა წყალზეა მიბმული და მშრალ ქედზე არ უნდა ვეძებოთ. დასავლეთში ჩვეულებრივ ზღვის დონიდან დაახლოებით 0–600 მ-მდეა, აღმოსავლეთში — 900 მ-მდე; იშვიათი დაკვირვებები 1,100 მ-მდეა. ნოტიო დასავლეთში ხშირად ჩვეულებრივ ანკარაზე (Natrix natrix) ნაკლებია; ნახევრადმშრალ აღმოსავლეთში პირიქით. ზურგზე მუქი კვადრატული ლაქებია, მუცელი ხშირად ყვითელი ან ნარინჯისფერი შავი წერტილებით. ზრდასრული ჩვეულებრივ დაახლოებით 70–110 სმ-ია; დიდი მდედრი 1.2 მ-საც აჭარბებს. ადამიანისთვის საშიში არ არის. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოს წითელ ნუსხაში არ შედის.",
+    "description": "უშხამო წყლის ანკარა საქართველოში — კუბიკური ლაქებით; არ არის გველგესლა.",
+    "overview": "წყლის ანკარა (Natrix tessellata) უშხამო წყლის გველია საქართველოში — კუბიკური ლაქებით, უვნებელი ადამიანისთვის. მდინარეებთან, ტბებთან და ნაპირებთან ფართოდ გვხვდება; ნოტიო დასავლეთში ხშირად ჩვეულებრივ ანკარაზე (Natrix natrix) ნაკლებია. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. გავრცელებულია ცენტრალური და აღმოსავლეთ ევრაზიის დიდ ნაწილზე. საქართველოში წყლის ჰაბიტატების უმეტესობას იკავებს; ამ ატლასის რუკაზე აღნიშნულია ყველა 12 რეგიონი, თუმცა გავრცელება საშუალო სიზუსტითაა დადგენილი — სახეობა წყალზეა მიბმული და მშრალ ქედზე არ უნდა ვეძებოთ. დასავლეთში ჩვეულებრივ ზღვის დონიდან დაახლოებით 0–600 მ-მდეა, აღმოსავლეთში — 900 მ-მდე; იშვიათი დაკვირვებები 1,100 მ-მდეა. ნახევრადმშრალ აღმოსავლეთში ხშირად ჩვეულებრივ ანკარაზე მეტია. ზურგზე მუქი კვადრატული ლაქებია, მუცელი ხშირად ყვითელი ან ნარინჯისფერი შავი წერტილებით. ზრდასრული ჩვეულებრივ დაახლოებით 70–110 სმ-ია; დიდი მდედრი 1.2 მ-საც აჭარბებს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern); საქართველოს წითელ ნუსხაში არ შედის.",
     "habitat": "საქართველოში ეს წყლის პირის გველია. ეძებეთ მდინარესთან, ნაკადულთან, ტბასთან, წყალსაცავთან, არხთან და გუბესთან — ქვაზე, ნაპირზე, ტალახზე და წყალზე გადახრილ ტოტზე. შედის სასოფლო-სამეურნეო და შეცვლილ ლანდშაფტშიც, თუ თევზი ან ამფიბია ჰყოფნის. დასავლეთში კოლხეთის ჭაობები და შავი ზღვის სანაპირო წყალიც უდგება; დასახელებული ადგილებია კოლხეთის ეროვნული პარკი და ჭარნალის ხეობა აჭარაში. ამ გვერდზე დასახელებული ფოტოა ლისის ტბიდან (თბილისი; 29 ივნისი 2024 და 25 მარტი 2025). 2011 წლის ქართული კვლევა მას ქვეყნის წყლის ჰაბიტატების უმეტესობაში ასახელებს. ვერტიკალურად დასავლეთში ჩვეულებრივ 0–600 მ, აღმოსავლეთში 900 მ, იშვიათად 1,100 მ; უფრო მაღლა ნალექიან ადგილზე იშვიათია. ამ ატლასის რუკაზე აღნიშნულია აფხაზეთი, სამეგრელო — ზემო სვანეთი, გურია, აჭარა, იმერეთი, რაჭა — ლეჩხუმი — ქვემო სვანეთი, სამცხე — ჯავახეთი, შიდა ქართლი, მცხეთა — მთიანეთი, ქვემო ქართლი, კახეთი და თბილისი. 2021 წლის გველების მიმოხილვა მას მთელ საქართველოში გავრცელებულად მიიჩნევს. ჩვეულებრივ ანკარასთან შედარებით უფრო ღია, კლდოვან და ნახევრადმშრალ ნაპირს ირჩევს.",
     "diet": "ცალკე ქართული კვების კვლევა რაოდენობრივი ნიმუშით ამ გვერდზე არ არის. სახეობის დონეზე ძირითადად თევზს ჭამს; ამფიბიებსაც იჭერს — ბაყაყს, გომბეშოსა და ლიფსიტას. 2014 წლის გლობალური მიმოხილვა საქართველოს იმ ქვეყნებში ასახელებს, სადაც დიეტაში ამფიბიებიცაა დაფიქსირებული. კავკასიის სანაპიროზე ხშირად გობისებრი თევზია მთავარი ნადავლი. მსხვერპლს ცოცხლად ყლაპავს. ნადირობს წყალში და ნაპირთან.",
     "behavior": "თბილ სეზონზე აქტიურია, ძირითადად დღისით. ხშირად იბანაობს ან მზეზე თბება ნაპირზე, ქვაზე და წყალზე გადახრილ ტოტზე. ცივ თვეებში ზამთრობს წყალთან ახლოს, მშრალ სოროში ან ნაპრალში; ზუსტი თვეები სიმაღლესა და კლიმატზეა დამოკიდებული და საქართველოს ყველა პოპულაციის ერთი კალენდარი ამ გვერდზე არ არის. კვერცხისმდებია. სახეობის არეალში შეწყვილება ჩვეულებრივ გაზაფხულზეა, კვერცხს ზაფხულში დებს ტენიან ადგილას — ნიადაგი, დამპალი მცენარეულობა, ქვის ღობე; ნაშიერები იჩეკებიან გვიან ზაფხულში ან ადრე შემოდგომაზე. საფრთხისას კლოაკიდან უსიამოვნო სუნის სეკრეტს გამოყოფს ან მკვდარს თამაშობს. თუ შეხვდებით, დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ — შხამი არ აქვს. ხშირად გველგესლაში ერევათ მუქი ლაქების გამო.",
@@ -13615,6 +13615,14 @@ export const species: Species[] = [
     },
     "faq": [
       {
+        "question": "წყლის ანკარა შხამიანია?",
+        "answer": "არა. შხამი არ აქვს და ადამიანისთვის უვნებელია. ხელში აყვანისას შეიძლება უსიამოვნო სუნი გამოყოს ან მკვდარის როლს თამაშობდეს. არ აიყვანოთ. სამედიცინო საფრთხე არ არის."
+      },
+      {
+        "question": "რით განსხვავდება ჩვეულებრივი ანკარასგან?",
+        "answer": "წყლის ანკარას კუბიკური ლაქები აქვს და უფრო მჭიდროდაა მიბმული წყალთან; საქართველოში უფრო ხშირია ნახევრადმშრალ ადგილებში. ჩვეულებრივ ანკარას ხშირად ყვითელი საყელო აქვს და ნოტიო დასავლეთს ანიჭებს უპირატესობას; ძირითადად ამფიბიებით იკვებება."
+      },
+      {
         "question": "გვხვდება თუ არა წყლის ანკარა საქართველოში?",
         "answer": "დიახ. 2026 წლის ჩამონათვალი ბიოლოგიურად დადასტურებულად მიიჩნევს. 2021 წლის მიმოხილვა მას მთელ საქართველოში გავრცელებულ წყლის გველად ასახელებს."
       },
@@ -13623,16 +13631,8 @@ export const species: Species[] = [
         "answer": "მდინარესთან, ტბასთან, ნაკადულთან, არხთან, წყალსაცავთან და სანაპიროსთან. დასავლეთში ჩვეულებრივ 600 მ-მდე, აღმოსავლეთში 900 მ-მდე; იშვიათად 1,100 მ. ამ ატლასის რუკაზე 12 რეგიონია აღნიშნული; გავრცელება საშუალო სიზუსტითაა დადგენილი."
       },
       {
-        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
-        "answer": "არა. შხამი არ აქვს და ადამიანისთვის უვნებელია. ხელში აყვანისას შეიძლება უსიამოვნო სუნი გამოყოს ან მკვდარი თამაშობდეს. არ აიყვანოთ. სამედიცინო საფრთხე არ არის."
-      },
-      {
-        "question": "როგორ ამოვიცნო?",
-        "answer": "კუბიკური ლაქები ზურგზე, ყვითელი საყელოს არარსებობა, ვიწრო თავი და მრგვალი გუგა. ხშირად წყალში ან ნაპირზეა. ჩვეულებრივ ანკარას საყელო აქვს; გველგესლას — ვერტიკალური გუგა."
-      },
-      {
-        "question": "რით განსხვავდება ჩვეულებრივი ანკარასგან?",
-        "answer": "წყლის ანკარას კუბიკური ლაქები აქვს და უფრო მჭიდროდაა მიბმული წყალთან; საქართველოში უფრო ხშირია ნახევრადმშრალ ადგილებში. ჩვეულებრივ ანკარას ხშირად ყვითელი საყელო აქვს და ნოტიო დასავლეთს ანიჭებს უპირატესობას; ძირითადად ამფიბიებით იკვებება."
+        "question": "როგორ ამოვიცნო გველგესლასგან?",
+        "answer": "კუბიკური ლაქები ზურგზე, ყვითელი საყელოს არარსებობა, ვიწრო თავი და მრგვალი გუგა. ხშირად წყალში ან ნაპირზეა. გველგესლას ვერტიკალური გუგა და მოკლე, მსხვილი ტანი აქვს."
       },
       {
         "question": "რამდენად დიდი იზრდება?",
@@ -13647,7 +13647,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და არ მოკლათ. უშხამოა. გველგესლასთან ამოსაცნობად ნახეთ მრგვალი გუგა, ვიწრო თავი და წყალთან კავშირი."
       }
     ],
-    "updatedAt": "2026-08-28T17:19:51+04:00",
+    "updatedAt": "2026-08-29T17:10:02+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -13861,7 +13861,7 @@ export const species: Species[] = [
         "answer": "დააკვირდით და დატოვეთ ადგილზე. არ აიყვანოთ და სხვა ტბაში არ გადაიტანოთ. ადამიანისთვის სამედიცინო საფრთხე არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-29T17:03:55+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -15946,8 +15946,8 @@ export const species: Species[] = [
     "genus": "Platyceps",
     "family": "Colubridae",
     "location": "აღმოსავლეთ და სამხრეთ საქართველო",
-    "description": "უშხამო, ძალიან გამხდარი მცურავი კისრის მუქი, ღია კიდეებიანი ლაქებით. საქართველოში დადასტურებულია; უფრო ხშირია აღმოსავლეთისა და სამხრეთის მშრალ ქვიან ადგილებში.",
-    "overview": "წენგოსფერი მცურავი (Platyceps najadum) უშხამო, ძალიან გამხდარი გველია აღმოსავლეთ და სამხრეთ საქართველოს მშრალ ქვიან ადგილებში. ანკარასებრთა ოჯახისაა (Colubridae). ადამიანისთვის უვნებელია: შხამი არ აქვს. ზრდასრული სიგრძე ჩვეულებრივ დაახლოებით 70–100 სმ-ია; იშვიათად აღემატება 1 მ-ს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2026 წლის ქართული ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. თანამედროვე დასახელებული ნიმუში თმოგვიდანაა (ასპინძა, სამცხე — ჯავახეთი). 2021 წლის ქართული გველების კვლევა მას მშრალ კლიმატზე დამოკიდებულ სახეობებს მიაკუთვნებს — ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. მთელ ქვეყანაში არ ეძებოთ.",
+    "description": "უშხამო წენგოსფერი მცურავი საქართველოში — გამხდარი გველი მშრალ ქვიან ადგილებში; არ არის გველგესლა.",
+    "overview": "წენგოსფერი მცურავი (Platyceps najadum) უშხამო გველია საქართველოში — ძალიან გამხდარი, ადამიანისთვის უვნებელი. უფრო ხშირია აღმოსავლეთისა და სამხრეთის მშრალ ქვიან ადგილებში. ანკარასებრთა ოჯახისაა (Colubridae). ზრდასრული სიგრძე ჩვეულებრივ დაახლოებით 70–100 სმ-ია; იშვიათად აღემატება 1 მ-ს. IUCN-ის მიხედვით ნაკლებად საფრთხის ქვეშაა (Least Concern). 2026 წლის ქართული ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. თანამედროვე დასახელებული ნიმუში თმოგვიდანაა (ასპინძა, სამცხე — ჯავახეთი). 2021 წლის ქართული გველების კვლევა მას მშრალ კლიმატზე დამოკიდებულ სახეობებს მიაკუთვნებს — ქვიანი ან ბალახოვანი ადგილი, ძირითადად აღმოსავლეთ საქართველო. მთელ ქვეყანაში არ ეძებოთ.",
     "habitat": "საქართველოში რეალურად შეხვდებით ქვიან ფერდობზე, კლდის ამონაკვეთთან, ბუჩქნარში, ტყის პირას, მშრალ მდელოზე და სასოფლო-სამეურნეო ადგილთან. თავშესაფარი ქვის ნაპრალი, კლდის ღრმული და, ზამთარში, ზოგჯერ ადამიანის ნაგებობაცაა. 2021 წლის კვლევა სახეობას მშრალი კლიმატის ჯგუფში ათავსებს: ძირითადად აღმოსავლეთის ქვიან ან ბალახოვან ლანდშაფტებში. დასახელებული თანამედროვე წერტილი თმოგვია. ძველ მუზეუმურ მასალაში დასახელებულია თბილისი და ბორჯომი; იმავე მიმოხილვაშია აჭარის ასსრ და ახალი ათონი (აფხაზეთი), მაგრამ ეს ისტორიული ეტიკეტებია და არ ცვლის ზუსტ თანამედროვე დასავლურ რუკას. ამ ატლასის რუკა რეგიონულ ჩანაწერებს ასახავს და არ ნიშნავს, რომ სახეობა ყველა მონიშნულ რეგიონში თანაბრად გავრცელებულია. გურიისა და იმერეთის დასახელებული წერტილი ამ გვერდზე არ არის. სახეობის დონეზე ლიტერატურაში ხშირად ზღვის დონიდან დაახლოებით 2,000 მ-მდეა მითითებული; საქართველოსთვის ცალკე სიმაღლის დიაპაზონი აქ არ არის გამოქვეყნებული. ფართო არეალი ბალკანებიდან კავკასიამდე და ახლო აღმოსავლეთამდეა; ტიპის ადგილი ბაქოა და არა საქართველო.",
     "diet": "ცალკე ქართული კვების კვლევა ამ სახეობაზე არ არის. არეალის სხვა ნაწილებში ძირითადად ხვლიკებს იჭერს; აგრეთვე მცირე ძუძუმწოვრებს, ფრინველებსა და სხვა გველებს. შხამი არ აქვს — ნადირობს სისწრაფით. საქართველოში მენიუ პირდაპირ არ არის გაზომილი.",
     "behavior": "არეალის სხვა ნაწილებში დღის აქტიურია: სწრაფად მოძრაობს და ხშირად მზეზე თბება. საქართველოში საათობრივი კალენდარი ცალკე არ არის აღწერილი; მოსალოდნელია თბილი სეზონი მშრალ ქვიან ადგილებში. საფრთხისას უპირატესად გარბის; კუთხეში მოქცევისას შეიძლება თავი აიწიოს და პირი გააღოს. კვერცხისმდებია; სახეობის დონეზე ლიტერატურაში ხშირად 3–16 კვერცხია მითითებული. შეწყვილების სეზონი და საქართველოს კლაჩის ზომა აქ არ არის გამოქვეყნებული. 2026 წელს საქართველოში დაფიქსირდა ზამთრის თავშესაფარი რკინაბეტონის სეპტიკურ ავზში: ერთი წენგოსფერი მცურავი 133 წითელმუცელა მცურავთან (Dolichophis schmidti) და ერთ წყლის ანკარასთან (Natrix tessellata) ერთად იყო. ეს არის კავკასიაში დოკუმენტირებული პირველი სახეობათაშორისი გველების ზამთრის თავშესაფარი — და არა იმის მტკიცება, რომ სახეობა ყოველთვის ასე იზამთრებს.",
@@ -16027,16 +16027,16 @@ export const species: Species[] = [
     },
     "faq": [
       {
+        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
+        "answer": "არა. შხამი არ აქვს და სამედიცინო საფრთხეს არ წარმოადგენს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
+      },
+      {
         "question": "გვხვდება თუ არა წენგოსფერი მცურავი საქართველოში?",
         "answer": "დიახ. 2026 წლის ჩამონათვალი სახეობას ბიოლოგიურად დადასტურებულად იღებს. დასახელებული თანამედროვე წერტილი თმოგვია. მთელ ქვეყანაში არ გვხვდება."
       },
       {
         "question": "სად შეიძლება შეხვდე საქართველოში?",
         "answer": "უფრო ხშირია აღმოსავლეთისა და სამხრეთის მშრალ, ქვიან ან ბალახოვან ადგილებში. დასახელებული თანამედროვე წერტილი სამცხე — ჯავახეთშია, თმოგვის მიდამოებში. ძველ მასალაში დასახელებულია თბილისი და ბორჯომი. დასავლეთის ისტორიული მუზეუმური ჩანაწერები ზუსტ თანამედროვე რუკას არ ცვლის. გურიისა და იმერეთის დასახელებული წერტილი აქ არ არის."
-      },
-      {
-        "question": "არის თუ არა შხამიანი ან საშიში ადამიანისთვის?",
-        "answer": "არა. შხამი არ აქვს და სამედიცინო საფრთხეს არ წარმოადგენს. საფრთხისას უპირატესად გარბის. დიდ გველს შეუძლია უკბინოს — არ აიყვანოთ. ვერტიკალური გუგა გველგესლაზე ან გიურზაზე მიუთითებს."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -19845,8 +19845,8 @@ export const species: Species[] = [
     "genus": "Vipera",
     "family": "Viperidae",
     "location": "მცირე კავკასიონი",
-    "description": "საქართველოს ცხვირრქოსანი გველგესლა — შხამიანი გველი მცირე კავკასიონის მშრალ, კლდოვან ფერდობებზე და არა შავი ზღვის სანაპიროზე.",
-    "overview": "ცხვირრქოსანი გველგესლა (Vipera ammodytes) გველგესლასებრთა ოჯახის შხამიანი გველია. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. კავკასიის ინდივიდები ქვესახეობას V. a. transcaucasiana მიეკუთვნება; ტიპის ადგილია ბორჯომი. ძველ წიგნებში და ზოგ ბაზაში სრულ სახეობად რჩება Vipera transcaucasiana. მთელ საქართველოში არ გვხვდება. ეძებეთ მშრალ, კლდოვან ადგილზე მცირე კავკასიონში — მესხეთი, თრიალეთი, მტკვრის ზემო დინება — არა ნოტიო კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. ამ ფორმის ზრდასრული ჩვეულებრივ 75 სმ-ს არ აღემატება. ნაკბენი სამედიცინოდ მნიშვნელოვანია. IUCN-ით გაყოფილი სახელი V. transcaucasiana ახლოსაა საფრთხესთან (Near Threatened); საქართველოს 2014 წლის წითელ ნუსხაში ეს ტაქსონი არ არის.",
+    "description": "შხამიანი ცხვირრქოსანი გველგესლა მცირე კავკასიონზე — ამ ატლასში მაღალი რისკი; არა შავი ზღვის სანაპირო.",
+    "overview": "ცხვირრქოსანი გველგესლა (Vipera ammodytes) მცირე კავკასიონის შხამიანი გველია — ამ ატლასში მაღალი რისკი. 2026 წლის ქართული ჩამონათვალი მას ბიოლოგიურად დადასტურებულ სახეობად იღებს. კავკასიის ინდივიდები ქვესახეობას V. a. transcaucasiana მიეკუთვნება; ტიპის ადგილია ბორჯომი. ძველ წიგნებში და ზოგ ბაზაში სრულ სახეობად რჩება Vipera transcaucasiana. მთელ საქართველოში არ გვხვდება. ეძებეთ მშრალ, კლდოვან ადგილზე მცირე კავკასიონში — მესხეთი, თრიალეთი, მტკვრის ზემო დინება — არა ნოტიო კოლხურ ტყეში და არა დიდი კავკასიონის მაღალმთაში. ამ ფორმის ზრდასრული ჩვეულებრივ 75 სმ-ს არ აღემატება. ნაკბენი სამედიცინოდ მნიშვნელოვანია. IUCN-ით გაყოფილი სახელი V. transcaucasiana ახლოსაა საფრთხესთან (Near Threatened); საქართველოს 2014 წლის წითელ ნუსხაში ეს ტაქსონი არ არის.",
     "habitat": "ეძებეთ მშრალ, კლდოვან ფერდობზე მეჩხერი მცენარეულობით — ქვაზე, ბუჩქნარში, ტყის პირას, ქვის ღობესა და ვენახში. ქართული გველების გავრცელების კვლევა მას შედარებით მშრალი, კლდოვანი ან ბალახოვანი ადგილების სახეობებს მიაკუთვნებს, ძირითადად აღმოსავლეთში. ამ ატლასის რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი, თბილისი და მცხეთა — მთიანეთი. დასახელებული ქართული ადგილებია ბორჯომის ტიპის სერია, შტრიხკოდირებული ინდივიდები გომაროდან (ადიგენი) და თაშისკარიდან, 2026 წლის ჩამონათვალში ცოცხალი ნიმუში გორიდან, და 2026 წლის აგვისტოს ფოტო დაკვირვება ძეგვიდან. სამხრეთ კავკასიის ბიომრავალფეროვნების რუკა არეალს მცირე კავკასიონის მთებად აჯამებს — თბილისის მიდამოებიდან შუახევამდე, აჭარის მთიანეთში. ტრადიციული რეგიონული აღწერა მტკვრის ზემო დინებას ახალქალაქისკენაც აგრძელებს; ეს დასავლეთ ჯავახეთის ზღვარი ამ გვერდზე წერტილ-წერტილ არ არის თავიდან დადასტურებული. კავკასიური გველგესლასავით შავი ზღვის სანაპიროს სახეობა არ არის. ლიტერატურაში ზედა სიმაღლე ხშირად დაახლოებით 1,700 მ-ია; საქართველოში ზღვის დონის არეალი აქ არ არის დადგენილი. არეალი გრძელდება ჩრდილოეთ ანატოლიაში. სომხეთის, აზერბაიჯანისა და ირანის ჩანაწერები სადავოა და ამ ატლასში ქართულ არეალად არ ითვლება.",
     "diet": "ზრდასრული იჭერს ხვლიკებსა და წვრილ ძუძუმწოვრებს; პატარა ფრინველი იშვიათად ფიქსირდება. ახალგაზრდა ძირითადად წვრილ ხვლიკზე ნადირობს. ნადირობს ჩასაფრებით და მსხვერპლს შხამით ანეიტრალებს. ცალკე ქართული კვების კვლევა ამ გვერდზე არ არის; ეს სახეობის დონის მონაცემია ცხვირრქოსანი გველგესლადან.",
     "behavior": "აქტიურია თბილ სეზონზე. გრილ გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს; ზაფხულის სიცხეში აქტივობა საღამოსა და ღამის დასაწყისზე გადადის. იზამთრებს კლდის ნაპრალსა და ქვის ქვეშ. ცოცხლადმშობია (კვერცხები დედის სხეულში იზრდება და ნაშიერი ცოცხალი იბადება). შეწყვილება გაზაფხულზეა; ნაშიერი იბადება ზაფხულის ბოლოს ან შემოდგომის დასაწყისში. ნაშიერთა რიცხვი ცალკე ქართულ კვლევაში არ არის გაზომილი; ბალკანური მუზეუმის ნიმუშებში ამ სახეობის საშუალო დაახლოებით ცხრაა (დაახლ. 5–17). თუ შეხვდებით, დაიცავით მანძილი და არ აიყვანოთ. გველი თავს იცავს, როცა საფრთხეს გრძნობს — არ ეძებს ადამიანს. მტკვრის შუა დინების ხეობაში კავკასიურ გველგესლასთან ვიწრო კონტაქტის ზონაა; იქ იშვიათად ჩნდება შუალედური ინდივიდი (ძველი სახელი Vipera pontica). ასეთ გველს ცხვირი აწეული შეიძლება ჰქონდეს, მაგრამ ნამდვილი რქა — არა.",
@@ -19998,20 +19998,20 @@ export const species: Species[] = [
     },
     "faq": [
       {
-        "question": "გვხვდება თუ არა ცხვირრქოსანი გველგესლა საქართველოში?",
-        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. ქართული ინდივიდები ქვესახეობაა V. a. transcaucasiana. ტიპის ადგილია ბორჯომი. მთელ ქვეყანაში არ გვხვდება."
-      },
-      {
-        "question": "სად შეიძლება შეხვდე საქართველოში?",
-        "answer": "მცირე კავკასიონის მშრალ, კლდოვან ადგილზე — მესხეთი, თრიალეთი, მტკვრის ზემო დინება და აჭარის მთიანეთი შუახევისკენ.       რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი, თბილისი და მცხეთა — მთიანეთი. კოლხური სანაპიროს სახეობა არ არის."
-      },
-      {
         "question": "არის თუ არა შხამიანი და საშიში ადამიანისთვის?",
         "answer": "შხამიანია. ამ ატლასში რისკი მაღალია: ნაკბენმა შეიძლება სერიოზული ადგილობრივი და ზოგადი დაზიანება გამოიწვიოს და საავადმყოფოს საჭიროებს. თავს არ ესხმის, თუ არ იგრძნობს საფრთხეს. არ აიყვანოთ. გიურზა საქართველოს ყველაზე დიდი და, ზომით, ყველაზე მაღალი რისკის გველია."
       },
       {
         "question": "რა უნდა გავაკეთო ნაკბენის შემთხვევაში?",
         "answer": "დაუყოვნებლივ დარეკეთ 112-ზე. დაზარალებული დააწვინეთ და დაამშვიდეთ; ნაკბენი ადგილი არ გაიჭრას, არ შეიწოვოს და არ მოიკვრას მჭიდრო ტურნიკეტი. მკურნალობა საავადმყოფოშია."
+      },
+      {
+        "question": "გვხვდება თუ არა ცხვირრქოსანი გველგესლა საქართველოში?",
+        "answer": "დიახ. 2026 წლის ჩამონათვალში ბიოლოგიურად დადასტურებულია. ქართული ინდივიდები ქვესახეობაა V. a. transcaucasiana. ტიპის ადგილია ბორჯომი. მთელ ქვეყანაში არ გვხვდება."
+      },
+      {
+        "question": "სად შეიძლება შეხვდე საქართველოში?",
+        "answer": "მცირე კავკასიონის მშრალ, კლდოვან ადგილზე — მესხეთი, თრიალეთი, მტკვრის ზემო დინება და აჭარის მთიანეთი შუახევისკენ.       რუკაზე აღნიშნულია აჭარა, სამცხე — ჯავახეთი, შიდა ქართლი, ქვემო ქართლი, თბილისი და მცხეთა — მთიანეთი. კოლხური სანაპიროს სახეობა არ არის."
       },
       {
         "question": "როგორ ამოვიცნო?",
@@ -20030,7 +20030,7 @@ export const species: Species[] = [
         "answer": "2014 წლის სახელმწიფო ნუსხა სხვა სახელებს მიჰყვება (დინიკის და კავკასიური გველგესლა). IUCN-ის NT გაყოფილ კავკასიურ ტაქსონს ეხება. ძველ წითელ წიგნებში იყო; ეს 2014 წლის ნუსხა არ არის."
       }
     ],
-    "updatedAt": "2026-08-27T11:00:20+04:00",
+    "updatedAt": "2026-08-29T17:10:02+04:00",
     "sources": [
       {
         "name": "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
@@ -30030,8 +30030,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "natrix-tessellata": {
     "commonName": "Dice snake",
     "location": "Georgia — near water",
-    "description": "A non-venomous, semi-aquatic snake with checkered blotches. In Georgia it lives along rivers, lakes and shorelines; it is harmless to people.",
-    "overview": "The dice snake (Natrix tessellata) is a non-venomous, semi-aquatic snake found widely in Georgia along rivers, lakes and shorelines. The 2026 Georgian checklist treats it as biologically confirmed. It ranges across much of central and eastern Eurasia. In Georgia it occupies most available water habitats; this atlas marks all 12 regions, with medium distribution confidence — look for it by water, not on dry ridges. In the west it usually occurs from about 0–600 m, in the east to 900 m, with rare records to 1,100 m. In the humid west it is often outnumbered by the grass snake (Natrix natrix); in the semi-arid east the reverse is typical. The back has dark square blotches; the belly is often yellow or orange with black spots. Adults are usually about 70–110 cm; large females can exceed 1.2 m. It is not dangerous to people. IUCN lists it as Least Concern; it is not on Georgia’s Red List.",
+    "description": "Non-venomous dice snake in Georgia — checkered blotches; not a viper.",
+    "overview": "The dice snake (Natrix tessellata) is a non-venomous water snake in Georgia — checkered blotches, harmless to people. It is found widely along rivers, lakes and shorelines; in the humid west it is often outnumbered by the grass snake (Natrix natrix). The 2026 Georgian checklist treats it as biologically confirmed. It ranges across much of central and eastern Eurasia. In Georgia it occupies most available water habitats; this atlas marks all 12 regions, with medium distribution confidence — look for it by water, not on dry ridges. In the west it usually occurs from about 0–600 m, in the east to 900 m, with rare records to 1,100 m. In the semi-arid east it often outnumbers the grass snake. The back has dark square blotches; the belly is often yellow or orange with black spots. Adults are usually about 70–110 cm; large females can exceed 1.2 m. IUCN lists it as Least Concern; it is not on Georgia’s Red List.",
     "habitat": "In Georgia this is a snake of water margins. Look for it at rivers, streams, lakes, reservoirs, canals and ponds — on stones, banks, mud and branches over the water. It also uses farmland and altered ground if fish or amphibians are present. In the west it uses Colchic wetlands and Black Sea coastal water; named sites include Kolkheti National Park and the Charnali valley in Adjara. A named photo on this page is from Lisi Lake in Tbilisi (29 June 2024 and 25 March 2025). A 2011 Georgian study treats it as present in most of the country’s aquatic habitats. Elevation is usually 0–600 m in the west and 900 m in the east, rarely 1,100 m; it is scarce higher up in wet country. This atlas marks Abkhazia, Samegrelo — Zemo Svaneti, Guria, Adjara, Imereti, Racha — Lechkhumi — Kvemo Svaneti, Samtskhe — Javakheti, Shida Kartli, Mtskheta — Mtianeti, Kvemo Kartli, Kakheti and Tbilisi. A 2021 review of Georgia’s snakes treats it as widespread. Compared with the grass snake it chooses more open, rocky, semi-arid shores.",
     "diet": "There is no separate quantitative Georgian diet study on this page. At species level it feeds mainly on fish; it also takes amphibians — frogs, toads and tadpoles. A 2014 global review lists Georgia among countries where amphibians are recorded in the diet. On Caucasian coasts, gobies are often the main prey. It swallows prey alive. It hunts in water and along the bank.",
     "behavior": "It is active in the warm season, mostly by day. It often swims or basks on banks, stones and overhanging branches. In cold months it overwinters near water in dry burrows or crevices; the exact months depend on elevation and climate, and this page does not give a single calendar for all Georgian populations. It lays eggs. Across the species’ range, mating is usually in spring; eggs are laid in summer in a moist spot — soil, rotting plants, stone walls — and hatch in late summer or early autumn. When threatened it releases a foul cloacal secretion or feigns death. If you find one, watch it and leave it. Do not pick it up or kill it — it has no venom. People often mistake it for a viper because of the dark blotches.",
@@ -30080,6 +30080,14 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     },
     "faq": [
       {
+        "question": "Is the dice snake venomous?",
+        "answer": "No. It has no venom and is harmless. If handled it may release a foul smell or feign death. Do not pick it up. It is not a medical risk."
+      },
+      {
+        "question": "How does it differ from the grass snake?",
+        "answer": "The dice snake has checkered blotches and is more tightly bound to water; in Georgia it is more common in semi-arid country. The grass snake often has a yellow collar, prefers the humid west, and feeds mainly on amphibians."
+      },
+      {
         "question": "Does the dice snake occur in Georgia?",
         "answer": "Yes. The 2026 checklist treats it as biologically confirmed. A 2021 review lists it as a widespread water snake throughout Georgia."
       },
@@ -30088,16 +30096,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "answer": "By rivers, lakes, streams, canals, reservoirs and the coast. In the west usually to 600 m, in the east to 900 m, rarely 1,100 m. This atlas marks 12 regions; distribution confidence is medium."
       },
       {
-        "question": "Is it venomous or dangerous to people?",
-        "answer": "No. It has no venom and is harmless. If handled it may release a foul smell or feign death. Do not pick it up. It is not a medical risk."
-      },
-      {
-        "question": "How can I identify it?",
-        "answer": "Checkered blotches on the back, no yellow collar, a narrow head and a round pupil. It is often in or by water. The grass snake has a collar; vipers have a vertical pupil."
-      },
-      {
-        "question": "How does it differ from the grass snake?",
-        "answer": "The dice snake has checkered blotches and is more tightly bound to water; in Georgia it is more common in semi-arid country. The grass snake often has a yellow collar, prefers the humid west, and feeds mainly on amphibians."
+        "question": "How can I tell it from a viper?",
+        "answer": "Checkered blotches on the back, no yellow collar, a narrow head and a round pupil. It is often in or by water. Vipers have a vertical pupil and a short, stout body."
       },
       {
         "question": "How large does it grow?",
@@ -31753,8 +31753,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "platyceps-najadum": {
     "commonName": "Dahl's whip snake",
     "location": "Eastern and southern Georgia",
-    "description": "A non-venomous, extremely slender racer with dark pale-edged neck spots. Confirmed in Georgia; more often found in dry rocky habitats of the east and south.",
-    "overview": "Dahl’s whip snake (Platyceps najadum) is a non-venomous, extremely slender snake of dry rocky ground in eastern and southern Georgia. It belongs to the family Colubridae. It is harmless to people: it has no venom. Adults are usually about 70–100 cm and rarely exceed 1 m. IUCN lists it as Least Concern. The 2026 Georgian checklist treats it as biologically confirmed. A named modern specimen comes from Tmogvi (Aspindza, Samtskhe–Javakheti). The 2021 Georgian snake survey places it with dry-climate species of rocky or grassy ground, mainly in eastern Georgia. Do not look for it across the whole country.",
+    "description": "Non-venomous Dahl’s whip snake in Georgia — extremely slender; not a viper.",
+    "overview": "Dahl’s whip snake (Platyceps najadum) is a non-venomous snake in Georgia — extremely slender, harmless to people. It is more often found on dry rocky ground in the east and south. It belongs to the family Colubridae. Adults are usually about 70–100 cm and rarely exceed 1 m. IUCN lists it as Least Concern. The 2026 Georgian checklist treats it as biologically confirmed. A named modern specimen comes from Tmogvi (Aspindza, Samtskhe–Javakheti). The 2021 Georgian snake survey places it with dry-climate species of rocky or grassy ground, mainly in eastern Georgia. Do not look for it across the whole country.",
     "habitat": "In Georgia you may meet it on rocky slopes, outcrops, scrub, woodland edges, dry meadows, and farmland. It shelters in rock crevices, stone rubble, and, in winter, sometimes in human structures. The 2021 survey places it with dry-climate species: mainly eastern rocky or grassy landscapes. The named modern point is Tmogvi. Older museum material includes Tbilisi and Borjomi; Adjara ASSR and Novy Afon (Abkhazia) appear in the same review, but those are historical labels and do not replace a precise modern western map. This atlas map shows regional records and does not mean the species is evenly present in every highlighted region. This page has no named locality for Guria or Imereti. Species-level literature often cites sea level to about 2,000 m; a Georgia-only elevation range has not been published here. The wider range runs from the Balkans across the Caucasus into the Middle East; the type locality is Baku, not Georgia.",
     "diet": "There is no separate Georgian diet study for this species. Elsewhere in the range it mainly takes lizards; it also takes small mammals, birds, and other snakes. It has no venom — it hunts with speed. The menu in Georgia has not been measured directly.",
     "behavior": "Across the range it is mainly active by day: it moves quickly and often basks. Hourly activity in Georgia has not been described separately; the warm season in dry rocky places is the realistic window. When threatened it usually tries to flee; if cornered it may raise its head and gape. It lays eggs; outside Georgia the literature often cites 3–16 eggs. Mating season and clutch size for Georgian animals have not been published here. In 2026 a winter shelter in a reinforced septic tank in Georgia held one Dahl’s whip snake together with 133 red-bellied racers (Dolichophis schmidti) and one dice snake (Natrix tessellata). That is the first documented interspecific snake hibernaculum in the Caucasus — not evidence that the species always overwinters this way.",
@@ -31802,16 +31802,16 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     },
     "faq": [
       {
+        "question": "Is it venomous or dangerous to humans?",
+        "answer": "No. It has no venom and is not a medical threat. When threatened it usually flees. A large snake can bite — do not pick it up. A vertical pupil points to a viper or Levantine viper."
+      },
+      {
         "question": "Is Dahl’s whip snake found in Georgia?",
         "answer": "Yes. The 2026 checklist treats it as biologically confirmed. The named modern point is Tmogvi. It does not occur throughout the country."
       },
       {
         "question": "Where might I encounter it in Georgia?",
         "answer": "More often in dry rocky or grassy places of the east and south. The named modern point is around Tmogvi in Samtskhe–Javakheti. Older material names Tbilisi and Borjomi. Historical western museum records do not replace a precise modern map. This page has no named locality for Guria or Imereti."
-      },
-      {
-        "question": "Is it venomous or dangerous to humans?",
-        "answer": "No. It has no venom and is not a medical threat. When threatened it usually flees. A large snake can bite — do not pick it up. A vertical pupil points to a viper or Levantine viper."
       },
       {
         "question": "How can I identify it?",
@@ -34516,8 +34516,8 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
   "vipera-transcaucasiana": {
     "commonName": "Nose-horned viper",
     "location": "Lesser Caucasus",
-    "description": "Georgia’s nose-horned viper — a venomous snake of dry rocky slopes in the Lesser Caucasus, not the Black Sea coast.",
-    "overview": "The nose-horned viper (Vipera ammodytes) is a venomous snake of the viper family. The 2026 Georgian checklist treats it as biologically confirmed. Caucasian animals belong to the subspecies V. a. transcaucasiana, described from Borjomi. Older books and some databases still use Vipera transcaucasiana as a full species. It does not occur throughout Georgia. Look for it on dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin — not in humid Colchic forest and not in the Greater Caucasus highlands. Adults of this form usually stay under about 75 cm. A bite is medically significant. IUCN still lists the split name V. transcaucasiana as Near Threatened; Georgia’s 2014 Red List does not include this taxon.",
+    "description": "Venomous nose-horned viper of the Lesser Caucasus — high risk in this atlas; not a Black Sea coast species.",
+    "overview": "The nose-horned viper (Vipera ammodytes) is a venomous snake of the Lesser Caucasus — high risk in this atlas. The 2026 Georgian checklist treats it as biologically confirmed. Caucasian animals belong to the subspecies V. a. transcaucasiana, described from Borjomi. Older books and some databases still use Vipera transcaucasiana as a full species. It does not occur throughout Georgia. Look for it on dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin — not in humid Colchic forest and not in the Greater Caucasus highlands. Adults of this form usually stay under about 75 cm. A bite is medically significant. IUCN still lists the split name V. transcaucasiana as Near Threatened; Georgia’s 2014 Red List does not include this taxon.",
     "habitat": "Look for it on dry, rocky slopes with sparse vegetation — stone, scrub, forest edges, stone walls and vineyards. A Georgian snake-distribution study places it among species of reasonably dry, rocky or grassland country, mostly in the east. This atlas maps Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, Tbilisi and Mtskheta — Mtianeti. Named Georgian localities include the type series from Borjomi, barcoded animals from Gomaro (Adigeni) and Tashiskari, a live specimen from Gori in the 2026 checklist, and an August 2026 photo record from Dzegvi. A biodiversity map of the South Caucasus summarises the range as Lesser Caucasus mountains from the Tbilisi area to Shuakhevi in highland Adjara. Traditional regional accounts also take the upper Mtkvari towards Akhalkalaki; that western Javakheti limit is not re-mapped locality by locality on this page. It is not a Black Sea coastal snake like the Caucasus viper. Literature often gives an upper elevation of about 1,700 m; a sea-level range inside Georgia is not established here. The range continues into northern Anatolia. Records from Armenia, Azerbaijan or Iran are disputed and are not treated as confirmed Georgian range.",
     "diet": "Adults take lizards and small mammals; small birds are recorded less often. Juveniles hunt mainly small lizards. It hunts by ambush and subdues prey with venom. There is no separate Georgian diet study on this page; these are species-level data from the nose-horned viper.",
     "behavior": "It is active in the warm season. In cool spring and autumn weather it often moves by day; in summer heat activity shifts to evening and early night. It overwinters in rock crevices and under stones. It gives live birth (eggs develop inside the female; the young are born alive). Mating is in spring; young are born in late summer or early autumn. Litter size has not been measured in a dedicated Georgian study; Balkan museum samples of this species average about nine young (about 5–17). If you meet one, keep your distance and do not pick it up. It defends itself when it feels threatened — it does not hunt people. In the middle Mtkvari valley a narrow contact zone with the Caucasus viper produces rare intermediate animals (the old name Vipera pontica). Those snakes may have an upturned snout but no true horn.",
@@ -34561,20 +34561,20 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
     },
     "faq": [
       {
-        "question": "Is the nose-horned viper found in Georgia?",
-        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. Georgian animals are the Caucasian subspecies V. a. transcaucasiana. The type locality is Borjomi. It does not occur throughout the country."
-      },
-      {
-        "question": "Where can it be found in Georgia?",
-        "answer": "On dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin, and highland Adjara towards Shuakhevi. The map marks Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, Tbilisi and Mtskheta — Mtianeti. It is not a Colchic coastal species."
-      },
-      {
         "question": "Is it venomous and dangerous to humans?",
         "answer": "It is venomous. In this atlas the risk is high: a bite can cause serious local and systemic illness and needs hospital care. It does not attack unless it feels threatened. Do not pick it up. The Levantine viper is Georgia’s largest and, by size, the highest-risk snake."
       },
       {
         "question": "What should I do if bitten?",
         "answer": "Call 112 immediately. Keep the person still and calm; do not cut, suck or apply a tight tourniquet. Treatment is in hospital."
+      },
+      {
+        "question": "Is the nose-horned viper found in Georgia?",
+        "answer": "Yes. The 2026 checklist treats it as biologically confirmed. Georgian animals are the Caucasian subspecies V. a. transcaucasiana. The type locality is Borjomi. It does not occur throughout the country."
+      },
+      {
+        "question": "Where can it be found in Georgia?",
+        "answer": "On dry, rocky ground in the Lesser Caucasus — Meskheti, Trialeti, the upper Mtkvari basin, and highland Adjara towards Shuakhevi. The map marks Adjara, Samtskhe — Javakheti, Shida Kartli, Kvemo Kartli, Tbilisi and Mtskheta — Mtianeti. It is not a Colchic coastal species."
       },
       {
         "question": "How can it be identified?",
