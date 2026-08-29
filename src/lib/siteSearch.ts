@@ -235,12 +235,12 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
   },
   "snake-bite": {
     title: {
-      ka: "გველის ნაკბენი — რა უნდა გავაკეთოთ?",
-      en: "Snakebite — what should you do?",
+      ka: "გველის ნაკბენი საქართველოში — რა უნდა გავაკეთოთ?",
+      en: "Snakebite in Georgia — what should you do?",
     },
     subtitle: {
-      ka: "პირველი ნაბიჯები და რა არ უნდა გააკეთო",
-      en: "First steps and what not to do",
+      ka: "112, რა გააკეთო და რა არ გააკეთო",
+      en: "112, what to do and what not to do",
     },
     keywords: [
       "ნაკბენი",
@@ -250,6 +250,10 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       "112",
       "პირველადი",
       "first aid",
+      "სიმპტომები",
+      "symptoms",
+      "მიკბინა",
+      "შხამი",
     ],
     icon: "safety",
     suggested: true,
