@@ -237,12 +237,12 @@ Consolidate authority on KA URL; pick up some typo/photo SERP CTR.
 
 **Done when**
 
-- [ ] URL list reviewed and bucketed
-- [ ] Important orphans linked from parent hubs
-- [ ] No thin pages pushed for indexing
+- [x] URL list reviewed and bucketed *(partial — no GSC URL export in repo; bucketed from Performance appendix + code audit)*
+- [x] Important orphans linked from parent hubs *(გიურზა + კავკასიური გველგესლა featured on venomous hub; species already on hubs/guides/atlas via `speciesHref`)*
+- [x] No thin pages pushed for indexing *(sitemap = hubs + guides + published catalog only; legacy `/species/{id}` is 301 + `noindex`)*
 
-**Expected improvement**  
-More of the real atlas becomes eligible for long-tail queries over the next crawl cycles.
+**Note (2026-08-29)**  
+Full 68-URL triage still needs a Coverage export from GSC UI. Until then: do not mass-Request-Indexing; wait for crawl after Tasks 1–4 + redirect hardening.
 
 ---
 
@@ -262,9 +262,9 @@ More of the real atlas becomes eligible for long-tail queries over the next craw
 
 **Done when**
 
-- [ ] Redirects verified for top 15 legacy URLs by impressions
-- [ ] Internal links cleaned
-- [ ] Follow-up GSC note dated
+- [x] Redirects verified for top 15 legacy URLs by impressions *(`proxy.ts` 301 + `speciesHref` public slugs; no in-app `/species/{id}` hrefs)*
+- [x] Internal links cleaned *(no in-app `/species/{id}` hrefs; components use `speciesHref`)*
+- [x] Follow-up GSC note dated *(2026-08-29: re-check impressions on `/species/…` vs public KA slugs in 2–4 weeks)*
 
 **Expected improvement**  
 Single canonical per species; less diluted CTR and rankings.
