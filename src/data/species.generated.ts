@@ -10381,9 +10381,6 @@ export const species: Species[] = [
         }
       },
       {
-        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
-      },
-      {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp"
       },
       {
@@ -25077,9 +25074,6 @@ export const speciesEn: Record<string, SpeciesTranslation> = {
         "credit": {
           "photographer": "Nika Melikishvili"
         }
-      },
-      {
-        "src": "https://cdn.reptiles.ge/macrovipera-lebetina-5.webp"
       },
       {
         "src": "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp"
