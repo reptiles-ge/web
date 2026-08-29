@@ -347,8 +347,8 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "turtleIdentify",
     heroSpeciesId: "testudo-graeca",
     matches: isTurtleSpecies,
-    faqCount: 8,
-    schema: "collection",
+    faqCount: 4,
+    schema: "article",
     primaryCta: "hash",
   },
   "amphibian-index": {
