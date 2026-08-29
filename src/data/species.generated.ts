@@ -14130,7 +14130,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-29T10:55:32+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -15270,7 +15270,7 @@ export const species: Species[] = [
         "answer": "ადამიანისთვის უვნებელია. გლობალურად და 2024 წლის ეროვნულ ჩამონათვალში ნაკლებად საფრთხის ქვეშაა (LC). ტრადიციული სანადირო სახეობაა; მოქმედი ნადირობისა და დაცული ტერიტორიების წესები დაიცავით. ბუდეები არ შეაწუხოთ."
       }
     ],
-    "updatedAt": "2026-08-29T11:39:25+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -15612,7 +15612,7 @@ export const species: Species[] = [
         "answer": "ადამიანისთვის უვნებელია. გლობალურად Least Concernა და 2024 ჩამონათვალში ეროვნულადაც LC. 2014 წლის ქართულ წითელ ნუსხაში არ არის. ველურ ფრინველს ნუ დაიჭერთ."
       }
     ],
-    "updatedAt": "2026-08-29T11:18:47+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -17113,7 +17113,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად მოწყვლადია და 2024 წლის ჩამონათვალზე ეროვნულადაც VUა. საქართველოს 2014 წლის წითელ ნუსხაში (დადგენილება №190) არ არის. ველური გვრიტი არ დაიჭიროთ და არ მოინადიროთ."
       }
     ],
-    "updatedAt": "2026-08-29T11:39:25+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -17337,7 +17337,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. ბუდესთან შეიძლება თავდაცვითი შეტევა; არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა და 2024 წლის ჩამონათვალში ეროვნულად LC-ია. 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-28T23:53:26+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -18582,7 +18582,7 @@ export const species: Species[] = [
         "answer": "უვნებელია. გლობალურად ნაკლებად საფრთხის ქვეშაა და საქართველოს 2014 წლის წითელ ნუსხაში არ არის. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-29T11:39:25+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
@@ -18784,7 +18784,7 @@ export const species: Species[] = [
         "answer": "შხამი არ აქვს. ბუდესთან შეიძლება თავდაცვითი შეტევა; არ მიეკარეთ. გლობალურად ნაკლებად საფრთხის ქვეშაა. 2024 წლის ჩამონათვალში ეროვნულად LC-ია, ხოლო 2014 წლის კანონიერ წითელ ნუსხაში ჯერ კიდევ EN D1. ველური ფრინველი არ დაიჭიროთ."
       }
     ],
-    "updatedAt": "2026-08-29T11:39:25+04:00",
+    "updatedAt": "2026-08-29T11:40:41+04:00",
     "sources": [
       {
         "name": "Budagashvili & Javakhishvili 2024 — The birds of Georgia (Sandgrouse 46)",
