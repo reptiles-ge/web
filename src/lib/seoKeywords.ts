@@ -544,6 +544,35 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Cuculus canorus canorus",
     ],
   },
+  "apus-apus": {
+    ka: [
+      "ჩვეულებრივი ნამგალა",
+      "ნამგალასებრნი",
+      "ნამგალასნაირნი",
+      "Apus apus apus",
+    ],
+    en: [
+      "Eurasian swift",
+      "European swift",
+      "swift",
+      "Apus apus apus",
+    ],
+  },
+  "streptopelia-turtur": {
+    ka: [
+      "ჩვეულებრივი გვრიტი",
+      "მტრედისებრნი",
+      "Streptopelia turtur turtur",
+      "Streptopelia turtur arenicola",
+    ],
+    en: [
+      "turtle dove",
+      "European turtle-dove",
+      "turtle-dove",
+      "Streptopelia turtur turtur",
+      "Streptopelia turtur arenicola",
+    ],
+  },
   "buteo-buteo": {
     ka: [
       "კაკაჩა",
@@ -611,6 +640,37 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Nyctala caucasica",
     ],
   },
+  "tyto-alba": {
+    ka: [
+      "ბუხრინწა",
+      "ბუსებრნი",
+      "Tyto alba guttata",
+      "Tyto alba erlangeri",
+      "Strix alba",
+    ],
+    en: [
+      "barn owl",
+      "Western Barn Owl",
+      "Common Barn Owl",
+      "Tyto alba guttata",
+      "Tyto alba erlangeri",
+      "Strix alba",
+    ],
+  },
+  "athene-noctua": {
+    ka: [
+      "ბუკნაჭო",
+      "ბუსებრნი",
+      "Athene noctua indigena",
+      "Strix noctua",
+    ],
+    en: [
+      "owl of Athena",
+      "owl of Minerva",
+      "Athene noctua indigena",
+      "Strix noctua",
+    ],
+  },
   "accipiter-nisus": {
     ka: [
       "მიმინო",
@@ -621,6 +681,64 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "sparrowhawk",
       "northern sparrowhawk",
       "Accipiter nisus nisus",
+    ],
+  },
+  "falco-peregrinus": {
+    ka: [
+      "ჩვეულებრივი შავარდენი",
+      "შავარდნისებრნი",
+      "შავარდნისნაირნი",
+      "Falco peregrinus brookei",
+      "საპსანი",
+    ],
+    en: [
+      "peregrine",
+      "Peregrine Falcon",
+      "Falconidae",
+      "Falco peregrinus brookei",
+      "Falco peregrinus peregrinus",
+    ],
+  },
+  "corvus-corax": {
+    ka: [
+      "ყორნისებრნი",
+      "ჩრდილოეთის ყორანი",
+      "Corvus corax corax",
+      "ворон",
+    ],
+    en: [
+      "common raven",
+      "raven",
+      "Northern Raven",
+      "Corvus corax corax",
+    ],
+  },
+  "turdus-merula": {
+    ka: [
+      "შაშვი",
+      "შაშვისებრნი",
+      "Turdus merula aterrimus",
+      "Turdus merula merula",
+    ],
+    en: [
+      "Eurasian blackbird",
+      "European blackbird",
+      "blackbird",
+      "Turdus merula aterrimus",
+    ],
+  },
+  "glareola-pratincola": {
+    ka: [
+      "მერცხალა",
+      "ჟღალფრთიანა მერცხალა",
+      "მერცხალასებრნი",
+      "Hirundo pratincola",
+    ],
+    en: [
+      "common pratincole",
+      "red-winged pratincole",
+      "pratincole",
+      "Hirundo pratincola",
     ],
   },
   "ficedula-hypoleuca": {
@@ -665,6 +783,51 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "stork",
       "Ciconia ciconia ciconia",
       "Ardea ciconia",
+    ],
+  },
+  "anas-platyrhynchos": {
+    ka: [
+      "იხვი",
+      "ველური იხვი",
+      "იხვისებრნი",
+      "Anas boschas",
+      "Anas platyrhynchos platyrhynchos",
+    ],
+    en: [
+      "wild duck",
+      "common mallard",
+      "dabbling duck",
+      "Anas boschas",
+      "Anas platyrhynchos platyrhynchos",
+    ],
+  },
+  "phasianus-colchicus": {
+    ka: [
+      "კოლხური ხოხობი",
+      "ხოხბისებრნი",
+      "Phasianus colchicus colchicus",
+      "фазан",
+    ],
+    en: [
+      "Colchic pheasant",
+      "black-necked pheasant",
+      "ring-necked pheasant",
+      "Phasianus colchicus colchicus",
+    ],
+  },
+  "coturnix-coturnix": {
+    ka: [
+      "ჩვეულებრივი მწყერი",
+      "ხოხბისებრნი",
+      "ქათმისნაირნი",
+      "Coturnix coturnix coturnix",
+      "перепел",
+    ],
+    en: [
+      "European quail",
+      "Eurasian quail",
+      "Coturnix coturnix coturnix",
+      "Tetrao coturnix",
     ],
   },
   "aegypius-monachus": {

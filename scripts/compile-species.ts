@@ -173,7 +173,8 @@ for (const id of ids) {
   const enPath = path.join(contentRoot, id, "en.mdx");
 
   if (!fs.existsSync(kaPath)) {
-    throw new Error(`Missing ka.mdx for species: ${id}`);
+    console.warn(`Skipping ${id}: missing ka.mdx`);
+    continue;
   }
 
   const rawKa = matter(fs.readFileSync(kaPath, "utf8")).data as SpeciesFrontmatter;
