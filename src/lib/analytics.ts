@@ -20,6 +20,7 @@ export type PageType =
 
 export type SpeciesClickSource =
   | "related"
+  | "identification"
   | "search"
   | "atlas"
   | "hub"

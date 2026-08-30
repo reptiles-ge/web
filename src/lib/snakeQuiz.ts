@@ -1,5 +1,6 @@
 import { type PhotoCredit, type Species } from "@/data/species";
 import { isSnakeSpecies } from "@/lib/clusterGuides";
+import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
 import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
@@ -127,7 +128,7 @@ const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
 };
 
 function spoilsAnswer(text: string, species: Species) {
-  const haystack = text.toLowerCase();
+  const haystack = stripSpeciesInlineLinks(text).toLowerCase();
   const needles = [
     species.commonName,
     species.scientificName,
@@ -142,7 +143,9 @@ export function buildQuizHint(species: Species) {
   const all = species.identification?.traits ?? [];
   const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
   const preferred =
-    preferredIndex != null ? all[preferredIndex]?.trim() : undefined;
+    preferredIndex != null
+      ? stripSpeciesInlineLinks(all[preferredIndex]?.trim() ?? "")
+      : undefined;
   if (preferred && !spoilsAnswer(preferred, species)) return preferred;
 
   const traits = all.filter(
@@ -150,7 +153,7 @@ export function buildQuizHint(species: Species) {
   );
   const picked = (traits.length > 0 ? traits : all)
     .slice(0, 1)
-    .map((trait) => trait.trim())
+    .map((trait) => stripSpeciesInlineLinks(trait.trim()))
     .filter(Boolean);
   if (picked.length > 0) return picked.join(" ");
 
@@ -162,10 +165,11 @@ export function buildQuizHint(species: Species) {
 }
 
 export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
-  const explanation =
+  const explanation = stripSpeciesInlineLinks(
     species.identification?.summary?.trim() ||
-    species.facts[0]?.trim() ||
-    species.description.trim();
+      species.facts[0]?.trim() ||
+      species.description.trim(),
+  );
   const overrideSrc = QUIZ_IMAGE_OVERRIDES[species.id];
   const overridePhoto = overrideSrc
     ? species.gallery.find((item) => item.src === overrideSrc)

@@ -6,6 +6,7 @@ import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -243,7 +244,13 @@ export function VenomousSnakesPage({
                   {t("vipersTitle")}
                 </h3>
                 <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t("vipersBody")}
+                  {t.rich("vipersBody", {
+                    kaznakovi: (chunks) => (
+                      <SpeciesInlineLink id="vipera-kaznakovi">
+                        {chunks}
+                      </SpeciesInlineLink>
+                    ),
+                  })}
                 </p>
                 <SpeciesGuideList species={vipers} locale={locale} source="guide" />
               </div>

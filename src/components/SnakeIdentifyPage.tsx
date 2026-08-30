@@ -5,6 +5,7 @@ import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -60,7 +61,15 @@ export function SnakeIdentifyPage({
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
                 <p>{t("guideP1")}</p>
-                <p>{t("guideP2")}</p>
+                <p>
+                  {t.rich("guideP2", {
+                    kaznakovi: (chunks) => (
+                      <SpeciesInlineLink id="vipera-kaznakovi">
+                        {chunks}
+                      </SpeciesInlineLink>
+                    ),
+                  })}
+                </p>
               </div>
             </Reveal>
           </div>
