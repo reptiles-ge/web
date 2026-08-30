@@ -3,6 +3,7 @@
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -71,7 +72,15 @@ export function SnakeSpeciesIndexPage({
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
                 <p>{t("guideP1")}</p>
-                <p>{t("guideP2")}</p>
+                <p>
+                  {t.rich("guideP2", {
+                    kaznakovi: (chunks) => (
+                      <SpeciesInlineLink id="vipera-kaznakovi">
+                        {chunks}
+                      </SpeciesInlineLink>
+                    ),
+                  })}
+                </p>
               </div>
             </Reveal>
           </div>

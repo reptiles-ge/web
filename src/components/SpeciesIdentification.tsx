@@ -1,14 +1,59 @@
 "use client";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import type { SpeciesIdentification as Identification } from "@/data/species";
+import { getSpeciesById, type SpeciesIdentification as Identification } from "@/data/species";
+import { trackSpeciesClick } from "@/lib/analytics";
+import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
+import { speciesHref } from "@/lib/speciesRoutes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
-import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
+import { Fragment } from "react";
 
 type SpeciesIdentificationProps = {
   name: string;
   identification: Identification;
 };
+
+const inlineSpeciesLinkClassName =
+  "font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary";
+
+function IdentificationRichText({ text }: { text: string }) {
+  const locale = useLocale() as AppLocale;
+  const parts = splitSpeciesInlineLinks(text);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (part.type === "text") {
+          return <Fragment key={index}>{part.value}</Fragment>;
+        }
+
+        const target = getSpeciesById(part.id);
+        if (!target) {
+          return <Fragment key={index}>{part.label}</Fragment>;
+        }
+
+        return (
+          <Link
+            key={index}
+            href={speciesHref(part.id, locale)}
+            onClick={() =>
+              trackSpeciesClick({
+                species_id: part.id,
+                source: "identification",
+              })
+            }
+            className={inlineSpeciesLinkClassName}
+          >
+            {part.label}
+          </Link>
+        );
+      })}
+    </>
+  );
+}
 
 export function SpeciesIdentification({
   name,
@@ -31,7 +76,7 @@ export function SpeciesIdentification({
           {t("identificationTitle", { name })}
         </AnchoredHeading>
         <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-          {identification.summary}
+          <IdentificationRichText text={identification.summary} />
         </p>
 
         {identification.traits.length > 0 ? (
@@ -45,7 +90,7 @@ export function SpeciesIdentification({
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="max-w-2xl self-center text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-                  {trait}
+                  <IdentificationRichText text={trait} />
                 </p>
               </li>
             ))}
