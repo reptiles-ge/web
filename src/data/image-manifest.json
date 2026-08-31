@@ -2864,6 +2864,45 @@
       ],
       "updatedAt": "2026-08-28T21:29:31.287Z"
     },
+    "canis-lupus-1.jpg": {
+      "sourceHash": "5870c41bc7d23c01a93e1c88591f20d32332560d8e89862a5657eca2494fa540",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "canis-lupus-1.jpg",
+      "originalSize": 66001,
+      "width": 800,
+      "height": 515,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 258,
+          "byteSize": 10325
+        },
+        {
+          "key": "optimized/canis-lupus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 258,
+          "byteSize": 14106
+        },
+        {
+          "key": "optimized/canis-lupus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 515,
+          "byteSize": 26705
+        },
+        {
+          "key": "optimized/canis-lupus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 515,
+          "byteSize": 34602
+        }
+      ],
+      "updatedAt": "2026-08-31T19:48:58.079Z"
+    },
     "canis-lupus-eurasian-1.jpg": {
       "sourceHash": "871fb5fdceeff8d97ef9d8c8ccea81c18dae1facf6cd9e43cf182b36391729cc",
       "configFingerprint": "a895f8e025dcc7fa",
