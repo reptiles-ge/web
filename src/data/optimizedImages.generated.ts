@@ -1138,6 +1138,21 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "avif"
     ]
   },
+  "https://cdn.reptiles.ge/corvus-corax-zauri-2.jpg": {
+    "path": "corvus-corax-zauri-2",
+    "width": 1344,
+    "height": 960,
+    "widths": [
+      400,
+      800,
+      1200,
+      1344
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
   "https://cdn.reptiles.ge/cuculus-canorus-chick-1.jpg": {
     "path": "cuculus-canorus-chick-1",
     "width": 1160,
