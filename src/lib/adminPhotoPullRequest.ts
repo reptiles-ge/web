@@ -55,6 +55,47 @@ function hasStagedChanges(cwd: string) {
   }
 }
 
+function githubRepoName(cwd: string) {
+  const raw = run("gh", ["repo", "view", "--json", "nameWithOwner"], cwd);
+  const parsed = JSON.parse(raw) as { nameWithOwner?: string };
+  if (!parsed.nameWithOwner) {
+    throw new Error("Could not resolve GitHub repository");
+  }
+  return parsed.nameWithOwner;
+}
+
+function createPullRequest(input: {
+  cwd: string;
+  repo: string;
+  branch: string;
+  title: string;
+  body: string;
+}) {
+  const created = run(
+    "gh",
+    [
+      "pr",
+      "create",
+      "--repo",
+      input.repo,
+      "--base",
+      BASE_BRANCH,
+      "--head",
+      input.branch,
+      "--title",
+      input.title,
+      "--body",
+      input.body,
+    ],
+    input.cwd,
+  );
+  const url = created.match(/https:\/\/github\.com\/\S+/)?.[0] ?? created;
+  if (!url.startsWith("http")) {
+    throw new Error(created || "gh pr create did not return a URL");
+  }
+  return url;
+}
+
 export function openPhotoPullRequest(input: {
   id: string;
   photoCount: number;
@@ -104,7 +145,11 @@ export function openPhotoPullRequest(input: {
     const commitBody =
       "Uploaded from the local admin. Originals are already on the CDN.";
     run("git", ["commit", "-m", title, "-m", commitBody], worktree);
-    run("git", ["push", "-u", "origin", "HEAD"], worktree);
+    run(
+      "git",
+      ["push", "-u", "origin", `refs/heads/${branch}:refs/heads/${branch}`],
+      worktree,
+    );
     pushed = true;
 
     const prBody = [
@@ -116,16 +161,24 @@ export function openPhotoPullRequest(input: {
       "- [ ] KA and EN profile galleries show the new photo(s)",
     ].join("\n");
 
-    const created = run(
-      "gh",
-      ["pr", "create", "--base", BASE_BRANCH, "--title", title, "--body", prBody],
-      worktree,
-    );
-    const url = created.match(/https:\/\/github\.com\/\S+/)?.[0] ?? created;
-    if (!url.startsWith("http")) {
-      throw new Error(created || "gh pr create did not return a URL");
+    const repo = githubRepoName(worktree);
+    let lastError = "Could not open pull request";
+    for (let attempt = 1; attempt <= 4; attempt += 1) {
+      try {
+        return createPullRequest({
+          cwd: worktree,
+          repo,
+          branch,
+          title,
+          body: prBody,
+        });
+      } catch (error) {
+        lastError = error instanceof Error ? error.message : lastError;
+        if (attempt === 4) break;
+        execFileSync("sleep", [String(attempt)], { stdio: "ignore" });
+      }
     }
-    return url;
+    throw new Error(lastError);
   } finally {
     if (addedWorktree) {
       try {
