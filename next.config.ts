@@ -5,6 +5,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
+  serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
   experimental: {
     inlineCss: true,
   },
@@ -22,6 +23,14 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/admin",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/admin/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
