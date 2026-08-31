@@ -16,12 +16,15 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [ok, setOk] = useState<string | null>(null);
 
+  const [pullRequestUrl, setPullRequestUrl] = useState<string | null>(null);
+
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     setBusy(true);
     setError(null);
     setOk(null);
+    setPullRequestUrl(null);
     try {
       const body = new FormData(form);
       body.set("id", id);
@@ -32,16 +35,30 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       const payload = (await response.json()) as {
         error?: string;
         added?: GalleryImage[];
+        pullRequestUrl?: string;
+        pullRequestError?: string;
       };
       if (!response.ok) {
         throw new Error(payload.error ?? "ატვირთვა ვერ მოხერხდა");
       }
       const count = payload.added?.length ?? 0;
-      setOk(
-        count === 1
-          ? "ფოტო დაემატა MDX-ს. Commit / PR და merge."
-          : `${count} ფოტო დაემატა MDX-ს. Commit / PR და merge.`,
-      );
+      if (payload.pullRequestUrl) {
+        setPullRequestUrl(payload.pullRequestUrl);
+        setOk(
+          count === 1
+            ? "ფოტო CDN-ზეა. PR გაიხსნა — merge შენზეა."
+            : `${count} ფოტო CDN-ზეა. PR გაიხსნა — merge შენზეა.`,
+        );
+      } else {
+        setOk(
+          count === 1
+            ? "ფოტო MDX-შია, PR ვერ გაიხსნა."
+            : `${count} ფოტო MDX-შია, PR ვერ გაიხსნა.`,
+        );
+        if (payload.pullRequestError) {
+          setError(payload.pullRequestError);
+        }
+      }
       form.reset();
       router.refresh();
     } catch (caught) {
@@ -88,8 +105,7 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       >
         <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-          ფაილი მიდის CDN-ზე, URL — ka.mdx და en.mdx gallery-ში. საიტზე გამოჩნდება
-          merge-ის შემდეგ.
+          ფაილი CDN-ზეა, URL — MDX-ში, მერე იხსნება PR main-ზე. Merge შენზეა.
         </p>
         <label className="mt-5 block text-[12px] text-muted-foreground">
           ფოტოები
@@ -143,6 +159,16 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
         ) : null}
         {ok ? (
           <p className="mt-4 text-[13px] text-primary">{ok}</p>
+        ) : null}
+        {pullRequestUrl ? (
+          <a
+            href={pullRequestUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-block break-all text-[13px] text-primary underline"
+          >
+            {pullRequestUrl}
+          </a>
         ) : null}
         <button
           type="submit"

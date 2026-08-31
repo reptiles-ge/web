@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const added = await addSpeciesPhotos({
+    const result = await addSpeciesPhotos({
       id,
       files: await Promise.all(
         uploads.map(async (file) => ({
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
       },
     });
 
-    return Response.json({ added });
+    return Response.json(result);
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Upload failed";

@@ -14,8 +14,8 @@ export default function AdminIndexPage() {
         სახეობები
       </h1>
       <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
-        ატვირთვა წერს CDN-ს და MDX gallery-ს. საჯარო გვერდი არ იცვლება, სანამ PR
-        არ გაიმერჯება.
+        ატვირთვა წერს CDN-სა და MDX-ს, მერე ხსნის PR-ს. reptiles.ge იცვლება მხოლოდ
+        merge-ის შემდეგ.
       </p>
       <div className="mt-8">
         <AdminSpeciesList species={species} />

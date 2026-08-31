@@ -14,6 +14,7 @@ import {
   galleryStorageKeys,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
+import { openPhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 
 const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
@@ -170,11 +171,17 @@ function compileSpeciesCatalog() {
   });
 }
 
+export type AddSpeciesPhotosResult = {
+  added: GalleryImage[];
+  pullRequestUrl?: string;
+  pullRequestError?: string;
+};
+
 export async function addSpeciesPhotos(input: {
   id: string;
   files: Array<{ bytes: Buffer; filename: string }>;
   credit: AdminPhotoCreditInput;
-}): Promise<GalleryImage[]> {
+}): Promise<AddSpeciesPhotosResult> {
   if (input.files.length === 0) {
     throw new Error("Choose at least one photo");
   }
@@ -218,5 +225,16 @@ export async function addSpeciesPhotos(input: {
       `Photos are in MDX, but species:compile failed: ${detail}`,
     );
   }
-  return added;
+
+  try {
+    const pullRequestUrl = openPhotoPullRequest({
+      id: input.id,
+      photoCount: added.length,
+    });
+    return { added, pullRequestUrl };
+  } catch (error) {
+    const pullRequestError =
+      error instanceof Error ? error.message : "Could not open pull request";
+    return { added, pullRequestError };
+  }
 }
