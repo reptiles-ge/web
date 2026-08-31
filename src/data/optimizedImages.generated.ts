@@ -706,6 +706,19 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
+  "https://cdn.reptiles.ge/canis-lupus-1.jpg": {
+    "path": "canis-lupus-1",
+    "width": 800,
+    "height": 515,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
   "https://cdn.reptiles.ge/canis-lupus-eurasian-1.jpg": {
     "path": "canis-lupus-eurasian-1",
     "width": 2400,
