@@ -4882,6 +4882,73 @@
       ],
       "updatedAt": "2026-08-28T21:30:41.485Z"
     },
+    "corvus-corax-zauri-2.jpg": {
+      "sourceHash": "fb51c66c9bd09956cf36c661a2759d81fff27ead2be7c49390ebbd7f7b55fc45",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "corvus-corax-zauri-2.jpg",
+      "originalSize": 37223,
+      "width": 1344,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/corvus-corax-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 1449
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 1606
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 3452
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 3980
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 8095
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 9118
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-1344.avif",
+          "format": "avif",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 12625
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-2-1344.webp",
+          "format": "webp",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 14806
+        }
+      ],
+      "updatedAt": "2026-08-31T20:00:21.688Z"
+    },
     "corvus-corax-zauri-1.jpg": {
       "sourceHash": "23ad068f600e9bd37b7270bb4e6de7d93f11c8dc43f3a009d4b46de877321e87",
       "configFingerprint": "a895f8e025dcc7fa",
