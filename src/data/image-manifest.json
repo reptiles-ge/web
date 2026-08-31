@@ -4882,6 +4882,73 @@
       ],
       "updatedAt": "2026-08-28T21:30:41.485Z"
     },
+    "corvus-corax-zauri-1.jpg": {
+      "sourceHash": "23ad068f600e9bd37b7270bb4e6de7d93f11c8dc43f3a009d4b46de877321e87",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "corvus-corax-zauri-1.jpg",
+      "originalSize": 95442,
+      "width": 2048,
+      "height": 1463,
+      "derivatives": [
+        {
+          "key": "optimized/corvus-corax-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 2183
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 2598
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 5012
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 6338
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 9000
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 11168
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1463,
+          "byteSize": 41886
+        },
+        {
+          "key": "optimized/corvus-corax-zauri-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1463,
+          "byteSize": 39072
+        }
+      ],
+      "updatedAt": "2026-08-31T19:59:10.359Z"
+    },
     "corvus-corax-zauri-2.jpg": {
       "sourceHash": "fb51c66c9bd09956cf36c661a2759d81fff27ead2be7c49390ebbd7f7b55fc45",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -4949,72 +5016,72 @@
       ],
       "updatedAt": "2026-08-31T20:00:21.688Z"
     },
-    "corvus-corax-zauri-1.jpg": {
-      "sourceHash": "23ad068f600e9bd37b7270bb4e6de7d93f11c8dc43f3a009d4b46de877321e87",
+    "corvus-corax-zauri-3.jpg": {
+      "sourceHash": "ab1cf6b9ce8168b1bb9eb9d3174aea17e35738dda29f1606977beb9cd71ce343",
       "configFingerprint": "a895f8e025dcc7fa",
-      "originalKey": "corvus-corax-zauri-1.jpg",
-      "originalSize": 95442,
+      "originalKey": "corvus-corax-zauri-3.jpg",
+      "originalSize": 81789,
       "width": 2048,
       "height": 1463,
       "derivatives": [
         {
-          "key": "optimized/corvus-corax-zauri-1-400.avif",
+          "key": "optimized/corvus-corax-zauri-3-400.avif",
           "format": "avif",
           "width": 400,
           "height": 285,
-          "byteSize": 2183
+          "byteSize": 1591
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-400.webp",
+          "key": "optimized/corvus-corax-zauri-3-400.webp",
           "format": "webp",
           "width": 400,
           "height": 285,
-          "byteSize": 2598
+          "byteSize": 1948
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-800.avif",
+          "key": "optimized/corvus-corax-zauri-3-800.avif",
           "format": "avif",
           "width": 800,
           "height": 571,
-          "byteSize": 5012
+          "byteSize": 3800
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-800.webp",
+          "key": "optimized/corvus-corax-zauri-3-800.webp",
           "format": "webp",
           "width": 800,
           "height": 571,
-          "byteSize": 6338
+          "byteSize": 4928
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-1200.avif",
+          "key": "optimized/corvus-corax-zauri-3-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 857,
-          "byteSize": 9000
+          "byteSize": 7569
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-1200.webp",
+          "key": "optimized/corvus-corax-zauri-3-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 857,
-          "byteSize": 11168
+          "byteSize": 9278
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-2048.avif",
+          "key": "optimized/corvus-corax-zauri-3-2048.avif",
           "format": "avif",
           "width": 2048,
           "height": 1463,
-          "byteSize": 41886
+          "byteSize": 28941
         },
         {
-          "key": "optimized/corvus-corax-zauri-1-2048.webp",
+          "key": "optimized/corvus-corax-zauri-3-2048.webp",
           "format": "webp",
           "width": 2048,
           "height": 1463,
-          "byteSize": 39072
+          "byteSize": 31548
         }
       ],
-      "updatedAt": "2026-08-31T19:59:10.359Z"
+      "updatedAt": "2026-08-31T20:01:02.448Z"
     },
     "cuculus-canorus-chick-1.jpg": {
       "sourceHash": "9f8db4ae80b122d7c1ebf1063cb867d44252bc3d90cc2c872176663762570c6d",
