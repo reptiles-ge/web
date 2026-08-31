@@ -93,6 +93,15 @@ function createPullRequest(input: {
   if (!url.startsWith("http")) {
     throw new Error(created || "gh pr create did not return a URL");
   }
+  try {
+    run(
+      "gh",
+      ["pr", "edit", url, "--body", input.body],
+      input.cwd,
+    );
+  } catch {
+    return url;
+  }
   return url;
 }
 
