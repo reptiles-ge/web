@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { GalleryImage } from "@/data/speciesTypes";
 
@@ -11,12 +10,12 @@ type Props = {
 };
 
 export function AdminSpeciesEditor({ id, gallery }: Props) {
-  const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [ok, setOk] = useState<string | null>(null);
-
   const [pullRequestUrl, setPullRequestUrl] = useState<string | null>(null);
+  const [pending, setPending] = useState<GalleryImage[]>([]);
+  const photos = [...gallery, ...pending];
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,7 +40,11 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       if (!response.ok) {
         throw new Error(payload.error ?? "ატვირთვა ვერ მოხერხდა");
       }
-      const count = payload.added?.length ?? 0;
+      const added = payload.added ?? [];
+      const count = added.length;
+      if (added.length) {
+        setPending((current) => [...current, ...added]);
+      }
       if (payload.pullRequestUrl) {
         setPullRequestUrl(payload.pullRequestUrl);
         setOk(
@@ -52,15 +55,14 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       } else {
         setOk(
           count === 1
-            ? "ფოტო MDX-შია, PR ვერ გაიხსნა."
-            : `${count} ფოტო MDX-შია, PR ვერ გაიხსნა.`,
+            ? "ფოტო CDN-ზეა, PR ვერ გაიხსნა."
+            : `${count} ფოტო CDN-ზეა, PR ვერ გაიხსნა.`,
         );
         if (payload.pullRequestError) {
           setError(payload.pullRequestError);
         }
       }
       form.reset();
-      router.refresh();
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "ატვირთვა ვერ მოხერხდა");
     } finally {
@@ -72,11 +74,11 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <section>
         <h2 className="font-display text-lg font-medium">გალერეა</h2>
-        {gallery.length === 0 ? (
+        {gallery.length + pending.length === 0 ? (
           <p className="mt-4 text-[14px] text-muted-foreground">ცარიელია</p>
         ) : (
           <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {gallery.map((item) => (
+            {photos.map((item) => (
               <li
                 key={item.src}
                 className="overflow-hidden rounded-lg border border-border bg-card"
@@ -105,7 +107,8 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       >
         <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-          ფაილი CDN-ზეა, URL — MDX-ში, მერე იხსნება PR main-ზე. Merge შენზეა.
+          ფაილი CDN-ზეა. MDX იწერება მხოლოდ PR-ის ბრენჩზე, არა ამ ლოკალურ ბრენჩზე.
+          Merge შენზეა.
         </p>
         <label className="mt-5 block text-[12px] text-muted-foreground">
           ფოტოები

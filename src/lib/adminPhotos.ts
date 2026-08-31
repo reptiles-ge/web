@@ -1,5 +1,4 @@
 import { createRequire } from "node:module";
-import { execFileSync } from "node:child_process";
 import path from "node:path";
 import {
   BunnyStorageAdapter,
@@ -10,7 +9,6 @@ import { kaToSlug } from "@/lib/slugify";
 import { CDN_BASE } from "@/lib/site";
 import type { GalleryImage, PhotoCredit } from "@/data/species";
 import {
-  appendGalleryItemToSpecies,
   galleryStorageKeys,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
@@ -161,16 +159,6 @@ async function prepareOriginal(bytes: Buffer): Promise<{
   };
 }
 
-function compileSpeciesCatalog() {
-  const tsxCli = path.join(process.cwd(), "node_modules/tsx/dist/cli.mjs");
-  const script = path.join(process.cwd(), "scripts/compile-species.ts");
-  execFileSync(process.execPath, [tsxCli, script], {
-    cwd: process.cwd(),
-    stdio: ["ignore", "pipe", "pipe"],
-    env: process.env,
-  });
-}
-
 export type AddSpeciesPhotosResult = {
   added: GalleryImage[];
   pullRequestUrl?: string;
@@ -193,6 +181,7 @@ export async function addSpeciesPhotos(input: {
   const kaCredit = creditFromInput(input.credit, "ka");
   const enCredit = creditFromInput(input.credit, "en");
   const added: GalleryImage[] = [];
+  const items: Array<{ ka: GalleryImage; en: GalleryImage }> = [];
 
   for (const file of input.files) {
     const prepared = await prepareOriginal(file.bytes);
@@ -213,23 +202,14 @@ export async function addSpeciesPhotos(input: {
     const enItem: GalleryImage = enCredit
       ? { src, credit: enCredit }
       : { src };
-    appendGalleryItemToSpecies(input.id, kaItem, enItem);
+    items.push({ ka: kaItem, en: enItem });
     added.push(kaItem);
-  }
-
-  try {
-    compileSpeciesCatalog();
-  } catch (error) {
-    const detail = error instanceof Error ? error.message : "compile failed";
-    throw new Error(
-      `Photos are in MDX, but species:compile failed: ${detail}`,
-    );
   }
 
   try {
     const pullRequestUrl = openPhotoPullRequest({
       id: input.id,
-      photoCount: added.length,
+      items,
     });
     return { added, pullRequestUrl };
   } catch (error) {

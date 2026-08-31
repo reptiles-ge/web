@@ -223,9 +223,10 @@ export function appendGalleryItemToSpecies(
   id: string,
   kaItem: GalleryImage,
   enItem: GalleryImage,
+  repoRoot = process.cwd(),
 ) {
-  const kaPath = mdxPath(id, "ka");
-  const enPath = mdxPath(id, "en");
+  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
+  const enPath = path.join(repoRoot, "src/content/species", id, "en.mdx");
   if (!fs.existsSync(kaPath) || !fs.existsSync(enPath)) {
     throw new Error(`Missing MDX for ${id}`);
   }

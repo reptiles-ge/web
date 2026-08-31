@@ -2,7 +2,8 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
+import { appendGalleryItemToSpecies, isSpeciesContentId } from "@/lib/adminGalleryMdx";
+import type { GalleryImage } from "@/data/speciesTypes";
 
 const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/main";
@@ -107,21 +108,16 @@ function createPullRequest(input: {
 
 export function openPhotoPullRequest(input: {
   id: string;
-  photoCount: number;
+  items: Array<{ ka: GalleryImage; en: GalleryImage }>;
 }): string {
   if (!isSpeciesContentId(input.id)) {
     throw new Error("Invalid species id");
   }
-
-  const rel = speciesMdxRel(input.id);
-  const kaSrc = path.join(REPO_ROOT, rel.ka);
-  const enSrc = path.join(REPO_ROOT, rel.en);
-  if (!fs.existsSync(kaSrc) || !fs.existsSync(enSrc)) {
-    throw new Error(`Missing MDX for ${input.id}`);
+  if (input.items.length === 0) {
+    throw new Error("No gallery changes to open a pull request for");
   }
 
-  const kaBytes = fs.readFileSync(kaSrc);
-  const enBytes = fs.readFileSync(enSrc);
+  const rel = speciesMdxRel(input.id);
   const branch = `photos/${input.id}-${stamp()}`;
   const worktree = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-photos-"));
   let addedWorktree = false;
@@ -141,15 +137,16 @@ export function openPhotoPullRequest(input: {
     );
     addedWorktree = true;
 
-    fs.writeFileSync(path.join(worktree, rel.ka), kaBytes);
-    fs.writeFileSync(path.join(worktree, rel.en), enBytes);
+    for (const item of input.items) {
+      appendGalleryItemToSpecies(input.id, item.ka, item.en, worktree);
+    }
     run("git", ["add", "--", rel.ka, rel.en], worktree);
 
     if (!hasStagedChanges(worktree)) {
       throw new Error("No gallery changes to open a pull request for");
     }
 
-    const noun = input.photoCount === 1 ? "photo" : "photos";
+    const noun = input.items.length === 1 ? "photo" : "photos";
     const title = `Add gallery ${noun} for ${input.id}`;
     const commitBody =
       "Uploaded from the local admin. Originals are already on the CDN.";
