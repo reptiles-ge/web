@@ -107,8 +107,9 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       >
         <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-          ფაილი CDN-ზეა. MDX იწერება მხოლოდ PR-ის ბრენჩზე, არა ამ ლოკალურ ბრენჩზე.
-          Merge შენზეა.
+          ფაილი CDN-ზეა AVIF/WebP ზომებით, როგორც images:optimize. MDX და
+          კატალოგი იწერება მხოლოდ PR-ის ბრენჩზე, არა ამ ლოკალურ ბრენჩზე. Merge
+          შენზეა.
         </p>
         <label className="mt-5 block text-[12px] text-muted-foreground">
           ფოტოები

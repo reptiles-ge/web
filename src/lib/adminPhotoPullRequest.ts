@@ -4,6 +4,10 @@ import os from "node:os";
 import path from "node:path";
 import { appendGalleryItemToSpecies, isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import type { GalleryImage } from "@/data/speciesTypes";
+import {
+  applyOptimizeCatalog,
+  type OptimizeCatalogUpdate,
+} from "@/lib/imageOptimize";
 
 const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/main";
@@ -106,10 +110,11 @@ function createPullRequest(input: {
   return url;
 }
 
-export function openPhotoPullRequest(input: {
+export async function openPhotoPullRequest(input: {
   id: string;
   items: Array<{ ka: GalleryImage; en: GalleryImage }>;
-}): string {
+  catalog?: OptimizeCatalogUpdate[];
+}): Promise<string> {
   if (!isSpeciesContentId(input.id)) {
     throw new Error("Invalid species id");
   }
@@ -140,7 +145,18 @@ export function openPhotoPullRequest(input: {
     for (const item of input.items) {
       appendGalleryItemToSpecies(input.id, item.ka, item.en, worktree);
     }
-    run("git", ["add", "--", rel.ka, rel.en], worktree);
+    const catalog = input.catalog ?? [];
+    await applyOptimizeCatalog(worktree, catalog);
+    const catalogFiles =
+      catalog.length > 0
+        ? [
+            "src/data/image-manifest.json",
+            ...(catalog.some((item) => item.asset)
+              ? ["src/data/optimizedImages.generated.ts"]
+              : []),
+          ]
+        : [];
+    run("git", ["add", "--", rel.ka, rel.en, ...catalogFiles], worktree);
 
     if (!hasStagedChanges(worktree)) {
       throw new Error("No gallery changes to open a pull request for");
@@ -149,7 +165,7 @@ export function openPhotoPullRequest(input: {
     const noun = input.items.length === 1 ? "photo" : "photos";
     const title = `Add gallery ${noun} for ${input.id}`;
     const commitBody =
-      "Uploaded from the local admin. Originals are already on the CDN.";
+      "Uploaded from the local admin. Originals and AVIF/WebP derivatives are already on the CDN.";
     run("git", ["commit", "-m", title, "-m", commitBody], worktree);
     run(
       "git",
@@ -161,10 +177,12 @@ export function openPhotoPullRequest(input: {
     const prBody = [
       "## Summary",
       `- Gallery ${noun} for \`${input.id}\` from local admin`,
-      "- Originals are on `cdn.reptiles.ge`",
+      "- Originals and AVIF/WebP derivatives (400/800/1200/max) are on `cdn.reptiles.ge`",
+      "- `image-manifest.json` and `optimizedImages.generated.ts` updated so the gallery uses `<picture>` sources",
       "",
       "## Test plan",
       "- [ ] KA and EN profile galleries show the new photo(s)",
+      "- [ ] Network panel loads `.avif` (or `.webp`) derivatives, not only the JPEG original",
     ].join("\n");
 
     const repo = githubRepoName(worktree);

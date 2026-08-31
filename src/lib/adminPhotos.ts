@@ -13,6 +13,10 @@ import {
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
 import { openPhotoPullRequest } from "@/lib/adminPhotoPullRequest";
+import {
+  optimizeUploadedOriginal,
+  type OptimizeCatalogUpdate,
+} from "@/lib/imageOptimize";
 
 const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
@@ -182,6 +186,7 @@ export async function addSpeciesPhotos(input: {
   const enCredit = creditFromInput(input.credit, "en");
   const added: GalleryImage[] = [];
   const items: Array<{ ka: GalleryImage; en: GalleryImage }> = [];
+  const catalog: OptimizeCatalogUpdate[] = [];
 
   for (const file of input.files) {
     const prepared = await prepareOriginal(file.bytes);
@@ -196,6 +201,13 @@ export async function addSpeciesPhotos(input: {
       contentType: prepared.contentType,
     });
     const src = storage.urlFor(key);
+    const optimized = await optimizeUploadedOriginal({
+      key,
+      source: prepared.buffer,
+      src,
+      storage,
+    });
+    if (optimized) catalog.push(optimized);
     const kaItem: GalleryImage = kaCredit
       ? { src, credit: kaCredit }
       : { src };
@@ -207,9 +219,10 @@ export async function addSpeciesPhotos(input: {
   }
 
   try {
-    const pullRequestUrl = openPhotoPullRequest({
+    const pullRequestUrl = await openPhotoPullRequest({
       id: input.id,
       items,
+      catalog,
     });
     return { added, pullRequestUrl };
   } catch (error) {
