@@ -11,15 +11,18 @@ import {
   newsRelatedSpecies,
   newsSourceOrg,
 } from "@/data/news";
-import { getRegionHeroImage } from "@/data/regionImages";
-import { localizeRegionText } from "@/data/regions";
-import { getSpeciesById } from "@/data/species";
+import { getSpeciesById, hasPhotoCredit } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
-import { formatContentDate } from "@/lib/formatDate";
+import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
-import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
+import {
+  getNewsVisual,
+  localizeNewsPhoto,
+  newsCategoryHub,
+  type NewsVisual,
+} from "@/lib/newsVisual";
 import {
   regionHref,
   speciesHref,
@@ -118,26 +121,36 @@ export async function NewsArticlePage({
           </header>
 
           {visual ? (
-            <figure className="mt-10 lg:mt-14">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]">
-                <CoverImage
-                  src={visual.src}
-                  alt={visual.alt}
-                  sizes="(max-width: 1023px) 100vw, 1400px"
-                  priority
-                  className="object-cover object-center"
-                />
-              </div>
-              <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
-                {t("photoFromAtlas")} {visual.alt}
-              </figcaption>
-            </figure>
+            <NewsFigure
+              visual={visual}
+              locale={locale}
+              sizes="(max-width: 1023px) 100vw, 1400px"
+              priority
+              photoFromAtlas={t("photoFromAtlas")}
+              photoCreditLabel={t("photoCredit")}
+            />
           ) : null}
 
           <div className="max-w-3xl pt-10 sm:pt-12">
             <p className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]">
               {copy.lead}
             </p>
+
+            {article.gallery && article.gallery.length > 0 ? (
+              <div className="mt-12 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:[&>:last-child]:col-span-2">
+                {article.gallery.map((photo) => (
+                  <NewsFigure
+                    key={photo.src}
+                    visual={localizeNewsPhoto(photo, locale)}
+                    locale={locale}
+                    sizes="(max-width: 639px) 100vw, 640px"
+                    photoFromAtlas={t("photoFromAtlas")}
+                    photoCreditLabel={t("photoCredit")}
+                    compact
+                  />
+                ))}
+              </div>
+            ) : null}
 
             {copy.sections.map((section) => (
               <section key={section.heading} className="mt-14 sm:mt-16">
@@ -283,6 +296,85 @@ export async function NewsArticlePage({
         <ContentAttribution sourcesHref="#sources" />
       </main>
     </div>
+  );
+}
+
+function NewsFigure({
+  visual,
+  locale,
+  sizes,
+  priority = false,
+  compact = false,
+  photoFromAtlas,
+  photoCreditLabel,
+}: {
+  visual: NewsVisual;
+  locale: AppLocale;
+  sizes: string;
+  priority?: boolean;
+  compact?: boolean;
+  photoFromAtlas: string;
+  photoCreditLabel: string;
+}) {
+  const dateLabel = visual.credit?.date
+    ? formatPhotoDate(visual.credit.date, locale)
+    : null;
+  const photographer = visual.credit?.photographer;
+  const creditMeta = [
+    photographer,
+    visual.credit?.location,
+    dateLabel,
+  ].filter(Boolean);
+
+  return (
+    <figure className={compact ? "" : "mt-10 lg:mt-14"}>
+      <div
+        className={
+          compact
+            ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
+            : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
+        }
+      >
+        <CoverImage
+          src={visual.src}
+          alt={visual.alt}
+          sizes={sizes}
+          priority={priority}
+          className="object-cover object-center"
+        />
+      </div>
+      <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
+        {visual.fromAtlas ? `${photoFromAtlas} ` : null}
+        {visual.alt}
+        {hasPhotoCredit(visual.credit) && creditMeta.length > 0 ? (
+          <>
+            {" "}
+            {photographer ? (
+              visual.credit?.url ? (
+                <a
+                  href={visual.credit.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+                >
+                  {photoCreditLabel} {photographer}
+                </a>
+              ) : (
+                <span>
+                  {photoCreditLabel} {photographer}
+                </span>
+              )
+            ) : null}
+            {visual.credit?.location || dateLabel ? (
+              <span>
+                {photographer ? " · " : null}
+                {[visual.credit?.location, dateLabel].filter(Boolean).join(" · ")}
+              </span>
+            ) : null}
+          </>
+        ) : null}
+      </figcaption>
+    </figure>
   );
 }
 
