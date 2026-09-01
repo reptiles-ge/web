@@ -1,5 +1,6 @@
 import { AboutPage } from "@/components/AboutPage";
 import { JsonLd } from "@/components/JsonLd";
+import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
 import {
   absoluteUrl,
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "website",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
     },
     twitter: {
