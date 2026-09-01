@@ -7,6 +7,7 @@ import {
   newsRelatedHubs,
   newsRelatedRegions,
   newsRelatedSpecies,
+  newsSourceOrg,
 } from "@/data/news";
 import { localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -31,6 +32,7 @@ export async function NewsArticlePage({
   const tHubs = await getTranslations({ locale, namespace: "groupHubShared" });
   const copy = getNewsCopy(article, locale);
   const dateLabel = formatContentDate(article.publishedAt, locale);
+  const sourceOrg = newsSourceOrg(article);
   const species = newsRelatedSpecies(article).map((item) =>
     localizeSpecies(item, locale),
   );
@@ -62,7 +64,7 @@ export async function NewsArticlePage({
                 {t("editorialBy")}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("reportedBy", { source: "Batumi Raptor Count" })}
+                {t("reportedBy", { source: sourceOrg })}
               </p>
             </div>
           </header>
@@ -73,7 +75,7 @@ export async function NewsArticlePage({
                 {copy.lead}
               </p>
               <p className="mt-6 rounded-2xl border border-border bg-card px-5 py-4 text-[14px] leading-relaxed text-muted-foreground">
-                {t("editorialNote", { source: article.sources[0]?.name.split(" — ")[0] ?? "Batumi Raptor Count" })}
+                {t("editorialNote", { source: sourceOrg })}
               </p>
 
               {copy.sections.map((section) => (
