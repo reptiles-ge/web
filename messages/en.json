@@ -47,7 +47,9 @@
     "switch": "Change language",
     "close": "Close",
     "ka": "ქართული",
-    "en": "English"
+    "en": "English",
+    "ru": "Русский",
+    "tr": "Türkçe"
   },
   "theme": {
     "toDark": "Switch to dark mode",

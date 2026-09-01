@@ -1,4 +1,8 @@
 import type { Species } from "@/data/species";
+import {
+  caucasusPlaceName,
+  georgiaPlaceName,
+} from "@/i18n/localeMeta";
 import type { AppLocale } from "@/i18n/routing";
 
 const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
@@ -1200,20 +1204,37 @@ export function uniqueKeywords(values: Array<string | undefined | null>) {
 }
 
 export function siteKeywords(locale: AppLocale) {
-  return locale === "en"
-    ? [
-        "animals of Georgia",
-        "Georgia reptiles",
-        "Caucasus reptiles",
-        "species atlas",
-      ]
-    : [
-        "საქართველოს ცხოველები",
-        "ცხოველთა ატლასი",
-        "ქვეწარმავლები",
-        "საქართველოს ქვეწარმავლები",
-        "კავკასია",
-      ];
+  if (locale === "en") {
+    return [
+      "animals of Georgia",
+      "Georgia reptiles",
+      "Caucasus reptiles",
+      "species atlas",
+    ];
+  }
+  if (locale === "ru") {
+    return [
+      "животные Грузии",
+      "рептилии Грузии",
+      "рептилии Кавказа",
+      "атлас видов",
+    ];
+  }
+  if (locale === "tr") {
+    return [
+      "Gürcistan hayvanları",
+      "Gürcistan sürüngenleri",
+      "Kafkasya sürüngenleri",
+      "tür atlası",
+    ];
+  }
+  return [
+    "საქართველოს ცხოველები",
+    "ცხოველთა ატლასი",
+    "ქვეწარმავლები",
+    "საქართველოს ქვეწარმავლები",
+    "კავკასია",
+  ];
 }
 
 export function speciesSeoAnchor(commonName: string, scientificName: string) {
@@ -1223,7 +1244,7 @@ export function speciesSeoAnchor(commonName: string, scientificName: string) {
 export function speciesAliasKeywords(id: string, locale: AppLocale) {
   const aliases = SPECIES_ALIASES[id];
   if (!aliases) return [];
-  return locale === "en" ? aliases.en : aliases.ka;
+  return locale === "ka" ? aliases.ka : aliases.en;
 }
 
 export function speciesSeoKeywords(species: Species, locale: AppLocale) {
@@ -1233,8 +1254,8 @@ export function speciesSeoKeywords(species: Species, locale: AppLocale) {
     species.genus,
     species.family,
     ...speciesAliasKeywords(species.id, locale),
-    locale === "en" ? "Georgia" : "საქართველო",
-    locale === "en" ? "Caucasus" : "კავკასია",
+    georgiaPlaceName(locale),
+    caucasusPlaceName(locale),
   ]);
 }
 
@@ -1245,6 +1266,8 @@ export function speciesJsonLdKeywords(species: Species, locale: AppLocale) {
 export type SeoDefinedTerm = {
   ka: string;
   en: string;
+  ru?: string;
+  tr?: string;
   speciesId: string;
 };
 

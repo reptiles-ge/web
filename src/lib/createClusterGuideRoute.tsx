@@ -14,6 +14,7 @@ import { TurtleSpeciesIndexPage } from "@/components/TurtleSpeciesIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
@@ -106,7 +107,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
         description,
         url,
         type: "website",
-        locale: locale === "en" ? "en_US" : siteConfig.locale,
+        locale: openGraphLocale(locale),
         siteName: siteConfig.name,
         images: [ogImageTag],
       },
@@ -190,7 +191,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
-              name: locale === "en" ? "Georgia" : "საქართველო",
+              name: georgiaPlaceName(locale),
             },
             inLanguage: locale,
             mainEntity: {
@@ -215,7 +216,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
-              name: locale === "en" ? "Georgia" : "საქართველო",
+              name: georgiaPlaceName(locale),
             },
             inLanguage: locale,
           };

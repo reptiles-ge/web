@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
+import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "article",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       images: [
         {
@@ -152,7 +153,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
     publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Thing",
-      name: locale === "en" ? "Snakes in residential yards" : "გველი ეზოში",
+      name: t("title"),
     },
     inLanguage: locale,
   };

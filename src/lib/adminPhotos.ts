@@ -9,8 +9,10 @@ import { kaToSlug } from "@/lib/slugify";
 import { CDN_BASE } from "@/lib/site";
 import type { GalleryImage, PhotoCredit } from "@/data/species";
 import {
+  creditsEqual,
   galleryStorageKeys,
   readAdminSpeciesGallery,
+  type GalleryOverlayLocale,
 } from "@/lib/adminGalleryMdx";
 import { openPhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 import {
@@ -185,7 +187,10 @@ export async function addSpeciesPhotos(input: {
   const kaCredit = creditFromInput(input.credit, "ka");
   const enCredit = creditFromInput(input.credit, "en");
   const added: GalleryImage[] = [];
-  const items: Array<{ ka: GalleryImage; en: GalleryImage }> = [];
+  const items: Array<{
+    ka: GalleryImage;
+    overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>>;
+  }> = [];
   const catalog: OptimizeCatalogUpdate[] = [];
 
   for (const file of input.files) {
@@ -211,10 +216,11 @@ export async function addSpeciesPhotos(input: {
     const kaItem: GalleryImage = kaCredit
       ? { src, credit: kaCredit }
       : { src };
-    const enItem: GalleryImage = enCredit
-      ? { src, credit: enCredit }
-      : { src };
-    items.push({ ka: kaItem, en: enItem });
+    const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
+    if (enCredit && !creditsEqual(kaCredit, enCredit)) {
+      overlays.en = { src, credit: enCredit };
+    }
+    items.push({ ka: kaItem, overlays });
     added.push(kaItem);
   }
 

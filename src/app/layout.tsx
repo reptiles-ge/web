@@ -8,7 +8,7 @@ import {
   siteConfig,
 } from "@/lib/site";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Noto_Sans_Georgian, Sora } from "next/font/google";
+import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -19,7 +19,7 @@ const GTM_ID = "GTM-NM65ZMML";
 
 const sora = Sora({
   variable: "--font-sora",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "optional",
   preload: false,
 });
@@ -28,6 +28,14 @@ const notoSansGeorgian = Noto_Sans_Georgian({
   variable: "--font-noto-georgian",
   subsets: ["georgian", "latin"],
   display: "optional",
+});
+
+const notoSans = Noto_Sans({
+  variable: "--font-noto-sans",
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+  display: "optional",
+  preload: false,
 });
 
 type Props = {
@@ -93,7 +101,7 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html
       lang={locale}
-      className={`${sora.variable} ${notoSansGeorgian.variable} h-full antialiased`}
+      className={`${sora.variable} ${notoSansGeorgian.variable} ${notoSans.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

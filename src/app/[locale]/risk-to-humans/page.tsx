@@ -3,6 +3,7 @@ import { RiskToHumansPage } from "@/components/RiskToHumansPage";
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { getCatalogByDanger } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "article",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       images: [openGraphJpeg(ogImage, title)],
     },
@@ -142,7 +143,7 @@ export default async function RiskToHumansRoute({ params }: Props) {
     publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Thing",
-      name: locale === "en" ? "Risk to humans" : "რისკი ადამიანისთვის",
+      name: t("title"),
     },
     inLanguage: locale,
   };

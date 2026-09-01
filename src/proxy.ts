@@ -1,11 +1,7 @@
-import { routing } from "@/i18n/routing";
+import { getSpeciesHubId, getSpeciesPublicSlug, resolveSpecies, resolveSpeciesInHub } from "@/lib/speciesRoutes";
 import type { GroupHubId } from "@/lib/groupHubs";
-import {
-  getSpeciesHubId,
-  getSpeciesPublicSlug,
-  resolveSpecies,
-  resolveSpeciesInHub,
-} from "@/lib/speciesRoutes";
+import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
+import { routing, type AppLocale } from "@/i18n/routing";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -29,20 +25,22 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   dzuzumtsovrebi: "mammals",
 };
 
+const HUB_SEGMENT = "snakes|lizards|turtles|amphibians|birds|mammals";
+const KA_HUB_SEGMENT =
+  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi";
+const PREFIX_SEGMENT = "en|ru|tr";
+
 function redirectTo(request: NextRequest, pathname: string) {
   const url = request.nextUrl.clone();
   url.pathname = pathname;
   return NextResponse.redirect(url, 301);
 }
 
-function kaSpeciesPath(id: string) {
+function speciesPath(locale: AppLocale, id: string) {
   const hub = getSpeciesHubId(id);
-  return `/${KA_HUB[hub]}/${getSpeciesPublicSlug(id, "ka")}`;
-}
-
-function enSpeciesPath(id: string) {
-  const hub = getSpeciesHubId(id);
-  return `/en/${hub}/${getSpeciesPublicSlug(id, "en")}`;
+  const slug = getSpeciesPublicSlug(id, locale);
+  if (locale === "ka") return `/${KA_HUB[hub]}/${slug}`;
+  return `/${locale}/${hub}/${slug}`;
 }
 
 export default function proxy(request: NextRequest) {
@@ -52,60 +50,71 @@ export default function proxy(request: NextRequest) {
     return redirectTo(request, pathname.slice(3) || "/");
   }
 
-  const legacy = pathname.match(/^(\/en)?\/species\/([^/]+)$/);
+  const legacy = pathname.match(
+    new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
+  );
   if (legacy) {
-    const species = resolveSpecies(legacy[2]);
+    const species = resolveSpecies(legacy[3]);
     if (species) {
-      return redirectTo(
-        request,
-        legacy[1] ? enSpeciesPath(species.id) : kaSpeciesPath(species.id),
-      );
+      const locale = (legacy[2] ?? "ka") as AppLocale;
+      return redirectTo(request, speciesPath(locale, species.id));
     }
   }
 
-  const enHub = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
+  const unprefixedLatinHub = pathname.match(
+    new RegExp(`^\\/(${HUB_SEGMENT})\\/([^/]+)$`),
   );
-  if (enHub) {
-    const species = resolveSpeciesInHub(enHub[1] as GroupHubId, enHub[2]);
+  if (unprefixedLatinHub) {
+    const species = resolveSpeciesInHub(
+      unprefixedLatinHub[1] as GroupHubId,
+      unprefixedLatinHub[2],
+    );
     if (species) {
-      const next = kaSpeciesPath(species.id);
+      const next = speciesPath("ka", species.id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }
 
-  const enKa = pathname.match(
-    /^\/en\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi)\/([^/]+)$/,
+  const prefixedKaHub = pathname.match(
+    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
   );
-  if (enKa) {
-    const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[enKa[1]], enKa[2]);
+  if (prefixedKaHub && isPrefixedLocale(prefixedKaHub[1])) {
+    const locale = prefixedKaHub[1] as PrefixedLocale;
+    const species = resolveSpeciesInHub(
+      KA_PREFIX_TO_HUB[prefixedKaHub[2]],
+      prefixedKaHub[3],
+    );
     if (species) {
-      const next = enSpeciesPath(species.id);
+      const next = speciesPath(locale, species.id);
+      if (next !== pathname) return redirectTo(request, next);
+    }
+  }
+
+  const prefixedHub = pathname.match(
+    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${HUB_SEGMENT})\\/([^/]+)$`),
+  );
+  if (prefixedHub && isPrefixedLocale(prefixedHub[1])) {
+    const locale = prefixedHub[1] as PrefixedLocale;
+    const species = resolveSpeciesInHub(
+      prefixedHub[2] as GroupHubId,
+      prefixedHub[3],
+    );
+    if (species) {
+      const next = speciesPath(locale, species.id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }
 
   const kaHub = pathname.match(
-    /^\/(gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi)\/([^/]+)$/,
+    new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
   );
   if (kaHub) {
-    const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
-    if (species) {
-      const next = kaSpeciesPath(species.id);
-      if (next !== pathname) return redirectTo(request, next);
-    }
-  }
-
-  const enWrongSlug = pathname.match(
-    /^\/en\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
-  );
-  if (enWrongSlug) {
     const species = resolveSpeciesInHub(
-      enWrongSlug[1] as GroupHubId,
-      enWrongSlug[2],
+      KA_PREFIX_TO_HUB[kaHub[1]],
+      kaHub[2],
     );
     if (species) {
-      const next = enSpeciesPath(species.id);
+      const next = speciesPath("ka", species.id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }

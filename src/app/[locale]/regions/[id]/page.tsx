@@ -8,6 +8,7 @@ import {
   regions,
 } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { georgiaPlaceName, georgiaReptilesLabel, openGraphLocale, pickLocalized } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
@@ -74,14 +75,22 @@ export async function generateMetadata({
     keywords: [
       name,
       nameIn,
-      locale === "en" ? "Georgia reptiles" : "საქართველოს ქვეწარმავლები",
-      locale === "en" ? "regions of Georgia" : "საქართველოს რეგიონები",
+      georgiaReptilesLabel(locale),
+      pickLocalized(
+        {
+          ka: "საქართველოს რეგიონები",
+          en: "regions of Georgia",
+          ru: "регионы Грузии",
+          tr: "Gürcistan bölgeleri",
+        },
+        locale,
+      ),
       localizeRegionText(content.biome, locale),
     ],
     alternates: localeAlternates(locale, path),
     openGraph: {
       type: "article",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       url: absoluteUrl(localePath(locale, path)),
       siteName: siteConfig.name,
       title,
@@ -138,7 +147,7 @@ export default async function RegionPage({ params }: PageProps) {
       description: overview,
       containedInPlace: {
         "@type": "Country",
-        name: locale === "en" ? "Georgia" : "საქართველო",
+        name: georgiaPlaceName(locale),
       },
     },
     mainEntity: {

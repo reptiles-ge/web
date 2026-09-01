@@ -6,8 +6,8 @@ alwaysApply: false
 
 # Species profiles
 
-1. Edit `src/content/species/{id}/ka.mdx` **and** `en.mdx`. Folder name = frontmatter `id`.
-2. KA owns `id`, taxonomy, `danger`, images, `sources`. EN translates text (credits may overlay).
+1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. Folder name = frontmatter `id`. KA is required; other locales overlay text.
+2. KA owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list into `en`/`ru`/`tr`. Sparse `gallery` there is credit overlay only (match by `src`: photographer, location, date). Missing overlay → KA credit as-is.
 3. Run `npm run species:compile` (also `predev` / `prebuild`). Never commit or hand-edit `species.generated.ts`.
 4. Register in `featuredSpeciesIds` (`src/data/species.ts`) and `speciesAtlasMeta` (`speciesAtlas.ts`).
 5. KA slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES`.

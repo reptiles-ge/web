@@ -6,11 +6,11 @@ alwaysApply: false
 
 # Routing and i18n
 
-- Locales: `ka` (default, no prefix), `en` (`/en/…`). Internal hrefs are English (`/snakes/[slug]`). Public KA slugs are Georgian (`/gvelebi/giurza`).
-- Use `Link` / `getPathname` from `@/i18n/navigation`. Do not hardcode `/ka` or `/en`.
+- Locales: `ka` (default, no prefix), `en` (`/en/…`), `ru` (`/ru/…`), `tr` (`/tr/…`). Internal hrefs are English (`/snakes/[slug]`). Public KA slugs are Georgian (`/gvelebi/giurza`). Latin locales use English pathnames (`/ru/snakes/macrovipera-lebetina`).
+- Use `Link` / `getPathname` from `@/i18n/navigation`. Do not hardcode `/ka`, `/en`, `/ru`, or `/tr`.
 - Edge: `src/proxy.ts`, not `middleware.ts`. Legacy `/species/{id}` 301s live there; static 301s in `next.config.ts`.
-- New guide: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + `createClusterGuideRoute` page → KA+EN messages → cross-locale 301s.
+- New guide: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + `createClusterGuideRoute` page → messages in `ka`/`en`/`ru`/`tr` → cross-locale 301s.
 - Hubs: `createGroupHubRoute`. Species: `createSpeciesHubRoute`. Catch-all `[...rest]` is 404 `noindex`.
-- Quiz: `QUIZ_INDEX` in `quizzes.ts`. One live quiz (`romeli-gvelia` / `which-snake`). No indexable result/session URLs. Do not take over `გველის ამოცნობა` (that is the identify guide).
+- Quiz: `QUIZ_INDEX` in `quizzes.ts`. One live quiz (`romeli-gvelia` / `which-snake` / `kakaya-zmeya` / `hangi-yilan`). No indexable result/session URLs. Do not take over `გველის ამოცნობა` (that is the identify guide).
 - Title template adds ` — Reptiles`; species and quiz landings often use `title: { absolute }`.
 - `www.reptiles.ge` → apex. API: `X-Robots-Tag: noindex`.

@@ -47,7 +47,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 ```text
 src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
-src/content/species/{id}/  ka.mdx + en.mdx  → compile →
+src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
 src/lib/                   routing, SEO, quiz, clusters
 src/i18n/                  next-intl routing + pathnames
@@ -76,7 +76,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Species content pipeline
 
-1. Edit **both** `ka.mdx` and `en.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, images, `sources`. EN is a translation of text fields (and optional credit overlays).
+1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit.
 2. `npm run species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts`.
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.

@@ -1,6 +1,7 @@
 import type { DangerLevel, PhotoCredit } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import { isVenomousDanger } from "@/data/speciesAtlas";
+import type { AppLocale } from "@/i18n/routing";
 
 export function speciesTitleIntentKey(
   group: AnimalGroup,
@@ -88,13 +89,15 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
 
 export function speciesPageMetaTitle(
   speciesId: string,
-  locale: "ka" | "en",
+  locale: AppLocale,
   commonName: string,
   scientificName: string,
   intent: string,
 ) {
-  const override = SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale];
-  if (override) return override;
+  const override = SPECIES_META_TITLE_OVERRIDE[speciesId];
+  if (override) {
+    return locale === "ka" ? override.ka : override.en;
+  }
   return speciesMetaTitle(commonName, scientificName, intent);
 }
 

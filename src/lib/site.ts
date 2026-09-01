@@ -1,5 +1,5 @@
 import { getPathname } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
+import { routing, type AppLocale } from "@/i18n/routing";
 import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -128,16 +128,16 @@ export function localePath(locale: string, href: PathnameHref = "/") {
 }
 
 export function localeAlternates(locale: string, href: PathnameHref = "/") {
-  const ka = absoluteUrl(getPathname({ locale: "ka", href }));
-  const en = absoluteUrl(getPathname({ locale: "en", href }));
+  const languages: Record<string, string> = {
+    "x-default": absoluteUrl(getPathname({ locale: "ka", href })),
+  };
+  for (const loc of routing.locales) {
+    languages[loc] = absoluteUrl(getPathname({ locale: loc, href }));
+  }
 
   return {
     canonical: absoluteUrl(getPathname({ locale: locale as AppLocale, href })),
-    languages: {
-      ka,
-      en,
-      "x-default": ka,
-    },
+    languages,
   };
 }
 
@@ -150,28 +150,28 @@ export function quizPageUrl(locale: AppLocale, id: string) {
 }
 
 export function quizAlternates(locale: AppLocale, id: string) {
-  const ka = quizPageUrl("ka", id);
-  const en = quizPageUrl("en", id);
+  const languages: Record<string, string> = {
+    "x-default": quizPageUrl("ka", id),
+  };
+  for (const loc of routing.locales) {
+    languages[loc] = quizPageUrl(loc, id);
+  }
   return {
-    canonical: locale === "en" ? en : ka,
-    languages: {
-      ka,
-      en,
-      "x-default": ka,
-    },
+    canonical: quizPageUrl(locale, id),
+    languages,
   };
 }
 
 export function speciesAlternates(locale: AppLocale, id: string) {
-  const ka = speciesPageUrl("ka", id);
-  const en = speciesPageUrl("en", id);
+  const languages: Record<string, string> = {
+    "x-default": speciesPageUrl("ka", id),
+  };
+  for (const loc of routing.locales) {
+    languages[loc] = speciesPageUrl(loc, id);
+  }
   return {
-    canonical: locale === "en" ? en : ka,
-    languages: {
-      ka,
-      en,
-      "x-default": ka,
-    },
+    canonical: speciesPageUrl(locale, id),
+    languages,
   };
 }
 
@@ -205,7 +205,7 @@ export function websiteJsonLd(options: {
     name: siteConfig.name,
     url: absoluteUrl("/"),
     description: options.description,
-    inLanguage: ["ka", "en"],
+    inLanguage: [...routing.locales],
     publisher: { "@id": siteEntityId("organization") },
   };
 }

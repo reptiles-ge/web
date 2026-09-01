@@ -4,6 +4,7 @@ import { QuizPlayer } from "@/components/QuizPlayer";
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { openGraphLocale } from "@/i18n/localeMeta";
 import {
   quizStaticParams,
   resolveQuizBySlug,
@@ -64,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "website",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       images: [
         {
@@ -152,7 +153,7 @@ export default async function QuizSlugRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Thing",
-      name: locale === "en" ? "Snakes of Georgia" : "საქართველოს გველები",
+      name: t("title"),
     },
     educationalLevel: "beginner",
     numberOfQuestions: QUIZ_LENGTH,

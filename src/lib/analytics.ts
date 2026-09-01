@@ -1,5 +1,5 @@
 import { getSpeciesAtlasMeta, type AnimalGroup } from "@/data/speciesAtlas";
-import type { AppLocale } from "@/i18n/routing";
+import { routing, type AppLocale } from "@/i18n/routing";
 
 export type AnalyticsValue = string | number | boolean;
 
@@ -57,7 +57,11 @@ export function truncateSearchTerm(term: string) {
 
 export function currentLanguage(): AppLocale {
   if (typeof document === "undefined") return "ka";
-  return document.documentElement.lang === "en" ? "en" : "ka";
+  const lang = document.documentElement.lang;
+  if (routing.locales.includes(lang as AppLocale)) {
+    return lang as AppLocale;
+  }
+  return "ka";
 }
 
 function compact(params: Record<string, AnalyticsValue | undefined>) {

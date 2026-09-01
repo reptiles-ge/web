@@ -1,6 +1,7 @@
 import { JsonLd } from "@/components/JsonLd";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { openGraphLocale } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -110,7 +111,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       alternates: speciesAlternates(locale, item.id),
       openGraph: {
         type: "article",
-        locale: locale === "en" ? "en_US" : siteConfig.locale,
+        locale: openGraphLocale(locale),
         url,
         siteName: siteConfig.name,
         title,

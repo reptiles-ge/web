@@ -3,6 +3,7 @@ import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
@@ -55,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "website",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       images: [openGraphJpeg(ogImage, title)],
     },
@@ -142,7 +143,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Place",
-      name: locale === "en" ? "Georgia" : "საქართველო",
+      name: georgiaPlaceName(locale),
     },
     mainEntity: {
       "@type": "ItemList",
