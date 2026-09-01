@@ -15535,6 +15535,59 @@
       ],
       "updatedAt": "2026-08-29T07:22:11.574Z"
     },
+    "garrulus-glandarius-lela-1.jpg": {
+      "sourceHash": "125773d9171d569a33cf087e6f16dadb641fbb242f20777d5548ccb85bc81e2c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "garrulus-glandarius-lela-1.jpg",
+      "originalSize": 198188,
+      "width": 1024,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-lela-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 32603
+        },
+        {
+          "key": "optimized/garrulus-glandarius-lela-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 54416
+        },
+        {
+          "key": "optimized/garrulus-glandarius-lela-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 76439
+        },
+        {
+          "key": "optimized/garrulus-glandarius-lela-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 123792
+        },
+        {
+          "key": "optimized/garrulus-glandarius-lela-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1536,
+          "byteSize": 114912
+        },
+        {
+          "key": "optimized/garrulus-glandarius-lela-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1536,
+          "byteSize": 158826
+        }
+      ],
+      "updatedAt": "2026-09-01T07:45:46.814Z"
+    },
     "garrulus-glandarius-pyatigorsk-1.jpg": {
       "sourceHash": "3085e5ca3cbb34d3d5de2fbf62a716a14756d1163a4e4bfa13e8ba3bc154de46",
       "configFingerprint": "a895f8e025dcc7fa",

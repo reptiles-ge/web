@@ -557,18 +557,18 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2200],
     formats: ["avif"],
   },
-  "https://cdn.reptiles.ge/corvus-corax-zauri-2.jpg": {
-    path: "corvus-corax-zauri-2",
-    width: 1344,
-    height: 960,
-    widths: [400, 800, 1200, 1344],
-    formats: ["avif", "webp"],
-  },
   "https://cdn.reptiles.ge/corvus-corax-zauri-1.jpg": {
     path: "corvus-corax-zauri-1",
     width: 2048,
     height: 1463,
     widths: [400, 800, 1200, 2048],
+    formats: ["avif", "webp"],
+  },
+  "https://cdn.reptiles.ge/corvus-corax-zauri-2.jpg": {
+    path: "corvus-corax-zauri-2",
+    width: 1344,
+    height: 960,
+    widths: [400, 800, 1200, 1344],
     formats: ["avif", "webp"],
   },
   "https://cdn.reptiles.ge/corvus-corax-zauri-3.jpg": {
@@ -1754,6 +1754,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2400],
     formats: ["avif", "webp"],
   },
+  "https://cdn.reptiles.ge/garrulus-glandarius-lela-1.jpg": {
+    path: "garrulus-glandarius-lela-1",
+    width: 1024,
+    height: 1536,
+    widths: [400, 800, 1024],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/garrulus-glandarius-pyatigorsk-1.jpg": {
     path: "garrulus-glandarius-pyatigorsk-1",
     width: 2400,
@@ -1901,14 +1908,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2127],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-cavity-1.jpg":
-    {
-      path: "images/species/aegolius-funereus-tencate-cavity-1",
-      width: 2400,
-      height: 1842,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/aegolius-funereus-tencate-cavity-1.jpg": {
+    path: "images/species/aegolius-funereus-tencate-cavity-1",
+    width: 2400,
+    height: 1842,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/aegolius-funereus-veronesi-1.jpg": {
     path: "images/species/aegolius-funereus-veronesi-1",
     width: 766,
@@ -1937,14 +1943,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2400],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/anas-platyrhynchos-flight-male-1.jpg":
-    {
-      path: "images/species/anas-platyrhynchos-flight-male-1",
-      width: 2400,
-      height: 1600,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/anas-platyrhynchos-flight-male-1.jpg": {
+    path: "images/species/anas-platyrhynchos-flight-male-1",
+    width: 2400,
+    height: 1600,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/anas-platyrhynchos-male-1.jpg": {
     path: "images/species/anas-platyrhynchos-male-1",
     width: 2400,
@@ -1987,14 +1992,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2400],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/athene-noctua-tencate-building-1.jpg":
-    {
-      path: "images/species/athene-noctua-tencate-building-1",
-      width: 2400,
-      height: 1600,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/athene-noctua-tencate-building-1.jpg": {
+    path: "images/species/athene-noctua-tencate-building-1",
+    width: 2400,
+    height: 1600,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/athene-noctua-vassen-ambula-1.jpg": {
     path: "images/species/athene-noctua-vassen-ambula-1",
     width: 2400,
@@ -2002,14 +2006,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2400],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/athene-noctua-voikhansky-haifa-1.jpg":
-    {
-      path: "images/species/athene-noctua-voikhansky-haifa-1",
-      width: 2400,
-      height: 1800,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/athene-noctua-voikhansky-haifa-1.jpg": {
+    path: "images/species/athene-noctua-voikhansky-haifa-1",
+    width: 2400,
+    height: 1800,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/ciconia-ciconia-flight-1.jpg": {
     path: "images/species/ciconia-ciconia-flight-1",
     width: 2400,
@@ -2059,22 +2062,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2400],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/corvus-corax-sharp-flight-babadag.jpg":
-    {
-      path: "images/species/corvus-corax-sharp-flight-babadag",
-      width: 2400,
-      height: 1600,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
-  "https://cdn.reptiles.ge/images/species/corvus-corax-sharp-flight-uckermark.jpg":
-    {
-      path: "images/species/corvus-corax-sharp-flight-uckermark",
-      width: 2400,
-      height: 1599,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/corvus-corax-sharp-flight-babadag.jpg": {
+    path: "images/species/corvus-corax-sharp-flight-babadag",
+    width: 2400,
+    height: 1600,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
+  "https://cdn.reptiles.ge/images/species/corvus-corax-sharp-flight-uckermark.jpg": {
+    path: "images/species/corvus-corax-sharp-flight-uckermark",
+    width: 2400,
+    height: 1599,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/corvus-corax-urbonas-lithuania.jpg": {
     path: "images/species/corvus-corax-urbonas-lithuania",
     width: 800,
@@ -2096,22 +2097,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 1660],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-male-1.jpg":
-    {
-      path: "images/species/coturnix-coturnix-moning-male-1",
-      width: 1600,
-      height: 1200,
-      widths: [400, 800, 1200, 1600],
-      formats: ["avif", "webp"],
-    },
-  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-wagenitz-1.jpg":
-    {
-      path: "images/species/coturnix-coturnix-moning-wagenitz-1",
-      width: 1200,
-      height: 900,
-      widths: [400, 800, 1200],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-male-1.jpg": {
+    path: "images/species/coturnix-coturnix-moning-male-1",
+    width: 1600,
+    height: 1200,
+    widths: [400, 800, 1200, 1600],
+    formats: ["avif", "webp"],
+  },
+  "https://cdn.reptiles.ge/images/species/coturnix-coturnix-moning-wagenitz-1.jpg": {
+    path: "images/species/coturnix-coturnix-moning-wagenitz-1",
+    width: 1200,
+    height: 900,
+    widths: [400, 800, 1200],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/falco-peregrinus-flight-1.jpg": {
     path: "images/species/falco-peregrinus-flight-1",
     width: 1678,
@@ -2357,22 +2356,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     widths: [400, 800, 1200, 2201],
     formats: ["avif", "webp"],
   },
-  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-sharp-flight-1.jpg":
-    {
-      path: "images/species/streptopelia-turtur-sharp-flight-1",
-      width: 2400,
-      height: 2400,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
-  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-veljkovic-1.jpg":
-    {
-      path: "images/species/streptopelia-turtur-veljkovic-1",
-      width: 2400,
-      height: 1837,
-      widths: [400, 800, 1200, 2400],
-      formats: ["avif", "webp"],
-    },
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-sharp-flight-1.jpg": {
+    path: "images/species/streptopelia-turtur-sharp-flight-1",
+    width: 2400,
+    height: 2400,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
+  "https://cdn.reptiles.ge/images/species/streptopelia-turtur-veljkovic-1.jpg": {
+    path: "images/species/streptopelia-turtur-veljkovic-1",
+    width: 2400,
+    height: 1837,
+    widths: [400, 800, 1200, 2400],
+    formats: ["avif", "webp"],
+  },
   "https://cdn.reptiles.ge/images/species/streptopelia-turtur-yuvalr-1.jpg": {
     path: "images/species/streptopelia-turtur-yuvalr-1",
     width: 2112,
