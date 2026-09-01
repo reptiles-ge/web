@@ -27,6 +27,7 @@ import {
   speciesTr,
 } from "../src/data/species.generated";
 import { images as siteImages } from "../src/data/species";
+import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -153,6 +154,10 @@ function collectSources(): Map<string, string> {
 
   for (const src of Object.values(siteImages)) add(src);
 
+  for (const article of getAllNewsArticles()) {
+    for (const photo of newsArticlePhotos(article)) add(photo.src);
+  }
+
   for (const item of species) {
     add(item.image);
     add(item.mobileImage);
@@ -183,6 +188,9 @@ function collectTargets(ids: string[], all: boolean): Target[] {
 
   if (all) {
     for (const src of Object.values(siteImages)) add(src);
+    for (const article of getAllNewsArticles()) {
+      for (const photo of newsArticlePhotos(article)) add(photo.src);
+    }
   }
 
   for (const item of species) {
@@ -209,6 +217,10 @@ function collectCoverKeys(ids: string[], all: boolean): Set<string> {
   };
 
   if (all) add(siteImages.hero);
+
+  if (all) {
+    for (const article of getAllNewsArticles()) add(article.image?.src);
+  }
 
   for (const item of species) {
     if (!all && !wanted.has(item.id)) continue;
