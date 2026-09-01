@@ -113,13 +113,11 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
   ],
   copy: {
     ka: {
-      title:
-        "ბორჯომის ხეობაში ზრდასრული „პონტური გველგესლა“ დააფიქსირეს — ეს ჰიბრიდია, არა ახალი სახეობა",
-      metaTitle:
-        "ბორჯომის ხეობაში ზრდასრული „პონტური გველგესლა“ დააფიქსირეს — ეს ჰიბრიდია, არა ახალი სახეობა",
+      title: "ბორჯომის ხეობაში გველგესლას იშვიათი ჰიბრიდი დააფიქსირეს",
+      metaTitle: "ბორჯომის ხეობაში გველგესლას იშვიათი ჰიბრიდი დააფიქსირეს",
       metaDescription:
         "2025 წლის 7 მაისს ბორჯომის ხეობაში დააფიქსირეს ზრდასრული გველგესლა, რომელიც კავკასიურ და ცხვირრქოსან გველგესლას შორის შუალედურია. 2026 წლის ნაშრომი Vipera pontica-ს ცალკე სახეობად არ იღებს.",
-      dek: "Herpetology Notes-ში გამოქვეყნდა ბორჯომის ხეობის ზრდასრული გველგესლა შუალედური ნიშნებით. ავტორები მას იშვიათ ჰიბრიდად განიხილავენ და არა მესამე სახეობად.",
+      dek: "Herpetology Notes-ში გამოქვეყნდა ბორჯომის ხეობის ზრდასრული გველგესლა შუალედური ნიშნებით. ავტორები მას ჰიბრიდად იღებენ, არა მესამე გველგესლად.",
       lead: "2025 წლის 7 მაისს ბორჯომის ხეობაში, მტკვრის ზემო დინებაში, დააფიქსირეს ზრდასრული გველგესლა, რომელსაც კავკასიური გველგესლასა და ცხვირრქოსანი გველგესლას ნიშნები ერთდროულად ჰქონდა. დაკვირვება 2026 წლის 10 ივნისს Herpetology Notes-ში გამოქვეყნდა. ავტორები წერენ, რომ ეს არის პირველი დოკუმენტირებული ზრდასრული ინდივიდი, რომელიც ძველ სახელს Vipera pontica ჰგავს, და პირველი ასეთი ჩანაწერი საქართველოდან. ისინი მას ცალკე სახეობად არ იღებენ. გველი Reptiles.ge-ს არ უნახავს; აქ მხოლოდ ამ ნაშრომია გადმოტანილი.",
       sections: [
         {
@@ -242,13 +240,11 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
       ],
     },
     en: {
-      title:
-        "Adult ‘pontica’ viper recorded in the Borjomi valley — a hybrid, not a new species",
-      metaTitle:
-        "Adult ‘pontica’ viper recorded in the Borjomi valley — a hybrid, not a new species",
+      title: "A rare viper hybrid recorded in the Borjomi valley",
+      metaTitle: "A rare viper hybrid recorded in the Borjomi valley",
       metaDescription:
         "On 7 May 2025 a viper with mixed Caucasus and nose-horned traits was recorded in the Borjomi valley. A 2026 paper treats Vipera pontica as a rare hybrid, not a third species.",
-      dek: "Herpetology Notes reports an adult viper from the Borjomi valley with intermediate characters. The authors treat it as a rare hybrid, not a separate species.",
+      dek: "Herpetology Notes reports an adult viper from the Borjomi valley with intermediate characters. The authors treat it as a hybrid, not a third species.",
       lead: "On 7 May 2025, in the Borjomi valley on the upper Mtkvari (Kura), observers recorded an adult viper that combined characters of Caucasus viper and nose-horned viper. The account was published in Herpetology Notes on 10 June 2026. The authors call it the first documented adult resembling the old name Vipera pontica, and the first such record from Georgia. They do not treat it as a species of its own. Reptiles.ge did not see the snake; this page follows their paper.",
       sections: [
         {
@@ -371,13 +367,11 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
       ],
     },
     ru: {
-      title:
-        "В Боржомском ущелье зафиксировали взрослую «понтийскую гадюку» — это гибрид, не новый вид",
-      metaTitle:
-        "В Боржомском ущелье зафиксировали взрослую «понтийскую гадюку» — это гибрид, не новый вид",
+      title: "В Боржомском ущелье зафиксировали редкий гибрид гадюки",
+      metaTitle: "В Боржомском ущелье зафиксировали редкий гибрид гадюки",
       metaDescription:
         "7 мая 2025 года в Боржомском ущелье зафиксировали взрослую гадюку с промежуточными признаками кавказской и носатой. Статья 2026 года не считает Vipera pontica отдельным видом.",
-      dek: "Herpetology Notes описывает взрослую гадюку из Боржомского ущелья с промежуточными признаками. Авторы считают её редким гибридом, а не третьим видом.",
+      dek: "Herpetology Notes описывает взрослую гадюку из Боржомского ущелья с промежуточными признаками. Авторы считают её гибридом, а не третьим видом.",
       lead: "7 мая 2025 года в Боржомском ущелье, в верховьях Мтквари (Куры), наблюдали взрослую гадюку с признаками и кавказской, и носатой гадюки. Сообщение вышло в Herpetology Notes 10 июня 2026 года. Авторы называют это первой документированной взрослой особью, похожей на старое имя Vipera pontica, и первой такой записью из Грузии. Отдельным видом они её не считают. Reptiles.ge змею не видел; здесь пересказан только этот труд.",
       sections: [
         {
@@ -500,13 +494,11 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
       ],
     },
     tr: {
-      title:
-        "Borjomi vadisinde erişkin ‘pontica’ engereği kaydedildi — yeni tür değil, hibrit",
-      metaTitle:
-        "Borjomi vadisinde erişkin ‘pontica’ engereği kaydedildi — yeni tür değil, hibrit",
+      title: "Borjomi vadisinde nadir bir engerek hibriti kaydedildi",
+      metaTitle: "Borjomi vadisinde nadir bir engerek hibriti kaydedildi",
       metaDescription:
         "7 Mayıs 2025’te Borjomi vadisinde Kafkas ve boynuzlu engerek karakterlerini karıştıran bir engerek kaydedildi. 2026 makalesi Vipera pontica’yı ayrı tür saymaz.",
-      dek: "Herpetology Notes, Borjomi vadisinden ara karakterli erişkin bir engerek bildiriyor. Yazarlar bunu ayrı tür değil, nadir hibrit sayıyor.",
+      dek: "Herpetology Notes, Borjomi vadisinden ara karakterli erişkin bir engerek bildiriyor. Yazarlar bunu üçüncü tür değil, hibrit sayıyor.",
       lead: "7 Mayıs 2025’te Borjomi vadisinde, Mtkvari’nin (Kura) yukarı çığırında, hem Kafkas engereği hem boynuzlu engerek karakterleri taşıyan erişkin bir engerek kaydedildi. Yazı 10 Haziran 2026’da Herpetology Notes’ta çıktı. Yazarlar bunu eski ad Vipera pontica’ya benzeyen ilk belgelenmiş erişkin ve Gürcistan’dan ilk böyle kayıt sayıyor. Ayrı bir tür kabul etmiyorlar. Reptiles.ge yılanı görmedi; bu sayfa onların makalesini izler.",
       sections: [
         {
