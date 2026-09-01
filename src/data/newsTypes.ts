@@ -48,5 +48,7 @@ export type NewsArticle = {
   relatedRegionIds: readonly string[];
   relatedHubIds: readonly GroupHubId[];
   sources: readonly NewsSource[];
+  image?: NewsPhoto;
+  gallery?: readonly NewsPhoto[];
   copy: Record<AppLocale, NewsLocaleCopy>;
 };

@@ -11,6 +11,7 @@ export type {
   NewsArticleStatus,
   NewsLocaleCopy,
   NewsMark,
+  NewsPhoto,
   NewsSection,
   NewsSource,
 } from "@/data/newsTypes";
@@ -119,4 +120,15 @@ export function newsLocalizedTitle(article: NewsArticle, locale: AppLocale) {
 export function newsSourceOrg(article: NewsArticle) {
   const name = article.sources[0]?.name ?? "";
   return name.split(" — ")[0]?.trim() || name;
+}
+
+export function newsArticlePhotos(article: NewsArticle) {
+  const photos = [];
+  if (article.image) photos.push(article.image);
+  if (article.gallery) photos.push(...article.gallery);
+  return photos;
+}
+
+export function newsCoverSrc(article: NewsArticle) {
+  return article.image?.src;
 }
