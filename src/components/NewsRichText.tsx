@@ -3,7 +3,6 @@ import type { AppLocale } from "@/i18n/routing";
 import type { NewsMark } from "@/data/newsTypes";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
-import type { ReactNode } from "react";
 
 function NewsMarkNode({
   mark,
