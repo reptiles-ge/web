@@ -69,6 +69,40 @@ function githubRepoName(cwd: string) {
   return parsed.nameWithOwner;
 }
 
+function findOpenPhotoPullRequest(id: string): { branch: string; url: string } | null {
+  try {
+    const raw = run(
+      "gh",
+      [
+        "pr",
+        "list",
+        "--base",
+        BASE_BRANCH,
+        "--state",
+        "open",
+        "--limit",
+        "50",
+        "--json",
+        "headRefName,url",
+      ],
+      REPO_ROOT,
+    );
+    const prs = JSON.parse(raw) as Array<{ headRefName?: string; url?: string }>;
+    const prefix = `photos/${id}-`;
+    const match = prs.find(
+      (pr) =>
+        typeof pr.headRefName === "string" &&
+        pr.headRefName.startsWith(prefix) &&
+        typeof pr.url === "string" &&
+        pr.url.startsWith("http"),
+    );
+    if (!match?.headRefName || !match.url) return null;
+    return { branch: match.headRefName, url: match.url };
+  } catch {
+    return null;
+  }
+}
+
 function createPullRequest(input: {
   cwd: string;
   repo: string;
@@ -123,7 +157,8 @@ export async function openPhotoPullRequest(input: {
   }
 
   const rel = speciesMdxRel(input.id);
-  const branch = `photos/${input.id}-${stamp()}`;
+  const existing = findOpenPhotoPullRequest(input.id);
+  const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
   const worktree = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-photos-"));
   let addedWorktree = false;
   let pushed = false;
@@ -135,11 +170,27 @@ export async function openPhotoPullRequest(input: {
       run("git", ["rev-parse", "--verify", BASE_REF], REPO_ROOT);
     }
 
-    run(
-      "git",
-      ["worktree", "add", "-b", branch, worktree, BASE_REF],
-      REPO_ROOT,
-    );
+    if (existing) {
+      run("git", ["fetch", "origin", existing.branch], REPO_ROOT);
+      run(
+        "git",
+        [
+          "worktree",
+          "add",
+          "-B",
+          existing.branch,
+          worktree,
+          `origin/${existing.branch}`,
+        ],
+        REPO_ROOT,
+      );
+    } else {
+      run(
+        "git",
+        ["worktree", "add", "-b", branch, worktree, BASE_REF],
+        REPO_ROOT,
+      );
+    }
     addedWorktree = true;
 
     for (const item of input.items) {
@@ -186,6 +237,15 @@ export async function openPhotoPullRequest(input: {
     ].join("\n");
 
     const repo = githubRepoName(worktree);
+    if (existing) {
+      try {
+        run("gh", ["pr", "edit", existing.url, "--body", prBody], worktree);
+      } catch {
+        return existing.url;
+      }
+      return existing.url;
+    }
+
     let lastError = "Could not open pull request";
     for (let attempt = 1; attempt <= 4; attempt += 1) {
       try {

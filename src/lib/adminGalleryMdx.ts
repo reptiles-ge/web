@@ -150,22 +150,37 @@ function yamlScalar(value: string): string {
   return value;
 }
 
+function creditEntries(credit: PhotoCredit): Array<[string, string]> {
+  const entries: Array<[string, string]> = [];
+  if (credit.photographer) entries.push(["photographer", credit.photographer]);
+  if (credit.url) entries.push(["url", credit.url]);
+  if (credit.location) entries.push(["location", credit.location]);
+  if (credit.date) entries.push(["date", credit.date]);
+  return entries;
+}
+
+function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
+  const left = Object.fromEntries(creditEntries(a ?? {}));
+  const right = Object.fromEntries(creditEntries(b ?? {}));
+  const keys = new Set([...Object.keys(left), ...Object.keys(right)]);
+  for (const key of keys) {
+    if (left[key] !== right[key]) return false;
+  }
+  return true;
+}
+
 export function formatGalleryItemYaml(item: GalleryImage): string {
   const lines = [`  - src: "${item.src}"`];
   const credit = item.credit;
-  if (credit) {
+  const fields = credit ? creditEntries(credit) : [];
+  if (fields.length > 0) {
     lines.push("    credit:");
-    if (credit.photographer) {
-      lines.push(`      photographer: ${yamlScalar(credit.photographer)}`);
-    }
-    if (credit.url) {
-      lines.push(`      url: ${JSON.stringify(credit.url)}`);
-    }
-    if (credit.location) {
-      lines.push(`      location: ${yamlScalar(credit.location)}`);
-    }
-    if (credit.date) {
-      lines.push(`      date: ${yamlScalar(credit.date)}`);
+    for (const [key, value] of fields) {
+      lines.push(
+        key === "url"
+          ? `      url: ${JSON.stringify(value)}`
+          : `      ${key}: ${yamlScalar(value)}`,
+      );
     }
   }
   return `${lines.join("\n")}\n`;
@@ -213,8 +228,12 @@ export function appendGalleryItemToMdx(raw: string, item: GalleryImage): string 
 
   const next = lines.join(newline);
   const check = normalizeGallery(matter(next).data.gallery);
-  if (!check.some((entry) => entry.src === item.src)) {
+  const added = check.find((entry) => entry.src === item.src);
+  if (!added) {
     throw new Error("Failed to append gallery item");
+  }
+  if (!creditsEqual(item.credit, added.credit)) {
+    throw new Error("Failed to append gallery credit");
   }
   return next;
 }

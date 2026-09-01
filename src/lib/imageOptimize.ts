@@ -114,6 +114,38 @@ export async function optimizeUploadedOriginal(input: {
   return { key: input.key, src: input.src, entry, asset };
 }
 
+function parseGeneratedImages(objectLiteral: string): Record<string, OptimizedImageEntry> {
+  try {
+    return JSON.parse(objectLiteral) as Record<string, OptimizedImageEntry>;
+  } catch {
+    let parsed: unknown;
+    try {
+      parsed = new Function(`"use strict"; return (${objectLiteral});`)();
+    } catch {
+      throw new Error("optimizedImages.generated.ts is not in the expected format");
+    }
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      throw new Error("optimizedImages.generated.ts is not in the expected format");
+    }
+    return parsed as Record<string, OptimizedImageEntry>;
+  }
+}
+
+function formatGeneratedImages(images: Record<string, OptimizedImageEntry>): string {
+  const entries = Object.entries(images).map(([src, asset]) => {
+    const widths = `[${asset.widths.join(", ")}]`;
+    const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
+    return `  ${JSON.stringify(src)}: {
+    path: ${JSON.stringify(asset.path)},
+    width: ${asset.width},
+    height: ${asset.height},
+    widths: ${widths},
+    formats: ${formats},
+  },`;
+  });
+  return `{\n${entries.join("\n")}\n}`;
+}
+
 function upsertGeneratedFile(
   filePath: string,
   updates: Array<{ src: string; asset: OptimizedImageEntry }>,
@@ -125,14 +157,11 @@ function upsertGeneratedFile(
   if (start < 0) {
     throw new Error("optimizedImages.generated.ts is not in the expected format");
   }
-  const jsonPart = raw.slice(start + marker.length).trimEnd();
-  if (!jsonPart.endsWith(";")) {
+  const objectPart = raw.slice(start + marker.length).trimEnd();
+  if (!objectPart.endsWith(";")) {
     throw new Error("optimizedImages.generated.ts is not in the expected format");
   }
-  const images = JSON.parse(jsonPart.slice(0, -1)) as Record<
-    string,
-    OptimizedImageEntry
-  >;
+  const images = parseGeneratedImages(objectPart.slice(0, -1));
   for (const update of updates) {
     images[update.src] = update.asset;
   }
@@ -148,11 +177,7 @@ import type { OptimizedImageEntry } from "./optimizedImages";
 
 export const optimizedBaseUrl = ${JSON.stringify(prefix)};
 
-export const optimizedImages: Record<string, OptimizedImageEntry> = ${JSON.stringify(
-    sorted,
-    null,
-    2,
-  )};
+export const optimizedImages: Record<string, OptimizedImageEntry> = ${formatGeneratedImages(sorted)};
 `;
   fs.writeFileSync(filePath, next);
 }
