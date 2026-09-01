@@ -153,7 +153,7 @@ export default async function QuizSlugRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Thing",
-      name: locale === "en" ? "Snakes of Georgia" : "საქართველოს გველები",
+      name: t("title"),
     },
     educationalLevel: "beginner",
     numberOfQuestions: QUIZ_LENGTH,

@@ -153,7 +153,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
     publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Thing",
-      name: locale === "en" ? "Snakes in residential yards" : "გველი ეზოში",
+      name: t("title"),
     },
     inLanguage: locale,
   };

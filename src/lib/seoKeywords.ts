@@ -2,7 +2,6 @@ import type { Species } from "@/data/species";
 import {
   caucasusPlaceName,
   georgiaPlaceName,
-  pickLocalized,
 } from "@/i18n/localeMeta";
 import type { AppLocale } from "@/i18n/routing";
 
