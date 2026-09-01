@@ -5,7 +5,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
   slug: "batumi-19300-raptors-2026",
   status: "published",
   publishedAt: "2026-08-27",
-  relatedSpeciesIds: ["buteo-buteo", "pernis-apivorus"],
+  relatedSpeciesIds: ["buteo-buteo", "milvus-migrans"],
   relatedRegionIds: ["adjara"],
   relatedHubIds: ["birds"],
   sources: [
@@ -59,8 +59,8 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               " და ",
               {
                 type: "species",
-                id: "pernis-apivorus",
-                label: "ბოლოკარკაზი",
+                id: "milvus-migrans",
+                label: "შავი ძერა",
               },
               ".",
             ],
@@ -148,8 +148,8 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               " and ",
               {
                 type: "species",
-                id: "pernis-apivorus",
-                label: "European honey buzzard",
+                id: "milvus-migrans",
+                label: "Black kite",
               },
               ".",
             ],
@@ -237,8 +237,8 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               " и ",
               {
                 type: "species",
-                id: "pernis-apivorus",
-                label: "обыкновенного осоеда",
+                id: "milvus-migrans",
+                label: "чёрного коршуна",
               },
               ".",
             ],
@@ -326,8 +326,8 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               " ve ",
               {
                 type: "species",
-                id: "pernis-apivorus",
-                label: "arı şahini",
+                id: "milvus-migrans",
+                label: "kara çaylak",
               },
               ".",
             ],

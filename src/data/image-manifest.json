@@ -27369,6 +27369,313 @@
       ],
       "updatedAt": "2026-08-28T21:54:37.779Z"
     },
+    "milvus-migrans-kraft-germany.jpg": {
+      "sourceHash": "8648d8dca44b8fe34ffb3a5b2db38e3eb59249face16f26929f94125af6b3376",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "milvus-migrans-kraft-germany.jpg",
+      "originalSize": 335744,
+      "width": 800,
+      "height": 600,
+      "derivatives": [
+        {
+          "key": "optimized/milvus-migrans-kraft-germany-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6994
+        },
+        {
+          "key": "optimized/milvus-migrans-kraft-germany-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8652
+        },
+        {
+          "key": "optimized/milvus-migrans-kraft-germany-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 24290
+        },
+        {
+          "key": "optimized/milvus-migrans-kraft-germany-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29676
+        }
+      ],
+      "updatedAt": "2026-09-01T12:59:02.220Z"
+    },
+    "milvus-migrans-sharp-huelva-2.jpg": {
+      "sourceHash": "7e047260b67c5a970df89bec0cd88af0b77760cd6e4cef8a7f704e2eef37a6ad",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "milvus-migrans-sharp-huelva-2.jpg",
+      "originalSize": 1597292,
+      "width": 1988,
+      "height": 1326,
+      "derivatives": [
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4435
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5292
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 10045
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 13124
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 16448
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 22558
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-1988.avif",
+          "format": "avif",
+          "width": 1988,
+          "height": 1326,
+          "byteSize": 33117
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2-1988.webp",
+          "format": "webp",
+          "width": 1988,
+          "height": 1326,
+          "byteSize": 45400
+        }
+      ],
+      "updatedAt": "2026-09-01T12:59:09.129Z"
+    },
+    "milvus-migrans-sharp-huelva.jpg": {
+      "sourceHash": "ba0abdb62861c503b8eda10bea91e01dc151df0277efe832e1efb2836f004579",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "milvus-migrans-sharp-huelva.jpg",
+      "originalSize": 4317619,
+      "width": 2400,
+      "height": 2400,
+      "derivatives": [
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 5848
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 6632
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 12355
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 15560
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 19742
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 26224
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 43859
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-huelva-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2400,
+          "byteSize": 67934
+        }
+      ],
+      "updatedAt": "2026-09-01T12:59:10.699Z"
+    },
+    "milvus-migrans-sharp-liechtenstein.jpg": {
+      "sourceHash": "579d9117e4816c7b991a5aaac8183fe38ba5ac4ce530d5d9d837cd33e386ea0e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "milvus-migrans-sharp-liechtenstein.jpg",
+      "originalSize": 6350997,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 4277
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5222
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 10926
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 14186
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 20005
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 27590
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 65523
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-liechtenstein-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 93758
+        }
+      ],
+      "updatedAt": "2026-09-01T12:59:08.739Z"
+    },
+    "milvus-migrans-sharp-morocco.jpg": {
+      "sourceHash": "23fc75eb607c725a678b6e1a0545949c0f1261b505e3e9ba756f4e6f6de7cae4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "milvus-migrans-sharp-morocco.jpg",
+      "originalSize": 7005719,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6474
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7040
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 10133
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 12688
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 15113
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 19648
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 43266
+        },
+        {
+          "key": "optimized/milvus-migrans-sharp-morocco-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 53248
+        }
+      ],
+      "updatedAt": "2026-09-01T12:59:10.684Z"
+    },
     "mustela-nivalis-andrieux-1.jpg": {
       "sourceHash": "0d39fdcbf07c7c659fd0d9c03f0f41142d7faaf4952e68c47374050eb13fb53c",
       "configFingerprint": "a895f8e025dcc7fa",

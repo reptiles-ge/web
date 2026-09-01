@@ -6323,6 +6323,79 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
+  "https://cdn.reptiles.ge/milvus-migrans-kraft-germany.jpg": {
+    "path": "milvus-migrans-kraft-germany",
+    "width": 800,
+    "height": 600,
+    "widths": [
+      400,
+      800
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/milvus-migrans-sharp-huelva-2.jpg": {
+    "path": "milvus-migrans-sharp-huelva-2",
+    "width": 1988,
+    "height": 1326,
+    "widths": [
+      400,
+      800,
+      1200,
+      1988
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/milvus-migrans-sharp-huelva.jpg": {
+    "path": "milvus-migrans-sharp-huelva",
+    "width": 2400,
+    "height": 2400,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/milvus-migrans-sharp-liechtenstein.jpg": {
+    "path": "milvus-migrans-sharp-liechtenstein",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "https://cdn.reptiles.ge/milvus-migrans-sharp-morocco.jpg": {
+    "path": "milvus-migrans-sharp-morocco",
+    "width": 2400,
+    "height": 1600,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
   "https://cdn.reptiles.ge/mustela-nivalis-andrieux-1.jpg": {
     "path": "mustela-nivalis-andrieux-1",
     "width": 1184,

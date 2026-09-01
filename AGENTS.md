@@ -70,8 +70,8 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Catalog
 
-- **112** MDX taxa. **111** published. `dolichophis-caspius` is unpublished (`unpublishedSpeciesIds`) and 302s to the snake hub.
-- Groups (approx.): 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 28 birds, 15 mammals.
+- **115** MDX taxa. **113** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub.
+- Groups (approx.): 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 32 birds, 15 mammals.
 - SSOT for live pages, quiz, atlas, search: `getCatalogSpecies()` — never a parallel species list.
 - Atlas group + habitat tags: `speciesAtlasMeta` in `src/data/speciesAtlas.ts`. Adding a species without this entry will break grouping.
 - `vipera-ammodytes` is not a taxon here; 301 → `vipera-transcaucasiana`.
