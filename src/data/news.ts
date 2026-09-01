@@ -118,6 +118,5 @@ export function newsLocalizedTitle(article: NewsArticle, locale: AppLocale) {
 
 export function newsSourceOrg(article: NewsArticle) {
   const name = article.sources[0]?.name ?? "";
-  const org = name.split(" — ")[0]?.trim();
-  return org || name || "Batumi Raptor Count";
+  return name.split(" — ")[0]?.trim() || name;
 }
