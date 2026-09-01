@@ -32,9 +32,9 @@ export function getNewsVisual(
         item.commonName,
         item.scientificName,
         item.location,
-        species.imageCredit,
+        item.imageCredit,
       ),
-      credit: species.imageCredit,
+      credit: item.imageCredit,
     };
   }
 
