@@ -333,6 +333,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["grassland"],
   },
+  "bubo-bubo": {
+    group: "bird",
+    habitats: ["mountain", "forest", "grassland"],
+  },
   "ficedula-hypoleuca": {
     group: "bird",
     habitats: ["forest"],
