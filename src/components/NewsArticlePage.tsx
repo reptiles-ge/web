@@ -78,7 +78,7 @@ export async function NewsArticlePage({
                   <li>
                     <Link
                       href="/"
-                      className="transition-colors hover:text-foreground"
+                      className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
                     >
                       {tShared("breadcrumbHome")}
                     </Link>
@@ -89,7 +89,7 @@ export async function NewsArticlePage({
                   <li>
                     <Link
                       href={newsIndexHref()}
-                      className="transition-colors hover:text-foreground"
+                      className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
                     >
                       {t("breadcrumbNews")}
                     </Link>

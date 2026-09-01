@@ -35,12 +35,12 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
             <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                 <li>
-                  <Link
-                    href="/"
-                    className="transition-colors hover:text-foreground"
-                  >
-                    {tShared("breadcrumbHome")}
-                  </Link>
+                    <Link
+                      href="/"
+                      className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                    >
+                      {tShared("breadcrumbHome")}
+                    </Link>
                 </li>
                 <li aria-hidden="true" className="text-border">
                   /
