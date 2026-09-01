@@ -238,7 +238,13 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               "В этом отчёте нет точных цифр по видам. Здесь можно повторить только их сводку: почти 19 300 птиц на двух станциях, первый день сезона выше 10 000, доминант — осоед. Чёрный коршун и луни названы, без численности.",
             ],
             [
-              "Осоед в Грузии — отдельный вид. Профиля для него в атласе пока нет. Ближайшая страница — ",
+              "Осоед в Грузии — отдельный вид. Профиль в атласе: ",
+              {
+                type: "species",
+                id: "pernis-apivorus",
+                label: "обыкновенный осоед",
+              },
+              ". Ближайшая страница сходного вида — ",
               {
                 type: "species",
                 id: "buteo-buteo",
@@ -315,7 +321,13 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               "Raporda türe göre kesin sayılar yok. Burada yalnızca özetleri tekrarlanabilir: iki istasyonda yaklaşık 19.300 kuş, sezonun ilk 10.000 üzeri günü, baskın tür arı şahini. Kara çaylak ve deliceler adı geçiyor, sayı yok.",
             ],
             [
-              "Arı şahini Gürcistan’da ayrı bir türdür. Atlas’ta henüz profili yok. En yakın sayfa ",
+              "Arı şahini Gürcistan’da ayrı bir türdür. Atlas’taki profili: ",
+              {
+                type: "species",
+                id: "pernis-apivorus",
+                label: "arı şahini",
+              },
+              ". En yakın benzer sayfa ",
               {
                 type: "species",
                 id: "buteo-buteo",
