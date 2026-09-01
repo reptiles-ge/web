@@ -34,7 +34,11 @@ export function speciesContentDir(id: string) {
   return path.join(CONTENT_ROOT, id);
 }
 
-function mdxPath(id: string, locale: "ka" | "en") {
+const OVERLAY_LOCALES = ["en", "ru", "tr"] as const;
+
+export type GalleryOverlayLocale = (typeof OVERLAY_LOCALES)[number];
+
+function mdxPath(id: string, locale: string) {
   return path.join(speciesContentDir(id), `${locale}.mdx`);
 }
 
@@ -159,7 +163,7 @@ function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   return entries;
 }
 
-function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
+export function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
   const left = Object.fromEntries(creditEntries(a ?? {}));
   const right = Object.fromEntries(creditEntries(b ?? {}));
   const keys = new Set([...Object.keys(left), ...Object.keys(right)]);
@@ -241,17 +245,31 @@ export function appendGalleryItemToMdx(raw: string, item: GalleryImage): string 
 export function appendGalleryItemToSpecies(
   id: string,
   kaItem: GalleryImage,
-  enItem: GalleryImage,
+  overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {},
   repoRoot = process.cwd(),
 ) {
-  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  const enPath = path.join(repoRoot, "src/content/species", id, "en.mdx");
-  if (!fs.existsSync(kaPath) || !fs.existsSync(enPath)) {
-    throw new Error(`Missing MDX for ${id}`);
+  const dir = path.join(repoRoot, "src/content/species", id);
+  const kaPath = path.join(dir, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
   }
 
-  const nextKa = appendGalleryItemToMdx(fs.readFileSync(kaPath, "utf8"), kaItem);
-  const nextEn = appendGalleryItemToMdx(fs.readFileSync(enPath, "utf8"), enItem);
-  fs.writeFileSync(kaPath, nextKa, "utf8");
-  fs.writeFileSync(enPath, nextEn, "utf8");
+  fs.writeFileSync(
+    kaPath,
+    appendGalleryItemToMdx(fs.readFileSync(kaPath, "utf8"), kaItem),
+    "utf8",
+  );
+
+  for (const locale of OVERLAY_LOCALES) {
+    const overlay = overlays[locale];
+    if (!overlay) continue;
+    const filePath = path.join(dir, `${locale}.mdx`);
+    if (!fs.existsSync(filePath)) continue;
+    if (creditsEqual(kaItem.credit, overlay.credit)) continue;
+    fs.writeFileSync(
+      filePath,
+      appendGalleryItemToMdx(fs.readFileSync(filePath, "utf8"), overlay),
+      "utf8",
+    );
+  }
 }

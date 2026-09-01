@@ -32,10 +32,9 @@ function run(cmd: string, args: string[], cwd: string) {
 }
 
 function speciesMdxRel(id: string) {
-  return {
-    ka: path.join("src/content/species", id, "ka.mdx"),
-    en: path.join("src/content/species", id, "en.mdx"),
-  };
+  return ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"].map((file) =>
+    path.join("src/content/species", id, file),
+  );
 }
 
 function stamp() {
@@ -146,7 +145,10 @@ function createPullRequest(input: {
 
 export async function openPhotoPullRequest(input: {
   id: string;
-  items: Array<{ ka: GalleryImage; en: GalleryImage }>;
+  items: Array<{
+    ka: GalleryImage;
+    overlays?: Partial<Record<"en" | "ru" | "tr", GalleryImage>>;
+  }>;
   catalog?: OptimizeCatalogUpdate[];
 }): Promise<string> {
   if (!isSpeciesContentId(input.id)) {
@@ -194,7 +196,12 @@ export async function openPhotoPullRequest(input: {
     addedWorktree = true;
 
     for (const item of input.items) {
-      appendGalleryItemToSpecies(input.id, item.ka, item.en, worktree);
+      appendGalleryItemToSpecies(
+        input.id,
+        item.ka,
+        item.overlays ?? {},
+        worktree,
+      );
     }
     const catalog = input.catalog ?? [];
     await applyOptimizeCatalog(worktree, catalog);
@@ -207,7 +214,10 @@ export async function openPhotoPullRequest(input: {
               : []),
           ]
         : [];
-    run("git", ["add", "--", rel.ka, rel.en, ...catalogFiles], worktree);
+    const mdxFiles = rel.filter((file) =>
+      fs.existsSync(path.join(worktree, file)),
+    );
+    run("git", ["add", "--", ...mdxFiles, ...catalogFiles], worktree);
 
     if (!hasStagedChanges(worktree)) {
       throw new Error("No gallery changes to open a pull request for");
@@ -232,7 +242,7 @@ export async function openPhotoPullRequest(input: {
       "- `image-manifest.json` and `optimizedImages.generated.ts` updated so the gallery uses `<picture>` sources",
       "",
       "## Test plan",
-      "- [ ] KA and EN profile galleries show the new photo(s)",
+      "- [ ] Species profile gallery shows the new photo(s) in every locale",
       "- [ ] Network panel loads `.avif` (or `.webp`) derivatives, not only the JPEG original",
     ].join("\n");
 
