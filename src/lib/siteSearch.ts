@@ -164,11 +164,16 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "ბაყაყები, ტრიტონები და სალამანდრები",
       en: "Frogs, newts, and salamanders",
     },
-    keywords: ["ამფიბიები", "amfibiebi", "amphibians", "ბაყაყები", "frogs"],
+    keywords: ["ამფიბიები", "amfibiebi", "amphibians", "ბაყაყები", "frogs", "амфибии", "amfibi"],
     icon: "hub",
   },
   birds: {
-    title: { ka: "ფრინველები საქართველოში", en: "Birds in Georgia" },
+    title: {
+      ka: "ფრინველები საქართველოში",
+      en: "Birds in Georgia",
+      ru: "Птицы Грузии",
+      tr: "Gürcistan kuşları",
+    },
     subtitle: {
       ka: "ფრინველების პროფილები ბუნების ატლასში",
       en: "Bird profiles in the nature atlas",
@@ -183,7 +188,12 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
     icon: "hub",
   },
   mammals: {
-    title: { ka: "ძუძუმწოვრები საქართველოში", en: "Mammals in Georgia" },
+    title: {
+      ka: "ძუძუმწოვრები საქართველოში",
+      en: "Mammals in Georgia",
+      ru: "Млекопитающие Грузии",
+      tr: "Gürcistan memelileri",
+    },
     subtitle: {
       ka: "ძუძუმწოვრების პროფილები ბუნების ატლასში",
       en: "Mammal profiles in the nature atlas",
