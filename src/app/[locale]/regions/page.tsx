@@ -1,6 +1,7 @@
 import { JsonLd } from "@/components/JsonLd";
 import { RegionsIndex } from "@/components/RegionsIndex";
 import { regions, localizeRegionText } from "@/data/regions";
+import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "website",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
     },
     twitter: {
@@ -79,7 +80,7 @@ export default async function RegionsPage({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Place",
-      name: locale === "en" ? "Georgia" : "საქართველო",
+      name: georgiaPlaceName(locale),
     },
     hasPart: regions.map((region) => ({
       "@type": "WebPage",
