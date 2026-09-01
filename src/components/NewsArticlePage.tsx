@@ -66,57 +66,55 @@ export async function NewsArticlePage({
       {visual ? (
         <CoverImagePreload
           src={visual.src}
-          sizes="(max-width: 1023px) 100vw, 1100px"
+          sizes="(max-width: 1023px) 100vw, 1400px"
         />
       ) : null}
       <main>
-        <article>
-          <header className="pt-[7.5rem] sm:pt-[8.25rem]">
-            <div className="mx-auto max-w-[42rem] px-6 lg:px-0">
-              <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
-                <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
-                  <li>
-                    <Link
-                      href="/"
-                      className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
-                    >
-                      {tShared("breadcrumbHome")}
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="text-border">
-                    /
-                  </li>
-                  <li>
-                    <Link
-                      href={newsIndexHref()}
-                      className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
-                    >
-                      {t("breadcrumbNews")}
-                    </Link>
-                  </li>
-                </ol>
-              </nav>
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                {category ? <span>{category}</span> : null}
-                {category ? <span aria-hidden="true"> · </span> : null}
-                <time dateTime={article.publishedAt}>{dateLabel}</time>
-              </p>
-              <h1 className="mt-5 font-display text-balance-tight text-[clamp(1.95rem,4.8vw,3.35rem)] font-semibold leading-[1.08] text-foreground">
-                {copy.title}
-              </h1>
-              <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
-                {copy.dek}
-              </p>
-            </div>
+        <article className="mx-auto max-w-[1400px] px-6 pt-[7.5rem] pb-16 sm:pt-[8.25rem] sm:pb-20 lg:px-10">
+          <header>
+            <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
+              <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
+                <li>
+                  <Link
+                    href="/"
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                  >
+                    {tShared("breadcrumbHome")}
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="text-border">
+                  /
+                </li>
+                <li>
+                  <Link
+                    href={newsIndexHref()}
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                  >
+                    {t("breadcrumbNews")}
+                  </Link>
+                </li>
+              </ol>
+            </nav>
+            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              {category ? <span>{category}</span> : null}
+              {category ? <span aria-hidden="true"> · </span> : null}
+              <time dateTime={article.publishedAt}>{dateLabel}</time>
+            </p>
+            <h1 className="mt-5 max-w-4xl font-display text-balance-tight text-[clamp(1.95rem,4.8vw,3.35rem)] font-semibold leading-[1.08] text-foreground">
+              {copy.title}
+            </h1>
+            <p className="mt-5 max-w-3xl text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
+              {copy.dek}
+            </p>
           </header>
 
           {visual ? (
-            <figure className="mx-auto mt-10 max-w-[1100px] px-6 lg:mt-14 lg:px-10">
+            <figure className="mt-10 lg:mt-14">
               <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]">
                 <CoverImage
                   src={visual.src}
                   alt={visual.alt}
-                  sizes="(max-width: 1023px) 100vw, 1100px"
+                  sizes="(max-width: 1023px) 100vw, 1400px"
                   priority
                   className="object-cover object-center"
                 />
@@ -127,7 +125,7 @@ export async function NewsArticlePage({
             </figure>
           ) : null}
 
-          <div className="mx-auto max-w-[42rem] px-6 pt-10 pb-16 lg:px-0 sm:pt-12 sm:pb-20">
+          <div className="max-w-3xl pt-10 sm:pt-12">
             <p className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]">
               {copy.lead}
             </p>
@@ -206,81 +204,81 @@ export async function NewsArticlePage({
                 ) : null}
               </aside>
             ) : null}
-
-            {hasRelated ? (
-              <section className="mt-16 border-t border-border pt-10 sm:mt-20">
-                <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground">
-                  {t("relatedHeading")}
-                </h2>
-                <ul className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2">
-                  {species.map((item) => (
-                    <li key={item.id}>
-                      <RelatedAtlasCard
-                        href={speciesHref(item.id, locale)}
-                        title={item.commonName}
-                        subtitle={item.scientificName}
-                        image={
-                          isPlaceholderMedia(item.image) ? null : item.image
-                        }
-                        imageAlt={speciesPhotoAlt(
-                          item.commonName,
-                          item.scientificName,
-                          item.location,
-                          item.imageCredit,
-                        )}
-                      />
-                    </li>
-                  ))}
-                  {regions.map((region) => (
-                    <li key={region.id}>
-                      <RelatedAtlasCard
-                        href={regionHref(region.id)}
-                        title={localizeRegionText(region.name, locale)}
-                        image={getRegionHeroImage(region.id)}
-                        imageAlt={localizeRegionText(region.name, locale)}
-                      />
-                    </li>
-                  ))}
-                  {hubs.map((relatedHub) => {
-                    const hero = getSpeciesById(relatedHub.heroSpeciesId);
-                    return (
-                      <li key={relatedHub.id}>
-                        <RelatedAtlasCard
-                          href={relatedHub.path}
-                          title={tNav(relatedHub.id)}
-                          image={
-                            hero && !isPlaceholderMedia(hero.image)
-                              ? hero.image
-                              : null
-                          }
-                          imageAlt={
-                            hero
-                              ? speciesPhotoAlt(
-                                  localizeSpecies(hero, locale).commonName,
-                                  hero.scientificName,
-                                  localizeSpecies(hero, locale).location,
-                                  hero.imageCredit,
-                                )
-                              : ""
-                          }
-                        />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            ) : null}
-
-            <p className="mt-16 sm:mt-20">
-              <Link
-                href={newsIndexHref()}
-                className="inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-              >
-                <ArrowLeft aria-hidden="true" className="size-3.5" />
-                {t("allNews")}
-              </Link>
-            </p>
           </div>
+
+          {hasRelated ? (
+            <section className="mt-16 border-t border-border pt-10 sm:mt-20">
+              <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground">
+                {t("relatedHeading")}
+              </h2>
+              <ul className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
+                {species.map((item) => (
+                  <li key={item.id}>
+                    <RelatedAtlasCard
+                      href={speciesHref(item.id, locale)}
+                      title={item.commonName}
+                      subtitle={item.scientificName}
+                      image={
+                        isPlaceholderMedia(item.image) ? null : item.image
+                      }
+                      imageAlt={speciesPhotoAlt(
+                        item.commonName,
+                        item.scientificName,
+                        item.location,
+                        item.imageCredit,
+                      )}
+                    />
+                  </li>
+                ))}
+                {regions.map((region) => (
+                  <li key={region.id}>
+                    <RelatedAtlasCard
+                      href={regionHref(region.id)}
+                      title={localizeRegionText(region.name, locale)}
+                      image={getRegionHeroImage(region.id)}
+                      imageAlt={localizeRegionText(region.name, locale)}
+                    />
+                  </li>
+                ))}
+                {hubs.map((relatedHub) => {
+                  const hero = getSpeciesById(relatedHub.heroSpeciesId);
+                  return (
+                    <li key={relatedHub.id}>
+                      <RelatedAtlasCard
+                        href={relatedHub.path}
+                        title={tNav(relatedHub.id)}
+                        image={
+                          hero && !isPlaceholderMedia(hero.image)
+                            ? hero.image
+                            : null
+                        }
+                        imageAlt={
+                          hero
+                            ? speciesPhotoAlt(
+                                localizeSpecies(hero, locale).commonName,
+                                hero.scientificName,
+                                localizeSpecies(hero, locale).location,
+                                hero.imageCredit,
+                              )
+                            : ""
+                        }
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ) : null}
+
+          <p className="mt-16 sm:mt-20">
+            <Link
+              href={newsIndexHref()}
+              className="inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+            >
+              <ArrowLeft aria-hidden="true" className="size-3.5" />
+              {t("allNews")}
+            </Link>
+          </p>
         </article>
         <ContentAttribution sourcesHref="#sources" />
       </main>
@@ -311,7 +309,7 @@ function RelatedAtlasCard({
           <CoverImage
             src={image}
             alt={imageAlt}
-            sizes="(max-width: 639px) 100vw, 21rem"
+            sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
             className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
           />
         </div>
