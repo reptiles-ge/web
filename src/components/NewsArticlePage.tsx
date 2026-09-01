@@ -12,6 +12,8 @@ import {
   newsSourceOrg,
 } from "@/data/news";
 import { getSpeciesById, hasPhotoCredit } from "@/data/species";
+import { getRegionHeroImage } from "@/data/regionImages";
+import { localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";

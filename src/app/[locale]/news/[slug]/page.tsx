@@ -184,11 +184,18 @@ export default async function NewsArticleRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
     ],
-    mentions: {
-      "@type": "Taxon",
-      name: "Pernis apivorus",
-      taxonRank: "Species",
-    },
+    mentions: [
+      {
+        "@type": "Taxon",
+        name: "Pernis apivorus",
+        taxonRank: "Species",
+      },
+      {
+        "@type": "Taxon",
+        name: "Milvus migrans",
+        taxonRank: "Species",
+      },
+    ],
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
       name: source.name,
