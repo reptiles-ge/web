@@ -209,6 +209,7 @@ function LocaleFlag({ code }: { code: AppLocale }) {
   if (code === "ka") return <FlagGeorgia />;
   if (code === "ru") return <FlagRussia />;
   if (code === "tr") return <FlagTurkey />;
+
   return <FlagUnitedKingdom />;
 }
 
@@ -318,7 +319,14 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       });
     }
     const hub = (
-      ["snakes", "lizards", "turtles", "amphibians", "birds", "mammals"] as const
+      [
+        "snakes",
+        "lizards",
+        "turtles",
+        "amphibians",
+        "birds",
+        "mammals",
+      ] as const
     ).find((item) => pathname === `/${item}/[slug]`);
 
     if (hub && slug) {
