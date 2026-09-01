@@ -28,7 +28,7 @@ export function localizeNewsPhoto(
     src: photo.src,
     alt: photo.alt[locale],
     credit: photo.credit,
-    fromAtlas: false,
+    fromAtlas: Boolean(photo.fromAtlas),
   };
 }
 

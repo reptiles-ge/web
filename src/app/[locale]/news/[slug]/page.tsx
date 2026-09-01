@@ -5,6 +5,7 @@ import {
   getPublishedNewsArticleBySlug,
 } from "@/data/news";
 import { getRegionById, localizeRegionText } from "@/data/regions";
+import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
@@ -144,7 +145,27 @@ export default async function NewsArticleRoute({ params }: Props) {
     ],
   };
 
-  const adjara = getRegionById("adjara");
+  const aboutPlaces = article.relatedRegionIds.flatMap((id) => {
+    const region = getRegionById(id);
+    if (!region) return [];
+    return [
+      {
+        "@type": "AdministrativeArea" as const,
+        name: localizeRegionText(region.name, locale),
+      },
+    ];
+  });
+  const mentions = article.relatedSpeciesIds.flatMap((id) => {
+    const species = getSpeciesById(id);
+    if (!species) return [];
+    return [
+      {
+        "@type": "Taxon" as const,
+        name: species.scientificName,
+        taxonRank: "Species",
+      },
+    ];
+  });
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -169,33 +190,13 @@ export default async function NewsArticleRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     inLanguage: locale,
     about: [
-      {
-        "@type": "Place",
-        name: "Batumi",
-        containedInPlace: {
-          "@type": "AdministrativeArea",
-          name: adjara
-            ? localizeRegionText(adjara.name, locale)
-            : "Adjara",
-        },
-      },
+      ...aboutPlaces,
       {
         "@type": "Place",
         name: georgiaPlaceName(locale),
       },
     ],
-    mentions: [
-      {
-        "@type": "Taxon",
-        name: "Pernis apivorus",
-        taxonRank: "Species",
-      },
-      {
-        "@type": "Taxon",
-        name: "Milvus migrans",
-        taxonRank: "Species",
-      },
-    ],
+    mentions,
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
       name: source.name,
