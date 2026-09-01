@@ -120,18 +120,23 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "სრული ჰაბი — შხამიანი და უშხამო სახეობები",
       en: "The hub for venomous and harmless snakes",
     },
-    keywords: ["გველები", "gvelebi", "snakes", "snake hub"],
+    keywords: ["გველები", "gvelebi", "snakes", "snake hub", "змеи", "yılanlar"],
     icon: "hub",
     suggested: true,
     rank: 6,
   },
   lizards: {
-    title: { ka: "ხვლიკები საქართველოში", en: "Lizards in Georgia" },
+    title: {
+      ka: "ხვლიკები საქართველოში",
+      en: "Lizards in Georgia",
+      ru: "Ящерицы Грузии",
+      tr: "Gürcistan kertenkeleleri",
+    },
     subtitle: {
       ka: "Darevskia, ჯოჯო და გველხოკერა",
       en: "Darevskia, agama, and glass lizard",
     },
-    keywords: ["ხვლიკები", "xvlikebi", "lizards", "darevskia"],
+    keywords: ["ხვლიკები", "xvlikebi", "lizards", "darevskia", "ящерицы", "kertenkele"],
     icon: "hub",
   },
   turtles: {
