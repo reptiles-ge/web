@@ -135,6 +135,12 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "griffon",
     "eurasian-griffon",
   ],
+  "milvus-migrans": [
+    "dzera",
+    "black-kite",
+    "eurasian-black-kite",
+    "milvus-korschun",
+  ],
   "corvus-corax": [
     "qorani",
     "northern-raven",
@@ -465,6 +471,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
   "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
+  "milvus-migrans": ["buteo-buteo", "aquila-chrysaetos", "gyps-fulvus"],
   "pica-pica": ["corvus-corax", "garrulus-glandarius"],
   "garrulus-glandarius": ["pica-pica", "corvus-corax"],
   "coturnix-coturnix": ["phasianus-colchicus"],

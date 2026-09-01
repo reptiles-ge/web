@@ -85,6 +85,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
     en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
   },
+  "milvus-migrans": {
+    ka: "შავი ძერა (Milvus migrans) | მტაცებელი ფრინველი საქართველოში",
+    en: "Black kite (Milvus migrans) | Raptor in Georgia",
+  },
 };
 
 export function speciesPageMetaTitle(

@@ -405,6 +405,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["mountain", "grassland"],
   },
+  "milvus-migrans": {
+    group: "bird",
+    habitats: ["wetland", "forest", "grassland"],
+  },
   "corvus-corax": {
     group: "bird",
     habitats: ["mountain", "grassland", "forest"],

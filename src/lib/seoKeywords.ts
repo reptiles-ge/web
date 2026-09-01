@@ -958,6 +958,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Aegipius monachus",
     ],
   },
+  "milvus-migrans": {
+    ka: [
+      "ძერა",
+      "ქორისებრნი",
+      "Milvus korschun",
+      "Falco migrans",
+      "Milvus migrans migrans",
+    ],
+    en: [
+      "Eurasian black kite",
+      "black kite Georgia",
+      "fork-tailed kite",
+      "Milvus korschun",
+      "Falco migrans",
+      "Milvus migrans migrans",
+    ],
+  },
   "gyps-fulvus": {
     ka: [
       "ჩვეულებრივი ორბი",
