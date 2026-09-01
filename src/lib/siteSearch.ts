@@ -525,6 +525,8 @@ const STATIC_PAGES: Array<
     title: {
       ka: "რისკი ადამიანისთვის",
       en: "Risk to humans",
+      ru: "Риск для человека",
+      tr: "İnsan için risk",
     },
     subtitle: {
       ka: "უვნებელი, საშუალო, მაღალი — რას ნიშნავს თითოეული ნიშანი",
@@ -622,7 +624,12 @@ const STATIC_PAGES: Array<
 ];
 
 const SNAKE_QUIZ_COPY: PageCopy = {
-  title: { ka: "რომელი გველია?", en: "Which snake is it?" },
+  title: {
+    ka: "რომელი გველია?",
+    en: "Which snake is it?",
+    ru: "Какая это змея?",
+    tr: "Bu hangi yılan?",
+  },
   subtitle: {
     ka: "ფოტო-ქვიზი საქართველოს გველებზე",
     en: "A photo quiz of Georgia’s snakes",
