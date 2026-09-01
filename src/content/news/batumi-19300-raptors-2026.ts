@@ -5,7 +5,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
   slug: "batumi-19300-raptors-2026",
   status: "published",
   publishedAt: "2026-08-27",
-  relatedSpeciesIds: ["buteo-buteo"],
+  relatedSpeciesIds: ["buteo-buteo", "pernis-apivorus"],
   relatedRegionIds: ["adjara"],
   relatedHubIds: ["birds"],
   sources: [
@@ -72,13 +72,19 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               "ორგანიზაციამ ამ ანგარიშში სახეობრივი ზუსტი რიცხვები არ გამოაქვეყნა. ამიტომ აქ მხოლოდ მათი შეჯამებაა: თითქმის 19 300 ფრინველი ორ სადგურს შორის, სეზონის პირველი 10 000-იანი დღე, დომინანტი — კვერნაჭამია. შავი ძერა და ბოლოჭერები ნახსენებია, მაგრამ რაოდენობა არა.",
             ],
             [
-              "კვერნაჭამია საქართველოში ცალკე სახეობაა. ატლასში მისი პროფილი ჯერ არ არის. ახლოს მდგომი, მაგრამ განსხვავებული სახეობაა ",
+              "კვერნაჭამია საქართველოში ცალკე სახეობაა. ატლასში მისი გვერდია ",
+              {
+                type: "species",
+                id: "pernis-apivorus",
+                label: "ბოლოკარკაზი",
+              },
+              ". ახლოს მდგომი, მაგრამ განსხვავებული სახეობაა ",
               {
                 type: "species",
                 id: "buteo-buteo",
                 label: "ჩვეულებრივი კაკაჩა",
               },
-              " — ისიც ბათუმის დერეფანში გადის, პროფილზე კი პირდაპირ წერია, რომ კვერნაჭამია სხვა ტაქსონია.",
+              " — ისიც ბათუმის დერეფანში გადის, პროფილზე კი პირდაპირ წერია, რომ ბოლოკარკაზი სხვა ტაქსონია.",
             ],
           ],
         },
@@ -149,13 +155,19 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               "The report does not give species totals. What can be repeated here is only their summary: nearly 19,300 birds across the two stations, the first 10,000-plus day of the season, Honey Buzzards in the lead. Black Kites and harriers are named, without numbers.",
             ],
             [
-              "Honey Buzzard is a separate species in Georgia. This atlas does not yet have a profile for it. The closest published page is ",
+              "Honey Buzzard is a separate species in Georgia. This atlas has a profile for it: ",
+              {
+                type: "species",
+                id: "pernis-apivorus",
+                label: "European honey buzzard",
+              },
+              ". The closest published lookalike page is ",
               {
                 type: "species",
                 id: "buteo-buteo",
                 label: "Common Buzzard",
               },
-              " — also a Batumi migrant, and a profile that already states Honey Buzzard is a different taxon.",
+              " — also a Batumi migrant, and a profile that already states honey buzzard is a different taxon.",
             ],
           ],
         },
