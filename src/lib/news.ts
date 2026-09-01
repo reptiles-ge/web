@@ -1,9 +1,11 @@
-import { getPublishedNewsArticles } from "@/data/news";
+import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { getNewsImageSrc } from "@/lib/newsVisual";
 import {
   absoluteUrl,
   localeAlternates,
+  ogImageUrlFromSrc,
   SITE_OG_IMAGE_URL,
 } from "@/lib/site";
 import { parseToSiteDateTime } from "@/lib/siteTime";
@@ -47,7 +49,15 @@ export function newsDateTime(isoDate: string) {
   return parseToSiteDateTime(isoDate) ?? `${isoDate}T00:00:00+04:00`;
 }
 
-export function newsOgImageUrl() {
+export function newsOgImageUrl(article?: NewsArticle) {
+  const src = article ? getNewsImageSrc(article) : null;
+  if (src) {
+    const fromPipeline = ogImageUrlFromSrc(src);
+    if (fromPipeline) return fromPipeline;
+    if (src.startsWith("http://") || src.startsWith("https://")) {
+      return src;
+    }
+  }
   return SITE_OG_IMAGE_URL;
 }
 

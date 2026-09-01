@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = copy.metaTitle;
   const description = copy.metaDescription;
   const url = newsArticleUrl(locale, article.slug);
-  const ogImage = newsOgImageUrl();
+  const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
 
   return {
@@ -115,7 +115,7 @@ export default async function NewsArticleRoute({ params }: Props) {
   });
   const copy = getNewsCopy(article, locale);
   const url = newsArticleUrl(locale, article.slug);
-  const ogImage = newsOgImageUrl();
+  const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
   const org = organizationJsonLd();
 

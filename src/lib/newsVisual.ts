@@ -19,6 +19,20 @@ export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
   return article.relatedHubIds[0];
 }
 
+export function getNewsImageSrc(article: NewsArticle): string | null {
+  const species = newsRelatedSpecies(article)[0];
+  if (species && !isPlaceholderMedia(species.image)) {
+    return species.image;
+  }
+
+  const region = newsRelatedRegions(article)[0];
+  if (region) {
+    return getRegionHeroImage(region.id);
+  }
+
+  return null;
+}
+
 export function getNewsVisual(
   article: NewsArticle,
   locale: AppLocale,
