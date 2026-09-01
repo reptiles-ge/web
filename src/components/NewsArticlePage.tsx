@@ -168,29 +168,20 @@ export async function NewsArticlePage({
                 >
                   {t("sourceHeading")}
                 </AnchoredHeading>
-                <div className="mt-7">
-                  <p className="font-display text-[clamp(1.35rem,2.2vw,1.7rem)] font-semibold leading-snug text-foreground">
-                    {sourceOrg}
-                  </p>
-                  <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-muted-foreground">
-                    {t("editorialNote", { source: sourceOrg })}
-                  </p>
-                  <a
-                    href={primarySource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-                  >
-                    {t("sourceVisit")}
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="size-4 text-muted-foreground"
-                    />
-                    <span className="sr-only"> ({primarySource.name})</span>
-                  </a>
-                </div>
+                <a
+                  href={primarySource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-[clamp(1.35rem,2.2vw,1.7rem)] font-semibold leading-snug text-foreground transition-colors hover:text-primary"
+                >
+                  {sourceOrg}
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-4 shrink-0 text-muted-foreground motion-safe:transition-transform motion-safe:duration-300 group-hover:text-primary motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"
+                  />
+                </a>
                 {moreSources.length > 0 ? (
-                  <ul className="mt-8 space-y-2">
+                  <ul className="mt-6 space-y-2">
                     {moreSources.map((source) => (
                       <li key={source.url}>
                         <a
