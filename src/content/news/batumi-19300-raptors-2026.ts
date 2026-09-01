@@ -63,6 +63,19 @@ const PHOTO_COSENTINO: NewsPhoto = {
   },
 };
 
+const FIGURE_SUNRISE = {
+  type: "figure" as const,
+  src: PHOTO_MESKHIDZE.src,
+};
+const FIGURE_STATION_2 = {
+  type: "figure" as const,
+  src: PHOTO_ELDAKAMAWY.src,
+};
+const FIGURE_KITE = {
+  type: "figure" as const,
+  src: PHOTO_COSENTINO.src,
+};
+
 export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
   id: "batumi-19300-raptors-2026",
   slug: "batumi-19300-raptors-2026",
@@ -96,87 +109,123 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       sections: [
         {
           heading: "რა მოხდა?",
-          paragraphs: [
-            [
-              "2026 წლის შემოდგომის აღრიცხვა ბათუმთან 12 აგვისტოს დაიწყო. პირველი ორი კვირა მშვიდი იყო. Batumi Raptor Count წერს, რომ 27 აგვისტომდე წვიმამ და ნისლმა დერეფანში რიცხვები დაბლა დასვა. კვერნაჭამიას პიკი ჯერ წინ იყო და გუნდი უკვე სვამდა კითხვას: სად არიან?",
-            ],
-            [
-              "იმ დღეს, როგორც ანგარიშში წერია, ისინი მოვიდნენ. ორი სადგურის ჯამი თითქმის 19 300 ფრინველამდე ავიდა. ნაკადი რამდენიმე საათს გაგრძელდა. ეს არის სეზონის პირველი დღე 10 000-ზე მეტი ფრინველით — არა სეზონის მთლიანი რიცხვი და არა ერთი სახეობის ზუსტი აღრიცხვა.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "2026 წლის შემოდგომის აღრიცხვა ბათუმთან 12 აგვისტოს დაიწყო. პირველი ორი კვირა მშვიდი იყო. Batumi Raptor Count წერს, რომ 27 აგვისტომდე წვიმამ და ნისლმა დერეფანში რიცხვები დაბლა დასვა. კვერნაჭამიას პიკი ჯერ წინ იყო და გუნდი უკვე სვამდა კითხვას: სად არიან?",
+              ],
+            },
+            FIGURE_SUNRISE,
+            {
+              type: "p",
+              parts: [
+                "იმ დღეს, როგორც ანგარიშში წერია, ისინი მოვიდნენ. ორი სადგურის ჯამი თითქმის 19 300 ფრინველამდე ავიდა. ნაკადი რამდენიმე საათს გაგრძელდა. ეს არის სეზონის პირველი დღე 10 000-ზე მეტი ფრინველით — არა სეზონის მთლიანი რიცხვი და არა ერთი სახეობის ზუსტი აღრიცხვა.",
+              ],
+            },
           ],
         },
         {
           heading: "რატომ არის ბათუმის დერეფანი მნიშვნელოვანი?",
-          paragraphs: [
-            [
-              "შემოდგომით მტაცებელი ფრინველები დასავლეთ პალეარქტიკიდან აფრიკისკენ შავი ზღვის აღმოსავლეთ სანაპიროს გაყოლებით ეშვებიან. ",
-              { type: "region", id: "adjara", label: "აჭარაში" },
-              ", ბათუმის ჩრდილოეთით, ზღვასა და მთას შორის ეს გზა ვიწროვდება. ამიტომ ჰქვია ადგილს ბათუმის დერეფანი: ბევრი ფრინველი ერთსა და იმავე ცას კვეთს და დღიური ჯამი აქ შეიძლება ათასეულებში აისახოს.",
-            ],
-            [
-              "Batumi Raptor Count ამ დერეფანს 2008 წლიდან აკვირდება. 2026 წლის სეზონი 12 აგვისტოდან 21 ოქტომბრამდე გრძელდება. ანგარიშში დასახელებულია ორი სადგური; ატლასში ეს წერტილები სახალვაშოდ და შუამთად ჩანს იმ სახეობების პროფილებზე, რომლებსაც შემოდგომის გავლა აქვთ დასახელებული — მათ შორის ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "ბოლოკარკაზი",
-              },
-              " და ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "ჩვეულებრივი კაკაჩა",
-              },
-              ". იგივე კონტექსტი არის ",
-              { type: "hub", id: "birds", label: "ფრინველების ჰაბზე" },
-              ".",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "შემოდგომით მტაცებელი ფრინველები დასავლეთ პალეარქტიკიდან აფრიკისკენ შავი ზღვის აღმოსავლეთ სანაპიროს გაყოლებით ეშვებიან. ",
+                { type: "region", id: "adjara", label: "აჭარაში" },
+                ", ბათუმის ჩრდილოეთით, ზღვასა და მთას შორის ეს გზა ვიწროვდება. ამიტომ ჰქვია ადგილს ბათუმის დერეფანი: ბევრი ფრინველი ერთსა და იმავე ცას კვეთს და დღიური ჯამი აქ შეიძლება ათასეულებში აისახოს.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count ამ დერეფანს 2008 წლიდან აკვირდება. 2026 წლის სეზონი 12 აგვისტოდან 21 ოქტომბრამდე გრძელდება. ანგარიშში დასახელებულია ორი სადგური; ატლასში ეს წერტილები სახალვაშოდ და შუამთად ჩანს იმ სახეობების პროფილებზე, რომლებსაც შემოდგომის გავლა აქვთ დასახელებული — მათ შორის ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "ბოლოკარკაზი",
+                },
+                " და ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "ჩვეულებრივი კაკაჩა",
+                },
+                ". იგივე კონტექსტი არის ",
+                { type: "hub", id: "birds", label: "ფრინველების ჰაბზე" },
+                ".",
+              ],
+            },
           ],
         },
         {
           heading: "რა დაინახეს 27 აგვისტოს?",
-          paragraphs: [
-            [
-              "ანგარიშის მიხედვით, ნაკადში კვერნაჭამია (",
-              { type: "sci", name: "Pernis apivorus" },
-              ") იდგა წინა პლანზე. ატლასში ამ სახეობის გვერდია ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "ბოლოკარკაზი",
-              },
-              ". პირველმა სადგურმა დათვლის ძირითადი ტვირთი აიღო; მეორე სადგური იმავე ნაკადიდან ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "შავ ძერას",
-              },
-              " და ბოლოჭერებს გამოყოფდა. ბოლოჭერის სახეობა ამ ანგარიშში არ არის დასახელებული.",
-            ],
-            [
-              "ორგანიზაციამ სახეობრივი ზუსტი რიცხვები ამ განახლებაში არ გამოაქვეყნა. ამიტომ აქ მხოლოდ მათი შეჯამებაა: თითქმის 19 300 ფრინველი ორ სადგურს შორის, სეზონის პირველი 10 000-იანი დღე, დომინანტი — კვერნაჭამია. შავი ძერა და ბოლოჭერები ნახსენებია, მაგრამ რაოდენობა არა.",
-            ],
-            [
-              "კვერნაჭამია კაკაჩა არ არის. ახლოს მდგომი, მაგრამ განსხვავებული სახეობაა ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "ჩვეულებრივი კაკაჩა",
-              },
-              " — ისიც ბათუმის დერეფანში გადის; პროფილზე პირდაპირ წერია, რომ ბოლოკარკაზი სხვა ტაქსონია.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "ანგარიშის მიხედვით, ნაკადში კვერნაჭამია (",
+                { type: "sci", name: "Pernis apivorus" },
+                ") იდგა წინა პლანზე. ატლასში ამ სახეობის გვერდია ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "ბოლოკარკაზი",
+                },
+                ".",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "პირველმა სადგურმა დათვლის ძირითადი ტვირთი აიღო; მეორე სადგური იმავე ნაკადიდან ",
+                {
+                  type: "species",
+                  id: "milvus-migrans",
+                  label: "შავ ძერას",
+                },
+                " და ბოლოჭერებს გამოყოფდა. ბოლოჭერის სახეობა ამ ანგარიშში არ არის დასახელებული.",
+              ],
+            },
+            FIGURE_STATION_2,
+            {
+              type: "p",
+              parts: [
+                "ორგანიზაციამ სახეობრივი ზუსტი რიცხვები ამ განახლებაში არ გამოაქვეყნა. ამიტომ აქ მხოლოდ მათი შეჯამებაა: თითქმის 19 300 ფრინველი ორ სადგურს შორის, სეზონის პირველი 10 000-იანი დღე, დომინანტი — კვერნაჭამია. შავი ძერა და ბოლოჭერები ნახსენებია, მაგრამ რაოდენობა არა.",
+              ],
+            },
+            FIGURE_KITE,
+            {
+              type: "p",
+              parts: [
+                "კვერნაჭამია კაკაჩა არ არის. ახლოს მდგომი, მაგრამ განსხვავებული სახეობაა ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "ჩვეულებრივი კაკაჩა",
+                },
+                " — ისიც ბათუმის დერეფანში გადის; პროფილზე პირდაპირ წერია, რომ ბოლოკარკაზი სხვა ტაქსონია.",
+              ],
+            },
           ],
         },
         {
           heading: "რა ხდება შემდეგ?",
-          paragraphs: [
-            [
-              "Batumi Raptor Count წერს, რომ კვერნაჭამიას რიცხვების პიკი მომდევნო კვირაშია მოსალოდნელი. სეზონი 21 ოქტომბრამდე გრძელდება. 27 აგვისტო პირველი დიდი დღეა, არა დასასრული: დღიური ჯამები შეიძლება კიდევ გაიზარდოს, სახეობრივი სურათი კი სეზონის განმავლობაში შეიცვალოს.",
-            ],
-            [
-              "დღიური ციფრების პირველადი წყაროა Batumi Raptor Count. ",
-              { type: "news-index", label: "სიახლეებში" },
-              " ასეთ ანგარიშებს კონტექსტს ვუმატებთ და ატლასის გვერდებზე ვაბრუნებთ — სახეობის პროფილი რჩება ძირითად ჩანაწერად.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count წერს, რომ კვერნაჭამიას რიცხვების პიკი მომდევნო კვირაშია მოსალოდნელი. სეზონი 21 ოქტომბრამდე გრძელდება. 27 აგვისტო პირველი დიდი დღეა, არა დასასრული: დღიური ჯამები შეიძლება კიდევ გაიზარდოს, სახეობრივი სურათი კი სეზონის განმავლობაში შეიცვალოს.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "დღიური ციფრების პირველადი წყაროა Batumi Raptor Count. ",
+                { type: "news-index", label: "სიახლეებში" },
+                " ასეთ ანგარიშებს კონტექსტს ვუმატებთ და ატლასის გვერდებზე ვაბრუნებთ — სახეობის პროფილი რჩება ძირითად ჩანაწერად.",
+              ],
+            },
           ],
         },
       ],
@@ -191,87 +240,123 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       sections: [
         {
           heading: "What happened?",
-          paragraphs: [
-            [
-              "The 2026 autumn count at Batumi began on 12 August. The first fortnight was quiet. Batumi Raptor Count reported that rain and fog before 27 August had kept numbers low. The Honey Buzzard peak still lay ahead, and the team had begun to wonder where the birds were.",
-            ],
-            [
-              "That day, the report says, they arrived. The two stations together reached nearly 19,300 birds. The stream lasted several hours. That is the season’s first day above 10,000 — not a season total, and not a species-by-species breakdown.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "The 2026 autumn count at Batumi began on 12 August. The first fortnight was quiet. Batumi Raptor Count reported that rain and fog before 27 August had kept numbers low. The Honey Buzzard peak still lay ahead, and the team had begun to wonder where the birds were.",
+              ],
+            },
+            FIGURE_SUNRISE,
+            {
+              type: "p",
+              parts: [
+                "That day, the report says, they arrived. The two stations together reached nearly 19,300 birds. The stream lasted several hours. That is the season’s first day above 10,000 — not a season total, and not a species-by-species breakdown.",
+              ],
+            },
           ],
         },
         {
           heading: "Why is the Batumi bottleneck important?",
-          paragraphs: [
-            [
-              "In autumn, raptors moving from the western Palearctic toward Africa follow the eastern Black Sea coast. In ",
-              { type: "region", id: "adjara", label: "Adjara" },
-              ", north of Batumi, sea and mountains pinch that route into a narrow corridor. That is the Batumi bottleneck: many birds cross the same sky, so a single day’s count can run to the thousands.",
-            ],
-            [
-              "Batumi Raptor Count has watched the corridor since 2008. The 2026 season runs from 12 August to 21 October. The update names two stations; on this atlas those sites appear as Sakhalvasho and Shuamta on profiles that record autumn passage here — including ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "European honey buzzard",
-              },
-              " and ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "Common buzzard",
-              },
-              ". The same context is on the ",
-              { type: "hub", id: "birds", label: "birds hub" },
-              ".",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "In autumn, raptors moving from the western Palearctic toward Africa follow the eastern Black Sea coast. In ",
+                { type: "region", id: "adjara", label: "Adjara" },
+                ", north of Batumi, sea and mountains pinch that route into a narrow corridor. That is the Batumi bottleneck: many birds cross the same sky, so a single day’s count can run to the thousands.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count has watched the corridor since 2008. The 2026 season runs from 12 August to 21 October. The update names two stations; on this atlas those sites appear as Sakhalvasho and Shuamta on profiles that record autumn passage here — including ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "European honey buzzard",
+                },
+                " and ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "Common buzzard",
+                },
+                ". The same context is on the ",
+                { type: "hub", id: "birds", label: "birds hub" },
+                ".",
+              ],
+            },
           ],
         },
         {
           heading: "What was observed on 27 August?",
-          paragraphs: [
-            [
-              "According to the report, European Honey Buzzards (",
-              { type: "sci", name: "Pernis apivorus" },
-              ") dominated the stream. This atlas’s profile for the species is ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "European honey buzzard",
-              },
-              ". Station 1 took most of the counting; Station 2 worked the same streams for ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "Black kites",
-              },
-              " and harriers. The update does not name the harriers to species.",
-            ],
-            [
-              "The report does not give species totals. What can be repeated here is only their summary: nearly 19,300 birds across the two stations, the first 10,000-plus day of the season, Honey Buzzards in the lead. Black Kites and harriers are named, without numbers.",
-            ],
-            [
-              "Honey Buzzard is not a buzzard in the genus Buteo. The closest published lookalike page is ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "Common buzzard",
-              },
-              " — also a Batumi migrant, and a profile that already states honey buzzard is a different taxon.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "According to the report, European Honey Buzzards (",
+                { type: "sci", name: "Pernis apivorus" },
+                ") dominated the stream. This atlas’s profile for the species is ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "European honey buzzard",
+                },
+                ".",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Station 1 took most of the counting; Station 2 worked the same streams for ",
+                {
+                  type: "species",
+                  id: "milvus-migrans",
+                  label: "Black kites",
+                },
+                " and harriers. The update does not name the harriers to species.",
+              ],
+            },
+            FIGURE_STATION_2,
+            {
+              type: "p",
+              parts: [
+                "The report does not give species totals. What can be repeated here is only their summary: nearly 19,300 birds across the two stations, the first 10,000-plus day of the season, Honey Buzzards in the lead. Black Kites and harriers are named, without numbers.",
+              ],
+            },
+            FIGURE_KITE,
+            {
+              type: "p",
+              parts: [
+                "Honey Buzzard is not a buzzard in the genus Buteo. The closest published lookalike page is ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "Common buzzard",
+                },
+                " — also a Batumi migrant, and a profile that already states honey buzzard is a different taxon.",
+              ],
+            },
           ],
         },
         {
           heading: "What happens next?",
-          paragraphs: [
-            [
-              "Batumi Raptor Count expects Honey Buzzard numbers to peak in the following week. The season continues through 21 October. 27 August is the first large day, not the last: daily totals may still rise, and the species mix will shift as the autumn count runs on.",
-            ],
-            [
-              "The primary source for the daily figures remains Batumi Raptor Count. ",
-              { type: "news-index", label: "News" },
-              " on this site adds context and points back to atlas pages — the species profile stays the main record.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count expects Honey Buzzard numbers to peak in the following week. The season continues through 21 October. 27 August is the first large day, not the last: daily totals may still rise, and the species mix will shift as the autumn count runs on.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "The primary source for the daily figures remains Batumi Raptor Count. ",
+                { type: "news-index", label: "News" },
+                " on this site adds context and points back to atlas pages — the species profile stays the main record.",
+              ],
+            },
           ],
         },
       ],

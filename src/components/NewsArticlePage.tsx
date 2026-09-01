@@ -2,10 +2,11 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
-import { NewsParagraphs } from "@/components/NewsRichText";
+import { NewsRichText } from "@/components/NewsRichText";
 import type { NewsArticle } from "@/data/news";
 import {
   getNewsCopy,
+  newsPhotoBySrc,
   newsRelatedHubs,
   newsRelatedRegions,
   newsRelatedSpecies,
@@ -138,22 +139,6 @@ export async function NewsArticlePage({
               {copy.lead}
             </p>
 
-            {article.gallery && article.gallery.length > 0 ? (
-              <div className="mt-12 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:[&>:last-child]:col-span-2">
-                {article.gallery.map((photo) => (
-                  <NewsFigure
-                    key={photo.src}
-                    visual={localizeNewsPhoto(photo, locale)}
-                    locale={locale}
-                    sizes="(max-width: 639px) 100vw, 640px"
-                    photoFromAtlas={t("photoFromAtlas")}
-                    photoCreditLabel={t("photoCredit")}
-                    compact
-                  />
-                ))}
-              </div>
-            ) : null}
-
             {copy.sections.map((section) => (
               <section key={section.heading} className="mt-14 sm:mt-16">
                 <AnchoredHeading
@@ -165,10 +150,28 @@ export async function NewsArticlePage({
                   {section.heading}
                 </AnchoredHeading>
                 <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
-                  <NewsParagraphs
-                    paragraphs={section.paragraphs}
-                    locale={locale}
-                  />
+                  {section.blocks.map((block, index) => {
+                    if (block.type === "figure") {
+                      const photo = newsPhotoBySrc(article, block.src);
+                      if (!photo) return null;
+                      return (
+                        <NewsFigure
+                          key={`${block.src}-${index}`}
+                          visual={localizeNewsPhoto(photo, locale)}
+                          locale={locale}
+                          sizes="(max-width: 768px) 100vw, 768px"
+                          photoFromAtlas={t("photoFromAtlas")}
+                          photoCreditLabel={t("photoCredit")}
+                          compact
+                        />
+                      );
+                    }
+                    return (
+                      <p key={index}>
+                        <NewsRichText parts={block.parts} locale={locale} />
+                      </p>
+                    );
+                  })}
                 </div>
               </section>
             ))}
@@ -329,7 +332,7 @@ function NewsFigure({
   ].filter(Boolean);
 
   return (
-    <figure className={compact ? "" : "mt-10 lg:mt-14"}>
+    <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
       <div
         className={
           compact

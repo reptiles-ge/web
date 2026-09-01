@@ -19,9 +19,13 @@ export type NewsMark =
   | { type: "external"; href: string; label: string }
   | { type: "sci"; name: string };
 
+export type NewsSectionBlock =
+  | { type: "p"; parts: NewsMark[] }
+  | { type: "figure"; src: string };
+
 export type NewsSection = {
   heading: string;
-  paragraphs: NewsMark[][];
+  blocks: NewsSectionBlock[];
 };
 
 export type NewsLocaleCopy = {

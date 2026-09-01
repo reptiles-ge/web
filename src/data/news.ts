@@ -13,6 +13,7 @@ export type {
   NewsMark,
   NewsPhoto,
   NewsSection,
+  NewsSectionBlock,
   NewsSource,
 } from "@/data/newsTypes";
 
@@ -131,4 +132,9 @@ export function newsArticlePhotos(article: NewsArticle) {
 
 export function newsCoverSrc(article: NewsArticle) {
   return article.image?.src;
+}
+
+export function newsPhotoBySrc(article: NewsArticle, src: string) {
+  if (article.image?.src === src) return article.image;
+  return article.gallery?.find((photo) => photo.src === src);
 }
