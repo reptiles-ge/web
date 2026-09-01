@@ -4190,6 +4190,66 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
       "webp"
     ]
   },
+  "/images/species/bubo-bubo-berntsen-1.jpg": {
+    "path": "images/species/bubo-bubo-berntsen-1",
+    "width": 2400,
+    "height": 2234,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/bubo-bubo-scarabinol-1.jpg": {
+    "path": "images/species/bubo-bubo-scarabinol-1",
+    "width": 2400,
+    "height": 1350,
+    "widths": [
+      400,
+      800,
+      1200,
+      2400
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/bubo-bubo-shah-1.jpg": {
+    "path": "images/species/bubo-bubo-shah-1",
+    "width": 2000,
+    "height": 1419,
+    "widths": [
+      400,
+      800,
+      1200,
+      2000
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
+  "/images/species/bubo-bubo-shah-2.jpg": {
+    "path": "images/species/bubo-bubo-shah-2",
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      400,
+      800,
+      1200,
+      2000
+    ],
+    "formats": [
+      "avif",
+      "webp"
+    ]
+  },
   "https://cdn.reptiles.ge/images/species/ciconia-ciconia-flight-1.jpg": {
     "path": "images/species/ciconia-ciconia-flight-1",
     "width": 2400,

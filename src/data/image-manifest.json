@@ -18251,6 +18251,274 @@
       ],
       "updatedAt": "2026-08-29T07:32:55.004Z"
     },
+    "images/species/bubo-bubo-berntsen-1.jpg": {
+      "sourceHash": "02df7bce3c6a92005e8499185f3aac9f811f6a51111bf074ebd09308d232d160",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/bubo-bubo-berntsen-1.jpg",
+      "originalSize": 1220046,
+      "width": 2400,
+      "height": 2234,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 372,
+          "byteSize": 34810
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 372,
+          "byteSize": 53258
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 745,
+          "byteSize": 132420
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 745,
+          "byteSize": 202932
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1117,
+          "byteSize": 281433
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1117,
+          "byteSize": 437632
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2234,
+          "byteSize": 850510
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-berntsen-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2234,
+          "byteSize": 1208944
+        }
+      ],
+      "updatedAt": "2026-09-01T11:53:00.381Z"
+    },
+    "images/species/bubo-bubo-scarabinol-1.jpg": {
+      "sourceHash": "e40620d4c037addf88294f5992c3c29018011051ce3caf4488d4605a27e50465",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/bubo-bubo-scarabinol-1.jpg",
+      "originalSize": 412970,
+      "width": 2400,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10082
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 13062
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 30709
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 41564
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 67889
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 94710
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1350,
+          "byteSize": 310554
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-scarabinol-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1350,
+          "byteSize": 357772
+        }
+      ],
+      "updatedAt": "2026-09-01T11:52:57.250Z"
+    },
+    "images/species/bubo-bubo-shah-1.jpg": {
+      "sourceHash": "7f770b65f57b3928424ab544aa7ec48d6d32f6f009edbecd86345a0a93510e09",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/bubo-bubo-shah-1.jpg",
+      "originalSize": 141993,
+      "width": 2000,
+      "height": 1419,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 283,
+          "byteSize": 7803
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 283,
+          "byteSize": 9818
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 568,
+          "byteSize": 22955
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 568,
+          "byteSize": 30182
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 851,
+          "byteSize": 40411
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 851,
+          "byteSize": 50482
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1419,
+          "byteSize": 74610
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-1-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1419,
+          "byteSize": 92554
+        }
+      ],
+      "updatedAt": "2026-09-01T11:52:58.240Z"
+    },
+    "images/species/bubo-bubo-shah-2.jpg": {
+      "sourceHash": "e8bc024194b5adf790b47b0d7a79284952a2e9aacd3102ab36abefed364a0483",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/bubo-bubo-shah-2.jpg",
+      "originalSize": 447928,
+      "width": 2000,
+      "height": 1500,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15576
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23744
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 58239
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 87798
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 122074
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 182542
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1500,
+          "byteSize": 281051
+        },
+        {
+          "key": "optimized/images/species/bubo-bubo-shah-2-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1500,
+          "byteSize": 415528
+        }
+      ],
+      "updatedAt": "2026-09-01T11:52:58.773Z"
+    },
     "images/species/ciconia-ciconia-flight-1.jpg": {
       "sourceHash": "2354acef5b17aa4c776a166e21df7992cd70ed8dc96dba86f8a6ca3261909d9b",
       "configFingerprint": "a895f8e025dcc7fa",

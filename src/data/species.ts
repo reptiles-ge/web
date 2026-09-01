@@ -160,6 +160,7 @@ export const featuredSpeciesIds = [
   "aegolius-funereus",
   "athene-noctua",
   "tyto-alba",
+  "bubo-bubo",
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
   "buteo-buteo",
