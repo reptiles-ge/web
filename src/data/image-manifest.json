@@ -29372,6 +29372,274 @@
       ],
       "updatedAt": "2026-08-28T21:55:10.408Z"
     },
+    "news-batumi-19300-cosentino-kite-1.jpg": {
+      "sourceHash": "8687d2a2fe01541e1d3db4cbc4cc938f7e01f8939108b647a236375362be3dbd",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "news-batumi-19300-cosentino-kite-1.jpg",
+      "originalSize": 44689,
+      "width": 2400,
+      "height": 1162,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 193,
+          "byteSize": 1591
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 193,
+          "byteSize": 1706
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 387,
+          "byteSize": 3410
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 387,
+          "byteSize": 4202
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 581,
+          "byteSize": 5416
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 581,
+          "byteSize": 7100
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1162,
+          "byteSize": 12653
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1162,
+          "byteSize": 18352
+        }
+      ],
+      "updatedAt": "2026-09-01T13:02:17.250Z"
+    },
+    "news-batumi-19300-eldakamawy-1.jpg": {
+      "sourceHash": "940f468de4a2ff253046a04e99e3d6b3736ef4f250238aab79fc909b9690b6f5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "news-batumi-19300-eldakamawy-1.jpg",
+      "originalSize": 634864,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11857
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14576
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 38476
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 47168
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 79989
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 98122
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 241782
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 294010
+        }
+      ],
+      "updatedAt": "2026-09-01T13:02:30.947Z"
+    },
+    "news-batumi-19300-hoekstra-1.jpg": {
+      "sourceHash": "39c605505a015e2932ef247353af003da29c941a44762f47032301de3a2179be",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "news-batumi-19300-hoekstra-1.jpg",
+      "originalSize": 602892,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11795
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15268
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 37969
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 51526
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 76391
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 103746
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 218646
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 289900
+        }
+      ],
+      "updatedAt": "2026-09-01T13:02:07.187Z"
+    },
+    "news-batumi-19300-meskhidze-1.jpg": {
+      "sourceHash": "0cbee52d594666289e02cdfe4673da63a1e3c98e6f411d4907f2b7a869012bc5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "news-batumi-19300-meskhidze-1.jpg",
+      "originalSize": 438189,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9487
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10898
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29581
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35008
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 58208
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 67524
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 160629
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 185618
+        }
+      ],
+      "updatedAt": "2026-09-01T13:02:13.936Z"
+    },
     "ommatotriton-ophryticus-2.jpg": {
       "sourceHash": "b6b3e608bebea71073edaae8e5d440fb5bfab1860c2c159623f36dcc4e09d534",
       "configFingerprint": "a895f8e025dcc7fa",
