@@ -14,6 +14,7 @@ export type NewsVisual = {
   alt: string;
   credit?: PhotoCredit;
   fromAtlas: boolean;
+  plate: boolean;
 };
 
 export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
@@ -28,7 +29,8 @@ export function localizeNewsPhoto(
     src: photo.src,
     alt: photo.alt[locale],
     credit: photo.credit,
-    fromAtlas: false,
+    fromAtlas: Boolean(photo.fromAtlas),
+    plate: Boolean(photo.plate),
   };
 }
 
@@ -69,6 +71,7 @@ export function getNewsVisual(
       ),
       credit: item.imageCredit,
       fromAtlas: true,
+      plate: false,
     };
   }
 
@@ -79,6 +82,7 @@ export function getNewsVisual(
       src: getRegionHeroImage(region.id),
       alt: name,
       fromAtlas: true,
+      plate: false,
     };
   }
 

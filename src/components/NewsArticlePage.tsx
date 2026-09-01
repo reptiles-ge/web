@@ -115,10 +115,10 @@ export async function NewsArticlePage({
               {category ? <span aria-hidden="true"> · </span> : null}
               <time dateTime={article.publishedAt}>{dateLabel}</time>
             </p>
-            <h1 className="mt-5 max-w-4xl font-display text-balance-tight text-[clamp(1.95rem,4.8vw,3.35rem)] font-semibold leading-[1.08] text-foreground">
+            <h1 className="mt-5 font-display text-balance-tight text-[clamp(1.95rem,4.8vw,3.35rem)] font-semibold leading-[1.08] text-foreground">
               {copy.title}
             </h1>
-            <p className="mt-5 max-w-3xl text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
+            <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
               {copy.dek}
             </p>
           </header>
@@ -134,7 +134,7 @@ export async function NewsArticlePage({
             />
           ) : null}
 
-          <div className="max-w-3xl pt-10 sm:pt-12">
+          <div className="pt-10 sm:pt-12">
             <p className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]">
               {copy.lead}
             </p>
@@ -159,7 +159,7 @@ export async function NewsArticlePage({
                           key={`${block.src}-${index}`}
                           visual={localizeNewsPhoto(photo, locale)}
                           locale={locale}
-                          sizes="(max-width: 768px) 100vw, 768px"
+                          sizes="(max-width: 1023px) 100vw, 1400px"
                           photoFromAtlas={t("photoFromAtlas")}
                           photoCreditLabel={t("photoCredit")}
                           compact
@@ -333,21 +333,36 @@ function NewsFigure({
 
   return (
     <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
-      <div
-        className={
-          compact
-            ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
-            : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
-        }
-      >
-        <CoverImage
+      {visual.plate ? (
+        <img
           src={visual.src}
           alt={visual.alt}
-          sizes={sizes}
-          priority={priority}
-          className="object-cover object-center"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+          className={
+            compact
+              ? "h-auto w-full rounded-[20px] bg-surface"
+              : "h-auto w-full rounded-[24px] bg-surface"
+          }
         />
-      </div>
+      ) : (
+        <div
+          className={
+            compact
+              ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
+              : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
+          }
+        >
+          <CoverImage
+            src={visual.src}
+            alt={visual.alt}
+            sizes={sizes}
+            priority={priority}
+            className="object-cover object-center"
+          />
+        </div>
+      )}
       <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
         {visual.fromAtlas ? `${photoFromAtlas} ` : null}
         {visual.alt}
