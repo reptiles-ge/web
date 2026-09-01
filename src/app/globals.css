@@ -77,11 +77,11 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-noto-georgian), var(--font-sora), sans-serif;
+  font-family: var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans), sans-serif;
 }
 
 .font-display {
-  font-family: var(--font-noto-georgian), var(--font-sora), sans-serif;
+  font-family: var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans), sans-serif;
 }
 
 .text-balance-tight {
