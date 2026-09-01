@@ -32,6 +32,12 @@ const EXTERNAL_SOURCE_HREFS = {
   },
 } as const;
 
+function externalSourceHref(locale: AppLocale, n: 1 | 2 | 3 | 4) {
+  return locale === "ka"
+    ? EXTERNAL_SOURCE_HREFS.ka[n]
+    : EXTERNAL_SOURCE_HREFS.en[n];
+}
+
 const EDITORIAL_UPDATED = "2026-08-29";
 
 const inlineLinkClassName =
@@ -340,7 +346,7 @@ export function SnakeBitePage({
             {EXTERNAL_SOURCES.map((n) => (
               <li key={n} className="py-6">
                 <a
-                  href={EXTERNAL_SOURCE_HREFS[locale][n]}
+                  href={externalSourceHref(locale, n)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-start gap-2"
