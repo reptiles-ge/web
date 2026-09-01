@@ -1,10 +1,9 @@
-import type { NewsArticle } from "@/data/news";
-import { newsLocalizedDek, newsLocalizedTitle } from "@/data/news";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { Link } from "@/i18n/navigation";
+import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
-import { formatContentDate } from "@/lib/formatDate";
-import { newsArticleHref } from "@/lib/news";
-import { ArrowUpRight } from "lucide-react";
+import { getNewsVisual } from "@/lib/newsVisual";
 import { getTranslations } from "next-intl/server";
 
 type NewsIndexPageProps = {
@@ -14,56 +13,82 @@ type NewsIndexPageProps = {
 
 export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
   const t = await getTranslations({ locale, namespace: "news" });
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
+  const featured = articles[0];
+  const rest = articles.slice(1);
+  const featuredVisual = featured ? getNewsVisual(featured, locale) : null;
 
   return (
     <div className="min-h-screen bg-background">
+      {featuredVisual ? (
+        <CoverImagePreload
+          src={featuredVisual.src}
+          sizes="(max-width: 1023px) 100vw, 1400px"
+        />
+      ) : null}
       <main>
-        <header className="border-b border-border bg-background pt-[7.5rem] pb-12 sm:pt-[8.25rem] sm:pb-16">
+        <header className="pt-[7.5rem] pb-10 sm:pt-[8.25rem] sm:pb-12">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
-              {t("eyebrow")}
-            </p>
-            <h1 className="mt-4 max-w-3xl font-display text-balance-tight text-[clamp(2rem,5vw,3.4rem)] font-semibold leading-[1.06] text-foreground">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
+              <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
+                <li>
+                  <Link
+                    href="/"
+                    className="transition-colors hover:text-foreground"
+                  >
+                    {tShared("breadcrumbHome")}
+                  </Link>
+                </li>
+                <li aria-hidden="true" className="text-border">
+                  /
+                </li>
+                <li className="text-foreground">{t("breadcrumbNews")}</li>
+              </ol>
+            </nav>
+            <h1 className="max-w-3xl font-display text-balance-tight text-[clamp(2.15rem,5.5vw,3.75rem)] font-semibold leading-[1.05] text-foreground">
               {t("h1")}
             </h1>
-            <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-muted-foreground sm:text-[17px]">
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
               {t("intro")}
             </p>
           </div>
         </header>
 
-        <section className="py-12 sm:py-16">
+        <section className="pb-20 sm:pb-24 lg:pb-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             {articles.length === 0 ? (
               <p className="text-[15px] text-muted-foreground">{t("empty")}</p>
             ) : (
-              <ul className="grid gap-4">
-                {articles.map((article) => (
-                  <li key={article.id}>
-                    <Link
-                      href={newsArticleHref(article.slug)}
-                      className="group block rounded-[24px] border border-border bg-card px-6 py-6 transition-colors hover:border-primary/25 sm:px-8 sm:py-7"
-                    >
-                      <time
-                        dateTime={article.publishedAt}
-                        className="text-[12px] text-muted-foreground"
-                      >
-                        {formatContentDate(article.publishedAt, locale)}
-                      </time>
-                      <h2 className="mt-3 max-w-3xl font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-[1.15] text-foreground transition-colors group-hover:text-primary">
-                        {newsLocalizedTitle(article, locale)}
-                      </h2>
-                      <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                        {newsLocalizedDek(article, locale)}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 text-[14px] font-medium text-foreground">
-                        {t("readArticle")}
-                        <ArrowUpRight className="size-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <>
+                {featured ? (
+                  <NewsArticleCard
+                    article={featured}
+                    locale={locale}
+                    variant="featured"
+                  />
+                ) : null}
+                {rest.length > 0 ? (
+                  <div className="mt-16 border-t border-border pt-14 sm:mt-20 sm:pt-16">
+                    <h2 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-[1.15] text-foreground">
+                      {t("moreStories")}
+                    </h2>
+                    <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+                      {rest.map((article) => (
+                        <li key={article.id}>
+                          <NewsArticleCard
+                            article={article}
+                            locale={locale}
+                            variant="grid"
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </>
             )}
           </div>
         </section>
