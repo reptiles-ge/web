@@ -39,6 +39,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Regions + map IDs | `src/data/regions.ts` — **never infer** `speciesIds` |
 | Checklist authority | `src/data/herpetofauna-checklist.ts` |
 | Quiz registry | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts` |
+| News | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts` |
 | 301 map | `next.config.ts` **and** `src/proxy.ts` |
 | UI strings | `messages/ka.json` + `messages/en.json` (same keys) |
 
@@ -49,7 +50,9 @@ src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
-src/lib/                   routing, SEO, quiz, clusters
+src/content/news/{slug}.ts first-class news articles (all locales)
+src/data/news.ts           published news registry
+src/lib/                   routing, SEO, quiz, clusters, news
 src/i18n/                  next-intl routing + pathnames
 messages/                  KA + EN copy
 scripts/compile-species.ts predev / prebuild
@@ -67,8 +70,8 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Catalog
 
-- **111** MDX taxa. **110** published. `dolichophis-caspius` is unpublished (`unpublishedSpeciesIds`) and 302s to the snake hub.
-- Groups (approx.): 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 27 birds, 15 mammals.
+- **115** MDX taxa. **113** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub.
+- Groups (approx.): 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 32 birds, 15 mammals.
 - SSOT for live pages, quiz, atlas, search: `getCatalogSpecies()` — never a parallel species list.
 - Atlas group + habitat tags: `speciesAtlasMeta` in `src/data/speciesAtlas.ts`. Adding a species without this entry will break grouping.
 - `vipera-ammodytes` is not a taxon here; 301 → `vipera-transcaucasiana`.
@@ -128,6 +131,7 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/quiz`, `/quiz/romeli-gvelia` | `/en/quiz`, `/en/quiz/which-snake` | Hub + one live quiz |
 | `/riskis-doneebi` | `/en/risk-to-humans` | Risk legend |
 | `/about`, `/contact` | `/en/about`, `/en/contact` | Site |
+| `/news`, `/news/{slug}` | `/en/news`, `/en/news/{slug}` | News |
 
 There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not standalone Red List guides.
 
@@ -142,6 +146,14 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 - Landing is indexable. Question / score / session are **client state** — never add `/quiz/.../result` or query-param indexable modes.
 - Intent: this quiz owns `რომელი გველია` / Georgia snake quiz. Canonical how-to remains `/gvelebi/shxamiani-gvelis-amocnoba`. Do not add `/quiz/gvelis-amocnoba`.
 - Second live quiz needs a new registry entry + unique intent — do not clone `SnakeQuiz` page folders.
+
+## News
+
+- Registry: `src/data/news.ts`. Copy: `src/content/news/{slug}.ts` with `ka`/`en`/`ru`/`tr`.
+- Public URLs: `/news`, `/news/{slug}` (KA unprefixed; `/en/news/…`). Do not add `/ka/news` as a live URL — `/ka/…` 301s via `src/proxy.ts`.
+- No category or tag archive URLs. Drafts stay out of `getPublishedNewsArticles()`, sitemap, and `generateStaticParams`.
+- Reuse `localeAlternates` / `JsonLd` / sitemap `pageEntry`. Do not invent a parallel blog.
+- Do not invent counts, quotes, or species totals beyond the cited source.
 
 ## SEO
 

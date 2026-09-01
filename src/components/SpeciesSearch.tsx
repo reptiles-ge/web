@@ -33,6 +33,7 @@ import {
   Info,
   Mail,
   MapPinned,
+  Newspaper,
   ScanSearch,
   Search,
   ShieldAlert,
@@ -68,6 +69,7 @@ const ICONS: Record<SearchIcon, typeof Search> = {
   yard: Home,
   info: Info,
   contact: Mail,
+  news: Newspaper,
 };
 
 function highlight(text: string, query: string) {

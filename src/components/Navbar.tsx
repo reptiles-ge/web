@@ -78,6 +78,7 @@ export function Navbar() {
     { href: "/species" as const, label: t("species") },
     { href: "/quiz" as const, label: t("quizzes"), badge: t("new") },
     { href: "/regions" as const, label: t("atlas") },
+    { href: "/news" as const, label: t("news") },
   ];
   const reptileGroupLinks = [
     { href: "/snakes" as const, label: t("snakes") },
@@ -100,6 +101,7 @@ export function Navbar() {
       badge: t("new"),
     },
     { kind: "link" as const, href: "/regions" as const, label: t("atlas") },
+    { kind: "link" as const, href: "/news" as const, label: t("news") },
     { kind: "link" as const, href: "/about" as const, label: t("about") },
   ];
   const [groupsOpen, setGroupsOpen] = useState(false);

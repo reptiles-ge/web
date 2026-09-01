@@ -15,6 +15,8 @@ export type PageType =
   | "quiz_index"
   | "about"
   | "contact"
+  | "news"
+  | "news_article"
   | "not_found"
   | "other";
 

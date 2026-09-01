@@ -1,6 +1,8 @@
 import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
+import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
+import { getPublishedNewsForHub } from "@/data/news";
 import { images } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
@@ -178,6 +180,10 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />
         <GroupHubPage hubId={hubId} species={species} heroSrc={heroSrc} />
+        <NewsRelatedBlock
+          articles={getPublishedNewsForHub(hubId)}
+          locale={locale}
+        />
       </>
     );
   }

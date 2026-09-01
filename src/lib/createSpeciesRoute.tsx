@@ -1,4 +1,5 @@
 import { JsonLd } from "@/components/JsonLd";
+import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { openGraphLocale } from "@/i18n/localeMeta";
@@ -29,6 +30,7 @@ import {
   openGraphJpeg,
 } from "@/lib/site";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getPublishedNewsForSpecies } from "@/data/news";
 import {
   getSpeciesHeroSources,
   isPlaceholderBody,
@@ -306,6 +308,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           )}
         />
         <SpeciesProfile species={raw} related={related} />
+        <NewsRelatedBlock
+          articles={getPublishedNewsForSpecies(raw.id)}
+          locale={locale}
+        />
       </>
     );
   }

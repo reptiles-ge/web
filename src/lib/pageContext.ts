@@ -50,6 +50,12 @@ export function resolvePageContext(
   if (pathname === "/contact") {
     return { page_type: "contact" };
   }
+  if (pathname === "/news") {
+    return { page_type: "news" };
+  }
+  if (pathname === "/news/[slug]" && params.slug) {
+    return { page_type: "news_article", entity_id: params.slug };
+  }
   if (pathname === "/species") {
     return { page_type: "atlas" };
   }

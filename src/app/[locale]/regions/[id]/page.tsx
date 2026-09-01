@@ -1,6 +1,8 @@
 import { JsonLd } from "@/components/JsonLd";
+import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { RegionProfile } from "@/components/RegionProfile";
 import { getRegionContent } from "@/data/regionContent";
+import { getPublishedNewsForRegion } from "@/data/news";
 import {
   getRegionById,
   getRegionSpecies,
@@ -214,6 +216,10 @@ export default async function RegionPage({ params }: PageProps) {
         }
       />
       <RegionProfile region={region} />
+      <NewsRelatedBlock
+        articles={getPublishedNewsForRegion(region.id)}
+        locale={locale}
+      />
     </>
   );
 }

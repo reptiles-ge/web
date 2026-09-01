@@ -652,6 +652,24 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Falco buteo",
     ],
   },
+  "pernis-apivorus": {
+    ka: [
+      "კვერნაჭამია",
+      "კრაზანაჭამია",
+      "ირაო",
+      "ჩვეულებრივი ბოლოკარკაზი",
+      "ცუდქორა",
+      "ქორისებრნი",
+      "Falco apivorus",
+    ],
+    en: [
+      "honey buzzard",
+      "European Honey-buzzard",
+      "wasp buzzard",
+      "pern",
+      "Falco apivorus",
+    ],
+  },
   "strix-aluco": {
     ka: [
       "ტყის ბუ",
@@ -938,6 +956,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "monk vulture",
       "Vultur monachus",
       "Aegipius monachus",
+    ],
+  },
+  "milvus-migrans": {
+    ka: [
+      "ძერა",
+      "ქორისებრნი",
+      "Milvus korschun",
+      "Falco migrans",
+      "Milvus migrans migrans",
+    ],
+    en: [
+      "Eurasian black kite",
+      "black kite Georgia",
+      "fork-tailed kite",
+      "Milvus korschun",
+      "Falco migrans",
+      "Milvus migrans migrans",
     ],
   },
   "gyps-fulvus": {

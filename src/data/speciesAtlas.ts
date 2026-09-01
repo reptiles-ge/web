@@ -349,6 +349,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland", "mountain"],
   },
+  "pernis-apivorus": {
+    group: "bird",
+    habitats: ["forest", "mountain"],
+  },
   "accipiter-nisus": {
     group: "bird",
     habitats: ["forest", "grassland"],
@@ -400,6 +404,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "gyps-fulvus": {
     group: "bird",
     habitats: ["mountain", "grassland"],
+  },
+  "milvus-migrans": {
+    group: "bird",
+    habitats: ["wetland", "forest", "grassland"],
   },
   "corvus-corax": {
     group: "bird",
