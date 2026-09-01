@@ -98,19 +98,3 @@ export function newsPlainText(parts: NewsMark[]): string {
     })
     .join("");
 }
-
-export function NewsParagraphs({
-  paragraphs,
-  locale,
-  className,
-}: {
-  paragraphs: NewsMark[][];
-  locale: AppLocale;
-  className?: string;
-}): ReactNode {
-  return paragraphs.map((parts, index) => (
-    <p key={index} className={className}>
-      <NewsRichText parts={parts} locale={locale} />
-    </p>
-  ));
-}
