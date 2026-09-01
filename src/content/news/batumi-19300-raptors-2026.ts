@@ -1,17 +1,83 @@
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
+
+const SOURCE_URL =
+  "https://www.batumiraptorcount.org/news/2026/8/first-10000-day-of-the-season/";
+
+const PHOTO_HOEKSTRA: NewsPhoto = {
+  src: "https://cdn.reptiles.ge/news-batumi-19300-hoekstra-1.jpg",
+  alt: {
+    ka: "აღმწერები პირველ სადგურზე კვერნაჭამიას ნაკადს აკვირდებიან. ბათუმის დერეფანი.",
+    en: "Counters watching Honey Buzzards pass Station 1 in the Batumi bottleneck.",
+    ru: "Наблюдатели на первой станции следят за потоком осоедов. Батумский коридор.",
+    tr: "Gözlemciler 1. istasyonda arı şahini akımını izliyor. Batumi koridoru.",
+  },
+  credit: {
+    photographer: "Elien Hoekstra",
+    url: SOURCE_URL,
+    date: "2026-08-27",
+  },
+};
+
+const PHOTO_MESKHIDZE: NewsPhoto = {
+  src: "https://cdn.reptiles.ge/news-batumi-19300-meskhidze-1.jpg",
+  alt: {
+    ka: "აისვა პირველ სადგურზე. ბათუმის დერეფანი.",
+    en: "Sunrise at Station 1 in the Batumi bottleneck.",
+    ru: "Рассвет на первой станции. Батумский коридор.",
+    tr: "1. istasyonda gün doğumu. Batumi koridoru.",
+  },
+  credit: {
+    photographer: "Sofia Meskhidze",
+    url: SOURCE_URL,
+    date: "2026-08-27",
+  },
+};
+
+const PHOTO_ELDAKAMAWY: NewsPhoto = {
+  src: "https://cdn.reptiles.ge/news-batumi-19300-eldakamawy-1.jpg",
+  alt: {
+    ka: "აღრიცხვა მეორე სადგურზე მძიმე ღრუბლების ქვეშ. ბათუმის დერეფანი.",
+    en: "Counting at Station 2 under heavy clouds in the Batumi bottleneck.",
+    ru: "Учёт на второй станции под тяжёлыми облаками. Батумский коридор.",
+    tr: "Ağır bulutların altında 2. istasyonda sayım. Batumi koridoru.",
+  },
+  credit: {
+    photographer: "Toka Eldakamawy",
+    url: SOURCE_URL,
+    date: "2026-08-27",
+  },
+};
+
+const PHOTO_COSENTINO: NewsPhoto = {
+  src: "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg",
+  alt: {
+    ka: "შავი ძერა სადგურებს გადაუფრინავს. ბათუმის დერეფანი.",
+    en: "A Black Kite passing the count stations in the Batumi bottleneck.",
+    ru: "Чёрный коршун пролетает мимо станций учёта. Батумский коридор.",
+    tr: "Sayım istasyonlarının önünden geçen kara çaylak. Batumi koridoru.",
+  },
+  credit: {
+    photographer: "Jess Cosentino",
+    url: SOURCE_URL,
+    date: "2026-08-27",
+  },
+};
 
 export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
   id: "batumi-19300-raptors-2026",
   slug: "batumi-19300-raptors-2026",
   status: "published",
   publishedAt: "2026-08-27",
-  relatedSpeciesIds: ["buteo-buteo", "milvus-migrans", "pernis-apivorus"],
+  updatedAt: "2026-09-01",
+  relatedSpeciesIds: ["pernis-apivorus", "milvus-migrans", "buteo-buteo"],
   relatedRegionIds: ["adjara"],
   relatedHubIds: ["birds"],
+  image: PHOTO_HOEKSTRA,
+  gallery: [PHOTO_MESKHIDZE, PHOTO_ELDAKAMAWY, PHOTO_COSENTINO],
   sources: [
     {
       name: "Batumi Raptor Count — First 10,000+ day of the season",
-      url: "https://www.batumiraptorcount.org/news/2026/8/first-10000-day-of-the-season",
+      url: SOURCE_URL,
     },
     {
       name: "Batumi Raptor Count — Call for counters, autumn 2026",
@@ -20,22 +86,22 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
   ],
   copy: {
     ka: {
-      title: "ბათუმში ერთ დღეში თითქმის 19 300 მტაცებელი ფრინველი დაფიქსირდა",
+      title: "ბათუმში ერთ დღეში თითქმის 19 300 მტაცებელი ფრინველი დაითვალეს",
       metaTitle:
-        "ბათუმში ერთ დღეში თითქმის 19 300 მტაცებელი ფრინველი დაფიქსირდა",
+        "ბათუმში ერთ დღეში თითქმის 19 300 მტაცებელი ფრინველი დაითვალეს",
       metaDescription:
-        "2026 წლის 27 აგვისტოს Batumi Raptor Count-მა ბათუმის დერეფანში თითქმის 19 300 ფრინველი დაითვალა — შემოდგომის სეზონის პირველი 10 000-ზე მეტი ფრინველის დღე. დომინირებდა კვერნაჭამია.",
-      dek: "27 აგვისტოს ბათუმის დერეფანმა სეზონის პირველი 10 000-იანი დღე დააფიქსირა. ჯამი თითქმის 19 300 ფრინველია; ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
-      lead: "27 აგვისტოს Batumi Raptor Count-ის ორმა სათვალთვალო სადგურმა ბათუმის მიგრაციულ დერეფანში თითქმის 19 300 ფრინველი დაითვალა. ეს იყო 2026 წლის შემოდგომის სეზონის პირველი დღე, როცა დღიურმა ჯამმა 10 000-ს გადააჭარბა. ნაკადში დომინირებდა კვერნაჭამია. ციფრები ორგანიზაციის ოფიციალური ანგარიშიდანაა — აღრიცხვა Reptiles.ge-ს არ ჩაუტარებია.",
+        "2026 წლის 27 აგვისტოს Batumi Raptor Count-მა ბათუმის დერეფანში თითქმის 19 300 ფრინველი დაითვალა — შემოდგომის სეზონის პირველი 10 000-ზე მეტი ფრინველის დღე. ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
+      dek: "წვიმისა და ნისლის შემდეგ ბათუმის დერეფანმა სეზონის პირველი 10 000-იანი დღე დააფიქსირა. ჯამი თითქმის 19 300 ფრინველია; რამდენიმე საათიან ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
+      lead: "27 აგვისტოს Batumi Raptor Count-ის ორმა სადგურმა ბათუმის მიგრაციულ დერეფანში თითქმის 19 300 ფრინველი დაითვალა. ეს იყო 2026 წლის შემოდგომის სეზონის პირველი დღე, როცა დღიურმა ჯამმა 10 000-ს გადააჭარბა. ორგანიზაცია წერს, რომ ნაკადი რამდენიმე საათს გაგრძელდა და პრაქტიკულად კვერნაჭამიების კედელს ქმნიდა. ციფრები მათი საველე ანგარიშიდანაა — აღრიცხვა Reptiles.ge-ს არ ჩაუტარებია.",
       sections: [
         {
           heading: "რა მოხდა?",
           paragraphs: [
             [
-              "2026 წლის შემოდგომის აღრიცხვა ბათუმთან 12 აგვისტოს დაიწყო. პირველი ორი კვირა მშვიდი იყო: Batumi Raptor Count წერს, რომ წინა დღეებში წვიმამ და ნისლმა დერეფანში ფრინველთა რაოდენობა დაბლა დასვა, კვერნაჭამიას პიკი კი ჯერ წინ იყო.",
+              "2026 წლის შემოდგომის აღრიცხვა ბათუმთან 12 აგვისტოს დაიწყო. პირველი ორი კვირა მშვიდი იყო. Batumi Raptor Count წერს, რომ 27 აგვისტომდე წვიმამ და ნისლმა დერეფანში რიცხვები დაბლა დასვა. კვერნაჭამიას პიკი ჯერ წინ იყო და გუნდი უკვე სვამდა კითხვას: სად არიან?",
             ],
             [
-              "27 აგვისტოს ნაკადი რამდენიმე საათს გაგრძელდა. ორი სადგურის ჯამი თითქმის 19 300 ფრინველამდე ავიდა. ეს არის სეზონის პირველი დღე, როცა დღიურმა ჯამმა 10 000-ს გადააჭარბა — არა სეზონის მთლიანი რიცხვი და არა ერთი სახეობის ზუსტი აღრიცხვა.",
+              "იმ დღეს, როგორც ანგარიშში წერია, ისინი მოვიდნენ. ორი სადგურის ჯამი თითქმის 19 300 ფრინველამდე ავიდა. ნაკადი რამდენიმე საათს გაგრძელდა. ეს არის სეზონის პირველი დღე 10 000-ზე მეტი ფრინველით — არა სეზონის მთლიანი რიცხვი და არა ერთი სახეობის ზუსტი აღრიცხვა.",
             ],
           ],
         },
@@ -45,29 +111,23 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
             [
               "შემოდგომით მტაცებელი ფრინველები დასავლეთ პალეარქტიკიდან აფრიკისკენ შავი ზღვის აღმოსავლეთ სანაპიროს გაყოლებით ეშვებიან. ",
               { type: "region", id: "adjara", label: "აჭარაში" },
-              ", ბათუმის ჩრდილოეთით, ზღვასა და მთას შორის ეს გზა ვიწროვდება. ამიტომ ჰქვია ადგილს ბათუმის დერეფანი: ბევრი ფრინველი ერთსა და იმავე ცას კვეთს, და დღიური ჯამი აქ შეიძლება ათასეულებში აისახოს.",
+              ", ბათუმის ჩრდილოეთით, ზღვასა და მთას შორის ეს გზა ვიწროვდება. ამიტომ ჰქვია ადგილს ბათუმის დერეფანი: ბევრი ფრინველი ერთსა და იმავე ცას კვეთს და დღიური ჯამი აქ შეიძლება ათასეულებში აისახოს.",
             ],
             [
-              "Batumi Raptor Count ამ დერეფანს 2008 წლიდან აკვირდება. 2026 წლის სეზონი 12 აგვისტოდან 21 ოქტომბრამდე გრძელდება. ატლასში დერეფანი უკვე ჩანს ",
-              { type: "hub", id: "birds", label: "ფრინველების ჰაბზე" },
-              " და იმ სახეობების პროფილებზე, რომლებსაც შემოდგომის გავლა აქვთ დასახელებული — მათ შორის ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "ჩვეულებრივი კაკაჩა",
-              },
-              ", ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "შავი ძერა",
-              },
-              " და ",
+              "Batumi Raptor Count ამ დერეფანს 2008 წლიდან აკვირდება. 2026 წლის სეზონი 12 აგვისტოდან 21 ოქტომბრამდე გრძელდება. ანგარიშში დასახელებულია ორი სადგური; ატლასში ეს წერტილები სახალვაშოდ და შუამთად ჩანს იმ სახეობების პროფილებზე, რომლებსაც შემოდგომის გავლა აქვთ დასახელებული — მათ შორის ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "ბოლოკარკაზი",
               },
+              " და ",
+              {
+                type: "species",
+                id: "buteo-buteo",
+                label: "ჩვეულებრივი კაკაჩა",
+              },
+              ". იგივე კონტექსტი არის ",
+              { type: "hub", id: "birds", label: "ფრინველების ჰაბზე" },
               ".",
             ],
           ],
@@ -76,27 +136,33 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
           heading: "რა დაინახეს 27 აგვისტოს?",
           paragraphs: [
             [
-              "Batumi Raptor Count-ის ანგარიშით, ნაკადში კვერნაჭამია (",
+              "ანგარიშის მიხედვით, ნაკადში კვერნაჭამია (",
               { type: "sci", name: "Pernis apivorus" },
-              ") იდგა წინა პლანზე. აღმწერებმა მასობრივ, რამდენიმე საათიან ნაკადზე ისაუბრეს. პირველმა სადგურმა დათვლის ძირითადი ტვირთი აიღო; მეორე სადგური ნაკადიდან შავ ძერასა და ბოლოჭერებს გამოყოფდა.",
-            ],
-            [
-              "ორგანიზაციამ ამ ანგარიშში სახეობრივი ზუსტი რიცხვები არ გამოაქვეყნა. ამიტომ აქ მხოლოდ მათი შეჯამებაა: თითქმის 19 300 ფრინველი ორ სადგურს შორის, სეზონის პირველი 10 000-იანი დღე, დომინანტი — კვერნაჭამია. შავი ძერა და ბოლოჭერები ნახსენებია, მაგრამ რაოდენობა არა.",
-            ],
-            [
-              "კვერნაჭამია საქართველოში ცალკე სახეობაა. ატლასში მისი გვერდია ",
+              ") იდგა წინა პლანზე. ატლასში ამ სახეობის გვერდია ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "ბოლოკარკაზი",
               },
-              ". ახლოს მდგომი, მაგრამ განსხვავებული სახეობაა ",
+              ". პირველმა სადგურმა დათვლის ძირითადი ტვირთი აიღო; მეორე სადგური იმავე ნაკადიდან ",
+              {
+                type: "species",
+                id: "milvus-migrans",
+                label: "შავ ძერას",
+              },
+              " და ბოლოჭერებს გამოყოფდა. ბოლოჭერის სახეობა ამ ანგარიშში არ არის დასახელებული.",
+            ],
+            [
+              "ორგანიზაციამ სახეობრივი ზუსტი რიცხვები ამ განახლებაში არ გამოაქვეყნა. ამიტომ აქ მხოლოდ მათი შეჯამებაა: თითქმის 19 300 ფრინველი ორ სადგურს შორის, სეზონის პირველი 10 000-იანი დღე, დომინანტი — კვერნაჭამია. შავი ძერა და ბოლოჭერები ნახსენებია, მაგრამ რაოდენობა არა.",
+            ],
+            [
+              "კვერნაჭამია კაკაჩა არ არის. ახლოს მდგომი, მაგრამ განსხვავებული სახეობაა ",
               {
                 type: "species",
                 id: "buteo-buteo",
                 label: "ჩვეულებრივი კაკაჩა",
               },
-              " — ისიც ბათუმის დერეფანში გადის, პროფილზე კი პირდაპირ წერია, რომ ბოლოკარკაზი სხვა ტაქსონია.",
+              " — ისიც ბათუმის დერეფანში გადის; პროფილზე პირდაპირ წერია, რომ ბოლოკარკაზი სხვა ტაქსონია.",
             ],
           ],
         },
@@ -107,7 +173,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               "Batumi Raptor Count წერს, რომ კვერნაჭამიას რიცხვების პიკი მომდევნო კვირაშია მოსალოდნელი. სეზონი 21 ოქტომბრამდე გრძელდება. 27 აგვისტო პირველი დიდი დღეა, არა დასასრული: დღიური ჯამები შეიძლება კიდევ გაიზარდოს, სახეობრივი სურათი კი სეზონის განმავლობაში შეიცვალოს.",
             ],
             [
-              "დღიური ციფრების შესამოწმებლად პირველადი წყაროა Batumi Raptor Count. ",
+              "დღიური ციფრების პირველადი წყაროა Batumi Raptor Count. ",
               { type: "news-index", label: "სიახლეებში" },
               " ასეთ ანგარიშებს კონტექსტს ვუმატებთ და ატლასის გვერდებზე ვაბრუნებთ — სახეობის პროფილი რჩება ძირითად ჩანაწერად.",
             ],
@@ -116,21 +182,21 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       ],
     },
     en: {
-      title: "Nearly 19,300 Raptors Counted in One Day at Batumi",
-      metaTitle: "Nearly 19,300 Raptors Counted in One Day at Batumi",
+      title: "Nearly 19,300 raptors counted in one day at Batumi",
+      metaTitle: "Nearly 19,300 raptors counted in one day at Batumi",
       metaDescription:
         "On 27 August 2026, Batumi Raptor Count recorded nearly 19,300 birds through the Batumi bottleneck — the first 10,000-plus day of the autumn season, led by European Honey Buzzards.",
-      dek: "27 August brought the season’s first 10,000-plus day in the Batumi bottleneck: nearly 19,300 birds, with European Honey Buzzards dominating the stream.",
-      lead: "On 27 August, Batumi Raptor Count’s two watch stations recorded nearly 19,300 birds through the Batumi migration bottleneck. It was the first day of the 2026 autumn season on which the daily total passed 10,000. European Honey Buzzards dominated the movement. The figures come from the organisation’s report — Reptiles.ge did not conduct the count.",
+      dek: "After rain and fog, 27 August brought the season’s first 10,000-plus day in the Batumi bottleneck: nearly 19,300 birds, with Honey Buzzards dominating a stream that lasted several hours.",
+      lead: "On 27 August, Batumi Raptor Count’s two stations recorded nearly 19,300 birds through the Batumi migration bottleneck. It was the first day of the 2026 autumn season on which the daily total passed 10,000. The organisation described a passage lasting several hours that practically created a wall of Honey Buzzards. The figures come from their field update — Reptiles.ge did not conduct the count.",
       sections: [
         {
           heading: "What happened?",
           paragraphs: [
             [
-              "The 2026 autumn count at Batumi began on 12 August. The first fortnight was quiet. Batumi Raptor Count reported that rain and fog in the days before 27 August had kept numbers low, while the Honey Buzzard peak still lay ahead.",
+              "The 2026 autumn count at Batumi began on 12 August. The first fortnight was quiet. Batumi Raptor Count reported that rain and fog before 27 August had kept numbers low. The Honey Buzzard peak still lay ahead, and the team had begun to wonder where the birds were.",
             ],
             [
-              "On 27 August the stream lasted several hours. The two stations together reached nearly 19,300 birds. That is the season’s first day above 10,000 — not a season total, and not a species-by-species breakdown.",
+              "That day, the report says, they arrived. The two stations together reached nearly 19,300 birds. The stream lasted several hours. That is the season’s first day above 10,000 — not a season total, and not a species-by-species breakdown.",
             ],
           ],
         },
@@ -143,26 +209,20 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               ", north of Batumi, sea and mountains pinch that route into a narrow corridor. That is the Batumi bottleneck: many birds cross the same sky, so a single day’s count can run to the thousands.",
             ],
             [
-              "Batumi Raptor Count has watched the corridor since 2008. The 2026 season runs from 12 August to 21 October. On this atlas the bottleneck already appears on the ",
-              { type: "hub", id: "birds", label: "birds hub" },
-              " and on profiles that name autumn passage here — including ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "Common Buzzard",
-              },
-              ", ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "Black kite",
-              },
-              " and ",
+              "Batumi Raptor Count has watched the corridor since 2008. The 2026 season runs from 12 August to 21 October. The update names two stations; on this atlas those sites appear as Sakhalvasho and Shuamta on profiles that record autumn passage here — including ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "European honey buzzard",
               },
+              " and ",
+              {
+                type: "species",
+                id: "buteo-buteo",
+                label: "Common buzzard",
+              },
+              ". The same context is on the ",
+              { type: "hub", id: "birds", label: "birds hub" },
               ".",
             ],
           ],
@@ -171,25 +231,31 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
           heading: "What was observed on 27 August?",
           paragraphs: [
             [
-              "According to Batumi Raptor Count, European Honey Buzzards (",
+              "According to the report, European Honey Buzzards (",
               { type: "sci", name: "Pernis apivorus" },
-              ") dominated the stream. The team described a dense passage lasting several hours. Station 1 took most of the counting; Station 2 worked the same streams for Black Kites and harriers.",
-            ],
-            [
-              "The report does not give species totals. What can be repeated here is only their summary: nearly 19,300 birds across the two stations, the first 10,000-plus day of the season, Honey Buzzards in the lead. Black Kites and harriers are named, without numbers.",
-            ],
-            [
-              "Honey Buzzard is a separate species in Georgia. This atlas has a profile for it: ",
+              ") dominated the stream. This atlas’s profile for the species is ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "European honey buzzard",
               },
-              ". The closest published lookalike page is ",
+              ". Station 1 took most of the counting; Station 2 worked the same streams for ",
+              {
+                type: "species",
+                id: "milvus-migrans",
+                label: "Black kites",
+              },
+              " and harriers. The update does not name the harriers to species.",
+            ],
+            [
+              "The report does not give species totals. What can be repeated here is only their summary: nearly 19,300 birds across the two stations, the first 10,000-plus day of the season, Honey Buzzards in the lead. Black Kites and harriers are named, without numbers.",
+            ],
+            [
+              "Honey Buzzard is not a buzzard in the genus Buteo. The closest published lookalike page is ",
               {
                 type: "species",
                 id: "buteo-buteo",
-                label: "Common Buzzard",
+                label: "Common buzzard",
               },
               " — also a Batumi migrant, and a profile that already states honey buzzard is a different taxon.",
             ],
@@ -214,18 +280,18 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       title: "В Батуми за один день насчитали почти 19 300 хищных птиц",
       metaTitle: "В Батуми за один день насчитали почти 19 300 хищных птиц",
       metaDescription:
-        "27 августа 2026 года Batumi Raptor Count насчитал почти 19 300 птиц в батумском миграционном коридоре — первый день сезона с более чем 10 000 птиц. Доминировал осоед.",
-      dek: "27 августа батумский коридор дал первый день сезона выше 10 000: почти 19 300 птиц, в потоке преобладал осоед.",
-      lead: "27 августа две наблюдательные станции Batumi Raptor Count насчитали почти 19 300 птиц в батумском миграционном коридоре. Это был первый день осеннего сезона 2026 года, когда дневная сумма превысила 10 000. В потоке доминировал осоед. Цифры взяты из отчёта организации — Reptiles.ge подсчёт не вёл.",
+        "27 августа 2026 года Batumi Raptor Count насчитал почти 19 300 птиц в батумском миграционном коридоре — первый день сезона с более чем 10 000 птиц. В потоке преобладал осоед.",
+      dek: "После дождя и тумана 27 августа батумский коридор дал первый день сезона выше 10 000: почти 19 300 птиц, несколько часов потока, в котором преобладал осоед.",
+      lead: "27 августа две станции Batumi Raptor Count насчитали почти 19 300 птиц в батумском миграционном коридоре. Это был первый день осеннего сезона 2026 года, когда дневная сумма превысила 10 000. Организация описывает пролёт длительностью несколько часов, который практически создавал стену осоедов. Цифры взяты из их полевого отчёта — Reptiles.ge подсчёт не вёл.",
       sections: [
         {
           heading: "Что произошло?",
           paragraphs: [
             [
-              "Осенний учёт 2026 года у Батуми начался 12 августа. Первые две недели были спокойными. Batumi Raptor Count пишет, что дождь и туман в предшествующие дни держали численность низкой, а пик пролёта осоеда ещё был впереди.",
+              "Осенний учёт 2026 года у Батуми начался 12 августа. Первые две недели были спокойными. Batumi Raptor Count пишет, что дождь и туман до 27 августа держали численность низкой. Пик пролёта осоеда ещё был впереди, и команда уже спрашивала: где они?",
             ],
             [
-              "27 августа поток шёл несколько часов. Сумма двух станций достигла почти 19 300 птиц. Это первый день сезона выше 10 000 — не итог сезона и не разбивка по видам.",
+              "В тот день, по отчёту, они появились. Сумма двух станций достигла почти 19 300 птиц. Поток шёл несколько часов. Это первый день сезона выше 10 000 — не итог сезона и не разбивка по видам.",
             ],
           ],
         },
@@ -238,26 +304,20 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               ", к северу от Батуми, море и горы сужают этот путь. Отсюда название — батумский коридор: много птиц пересекает одно и то же небо, и дневная сумма может исчисляться тысячами.",
             ],
             [
-              "Batumi Raptor Count ведёт наблюдения здесь с 2008 года. Сезон 2026 года длится с 12 августа по 21 октября. В атласе коридор уже есть на ",
-              { type: "hub", id: "birds", label: "странице птиц" },
-              " и в профилях видов с осенним пролётом — в том числе у ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "обыкновенного канюка",
-              },
-              ", ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "чёрного коршуна",
-              },
-              " и ",
+              "Batumi Raptor Count ведёт наблюдения здесь с 2008 года. Сезон 2026 года длится с 12 августа по 21 октября. В отчёте названы две станции; в атласе эти точки — Сахалвашо и Шуамта — есть в профилях видов с осенним пролётом, в том числе у ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "обыкновенного осоеда",
               },
+              " и ",
+              {
+                type: "species",
+                id: "buteo-buteo",
+                label: "обыкновенного канюка",
+              },
+              ". Тот же контекст — на ",
+              { type: "hub", id: "birds", label: "странице птиц" },
               ".",
             ],
           ],
@@ -266,21 +326,27 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
           heading: "Что наблюдали 27 августа?",
           paragraphs: [
             [
-              "По отчёту Batumi Raptor Count, в потоке преобладал осоед (",
+              "По отчёту, в потоке преобладал осоед (",
               { type: "sci", name: "Pernis apivorus" },
-              "). Команда описывает плотный пролёт длительностью несколько часов. Первая станция взяла основную нагрузку подсчёта; вторая выделяла из потока чёрных коршунов и луней.",
-            ],
-            [
-              "В этом отчёте нет точных цифр по видам. Здесь можно повторить только их сводку: почти 19 300 птиц на двух станциях, первый день сезона выше 10 000, доминант — осоед. Чёрный коршун и луни названы, без численности.",
-            ],
-            [
-              "Осоед в Грузии — отдельный вид. Профиль в атласе: ",
+              "). Профиль вида в атласе: ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "обыкновенный осоед",
               },
-              ". Ближайшая страница сходного вида — ",
+              ". Первая станция взяла основную нагрузку подсчёта; вторая выделяла из того же потока ",
+              {
+                type: "species",
+                id: "milvus-migrans",
+                label: "чёрных коршунов",
+              },
+              " и луней. Вид луней в этом отчёте не назван.",
+            ],
+            [
+              "В этом обновлении нет точных цифр по видам. Здесь можно повторить только их сводку: почти 19 300 птиц на двух станциях, первый день сезона выше 10 000, доминант — осоед. Чёрный коршун и луни названы, без численности.",
+            ],
+            [
+              "Осоед — не канюк рода Buteo. Ближайшая страница сходного вида — ",
               {
                 type: "species",
                 id: "buteo-buteo",
@@ -299,7 +365,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
             [
               "Первичный источник дневных цифр — Batumi Raptor Count. В ",
               { type: "news-index", label: "новостях" },
-              " мы добавляем контекст и возвращаем к страницам атласа — основным записью остаётся профиль вида.",
+              " мы добавляем контекст и возвращаем к страницам атласа — основной записью остаётся профиль вида.",
             ],
           ],
         },
@@ -310,17 +376,17 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       metaTitle: "Batumi’de bir günde yaklaşık 19.300 yırtıcı kuş sayıldı",
       metaDescription:
         "27 Ağustos 2026’da Batumi Raptor Count, Batumi göç koridorunda yaklaşık 19.300 kuş saydı — sonbahar sezonunun ilk 10.000 üzeri günü. Akımda arı şahini baskındı.",
-      dek: "27 Ağustos, Batumi koridorunda sezonun ilk 10.000 üzeri günü oldu: yaklaşık 19.300 kuş; akımda arı şahini öndeydi.",
-      lead: "27 Ağustos’ta Batumi Raptor Count’un iki gözlem istasyonu, Batumi göç koridorundan geçen yaklaşık 19.300 kuş saydı. 2026 sonbahar sezonunda günlük toplamın 10.000’i aştığı ilk gündü. Akımda Avrupa arı şahini baskındı. Sayılar örgütün raporundan — sayımı Reptiles.ge yapmadı.",
+      dek: "Yağmur ve sisin ardından 27 Ağustos, Batumi koridorunda sezonun ilk 10.000 üzeri günü oldu: yaklaşık 19.300 kuş; birkaç saat süren akımda arı şahini öndeydi.",
+      lead: "27 Ağustos’ta Batumi Raptor Count’un iki istasyonu, Batumi göç koridorundan geçen yaklaşık 19.300 kuş saydı. 2026 sonbahar sezonunda günlük toplamın 10.000’i aştığı ilk gündü. Örgüt, birkaç saat süren ve neredeyse bir arı şahini duvarı oluşturan geçişten söz etti. Sayılar onların saha raporundan — sayımı Reptiles.ge yapmadı.",
       sections: [
         {
           heading: "Ne oldu?",
           paragraphs: [
             [
-              "2026 sonbahar sayımı Batumi’de 12 Ağustos’ta başladı. İlk iki hafta sakin geçti. Batumi Raptor Count, 27 Ağustos’tan önceki günlerde yağmur ve sisin sayıları düşük tuttuğunu, arı şahini zirvesinin ise hâlâ önde olduğunu yazdı.",
+              "2026 sonbahar sayımı Batumi’de 12 Ağustos’ta başladı. İlk iki hafta sakin geçti. Batumi Raptor Count, 27 Ağustos’tan önceki yağmur ve sisin sayıları düşük tuttuğunu yazdı. Arı şahini zirvesi hâlâ öndeydi ve ekip kuşların nerede olduğunu sormaya başlamıştı.",
             ],
             [
-              "27 Ağustos’ta akım birkaç saat sürdü. İki istasyonun toplamı yaklaşık 19.300 kuşa çıktı. Bu, sezonun 10.000’i aşan ilk günü — sezon toplamı değil, türlere göre döküm de değil.",
+              "O gün, rapora göre, geldiler. İki istasyonun toplamı yaklaşık 19.300 kuşa çıktı. Akım birkaç saat sürdü. Bu, sezonun 10.000’i aşan ilk günü — sezon toplamı değil, türlere göre döküm de değil.",
             ],
           ],
         },
@@ -333,27 +399,21 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
               ", Batumi’nin kuzeyinde deniz ile dağ bu yolu daraltır. Batumi koridoru bu yüzden böyle anılır: birçok kuş aynı gökyüzünü geçer, günlük toplam binleri bulabilir.",
             ],
             [
-              "Batumi Raptor Count koridoru 2008’den beri izliyor. 2026 sezonu 12 Ağustos–21 Ekim arasında. Atlas’ta koridor ",
-              { type: "hub", id: "birds", label: "kuşlar sayfasında" },
-              " ve sonbahar geçişini adıyla anan profillerde zaten var — örneğin ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "şahin",
-              },
-              ", ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "kara çaylak",
-              },
-              " ve ",
+              "Batumi Raptor Count koridoru 2008’den beri izliyor. 2026 sezonu 12 Ağustos–21 Ekim arasında. Raporda iki istasyon adı geçer; atlas’ta bu noktalar sonbahar geçişini anan profillerde Sakhalvasho ve Şuamta olarak durur — örneğin ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "arı şahini",
               },
-              ".",
+              " ve ",
+              {
+                type: "species",
+                id: "buteo-buteo",
+                label: "şahin",
+              },
+              ". Aynı bağlam ",
+              { type: "hub", id: "birds", label: "kuşlar sayfasında" },
+              " da var.",
             ],
           ],
         },
@@ -361,21 +421,27 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
           heading: "27 Ağustos’ta ne görüldü?",
           paragraphs: [
             [
-              "Batumi Raptor Count raporuna göre akımda arı şahini (",
+              "Rapora göre akımda arı şahini (",
               { type: "sci", name: "Pernis apivorus" },
-              ") baskındı. Ekip, birkaç saat süren yoğun bir geçişten söz etti. 1. istasyon sayımın asıl yükünü aldı; 2. istasyon aynı akımdan kara çaylakları ve deliceleri ayırmaya çalıştı.",
-            ],
-            [
-              "Raporda türe göre kesin sayılar yok. Burada yalnızca özetleri tekrarlanabilir: iki istasyonda yaklaşık 19.300 kuş, sezonun ilk 10.000 üzeri günü, baskın tür arı şahini. Kara çaylak ve deliceler adı geçiyor, sayı yok.",
-            ],
-            [
-              "Arı şahini Gürcistan’da ayrı bir türdür. Atlas’taki profili: ",
+              ") baskındı. Atlas’taki profili: ",
               {
                 type: "species",
                 id: "pernis-apivorus",
                 label: "arı şahini",
               },
-              ". En yakın benzer sayfa ",
+              ". 1. istasyon sayımın asıl yükünü aldı; 2. istasyon aynı akımdan ",
+              {
+                type: "species",
+                id: "milvus-migrans",
+                label: "kara çaylakları",
+              },
+              " ve deliceleri ayırmaya çalıştı. Raporda delice türü belirtilmiyor.",
+            ],
+            [
+              "Bu güncellemede türe göre kesin sayılar yok. Burada yalnızca özetleri tekrarlanabilir: iki istasyonda yaklaşık 19.300 kuş, sezonun ilk 10.000 üzeri günü, baskın tür arı şahini. Kara çaylak ve deliceler adı geçiyor, sayı yok.",
+            ],
+            [
+              "Arı şahini, Buteo cinsindeki şahin değildir. En yakın benzer sayfa ",
               {
                 type: "species",
                 id: "buteo-buteo",
