@@ -484,7 +484,7 @@
     "sourceHeading": "Источник",
     "reportedBy": "Учёт: {source}",
     "editorialBy": "Редакция Reptiles.ge",
-    "editorialNote": "Эта страница разъясняет отчёт Batumi Raptor Count. Птиц Reptiles.ge не считал.",
+    "editorialNote": "Эта страница разъясняет отчёт {source}. Учёт Reptiles.ge не проводил.",
     "relatedHeading": "В атласе",
     "relatedNewsHeading": "Связанные новости",
     "allNews": "Все новости",

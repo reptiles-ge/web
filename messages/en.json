@@ -484,7 +484,7 @@
     "sourceHeading": "Source",
     "reportedBy": "Count reported by {source}",
     "editorialBy": "Editorial, Reptiles.ge",
-    "editorialNote": "This page explains a Batumi Raptor Count report. Reptiles.ge did not count the birds.",
+    "editorialNote": "This page explains a {source} report. Reptiles.ge did not conduct the count.",
     "relatedHeading": "In the atlas",
     "relatedNewsHeading": "Related news",
     "allNews": "All news",

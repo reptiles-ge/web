@@ -73,7 +73,7 @@ export async function NewsArticlePage({
                 {copy.lead}
               </p>
               <p className="mt-6 rounded-2xl border border-border bg-card px-5 py-4 text-[14px] leading-relaxed text-muted-foreground">
-                {t("editorialNote")}
+                {t("editorialNote", { source: article.sources[0]?.name.split(" — ")[0] ?? "Batumi Raptor Count" })}
               </p>
 
               {copy.sections.map((section) => (

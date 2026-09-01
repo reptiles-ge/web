@@ -484,7 +484,7 @@
     "sourceHeading": "Kaynak",
     "reportedBy": "Sayım: {source}",
     "editorialBy": "Editoryal, Reptiles.ge",
-    "editorialNote": "Bu sayfa bir Batumi Raptor Count raporunu açıklar. Kuşları Reptiles.ge saymadı.",
+    "editorialNote": "Bu sayfa bir {source} raporunu açıklar. Sayımı Reptiles.ge yapmadı.",
     "relatedHeading": "Atlas’ta",
     "relatedNewsHeading": "İlgili haberler",
     "allNews": "Tüm haberler",
