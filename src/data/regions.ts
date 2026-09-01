@@ -1,3 +1,4 @@
+import { pickLocalized } from "@/i18n/localeMeta";
 import { getSpeciesById, type Species } from "@/data/species";
 import type { RegionPathId } from "@/data/georgia-paths";
 import { georgiaRegionPaths } from "@/data/georgia-paths";
@@ -5,6 +6,8 @@ import { georgiaRegionPaths } from "@/data/georgia-paths";
 export type LocalizedText = {
   ka: string;
   en: string;
+  ru?: string;
+  tr?: string;
 };
 
 export type Region = {
@@ -19,11 +22,18 @@ export type Region = {
 export const regions: Region[] = [
   {
     id: "abkhazia",
-    name: { ka: "აფხაზეთი", en: "Abkhazia" },
-    nameIn: { ka: "აფხაზეთში", en: "Abkhazia" },
+    name: { ka: "აფხაზეთი", en: "Abkhazia", ru: "Абхазия", tr: "Abhazya" },
+    nameIn: {
+      ka: "აფხაზეთში",
+      en: "Abkhazia",
+      ru: "Абхазии",
+      tr: "Abhazya",
+    },
     description: {
       ka: "შავი ზღვის სანაპირო, კოლხური ტყეები და კავკასიონის მთისწინეთი ქმნის ნოტიო, მრავალფეროვან ჰაბიტატს.",
       en: "The Black Sea coast, Colchic forests, and Caucasus foothills form a humid, biodiverse habitat.",
+      ru: "Черноморское побережье, колхидские леса и предгорья Кавказа образуют влажную, богатую видами среду.",
+      tr: "Karadeniz kıyısı, Kolhis ormanları ve Kafkas etekleri nemli, türce zengin bir ortam oluşturur.",
     },
     speciesIds: [
       "vipera-kaznakovi",
@@ -49,14 +59,23 @@ export const regions: Region[] = [
   },
   {
     id: "samegrelo",
-    name: { ka: "სამეგრელო — ზემო სვანეთი", en: "Samegrelo — Zemo Svaneti" },
+    name: {
+      ka: "სამეგრელო — ზემო სვანეთი",
+      en: "Samegrelo — Zemo Svaneti",
+      ru: "Самегрело — Верхняя Сванетия",
+      tr: "Samegrelo — Zemo Svaneti",
+    },
     nameIn: {
       ka: "სამეგრელო — ზემო სვანეთში",
       en: "Samegrelo — Zemo Svaneti",
+      ru: "Самегрело — Верхней Сванетии",
+      tr: "Samegrelo — Zemo Svaneti",
     },
     description: {
       ka: "კოლხეთის დაბლობიდან სვანეთის მაღალმთამდე — ტენიანი ტყეები, მდინარის ხეობები და ალპური ზონა.",
       en: "From the Colchis lowlands to high Svaneti — humid forests, river valleys, and alpine zones.",
+      ru: "От Колхидской низменности до высокогорной Сванетии — влажные леса, речные долины и альпийский пояс.",
+      tr: "Kolhis ovasından yüksek Svaneti’ye — nemli ormanlar, nehir vadileri ve alpin kuşak.",
     },
     speciesIds: [
       "vipera-kaznakovi",
@@ -90,11 +109,13 @@ export const regions: Region[] = [
   },
   {
     id: "guria",
-    name: { ka: "გურია", en: "Guria" },
-    nameIn: { ka: "გურიაში", en: "Guria" },
+    name: { ka: "გურია", en: "Guria", ru: "Гурия", tr: "Gurya" },
+    nameIn: { ka: "გურიაში", en: "Guria", ru: "Гурии", tr: "Gurya" },
     description: {
       ka: "ნოტიო სუბტროპიკული კოლხური ტყეები და მდინარის ხეობები ხელს უწყობს ტენიანობის მოყვარულ სახეობებს.",
       en: "Humid subtropical Colchic forests and river valleys favor moisture-loving species.",
+      ru: "Влажные субтропические колхидские леса и речные долины благоприятны для влаголюбивых видов.",
+      tr: "Nemli subtropik Kolhis ormanları ve nehir vadileri neme bağlı türlüre elverişlidir.",
     },
     speciesIds: [
       "vipera-kaznakovi",
@@ -117,11 +138,13 @@ export const regions: Region[] = [
   },
   {
     id: "adjara",
-    name: { ka: "აჭარა", en: "Adjara" },
-    nameIn: { ka: "აჭარაში", en: "Adjara" },
+    name: { ka: "აჭარა", en: "Adjara", ru: "Аджария", tr: "Acara" },
+    nameIn: { ka: "აჭარაში", en: "Adjara", ru: "Аджарии", tr: "Acara" },
     description: {
       ka: "ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო ქმნის უნიკალურ გარემოს მრავალი რეპტილიისთვის.",
       en: "Humid subtropical forests, mountain valleys, and the Black Sea coast create a unique setting for many reptiles.",
+      ru: "Влажные субтропические леса, горные долины и черноморское побережье создают особую среду для многих рептилий.",
+      tr: "Nemli subtropik ormanlar, dağ vadileri ve Karadeniz kıyısı birçok sürüngen için özgün bir ortam oluşturur.",
     },
     speciesIds: [
       "vipera-kaznakovi",
@@ -153,11 +176,13 @@ export const regions: Region[] = [
   },
   {
     id: "imereti",
-    name: { ka: "იმერეთი", en: "Imereti" },
-    nameIn: { ka: "იმერეთში", en: "Imereti" },
+    name: { ka: "იმერეთი", en: "Imereti", ru: "Имеретия", tr: "İmereti" },
+    nameIn: { ka: "იმერეთში", en: "Imereti", ru: "Имеретии", tr: "İmereti" },
     description: {
       ka: "კარსტული მთები, ტყიანი ხეობები და რიონის აუზი აერთიანებს დასავლეთ საქართველოს ჰაბიტატებს.",
       en: "Karst mountains, wooded valleys, and the Rioni basin unite western Georgia’s habitats.",
+      ru: "Карстовые горы, лесистые долины и бассейн Риони объединяют местообитания западной Грузии.",
+      tr: "Karst dağları, ormanlı vadiler ve Rioni havzası batı Gürcistan habitatlarını birleştirir.",
     },
     speciesIds: [
       "vipera-kaznakovi",
@@ -187,14 +212,20 @@ export const regions: Region[] = [
     name: {
       ka: "რაჭა — ლეჩხუმი — ქვემო სვანეთი",
       en: "Racha — Lechkhumi — Kvemo Svaneti",
+      ru: "Рача — Лечхуми — Нижняя Сванетия",
+      tr: "Raça — Leçhumi — Kvemo Svaneti",
     },
     nameIn: {
       ka: "რაჭა — ლეჩხუმი — ქვემო სვანეთში",
       en: "Racha — Lechkhumi — Kvemo Svaneti",
+      ru: "Рача — Лечхуми — Нижней Сванетии",
+      tr: "Raça — Leçhumi — Kvemo Svaneti",
     },
     description: {
       ka: "მაღალმთიანი ტყეები, სუბალპური მდელოები და კლდოვანი ხეობები — იდეალური გარემო მთის სახეობებისთვის.",
       en: "High-mountain forests, subalpine meadows, and rocky gorges — ideal for montane species.",
+      ru: "Высокогорные леса, субальпийские луга и скалистые ущелья — среда горных видов.",
+      tr: "Yüksek dağ ormanları, subalpin çayırlar ve kayalık vadiler — dağ türleri için elverişli ortam.",
     },
     speciesIds: [
       "vipera-dinniki",
@@ -217,11 +248,23 @@ export const regions: Region[] = [
   },
   {
     id: "samtskhe-javakheti",
-    name: { ka: "სამცხე — ჯავახეთი", en: "Samtskhe — Javakheti" },
-    nameIn: { ka: "სამცხე — ჯავახეთში", en: "Samtskhe — Javakheti" },
+    name: {
+      ka: "სამცხე — ჯავახეთი",
+      en: "Samtskhe — Javakheti",
+      ru: "Самцхе — Джавахети",
+      tr: "Samtshe — Cavaheti",
+    },
+    nameIn: {
+      ka: "სამცხე — ჯავახეთში",
+      en: "Samtskhe — Javakheti",
+      ru: "Самцхе — Джавахети",
+      tr: "Samtshe — Cavaheti",
+    },
     description: {
       ka: "ვულკანური პლატოები, მთის ტბები და მშრალი მთისწინეთი ქმნის მკაცრ, ღია ჰაბიტატს.",
       en: "Volcanic plateaus, highland lakes, and dry foothills form a harsh, open habitat.",
+      ru: "Вулканические плато, горные озёра и сухие предгорья образуют суровую открытую среду.",
+      tr: "Volkanik platolar, dağ gölleri ve kuru etekler sert, açık bir habitat oluşturur.",
     },
     speciesIds: [
       "vipera-transcaucasiana",
@@ -265,11 +308,23 @@ export const regions: Region[] = [
   },
   {
     id: "shida-kartli",
-    name: { ka: "შიდა ქართლი", en: "Shida Kartli" },
-    nameIn: { ka: "შიდა ქართლში", en: "Shida Kartli" },
+    name: {
+      ka: "შიდა ქართლი",
+      en: "Shida Kartli",
+      ru: "Внутренняя Картли",
+      tr: "Şida Kartli",
+    },
+    nameIn: {
+      ka: "შიდა ქართლში",
+      en: "Shida Kartli",
+      ru: "Внутренней Картли",
+      tr: "Şida Kartli",
+    },
     description: {
       ka: "შიდა ქართლის ვაკე, მთისწინეთი და მტკვრის ხეობა აერთიანებს მშრალ და ნახევრად ნოტიო ზონებს.",
       en: "The Shida Kartli plain, foothills, and Mtkvari valley bridge dry and semi-humid zones.",
+      ru: "Равнина Внутренней Картли, предгорья и долина Мтквари связывают сухие и полувлажные зоны.",
+      tr: "Şida Kartli ovası, etekler ve Mtkvari vadisi kuru ve yarı nemli kuşakları birleştirir.",
     },
     speciesIds: [
       "vipera-transcaucasiana",
@@ -302,11 +357,23 @@ export const regions: Region[] = [
   },
   {
     id: "mtskheta-mtianeti",
-    name: { ka: "მცხეთა — მთიანეთი", en: "Mtskheta — Mtianeti" },
-    nameIn: { ka: "მცხეთა — მთიანეთში", en: "Mtskheta — Mtianeti" },
+    name: {
+      ka: "მცხეთა — მთიანეთი",
+      en: "Mtskheta — Mtianeti",
+      ru: "Мцхета — Мтианети",
+      tr: "Mtsheta — Mtianeti",
+    },
+    nameIn: {
+      ka: "მცხეთა — მთიანეთში",
+      en: "Mtskheta — Mtianeti",
+      ru: "Мцхета — Мтианети",
+      tr: "Mtsheta — Mtianeti",
+    },
     description: {
       ka: "დიდი კავკასიონის მთები, ტყის ზედა ზონა და სუბალპური მდელოები — მთის რეპტილიების სამყოფელი.",
       en: "Greater Caucasus peaks, upper forest belt, and subalpine meadows — home to montane reptiles.",
+      ru: "Хребты Большого Кавказа, верхний лесной пояс и субальпийские луга — местообитание горных рептилий.",
+      tr: "Büyük Kafkas zirveleri, üst orman kuşağı ve subalpin çayırlar — dağ sürüngenlerinin yaşam alanı.",
     },
     speciesIds: [
       "vipera-dinniki",
@@ -340,11 +407,23 @@ export const regions: Region[] = [
   },
   {
     id: "kvemo-kartli",
-    name: { ka: "ქვემო ქართლი", en: "Kvemo Kartli" },
-    nameIn: { ka: "ქვემო ქართლში", en: "Kvemo Kartli" },
+    name: {
+      ka: "ქვემო ქართლი",
+      en: "Kvemo Kartli",
+      ru: "Квемо Картли",
+      tr: "Kvemo Kartli",
+    },
+    nameIn: {
+      ka: "ქვემო ქართლში",
+      en: "Kvemo Kartli",
+      ru: "Квемо Картли",
+      tr: "Kvemo Kartli",
+    },
     description: {
       ka: "მშრალი ვაკეები, კლდოვანი მთისწინეთი და მტკვრის აუზი ხელს უწყობს თბომოყვარე სახეობებს.",
       en: "Dry plains, rocky foothills, and the Mtkvari basin favor warmth-loving species.",
+      ru: "Сухие равнины, скалистые предгорья и бассейн Мтквари благоприятны для теплолюбивых видов.",
+      tr: "Kuru ovalar, kayalık etekler ve Mtkvari havzası sıcağı seven türlüre elverişlidir.",
     },
     speciesIds: [
       "macrovipera-lebetina",
@@ -379,11 +458,13 @@ export const regions: Region[] = [
   },
   {
     id: "kakheti",
-    name: { ka: "კახეთი", en: "Kakheti" },
-    nameIn: { ka: "კახეთში", en: "Kakheti" },
+    name: { ka: "კახეთი", en: "Kakheti", ru: "Кахетия", tr: "Kaheti" },
+    nameIn: { ka: "კახეთში", en: "Kakheti", ru: "Кахетии", tr: "Kaheti" },
     description: {
       ka: "ალაზნის ველი, მშრალი მთისწინეთი და ნახევრად უდაბნო ზონები ქმნის აღმოსავლეთ საქართველოს უნიკალურ ფაუნას.",
       en: "The Alazani valley, dry foothills, and semi-arid zones shape eastern Georgia’s unique fauna.",
+      ru: "Алазанская долина, сухие предгорья и полуаридные зоны формируют фауну восточной Грузии.",
+      tr: "Alazani vadisi, kuru etekler ve yarı kurak kuşaklar doğu Gürcistan faunasını şekillendirir.",
     },
     speciesIds: [
       "macrovipera-lebetina",
@@ -438,11 +519,13 @@ export const regions: Region[] = [
   },
   {
     id: "tbilisi",
-    name: { ka: "თბილისი", en: "Tbilisi" },
-    nameIn: { ka: "თბილისში", en: "Tbilisi" },
+    name: { ka: "თბილისი", en: "Tbilisi", ru: "Тбилиси", tr: "Tiflis" },
+    nameIn: { ka: "თბილისში", en: "Tbilisi", ru: "Тбилиси", tr: "Tiflis" },
     description: {
       ka: "ქალაქის მიმდებარე ხეობები, პარკები და მდინარის პირას არსებული ჰაბიტატები იშვიათად, მაგრამ მაინც მასპინძლობს რეპტილიებს.",
       en: "Suburban valleys, parks, and riverside habitats occasionally host reptiles within the capital.",
+      ru: "Пригородные долины, парки и приречные местообитания иногда держат рептилий в пределах столицы.",
+      tr: "Kent çevresi vadileri, parklar ve nehir kenarı habitatları başkentte ara sıra sürüngen barındırır.",
     },
     speciesIds: [
       "macrovipera-lebetina",
@@ -500,7 +583,7 @@ export function localizeRegionText(
   text: LocalizedText,
   locale: string,
 ): string {
-  return locale === "en" ? text.en : text.ka;
+  return pickLocalized(text, locale);
 }
 
 export function getRegionVenomousSpecies(region: Region): Species[] {

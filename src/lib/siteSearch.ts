@@ -16,6 +16,7 @@ import {
   isVenomousDanger,
   type AnimalGroup,
 } from "@/data/speciesAtlas";
+import { pickLocalized } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale, AppPathnames } from "@/i18n/routing";
 import {
@@ -99,17 +100,22 @@ type PageCopy = {
 };
 
 const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
-  snake: { ka: "გველი", en: "Snake" },
-  lizard: { ka: "ხვლიკი", en: "Lizard" },
-  turtle: { ka: "კუ", en: "Turtle" },
-  amphibian: { ka: "ამფიბია", en: "Amphibian" },
-  bird: { ka: "ფრინველი", en: "Bird" },
-  mammal: { ka: "ძუძუმწოვარი", en: "Mammal" },
+  snake: { ka: "გველი", en: "Snake", ru: "Змея", tr: "Yılan" },
+  lizard: { ka: "ხვლიკი", en: "Lizard", ru: "Ящерица", tr: "Kertenkele" },
+  turtle: { ka: "კუ", en: "Turtle", ru: "Черепаха", tr: "Kaplumbağa" },
+  amphibian: { ka: "ამფიბია", en: "Amphibian", ru: "Амфибия", tr: "Amfibi" },
+  bird: { ka: "ფრინველი", en: "Bird", ru: "Птица", tr: "Kuş" },
+  mammal: { ka: "ძუძუმწოვარი", en: "Mammal", ru: "Млекопитающее", tr: "Memeli" },
 };
 
 const HUB_COPY: Record<GroupHubId, PageCopy> = {
   snakes: {
-    title: { ka: "გველები საქართველოში", en: "Snakes in Georgia" },
+    title: {
+      ka: "გველები საქართველოში",
+      en: "Snakes in Georgia",
+      ru: "Змеи Грузии",
+      tr: "Gürcistan yılanları",
+    },
     subtitle: {
       ka: "სრული ჰაბი — შხამიანი და უშხამო სახეობები",
       en: "The hub for venomous and harmless snakes",
@@ -607,7 +613,7 @@ const SNAKE_QUIZ_COPY: PageCopy = {
 const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
 
 function pickLocale(text: LocalizedText, locale: AppLocale) {
-  return locale === "en" ? text.en : text.ka;
+  return pickLocalized(text, locale);
 }
 
 function coverFromSpecies(id?: string, fallback?: string) {
@@ -680,19 +686,24 @@ function speciesGroupText(species: Species) {
   const extra: string[] = [];
   if (groupHasVenomConcept(group)) {
     if (isVenomousDanger(species.danger)) {
-      extra.push("შხამიანი", "venomous", "viper");
+      extra.push("შხამიანი", "venomous", "viper", "ядовитые", "zehirli");
     } else {
-      extra.push("უშხამო", "harmless");
+      extra.push("უშხამო", "harmless", "неядовитые", "zararsız");
     }
   }
-  if (isFrogSpecies(species.id)) extra.push("ბაყაყი", "frog", "toad");
-  if (isNewtSpecies(species.id)) extra.push("ტრიტონი", "სალამანდრა", "newt");
-  extra.push(GROUP_LABELS[group].ka, GROUP_LABELS[group].en);
-  extra.push(group === "snake" ? "გველი გველები snakes" : "");
-  extra.push(group === "lizard" ? "ხვლიკი lizards" : "");
-  extra.push(group === "turtle" ? "კუ turtles tortoise" : "");
-  extra.push(group === "amphibian" ? "ამფიბია amphibian" : "");
-      extra.push(group === "bird" ? "ფრინველი bird გრატა" : "");
+  if (isFrogSpecies(species.id)) extra.push("ბაყაყი", "frog", "toad", "лягушка", "kurbağa");
+  if (isNewtSpecies(species.id)) extra.push("ტრიტონი", "სალამანდრა", "newt", "тритон", "semender");
+  extra.push(
+    GROUP_LABELS[group].ka,
+    GROUP_LABELS[group].en,
+    GROUP_LABELS[group].ru ?? "",
+    GROUP_LABELS[group].tr ?? "",
+  );
+  extra.push(group === "snake" ? "გველი გველები snakes змеи yılanlar" : "");
+  extra.push(group === "lizard" ? "ხვლიკი lizards ящерицы kertenkele" : "");
+  extra.push(group === "turtle" ? "კუ turtles tortoise черепахи kaplumbağa" : "");
+  extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
+      extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
   extra.push(
     group === "mammal"
       ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"
@@ -745,16 +756,26 @@ function toRegionDocument(locale: AppLocale, region: (typeof regions)[number]): 
     scoreTitles: [
       region.name.ka,
       region.name.en,
+      region.name.ru ?? "",
+      region.name.tr ?? "",
       region.nameIn.ka,
       region.nameIn.en,
+      region.nameIn.ru ?? "",
+      region.nameIn.tr ?? "",
     ],
     searchText: blob([
       region.name.ka,
       region.name.en,
+      region.name.ru,
+      region.name.tr,
       region.nameIn.ka,
       region.nameIn.en,
+      region.nameIn.ru,
+      region.nameIn.tr,
       region.description.ka,
       region.description.en,
+      region.description.ru,
+      region.description.tr,
       region.id,
     ]),
     image: getRegionHeroImage(region.id),
