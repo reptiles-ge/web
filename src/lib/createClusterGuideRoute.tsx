@@ -191,7 +191,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
-              name: locale === "en" ? "Georgia" : "საქართველო",
+              name: georgiaPlaceName(locale),
             },
             inLanguage: locale,
             mainEntity: {
@@ -216,7 +216,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
-              name: locale === "en" ? "Georgia" : "საქართველო",
+              name: georgiaPlaceName(locale),
             },
             inLanguage: locale,
           };

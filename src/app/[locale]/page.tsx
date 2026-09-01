@@ -22,6 +22,15 @@ import {
   websiteJsonLd,
 } from "@/lib/site";
 import { HOME_DEFINED_TERMS, siteKeywords } from "@/lib/seoKeywords";
+import {
+  allRightsReservedLabel,
+  atlasDatasetName,
+  atlasVariableName,
+  georgiaPlaceName,
+  georgiaReptilesLabel,
+  openGraphLocale,
+  pickLocalized,
+} from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -60,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       type: "website",
-      locale: locale === "en" ? "en_US" : siteConfig.locale,
+      locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       images: [openGraphJpeg(ogImage, title)],
     },
@@ -116,61 +125,52 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
       {
         "@type": "Dataset",
         "@id": datasetId,
-        name:
-          locale === "en"
-            ? "Atlas of animals of Georgia"
-            : "საქართველოს ცხოველთა ატლასი",
+        name: atlasDatasetName(locale),
         description,
         url: homeUrl,
         creator: { "@id": siteEntityId("organization") },
         publisher: { "@id": siteEntityId("organization") },
         spatialCoverage: {
           "@type": "Place",
-          name: locale === "en" ? "Georgia" : "საქართველო",
+          name: georgiaPlaceName(locale),
         },
         variableMeasured: [
           {
             "@type": "PropertyValue",
-            name: locale === "en" ? "Species profiles" : "სახეობების პროფილები",
+            name: atlasVariableName("speciesProfiles", locale),
             value: stats.total,
           },
           {
             "@type": "PropertyValue",
-            name: locale === "en" ? "Regions" : "რეგიონები",
+            name: atlasVariableName("regions", locale),
             value: stats.regions,
           },
           {
             "@type": "PropertyValue",
-            name: locale === "en" ? "Venomous species" : "შხამიანი სახეობები",
+            name: atlasVariableName("venomousSpecies", locale),
             value: stats.venomous,
           },
         ],
         isAccessibleForFree: true,
-        inLanguage: ["ka", "en"],
+        inLanguage: [...routing.locales],
         license: {
           "@type": "CreativeWork",
-          name:
-            locale === "en"
-              ? "All rights reserved"
-              : "ყველა უფლება დაცულია",
+          name: allRightsReservedLabel(locale),
           url: absoluteUrl(localePath(locale, "/about")),
         },
       },
       {
         "@type": "DefinedTermSet",
         "@id": termsId,
-        name:
-          locale === "en"
-            ? "Georgia reptiles"
-            : "საქართველოს ქვეწარმავლები",
+        name: georgiaReptilesLabel(locale),
         alternateName:
-          locale === "en"
-            ? "საქართველოს ქვეწარმავლები"
-            : "Georgia reptiles",
+          locale === "ka"
+            ? georgiaReptilesLabel("en")
+            : georgiaReptilesLabel("ka"),
         url: homeUrl,
         hasDefinedTerm: HOME_DEFINED_TERMS.map((term) => ({
           "@type": "DefinedTerm",
-          name: locale === "en" ? term.en : term.ka,
+          name: pickLocalized(term, locale),
           url: speciesPageUrl(locale as AppLocale, term.speciesId),
         })),
       },
