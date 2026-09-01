@@ -247,7 +247,7 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     icon: "atlas",
   },
   "snake-identify": {
-    title: { ka: "შხამიანი თუ უშხამო?", en: "Venomous or harmless?" },
+    title: { ka: "შხამიანი თუ უშხამო?", en: "Venomous or harmless?", ru: "Ядовитая или нет?", tr: "Zehirli mi zararsız mı?" },
     subtitle: {
       ka: "ამოცნობის გიდი გველებისთვის",
       en: "Identification guide for snakes",
@@ -479,6 +479,8 @@ const STATIC_PAGES: Array<
     title: {
       ka: "სახეობების ატლასი",
       en: "Species atlas",
+      ru: "Атлас видов",
+      tr: "Tür atlası",
     },
     subtitle: {
       ka: "სრული კატალოგი ტიპის, რისკისა და რეგიონის მიხედვით",
@@ -496,6 +498,8 @@ const STATIC_PAGES: Array<
     title: {
       ka: "შხამიანი გველები საქართველოში",
       en: "Venomous snakes in Georgia",
+      ru: "Ядовитые змеи Грузии",
+      tr: "Gürcistan’ın zehirli yılanları",
     },
     subtitle: {
       ka: "ექვსი სამედიცინოდ მნიშვნელოვანი სახეობა",
