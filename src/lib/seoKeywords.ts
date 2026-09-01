@@ -731,6 +731,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Strix noctua",
     ],
   },
+  "bubo-bubo": {
+    ka: [
+      "ჩვეულებრივი ზარნაშო",
+      "ბუსებრნი",
+      "Bubo bubo interpositus",
+      "Strix bubo",
+    ],
+    en: [
+      "eagle owl",
+      "Eurasian Eagle-Owl",
+      "eagle-owl",
+      "Bubo bubo interpositus",
+      "Strix bubo",
+    ],
+  },
   "accipiter-nisus": {
     ka: [
       "მიმინო",
