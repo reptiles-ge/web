@@ -3,6 +3,20 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+const LATIN_LOCALES = ["en", "ru", "tr"] as const;
+
+function latinRedirects(
+  pairs: Array<[string, string, number?]>,
+): Array<{ source: string; destination: string; statusCode: number }> {
+  return LATIN_LOCALES.flatMap((locale) =>
+    pairs.map(([from, to, status = 301]) => ({
+      source: `/${locale}${from}`,
+      destination: `/${locale}${to}`,
+      statusCode: status,
+    })),
+  );
+}
+
 const nextConfig: NextConfig = {
   trailingSlash: false,
   serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
@@ -74,58 +88,13 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
-        source: "/en/gvelebi",
-        destination: "/en/snakes",
-        statusCode: 301,
-      },
-      {
-        source: "/en/xvlikebi",
-        destination: "/en/lizards",
-        statusCode: 301,
-      },
-      {
-        source: "/en/kuebi",
-        destination: "/en/turtles",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amfibiebi",
-        destination: "/en/amphibians",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/shxamiani-gvelebi",
-        destination: "/en/venomous-snakes",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/gveli-ezoshi",
-        destination: "/en/snakes-in-the-yard",
-        statusCode: 301,
-      },
-      {
         source: "/species/vipera-ammodytes",
         destination: "/gvelebi/tsxvirrkosani-gvelgesla",
         statusCode: 301,
       },
       {
-        source: "/en/species/vipera-ammodytes",
-        destination: "/en/snakes/vipera-transcaucasiana",
-        statusCode: 301,
-      },
-      {
         source: "/amphibians/frogs",
         destination: "/amfibiebi/bayayi",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amfibiebi/bayayi",
-        destination: "/en/amphibians/frogs",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amphibians/bayayi",
-        destination: "/en/amphibians/frogs",
         statusCode: 301,
       },
       {
@@ -169,71 +138,6 @@ const nextConfig: NextConfig = {
         statusCode: 302,
       },
       {
-        source: "/en/snakes/dolichophis-caspius",
-        destination: "/en/snakes",
-        statusCode: 302,
-      },
-      {
-        source: "/en/gvelebi/qvitelmutsela-mtsuravi",
-        destination: "/en/snakes",
-        statusCode: 302,
-      },
-      {
-        source: "/en/species/dolichophis-caspius",
-        destination: "/en/snakes",
-        statusCode: 302,
-      },
-      {
-        source: "/en/gvelebi/saxeoebebi",
-        destination: "/en/snakes/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/shxamiani-gvelis-amocnoba",
-        destination: "/en/snakes/identify-venomous",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/gvelis-nakbeni",
-        destination: "/en/snakes/bite",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/gavrtseleba",
-        destination: "/en/snakes/range",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/didi-gvelebi",
-        destination: "/en/snakes/largest",
-        statusCode: 301,
-      },
-      {
-        source: "/en/snakes/saxeoebebi",
-        destination: "/en/snakes/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/snakes/shxamiani-gvelis-amocnoba",
-        destination: "/en/snakes/identify-venomous",
-        statusCode: 301,
-      },
-      {
-        source: "/en/snakes/gvelis-nakbeni",
-        destination: "/en/snakes/bite",
-        statusCode: 301,
-      },
-      {
-        source: "/en/snakes/gavrtseleba",
-        destination: "/en/snakes/range",
-        statusCode: 301,
-      },
-      {
-        source: "/en/snakes/didi-gvelebi",
-        destination: "/en/snakes/largest",
-        statusCode: 301,
-      },
-      {
         source: "/gvelebi/sakartvelos-gvelebi",
         destination: "/gvelebi/saxeoebebi",
         statusCode: 301,
@@ -241,16 +145,6 @@ const nextConfig: NextConfig = {
       {
         source: "/snakes/sakartvelos-gvelebi",
         destination: "/gvelebi/saxeoebebi",
-        statusCode: 301,
-      },
-      {
-        source: "/en/snakes/sakartvelos-gvelebi",
-        destination: "/en/snakes/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/gvelebi/sakartvelos-gvelebi",
-        destination: "/en/snakes/species",
         statusCode: 301,
       },
       {
@@ -266,36 +160,6 @@ const nextConfig: NextConfig = {
       {
         source: "/lizards/lizard-or-glass-lizard",
         destination: "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
-        statusCode: 301,
-      },
-      {
-        source: "/en/xvlikebi/saxeoebebi",
-        destination: "/en/lizards/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/xvlikebi/identifikacia",
-        destination: "/en/lizards/identify",
-        statusCode: 301,
-      },
-      {
-        source: "/en/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
-        destination: "/en/lizards/lizard-or-glass-lizard",
-        statusCode: 301,
-      },
-      {
-        source: "/en/lizards/saxeoebebi",
-        destination: "/en/lizards/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/lizards/identifikacia",
-        destination: "/en/lizards/identify",
-        statusCode: 301,
-      },
-      {
-        source: "/en/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
-        destination: "/en/lizards/lizard-or-glass-lizard",
         statusCode: 301,
       },
       {
@@ -319,46 +183,6 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
-        source: "/en/kuebi/saxeoebebi",
-        destination: "/en/turtles/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/kuebi/xmelis-kuebi",
-        destination: "/en/turtles/land",
-        statusCode: 301,
-      },
-      {
-        source: "/en/kuebi/tsqlis-kuebi",
-        destination: "/en/turtles/freshwater",
-        statusCode: 301,
-      },
-      {
-        source: "/en/kuebi/identifikacia",
-        destination: "/en/turtles/identify",
-        statusCode: 301,
-      },
-      {
-        source: "/en/turtles/saxeoebebi",
-        destination: "/en/turtles/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/turtles/xmelis-kuebi",
-        destination: "/en/turtles/land",
-        statusCode: 301,
-      },
-      {
-        source: "/en/turtles/tsqlis-kuebi",
-        destination: "/en/turtles/freshwater",
-        statusCode: 301,
-      },
-      {
-        source: "/en/turtles/identifikacia",
-        destination: "/en/turtles/identify",
-        statusCode: 301,
-      },
-      {
         source: "/amphibians/species",
         destination: "/amfibiebi/saxeoebebi",
         statusCode: 301,
@@ -374,45 +198,73 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
-        source: "/en/amfibiebi/saxeoebebi",
-        destination: "/en/amphibians/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amfibiebi/bayayi/saxeoebebi",
-        destination: "/en/amphibians/frogs/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amfibiebi/tritoni-salamandra",
-        destination: "/en/amphibians/newts",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amphibians/saxeoebebi",
-        destination: "/en/amphibians/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amphibians/bayayi/saxeoebebi",
-        destination: "/en/amphibians/frogs/species",
-        statusCode: 301,
-      },
-      {
-        source: "/en/amphibians/tritoni-salamandra",
-        destination: "/en/amphibians/newts",
-        statusCode: 301,
-      },
-      {
         source: "/identify",
         destination: "/species",
         statusCode: 301,
       },
       {
-        source: "/en/identify",
-        destination: "/en/species",
+        source: "/quiz/gvelis-identifikacia",
+        destination: "/quiz/romeli-gvelia",
         statusCode: 301,
       },
+      {
+        source: "/quiz/which-snake",
+        destination: "/quiz/romeli-gvelia",
+        statusCode: 301,
+      },
+      ...latinRedirects([
+        ["/gvelebi", "/snakes"],
+        ["/xvlikebi", "/lizards"],
+        ["/kuebi", "/turtles"],
+        ["/amfibiebi", "/amphibians"],
+        ["/gvelebi/shxamiani-gvelebi", "/venomous-snakes"],
+        ["/gvelebi/gveli-ezoshi", "/snakes-in-the-yard"],
+        ["/species/vipera-ammodytes", "/snakes/vipera-transcaucasiana"],
+        ["/amfibiebi/bayayi", "/amphibians/frogs"],
+        ["/amphibians/bayayi", "/amphibians/frogs"],
+        ["/gvelebi/saxeoebebi", "/snakes/species"],
+        ["/gvelebi/shxamiani-gvelis-amocnoba", "/snakes/identify-venomous"],
+        ["/gvelebi/gvelis-nakbeni", "/snakes/bite"],
+        ["/gvelebi/gavrtseleba", "/snakes/range"],
+        ["/gvelebi/didi-gvelebi", "/snakes/largest"],
+        ["/snakes/saxeoebebi", "/snakes/species"],
+        ["/snakes/shxamiani-gvelis-amocnoba", "/snakes/identify-venomous"],
+        ["/snakes/gvelis-nakbeni", "/snakes/bite"],
+        ["/snakes/gavrtseleba", "/snakes/range"],
+        ["/snakes/didi-gvelebi", "/snakes/largest"],
+        ["/snakes/sakartvelos-gvelebi", "/snakes/species"],
+        ["/gvelebi/sakartvelos-gvelebi", "/snakes/species"],
+        ["/xvlikebi/saxeoebebi", "/lizards/species"],
+        ["/xvlikebi/identifikacia", "/lizards/identify"],
+        [
+          "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+          "/lizards/lizard-or-glass-lizard",
+        ],
+        ["/lizards/saxeoebebi", "/lizards/species"],
+        ["/lizards/identifikacia", "/lizards/identify"],
+        [
+          "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+          "/lizards/lizard-or-glass-lizard",
+        ],
+        ["/kuebi/saxeoebebi", "/turtles/species"],
+        ["/kuebi/xmelis-kuebi", "/turtles/land"],
+        ["/kuebi/tsqlis-kuebi", "/turtles/freshwater"],
+        ["/kuebi/identifikacia", "/turtles/identify"],
+        ["/turtles/saxeoebebi", "/turtles/species"],
+        ["/turtles/xmelis-kuebi", "/turtles/land"],
+        ["/turtles/tsqlis-kuebi", "/turtles/freshwater"],
+        ["/turtles/identifikacia", "/turtles/identify"],
+        ["/amfibiebi/saxeoebebi", "/amphibians/species"],
+        ["/amfibiebi/bayayi/saxeoebebi", "/amphibians/frogs/species"],
+        ["/amfibiebi/tritoni-salamandra", "/amphibians/newts"],
+        ["/amphibians/saxeoebebi", "/amphibians/species"],
+        ["/amphibians/bayayi/saxeoebebi", "/amphibians/frogs/species"],
+        ["/amphibians/tritoni-salamandra", "/amphibians/newts"],
+        ["/identify", "/species"],
+        ["/snakes/dolichophis-caspius", "/snakes", 302],
+        ["/gvelebi/qvitelmutsela-mtsuravi", "/snakes", 302],
+        ["/species/dolichophis-caspius", "/snakes", 302],
+      ]),
       {
         source: "/en/quiz/gvelis-identifikacia",
         destination: "/en/quiz/which-snake",
@@ -424,13 +276,33 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
-        source: "/quiz/gvelis-identifikacia",
-        destination: "/quiz/romeli-gvelia",
+        source: "/ru/quiz/gvelis-identifikacia",
+        destination: "/ru/quiz/kakaya-zmeya",
         statusCode: 301,
       },
       {
-        source: "/quiz/which-snake",
-        destination: "/quiz/romeli-gvelia",
+        source: "/ru/quiz/romeli-gvelia",
+        destination: "/ru/quiz/kakaya-zmeya",
+        statusCode: 301,
+      },
+      {
+        source: "/ru/quiz/which-snake",
+        destination: "/ru/quiz/kakaya-zmeya",
+        statusCode: 301,
+      },
+      {
+        source: "/tr/quiz/gvelis-identifikacia",
+        destination: "/tr/quiz/hangi-yilan",
+        statusCode: 301,
+      },
+      {
+        source: "/tr/quiz/romeli-gvelia",
+        destination: "/tr/quiz/hangi-yilan",
+        statusCode: 301,
+      },
+      {
+        source: "/tr/quiz/which-snake",
+        destination: "/tr/quiz/hangi-yilan",
         statusCode: 301,
       },
     ];

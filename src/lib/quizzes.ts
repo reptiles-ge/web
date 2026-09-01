@@ -1,4 +1,4 @@
-import type { AppLocale } from "@/i18n/routing";
+import { routing, type AppLocale } from "@/i18n/routing";
 import { QUIZ_LENGTH } from "@/lib/snakeQuiz";
 
 export type QuizStatus = "live" | "soon";
@@ -15,7 +15,7 @@ export type QuizHref = {
 export type QuizDefinition = {
   id: QuizId;
   status: QuizStatus;
-  slugs?: { ka: string; en: string };
+    slugs?: Record<AppLocale, string>;
   group: QuizGroup;
   heroSpeciesId: string;
   messageKey: QuizMessageKey;
@@ -31,7 +31,12 @@ export const QUIZ_INDEX = [
   {
     id: "snake",
     status: "live",
-    slugs: { ka: "romeli-gvelia", en: "which-snake" },
+    slugs: {
+      ka: "romeli-gvelia",
+      en: "which-snake",
+      ru: "kakaya-zmeya",
+      tr: "hangi-yilan",
+    },
     group: "snake",
     heroSpeciesId: "natrix-natrix",
     messageKey: "snake",
@@ -90,8 +95,7 @@ export function quizHref(id: string, locale: AppLocale): QuizHref {
 }
 
 export function quizStaticParams() {
-  const locales: AppLocale[] = ["ka", "en"];
-  return locales.flatMap((locale) =>
+  return routing.locales.flatMap((locale) =>
     liveQuizzes().map((quiz) => ({
       locale,
       slug: quiz.slugs[locale],

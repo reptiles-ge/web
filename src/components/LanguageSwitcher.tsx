@@ -13,8 +13,11 @@ const STATIC_LOCALE_PATHS = [
   "/lizards",
   "/turtles",
   "/amphibians",
+  "/birds",
+  "/mammals",
   "/venomous-snakes",
   "/snakes-in-the-yard",
+  "/risk-to-humans",
   "/amphibians/bayayi",
   "/snakes/saxeoebebi",
   "/snakes/shxamiani-gvelis-amocnoba",
@@ -142,8 +145,68 @@ function FlagUnitedKingdom() {
   );
 }
 
+function FlagRussia() {
+  const clipId = useClipId("flag-ru");
+
+  return (
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 21 16"
+      width="21"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      className="shrink-0 overflow-hidden rounded-[4px]"
+    >
+      <g clipPath={`url(#${clipId})`}>
+        <path d="M0 0H21V5.333H0V0Z" fill="white" />
+        <path d="M0 5.333H21V10.667H0V5.333Z" fill="#0039A6" />
+        <path d="M0 10.667H21V16H0V10.667Z" fill="#D52B1E" />
+      </g>
+      <defs>
+        <clipPath id={clipId}>
+          <rect fill="white" height="16" rx="4" width="21" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
+function FlagTurkey() {
+  const clipId = useClipId("flag-tr");
+
+  return (
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 21 16"
+      width="21"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      className="shrink-0 overflow-hidden rounded-[4px]"
+    >
+      <g clipPath={`url(#${clipId})`}>
+        <path d="M0 0H21V16H0V0Z" fill="#E30A17" />
+        <circle cx="8.4" cy="8" r="3.35" fill="white" />
+        <circle cx="9.35" cy="8" r="2.65" fill="#E30A17" />
+        <path
+          d="M12.55 8L14.85 8.95L14.05 6.55L15.75 5.05L13.25 4.95L12.55 2.6L11.85 4.95L9.35 5.05L11.05 6.55L10.25 8.95L12.55 8Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id={clipId}>
+          <rect fill="white" height="16" rx="4" width="21" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+}
+
 function LocaleFlag({ code }: { code: AppLocale }) {
   if (code === "ka") return <FlagGeorgia />;
+  if (code === "ru") return <FlagRussia />;
+  if (code === "tr") return <FlagTurkey />;
   return <FlagUnitedKingdom />;
 }
 
@@ -230,6 +293,8 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const labels: Record<AppLocale, string> = {
     ka: t("ka"),
     en: t("en"),
+    ru: t("ru"),
+    tr: t("tr"),
   };
 
   function selectLocale(code: AppLocale) {
@@ -251,7 +316,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       });
     }
     const hub = (
-      ["snakes", "lizards", "turtles", "amphibians"] as const
+      ["snakes", "lizards", "turtles", "amphibians", "birds", "mammals"] as const
     ).find((item) => pathname === `/${item}/[slug]`);
 
     if (hub && slug) {

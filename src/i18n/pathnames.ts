@@ -1,133 +1,68 @@
+function kaLatin<K extends `/${string}`, L extends `/${string}`>(ka: K, latin: L) {
+  return { ka, en: latin, ru: latin, tr: latin } as const;
+}
+
 export const pathnames = {
   "/": "/",
   "/about": "/about",
   "/contact": "/contact",
   "/species": "/species",
   "/species/[id]": "/species/[id]",
-  "/snakes": {
-    ka: "/gvelebi",
-    en: "/snakes",
-  },
-  "/snakes/saxeoebebi": {
-    ka: "/gvelebi/saxeoebebi",
-    en: "/snakes/species",
-  },
-  "/snakes/shxamiani-gvelis-amocnoba": {
-    ka: "/gvelebi/shxamiani-gvelis-amocnoba",
-    en: "/snakes/identify-venomous",
-  },
-  "/snakes/gvelis-nakbeni": {
-    ka: "/gvelebi/gvelis-nakbeni",
-    en: "/snakes/bite",
-  },
-  "/snakes/gavrtseleba": {
-    ka: "/gvelebi/gavrtseleba",
-    en: "/snakes/range",
-  },
-  "/snakes/didi-gvelebi": {
-    ka: "/gvelebi/didi-gvelebi",
-    en: "/snakes/largest",
-  },
-  "/snakes/[slug]": {
-    ka: "/gvelebi/[slug]",
-    en: "/snakes/[slug]",
-  },
-  "/lizards": {
-    ka: "/xvlikebi",
-    en: "/lizards",
-  },
-  "/lizards/saxeoebebi": {
-    ka: "/xvlikebi/saxeoebebi",
-    en: "/lizards/species",
-  },
-  "/lizards/identifikacia": {
-    ka: "/xvlikebi/identifikacia",
-    en: "/lizards/identify",
-  },
-  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba": {
-    ka: "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
-    en: "/lizards/lizard-or-glass-lizard",
-  },
-  "/lizards/[slug]": {
-    ka: "/xvlikebi/[slug]",
-    en: "/lizards/[slug]",
-  },
-  "/turtles": {
-    ka: "/kuebi",
-    en: "/turtles",
-  },
-  "/turtles/saxeoebebi": {
-    ka: "/kuebi/saxeoebebi",
-    en: "/turtles/species",
-  },
-  "/turtles/xmelis-kuebi": {
-    ka: "/kuebi/xmelis-kuebi",
-    en: "/turtles/land",
-  },
-  "/turtles/tsqlis-kuebi": {
-    ka: "/kuebi/tsqlis-kuebi",
-    en: "/turtles/freshwater",
-  },
-  "/turtles/identifikacia": {
-    ka: "/kuebi/identifikacia",
-    en: "/turtles/identify",
-  },
-  "/turtles/[slug]": {
-    ka: "/kuebi/[slug]",
-    en: "/turtles/[slug]",
-  },
-  "/amphibians": {
-    ka: "/amfibiebi",
-    en: "/amphibians",
-  },
-  "/amphibians/saxeoebebi": {
-    ka: "/amfibiebi/saxeoebebi",
-    en: "/amphibians/species",
-  },
-  "/amphibians/bayayi": {
-    ka: "/amfibiebi/bayayi",
-    en: "/amphibians/frogs",
-  },
-  "/amphibians/bayayi/saxeoebebi": {
-    ka: "/amfibiebi/bayayi/saxeoebebi",
-    en: "/amphibians/frogs/species",
-  },
-  "/amphibians/tritoni-salamandra": {
-    ka: "/amfibiebi/tritoni-salamandra",
-    en: "/amphibians/newts",
-  },
-  "/amphibians/[slug]": {
-    ka: "/amfibiebi/[slug]",
-    en: "/amphibians/[slug]",
-  },
-  "/birds": {
-    ka: "/prinvelebi",
-    en: "/birds",
-  },
-  "/birds/[slug]": {
-    ka: "/prinvelebi/[slug]",
-    en: "/birds/[slug]",
-  },
-  "/mammals": {
-    ka: "/dzuzumtsovrebi",
-    en: "/mammals",
-  },
-  "/mammals/[slug]": {
-    ka: "/dzuzumtsovrebi/[slug]",
-    en: "/mammals/[slug]",
-  },
-  "/venomous-snakes": {
-    ka: "/gvelebi/shxamiani-gvelebi",
-    en: "/venomous-snakes",
-  },
-  "/snakes-in-the-yard": {
-    ka: "/gvelebi/gveli-ezoshi",
-    en: "/snakes-in-the-yard",
-  },
-  "/risk-to-humans": {
-    ka: "/riskis-doneebi",
-    en: "/risk-to-humans",
-  },
+  "/snakes": kaLatin("/gvelebi", "/snakes"),
+  "/snakes/saxeoebebi": kaLatin("/gvelebi/saxeoebebi", "/snakes/species"),
+  "/snakes/shxamiani-gvelis-amocnoba": kaLatin(
+    "/gvelebi/shxamiani-gvelis-amocnoba",
+    "/snakes/identify-venomous",
+  ),
+  "/snakes/gvelis-nakbeni": kaLatin("/gvelebi/gvelis-nakbeni", "/snakes/bite"),
+  "/snakes/gavrtseleba": kaLatin("/gvelebi/gavrtseleba", "/snakes/range"),
+  "/snakes/didi-gvelebi": kaLatin("/gvelebi/didi-gvelebi", "/snakes/largest"),
+  "/snakes/[slug]": kaLatin("/gvelebi/[slug]", "/snakes/[slug]"),
+  "/lizards": kaLatin("/xvlikebi", "/lizards"),
+  "/lizards/saxeoebebi": kaLatin("/xvlikebi/saxeoebebi", "/lizards/species"),
+  "/lizards/identifikacia": kaLatin(
+    "/xvlikebi/identifikacia",
+    "/lizards/identify",
+  ),
+  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba": kaLatin(
+    "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+    "/lizards/lizard-or-glass-lizard",
+  ),
+  "/lizards/[slug]": kaLatin("/xvlikebi/[slug]", "/lizards/[slug]"),
+  "/turtles": kaLatin("/kuebi", "/turtles"),
+  "/turtles/saxeoebebi": kaLatin("/kuebi/saxeoebebi", "/turtles/species"),
+  "/turtles/xmelis-kuebi": kaLatin("/kuebi/xmelis-kuebi", "/turtles/land"),
+  "/turtles/tsqlis-kuebi": kaLatin("/kuebi/tsqlis-kuebi", "/turtles/freshwater"),
+  "/turtles/identifikacia": kaLatin(
+    "/kuebi/identifikacia",
+    "/turtles/identify",
+  ),
+  "/turtles/[slug]": kaLatin("/kuebi/[slug]", "/turtles/[slug]"),
+  "/amphibians": kaLatin("/amfibiebi", "/amphibians"),
+  "/amphibians/saxeoebebi": kaLatin(
+    "/amfibiebi/saxeoebebi",
+    "/amphibians/species",
+  ),
+  "/amphibians/bayayi": kaLatin("/amfibiebi/bayayi", "/amphibians/frogs"),
+  "/amphibians/bayayi/saxeoebebi": kaLatin(
+    "/amfibiebi/bayayi/saxeoebebi",
+    "/amphibians/frogs/species",
+  ),
+  "/amphibians/tritoni-salamandra": kaLatin(
+    "/amfibiebi/tritoni-salamandra",
+    "/amphibians/newts",
+  ),
+  "/amphibians/[slug]": kaLatin("/amfibiebi/[slug]", "/amphibians/[slug]"),
+  "/birds": kaLatin("/prinvelebi", "/birds"),
+  "/birds/[slug]": kaLatin("/prinvelebi/[slug]", "/birds/[slug]"),
+  "/mammals": kaLatin("/dzuzumtsovrebi", "/mammals"),
+  "/mammals/[slug]": kaLatin("/dzuzumtsovrebi/[slug]", "/mammals/[slug]"),
+  "/venomous-snakes": kaLatin(
+    "/gvelebi/shxamiani-gvelebi",
+    "/venomous-snakes",
+  ),
+  "/snakes-in-the-yard": kaLatin("/gvelebi/gveli-ezoshi", "/snakes-in-the-yard"),
+  "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
   "/quiz": "/quiz",
   "/quiz/[slug]": "/quiz/[slug]",
   "/regions": "/regions",

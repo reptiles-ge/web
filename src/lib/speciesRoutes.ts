@@ -5,7 +5,7 @@ import {
   type Species,
 } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import type { AppLocale } from "@/i18n/routing";
+import { routing, type AppLocale } from "@/i18n/routing";
 import {
   ANIMAL_GROUP_TO_HUB,
   RESERVED_HUB_SLUGS,
@@ -487,7 +487,7 @@ export function getSpeciesHubId(id: string): GroupHubId {
 }
 
 export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
-  if (locale === "en") return id;
+  if (locale !== "ka") return id;
   return kaSlugById[id] ?? id;
 }
 
@@ -544,7 +544,7 @@ export function speciesStaticParams(hubId: GroupHubId) {
         getSpeciesPublicSlug(item.id, "en"),
         ...(KA_SLUG_ALIASES[item.id] ?? []),
       ]);
-      return (["ka", "en"] as const).flatMap((locale) =>
+      return routing.locales.flatMap((locale) =>
         [...slugs].map((slug) => ({ locale, slug })),
       );
     });
@@ -553,7 +553,7 @@ export function speciesStaticParams(hubId: GroupHubId) {
 export function legacySpeciesStaticParams() {
   const seen = new Set<string>();
   const params: Array<{ locale: AppLocale; id: string }> = [];
-  for (const locale of ["ka", "en"] as const) {
+  for (const locale of routing.locales) {
     for (const item of getCatalogSpecies()) {
       const keys = new Set([item.id, getSpeciesPublicSlug(item.id, "ka")]);
       for (const id of keys) {
