@@ -36,6 +36,7 @@ const STATIC_LOCALE_PATHS = [
   "/amphibians/tritoni-salamandra",
   "/regions",
   "/quiz",
+  "/news",
 ] as const;
 
 type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
@@ -44,6 +45,7 @@ function isStaticLocalePath(pathname: string): pathname is StaticLocalePath {
   return (STATIC_LOCALE_PATHS as readonly string[]).includes(pathname);
 }
 import { pushPageContext, trackEvent } from "@/lib/analytics";
+import { newsArticleHref } from "@/lib/news";
 import { resolvePageContext } from "@/lib/pageContext";
 import { quizHref, resolveQuizBySlug } from "@/lib/quizzes";
 import {
@@ -339,6 +341,12 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
 
     if (pathname === "/regions/[id]" && id) {
       router.replace(regionHref(id), { locale: code });
+      close();
+      return;
+    }
+
+    if (pathname === "/news/[slug]" && slug) {
+      router.replace(newsArticleHref(slug), { locale: code });
       close();
       return;
     }
