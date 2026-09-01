@@ -164,6 +164,7 @@ export const featuredSpeciesIds = [
   "ficedula-hypoleuca",
   "ficedula-semitorquata",
   "buteo-buteo",
+  "pernis-apivorus",
   "ciconia-ciconia",
   "aquila-chrysaetos",
   "aegypius-monachus",

@@ -652,6 +652,26 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Falco buteo",
     ],
   },
+  "pernis-apivorus": {
+    ka: [
+      "კვერნაჭამია",
+      "კრაზანაჭამია",
+      "ირაო",
+      "ჩვეულებრივი ბოლოკარკაზი",
+      "ცუდქორა",
+      "ქორისებრნი",
+      "Falco apivorus",
+      "Pernis ptilorhynchus",
+    ],
+    en: [
+      "honey buzzard",
+      "European Honey-buzzard",
+      "wasp buzzard",
+      "pern",
+      "Falco apivorus",
+      "crested honey buzzard",
+    ],
+  },
   "strix-aluco": {
     ka: [
       "ტყის ბუ",
