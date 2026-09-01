@@ -59,3 +59,67 @@ export function pickLocalized(
   if (locale === "tr" && text.tr) return text.tr;
   return text.en;
 }
+
+export function atlasDatasetName(locale: string) {
+  return pickLocalized(
+    {
+      ka: "საქართველოს ცხოველთა ატლასი",
+      en: "Atlas of animals of Georgia",
+      ru: "Атлас животных Грузии",
+      tr: "Gürcistan hayvanları atlası",
+    },
+    locale,
+  );
+}
+
+export function atlasVariableName(
+  key: "speciesProfiles" | "regions" | "venomousSpecies",
+  locale: string,
+) {
+  const copy = {
+    speciesProfiles: {
+      ka: "სახეობების პროფილები",
+      en: "Species profiles",
+      ru: "Профили видов",
+      tr: "Tür profilleri",
+    },
+    regions: {
+      ka: "რეგიონები",
+      en: "Regions",
+      ru: "Регионы",
+      tr: "Bölgeler",
+    },
+    venomousSpecies: {
+      ka: "შხამიანი სახეობები",
+      en: "Venomous species",
+      ru: "Ядовитые виды",
+      tr: "Zehirli türler",
+    },
+  } as const;
+  return pickLocalized(copy[key], locale);
+}
+
+export function allRightsReservedLabel(locale: string) {
+  return pickLocalized(
+    {
+      ka: "ყველა უფლება დაცულია",
+      en: "All rights reserved",
+      ru: "Все права защищены",
+      tr: "Tüm hakları saklıdır",
+    },
+    locale,
+  );
+}
+
+export function georgiaReptilesLabel(locale: string) {
+  return pickLocalized(
+    {
+      ka: "საქართველოს ქვეწარმავლები",
+      en: "Georgia reptiles",
+      ru: "Рептилии Грузии",
+      tr: "Gürcistan sürüngenleri",
+    },
+    locale,
+  );
+}
+
