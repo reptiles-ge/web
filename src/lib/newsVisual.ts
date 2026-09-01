@@ -1,4 +1,4 @@
-import type { NewsArticle } from "@/data/news";
+import type { NewsArticle, NewsPhoto } from "@/data/news";
 import { newsRelatedRegions, newsRelatedSpecies } from "@/data/news";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
@@ -13,13 +13,28 @@ export type NewsVisual = {
   src: string;
   alt: string;
   credit?: PhotoCredit;
+  fromAtlas: boolean;
 };
 
 export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
   return article.relatedHubIds[0];
 }
 
+export function localizeNewsPhoto(
+  photo: NewsPhoto,
+  locale: AppLocale,
+): NewsVisual {
+  return {
+    src: photo.src,
+    alt: photo.alt[locale],
+    credit: photo.credit,
+    fromAtlas: false,
+  };
+}
+
 export function getNewsImageSrc(article: NewsArticle): string | null {
+  if (article.image?.src) return article.image.src;
+
   const species = newsRelatedSpecies(article)[0];
   if (species && !isPlaceholderMedia(species.image)) {
     return species.image;
@@ -37,6 +52,10 @@ export function getNewsVisual(
   article: NewsArticle,
   locale: AppLocale,
 ): NewsVisual | null {
+  if (article.image) {
+    return localizeNewsPhoto(article.image, locale);
+  }
+
   const species = newsRelatedSpecies(article)[0];
   if (species && !isPlaceholderMedia(species.image)) {
     const item = localizeSpecies(species, locale);
@@ -49,6 +68,7 @@ export function getNewsVisual(
         item.imageCredit,
       ),
       credit: item.imageCredit,
+      fromAtlas: true,
     };
   }
 
@@ -58,6 +78,7 @@ export function getNewsVisual(
     return {
       src: getRegionHeroImage(region.id),
       alt: name,
+      fromAtlas: true,
     };
   }
 

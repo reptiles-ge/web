@@ -4,7 +4,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { getSpeciesById } from "@/data/species";
 import { getRegionById } from "@/data/regions";
 import { GROUP_HUBS } from "@/lib/groupHubs";
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 export type {
   NewsArticle,
@@ -123,7 +123,7 @@ export function newsSourceOrg(article: NewsArticle) {
 }
 
 export function newsArticlePhotos(article: NewsArticle) {
-  const photos = [];
+  const photos: NewsPhoto[] = [];
   if (article.image) photos.push(article.image);
   if (article.gallery) photos.push(...article.gallery);
   return photos;
