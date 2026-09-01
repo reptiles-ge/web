@@ -12,6 +12,6 @@ Public atlas of Georgia’s animals (KA canonical). Empty is better than invente
 - Candidate taxa stay candidates. Darevskia species must not be conflated.
 - Bite/venom pages: educational, 112, no `MedicalWebPage`. Malpolon = Moderate, not გიურზა.
 - Photos: do not call CDN images Georgia-field-verified without evidence.
-- Both `ka.mdx` and `en.mdx`. UI copy: `messages/ka.json`, `en.json`, `ru.json`, and `tr.json`. No code comments.
+- Species MDX: KA owns `image` / `gallery` srcs; `en`/`ru`/`tr` overlay credits by `src` only. UI copy: `messages/ka.json`, `en.json`, `ru.json`, and `tr.json`. No code comments.
 - Do not commit or hand-edit `src/data/species.generated.ts` (gitignored; produced by compile). Lookalikes live in `LOOKALIKES` (`speciesRoutes.ts`), not MDX YAML.
 - No `/konservacia` routes. Quiz results must not become URLs. Map for agents: `AGENTS.md`.
