@@ -14,6 +14,7 @@
     "amphibians": "Amphibians",
     "birds": "Birds",
     "mammals": "Mammals",
+    "news": "News",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
@@ -195,6 +196,7 @@
     "yard": "Snakes in the yard",
     "regions": "Regions",
     "about": "About",
+    "news": "News",
     "contact": "Contact",
     "venomousTitle": "Venomous species",
     "venomousAll": "Safety guide",
@@ -471,6 +473,25 @@
     "species": "Species atlas",
     "snakes": "Snakes in Georgia",
     "venomous": "Venomous snakes"
+  },
+  "news": {
+    "metaTitle": "Wildlife news from Georgia",
+    "metaDescription": "Field counts and migration days from Georgia — editorial context with a cited source, pointing back to the species atlas.",
+    "h1": "News",
+    "eyebrow": "News",
+    "intro": "Field counts and events that bear on Georgia’s fauna. These are editorial notes with a cited source — the species profile remains the atlas record.",
+    "breadcrumbNews": "News",
+    "sourceHeading": "Source",
+    "reportedBy": "Count reported by {source}",
+    "editorialBy": "Editorial, Reptiles.ge",
+    "editorialNote": "This page explains a Batumi Raptor Count report. Reptiles.ge did not count the birds.",
+    "relatedHeading": "In the atlas",
+    "relatedNewsHeading": "Related news",
+    "allNews": "All news",
+    "readArticle": "Read the article",
+    "empty": "No articles yet.",
+    "notFound": "Article not found",
+    "anchorLink": "Link to this section"
   },
   "about": {
     "metaTitle": "About",

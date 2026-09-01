@@ -14,6 +14,7 @@
     "amphibians": "Amfibiler",
     "birds": "Kuşlar",
     "mammals": "Memeliler",
+    "news": "Haberler",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat"
   },
@@ -195,6 +196,7 @@
     "yard": "Bahçedeki yılanlar",
     "regions": "Bölgeler",
     "about": "Hakkında",
+    "news": "Haberler",
     "contact": "İletişim",
     "venomousTitle": "Zehirli türler",
     "venomousAll": "Güvenlik rehberi",
@@ -471,6 +473,25 @@
     "species": "Tür atlası",
     "snakes": "Gürcistan’daki yılanlar",
     "venomous": "Zehirli yılanlar"
+  },
+  "news": {
+    "metaTitle": "Gürcistan yaban hayatı haberleri",
+    "metaDescription": "Gürcistan’dan saha sayımları ve göç günleri — kaynaklı editoryal bağlam, tür atlasına dönüşle.",
+    "h1": "Haberler",
+    "eyebrow": "Haberler",
+    "intro": "Gürcistan faunasını ilgilendiren saha sayımları ve olaylar. Bunlar kaynaklı editoryal notlardır — asıl kayıt tür profilidir.",
+    "breadcrumbNews": "Haberler",
+    "sourceHeading": "Kaynak",
+    "reportedBy": "Sayım: {source}",
+    "editorialBy": "Editoryal, Reptiles.ge",
+    "editorialNote": "Bu sayfa bir Batumi Raptor Count raporunu açıklar. Kuşları Reptiles.ge saymadı.",
+    "relatedHeading": "Atlas’ta",
+    "relatedNewsHeading": "İlgili haberler",
+    "allNews": "Tüm haberler",
+    "readArticle": "Yazıyı oku",
+    "empty": "Henüz haber yok.",
+    "notFound": "Yazı bulunamadı",
+    "anchorLink": "Bu bölüme bağlantı"
   },
   "about": {
     "metaTitle": "Hakkında",

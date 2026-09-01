@@ -67,4 +67,6 @@ export const pathnames = {
   "/quiz/[slug]": "/quiz/[slug]",
   "/regions": "/regions",
   "/regions/[id]": "/regions/[id]",
+  "/news": "/news",
+  "/news/[slug]": "/news/[slug]",
 } as const;

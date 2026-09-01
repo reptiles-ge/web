@@ -39,6 +39,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Regions + map IDs | `src/data/regions.ts` — **never infer** `speciesIds` |
 | Checklist authority | `src/data/herpetofauna-checklist.ts` |
 | Quiz registry | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts` |
+| News | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts` |
 | 301 map | `next.config.ts` **and** `src/proxy.ts` |
 | UI strings | `messages/ka.json` + `messages/en.json` (same keys) |
 
@@ -128,6 +129,7 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/quiz`, `/quiz/romeli-gvelia` | `/en/quiz`, `/en/quiz/which-snake` | Hub + one live quiz |
 | `/riskis-doneebi` | `/en/risk-to-humans` | Risk legend |
 | `/about`, `/contact` | `/en/about`, `/en/contact` | Site |
+| `/news`, `/news/{slug}` | `/en/news`, `/en/news/{slug}` | News |
 
 There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not standalone Red List guides.
 

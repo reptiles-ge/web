@@ -27,6 +27,13 @@ import {
 } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { quizHref, type QuizHref } from "@/lib/quizzes";
+import { newsArticleHref } from "@/lib/news";
+import {
+  getPublishedNewsArticles,
+  newsLocalizedDek,
+  newsLocalizedTitle,
+  newsSearchKeywords,
+} from "@/data/news";
 import { transliterateKa } from "@/lib/slugify";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
 import {
@@ -46,7 +53,8 @@ export type SearchIcon =
   | "map"
   | "yard"
   | "info"
-  | "contact";
+  | "contact"
+  | "news";
 
 export type SearchPageHref = Exclude<
   AppPathnames,
@@ -59,13 +67,15 @@ export type SearchPageHref = Exclude<
   | "/mammals/[slug]"
   | "/quiz/[slug]"
   | "/regions/[id]"
+  | "/news/[slug]"
 >;
 
 export type SearchHref =
   | SearchPageHref
   | SpeciesHref
   | QuizHref
-  | { pathname: "/regions/[id]"; params: { id: string } };
+  | { pathname: "/regions/[id]"; params: { id: string } }
+  | { pathname: "/news/[slug]"; params: { slug: string } };
 
 export type SearchDocument = {
   key: string;
@@ -611,6 +621,34 @@ const STATIC_PAGES: Array<
     icon: "info",
   },
   {
+    id: "news",
+    href: "/news",
+    title: {
+      ka: "სიახლეები",
+      en: "News",
+      ru: "Новости",
+      tr: "Haberler",
+    },
+    subtitle: {
+      ka: "საველე აღრიცხვები და მიგრაციის დღეები",
+      en: "Field counts and migration days",
+      ru: "Полевые учёты и дни миграции",
+      tr: "Saha sayımları ve göç günleri",
+    },
+    keywords: [
+      "სიახლეები",
+      "news",
+      "новости",
+      "haberler",
+      "ბათუმი",
+      "batumi",
+      "მიგრაცია",
+    ],
+    icon: "news",
+    suggested: true,
+    rank: 11,
+  },
+  {
     id: "contact",
     href: "/contact",
     title: { ka: "კონტაქტი", en: "Contact" },
@@ -874,8 +912,23 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     toSpeciesDocument(locale, item),
   );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
+  const newsDocs = getPublishedNewsArticles().map((article) => {
+    const title = newsLocalizedTitle(article, locale);
+    const dek = newsLocalizedDek(article, locale);
+    return {
+      key: `news:${article.id}`,
+      kind: "page" as const,
+      id: article.id,
+      href: newsArticleHref(article.slug),
+      title,
+      subtitle: dek,
+      scoreTitles: Object.values(article.copy).map((copy) => copy.title),
+      searchText: blob(newsSearchKeywords(article)),
+      icon: "news" as const,
+    };
+  });
 
-  return [...pages, ...species, ...regionDocs];
+  return [...pages, ...species, ...regionDocs, ...newsDocs];
 }
 
 export function scoreDocument(query: string, doc: SearchDocument) {

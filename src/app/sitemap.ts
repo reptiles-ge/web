@@ -15,6 +15,15 @@ import {
 } from "@/lib/site";
 import { liveQuizzes } from "@/lib/quizzes";
 import { regionHref } from "@/lib/speciesRoutes";
+import {
+  getPublishedNewsArticles,
+  newsLatestModified,
+} from "@/data/news";
+import {
+  newsArticleAlternates,
+  newsArticleUrl,
+  newsDateTime,
+} from "@/lib/news";
 import type { MetadataRoute } from "next";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
@@ -54,6 +63,11 @@ function pageEntry(
 export default function sitemap(): MetadataRoute.Sitemap {
   const catalog = getCatalogSpecies();
   const atlasLastModified = toLastModified(getAtlasStats(catalog).lastUpdated);
+  const newsArticles = getPublishedNewsArticles();
+  const newsModifiedRaw = newsLatestModified(newsArticles);
+  const newsLastModified = toLastModified(
+    newsModifiedRaw ? newsDateTime(newsModifiedRaw) : undefined,
+  );
   const entries: MetadataRoute.Sitemap = [];
   const seen = new Set<string>();
 
@@ -67,6 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/", atlasLastModified));
     push(pageEntry(locale, "/contact", atlasLastModified));
     push(pageEntry(locale, "/about", atlasLastModified));
+    push(pageEntry(locale, "/news", newsLastModified));
     push(pageEntry(locale, "/species", atlasLastModified));
     push(pageEntry(locale, "/venomous-snakes", atlasLastModified));
     push(pageEntry(locale, "/snakes-in-the-yard", atlasLastModified));
@@ -106,6 +121,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       push({
         url: speciesPageUrl(locale, item.id),
         lastModified: toLastModified(item.updatedAt),
+        alternates: { languages },
+      });
+    }
+
+    for (const article of newsArticles) {
+      const { languages } = newsArticleAlternates(locale, article.slug);
+      push({
+        url: newsArticleUrl(locale, article.slug),
+        lastModified: toLastModified(
+          newsDateTime(article.updatedAt ?? article.publishedAt),
+        ),
         alternates: { languages },
       });
     }
