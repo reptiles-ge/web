@@ -371,87 +371,123 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       sections: [
         {
           heading: "Что произошло?",
-          paragraphs: [
-            [
-              "Осенний учёт 2026 года у Батуми начался 12 августа. Первые две недели были спокойными. Batumi Raptor Count пишет, что дождь и туман до 27 августа держали численность низкой. Пик пролёта осоеда ещё был впереди, и команда уже спрашивала: где они?",
-            ],
-            [
-              "В тот день, по отчёту, они появились. Сумма двух станций достигла почти 19 300 птиц. Поток шёл несколько часов. Это первый день сезона выше 10 000 — не итог сезона и не разбивка по видам.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Осенний учёт 2026 года у Батуми начался 12 августа. Первые две недели были спокойными. Batumi Raptor Count пишет, что дождь и туман до 27 августа держали численность низкой. Пик пролёта осоеда ещё был впереди, и команда уже спрашивала: где они?",
+              ],
+            },
+            FIGURE_SUNRISE,
+            {
+              type: "p",
+              parts: [
+                "В тот день, по отчёту, они появились. Сумма двух станций достигла почти 19 300 птиц. Поток шёл несколько часов. Это первый день сезона выше 10 000 — не итог сезона и не разбивка по видам.",
+              ],
+            },
           ],
         },
         {
           heading: "Почему важен батумский коридор?",
-          paragraphs: [
-            [
-              "Осенью хищные птицы с запада Палеарктики к Африке идут вдоль восточного берега Чёрного моря. В ",
-              { type: "region", id: "adjara", label: "Аджарии" },
-              ", к северу от Батуми, море и горы сужают этот путь. Отсюда название — батумский коридор: много птиц пересекает одно и то же небо, и дневная сумма может исчисляться тысячами.",
-            ],
-            [
-              "Batumi Raptor Count ведёт наблюдения здесь с 2008 года. Сезон 2026 года длится с 12 августа по 21 октября. В отчёте названы две станции; в атласе эти точки — Сахалвашо и Шуамта — есть в профилях видов с осенним пролётом, в том числе у ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "обыкновенного осоеда",
-              },
-              " и ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "обыкновенного канюка",
-              },
-              ". Тот же контекст — на ",
-              { type: "hub", id: "birds", label: "странице птиц" },
-              ".",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Осенью хищные птицы с запада Палеарктики к Африке идут вдоль восточного берега Чёрного моря. В ",
+                { type: "region", id: "adjara", label: "Аджарии" },
+                ", к северу от Батуми, море и горы сужают этот путь. Отсюда название — батумский коридор: много птиц пересекает одно и то же небо, и дневная сумма может исчисляться тысячами.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count ведёт наблюдения здесь с 2008 года. Сезон 2026 года длится с 12 августа по 21 октября. В отчёте названы две станции; в атласе эти точки — Сахалвашо и Шуамта — есть в профилях видов с осенним пролётом, в том числе у ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "обыкновенного осоеда",
+                },
+                " и ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "обыкновенного канюка",
+                },
+                ". Тот же контекст — на ",
+                { type: "hub", id: "birds", label: "странице птиц" },
+                ".",
+              ],
+            },
           ],
         },
         {
           heading: "Что наблюдали 27 августа?",
-          paragraphs: [
-            [
-              "По отчёту, в потоке преобладал осоед (",
-              { type: "sci", name: "Pernis apivorus" },
-              "). Профиль вида в атласе: ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "обыкновенный осоед",
-              },
-              ". Первая станция взяла основную нагрузку подсчёта; вторая выделяла из того же потока ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "чёрных коршунов",
-              },
-              " и луней. Вид луней в этом отчёте не назван.",
-            ],
-            [
-              "В этом обновлении нет точных цифр по видам. Здесь можно повторить только их сводку: почти 19 300 птиц на двух станциях, первый день сезона выше 10 000, доминант — осоед. Чёрный коршун и луни названы, без численности.",
-            ],
-            [
-              "Осоед — не канюк рода Buteo. Ближайшая страница сходного вида — ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "обыкновенный канюк",
-              },
-              ": тоже идёт через батумский коридор, и в профиле прямо сказано, что осоед — другой таксон.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "По отчёту, в потоке преобладал осоед (",
+                { type: "sci", name: "Pernis apivorus" },
+                "). Профиль вида в атласе: ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "обыкновенный осоед",
+                },
+                ".",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Первая станция взяла основную нагрузку подсчёта; вторая выделяла из того же потока ",
+                {
+                  type: "species",
+                  id: "milvus-migrans",
+                  label: "чёрных коршунов",
+                },
+                " и луней. Вид луней в этом отчёте не назван.",
+              ],
+            },
+            FIGURE_STATION_2,
+            {
+              type: "p",
+              parts: [
+                "В этом обновлении нет точных цифр по видам. Здесь можно повторить только их сводку: почти 19 300 птиц на двух станциях, первый день сезона выше 10 000, доминант — осоед. Чёрный коршун и луни названы, без численности.",
+              ],
+            },
+            FIGURE_KITE,
+            {
+              type: "p",
+              parts: [
+                "Осоед — не канюк рода Buteo. Ближайшая страница сходного вида — ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "обыкновенный канюк",
+                },
+                ": тоже идёт через батумский коридор, и в профиле прямо сказано, что осоед — другой таксон.",
+              ],
+            },
           ],
         },
         {
           heading: "Что дальше?",
-          paragraphs: [
-            [
-              "Batumi Raptor Count ожидает пик численности осоеда на следующей неделе. Сезон длится до 21 октября. 27 августа — первый крупный день, не конец: дневные суммы ещё могут вырасти, а видовой состав к концу учёта изменится.",
-            ],
-            [
-              "Первичный источник дневных цифр — Batumi Raptor Count. В ",
-              { type: "news-index", label: "новостях" },
-              " мы добавляем контекст и возвращаем к страницам атласа — основной записью остаётся профиль вида.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count ожидает пик численности осоеда на следующей неделе. Сезон длится до 21 октября. 27 августа — первый крупный день, не конец: дневные суммы ещё могут вырасти, а видовой состав к концу учёта изменится.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Первичный источник дневных цифр — Batumi Raptor Count. В ",
+                { type: "news-index", label: "новостях" },
+                " мы добавляем контекст и возвращаем к страницам атласа — основной записью остаётся профиль вида.",
+              ],
+            },
           ],
         },
       ],
@@ -466,87 +502,123 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       sections: [
         {
           heading: "Ne oldu?",
-          paragraphs: [
-            [
-              "2026 sonbahar sayımı Batumi’de 12 Ağustos’ta başladı. İlk iki hafta sakin geçti. Batumi Raptor Count, 27 Ağustos’tan önceki yağmur ve sisin sayıları düşük tuttuğunu yazdı. Arı şahini zirvesi hâlâ öndeydi ve ekip kuşların nerede olduğunu sormaya başlamıştı.",
-            ],
-            [
-              "O gün, rapora göre, geldiler. İki istasyonun toplamı yaklaşık 19.300 kuşa çıktı. Akım birkaç saat sürdü. Bu, sezonun 10.000’i aşan ilk günü — sezon toplamı değil, türlere göre döküm de değil.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "2026 sonbahar sayımı Batumi’de 12 Ağustos’ta başladı. İlk iki hafta sakin geçti. Batumi Raptor Count, 27 Ağustos’tan önceki yağmur ve sisin sayıları düşük tuttuğunu yazdı. Arı şahini zirvesi hâlâ öndeydi ve ekip kuşların nerede olduğunu sormaya başlamıştı.",
+              ],
+            },
+            FIGURE_SUNRISE,
+            {
+              type: "p",
+              parts: [
+                "O gün, rapora göre, geldiler. İki istasyonun toplamı yaklaşık 19.300 kuşa çıktı. Akım birkaç saat sürdü. Bu, sezonun 10.000’i aşan ilk günü — sezon toplamı değil, türlere göre döküm de değil.",
+              ],
+            },
           ],
         },
         {
           heading: "Batumi koridoru neden önemli?",
-          paragraphs: [
-            [
-              "Sonbaharda yırtıcı kuşlar batı Palearktik’ten Afrika’ya Karadeniz’in doğu kıyısı boyunca iner. ",
-              { type: "region", id: "adjara", label: "Acara’da" },
-              ", Batumi’nin kuzeyinde deniz ile dağ bu yolu daraltır. Batumi koridoru bu yüzden böyle anılır: birçok kuş aynı gökyüzünü geçer, günlük toplam binleri bulabilir.",
-            ],
-            [
-              "Batumi Raptor Count koridoru 2008’den beri izliyor. 2026 sezonu 12 Ağustos–21 Ekim arasında. Raporda iki istasyon adı geçer; atlas’ta bu noktalar sonbahar geçişini anan profillerde Sakhalvasho ve Şuamta olarak durur — örneğin ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "arı şahini",
-              },
-              " ve ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "şahin",
-              },
-              ". Aynı bağlam ",
-              { type: "hub", id: "birds", label: "kuşlar sayfasında" },
-              " da var.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Sonbaharda yırtıcı kuşlar batı Palearktik’ten Afrika’ya Karadeniz’in doğu kıyısı boyunca iner. ",
+                { type: "region", id: "adjara", label: "Acara’da" },
+                ", Batumi’nin kuzeyinde deniz ile dağ bu yolu daraltır. Batumi koridoru bu yüzden böyle anılır: birçok kuş aynı gökyüzünü geçer, günlük toplam binleri bulabilir.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count koridoru 2008’den beri izliyor. 2026 sezonu 12 Ağustos–21 Ekim arasında. Raporda iki istasyon adı geçer; atlas’ta bu noktalar sonbahar geçişini anan profillerde Sakhalvasho ve Şuamta olarak durur — örneğin ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "arı şahini",
+                },
+                " ve ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "şahin",
+                },
+                ". Aynı bağlam ",
+                { type: "hub", id: "birds", label: "kuşlar sayfasında" },
+                " da var.",
+              ],
+            },
           ],
         },
         {
           heading: "27 Ağustos’ta ne görüldü?",
-          paragraphs: [
-            [
-              "Rapora göre akımda arı şahini (",
-              { type: "sci", name: "Pernis apivorus" },
-              ") baskındı. Atlas’taki profili: ",
-              {
-                type: "species",
-                id: "pernis-apivorus",
-                label: "arı şahini",
-              },
-              ". 1. istasyon sayımın asıl yükünü aldı; 2. istasyon aynı akımdan ",
-              {
-                type: "species",
-                id: "milvus-migrans",
-                label: "kara çaylakları",
-              },
-              " ve deliceleri ayırmaya çalıştı. Raporda delice türü belirtilmiyor.",
-            ],
-            [
-              "Bu güncellemede türe göre kesin sayılar yok. Burada yalnızca özetleri tekrarlanabilir: iki istasyonda yaklaşık 19.300 kuş, sezonun ilk 10.000 üzeri günü, baskın tür arı şahini. Kara çaylak ve deliceler adı geçiyor, sayı yok.",
-            ],
-            [
-              "Arı şahini, Buteo cinsindeki şahin değildir. En yakın benzer sayfa ",
-              {
-                type: "species",
-                id: "buteo-buteo",
-                label: "şahin",
-              },
-              " — o da Batumi’den geçer; profilinde arı şahininin ayrı bir takson olduğu açıkça yazılır.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Rapora göre akımda arı şahini (",
+                { type: "sci", name: "Pernis apivorus" },
+                ") baskındı. Atlas’taki profili: ",
+                {
+                  type: "species",
+                  id: "pernis-apivorus",
+                  label: "arı şahini",
+                },
+                ".",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "1. istasyon sayımın asıl yükünü aldı; 2. istasyon aynı akımdan ",
+                {
+                  type: "species",
+                  id: "milvus-migrans",
+                  label: "kara çaylakları",
+                },
+                " ve deliceleri ayırmaya çalıştı. Raporda delice türü belirtilmiyor.",
+              ],
+            },
+            FIGURE_STATION_2,
+            {
+              type: "p",
+              parts: [
+                "Bu güncellemede türe göre kesin sayılar yok. Burada yalnızca özetleri tekrarlanabilir: iki istasyonda yaklaşık 19.300 kuş, sezonun ilk 10.000 üzeri günü, baskın tür arı şahini. Kara çaylak ve deliceler adı geçiyor, sayı yok.",
+              ],
+            },
+            FIGURE_KITE,
+            {
+              type: "p",
+              parts: [
+                "Arı şahini, Buteo cinsindeki şahin değildir. En yakın benzer sayfa ",
+                {
+                  type: "species",
+                  id: "buteo-buteo",
+                  label: "şahin",
+                },
+                " — o da Batumi’den geçer; profilinde arı şahininin ayrı bir takson olduğu açıkça yazılır.",
+              ],
+            },
           ],
         },
         {
           heading: "Sırada ne var?",
-          paragraphs: [
-            [
-              "Batumi Raptor Count, arı şahini sayılarının sonraki hafta zirveye yaklaşmasını bekliyor. Sezon 21 Ekim’e kadar sürer. 27 Ağustos ilk büyük gündür, son değil: günlük toplamlar hâlâ artabilir, tür bileşimi sayım ilerledikçe değişir.",
-            ],
-            [
-              "Günlük rakamların birincil kaynağı Batumi Raptor Count’tur. Bu sitedeki ",
-              { type: "news-index", label: "haberler" },
-              " bağlama ekler ve atlas sayfalarına döner — asıl kayıt tür profilidir.",
-            ],
+          blocks: [
+            {
+              type: "p",
+              parts: [
+                "Batumi Raptor Count, arı şahini sayılarının sonraki hafta zirveye yaklaşmasını bekliyor. Sezon 21 Ekim’e kadar sürer. 27 Ağustos ilk büyük gündür, son değil: günlük toplamlar hâlâ artabilir, tür bileşimi sayım ilerledikçe değişir.",
+              ],
+            },
+            {
+              type: "p",
+              parts: [
+                "Günlük rakamların birincil kaynağı Batumi Raptor Count’tur. Bu sitedeki ",
+                { type: "news-index", label: "haberler" },
+                " bağlama ekler ve atlas sayfalarına döner — asıl kayıt tür profilidir.",
+              ],
+            },
           ],
         },
       ],
