@@ -50,7 +50,9 @@ src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
-src/lib/                   routing, SEO, quiz, clusters
+src/content/news/{slug}.ts first-class news articles (all locales)
+src/data/news.ts           published news registry
+src/lib/                   routing, SEO, quiz, clusters, news
 src/i18n/                  next-intl routing + pathnames
 messages/                  KA + EN copy
 scripts/compile-species.ts predev / prebuild
@@ -144,6 +146,14 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 - Landing is indexable. Question / score / session are **client state** — never add `/quiz/.../result` or query-param indexable modes.
 - Intent: this quiz owns `რომელი გველია` / Georgia snake quiz. Canonical how-to remains `/gvelebi/shxamiani-gvelis-amocnoba`. Do not add `/quiz/gvelis-amocnoba`.
 - Second live quiz needs a new registry entry + unique intent — do not clone `SnakeQuiz` page folders.
+
+## News
+
+- Registry: `src/data/news.ts`. Copy: `src/content/news/{slug}.ts` with `ka`/`en`/`ru`/`tr`.
+- Public URLs: `/news`, `/news/{slug}` (KA unprefixed; `/en/news/…`). Do not add `/ka/news` as a live URL — `/ka/…` 301s via `src/proxy.ts`.
+- No category or tag archive URLs. Drafts stay out of `getPublishedNewsArticles()`, sitemap, and `generateStaticParams`.
+- Reuse `localeAlternates` / `JsonLd` / sitemap `pageEntry`. Do not invent a parallel blog.
+- Do not invent counts, quotes, or species totals beyond the cited source.
 
 ## SEO
 
