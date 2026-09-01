@@ -66,8 +66,8 @@
   --color-ink-foreground: var(--ink-foreground);
   --color-ink-muted: var(--ink-muted);
   --color-surface: var(--surface);
-  --font-sans: var(--font-noto-georgian), var(--font-sora), sans-serif;
-  --font-display: var(--font-noto-georgian), var(--font-sora), sans-serif;
+  --font-sans: var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans), sans-serif;
+  --font-display: var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans), sans-serif;
 }
 
 html {
