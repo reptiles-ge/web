@@ -1,7 +1,14 @@
 import type { GroupHubId } from "@/lib/groupHubs";
 import type { AppLocale } from "@/i18n/routing";
+import type { PhotoCredit } from "@/data/speciesTypes";
 
 export type NewsArticleStatus = "published" | "draft";
+
+export type NewsPhoto = {
+  src: string;
+  alt: Record<AppLocale, string>;
+  credit?: PhotoCredit;
+};
 
 export type NewsMark =
   | string

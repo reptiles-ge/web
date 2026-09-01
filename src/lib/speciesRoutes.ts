@@ -471,7 +471,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
   "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
-  "milvus-migrans": ["buteo-buteo", "aquila-chrysaetos", "gyps-fulvus"],
+  "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
   "pica-pica": ["corvus-corax", "garrulus-glandarius"],
   "garrulus-glandarius": ["pica-pica", "corvus-corax"],
   "coturnix-coturnix": ["phasianus-colchicus"],
