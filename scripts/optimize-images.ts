@@ -20,7 +20,12 @@ import {
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
-import { species, speciesEn } from "../src/data/species.generated";
+import {
+  species,
+  speciesEn,
+  speciesRu,
+  speciesTr,
+} from "../src/data/species.generated";
 import { images as siteImages } from "../src/data/species";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
@@ -153,8 +158,9 @@ function collectSources(): Map<string, string> {
     add(item.mobileImage);
     for (const photo of item.gallery) add(photo.src);
 
-    const translated = speciesEn[item.id];
-    for (const photo of translated?.gallery ?? []) add(photo.src);
+    for (const table of [speciesEn, speciesRu, speciesTr]) {
+      for (const photo of table[item.id]?.gallery ?? []) add(photo.src);
+    }
   }
 
   return byKey;
@@ -184,7 +190,9 @@ function collectTargets(ids: string[], all: boolean): Target[] {
     add(item.image);
     add(item.mobileImage);
     for (const photo of item.gallery) add(photo.src);
-    for (const photo of speciesEn[item.id]?.gallery ?? []) add(photo.src);
+    for (const table of [speciesEn, speciesRu, speciesTr]) {
+      for (const photo of table[item.id]?.gallery ?? []) add(photo.src);
+    }
   }
 
   return [...targets.values()].sort((a, b) => a.key.localeCompare(b.key));

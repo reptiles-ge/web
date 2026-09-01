@@ -219,21 +219,29 @@ export function SpeciesAtlas({
         const localized = localizeSpecies(item, locale);
         const ka = localizeSpecies(item, "ka");
         const en = localizeSpecies(item, "en");
+        const ru = localizeSpecies(item, "ru");
+        const tr = localizeSpecies(item, "tr");
         return {
           ...localized,
           searchText: [
             localized.commonName,
             ka.commonName,
             en.commonName,
+            ru.commonName,
+            tr.commonName,
             localized.scientificName,
             localized.genus,
             localized.family,
             localized.location,
             ka.location,
             en.location,
+            ru.location,
+            tr.location,
             localized.description,
             ka.description,
             en.description,
+            ru.description,
+            tr.description,
           ]
             .join(" ")
             .toLowerCase(),

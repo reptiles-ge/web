@@ -74,10 +74,16 @@ export function isPlaceholderStatValue(value: string) {
 const SAFETY_STAT_LABELS = new Set([
   "შხამი",
   "Venom",
+  "Яд",
+  "Zehir",
   "ადამიანის რისკი",
   "Human risk",
+  "Риск для человека",
+  "İnsan riski",
   "მოპყრობა",
   "Handling",
+  "Обращение",
+  "Tutma",
 ]);
 
 export function filterDisplayStats(
@@ -95,15 +101,35 @@ export function filterDisplayStats(
   });
 }
 
-const SIZE_LABELS = new Set(["სიგრძე", "Length", "Size", "ზომა"]);
-const HABITAT_LABELS = new Set(["ჰაბიტატი", "Habitat"]);
+const SIZE_LABELS = new Set([
+  "სიგრძე",
+  "Length",
+  "Size",
+  "ზომა",
+  "Длина",
+  "Размер",
+  "Uzunluk",
+  "Boyut",
+]);
+const HABITAT_LABELS = new Set([
+  "ჰაბიტატი",
+  "Habitat",
+  "Местообитание",
+  "Yaşam alanı",
+]);
 const ACTIVITY_LABELS = new Set([
   "აქტიურობა",
   "Activity",
+  "Активность",
+  "Aktivite",
   "სეზონი",
   "Season",
+  "Сезон",
+  "Mevsim",
   "სტატუსი საქართველოში",
   "Status in Georgia",
+  "Статус в Грузии",
+  "Gürcistan'daki durum",
 ]);
 
 function getStatByLabels(species: Species, labels: Set<string>) {

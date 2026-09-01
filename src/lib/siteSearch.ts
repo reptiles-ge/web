@@ -752,6 +752,8 @@ function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
   const localized = localizeSpecies(raw, locale);
   const ka = localizeSpecies(raw, "ka");
   const en = localizeSpecies(raw, "en");
+  const ru = localizeSpecies(raw, "ru");
+  const tr = localizeSpecies(raw, "tr");
   const group = getSpeciesAtlasMeta(raw.id).group;
 
   return {
@@ -761,15 +763,26 @@ function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
     href: speciesHref(raw.id, locale),
     title: localized.commonName,
     subtitle: raw.scientificName,
-    scoreTitles: [ka.commonName, en.commonName, raw.scientificName, raw.genus],
+    scoreTitles: [
+      ka.commonName,
+      en.commonName,
+      ru.commonName,
+      tr.commonName,
+      raw.scientificName,
+      raw.genus,
+    ],
     searchText: blob([
       ka.commonName,
       en.commonName,
+      ru.commonName,
+      tr.commonName,
       raw.scientificName,
       raw.genus,
       raw.family,
       ka.location,
       en.location,
+      ru.location,
+      tr.location,
       raw.id,
       ...speciesAliasKeywords(raw.id, "ka"),
       ...speciesAliasKeywords(raw.id, "en"),
