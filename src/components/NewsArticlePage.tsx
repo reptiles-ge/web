@@ -93,6 +93,15 @@ export async function NewsArticlePage({
                     {t("breadcrumbNews")}
                   </Link>
                 </li>
+                <li aria-hidden="true" className="text-border">
+                  /
+                </li>
+                <li
+                  aria-current="page"
+                  className="min-w-0 max-w-[min(100%,42rem)] text-foreground"
+                >
+                  {copy.title}
+                </li>
               </ol>
             </nav>
             <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
