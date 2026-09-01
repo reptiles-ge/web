@@ -561,14 +561,14 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     path: "corvus-corax-zauri-2",
     width: 1344,
     height: 960,
-    widths: [400, 800, 1200, 1344, 960],
+    widths: [400, 800, 1200, 1344],
     formats: ["avif", "webp"],
   },
   "https://cdn.reptiles.ge/corvus-corax-zauri-1.jpg": {
     path: "corvus-corax-zauri-1",
     width: 2048,
     height: 1463,
-    widths: [400, 800, 1200, 1344, 2048, 1463],
+    widths: [400, 800, 1200, 2048],
     formats: ["avif", "webp"],
   },
   "https://cdn.reptiles.ge/corvus-corax-zauri-3.jpg": {
