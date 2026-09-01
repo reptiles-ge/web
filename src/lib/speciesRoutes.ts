@@ -83,6 +83,13 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   ],
   "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
   "accipiter-nisus": ["mimino", "korisebri-mimino"],
+  "accipiter-gentilis": [
+    "didi-kori",
+    "goshawk",
+    "northern-goshawk",
+    "eurasian-goshawk",
+    "astur-gentilis",
+  ],
   "turdus-merula": ["shashvi", "shavi-shashvi"],
   "falco-peregrinus": [
     "shavardeni",
@@ -419,7 +426,8 @@ const LOOKALIKES: Record<string, string[]> = {
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
   "buteo-buteo": ["aquila-chrysaetos", "accipiter-nisus", "falco-peregrinus"],
-  "accipiter-nisus": ["falco-peregrinus", "buteo-buteo"],
+  "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus", "buteo-buteo"],
+  "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
   "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
   "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],

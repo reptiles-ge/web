@@ -16847,6 +16847,327 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/species/accipiter-gentilis-afr-1.jpg": {
+      "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/accipiter-gentilis-afr-1.jpg",
+      "originalSize": 963619,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20384
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30230
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57366
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 85062
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 105108
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 150894
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 258431
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-afr-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 368336
+        }
+      ],
+      "updatedAt": "2026-09-01T11:12:16.438Z"
+    },
+    "images/species/accipiter-gentilis-ellgaard-1.jpg": {
+      "sourceHash": "cbc65790f151cf55f17e69ba0672ef9a8c80c9f856113fae413a031936f85b2b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/accipiter-gentilis-ellgaard-1.jpg",
+      "originalSize": 1678597,
+      "width": 2400,
+      "height": 3073,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 512,
+          "byteSize": 11125
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 512,
+          "byteSize": 14122
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1024,
+          "byteSize": 29565
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1024,
+          "byteSize": 36710
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1536,
+          "byteSize": 59106
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1536,
+          "byteSize": 71484
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3073,
+          "byteSize": 327163
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-ellgaard-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3073,
+          "byteSize": 425944
+        }
+      ],
+      "updatedAt": "2026-09-01T11:12:15.817Z"
+    },
+    "images/species/accipiter-gentilis-kenntner-1.jpg": {
+      "sourceHash": "cf9e88905c3edbf1b2213d836baae421e69c811d68d550e6fc0881a583568d7c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/accipiter-gentilis-kenntner-1.jpg",
+      "originalSize": 609274,
+      "width": 895,
+      "height": 1461,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/accipiter-gentilis-kenntner-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 653,
+          "byteSize": 33097
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-kenntner-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 653,
+          "byteSize": 48858
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-kenntner-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1306,
+          "byteSize": 100975
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-kenntner-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1306,
+          "byteSize": 151006
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-kenntner-1-895.avif",
+          "format": "avif",
+          "width": 895,
+          "height": 1461,
+          "byteSize": 124548
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-kenntner-1-895.webp",
+          "format": "webp",
+          "width": 895,
+          "height": 1461,
+          "byteSize": 178266
+        }
+      ],
+      "updatedAt": "2026-09-01T11:12:12.744Z"
+    },
+    "images/species/accipiter-gentilis-slihto-1.jpg": {
+      "sourceHash": "dc4f6907ddd447fd707505e61e9411fb520c009a4d4989db56a692e6dcca1b95",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/accipiter-gentilis-slihto-1.jpg",
+      "originalSize": 2260408,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31494
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 46894
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 76509
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 121718
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 133779
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 222822
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 609994
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-slihto-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 910388
+        }
+      ],
+      "updatedAt": "2026-09-01T11:12:24.434Z"
+    },
+    "images/species/accipiter-gentilis-thermos-juv-1.jpg": {
+      "sourceHash": "d33384f18cfa239c1d6971220c7f6c5fa52276f8688414456434204ed78a3f24",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/accipiter-gentilis-thermos-juv-1.jpg",
+      "originalSize": 1736197,
+      "width": 2280,
+      "height": 1520,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6321
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6666
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 10392
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12418
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 15075
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 18882
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-2280.avif",
+          "format": "avif",
+          "width": 2280,
+          "height": 1520,
+          "byteSize": 33293
+        },
+        {
+          "key": "optimized/images/species/accipiter-gentilis-thermos-juv-1-2280.webp",
+          "format": "webp",
+          "width": 2280,
+          "height": 1520,
+          "byteSize": 43824
+        }
+      ],
+      "updatedAt": "2026-09-01T11:12:19.063Z"
+    },
     "images/species/aegolius-funereus-moning-1.jpg": {
       "sourceHash": "af78c3b0e87b29c417db1daefe558e9e0381f3b65d79e77cb98ecec136d31716",
       "configFingerprint": "a895f8e025dcc7fa",

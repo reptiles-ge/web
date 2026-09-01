@@ -349,6 +349,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "accipiter-gentilis": {
+    group: "bird",
+    habitats: ["forest", "mountain"],
+  },
   "falco-peregrinus": {
     group: "bird",
     habitats: ["mountain", "grassland", "wetland"],
