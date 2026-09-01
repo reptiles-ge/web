@@ -331,9 +331,9 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
     },
     ru: {
       title:
-        "Во взрослом возрасте «понтийскую гадюку» нашли в Боржомском ущелье — это гибрид, не новый вид",
+        "В Боржомском ущелье зафиксировали взрослую «понтийскую гадюку» — это гибрид, не новый вид",
       metaTitle:
-        "Во взрослом возрасте «понтийскую гадюку» нашли в Боржомском ущелье — это гибрид, не новый вид",
+        "В Боржомском ущелье зафиксировали взрослую «понтийскую гадюку» — это гибрид, не новый вид",
       metaDescription:
         "7 мая 2025 года в Боржомском ущелье зафиксировали взрослую гадюку с промежуточными признаками кавказской и носатой. Статья 2026 года не считает Vipera pontica отдельным видом.",
       dek: "Herpetology Notes описывает взрослую гадюку из Боржомского ущелья с промежуточными признаками. Авторы считают её редким гибридом, а не третьим видом.",
@@ -465,7 +465,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
       metaDescription:
         "7 Mayıs 2025’te Borjomi vadisinde Kafkas ve boynuzlu engerek karakterlerini karıştıran bir engerek kaydedildi. 2026 makalesi Vipera pontica’yı ayrı tür saymaz.",
       dek: "Herpetology Notes, Borjomi vadisinden ara karakterli erişkin bir engerek bildiriyor. Yazarlar bunu ayrı tür değil, nadir hibrit sayıyor.",
-      lead: "7 Mayıs 2025’te Borjomi vadisinde, Mtkvari’nin (Kura) yukarı çığırında, hem Kafkas engereği hem boynuzlu engerek karakterleri taşıyan erişkin bir engerek kaydedildi. Yazı 10 Haziran 2026’da Herpetology Notes’ta çıktı. Yazarlar bunu eski ad Vipera pontica’ya benzeyen ilk belgelenmiş erişkin ve Gürcistan’dan bu türün ilk kaydı sayıyor. Ayrı bir tür kabul etmiyorlar. Reptiles.ge yılanı görmedi; bu sayfa onların makalesini izler.",
+      lead: "7 Mayıs 2025’te Borjomi vadisinde, Mtkvari’nin (Kura) yukarı çığırında, hem Kafkas engereği hem boynuzlu engerek karakterleri taşıyan erişkin bir engerek kaydedildi. Yazı 10 Haziran 2026’da Herpetology Notes’ta çıktı. Yazarlar bunu eski ad Vipera pontica’ya benzeyen ilk belgelenmiş erişkin ve Gürcistan’dan ilk böyle kayıt sayıyor. Ayrı bir tür kabul etmiyorlar. Reptiles.ge yılanı görmedi; bu sayfa onların makalesini izler.",
       sections: [
         {
           heading: "Ne oldu?",
@@ -553,7 +553,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
               parts: [
                 "Bu üçüncü bir engerek türü değildir. Makale ",
                 { type: "sci", name: "V. pontica" },
-                " adını her iki ebeveynin sinoniminde bırakır. Bu atlaste Gürcistan’daki boynuzlu engerek ",
+                " adını her iki ebeveynin sinoniminde bırakır. Bu atlas’ta Gürcistan’daki boynuzlu engerek ",
                 { type: "sci", name: "Vipera ammodytes" },
                 ", alttür transcaucasiana’dır; tip lokalitesi Borjomi’dir. 2026 ",
                 {
