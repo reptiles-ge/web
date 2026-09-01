@@ -1,4 +1,4 @@
-import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
+import { getPublishedNewsArticles } from "@/data/news";
 import { getPathname } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
@@ -47,7 +47,7 @@ export function newsDateTime(isoDate: string) {
   return parseToSiteDateTime(isoDate) ?? `${isoDate}T00:00:00+04:00`;
 }
 
-export function newsOgImageUrl(_article?: NewsArticle) {
+export function newsOgImageUrl() {
   return SITE_OG_IMAGE_URL;
 }
 
