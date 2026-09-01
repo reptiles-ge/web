@@ -743,6 +743,23 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Accipiter nisus nisus",
     ],
   },
+  "accipiter-gentilis": {
+    ka: [
+      "დიდი ქორი",
+      "ქორისებრნი",
+      "Astur gentilis",
+      "Accipiter gentilis caucasicus",
+      "Falco gentilis",
+    ],
+    en: [
+      "northern goshawk",
+      "Eurasian Northern Goshawk",
+      "goshawk",
+      "Astur gentilis",
+      "Accipiter gentilis caucasicus",
+      "Falco gentilis",
+    ],
+  },
   "falco-peregrinus": {
     ka: [
       "ჩვეულებრივი შავარდენი",
