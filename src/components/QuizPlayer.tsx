@@ -46,10 +46,13 @@ type Draft = {
   hintOpen: boolean;
 };
 
-const OPTION_MARKS = {
-  ka: ["ა", "ბ", "გ", "დ"],
-  en: ["A", "B", "C", "D"],
-} as const;
+const OPTION_MARKS: Record<AppLocale, readonly [string, string, string, string]> =
+  {
+    ka: ["ა", "ბ", "გ", "დ"],
+    en: ["A", "B", "C", "D"],
+    ru: ["А", "Б", "В", "Г"],
+    tr: ["A", "B", "C", "D"],
+  };
 
 function draftKey(quizId: string) {
   return `reptiles.quiz.draft.${quizId}`;

@@ -229,9 +229,11 @@ export function SpeciesAtlas({
             localized.genus,
             localized.family,
             localized.location,
-            other.location,
+            ka.location,
+            en.location,
             localized.description,
-            other.description,
+            ka.description,
+            en.description,
           ]
             .join(" ")
             .toLowerCase(),
