@@ -6,45 +6,84 @@ const PAPER_PDF_URL =
   "https://herpetologynotes.org/index.php/hn/article/download/341/202";
 const CHECKLIST_URL = "https://doi.org/10.3897/caucasiana.5.e189214";
 
-const PHOTO_KAZNAKOVI: NewsPhoto = {
-  src: "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-1.jpg",
-  fromAtlas: true,
+const PHOTO_DIR = "/images/news/vipera-pontica-hybrid-georgia-2026";
+
+const PHOTO_HYBRID: NewsPhoto = {
+  src: `${PHOTO_DIR}/figure-3.jpg`,
+  plate: true,
   alt: {
-    ka: "კავკასიური გველგესლა ბორჯომ-ხარაგაულის ეროვნულ პარკში. ეს ჰიბრიდი არ არის.",
-    en: "Caucasus viper in Borjomi-Kharagauli National Park. This is not the hybrid.",
-    ru: "Кавказская гадюка в Боржом-Харагаульском национальном парке. Это не гибрид.",
-    tr: "Borjomi-Haragauli Millî Parkı’nda Kafkas engereği. Bu hibrit değil.",
+    ka: "სავარაუდო ჰიბრიდი გველგესლა ბორჯომის ხეობაში, 2025 წლის 7 მაისი. Herpetology Notes, CC BY-NC 4.0.",
+    en: "Putative hybrid viper in the Borjomi valley, 7 May 2025. Herpetology Notes, CC BY-NC 4.0.",
+    ru: "Предполагаемый гибрид гадюки в Боржомском ущелье, 7 мая 2025. Herpetology Notes, CC BY-NC 4.0.",
+    tr: "Borjomi vadisinde olası hibrit engerek, 7 Mayıs 2025. Herpetology Notes, CC BY-NC 4.0.",
   },
   credit: {
-    photographer: "ზაური ხაჩიძე",
-    location: "ბორჯომ-ხარაგაულის ეროვნული პარკი",
-    date: "2015-05-17",
+    photographer: "Bas Raaijmakers, Sten Gijbels",
+    url: PAPER_URL,
+    location: "ბორჯომის ხეობა",
+    date: "2025-05-07",
   },
 };
 
-const PHOTO_TRANSCAUCASIANA: NewsPhoto = {
-  src: "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-1.jpg",
-  fromAtlas: true,
+const PHOTO_HABITAT: NewsPhoto = {
+  src: `${PHOTO_DIR}/figure-2.jpg`,
+  plate: true,
   alt: {
-    ka: "ცხვირრქოსანი გველგესლა ბორჯომ-ხარაგაულის ეროვნულ პარკში. ეს ჰიბრიდი არ არის.",
-    en: "Nose-horned viper in Borjomi-Kharagauli National Park. This is not the hybrid.",
-    ru: "Носатая гадюка в Боржом-Харагаульском национальном парке. Это не гибрид.",
-    tr: "Borjomi-Haragauli Millî Parkı’nda boynuzlu engerek. Bu hibrit değil.",
+    ka: "კავკასიური გველგესლას (A) და ცხვირრქოსანი გველგესლას (B) ჰაბიტატი ბორჯომის ხეობაში. ეს ზუსტად ჰიბრიდის ადგილი არ არის. Herpetology Notes, CC BY-NC 4.0.",
+    en: "Habitats of Caucasus viper (A) and nose-horned viper (B) in the Borjomi valley. Not the exact hybrid site. Herpetology Notes, CC BY-NC 4.0.",
+    ru: "Местообитания кавказской (A) и носатой (B) гадюк в Боржомском ущелье. Это не точная точка гибрида. Herpetology Notes, CC BY-NC 4.0.",
+    tr: "Borjomi vadisinde Kafkas engereği (A) ve boynuzlu engerek (B) habitatı. Hibritin tam yeri değil. Herpetology Notes, CC BY-NC 4.0.",
   },
   credit: {
-    photographer: "ზაური ხაჩიძე",
-    location: "ბორჯომ-ხარაგაულის ეროვნული პარკი",
-    date: "2015-05-18",
+    photographer: "Bas Raaijmakers, Sten Gijbels",
+    url: PAPER_URL,
+    location: "ბორჯომის ხეობა",
   },
 };
 
-const FIGURE_KAZNAKOVI = {
-  type: "figure" as const,
-  src: PHOTO_KAZNAKOVI.src,
+const PHOTO_MAP: NewsPhoto = {
+  src: `${PHOTO_DIR}/figure-1.jpg`,
+  plate: true,
+  alt: {
+    ka: "ნაშრომის სავარაუდო არეალები და 2025 წლის დაკვირვების ადგილი. Herpetology Notes, CC BY-NC 4.0.",
+    en: "The paper’s approximate ranges and the 2025 observation site. Herpetology Notes, CC BY-NC 4.0.",
+    ru: "Приблизительные ареалы из статьи и место наблюдения 2025 года. Herpetology Notes, CC BY-NC 4.0.",
+    tr: "Makalenin yaklaşık yayılışları ve 2025 gözlem yeri. Herpetology Notes, CC BY-NC 4.0.",
+  },
+  credit: {
+    photographer: "Bas van Blitterswijk",
+    url: PAPER_URL,
+    location: "ბორჯომის ხეობა",
+  },
 };
-const FIGURE_TRANSCAUCASIANA = {
+
+const PHOTO_COMPARE: NewsPhoto = {
+  src: `${PHOTO_DIR}/figure-4.jpg`,
+  plate: true,
+  alt: {
+    ka: "ბორჯომის ხეობა: კავკასიური გველგესლა (A–C), სავარაუდო ჰიბრიდი (D–F), ცხვირრქოსანი გველგესლა (G–I). Herpetology Notes, CC BY-NC 4.0.",
+    en: "Borjomi valley: Caucasus viper (A–C), putative hybrid (D–F), nose-horned viper (G–I). Herpetology Notes, CC BY-NC 4.0.",
+    ru: "Боржомское ущелье: кавказская гадюка (A–C), предполагаемый гибрид (D–F), носатая гадюка (G–I). Herpetology Notes, CC BY-NC 4.0.",
+    tr: "Borjomi vadisi: Kafkas engereği (A–C), olası hibrit (D–F), boynuzlu engerek (G–I). Herpetology Notes, CC BY-NC 4.0.",
+  },
+  credit: {
+    photographer: "Sten Gijbels, Bas Raaijmakers",
+    url: PAPER_URL,
+    location: "ბორჯომის ხეობა",
+  },
+};
+
+const FIGURE_HABITAT = {
   type: "figure" as const,
-  src: PHOTO_TRANSCAUCASIANA.src,
+  src: PHOTO_HABITAT.src,
+};
+const FIGURE_MAP = {
+  type: "figure" as const,
+  src: PHOTO_MAP.src,
+};
+const FIGURE_COMPARE = {
+  type: "figure" as const,
+  src: PHOTO_COMPARE.src,
 };
 
 export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
@@ -56,8 +95,8 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
   relatedSpeciesIds: ["vipera-kaznakovi", "vipera-transcaucasiana"],
   relatedRegionIds: ["samtskhe-javakheti"],
   relatedHubIds: ["snakes"],
-  image: PHOTO_KAZNAKOVI,
-  gallery: [PHOTO_TRANSCAUCASIANA],
+  image: PHOTO_HYBRID,
+  gallery: [PHOTO_HABITAT, PHOTO_MAP, PHOTO_COMPARE],
   sources: [
     {
       name: "Raaijmakers et al. 2026 — Finding Vipera pontica (Herpetology Notes)",
@@ -104,7 +143,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 " ნახეს. სავარაუდო ჰიბრიდი ჯერ ტყის პირას ათბობდა, შემდეგ კი ცხვირრქოსან გველგესლასთან ახლოს.",
               ],
             },
-            FIGURE_TRANSCAUCASIANA,
+            FIGURE_HABITAT,
             {
               type: "p",
               parts: [
@@ -134,7 +173,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 ") შორის იშვიათ ჰიბრიდად მიიჩნევს — არა დამოუკიდებელ ხაზად.",
               ],
             },
-            FIGURE_KAZNAKOVI,
+            FIGURE_MAP,
             {
               type: "p",
               parts: [
@@ -152,6 +191,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 "გველს აწეული, მაგრამ ურქო ცხვირი ჰქონდა, დანაწევრებული თავის ქერცლი, შუალედური მუცლისა და ქვეკუდის ფარების რიცხვი, შერეული ზურგის ზიგზაგი და ორფეროვანი კუდის წვერი. ავტორები ამას ორივე მშობელი სახეობის დიაგნოსტიკურ ნიშანთა ნაზავს უწოდებენ.",
               ],
             },
+            FIGURE_COMPARE,
             {
               type: "p",
               parts: [
@@ -232,7 +272,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 " at the same place. The presumed hybrid was first basking at a forest edge, then again close to a nose-horned viper.",
               ],
             },
-            FIGURE_TRANSCAUCASIANA,
+            FIGURE_HABITAT,
             {
               type: "p",
               parts: [
@@ -262,7 +302,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 ") — not as a separate lineage.",
               ],
             },
-            FIGURE_KAZNAKOVI,
+            FIGURE_MAP,
             {
               type: "p",
               parts: [
@@ -280,6 +320,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 "The snake had an upturned but hornless snout, fragmented head scalation, intermediate ventral and subcaudal counts, a mixed dorsal zigzag, and a bicoloured tail tip. The authors call this a combination of diagnostic traits from both parental species.",
               ],
             },
+            FIGURE_COMPARE,
             {
               type: "p",
               parts: [
@@ -360,7 +401,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 ". Предполагаемый гибрид сначала грелся на опушке, затем — рядом с носатой гадюкой.",
               ],
             },
-            FIGURE_TRANSCAUCASIANA,
+            FIGURE_HABITAT,
             {
               type: "p",
               parts: [
@@ -390,7 +431,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 "), а не отдельной линией.",
               ],
             },
-            FIGURE_KAZNAKOVI,
+            FIGURE_MAP,
             {
               type: "p",
               parts: [
@@ -408,6 +449,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 "У змеи была загнутая, но безрогая морда, фрагментированная чешуя головы, промежуточное число брюшных и подхвостовых щитков, смешанный спинной зигзаг и двуцветный кончик хвоста. Авторы называют это сочетанием диагностических признаков обоих родительских видов.",
               ],
             },
+            FIGURE_COMPARE,
             {
               type: "p",
               parts: [
@@ -488,7 +530,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 " bulunmuştu. Olası hibrit önce orman kenarında ısınıyordu, sonra bir boynuzlu engereğin yanında.",
               ],
             },
-            FIGURE_TRANSCAUCASIANA,
+            FIGURE_HABITAT,
             {
               type: "p",
               parts: [
@@ -517,7 +559,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 ") arasında nadir hibrit sayar — ayrı bir soy değil.",
               ],
             },
-            FIGURE_KAZNAKOVI,
+            FIGURE_MAP,
             {
               type: "p",
               parts: [
@@ -535,6 +577,7 @@ export const VIPERA_PONTICA_HYBRID_GEORGIA_2026: NewsArticle = {
                 "Yılanın kalkık ama boynuzsuz burnu, parçalı baş pulları, ara karın ve kuyruk altı pul sayıları, karışık sırt zikzağı ve iki renkli kuyruk ucu vardı. Yazarlar bunu her iki ebeveyn türün tanı karakterlerinin birleşimi sayar.",
               ],
             },
+            FIGURE_COMPARE,
             {
               type: "p",
               parts: [

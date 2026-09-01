@@ -333,21 +333,36 @@ function NewsFigure({
 
   return (
     <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
-      <div
-        className={
-          compact
-            ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
-            : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
-        }
-      >
-        <CoverImage
+      {visual.plate ? (
+        <img
           src={visual.src}
           alt={visual.alt}
-          sizes={sizes}
-          priority={priority}
-          className="object-cover object-center"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+          className={
+            compact
+              ? "h-auto w-full rounded-[20px] bg-surface"
+              : "h-auto w-full rounded-[24px] bg-surface"
+          }
         />
-      </div>
+      ) : (
+        <div
+          className={
+            compact
+              ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
+              : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
+          }
+        >
+          <CoverImage
+            src={visual.src}
+            alt={visual.alt}
+            sizes={sizes}
+            priority={priority}
+            className="object-cover object-center"
+          />
+        </div>
+      )}
       <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
         {visual.fromAtlas ? `${photoFromAtlas} ` : null}
         {visual.alt}

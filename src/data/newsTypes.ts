@@ -9,6 +9,7 @@ export type NewsPhoto = {
   alt: Record<AppLocale, string>;
   credit?: PhotoCredit;
   fromAtlas?: boolean;
+  plate?: boolean;
 };
 
 export type NewsMark =
