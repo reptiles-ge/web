@@ -140,16 +140,26 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
     icon: "hub",
   },
   turtles: {
-    title: { ka: "კუები საქართველოში", en: "Turtles in Georgia" },
+    title: {
+      ka: "კუები საქართველოში",
+      en: "Turtles in Georgia",
+      ru: "Черепахи Грузии",
+      tr: "Gürcistan kaplumbağaları",
+    },
     subtitle: {
       ka: "ხმელეთის და წყლის კუები ერთ ჰაბში",
       en: "Land and freshwater turtles in one hub",
     },
-    keywords: ["კუები", "kuebi", "turtles", "tortoise"],
+    keywords: ["კუები", "kuebi", "turtles", "tortoise", "черепахи", "kaplumbağa"],
     icon: "hub",
   },
   amphibians: {
-    title: { ka: "ამფიბიები საქართველოში", en: "Amphibians in Georgia" },
+    title: {
+      ka: "ამფიბიები საქართველოში",
+      en: "Amphibians in Georgia",
+      ru: "Амфибии Грузии",
+      tr: "Gürcistan amfibileri",
+    },
     subtitle: {
       ka: "ბაყაყები, ტრიტონები და სალამანდრები",
       en: "Frogs, newts, and salamanders",
