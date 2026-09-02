@@ -28,7 +28,9 @@ function hasDarkHeroTop(pathname: string) {
     pathname === "/birds" ||
     pathname.startsWith("/birds/") ||
     pathname === "/mammals" ||
-    pathname.startsWith("/mammals/")
+    pathname.startsWith("/mammals/") ||
+    pathname === "/spiders" ||
+    pathname.startsWith("/spiders/")
   ) {
     return true;
   }
@@ -89,6 +91,7 @@ export function Navbar() {
     { href: "/amphibians" as const, label: t("amphibians") },
     { href: "/birds" as const, label: t("birds") },
     { href: "/mammals" as const, label: t("mammals") },
+    { href: "/spiders" as const, label: t("spiders") },
   ];
   const groupLinks = [...reptileGroupLinks, ...otherGroupLinks];
   const mobileNavItems = [

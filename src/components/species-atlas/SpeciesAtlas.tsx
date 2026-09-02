@@ -47,6 +47,7 @@ const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
   "amphibian",
   "bird",
   "mammal",
+  "spider",
 ];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
@@ -111,6 +112,7 @@ function HeroPathway({
     | "/amphibians"
     | "/birds"
     | "/mammals"
+    | "/spiders"
     | "/venomous-snakes";
   eyebrow: string;
   title: string;
@@ -308,6 +310,7 @@ export function SpeciesAtlas({
       amphibian: 0,
       bird: 0,
       mammal: 0,
+      spider: 0,
     };
     for (const item of catalog) {
       counts[getSpeciesAtlasMeta(item.id).group] += 1;
@@ -487,6 +490,17 @@ export function SpeciesAtlas({
                       })}
                       meta={t("stats.pathwayExplore")}
                       href="/mammals"
+                    />
+                  ) : null}
+                  {stats.spiders > 0 ? (
+                    <HeroPathway
+                      delay={300}
+                      eyebrow={t("groups.spider")}
+                      title={t("stats.pathwaySpidersTitle", {
+                        count: stats.spiders,
+                      })}
+                      meta={t("stats.pathwayExplore")}
+                      href="/spiders"
                     />
                   ) : null}
                   <Link
@@ -997,6 +1011,24 @@ function SeoAuthoritySection() {
                 className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
               >
                 {t("seo.mammalsTitle")}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+              {t("seo.spidersTitle")}
+            </h2>
+            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+              {t("seo.spidersP1")}
+            </p>
+            <p className="mt-4">
+              <Link
+                href="/spiders"
+                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+              >
+                {t("seo.spidersTitle")}
                 <ArrowUpRight className="size-3.5" />
               </Link>
             </p>

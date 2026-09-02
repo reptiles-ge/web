@@ -1355,6 +1355,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Erinaceus europaeus transcaucasicus",
     ],
   },
+  "argiope-bruennichi": {
+    ka: [
+      "არგიოპა",
+      "ბრუნიქის არგიოპა",
+      "ბზიკისებრი ობობა",
+      "Argiope bruennichi",
+    ],
+    en: [
+      "wasp spider",
+      "wasp-spider",
+      "Brünnich's argiope",
+      "Argiope bruennichi",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

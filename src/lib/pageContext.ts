@@ -14,6 +14,7 @@ const SPECIES_PATH_TO_HUB: Record<string, GroupHubId> = {
   "/amphibians/[slug]": "amphibians",
   "/birds/[slug]": "birds",
   "/mammals/[slug]": "mammals",
+  "/spiders/[slug]": "spiders",
 };
 
 const HUB_BY_PATH = Object.fromEntries(

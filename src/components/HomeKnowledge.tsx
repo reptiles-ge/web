@@ -37,6 +37,10 @@ const pathways = [
     key: "mammals" as const,
     href: "/mammals" as const,
   },
+  {
+    key: "spiders" as const,
+    href: "/spiders" as const,
+  },
 ];
 
 export async function HomeKnowledge() {

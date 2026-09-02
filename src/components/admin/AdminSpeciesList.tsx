@@ -13,6 +13,7 @@ const GROUP_LABEL: Record<AnimalGroup, string> = {
   amphibian: "ამფიბიები",
   bird: "ფრინველები",
   mammal: "ძუძუმწოვრები",
+  spider: "ობობები",
 };
 
 const GROUPS: Array<AnimalGroup | "all"> = [
@@ -23,6 +24,7 @@ const GROUPS: Array<AnimalGroup | "all"> = [
   "amphibian",
   "bird",
   "mammal",
+  "spider",
 ];
 
 export function AdminSpeciesList({

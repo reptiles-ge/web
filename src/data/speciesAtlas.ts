@@ -5,7 +5,14 @@ import {
   type Species,
 } from "@/data/species";
 
-export type AnimalGroup = "snake" | "lizard" | "turtle" | "amphibian" | "bird" | "mammal";
+export type AnimalGroup =
+  | "snake"
+  | "lizard"
+  | "turtle"
+  | "amphibian"
+  | "bird"
+  | "mammal"
+  | "spider";
 
 export type HabitatTag = "forest" | "mountain" | "wetland" | "grassland";
 
@@ -509,6 +516,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["mountain", "forest"],
   },
+  "argiope-bruennichi": {
+    group: "spider",
+    habitats: ["grassland", "wetland"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
@@ -610,6 +621,7 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     amphibian: 0,
     bird: 0,
     mammal: 0,
+    spider: 0,
   };
 
   for (const item of catalog) {
@@ -629,6 +641,7 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     amphibians: byGroup.amphibian,
     birds: byGroup.bird,
     mammals: byGroup.mammal,
+    spiders: byGroup.spider,
     regions: regions.length,
     photos: getAtlasPhotoCount(catalog),
     venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
@@ -742,6 +755,7 @@ export function parseAtlasFilters(
     "amphibian",
     "bird",
     "mammal",
+    "spider",
   ];
   const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];
   const habitats: Array<HabitatTag | "all"> = [

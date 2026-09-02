@@ -116,6 +116,7 @@ const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
   amphibian: { ka: "ამფიბია", en: "Amphibian", ru: "Амфибия", tr: "Amfibi" },
   bird: { ka: "ფრინველი", en: "Bird", ru: "Птица", tr: "Kuş" },
   mammal: { ka: "ძუძუმწოვარი", en: "Mammal", ru: "Млекопитающее", tr: "Memeli" },
+  spider: { ka: "ობობა", en: "Spider", ru: "Паук", tr: "Örümcek" },
 };
 
 const HUB_COPY: Record<GroupHubId, PageCopy> = {
@@ -238,6 +239,29 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "enoti",
       "raccoon",
       "procyon",
+    ],
+    icon: "hub",
+  },
+  spiders: {
+    title: {
+      ka: "ობობები საქართველოში",
+      en: "Spiders in Georgia",
+      ru: "Пауки Грузии",
+      tr: "Gürcistan örümcekleri",
+    },
+    subtitle: {
+      ka: "ობობების პროფილები ბუნების ატლასში",
+      en: "Spider profiles in the nature atlas",
+    },
+    keywords: [
+      "ობობები",
+      "obobebi",
+      "spiders",
+      "არგიოპა",
+      "argiope",
+      "wasp spider",
+      "пауки",
+      "örümcek",
     ],
     icon: "hub",
   },
@@ -778,11 +802,16 @@ function speciesGroupText(species: Species) {
   extra.push(group === "turtle" ? "კუ turtles tortoise черепахи kaplumbağa" : "");
   extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
       extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
-  extra.push(
+      extra.push(
     group === "mammal"
       ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"
       : "",
   );
+      extra.push(
+        group === "spider"
+          ? "ობობა spiders argiope არგიოპა паук örümcek wasp"
+          : "",
+      );
   return extra;
 }
 

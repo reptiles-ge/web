@@ -6,7 +6,8 @@ export type GroupHubId =
   | "turtles"
   | "amphibians"
   | "birds"
-  | "mammals";
+  | "mammals"
+  | "spiders";
 
 export type GroupHubConfig = {
   id: GroupHubId;
@@ -59,6 +60,13 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
     heroSpeciesId: "vulpes-vulpes",
     messageKey: "mammals",
   },
+  spiders: {
+    id: "spiders",
+    path: "/spiders",
+    group: "spider",
+    heroSpeciesId: "argiope-bruennichi",
+    messageKey: "spiders",
+  },
 };
 
 export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
@@ -70,6 +78,7 @@ export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   amphibian: "amphibians",
   bird: "birds",
   mammal: "mammals",
+  spider: "spiders",
 };
 
 export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
@@ -116,4 +125,5 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
   ],
   birds: ["saxeoebebi", "species"],
   mammals: ["saxeoebebi", "species"],
+  spiders: ["saxeoebebi", "species"],
 };

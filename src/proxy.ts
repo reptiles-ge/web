@@ -14,6 +14,7 @@ const KA_HUB: Record<GroupHubId, string> = {
   amphibians: "amfibiebi",
   birds: "prinvelebi",
   mammals: "dzuzumtsovrebi",
+  spiders: "obobebi",
 };
 
 const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
@@ -23,11 +24,12 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   amfibiebi: "amphibians",
   prinvelebi: "birds",
   dzuzumtsovrebi: "mammals",
+  obobebi: "spiders",
 };
 
-const HUB_SEGMENT = "snakes|lizards|turtles|amphibians|birds|mammals";
+const HUB_SEGMENT = "snakes|lizards|turtles|amphibians|birds|mammals|spiders";
 const KA_HUB_SEGMENT =
-  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi";
+  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|obobebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
 function redirectTo(request: NextRequest, pathname: string) {

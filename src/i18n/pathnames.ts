@@ -57,6 +57,8 @@ export const pathnames = {
   "/birds/[slug]": kaLatin("/prinvelebi/[slug]", "/birds/[slug]"),
   "/mammals": kaLatin("/dzuzumtsovrebi", "/mammals"),
   "/mammals/[slug]": kaLatin("/dzuzumtsovrebi/[slug]", "/mammals/[slug]"),
+  "/spiders": kaLatin("/obobebi", "/spiders"),
+  "/spiders/[slug]": kaLatin("/obobebi/[slug]", "/spiders/[slug]"),
   "/venomous-snakes": kaLatin(
     "/gvelebi/shxamiani-gvelebi",
     "/venomous-snakes",
