@@ -1,7 +1,9 @@
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { RegionProfile } from "@/components/RegionProfile";
 import { getRegionContent } from "@/data/regionContent";
+import { getRegionHeroImage } from "@/data/regionImages";
 import { getPublishedNewsForRegion } from "@/data/news";
 import {
   getRegionById,
@@ -208,6 +210,7 @@ export default async function RegionPage({ params }: PageProps) {
 
   return (
     <>
+      <CoverImagePreload src={getRegionHeroImage(region.id)} sizes="100vw" />
       <JsonLd
         data={
           faqJsonLd

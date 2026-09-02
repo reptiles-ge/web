@@ -1,3 +1,4 @@
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
@@ -160,6 +161,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
 
   return (
     <>
+      {heroSrc ? <CoverImagePreload src={heroSrc} sizes="100vw" /> : null}
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />

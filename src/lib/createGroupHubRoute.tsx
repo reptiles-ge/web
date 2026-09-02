@@ -1,3 +1,4 @@
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
@@ -176,6 +177,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
 
     return (
       <>
+        <CoverImagePreload src={heroSrc} sizes="100vw" />
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />

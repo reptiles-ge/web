@@ -1,3 +1,4 @@
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
 import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
@@ -240,6 +241,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
 
     return (
       <>
+        {heroSrc ? <CoverImagePreload src={heroSrc} sizes="100vw" /> : null}
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={pageLd} />
         <JsonLd data={faqLd} />
