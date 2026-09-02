@@ -239,20 +239,34 @@ function collectCoverKeys(ids: string[], all: boolean, news: boolean): Set<strin
   return keys;
 }
 
-async function readSource(target: Target): Promise<Buffer> {
-  if (target.src.startsWith("http")) {
-    const response = await fetch(target.src);
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status} fetching ${target.src}`);
-    }
-    return Buffer.from(await response.arrayBuffer());
-  }
-
+async function readLocalSource(target: Target): Promise<Buffer | null> {
   const absolute = path.join(PUBLIC_ROOT, target.key);
   if (!absolute.startsWith(PUBLIC_ROOT + path.sep)) {
     throw new Error(`Refusing to read outside public/: ${target.key}`);
   }
+  if (!fs.existsSync(absolute)) return null;
   return fs.promises.readFile(absolute);
+}
+
+async function readSource(target: Target): Promise<Buffer> {
+  if (target.src.startsWith("http")) {
+    try {
+      const response = await fetch(target.src);
+      if (response.ok) {
+        return Buffer.from(await response.arrayBuffer());
+      }
+    } catch {
+    }
+    const local = await readLocalSource(target);
+    if (local) return local;
+    throw new Error(`HTTP fetch failed and no local file for ${target.src}`);
+  }
+
+  const local = await readLocalSource(target);
+  if (!local) {
+    throw new Error(`Missing local file: ${target.key}`);
+  }
+  return local;
 }
 
 function createStorage(): StorageAdapter {

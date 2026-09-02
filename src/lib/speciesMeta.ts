@@ -89,6 +89,22 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "შავი ძერა (Milvus migrans) | მტაცებელი ფრინველი საქართველოში",
     en: "Black kite (Milvus migrans) | Raptor in Georgia",
   },
+  "luscinia-megarhynchos": {
+    ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
+    en: "Common nightingale (Luscinia megarhynchos) | Songbird in Georgia",
+  },
+  "erithacus-rubecula": {
+    ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
+    en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
+  },
+  "columba-palumbus": {
+    ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
+    en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
+  },
+  "motacilla-alba": {
+    ka: "თეთრი ბოლოქანქარა (Motacilla alba) | ბოლოქანქარა საქართველოში",
+    en: "White wagtail (Motacilla alba) | Wagtail in Georgia",
+  },
 };
 
 export function speciesPageMetaTitle(

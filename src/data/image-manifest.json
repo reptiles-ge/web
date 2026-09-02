@@ -9591,6 +9591,394 @@
       ],
       "updatedAt": "2026-08-28T21:36:29.279Z"
     },
+    "dendrocopos-major-rehnberg-1.jpg": {
+      "sourceHash": "b6ceb5e26572cdb4f17269de0a8b4218601cef013bc3cd41f9bc9ce8a22ffa54",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dendrocopos-major-rehnberg-1.jpg",
+      "originalSize": 2846924,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19767
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 31116
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 71051
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 111198
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 142833
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 224322
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 510684
+        },
+        {
+          "key": "optimized/dendrocopos-major-rehnberg-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 773292
+        }
+      ],
+      "updatedAt": "2026-09-02T07:05:23.570Z"
+    },
+    "dendrocopos-major-sharp-female-2.jpg": {
+      "sourceHash": "cf486873dbecc95901c68e1aa4dde77cde12ca3c8622d44c390ad24b677f1a42",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dendrocopos-major-sharp-female-2.jpg",
+      "originalSize": 1641146,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15546
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23966
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46002
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73508
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83161
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 136500
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 258523
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 420510
+        }
+      ],
+      "updatedAt": "2026-09-02T07:05:07.313Z"
+    },
+    "dendrocopos-major-sharp-female.jpg": {
+      "sourceHash": "1708e0da9197b3f9c3453fe51a19b7283e2860b8a4f66baa5c3f468389e0df48",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dendrocopos-major-sharp-female.jpg",
+      "originalSize": 1753663,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15959
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25580
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48789
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 78460
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90259
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 147180
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 288696
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-female-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 460648
+        }
+      ],
+      "updatedAt": "2026-09-02T07:05:08.497Z"
+    },
+    "dendrocopos-major-sharp-juvenile.jpg": {
+      "sourceHash": "984f8b4332016816a94c831aa7d9e68dd5957233152cd496868edbb3ac07068b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dendrocopos-major-sharp-juvenile.jpg",
+      "originalSize": 1696543,
+      "width": 1043,
+      "height": 1565,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-sharp-juvenile-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 36478
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-juvenile-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 53714
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-juvenile-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 124029
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-juvenile-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 189340
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-juvenile-1043.avif",
+          "format": "avif",
+          "width": 1043,
+          "height": 1565,
+          "byteSize": 192491
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-juvenile-1043.webp",
+          "format": "webp",
+          "width": 1043,
+          "height": 1565,
+          "byteSize": 294072
+        }
+      ],
+      "updatedAt": "2026-09-02T07:05:09.088Z"
+    },
+    "dendrocopos-major-sharp-male-2.jpg": {
+      "sourceHash": "78b87042a8d37fc9da36a6c60cdd16e771eae4f81340d468a6aff357cf36787d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dendrocopos-major-sharp-male-2.jpg",
+      "originalSize": 910574,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9333
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12468
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23496
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33150
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 40834
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 59102
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 118480
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 172846
+        }
+      ],
+      "updatedAt": "2026-09-02T07:05:20.709Z"
+    },
+    "dendrocopos-major-sharp-male.jpg": {
+      "sourceHash": "6d0d5d7cdaf748676d1d7fe7a21634c3370f90a1a5049d39e5455e7906185667",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "dendrocopos-major-sharp-male.jpg",
+      "originalSize": 1633906,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9831
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14118
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28914
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43884
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 57159
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87178
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 222268
+        },
+        {
+          "key": "optimized/dendrocopos-major-sharp-male-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 328140
+        }
+      ],
+      "updatedAt": "2026-09-02T07:05:21.501Z"
+    },
     "dolichophis-caspius-2.jpg": {
       "sourceHash": "c53e3fbb00fe1cd9aede394e71351c3280c2d09290fd722e15ed9d3d742dce6e",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -14083,6 +14471,408 @@
         }
       ],
       "updatedAt": "2026-08-28T21:40:48.149Z"
+    },
+    "erithacus-rubecula-cebeci-adana-1.jpg": {
+      "sourceHash": "6d19d4464406c5ae186d0fae697014a59f951e9f55d97df0165811095e209b66",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "erithacus-rubecula-cebeci-adana-1.jpg",
+      "originalSize": 2161682,
+      "width": 2250,
+      "height": 1507,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 9821
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 12576
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 31059
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 42532
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 63926
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 88042
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-2250.avif",
+          "format": "avif",
+          "width": 2250,
+          "height": 1507,
+          "byteSize": 230150
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-1-2250.webp",
+          "format": "webp",
+          "width": 2250,
+          "height": 1507,
+          "byteSize": 314874
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:13.482Z"
+    },
+    "erithacus-rubecula-cebeci-adana-2.jpg": {
+      "sourceHash": "2a46a577782e35d24132c4a92f56f8586ee9cb9b7df7c2e63a61f2e0a0920f15",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "erithacus-rubecula-cebeci-adana-2.jpg",
+      "originalSize": 2158734,
+      "width": 2400,
+      "height": 1655,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 276,
+          "byteSize": 14890
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 276,
+          "byteSize": 21416
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 552,
+          "byteSize": 34937
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 552,
+          "byteSize": 48624
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 827,
+          "byteSize": 58630
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 827,
+          "byteSize": 81192
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1655,
+          "byteSize": 134838
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1655,
+          "byteSize": 186008
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:13.633Z"
+    },
+    "erithacus-rubecula-cebeci-adana-3.jpg": {
+      "sourceHash": "f38e445901f6e6bf235dfdde8bb9a32f609cad3b137c3c9b05a31433659411b0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "erithacus-rubecula-cebeci-adana-3.jpg",
+      "originalSize": 556966,
+      "width": 1280,
+      "height": 913,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 8537
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 11620
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 19383
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 24432
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 856,
+          "byteSize": 32089
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 856,
+          "byteSize": 40312
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 913,
+          "byteSize": 35061
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cebeci-adana-3-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 913,
+          "byteSize": 44030
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:14.642Z"
+    },
+    "erithacus-rubecula-franklin-1.jpg": {
+      "sourceHash": "b641760e408ff7c178dce6a4a7a6be7d45f494df3a704c4141c63e99282d51d3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "erithacus-rubecula-franklin-1.jpg",
+      "originalSize": 2737129,
+      "width": 2400,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 320,
+          "byteSize": 11726
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 320,
+          "byteSize": 14166
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 640,
+          "byteSize": 29028
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 640,
+          "byteSize": 38640
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 56351
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 79896
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 184723
+        },
+        {
+          "key": "optimized/erithacus-rubecula-franklin-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 269944
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:13.882Z"
+    },
+    "erithacus-rubecula-sharp-juvenile-1.jpg": {
+      "sourceHash": "a995cf20b253e8d8db0c9d5cec183f599e2f12c57a2f1462f30f6d15e128214c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "erithacus-rubecula-sharp-juvenile-1.jpg",
+      "originalSize": 4350943,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18306
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26438
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47786
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 75260
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90112
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 144344
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 291272
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-juvenile-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 497758
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:23.173Z"
+    },
+    "erithacus-rubecula-sharp-singing-1.jpg": {
+      "sourceHash": "785d57374ae1f371b4eb0fa8fc39f9ffc670e50cfc9cdfe5c77d1dad5a4734bb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "erithacus-rubecula-sharp-singing-1.jpg",
+      "originalSize": 614336,
+      "width": 2253,
+      "height": 1502,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9536
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11360
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21570
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28612
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 40097
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52002
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-2253.avif",
+          "format": "avif",
+          "width": 2253,
+          "height": 1502,
+          "byteSize": 129998
+        },
+        {
+          "key": "optimized/erithacus-rubecula-sharp-singing-1-2253.webp",
+          "format": "webp",
+          "width": 2253,
+          "height": 1502,
+          "byteSize": 157000
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:22.130Z"
     },
     "eryx-jaculus-2.jpg": {
       "sourceHash": "49b66c7a5ef013c81cad647986e0cf12a3ac07cecded7e5441dc82745fd3eea6",
@@ -19122,6 +19912,341 @@
       ],
       "updatedAt": "2026-08-29T06:40:14.026Z"
     },
+    "images/species/columba-palumbus-halun-krakow-1.jpg": {
+      "sourceHash": "3117dbb5941cc2976248f3d3fb75d8b9a98ff11cde8bb1c7b74bed4c7ce3bab3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/columba-palumbus-halun-krakow-1.jpg",
+      "originalSize": 10644567,
+      "width": 2400,
+      "height": 1597,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18591
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29264
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57104
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 90844
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 114580
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 180358
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1597,
+          "byteSize": 355957
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-krakow-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1597,
+          "byteSize": 539132
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:06.308Z"
+    },
+    "images/species/columba-palumbus-halun-rzuchow-1.jpg": {
+      "sourceHash": "74f7424b701d66fe7e94f4c718ce72485d8bf18762b8a562f1a65570b9dcbb0a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/columba-palumbus-halun-rzuchow-1.jpg",
+      "originalSize": 5306797,
+      "width": 2400,
+      "height": 1597,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6485
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8904
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 17238
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 25846
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 34150
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 50996
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1597,
+          "byteSize": 96029
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-halun-rzuchow-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1597,
+          "byteSize": 142394
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:04.089Z"
+    },
+    "images/species/columba-palumbus-kurochkin-1.jpg": {
+      "sourceHash": "a97a12e1739dbe3c7a914188da5617d73a2e3c69affec7ce978082c33e06243a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/columba-palumbus-kurochkin-1.jpg",
+      "originalSize": 14569499,
+      "width": 2400,
+      "height": 1724,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 287,
+          "byteSize": 20514
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 287,
+          "byteSize": 27914
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 574,
+          "byteSize": 54874
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 574,
+          "byteSize": 73976
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 862,
+          "byteSize": 95119
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 862,
+          "byteSize": 130556
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1724,
+          "byteSize": 245659
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-kurochkin-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1724,
+          "byteSize": 340570
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:06.338Z"
+    },
+    "images/species/columba-palumbus-lours-flight-1.jpg": {
+      "sourceHash": "34f543861dce451c1c2e362c094ec09c49cc13e4197f6291a379e08a28f4f2d1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/columba-palumbus-lours-flight-1.jpg",
+      "originalSize": 1989578,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 4279
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5134
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 10393
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12810
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 17482
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 22462
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 45628
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 60932
+        }
+      ],
+      "updatedAt": "2026-09-02T07:06:54.499Z"
+    },
+    "images/species/columba-palumbus-lours-head-1.jpg": {
+      "sourceHash": "0e012bc0f1ebab496313308e9bdada330fca16dd086455b791dbc4e27338ab47",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/columba-palumbus-lours-head-1.jpg",
+      "originalSize": 3076397,
+      "width": 2400,
+      "height": 1773,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 295,
+          "byteSize": 7711
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 295,
+          "byteSize": 9422
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 591,
+          "byteSize": 27898
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 591,
+          "byteSize": 36926
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 886,
+          "byteSize": 63193
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 886,
+          "byteSize": 91062
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1773,
+          "byteSize": 243078
+        },
+        {
+          "key": "optimized/images/species/columba-palumbus-lours-head-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1773,
+          "byteSize": 382426
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:05.958Z"
+    },
     "images/species/corvus-corax-berlin-perch.jpg": {
       "sourceHash": "980c8eadc66d7ae980d6156f5d007a4309e6482ef12905973aafc4343bd7564e",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -20645,6 +21770,341 @@
         }
       ],
       "updatedAt": "2026-08-29T06:40:29.505Z"
+    },
+    "images/species/larus-fuscus-bardrock-juv-1.jpg": {
+      "sourceHash": "13c4e874cab97ac46de35e8dfe1ca3c2f994dbba1a36637ae0319547a71ec475",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/larus-fuscus-bardrock-juv-1.jpg",
+      "originalSize": 5740867,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25426
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 36352
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 78701
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 119866
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 148344
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 233090
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 490497
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-bardrock-juv-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 809456
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:48.230Z"
+    },
+    "images/species/larus-fuscus-delso-1.jpg": {
+      "sourceHash": "86babc5af15cdb51fb0528325b45daea8fd21ef6b01f76336360d547d69ea555",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/larus-fuscus-delso-1.jpg",
+      "originalSize": 11623809,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15658
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21660
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35401
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53546
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 59730
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 91974
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 156335
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-delso-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 239400
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:44.167Z"
+    },
+    "images/species/larus-fuscus-prince-heuglini-1.jpg": {
+      "sourceHash": "74d1d6ffe46af7080ba6749bdfc53d037f0f1b4c27cb786f686f4fe7b7610c99",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/larus-fuscus-prince-heuglini-1.jpg",
+      "originalSize": 350867,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5639
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5724
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 8888
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 10440
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 13518
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 16698
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 40005
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-prince-heuglini-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 62976
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:43.217Z"
+    },
+    "images/species/larus-fuscus-sharp-flight-1.jpg": {
+      "sourceHash": "e01f2a86330fc14748906399ff54b27d27df191b10c42873a0d332e4c720eb9e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/larus-fuscus-sharp-flight-1.jpg",
+      "originalSize": 4817647,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9139
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10740
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 16714
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20966
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25588
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 33152
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 66409
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-sharp-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 79770
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:38.428Z"
+    },
+    "images/species/larus-fuscus-vagen-1.jpg": {
+      "sourceHash": "1e98482d42c13905e0dd3f5a6a7b99f87478dd23a3c37252e64df67dfdd5e328",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/larus-fuscus-vagen-1.jpg",
+      "originalSize": 2486949,
+      "width": 2145,
+      "height": 1839,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 343,
+          "byteSize": 13874
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 343,
+          "byteSize": 17868
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 686,
+          "byteSize": 39738
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 686,
+          "byteSize": 52972
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1029,
+          "byteSize": 78407
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1029,
+          "byteSize": 105528
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-2145.avif",
+          "format": "avif",
+          "width": 2145,
+          "height": 1839,
+          "byteSize": 218880
+        },
+        {
+          "key": "optimized/images/species/larus-fuscus-vagen-1-2145.webp",
+          "format": "webp",
+          "width": 2145,
+          "height": 1839,
+          "byteSize": 330296
+        }
+      ],
+      "updatedAt": "2026-09-02T07:07:46.817Z"
     },
     "images/species/otus-scops-botanical-1.jpg": {
       "sourceHash": "ae039f40a8f57c41580c19dbf52c634ea96bc507b1727cc44a335c5f0a4e0d32",
@@ -23043,6 +24503,475 @@
         }
       ],
       "updatedAt": "2026-08-29T07:34:12.173Z"
+    },
+    "images/species/upupa-epops-cebeci-golyaka-1.jpg": {
+      "sourceHash": "696d0b98ff31f6157dd51a3ad4845f56afc6cd66ca363147ab797e969fe5d577",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-cebeci-golyaka-1.jpg",
+      "originalSize": 4322237,
+      "width": 2400,
+      "height": 1533,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 256,
+          "byteSize": 6164
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 256,
+          "byteSize": 7866
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 511,
+          "byteSize": 15419
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 511,
+          "byteSize": 21552
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 767,
+          "byteSize": 28913
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 767,
+          "byteSize": 41506
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1533,
+          "byteSize": 245303
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-golyaka-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1533,
+          "byteSize": 313416
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:38.352Z"
+    },
+    "images/species/upupa-epops-cebeci-osmaniye-1.jpg": {
+      "sourceHash": "d988238d630ea5c1d9889045fac13ccdd70a6a96c052c209f7299afd60dadb8a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-cebeci-osmaniye-1.jpg",
+      "originalSize": 470113,
+      "width": 1240,
+      "height": 835,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 269,
+          "byteSize": 5213
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 269,
+          "byteSize": 6496
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 539,
+          "byteSize": 11686
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 539,
+          "byteSize": 15424
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 808,
+          "byteSize": 21367
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 808,
+          "byteSize": 27140
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-1240.avif",
+          "format": "avif",
+          "width": 1240,
+          "height": 835,
+          "byteSize": 22377
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-cebeci-osmaniye-1-1240.webp",
+          "format": "webp",
+          "width": 1240,
+          "height": 835,
+          "byteSize": 28946
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:30.623Z"
+    },
+    "images/species/upupa-epops-garcia-madrid-1.jpg": {
+      "sourceHash": "444497ac0b2442b6478d25cf7754fb9219d157cc65582bf48e42ecf743caa69d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-garcia-madrid-1.jpg",
+      "originalSize": 1226320,
+      "width": 1437,
+      "height": 1380,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 384,
+          "byteSize": 21521
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 384,
+          "byteSize": 31784
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 768,
+          "byteSize": 49083
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 768,
+          "byteSize": 68226
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1152,
+          "byteSize": 81171
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1152,
+          "byteSize": 111548
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-1437.avif",
+          "format": "avif",
+          "width": 1437,
+          "height": 1380,
+          "byteSize": 102770
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-garcia-madrid-1-1437.webp",
+          "format": "webp",
+          "width": 1437,
+          "height": 1380,
+          "byteSize": 139696
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:37.252Z"
+    },
+    "images/species/upupa-epops-laurent-flight-1.jpg": {
+      "sourceHash": "c6dd822bec253c40096a19b9ed72917a1a2940c21a7af0ce55a0a553adea45a7",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-laurent-flight-1.jpg",
+      "originalSize": 2397000,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13586
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16168
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28675
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38368
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 49414
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66364
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 136151
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-laurent-flight-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 187698
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:36.658Z"
+    },
+    "images/species/upupa-epops-shah-jutial-1.jpg": {
+      "sourceHash": "da1e66b1d6529583f75c7dc854bd5791365cb953b0540d53bb75901a3ba44e40",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-shah-jutial-1.jpg",
+      "originalSize": 2562710,
+      "width": 2000,
+      "height": 1500,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25507
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34304
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82987
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 117338
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 162570
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 222678
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1500,
+          "byteSize": 368331
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-shah-jutial-1-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1500,
+          "byteSize": 492188
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:49.782Z"
+    },
+    "images/species/upupa-epops-sharp-juvenile-1.jpg": {
+      "sourceHash": "f2a4c3d66916c0dabdf02d9f49b9a2f70e556be51697ce74a5807df7d468d626",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-sharp-juvenile-1.jpg",
+      "originalSize": 5332970,
+      "width": 2107,
+      "height": 3160,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 33589
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 47708
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 113928
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 175132
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 223343
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 358838
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-2107.avif",
+          "format": "avif",
+          "width": 2107,
+          "height": 3160,
+          "byteSize": 571040
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-sharp-juvenile-1-2107.webp",
+          "format": "webp",
+          "width": 2107,
+          "height": 3160,
+          "byteSize": 941268
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:59.022Z"
+    },
+    "images/species/upupa-epops-straub-1.jpg": {
+      "sourceHash": "6fcfcb8065b8745218a0f7652246c9619a9fb667a57bbab7a2768f795b3d8676",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/upupa-epops-straub-1.jpg",
+      "originalSize": 1363816,
+      "width": 2000,
+      "height": 1333,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16260
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21290
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35439
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47562
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53583
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73388
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 93790
+        },
+        {
+          "key": "optimized/images/species/upupa-epops-straub-1-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 132472
+        }
+      ],
+      "updatedAt": "2026-09-02T07:02:50.348Z"
     },
     "jynx-torquilla-chorokhi-1.jpg": {
       "sourceHash": "681ef22fe9e8da0f6a2fbd8fab6f6cb98ed33dfecde796e47a4b05e892916815",
