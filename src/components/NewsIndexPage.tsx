@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
 import { getNewsVisual } from "@/lib/newsVisual";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 type NewsIndexPageProps = {
@@ -26,21 +27,21 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
       {featuredVisual ? (
         <CoverImagePreload
           src={featuredVisual.src}
-          sizes="(max-width: 1023px) 100vw, 1400px"
+          sizes="(max-width: 1023px) 100vw, 58vw"
         />
       ) : null}
       <main>
-        <header className="pt-[7.5rem] pb-10 sm:pt-[8.25rem] sm:pb-12">
+        <header className="pt-[7.5rem] pb-12 sm:pt-[8.25rem] sm:pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
+            <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                 <li>
-                    <Link
-                      href="/"
-                      className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
-                    >
-                      {tShared("breadcrumbHome")}
-                    </Link>
+                  <Link
+                    href="/"
+                    className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                  >
+                    {tShared("breadcrumbHome")}
+                  </Link>
                 </li>
                 <li aria-hidden="true" className="text-border">
                   /
@@ -51,8 +52,11 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
             <h1 className="max-w-3xl font-display text-balance-tight text-[clamp(2.15rem,5.5vw,3.75rem)] font-semibold leading-[1.05] text-foreground">
               {t("h1")}
             </h1>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
+            <p className="mt-6 max-w-2xl text-[17px] leading-snug text-foreground/90 sm:text-[18px]">
               {t("intro")}
+            </p>
+            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+              {t("introBody")}
             </p>
           </div>
         </header>
@@ -71,13 +75,13 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                   />
                 ) : null}
                 {rest.length > 0 ? (
-                  <div className="mt-16 border-t border-border pt-14 sm:mt-20 sm:pt-16">
+                  <div className="mt-16 border-t border-border pt-14 sm:mt-20 sm:pt-16 lg:mt-24 lg:pt-20">
                     <h2 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-[1.15] text-foreground">
                       {t("moreStories")}
                     </h2>
-                    <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+                    <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 lg:mt-12">
                       {rest.map((article) => (
-                        <li key={article.id}>
+                        <li key={article.id} className="h-full">
                           <NewsArticleCard
                             article={article}
                             locale={locale}
@@ -90,6 +94,29 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                 ) : null}
               </>
             )}
+          </div>
+        </section>
+
+        <section className="border-t border-border bg-background py-20 lg:py-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <h2 className="max-w-xl font-display text-balance-tight text-[clamp(1.55rem,2.8vw,2.15rem)] font-semibold leading-[1.15] text-foreground">
+              {t("atlasCtaTitle")}
+            </h2>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              {t("atlasCtaBody")}
+            </p>
+            <Link
+              href="/species"
+              className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+            >
+              <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
+                {t("atlasCta")}
+              </span>
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4 text-muted-foreground motion-safe:transition-transform motion-safe:duration-300 group-hover:text-foreground motion-safe:group-hover:translate-x-0.5"
+              />
+            </Link>
           </div>
         </section>
       </main>

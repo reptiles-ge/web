@@ -37,9 +37,9 @@ export async function NewsRelatedBlock({
             {t("allNews")}
           </Link>
         </div>
-        <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
           {articles.map((article) => (
-            <li key={article.id}>
+            <li key={article.id} className="h-full">
               <NewsArticleCard
                 article={article}
                 locale={locale}
