@@ -16,6 +16,7 @@ import { ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 const SPOTLIGHT_ID = "vipera-dinniki";
+const SPOTLIGHT_IMAGE = "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg";
 const SUPPORTING_IDS = [
   "pseudopus-apodus",
   "testudo-graeca",
@@ -31,8 +32,9 @@ export async function HomeFeatured() {
 
   const spotlight = localizeSpecies(base, locale);
   const hero = getSpeciesHeroSources(spotlight);
-  const imageSrc =
-    hero.desktopHeroSrc && !isPlaceholderMedia(hero.desktopHeroSrc)
+  const imageSrc = !isPlaceholderMedia(SPOTLIGHT_IMAGE)
+    ? SPOTLIGHT_IMAGE
+    : hero.desktopHeroSrc && !isPlaceholderMedia(hero.desktopHeroSrc)
       ? hero.desktopHeroSrc
       : spotlight.image;
   const group = getSpeciesAtlasMeta(spotlight.id).group;
@@ -71,7 +73,7 @@ export async function HomeFeatured() {
                   src={imageSrc}
                   alt={tDetail("imageAlt")}
                   sizes="(max-width: 1023px) 100vw, 55vw"
-                  className="object-cover object-[center_35%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                  className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                 />
               </div>
             </TrackedSpeciesLink>
