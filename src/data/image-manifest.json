@@ -16847,6 +16847,274 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
+      "sourceHash": "aa43734d76421fa4eebcdd4912941e24db3a4343c15708f4596eee037465708d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg",
+      "originalSize": 1093078,
+      "width": 1772,
+      "height": 1253,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 283,
+          "byteSize": 22740
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 283,
+          "byteSize": 30614
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 566,
+          "byteSize": 88627
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 566,
+          "byteSize": 128758
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 849,
+          "byteSize": 201754
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 849,
+          "byteSize": 302744
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-1772.avif",
+          "format": "avif",
+          "width": 1772,
+          "height": 1253,
+          "byteSize": 416818
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-1772.webp",
+          "format": "webp",
+          "width": 1772,
+          "height": 1253,
+          "byteSize": 645112
+        }
+      ],
+      "updatedAt": "2026-09-02T06:32:50.021Z"
+    },
+    "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
+      "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg",
+      "originalSize": 861115,
+      "width": 1772,
+      "height": 1112,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 251,
+          "byteSize": 23892
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 251,
+          "byteSize": 35226
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 502,
+          "byteSize": 95500
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 502,
+          "byteSize": 149994
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 753,
+          "byteSize": 190177
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 753,
+          "byteSize": 312022
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-1772.avif",
+          "format": "avif",
+          "width": 1772,
+          "height": 1112,
+          "byteSize": 318133
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-1772.webp",
+          "format": "webp",
+          "width": 1772,
+          "height": 1112,
+          "byteSize": 559088
+        }
+      ],
+      "updatedAt": "2026-09-02T06:32:49.704Z"
+    },
+    "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
+      "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg",
+      "originalSize": 688927,
+      "width": 1772,
+      "height": 1181,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21322
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35328
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66521
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 106324
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 123636
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 198352
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-1772.avif",
+          "format": "avif",
+          "width": 1772,
+          "height": 1181,
+          "byteSize": 236595
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-1772.webp",
+          "format": "webp",
+          "width": 1772,
+          "height": 1181,
+          "byteSize": 372058
+        }
+      ],
+      "updatedAt": "2026-09-02T06:33:13.926Z"
+    },
+    "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
+      "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg",
+      "originalSize": 1761747,
+      "width": 2362,
+      "height": 2366,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 401,
+          "byteSize": 31762
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 401,
+          "byteSize": 50600
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 801,
+          "byteSize": 106259
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 801,
+          "byteSize": 168106
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1202,
+          "byteSize": 204080
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1202,
+          "byteSize": 329500
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-2362.avif",
+          "format": "avif",
+          "width": 2362,
+          "height": 2366,
+          "byteSize": 603797
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-2362.webp",
+          "format": "webp",
+          "width": 2362,
+          "height": 2366,
+          "byteSize": 982360
+        }
+      ],
+      "updatedAt": "2026-09-02T06:32:49.935Z"
+    },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
       "configFingerprint": "a895f8e025dcc7fa",

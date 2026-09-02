@@ -334,12 +334,12 @@ function NewsFigure({
   return (
     <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
       {visual.plate ? (
-        <img
+        <CoverImage
           src={visual.src}
           alt={visual.alt}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          fetchPriority={priority ? "high" : "auto"}
+          sizes={sizes}
+          priority={priority}
+          fill={false}
           className={
             compact
               ? "h-auto w-full rounded-[20px] bg-surface"

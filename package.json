@@ -15,6 +15,7 @@
     "images:unused:delete": "node scripts/remove-unused-images.js --delete",
     "images:optimize": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts",
     "images:optimize:dry": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --dry-run",
+    "images:optimize:news": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --news",
     "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only"
   },
   "dependencies": {
