@@ -2,6 +2,7 @@
 "use client";
 
 import { Logo } from "@/components/Logo";
+import { TopGeCounter } from "@/components/TopGeCounter";
 import { localizeRegionText, regions } from "@/data/regions";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -253,7 +254,10 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} Reptiles. {t("rights")}
           </span>
-          <span className="tracking-wide">{t("forCurious")}</span>
+          <div className="flex items-center gap-4">
+            <TopGeCounter />
+            <span className="tracking-wide">{t("forCurious")}</span>
+          </div>
         </div>
       </div>
     </footer>
