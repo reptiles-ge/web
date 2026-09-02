@@ -116,7 +116,7 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
         "საქართველოში 56 ქვეწარმავალი და 12 ამფიბიაა — ახალი ჩამონათვალი",
       metaDescription:
         "ილიას უნივერსიტეტის 2026 წლის ჩამონათვალში საქართველოდან 12 ამფიბია და 56 ქვეწარმავალია ჩამოთვლილი. კანდიდატი სახეობა დადასტურებული არ არის.",
-      dek: "ილიას უნივერსიტეტის ნაშრომი სახეობებს ბიოლოგიურად დადასტურებულად და კანდიდატად ჰყოფს. ეს ახალი აღმოჩენების სია არ არის.",
+      dek: "ნაშრომი საქართველოში დაფიქსირებულ სახეობებს დადასტურებულ და კანდიდატ ტაქსონებად ყოფს — ეს ახალი აღმოჩენების სია არ არის.",
       lead: "2026 წლის 8 ივლისს ჟურნალ Caucasiana-ში გამოქვეყნდა საქართველოს ამფიბიებისა და ქვეწარმავლების ანოტირებული ჩამონათვალი. ავტორები არიან დავით თარხნიშვილი, გიორგი იანქოშვილი, არმენ სეროპიანი, ნინო ქაჩლიშვილი და მარიამი თოდუა — ილიას სახელმწიფო უნივერსიტეტისა და კავკასიის ლაიბნიცის ბიომრავალფეროვნების კვლევის ცენტრიდან. ნაშრომში საქართველოდან 12 ამფიბია და 56 ქვეწარმავალია ჩამოთვლილი. ეს ამ ატლასის ჰერპეტოფაუნის ჩამონათვალის მთავარი საფუძველია.",
       sections: [
         {
@@ -287,7 +287,7 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
         "Georgia has 56 reptiles and 12 amphibians — the 2026 checklist",
       metaDescription:
         "A 2026 Ilia State University checklist treats Georgia’s herpetofauna as 12 amphibians and 56 reptiles. Candidate species are not confirmed.",
-      dek: "The Ilia State University paper splits species into biologically confirmed and candidate. This is not a list of new discoveries.",
+      dek: "The paper divides species recorded in Georgia into confirmed and candidate taxa — this is not a list of new discoveries.",
       lead: "On 8 July 2026, Caucasiana published an annotated checklist of the amphibians and reptiles of Georgia. The authors are David Tarkhnishvili, Giorgi Iankoshvili, Armen Seropian, Nino Kachlishvili and Mariami Todua, at Ilia State University and the Caucasus Leibniz Biodiversity Research Center. The paper treats 12 amphibian and 56 reptile species as recorded from Georgia. That list is the backbone of this atlas’s herpetofauna layer.",
       sections: [
         {
@@ -457,7 +457,7 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
       metaTitle: "В Грузии 56 видов рептилий и 12 амфибий — новый список",
       metaDescription:
         "Чеклист 2026 года Университета Илии принимает герпетофауну Грузии как 12 амфибий и 56 рептилий. Виды-кандидаты не подтверждены.",
-      dek: "Работа Университета Илии разделяет виды на биологически подтверждённые и кандидаты. Это не список новых находок.",
+      dek: "Работа разделяет отмеченные в Грузии виды на подтверждённые и кандидат-таксоны — это не список новых находок.",
       lead: "8 июля 2026 года в журнале Caucasiana вышел аннотированный список амфибий и рептилий Грузии. Авторы — Давид Тархнишвили, Гиорги Янкошвили, Армен Серопин, Нино Качлишвили и Мариами Тодуа из Государственного университета Илии и Кавказского лейбницевского центра исследований биоразнообразия. В работе для Грузии приняты 12 видов амфибий и 56 видов рептилий. Этот список — опора герпетофаунистического слоя атласа.",
       sections: [
         {
@@ -628,7 +628,7 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
         "Gürcistan’da 56 sürüngen ve 12 amfibi var — 2026 kontrol listesi",
       metaDescription:
         "Ilia Devlet Üniversitesi’nin 2026 kontrol listesi Gürcistan herpetofaunasını 12 amfibi ve 56 sürüngen olarak alır. Aday türler doğrulanmış değildir.",
-      dek: "Ilia Devlet Üniversitesi makalesi türleri biyolojik olarak doğrulanmış ve aday diye ayırır. Bu yeni keşif listesi değildir.",
+      dek: "Makale Gürcistan’da kaydedilen türleri doğrulanmış ve aday taksonlar olarak ayırır — bu yeni keşif listesi değildir.",
       lead: "8 Temmuz 2026’da Caucasiana, Gürcistan amfibi ve sürüngenlerinin açıklamalı kontrol listesini yayımladı. Yazarlar David Tarkhnishvili, Giorgi Iankoshvili, Armen Seropian, Nino Kachlishvili ve Mariami Todua; Ilia Devlet Üniversitesi ve Kafkasya Leibniz Biyoçeşitlilik Araştırma Merkezi’nden. Makale Gürcistan’dan 12 amfibi ve 56 sürüngen türünü kayıtlara alır. Bu liste atlasın herpetofauna katmanının dayanağıdır.",
       sections: [
         {

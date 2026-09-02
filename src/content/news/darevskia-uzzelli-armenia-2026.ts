@@ -57,7 +57,7 @@ export const DAREVSKIA_UZZELLI_ARMENIA_2026: NewsArticle = {
       metaTitle: "სომხეთში უცელის კლდის ხვლიკი პირველად დაადასტურეს",
       metaDescription:
         "Animals-ში დადასტურდა Darevskia uzzelli სომხეთში. ჯრაძორთან ოთხი პართენოგენეტიკური კლდის ხვლიკი ერთად ცხოვრობს. ამ ატლასში სახეობა არ არის.",
-      dek: "ოთხი პართენოგენეტიკური Darevskia ერთ ადგილას. საქართველოში ეს სახეობა არ არის.",
+      dek: "ოთხი პართენოგენეტიკური Darevskia uzzelli ერთ ადგილას — სახეობა, რომელიც საქართველოში ამ ეტაპზე დადასტურებული არ არის.",
       lead: "2026 წლის 9 ივლისს ჟურნალ Animals-ში გამოქვეყნდა ნაშრომი, რომელიც უცელის კლდის ხვლიკს (Darevskia uzzelli) სომხეთში პირველად ადასტურებს. აქამდე სახეობა ჩრდილო-აღმოსავლეთ თურქეთის მცირე არეალის ენდემად ითვლებოდა და გადაშენების საფრთხის ქვეშ იყო შეფასებული. ავტორები არიან მარინე არაყელიანი და თანაავტორები. ეს ჩანაწერი საქართველოს არ ეხება.",
       sections: [
         {
@@ -158,7 +158,7 @@ export const DAREVSKIA_UZZELLI_ARMENIA_2026: NewsArticle = {
       metaTitle: "Uzzell’s lizard confirmed in Armenia for the first time",
       metaDescription:
         "Animals confirms Darevskia uzzelli in Armenia. Near Jradzor four parthenogenetic rock lizards live together. The species is not on this atlas.",
-      dek: "Four parthenogenetic Darevskia at one site — a range beyond Türkiye. The species is not recorded in Georgia.",
+      dek: "Four parthenogenetic Darevskia uzzelli at one site — a species not confirmed in Georgia at this stage.",
       lead: "On 9 July 2026, Animals published the first confirmation of Uzzell’s lizard (Darevskia uzzelli) in Armenia. The species had been treated as an endangered endemic of a small area in northeastern Türkiye. The authors are Marine Arakelyan and colleagues. This record is not from Georgia.",
       sections: [
         {
@@ -258,7 +258,7 @@ export const DAREVSKIA_UZZELLI_ARMENIA_2026: NewsArticle = {
       metaTitle: "Ящерицу Уззелла впервые подтвердили в Армении",
       metaDescription:
         "Animals подтверждает Darevskia uzzelli в Армении. У Джадзора вместе живут четыре партеногенетические скальные ящерицы. В этом атласе вида нет.",
-      dek: "Четыре партеногенетические Darevskia в одном месте — ареал за пределами Турции. В Грузии этот вид не записан.",
+      dek: "Четыре партеногенетические Darevskia uzzelli в одном месте — вид, который на данном этапе в Грузии не подтверждён.",
       lead: "9 июля 2026 года в Animals вышла работа, впервые подтверждающая ящерицу Уззелла (Darevskia uzzelli) в Армении. До этого вид считали эндемиком небольшого района северо-восточной Турции и оценивали как находящийся под угрозой. Авторы — Марине Аракелян и коллеги. Эта запись Грузии не касается.",
       sections: [
         {
@@ -358,7 +358,7 @@ export const DAREVSKIA_UZZELLI_ARMENIA_2026: NewsArticle = {
       metaTitle: "Uzzell kertenkelesi Ermenistan’da ilk kez doğrulandı",
       metaDescription:
         "Animals, Darevskia uzzelli’yi Ermenistan’da doğruluyor. Jradzor yakınında dört partenogenetik kayalık kertenkele bir arada. Tür bu atlas’ta yok.",
-      dek: "Dört partenogenetik Darevskia tek yerde — Türkiye ötesi bir yayılış. Tür Gürcistan’da kayıtlı değil.",
+      dek: "Dört partenogenetik Darevskia uzzelli tek yerde — Gürcistan’da bu aşamada doğrulanmamış bir tür.",
       lead: "9 Temmuz 2026’da Animals, Uzzell kertenkelesinin (Darevskia uzzelli) Ermenistan’daki ilk doğrulamasını yayımladı. Tür daha önce kuzeydoğu Türkiye’deki küçük bir alanın tehlikedeki endemiği sayılıyordu. Yazarlar Marine Arakelyan ve meslektaşları. Bu kayıt Gürcistan’a ait değil.",
       sections: [
         {

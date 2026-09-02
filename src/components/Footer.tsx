@@ -8,7 +8,6 @@ import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { Link, usePathname } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
-import { quizHref } from "@/lib/quizzes";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -17,61 +16,23 @@ import { useEffect, useMemo, useState } from "react";
 const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
   { href: "/snakes" as const, labelKey: "snakes" as const },
-  { href: "/quiz" as const, labelKey: "quizzes" as const },
   { href: "/lizards" as const, labelKey: "lizards" as const },
   { href: "/turtles" as const, labelKey: "turtles" as const },
   { href: "/amphibians" as const, labelKey: "amphibians" as const },
   { href: "/birds" as const, labelKey: "birds" as const },
   { href: "/mammals" as const, labelKey: "mammals" as const },
-  { href: "/spiders" as const, labelKey: "spiders" as const },
   { href: "/regions" as const, labelKey: "regions" as const },
 ];
 
 const guideLinks = [
-  { href: "/snakes/saxeoebebi" as const, labelKey: "snakeIndex" as const },
   { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
-  { href: "/risk-to-humans" as const, labelKey: "riskLevels" as const },
   {
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
   },
-  {
-    quizId: "snake" as const,
-    labelKey: "snakeQuiz" as const,
-  },
   { href: "/snakes/gvelis-nakbeni" as const, labelKey: "snakeBite" as const },
-  { href: "/snakes/gavrtseleba" as const, labelKey: "snakeRange" as const },
-  { href: "/snakes/didi-gvelebi" as const, labelKey: "snakeLargest" as const },
   { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
-  { href: "/lizards/saxeoebebi" as const, labelKey: "lizardIndex" as const },
-  {
-    href: "/lizards/identifikacia" as const,
-    labelKey: "lizardIdentify" as const,
-  },
-  {
-    href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba" as const,
-    labelKey: "glassLizard" as const,
-  },
-  { href: "/turtles/saxeoebebi" as const, labelKey: "turtleIndex" as const },
-  { href: "/turtles/xmelis-kuebi" as const, labelKey: "turtleLand" as const },
-  { href: "/turtles/tsqlis-kuebi" as const, labelKey: "turtleWater" as const },
-  {
-    href: "/turtles/identifikacia" as const,
-    labelKey: "turtleIdentify" as const,
-  },
-  {
-    href: "/amphibians/saxeoebebi" as const,
-    labelKey: "amphibianIndex" as const,
-  },
-  { href: "/amphibians/bayayi" as const, labelKey: "frogs" as const },
-  {
-    href: "/amphibians/bayayi/saxeoebebi" as const,
-    labelKey: "frogsIndex" as const,
-  },
-  {
-    href: "/amphibians/tritoni-salamandra" as const,
-    labelKey: "newts" as const,
-  },
+  { href: "/risk-to-humans" as const, labelKey: "riskLevels" as const },
 ];
 
 const companyLinks = [
@@ -110,7 +71,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.7fr_1.05fr_0.6fr] lg:gap-12">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.7fr] lg:gap-16">
           <div>
             <Link
               href="/"
@@ -152,17 +113,11 @@ export function Footer() {
             <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
               {t("guidesTitle")}
             </p>
-            <ul className="mt-5 columns-2 gap-x-8">
+            <ul className="mt-5 space-y-3">
               {guideLinks.map((link) => (
-                <li key={link.labelKey} className="mb-2.5 break-inside-avoid">
+                <li key={link.href}>
                   <Link
-                    href={
-                      "quizId" in link && link.quizId
-                        ? quizHref(link.quizId, locale)
-                        : "href" in link && link.href
-                          ? link.href
-                          : "/quiz"
-                    }
+                    href={link.href}
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                   >
                     {t(link.labelKey)}

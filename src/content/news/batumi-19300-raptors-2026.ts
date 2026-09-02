@@ -104,7 +104,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
         "ბათუმში ერთ დღეში თითქმის 19 300 მტაცებელი ფრინველი დაითვალეს",
       metaDescription:
         "2026 წლის 27 აგვისტოს Batumi Raptor Count-მა ბათუმის დერეფანში თითქმის 19 300 ფრინველი დაითვალა — შემოდგომის სეზონის პირველი 10 000-ზე მეტი ფრინველის დღე. ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
-      dek: "წვიმისა და ნისლის შემდეგ ბათუმის დერეფანმა სეზონის პირველი 10 000-იანი დღე დააფიქსირა. ჯამი თითქმის 19 300 ფრინველია; რამდენიმე საათიან ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
+      dek: "წვიმისა და ნისლის შემდეგ ბათუმის დერეფანმა სეზონის პირველი 10 000-იანი დღე დააფიქსირა. ჯამში თითქმის 19 300 ფრინველი აღირიცხა.",
       lead: "27 აგვისტოს Batumi Raptor Count-ის ორმა სადგურმა ბათუმის მიგრაციულ დერეფანში თითქმის 19 300 ფრინველი დაითვალა. ეს იყო 2026 წლის შემოდგომის სეზონის პირველი დღე, როცა დღიურმა ჯამმა 10 000-ს გადააჭარბა. ორგანიზაცია წერს, რომ ნაკადი რამდენიმე საათს გაგრძელდა და პრაქტიკულად კვერნაჭამიების კედელს ქმნიდა. ციფრები მათი საველე ანგარიშიდანაა — აღრიცხვა Reptiles.ge-ს არ ჩაუტარებია.",
       sections: [
         {
@@ -235,7 +235,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       metaTitle: "Nearly 19,300 raptors counted in one day at Batumi",
       metaDescription:
         "On 27 August 2026, Batumi Raptor Count recorded nearly 19,300 birds through the Batumi bottleneck — the first 10,000-plus day of the autumn season, led by European Honey Buzzards.",
-      dek: "After rain and fog, 27 August brought the season’s first 10,000-plus day in the Batumi bottleneck: nearly 19,300 birds, with Honey Buzzards dominating a stream that lasted several hours.",
+      dek: "After rain and fog, the Batumi bottleneck recorded the season’s first 10,000-plus day. Nearly 19,300 birds were counted in total.",
       lead: "On 27 August, Batumi Raptor Count’s two stations recorded nearly 19,300 birds through the Batumi migration bottleneck. It was the first day of the 2026 autumn season on which the daily total passed 10,000. The organisation described a passage lasting several hours that practically created a wall of Honey Buzzards. The figures come from their field update — Reptiles.ge did not conduct the count.",
       sections: [
         {
@@ -366,7 +366,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       metaTitle: "В Батуми за один день насчитали почти 19 300 хищных птиц",
       metaDescription:
         "27 августа 2026 года Batumi Raptor Count насчитал почти 19 300 птиц в батумском миграционном коридоре — первый день сезона с более чем 10 000 птиц. В потоке преобладал осоед.",
-      dek: "После дождя и тумана 27 августа батумский коридор дал первый день сезона выше 10 000: почти 19 300 птиц, несколько часов потока, в котором преобладал осоед.",
+      dek: "После дождя и тумана батумский коридор зафиксировал первый 10 000-ный день сезона. Всего учтено почти 19 300 птиц.",
       lead: "27 августа две станции Batumi Raptor Count насчитали почти 19 300 птиц в батумском миграционном коридоре. Это был первый день осеннего сезона 2026 года, когда дневная сумма превысила 10 000. Организация описывает пролёт длительностью несколько часов, который практически создавал стену осоедов. Цифры взяты из их полевого отчёта — Reptiles.ge подсчёт не вёл.",
       sections: [
         {
@@ -497,7 +497,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       metaTitle: "Batumi’de bir günde yaklaşık 19.300 yırtıcı kuş sayıldı",
       metaDescription:
         "27 Ağustos 2026’da Batumi Raptor Count, Batumi göç koridorunda yaklaşık 19.300 kuş saydı — sonbahar sezonunun ilk 10.000 üzeri günü. Akımda arı şahini baskındı.",
-      dek: "Yağmur ve sisin ardından 27 Ağustos, Batumi koridorunda sezonun ilk 10.000 üzeri günü oldu: yaklaşık 19.300 kuş; birkaç saat süren akımda arı şahini öndeydi.",
+      dek: "Yağmur ve sisin ardından Batumi koridoru sezonun ilk 10.000’lik gününü kaydetti. Toplamda yaklaşık 19.300 kuş sayıldı.",
       lead: "27 Ağustos’ta Batumi Raptor Count’un iki istasyonu, Batumi göç koridorundan geçen yaklaşık 19.300 kuş saydı. 2026 sonbahar sezonunda günlük toplamın 10.000’i aştığı ilk gündü. Örgüt, birkaç saat süren ve neredeyse bir arı şahini duvarı oluşturan geçişten söz etti. Sayılar onların saha raporundan — sayımı Reptiles.ge yapmadı.",
       sections: [
         {
