@@ -42,7 +42,7 @@ export function CoverImage({
             ? `absolute inset-0 h-full w-full text-transparent${
                 className ? ` ${className}` : ""
               }`
-            : `relative z-1 text-transparent${className ? ` ${className}` : ""}`
+            : `text-transparent${className ? ` ${className}` : ""}`
         }
       />
     </picture>
