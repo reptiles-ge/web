@@ -22106,6 +22106,408 @@
       ],
       "updatedAt": "2026-09-02T07:07:46.817Z"
     },
+    "images/species/motacilla-alba-cebeci-adana-1.jpg": {
+      "sourceHash": "3826ffa39ae2ebf733474ab4f68afe2d90a940bd99bdf545487d5c16a7d7392a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/motacilla-alba-cebeci-adana-1.jpg",
+      "originalSize": 1232288,
+      "width": 2050,
+      "height": 1405,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 274,
+          "byteSize": 7480
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 274,
+          "byteSize": 8100
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 548,
+          "byteSize": 20928
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 548,
+          "byteSize": 24130
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 822,
+          "byteSize": 37874
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 822,
+          "byteSize": 45072
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-2050.avif",
+          "format": "avif",
+          "width": 2050,
+          "height": 1405,
+          "byteSize": 82491
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-adana-1-2050.webp",
+          "format": "webp",
+          "width": 2050,
+          "height": 1405,
+          "byteSize": 97568
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:03.931Z"
+    },
+    "images/species/motacilla-alba-cebeci-tuzla-1.jpg": {
+      "sourceHash": "9dc8826b501bb781a5c05cc19885e14163a0e092fc3802e01683b02573aaffbf",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/motacilla-alba-cebeci-tuzla-1.jpg",
+      "originalSize": 2685445,
+      "width": 2250,
+      "height": 1533,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 273,
+          "byteSize": 16767
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 273,
+          "byteSize": 26706
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 545,
+          "byteSize": 50681
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 545,
+          "byteSize": 81786
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 818,
+          "byteSize": 93309
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 818,
+          "byteSize": 153738
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-2250.avif",
+          "format": "avif",
+          "width": 2250,
+          "height": 1533,
+          "byteSize": 373733
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-cebeci-tuzla-1-2250.webp",
+          "format": "webp",
+          "width": 2250,
+          "height": 1533,
+          "byteSize": 561436
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:10.669Z"
+    },
+    "images/species/motacilla-alba-mikolajewski-1.jpg": {
+      "sourceHash": "52dff591e1e2525910a22ed0046ada3f4a6efc6f631ad8760e072b1aedd5543c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/motacilla-alba-mikolajewski-1.jpg",
+      "originalSize": 601797,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9345
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13316
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25763
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 37334
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 48287
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 63186
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 137502
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-mikolajewski-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 171256
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:06.155Z"
+    },
+    "images/species/motacilla-alba-sharp-lahemaa-1.jpg": {
+      "sourceHash": "e3df50f0a0bd81200b5037d57ade8bfd53f5b217e5b10b8615e4bab97ebc164d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/motacilla-alba-sharp-lahemaa-1.jpg",
+      "originalSize": 2895197,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14548
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19762
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38507
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53754
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73761
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 104822
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 209420
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-lahemaa-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 295422
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:06.868Z"
+    },
+    "images/species/motacilla-alba-sharp-marken-1.jpg": {
+      "sourceHash": "a49180684b02d04bac42dfeb2977cc74654357b9d849f686190b49a0c1ffd683",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/motacilla-alba-sharp-marken-1.jpg",
+      "originalSize": 14528904,
+      "width": 2400,
+      "height": 1601,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21047
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 33658
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60158
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 98610
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 106400
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 174694
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1601,
+          "byteSize": 318561
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-marken-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1601,
+          "byteSize": 514442
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:13.066Z"
+    },
+    "images/species/motacilla-alba-sharp-sweden-1.jpg": {
+      "sourceHash": "c68903e2f9eec268acabea0a437189b23e298dd927774ea2d5f42b0ed5e16d06",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/motacilla-alba-sharp-sweden-1.jpg",
+      "originalSize": 3461490,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24971
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 38032
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67373
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 108570
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 129267
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 200918
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 365841
+        },
+        {
+          "key": "optimized/images/species/motacilla-alba-sharp-sweden-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 537502
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:14.273Z"
+    },
     "images/species/otus-scops-botanical-1.jpg": {
       "sourceHash": "ae039f40a8f57c41580c19dbf52c634ea96bc507b1727cc44a335c5f0a4e0d32",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -26627,6 +27029,408 @@
         }
       ],
       "updatedAt": "2026-08-28T21:44:32.202Z"
+    },
+    "luscinia-megarhynchos-dupont-1.jpg": {
+      "sourceHash": "4c271f841ee24ab49bdc2673a8ef998a9258cfbfc52828c398936fd7ca5d02e8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "luscinia-megarhynchos-dupont-1.jpg",
+      "originalSize": 7342956,
+      "width": 2400,
+      "height": 1596,
+      "derivatives": [
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 11486
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 14148
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 24934
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 32380
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 43310
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 56932
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1596,
+          "byteSize": 127436
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-dupont-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1596,
+          "byteSize": 159424
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:14.562Z"
+    },
+    "luscinia-megarhynchos-eichler-1.jpg": {
+      "sourceHash": "2fd9ead21343b16a80b4ebdcec8625c64b4bd711dccf55381e94f56eef572d74",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "luscinia-megarhynchos-eichler-1.jpg",
+      "originalSize": 8232702,
+      "width": 2400,
+      "height": 2583,
+      "derivatives": [
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 431,
+          "byteSize": 13214
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 431,
+          "byteSize": 16550
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 861,
+          "byteSize": 28353
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 861,
+          "byteSize": 37330
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1291,
+          "byteSize": 49445
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1291,
+          "byteSize": 64182
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 2583,
+          "byteSize": 186066
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-eichler-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 2583,
+          "byteSize": 213272
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:18.033Z"
+    },
+    "luscinia-megarhynchos-rinaud-1.jpg": {
+      "sourceHash": "81ea54023a9d7062b9bbdb017a04f19d5d59596d6f6ad39293bf43b0528ed810",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "luscinia-megarhynchos-rinaud-1.jpg",
+      "originalSize": 2339317,
+      "width": 2400,
+      "height": 1588,
+      "derivatives": [
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 8716
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 11258
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 18618
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 25404
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 794,
+          "byteSize": 28684
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 794,
+          "byteSize": 41164
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1588,
+          "byteSize": 65219
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-rinaud-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1588,
+          "byteSize": 101352
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:18.246Z"
+    },
+    "luscinia-megarhynchos-tcager-1.jpg": {
+      "sourceHash": "fe27be307a5be479afff116ec3a00563452088d9d99ad412d6624a551ff3cd0f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "luscinia-megarhynchos-tcager-1.jpg",
+      "originalSize": 1487602,
+      "width": 1685,
+      "height": 1124,
+      "derivatives": [
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15219
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22270
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 42072
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 59746
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83547
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 108376
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-1685.avif",
+          "format": "avif",
+          "width": 1685,
+          "height": 1124,
+          "byteSize": 136986
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-1-1685.webp",
+          "format": "webp",
+          "width": 1685,
+          "height": 1124,
+          "byteSize": 168736
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:21.312Z"
+    },
+    "luscinia-megarhynchos-tcager-2.jpg": {
+      "sourceHash": "587d24be855dd3f719b5618cc204f98e3eb78abcb235ac55ca0f2d4842e49182",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "luscinia-megarhynchos-tcager-2.jpg",
+      "originalSize": 2315606,
+      "width": 2048,
+      "height": 1363,
+      "derivatives": [
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14021
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18896
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 36476
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 48840
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 65113
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 86042
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 159206
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-tcager-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 203302
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:22.462Z"
+    },
+    "luscinia-megarhynchos-warrieboy-1.jpg": {
+      "sourceHash": "ad1a44afeba33152e8cb9733e595326123f1eca18b57c99a5c6ce112acaaa5eb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "luscinia-megarhynchos-warrieboy-1.jpg",
+      "originalSize": 990739,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14529
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18836
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37013
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48502
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62167
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82828
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 149227
+        },
+        {
+          "key": "optimized/luscinia-megarhynchos-warrieboy-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 189926
+        }
+      ],
+      "updatedAt": "2026-09-02T07:29:21.862Z"
     },
     "lutra-lutra-baranowski-1.jpg": {
       "sourceHash": "52401433649d5464a88483079602e9a0ad9ff1774e9e41b19957d82049c97b14",
