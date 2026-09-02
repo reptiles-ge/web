@@ -15,6 +15,7 @@ const STATIC_LOCALE_PATHS = [
   "/amphibians",
   "/birds",
   "/mammals",
+  "/spiders",
   "/venomous-snakes",
   "/snakes-in-the-yard",
   "/risk-to-humans",
@@ -326,6 +327,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         "amphibians",
         "birds",
         "mammals",
+        "spiders",
       ] as const
     ).find((item) => pathname === `/${item}/[slug]`);
 

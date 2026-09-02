@@ -10,6 +10,7 @@ const hubs = [
   { key: "amphibians" as const, href: "/amphibians" },
   { key: "birds" as const, href: "/birds" },
   { key: "mammals" as const, href: "/mammals" },
+  { key: "spiders" as const, href: "/spiders" },
   { key: "venomous" as const, href: "/venomous-snakes" },
   { key: "identify" as const, href: "/snakes/shxamiani-gvelis-amocnoba" },
   { key: "bite" as const, href: "/snakes/gvelis-nakbeni" },

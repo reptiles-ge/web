@@ -13,7 +13,8 @@ export function speciesTitleIntentKey(
   | "titleTurtle"
   | "titleAmphibian"
   | "titleBird"
-  | "titleMammal" {
+  | "titleMammal"
+  | "titleSpider" {
   if (group === "snake") {
     return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
   }
@@ -21,6 +22,7 @@ export function speciesTitleIntentKey(
   if (group === "turtle") return "titleTurtle";
   if (group === "bird") return "titleBird";
   if (group === "mammal") return "titleMammal";
+  if (group === "spider") return "titleSpider";
   return "titleAmphibian";
 }
 
@@ -32,13 +34,15 @@ export function speciesFallbackDescriptionKey(
   | "descriptionReptile"
   | "descriptionAmphibian"
   | "descriptionBird"
-  | "descriptionMammal" {
+  | "descriptionMammal"
+  | "descriptionSpider" {
   if (group === "snake" && isVenomousDanger(danger)) {
     return "descriptionVenomous";
   }
   if (group === "amphibian") return "descriptionAmphibian";
   if (group === "bird") return "descriptionBird";
   if (group === "mammal") return "descriptionMammal";
+  if (group === "spider") return "descriptionSpider";
   return "descriptionReptile";
 }
 
@@ -104,6 +108,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "motacilla-alba": {
     ka: "თეთრი ბოლოქანქარა (Motacilla alba) | ბოლოქანქარა საქართველოში",
     en: "White wagtail (Motacilla alba) | Wagtail in Georgia",
+  },
+  "argiope-bruennichi": {
+    ka: "არგიოპა (Argiope bruennichi) | ობობა საქართველოში",
+    en: "Wasp spider (Argiope bruennichi) | Orb-weaver in Georgia",
   },
 };
 

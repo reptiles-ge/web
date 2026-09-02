@@ -19041,6 +19041,313 @@
       ],
       "updatedAt": "2026-08-29T06:39:54.395Z"
     },
+    "images/species/argiope-bruennichi-1.jpg": {
+      "sourceHash": "a258b19d4aa8396d758420d0742951ab24bfe1c726f2d4b97e1ecf57b09f4f2c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-bruennichi-1.jpg",
+      "originalSize": 3161445,
+      "width": 2400,
+      "height": 1909,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 318,
+          "byteSize": 12950
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 318,
+          "byteSize": 19026
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 636,
+          "byteSize": 33461
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 636,
+          "byteSize": 47726
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 955,
+          "byteSize": 63476
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 955,
+          "byteSize": 88238
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1909,
+          "byteSize": 241537
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1909,
+          "byteSize": 299212
+        }
+      ],
+      "updatedAt": "2026-09-02T08:23:33.800Z"
+    },
+    "images/species/argiope-bruennichi-male-1.jpg": {
+      "sourceHash": "88718c63e97fe04b359be65957fce9fe6ee702eb6a0cfbef719b3ac78b4fa09c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-bruennichi-male-1.jpg",
+      "originalSize": 1316385,
+      "width": 2400,
+      "height": 1889,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 314,
+          "byteSize": 10259
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 314,
+          "byteSize": 12814
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 630,
+          "byteSize": 26369
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 630,
+          "byteSize": 32860
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 944,
+          "byteSize": 45533
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 944,
+          "byteSize": 57510
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1889,
+          "byteSize": 115548
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-male-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1889,
+          "byteSize": 146924
+        }
+      ],
+      "updatedAt": "2026-09-02T08:23:32.170Z"
+    },
+    "images/species/argiope-bruennichi-mating-1.jpg": {
+      "sourceHash": "0e6d441e9c0a427a81fe79ec1bd093e6a9d03c05268c9543bcb14211a17556ed",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-bruennichi-mating-1.jpg",
+      "originalSize": 144213,
+      "width": 731,
+      "height": 1056,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-bruennichi-mating-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 578,
+          "byteSize": 18248
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-mating-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 578,
+          "byteSize": 27242
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-mating-1-731.avif",
+          "format": "avif",
+          "width": 731,
+          "height": 1056,
+          "byteSize": 64692
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-mating-1-731.webp",
+          "format": "webp",
+          "width": 731,
+          "height": 1056,
+          "byteSize": 77184
+        }
+      ],
+      "updatedAt": "2026-09-02T08:23:28.429Z"
+    },
+    "images/species/argiope-bruennichi-pair-1.jpg": {
+      "sourceHash": "c90048e4ec4fe6bdb1150de50c8aca2d44714adb03384626ec5f29deb38fe208",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-bruennichi-pair-1.jpg",
+      "originalSize": 4867091,
+      "width": 2400,
+      "height": 3597,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 24238
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 27628
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1199,
+          "byteSize": 46384
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1199,
+          "byteSize": 55282
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1799,
+          "byteSize": 72864
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1799,
+          "byteSize": 90318
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3597,
+          "byteSize": 176963
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-pair-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3597,
+          "byteSize": 236018
+        }
+      ],
+      "updatedAt": "2026-09-02T08:23:31.989Z"
+    },
+    "images/species/argiope-bruennichi-stabilimentum-1.jpg": {
+      "sourceHash": "6e00ef42571c3639d3eb163d02385ca6a54cb3d82413e3f3338ab34d4a4626b3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-bruennichi-stabilimentum-1.jpg",
+      "originalSize": 5166644,
+      "width": 2400,
+      "height": 3604,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 26284
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 32510
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1201,
+          "byteSize": 60259
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1201,
+          "byteSize": 73376
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1802,
+          "byteSize": 104562
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1802,
+          "byteSize": 124742
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3604,
+          "byteSize": 415128
+        },
+        {
+          "key": "optimized/images/species/argiope-bruennichi-stabilimentum-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3604,
+          "byteSize": 586246
+        }
+      ],
+      "updatedAt": "2026-09-02T08:23:35.449Z"
+    },
     "images/species/athene-noctua-cebeci-turkey-1.jpg": {
       "sourceHash": "730bb3ba17d4aa60882657e4c374c24d30e033d28f769842ddacee813a42ea94",
       "configFingerprint": "a895f8e025dcc7fa",

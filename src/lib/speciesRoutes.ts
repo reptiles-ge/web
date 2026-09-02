@@ -20,7 +20,8 @@ export type SpeciesHref = {
     | "/turtles/[slug]"
     | "/amphibians/[slug]"
     | "/birds/[slug]"
-    | "/mammals/[slug]";
+    | "/mammals/[slug]"
+    | "/spiders/[slug]";
   params: { slug: string };
 };
 
@@ -81,6 +82,13 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "woodpigeon",
     "common-woodpigeon",
     "wood-pigeon",
+  ],
+  "argiope-bruennichi": [
+    "argiopa",
+    "brunnikis-argiopa",
+    "wasp-spider",
+    "wasp-spider-argiope",
+    "bzikebri-oboba",
   ],
   "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
   "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
@@ -630,6 +638,8 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
       return { pathname: "/birds/[slug]", params: { slug } };
     case "mammals":
       return { pathname: "/mammals/[slug]", params: { slug } };
+    case "spiders":
+      return { pathname: "/spiders/[slug]", params: { slug } };
     default:
       return { pathname: "/amphibians/[slug]", params: { slug } };
   }
@@ -673,7 +683,7 @@ export function regionHref(id: string) {
 
 export function remapSpeciesPathname(pathname: string, locale: AppLocale) {
   const match = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians|birds|mammals)\/([^/]+)$/,
+    /^\/(snakes|lizards|turtles|amphibians|birds|mammals|spiders)\/([^/]+)$/,
   );
   if (!match) return pathname;
   const hub = match[1] as GroupHubId;

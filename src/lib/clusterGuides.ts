@@ -162,7 +162,8 @@ export type ClusterGuidePath =
   | "/amphibians/bayayi/saxeoebebi"
   | "/amphibians/tritoni-salamandra"
   | "/birds"
-  | "/mammals";
+  | "/mammals"
+  | "/spiders";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"
@@ -404,6 +405,7 @@ export type HubClusterCard =
         | "/lizards"
         | "/birds"
         | "/mammals"
+        | "/spiders"
         | ClusterGuidePath;
       key:
         | "snakesHub"
@@ -427,7 +429,8 @@ export type HubClusterCard =
         | "frogsIndex"
         | "newts"
         | "birdsHub"
-        | "mammalsHub";
+        | "mammalsHub"
+        | "spidersHub";
     }
   | {
       kind: "quiz";
@@ -485,6 +488,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
   birds: [],
   mammals: [],
+  spiders: [],
 };
 
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
@@ -494,6 +498,7 @@ export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds",
   mammals: "/mammals",
+  spiders: "/spiders",
 };
 
 export function getHubIndexTitleKey(hubId: GroupHubId) {
@@ -508,6 +513,8 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
       return "hubs.birds" as const;
     case "mammals":
       return "hubs.mammals" as const;
+    case "spiders":
+      return "hubs.spiders" as const;
     default:
       return "cluster.amphibianIndex.title" as const;
   }
@@ -581,7 +588,7 @@ export function splitHubSpecies(
     ].filter((section) => section.items.length > 0);
   }
 
-  if (hubId === "birds" || hubId === "mammals") {
+  if (hubId === "birds" || hubId === "mammals" || hubId === "spiders") {
     return [{ key: "all", items: species }].filter(
       (section) => section.items.length > 0,
     );
@@ -770,6 +777,8 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
     links.push({ kind: "page", href: "/birds", key: "birdsHub" });
   } else if (group === "mammal") {
     links.push({ kind: "page", href: "/mammals", key: "mammalsHub" });
+  } else if (group === "spider") {
+    links.push({ kind: "page", href: "/spiders", key: "spidersHub" });
   } else {
     links.push({
       kind: "page",

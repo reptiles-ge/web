@@ -14,6 +14,7 @@
     "amphibians": "Amphibians",
     "birds": "Birds",
     "mammals": "Mammals",
+    "spiders": "Spiders",
     "news": "News",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -151,6 +152,11 @@
         "title": "Mammals in Georgia",
         "body": "Species profiles with named sources — not a complete national list yet.",
         "cta": "Mammals"
+      },
+      "spiders": {
+        "title": "Spiders in Georgia",
+        "body": "Species profiles with named sources — not a complete national list yet.",
+        "cta": "Spiders"
       }
     },
     "regions": {
@@ -174,6 +180,7 @@
         "amphibians": "Amphibians in Georgia",
         "birds": "Birds in Georgia",
         "mammals": "Mammals in Georgia",
+        "spiders": "Spiders in Georgia",
         "identify": "Identify a venomous snake",
         "bite": "Snakebite first steps",
         "lizardIdentify": "Identify a lizard",
@@ -209,6 +216,7 @@
     "amphibians": "Amphibians",
     "birds": "Birds",
     "mammals": "Mammals",
+    "spiders": "Spiders",
     "frogs": "Frogs",
     "newts": "Newts",
     "snakeIndex": "Snake species",
@@ -555,6 +563,7 @@
       "amphibians": "Amphibians in Georgia",
       "birds": "Birds in Georgia",
       "mammals": "Mammals in Georgia",
+      "spiders": "Spiders in Georgia",
       "venomous": "Venomous snakes in Georgia"
     }
   },
@@ -605,18 +614,20 @@
     "titleAmphibian": "range and identification in Georgia",
     "titleBird": "range and identification in Georgia",
     "titleMammal": "range and identification in Georgia",
+    "titleSpider": "range and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionReptile": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionAmphibian": "{name} ({scientific}) — range, biology, and conservation status. Amphibians of Georgia.",
     "descriptionBird": "{name} ({scientific}) — range, biology, and conservation status. Birds of Georgia.",
-    "descriptionMammal": "{name} ({scientific}) — range, biology, and conservation status. Mammals of Georgia."
+    "descriptionMammal": "{name} ({scientific}) — range, biology, and conservation status. Mammals of Georgia.",
+    "descriptionSpider": "{name} ({scientific}) — range, biology, and conservation status. Spiders of Georgia."
   },
   "speciesAtlas": {
     "metaTitle": "Species atlas — animals of Georgia",
     "metaDescription": "Animals of Georgia in one catalog: species profiles, photos, and identification. Reptiles are the most complete group so far.",
     "eyebrow": "Species atlas",
     "title": "Species atlas",
-    "subtitle": "Species recorded in Georgia — reptiles, amphibians, birds, and mammals. Descriptions, photos, and identification notes.",
+    "subtitle": "Species recorded in Georgia — reptiles, amphibians, birds, mammals, and spiders. Descriptions, photos, and identification notes.",
     "heroImageAlt": "A viper on a mossy rock in a misty mountain valley",
     "breadcrumbHome": "Home",
     "breadcrumbSpecies": "Species",
@@ -641,9 +652,10 @@
       "pathwayAmphibiansTitle": "{count} amphibians",
       "pathwayBirdsTitle": "{count} birds",
       "pathwayMammalsTitle": "{count} mammals",
+      "pathwaySpidersTitle": "{count} spiders",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
-      "expandingNote": "Birds and mammals are in the catalog under the same standard. Reptiles and amphibians are still the most complete layer."
+      "expandingNote": "Birds, mammals, and spiders are in the catalog under the same standard. Reptiles and amphibians are still the most complete layer."
     },
     "explorerEyebrow": "Explorer",
     "explorerTitle": "Browse the catalog",
@@ -674,7 +686,8 @@
       "turtle": "Turtles",
       "amphibian": "Amphibians",
       "bird": "Birds",
-      "mammal": "Mammals"
+      "mammal": "Mammals",
+      "spider": "Spiders"
     },
     "danger": {
       "all": "All",
@@ -711,6 +724,8 @@
       "birdsP1": "Bird profiles follow the same rule: named sources, no invented maps. The list is growing and does not replace the national avifauna checklist.",
       "mammalsTitle": "Mammals of Georgia",
       "mammalsP1": "Mammal pages use the same profile structure. Few are published yet — absence from this catalog does not mean the species is absent from Georgia.",
+      "spidersTitle": "Spiders of Georgia",
+      "spidersP1": "Spider pages follow the same rule: named sources, no invented maps. The list is growing and does not replace a full arachnofauna checklist.",
       "venomousTitle": "Venomous snakes of Georgia",
       "venomousP1": "Only a minority of Georgia’s snakes are medically significant. In this atlas, “venomous” means moderate or high risk to humans: the Levantine viper (Macrovipera lebetina), Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), Transcaucasian long-nosed viper (Vipera transcaucasiana), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi). Most other snakes here — grass snake, dice snake, racers, smooth snake, cat snake — are harmless to people, though several are frequently misidentified.",
       "venomousP2": "Safe encounter practice is simple: do not handle wild snakes, keep distance, and learn the lookalikes common in your region. Open each profile for identification traits, habitat, and conservation status. This is educational natural-history guidance, not emergency medical advice.",
@@ -840,7 +855,8 @@
       "turtles": "Turtles in Georgia",
       "amphibians": "Amphibians",
       "birds": "Birds in Georgia",
-      "mammals": "Mammals in Georgia"
+      "mammals": "Mammals in Georgia",
+      "spiders": "Spiders in Georgia"
     },
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
@@ -1024,6 +1040,12 @@
         "title": "Mammals in Georgia",
         "body": "The first mammal profiles in the atlas — species pages, not a full mammal list.",
         "cta": "Mammals"
+      },
+      "spidersHub": {
+        "eyebrow": "Spiders",
+        "title": "Spiders in Georgia",
+        "body": "The first spider profiles in the atlas — species pages, not a full arachnofauna list.",
+        "cta": "Spiders"
       }
     }
   },
@@ -1381,6 +1403,49 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From mammal list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, and bird guides."
+  },
+  "spiders": {
+    "metaTitle": "Spiders in Georgia — species profiles",
+    "metaDescription": "Spiders of Georgia on reptiles.ge: identification, range, and sources. The atlas currently includes the wasp spider (Argiope bruennichi), an orb-weaver with named Georgian records.",
+    "keywords": "spiders in Georgia, wasp spider, Argiope bruennichi, არგიოპა, Georgia spiders, orb-weaver",
+    "breadcrumbCurrent": "Spiders",
+    "heroImageAlt": "Wasp spider with yellow-and-black bands in an orb web",
+    "title": "Spiders in Georgia",
+    "subtitle": "Spider profiles for Georgia with named sources — not a complete national list.",
+    "ctaSpecies": "See the species",
+    "statSpecies": "Spiders in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Current focus",
+    "statExtraValue": "Orb-weavers",
+    "guideEyebrow": "Guide",
+    "guideTitle": "Spiders in the animal atlas",
+    "guideP1": "Reptiles.ge is adding spider profiles using the same evidence rules as the rest of the atlas: named sources, no invented regional maps.",
+    "guideP2": "Country occurrence here rests on Otto 2022’s Caucasian spiders database and the Ilia State University biodiversity database. This hub is not a substitute for the 659-species national checklist.",
+    "speciesEyebrow": "Catalog",
+    "speciesTitle": "{count} spiders in the atlas",
+    "speciesBody": "Each profile states whether the species is confirmed in Georgia — and what remains unmapped.",
+    "section": {
+      "all": {
+        "title": "Spiders — {count}",
+        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+      }
+    },
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask about spiders here",
+    "faqIntro": "Short answers — depth lives on profiles.",
+    "faq1Q": "Does this site cover all Georgian spiders?",
+    "faq1A": "No. This hub publishes individual species pages as they are written. Otto 2022 remains the reference for the full fauna.",
+    "faq2Q": "Which spiders are in the atlas now?",
+    "faq2A": "One profile so far: the wasp spider (Argiope bruennichi), an orb-weaver with yellow-and-black bands. The list is growing.",
+    "faq3Q": "How are spiders added to the atlas?",
+    "faq3A": "Spider pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national arachnofauna list.",
+    "faq4Q": "Are regional maps shown for spiders?",
+    "faq4A": "Only when a profile has named regional records. The wasp spider page colours regions from named localities in Otto 2022.",
+    "faq5Q": "Should I handle wild spiders?",
+    "faq5A": "No. Watch from a distance. The wasp spider is not a medical risk to people, but do not pick up wild spiders.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From spider list to profile",
+    "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, and mammal guides."
   },
   "amphibianFrogs": {
     "metaTitle": "Frogs of Georgia — species guide",
