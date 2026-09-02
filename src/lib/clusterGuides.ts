@@ -162,7 +162,8 @@ export type ClusterGuidePath =
   | "/amphibians/bayayi/saxeoebebi"
   | "/amphibians/tritoni-salamandra"
   | "/birds"
-  | "/mammals";
+  | "/mammals"
+  | "/spiders";
 
 export type ClusterMessageKey =
   | "amphibianFrogs"

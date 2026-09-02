@@ -14,6 +14,7 @@
     "amphibians": "Amfibiler",
     "birds": "Kuşlar",
     "mammals": "Memeliler",
+    "spiders": "Örümcekler",
     "news": "Haberler",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat"
@@ -151,6 +152,11 @@
         "title": "Gürcistan’daki memeliler",
         "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil.",
         "cta": "Memeliler"
+      },
+      "spiders": {
+        "title": "Gürcistan’daki örümcekler",
+        "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil.",
+        "cta": "Örümcekler"
       }
     },
     "regions": {
@@ -174,6 +180,7 @@
         "amphibians": "Gürcistan’daki amfibiler",
         "birds": "Gürcistan’daki kuşlar",
         "mammals": "Gürcistan’daki memeliler",
+        "spiders": "Gürcistan’daki örümcekler",
         "identify": "Zehirli yılanı tanı",
         "bite": "Yılan ısırığında ilk adımlar",
         "lizardIdentify": "Kertenkeleyi tanı",
@@ -209,6 +216,7 @@
     "amphibians": "Amfibiler",
     "birds": "Kuşlar",
     "mammals": "Memeliler",
+    "spiders": "Örümcekler",
     "frogs": "Kurbağalar",
     "newts": "Semenderler",
     "snakeIndex": "Yılan türleri",
@@ -555,6 +563,7 @@
       "amphibians": "Gürcistan’daki amfibiler",
       "birds": "Gürcistan’daki kuşlar",
       "mammals": "Gürcistan’daki memeliler",
+      "spiders": "Gürcistan’daki örümcekler",
       "venomous": "Gürcistan’da zehirli yılanlar"
     }
   },
@@ -605,18 +614,20 @@
     "titleAmphibian": "Gürcistan’da yayılış ve tanıma",
     "titleBird": "Gürcistan’da yayılış ve tanıma",
     "titleMammal": "Gürcistan’da yayılış ve tanıma",
+    "titleSpider": "Gürcistan’da yayılış ve tanıma",
     "descriptionVenomous": "{name} ({scientific}) — yayılış, biyoloji, zehir ve koruma statüsü. Gürcistan ve Kafkasya sürüngen atlası.",
     "descriptionReptile": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan ve Kafkasya sürüngen atlası.",
     "descriptionAmphibian": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan amfibileri.",
     "descriptionBird": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan kuşları.",
-    "descriptionMammal": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan memelileri."
+    "descriptionMammal": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan memelileri.",
+    "descriptionSpider": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan örümcekleri."
   },
   "speciesAtlas": {
     "metaTitle": "Tür atlası — Gürcistan hayvanları",
     "metaDescription": "Gürcistan hayvanları tek katalogda: tür profilleri, fotoğraflar ve tanıma. Sürüngenler şimdiye kadar en eksiksiz gruptur.",
     "eyebrow": "Tür atlası",
     "title": "Tür atlası",
-    "subtitle": "Gürcistan’da kaydedilen türler — sürüngenler, amfibiler, kuşlar ve memeliler. Açıklamalar, fotoğraflar ve tanıma notları.",
+    "subtitle": "Gürcistan’da kaydedilen türler — sürüngenler, amfibiler, kuşlar, memeliler ve örümcekler. Açıklamalar, fotoğraflar ve tanıma notları.",
     "heroImageAlt": "Sisli bir dağ vadisinde yosunlu kayada bir engerek",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbSpecies": "Türler",
@@ -641,9 +652,10 @@
       "pathwayAmphibiansTitle": "{count} amfibi",
       "pathwayBirdsTitle": "{count} kuş",
       "pathwayMammalsTitle": "{count} memeli",
+      "pathwaySpidersTitle": "{count} örümcek",
       "pathwayVenomousTitle": "{count} zehirli",
       "pathwayRegionsTitle": "{count} bölge",
-      "expandingNote": "Kuşlar ve memeliler katalogda aynı standarttadır. Sürüngenler ve amfibiler hâlâ en eksiksiz katmandır."
+      "expandingNote": "Kuşlar, memeliler ve örümcekler katalogda aynı standarttadır. Sürüngenler ve amfibiler hâlâ en eksiksiz katmandır."
     },
     "explorerEyebrow": "Gezgin",
     "explorerTitle": "Kataloğa göz at",
@@ -674,7 +686,8 @@
       "turtle": "Kaplumbağalar",
       "amphibian": "Amfibiler",
       "bird": "Kuşlar",
-      "mammal": "Memeliler"
+      "mammal": "Memeliler",
+      "spider": "Örümcekler"
     },
     "danger": {
       "all": "Tümü",
@@ -711,6 +724,8 @@
       "birdsP1": "Kuş profilleri aynı kuralı izler: adı geçen kaynaklar, uydurulmuş harita yok. Liste büyür ve ulusal kuş kontrol listesinin yerini tutmaz.",
       "mammalsTitle": "Gürcistan memelileri",
       "mammalsP1": "Memeli sayfaları aynı profil yapısını kullanır. Henüz azı yayımlanmıştır — bu katalogda olmaması türün Gürcistan’da olmadığı anlamına gelmez.",
+      "spidersTitle": "Gürcistan örümcekleri",
+      "spidersP1": "Örümcek sayfaları aynı kuralı izler: adı geçen kaynaklar, uydurulmuş harita yok. Liste büyür ve tam bir örümcek faunası kontrol listesinin yerini tutmaz.",
       "venomousTitle": "Gürcistan’ın zehirli yılanları",
       "venomousP1": "Gürcistan yılanlarının yalnızca bir azınlığı tıbbi açıdan önemlidir. Bu atlasda “zehirli”, insanlar için orta veya yüksek risk demektir: Levant engereği (Macrovipera lebetina), Kafkas engereği (Vipera kaznakovi), Dinnik engereği (Vipera dinniki), Transkafkas uzun burunlu engerek (Vipera transcaucasiana), Darevski engereği (Vipera darevskii) ve bozkır engereği (Vipera renardi). Buradaki diğer yılanların çoğu — su yılanı, kareli su yılanı, yılanlar, düz yılan, kedi yılanı — insanlar için zararsızdır, ancak birkaçı sıkça yanlış tanınır.",
       "venomousP2": "Güvenli karşılaşma pratiği basittir: yabani yılanları ellemiyin, mesafe koyun ve bölgenizde yaygın benzerleri öğrenin. Tanıma özellikleri, yaşam alanı ve koruma statüsü için her profili açın. Bu eğitici doğa tarihi rehberliğidir, acil tıbbi tavsiye değildir.",
@@ -840,7 +855,8 @@
       "turtles": "Gürcistan’daki kaplumbağalar",
       "amphibians": "Amfibiler",
       "birds": "Gürcistan’daki kuşlar",
-      "mammals": "Gürcistan’daki memeliler"
+      "mammals": "Gürcistan’daki memeliler",
+      "spiders": "Gürcistan’daki örümcekler"
     },
     "venomousEyebrow": "Güvenlik",
     "venomousTitle": "Gürcistan’ın zehirli yılanları",
@@ -1024,6 +1040,12 @@
         "title": "Gürcistan’daki memeliler",
         "body": "Atlasdaki ilk memeli profilleri — tür sayfaları, tam bir memeli listesi değil.",
         "cta": "Memeliler"
+      },
+      "spidersHub": {
+        "eyebrow": "Örümcekler",
+        "title": "Gürcistan’daki örümcekler",
+        "body": "Atlasdaki ilk örümcek profilleri — tür sayfaları, tam bir örümcek faunası listesi değil.",
+        "cta": "Örümcekler"
       }
     }
   },
@@ -1381,6 +1403,49 @@
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Memeli listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi ve kuş rehberlerinde devam edin."
+  },
+  "spiders": {
+    "metaTitle": "Gürcistan’daki örümcekler — tür profilleri",
+    "metaDescription": "Gürcistan örümcekleri reptiles.ge’de: tanıma, yayılış ve kaynaklar. Atlasda şu an eşekarısı örümceği (Argiope bruennichi) var — adlandırılmış Gürcistan kayıtlı bir daire ağı örümceği.",
+    "keywords": "Gürcistan’da örümcekler, eşekarısı örümceği, Argiope bruennichi, არგიოპა, Gürcistan örümcekleri",
+    "breadcrumbCurrent": "Örümcekler",
+    "heroImageAlt": "Sarı-siyah bantlı eşekarısı örümceği daire ağında",
+    "title": "Gürcistan’daki örümcekler",
+    "subtitle": "Adı geçen kaynaklı Gürcistan örümcek profilleri — tam ulusal liste değil.",
+    "ctaSpecies": "Türleri gör",
+    "statSpecies": "Atlasdaki örümcek",
+    "statFamilies": "Familya",
+    "statExtra": "Şimdiki odak",
+    "statExtraValue": "Daire ağı örümcekleri",
+    "guideEyebrow": "Rehber",
+    "guideTitle": "Hayvan atlasında örümcekler",
+    "guideP1": "Reptiles.ge, atlasın geri kalanıyla aynı kanıt kurallarıyla örümcek profilleri ekler: adı geçen kaynaklar, uydurulmuş bölgesel harita yok.",
+    "guideP2": "Ülke varlığı burada Otto 2022 Kafkas örümcekleri veritabanına ve İlia Üniversitesi biyoçeşitlilik veritabanına dayanır. Bu hub 659 türlük ulusal kontrol listesinin yerini tutmaz.",
+    "speciesEyebrow": "Katalog",
+    "speciesTitle": "Atlasda {count} örümcek",
+    "speciesBody": "Her profil, türün Gürcistan’da doğrulanıp doğrulanmadığını — ve haritada neyin kaldığını — söyler.",
+    "section": {
+      "all": {
+        "title": "Örümcekler — {count}",
+        "body": "Şimdiye kadar yayımlanan profiller. Bu listede olmaması türün Gürcistan’da olmadığı anlamına gelmez."
+      }
+    },
+    "faqEyebrow": "Sık sorulanlar",
+    "faqTitle": "Burada örümcekler hakkında ne sorulur",
+    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faq1Q": "Site Gürcistan’ın tüm örümceklerini kapsar mı?",
+    "faq1A": "Hayır. Bu hub, yazıldıkça tek tek tür sayfaları yayımlar. Tam fauna için Otto 2022 referans kalır.",
+    "faq2Q": "Atlasda şimdi hangi örümcekler var?",
+    "faq2A": "Şimdilik bir profil: eşekarısı örümceği (Argiope bruennichi) — sarı-siyah bantlı bir daire ağı örümceği. Liste büyüyor.",
+    "faq3Q": "Örümcekler atlasa nasıl eklenir?",
+    "faq3A": "Örümcek sayfaları aynı tür-profil yapısını kullanır. Gürcistan hayvan atlasının parçasıdırlar, tam bir ulusal örümcek faunası listesi değildir.",
+    "faq4Q": "Örümcekler için bölgesel haritalar gösterilir mi?",
+    "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel kayıtları olduğunda. Eşekarısı örümceği sayfası bölgeleri Otto 2022’deki adlandırılmış noktalardan boyar.",
+    "faq5Q": "Yabani örümcekleri ellemek gerekir mi?",
+    "faq5A": "Hayır. Uzaktan izleyin. Eşekarısı örümceği insanlar için tıbbi risk taşımaz, ama yabani örümcekleri kaldırmayın.",
+    "ctaEyebrow": "Sonraki adım",
+    "ctaTitle": "Örümcek listesinden profile",
+    "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş ve memeli rehberlerinde devam edin."
   },
   "amphibianFrogs": {
     "metaTitle": "Gürcistan kurbağaları — tür rehberi",

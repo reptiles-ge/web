@@ -65,6 +65,7 @@ export type SearchPageHref = Exclude<
   | "/amphibians/[slug]"
   | "/birds/[slug]"
   | "/mammals/[slug]"
+  | "/spiders/[slug]"
   | "/quiz/[slug]"
   | "/regions/[id]"
   | "/news/[slug]"
@@ -252,6 +253,8 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
     subtitle: {
       ka: "ობობების პროფილები ბუნების ატლასში",
       en: "Spider profiles in the nature atlas",
+      ru: "Профили пауков в атласе природы",
+      tr: "Doğa atlasında örümcek profilleri",
     },
     keywords: [
       "ობობები",
