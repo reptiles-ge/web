@@ -76,9 +76,9 @@ export function Navbar() {
 
   const links = [
     { href: "/species" as const, label: t("species") },
-    { href: "/quiz" as const, label: t("quizzes"), badge: t("new") },
+    { href: "/quiz" as const, label: t("quizzes") },
     { href: "/regions" as const, label: t("atlas") },
-    { href: "/news" as const, label: t("news") },
+    { href: "/news" as const, label: t("news"), badge: t("new") },
   ];
   const reptileGroupLinks = [
     { href: "/snakes" as const, label: t("snakes") },
@@ -98,10 +98,14 @@ export function Navbar() {
       kind: "link" as const,
       href: "/quiz" as const,
       label: t("quizzes"),
-      badge: t("new"),
     },
     { kind: "link" as const, href: "/regions" as const, label: t("atlas") },
-    { kind: "link" as const, href: "/news" as const, label: t("news") },
+    {
+      kind: "link" as const,
+      href: "/news" as const,
+      label: t("news"),
+      badge: t("new"),
+    },
     { kind: "link" as const, href: "/about" as const, label: t("about") },
   ];
   const [groupsOpen, setGroupsOpen] = useState(false);

@@ -4,6 +4,34 @@ import type { OptimizedImageEntry } from "./optimizedImages";
 export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";
 
 export const optimizedImages: Record<string, OptimizedImageEntry> = {
+  "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
+    path: "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
+    width: 1772,
+    height: 1253,
+    widths: [400, 800, 1200, 1772],
+    formats: ["avif", "webp"],
+  },
+  "/images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
+    path: "images/news/vipera-pontica-hybrid-georgia-2026/figure-2",
+    width: 1772,
+    height: 1112,
+    widths: [400, 800, 1200, 1772],
+    formats: ["avif", "webp"],
+  },
+  "/images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
+    path: "images/news/vipera-pontica-hybrid-georgia-2026/figure-3",
+    width: 1772,
+    height: 1181,
+    widths: [400, 800, 1200, 1772],
+    formats: ["avif", "webp"],
+  },
+  "/images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
+    path: "images/news/vipera-pontica-hybrid-georgia-2026/figure-4",
+    width: 2362,
+    height: 2366,
+    widths: [400, 800, 1200, 2362],
+    formats: ["avif", "webp"],
+  },
   "/images/species/bubo-bubo-berntsen-1.jpg": {
     path: "images/species/bubo-bubo-berntsen-1",
     width: 2400,
