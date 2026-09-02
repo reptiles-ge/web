@@ -1,4 +1,5 @@
 import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
+import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
 import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
 import type { GroupHubId } from "@/lib/groupHubs";
 import type { AppLocale } from "@/i18n/routing";
@@ -19,6 +20,7 @@ export type {
 } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  GEORGIA_HERPETOFAUNA_CHECKLIST_2026,
   VIPERA_PONTICA_HYBRID_GEORGIA_2026,
   BATUMI_19300_RAPTORS_2026,
 ];
