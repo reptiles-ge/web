@@ -520,6 +520,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "spider",
     habitats: ["grassland", "wetland"],
   },
+  "argiope-lobata": {
+    group: "spider",
+    habitats: ["grassland"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {

@@ -204,6 +204,7 @@ export const featuredSpeciesIds = [
   "procyon-lotor",
   "capra-aegagrus",
   "argiope-bruennichi",
+  "argiope-lobata",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
