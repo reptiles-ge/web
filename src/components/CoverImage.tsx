@@ -20,7 +20,13 @@ export function CoverImage({
   "aria-hidden": ariaHidden,
 }: CoverImageProps) {
   return (
-    <picture>
+    <picture
+      className={
+        fill
+          ? "media-placeholder absolute inset-0 block h-full w-full"
+          : "media-placeholder relative block"
+      }
+    >
       {pictureSources(src, { sizes }).map((source) => (
         <source key={source.key} {...source.props} />
       ))}
@@ -36,7 +42,7 @@ export function CoverImage({
             ? `absolute inset-0 h-full w-full text-transparent${
                 className ? ` ${className}` : ""
               }`
-            : `text-transparent${className ? ` ${className}` : ""}`
+            : `relative z-1 text-transparent${className ? ` ${className}` : ""}`
         }
       />
     </picture>

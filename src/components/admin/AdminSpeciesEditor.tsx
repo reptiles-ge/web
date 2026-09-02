@@ -83,7 +83,7 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
                 key={item.src}
                 className="overflow-hidden rounded-lg border border-border bg-card"
               >
-                <div className="relative aspect-4/3 w-full">
+                <div className="media-placeholder relative aspect-4/3 w-full">
                   <Image
                     src={item.src}
                     alt=""
