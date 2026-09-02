@@ -23,7 +23,7 @@ export function Logo({
         width={size}
         height={size}
         loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : "auto"}
+        fetchPriority="auto"
         className="shrink-0 object-contain"
         sizes={`${Math.round(size * 2)}px`}
       />

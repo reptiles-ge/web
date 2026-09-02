@@ -1,4 +1,4 @@
-import { pictureSources } from "@/data/optimizedImages";
+import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
 
 type CoverImageProps = {
   src: string;
@@ -31,11 +31,11 @@ export function CoverImage({
         <source key={source.key} {...source.props} />
       ))}
       <img
-        src={src}
+        src={optimizedImgSrc(src)}
         alt={alt}
         aria-hidden={ariaHidden}
         loading={priority ? "eager" : "lazy"}
-        decoding="async"
+        decoding={priority ? "sync" : "async"}
         fetchPriority={priority ? "high" : "auto"}
         className={
           fill
