@@ -22,7 +22,8 @@ export function Logo({
         alt="Reptiles"
         width={size}
         height={size}
-        priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
         className="shrink-0 object-contain"
         sizes={`${Math.round(size * 2)}px`}
       />
