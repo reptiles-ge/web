@@ -167,7 +167,7 @@ export function SpeciesProfile({
           }}
         >
           {desktopHeroSrc ? (
-            <picture className="absolute inset-0 block h-full w-full">
+            <picture className="media-placeholder absolute inset-0 block h-full w-full">
               {mobileHeroSrc ? (
                 <>
                   {heroDesktopSources.map((source) => (

@@ -128,7 +128,7 @@ export function SpeciesGallery({
                     className="absolute inset-0 w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                     aria-label={photoAlt}
                   >
-                    <picture>
+                    <picture className="media-placeholder absolute inset-0 block h-full w-full">
                       {pictureSources(photo.src, {
                         sizes: featured
                           ? "(max-width: 1480px) 100vw, 1400px"

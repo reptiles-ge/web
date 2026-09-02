@@ -12,7 +12,7 @@ import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { preconnect } from "react-dom";
+import { preconnect, preload } from "react-dom";
 import "./globals.css";
 
 const GTM_ID = "GTM-NM65ZMML";
@@ -97,6 +97,14 @@ export default async function RootLayout({ children }: Props) {
   const isProd = process.env.NODE_ENV === "production";
 
   preconnect(CDN_BASE);
+  preload("/images/image-placeholder.svg", {
+    as: "image",
+    fetchPriority: "high",
+  });
+  preload("/images/image-placeholder-dark.svg", {
+    as: "image",
+    fetchPriority: "high",
+  });
 
   return (
     <html

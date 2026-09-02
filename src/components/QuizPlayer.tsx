@@ -309,7 +309,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
         {coverSrc ? (
           <picture
             key={coverKey}
-            className="absolute inset-0 block h-full w-full"
+            className="media-placeholder absolute inset-0 block h-full w-full"
           >
             {coverMobileSrc && coverMobileSrc !== coverSrc ? (
               <source media="(min-width: 1024px)" srcSet={coverSrc} />

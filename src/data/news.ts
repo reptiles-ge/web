@@ -1,4 +1,6 @@
 import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
+import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
+import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
 import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -20,7 +22,9 @@ export type {
 } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  DAREVSKIA_UZZELLI_ARMENIA_2026,
   GEORGIA_HERPETOFAUNA_CHECKLIST_2026,
+  GEORGIA_DOLPHIN_STRANDINGS_2026,
   VIPERA_PONTICA_HYBRID_GEORGIA_2026,
   BATUMI_19300_RAPTORS_2026,
 ];
@@ -41,10 +45,11 @@ export function getAllNewsArticles() {
 export function getPublishedNewsArticles() {
   return NEWS_ARTICLES.filter((article) => article.status === "published")
     .slice()
-    .sort(
-      (a, b) =>
-        b.publishedAt.localeCompare(a.publishedAt) || a.slug.localeCompare(b.slug),
-    );
+    .sort((a, b) => {
+      const byDate = b.publishedAt.localeCompare(a.publishedAt);
+      if (byDate !== 0) return byDate;
+      return NEWS_ARTICLES.indexOf(a) - NEWS_ARTICLES.indexOf(b);
+    });
 }
 
 export function getNewsArticleBySlug(slug: string) {

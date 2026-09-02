@@ -35,6 +35,18 @@ export function optimizedSrcSet(
     .join(", ");
 }
 
+export function optimizedImgSrc(src: string): string {
+  const entry = optimizedEntry(src);
+  if (!entry) return src;
+  const format = entry.formats.includes("webp")
+    ? "webp"
+    : entry.formats[0];
+  const width =
+    entry.widths.find((item) => item >= 1200) ??
+    entry.widths[entry.widths.length - 1];
+  return `${optimizedBaseUrl}${entry.path}-${width}.${format}`;
+}
+
 export type PictureSource = {
   key: string;
   props: {

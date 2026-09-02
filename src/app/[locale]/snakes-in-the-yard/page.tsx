@@ -1,3 +1,4 @@
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
@@ -160,6 +161,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
 
   return (
     <>
+      <CoverImagePreload src={heroSrc} sizes="100vw" />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={howToLd} />
