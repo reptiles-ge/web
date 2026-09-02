@@ -578,6 +578,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Picus viridis karelini",
     ],
   },
+  "dendrocopos-major": {
+    ka: [
+      "ჭრელი კოდალა",
+      "კოდალა",
+      "კავკასიური დიდი ჭრელი კოდალა",
+      "Dendrocopos major tenuirostris",
+    ],
+    en: [
+      "great spotted woodpecker",
+      "Greater Spotted Woodpecker",
+      "pied woodpecker",
+      "Dendrocopos major tenuirostris",
+    ],
+  },
   "jynx-torquilla": {
     ka: [
       "ჩვეულებრივი მაქცია",
@@ -602,6 +616,20 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Eurasian cuckoo",
       "cuckoo",
       "Cuculus canorus canorus",
+    ],
+  },
+  "upupa-epops": {
+    ka: [
+      "ჩვეულებრივი ოფოფი",
+      "ოფოფისებრნი",
+      "ყაპყაპისნაირნი",
+      "Upupa epops epops",
+    ],
+    en: [
+      "hoopoe",
+      "common hoopoe",
+      "European hoopoe",
+      "Upupa epops epops",
     ],
   },
   "apus-apus": {
@@ -631,6 +659,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "turtle-dove",
       "Streptopelia turtur turtur",
       "Streptopelia turtur arenicola",
+    ],
+  },
+  "columba-palumbus": {
+    ka: [
+      "ტყის მტრედი",
+      "მტრედისებრნი",
+      "მტრედისნაირნი",
+      "Columba palumbus palumbus",
+    ],
+    en: [
+      "woodpigeon",
+      "wood pigeon",
+      "common wood pigeon",
+      "common wood-pigeon",
+      "Columba palumbus palumbus",
     ],
   },
   "buteo-buteo": {
@@ -839,6 +882,19 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Turdus merula aterrimus",
     ],
   },
+  "motacilla-alba": {
+    ka: [
+      "ბოლოქანქარა",
+      "ბოლოქანქარასებრნი",
+      "Motacilla alba alba",
+    ],
+    en: [
+      "pied wagtail",
+      "white wagtail",
+      "Motacilla alba alba",
+      "Motacillidae",
+    ],
+  },
   "glareola-pratincola": {
     ka: [
       "მერცხალა",
@@ -851,6 +907,21 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "red-winged pratincole",
       "pratincole",
       "Hirundo pratincola",
+    ],
+  },
+  "larus-fuscus": {
+    ka: [
+      "შავზურგა თოლია",
+      "თოლიასებრნი",
+      "Larus fuscus fuscus",
+      "Larus heuglini",
+    ],
+    en: [
+      "Baltic Gull",
+      "Heuglin's Gull",
+      "lesser blackback",
+      "Larus fuscus fuscus",
+      "Larus heuglini",
     ],
   },
   "ficedula-hypoleuca": {
@@ -879,6 +950,36 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "semicollared flycatcher",
       "half-collared flycatcher",
       "Muscicapa semitorquata",
+    ],
+  },
+  "erithacus-rubecula": {
+    ka: [
+      "ბულწითელა",
+      "მემატლიასებრნი",
+      "Motacilla rubecula",
+      "Erithacus rubecula caucasicus",
+    ],
+    en: [
+      "robin",
+      "robin redbreast",
+      "Eurasian robin",
+      "Motacilla rubecula",
+      "Erithacus rubecula caucasicus",
+    ],
+  },
+  "luscinia-megarhynchos": {
+    ka: [
+      "სამხრეთული ბულბული",
+      "სამხრული ბულბული",
+      "იადონი",
+      "მემატლიასებრნი",
+      "Luscinia megarhynchos africana",
+    ],
+    en: [
+      "nightingale",
+      "rufous nightingale",
+      "Caucasian nightingale",
+      "Luscinia megarhynchos africana",
     ],
   },
   "ciconia-ciconia": {

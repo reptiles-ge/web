@@ -301,6 +301,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "dendrocopos-major": {
+    group: "bird",
+    habitats: ["forest"],
+  },
   "jynx-torquilla": {
     group: "bird",
     habitats: ["forest", "grassland"],
@@ -308,6 +312,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "cuculus-canorus": {
     group: "bird",
     habitats: ["forest", "grassland"],
+  },
+  "upupa-epops": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
   },
   "apus-apus": {
     group: "bird",
@@ -345,6 +353,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest"],
   },
+  "erithacus-rubecula": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "luscinia-megarhynchos": {
+    group: "bird",
+    habitats: ["forest"],
+  },
   "buteo-buteo": {
     group: "bird",
     habitats: ["forest", "grassland", "mountain"],
@@ -369,13 +385,25 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["wetland", "grassland"],
   },
+  "larus-fuscus": {
+    group: "bird",
+    habitats: ["wetland"],
+  },
   "turdus-merula": {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
+  "motacilla-alba": {
+    group: "bird",
+    habitats: ["grassland", "wetland"],
+  },
   "streptopelia-turtur": {
     group: "bird",
     habitats: ["grassland", "forest"],
+  },
+  "columba-palumbus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
   },
   "ciconia-ciconia": {
     group: "bird",
