@@ -51,7 +51,7 @@ export async function HomeField() {
         </div>
 
         <div className="mt-12 grid gap-14 lg:mt-16 lg:grid-cols-2 lg:gap-20">
-          <div>
+          <div className="min-w-0">
             <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
               {tSafety("eyebrow")}
             </p>
@@ -62,43 +62,89 @@ export async function HomeField() {
               {tKnowledge("venomous.body")}
             </p>
             {vipers.length > 0 ? (
-              <ul className="mt-7 flex gap-2 overflow-x-auto pb-1 sm:grid sm:grid-cols-6 sm:overflow-visible">
-                {vipers.map((species, index) => {
-                  const src =
-                    species.mobileImage &&
-                    !isPlaceholderMedia(species.mobileImage)
-                      ? species.mobileImage
-                      : species.image;
-                  if (isPlaceholderMedia(src)) return null;
-                  return (
-                    <li key={species.id} className="w-[4.75rem] shrink-0 sm:w-auto">
-                      <TrackedSpeciesLink
-                        speciesId={species.id}
-                        locale={locale}
-                        source="home_safety"
-                        position={index + 1}
-                        className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                      >
-                        <span className="relative block aspect-[3/4] overflow-hidden bg-ink">
-                          <CoverImage
-                            src={src}
-                            alt={speciesImageAlt(
-                              species.commonName,
-                              species.scientificName,
-                              species.location,
-                            )}
-                            sizes="80px"
-                            className="object-cover"
-                          />
-                        </span>
-                        <span className="mt-2 block text-[11px] italic leading-snug text-muted-foreground">
-                          {species.scientificName}
-                        </span>
-                      </TrackedSpeciesLink>
-                    </li>
-                  );
-                })}
-              </ul>
+              <>
+                <ul className="mt-7 divide-y divide-border border-y border-border sm:hidden">
+                  {vipers.map((species, index) => {
+                    const src =
+                      species.mobileImage &&
+                      !isPlaceholderMedia(species.mobileImage)
+                        ? species.mobileImage
+                        : species.image;
+                    if (isPlaceholderMedia(src)) return null;
+
+                    return (
+                      <li key={species.id}>
+                        <TrackedSpeciesLink
+                          speciesId={species.id}
+                          locale={locale}
+                          source="home_safety"
+                          position={index + 1}
+                          className="group flex min-h-16 items-center gap-3 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                        >
+                          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
+                            <CoverImage
+                              src={src}
+                              alt={speciesImageAlt(
+                                species.commonName,
+                                species.scientificName,
+                                species.location,
+                              )}
+                              sizes="56px"
+                              className="object-cover"
+                            />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block font-display text-[15px] font-semibold leading-snug text-foreground">
+                              {species.commonName}
+                            </span>
+                            <span className="mt-0.5 block text-[12px] italic leading-snug text-muted-foreground">
+                              {species.scientificName}
+                            </span>
+                          </span>
+                        </TrackedSpeciesLink>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <ul className="mt-7 hidden gap-2 sm:grid sm:grid-cols-6">
+                  {vipers.map((species, index) => {
+                    const src =
+                      species.mobileImage &&
+                      !isPlaceholderMedia(species.mobileImage)
+                        ? species.mobileImage
+                        : species.image;
+                    if (isPlaceholderMedia(src)) return null;
+
+                    return (
+                      <li key={species.id}>
+                        <TrackedSpeciesLink
+                          speciesId={species.id}
+                          locale={locale}
+                          source="home_safety"
+                          position={index + 1}
+                          className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                        >
+                          <span className="relative block aspect-[3/4] overflow-hidden bg-ink">
+                            <CoverImage
+                              src={src}
+                              alt={speciesImageAlt(
+                                species.commonName,
+                                species.scientificName,
+                                species.location,
+                              )}
+                              sizes="80px"
+                              className="object-cover"
+                            />
+                          </span>
+                          <span className="mt-2 block text-[11px] italic leading-snug text-muted-foreground">
+                            {species.scientificName}
+                          </span>
+                        </TrackedSpeciesLink>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
             ) : null}
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
               <Link
@@ -118,7 +164,7 @@ export async function HomeField() {
             </div>
           </div>
 
-          <ol className="divide-y divide-border border-y border-border">
+          <ol className="min-w-0 divide-y divide-border border-y border-border">
             {GUIDES.map((guide, index) => (
               <li key={guide.key}>
                 <Link
