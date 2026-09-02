@@ -198,24 +198,24 @@ export function Footer() {
               </p>
               <Link
                 href="/venomous-snakes"
-                className="text-[12px] font-medium text-primary transition-opacity hover:opacity-80"
+                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
               >
                 {t("venomousAll")}
               </Link>
             </div>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 columns-2 gap-x-8">
               {venomous.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} className="mb-3 break-inside-avoid">
                   <Link
                     href={speciesHref(item.id, locale)}
-                    className="group block rounded-2xl border border-border/80 bg-card px-4 py-3.5 transition-colors hover:border-primary/25"
+                    className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
                   >
-                    <p className="text-[11px] italic text-muted-foreground">
-                      {item.scientificName}
-                    </p>
-                    <p className="mt-1 text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
+                    <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
                       {item.commonName}
-                    </p>
+                    </span>
+                    <span className="mt-0.5 block text-[12px] italic text-muted-foreground">
+                      {item.scientificName}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -229,7 +229,7 @@ export function Footer() {
               </p>
               <Link
                 href="/regions"
-                className="text-[12px] font-medium text-primary transition-opacity hover:opacity-80"
+                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
               >
                 {t("regionsAll")}
               </Link>
@@ -239,7 +239,7 @@ export function Footer() {
                 <li key={region.id} className="mb-2.5 break-inside-avoid">
                   <Link
                     href={regionHref(region.id)}
-                    className="text-[13px] text-foreground/75 transition-colors hover:text-primary"
+                    className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
                   >
                     {localizeRegionText(region.name, locale)}
                   </Link>
