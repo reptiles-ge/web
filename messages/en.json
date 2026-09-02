@@ -58,11 +58,12 @@
     "toLight": "Switch to light mode"
   },
   "hero": {
+    "kicker": "A field atlas",
     "brand": "Reptiles",
     "title": "Animals of Georgia — species, range, identification",
-    "subtitle": "Species profiles from Georgia — reptiles through birds and mammals. Maps and field photos in Georgian and English.",
+    "subtitle": "Species profiles, regional maps, and field photos — in Georgian and English.",
     "viewSpecies": "Species",
-    "exploreRegions": "Explore by region",
+    "exploreRegions": "By region",
     "moreAboutViper": "Venomous snakes in Georgia",
     "imageAlt": "A viper on a mossy rock in a misty mountain valley"
   },
@@ -85,10 +86,10 @@
   },
   "cta": {
     "eyebrow": "Atlas",
-    "title": "Species atlas",
-    "subtitle": "Species profiles, regional maps, and field photos.",
+    "title": "Continue in the species atlas",
+    "subtitle": "Profiles, regional maps, and field photos in one structure.",
     "button": "Species",
-    "secondary": "Venomous snakes in Georgia",
+    "secondary": "Venomous snakes",
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "home": {
@@ -158,6 +159,45 @@
         "body": "Species profiles with named sources — not a complete national list yet.",
         "cta": "Spiders"
       }
+    },
+    "groups": {
+      "eyebrow": "Atlas",
+      "title": "Explore by group",
+      "subtitle": "Reptiles and amphibians are the deepest layer. Birds, mammals, and spiders are added in the same structure.",
+      "count": "{count, plural, one {# species} other {# species}}",
+      "catalog": "Full atlas"
+    },
+    "featured": {
+      "eyebrow": "Species",
+      "title": "In the field",
+      "subtitle": "Scientific and common names, risk, and field photos — verified profiles."
+    },
+    "fresh": {
+      "eyebrow": "New",
+      "title": "Recently published",
+      "subtitle": "Editorial news and species profiles updated in the atlas.",
+      "updated": "Updated profiles"
+    },
+    "field": {
+      "eyebrow": "Guides",
+      "title": "When the question is specific",
+      "subtitle": "Identification, safer encounters, and field practice — without the noise.",
+      "identify": {
+        "title": "Identify a venomous snake",
+        "body": "Field marks that separate the medically significant species."
+      },
+      "yard": {
+        "title": "A snake in the yard",
+        "body": "What works, what doesn’t, and what to do if one already appeared."
+      },
+      "quiz": {
+        "title": "Which snake is it?",
+        "body": "A photo quiz of Georgia’s snakes — four options, no account."
+      }
+    },
+    "safety": {
+      "eyebrow": "Safety",
+      "bite": "Snakebite"
     },
     "regions": {
       "eyebrow": "Place matters",

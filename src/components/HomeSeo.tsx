@@ -1,5 +1,4 @@
 import { Link } from "@/i18n/navigation";
-import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 const hubs = [
@@ -27,29 +26,30 @@ export async function HomeSeo() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+        <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
           {t("eyebrow")}
         </p>
-        <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+        <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.55rem,2.8vw,2.15rem)] font-semibold leading-[1.15] text-foreground">
           {t("title")}
         </h2>
-        <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+        <div className="mt-5 max-w-2xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
           <p>{t("p1")}</p>
           <p>{t("p2")}</p>
         </div>
-        <ul className="mt-8 max-w-3xl space-y-2 border-l-2 border-primary/25 pl-4">
-          {hubs.map((hub) => (
-            <li key={hub.key}>
-              <Link
-                href={hub.href}
-                className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-              >
-                {t(`links.${hub.key}`)}
-                <ArrowUpRight className="size-3.5 opacity-50" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <nav aria-label={t("title")} className="mt-10">
+          <ul className="flex max-w-3xl flex-wrap gap-x-5 gap-y-2.5">
+            {hubs.map((hub) => (
+              <li key={hub.key}>
+                <Link
+                  href={hub.href}
+                  className="text-[14px] text-foreground/80 underline decoration-border underline-offset-[5px] transition-colors hover:text-primary hover:decoration-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                >
+                  {t(`links.${hub.key}`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </section>
   );

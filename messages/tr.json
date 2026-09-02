@@ -58,11 +58,12 @@
     "toLight": "Açık moda geç"
   },
   "hero": {
+    "kicker": "Saha atlası",
     "brand": "Reptiles",
     "title": "Gürcistan hayvanları — türler, yayılış, tanıma",
-    "subtitle": "Gürcistan’daki tür profilleri — sürüngenlerden kuşlara ve memelilere. Haritalar ve saha fotoğrafları.",
+    "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları.",
     "viewSpecies": "Türler",
-    "exploreRegions": "Bölgelere göre keşfet",
+    "exploreRegions": "Bölgelere göre",
     "moreAboutViper": "Gürcistan’da zehirli yılanlar",
     "imageAlt": "Sisli bir dağ vadisinde yosunlu kayada bir engerek"
   },
@@ -85,10 +86,10 @@
   },
   "cta": {
     "eyebrow": "Atlas",
-    "title": "Tür atlası",
-    "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları.",
+    "title": "Tür atlasında devam et",
+    "subtitle": "Profiller, bölgesel haritalar ve saha fotoğrafları tek yapıda.",
     "button": "Türler",
-    "secondary": "Gürcistan’da zehirli yılanlar",
+    "secondary": "Zehirli yılanlar",
     "imageAlt": "Alacakaranlıkta sisli Kafkas sırtı"
   },
   "home": {
@@ -158,6 +159,45 @@
         "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil.",
         "cta": "Örümcekler"
       }
+    },
+    "groups": {
+      "eyebrow": "Atlas",
+      "title": "Gruplara göre keşfet",
+      "subtitle": "Sürüngenler ve amfibiler en derin katmandır. Kuşlar, memeliler ve örümcekler aynı yapıda eklenir.",
+      "count": "{count, plural, one {# tür} other {# tür}}",
+      "catalog": "Tam atlas"
+    },
+    "featured": {
+      "eyebrow": "Türler",
+      "title": "Sahada",
+      "subtitle": "Bilimsel ve yaygın adlar, risk ve saha fotoğrafları — doğrulanmış profiller."
+    },
+    "fresh": {
+      "eyebrow": "Yeni",
+      "title": "Yakın zamanda yayımlanan",
+      "subtitle": "Editöryal haberler ve güncellenen tür profilleri.",
+      "updated": "Güncellenen profiller"
+    },
+    "field": {
+      "eyebrow": "Rehberler",
+      "title": "Soru somut olduğunda",
+      "subtitle": "Tanıma, daha güvenli karşılaşma ve saha pratiği — gürültüsüz.",
+      "identify": {
+        "title": "Zehirli yılanı tanı",
+        "body": "Tıbbi açıdan önemli türleri sahada ayıran belirtiler."
+      },
+      "yard": {
+        "title": "Bahçedeki yılan",
+        "body": "Ne işe yarar, ne yaramaz ve biri zaten çıktıysa ne yapılır."
+      },
+      "quiz": {
+        "title": "Bu hangi yılan?",
+        "body": "Gürcistan yılanları fotoğraf quizi — dört seçenek, hesap yok."
+      }
+    },
+    "safety": {
+      "eyebrow": "Güvenlik",
+      "bite": "Yılan ısırığı"
     },
     "regions": {
       "eyebrow": "Yer önemlidir",

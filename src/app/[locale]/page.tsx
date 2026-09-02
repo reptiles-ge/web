@@ -1,13 +1,12 @@
 import { FinalCTA } from "@/components/FinalCTA";
 import { Hero } from "@/components/Hero";
-import { HomeKnowledge } from "@/components/HomeKnowledge";
-import { HomeProof } from "@/components/HomeProof";
-import { HomeRegions } from "@/components/HomeRegions";
+import { HomeFeatured } from "@/components/home/HomeFeatured";
+import { HomeField } from "@/components/home/HomeField";
+import { HomeFresh } from "@/components/home/HomeFresh";
+import { HomeGroups } from "@/components/home/HomeGroups";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
-import { SpeciesCarousel } from "@/components/SpeciesCarousel";
-import { SpeciesDetail } from "@/components/SpeciesDetail";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   absoluteUrl,
@@ -182,12 +181,11 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
       <JsonLd data={graph} />
       <main>
         <Hero />
-        <HomeProof />
-        <SpeciesCarousel />
+        <HomeGroups />
+        <HomeFeatured />
         <MapExplorer />
-        <HomeRegions />
-        <HomeKnowledge />
-        <SpeciesDetail />
+        <HomeFresh />
+        <HomeField />
         <HomeSeo />
         <FinalCTA />
       </main>

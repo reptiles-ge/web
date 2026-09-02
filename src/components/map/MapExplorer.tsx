@@ -1,50 +1,49 @@
 "use client";
 
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
+import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export function MapExplorer() {
   const t = useTranslations("map");
 
   return (
-    <section
-      id="atlas"
-      className="map-explorer relative overflow-hidden py-24 lg:pb-24 lg:pt-36"
-    >
-      <div className="pointer-events-none absolute inset-0 map-explorer-texture" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />
+    <section id="atlas" className="map-explorer relative py-20 lg:py-28">
+      <div
+        className="pointer-events-none absolute inset-0 map-explorer-texture"
+        aria-hidden="true"
+      />
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
-            {t("eyebrow")}
-          </p>
-          <h2 className="mt-5 font-display text-balance-tight text-[clamp(2rem,4.6vw,3.75rem)] font-semibold leading-[1.05] text-foreground">
-            {t("title")}
-          </h2>
-          <p className="mx-auto mt-5 max-w-lg text-balance-tight text-[15px] leading-relaxed text-muted-foreground">
-            {t("subtitle")}
-          </p>
-        </Reveal>
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-xl">
+            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              {t("eyebrow")}
+            </p>
+            <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.5rem)] font-semibold leading-[1.12] text-foreground">
+              {t("title")}
+            </h2>
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+              {t("subtitle")}
+            </p>
+          </div>
+          <Link
+            href="/regions"
+            className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+          >
+            {t("allRegions")}
+            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+          </Link>
+        </div>
 
-        <div className="mt-14 lg:mt-20">
+        <div className="mt-10 lg:mt-14">
           <GeorgiaMap selectionMode="navigate" mapContext="home" />
         </div>
 
-        <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground/80">
+        <p className="mt-6 text-[12px] tracking-wide text-muted-foreground/80">
           {t("hint")}
         </p>
-
-        <div className="mt-6 text-center">
-          <Link
-            href="/regions"
-            className="text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
-          >
-            {t("allRegions")}
-          </Link>
-        </div>
       </div>
     </section>
   );
