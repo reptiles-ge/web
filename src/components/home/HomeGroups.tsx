@@ -113,7 +113,7 @@ export async function HomeGroups() {
           </Link>
         </div>
 
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-12 hidden sm:mt-16 sm:block">
           {FEATURED_HUBS.filter((hubId) => hubId === "snakes").map((hubId) => {
             const hub = GROUP_HUBS[hubId];
             const visual = hubVisual(
@@ -128,7 +128,7 @@ export async function HomeGroups() {
                 href={hub.path}
                 className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
               >
-                <div className="relative aspect-[16/11] sm:aspect-[21/9]">
+                <div className="relative aspect-[21/9]">
                   {visual ? (
                     <CoverImage
                       src={visual.src}
@@ -150,7 +150,7 @@ export async function HomeGroups() {
               </Link>
             );
           })}
-          <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4 sm:gap-4">
+          <div className="mt-4 grid grid-cols-3 gap-4">
             {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map((hubId) => {
               const hub = GROUP_HUBS[hubId];
               const visual = hubVisual(
@@ -165,21 +165,21 @@ export async function HomeGroups() {
                   href={hub.path}
                   className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
                 >
-                  <div className="relative aspect-[3/4] sm:aspect-[16/11]">
+                  <div className="relative aspect-[16/11]">
                     {visual ? (
                       <CoverImage
                         src={visual.src}
                         alt={visual.alt}
-                        sizes="(max-width: 639px) 33vw, 33vw"
+                        sizes="33vw"
                         className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                       />
                     ) : null}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-5">
-                      <p className="text-[10px] tabular-nums tracking-[0.14em] text-white/55 sm:text-[11px]">
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <p className="text-[11px] tabular-nums tracking-[0.14em] text-white/55">
                         {t("count", { count })}
                       </p>
-                      <h3 className="mt-1 font-display text-[13px] font-semibold leading-tight text-white sm:text-[1.35rem]">
+                      <h3 className="mt-1 font-display text-[1.35rem] font-semibold leading-tight text-white">
                         {tNav(hubId)}
                       </h3>
                     </div>
@@ -190,7 +190,44 @@ export async function HomeGroups() {
           </div>
         </div>
 
-        <ul className="mt-3 grid gap-px overflow-hidden bg-border/80 sm:grid-cols-3">
+        <ul className="mt-12 grid gap-px overflow-hidden bg-border/80 sm:mt-3 sm:grid-cols-3">
+          {FEATURED_HUBS.map((hubId) => {
+            const hub = GROUP_HUBS[hubId];
+            const visual = hubVisual(
+              hubId,
+              locale,
+              t("illustrationAlt", { name: tNav(hubId) }),
+            );
+            const count = groupCount(hub.group, stats);
+
+            return (
+              <li key={hubId} className="bg-background sm:hidden">
+                <Link
+                  href={hub.path}
+                  className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+                >
+                  {visual ? (
+                    <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
+                      <CoverImage
+                        src={visual.src}
+                        alt=""
+                        sizes="56px"
+                        className="object-cover"
+                      />
+                    </span>
+                  ) : null}
+                  <div className="min-w-0">
+                    <h3 className="font-display text-[16px] font-semibold text-foreground">
+                      {tNav(hubId)}
+                    </h3>
+                    <p className="mt-0.5 text-[12px] tabular-nums text-muted-foreground">
+                      {t("count", { count })}
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
           {QUIET_HUBS.map((hubId) => {
             const hub = GROUP_HUBS[hubId];
             const visual = hubVisual(
