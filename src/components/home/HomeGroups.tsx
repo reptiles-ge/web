@@ -15,6 +15,17 @@ import { ArrowUpRight } from "lucide-react";
 
 const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
 const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
+const USE_GROUP_ILLUSTRATIONS = true;
+
+const GROUP_ILLUSTRATIONS: Record<GroupHubId, string> = {
+  snakes: "/images/home/groups/snakes.jpg",
+  lizards: "/images/home/groups/lizards.jpg",
+  turtles: "/images/home/groups/turtles.jpg",
+  amphibians: "/images/home/groups/amphibians.jpg",
+  birds: "/images/home/groups/birds.jpg",
+  mammals: "/images/home/groups/mammals.jpg",
+  spiders: "/images/home/groups/spiders.jpg",
+};
 
 function groupCount(
   group: AnimalGroup,
@@ -58,6 +69,20 @@ function hubPhoto(hubId: GroupHubId, locale: AppLocale) {
   };
 }
 
+function hubVisual(
+  hubId: GroupHubId,
+  locale: AppLocale,
+  illustrationAlt: string,
+) {
+  if (USE_GROUP_ILLUSTRATIONS) {
+    return {
+      src: GROUP_ILLUSTRATIONS[hubId],
+      alt: illustrationAlt,
+    };
+  }
+  return hubPhoto(hubId, locale);
+}
+
 export async function HomeGroups() {
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("home.groups");
@@ -91,7 +116,11 @@ export async function HomeGroups() {
         <div className="mt-12 sm:mt-16">
           {FEATURED_HUBS.filter((hubId) => hubId === "snakes").map((hubId) => {
             const hub = GROUP_HUBS[hubId];
-            const photo = hubPhoto(hubId, locale);
+            const visual = hubVisual(
+              hubId,
+              locale,
+              t("illustrationAlt", { name: tNav(hubId) }),
+            );
             const count = groupCount(hub.group, stats);
             return (
               <Link
@@ -100,15 +129,15 @@ export async function HomeGroups() {
                 className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
               >
                 <div className="relative aspect-[16/11] sm:aspect-[21/9]">
-                  {photo ? (
+                  {visual ? (
                     <CoverImage
-                      src={photo.src}
-                      alt={photo.alt}
+                      src={visual.src}
+                      alt={visual.alt}
                       sizes="100vw"
-                      className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                      className="object-cover object-[center_42%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                     />
                   ) : null}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/18 to-black/5" />
                   <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
                     <p className="text-[11px] tabular-nums tracking-[0.16em] text-white/55">
                       {t("count", { count })}
@@ -124,7 +153,11 @@ export async function HomeGroups() {
           <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4 sm:gap-4">
             {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map((hubId) => {
               const hub = GROUP_HUBS[hubId];
-              const photo = hubPhoto(hubId, locale);
+              const visual = hubVisual(
+                hubId,
+                locale,
+                t("illustrationAlt", { name: tNav(hubId) }),
+              );
               const count = groupCount(hub.group, stats);
               return (
                 <Link
@@ -133,15 +166,15 @@ export async function HomeGroups() {
                   className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
                 >
                   <div className="relative aspect-[3/4] sm:aspect-[16/11]">
-                    {photo ? (
+                    {visual ? (
                       <CoverImage
-                        src={photo.src}
-                        alt={photo.alt}
+                        src={visual.src}
+                        alt={visual.alt}
                         sizes="(max-width: 639px) 33vw, 33vw"
                         className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                       />
                     ) : null}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-5">
                       <p className="text-[10px] tabular-nums tracking-[0.14em] text-white/55 sm:text-[11px]">
                         {t("count", { count })}
@@ -160,7 +193,11 @@ export async function HomeGroups() {
         <ul className="mt-3 grid gap-px overflow-hidden bg-border/80 sm:grid-cols-3">
           {QUIET_HUBS.map((hubId) => {
             const hub = GROUP_HUBS[hubId];
-            const photo = hubPhoto(hubId, locale);
+            const visual = hubVisual(
+              hubId,
+              locale,
+              t("illustrationAlt", { name: tNav(hubId) }),
+            );
             const count = groupCount(hub.group, stats);
 
             return (
@@ -169,10 +206,10 @@ export async function HomeGroups() {
                   href={hub.path}
                   className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-5"
                 >
-                  {photo ? (
+                  {visual ? (
                     <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
                       <CoverImage
-                        src={photo.src}
+                        src={visual.src}
                         alt=""
                         sizes="56px"
                         className="object-cover"

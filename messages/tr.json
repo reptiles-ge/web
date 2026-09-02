@@ -165,7 +165,8 @@
       "title": "Gruplara göre keşfet",
       "subtitle": "Sürüngenler ve amfibiler en derin katmandır. Kuşlar, memeliler ve örümcekler aynı yapıda eklenir.",
       "count": "{count, plural, one {# tür} other {# tür}}",
-      "catalog": "Tam atlas"
+      "catalog": "Tam atlas",
+      "illustrationAlt": "İllüstrasyon — {name}"
     },
     "featured": {
       "eyebrow": "Türler",

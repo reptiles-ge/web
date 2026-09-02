@@ -165,7 +165,8 @@
       "title": "Explore by group",
       "subtitle": "Reptiles and amphibians are the deepest layer. Birds, mammals, and spiders are added in the same structure.",
       "count": "{count, plural, one {# species} other {# species}}",
-      "catalog": "Full atlas"
+      "catalog": "Full atlas",
+      "illustrationAlt": "Illustration — {name}"
     },
     "featured": {
       "eyebrow": "Species",
