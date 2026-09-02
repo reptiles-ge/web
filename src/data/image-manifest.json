@@ -19348,6 +19348,274 @@
       ],
       "updatedAt": "2026-09-02T08:23:35.449Z"
     },
+    "images/species/argiope-lobata-1.jpg": {
+      "sourceHash": "7cd08ea3e9c7caa1dfa3d1bb47ee7ba6f047ae678601d80e76669a6e91275ece",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-lobata-1.jpg",
+      "originalSize": 142643,
+      "width": 2400,
+      "height": 1352,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-lobata-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 6393
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7876
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 451,
+          "byteSize": 16654
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 451,
+          "byteSize": 21084
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 676,
+          "byteSize": 29546
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 676,
+          "byteSize": 38218
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1352,
+          "byteSize": 78418
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1352,
+          "byteSize": 95924
+        }
+      ],
+      "updatedAt": "2026-09-02T09:44:56.283Z"
+    },
+    "images/species/argiope-lobata-pair-1.jpg": {
+      "sourceHash": "993f3466d46aa810e8f6664249ef27fdf873ef0a2aa67884655544507be2add5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-lobata-pair-1.jpg",
+      "originalSize": 193417,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9434
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11372
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25223
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29434
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43808
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52424
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 105991
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-pair-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 123134
+        }
+      ],
+      "updatedAt": "2026-09-02T09:45:11.740Z"
+    },
+    "images/species/argiope-lobata-sete-1.jpg": {
+      "sourceHash": "78e7674c56e6e11b9d6a17c899775731b4d5bdb5cd873e1537662b6810de749c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-lobata-sete-1.jpg",
+      "originalSize": 255443,
+      "width": 2400,
+      "height": 1920,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 320,
+          "byteSize": 9482
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 320,
+          "byteSize": 11428
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 640,
+          "byteSize": 26896
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 640,
+          "byteSize": 34156
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 51012
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 960,
+          "byteSize": 65128
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 143700
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-sete-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1920,
+          "byteSize": 184350
+        }
+      ],
+      "updatedAt": "2026-09-02T09:45:01.331Z"
+    },
+    "images/species/argiope-lobata-ventral-1.jpg": {
+      "sourceHash": "f78dd206040033f8460b44732534d4af879b1c0705166f1cbe55e63736aeb5ca",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/argiope-lobata-ventral-1.jpg",
+      "originalSize": 195009,
+      "width": 2400,
+      "height": 1719,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 8198
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 10740
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 573,
+          "byteSize": 20755
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 573,
+          "byteSize": 28994
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 860,
+          "byteSize": 36723
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 860,
+          "byteSize": 53550
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1719,
+          "byteSize": 103677
+        },
+        {
+          "key": "optimized/images/species/argiope-lobata-ventral-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1719,
+          "byteSize": 136694
+        }
+      ],
+      "updatedAt": "2026-09-02T09:45:06.472Z"
+    },
     "images/species/athene-noctua-cebeci-turkey-1.jpg": {
       "sourceHash": "730bb3ba17d4aa60882657e4c374c24d30e033d28f769842ddacee813a42ea94",
       "configFingerprint": "a895f8e025dcc7fa",

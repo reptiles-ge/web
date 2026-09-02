@@ -113,6 +113,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "არგიოპა (Argiope bruennichi) | ობობა საქართველოში",
     en: "Wasp spider (Argiope bruennichi) | Orb-weaver in Georgia",
   },
+  "argiope-lobata": {
+    ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
+    en: "Lobed argiope (Argiope lobata) | Orb-weaver in Georgia",
+  },
 };
 
 export function speciesPageMetaTitle(

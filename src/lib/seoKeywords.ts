@@ -1369,6 +1369,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Argiope bruennichi",
     ],
   },
+  "argiope-lobata": {
+    ka: [
+      "ლობებიანი არგიოპა",
+      "არგიოპა ლობატა",
+      "Argiope lobata",
+    ],
+    en: [
+      "lobed argiope",
+      "black-lobed garden orb-web spider",
+      "Argiope lobata",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

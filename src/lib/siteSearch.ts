@@ -263,6 +263,9 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "არგიოპა",
       "argiope",
       "wasp spider",
+      "ლობებიანი არგიოპა",
+      "lobed argiope",
+      "Argiope lobata",
       "пауки",
       "örümcek",
     ],
@@ -812,7 +815,7 @@ function speciesGroupText(species: Species) {
   );
       extra.push(
         group === "spider"
-          ? "ობობა spiders argiope არგიოპა паук örümcek wasp"
+          ? "ობობა spiders argiope არგიოპა lobata паук örümcek wasp"
           : "",
       );
   return extra;

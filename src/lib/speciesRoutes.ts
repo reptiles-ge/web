@@ -90,6 +90,13 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "wasp-spider-argiope",
     "bzikebri-oboba",
   ],
+  "argiope-lobata": [
+    "argiope-lobata",
+    "lobebiani-argiopa",
+    "lobed-argiope",
+    "black-lobed-argiope",
+    "loblu-orumcek",
+  ],
   "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
   "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
   "aegolius-funereus": [
@@ -213,6 +220,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
 };
 
 const LOOKALIKES: Record<string, string[]> = {
+  "argiope-bruennichi": ["argiope-lobata"],
   "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
   "ursus-arctos": ["canis-lupus", "sus-scrofa"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
