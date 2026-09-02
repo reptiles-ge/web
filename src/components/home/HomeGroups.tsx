@@ -83,6 +83,48 @@ function hubVisual(
   return hubPhoto(hubId, locale);
 }
 
+function HubListRow({
+  href,
+  name,
+  countLabel,
+  src,
+  className,
+}: {
+  href: `/${GroupHubId}`;
+  name: string;
+  countLabel: string;
+  src: string | null;
+  className?: string;
+}) {
+  return (
+    <li className={className}>
+      <Link
+        href={href}
+        className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-5"
+      >
+        {src ? (
+          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
+            <CoverImage
+              src={src}
+              alt=""
+              sizes="56px"
+              className="object-cover"
+            />
+          </span>
+        ) : null}
+        <div className="min-w-0">
+          <h3 className="font-display text-[16px] font-semibold text-foreground">
+            {name}
+          </h3>
+          <p className="mt-0.5 text-[12px] tabular-nums text-muted-foreground">
+            {countLabel}
+          </p>
+        </div>
+      </Link>
+    </li>
+  );
+}
+
 export async function HomeGroups() {
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("home.groups");
@@ -191,7 +233,10 @@ export async function HomeGroups() {
         </div>
 
         <ul className="mt-12 grid gap-px overflow-hidden bg-border/80 sm:mt-3 sm:grid-cols-3">
-          {FEATURED_HUBS.map((hubId) => {
+          {[
+            ...FEATURED_HUBS.map((hubId) => ({ hubId, mobileOnly: true })),
+            ...QUIET_HUBS.map((hubId) => ({ hubId, mobileOnly: false })),
+          ].map(({ hubId, mobileOnly }) => {
             const hub = GROUP_HUBS[hubId];
             const visual = hubVisual(
               hubId,
@@ -201,68 +246,18 @@ export async function HomeGroups() {
             const count = groupCount(hub.group, stats);
 
             return (
-              <li key={hubId} className="bg-background sm:hidden">
-                <Link
-                  href={hub.path}
-                  className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
-                >
-                  {visual ? (
-                    <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
-                      <CoverImage
-                        src={visual.src}
-                        alt=""
-                        sizes="56px"
-                        className="object-cover"
-                      />
-                    </span>
-                  ) : null}
-                  <div className="min-w-0">
-                    <h3 className="font-display text-[16px] font-semibold text-foreground">
-                      {tNav(hubId)}
-                    </h3>
-                    <p className="mt-0.5 text-[12px] tabular-nums text-muted-foreground">
-                      {t("count", { count })}
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
-          {QUIET_HUBS.map((hubId) => {
-            const hub = GROUP_HUBS[hubId];
-            const visual = hubVisual(
-              hubId,
-              locale,
-              t("illustrationAlt", { name: tNav(hubId) }),
-            );
-            const count = groupCount(hub.group, stats);
-
-            return (
-              <li key={hubId} className="bg-background">
-                <Link
-                  href={hub.path}
-                  className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-5"
-                >
-                  {visual ? (
-                    <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
-                      <CoverImage
-                        src={visual.src}
-                        alt=""
-                        sizes="56px"
-                        className="object-cover"
-                      />
-                    </span>
-                  ) : null}
-                  <div className="min-w-0">
-                    <h3 className="font-display text-[16px] font-semibold text-foreground">
-                      {tNav(hubId)}
-                    </h3>
-                    <p className="mt-0.5 text-[12px] tabular-nums text-muted-foreground">
-                      {t("count", { count })}
-                    </p>
-                  </div>
-                </Link>
-              </li>
+              <HubListRow
+                key={hubId}
+                href={hub.path}
+                name={tNav(hubId)}
+                countLabel={t("count", { count })}
+                src={visual?.src ?? null}
+                className={
+                  mobileOnly
+                    ? "bg-background sm:hidden"
+                    : "bg-background"
+                }
+              />
             );
           })}
         </ul>
