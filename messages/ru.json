@@ -8,7 +8,6 @@
     "reptiles": "Reptiles",
     "snakes": "Змеи",
     "quizzes": "Квизы",
-    "new": "Новое",
     "lizards": "Ящерицы",
     "turtles": "Черепахи",
     "amphibians": "Амфибии",
@@ -165,7 +164,8 @@
       "title": "Смотреть по группам",
       "subtitle": "Рептилии и амфибии — самый полный слой. Птицы, млекопитающие и пауки добавляются в той же структуре.",
       "count": "{count, plural, one {# вид} few {# вида} other {# видов}}",
-      "catalog": "Полный атлас"
+      "catalog": "Полный атлас",
+      "illustrationAlt": "Иллюстрация — {name}"
     },
     "featured": {
       "eyebrow": "Виды",

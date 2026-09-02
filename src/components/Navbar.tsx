@@ -40,34 +40,6 @@ function hasDarkHeroTop(pathname: string) {
   return false;
 }
 
-function NavNewBadge({
-  label,
-  placement = "corner",
-}: {
-  label: string;
-  placement?: "corner" | "inline";
-}) {
-  if (placement === "inline") {
-    return (
-      <span className="inline-flex items-center rounded-full bg-[#e23d2e] px-2 py-[3px] text-[10px] font-semibold leading-none text-white">
-        {label}
-      </span>
-    );
-  }
-
-  return (
-    <span className="pointer-events-none absolute -right-2 -top-5">
-      <span className="relative inline-flex items-center rounded-full bg-[#e23d2e] px-1.5 py-[3px] text-[9px] font-semibold leading-none text-white shadow-[0_2px_8px_rgba(226,61,46,0.38)]">
-        {label}
-        <span
-          aria-hidden
-          className="absolute left-1/2 top-[calc(100%-1px)] -translate-x-1/2 border-x-[4px] border-t-[5px] border-x-transparent border-t-[#e23d2e]"
-        />
-      </span>
-    </span>
-  );
-}
-
 export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -80,7 +52,7 @@ export function Navbar() {
     { href: "/species" as const, label: t("species") },
     { href: "/quiz" as const, label: t("quizzes") },
     { href: "/regions" as const, label: t("atlas") },
-    { href: "/news" as const, label: t("news"), badge: t("new") },
+    { href: "/news" as const, label: t("news") },
   ];
   const reptileGroupLinks = [
     { href: "/snakes" as const, label: t("snakes") },
@@ -103,12 +75,7 @@ export function Navbar() {
       label: t("quizzes"),
     },
     { kind: "link" as const, href: "/regions" as const, label: t("atlas") },
-    {
-      kind: "link" as const,
-      href: "/news" as const,
-      label: t("news"),
-      badge: t("new"),
-    },
+    { kind: "link" as const, href: "/news" as const, label: t("news") },
     { kind: "link" as const, href: "/about" as const, label: t("about") },
   ];
   const [groupsOpen, setGroupsOpen] = useState(false);
@@ -273,9 +240,6 @@ export function Navbar() {
                   className={`relative ${className}`}
                 >
                   {link.label}
-                  {"badge" in link && link.badge ? (
-                    <NavNewBadge label={link.badge} />
-                  ) : null}
                 </Link>
               );
             })}
@@ -386,9 +350,6 @@ export function Navbar() {
                   >
                     <span className="flex items-center gap-2.5 font-display text-[1.35rem] font-semibold text-foreground">
                       {item.label}
-                      {"badge" in item && item.badge ? (
-                        <NavNewBadge label={item.badge} placement="inline" />
-                      ) : null}
                     </span>
                     <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                       {number}
