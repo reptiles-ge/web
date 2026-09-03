@@ -199,5 +199,6 @@ export function GeorgiaMap({
         <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
       ) : null}
     </>
+    </MotionLazy>
   );
 }

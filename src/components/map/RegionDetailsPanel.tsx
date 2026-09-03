@@ -12,7 +12,7 @@ import { m } from "@/components/MotionLazy";
 import { AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type RegionDetailsPanelProps = {
   region: Region | null;
@@ -24,6 +24,8 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
   const t = useTranslations("map");
   const open = Boolean(region);
   const [isDesktop, setIsDesktop] = useState(false);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px)");
@@ -39,7 +41,7 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
     if (!open) return;
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") onCloseRef.current();
     }
 
     const previous = document.body.style.overflow;
@@ -49,7 +51,7 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [open, onClose]);
+  }, [open]);
 
   const species = region
     ? getRegionSpecies(region).map((item) => localizeSpecies(item, locale))

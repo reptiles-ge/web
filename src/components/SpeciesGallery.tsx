@@ -105,7 +105,7 @@ export function SpeciesGallery({
               );
               return (
                 <figure
-                  key={`${photo.src}-${index}`}
+                  key={photo.src}
                   className={`group relative overflow-hidden rounded-[24px] bg-ink ${
                     featured
                       ? "col-span-2 aspect-[16/10] md:col-span-3"

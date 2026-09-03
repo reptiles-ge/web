@@ -32,12 +32,12 @@ function IdentificationRichText({ text }: { text: string }) {
 
         const target = getSpeciesById(part.id);
         if (!target) {
-          return <Fragment key={index}>{part.label}</Fragment>;
+          return <Fragment key={key}>{part.label}</Fragment>;
         }
 
         return (
           <Link
-            key={index}
+            key={key}
             href={speciesHref(part.id, locale)}
             onClick={() =>
               trackSpeciesClick({
