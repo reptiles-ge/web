@@ -1,13 +1,10 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  buildSearchIndex,
-  flattenGroups,
-  searchIndex,
-} from "@/lib/siteSearch";
+import { getSearchIndex } from "@/data/search-index.generated";
+import { flattenGroups, searchIndex } from "@/lib/siteSearch";
 
 describe("search scoring", () => {
-  const index = buildSearchIndex("ka");
+  const index = getSearchIndex("ka");
 
   it("finds გიურზა by Georgian common name", () => {
     const { groups } = searchIndex(index, "გიურზა", "all");

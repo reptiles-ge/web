@@ -26,7 +26,6 @@ import { SearchResultsList } from "@/components/SpeciesSearchResults";
 import { useRouter } from "@/i18n/navigation";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import {
-  buildSearchIndex,
   flattenGroups,
   readRecent,
   resolveRecent,
@@ -281,12 +280,19 @@ function useSpeciesSearch() {
   const [filter, setFilter] = useState<SearchFilter>("all");
   const [activeIndex, setActiveIndex] = useState(0);
   const [recent, setRecent] = useState<SearchDocument[]>([]);
+  const [index, setIndex] = useState<SearchDocument[]>([]);
   const [modKey, setModKey] = useState("");
   const deferredQuery = useDeferredValue(query);
   const lastSearchKey = useRef("");
   const queryEntry = useRef<"suggestion" | "type">("type");
+  const indexLocale = useRef<AppLocale | null>(null);
 
-  const index = useMemo(() => buildSearchIndex(locale), [locale]);
+  const loadIndex = useCallback(async () => {
+    if (indexLocale.current === locale) return;
+    const { getSearchIndex } = await import("@/data/search-index.generated");
+    indexLocale.current = locale;
+    setIndex(getSearchIndex(locale));
+  }, [locale]);
   const searched = useMemo(
     () => searchIndex(index, deferredQuery, filter),
     [index, deferredQuery, filter],
@@ -315,6 +321,19 @@ function useSpeciesSearch() {
   const suggestions = Array.isArray(t.raw("suggestions"))
     ? (t.raw("suggestions") as string[])
     : [];
+
+  useEffect(() => {
+    if (typeof window.requestIdleCallback === "function") {
+      const idle = window.requestIdleCallback(() => {
+        void loadIndex();
+      });
+      return () => window.cancelIdleCallback(idle);
+    }
+    const timeout = window.setTimeout(() => {
+      void loadIndex();
+    }, 1);
+    return () => window.clearTimeout(timeout);
+  }, [loadIndex]);
 
   useEffect(() => {
     setRecent(resolveRecent(index, readRecent()));
@@ -354,10 +373,11 @@ function useSpeciesSearch() {
 
   const openSearch = useCallback(
     (method: "click" | "mobile" | "shortcut") => {
+      void loadIndex();
       if (!open) trackEvent("search_open", { entry_method: method });
       setOpen(true);
     },
-    [open],
+    [loadIndex, open],
   );
 
   function changeFilter(value: SearchFilter) {

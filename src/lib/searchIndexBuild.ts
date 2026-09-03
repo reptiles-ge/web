@@ -36,14 +36,14 @@ import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { newsArticleHref } from "@/lib/news";
 import { quizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
-import { transliterateKa } from "@/lib/slugify";
-import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import {
   type SearchDocument,
   type SearchHref,
   type SearchIcon,
   type SearchPageHref,
 } from "@/lib/siteSearch";
+import { transliterateKa } from "@/lib/slugify";
+import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 type PageCopy = {
   icon: SearchIcon;

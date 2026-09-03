@@ -42,6 +42,7 @@ yarn-error.log*
 next-env.d.ts
 
 src/data/species.generated.ts
+src/data/search-index.generated.ts
 index.html
 
 tmp/
