@@ -16,10 +16,23 @@ const eslintConfig = defineConfig([
       tailwindcss: {
         ...tailwindcss.configs.recommended.settings?.tailwindcss,
         cssConfigPath: "./src/app/globals.css",
+        functions: [
+          "cn",
+          "clsx",
+          "classnames",
+          "classNames",
+          "ctl",
+          "cva",
+          "tv",
+          "tw",
+          "twMerge",
+          "twJoin",
+        ],
       },
     },
     rules: {
       ...tailwindcss.configs.recommended.rules,
+      "tailwindcss/classnames-order": "off",
       "tailwindcss/no-arbitrary-value": "off",
       "tailwindcss/no-unnecessary-arbitrary-value": "off",
       "tailwindcss/no-custom-classname": [
@@ -38,6 +51,12 @@ const eslintConfig = defineConfig([
           ],
         },
       ],
+    },
+  },
+  {
+    files: ["src/lib/cn.ts"],
+    rules: {
+      "tailwindcss/no-custom-classname": "off",
     },
   },
   {

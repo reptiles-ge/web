@@ -5,6 +5,7 @@ import {
   chromeIconButtonBase,
   chromeIconButtonClass,
 } from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
 import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -23,7 +24,7 @@ export function ThemeToggle({ variant = "light" }: ThemeToggleProps) {
       aria-label={isDark ? t("toLight") : t("toDark")}
       title={isDark ? t("toLight") : t("toDark")}
       onClick={toggleTheme}
-      className={`${chromeIconButtonBase} ${chromeIconButtonClass(variant)}`}
+      className={cn(chromeIconButtonBase, chromeIconButtonClass(variant))}
     >
       {isDark ? (
         <Sun className="size-3.5" strokeWidth={1.75} aria-hidden="true" />

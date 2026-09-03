@@ -2,6 +2,7 @@
 
 import { hasPhotoCredit, type PhotoCredit } from "@/data/species";
 import { trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import type { AppLocale } from "@/i18n/routing";
 import { formatPhotoDate } from "@/lib/formatDate";
 import { useLocale, useTranslations } from "next-intl";
@@ -57,7 +58,10 @@ export function PhotoCreditCaption({
   if (variant === "lightbox") {
     return (
       <div
-        className={`space-y-0.5 text-center text-[13px] leading-snug tracking-[0.02em] text-white/55 ${className}`}
+        className={cn(
+          "space-y-0.5 text-center text-[13px] leading-snug tracking-[0.02em] text-white/55",
+          className,
+        )}
       >
         {photographer ? (
           <p>
@@ -83,7 +87,10 @@ export function PhotoCreditCaption({
 
   return (
     <figcaption
-      className={`pointer-events-none absolute inset-x-0 bottom-0 z-2 bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 ${className}`}
+      className={cn(
+        "pointer-events-none absolute inset-x-0 bottom-0 z-2 bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100",
+        className,
+      )}
     >
       {photographer ? (
         <p>

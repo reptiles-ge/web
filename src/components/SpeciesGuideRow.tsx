@@ -5,11 +5,12 @@ import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import type { Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -102,10 +103,13 @@ export function SpeciesGuideRow({
           ) : null}
           {riskLabel ? (
             <span
-              className={`inline-flex items-center gap-1.5 text-[12px] font-medium ${tone.text}`}
+              className={cn(
+                "inline-flex items-center gap-1.5 text-[12px] font-medium",
+                tone.text,
+              )}
             >
               <span
-                className={`size-1.5 rounded-full ${tone.dot}`}
+                className={cn("size-1.5 rounded-full", tone.dot)}
                 aria-hidden="true"
               />
               {riskLabel}

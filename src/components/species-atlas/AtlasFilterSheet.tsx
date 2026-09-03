@@ -8,6 +8,7 @@ import {
 } from "@/data/speciesAtlas";
 import { localizeRegionText, regions } from "@/data/regions";
 import type { AppLocale } from "@/i18n/routing";
+import { cn } from "@/lib/cn";
 import { SlidersHorizontal, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useState, useSyncExternalStore } from "react";
@@ -288,11 +289,12 @@ function SheetChip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition-colors ${
+      className={cn(
+        "rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition-colors",
         active
           ? "bg-primary text-white dark:text-ink"
-          : "bg-secondary text-foreground/75"
-      }`}
+          : "bg-secondary text-foreground/75",
+      )}
     >
       {children}
     </button>
