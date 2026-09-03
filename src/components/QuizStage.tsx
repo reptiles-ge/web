@@ -136,3 +136,17 @@ export function QuizStage({
     </section>
   );
 }
+
+function stagePadClass(
+  playing: boolean,
+  complete: boolean,
+  revealed: boolean,
+) {
+  if (!playing || complete) {
+    return "pb-[max(1.25rem,env(safe-area-inset-bottom))]";
+  }
+  if (revealed) {
+    return "min-h-dvh pb-[calc(8.25rem+env(safe-area-inset-bottom))] sm:pb-[max(2rem,env(safe-area-inset-bottom))]";
+  }
+  return "min-h-dvh pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:pb-10";
+}

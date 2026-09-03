@@ -161,26 +161,16 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
     dispatch({ type: "advance" });
   }
 
-  const coverSpecies = playing
-    ? question
-      ? (byId.get(question.correctId) ?? introCover)
-      : introCover
-    : introCover;
-  const coverSrc = playing
-    ? (question?.image ?? questions?.at(-1)?.image ?? introCover?.image)
-    : introCover?.image;
-  const coverMobileSrc = playing
-    ? (question?.mobileImage ?? coverSpecies?.mobileImage)
-    : introCover?.mobileImage;
-  const coverKey = !playing
-    ? "intro"
-    : complete
-      ? "result"
-      : (question?.speciesId ?? "cover");
-
+  const cover = quizCoverState({
+    byId,
+    complete,
+    introCover,
+    playing,
+    question,
+    questions,
+  });
   const correctSpecies = question ? byId.get(question.correctId) : undefined;
   const nextQuestion = revealed ? questions?.[index + 1] : undefined;
-
   const nextLabel =
     questions && index + 1 >= questions.length ? t("seeResult") : t("next");
 
@@ -191,9 +181,9 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
       complete={complete}
       correctCount={correctCount}
       correctSpecies={correctSpecies}
-      coverKey={coverKey}
-      coverMobileSrc={coverMobileSrc}
-      coverSrc={coverSrc}
+      coverKey={cover.coverKey}
+      coverMobileSrc={cover.coverMobileSrc}
+      coverSrc={cover.coverSrc}
       feedbackRef={feedbackRef}
       headingId={headingId}
       hintedQuestions={hintedQuestions}
