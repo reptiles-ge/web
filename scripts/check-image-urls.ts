@@ -1,4 +1,6 @@
+import { once } from "node:events";
 import fs from "node:fs";
+import http2 from "node:http2";
 import path from "node:path";
 import matter from "gray-matter";
 
@@ -64,10 +66,10 @@ type CliOptions = {
 };
 
 function parseArguments(argv: string[]): CliOptions {
-  let concurrency = 12;
+  let concurrency = 48;
   let json = false;
   let limit: number | undefined;
-  let timeoutMs = 15_000;
+  let timeoutMs = 8_000;
 
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
@@ -187,72 +189,112 @@ function collectUrls(): Map<string, ImageHit> {
   return byUrl;
 }
 
-async function requestStatus(
-  url: string,
-  method: "GET" | "HEAD",
-  timeoutMs: number,
-): Promise<number> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetch(url, {
-      method,
-      redirect: "follow",
-      signal: controller.signal,
-    });
-    controller.abort();
-    return response.status;
-  } finally {
-    clearTimeout(timer);
+type CdnClient = {
+  close: () => void;
+  status: (url: string) => Promise<number>;
+};
+
+function createCdnClient(timeoutMs: number): CdnClient {
+  let session: http2.ClientHttp2Session | undefined;
+  let connecting: Promise<http2.ClientHttp2Session> | undefined;
+
+  async function connect() {
+    if (session && !session.closed && !session.destroyed) return session;
+    if (connecting) return connecting;
+
+    connecting = (async () => {
+      const next = http2.connect(CDN_BASE);
+      next.setTimeout(timeoutMs);
+      next.on("error", () => {
+        session = undefined;
+      });
+      next.on("close", () => {
+        if (session === next) session = undefined;
+      });
+      await once(next, "connect");
+      session = next;
+      connecting = undefined;
+      return next;
+    })();
+
+    try {
+      return await connecting;
+    } catch (error) {
+      connecting = undefined;
+      throw error;
+    }
   }
+
+  function requestStatus(
+    client: http2.ClientHttp2Session,
+    url: string,
+  ): Promise<number> {
+    const parsed = new URL(url);
+    return new Promise((resolve, reject) => {
+      const req = client.request({
+        ":method": "HEAD",
+        ":path": `${parsed.pathname}${parsed.search}`,
+      });
+      const timer = setTimeout(() => {
+        req.close(http2.constants.NGHTTP2_CANCEL);
+        reject(new Error("timeout"));
+      }, timeoutMs);
+
+      req.on("response", (headers) => {
+        clearTimeout(timer);
+        req.close();
+        resolve(Number(headers[":status"]));
+      });
+      req.on("error", (error) => {
+        clearTimeout(timer);
+        reject(error);
+      });
+      req.end();
+    });
+  }
+
+  return {
+    close() {
+      session?.close();
+      session = undefined;
+    },
+    async status(url: string) {
+      try {
+        return await requestStatus(await connect(), url);
+      } catch {
+        session?.close();
+        session = undefined;
+        connecting = undefined;
+        return requestStatus(await connect(), url);
+      }
+    },
+  };
 }
 
-function shouldConfirmWithGet(status: number) {
-  return status === 403 || status === 404 || status === 405 || status === 501;
+function toCheckResult(url: string, statusCode: number): CheckResult {
+  if (statusCode === 404) {
+    return { status: "not_found", statusCode, url };
+  }
+  if (statusCode >= 200 && statusCode < 400) {
+    return { status: "ok", statusCode, url };
+  }
+  return {
+    error: `HTTP ${statusCode}`,
+    status: "failed",
+    statusCode,
+    url,
+  };
 }
 
-async function checkUrl(url: string, timeoutMs: number): Promise<CheckResult> {
+async function checkUrl(url: string, client: CdnClient): Promise<CheckResult> {
   try {
-    let statusCode = await requestStatus(url, "HEAD", timeoutMs);
-    if (shouldConfirmWithGet(statusCode)) {
-      statusCode = await requestStatus(url, "GET", timeoutMs);
-    }
-    if (statusCode === 404) {
-      return { status: "not_found", statusCode, url };
-    }
-    if (statusCode >= 200 && statusCode < 400) {
-      return { status: "ok", statusCode, url };
-    }
+    return toCheckResult(url, await client.status(url));
+  } catch (error) {
     return {
-      error: `HTTP ${statusCode}`,
+      error: error instanceof Error ? error.message : String(error),
       status: "failed",
-      statusCode,
       url,
     };
-  } catch (error) {
-    try {
-      const statusCode = await requestStatus(url, "GET", timeoutMs);
-      if (statusCode === 404) {
-        return { status: "not_found", statusCode, url };
-      }
-      if (statusCode >= 200 && statusCode < 400) {
-        return { status: "ok", statusCode, url };
-      }
-      return {
-        error: `HTTP ${statusCode}`,
-        status: "failed",
-        statusCode,
-        url,
-      };
-    } catch (retryError) {
-      const message =
-        retryError instanceof Error
-          ? retryError.message
-          : error instanceof Error
-            ? error.message
-            : String(retryError);
-      return { error: message, status: "failed", url };
-    }
   }
 }
 
@@ -301,13 +343,21 @@ async function main() {
     );
   }
 
+  const started = Date.now();
+  const client = createCdnClient(options.timeoutMs);
   let done = 0;
-  const results = await mapPool(targets, options.concurrency, async (hit) => {
-    const result = await checkUrl(hit.url, options.timeoutMs);
-    done += 1;
-    printProgress(done, targets.length, options.json);
-    return result;
-  });
+  let results: CheckResult[];
+  try {
+    results = await mapPool(targets, options.concurrency, async (hit) => {
+      const result = await checkUrl(hit.url, client);
+      done += 1;
+      printProgress(done, targets.length, options.json);
+      return result;
+    });
+  } finally {
+    client.close();
+  }
+  const elapsedMs = Date.now() - started;
 
   const missing = results.filter((item) => item.status === "not_found");
   const failed = results.filter((item) => item.status === "failed");
@@ -329,6 +379,7 @@ async function main() {
             refs: refsByUrl.get(item.url) ?? [],
             url: item.url,
           })),
+          elapsedMs,
           notFound: missing.length,
           ok,
         },
@@ -339,7 +390,9 @@ async function main() {
     return;
   }
 
-  console.log(`Checked: ${results.length}`);
+  console.log(
+    `Checked: ${results.length} in ${(elapsedMs / 1000).toFixed(1)}s`,
+  );
   console.log(`OK: ${ok}`);
   console.log(`404 Not Found: ${missing.length}`);
   if (failed.length > 0) {
