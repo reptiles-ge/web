@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import type { DangerLevel } from "@/data/species";
 
 import { Reveal } from "@/components/Reveal";
+import { levelTone } from "@/components/RiskLevelList";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
-import { levelTone } from "@/components/RiskLevelList";
 
 type RiskToHumansHeroProps = {
   countByLevel: Record<DangerLevel, number>;
