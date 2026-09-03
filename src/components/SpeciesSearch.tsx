@@ -49,6 +49,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const {
     active,
     activeIndex,
+    changeFilter,
     closeSearch,
     desktopInputRef,
     filter,
@@ -216,8 +217,6 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   );
 }
 
-}
-
 function useSpeciesSearch() {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("search");
@@ -248,14 +247,11 @@ function useSpeciesSearch() {
 
   const groups = useMemo(() => {
     if (!showRecent) return searched.groups;
-    const recentGroup: {
-      items: SearchDocument[];
-      kind: "page";
-    } = {
+    const recentGroup: SearchGroup = {
       items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
       kind: "page",
     };
-    const rest = [];
+    const rest: SearchGroup[] = [];
     for (const group of searched.groups) {
       const items = group.items.filter(
         (item) => !recent.some((entry) => entry.key === item.key),

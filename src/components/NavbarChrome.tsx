@@ -35,7 +35,6 @@ export function NavbarChrome({
   speciesLabel,
 }: {
   chromeVariant: ChromeVariant;
-  closeMenuAria: string;
   closeMenuLabel: string;
   discoverLabel: string;
   groupsActive: boolean;
