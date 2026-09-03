@@ -126,6 +126,41 @@ export function SpeciesProfileHero({
   );
 }
 
+function SpeciesProfileCrumb({
+  crumb,
+  index,
+  isLast,
+}: {
+  crumb: SpeciesBreadcrumbCrumb;
+  index: number;
+  isLast: boolean;
+}) {
+  return (
+    <li className="inline-flex items-center gap-2">
+      {index > 0 ? (
+        <span aria-hidden="true" className="text-white/30">
+          /
+        </span>
+      ) : null}
+      {crumb.href && !isLast ? (
+        <Link
+          className="transition-colors hover:text-white"
+          href={crumb.href}
+        >
+          {crumb.name}
+        </Link>
+      ) : (
+        <span
+          aria-current={isLast ? "page" : undefined}
+          className={isLast ? "text-white/80" : undefined}
+        >
+          {crumb.name}
+        </span>
+      )}
+    </li>
+  );
+}
+
 function SpeciesProfileHeroMedia({
   desktopHeroSrc,
   heroDesktopSources,
@@ -171,40 +206,5 @@ function SpeciesProfileHeroMedia({
         src={mobileHeroSrc ?? desktopHeroSrc}
       />
     </picture>
-  );
-}
-
-function SpeciesProfileCrumb({
-  crumb,
-  index,
-  isLast,
-}: {
-  crumb: SpeciesBreadcrumbCrumb;
-  index: number;
-  isLast: boolean;
-}) {
-  return (
-    <li className="inline-flex items-center gap-2">
-      {index > 0 ? (
-        <span aria-hidden="true" className="text-white/30">
-          /
-        </span>
-      ) : null}
-      {crumb.href && !isLast ? (
-        <Link
-          className="transition-colors hover:text-white"
-          href={crumb.href}
-        >
-          {crumb.name}
-        </Link>
-      ) : (
-        <span
-          aria-current={isLast ? "page" : undefined}
-          className={isLast ? "text-white/80" : undefined}
-        >
-          {crumb.name}
-        </span>
-      )}
-    </li>
   );
 }

@@ -37,6 +37,16 @@ type TurtleIdentifyChooserProps = {
   turtles: Species[];
 };
 
+export function collectTurtleRegions(turtles: Species[]) {
+  const regionMap = new Map<string, Region>();
+  for (const item of turtles) {
+    for (const region of getRegionsForSpecies(item.id)) {
+      regionMap.set(region.id, region);
+    }
+  }
+  return [...regionMap.values()];
+}
+
 export function TurtleIdentifyChooser({
   locale,
   regions,
@@ -172,14 +182,4 @@ function TurtleChooserCard({
       </article>
     </Reveal>
   );
-}
-
-export function collectTurtleRegions(turtles: Species[]) {
-  const regionMap = new Map<string, Region>();
-  for (const item of turtles) {
-    for (const region of getRegionsForSpecies(item.id)) {
-      regionMap.set(region.id, region);
-    }
-  }
-  return [...regionMap.values()];
 }

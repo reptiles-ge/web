@@ -4,11 +4,11 @@ import { useTranslations } from "next-intl";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
-import { isSnakeSpecies, type HubClusterCard } from "@/lib/clusterGuides";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
@@ -16,8 +16,8 @@ import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
-import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { SpeciesSources } from "@/components/SpeciesSources";
+import { type HubClusterCard, isSnakeSpecies } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate } from "@/lib/formatDate";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
