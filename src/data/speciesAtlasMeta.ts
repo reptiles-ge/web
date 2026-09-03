@@ -1,11 +1,5 @@
 export type AnimalGroup =
-  | "amphibian"
-  | "bird"
-  | "lizard"
-  | "mammal"
-  | "snake"
-  | "spider"
-  | "turtle";
+  "amphibian" | "bird" | "lizard" | "mammal" | "snake" | "spider" | "turtle";
 
 export type HabitatTag = "forest" | "grassland" | "mountain" | "wetland";
 

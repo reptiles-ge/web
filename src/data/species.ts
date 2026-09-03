@@ -1,10 +1,7 @@
 import type { GalleryImage, PhotoCredit, Species } from "./speciesTypes";
 
 import { species } from "./species.generated";
-import {
-  featuredSpeciesIds,
-  unpublishedSpeciesIds,
-} from "./speciesPublish";
+import { featuredSpeciesIds, unpublishedSpeciesIds } from "./speciesPublish";
 
 export { featuredSpeciesIds, unpublishedSpeciesIds } from "./speciesPublish";
 

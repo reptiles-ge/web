@@ -7,10 +7,7 @@ import {
   searchGroupHeading,
   type SearchGroupTitles,
 } from "@/lib/searchGroupHeading";
-import {
-  type SearchDocument,
-  type SearchGroup,
-} from "@/lib/siteSearch";
+import { type SearchDocument, type SearchGroup } from "@/lib/siteSearch";
 
 export type { SearchGroupTitles } from "@/lib/searchGroupHeading";
 

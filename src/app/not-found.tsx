@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { cookies } from "next/headers";
 
 import { Navbar } from "@/components/Navbar";

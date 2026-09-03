@@ -70,7 +70,10 @@ function resolveUpdatedAt(filePaths: string[]): string {
   throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
 }
 
-function formatZodError(filePath: string, error: { issues: Array<{ message: string; path: PropertyKey[] }> }) {
+function formatZodError(
+  filePath: string,
+  error: { issues: Array<{ message: string; path: PropertyKey[] }> },
+) {
   return error.issues
     .map((issue) => {
       const field = issue.path.length > 0 ? issue.path.join(".") : "(root)";
@@ -188,7 +191,9 @@ for (const id of ids) {
 
   const fm = parsedKa.data;
   if (fm.id !== id) {
-    errors.push(`${kaPath}: folder/id mismatch: folder=${id} frontmatter=${fm.id}`);
+    errors.push(
+      `${kaPath}: folder/id mismatch: folder=${id} frontmatter=${fm.id}`,
+    );
   }
 
   if (!sourcesAreValid(fm.sources)) {
@@ -204,9 +209,7 @@ for (const id of ids) {
   }
 
   if (fm.danger && meta && !groupHasVenomConcept(meta.group)) {
-    errors.push(
-      `${kaPath}: danger: not allowed for group ${meta.group}`,
-    );
+    errors.push(`${kaPath}: danger: not allowed for group ${meta.group}`);
   }
 
   const enPath = path.join(contentRoot, id, "en.mdx");
@@ -227,7 +230,9 @@ for (const id of ids) {
       errors.push(formatZodError(filePath, parsedTr.error));
       continue;
     }
-    translationTables[locale][id] = toTranslation(parsedTr.data as KaFrontmatter);
+    translationTables[locale][id] = toTranslation(
+      parsedTr.data as KaFrontmatter,
+    );
   }
 }
 
