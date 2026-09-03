@@ -548,7 +548,8 @@ export function groupHasVenomConcept(group: AnimalGroup) {
     group === "snake" ||
     group === "lizard" ||
     group === "turtle" ||
-    group === "amphibian"
+    group === "amphibian" ||
+    group === "spider"
   );
 }
 
@@ -563,6 +564,7 @@ export function getVenomousCatalogSpecies(
 ) {
   return catalog
     .filter((item) => isVenomousDanger(item.danger))
+    .filter((item) => getSpeciesAtlasMeta(item.id).group === "snake")
     .sort(
       (a, b) =>
         venomousDangerOrder[a.danger ?? "Harmless"] -
