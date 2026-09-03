@@ -39,10 +39,7 @@ export function AnchoredHeading({
   }
 
   return (
-    <Tag
-      id={headingId}
-      className={cn("group/heading scroll-mt-28", className)}
-    >
+    <Tag id={headingId} className={cn("group/heading scroll-mt-28", className)}>
       <span className="inline">{children}</span>
       {showAnchor ? (
         <a

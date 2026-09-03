@@ -185,7 +185,10 @@ export function SpeciesIndexTable({
           </div>
 
           <div
-            className={cn(showFilters && "mt-10", "hidden overflow-x-auto lg:block")}
+            className={cn(
+              showFilters && "mt-10",
+              "hidden overflow-x-auto lg:block",
+            )}
           >
             <table className="w-full min-w-[920px] border-y border-border text-left">
               <thead>
