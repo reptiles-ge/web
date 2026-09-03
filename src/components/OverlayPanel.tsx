@@ -129,7 +129,10 @@ export function OverlayPanel({
               role="dialog"
               aria-modal="true"
               aria-label={title}
-              className={`fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden ${mobileSheetClassName ?? ""}`}
+              className={cn(
+                "fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden",
+                mobileSheetClassName,
+              )}
               initial={{ opacity: 0.96, y: "100%" }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0.96, y: "100%" }}

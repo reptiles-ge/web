@@ -210,17 +210,19 @@ function ResultRow({
             {highlight(item.title, query)}
           </span>
           <span
-            className={`mt-0.5 block truncate text-[12px] text-muted-foreground ${
-              item.kind === "species" ? "italic" : ""
-            }`}
+            className={cn(
+              "mt-0.5 block truncate text-[12px] text-muted-foreground",
+              item.kind === "species" && "italic",
+            )}
           >
             {highlight(item.subtitle, query)}
           </span>
         </span>
         <ArrowUpRight
-          className={`size-3.5 shrink-0 transition-opacity ${
-            active ? "text-primary opacity-100" : "opacity-0"
-          }`}
+          className={cn(
+            "size-3.5 shrink-0 transition-opacity",
+            active ? "text-primary opacity-100" : "opacity-0",
+          )}
           aria-hidden="true"
         />
       </button>
@@ -592,16 +594,19 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         aria-label={t("open")}
         aria-expanded={open}
         onClick={() => openSearch("mobile")}
-        className={`${chromeIconButtonBase} md:hidden ${iconButtonClass}`}
+        className={cn(chromeIconButtonBase, "md:hidden", iconButtonClass)}
       >
         <Search className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
       </button>
 
       <div
-        className={`group hidden w-[280px] items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex lg:w-[320px] ${shellClass}`}
+        className={cn(
+          "group hidden w-[280px] items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex lg:w-[320px]",
+          shellClass,
+        )}
       >
         <Search
-          className={`size-3.5 shrink-0 ${iconClass}`}
+          className={cn("size-3.5 shrink-0", iconClass)}
           aria-hidden="true"
         />
         <input
@@ -634,7 +639,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             if (event.nativeEvent.isComposing || event.keyCode === 229) return;
             onKeyDown(event);
           }}
-          className={`${searchInputClass} ${inputClass}`}
+          className={cn(searchInputClass, inputClass)}
         />
         {query ? (
           <button
@@ -647,17 +652,21 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
               setOpen(true);
               desktopInputRef.current?.focus();
             }}
-            className={`rounded-full p-0.5 transition-colors ${
+            className={cn(
+              "rounded-full p-0.5 transition-colors",
               isDark
                 ? "text-white/50 hover:bg-white/10 hover:text-white"
-                : "text-muted-foreground hover:bg-secondary hover:text-foreground"
-            }`}
+                : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+            )}
           >
             <X className="size-3.5" aria-hidden="true" />
           </button>
         ) : modKey ? (
           <kbd
-            className={`hidden rounded-md border px-1.5 py-0.5 font-sans text-[10px] font-semibold tracking-wide lg:inline ${kbdClass}`}
+            className={cn(
+              "hidden rounded-md border px-1.5 py-0.5 font-sans text-[10px] font-semibold tracking-wide lg:inline",
+              kbdClass,
+            )}
           >
             {modKey}K
           </kbd>
