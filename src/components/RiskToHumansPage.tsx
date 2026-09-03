@@ -1,6 +1,15 @@
 "use client";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
+import {
+  CLUSTER_EYEBROW,
+  CLUSTER_FAQ_BODY,
+  CLUSTER_FAQ_TITLE,
+  CLUSTER_HERO_BODY,
+  CLUSTER_HERO_EYEBROW,
+  CLUSTER_HERO_TITLE,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { DangerLevel, Species } from "@/data/species";
@@ -14,7 +23,7 @@ import {
   Shield,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 
 type RiskToHumansPageProps = {
   high: Species[];
@@ -302,48 +311,22 @@ export function RiskToHumansPage({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
               <Reveal>
-                <Link
+                <PathCard
                   href="/venomous-snakes"
-                  className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
-                >
-                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                    {t("venomousEyebrow")}
-                  </span>
-                  <div className="mt-6">
-                    <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-                      {t("venomousTitle")}
-                    </p>
-                    <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-                      {t("venomousBody")}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-                      {t("venomousCta")}
-                      <ArrowUpRight className="size-3.5" />
-                    </span>
-                  </div>
-                </Link>
+                  eyebrow={t("venomousEyebrow")}
+                  title={t("venomousTitle")}
+                  body={t("venomousBody")}
+                  cta={t("venomousCta")}
+                />
               </Reveal>
               <Reveal delay={60}>
-                <Link
+                <PathCard
                   href="/snakes/shxamiani-gvelis-amocnoba"
-                  className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
-                >
-                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                    {t("idEyebrow")}
-                  </span>
-                  <div className="mt-6">
-                    <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-                      {t("idTitle")}
-                    </p>
-                    <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-                      {t("idBody")}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-                      {t("idCta")}
-                      <ArrowUpRight className="size-3.5" />
-                    </span>
-                  </div>
-                </Link>
+                  eyebrow={t("idEyebrow")}
+                  title={t("idTitle")}
+                  body={t("idBody")}
+                  cta={t("idCta")}
+                />
               </Reveal>
             </div>
           </div>
@@ -356,15 +339,14 @@ export function RiskToHumansPage({
         <section className="border-t border-border bg-ink py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
-                {t("ctaEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] font-semibold leading-[1.05] text-white">
-                {t("ctaTitle")}
-              </h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">
-                {t("ctaBody")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("ctaEyebrow")}
+                title={t("ctaTitle")}
+                body={t("ctaBody")}
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                titleClassName={CLUSTER_HERO_TITLE}
+                bodyClassName={CLUSTER_HERO_BODY}
+              />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href="/species"
@@ -388,6 +370,41 @@ export function RiskToHumansPage({
   );
 }
 
+function PathCard({
+  href,
+  eyebrow,
+  title,
+  body,
+  cta,
+}: {
+  href: ComponentProps<typeof Link>["href"];
+  eyebrow: string;
+  title: string;
+  body: string;
+  cta: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
+    >
+      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+        {eyebrow}
+      </span>
+      <div className="mt-6">
+        <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
+          {title}
+        </p>
+        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">{body}</p>
+        <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+          {cta}
+          <ArrowUpRight className="size-3.5" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 function FaqSection() {
   const t = useTranslations("riskToHumans");
   const [open, setOpen] = useState<number | null>(0);
@@ -398,15 +415,14 @@ function FaqSection() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("faqEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {t("faqTitle")}
-            </h2>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              {t("faqIntro")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("faqEyebrow")}
+              title={t("faqTitle")}
+              body={t("faqIntro")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_FAQ_TITLE}
+              bodyClassName={CLUSTER_FAQ_BODY}
+            />
           </Reveal>
           <div>
             {items.map((n, index) => {

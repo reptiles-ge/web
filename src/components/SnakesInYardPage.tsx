@@ -4,6 +4,16 @@ import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_FAQ_BODY,
+  CLUSTER_FAQ_TITLE,
+  CLUSTER_HERO_BODY,
+  CLUSTER_HERO_EYEBROW,
+  CLUSTER_TITLE_RELATED,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
@@ -119,15 +129,14 @@ export function SnakesInYardPage({
         <section className="border-b border-border bg-surface py-16 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("whyEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("whyTitle")}
-              </h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                {t("whyLead")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("whyEyebrow")}
+                title={t("whyTitle")}
+                body={t("whyLead")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
+                bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
+              />
               <div className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
                 <div className="bg-card p-7 sm:p-8">
                   <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
@@ -175,15 +184,14 @@ export function SnakesInYardPage({
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("actionsEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-                {t("actionsTitle")}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("actionsLead")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("actionsEyebrow")}
+                title={t("actionsTitle")}
+                body={t("actionsLead")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                bodyClassName={CLUSTER_BODY}
+              />
             </Reveal>
 
             <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
@@ -329,15 +337,14 @@ export function SnakesInYardPage({
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("relatedGuidesEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("relatedGuidesTitle")}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("relatedGuidesBody")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("relatedGuidesEyebrow")}
+                title={t("relatedGuidesTitle")}
+                body={t("relatedGuidesBody")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_RELATED}
+                bodyClassName={CLUSTER_BODY}
+              />
             </Reveal>
             <RelatedGuideGrid cards={relatedGuides} locale={locale} />
           </div>
@@ -358,10 +365,14 @@ export function SnakesInYardPage({
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
-                {t("ctaEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white">
+              <ClusterSectionIntro
+                eyebrow={t("ctaEyebrow")}
+                title={t("ctaTitle")}
+                body={t("ctaBody")}
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white"
+                bodyClassName={CLUSTER_HERO_BODY}
+              />
                 {t("ctaTitle")}
               </h2>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">
