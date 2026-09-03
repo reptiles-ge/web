@@ -239,16 +239,17 @@ export function Navbar() {
           {links
             .filter((link) => link.href !== "/species")
             .map((link) => {
-              const className = `text-[13px] font-medium tracking-wide transition-colors ${
+              const className = cn(
+                "text-[13px] font-medium tracking-wide transition-colors",
                 scrolled
                   ? "text-foreground/70 hover:text-foreground"
-                  : "text-white/70 hover:text-white"
-              }`;
+                  : "text-white/70 hover:text-white",
+              );
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative ${className}`}
+                  className={cn("relative", className)}
                 >
                   {link.label}
                 </Link>
@@ -261,21 +262,23 @@ export function Navbar() {
           <LanguageSwitcher variant={chromeVariant} />
           <Link
             href="/species"
-            className={`hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex ${
+            className={cn(
+              "hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex",
               scrolled
                 ? "bg-primary text-white hover:bg-primary/90 dark:text-ink"
-                : "bg-white/90 text-ink hover:bg-white"
-            }`}
+                : "bg-white/90 text-ink hover:bg-white",
+            )}
           >
             {t("discover")}
           </Link>
           <button
             type="button"
-            className={`inline-flex size-10 items-center justify-center rounded-full transition-colors lg:hidden ${
+            className={cn(
+              "inline-flex size-10 items-center justify-center rounded-full transition-colors lg:hidden",
               scrolled || menuOpen
                 ? "text-foreground hover:bg-foreground/5"
-                : "text-white hover:bg-white/10"
-            }`}
+                : "text-white hover:bg-white/10",
+            )}
             aria-expanded={menuOpen}
             aria-controls={menuId}
             aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
@@ -292,21 +295,26 @@ export function Navbar() {
 
       <div
         id={menuId}
-        className={`lg:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={cn(
+          "lg:hidden",
+          menuOpen ? "pointer-events-auto" : "pointer-events-none",
+        )}
       >
         <button
           type="button"
           aria-label={t("closeMenu")}
-          className={`fixed inset-0 z-40 bg-black/45 transition-opacity duration-300 ${
-            menuOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={cn(
+            "fixed inset-0 z-40 bg-black/45 transition-opacity duration-300",
+            menuOpen ? "opacity-100" : "opacity-0",
+          )}
           onClick={() => setMenuOpen(false)}
         />
         <nav
           aria-label={t("openMenu")}
-          className={`fixed inset-x-0 top-17 z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-[28px] border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)] ${
-            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-          }`}
+          className={cn(
+            "fixed inset-x-0 top-17 z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-[28px] border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)]",
+            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
+          )}
         >
           <ul className="space-y-1">
             {mobileNavItems.map((item, index) => {
@@ -324,9 +332,10 @@ export function Navbar() {
                       <span className="flex items-center gap-2 font-display text-[1.35rem] font-semibold text-foreground">
                         {t("groups")}
                         <ChevronDown
-                          className={`size-4 text-muted-foreground transition-transform ${
-                            mobileGroupsOpen ? "rotate-180" : ""
-                          }`}
+                          className={cn(
+                            "size-4 text-muted-foreground transition-transform",
+                            mobileGroupsOpen && "rotate-180",
+                          )}
                           strokeWidth={1.75}
                         />
                       </span>
