@@ -21,10 +21,8 @@ import {
   SpeciesSearchMobileHeader,
   SpeciesSearchTrigger,
 } from "@/components/SpeciesSearchField";
-import {
-  SearchDesktopPanel,
-  SearchResultsList,
-} from "@/components/SpeciesSearchResults";
+import { SearchDesktopPanel } from "@/components/SpeciesSearchDesktopPanel";
+import { SearchResultsList } from "@/components/SpeciesSearchResults";
 import { useRouter } from "@/i18n/navigation";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import {

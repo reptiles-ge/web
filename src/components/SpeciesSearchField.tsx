@@ -9,9 +9,9 @@ import {
 import type { SearchFilter } from "@/lib/siteSearch";
 
 import {
-  FilterBar,
+  SpeciesSearchFilterBar,
   type SearchFilterLabels,
-} from "@/components/SpeciesSearchResults";
+} from "@/components/SpeciesSearchFilterBar";
 import {
   chromeIconButtonBase,
   chromeIconButtonClass,
@@ -92,7 +92,7 @@ export function SpeciesSearchMobileHeader({
         ) : null}
       </div>
       <div className="-mx-4 w-[calc(100%+2rem)]">
-        <FilterBar
+        <SpeciesSearchFilterBar
           labels={filterLabels}
           onChange={onFilterChange}
           value={filter}
