@@ -10,7 +10,6 @@ import { regionHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
 import {
   useCallback,
-  useEffect,
   useId,
   useMemo,
   useRef,
