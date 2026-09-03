@@ -43,195 +43,34 @@ type SpeciesSearchProps = {
 };
 
 export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
-  const locale = useLocale() as AppLocale;
   const t = useTranslations("search");
-  const router = useRouter();
-  const rootRef = useRef<HTMLDivElement>(null);
-  const desktopInputRef = useRef<HTMLInputElement>(null);
-  const mobileInputRef = useRef<HTMLInputElement>(null);
-  const listId = useId();
-  const mobileListId = useId();
-  const [query, setQuery] = useState("");
-  const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState<SearchFilter>("all");
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [recent, setRecent] = useState<SearchDocument[]>([]);
-  const [modKey, setModKey] = useState("");
-  const deferredQuery = useDeferredValue(query);
-  const lastSearchKey = useRef("");
-  const queryEntry = useRef<"suggestion" | "type">("type");
-
-  const index = useMemo(() => buildSearchIndex(locale), [locale]);
-  const searched = useMemo(
-    () => searchIndex(index, deferredQuery, filter),
-    [index, deferredQuery, filter],
-  );
-
-  const trimmed = deferredQuery.trim();
-  const showRecent = open && !trimmed && filter === "all" && recent.length > 0;
-
-  const groups = useMemo(() => {
-    if (!showRecent) return searched.groups;
-    const recentGroup = {
-      items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
-      kind: "page" as const,
-    };
-    const rest = searched.groups.flatMap((group) => {
-      const items = group.items.filter(
-        (item) => !recent.some((entry) => entry.key === item.key),
-      );
-      return items.length > 0 ? [{ ...group, items }] : [];
-    });
-    return [recentGroup, ...rest];
-  }, [searched.groups, showRecent, recent]);
-
-  const flat = useMemo(() => flattenGroups(groups), [groups]);
-  const suggestions = Array.isArray(t.raw("suggestions"))
-    ? (t.raw("suggestions") as string[])
-    : [];
-
+  const search = useSpeciesSearch();
+  const {
+    active,
+    activeIndex,
+    closeSearch,
+    desktopInputRef,
+    filter,
+    flat,
+    goTo,
+    groups,
+    listId,
+    mobileInputRef,
+    mobileListId,
+    modKey,
+    open,
+    openSearch,
+    query,
+    queryEntry,
+    rootRef,
+    setActiveIndex,
+    setOpen,
+    setQuery,
+    showRecent,
+    suggestions,
+    trimmed,
+  } = search;
   const isDark = variant === "dark";
-
-  useEffect(() => {
-    setRecent(resolveRecent(index, readRecent()));
-  }, [index]);
-
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [deferredQuery, open, filter]);
-
-  useEffect(() => {
-    const mac = /Mac|iPhone|iPad/.test(navigator.platform);
-    setModKey(mac ? "⌘" : "Ctrl");
-  }, []);
-
-  useEffect(() => {
-    if (open) return;
-    lastSearchKey.current = "";
-    desktopInputRef.current?.blur();
-    mobileInputRef.current?.blur();
-  }, [open]);
-
-  useEffect(() => {
-    if (!open) return;
-    if (!window.matchMedia("(max-width: 767px)").matches) return;
-
-    const frame = window.requestAnimationFrame(() => {
-      mobileInputRef.current?.focus();
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [open]);
-
-  const closeSearch = useCallback(() => {
-    setOpen(false);
-    setQuery("");
-    setFilter("all");
-  }, []);
-
-  const openSearch = useCallback(
-    (method: "click" | "mobile" | "shortcut") => {
-      if (!open) trackEvent("search_open", { entry_method: method });
-      setOpen(true);
-    },
-    [open],
-  );
-
-  function changeFilter(value: SearchFilter) {
-    if (value !== filter) {
-      trackEvent("search_filter", {
-        search_filter: value,
-        search_term: query.trim() ? truncateSearchTerm(query) : undefined,
-      });
-    }
-    setFilter(value);
-  }
-
-  const openSearchRef = useRef(openSearch);
-  const closeSearchRef = useRef(closeSearch);
-  const openRef = useRef(open);
-
-  useEffect(() => {
-    openSearchRef.current = openSearch;
-    closeSearchRef.current = closeSearch;
-    openRef.current = open;
-  }, [openSearch, closeSearch, open]);
-
-  useEffect(() => {
-    function onShortcut(event: globalThis.KeyboardEvent) {
-      if (
-        !(event.metaKey || event.ctrlKey) ||
-        event.key.toLowerCase() !== "k"
-      ) {
-        return;
-      }
-      event.preventDefault();
-      if (openRef.current) {
-        closeSearchRef.current();
-        return;
-      }
-      openSearchRef.current("shortcut");
-      const mobile = window.matchMedia("(max-width: 767px)").matches;
-      window.requestAnimationFrame(() => {
-        (mobile ? mobileInputRef : desktopInputRef).current?.focus();
-      });
-    }
-
-    window.addEventListener("keydown", onShortcut);
-    return () => window.removeEventListener("keydown", onShortcut);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    const q = deferredQuery.trim();
-    if (q.length < 2) return;
-    const count = flattenGroups(searched.groups).length;
-    const key = `${q}|${filter}|${count}`;
-    const timer = window.setTimeout(() => {
-      if (lastSearchKey.current === key) return;
-      lastSearchKey.current = key;
-      const term = truncateSearchTerm(q);
-      trackEvent("search_query", {
-        entry_method: queryEntry.current,
-        has_results: count > 0,
-        result_count: count,
-        search_filter: filter,
-        search_term: term,
-      });
-      queryEntry.current = "type";
-      if (count === 0) {
-        trackEvent("search_no_result", {
-          search_filter: filter,
-          search_term: term,
-        });
-      }
-    }, 500);
-    return () => window.clearTimeout(timer);
-  }, [open, deferredQuery, filter, searched.groups]);
-
-  const goTo = useCallback(
-    (item: SearchDocument) => {
-      const term = query.trim();
-      const isRecent = !term && recent.some((entry) => entry.key === item.key);
-      const position = flat.findIndex((entry) => entry.key === item.key) + 1;
-      trackEvent("search_result_click", {
-        is_recent: isRecent,
-        result_count: flat.length,
-        result_id: item.id,
-        result_kind: item.kind,
-        result_position: position > 0 ? position : undefined,
-        search_filter: filter,
-        search_term: term ? truncateSearchTerm(term) : undefined,
-      });
-      setRecent(
-        resolveRecent(index, writeRecent({ id: item.id, kind: item.kind })),
-      );
-      closeSearch();
-      startTransition(() => {
-        router.push(item.href);
-      });
-    },
-    [closeSearch, filter, flat, index, query, recent, router],
-  );
 
   const filterLabels = {
     all: t("all"),
@@ -375,6 +214,229 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       />
     </div>
   );
+}
+
+}
+
+function useSpeciesSearch() {
+  const locale = useLocale() as AppLocale;
+  const t = useTranslations("search");
+  const router = useRouter();
+  const rootRef = useRef<HTMLDivElement>(null);
+  const desktopInputRef = useRef<HTMLInputElement>(null);
+  const mobileInputRef = useRef<HTMLInputElement>(null);
+  const listId = useId();
+  const mobileListId = useId();
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
+  const [filter, setFilter] = useState<SearchFilter>("all");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [recent, setRecent] = useState<SearchDocument[]>([]);
+  const [modKey, setModKey] = useState("");
+  const deferredQuery = useDeferredValue(query);
+  const lastSearchKey = useRef("");
+  const queryEntry = useRef<"suggestion" | "type">("type");
+
+  const index = useMemo(() => buildSearchIndex(locale), [locale]);
+  const searched = useMemo(
+    () => searchIndex(index, deferredQuery, filter),
+    [index, deferredQuery, filter],
+  );
+
+  const trimmed = deferredQuery.trim();
+  const showRecent = open && !trimmed && filter === "all" && recent.length > 0;
+
+  const groups = useMemo(() => {
+    if (!showRecent) return searched.groups;
+    const recentGroup: {
+      items: SearchDocument[];
+      kind: "page";
+    } = {
+      items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
+      kind: "page",
+    };
+    const rest = [];
+    for (const group of searched.groups) {
+      const items = group.items.filter(
+        (item) => !recent.some((entry) => entry.key === item.key),
+      );
+      if (items.length > 0) rest.push({ ...group, items });
+    }
+    return [recentGroup, ...rest];
+  }, [searched.groups, showRecent, recent]);
+
+  const flat = useMemo(() => flattenGroups(groups), [groups]);
+  const suggestions = Array.isArray(t.raw("suggestions"))
+    ? (t.raw("suggestions") as string[])
+    : [];
+
+  useEffect(() => {
+    setRecent(resolveRecent(index, readRecent()));
+  }, [index]);
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [deferredQuery, open, filter]);
+
+  useEffect(() => {
+    const mac = /Mac|iPhone|iPad/.test(navigator.platform);
+    setModKey(mac ? "⌘" : "Ctrl");
+  }, []);
+
+  useEffect(() => {
+    if (open) return;
+    lastSearchKey.current = "";
+    desktopInputRef.current?.blur();
+    mobileInputRef.current?.blur();
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    if (!window.matchMedia("(max-width: 767px)").matches) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      mobileInputRef.current?.focus();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [open]);
+
+  const closeSearch = useCallback(() => {
+    setOpen(false);
+    setQuery("");
+    setFilter("all");
+  }, []);
+
+  const openSearch = useCallback(
+    (method: "click" | "mobile" | "shortcut") => {
+      if (!open) trackEvent("search_open", { entry_method: method });
+      setOpen(true);
+    },
+    [open],
+  );
+
+  function changeFilter(value: SearchFilter) {
+    if (value !== filter) {
+      trackEvent("search_filter", {
+        search_filter: value,
+        search_term: query.trim() ? truncateSearchTerm(query) : undefined,
+      });
+    }
+    setFilter(value);
+  }
+
+  const openSearchRef = useRef(openSearch);
+  const closeSearchRef = useRef(closeSearch);
+  const openRef = useRef(open);
+
+  useEffect(() => {
+    openSearchRef.current = openSearch;
+    closeSearchRef.current = closeSearch;
+    openRef.current = open;
+  }, [openSearch, closeSearch, open]);
+
+  useEffect(() => {
+    function onShortcut(event: globalThis.KeyboardEvent) {
+      if (
+        !(event.metaKey || event.ctrlKey) ||
+        event.key.toLowerCase() !== "k"
+      ) {
+        return;
+      }
+      event.preventDefault();
+      if (openRef.current) {
+        closeSearchRef.current();
+        return;
+      }
+      openSearchRef.current("shortcut");
+      const mobile = window.matchMedia("(max-width: 767px)").matches;
+      window.requestAnimationFrame(() => {
+        (mobile ? mobileInputRef : desktopInputRef).current?.focus();
+      });
+    }
+
+    window.addEventListener("keydown", onShortcut);
+    return () => window.removeEventListener("keydown", onShortcut);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const q = deferredQuery.trim();
+    if (q.length < 2) return;
+    const count = flattenGroups(searched.groups).length;
+    const key = `${q}|${filter}|${count}`;
+    const timer = window.setTimeout(() => {
+      if (lastSearchKey.current === key) return;
+      lastSearchKey.current = key;
+      const term = truncateSearchTerm(q);
+      trackEvent("search_query", {
+        entry_method: queryEntry.current,
+        has_results: count > 0,
+        result_count: count,
+        search_filter: filter,
+        search_term: term,
+      });
+      queryEntry.current = "type";
+      if (count === 0) {
+        trackEvent("search_no_result", {
+          search_filter: filter,
+          search_term: term,
+        });
+      }
+    }, 500);
+    return () => window.clearTimeout(timer);
+  }, [open, deferredQuery, filter, searched.groups]);
+
+  const goTo = useCallback(
+    (item: SearchDocument) => {
+      const term = query.trim();
+      const isRecent = !term && recent.some((entry) => entry.key === item.key);
+      const position = flat.findIndex((entry) => entry.key === item.key) + 1;
+      trackEvent("search_result_click", {
+        is_recent: isRecent,
+        result_count: flat.length,
+        result_id: item.id,
+        result_kind: item.kind,
+        result_position: position > 0 ? position : undefined,
+        search_filter: filter,
+        search_term: term ? truncateSearchTerm(term) : undefined,
+      });
+      setRecent(
+        resolveRecent(index, writeRecent({ id: item.id, kind: item.kind })),
+      );
+      closeSearch();
+      startTransition(() => {
+        router.push(item.href);
+      });
+    },
+    [closeSearch, filter, flat, index, query, recent, router],
+  );
+
+  return {
+    active: flat[activeIndex],
+    activeIndex,
+    changeFilter,
+    closeSearch,
+    desktopInputRef,
+    filter,
+    flat,
+    goTo,
+    groups,
+    listId,
+    mobileInputRef,
+    mobileListId,
+    modKey,
+    open,
+    openSearch,
+    query,
+    queryEntry,
+    rootRef,
+    setActiveIndex,
+    setOpen,
+    setQuery,
+    showRecent,
+    suggestions,
+    trimmed,
+  };
 }
 
 function onSearchKeyDown(

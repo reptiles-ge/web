@@ -8,6 +8,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
+import { VenomousSnakesCta } from "@/components/VenomousSnakesCta";
 import { VenomousSnakesGuides } from "@/components/VenomousSnakesGuides";
 import { VenomousSnakesHero } from "@/components/VenomousSnakesHero";
 import { VenomousSnakesSpecies } from "@/components/VenomousSnakesSpecies";
@@ -78,11 +79,7 @@ export function VenomousSnakesPage({
           vipers={vipers}
         />
 
-        <VenomousSnakesGuides
-          heroSrc={heroSrc}
-          locale={locale}
-          relatedGuides={relatedGuides}
-        />
+        <VenomousSnakesGuides locale={locale} relatedGuides={relatedGuides} />
 
         <ClusterFaqSection
           intro={{
@@ -97,6 +94,8 @@ export function VenomousSnakesPage({
         />
 
         <ContentAttribution />
+
+        <VenomousSnakesCta heroSrc={heroSrc} />
       </main>
     </div>
   );

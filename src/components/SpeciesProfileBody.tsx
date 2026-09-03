@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
-import type { HubClusterCard } from "@/lib/clusterGuides";
+import { isSnakeSpecies, type HubClusterCard } from "@/lib/clusterGuides";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
@@ -18,7 +18,6 @@ import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { SpeciesSources } from "@/components/SpeciesSources";
-import { isSnakeSpecies } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate } from "@/lib/formatDate";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";

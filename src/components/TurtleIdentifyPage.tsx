@@ -8,7 +8,10 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import { TurtleIdentifyChooser, collectTurtleRegions } from "@/components/TurtleIdentifyChooser";
+import {
+  collectTurtleRegions,
+  TurtleIdentifyChooser,
+} from "@/components/TurtleIdentifyChooser";
 import { TurtleIdentifyFlow } from "@/components/TurtleIdentifyFlow";
 import {
   TURTLE_ORDER,
