@@ -205,6 +205,7 @@ export const featuredSpeciesIds = [
   "capra-aegagrus",
   "argiope-bruennichi",
   "argiope-lobata",
+  "steatoda-paykulliana",
 ] as const;
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
