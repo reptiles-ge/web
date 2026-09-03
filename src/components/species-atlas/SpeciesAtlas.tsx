@@ -20,10 +20,7 @@ import {
   type AtlasFilters,
   type HabitatTag,
 } from "@/data/speciesAtlas";
-import {
-  localizeRegionText,
-  regions,
-} from "@/data/regions";
+import { localizeRegionText, regions } from "@/data/regions";
 import { getCatalogSpecies, images, type Species } from "@/data/species";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -192,7 +189,9 @@ function LensRow({
       <p className="w-24 shrink-0 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:pt-0.5">
         {label}
       </p>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">{children}</div>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        {children}
+      </div>
     </div>
   );
 }
@@ -257,9 +256,7 @@ export function SpeciesAtlas({
   const stats = useMemo(() => getAtlasStats(getCatalogSpecies()), []);
   const recent = useMemo(
     () =>
-      getRecentlyUpdatedSpecies(4).map((item) =>
-        localizeSpecies(item, locale),
-      ),
+      getRecentlyUpdatedSpecies(4).map((item) => localizeSpecies(item, locale)),
     [locale],
   );
 
@@ -354,8 +351,7 @@ export function SpeciesAtlas({
     setFilters(defaultAtlasFilters);
   }
 
-  const hasActiveFilters =
-    facetCount > 0 || filters.query.trim().length > 0;
+  const hasActiveFilters = facetCount > 0 || filters.query.trim().length > 0;
 
   return (
     <div className="min-h-screen bg-background">
@@ -381,7 +377,10 @@ export function SpeciesAtlas({
               <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
-                    <Link href="/" className="transition-colors hover:text-white">
+                    <Link
+                      href="/"
+                      className="transition-colors hover:text-white"
+                    >
                       {t("breadcrumbHome")}
                     </Link>
                   </li>
@@ -590,7 +589,10 @@ export function SpeciesAtlas({
               </div>
 
               <div className="mt-4 flex items-center justify-between gap-3 md:mt-6">
-                <p className="text-[13px] text-muted-foreground" aria-live="polite">
+                <p
+                  className="text-[13px] text-muted-foreground"
+                  aria-live="polite"
+                >
                   {t("resultsCount", { count: filtered.length })}
                 </p>
                 {hasActiveFilters ? (
