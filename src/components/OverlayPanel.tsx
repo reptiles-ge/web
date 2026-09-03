@@ -14,6 +14,7 @@ import { createPortal } from "react-dom";
 
 import { MotionLazy } from "@/components/MotionLazy";
 import { cn } from "@/lib/cn";
+import { cycleTab, prefersReducedMotion } from "@/lib/focusTrap";
 
 const panelTransition = { duration: 0.22, ease: [0.22, 1, 0.36, 1] as const };
 const sheetTransition = { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const };
@@ -55,6 +56,8 @@ export function OverlayPanel({
     () => false,
   );
   const sheetRef = useRef<HTMLDivElement>(null);
+  const desktopRef = useRef<HTMLDivElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
   const onCloseRef = useRef(onClose);
 
   useEffect(() => {
@@ -64,11 +67,17 @@ export function OverlayPanel({
   useEffect(() => {
     if (!open) return;
 
+    openerRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
     function onPointerDown(event: MouseEvent) {
       const target = event.target as Node;
       if (
         rootRef.current?.contains(target) ||
-        sheetRef.current?.contains(target)
+        sheetRef.current?.contains(target) ||
+        desktopRef.current?.contains(target)
       ) {
         return;
       }
@@ -76,7 +85,11 @@ export function OverlayPanel({
     }
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onCloseRef.current();
+      if (event.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      cycleTab(event, [rootRef.current, desktopRef.current, sheetRef.current]);
     }
 
     document.addEventListener("mousedown", onPointerDown);
@@ -84,6 +97,7 @@ export function OverlayPanel({
     return () => {
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
+      openerRef.current?.focus();
     };
   }, [open, rootRef]);
 
@@ -119,10 +133,17 @@ export function OverlayPanel({
             )}
             exit={{ opacity: 0, scale: 0.98, y: -4 }}
             id={panelId}
-            initial={{ opacity: 0, scale: 0.98, y: -6 }}
+            initial={
+              prefersReducedMotion()
+                ? false
+                : { opacity: 0, scale: 0.98, y: -6 }
+            }
             key="overlay-panel"
+            ref={desktopRef}
             role={panelRole}
-            transition={panelTransition}
+            transition={
+              prefersReducedMotion() ? { duration: 0 } : panelTransition
+            }
           >
             {desktopContent}
           </m.div>

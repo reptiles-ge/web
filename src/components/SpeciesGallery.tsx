@@ -273,12 +273,13 @@ export function SpeciesGallery({
                 variant="lightbox"
               />
               <p className="text-[12px] tracking-[0.2em] text-white/35">
-                {active + 1} / {photos.length}
+                {(active ?? 0) + 1} / {photos.length}
               </p>
             </div>
           </div>
-        </dialog>
-      ) : null}
+          </>
+        ) : null}
+      </dialog>
     </>
   );
 }
