@@ -1,16 +1,13 @@
-"use client";
-
-import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { type ReactNode, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
-  CLUSTER_FAQ_BODY,
-  CLUSTER_FAQ_TITLE,
   CLUSTER_HERO_BODY,
   CLUSTER_HERO_EYEBROW,
   CLUSTER_HERO_TITLE,
@@ -40,7 +37,7 @@ type ClusterPageFrameProps = {
   stats?: ReactNode;
 };
 
-export function ClusterPageFrame({
+export async function ClusterPageFrame({
   attributionSourcesHref,
   children,
   ctaHash = "#content",
@@ -51,11 +48,17 @@ export function ClusterPageFrame({
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
-  const t = useTranslations(guide.messageKey);
-  const tShared = useTranslations("groupHubShared");
-  const tParent = useTranslations(parent.messageKey);
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations(guide.messageKey);
+  const tShared = await getTranslations("groupHubShared");
+  const tParent = await getTranslations(parent.messageKey);
+  const locale = (await getLocale()) as AppLocale;
   const relatedGuides = getRelatedGuideCards(guideId);
+  const faqItems = Array.from({ length: guide.faqCount }, (_, index) => {
+    const n = index + 1;
+    const qKey = `faq${n}Q` as Parameters<typeof t>[0];
+    const aKey = `faq${n}A` as Parameters<typeof t>[0];
+    return { answer: t(aKey), question: t(qKey) };
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -165,7 +168,14 @@ export function ClusterPageFrame({
           </section>
         ) : null}
 
-        <ClusterFaq guideId={guideId} />
+        <ClusterFaqSection
+          intro={{
+            body: t("faqIntro"),
+            eyebrow: t("faqEyebrow"),
+            title: t("faqTitle"),
+          }}
+          items={faqItems}
+        />
 
         <ContentAttribution sourcesHref={attributionSourcesHref} />
 
