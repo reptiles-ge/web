@@ -69,12 +69,6 @@ export type SpeciesStat = {
   value: string;
 };
 
-export const defaultSpeciesSources: SpeciesSource[] = [
-  {
-    name: "Scientific publications",
-  },
-];
-
 export type SpeciesTranslation = {
   behavior: string;
   commonName: string;
