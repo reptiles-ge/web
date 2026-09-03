@@ -113,6 +113,44 @@ export function SpeciesGuideRow({
         />
       </div>
 
+      <SpeciesGuideRowCopy
+        extra={extra}
+        index={index}
+        profileCta={profileCta}
+        regions={regions}
+        riskLabel={riskLabel}
+        species={species}
+        tone={tone}
+        turtleStatus={turtleStatus}
+        turtleType={turtleType}
+      />
+    </Link>
+  );
+}
+
+function SpeciesGuideRowCopy({
+  extra,
+  index,
+  profileCta,
+  regions,
+  riskLabel,
+  species,
+  tone,
+  turtleStatus,
+  turtleType,
+}: {
+  extra: number;
+  index: number;
+  profileCta: string;
+  regions: string[];
+  riskLabel: null | string;
+  species: Species;
+  tone: { dot: string; text: string };
+  turtleStatus: null | string;
+  turtleType: null | string;
+}) {
+  return (
+    <>
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
@@ -163,6 +201,6 @@ export function SpeciesGuideRow({
         {profileCta}
         <ArrowUpRight className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
-    </Link>
+    </>
   );
 }

@@ -25,65 +25,25 @@ export function PhotoCreditCaption({
   const t = useTranslations("profile");
   const locale = useLocale() as AppLocale;
 
-  if (!hasPhotoCredit(credit)) return null;
+  if (!hasPhotoCredit(credit) || variant === "hero") return null;
 
   const dateLabel = credit.date ? formatPhotoDate(credit.date, locale) : null;
-  const photographer = credit.photographer ? (
-    credit.url ? (
-      <a
-        className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
-        href={credit.url}
-        onClick={(event) => {
-          event.stopPropagation();
-          if (speciesId) {
-            trackEvent("source_click", {
-              link_type: "photo_credit",
-              species_id: speciesId,
-            });
-          }
-        }}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        {credit.photographer}
-      </a>
-    ) : (
-      <span>{credit.photographer}</span>
-    )
-  ) : null;
+  const photographer = (
+    <PhotoCreditName credit={credit} speciesId={speciesId} />
+  );
   const meta = [credit.location, dateLabel].filter(Boolean).join(" · ");
-
-  if (variant === "hero") {
-    return null;
-  }
 
   if (variant === "lightbox") {
     return (
-      <div
-        className={cn(
-          "space-y-0.5 text-center text-[13px] leading-snug tracking-[0.02em] text-white/55",
-          className,
-        )}
-      >
-        {photographer ? (
-          <p>
-            <span className="text-white/35">{t("photoCredit")} </span>
-            {photographer}
-          </p>
-        ) : null}
-        {credit.location ? (
-          <p>
-            <span className="text-white/35">{t("photoLocation")} </span>
-            <span>{credit.location}</span>
-          </p>
-        ) : null}
-        {dateLabel ? (
-          <p>
-            <span className="text-white/35">{t("photoDate")} </span>
-            <time dateTime={credit.date}>{dateLabel}</time>
-          </p>
-        ) : null}
-      </div>
+      <LightboxCredit
+        className={className}
+        credit={credit}
+        dateLabel={dateLabel}
+        photographer={photographer}
+        photoCredit={t("photoCredit")}
+        photoDate={t("photoDate")}
+        photoLocation={t("photoLocation")}
+      />
     );
   }
 
@@ -110,5 +70,81 @@ export function PhotoCreditCaption({
         </p>
       ) : null}
     </figcaption>
+  );
+}
+
+function PhotoCreditName({
+  credit,
+  speciesId,
+}: {
+  credit: PhotoCredit;
+  speciesId?: string;
+}) {
+  if (!credit.photographer) return null;
+  if (!credit.url) return <span>{credit.photographer}</span>;
+  return (
+    <a
+      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+      href={credit.url}
+      onClick={(event) => {
+        event.stopPropagation();
+        if (speciesId) {
+          trackEvent("source_click", {
+            link_type: "photo_credit",
+            species_id: speciesId,
+          });
+        }
+      }}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {credit.photographer}
+    </a>
+  );
+}
+
+function LightboxCredit({
+  className,
+  credit,
+  dateLabel,
+  photographer,
+  photoCredit,
+  photoDate,
+  photoLocation,
+}: {
+  className: string;
+  credit: PhotoCredit;
+  dateLabel: null | string;
+  photographer: React.ReactNode;
+  photoCredit: string;
+  photoDate: string;
+  photoLocation: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "space-y-0.5 text-center text-[13px] leading-snug tracking-[0.02em] text-white/55",
+        className,
+      )}
+    >
+      {photographer ? (
+        <p>
+          <span className="text-white/35">{photoCredit} </span>
+          {photographer}
+        </p>
+      ) : null}
+      {credit.location ? (
+        <p>
+          <span className="text-white/35">{photoLocation} </span>
+          <span>{credit.location}</span>
+        </p>
+      ) : null}
+      {dateLabel ? (
+        <p>
+          <span className="text-white/35">{photoDate} </span>
+          <time dateTime={credit.date}>{dateLabel}</time>
+        </p>
+      ) : null}
+    </div>
   );
 }

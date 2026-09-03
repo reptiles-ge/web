@@ -363,35 +363,13 @@ function NewsFigure({
       <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
         {visual.fromAtlas ? `${photoFromAtlas} ` : null}
         {visual.alt}
-        {hasPhotoCredit(visual.credit) && creditMeta.length > 0 ? (
-          <>
-            {" "}
-            {photographer ? (
-              visual.credit?.url ? (
-                <a
-                  className="text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-                  href={visual.credit.url}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {photoCreditLabel} {photographer}
-                </a>
-              ) : (
-                <span>
-                  {photoCreditLabel} {photographer}
-                </span>
-              )
-            ) : null}
-            {visual.credit?.location || dateLabel ? (
-              <span>
-                {photographer ? " · " : null}
-                {[visual.credit?.location, dateLabel]
-                  .filter(Boolean)
-                  .join(" · ")}
-              </span>
-            ) : null}
-          </>
-        ) : null}
+        <NewsFigureCredit
+          credit={visual.credit}
+          creditMeta={creditMeta}
+          dateLabel={dateLabel}
+          photographer={photographer}
+          photoCreditLabel={photoCreditLabel}
+        />
       </figcaption>
     </figure>
   );
