@@ -34,6 +34,7 @@ import {
   resolveRecent,
   type SearchDocument,
   type SearchFilter,
+  type SearchGroup,
   searchIndex,
   writeRecent,
 } from "@/lib/siteSearch";
@@ -89,7 +90,6 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     suggested: t("suggested"),
   };
 
-  const active = flat[activeIndex];
   const resultListProps = {
     activeIndex,
     emptyHint: t("noResultsHint"),
