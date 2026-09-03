@@ -9,6 +9,7 @@ type AnchoredHeadingProps = {
   children: ReactNode;
   className?: string;
   anchorLabel: string;
+  showAnchor?: boolean;
 };
 
 function textFromChildren(children: ReactNode): string {
@@ -28,6 +29,7 @@ export function AnchoredHeading({
   children,
   className,
   anchorLabel,
+  showAnchor = true,
 }: AnchoredHeadingProps) {
   const headingId = id ?? slugify(slugSource ?? textFromChildren(children));
 
@@ -41,17 +43,19 @@ export function AnchoredHeading({
       className={`group/heading scroll-mt-28 ${className ?? ""}`}
     >
       <span className="inline">{children}</span>
-      <a
-        href={`#${headingId}`}
-        className="ml-2 inline-flex translate-y-[-0.05em] items-center text-muted-foreground/0 transition-colors group-hover/heading:text-muted-foreground/70 focus-visible:text-primary focus-visible:outline-none"
-        aria-label={anchorLabel}
-      >
-        <LinkIcon
-          className="size-[0.55em]"
-          strokeWidth={2}
-          aria-hidden="true"
-        />
-      </a>
+      {showAnchor ? (
+        <a
+          href={`#${headingId}`}
+          className="ml-2 inline-flex translate-y-[-0.05em] items-center text-muted-foreground/0 transition-colors group-hover/heading:text-muted-foreground/70 focus-visible:text-primary focus-visible:outline-none"
+          aria-label={anchorLabel}
+        >
+          <LinkIcon
+            className="size-[0.55em]"
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+        </a>
+      ) : null}
     </Tag>
   );
 }

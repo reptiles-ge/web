@@ -30,6 +30,7 @@ export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
                 id={SPECIES_SECTION_IDS.sources}
                 className="mt-3 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] leading-[1.1] text-foreground"
                 anchorLabel={t("anchorLink")}
+                showAnchor={false}
               >
                 {t("sourcesTitle")}
               </AnchoredHeading>

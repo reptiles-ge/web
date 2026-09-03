@@ -34,7 +34,9 @@ export function Region({
       d={region.path}
       role={interactive ? "button" : undefined}
       tabIndex={interactive ? 0 : undefined}
-      aria-label={localizeRegionText(region.name, locale)}
+      aria-label={
+        interactive ? localizeRegionText(region.name, locale) : undefined
+      }
       aria-pressed={interactive ? isSelected : undefined}
       onMouseEnter={interactive ? () => onHover(region.id) : undefined}
       onMouseLeave={interactive ? () => onHover(null) : undefined}
