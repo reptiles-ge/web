@@ -12,7 +12,6 @@ import {
   type SearchGroup,
 } from "@/lib/siteSearch";
 
-export type { SearchFilterLabels } from "@/components/SpeciesSearchFilterBar";
 export type { SearchGroupTitles } from "@/lib/searchGroupHeading";
 
 export function SearchResultsList({
