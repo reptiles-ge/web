@@ -89,10 +89,10 @@ export function QuizStage({
       className="relative isolate min-h-dvh bg-ink"
     >
       <QuizCover
+        correctSpecies={correctSpecies}
         coverKey={coverKey}
         coverMobileSrc={coverMobileSrc}
         coverSrc={coverSrc}
-        correctSpecies={correctSpecies}
         hiddenAlt={t("imageAltHidden")}
         nextQuestion={nextQuestion}
         playing={playing}

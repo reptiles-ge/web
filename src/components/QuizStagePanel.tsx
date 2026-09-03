@@ -3,14 +3,15 @@
 import { useTranslations } from "next-intl";
 import { type RefObject } from "react";
 
-import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
-import { QuizResultOverlay } from "@/components/QuizResultOverlay";
-import { QuizRound } from "@/components/QuizRound";
 import type {
   QuizDifficulty,
   SnakeQuizQuestion,
   SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
+
+import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
+import { QuizResultOverlay } from "@/components/QuizResultOverlay";
+import { QuizRound } from "@/components/QuizRound";
 
 type Answered = {
   correct: boolean;

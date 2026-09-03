@@ -3,10 +3,10 @@
 import type { SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
 type QuizCoverProps = {
+  correctSpecies: SnakeQuizSpecies | undefined;
   coverKey: string;
   coverMobileSrc: string | undefined;
   coverSrc: string | undefined;
-  correctSpecies: SnakeQuizSpecies | undefined;
   hiddenAlt: string;
   nextQuestion: SnakeQuizQuestion | undefined;
   playing: boolean;
@@ -14,10 +14,10 @@ type QuizCoverProps = {
 };
 
 export function QuizCover({
+  correctSpecies,
   coverKey,
   coverMobileSrc,
   coverSrc,
-  correctSpecies,
   hiddenAlt,
   nextQuestion,
   playing,
