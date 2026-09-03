@@ -16,7 +16,8 @@
     "spiders": "Spiders",
     "news": "News",
     "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
   },
   "search": {
     "placeholder": "Species, page, region…",

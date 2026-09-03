@@ -17,7 +17,7 @@ export async function NotFoundContent() {
   const t = await getTranslations("notFound");
 
   return (
-    <main
+    <div
       className="relative flex min-h-svh flex-col overflow-hidden bg-ink text-ink-foreground"
       data-hide-footer
     >
@@ -91,6 +91,6 @@ export async function NotFoundContent() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -37,7 +37,7 @@ export function ContactPage() {
             <div className="absolute inset-0 bg-linear-to-t from-background via-black/5 to-black/35 lg:bg-linear-to-r lg:from-black/30 lg:via-black/5 lg:to-transparent" />
           </div>
 
-          <main className="relative flex flex-col justify-center bg-background">
+          <div className="relative flex flex-col justify-center bg-background">
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0"
@@ -137,7 +137,7 @@ export function ContactPage() {
                 </div>
               </m.div>
             </div>
-          </main>
+          </div>
         </div>
       </div>
     </MotionLazy>
