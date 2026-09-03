@@ -567,8 +567,11 @@ export function getVenomousCatalogSpecies(
   catalog: Species[] = getCatalogSpecies(),
 ) {
   return catalog
-    .filter((item) => isVenomousDanger(item.danger))
-    .filter((item) => getSpeciesAtlasMeta(item.id).group === "snake")
+    .filter(
+      (item) =>
+        isVenomousDanger(item.danger) &&
+        getSpeciesAtlasMeta(item.id).group === "snake",
+    )
     .sort(
       (a, b) =>
         venomousDangerOrder[a.danger ?? "Harmless"] -

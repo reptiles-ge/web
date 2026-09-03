@@ -148,12 +148,14 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
 
     const url = absoluteUrl(localePath(locale, guide.pathname));
     const catalog = getCatalogSpecies();
-    const species = catalog
-      .filter(guide.matches)
-      .map((item) => localizeSpecies(item, locale));
-    const heroRaw =
-      catalog.find((item) => item.id === guide.heroSpeciesId) ??
-      catalog.filter(guide.matches)[0];
+    const species: ReturnType<typeof localizeSpecies>[] = [];
+    let heroRaw: (typeof catalog)[number] | undefined;
+    for (const item of catalog) {
+      if (!guide.matches(item)) continue;
+      species.push(localizeSpecies(item, locale));
+      if (!heroRaw && item.id === guide.heroSpeciesId) heroRaw = item;
+    }
+    heroRaw ??= catalog.find(guide.matches);
     const heroSrc = guide.heroImage ?? heroRaw?.image ?? "";
 
     const breadcrumbLd = {
