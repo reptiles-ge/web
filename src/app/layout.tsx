@@ -1,6 +1,7 @@
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import dynamic from "next/dynamic";
+import { cn } from "@/lib/cn";
 import {
   absoluteUrl,
   CDN_BASE,
@@ -123,7 +124,12 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html
       lang={locale}
-      className={`${sora.variable} ${notoSansGeorgian.variable} ${notoSans.variable} h-full antialiased`}
+      className={cn(
+        sora.variable,
+        notoSansGeorgian.variable,
+        notoSans.variable,
+        "h-full antialiased",
+      )}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
