@@ -192,91 +192,91 @@ export function SpeciesGallery({
       >
         {activePhoto ? (
           <>
-          <button
-            aria-label={t("close")}
-            className="absolute inset-0 bg-transparent"
-            onClick={() => dialogRef.current?.close()}
-            type="button"
-          />
-          <button
-            aria-label={t("close")}
-            className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
-            onClick={() => dialogRef.current?.close()}
-            ref={closeButtonRef}
-            type="button"
-          >
-            <X className="size-5" />
-          </button>
+            <button
+              aria-label={t("close")}
+              className="absolute inset-0 bg-transparent"
+              onClick={() => dialogRef.current?.close()}
+              type="button"
+            />
+            <button
+              aria-label={t("close")}
+              className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
+              onClick={() => dialogRef.current?.close()}
+              ref={closeButtonRef}
+              type="button"
+            >
+              <X className="size-5" />
+            </button>
 
-          {photos.length > 1 && (
-            <>
-              <button
-                aria-label={t("prevPhoto")}
-                className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActive((current) =>
-                    current === null
-                      ? null
-                      : (current - 1 + photos.length) % photos.length,
-                  );
-                }}
-                type="button"
-              >
-                <ChevronLeft className="size-5" />
-              </button>
-              <button
-                aria-label={t("nextPhoto")}
-                className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActive((current) =>
-                    current === null ? null : (current + 1) % photos.length,
-                  );
-                }}
-                type="button"
-              >
-                <ChevronRight className="size-5" />
-              </button>
-            </>
-          )}
+            {photos.length > 1 && (
+              <>
+                <button
+                  aria-label={t("prevPhoto")}
+                  className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setActive((current) =>
+                      current === null
+                        ? null
+                        : (current - 1 + photos.length) % photos.length,
+                    );
+                  }}
+                  type="button"
+                >
+                  <ChevronLeft className="size-5" />
+                </button>
+                <button
+                  aria-label={t("nextPhoto")}
+                  className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setActive((current) =>
+                      current === null ? null : (current + 1) % photos.length,
+                    );
+                  }}
+                  type="button"
+                >
+                  <ChevronRight className="size-5" />
+                </button>
+              </>
+            )}
 
-          <div
-            className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="relative min-h-0 flex-1">
-              <picture>
-                {pictureSources(activePhoto.src, {
-                  sizes: "(max-width: 1196px) 92vw, 1100px",
-                }).map((source) => (
-                  <source key={source.key} {...source.props} />
-                ))}
-                <img
-                  alt={speciesPhotoAlt(
-                    name,
-                    scientificName,
-                    location,
-                    activePhoto.credit,
-                  )}
-                  className="absolute inset-0 size-full object-contain text-transparent"
-                  decoding="async"
-                  fetchPriority="high"
-                  src={activePhoto.src}
+            <div
+              className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="relative min-h-0 flex-1">
+                <picture>
+                  {pictureSources(activePhoto.src, {
+                    sizes: "(max-width: 1196px) 92vw, 1100px",
+                  }).map((source) => (
+                    <source key={source.key} {...source.props} />
+                  ))}
+                  <img
+                    alt={speciesPhotoAlt(
+                      name,
+                      scientificName,
+                      location,
+                      activePhoto.credit,
+                    )}
+                    className="absolute inset-0 size-full object-contain text-transparent"
+                    decoding="async"
+                    fetchPriority="high"
+                    src={activePhoto.src}
+                  />
+                </picture>
+              </div>
+              <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
+                <PhotoCreditCaption
+                  credit={activePhoto.credit}
+                  speciesId={speciesId}
+                  variant="lightbox"
                 />
-              </picture>
+                <p className="text-[12px] tracking-[0.2em] text-white/35">
+                  {(active ?? 0) + 1} / {photos.length}
+                </p>
+              </div>
             </div>
-            <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
-              <PhotoCreditCaption
-                credit={activePhoto.credit}
-                speciesId={speciesId}
-                variant="lightbox"
-              />
-              <p className="text-[12px] tracking-[0.2em] text-white/35">
-                {(active ?? 0) + 1} / {photos.length}
-              </p>
-            </div>
-          </div>
           </>
         ) : null}
       </dialog>

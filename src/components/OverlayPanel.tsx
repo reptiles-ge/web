@@ -133,9 +133,7 @@ export function OverlayPanel({
             )}
             exit={{ opacity: 0, scale: 0.98, y: -4 }}
             id={panelId}
-            initial={
-              reduceMotion ? false : { opacity: 0, scale: 0.98, y: -6 }
-            }
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: -6 }}
             key="overlay-panel"
             ref={desktopRef}
             role={panelRole}
@@ -192,8 +190,8 @@ function OverlayMobileSheet({
           animate={{ opacity: 1 }}
           aria-label={closeLabel}
           className="fixed inset-0 z-80 bg-ink/55 backdrop-blur-[2px] md:hidden"
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
+          exit={reduceMotion ? undefined : { opacity: 0 }}
+          initial={reduceMotion ? false : { opacity: 0 }}
           key="overlay-backdrop"
           onClick={onClose}
           transition={reduceMotion ? { duration: 0 } : { duration: 0.22 }}
@@ -209,7 +207,7 @@ function OverlayMobileSheet({
             "fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden",
             mobileSheetClassName,
           )}
-          exit={{ opacity: 0.96, y: "100%" }}
+          exit={reduceMotion ? undefined : { opacity: 0.96, y: "100%" }}
           initial={reduceMotion ? false : { opacity: 0.96, y: "100%" }}
           key="overlay-sheet"
           ref={sheetRef}

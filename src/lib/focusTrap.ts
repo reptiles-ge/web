@@ -14,12 +14,18 @@ export function cycleTab(
   const first = items[0];
   const last = items[items.length - 1];
   const active = document.activeElement;
-  if (event.shiftKey && (active === first || !items.includes(active as HTMLElement))) {
+  if (
+    event.shiftKey &&
+    (active === first || !items.includes(active as HTMLElement))
+  ) {
     event.preventDefault();
     last.focus();
     return;
   }
-  if (!event.shiftKey && (active === last || !items.includes(active as HTMLElement))) {
+  if (
+    !event.shiftKey &&
+    (active === last || !items.includes(active as HTMLElement))
+  ) {
     event.preventDefault();
     first.focus();
   }
