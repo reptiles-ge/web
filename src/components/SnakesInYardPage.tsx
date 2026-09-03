@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -33,9 +31,9 @@ const AGENCY_PHONE = "0322721600";
 const AGENCY_PHONE_DISPLAY = "032 272 16 00";
 const EMERGENCY_PHONE = "112";
 
-export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
-  const t = useTranslations("snakesInYard");
-  const locale = useLocale() as AppLocale;
+export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
+  const t = await getTranslations("snakesInYard");
+  const locale = (await getLocale()) as AppLocale;
   const relatedGuides = getHubPageRelatedGuides(
     "snakes",
     "/snakes-in-the-yard",

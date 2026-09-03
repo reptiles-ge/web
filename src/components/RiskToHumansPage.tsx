@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, Species } from "@/data/species";
 
@@ -27,13 +25,13 @@ type RiskToHumansPageProps = {
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
 
-export function RiskToHumansPage({
+export async function RiskToHumansPage({
   harmlessCount,
   harmlessExamples,
   high,
   moderate,
 }: RiskToHumansPageProps) {
-  const t = useTranslations("riskToHumans");
+  const t = await getTranslations("riskToHumans");
   const speciesByLevel: Record<DangerLevel, Species[]> = {
     Harmless: harmlessExamples,
     High: high,

@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -41,7 +39,7 @@ type SpeciesProfileBodyProps = {
   species: Species;
 };
 
-export function SpeciesProfileBody({
+export async function SpeciesProfileBody({
   biologyBlocks,
   dangerValue,
   displayStats,
@@ -53,7 +51,7 @@ export function SpeciesProfileBody({
   showIdentification,
   species,
 }: SpeciesProfileBodyProps) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
   const snake = isSnakeSpecies(species);
 
   return (
@@ -188,7 +186,7 @@ function SpeciesProfileBiology({
   blocks: BiologyBlockItem[];
   isSnake: boolean;
 }) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
 
   if (blocks.length === 0) {
     return null;

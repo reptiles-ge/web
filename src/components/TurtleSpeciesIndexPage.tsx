@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -17,13 +15,13 @@ import {
 import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 
-export function TurtleSpeciesIndexPage({
+export async function TurtleSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("turtleIndex");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("turtleIndex");
+  const locale = (await getLocale()) as AppLocale;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const introducedCount = species.filter(
     (item) => item.id === "trachemys-scripta",

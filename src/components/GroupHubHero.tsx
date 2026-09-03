@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -22,11 +20,11 @@ type GroupHubHeroProps = {
   species: Species[];
 };
 
-export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
-  const t = useTranslations(hubId);
-  const tShared = useTranslations("groupHubShared");
-  const tSnakes = useTranslations("snakes");
-  const locale = useLocale() as AppLocale;
+export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
+  const t = await getTranslations(hubId);
+  const tShared = await getTranslations("groupHubShared");
+  const tSnakes = await getTranslations("snakes");
+  const locale = (await getLocale()) as AppLocale;
   const venomousCount = species.filter((item) =>
     isVenomousDanger(item.danger),
   ).length;
@@ -169,7 +167,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
 }
 
 function readStatExtraItems(
-  t: ReturnType<typeof useTranslations>,
+  t: ReturnType<typeof getTranslations>,
 ): null | string[] {
   if (!t.has("statExtraItems")) return null;
   const items = t.raw("statExtraItems");

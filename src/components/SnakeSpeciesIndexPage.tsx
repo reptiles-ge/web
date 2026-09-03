@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -19,13 +17,13 @@ import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 
-export function SnakeSpeciesIndexPage({
+export async function SnakeSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeIndex");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("snakeIndex");
+  const locale = (await getLocale()) as AppLocale;
   const venomousCount = species.filter((item) =>
     isVenomousDanger(item.danger),
   ).length;

@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -9,9 +7,9 @@ import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function AtlasSeo() {
-  const t = useTranslations("speciesAtlas");
-  const locale = useLocale() as AppLocale;
+export async function AtlasSeo() {
+  const t = await getTranslations("speciesAtlas");
+  const locale = (await getLocale()) as AppLocale;
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">

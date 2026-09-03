@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -18,14 +16,14 @@ import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 
-export function ClusterGuidePage({
+export async function ClusterGuidePage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
   const guide = CLUSTER_GUIDES[guideId];
-  const t = useTranslations(guide.messageKey);
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations(guide.messageKey);
+  const locale = (await getLocale()) as AppLocale;
   const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (

@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -21,13 +19,13 @@ import {
   isDarevskiaSpecies,
 } from "@/lib/clusterGuides";
 
-export function LizardSpeciesIndexPage({
+export async function LizardSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("lizardIndex");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("lizardIndex");
+  const locale = (await getLocale()) as AppLocale;
   const featured = species.filter(
     (item) =>
       item.id === "paralaudakia-caucasia" || item.id === "pseudopus-apodus",

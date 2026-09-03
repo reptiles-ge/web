@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -21,13 +19,13 @@ import {
 } from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function LizardIdentifyPage({
+export async function LizardIdentifyPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("lizardIdentify");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("lizardIdentify");
+  const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
   const featured = [
     byId.get("paralaudakia-caucasia"),

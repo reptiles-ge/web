@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/Logo";
 import { Link } from "@/i18n/navigation";
@@ -12,11 +10,11 @@ type ContentAttributionProps = {
   sourcesHref?: string;
 };
 
-export function ContentAttribution({
+export async function ContentAttribution({
   showMethodology = true,
   sourcesHref,
 }: ContentAttributionProps) {
-  const t = useTranslations("attribution");
+  const t = await getTranslations("attribution");
   const headingId = "content-attribution-heading";
   const showSources = Boolean(sourcesHref);
   const showLinks = showSources || showMethodology;

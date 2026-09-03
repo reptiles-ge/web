@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -27,13 +25,13 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function LizardComparePage({
+export async function LizardComparePage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("lizardCompare");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("lizardCompare");
+  const locale = (await getLocale()) as AppLocale;
   const ordered = orderSpeciesByIds(species, GLASS_LIZARD_COMPARE_IDS);
   const glass = ordered.find((item) => item.id === "pseudopus-apodus");
   const slowWorm = ordered.find((item) => item.id === "anguis-colchica");

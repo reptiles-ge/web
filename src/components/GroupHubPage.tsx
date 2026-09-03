@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -32,10 +30,10 @@ type GroupHubPageProps = {
   species: Species[];
 };
 
-export function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
-  const t = useTranslations(hubId);
-  const tShared = useTranslations("groupHubShared");
-  const locale = useLocale() as AppLocale;
+export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
+  const t = await getTranslations(hubId);
+  const tShared = await getTranslations("groupHubShared");
+  const locale = (await getLocale()) as AppLocale;
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
   const clusterCards = HUB_CLUSTER_CARDS[hubId];
   const sections = splitHubSpecies(hubId, species);

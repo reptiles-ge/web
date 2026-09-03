@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 
 import {
@@ -15,7 +13,7 @@ type ClusterGuideLeadProps = {
   title: string;
 };
 
-export function ClusterGuideLead({
+export async function ClusterGuideLead({
   body,
   eyebrow,
   title,

@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -28,13 +26,13 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function SnakeLargestPage({
+export async function SnakeLargestPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeLargest");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("snakeLargest");
+  const locale = (await getLocale()) as AppLocale;
   const snakes = orderSpeciesByIds(species, LARGE_SNAKE_IDS);
   const lizard = species.find((item) => item.id === LARGE_SNAKE_LIZARD_ID);
 

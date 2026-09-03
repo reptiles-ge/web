@@ -1,7 +1,5 @@
-"use client";
-
 import { MapPin } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
 import type { PhotoCredit, Species } from "@/data/species";
@@ -28,7 +26,7 @@ type SpeciesProfileHeroProps = {
   species: Species;
 };
 
-export function SpeciesProfileHero({
+export async function SpeciesProfileHero({
   breadcrumbs,
   desktopHeroSrc,
   group,
@@ -41,7 +39,7 @@ export function SpeciesProfileHero({
   mobileImageAlt,
   species,
 }: SpeciesProfileHeroProps) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
 
   return (
     <section

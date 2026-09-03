@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -25,12 +23,12 @@ type VenomousSnakesPageProps = {
   species: Species[];
 };
 
-export function VenomousSnakesPage({
+export async function VenomousSnakesPage({
   heroSrc,
   species,
 }: VenomousSnakesPageProps) {
-  const t = useTranslations("venomousSnakes");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("venomousSnakes");
+  const locale = (await getLocale()) as AppLocale;
   const vipers = getViperSpecies(species);
   const rearFanged = getRearFangedSpecies(species);
   const highCount = species.filter((item) => item.danger === "High").length;

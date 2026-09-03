@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -15,8 +13,8 @@ type AtlasAboutProps = {
   stats: ReturnType<typeof getAtlasStats>;
 };
 
-export function AtlasAbout({ locale, stats }: AtlasAboutProps) {
-  const t = useTranslations("speciesAtlas");
+export async function AtlasAbout({ locale, stats }: AtlasAboutProps) {
+  const t = await getTranslations("speciesAtlas");
 
   return (
     <section className="border-t border-border bg-surface/60 py-20 lg:py-28">

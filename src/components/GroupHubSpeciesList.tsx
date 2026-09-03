@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -23,13 +21,13 @@ type GroupHubSpeciesListProps = {
   speciesCount: number;
 };
 
-export function GroupHubSpeciesList({
+export async function GroupHubSpeciesList({
   hubId,
   sections,
   speciesCount,
 }: GroupHubSpeciesListProps) {
-  const t = useTranslations(hubId);
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations(hubId);
+  const locale = (await getLocale()) as AppLocale;
 
   return (
     <section

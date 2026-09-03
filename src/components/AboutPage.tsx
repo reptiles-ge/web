@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
@@ -21,8 +19,8 @@ const SOURCE_LINKS = [
 
 const PILLARS = ["discover", "understand", "protect"] as const;
 
-export function AboutPage() {
-  const t = useTranslations("about");
+export async function AboutPage() {
+  const t = await getTranslations("about");
 
   return (
     <div className="min-h-screen bg-background">

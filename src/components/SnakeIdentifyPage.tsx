@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -24,13 +22,13 @@ import {
 } from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function SnakeIdentifyPage({
+export async function SnakeIdentifyPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeIdentify");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("snakeIdentify");
+  const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
   const vipers = getViperSpecies(species);
   const rearFanged = getRearFangedSpecies(species);

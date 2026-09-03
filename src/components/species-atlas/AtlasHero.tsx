@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
@@ -13,8 +11,8 @@ type AtlasHeroProps = {
   stats: ReturnType<typeof getAtlasStats>;
 };
 
-export function AtlasHero({ stats }: AtlasHeroProps) {
-  const t = useTranslations("speciesAtlas");
+export async function AtlasHero({ stats }: AtlasHeroProps) {
+  const t = await getTranslations("speciesAtlas");
 
   return (
     <section
