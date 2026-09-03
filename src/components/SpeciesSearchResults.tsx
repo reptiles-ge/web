@@ -4,8 +4,8 @@ import { EmptyState } from "@/components/SpeciesSearchEmpty";
 import { GroupLabel } from "@/components/SpeciesSearchGroupLabel";
 import { ResultRow } from "@/components/SpeciesSearchRow";
 import {
-  type SearchGroupTitles,
   searchGroupHeading,
+  type SearchGroupTitles,
 } from "@/lib/searchGroupHeading";
 import {
   type SearchDocument,
