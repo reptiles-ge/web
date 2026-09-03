@@ -18,6 +18,7 @@ const LOCAL_IMAGE_RE = /(?<!cdn\.reptiles\.ge)\/images\/[^"'\\\s)>]+/g;
 const SKIP_DIR_NAMES = new Set([".git", ".next", "node_modules"]);
 const SKIP_FILE_NAMES = new Set([
   "georgia-paths.generated.ts",
+  "image-manifest.json",
   "optimizedImages.generated.ts",
   "species.generated.ts",
 ]);
