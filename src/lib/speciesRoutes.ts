@@ -711,15 +711,3 @@ export function legacySpeciesStaticParams() {
 export function regionHref(id: string) {
   return { pathname: "/regions/[id]" as const, params: { id } };
 }
-
-export function remapSpeciesPathname(pathname: string, locale: AppLocale) {
-  const match = pathname.match(
-    /^\/(snakes|lizards|turtles|amphibians|birds|mammals|spiders)\/([^/]+)$/,
-  );
-  if (!match) return pathname;
-  const hub = match[1] as GroupHubId;
-  const species = resolveSpeciesInHub(hub, match[2]);
-  if (!species) return pathname;
-  const slug = getSpeciesPublicSlug(species.id, locale);
-  return `/${hub}/${slug}`;
-}

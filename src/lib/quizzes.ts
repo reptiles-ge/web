@@ -25,8 +25,6 @@ export type QuizDefinition = {
   questions?: number;
 };
 
-export const SNAKE_QUIZ_ID = "snake" satisfies QuizId;
-
 export const QUIZ_INDEX = [
   {
     id: "snake",

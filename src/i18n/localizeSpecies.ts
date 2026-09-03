@@ -5,8 +5,8 @@ import {
   mergeGallery,
   overlayPhotoCredit,
   type Species,
-  type SpeciesTranslation,
 } from "@/data/species";
+import type { SpeciesTranslation } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 const TRANSLATIONS: Record<

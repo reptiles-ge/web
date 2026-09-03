@@ -12,13 +12,7 @@ import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 export type {
   NewsArticle,
-  NewsArticleStatus,
-  NewsLocaleCopy,
-  NewsMark,
   NewsPhoto,
-  NewsSection,
-  NewsSectionBlock,
-  NewsSource,
 } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
@@ -50,10 +44,6 @@ export function getPublishedNewsArticles() {
       if (byDate !== 0) return byDate;
       return NEWS_ARTICLES.indexOf(a) - NEWS_ARTICLES.indexOf(b);
     });
-}
-
-export function getNewsArticleBySlug(slug: string) {
-  return bySlug.get(slug);
 }
 
 export function getPublishedNewsArticleBySlug(slug: string) {
@@ -139,10 +129,6 @@ export function newsArticlePhotos(article: NewsArticle) {
   if (article.image) photos.push(article.image);
   if (article.gallery) photos.push(...article.gallery);
   return photos;
-}
-
-export function newsCoverSrc(article: NewsArticle) {
-  return article.image?.src;
 }
 
 export function newsPhotoBySrc(article: NewsArticle, src: string) {
