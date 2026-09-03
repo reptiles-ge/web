@@ -1,6 +1,6 @@
 "use client";
 
-import { type Dispatch, useEffect, useState } from "react";
+import { type Dispatch, useEffect, useRef, useState } from "react";
 
 import type { SnakeQuizQuestion } from "@/lib/snakeQuiz";
 
@@ -36,13 +36,15 @@ export function useQuizDraft(
     selectedId: null | string;
   },
 ) {
+  const quizIdRef = useRef(quizId);
+  quizIdRef.current = quizId;
   const [draftReady, setDraftReady] = useState(false);
   const { answers, complete, hintOpen, index, playing, questions, selectedId } =
     session;
 
   useEffect(() => {
     try {
-      const raw = sessionStorage.getItem(draftKey(quizId));
+      const raw = sessionStorage.getItem(draftKey(quizIdRef.current));
       if (!raw) return;
       const draft = JSON.parse(raw) as QuizDraft;
       if (!Array.isArray(draft.questions) || draft.questions.length === 0) {
