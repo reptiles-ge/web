@@ -3,11 +3,42 @@ import eslintConfigPrettier from "eslint-config-prettier/flat";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import perfectionist from "eslint-plugin-perfectionist";
+import tailwindcss from "eslint-plugin-tailwindcss";
 import unusedImports from "eslint-plugin-unused-imports";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    ...tailwindcss.configs.recommended,
+    settings: {
+      ...tailwindcss.configs.recommended.settings,
+      tailwindcss: {
+        ...tailwindcss.configs.recommended.settings?.tailwindcss,
+        cssConfigPath: "./src/app/globals.css",
+      },
+    },
+    rules: {
+      ...tailwindcss.configs.recommended.rules,
+      "tailwindcss/no-arbitrary-value": "off",
+      "tailwindcss/no-custom-classname": [
+        "warn",
+        {
+          whitelist: [
+            "hero-drift",
+            "media-placeholder",
+            "no-scrollbar",
+            "glass-card",
+            "species-carousel-track",
+            "map-explorer",
+            "map-explorer-texture",
+            "text-balance-tight",
+            "font-display",
+          ],
+        },
+      ],
+    },
+  },
   {
     plugins: {
       perfectionist,
