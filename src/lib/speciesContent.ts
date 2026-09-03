@@ -163,9 +163,11 @@ export function hasRealIdentification(
   identification: Species["identification"],
 ) {
   if (!identification) return false;
-  const traits = identification.traits
-    .map((trait) => trait.trim())
-    .filter(Boolean);
+  const traits: string[] = [];
+  for (const trait of identification.traits) {
+    const trimmed = trait.trim();
+    if (trimmed) traits.push(trimmed);
+  }
   if (traits.length === 0) return false;
   const metaOnly = traits.every((trait) => {
     const lower = trait.toLowerCase();

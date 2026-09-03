@@ -1,6 +1,14 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_RELATED,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import type { Species } from "@/data/species";
@@ -40,12 +48,12 @@ export function LizardComparePage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("guideEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("guideTitle")}
-              </h2>
+              <ClusterSectionIntro
+                eyebrow={t("guideEyebrow")}
+                title={t("guideTitle")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              />
             </Reveal>
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -63,15 +71,14 @@ export function LizardComparePage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("tableEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("tableTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("tableBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("tableEyebrow")}
+              title={t("tableTitle")}
+              body={t("tableBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -125,22 +132,22 @@ export function LizardComparePage({
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("alsoEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("alsoTitle")}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("alsoBody")}
-              </p>
-              <Link
-                href={speciesHref(diceSnake.id, locale)}
-                className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+              <ClusterSectionIntro
+                eyebrow={t("alsoEyebrow")}
+                title={t("alsoTitle")}
+                body={t("alsoBody")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_RELATED}
+                bodyClassName={CLUSTER_BODY}
               >
-                {diceSnake.commonName}
-                <ArrowUpRight className="size-4" />
-              </Link>
+                <Link
+                  href={speciesHref(diceSnake.id, locale)}
+                  className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+                >
+                  {diceSnake.commonName}
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              </ClusterSectionIntro>
             </Reveal>
           </div>
         </section>

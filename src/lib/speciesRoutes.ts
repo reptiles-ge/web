@@ -583,16 +583,16 @@ function hubForSpeciesId(id: string): GroupHubId {
 
 function uniqueKaSlug(id: string, commonName: string, hub: GroupHubId) {
   const reserved = new Set(RESERVED_HUB_SLUGS[hub]);
-  const taken = kaSlugById;
+  const takenSlugs = new Set(Object.values(kaSlugById));
   const preferred = KA_SLUG_OVERRIDES[id] ?? kaToSlug(commonName) ?? id;
   if (!preferred) return id;
-  if (!reserved.has(preferred) && !Object.values(taken).includes(preferred)) {
+  if (!reserved.has(preferred) && !takenSlugs.has(preferred)) {
     return preferred;
   }
   const epithet = id.split("-").at(-1) ?? id;
   let candidate = `${preferred}-${epithet}`;
   let n = 2;
-  while (reserved.has(candidate) || Object.values(taken).includes(candidate)) {
+  while (reserved.has(candidate) || takenSlugs.has(candidate)) {
     candidate = `${preferred}-${epithet}-${n}`;
     n += 1;
   }
@@ -674,18 +674,21 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
 }
 
 export function speciesStaticParams(hubId: GroupHubId) {
-  return getCatalogSpecies()
-    .filter((item) => getSpeciesHubId(item.id) === hubId)
-    .flatMap((item) => {
-      const slugs = new Set([
-        getSpeciesPublicSlug(item.id, "ka"),
-        getSpeciesPublicSlug(item.id, "en"),
-        ...(KA_SLUG_ALIASES[item.id] ?? []),
-      ]);
-      return routing.locales.flatMap((locale) =>
-        [...slugs].map((slug) => ({ locale, slug })),
-      );
-    });
+  const params: Array<{ locale: AppLocale; slug: string }> = [];
+  for (const item of getCatalogSpecies()) {
+    if (getSpeciesHubId(item.id) !== hubId) continue;
+    const slugs = new Set([
+      getSpeciesPublicSlug(item.id, "ka"),
+      getSpeciesPublicSlug(item.id, "en"),
+      ...(KA_SLUG_ALIASES[item.id] ?? []),
+    ]);
+    for (const locale of routing.locales) {
+      for (const slug of slugs) {
+        params.push({ locale, slug });
+      }
+    }
+  }
+  return params;
 }
 
 export function legacySpeciesStaticParams() {

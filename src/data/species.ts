@@ -227,16 +227,22 @@ export function getSpeciesById(id: string) {
 }
 
 export function getFeaturedSpecies() {
-  return featuredSpeciesIds
-    .map((id) => getSpeciesById(id))
-    .filter((item): item is Species => Boolean(item));
+  const featured: Species[] = [];
+  for (const id of featuredSpeciesIds) {
+    const item = getSpeciesById(id);
+    if (item) featured.push(item);
+  }
+  return featured;
 }
 
 export function getCatalogSpecies() {
-  return catalogSpeciesIds
-    .filter(isPublishedSpeciesId)
-    .map((id) => getSpeciesById(id))
-    .filter((item): item is Species => Boolean(item));
+  const catalog: Species[] = [];
+  for (const id of catalogSpeciesIds) {
+    if (!isPublishedSpeciesId(id)) continue;
+    const item = getSpeciesById(id);
+    if (item) catalog.push(item);
+  }
+  return catalog;
 }
 
 export function dangerClass(danger: DangerLevel) {

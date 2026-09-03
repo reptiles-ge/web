@@ -105,7 +105,7 @@ export function SpeciesGallery({
               );
               return (
                 <figure
-                  key={`${photo.src}-${index}`}
+                  key={photo.src}
                   className={`group relative overflow-hidden rounded-[24px] bg-ink ${
                     featured
                       ? "col-span-2 aspect-[16/10] md:col-span-3"
@@ -164,13 +164,21 @@ export function SpeciesGallery({
       </section>
 
       {active !== null && activePhoto ? (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92"
-          role="dialog"
-          aria-modal="true"
+        <dialog
+          className="fixed inset-0 z-[100] m-0 flex h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-transparent p-0"
+          open
           aria-label={t("gallery")}
-          onClick={() => setActive(null)}
+          onCancel={(event) => {
+            event.preventDefault();
+            setActive(null);
+          }}
         >
+          <button
+            type="button"
+            aria-label={t("close")}
+            className="absolute inset-0 bg-black/92"
+            onClick={() => setActive(null)}
+          />
           <button
             type="button"
             onClick={() => setActive(null)}
@@ -214,7 +222,7 @@ export function SpeciesGallery({
           )}
 
           <div
-            className="relative mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
+            className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative min-h-0 flex-1">
@@ -249,7 +257,7 @@ export function SpeciesGallery({
               </p>
             </div>
           </div>
-        </div>
+        </dialog>
       ) : null}
     </>
   );

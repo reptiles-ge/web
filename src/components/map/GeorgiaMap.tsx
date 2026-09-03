@@ -16,6 +16,7 @@ import {
   useState,
   type MouseEvent,
 } from "react";
+import { MotionLazy } from "@/components/MotionLazy";
 
 type GeorgiaMapProps = {
   className?: string;
@@ -25,9 +26,11 @@ type GeorgiaMapProps = {
   mapContext?: MapContext;
 };
 
+const EMPTY_HIGHLIGHTED_IDS: string[] = [];
+
 export function GeorgiaMap({
   className,
-  highlightedIds = [],
+  highlightedIds = EMPTY_HIGHLIGHTED_IDS,
   interactive = true,
   selectionMode = "panel",
   mapContext = "home",
@@ -105,6 +108,7 @@ export function GeorgiaMap({
   }
 
   return (
+    <MotionLazy>
     <>
       <div
         ref={containerRef}
@@ -194,5 +198,6 @@ export function GeorgiaMap({
         <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
       ) : null}
     </>
+    </MotionLazy>
   );
 }

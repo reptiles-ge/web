@@ -44,12 +44,14 @@ function mdxPath(id: string, locale: string) {
 
 export function listAdminSpecies(): AdminSpeciesSummary[] {
   if (!fs.existsSync(CONTENT_ROOT)) return [];
-  return fs
-    .readdirSync(CONTENT_ROOT, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory() && isSpeciesContentId(entry.name))
-    .map((entry) => entry.name)
-    .sort((a, b) => a.localeCompare(b))
-    .flatMap((id) => {
+  const ids: string[] = [];
+  for (const entry of fs.readdirSync(CONTENT_ROOT, { withFileTypes: true })) {
+    if (entry.isDirectory() && isSpeciesContentId(entry.name)) {
+      ids.push(entry.name);
+    }
+  }
+  ids.sort((a, b) => a.localeCompare(b));
+  return ids.flatMap((id) => {
       const filePath = mdxPath(id, "ka");
       if (!fs.existsSync(filePath)) return [];
       const { data } = matter(fs.readFileSync(filePath, "utf8"));

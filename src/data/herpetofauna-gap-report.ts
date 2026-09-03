@@ -157,10 +157,11 @@ export function buildHerpetofaunaGapReport(): GapReport {
       "Viperidae",
     ].includes(t.family),
   );
+  const missingSnakeSet = new Set(missingSnakes);
   const missingLizards = missing.filter(
     (t) =>
       t.order === "Squamata" &&
-      !missingSnakes.includes(t) &&
+      !missingSnakeSet.has(t) &&
       t.genus !== "Darevskia",
   );
 

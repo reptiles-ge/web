@@ -1,13 +1,13 @@
 "use client";
 
-/* eslint-disable react-hooks/set-state-in-effect */
-
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { m } from "framer-motion";
+import { MotionLazy } from "@/components/MotionLazy";
 import { X } from "lucide-react";
 import {
   useEffect,
   useRef,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
   type RefObject,
 } from "react";
@@ -31,6 +31,8 @@ type OverlayPanelProps = {
   mobileContent: ReactNode;
 };
 
+const emptySubscribe = () => () => {};
+
 export function OverlayPanel({
   open,
   onClose,
@@ -45,12 +47,17 @@ export function OverlayPanel({
   desktopContent,
   mobileContent,
 }: OverlayPanelProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
   const sheetRef = useRef<HTMLDivElement>(null);
+  const onCloseRef = useRef(onClose);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     if (!open) return;
@@ -63,11 +70,11 @@ export function OverlayPanel({
       ) {
         return;
       }
-      onClose();
+      onCloseRef.current();
     }
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") onCloseRef.current();
     }
 
     document.addEventListener("mousedown", onPointerDown);
@@ -76,7 +83,7 @@ export function OverlayPanel({
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, [open, onClose, rootRef]);
+  }, [open, rootRef]);
 
   useEffect(() => {
     if (!open) return;
@@ -102,9 +109,8 @@ export function OverlayPanel({
     ? createPortal(
         <AnimatePresence>
           {open ? (
-            <>
-              <motion.button
-                key="overlay-backdrop"
+            <m.button
+              key="overlay-backdrop"
                 type="button"
                 aria-label={closeLabel}
                 className="fixed inset-0 z-[80] bg-ink/55 backdrop-blur-[2px] md:hidden"
@@ -114,7 +120,9 @@ export function OverlayPanel({
                 transition={{ duration: 0.22 }}
                 onClick={onClose}
               />
-              <motion.div
+          ) : null}
+          {open ? (
+              <m.div
                 key="overlay-sheet"
                 ref={sheetRef}
                 role="dialog"
@@ -149,8 +157,7 @@ export function OverlayPanel({
                 <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
                   {mobileContent}
                 </div>
-              </motion.div>
-            </>
+              </m.div>
           ) : null}
         </AnimatePresence>,
         document.body,
@@ -158,10 +165,10 @@ export function OverlayPanel({
     : null;
 
   return (
-    <>
+    <MotionLazy>
       <AnimatePresence>
         {open ? (
-          <motion.div
+          <m.div
             id={panelId}
             key="overlay-panel"
             role={panelRole}
@@ -172,10 +179,10 @@ export function OverlayPanel({
             className={`absolute right-0 top-full z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block ${desktopClassName}`}
           >
             {desktopContent}
-          </motion.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
       {mobileSheet}
-    </>
+    </MotionLazy>
   );
 }

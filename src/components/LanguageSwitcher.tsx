@@ -245,10 +245,12 @@ function LocaleOptions({
         {routing.locales.map((code) => {
           const active = locale === code;
           return (
-            <li key={code} role="option" aria-selected={active}>
+            <li key={code}>
               <button
                 type="button"
-                className={`group/item flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition-all duration-200 ${
+                role="option"
+                aria-selected={active}
+                className={`group/item flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition-[background-color,box-shadow] duration-200 ${
                   active
                     ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
                     : "hover:bg-secondary/80 active:bg-secondary"

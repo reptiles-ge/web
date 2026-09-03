@@ -169,6 +169,8 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 npm run dev              # compile species, then next dev
 npm run build
 npm run lint
+npm run doctor           # React Doctor health scan
+npm run doctor:changed   # only issues introduced vs the base branch
 npm run species:compile
 ```
 

@@ -49,7 +49,7 @@ export function Footer() {
   const t = useTranslations("footer");
   const locale = useLocale() as AppLocale;
   const pathname = usePathname();
-  const [hidden, setHidden] = useState(shouldHideFooter(pathname));
+  const [hidden, setHidden] = useState(() => shouldHideFooter(pathname));
   const venomous = useMemo(
     () =>
       getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),

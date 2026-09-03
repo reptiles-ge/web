@@ -567,8 +567,11 @@ export function getVenomousCatalogSpecies(
   catalog: Species[] = getCatalogSpecies(),
 ) {
   return catalog
-    .filter((item) => isVenomousDanger(item.danger))
-    .filter((item) => getSpeciesAtlasMeta(item.id).group === "snake")
+    .filter(
+      (item) =>
+        isVenomousDanger(item.danger) &&
+        getSpeciesAtlasMeta(item.id).group === "snake",
+    )
     .sort(
       (a, b) =>
         venomousDangerOrder[a.danger ?? "Harmless"] -
@@ -642,10 +645,11 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     byGroup[getSpeciesAtlasMeta(item.id).group] += 1;
   }
 
-  const updatedDates = catalog
-    .map((item) => item.updatedAt)
-    .filter(Boolean)
-    .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+  const updatedDates: string[] = [];
+  for (const item of catalog) {
+    if (item.updatedAt) updatedDates.push(item.updatedAt);
+  }
+  updatedDates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
   return {
     total: catalog.length,
@@ -685,6 +689,15 @@ export const defaultAtlasFilters: AtlasFilters = {
   habitat: "all",
   region: "all",
   query: "",
+};
+
+export function countAtlasFacets(filters: AtlasFilters) {
+  let count = 0;
+  if (filters.group !== "all") count += 1;
+  if (filters.danger !== "all") count += 1;
+  if (filters.habitat !== "all") count += 1;
+  if (filters.region !== "all") count += 1;
+  return count;
 };
 
 export function filterAtlasSpecies(

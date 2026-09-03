@@ -9,6 +9,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "doctor": "react-doctor -y --verbose",
+    "doctor:changed": "react-doctor -y --verbose --scope changed",
+    "doctor:full": "react-doctor -y --verbose --scope full",
     "species:compile": "tsx scripts/compile-species.ts",
     "map:compile": "tsx scripts/compile-georgia-map.ts",
     "images:unused": "node scripts/remove-unused-images.js",
@@ -41,6 +44,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "react-doctor": "^0.9.13",
     "tailwindcss": "^4",
     "tsx": "^4.23.5",
     "typescript": "^5"

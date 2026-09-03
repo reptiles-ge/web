@@ -228,7 +228,7 @@ export function SpeciesProfile({
                 {breadcrumbs.map((crumb, index) => {
                   const isLast = index === breadcrumbs.length - 1;
                   return (
-                    <li key={`${crumb.name}-${index}`} className="inline-flex items-center gap-2">
+                    <li key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name} className="inline-flex items-center gap-2">
                       {index > 0 ? (
                         <span aria-hidden="true" className="text-white/30">
                           /

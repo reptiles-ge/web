@@ -1,6 +1,13 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import {
@@ -84,12 +91,12 @@ export function TurtleIdentifyPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("guideEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("guideTitle")}
-              </h2>
+              <ClusterSectionIntro
+                eyebrow={t("guideEyebrow")}
+                title={t("guideTitle")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              />
             </Reveal>
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -118,15 +125,14 @@ export function TurtleIdentifyPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("flowEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("flowTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("flowBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("flowEyebrow")}
+              title={t("flowTitle")}
+              body={t("flowBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
 
           <div className="mt-14">
@@ -253,15 +259,14 @@ export function TurtleIdentifyPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("emysVsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("emysVsTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("emysVsBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("emysVsEyebrow")}
+              title={t("emysVsTitle")}
+              body={t("emysVsBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
 
           {emys && mauremys ? (
@@ -348,15 +353,14 @@ export function TurtleIdentifyPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("matrixEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("matrixTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("matrixBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("matrixEyebrow")}
+              title={t("matrixTitle")}
+              body={t("matrixBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
 
           <div className="mt-12 overflow-x-auto">
@@ -407,15 +411,14 @@ export function TurtleIdentifyPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("chooserEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("chooserTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("chooserBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("chooserEyebrow")}
+              title={t("chooserTitle")}
+              body={t("chooserBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">

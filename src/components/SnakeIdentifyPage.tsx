@@ -2,6 +2,13 @@
 
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
@@ -51,12 +58,12 @@ export function SnakeIdentifyPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("guideEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("guideTitle")}
-              </h2>
+              <ClusterSectionIntro
+                eyebrow={t("guideEyebrow")}
+                title={t("guideTitle")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              />
             </Reveal>
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -93,15 +100,14 @@ export function SnakeIdentifyPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("signsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("signsTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("signsWarning")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("signsEyebrow")}
+              title={t("signsTitle")}
+              body={t("signsWarning")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           <ol className="mt-14 divide-y divide-border border-y border-border">
             {([1, 2, 3, 4] as const).map((n) => (
@@ -128,15 +134,14 @@ export function SnakeIdentifyPage({
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("chainEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("chainTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("chainBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("chainEyebrow")}
+              title={t("chainTitle")}
+              body={t("chainBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           {(giurza || kaznakovi) && (
             <div className="mt-10 flex flex-wrap gap-3">
@@ -174,15 +179,14 @@ export function SnakeIdentifyPage({
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("pairsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("pairsTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("pairsBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("pairsEyebrow")}
+              title={t("pairsTitle")}
+              body={t("pairsBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {pairs.map((pair, index) => (

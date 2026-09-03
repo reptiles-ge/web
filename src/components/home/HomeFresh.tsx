@@ -5,6 +5,7 @@ import {
   getPublishedNewsArticles,
 } from "@/data/news";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
+import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
@@ -22,9 +23,11 @@ export async function HomeFresh() {
   const tNews = await getTranslations("news");
   const articles = getPublishedNewsArticles();
   const [lead, ...rest] = articles;
-  const updated = getRecentlyUpdatedSpecies(4)
-    .map((item) => localizeSpecies(item, locale))
-    .filter((item) => !isPlaceholderMedia(item.image));
+  const updated: Species[] = [];
+  for (const item of getRecentlyUpdatedSpecies(4)) {
+    const localized = localizeSpecies(item, locale);
+    if (!isPlaceholderMedia(localized.image)) updated.push(localized);
+  }
 
   if (!lead && updated.length === 0) return null;
 

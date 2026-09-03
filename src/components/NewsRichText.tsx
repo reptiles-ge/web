@@ -83,18 +83,22 @@ export function NewsRichText({
   return (
     <>
       {parts.map((mark, index) => (
-        <NewsMarkNode key={index} mark={mark} locale={locale} />
+        <NewsMarkNode
+          key={newsMarkKey(mark, index)}
+          mark={mark}
+          locale={locale}
+        />
       ))}
     </>
   );
 }
 
-export function newsPlainText(parts: NewsMark[]): string {
-  return parts
-    .map((mark) => {
-      if (typeof mark === "string") return mark;
-      if (mark.type === "sci") return mark.name;
-      return mark.label;
-    })
-    .join("");
+function newsMarkKey(mark: NewsMark, index: number) {
+  if (typeof mark === "string") return `t:${index}:${mark}`;
+  if (mark.type === "sci") return `sci:${index}:${mark.name}`;
+  if (mark.type === "external") return `ext:${index}:${mark.href}`;
+  if (mark.type === "hub") return `hub:${index}:${mark.id}`;
+  if (mark.type === "region") return `region:${index}:${mark.id}`;
+  if (mark.type === "news-index") return `news:${index}`;
+  return `sp:${index}:${mark.id}`;
 }

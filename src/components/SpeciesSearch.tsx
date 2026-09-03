@@ -189,9 +189,11 @@ function ResultRow({
   onHover: () => void;
 }) {
   return (
-    <li role="option" aria-selected={active}>
+    <li>
       <button
         type="button"
+        role="option"
+        aria-selected={active}
         id={optionId}
         ref={(node) => {
           if (active) node?.scrollIntoView({ block: "nearest" });
@@ -199,7 +201,7 @@ function ResultRow({
         onMouseEnter={onHover}
         onMouseDown={(event) => event.preventDefault()}
         onClick={onActivate}
-        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-all duration-200 ${
+        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-[background-color,box-shadow] duration-200 ${
           active
             ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
             : "hover:bg-secondary/80 active:bg-secondary"
@@ -311,15 +313,13 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       kind: "page",
       items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
     };
-    const rest = searched.groups
-      .map((group) => ({
-        ...group,
-        items: group.items.filter(
-          (item) =>
-            !recent.some((entry) => entry.key === item.key),
-        ),
-      }))
-      .filter((group) => group.items.length > 0);
+    const rest: SearchGroup[] = [];
+    for (const group of searched.groups) {
+      const items = group.items.filter(
+        (item) => !recent.some((entry) => entry.key === item.key),
+      );
+      if (items.length > 0) rest.push({ ...group, items });
+    }
     return [recentGroup, ...rest];
   }, [searched.groups, showRecent, recent]);
 
@@ -364,12 +364,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
   const openSearch = useCallback(
     (method: "click" | "shortcut" | "mobile") => {
-      setOpen((was) => {
-        if (!was) trackEvent("search_open", { entry_method: method });
-        return true;
-      });
+      if (!open) trackEvent("search_open", { entry_method: method });
+      setOpen(true);
     },
-    [],
+    [open],
   );
 
   function changeFilter(value: SearchFilter) {
@@ -384,17 +382,27 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     setFilter(value);
   }
 
+  const openSearchRef = useRef(openSearch);
+  const closeSearchRef = useRef(closeSearch);
+  const openRef = useRef(open);
+
+  useEffect(() => {
+    openSearchRef.current = openSearch;
+    closeSearchRef.current = closeSearch;
+    openRef.current = open;
+  }, [openSearch, closeSearch, open]);
+
   useEffect(() => {
     function onShortcut(event: globalThis.KeyboardEvent) {
       if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "k") {
         return;
       }
       event.preventDefault();
-      if (open) {
-        closeSearch();
+      if (openRef.current) {
+        closeSearchRef.current();
         return;
       }
-      openSearch("shortcut");
+      openSearchRef.current("shortcut");
       const mobile = window.matchMedia("(max-width: 767px)").matches;
       window.requestAnimationFrame(() => {
         (mobile ? mobileInputRef : desktopInputRef).current?.focus();
@@ -403,7 +411,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
     window.addEventListener("keydown", onShortcut);
     return () => window.removeEventListener("keydown", onShortcut);
-  }, [closeSearch, open, openSearch]);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -458,6 +466,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   );
 
   function onKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
+    if (event.nativeEvent.isComposing || event.key === "Process") return;
+
     if (!open) {
       if (event.key === "ArrowDown") openSearch("click");
       return;
@@ -616,7 +626,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             setQuery(event.target.value);
             setOpen(true);
           }}
-          onKeyDown={onKeyDown}
+          onKeyDown={(event) => {
+            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
+            onKeyDown(event);
+          }}
           className={`${searchInputClass} ${inputClass}`}
         />
         {query ? (
@@ -681,7 +694,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                   setQuery(event.target.value);
                   setOpen(true);
                 }}
-                onKeyDown={onKeyDown}
+                onKeyDown={(event) => {
+            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
+            onKeyDown(event);
+          }}
                 className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
               />
               {query ? (

@@ -46,12 +46,14 @@ export async function NewsArticlePage({
   article,
   locale,
 }: NewsArticlePageProps) {
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
+  const [t, tNav, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({
+      locale,
+      namespace: "groupHubShared",
+    }),
+  ]);
   const copy = getNewsCopy(article, locale);
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const sourceOrg = newsSourceOrg(article);
@@ -156,7 +158,7 @@ export async function NewsArticlePage({
                       if (!photo) return null;
                       return (
                         <NewsFigure
-                          key={`${block.src}-${index}`}
+                          key={block.src}
                           visual={localizeNewsPhoto(photo, locale)}
                           locale={locale}
                           sizes="(max-width: 1023px) 100vw, 1400px"
@@ -167,7 +169,7 @@ export async function NewsArticlePage({
                       );
                     }
                     return (
-                      <p key={index}>
+                      <p key={`p:${section.heading}:${index}`}>
                         <NewsRichText parts={block.parts} locale={locale} />
                       </p>
                     );

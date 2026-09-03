@@ -27,10 +27,13 @@ const GUIDES = [
 ];
 
 export async function HomeField() {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("home.field");
-  const tSafety = await getTranslations("home.safety");
-  const tKnowledge = await getTranslations("home.knowledge");
+  const [localeRaw, t, tSafety, tKnowledge] = await Promise.all([
+    getLocale(),
+    getTranslations("home.field"),
+    getTranslations("home.safety"),
+    getTranslations("home.knowledge"),
+  ]);
+  const locale = localeRaw as AppLocale;
   const vipers = VENOMOUS_VIPER_IDS.map((id) => getSpeciesById(id))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .map((item) => localizeSpecies(item, locale));

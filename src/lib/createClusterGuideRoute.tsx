@@ -134,24 +134,28 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const t = await getTranslations({ locale, namespace: guide.messageKey });
-    const tShared = await getTranslations({
-      locale,
-      namespace: "groupHubShared",
-    });
-    const tParent = await getTranslations({
-      locale,
-      namespace: parent.messageKey,
-    });
+    const [t, tShared, tParent] = await Promise.all([
+      getTranslations({ locale, namespace: guide.messageKey }),
+      getTranslations({
+        locale,
+        namespace: "groupHubShared",
+      }),
+      getTranslations({
+        locale,
+        namespace: parent.messageKey,
+      }),
+    ]);
 
     const url = absoluteUrl(localePath(locale, guide.pathname));
     const catalog = getCatalogSpecies();
-    const species = catalog
-      .filter(guide.matches)
-      .map((item) => localizeSpecies(item, locale));
+    const species: ReturnType<typeof localizeSpecies>[] = [];
+    for (const item of catalog) {
+      if (!guide.matches(item)) continue;
+      species.push(localizeSpecies(item, locale));
+    }
     const heroRaw =
       catalog.find((item) => item.id === guide.heroSpeciesId) ??
-      catalog.filter(guide.matches)[0];
+      catalog.find(guide.matches);
     const heroSrc = guide.heroImage ?? heroRaw?.image ?? "";
 
     const breadcrumbLd = {

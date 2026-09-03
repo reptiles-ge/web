@@ -1,6 +1,13 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import type { Species } from "@/data/species";
@@ -39,12 +46,12 @@ export function SnakeLargestPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("guideEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("guideTitle")}
-              </h2>
+              <ClusterSectionIntro
+                eyebrow={t("guideEyebrow")}
+                title={t("guideTitle")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              />
             </Reveal>
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -62,15 +69,14 @@ export function SnakeLargestPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("listEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("listTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("listBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("listEyebrow")}
+              title={t("listTitle")}
+              body={t("listBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           <ol className="mt-12 divide-y divide-border border-y border-border">
             {snakes.map((item, index) => (
@@ -92,25 +98,25 @@ export function SnakeLargestPage({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {t("lizardEyebrow")}
-                </p>
-                <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                  {t("lizardTitle")}
-                </h2>
-                <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t("lizardBody")}
-                </p>
-                <p className="mt-4 text-[14px] text-muted-foreground">
-                  {getSpeciesSizeStat(lizard) ?? t("emDash")}
-                </p>
-                <Link
-                  href={speciesHref(lizard.id, locale)}
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white dark:text-ink"
+                <ClusterSectionIntro
+                  eyebrow={t("lizardEyebrow")}
+                  title={t("lizardTitle")}
+                  body={t("lizardBody")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
+                  bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground"
                 >
-                  {lizard.commonName}
-                  <ArrowUpRight className="size-4" />
-                </Link>
+                  <p className="mt-4 text-[14px] text-muted-foreground">
+                    {getSpeciesSizeStat(lizard) ?? t("emDash")}
+                  </p>
+                  <Link
+                    href={speciesHref(lizard.id, locale)}
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white dark:text-ink"
+                  >
+                    {lizard.commonName}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </ClusterSectionIntro>
               </Reveal>
               <Reveal delay={60}>
                 <Link

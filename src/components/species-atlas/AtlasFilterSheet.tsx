@@ -10,7 +10,7 @@ import { localizeRegionText, regions } from "@/data/regions";
 import type { AppLocale } from "@/i18n/routing";
 import { SlidersHorizontal, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
@@ -34,14 +34,7 @@ const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
   "grassland",
 ];
 
-export function countAtlasFacets(filters: AtlasFilters) {
-  let count = 0;
-  if (filters.group !== "all") count += 1;
-  if (filters.danger !== "all") count += 1;
-  if (filters.habitat !== "all") count += 1;
-  if (filters.region !== "all") count += 1;
-  return count;
-}
+const emptySubscribe = () => () => {};
 
 type AtlasFilterSheetProps = {
   open: boolean;
@@ -60,12 +53,12 @@ export function AtlasFilterSheet({
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
   const titleId = useId();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
   const [draft, setDraft] = useState<AtlasFilters>(filters);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -106,11 +99,14 @@ export function AtlasFilterSheet({
   if (!mounted || !open) return null;
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[80] md:hidden"
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      open
+      className="fixed inset-0 z-[80] m-0 h-full max-h-none w-full max-w-none border-0 bg-transparent p-0 md:hidden"
       aria-labelledby={titleId}
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
     >
       <button
         type="button"
@@ -221,7 +217,7 @@ export function AtlasFilterSheet({
           </div>
         </div>
       </div>
-    </div>,
+    </dialog>,
     document.body,
   );
 }

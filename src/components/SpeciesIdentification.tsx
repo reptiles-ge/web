@@ -25,19 +25,21 @@ function IdentificationRichText({ text }: { text: string }) {
 
   return (
     <>
-      {parts.map((part, index) => {
+      {parts.map((part) => {
+        const key =
+          part.type === "text" ? `t:${part.value}` : `s:${part.id}:${part.label}`;
         if (part.type === "text") {
-          return <Fragment key={index}>{part.value}</Fragment>;
+          return <Fragment key={key}>{part.value}</Fragment>;
         }
 
         const target = getSpeciesById(part.id);
         if (!target) {
-          return <Fragment key={index}>{part.label}</Fragment>;
+          return <Fragment key={key}>{part.label}</Fragment>;
         }
 
         return (
           <Link
-            key={index}
+            key={key}
             href={speciesHref(part.id, locale)}
             onClick={() =>
               trackSpeciesClick({
