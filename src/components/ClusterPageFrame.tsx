@@ -16,6 +16,51 @@ import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
 
+function ClusterSectionIntro({
+  eyebrow,
+  title,
+  body,
+  tone = "muted",
+}: {
+  eyebrow: string;
+  title: string;
+  body: string;
+  tone?: "muted" | "hero";
+}) {
+  const hero = tone === "hero";
+  return (
+    <>
+      <p
+        className={
+          hero
+            ? "text-[11px] font-medium uppercase tracking-[0.32em] text-white/45"
+            : "text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
+        }
+      >
+        {eyebrow}
+      </p>
+      <h2
+        className={
+          hero
+            ? "mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] font-semibold leading-[1.05] text-white"
+            : "mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]"
+        }
+      >
+        {title}
+      </h2>
+      <p
+        className={
+          hero
+            ? "mt-5 max-w-xl text-[15px] leading-relaxed text-white/60"
+            : "mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground"
+        }
+      >
+        {body}
+      </p>
+    </>
+  );
+}
+
 type ClusterPageFrameProps = {
   guideId: ClusterGuideId;
   heroSrc: string;

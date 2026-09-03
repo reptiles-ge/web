@@ -252,7 +252,7 @@ export function SpeciesGallery({
               </p>
             </div>
           </div>
-        </div>
+        </dialog>
       ) : null}
     </>
   );
