@@ -7,27 +7,25 @@ export function QuizCoverPreload({
 }: {
   nextQuestion: SnakeQuizQuestion | undefined;
 }) {
+  const mobile = nextQuestion?.mobileImage;
+  const image = nextQuestion?.image;
+  const split = Boolean(mobile && mobile !== image);
+
   return (
     <>
-      {nextQuestion?.mobileImage &&
-      nextQuestion.mobileImage !== nextQuestion.image ? (
+      {split ? (
         <link
           as="image"
-          href={nextQuestion.mobileImage}
+          href={mobile}
           media="(max-width: 1023px)"
           rel="preload"
         />
       ) : null}
-      {nextQuestion?.image ? (
+      {image ? (
         <link
           as="image"
-          href={nextQuestion.image}
-          media={
-            nextQuestion.mobileImage &&
-            nextQuestion.mobileImage !== nextQuestion.image
-              ? "(min-width: 1024px)"
-              : undefined
-          }
+          href={image}
+          media={split ? "(min-width: 1024px)" : undefined}
           rel="preload"
         />
       ) : null}

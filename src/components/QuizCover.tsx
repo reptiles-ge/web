@@ -1,5 +1,6 @@
 "use client";
 
+import { QuizCoverPreload } from "@/components/QuizCoverPreload";
 import type { SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
 type QuizCoverProps = {
@@ -23,30 +24,14 @@ export function QuizCover({
   playing,
   revealed,
 }: QuizCoverProps) {
+  const alt =
+    playing && revealed && correctSpecies ? correctSpecies.imageAlt : hiddenAlt;
+  const src =
+    coverMobileSrc && coverMobileSrc !== coverSrc ? coverMobileSrc : coverSrc;
+
   return (
     <>
-      {nextQuestion?.mobileImage &&
-      nextQuestion.mobileImage !== nextQuestion.image ? (
-        <link
-          as="image"
-          href={nextQuestion.mobileImage}
-          media="(max-width: 1023px)"
-          rel="preload"
-        />
-      ) : null}
-      {nextQuestion?.image ? (
-        <link
-          as="image"
-          href={nextQuestion.image}
-          media={
-            nextQuestion.mobileImage &&
-            nextQuestion.mobileImage !== nextQuestion.image
-              ? "(min-width: 1024px)"
-              : undefined
-          }
-          rel="preload"
-        />
-      ) : null}
+      <QuizCoverPreload nextQuestion={nextQuestion} />
       <div className="absolute inset-0 overflow-hidden">
         {coverSrc ? (
           <picture
@@ -57,19 +42,11 @@ export function QuizCover({
               <source media="(min-width: 1024px)" srcSet={coverSrc} />
             ) : null}
             <img
-              alt={
-                playing && revealed && correctSpecies
-                  ? correctSpecies.imageAlt
-                  : hiddenAlt
-              }
+              alt={alt}
               className="hero-drift size-full object-cover text-transparent"
               decoding="async"
               fetchPriority={!playing ? "high" : "auto"}
-              src={
-                coverMobileSrc && coverMobileSrc !== coverSrc
-                  ? coverMobileSrc
-                  : coverSrc
-              }
+              src={src}
             />
           </picture>
         ) : null}

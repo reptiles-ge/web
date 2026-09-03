@@ -1,8 +1,12 @@
 "use client";
 
+import { EmptyState } from "@/components/SpeciesSearchEmpty";
 import { GroupLabel } from "@/components/SpeciesSearchGroupLabel";
 import { ResultRow } from "@/components/SpeciesSearchRow";
-import { searchGroupHeading } from "@/lib/searchGroupHeading";
+import {
+  type SearchGroupTitles,
+  searchGroupHeading,
+} from "@/lib/searchGroupHeading";
 import {
   type SearchDocument,
   type SearchGroup,
