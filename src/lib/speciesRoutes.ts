@@ -674,18 +674,21 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
 }
 
 export function speciesStaticParams(hubId: GroupHubId) {
-  return getCatalogSpecies()
-    .filter((item) => getSpeciesHubId(item.id) === hubId)
-    .flatMap((item) => {
-      const slugs = new Set([
-        getSpeciesPublicSlug(item.id, "ka"),
-        getSpeciesPublicSlug(item.id, "en"),
-        ...(KA_SLUG_ALIASES[item.id] ?? []),
-      ]);
-      return routing.locales.flatMap((locale) =>
-        [...slugs].map((slug) => ({ locale, slug })),
-      );
-    });
+  const params: Array<{ locale: AppLocale; slug: string }> = [];
+  for (const item of getCatalogSpecies()) {
+    if (getSpeciesHubId(item.id) !== hubId) continue;
+    const slugs = new Set([
+      getSpeciesPublicSlug(item.id, "ka"),
+      getSpeciesPublicSlug(item.id, "en"),
+      ...(KA_SLUG_ALIASES[item.id] ?? []),
+    ]);
+    for (const locale of routing.locales) {
+      for (const slug of slugs) {
+        params.push({ locale, slug });
+      }
+    }
+  }
+  return params;
 }
 
 export function legacySpeciesStaticParams() {
