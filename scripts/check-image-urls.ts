@@ -3,6 +3,11 @@ import fs from "node:fs";
 import http2 from "node:http2";
 import path from "node:path";
 import matter from "gray-matter";
+import {
+  optimizedBaseUrl,
+  optimizedImages,
+} from "../src/data/optimizedImages.generated";
+import { optimizedEntry } from "../src/data/optimizedImages";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const ROOT = process.cwd();
@@ -11,6 +16,7 @@ const SPECIES_ROOT = path.join(SRC_ROOT, "content", "species");
 
 const IMAGE_EXT = /\.(avif|gif|jpe?g|png|svg|webp)(\?.*)?$/i;
 const CDN_URL_RE = /https:\/\/cdn\.reptiles\.ge\/[^"'\\\s)>]+/g;
+const LOCAL_IMAGE_RE = /\/images\/[^"'\\\s)>]+/g;
 
 const SKIP_DIR_NAMES = new Set([".git", ".next", "node_modules"]);
 const SKIP_FILE_NAMES = new Set([
@@ -107,10 +113,12 @@ function parseArguments(argv: string[]): CliOptions {
   return { concurrency, json, limit, timeoutMs };
 }
 
-function isPhotoUrl(value: string) {
-  if (!value.startsWith(`${CDN_BASE}/`)) return false;
+function isSourceSrc(value: string) {
   if (value.includes("/optimized/")) return false;
-  return IMAGE_EXT.test(value);
+  if (!IMAGE_EXT.test(value)) return false;
+  return (
+    value.startsWith(`${CDN_BASE}/`) || value.startsWith("/images/")
+  );
 }
 
 function relPath(filePath: string) {
@@ -135,19 +143,19 @@ function walkFiles(dir: string, out: string[] = []) {
   return out;
 }
 
-function collectUrls(): Map<string, ImageHit> {
-  const byUrl = new Map<string, ImageHit>();
+function collectSources(): Map<string, ImageHit> {
+  const bySrc = new Map<string, ImageHit>();
 
   const add = (raw: string | undefined, ref: string) => {
     if (!raw) return;
-    const url = raw.trim();
-    if (!isPhotoUrl(url)) return;
-    const existing = byUrl.get(url);
+    const src = raw.trim();
+    if (!isSourceSrc(src)) return;
+    const existing = bySrc.get(src);
     if (existing) {
       existing.refs.add(ref);
       return;
     }
-    byUrl.set(url, { refs: new Set([ref]), url });
+    bySrc.set(src, { refs: new Set([ref]), url: src });
   };
 
   for (const filePath of walkFiles(SRC_ROOT)) {
@@ -155,6 +163,9 @@ function collectUrls(): Map<string, ImageHit> {
     const text = fs.readFileSync(filePath, "utf8");
 
     for (const match of text.matchAll(CDN_URL_RE)) {
+      add(match[0], source);
+    }
+    for (const match of text.matchAll(LOCAL_IMAGE_RE)) {
       add(match[0], source);
     }
 
@@ -186,7 +197,56 @@ function collectUrls(): Map<string, ImageHit> {
     add(`${CDN_BASE}/regions/${id}.jpg`, `regions/${id}`);
   }
 
-  return byUrl;
+  for (const src of Object.keys(optimizedImages)) {
+    if (bySrc.has(src)) continue;
+    if (isSourceSrc(src)) add(src, "optimizedImages.generated.ts");
+  }
+
+  return bySrc;
+}
+
+function servedUrlsFor(src: string): string[] {
+  const entry = optimizedEntry(src);
+  if (!entry) {
+    return src.startsWith("http") ? [src] : [];
+  }
+  const urls: string[] = [];
+  for (const format of entry.formats) {
+    for (const width of entry.widths) {
+      urls.push(`${optimizedBaseUrl}${entry.path}-${width}.${format}`);
+    }
+  }
+  return urls;
+}
+
+function collectServedUrls(): {
+  fallbacks: number;
+  hits: Map<string, ImageHit>;
+  optimized: number;
+  sources: number;
+} {
+  const sources = collectSources();
+  const hits = new Map<string, ImageHit>();
+  let optimized = 0;
+  let fallbacks = 0;
+
+  for (const [src, source] of sources) {
+    const served = servedUrlsFor(src);
+    if (served.length === 0) continue;
+    if (optimizedEntry(src)) optimized += 1;
+    else fallbacks += 1;
+
+    for (const url of served) {
+      const existing = hits.get(url);
+      if (existing) {
+        for (const ref of source.refs) existing.refs.add(ref);
+        continue;
+      }
+      hits.set(url, { refs: new Set(source.refs), url });
+    }
+  }
+
+  return { fallbacks, hits, optimized, sources: sources.size };
 }
 
 type CdnClient = {
