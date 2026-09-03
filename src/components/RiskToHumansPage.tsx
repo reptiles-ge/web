@@ -47,7 +47,7 @@ export function RiskToHumansPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <RiskToHumansHero countByLevel={countByLevel} />
         <RiskLevelList speciesByLevel={speciesByLevel} />
 
@@ -94,7 +94,7 @@ export function RiskToHumansPage({
             </Reveal>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

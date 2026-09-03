@@ -43,7 +43,7 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <SnakesInYardHero heroSrc={heroSrc} />
         <SnakesInYardSections coverSrc={coverSrc} />
 
@@ -188,7 +188,7 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
             </Reveal>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

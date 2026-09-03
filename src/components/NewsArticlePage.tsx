@@ -76,7 +76,7 @@ export async function NewsArticlePage({
           src={visual.src}
         />
       ) : null}
-      <main>
+      <div>
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
           <header>
             <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
@@ -298,7 +298,7 @@ export async function NewsArticlePage({
           </p>
         </article>
         <ContentAttribution sourcesHref="#sources" />
-      </main>
+      </div>
     </div>
   );
 }

@@ -32,7 +32,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
           src={featuredVisual.src}
         />
       ) : null}
-      <main>
+      <div>
         <header className="pt-30 pb-12 sm:pt-33 sm:pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
@@ -121,7 +121,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

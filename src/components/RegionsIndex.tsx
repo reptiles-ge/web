@@ -27,7 +27,7 @@ export function RegionsIndex() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <section
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
           style={{
@@ -227,7 +227,7 @@ export function RegionsIndex() {
             </Reveal>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

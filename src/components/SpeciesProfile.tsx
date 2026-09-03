@@ -131,7 +131,7 @@ export function SpeciesProfile({
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <SpeciesProfileHero
           breadcrumbs={breadcrumbs}
           desktopHeroSrc={desktopHeroSrc}
@@ -157,7 +157,7 @@ export function SpeciesProfile({
           showIdentification={showIdentification}
           species={species}
         />
-      </main>
+      </div>
     </div>
   );
 }

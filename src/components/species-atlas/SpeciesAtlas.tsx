@@ -286,7 +286,7 @@ export function SpeciesAtlas() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <AtlasHero stats={stats} />
         <AtlasBrowse
           facetCount={facetCount}
@@ -306,7 +306,7 @@ export function SpeciesAtlas() {
         <AtlasSeo />
         <AtlasRecent species={recent} />
         <AtlasAbout locale={locale} stats={stats} />
-      </main>
+      </div>
     </div>
   );
 }

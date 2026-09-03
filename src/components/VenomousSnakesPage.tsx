@@ -53,7 +53,7 @@ export function VenomousSnakesPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <VenomousSnakesHero
           heroSrc={heroSrc}
           highCount={highCount}
@@ -96,7 +96,7 @@ export function VenomousSnakesPage({
         <ContentAttribution />
 
         <VenomousSnakesCta heroSrc={heroSrc} />
-      </main>
+      </div>
     </div>
   );
 }

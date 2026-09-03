@@ -67,7 +67,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <section
           className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
           style={{
@@ -329,7 +329,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
             </div>
           </section>
         ) : null}
-      </main>
+      </div>
     </div>
   );
 }

@@ -181,7 +181,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   return (
     <div className="min-h-screen bg-background">
       <JsonLd data={graph} />
-      <main>
+      <div>
         <Hero />
         <HomeGroups />
         <HomeFeatured />
@@ -190,7 +190,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <HomeField />
         <HomeSeo />
         <FinalCTA />
-      </main>
+      </div>
     </div>
   );
 }

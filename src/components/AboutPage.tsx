@@ -10,16 +10,12 @@ import { Link } from "@/i18n/navigation";
 
 const SOURCE_LINKS = [
   {
-    href: "https://www.iucnredlist.org/",
-    key: "iucn" as const,
+    href: "https://doi.org/10.3897/caucasiana.5.e189214",
+    key: "tarkhnishvili" as const,
   },
   {
-    href: "https://www.gbif.org/",
-    key: "gbif" as const,
-  },
-  {
-    href: "https://reptile-database.reptarium.cz/",
-    key: "reptileDb" as const,
+    href: "https://doi.org/10.1080/09397140.2021.1957208",
+    key: "iankoshvili" as const,
   },
 ];
 
@@ -30,7 +26,7 @@ export function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <section
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
           style={{
@@ -242,7 +238,7 @@ export function AboutPage() {
             </Reveal>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

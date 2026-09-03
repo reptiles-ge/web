@@ -42,7 +42,7 @@ export function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <GroupHubHero heroSrc={heroSrc} hubId={hubId} species={species} />
 
         <section className="bg-background py-20 lg:py-28">
@@ -165,7 +165,7 @@ export function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
             </Reveal>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
