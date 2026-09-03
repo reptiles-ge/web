@@ -182,15 +182,11 @@ export function ClusterPageFrame({
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {tShared("relatedGuidesEyebrow")}
-                </p>
-                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                  {tShared("relatedGuidesTitle")}
-                </h2>
-                <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                  {tShared("relatedGuidesBody")}
-                </p>
+                <ClusterSectionIntro
+                  eyebrow={tShared("relatedGuidesEyebrow")}
+                  title={tShared("relatedGuidesTitle")}
+                  body={tShared("relatedGuidesBody")}
+                />
               </Reveal>
               <RelatedGuideGrid cards={relatedGuides} locale={locale} />
             </div>
@@ -212,15 +208,12 @@ export function ClusterPageFrame({
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
-                {t("ctaEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] font-semibold leading-[1.05] text-white">
-                {t("ctaTitle")}
-              </h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">
-                {t("ctaBody")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("ctaEyebrow")}
+                title={t("ctaTitle")}
+                body={t("ctaBody")}
+                tone="hero"
+              />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href={parent.path}
