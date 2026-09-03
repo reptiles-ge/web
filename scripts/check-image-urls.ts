@@ -5,7 +5,6 @@ import path from "node:path";
 import matter from "gray-matter";
 import {
   optimizedBaseUrl,
-  optimizedImages,
 } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
 
