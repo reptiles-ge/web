@@ -27,7 +27,6 @@ import {
   countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
-  getAtlasStats,
   getRecentlyUpdatedSpecies,
   getSpeciesAtlasMeta,
 } from "@/data/speciesAtlas";
@@ -111,7 +110,6 @@ export function SpeciesAtlas() {
       }),
     [locale],
   );
-  const stats = useMemo(() => getAtlasStats(getCatalogSpecies()), []);
   const recent = useMemo(
     () =>
       getRecentlyUpdatedSpecies(4).map((item) => localizeSpecies(item, locale)),

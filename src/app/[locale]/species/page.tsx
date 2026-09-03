@@ -5,6 +5,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/JsonLd";
+import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
+import { AtlasHero } from "@/components/species-atlas/AtlasHero";
+import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
 import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import {
@@ -139,10 +142,13 @@ export default async function SpeciesIndexPage({ params }: Props) {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={collectionLd} />
+      <AtlasHero stats={stats} />
       <SpeciesAtlas />
-    </>
+      <AtlasSeo />
+      <AtlasAbout locale={locale} stats={stats} />
+    </div>
   );
 }
