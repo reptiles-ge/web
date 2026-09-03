@@ -16,7 +16,8 @@
     "spiders": "Пауки",
     "news": "Новости",
     "openMenu": "Открыть меню",
-    "closeMenu": "Закрыть меню"
+    "closeMenu": "Закрыть меню",
+    "skipToContent": "Перейти к содержимому"
   },
   "search": {
     "placeholder": "Вид, страница, регион…",

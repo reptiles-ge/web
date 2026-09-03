@@ -16,7 +16,8 @@
     "spiders": "Örümcekler",
     "news": "Haberler",
     "openMenu": "Menüyü aç",
-    "closeMenu": "Menüyü kapat"
+    "closeMenu": "Menüyü kapat",
+    "skipToContent": "İçeriğe geç"
   },
   "search": {
     "placeholder": "Tür, sayfa, bölge…",
