@@ -311,15 +311,13 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       kind: "page",
       items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
     };
-    const rest = searched.groups
-      .map((group) => ({
-        ...group,
-        items: group.items.filter(
-          (item) =>
-            !recent.some((entry) => entry.key === item.key),
-        ),
-      }))
-      .filter((group) => group.items.length > 0);
+    const rest: SearchGroup[] = [];
+    for (const group of searched.groups) {
+      const items = group.items.filter(
+        (item) => !recent.some((entry) => entry.key === item.key),
+      );
+      if (items.length > 0) rest.push({ ...group, items });
+    }
     return [recentGroup, ...rest];
   }, [searched.groups, showRecent, recent]);
 

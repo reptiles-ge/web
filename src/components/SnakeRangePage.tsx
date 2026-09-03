@@ -35,9 +35,12 @@ export function SnakeRangePage({
       species.filter((item) => getRegionsForSpecies(item.id).length > 0).length,
     [species],
   );
-  const highlightedIds = regions
-    .filter((region) => getRegionSnakeSpecies(region).length > 0)
-    .map((region) => region.id);
+  const highlightedIds: string[] = [];
+  for (const region of regions) {
+    if (getRegionSnakeSpecies(region).length > 0) {
+      highlightedIds.push(region.id);
+    }
+  }
 
   return (
     <ClusterPageFrame
