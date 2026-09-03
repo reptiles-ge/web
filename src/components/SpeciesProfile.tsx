@@ -390,9 +390,10 @@ export function SpeciesProfile({
 
         {biologyBlocks.length > 0 ? (
           <section
-            className={`bg-surface pb-20 lg:pb-28 ${
-              isSnakeSpecies(species) ? "pt-12 lg:pt-16" : "pt-20 lg:pt-28"
-            }`}
+            className={cn(
+              "bg-surface pb-20 lg:pb-28",
+              isSnakeSpecies(species) ? "pt-12 lg:pt-16" : "pt-20 lg:pt-28",
+            )}
           >
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
@@ -406,15 +407,16 @@ export function SpeciesProfile({
                 {t("biologyTitle")}
               </AnchoredHeading>
               <div
-                className={`mt-14 grid gap-12 md:gap-10 ${
+                className={cn(
+                  "mt-14 grid gap-12 md:gap-10",
                   biologyBlocks.length >= 4
                     ? "md:grid-cols-2"
                     : biologyBlocks.length >= 3
                       ? "md:grid-cols-3"
                       : biologyBlocks.length === 2
                         ? "md:grid-cols-2"
-                        : "md:grid-cols-1"
-                }`}
+                        : "md:grid-cols-1",
+                )}
               >
                 {biologyBlocks.map((block) => (
                   <BiologyBlock

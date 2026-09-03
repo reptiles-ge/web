@@ -70,9 +70,10 @@ export function SpeciesGallery({
   return (
     <>
       <section
-        className={`py-24 lg:py-32 ${
-          tone === "surface" ? "bg-surface" : "bg-background"
-        }`}
+        className={cn(
+          "py-24 lg:py-32",
+          tone === "surface" ? "bg-surface" : "bg-background",
+        )}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
@@ -88,13 +89,14 @@ export function SpeciesGallery({
           </AnchoredHeading>
 
           <div
-            className={`mt-14 grid gap-3 sm:gap-4 ${
+            className={cn(
+              "mt-14 grid gap-3 sm:gap-4",
               photos.length === 1
                 ? "grid-cols-1"
                 : photos.length === 2
                   ? "grid-cols-1 sm:grid-cols-2"
-                  : "grid-cols-2 md:grid-cols-3"
-            }`}
+                  : "grid-cols-2 md:grid-cols-3",
+            )}
           >
             {photos.map((photo, index) => {
               const featured = photos.length >= 3 && index === 0;
@@ -107,11 +109,12 @@ export function SpeciesGallery({
               return (
                 <figure
                   key={photo.src}
-                  className={`group relative overflow-hidden rounded-[24px] bg-ink ${
+                  className={cn(
+                    "group relative overflow-hidden rounded-[24px] bg-ink",
                     featured
                       ? "col-span-2 aspect-16/10 md:col-span-3"
-                      : "aspect-4/5"
-                  }`}
+                      : "aspect-4/5",
+                  )}
                 >
                   <button
                     type="button"
