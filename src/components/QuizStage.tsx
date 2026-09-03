@@ -10,9 +10,7 @@ import type {
 } from "@/lib/snakeQuiz";
 
 import { QuizCover } from "@/components/QuizCover";
-import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
-import { QuizResultOverlay } from "@/components/QuizResultOverlay";
-import { QuizRound } from "@/components/QuizRound";
+import { QuizStagePanel } from "@/components/QuizStagePanel";
 import { cn } from "@/lib/cn";
 
 type Answered = {
