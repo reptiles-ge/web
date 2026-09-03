@@ -7,6 +7,7 @@
     "dev": "next dev",
     "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
     "build": "next build",
+    "analyze": "ANALYZE=true pnpm build",
     "start": "next start",
     "lint": "eslint",
     "doctor": "react-doctor -y --verbose",
@@ -38,6 +39,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "16.2.12",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#feat/og-images",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
