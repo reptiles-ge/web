@@ -38,10 +38,7 @@ export function VenomousSnakesSpecies({
   const t = useTranslations("venomousSnakes");
 
   return (
-    <section
-      className="scroll-mt-28 bg-background py-20 lg:py-28"
-      id="species"
-    >
+    <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="species">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <Reveal>
           <ClusterSectionIntro

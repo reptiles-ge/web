@@ -13,10 +13,7 @@ import { resolvePhotoCredit, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { trackEvent } from "@/lib/analytics";
-import {
-  getHubIndexTitleKey,
-  getSpeciesGuideLinks,
-} from "@/lib/clusterGuides";
+import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,

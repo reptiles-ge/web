@@ -112,10 +112,7 @@ export function SpeciesProfileHero({
             {species.location}
           </span>
           {species.audio ? (
-            <SpeciesVoicePlayer
-              audio={species.audio}
-              speciesId={species.id}
-            />
+            <SpeciesVoicePlayer audio={species.audio} speciesId={species.id} />
           ) : null}
           {usesDangerScale(group) ? (
             <SpeciesRiskChip linked species={species} variant="hero" />
@@ -143,10 +140,7 @@ function SpeciesProfileCrumb({
         </span>
       ) : null}
       {crumb.href && !isLast ? (
-        <Link
-          className="transition-colors hover:text-white"
-          href={crumb.href}
-        >
+        <Link className="transition-colors hover:text-white" href={crumb.href}>
           {crumb.name}
         </Link>
       ) : (
