@@ -1,3 +1,6 @@
+minimumReleaseAge: 10080
+trustPolicy:
+  no-downgrade: true
 onlyBuiltDependencies:
   - "@reptiles-ge/img-compression"
   - sharp
