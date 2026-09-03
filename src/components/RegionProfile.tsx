@@ -2,9 +2,7 @@
 
 import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
-
-import type { ReactNode } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";

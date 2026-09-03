@@ -4,8 +4,8 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { RegionProfile } from "@/components/RegionProfile";
