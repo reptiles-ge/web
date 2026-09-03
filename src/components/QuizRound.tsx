@@ -5,11 +5,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { type KeyboardEvent, type RefObject } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { QuizDifficulty, SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
-import type { QuizDifficulty, SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const OPTION_MARKS: Record<
@@ -27,8 +27,8 @@ type QuizRoundProps = {
   correctSpecies: SnakeQuizSpecies;
   feedbackRef: RefObject<HTMLParagraphElement | null>;
   headingId: string;
-  hintOpen: boolean;
   hintedQuestions: RefObject<Set<number>>;
+  hintOpen: boolean;
   index: number;
   nextLabel: string;
   onHintToggle: (open: boolean) => void;
@@ -47,8 +47,8 @@ export function QuizRound({
   correctSpecies,
   feedbackRef,
   headingId,
-  hintOpen,
   hintedQuestions,
+  hintOpen,
   index,
   nextLabel,
   onHintToggle,

@@ -345,7 +345,7 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
           />
         ) : (
           <p className="text-white/70">{t("loading")}</p>
-
+        )}
       </div>
     </section>
   );

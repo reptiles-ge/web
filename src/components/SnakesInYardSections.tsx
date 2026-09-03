@@ -24,64 +24,6 @@ export function SnakesInYardSections({ coverSrc }: { coverSrc: string }) {
   );
 }
 
-function SnakesInYardWhy({ coverSrc }: { coverSrc: string }) {
-  const t = useTranslations("snakesInYard");
-
-  return (
-    <section className="border-b border-border bg-surface py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-10">
-        <Reveal>
-          <ClusterSectionIntro
-            body={t("whyLead")}
-            bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
-            eyebrow={t("whyEyebrow")}
-            eyebrowClassName={CLUSTER_EYEBROW}
-            title={t("whyTitle")}
-            titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
-          />
-          <div className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-            <div className="bg-card p-7 sm:p-8">
-              <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
-                01
-              </p>
-              <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
-                {t("whyShelterTitle")}
-              </h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-                {t("whyShelterBody")}
-              </p>
-            </div>
-            <div className="bg-card p-7 sm:p-8">
-              <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
-                02
-              </p>
-              <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
-                {t("whyFoodTitle")}
-              </h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-                {t("whyFoodBody")}
-              </p>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={80}>
-          <figure className="relative aspect-4/5 overflow-hidden rounded-[28px] bg-ink sm:aspect-5/6">
-            <CoverImage
-              alt={t("coverImageAlt")}
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 44vw"
-              src={coverSrc}
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 text-[13px] leading-snug text-white/75">
-              {t("coverCaption")}
-            </figcaption>
-          </figure>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function SnakesInYardActions() {
   const t = useTranslations("snakesInYard");
 
@@ -170,6 +112,64 @@ function SnakesInYardMyths() {
             ))}
           </ul>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function SnakesInYardWhy({ coverSrc }: { coverSrc: string }) {
+  const t = useTranslations("snakesInYard");
+
+  return (
+    <section className="border-b border-border bg-surface py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-10">
+        <Reveal>
+          <ClusterSectionIntro
+            body={t("whyLead")}
+            bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
+            eyebrow={t("whyEyebrow")}
+            eyebrowClassName={CLUSTER_EYEBROW}
+            title={t("whyTitle")}
+            titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
+          />
+          <div className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+            <div className="bg-card p-7 sm:p-8">
+              <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
+                01
+              </p>
+              <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
+                {t("whyShelterTitle")}
+              </h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+                {t("whyShelterBody")}
+              </p>
+            </div>
+            <div className="bg-card p-7 sm:p-8">
+              <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
+                02
+              </p>
+              <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
+                {t("whyFoodTitle")}
+              </h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+                {t("whyFoodBody")}
+              </p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={80}>
+          <figure className="relative aspect-4/5 overflow-hidden rounded-[28px] bg-ink sm:aspect-5/6">
+            <CoverImage
+              alt={t("coverImageAlt")}
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 44vw"
+              src={coverSrc}
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 text-[13px] leading-snug text-white/75">
+              {t("coverCaption")}
+            </figcaption>
+          </figure>
+        </Reveal>
       </div>
     </section>
   );
