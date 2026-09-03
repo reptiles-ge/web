@@ -25,7 +25,10 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
   const open = Boolean(region);
   const [isDesktop, setIsDesktop] = useState(false);
   const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px)");
