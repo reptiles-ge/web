@@ -54,7 +54,7 @@ export function useQuizDraft(
     } finally {
       setDraftReady(true);
     }
-  }, [dispatch, quizId]);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!draftReady) return;
