@@ -1,5 +1,15 @@
 "use client";
 
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_FAQ_BODY,
+  CLUSTER_FAQ_TITLE,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_RELATED,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
@@ -191,12 +201,12 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {t("guideEyebrow")}
-                </p>
-                <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                  {t("guideTitle")}
-                </h2>
+                <ClusterSectionIntro
+                  eyebrow={t("guideEyebrow")}
+                  title={t("guideTitle")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
+                />
               </Reveal>
               <Reveal delay={60}>
                 <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -221,15 +231,14 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("speciesEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-                {t("speciesTitle", { count: species.length })}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("speciesBody")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("speciesEyebrow")}
+                title={t("speciesTitle", { count: species.length })}
+                body={t("speciesBody")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_SECTION}
+                bodyClassName={CLUSTER_BODY}
+              />
             </Reveal>
 
             <div className="mt-14 space-y-16">
@@ -273,15 +282,14 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {tShared("relatedEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {tShared("relatedTitle")}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {tShared("relatedBody")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={tShared("relatedEyebrow")}
+                title={tShared("relatedTitle")}
+                body={tShared("relatedBody")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_RELATED}
+                bodyClassName={CLUSTER_BODY}
+              />
             </Reveal>
             <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {relatedHubs.map((hub, index) => (
@@ -426,15 +434,14 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("faqEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {t("faqTitle")}
-            </h2>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              {t("faqIntro")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("faqEyebrow")}
+              title={t("faqTitle")}
+              body={t("faqIntro")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_FAQ_TITLE}
+              bodyClassName={CLUSTER_FAQ_BODY}
+            />
           </Reveal>
           <div>
             {items.map((n, index) => {

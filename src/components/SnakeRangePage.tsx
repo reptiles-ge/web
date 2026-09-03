@@ -1,6 +1,13 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+  ClusterStat,
+} from "@/components/ClusterSectionIntro";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { getRegionContent } from "@/data/regionContent";
@@ -51,30 +58,9 @@ export function SnakeRangePage({
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {regions.length}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statRegions")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {mappedCount}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statMapped")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {species.length - mappedCount}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statPending")}
-              </p>
-            </div>
+            <ClusterStat value={regions.length} label={t("statRegions")} />
+            <ClusterStat value={mappedCount} label={t("statMapped")} />
+            <ClusterStat value={species.length - mappedCount} label={t("statPending")} />
           </div>
         </section>
       }
@@ -83,12 +69,12 @@ export function SnakeRangePage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("guideEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("guideTitle")}
-              </h2>
+              <ClusterSectionIntro
+                eyebrow={t("guideEyebrow")}
+                title={t("guideTitle")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              />
             </Reveal>
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -133,12 +119,12 @@ export function SnakeRangePage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("listEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("listTitle")}
-            </h2>
+            <ClusterSectionIntro
+              eyebrow={t("listEyebrow")}
+              title={t("listTitle")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+            />
           </Reveal>
           <ul className="mt-14 divide-y divide-border border-y border-border">
             {regions.map((region, index) => (
