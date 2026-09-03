@@ -76,8 +76,15 @@ export async function addSpeciesPhotos(input: {
   }> = [];
   const catalog: OptimizeCatalogUpdate[] = [];
 
-  for (const file of input.files) {
-    const prepared = await prepareOriginal(file.bytes);
+  const preparedFiles = await Promise.all(
+    input.files.map((file) => prepareOriginal(file.bytes)),
+  );
+  const uploads: Array<{
+    buffer: Buffer;
+    contentType: string;
+    key: string;
+  }> = [];
+  for (const prepared of preparedFiles) {
     const key = await nextStorageKey(
       storage,
       used,
@@ -85,24 +92,40 @@ export async function addSpeciesPhotos(input: {
       slug,
       prepared.ext,
     );
-    await storage.put(key, prepared.buffer, {
+    uploads.push({
+      buffer: prepared.buffer,
       contentType: prepared.contentType,
-    });
-    const src = storage.urlFor(key);
-    const optimized = await optimizeUploadedOriginal({
       key,
-      source: prepared.buffer,
-      src,
-      storage,
     });
-    if (optimized) catalog.push(optimized);
-    const kaItem: GalleryImage = kaCredit ? { credit: kaCredit, src } : { src };
-    const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
-    if (enCredit && !creditsEqual(kaCredit, enCredit)) {
-      overlays.en = { credit: enCredit, src };
-    }
-    items.push({ ka: kaItem, overlays });
-    added.push(kaItem);
+  }
+
+  const optimizedList = await Promise.all(
+    uploads.map(async (upload) => {
+      await storage.put(upload.key, upload.buffer, {
+        contentType: upload.contentType,
+      });
+      const src = storage.urlFor(upload.key);
+      const optimized = await optimizeUploadedOriginal({
+        key: upload.key,
+        source: upload.buffer,
+        src,
+        storage,
+      });
+      const kaItem: GalleryImage = kaCredit
+        ? { credit: kaCredit, src }
+        : { src };
+      const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
+      if (enCredit && !creditsEqual(kaCredit, enCredit)) {
+        overlays.en = { credit: enCredit, src };
+      }
+      return { kaItem, optimized, overlays };
+    }),
+  );
+
+  for (const result of optimizedList) {
+    if (result.optimized) catalog.push(result.optimized);
+    items.push({ ka: result.kaItem, overlays: result.overlays });
+    added.push(result.kaItem);
   }
 
   try {

@@ -6,16 +6,12 @@ import { useLocale, useTranslations } from "next-intl";
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
+import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
-  CLUSTER_BODY,
-  CLUSTER_EYEBROW,
-  CLUSTER_TITLE_SECTION,
-  ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { Link } from "@/i18n/navigation";
 
@@ -61,30 +57,20 @@ export function FrogSpeciesIndexPage({
         title={t("guideTitle")}
       />
 
-      <section
-        className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+      <ClusterContentSection
+        body={t("tableBody")}
+        eyebrow={t("tableEyebrow")}
         id="index"
+        title={t("tableTitle", { count: species.length })}
       >
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <ClusterSectionIntro
-              body={t("tableBody")}
-              bodyClassName={CLUSTER_BODY}
-              eyebrow={t("tableEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("tableTitle", { count: species.length })}
-              titleClassName={CLUSTER_TITLE_SECTION}
-            />
-          </Reveal>
-          <div className="mt-10">
-            <SpeciesIndexTable
-              locale={locale}
-              showDangerFilter={false}
-              species={species}
-            />
-          </div>
+        <div className="mt-10">
+          <SpeciesIndexTable
+            locale={locale}
+            showDangerFilter={false}
+            species={species}
+          />
         </div>
-      </section>
+      </ClusterContentSection>
     </ClusterPageFrame>
   );
 }

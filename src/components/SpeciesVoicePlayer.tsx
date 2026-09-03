@@ -103,7 +103,14 @@ export function SpeciesVoicePlayer({
       id={SPECIES_SECTION_IDS.voice}
       title={credit}
     >
-      <audio preload="none" ref={audioRef} />
+      <audio preload="none" ref={audioRef}>
+        <track
+          kind="captions"
+          label={t("voiceTitle")}
+          src="/captions/species-voice.vtt"
+          srcLang="zxx"
+        />
+      </audio>
       <button
         aria-label={playing ? t("voicePause") : t("voicePlay")}
         className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-ink"

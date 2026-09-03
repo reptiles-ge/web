@@ -6,14 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
+import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  CLUSTER_BODY,
-  CLUSTER_EYEBROW,
-  CLUSTER_TITLE_SECTION,
-  ClusterSectionIntro,
-} from "@/components/ClusterSectionIntro";
 import { LookalikePair } from "@/components/LookalikePair";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { Reveal } from "@/components/Reveal";
@@ -85,55 +81,26 @@ export function SnakeIdentifyPage({
         />
       </Reveal>
 
-      <section
-        className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+      <ClusterContentSection
+        body={t("signsWarning")}
+        eyebrow={t("signsEyebrow")}
         id="signs"
+        title={t("signsTitle")}
       >
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <ClusterSectionIntro
-              body={t("signsWarning")}
-              bodyClassName={CLUSTER_BODY}
-              eyebrow={t("signsEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("signsTitle")}
-              titleClassName={CLUSTER_TITLE_SECTION}
-            />
-          </Reveal>
-          <ol className="mt-14 divide-y divide-border border-y border-border">
-            {([1, 2, 3, 4] as const).map((n) => (
-              <Reveal delay={n * 40} key={n}>
-                <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr] sm:items-start">
-                  <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
-                    {String(n).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
-                      {t(`sign${n}Title`)}
-                    </h3>
-                    <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`sign${n}Body`)}
-                    </p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-      </section>
+        <ClusterNumberedSteps
+          steps={([1, 2, 3, 4] as const).map((n) => ({
+            body: t(`sign${n}Body`),
+            title: t(`sign${n}Title`),
+          }))}
+        />
+      </ClusterContentSection>
 
-      <section className="border-t border-border bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <ClusterSectionIntro
-              body={t("chainBody")}
-              bodyClassName={CLUSTER_BODY}
-              eyebrow={t("chainEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("chainTitle")}
-              titleClassName={CLUSTER_TITLE_SECTION}
-            />
-          </Reveal>
+      <ClusterContentSection
+        body={t("chainBody")}
+        eyebrow={t("chainEyebrow")}
+        surface="background"
+        title={t("chainTitle")}
+      >
           {(giurza || kaznakovi) && (
             <div className="mt-10 flex flex-wrap gap-3">
               {giurza ? (
@@ -164,35 +131,26 @@ export function SnakeIdentifyPage({
             </div>
           )}
           <SpeciesGuideList locale={locale} source="guide" species={venomous} />
-        </div>
-      </section>
+      </ClusterContentSection>
 
-      <section className="border-t border-border bg-surface py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
-            <ClusterSectionIntro
-              body={t("pairsBody")}
-              bodyClassName={CLUSTER_BODY}
-              eyebrow={t("pairsEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("pairsTitle")}
-              titleClassName={CLUSTER_TITLE_SECTION}
-            />
-          </Reveal>
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {pairs.map((pair, index) => (
-              <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
-                <LookalikePair
-                  a={pair.a}
-                  b={pair.b}
-                  locale={locale}
-                  vs={t("vs")}
-                />
-              </Reveal>
-            ))}
-          </div>
+      <ClusterContentSection
+        body={t("pairsBody")}
+        eyebrow={t("pairsEyebrow")}
+        title={t("pairsTitle")}
+      >
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {pairs.map((pair, index) => (
+            <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
+              <LookalikePair
+                a={pair.a}
+                b={pair.b}
+                locale={locale}
+                vs={t("vs")}
+              />
+            </Reveal>
+          ))}
         </div>
-      </section>
+      </ClusterContentSection>
     </ClusterPageFrame>
   );
 }

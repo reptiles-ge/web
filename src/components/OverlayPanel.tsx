@@ -107,68 +107,6 @@ export function OverlayPanel({
     };
   }, [open]);
 
-  const mobileSheet = mounted
-    ? createPortal(
-        <AnimatePresence>
-          {open ? (
-            <m.button
-              animate={{ opacity: 1 }}
-              aria-label={closeLabel}
-              className="fixed inset-0 z-80 bg-ink/55 backdrop-blur-[2px] md:hidden"
-              exit={{ opacity: 0 }}
-              initial={{ opacity: 0 }}
-              key="overlay-backdrop"
-              onClick={onClose}
-              transition={{ duration: 0.22 }}
-              type="button"
-            />
-          ) : null}
-          {open ? (
-            <m.div
-              animate={{ opacity: 1, y: 0 }}
-              aria-label={title}
-              aria-modal="true"
-              className={cn(
-                "fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden",
-                mobileSheetClassName,
-              )}
-              exit={{ opacity: 0.96, y: "100%" }}
-              initial={{ opacity: 0.96, y: "100%" }}
-              key="overlay-sheet"
-              ref={sheetRef}
-              role="dialog"
-              transition={sheetTransition}
-            >
-              <div className="flex shrink-0 flex-col items-center px-4 pt-3">
-                <span
-                  aria-hidden="true"
-                  className="mb-3 h-1 w-10 rounded-full bg-border"
-                />
-                <div className="flex w-full items-center justify-between gap-3 pb-3">
-                  <h2 className="font-display text-[18px] font-semibold text-foreground">
-                    {title}
-                  </h2>
-                  <button
-                    aria-label={closeLabel}
-                    className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
-                    onClick={onClose}
-                    type="button"
-                  >
-                    <X aria-hidden="true" className="size-4" />
-                  </button>
-                </div>
-                {mobileHeader}
-              </div>
-              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
-                {mobileContent}
-              </div>
-            </m.div>
-          ) : null}
-        </AnimatePresence>,
-        document.body,
-      )
-    : null;
-
   return (
     <MotionLazy>
       <AnimatePresence>
@@ -190,7 +128,98 @@ export function OverlayPanel({
           </m.div>
         ) : null}
       </AnimatePresence>
-      {mobileSheet}
+      {mounted ? (
+        <OverlayMobileSheet
+          closeLabel={closeLabel}
+          mobileContent={mobileContent}
+          mobileHeader={mobileHeader}
+          mobileSheetClassName={mobileSheetClassName}
+          onClose={onClose}
+          open={open}
+          sheetRef={sheetRef}
+          title={title}
+        />
+      ) : null}
     </MotionLazy>
+  );
+}
+
+function OverlayMobileSheet({
+  closeLabel,
+  mobileContent,
+  mobileHeader,
+  mobileSheetClassName,
+  onClose,
+  open,
+  sheetRef,
+  title,
+}: {
+  closeLabel: string;
+  mobileContent: ReactNode;
+  mobileHeader?: ReactNode;
+  mobileSheetClassName?: string;
+  onClose: () => void;
+  open: boolean;
+  sheetRef: RefObject<HTMLDivElement | null>;
+  title: string;
+}) {
+  return createPortal(
+    <AnimatePresence>
+      {open ? (
+        <m.button
+          animate={{ opacity: 1 }}
+          aria-label={closeLabel}
+          className="fixed inset-0 z-80 bg-ink/55 backdrop-blur-[2px] md:hidden"
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          key="overlay-backdrop"
+          onClick={onClose}
+          transition={{ duration: 0.22 }}
+          type="button"
+        />
+      ) : null}
+      {open ? (
+        <m.div
+          animate={{ opacity: 1, y: 0 }}
+          aria-label={title}
+          aria-modal="true"
+          className={cn(
+            "fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden",
+            mobileSheetClassName,
+          )}
+          exit={{ opacity: 0.96, y: "100%" }}
+          initial={{ opacity: 0.96, y: "100%" }}
+          key="overlay-sheet"
+          ref={sheetRef}
+          role="dialog"
+          transition={sheetTransition}
+        >
+          <div className="flex shrink-0 flex-col items-center px-4 pt-3">
+            <span
+              aria-hidden="true"
+              className="mb-3 h-1 w-10 rounded-full bg-border"
+            />
+            <div className="flex w-full items-center justify-between gap-3 pb-3">
+              <h2 className="font-display text-[18px] font-semibold text-foreground">
+                {title}
+              </h2>
+              <button
+                aria-label={closeLabel}
+                className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
+                onClick={onClose}
+                type="button"
+              >
+                <X aria-hidden="true" className="size-4" />
+              </button>
+            </div>
+            {mobileHeader}
+          </div>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
+            {mobileContent}
+          </div>
+        </m.div>
+      ) : null}
+    </AnimatePresence>,
+    document.body,
   );
 }

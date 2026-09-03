@@ -1,0 +1,36 @@
+"use client";
+
+import { Reveal } from "@/components/Reveal";
+
+type ClusterNumberedStep = {
+  body: string;
+  title: string;
+};
+
+export function ClusterNumberedSteps({
+  steps,
+}: {
+  steps: readonly ClusterNumberedStep[];
+}) {
+  return (
+    <ol className="mt-14 divide-y divide-border border-y border-border">
+      {steps.map((step, index) => (
+        <Reveal delay={(index + 1) * 40} key={step.title}>
+          <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr] sm:items-start">
+            <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
+                {step.title}
+              </h3>
+              <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+                {step.body}
+              </p>
+            </div>
+          </li>
+        </Reveal>
+      ))}
+    </ol>
+  );
+}
