@@ -10,7 +10,7 @@ import { localizeRegionText, regions } from "@/data/regions";
 import type { AppLocale } from "@/i18n/routing";
 import { SlidersHorizontal, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
@@ -34,6 +34,8 @@ const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
   "grassland",
 ];
 
+const emptySubscribe = () => () => {};
+
 type AtlasFilterSheetProps = {
   open: boolean;
   filters: AtlasFilters;
@@ -51,12 +53,12 @@ export function AtlasFilterSheet({
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
   const titleId = useId();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
   const [draft, setDraft] = useState<AtlasFilters>(filters);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
