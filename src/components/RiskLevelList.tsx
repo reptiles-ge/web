@@ -18,7 +18,7 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
 
-export function levelTone(level: DangerLevel) {
+function levelTone(level: DangerLevel) {
   switch (level) {
     case "High":
       return {
