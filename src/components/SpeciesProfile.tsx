@@ -20,6 +20,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { formatContentDate } from "@/lib/formatDate";
 import { getRegionsForSpecies } from "@/data/regions";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import {
   filterDisplayStats,
   getSpeciesHeroSources,

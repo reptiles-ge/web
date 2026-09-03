@@ -11,6 +11,7 @@ import {
   chromeIconButtonClass,
   chromeShellClass,
 } from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
 import {
   buildSearchIndex,
   flattenGroups,

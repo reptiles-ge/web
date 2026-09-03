@@ -26,6 +26,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
