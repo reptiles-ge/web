@@ -17,11 +17,11 @@ import {
 import type { AppLocale } from "@/i18n/routing";
 
 import { OverlayPanel } from "@/components/OverlayPanel";
+import { SearchDesktopPanel } from "@/components/SpeciesSearchDesktopPanel";
 import {
   SpeciesSearchMobileHeader,
   SpeciesSearchTrigger,
 } from "@/components/SpeciesSearchField";
-import { SearchDesktopPanel } from "@/components/SpeciesSearchDesktopPanel";
 import { SearchResultsList } from "@/components/SpeciesSearchResults";
 import { useRouter } from "@/i18n/navigation";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";

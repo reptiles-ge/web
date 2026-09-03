@@ -31,34 +31,6 @@ const ICONS: Record<SearchIcon, typeof Search> = {
   yard: Home,
 };
 
-function highlight(text: string, query: string) {
-  const q = query.trim();
-  if (!q) return text;
-  const lower = text.toLowerCase();
-  const nq = q.toLowerCase();
-  let index = lower.indexOf(nq);
-  let length = nq.length;
-  if (index < 0) {
-    for (const token of nq.split(/\s+/).filter((item) => item.length > 1)) {
-      index = lower.indexOf(token);
-      if (index >= 0) {
-        length = token.length;
-        break;
-      }
-    }
-  }
-  if (index < 0) return text;
-  return (
-    <>
-      {text.slice(0, index)}
-      <mark className="rounded-[3px] bg-primary/15 text-inherit">
-        {text.slice(index, index + length)}
-      </mark>
-      {text.slice(index + length)}
-    </>
-  );
-}
-
 export function ResultRow({
   active,
   item,
@@ -138,5 +110,33 @@ export function ResultRow({
         />
       </button>
     </li>
+  );
+}
+
+function highlight(text: string, query: string) {
+  const q = query.trim();
+  if (!q) return text;
+  const lower = text.toLowerCase();
+  const nq = q.toLowerCase();
+  let index = lower.indexOf(nq);
+  let length = nq.length;
+  if (index < 0) {
+    for (const token of nq.split(/\s+/).filter((item) => item.length > 1)) {
+      index = lower.indexOf(token);
+      if (index >= 0) {
+        length = token.length;
+        break;
+      }
+    }
+  }
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <mark className="rounded-[3px] bg-primary/15 text-inherit">
+        {text.slice(index, index + length)}
+      </mark>
+      {text.slice(index + length)}
+    </>
   );
 }

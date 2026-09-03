@@ -1,8 +1,7 @@
 "use client";
 
-import { type SearchFilter } from "@/lib/siteSearch";
-
 import { cn } from "@/lib/cn";
+import { type SearchFilter } from "@/lib/siteSearch";
 
 const FILTERS: SearchFilter[] = ["all", "page", "species", "region"];
 

@@ -9,8 +9,8 @@ import {
 import type { SearchFilter } from "@/lib/siteSearch";
 
 import {
-  SpeciesSearchFilterBar,
   type SearchFilterLabels,
+  SpeciesSearchFilterBar,
 } from "@/components/SpeciesSearchFilterBar";
 import {
   chromeIconButtonBase,

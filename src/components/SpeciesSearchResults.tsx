@@ -1,7 +1,7 @@
 "use client";
 
 import { EmptyState } from "@/components/SpeciesSearchEmpty";
-import { GroupLabel, groupHeading } from "@/components/SpeciesSearchGroupLabel";
+import { groupHeading, GroupLabel } from "@/components/SpeciesSearchGroupLabel";
 import { ResultRow } from "@/components/SpeciesSearchRow";
 import {
   type SearchDocument,

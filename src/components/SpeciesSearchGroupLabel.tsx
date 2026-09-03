@@ -3,6 +3,7 @@
 import { type ReactNode } from "react";
 
 import type { SearchGroupTitles } from "@/components/SpeciesSearchResults";
+
 import { type SearchKind } from "@/lib/siteSearch";
 
 export function groupHeading(
