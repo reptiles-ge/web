@@ -146,7 +146,7 @@ if (!fs.existsSync(contentRoot)) {
 
 const TRANSLATION_LOCALES = ["en", "ru", "tr"] as const;
 
-const publishedIds = new Set(
+const publishedIds = new Set<string>(
   featuredSpeciesIds.filter((id) => !unpublishedSpeciesIds.has(id)),
 );
 
