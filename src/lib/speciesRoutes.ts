@@ -97,6 +97,15 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "black-lobed-argiope",
     "loblu-orumcek",
   ],
+  "latrodectus-tredecimguttatus": [
+    "shavi-qvrivi",
+    "qaraqurti",
+    "karakurt",
+    "latrodectus-mactans",
+    "black-widow",
+    "european-black-widow",
+    "mediterranean-black-widow",
+  ],
   "steatoda-paykulliana": [
     "tsru-qaraqurti",
     "tsru-shavi-qvrivi",
