@@ -16,6 +16,7 @@ import { preconnect, preload } from "react-dom";
 import "./globals.css";
 
 const GTM_ID = "GTM-NM65ZMML";
+const FACEBOOK_APP_ID = "1033733009490487";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -73,6 +74,9 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [SITE_OG_IMAGE_URL],
+  },
+  facebook: {
+    appId: FACEBOOK_APP_ID,
   },
   robots: {
     index: true,
