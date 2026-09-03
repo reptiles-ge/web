@@ -46,19 +46,21 @@ export function useQuizDraft(
   }, [quizId]);
 
   useEffect(() => {
-    try {
-      const raw = sessionStorage.getItem(draftKey(quizIdRef.current));
-      if (!raw) return;
-      const draft = JSON.parse(raw) as QuizDraft;
-      if (!Array.isArray(draft.questions) || draft.questions.length === 0) {
+    queueMicrotask(() => {
+      try {
+        const raw = sessionStorage.getItem(draftKey(quizIdRef.current));
+        if (raw) {
+          const draft = JSON.parse(raw) as QuizDraft;
+          if (Array.isArray(draft.questions) && draft.questions.length > 0) {
+            dispatch({ draft, type: "restore" });
+          }
+        }
+      } catch {
         return;
+      } finally {
+        setDraftReady(true);
       }
-      dispatch({ draft, type: "restore" });
-    } catch {
-      return;
-    } finally {
-      setDraftReady(true);
-    }
+    });
   }, [dispatch]);
 
   useEffect(() => {
