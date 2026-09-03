@@ -8,16 +8,11 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  collectTurtleRegions,
-  TurtleIdentifyChooser,
-} from "@/components/TurtleIdentifyChooser";
+import { TurtleIdentifyChooser } from "@/components/TurtleIdentifyChooser";
 import { TurtleIdentifyFlow } from "@/components/TurtleIdentifyFlow";
-import {
-  TURTLE_ORDER,
-  TurtleIdentifyMatrix,
-} from "@/components/TurtleIdentifyMatrix";
+import { TurtleIdentifyMatrix } from "@/components/TurtleIdentifyMatrix";
 import { Link } from "@/i18n/navigation";
+import { collectTurtleRegions, TURTLE_ORDER } from "@/lib/turtleIdentify";
 
 export function TurtleIdentifyPage({
   guideId,

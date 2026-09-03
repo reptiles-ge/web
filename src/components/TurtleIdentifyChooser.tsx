@@ -9,43 +9,16 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
-import { type TurtleId } from "@/components/TurtleIdentifyMatrix";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-  type Region,
-} from "@/data/regions";
+import { localizeRegionText, type Region } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
+import { TURTLE_META, type TurtleId } from "@/lib/turtleIdentify";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
-
-type TurtleKind = "land" | "water";
-type TurtleStatus = "introduced" | "native";
-
-const TURTLE_META: Record<
-  TurtleId,
-  { kind: TurtleKind; status: TurtleStatus }
-> = {
-  "emys-orbicularis": { kind: "water", status: "native" },
-  "mauremys-caspica": { kind: "water", status: "native" },
-  "testudo-graeca": { kind: "land", status: "native" },
-  "trachemys-scripta": { kind: "water", status: "introduced" },
-};
 
 type TurtleIdentifyChooserProps = {
   locale: AppLocale;
   regions: Region[];
   turtles: Species[];
 };
-
-export function collectTurtleRegions(turtles: Species[]) {
-  const regionMap = new Map<string, Region>();
-  for (const item of turtles) {
-    for (const region of getRegionsForSpecies(item.id)) {
-      regionMap.set(region.id, region);
-    }
-  }
-  return [...regionMap.values()];
-}
 
 export function TurtleIdentifyChooser({
   locale,

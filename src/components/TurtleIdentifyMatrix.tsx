@@ -9,6 +9,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
+import { TURTLE_ORDER } from "@/lib/turtleIdentify";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const MATRIX_ROWS = [
@@ -28,15 +29,6 @@ const EMYS_VS_ROWS = [
   "habitat",
   "range",
 ] as const;
-
-export const TURTLE_ORDER = [
-  "testudo-graeca",
-  "emys-orbicularis",
-  "mauremys-caspica",
-  "trachemys-scripta",
-] as const;
-
-export type TurtleId = (typeof TURTLE_ORDER)[number];
 
 type TurtleIdentifyMatrixProps = {
   emys?: Species;
