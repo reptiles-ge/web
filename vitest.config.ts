@@ -16,7 +16,17 @@ export default defineConfig({
     },
   },
   test: {
+    cache: {
+      dir: path.resolve(__dirname, "node_modules/.vitest"),
+    },
     environment: "node",
+    fileParallelism: false,
     include: ["src/**/*.test.ts"],
+    pool: "forks",
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
   },
 });
