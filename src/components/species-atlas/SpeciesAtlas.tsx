@@ -365,7 +365,7 @@ export function SpeciesAtlas() {
               <div className="mt-10 max-w-4xl sm:mt-12">
                 <div className="flex flex-wrap items-end gap-x-4 gap-y-2 border-b border-white/12 pb-5">
                   <p className="font-display text-[clamp(3rem,8vw,4.75rem)] leading-none font-semibold tracking-tight text-white">
-                    <AnimatedValue value={stats.total} />
+                    {stats.total}
                   </p>
                   <div className="pb-1.5">
                     <p className="text-[13px] font-medium text-white/80 sm:text-[14px]">
@@ -788,45 +788,6 @@ export function SpeciesAtlas() {
       </main>
     </div>
   );
-}
-
-function AnimatedValue({
-  className,
-  value,
-}: {
-  className?: string;
-  value: number;
-}) {
-  const [display, setDisplay] = useState(value);
-  const displayRef = useRef(value);
-
-  useEffect(() => {
-    const from = displayRef.current;
-    if (from === value) return;
-
-    let frame = 0;
-    let start: null | number = null;
-    const duration = 900;
-
-    function tick(ts: number) {
-      if (start === null) start = ts;
-      const progress = Math.min((ts - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const next = Math.round(from + (value - from) * eased);
-      displayRef.current = next;
-      setDisplay(next);
-      if (progress < 1) {
-        frame = window.requestAnimationFrame(tick);
-      }
-    }
-    frame = window.requestAnimationFrame(tick);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [value]);
-
-  return <span className={className}>{display}</span>;
 }
 
 function ComingSoonPanel({

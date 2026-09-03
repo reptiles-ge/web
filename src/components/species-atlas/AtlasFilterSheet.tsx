@@ -2,8 +2,8 @@
 
 import { SlidersHorizontal, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
+import { useId, useState } from "react";
+import { Drawer } from "vaul";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -36,8 +36,6 @@ const HABITAT_OPTIONS: Array<"all" | HabitatTag> = [
   "wetland",
   "grassland",
 ];
-
-const emptySubscribe = () => () => {};
 
 type AtlasFilterSheetProps = {
   filters: AtlasFilters;
@@ -83,11 +81,6 @@ export function AtlasFilterSheet({
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
   const titleId = useId();
-  const mounted = useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false,
-  );
   const [draft, setDraft] = useState<AtlasFilters>(filters);
   const [syncedOpen, setSyncedOpen] = useState(open);
   const [syncedFilters, setSyncedFilters] = useState(filters);
@@ -102,15 +95,6 @@ export function AtlasFilterSheet({
     setSyncedFilters(filters);
     setDraft(filters);
   }
-
-  useEffect(() => {
-    if (!open) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previous;
-    };
-  }, [open]);
 
   function updateDraft<K extends keyof AtlasFilters>(
     key: K,
@@ -134,129 +118,121 @@ export function AtlasFilterSheet({
     onClose();
   }
 
-  if (!mounted || !open) return null;
-
-  return createPortal(
-    <dialog
-      aria-labelledby={titleId}
-      className="fixed inset-0 z-80 m-0 size-full max-h-none max-w-none border-0 bg-transparent p-0 md:hidden"
-      onCancel={(event) => {
-        event.preventDefault();
-        onClose();
+  return (
+    <Drawer.Root
+      onOpenChange={(next) => {
+        if (!next) onClose();
       }}
-      open
+      open={open}
+      shouldScaleBackground={false}
     >
-      <button
-        aria-label={t("filterClose")}
-        className="absolute inset-0 animate-[search-sheet-backdrop-in_220ms_ease-out] bg-ink/55 backdrop-blur-[2px]"
-        onClick={onClose}
-        type="button"
-      />
-      <div className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)]">
-        <div className="flex shrink-0 flex-col items-center px-5 pt-3">
-          <span
-            aria-hidden="true"
-            className="mb-3 h-1 w-10 rounded-full bg-border"
-          />
-          <div className="flex w-full items-center justify-between gap-3 pb-4">
-            <h2
-              className="font-display text-[18px] font-semibold text-foreground"
-              id={titleId}
-            >
-              {t("filterTitle")}
-            </h2>
-            <button
-              aria-label={t("filterClose")}
-              className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
-              onClick={onClose}
-              type="button"
-            >
-              <X aria-hidden="true" className="size-4" />
-            </button>
+      <Drawer.Portal>
+        <Drawer.Overlay className="fixed inset-0 z-80 bg-ink/55 backdrop-blur-[2px] md:hidden" />
+        <Drawer.Content
+          aria-labelledby={titleId}
+          className="fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card outline-none md:hidden"
+        >
+          <div className="flex shrink-0 flex-col items-center px-5 pt-3">
+            <Drawer.Handle className="mb-3 h-1 w-10 rounded-full bg-border" />
+            <div className="flex w-full items-center justify-between gap-3 pb-4">
+              <Drawer.Title
+                className="font-display text-[18px] font-semibold text-foreground"
+                id={titleId}
+              >
+                {t("filterTitle")}
+              </Drawer.Title>
+              <button
+                aria-label={t("filterClose")}
+                className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
+                onClick={onClose}
+                type="button"
+              >
+                <X aria-hidden="true" className="size-4" />
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-4">
-          <SheetSection label={t("filters.type")}>
-            {GROUP_OPTIONS.map((group) => (
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-4">
+            <SheetSection label={t("filters.type")}>
+              {GROUP_OPTIONS.map((group) => (
+                <SheetChip
+                  active={draft.group === group}
+                  key={group}
+                  onClick={() => updateDraft("group", group)}
+                >
+                  {group === "all"
+                    ? t("filters.allSpecies")
+                    : t(`groups.${group}`)}
+                </SheetChip>
+              ))}
+            </SheetSection>
+
+            <SheetSection label={t("filters.danger")}>
+              {DANGER_OPTIONS.map((danger) => (
+                <SheetChip
+                  active={draft.danger === danger}
+                  key={danger}
+                  onClick={() => updateDraft("danger", danger)}
+                >
+                  {t(`danger.${danger}`)}
+                </SheetChip>
+              ))}
+            </SheetSection>
+
+            <SheetSection label={t("filters.habitat")}>
+              {HABITAT_OPTIONS.map((habitat) => (
+                <SheetChip
+                  active={draft.habitat === habitat}
+                  key={habitat}
+                  onClick={() => updateDraft("habitat", habitat)}
+                >
+                  {habitat === "all"
+                    ? t("filters.all")
+                    : t(`habitats.${habitat}`)}
+                </SheetChip>
+              ))}
+            </SheetSection>
+
+            <SheetSection label={t("filters.region")}>
               <SheetChip
-                active={draft.group === group}
-                key={group}
-                onClick={() => updateDraft("group", group)}
+                active={draft.region === "all"}
+                onClick={() => updateDraft("region", "all")}
               >
-                {group === "all"
-                  ? t("filters.allSpecies")
-                  : t(`groups.${group}`)}
+                {t("filters.allRegions")}
               </SheetChip>
-            ))}
-          </SheetSection>
-
-          <SheetSection label={t("filters.danger")}>
-            {DANGER_OPTIONS.map((danger) => (
-              <SheetChip
-                active={draft.danger === danger}
-                key={danger}
-                onClick={() => updateDraft("danger", danger)}
-              >
-                {t(`danger.${danger}`)}
-              </SheetChip>
-            ))}
-          </SheetSection>
-
-          <SheetSection label={t("filters.habitat")}>
-            {HABITAT_OPTIONS.map((habitat) => (
-              <SheetChip
-                active={draft.habitat === habitat}
-                key={habitat}
-                onClick={() => updateDraft("habitat", habitat)}
-              >
-                {habitat === "all"
-                  ? t("filters.all")
-                  : t(`habitats.${habitat}`)}
-              </SheetChip>
-            ))}
-          </SheetSection>
-
-          <SheetSection label={t("filters.region")}>
-            <SheetChip
-              active={draft.region === "all"}
-              onClick={() => updateDraft("region", "all")}
-            >
-              {t("filters.allRegions")}
-            </SheetChip>
-            {regions.map((region) => (
-              <SheetChip
-                active={draft.region === region.id}
-                key={region.id}
-                onClick={() => updateDraft("region", region.id)}
-              >
-                {localizeRegionText(region.name, locale)}
-              </SheetChip>
-            ))}
-          </SheetSection>
-        </div>
-
-        <div className="shrink-0 border-t border-border bg-card px-5 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
-          <div className="grid grid-cols-2 gap-3">
-            <button
-              className="rounded-full border border-border bg-background px-4 py-3.5 text-[14px] font-medium text-foreground transition-colors hover:border-primary/25"
-              onClick={clearDraft}
-              type="button"
-            >
-              {t("filterClear")}
-            </button>
-            <button
-              className="rounded-full bg-primary px-4 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-primary/90 dark:text-ink"
-              onClick={save}
-              type="button"
-            >
-              {t("filterApply")}
-            </button>
+              {regions.map((region) => (
+                <SheetChip
+                  active={draft.region === region.id}
+                  key={region.id}
+                  onClick={() => updateDraft("region", region.id)}
+                >
+                  {localizeRegionText(region.name, locale)}
+                </SheetChip>
+              ))}
+            </SheetSection>
           </div>
-        </div>
-      </div>
-    </dialog>,
-    document.body,
+
+          <div className="shrink-0 border-t border-border bg-card px-5 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                className="rounded-full border border-border bg-background px-4 py-3.5 text-[14px] font-medium text-foreground transition-colors hover:border-primary/25"
+                onClick={clearDraft}
+                type="button"
+              >
+                {t("filterClear")}
+              </button>
+              <button
+                className="rounded-full bg-primary px-4 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-primary/90 dark:text-ink"
+                onClick={save}
+                type="button"
+              >
+                {t("filterApply")}
+              </button>
+            </div>
+          </div>
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer.Root>
   );
 }
 
