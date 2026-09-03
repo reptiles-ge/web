@@ -4,11 +4,12 @@ import {
   isVenomousDanger,
   type AnimalGroup,
 } from "@/data/speciesAtlas";
+import { HUB_INDEX_PATH, type ClusterGuidePath } from "@/lib/clusterGuides";
 import {
-  HUB_INDEX_PATH,
-  type ClusterGuidePath,
-} from "@/lib/clusterGuides";
-import { ANIMAL_GROUP_TO_HUB, GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+  ANIMAL_GROUP_TO_HUB,
+  GROUP_HUBS,
+  type GroupHubId,
+} from "@/lib/groupHubs";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 
 export type SpeciesBreadcrumbHref =
@@ -29,7 +30,10 @@ export function getSpeciesParentHub(species: Species): {
   hubId: GroupHubId;
 } {
   const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
-  if (isVenomousDanger(species.danger) && getSpeciesAtlasMeta(species.id).group === "snake") {
+  if (
+    isVenomousDanger(species.danger) &&
+    getSpeciesAtlasMeta(species.id).group === "snake"
+  ) {
     return { kind: "venomous", href: "/venomous-snakes", hubId };
   }
 
