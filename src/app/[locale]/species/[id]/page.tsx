@@ -13,7 +13,7 @@ import {
 } from "@/lib/speciesRoutes";
 
 type PageProps = {
-  params: Promise<{ id: string; locale: string; }>;
+  params: Promise<{ id: string; locale: string }>;
 };
 
 export const dynamicParams = false;

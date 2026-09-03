@@ -220,7 +220,7 @@ function reportToTerminal(
           helpUrl: string;
           id: string;
           impact: null | string;
-          nodes: Array<{ html: string; summary: string; target: string; }>;
+          nodes: Array<{ html: string; summary: string; target: string }>;
         }>;
       },
 ) {

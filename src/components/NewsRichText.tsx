@@ -35,7 +35,7 @@ function newsMarkKey(mark: NewsMark, index: number) {
   return `sp:${index}:${mark.id}`;
 }
 
-function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark; }) {
+function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
   if (typeof mark === "string") return mark;
 
   if (mark.type === "sci") {

@@ -56,7 +56,7 @@ export function speciesTitleIntentKey(
 }
 
 const SPECIES_META_TITLE_OVERRIDE: Partial<
-  Record<string, { en: string; ka: string; }>
+  Record<string, { en: string; ka: string }>
 > = {
   "argiope-bruennichi": {
     en: "Wasp spider (Argiope bruennichi) | Orb-weaver in Georgia",

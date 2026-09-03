@@ -221,7 +221,7 @@ function creditEntries(credit: PhotoCredit): Array<[string, string]> {
 
 function findGalleryRange(
   lines: string[],
-): null | { end: number; start: number; } {
+): null | { end: number; start: number } {
   const start = lines.findIndex((line) =>
     /^gallery:\s*(?:\[\])?\s*$/.test(line),
   );

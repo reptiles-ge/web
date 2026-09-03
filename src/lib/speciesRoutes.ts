@@ -606,7 +606,7 @@ export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
 
 export function legacySpeciesStaticParams() {
   const seen = new Set<string>();
-  const params: Array<{ id: string; locale: AppLocale; }> = [];
+  const params: Array<{ id: string; locale: AppLocale }> = [];
   for (const locale of routing.locales) {
     for (const item of getCatalogSpecies()) {
       const keys = new Set([getSpeciesPublicSlug(item.id, "ka"), item.id]);

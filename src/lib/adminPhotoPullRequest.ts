@@ -280,7 +280,7 @@ function run(cmd: string, args: string[], cwd: string) {
       stdio: ["ignore", "pipe", "pipe"],
     }).trim();
   } catch (error) {
-    const err = error as { message?: string; stderr?: string; stdout?: string; };
+    const err = error as { message?: string; stderr?: string; stdout?: string };
     const detail = [err.stderr, err.stdout, err.message]
       .filter((part) => Boolean(part && part.trim()))
       .join("\n")

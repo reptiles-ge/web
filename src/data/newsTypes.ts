@@ -30,12 +30,12 @@ export type NewsLocaleCopy = {
 
 export type NewsMark =
   | string
-  | { href: string; label: string; type: "external"; }
-  | { id: GroupHubId; label: string; type: "hub"; }
-  | { id: string; label: string; type: "region"; }
-  | { id: string; label: string; type: "species"; }
-  | { label: string; type: "news-index"; }
-  | { name: string; type: "sci"; };
+  | { href: string; label: string; type: "external" }
+  | { id: GroupHubId; label: string; type: "hub" }
+  | { id: string; label: string; type: "region" }
+  | { id: string; label: string; type: "species" }
+  | { label: string; type: "news-index" }
+  | { name: string; type: "sci" };
 
 export type NewsPhoto = {
   alt: Record<AppLocale, string>;
@@ -51,7 +51,7 @@ export type NewsSection = {
 };
 
 export type NewsSectionBlock =
-  { parts: NewsMark[]; type: "p"; } | { src: string; type: "figure"; };
+  { parts: NewsMark[]; type: "p" } | { src: string; type: "figure" };
 
 export type NewsSource = {
   name: string;

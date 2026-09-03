@@ -186,7 +186,7 @@ function parseGeneratedImages(
 
 function upsertGeneratedFile(
   filePath: string,
-  updates: Array<{ asset: OptimizedImageEntry; src: string; }>,
+  updates: Array<{ asset: OptimizedImageEntry; src: string }>,
 ) {
   const raw = fs.readFileSync(filePath, "utf8");
   const marker =

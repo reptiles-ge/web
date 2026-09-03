@@ -3,7 +3,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { caucasusPlaceName, georgiaPlaceName } from "@/i18n/localeMeta";
 
-const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[]; }> = {
+const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
   "ablepharus-pannonicus": {
     en: ["Asian snake-eyed skink", "lidless skink", "snake-eyed skink"],
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],

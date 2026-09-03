@@ -66,8 +66,8 @@ export type SearchHref =
   | QuizHref
   | SearchPageHref
   | SpeciesHref
-  | { params: { id: string }; pathname: "/regions/[id]"; }
-  | { params: { slug: string }; pathname: "/news/[slug]"; };
+  | { params: { id: string }; pathname: "/regions/[id]" }
+  | { params: { slug: string }; pathname: "/news/[slug]" };
 
 export type SearchIcon =
   | "atlas"
@@ -1034,7 +1034,7 @@ const LIMITS: Record<SearchKind, number> = {
   species: 6,
 };
 
-export type RecentRef = { id: string; kind: SearchKind; };
+export type RecentRef = { id: string; kind: SearchKind };
 
 export function flattenGroups(groups: SearchGroup[]) {
   return groups.flatMap((group) => group.items);
@@ -1110,7 +1110,7 @@ function groupDocuments(
     buckets[item.kind].push(item);
   }
 
-  const groups: Array<{ items: typeof buckets.page; kind: SearchKind; }> = [];
+  const groups: Array<{ items: typeof buckets.page; kind: SearchKind }> = [];
   for (const kind of Object.keys(buckets) as SearchKind[]) {
     const items = buckets[kind];
     if (items.length > 0) groups.push({ items, kind });

@@ -57,7 +57,7 @@ export function optimizedSrcSet(
 
 export function pictureSources(
   src: null | string | undefined,
-  options: { media?: string; sizes: string; },
+  options: { media?: string; sizes: string },
 ): PictureSource[] {
   const entry = optimizedEntry(src);
   if (!entry) return [];

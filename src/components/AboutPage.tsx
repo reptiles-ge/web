@@ -247,7 +247,7 @@ export function AboutPage() {
   );
 }
 
-function MethodCard({ body, title }: { body: string; title: string; }) {
+function MethodCard({ body, title }: { body: string; title: string }) {
   return (
     <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
       <h3 className="font-display text-[1.15rem] font-semibold text-foreground">

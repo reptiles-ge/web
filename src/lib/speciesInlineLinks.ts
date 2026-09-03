@@ -1,5 +1,5 @@
 export type SpeciesInlinePart =
-  | { id: string; label: string; type: "species"; }
+  | { id: string; label: string; type: "species" }
   | { type: "text"; value: string };
 
 const SPECIES_INLINE_LINK = /\[([^\]]+)\]\(([a-z0-9-]+)\)/g;

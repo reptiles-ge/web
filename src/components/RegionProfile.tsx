@@ -389,7 +389,7 @@ function RegionFaqSection({
   nameIn,
   regionId,
 }: {
-  items: { answer: string; question: string; }[];
+  items: { answer: string; question: string }[];
   name: string;
   nameIn: string;
   regionId: string;

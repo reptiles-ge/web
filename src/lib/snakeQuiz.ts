@@ -168,7 +168,7 @@ export function generateSnakeQuiz(
   if (pool.length < QUIZ_OPTION_COUNT) return [];
 
   const used = new Set<string>();
-  const selected: Array<{ difficulty: QuizDifficulty; id: string; }> = [];
+  const selected: Array<{ difficulty: QuizDifficulty; id: string }> = [];
 
   if (options?.difficulty) {
     const ids = takeUnique(

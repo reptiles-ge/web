@@ -41,7 +41,7 @@ export type ResolvedPageContext = {
 export function resolvePageContext(
   pathname: string,
   locale: AppLocale,
-  params: { id?: string; slug?: string; },
+  params: { id?: string; slug?: string },
 ): ResolvedPageContext {
   if (pathname === "/") {
     return { page_type: "home" };

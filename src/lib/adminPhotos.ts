@@ -46,7 +46,7 @@ export type AdminPhotoCreditInput = {
 type SharpFn = (input: Buffer) => SharpInstance;
 
 type SharpInstance = {
-  jpeg: (options: { mozjpeg: boolean; quality: number; }) => SharpInstance;
+  jpeg: (options: { mozjpeg: boolean; quality: number }) => SharpInstance;
   metadata: () => Promise<{ format?: string; hasAlpha?: boolean }>;
   png: () => SharpInstance;
   rotate: () => SharpInstance;
