@@ -22681,6 +22681,313 @@
       ],
       "updatedAt": "2026-09-02T07:07:46.817Z"
     },
+    "images/species/latrodectus-tredecimguttatus-1.jpg": {
+      "sourceHash": "2e930f95f36815ba3f4def8e8bde6774792dbf7acabb4e8cde8c1fed2ab3d75f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/latrodectus-tredecimguttatus-1.jpg",
+      "originalSize": 149699,
+      "width": 1800,
+      "height": 1010,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 224,
+          "byteSize": 6272
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 224,
+          "byteSize": 7758
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 449,
+          "byteSize": 16823
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 449,
+          "byteSize": 21010
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 673,
+          "byteSize": 31761
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 673,
+          "byteSize": 39874
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1010,
+          "byteSize": 62919
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-1-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1010,
+          "byteSize": 78774
+        }
+      ],
+      "updatedAt": "2026-09-03T07:17:58.820Z"
+    },
+    "images/species/latrodectus-tredecimguttatus-eggs-1.jpg": {
+      "sourceHash": "6f6d367e29881ba8f88a8cd44f4e5cd4bbcc3e27f065e119a815b6e71ba4d56b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/latrodectus-tredecimguttatus-eggs-1.jpg",
+      "originalSize": 135252,
+      "width": 1800,
+      "height": 1010,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 224,
+          "byteSize": 5921
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 224,
+          "byteSize": 6766
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 449,
+          "byteSize": 15337
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 449,
+          "byteSize": 18328
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 673,
+          "byteSize": 28608
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 673,
+          "byteSize": 34404
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1010,
+          "byteSize": 55496
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-eggs-1-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1010,
+          "byteSize": 66692
+        }
+      ],
+      "updatedAt": "2026-09-03T07:17:57.669Z"
+    },
+    "images/species/latrodectus-tredecimguttatus-habitus-1.jpg": {
+      "sourceHash": "d81895e99933120f0dc84506b25df928100911f53ecee17c351afa10840e340d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/latrodectus-tredecimguttatus-habitus-1.jpg",
+      "originalSize": 572936,
+      "width": 1800,
+      "height": 1502,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 334,
+          "byteSize": 26361
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 334,
+          "byteSize": 42226
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 668,
+          "byteSize": 85135
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 668,
+          "byteSize": 138558
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1001,
+          "byteSize": 158854
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1001,
+          "byteSize": 260246
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1502,
+          "byteSize": 297804
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-habitus-1-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1502,
+          "byteSize": 436824
+        }
+      ],
+      "updatedAt": "2026-09-03T07:17:59.639Z"
+    },
+    "images/species/latrodectus-tredecimguttatus-male-1.jpg": {
+      "sourceHash": "d00dbb0eaa2e9a3bbb325738503354f415d3c2ed18f6d998784863b3410999cf",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/latrodectus-tredecimguttatus-male-1.jpg",
+      "originalSize": 118983,
+      "width": 1024,
+      "height": 964,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 377,
+          "byteSize": 16036
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 377,
+          "byteSize": 22068
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 753,
+          "byteSize": 48622
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 753,
+          "byteSize": 62476
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-male-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 964,
+          "byteSize": 79438
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-male-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 964,
+          "byteSize": 93944
+        }
+      ],
+      "updatedAt": "2026-09-03T07:17:56.161Z"
+    },
+    "images/species/latrodectus-tredecimguttatus-spots-1.jpg": {
+      "sourceHash": "6d704ea89d4bd744929dc01a3fc184a6b0861a887e540992a1ccd9261e3545f1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/latrodectus-tredecimguttatus-spots-1.jpg",
+      "originalSize": 272727,
+      "width": 1024,
+      "height": 1034,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-spots-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 404,
+          "byteSize": 31343
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-spots-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 404,
+          "byteSize": 52198
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-spots-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 808,
+          "byteSize": 101886
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-spots-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 808,
+          "byteSize": 164606
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-spots-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1034,
+          "byteSize": 169238
+        },
+        {
+          "key": "optimized/images/species/latrodectus-tredecimguttatus-spots-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1034,
+          "byteSize": 237544
+        }
+      ],
+      "updatedAt": "2026-09-03T07:18:01.381Z"
+    },
     "images/species/motacilla-alba-cebeci-adana-1.jpg": {
       "sourceHash": "3826ffa39ae2ebf733474ab4f68afe2d90a940bd99bdf545487d5c16a7d7392a",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -24207,6 +24514,246 @@
         }
       ],
       "updatedAt": "2026-08-29T06:41:03.473Z"
+    },
+    "images/species/steatoda-paykulliana-eggs-1.jpg": {
+      "sourceHash": "5835290381ce239a79b69bf0b2277ddb672c4e5a6cad597f542c3a342c44583d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/steatoda-paykulliana-eggs-1.jpg",
+      "originalSize": 880941,
+      "width": 2400,
+      "height": 1902,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 317,
+          "byteSize": 23448
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 317,
+          "byteSize": 33532
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 634,
+          "byteSize": 69680
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 634,
+          "byteSize": 96058
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 951,
+          "byteSize": 123205
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 951,
+          "byteSize": 163920
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1902,
+          "byteSize": 271340
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-eggs-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1902,
+          "byteSize": 367998
+        }
+      ],
+      "updatedAt": "2026-09-03T07:18:04.692Z"
+    },
+    "images/species/steatoda-paykulliana-female-1.jpg": {
+      "sourceHash": "9a1fab1d331c19f34eb4ec1932c3e8eeff92cc81ff478c6901a8be250fb8b979",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/steatoda-paykulliana-female-1.jpg",
+      "originalSize": 406474,
+      "width": 997,
+      "height": 997,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-female-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 15047
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-female-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 18844
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-female-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 47570
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-female-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 59328
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-female-1-997.avif",
+          "format": "avif",
+          "width": 997,
+          "height": 997,
+          "byteSize": 70637
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-female-1-997.webp",
+          "format": "webp",
+          "width": 997,
+          "height": 997,
+          "byteSize": 82872
+        }
+      ],
+      "updatedAt": "2026-09-03T07:18:04.816Z"
+    },
+    "images/species/steatoda-paykulliana-habitat-1.jpg": {
+      "sourceHash": "77d5d562f02481a99b03de7d788cba56c9e3ea8870fc337ef0ba2e46aec66c1a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/steatoda-paykulliana-habitat-1.jpg",
+      "originalSize": 1069217,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18199
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27378
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 54776
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82828
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 103509
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 157584
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 302721
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-habitat-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 434236
+        }
+      ],
+      "updatedAt": "2026-09-03T07:18:06.059Z"
+    },
+    "images/species/steatoda-paykulliana-male-1.jpg": {
+      "sourceHash": "d56d474e08368356f9a73da16fa921457f378d413829275db1dc5945ebc81e6e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/species/steatoda-paykulliana-male-1.jpg",
+      "originalSize": 507625,
+      "width": 1155,
+      "height": 1155,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-male-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 15162
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-male-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 17878
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-male-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 44611
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-male-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 53160
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-male-1-1155.avif",
+          "format": "avif",
+          "width": 1155,
+          "height": 1155,
+          "byteSize": 80109
+        },
+        {
+          "key": "optimized/images/species/steatoda-paykulliana-male-1-1155.webp",
+          "format": "webp",
+          "width": 1155,
+          "height": 1155,
+          "byteSize": 90968
+        }
+      ],
+      "updatedAt": "2026-09-03T07:18:05.000Z"
     },
     "images/species/streptopelia-turtur-morffew-1.jpg": {
       "sourceHash": "320578b38a1770df6c9264cff6f455ca0b5665acbe6eb807de6b6686f7430dcd",
