@@ -81,15 +81,6 @@ export function getCatalogSpecies() {
 
 export { species };
 
-export function getFeaturedSpecies() {
-  const featured: Species[] = [];
-  for (const id of featuredSpeciesIds) {
-    const item = getSpeciesById(id);
-    if (item) featured.push(item);
-  }
-  return featured;
-}
-
 export function getSpeciesById(id: string) {
   if (!isPublishedSpeciesId(id)) return undefined;
   return species.find((item) => item.id === id);
