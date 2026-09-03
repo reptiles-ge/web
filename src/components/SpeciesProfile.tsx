@@ -152,9 +152,9 @@ export function SpeciesProfile({
           biologyBlocks={biologyBlocks}
           dangerValue={dangerValue}
           displayStats={displayStats}
-          linkDangerStats={linkDangerStats}
           gallery={gallery}
           guideLinks={guideLinks}
+          linkDangerStats={linkDangerStats}
           locale={locale}
           related={related}
           showIdentification={showIdentification}

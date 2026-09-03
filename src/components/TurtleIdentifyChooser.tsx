@@ -5,11 +5,11 @@ import { useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
-import type { TurtleId } from "@/components/TurtleIdentifyMatrix";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
+import { type TurtleId } from "@/components/TurtleIdentifyMatrix";
 import {
   getRegionsForSpecies,
   localizeRegionText,
