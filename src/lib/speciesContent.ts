@@ -6,9 +6,6 @@ const PLACEHOLDER_MEDIA = [
   "/images/species-placeholder.png",
   "/images/species-placeholder.svg",
   "/images/species-placeholder.jpg",
-  "https://cdn.reptiles.ge/species-placeholder.png",
-  "https://cdn.reptiles.ge/species-placeholder.svg",
-  "https://cdn.reptiles.ge/species-placeholder.jpg",
 ];
 
 const PLACEHOLDER_STAT_VALUES = [
