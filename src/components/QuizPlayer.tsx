@@ -128,7 +128,7 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
     } finally {
       setDraftReady(true);
     }
-  }, []);
+  }, [quizId]);
 
   useEffect(() => {
     if (!draftReady) return;

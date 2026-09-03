@@ -163,6 +163,8 @@ function OverlayMobileSheet({
   sheetRef: RefObject<HTMLDivElement | null>;
   title: string;
 }) {
+  if (typeof document === "undefined") return null;
+
   return createPortal(
     <AnimatePresence>
       {open ? (
@@ -220,6 +222,6 @@ function OverlayMobileSheet({
         </m.div>
       ) : null}
     </AnimatePresence>,
-    document.body,
+    typeof document === "undefined" ? (null as never) : document.body,
   );
 }
