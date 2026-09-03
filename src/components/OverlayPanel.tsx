@@ -1,13 +1,12 @@
 "use client";
 
-/* eslint-disable react-hooks/set-state-in-effect */
-
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { MotionLazy, m } from "@/components/MotionLazy";
 import { X } from "lucide-react";
 import {
   useEffect,
   useRef,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
   type RefObject,
 } from "react";
@@ -31,6 +30,8 @@ type OverlayPanelProps = {
   mobileContent: ReactNode;
 };
 
+const emptySubscribe = () => () => {};
+
 export function OverlayPanel({
   open,
   onClose,
@@ -45,12 +46,14 @@ export function OverlayPanel({
   desktopContent,
   mobileContent,
 }: OverlayPanelProps) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
   const sheetRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     if (!open) return;
@@ -63,11 +66,11 @@ export function OverlayPanel({
       ) {
         return;
       }
-      onClose();
+      onCloseRef.current();
     }
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") onCloseRef.current();
     }
 
     document.addEventListener("mousedown", onPointerDown);
@@ -76,7 +79,7 @@ export function OverlayPanel({
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, [open, onClose, rootRef]);
+  }, [open, rootRef]);
 
   useEffect(() => {
     if (!open) return;
