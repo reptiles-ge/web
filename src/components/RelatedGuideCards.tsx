@@ -77,7 +77,7 @@ export function RelatedGuideCard({
         <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">
           {copy}
         </div>
-        <div className="bg-muted relative min-h-[200px] sm:min-h-[260px]">
+        <div className="relative min-h-[200px] bg-secondary sm:min-h-[260px]">
           <CoverImage
             alt=""
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
