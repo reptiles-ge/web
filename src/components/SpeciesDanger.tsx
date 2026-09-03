@@ -67,7 +67,7 @@ function DangerShell({
   return (
     <Link
       href={dangerPageHref(level)}
-      className="inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50"
+      className="inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-white/50"
       aria-label={tDanger("linkAria", { label, value })}
     >
       {children}
