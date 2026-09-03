@@ -260,3 +260,36 @@ function quizReducer(state: QuizSession, action: QuizAction): QuizSession {
       return state;
   }
 }
+
+function quizCoverState({
+  byId,
+  complete,
+  introCover,
+  playing,
+  question,
+  questions,
+}: {
+  byId: Map<string, SnakeQuizSpecies>;
+  complete: boolean;
+  introCover: SnakeQuizSpecies | undefined;
+  playing: boolean;
+  question: SnakeQuizQuestion | undefined;
+  questions: null | SnakeQuizQuestion[];
+}) {
+  const coverSpecies = playing
+    ? (question ? (byId.get(question.correctId) ?? introCover) : introCover)
+    : introCover;
+  return {
+    coverKey: !playing
+      ? "intro"
+      : complete
+        ? "result"
+        : (question?.speciesId ?? "cover"),
+    coverMobileSrc: playing
+      ? (question?.mobileImage ?? coverSpecies?.mobileImage)
+      : introCover?.mobileImage,
+    coverSrc: playing
+      ? (question?.image ?? questions?.at(-1)?.image ?? introCover?.image)
+      : introCover?.image,
+  };
+}
