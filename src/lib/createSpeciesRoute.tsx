@@ -29,7 +29,6 @@ import {
   openGraphJpeg,
   organizationJsonLd,
   siteConfig,
-  siteEntityId,
   speciesAlternates,
   speciesOgImageUrl,
   speciesPageUrl,
