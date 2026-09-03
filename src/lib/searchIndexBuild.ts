@@ -750,35 +750,6 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
   return [...pages, ...species, ...regionDocs, ...newsDocs];
 }
 
-export function scoreDocument(query: string, doc: SearchDocument) {
-  const q = normalize(query);
-  if (!q) return 0;
-  const text = doc.searchText;
-  const tokens = q.split(" ").filter(Boolean);
-  if (tokens.some((token) => !text.includes(token))) return 0;
-
-  const titleScore = Math.max(
-    ...doc.scoreTitles.map((title) => fieldScore(q, normalize(title), 100)),
-    0,
-  );
-  const tokenTitle = tokens.reduce(
-    (sum, token) =>
-      sum +
-      Math.max(
-        ...doc.scoreTitles.map((title) =>
-          fieldScore(token, normalize(title), 34),
-        ),
-        0,
-      ),
-    0,
-  );
-  let score = Math.max(titleScore, tokenTitle);
-  score += Math.min(16, q.length);
-  if (doc.kind === "page" && titleScore >= 48) score += 10;
-  if (doc.kind === "region" && titleScore >= 70) score += 6;
-  return score;
-}
-
 function blob(parts: Array<string | undefined>) {
   const raw = parts.filter(Boolean).join(" ");
   return `${raw} ${transliterateKa(raw)}`.toLowerCase();
@@ -791,27 +762,11 @@ function coverFromSpecies(id?: string, fallback?: string) {
   return species?.mobileImage ?? species?.image;
 }
 
-function fieldScore(query: string, field: string, weight: number) {
-  if (!field) return 0;
-  if (field === query) return weight;
-  if (field.startsWith(query)) return Math.round(weight * 0.92);
-  const tokens = field.split(/[\s,./():+_|–—-]+/);
-  if (tokens.some((token) => token.startsWith(query))) {
-    return Math.round(weight * 0.78);
-  }
-  if (field.includes(query)) return Math.round(weight * 0.48);
-  return 0;
-}
-
 function hrefSearchText(href: SearchHref) {
   if (typeof href === "string") return href;
   if ("slug" in href.params) return href.params.slug;
   if ("id" in href.params) return href.params.id;
   return "";
-}
-
-function normalize(value: string) {
-  return value.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
 }
 
 function pickLocale(text: LocalizedText, locale: AppLocale) {
