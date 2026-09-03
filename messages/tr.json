@@ -553,7 +553,7 @@
   },
   "about": {
     "metaTitle": "Hakkında",
-    "metaDescription": "Reptiles — Gürcistan hayvan atlası: profiller nasıl yazılır ve hangi kaynakları kullanırız. Sürüngenler en derin katman olmayı sürdürür.",
+    "metaDescription": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Gürcüce kanoniktir. Herpetofauna Tarkhnishvili et al. 2026’yı izler; boş alan uydurulmuş metinden iyidir.",
     "back": "Ana sayfa",
     "brand": "Reptiles",
     "eyebrow": "Kurum hakkında",
@@ -562,9 +562,9 @@
     "heroImageAlt": "Alacakaranlıkta sisli Kafkas sırtı",
     "companyEyebrow": "Biz kimiz",
     "companyTitle": "Reptiles — Gürcistan hayvanları atlası",
-    "companyBody1": "Gürcistan hayvanlarının kaynaklı ve sahada işe yarayan bir atlasını kuruyoruz. Sürüngenler ve amfibiler hâlâ en derin katmandır; kuşlar ve memeliler aynı yapıda eklenir.",
-    "companyBody2": "İşimiz bilimi kamusal anlayışla bağlar: net tanıma, bölgesel bağlam, zehir riski ve koruma statüsü — gürültü veya spekülasyon olmadan.",
-    "companyBody3": "Her profil yerleşik biyoçeşitlilik kaynaklarına göre derlenir; taksonomi, Kırmızı Liste statüsü ve saha kanıtı değiştikçe güncellenir.",
+    "companyBody1": "Reptiles.ge, Gürcistan hayvanlarının atlasıdır. En derin katman herpetofaunadır — Tarkhnishvili et al. 2026. Kuşlar, memeliler ve örümcekler aynı katalogda daha ince hub’lardır. Site dört dildedir; Gürcüce metin kanoniktir.",
+    "companyBody2": "İdari bölgeleri, ölçüleri, IUCN kategorisini veya ulusal Kırmızı Liste statüsünü uydurmayız. Aday taksonlar aday kalır. Isırık ve zehir sayfaları eğitici niteliktedir: 112’yi arayın; tıbbi protokol değildir.",
+    "companyBody3": "Atlas editoryal bir derlemedir. Fotoğrafların her zaman kredisi vardır; Gürcistan saha doğrulaması yalnızca kanıtla işaretlenir. Düzeltmeler iletişim sayfasından gelir.",
     "pillars": {
       "discover": {
         "title": "Keşfet",
@@ -581,17 +581,16 @@
     },
     "methodEyebrow": "Nasıl çalışırız",
     "methodTitle": "Standartlar ve kaynaklar",
-    "methodLead": "Her profil taksonomik kimliği, Gürcistan’a özgü yaşam alanı ve davranışı, koruma statüsünü, tanıma özelliklerini ve SSS’yi birleştirir.",
-    "methodCardTitle": "Bilimsel inceleme",
-    "methodCardBody": "Yeni literatür ve Kırmızı Liste değişiklikleri geldikçe hesaplar gözden geçirilir. Saha düzeltmeleri memnuniyetle karşılanır ve yayımlanmış kaynaklara karşı kontrol edilir.",
-    "sourcesCardTitle": "Alıntılanan kaynaklar",
-    "sourcesCardBody": "Birincil kaynaklar IUCN Kırmızı Liste değerlendirmelerini, GBIF kayıt verilerini, Reptile Database’i ve her tür sayfasında bağlı hakemli makaleleri içerir.",
+    "methodLead": "Profiller taksonomiyi ve yayımlanmış kaynakların Gürcistan için zaten desteklediğini derler. Eksik boyut, yayılış veya statü gizlenir; inandırıcı düzyazıyla doldurulmaz.",
+    "methodCardTitle": "Neyi çıkarsamayız",
+    "methodCardBody": "İdari bölgeler, ölçüler, IUCN ve ulusal Kırmızı Liste yalnızca sitede zaten alıntılanan bir kaynak onları adlandırınca görünür. Kontrol listesi adayları teyit edilmiş sayılmaz.",
+    "sourcesCardTitle": "Herpetofauna kontrol listesi",
+    "sourcesCardBody": "Amfibiler ve sürüngenler Tarkhnishvili et al. 2026’yı izler (DOI 10.3897/caucasiana.5.e189214). Yılan yayılışı, bu makale bir profilde zaten kullanıldığında Iankoshvili & Tarkhnishvili 2021’e de atıfta bulunabilir.",
     "photosCardTitle": "Fotoğrafçılık",
-    "photosCardBody": "Görseller tanıma değeri ve saha bağlamı için seçilir. Fotoğrafçı atfı varsa krediler tür sayfalarında görünür.",
+    "photosCardBody": "Görseller kredilendirilir. CDN fotoğrafları çoğu zaman geneldir; kanıt olmadan Gürcistan sahasında doğrulanmış demeyiz.",
     "sources": {
-      "iucn": "IUCN Red List",
-      "gbif": "GBIF",
-      "reptileDb": "Reptile Database"
+      "tarkhnishvili": "Tarkhnishvili et al. 2026",
+      "iankoshvili": "Iankoshvili & Tarkhnishvili 2021"
     },
     "contributeEyebrow": "İşbirliği",
     "contributeTitle": "Düzeltmeler ve saha notları",
