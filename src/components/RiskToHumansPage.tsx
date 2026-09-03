@@ -8,6 +8,7 @@ import {
   CLUSTER_HERO_BODY,
   CLUSTER_HERO_EYEBROW,
   CLUSTER_HERO_TITLE,
+  CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { Reveal } from "@/components/Reveal";
@@ -164,19 +165,19 @@ export function RiskToHumansPage({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {t("scaleEyebrow")}
-                </p>
-                <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                  {t("scaleTitle")}
-                </h2>
-                <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-                  {t("scaleLead")}
-                </p>
-                <p className="mt-4 inline-flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
-                  <Shield className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
-                  {t("scaleDisclaimer")}
-                </p>
+                <ClusterSectionIntro
+                  eyebrow={t("scaleEyebrow")}
+                  title={t("scaleTitle")}
+                  body={t("scaleLead")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
+                  bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+                >
+                  <p className="mt-4 inline-flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
+                    <Shield className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+                    {t("scaleDisclaimer")}
+                  </p>
+                </ClusterSectionIntro>
               </Reveal>
               <ol className="space-y-0 divide-y divide-border border-y border-border">
                 {DANGER_LEVEL_ORDER.map((level, index) => {

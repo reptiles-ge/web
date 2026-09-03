@@ -81,24 +81,27 @@ export function AmphibianSpeciesIndexPage({
               titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
             >
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/amphibians/bayayi"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-              >
-                {t("frogsGuideCta")}
-                <ArrowUpRight className="size-3.5" />
-              </Link>
-              <Link
-                href="/amphibians/bayayi/saxeoebebi"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
-              >
-                {t("frogsIndexCta")}
-                <ArrowUpRight className="size-3.5" />
-              </Link>
-            </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/amphibians/bayayi"
+                  className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                >
+                  {t("frogsGuideCta")}
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+                <Link
+                  href="/amphibians/bayayi/saxeoebebi"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
+                >
+                  {t("frogsIndexCta")}
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+              </div>
             </ClusterSectionIntro>
           </Reveal>
+          <div className="mt-10">
+            <SpeciesIndexTable
+              species={frogs}
               locale={locale}
               showDangerFilter={false}
             />
@@ -117,15 +120,18 @@ export function AmphibianSpeciesIndexPage({
               titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
             >
-            <Link
-              href="/amphibians/tritoni-salamandra"
-              className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
-            >
-              {t("newtsCta")}
-              <ArrowUpRight className="size-3.5" />
-            </Link>
+              <Link
+                href="/amphibians/tritoni-salamandra"
+                className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
+              >
+                {t("newtsCta")}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
             </ClusterSectionIntro>
           </Reveal>
+          <div className="mt-10">
+            <SpeciesIndexTable
+              species={newts}
               locale={locale}
               showDangerFilter={false}
             />

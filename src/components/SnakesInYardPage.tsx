@@ -11,6 +11,7 @@ import {
   CLUSTER_FAQ_TITLE,
   CLUSTER_HERO_BODY,
   CLUSTER_HERO_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
@@ -226,15 +227,14 @@ export function SnakesInYardPage({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                  {t("mythsEyebrow")}
-                </p>
-                <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                  {t("mythsTitle")}
-                </h2>
-                <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-                  {t("mythsLead")}
-                </p>
+                <ClusterSectionIntro
+                  eyebrow={t("mythsEyebrow")}
+                  title={t("mythsTitle")}
+                  body={t("mythsLead")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
+                  bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+                />
               </Reveal>
               <ul className="divide-y divide-border border-y border-border">
                 {MYTH_KEYS.map((n, index) => (
@@ -263,15 +263,14 @@ export function SnakesInYardPage({
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("appearEyebrow")}
-              </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("appearTitle")}
-              </h2>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("appearBody")}
-              </p>
+              <ClusterSectionIntro
+                eyebrow={t("appearEyebrow")}
+                title={t("appearTitle")}
+                body={t("appearBody")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_RELATED}
+                bodyClassName={CLUSTER_BODY}
+              />
             </Reveal>
 
             <div className="mt-12 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2">
@@ -373,11 +372,6 @@ export function SnakesInYardPage({
                 titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white"
                 bodyClassName={CLUSTER_HERO_BODY}
               />
-                {t("ctaTitle")}
-              </h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">
-                {t("ctaBody")}
-              </p>
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   href="/species"
@@ -410,15 +404,14 @@ function FaqSection() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("faqEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {t("faqTitle")}
-            </h2>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              {t("faqIntro")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("faqEyebrow")}
+              title={t("faqTitle")}
+              body={t("faqIntro")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_FAQ_TITLE}
+              bodyClassName={CLUSTER_FAQ_BODY}
+            />
           </Reveal>
           <div>
             {FAQ_KEYS.map((n, index) => {
