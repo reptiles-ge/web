@@ -33,6 +33,8 @@ jobs:
 
       - run: pnpm search:compile
 
+      - run: pnpm knip
+
       - run: pnpm lint
 
       - run: pnpm typecheck

@@ -211,7 +211,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       "@type": "Article",
       about: taxon,
       associatedMedia: photoObjects,
-      author: { "@id": siteEntityId("organization") },
+      author: org,
       citation: raw.sources.map((source) =>
         source.url
           ? {

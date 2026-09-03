@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import {
@@ -11,7 +10,6 @@ import {
 import { notFound } from "next/navigation";
 
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
-import { ClarityInit } from "@/components/ClarityInit";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -36,7 +34,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations("nav");
-  const isProd = process.env.NODE_ENV === "production";
 
   return (
     <NextIntlClientProvider messages={messages}>
@@ -48,9 +45,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         {children}
       </main>
       <Footer />
-      <Analytics />
       <SpeedInsights />
-      {isProd ? <ClarityInit /> : null}
     </NextIntlClientProvider>
   );
 }
