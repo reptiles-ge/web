@@ -11,9 +11,7 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
 import { AtlasBrowse } from "@/components/species-atlas/AtlasBrowse";
-import { AtlasHero } from "@/components/species-atlas/AtlasHero";
 import { AtlasMap } from "@/components/species-atlas/AtlasMap";
 import {
   DANGER_OPTIONS,
@@ -22,7 +20,6 @@ import {
   REGION_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
-import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
 import { getCatalogSpecies } from "@/data/species";
 import {
   type AnimalGroup,
@@ -285,28 +282,23 @@ export function SpeciesAtlas() {
   const hasActiveFilters = facetCount > 0 || filters.query.trim().length > 0;
 
   return (
-    <div className="min-h-screen bg-background">
-      <div>
-        <AtlasHero stats={stats} />
-        <AtlasBrowse
-          facetCount={facetCount}
-          filtered={filtered}
-          filterOpen={filterOpen}
-          filters={filters}
-          groupCounts={groupCounts}
-          hasActiveFilters={hasActiveFilters}
-          locale={locale}
-          onApplyFilters={applyFilters}
-          onCloseFilters={() => setFilterOpen(false)}
-          onOpenFilters={() => setFilterOpen(true)}
-          onResetFilters={resetFilters}
-          onUpdateFilter={updateFilter}
-        />
-        <AtlasMap />
-        <AtlasSeo />
-        <AtlasRecent species={recent} />
-        <AtlasAbout locale={locale} stats={stats} />
-      </div>
-    </div>
+    <>
+      <AtlasBrowse
+        facetCount={facetCount}
+        filtered={filtered}
+        filterOpen={filterOpen}
+        filters={filters}
+        groupCounts={groupCounts}
+        hasActiveFilters={hasActiveFilters}
+        locale={locale}
+        onApplyFilters={applyFilters}
+        onCloseFilters={() => setFilterOpen(false)}
+        onOpenFilters={() => setFilterOpen(true)}
+        onResetFilters={resetFilters}
+        onUpdateFilter={updateFilter}
+      />
+      <AtlasMap />
+      <AtlasRecent species={recent} />
+    </>
   );
 }
