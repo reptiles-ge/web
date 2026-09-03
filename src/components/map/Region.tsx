@@ -2,7 +2,7 @@
 
 import type { Region as RegionData } from "@/data/regions";
 import { localizeRegionText } from "@/data/regions";
-import { motion } from "framer-motion";
+import { MotionLazy, m } from "@/components/MotionLazy";
 import { useLocale } from "next-intl";
 
 type RegionProps = {
@@ -30,7 +30,7 @@ export function Region({
   const active = isHovered || isSelected;
 
   return (
-    <motion.path
+    <m.path
       d={region.path}
       role={interactive ? "button" : undefined}
       tabIndex={interactive ? 0 : undefined}

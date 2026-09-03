@@ -1,10 +1,10 @@
 "use client";
 
 import { CoverImage } from "@/components/CoverImage";
+import { MotionLazy, m } from "@/components/MotionLazy";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -14,10 +14,11 @@ export function ContactPage() {
   const t = useTranslations("contact");
 
   return (
+    <MotionLazy>
     <div className="relative min-h-svh bg-background text-foreground">
       <div className="grid min-h-svh lg:grid-cols-[1.05fr_0.95fr]">
         <div className="relative min-h-[44svh] overflow-hidden bg-ink lg:min-h-svh">
-          <motion.div
+          <m.div
             className="absolute inset-0"
             initial={{ scale: 1.08 }}
             animate={{ scale: 1 }}
@@ -30,7 +31,7 @@ export function ContactPage() {
               sizes="(max-width: 1024px) 100vw, 55vw"
               className="object-cover"
             />
-          </motion.div>
+          </m.div>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-black/5 to-black/35 lg:bg-gradient-to-r lg:from-black/30 lg:via-black/5 lg:to-transparent" />
         </div>
 
@@ -51,7 +52,7 @@ export function ContactPage() {
             }}
           >
             {" "}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05, ease }}
@@ -63,32 +64,32 @@ export function ContactPage() {
                 <ArrowLeft className="size-3.5" />
                 {t("back")}
               </Link>
-            </motion.div>
-            <motion.p
+            </m.div>
+            <m.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.12, ease }}
               className="mt-12 font-display text-[clamp(2.8rem,8vw,4.25rem)] font-semibold leading-[0.95] tracking-tight"
             >
               {t("brand")}
-            </motion.p>
-            <motion.h1
+            </m.p>
+            <m.h1
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease }}
               className="mt-5 font-display text-[clamp(1.45rem,3.5vw,1.9rem)] font-medium leading-snug text-foreground/75"
             >
               {t("title")}
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.28, ease }}
               className="mt-7 max-w-[34ch] text-[15px] leading-relaxed text-muted-foreground"
             >
               {t("body")}
-            </motion.p>
-            <motion.div
+            </m.p>
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.38, ease }}
@@ -132,10 +133,11 @@ export function ContactPage() {
                   {t("venomous")}
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </main>
       </div>
     </div>
+    </MotionLazy>
   );
 }

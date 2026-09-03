@@ -106,7 +106,7 @@ export function OverlayPanel({
         <AnimatePresence>
           {open ? (
             <>
-              <motion.button
+              <m.button
                 key="overlay-backdrop"
                 type="button"
                 aria-label={closeLabel}
@@ -117,7 +117,7 @@ export function OverlayPanel({
                 transition={{ duration: 0.22 }}
                 onClick={onClose}
               />
-              <motion.div
+              <m.div
                 key="overlay-sheet"
                 ref={sheetRef}
                 role="dialog"
@@ -152,7 +152,7 @@ export function OverlayPanel({
                 <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
                   {mobileContent}
                 </div>
-              </motion.div>
+              </m.div>
             </>
           ) : null}
         </AnimatePresence>,
@@ -161,10 +161,10 @@ export function OverlayPanel({
     : null;
 
   return (
-    <>
+    <MotionLazy>
       <AnimatePresence>
         {open ? (
-          <motion.div
+          <m.div
             id={panelId}
             key="overlay-panel"
             role={panelRole}
@@ -175,10 +175,10 @@ export function OverlayPanel({
             className={`absolute right-0 top-full z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block ${desktopClassName}`}
           >
             {desktopContent}
-          </motion.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
       {mobileSheet}
-    </>
+    </MotionLazy>
   );
 }
