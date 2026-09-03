@@ -1,7 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
-import { m } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { X } from "lucide-react";
 import {
   type ReactNode,
@@ -14,7 +13,7 @@ import { createPortal } from "react-dom";
 
 import { MotionLazy } from "@/components/MotionLazy";
 import { cn } from "@/lib/cn";
-import { cycleTab, prefersReducedMotion } from "@/lib/focusTrap";
+import { cycleTab, usePrefersReducedMotion } from "@/lib/focusTrap";
 
 const panelTransition = { duration: 0.22, ease: [0.22, 1, 0.36, 1] as const };
 const sheetTransition = { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const };
@@ -59,6 +58,7 @@ export function OverlayPanel({
   const desktopRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const onCloseRef = useRef(onClose);
+  const reduceMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -134,16 +134,12 @@ export function OverlayPanel({
             exit={{ opacity: 0, scale: 0.98, y: -4 }}
             id={panelId}
             initial={
-              prefersReducedMotion()
-                ? false
-                : { opacity: 0, scale: 0.98, y: -6 }
+              reduceMotion ? false : { opacity: 0, scale: 0.98, y: -6 }
             }
             key="overlay-panel"
             ref={desktopRef}
             role={panelRole}
-            transition={
-              prefersReducedMotion() ? { duration: 0 } : panelTransition
-            }
+            transition={reduceMotion ? { duration: 0 } : panelTransition}
           >
             {desktopContent}
           </m.div>
@@ -157,6 +153,7 @@ export function OverlayPanel({
           mobileSheetClassName={mobileSheetClassName}
           onClose={onClose}
           open={open}
+          reduceMotion={reduceMotion}
           sheetRef={sheetRef}
           title={title}
         />
@@ -172,6 +169,7 @@ function OverlayMobileSheet({
   mobileSheetClassName,
   onClose,
   open,
+  reduceMotion,
   sheetRef,
   title,
 }: {
@@ -181,6 +179,7 @@ function OverlayMobileSheet({
   mobileSheetClassName?: string;
   onClose: () => void;
   open: boolean;
+  reduceMotion: boolean;
   sheetRef: RefObject<HTMLDivElement | null>;
   title: string;
 }) {
@@ -197,7 +196,7 @@ function OverlayMobileSheet({
           initial={{ opacity: 0 }}
           key="overlay-backdrop"
           onClick={onClose}
-          transition={{ duration: 0.22 }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.22 }}
           type="button"
         />
       ) : null}
