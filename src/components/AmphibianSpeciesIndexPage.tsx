@@ -1,6 +1,14 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+  ClusterStat,
+} from "@/components/ClusterSectionIntro";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import type { AppLocale } from "@/i18n/routing";
@@ -31,30 +39,9 @@ export function AmphibianSpeciesIndexPage({
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {species.length}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statSpecies")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {frogs.length}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statFrogs")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {newts.length}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statNewts")}
-              </p>
-            </div>
+            <ClusterStat value={species.length} label={t("statSpecies")} />
+            <ClusterStat value={frogs.length} label={t("statFrogs")} />
+            <ClusterStat value={newts.length} label={t("statNewts")} />
           </div>
         </section>
       }
@@ -63,12 +50,12 @@ export function AmphibianSpeciesIndexPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                {t("guideEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
-                {t("guideTitle")}
-              </h2>
+              <ClusterSectionIntro
+                eyebrow={t("guideEyebrow")}
+                title={t("guideTitle")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              />
             </Reveal>
             <Reveal delay={60}>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -86,15 +73,14 @@ export function AmphibianSpeciesIndexPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("frogsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("frogsTitle", { count: frogs.length })}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("frogsBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("frogsEyebrow")}
+              title={t("frogsTitle", { count: frogs.length })}
+              body={t("frogsBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            >
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/amphibians/bayayi"
@@ -125,15 +111,14 @@ export function AmphibianSpeciesIndexPage({
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("newtsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("newtsTitle", { count: newts.length })}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("newtsBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("newtsEyebrow")}
+              title={t("newtsTitle", { count: newts.length })}
+              body={t("newtsBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            >
             <Link
               href="/amphibians/tritoni-salamandra"
               className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"

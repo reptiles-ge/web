@@ -1,5 +1,6 @@
 "use client";
 
+import { ClusterSectionIntro, CLUSTER_BODY, CLUSTER_EYEBROW, CLUSTER_HERO_BODY, CLUSTER_HERO_EYEBROW, CLUSTER_HERO_TITLE, CLUSTER_FAQ_BODY, CLUSTER_FAQ_TITLE, CLUSTER_TITLE_RELATED } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
@@ -15,51 +16,6 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
-
-function ClusterSectionIntro({
-  eyebrow,
-  title,
-  body,
-  tone = "muted",
-}: {
-  eyebrow: string;
-  title: string;
-  body: string;
-  tone?: "muted" | "hero";
-}) {
-  const hero = tone === "hero";
-  return (
-    <>
-      <p
-        className={
-          hero
-            ? "text-[11px] font-medium uppercase tracking-[0.32em] text-white/45"
-            : "text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground"
-        }
-      >
-        {eyebrow}
-      </p>
-      <h2
-        className={
-          hero
-            ? "mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] font-semibold leading-[1.05] text-white"
-            : "mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]"
-        }
-      >
-        {title}
-      </h2>
-      <p
-        className={
-          hero
-            ? "mt-5 max-w-xl text-[15px] leading-relaxed text-white/60"
-            : "mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground"
-        }
-      >
-        {body}
-      </p>
-    </>
-  );
-}
 
 type ClusterPageFrameProps = {
   guideId: ClusterGuideId;
@@ -186,6 +142,9 @@ export function ClusterPageFrame({
                   eyebrow={tShared("relatedGuidesEyebrow")}
                   title={tShared("relatedGuidesTitle")}
                   body={tShared("relatedGuidesBody")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  titleClassName={CLUSTER_TITLE_RELATED}
+                  bodyClassName={CLUSTER_BODY}
                 />
               </Reveal>
               <RelatedGuideGrid cards={relatedGuides} locale={locale} />
@@ -212,7 +171,9 @@ export function ClusterPageFrame({
                 eyebrow={t("ctaEyebrow")}
                 title={t("ctaTitle")}
                 body={t("ctaBody")}
-                tone="hero"
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                titleClassName={CLUSTER_HERO_TITLE}
+                bodyClassName={CLUSTER_HERO_BODY}
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
@@ -248,15 +209,14 @@ function ClusterFaq({ guideId }: { guideId: ClusterGuideId }) {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("faqEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]">
-              {t("faqTitle")}
-            </h2>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-              {t("faqIntro")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("faqEyebrow")}
+              title={t("faqTitle")}
+              body={t("faqIntro")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_FAQ_TITLE}
+              bodyClassName={CLUSTER_FAQ_BODY}
+            />
           </Reveal>
           <div>
             {items.map((n, index) => {
