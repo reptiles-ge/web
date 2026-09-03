@@ -99,11 +99,14 @@ export function AtlasFilterSheet({
   if (!mounted || !open) return null;
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-[80] md:hidden"
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      open
+      className="fixed inset-0 z-[80] m-0 h-full max-h-none w-full max-w-none border-0 bg-transparent p-0 md:hidden"
       aria-labelledby={titleId}
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
     >
       <button
         type="button"
@@ -214,7 +217,7 @@ export function AtlasFilterSheet({
           </div>
         </div>
       </div>
-    </div>,
+    </dialog>,
     document.body,
   );
 }

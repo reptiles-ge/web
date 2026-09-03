@@ -164,12 +164,15 @@ export function SpeciesGallery({
       </section>
 
       {active !== null && activePhoto ? (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92"
-          role="dialog"
-          aria-modal="true"
+        <dialog
+          className="fixed inset-0 z-[100] m-0 flex h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-black/92 p-0"
+          open
           aria-label={t("gallery")}
           onClick={() => setActive(null)}
+          onCancel={(event) => {
+            event.preventDefault();
+            setActive(null);
+          }}
         >
           <button
             type="button"
