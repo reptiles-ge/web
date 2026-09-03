@@ -134,15 +134,17 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const t = await getTranslations({ locale, namespace: guide.messageKey });
-    const tShared = await getTranslations({
-      locale,
-      namespace: "groupHubShared",
-    });
-    const tParent = await getTranslations({
-      locale,
-      namespace: parent.messageKey,
-    });
+    const [t, tShared, tParent] = await Promise.all([
+      getTranslations({ locale, namespace: guide.messageKey }),
+      getTranslations({
+        locale,
+        namespace: "groupHubShared",
+      }),
+      getTranslations({
+        locale,
+        namespace: parent.messageKey,
+      }),
+    ]);
 
     const url = absoluteUrl(localePath(locale, guide.pathname));
     const catalog = getCatalogSpecies();
