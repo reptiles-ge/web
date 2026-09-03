@@ -54,6 +54,7 @@
     "eslint-plugin-perfectionist": "5.10.1",
     "eslint-plugin-unused-imports": "^4.4.1",
     "knip": "6.32.3",
+    "prettier": "^3.9.6",
     "react-doctor": "^0.9.13",
     "react-scan": "^0.5.7",
     "tailwindcss": "^4",
