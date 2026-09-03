@@ -64,10 +64,10 @@ export function SnakeBitePage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-destructive">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
               {t("disclaimerEyebrow")}
             </p>
-            <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+            <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
               {t("disclaimerTitle")}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -101,10 +101,10 @@ export function SnakeBitePage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("doEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
                 {t("doTitle")}
               </h2>
               <ol className="mt-8 divide-y divide-border border-y border-border">
@@ -124,10 +124,10 @@ export function SnakeBitePage({
               </ol>
             </Reveal>
             <Reveal delay={60}>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("dontEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
                 {t("dontTitle")}
               </h2>
               <ol className="mt-8 divide-y divide-border border-y border-border">
@@ -150,10 +150,10 @@ export function SnakeBitePage({
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("symptomsEyebrow")}
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold">
               {t("symptomsTitle")}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -182,10 +182,10 @@ export function SnakeBitePage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("dangerEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
                 {t("dangerTitle")}
               </h2>
               <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -203,10 +203,10 @@ export function SnakeBitePage({
               </ul>
             </Reveal>
             <Reveal delay={60}>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("venomEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
                 {t("venomTitle")}
               </h2>
               <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -240,10 +240,10 @@ export function SnakeBitePage({
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("unseenEyebrow")}
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold">
               {t("unseenTitle")}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -268,10 +268,10 @@ export function SnakeBitePage({
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("speciesEyebrow")}
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
               {t("speciesTitle")}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -334,10 +334,10 @@ export function SnakeBitePage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("sourcesEyebrow")}
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]">
+            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold">
               {t("sourcesTitle")}
             </h2>
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -345,7 +345,7 @@ export function SnakeBitePage({
             </p>
           </Reveal>
 
-          <p className="mt-10 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="mt-10 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
             {t("sourcesMedicalLabel")}
           </p>
           <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
@@ -371,7 +371,7 @@ export function SnakeBitePage({
             ))}
           </ul>
 
-          <p className="mt-10 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="mt-10 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
             {t("sourcesSiteLabel")}
           </p>
           <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
@@ -387,7 +387,7 @@ export function SnakeBitePage({
             ))}
           </ul>
 
-          <aside className="mt-12 max-w-3xl rounded-[20px] border border-border bg-surface px-6 py-6 sm:px-7 sm:py-7">
+          <aside className="mt-12 max-w-3xl rounded-[20px] border border-border bg-surface p-6 sm:p-7">
             <p className="text-[13px] font-medium text-foreground">
               {t("editorialUpdated", {
                 date: formatContentDate(EDITORIAL_UPDATED, locale),

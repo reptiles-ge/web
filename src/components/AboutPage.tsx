@@ -43,7 +43,7 @@ export function AboutPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -55,13 +55,13 @@ export function AboutPage() {
                 <ArrowLeft className="size-3.5" />
                 {t("back")}
               </Link>
-              <p className="font-display text-[clamp(2.4rem,6vw,3.75rem)] font-semibold leading-none tracking-tight text-white">
+              <p className="font-display text-[clamp(2.4rem,6vw,3.75rem)] leading-none font-semibold tracking-tight text-white">
                 {t("brand")}
               </p>
-              <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+              <p className="mt-5 text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-3 max-w-3xl font-display text-balance-tight text-[clamp(1.75rem,4.5vw,3.25rem)] font-semibold leading-[1.08] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-[clamp(1.75rem,4.5vw,3.25rem)] leading-[1.08] font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
@@ -75,10 +75,10 @@ export function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                   {t("companyEyebrow")}
                 </p>
-                <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] font-semibold leading-[1.05] text-foreground">
+                <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] leading-[1.05] font-semibold text-foreground">
                   {t("companyTitle")}
                 </h2>
               </Reveal>
@@ -95,7 +95,7 @@ export function AboutPage() {
                   <span className="border-b border-foreground/20 pb-1 transition-colors group-hover:border-primary">
                     {t("contributeCta")}
                   </span>
-                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </Link>
               </Reveal>
             </div>
@@ -109,7 +109,7 @@ export function AboutPage() {
                   <span className="font-display text-[13px] font-medium tracking-[0.2em] text-primary">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-5 font-display text-[1.35rem] font-semibold leading-tight text-foreground">
+                  <h3 className="mt-5 font-display text-[1.35rem] leading-tight font-semibold text-foreground">
                     {t(`pillars.${pillar}.title`)}
                   </h3>
                   <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
@@ -127,10 +127,10 @@ export function AboutPage() {
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("methodEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
                 {t("methodTitle")}
               </h2>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -174,10 +174,10 @@ export function AboutPage() {
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("exploreEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
                 {t("exploreTitle")}
               </h2>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -222,10 +222,10 @@ export function AboutPage() {
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[860px] px-6 text-center lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("contributeEyebrow")}
               </p>
-              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
                 {t("contributeTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">

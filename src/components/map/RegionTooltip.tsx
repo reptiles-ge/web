@@ -39,7 +39,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
             transform: "translate(-50%, calc(-100% - 14px))",
           }}
         >
-          <p className="font-display text-[17px] font-semibold leading-tight text-foreground">
+          <p className="font-display text-[17px] leading-tight font-semibold text-foreground">
             {localizeRegionText(region.name, locale)}
           </p>
           <p className="mt-1 text-[12px] tracking-wide text-muted-foreground">
@@ -52,7 +52,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
                   <p className="truncate text-[12px] font-medium text-foreground/80">
                     {item.commonName}
                   </p>
-                  <p className="truncate text-[11px] italic text-muted-foreground">
+                  <p className="truncate text-[11px] text-muted-foreground italic">
                     {item.scientificName}
                   </p>
                 </li>

@@ -109,7 +109,7 @@ export function AtlasFilterSheet({
   return createPortal(
     <dialog
       open
-      className="fixed inset-0 z-[80] m-0 h-full max-h-none w-full max-w-none border-0 bg-transparent p-0 md:hidden"
+      className="fixed inset-0 z-80 m-0 size-full max-h-none max-w-none border-0 bg-transparent p-0 md:hidden"
       aria-labelledby={titleId}
       onCancel={(event) => {
         event.preventDefault();
@@ -119,10 +119,10 @@ export function AtlasFilterSheet({
       <button
         type="button"
         aria-label={t("filterClose")}
-        className="absolute inset-0 bg-ink/55 backdrop-blur-[2px] animate-[search-sheet-backdrop-in_220ms_ease-out]"
+        className="absolute inset-0 animate-[search-sheet-backdrop-in_220ms_ease-out] bg-ink/55 backdrop-blur-[2px]"
         onClick={onClose}
       />
-      <div className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)]">
+      <div className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)]">
         <div className="flex shrink-0 flex-col items-center px-5 pt-3">
           <span
             className="mb-3 h-1 w-10 rounded-full bg-border"
@@ -266,7 +266,7 @@ function SheetSection({
 }) {
   return (
     <div className="border-b border-border/70 py-5 last:border-b-0">
-      <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="mb-3 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase">
         {label}
       </p>
       <div className="flex flex-wrap gap-2">{children}</div>

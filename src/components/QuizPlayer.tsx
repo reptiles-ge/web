@@ -313,7 +313,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
         {coverSrc ? (
           <picture
             key={coverKey}
-            className="media-placeholder absolute inset-0 block h-full w-full"
+            className="media-placeholder absolute inset-0 block size-full"
           >
             {coverMobileSrc && coverMobileSrc !== coverSrc ? (
               <source media="(min-width: 1024px)" srcSet={coverSrc} />
@@ -331,11 +331,11 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
               }
               fetchPriority={!playing ? "high" : "auto"}
               decoding="async"
-              className="h-full w-full object-cover hero-drift text-transparent"
+              className="hero-drift size-full object-cover text-transparent"
             />
           </picture>
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/85" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/20 to-black/85" />
         <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_20%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
@@ -390,7 +390,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
               </div>
               <h2
                 id={headingId}
-                className="mt-3 max-w-2xl font-display text-[clamp(1.3rem,6.4vw,3.4rem)] font-semibold leading-[1.08] text-white sm:mt-6"
+                className="mt-3 max-w-2xl font-display text-[clamp(1.3rem,6.4vw,3.4rem)] leading-[1.08] font-semibold text-white sm:mt-6"
               >
                 {t("question")}
               </h2>
@@ -451,7 +451,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                       aria-checked={selected}
                       disabled={revealed}
                       onClick={() => onSelect(optionId, question.difficulty)}
-                      className={`flex min-h-11 items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-[4.25rem] sm:gap-3 sm:px-5 sm:py-3.5 ${optionClass(
+                      className={`flex min-h-11 items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-17 sm:gap-3 sm:px-5 sm:py-3.5 ${optionClass(
                         {
                           revealed,
                           selected,
@@ -463,11 +463,11 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                         {OPTION_MARKS[locale][optionIndex]}
                       </span>
                       <span className="min-w-0">
-                        <span className="line-clamp-2 block text-[14px] font-medium leading-snug sm:line-clamp-none sm:text-[16px]">
+                        <span className="line-clamp-2 block text-[14px] leading-snug font-medium sm:line-clamp-none sm:text-[16px]">
                           {option.commonName}
                         </span>
                         {revealed ? (
-                          <span className="mt-0.5 block text-[12px] font-normal italic text-white/60">
+                          <span className="mt-0.5 block text-[12px] font-normal text-white/60 italic">
                             {option.scientificName}
                           </span>
                         ) : null}
@@ -536,7 +536,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
             </div>
 
             {revealed && correctSpecies ? (
-              <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-black/80 px-5 pt-3 backdrop-blur-xl sm:hidden pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+              <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-black/80 px-5 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-xl sm:hidden">
                 <button
                   type="button"
                   onClick={onNext}
@@ -615,12 +615,12 @@ function IntroOverlay({
     <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
       <div className="mt-auto w-full pb-8 sm:pb-20 lg:pb-24">
         <QuizBreadcrumbs />
-        <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/55">
+        <p className="text-[11px] font-medium tracking-[0.32em] text-white/55 uppercase">
           {t("eyebrow")}
         </p>
         <h1
           id={headingId}
-          className="mt-3 max-w-3xl font-display text-[clamp(1.85rem,10vw,5.4rem)] font-semibold leading-[0.98] text-white sm:mt-4"
+          className="mt-3 max-w-3xl font-display text-[clamp(1.85rem,10vw,5.4rem)] leading-[0.98] font-semibold text-white sm:mt-4"
         >
           {t("title")}
         </h1>
@@ -632,7 +632,7 @@ function IntroOverlay({
           {rules.map((rule, index) => (
             <li
               key={rule.title}
-              className="bg-black/40 px-4 py-3.5 backdrop-blur-xl sm:px-6 sm:py-6"
+              className="bg-black/40 px-4 py-3.5 backdrop-blur-xl sm:p-6"
             >
               <span className="font-display text-[12px] tracking-[0.22em] text-white/40">
                 {String(index + 1).padStart(2, "0")}
@@ -651,7 +651,7 @@ function IntroOverlay({
           <button
             type="button"
             onClick={onStart}
-            className="inline-flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
+            className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
           >
             {t("start")}
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -727,12 +727,12 @@ function ResultOverlay({
   return (
     <div className="flex w-full flex-col pb-16 sm:pb-24">
       <QuizBreadcrumbs />
-      <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-white/55">
+      <p className="text-[11px] font-medium tracking-[0.3em] text-white/55 uppercase">
         {t("resultEyebrow")}
       </p>
       <h2
         id={headingId}
-        className="mt-3 font-display text-[clamp(2.6rem,16vw,8rem)] font-semibold leading-none text-white sm:mt-4"
+        className="mt-3 font-display text-[clamp(2.6rem,16vw,8rem)] leading-none font-semibold text-white sm:mt-4"
       >
         {correctCount}
         <span className="text-white/35"> / {total}</span>
@@ -799,12 +799,12 @@ function ResultOverlay({
                   <span className="block truncate text-[14px] font-medium text-white">
                     {species.commonName}
                   </span>
-                  <span className="mt-0.5 block truncate text-[12px] italic text-white/55">
+                  <span className="mt-0.5 block truncate text-[12px] text-white/55 italic">
                     {species.scientificName}
                   </span>
                 </span>
                 <span
-                  className={`shrink-0 whitespace-nowrap rounded-full px-2 py-1 text-[11px] font-medium sm:px-2.5 ${
+                  className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-medium whitespace-nowrap sm:px-2.5 ${
                     answer.correct
                       ? "bg-emerald-500/20 text-emerald-100"
                       : "bg-destructive/25 text-red-100"
@@ -821,7 +821,7 @@ function ResultOverlay({
       <p className="mt-8 max-w-xl text-[14px] leading-relaxed text-white/65 sm:mt-10">
         {t("practiceNote")}
       </p>
-      <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.28em] text-white/45">
+      <p className="mt-6 text-[11px] font-medium tracking-[0.28em] text-white/45 uppercase">
         {t("relatedTitle")}
       </p>
       <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -74,7 +74,7 @@ export function SpeciesGallery({
         }`}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("gallery")}
           </p>
           <AnchoredHeading
@@ -108,8 +108,8 @@ export function SpeciesGallery({
                   key={photo.src}
                   className={`group relative overflow-hidden rounded-[24px] bg-ink ${
                     featured
-                      ? "col-span-2 aspect-[16/10] md:col-span-3"
-                      : "aspect-[4/5]"
+                      ? "col-span-2 aspect-16/10 md:col-span-3"
+                      : "aspect-4/5"
                   }`}
                 >
                   <button
@@ -125,10 +125,10 @@ export function SpeciesGallery({
                       }
                       setActive(index);
                     }}
-                    className="absolute inset-0 w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                    className="absolute inset-0 w-full text-left focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none"
                     aria-label={photoAlt}
                   >
-                    <picture className="media-placeholder absolute inset-0 block h-full w-full">
+                    <picture className="media-placeholder absolute inset-0 block size-full">
                       {pictureSources(photo.src, {
                         sizes: featured
                           ? "(max-width: 1480px) 100vw, 1400px"
@@ -141,12 +141,12 @@ export function SpeciesGallery({
                         alt={photoAlt}
                         loading="lazy"
                         decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover text-transparent"
+                        className="absolute inset-0 size-full object-cover text-transparent"
                       />
                     </picture>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
                     {!hasPhotoCredit(photo.credit) ? (
-                      <span className="absolute bottom-4 left-4 z-[1] font-display text-[13px] text-white/0 group-hover:text-white/80">
+                      <span className="absolute bottom-4 left-4 z-1 font-display text-[13px] text-white/0 group-hover:text-white/80">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     ) : null}
@@ -165,7 +165,7 @@ export function SpeciesGallery({
 
       {active !== null && activePhoto ? (
         <dialog
-          className="fixed inset-0 z-[100] m-0 flex h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-transparent p-0"
+          className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0"
           open
           aria-label={t("gallery")}
           onCancel={(event) => {
@@ -182,7 +182,7 @@ export function SpeciesGallery({
           <button
             type="button"
             onClick={() => setActive(null)}
-            className="absolute right-5 top-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
+            className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
             aria-label={t("close")}
           >
             <X className="size-5" />
@@ -200,7 +200,7 @@ export function SpeciesGallery({
                       : (current - 1 + photos.length) % photos.length,
                   );
                 }}
-                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
+                className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
                 aria-label={t("prevPhoto")}
               >
                 <ChevronLeft className="size-5" />
@@ -213,7 +213,7 @@ export function SpeciesGallery({
                     current === null ? null : (current + 1) % photos.length,
                   );
                 }}
-                className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
+                className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
                 aria-label={t("nextPhoto")}
               >
                 <ChevronRight className="size-5" />
@@ -242,7 +242,7 @@ export function SpeciesGallery({
                   )}
                   decoding="async"
                   fetchPriority="high"
-                  className="absolute inset-0 h-full w-full object-contain text-transparent"
+                  className="absolute inset-0 size-full object-contain text-transparent"
                 />
               </picture>
             </div>

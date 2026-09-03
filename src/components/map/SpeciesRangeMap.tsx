@@ -37,25 +37,25 @@ export function SpeciesRangeMap({
   return (
     <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
       <div
-        className="pointer-events-none absolute inset-0 map-explorer-texture"
+        className="map-explorer-texture pointer-events-none absolute inset-0"
         aria-hidden="true"
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("range")}
           </p>
           <AnchoredHeading
             id={SPECIES_SECTION_IDS.range}
             slugSource={t("rangeTitle", { name: speciesName })}
-            className="mt-5 font-display text-balance-tight text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05] text-foreground"
+            className="text-balance-tight mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold text-foreground"
             anchorLabel={t("anchorLink")}
           >
             {t("rangeTitle", { name: speciesName })}
           </AnchoredHeading>
-          <p className="mx-auto mt-5 max-w-lg text-balance-tight text-[15px] leading-relaxed text-muted-foreground">
+          <p className="text-balance-tight mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
             {t("rangeSubtitle")}
           </p>
         </div>

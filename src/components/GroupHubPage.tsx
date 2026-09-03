@@ -64,7 +64,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
             sizes="100vw"
             className="object-cover object-[50%_35%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/92" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -90,7 +90,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
                 Reptiles
               </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.6rem)] font-semibold leading-[1.05] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -143,7 +143,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               }`}
             >
               <div>
-                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                   {species.length}
                 </p>
                 <p className="mt-2 text-[13px] text-muted-foreground">
@@ -151,7 +151,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 </p>
               </div>
               <div>
-                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                   {familyCount}
                 </p>
                 <p className="mt-2 text-[13px] text-muted-foreground">
@@ -160,7 +160,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               </div>
               {extraItems ? null : (
                 <div>
-                  <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                  <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                     {hubId === "snakes" ? venomousCount : t("statExtraValue")}
                   </p>
                   <p className="mt-2 text-[13px] text-muted-foreground">
@@ -175,7 +175,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                   {extraItems.map((item) => (
                     <li
                       key={item}
-                      className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 text-[13px] font-medium leading-tight text-foreground"
+                      className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 text-[13px] leading-tight font-medium text-foreground"
                     >
                       {item}
                     </li>
@@ -236,7 +236,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
             <div className="mt-14 space-y-16">
               {sections.map((section) => (
                 <div key={section.key}>
-                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-tight">
+                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
                     {t(`section.${section.key}.title` as "speciesTitle", {
                       count: section.items.length,
                     })}
@@ -316,13 +316,13 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
             className="object-cover opacity-50"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/88" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("ctaEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] font-semibold leading-[1.05] text-white">
+              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] leading-[1.05] font-semibold text-white">
                 {t("ctaTitle")}
               </h2>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">
@@ -459,7 +459,7 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                       }}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
-                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
                       </span>
                       <span
@@ -478,7 +478,7 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {hubId === "snakes" && n === 5 ? (
                             <SnakesFaq5Answer />
                           ) : hubId === "turtles" && n === 4 ? (

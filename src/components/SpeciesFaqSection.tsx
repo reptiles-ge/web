@@ -31,7 +31,7 @@ export function SpeciesFaqSection({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("faq")}
             </p>
             <AnchoredHeading
@@ -72,7 +72,7 @@ export function SpeciesFaqSection({
                     }}
                     className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                   >
-                    <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                    <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                       {item.question}
                     </span>
                     <span
@@ -91,7 +91,7 @@ export function SpeciesFaqSection({
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                      <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                         {item.answer}
                       </p>
                     </div>

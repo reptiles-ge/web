@@ -99,7 +99,7 @@ export function TurtlesHubSections() {
                   <h3 className="font-display text-[18px] font-semibold text-foreground sm:text-[20px]">
                     {t(`where.${item.key}.title`)}
                   </h3>
-                  <p className="mt-1 text-[13px] italic text-muted-foreground">
+                  <p className="mt-1 text-[13px] text-muted-foreground italic">
                     {t(`where.${item.key}.scientific`)}
                   </p>
                   <p className="mt-3 flex-1 text-[14px] leading-relaxed text-muted-foreground">
@@ -182,10 +182,10 @@ export function TurtlesHubSections() {
             <Reveal className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("landEyebrow")}
                   </p>
-                  <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.05]">
+                  <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
                     {t("landTitle")}
                   </h2>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -204,10 +204,10 @@ export function TurtlesHubSections() {
             <Reveal delay={60} className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("waterEyebrow")}
                   </p>
-                  <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold leading-[1.05]">
+                  <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
                     {t("waterTitle")}
                   </h2>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">

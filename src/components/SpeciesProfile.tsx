@@ -160,7 +160,7 @@ export function SpeciesProfile({
           }}
         >
           {desktopHeroSrc ? (
-            <picture className="media-placeholder absolute inset-0 block h-full w-full">
+            <picture className="media-placeholder absolute inset-0 block size-full">
               {mobileHeroSrc ? (
                 <>
                   {heroDesktopSources.map((source) => (
@@ -177,7 +177,7 @@ export function SpeciesProfile({
                 alt={mobileHeroSrc ? mobileImageAlt : imageAlt}
                 fetchPriority="high"
                 decoding="async"
-                className="h-full w-full object-cover text-transparent"
+                className="size-full object-cover text-transparent"
               />
             </picture>
           ) : (
@@ -186,11 +186,11 @@ export function SpeciesProfile({
               aria-hidden="true"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/25 to-black/90" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
           {heroCredit ? (
             <div
-              className="pointer-events-none absolute right-6 z-[5] hidden lg:block lg:right-10"
+              className="pointer-events-none absolute right-6 z-5 hidden lg:right-10 lg:block"
               style={{ top: "5.75rem" }}
             >
               <PhotoCreditCaption
@@ -202,7 +202,7 @@ export function SpeciesProfile({
           ) : null}
           {mobileHeroCredit && mobileHeroSrc ? (
             <div
-              className="pointer-events-none absolute right-6 z-[5] lg:hidden"
+              className="pointer-events-none absolute right-6 z-5 lg:hidden"
               style={{ top: "5.25rem" }}
             >
               <PhotoCreditCaption
@@ -249,10 +249,10 @@ export function SpeciesProfile({
                 })}
               </ol>
             </nav>
-            <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.5rem)] font-semibold leading-[1.08] text-white">
+            <h1 className="text-balance-tight max-w-4xl font-display text-[clamp(1.85rem,5vw,4.5rem)] leading-[1.08] font-semibold text-white">
               {species.commonName}
             </h1>
-            <p className="mt-3 font-display text-[15px] italic tracking-wide text-white/55 sm:text-[17px]">
+            <p className="mt-3 font-display text-[15px] tracking-wide text-white/55 italic sm:text-[17px]">
               {species.scientificName}
             </p>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
@@ -279,7 +279,7 @@ export function SpeciesProfile({
         {displayStats.length > 0 ? (
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("atAGlance")}
               </p>
               <AnchoredHeading
@@ -295,7 +295,7 @@ export function SpeciesProfile({
                     <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
                       {stat.label}
                     </p>
-                    <p className="mt-3 font-display text-[20px] font-medium leading-tight lg:text-[24px]">
+                    <p className="mt-3 font-display text-[20px] leading-tight font-medium lg:text-[24px]">
                       {linkDangerStats &&
                       dangerValue &&
                       stat.value === dangerValue ? (
@@ -328,7 +328,7 @@ export function SpeciesProfile({
 
         <section className="bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("overview")}
             </p>
             <AnchoredHeading
@@ -394,7 +394,7 @@ export function SpeciesProfile({
             }`}
           >
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("biology")}
               </p>
               <AnchoredHeading
@@ -450,10 +450,10 @@ export function SpeciesProfile({
         {guideLinks.length > 0 ? (
           <section className="border-t border-border bg-surface py-16 lg:py-20">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                 {t("guidesEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.45rem,2.6vw,1.9rem)] font-semibold leading-tight">
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.45rem,2.6vw,1.9rem)] leading-tight font-semibold">
                 {t("guidesTitle")}
               </h2>
               <RelatedGuideGrid
@@ -470,7 +470,7 @@ export function SpeciesProfile({
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <div className="flex items-end justify-between gap-6">
                 <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("related")}
                   </p>
                   <AnchoredHeading
@@ -508,7 +508,7 @@ export function SpeciesProfile({
                           position: relatedIndex + 1,
                         })
                       }
-                      className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
+                      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
                     >
                       {cover ? (
                         <CoverImage
@@ -527,9 +527,9 @@ export function SpeciesProfile({
                           aria-hidden="true"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-6">
-                        <p className="text-[12px] italic text-white/50">
+                        <p className="text-[12px] text-white/50 italic">
                           {item.scientificName}
                         </p>
                         <h3 className="mt-1 font-display text-[22px] font-semibold text-white">

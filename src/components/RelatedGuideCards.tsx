@@ -74,7 +74,7 @@ export function RelatedGuideCard({
         <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">
           {copy}
         </div>
-        <div className="relative min-h-[200px] bg-muted sm:min-h-[260px]">
+        <div className="bg-muted relative min-h-[200px] sm:min-h-[260px]">
           <CoverImage
             src={imageSrc}
             alt=""

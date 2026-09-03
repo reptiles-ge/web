@@ -196,8 +196,8 @@ export function Navbar() {
                   aria-label={t("closeMenu")}
                   onClick={() => setGroupsOpen(false)}
                 />
-                <div className="absolute left-1/2 top-full z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-border bg-background py-2 shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
-                  <p className="px-4 pb-1 pt-1.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <div className="absolute top-full left-1/2 z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-border bg-background py-2 shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
+                  <p className="px-4 pt-1.5 pb-1 text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                     {t("reptiles")}
                   </p>
                   {reptileGroupLinks.map((link) => (
@@ -293,7 +293,7 @@ export function Navbar() {
         />
         <nav
           aria-label={t("openMenu")}
-          className={`fixed inset-x-0 top-[4.25rem] z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-[28px] border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)] ${
+          className={`fixed inset-x-0 top-17 z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-[28px] border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)] ${
             menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
           }`}
         >

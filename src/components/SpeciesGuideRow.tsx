@@ -72,7 +72,7 @@ export function SpeciesGuideRow({
       }
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
     >
-      <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
+      <div className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
         <CoverImage
           src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
@@ -112,13 +112,13 @@ export function SpeciesGuideRow({
             </span>
           ) : null}
         </div>
-        <h3 className="mt-2 font-display text-[clamp(1.35rem,2.5vw,1.85rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+        <h3 className="mt-2 font-display text-[clamp(1.35rem,2.5vw,1.85rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </h3>
-        <p className="mt-1 text-[13px] italic tracking-wide text-muted-foreground">
+        <p className="mt-1 text-[13px] tracking-wide text-muted-foreground italic">
           {species.scientificName}
         </p>
-        <p className="mt-3 max-w-xl text-[14px] leading-relaxed text-muted-foreground line-clamp-2">
+        <p className="mt-3 line-clamp-2 max-w-xl text-[14px] leading-relaxed text-muted-foreground">
           {species.description}
         </p>
         {regions.length > 0 ? (
@@ -128,9 +128,9 @@ export function SpeciesGuideRow({
         ) : null}
       </div>
 
-      <span className="inline-flex max-w-[12rem] items-center gap-1.5 self-start text-[13px] font-medium text-foreground/70 transition-colors group-hover:text-primary sm:self-center sm:text-right">
+      <span className="inline-flex max-w-48 items-center gap-1.5 self-start text-[13px] font-medium text-foreground/70 transition-colors group-hover:text-primary sm:self-center sm:text-right">
         {profileCta}
-        <ArrowUpRight className="size-3.5 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        <ArrowUpRight className="size-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
     </Link>
   );

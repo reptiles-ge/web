@@ -78,7 +78,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
             sizes="100vw"
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/92" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -104,10 +104,10 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 <span aria-hidden>/</span>
                 <span className="text-white/70">{name}</span>
               </nav>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("regionEyebrow")}
               </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.2rem)] font-semibold leading-[1.08] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(1.85rem,5vw,4.2rem)] leading-[1.08] font-semibold text-white sm:mt-4">
                 {t("regionTitle", { name, nameIn })}
               </h1>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
@@ -133,18 +133,18 @@ export function RegionProfile({ region }: RegionProfileProps) {
 
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
-            className="pointer-events-none absolute inset-0 map-explorer-texture"
+            className="map-explorer-texture pointer-events-none absolute inset-0"
             aria-hidden="true"
           />
           <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("rangeEyebrow")}
               </p>
               <AnchoredHeading
                 id={REGION_SECTION_IDS.range}
                 slugSource={t("rangeTitle", { name })}
-                className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
                 anchorLabel={t("anchorLink")}
               >
                 {t("rangeTitle", { name })}
@@ -160,12 +160,12 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("habitatsEyebrow")}
                 </p>
                 <AnchoredHeading
                   id={REGION_SECTION_IDS.habitats}
-                  className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]"
+                  className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold"
                   anchorLabel={t("anchorLink")}
                 >
                   {t("habitatsTitle")}
@@ -200,13 +200,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
             <Reveal>
               <div className="flex items-end justify-between gap-6">
                 <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("speciesEyebrow")}
                   </p>
                   <AnchoredHeading
                     id={REGION_SECTION_IDS.species}
                     slugSource={t("speciesTitle", { name, nameIn })}
-                    className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                    className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
                     anchorLabel={t("anchorLink")}
                   >
                     {t("speciesTitle", { name, nameIn })}
@@ -241,13 +241,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("venomousEyebrow")}
                 </p>
                 <AnchoredHeading
                   id={REGION_SECTION_IDS.venomous}
                   slugSource={t("venomousTitle", { nameIn, name })}
-                  className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+                  className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
                   anchorLabel={t("anchorLink")}
                 >
                   {t("venomousTitle", { nameIn, name })}
@@ -282,12 +282,12 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("relatedEyebrow")}
                 </p>
                 <AnchoredHeading
                   id={REGION_SECTION_IDS.related}
-                  className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.05]"
+                  className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05] font-semibold"
                   anchorLabel={t("anchorLink")}
                 >
                   {t("relatedTitle")}
@@ -304,12 +304,12 @@ export function RegionProfile({ region }: RegionProfileProps) {
                           className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
                         >
                           <div className="flex min-h-[3.4rem] items-start justify-between gap-3">
-                            <h3 className="font-display text-[22px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                            <h3 className="font-display text-[22px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
                               {localizeRegionText(item.name, locale)}
                             </h3>
-                            <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                            <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                           </div>
-                          <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                          <p className="mt-2 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
                             {localizeRegionText(relatedContent.biome, locale)}
                           </p>
                           <p className="mt-3 text-[13px] text-muted-foreground">
@@ -348,7 +348,7 @@ function PhotoSpeciesCard({
           source: "region",
         })
       }
-      className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
+      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
     >
       <CoverImage
         src={species.mobileImage ?? species.image}
@@ -360,9 +360,9 @@ function PhotoSpeciesCard({
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-6">
-        <p className="text-[12px] italic text-white/50">
+        <p className="text-[12px] text-white/50 italic">
           {species.scientificName}
         </p>
         <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
@@ -399,7 +399,7 @@ function RegionFaqSection({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("faqEyebrow")}
             </p>
             <AnchoredHeading
@@ -435,7 +435,7 @@ function RegionFaqSection({
                       }}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
-                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {item.question}
                       </span>
                       <span
@@ -454,7 +454,7 @@ function RegionFaqSection({
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {item.answer}
                         </p>
                       </div>

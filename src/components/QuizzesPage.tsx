@@ -38,7 +38,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pb-10 pt-28 sm:pb-14 sm:pt-32 lg:pb-16">
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
@@ -56,11 +56,11 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
               <li className="text-foreground">{t("breadcrumbCurrent")}</li>
             </ol>
           </nav>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
           <div className="mt-4 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <h1 className="font-display text-[clamp(2.8rem,9vw,7rem)] font-semibold leading-[0.9] text-foreground">
+            <h1 className="font-display text-[clamp(2.8rem,9vw,7rem)] leading-[0.9] font-semibold text-foreground">
               {t("title")}
             </h1>
             <p className="max-w-md text-[15px] leading-relaxed text-muted-foreground sm:text-[16px] lg:justify-self-end lg:pb-3">
@@ -89,10 +89,10 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
 
       <section className="border-t border-border bg-background py-16 text-foreground lg:py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("howEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.6rem,3.4vw,2.6rem)] font-semibold leading-[1.08]">
+          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.08] font-semibold">
             {t("howTitle")}
           </h2>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-border bg-border/80 sm:grid-cols-3">
@@ -170,20 +170,20 @@ function FeaturedQuizCard({
       </div>
       <div className="p-5 sm:p-7 lg:p-8">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-foreground uppercase">
             <span className="size-1.5 rounded-full bg-emerald-500" />
             {liveLabel}
           </span>
-          <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+          <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
             {copy.tag}
           </span>
           {questionsLabel ? (
-            <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+            <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {questionsLabel}
             </span>
           ) : null}
         </div>
-        <h2 className="mt-4 max-w-xl font-display text-[clamp(1.45rem,3.2vw,2.25rem)] font-semibold leading-[1.08] text-foreground">
+        <h2 className="mt-4 max-w-xl font-display text-[clamp(1.45rem,3.2vw,2.25rem)] leading-[1.08] font-semibold text-foreground">
           {copy.title}
         </h2>
         <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">

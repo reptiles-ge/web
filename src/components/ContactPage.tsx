@@ -33,7 +33,7 @@ export function ContactPage() {
                 className="object-cover"
               />
             </m.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-black/5 to-black/35 lg:bg-gradient-to-r lg:from-black/30 lg:via-black/5 lg:to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-background via-black/5 to-black/35 lg:bg-linear-to-r lg:from-black/30 lg:via-black/5 lg:to-transparent" />
           </div>
 
           <main className="relative flex flex-col justify-center bg-background">
@@ -70,7 +70,7 @@ export function ContactPage() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.12, ease }}
-                className="mt-12 font-display text-[clamp(2.8rem,8vw,4.25rem)] font-semibold leading-[0.95] tracking-tight"
+                className="mt-12 font-display text-[clamp(2.8rem,8vw,4.25rem)] leading-[0.95] font-semibold tracking-tight"
               >
                 {t("brand")}
               </m.p>
@@ -78,7 +78,7 @@ export function ContactPage() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease }}
-                className="mt-5 font-display text-[clamp(1.45rem,3.5vw,1.9rem)] font-medium leading-snug text-foreground/75"
+                className="mt-5 font-display text-[clamp(1.45rem,3.5vw,1.9rem)] leading-snug font-medium text-foreground/75"
               >
                 {t("title")}
               </m.h1>
@@ -106,7 +106,7 @@ export function ContactPage() {
                   <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
                     nika@shamiladze.com
                   </span>
-                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </a>
                 <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
                   <Link

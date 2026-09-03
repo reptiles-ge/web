@@ -66,10 +66,10 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
 
       <article className="border-t border-white/10 bg-background px-6 py-16 text-foreground lg:px-10 lg:py-24">
         <div className="mx-auto max-w-[1400px]">
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("practiceEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-3xl font-display text-[clamp(1.7rem,3.4vw,2.7rem)] font-semibold leading-[1.08]">
+          <h2 className="mt-4 max-w-3xl font-display text-[clamp(1.7rem,3.4vw,2.7rem)] leading-[1.08] font-semibold">
             {t("practiceTitle")}
           </h2>
           <div className="mt-8 max-w-3xl space-y-5 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">

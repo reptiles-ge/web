@@ -63,10 +63,10 @@ export function QuizPracticeCta({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-5 rounded-[28px] border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-6">
           <div className="max-w-xl">
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {eyebrow}
             </p>
-            <h2 className="mt-3 font-display text-[clamp(1.4rem,2.4vw,1.9rem)] font-semibold leading-[1.08]">
+            <h2 className="mt-3 font-display text-[clamp(1.4rem,2.4vw,1.9rem)] leading-[1.08] font-semibold">
               {title}
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">

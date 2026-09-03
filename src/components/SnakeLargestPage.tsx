@@ -121,7 +121,7 @@ export function SnakeLargestPage({
               <Reveal delay={60}>
                 <Link
                   href={speciesHref(lizard.id, locale)}
-                  className="relative block aspect-[16/10] overflow-hidden rounded-[28px] bg-ink"
+                  className="relative block aspect-16/10 overflow-hidden rounded-[28px] bg-ink"
                 >
                   <CoverImage
                     src={lizard.image}
@@ -161,7 +161,7 @@ function LargestRow({
         href={speciesHref(species.id, locale)}
         className="group grid gap-5 py-7 sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 lg:grid-cols-[9rem_1fr_auto]"
       >
-        <span className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
+        <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
           <CoverImage
             src={species.mobileImage ?? species.image}
             alt={speciesImageAlt(
@@ -177,10 +177,10 @@ function LargestRow({
           <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="mt-2 block font-display text-[clamp(1.35rem,2.5vw,1.85rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+          <span className="mt-2 block font-display text-[clamp(1.35rem,2.5vw,1.85rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
             {species.commonName}
           </span>
-          <span className="mt-1 block text-[13px] italic text-muted-foreground">
+          <span className="mt-1 block text-[13px] text-muted-foreground italic">
             {species.scientificName}
           </span>
           <span className="mt-3 block text-[14px] text-muted-foreground">

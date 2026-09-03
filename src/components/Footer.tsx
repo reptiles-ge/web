@@ -87,12 +87,12 @@ export function Footer() {
               className="group mt-7 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
             >
               {t("exploreCta")}
-              <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
 
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {t("exploreTitle")}
             </p>
             <ul className="mt-5 space-y-3">
@@ -110,7 +110,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {t("guidesTitle")}
             </p>
             <ul className="mt-5 space-y-3">
@@ -128,7 +128,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {t("companyTitle")}
             </p>
             <ul className="mt-5 space-y-3">
@@ -149,12 +149,12 @@ export function Footer() {
         <div className="mt-14 grid gap-10 border-t border-border pt-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-14">
           <div>
             <div className="flex items-end justify-between gap-4">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                 {t("venomousTitle")}
               </p>
               <Link
                 href="/venomous-snakes"
-                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               >
                 {t("venomousAll")}
               </Link>
@@ -164,12 +164,12 @@ export function Footer() {
                 <li key={item.id} className="mb-3 break-inside-avoid">
                   <Link
                     href={speciesHref(item.id, locale)}
-                    className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                   >
                     <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
                       {item.commonName}
                     </span>
-                    <span className="mt-0.5 block text-[12px] italic text-muted-foreground">
+                    <span className="mt-0.5 block text-[12px] text-muted-foreground italic">
                       {item.scientificName}
                     </span>
                   </Link>
@@ -180,12 +180,12 @@ export function Footer() {
 
           <div>
             <div className="flex items-end justify-between gap-4">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                 {t("regionsTitle")}
               </p>
               <Link
                 href="/regions"
-                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               >
                 {t("regionsAll")}
               </Link>
@@ -195,7 +195,7 @@ export function Footer() {
                 <li key={region.id} className="mb-2.5 break-inside-avoid">
                   <Link
                     href={regionHref(region.id)}
-                    className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                   >
                     {localizeRegionText(region.name, locale)}
                   </Link>

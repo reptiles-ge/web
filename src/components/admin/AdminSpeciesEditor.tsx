@@ -169,7 +169,7 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
             href={pullRequestUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-2 inline-block break-all text-[13px] text-primary underline"
+            className="mt-2 inline-block text-[13px] break-all text-primary underline"
           >
             {pullRequestUrl}
           </a>

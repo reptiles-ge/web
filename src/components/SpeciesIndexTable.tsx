@@ -182,7 +182,7 @@ export function SpeciesIndexTable({
           >
             <table className="w-full min-w-[920px] border-y border-border text-left">
               <thead>
-                <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                   <th className="py-4 pr-4 font-medium">{t("col.photo")}</th>
                   <th className="py-4 pr-4 font-medium">{t("col.name")}</th>
                   <th className="py-4 pr-4 font-medium">{t("col.venom")}</th>
@@ -239,7 +239,7 @@ export function SpeciesIndexTable({
                           <span className="font-display text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary">
                             {item.commonName}
                           </span>
-                          <span className="mt-0.5 block text-[13px] italic text-muted-foreground">
+                          <span className="mt-0.5 block text-[13px] text-muted-foreground italic">
                             {item.scientificName}
                           </span>
                         </Link>
@@ -249,13 +249,13 @@ export function SpeciesIndexTable({
                           ? t("venomousYes")
                           : t("venomousNo")}
                       </td>
-                      <td className="max-w-[12rem] py-3 pr-4 text-[13px] text-muted-foreground">
+                      <td className="max-w-48 py-3 pr-4 text-[13px] text-muted-foreground">
                         {range}
                       </td>
-                      <td className="max-w-[11rem] py-3 pr-4 text-[13px] text-muted-foreground">
+                      <td className="max-w-44 py-3 pr-4 text-[13px] text-muted-foreground">
                         {size}
                       </td>
-                      <td className="max-w-[11rem] py-3 pr-4 text-[13px] text-muted-foreground">
+                      <td className="max-w-44 py-3 pr-4 text-[13px] text-muted-foreground">
                         {habitat}
                       </td>
                       <td className="py-3 text-[13px] text-muted-foreground">
@@ -318,7 +318,7 @@ function IndexCard({
       }
       className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
     >
-      <span className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square">
+      <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square">
         <CoverImage
           src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
@@ -331,10 +331,10 @@ function IndexCard({
         />
       </span>
       <span>
-        <span className="font-display text-[1.35rem] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+        <span className="font-display text-[1.35rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </span>
-        <span className="mt-1 block text-[13px] italic text-muted-foreground">
+        <span className="mt-1 block text-[13px] text-muted-foreground italic">
           {species.scientificName}
         </span>
         <span className="mt-3 block text-[13px] text-muted-foreground">

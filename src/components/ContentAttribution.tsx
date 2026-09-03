@@ -28,7 +28,7 @@ export function ContentAttribution({
           itemScope
           itemType="https://schema.org/Organization"
           itemID={siteEntityId("organization")}
-          className="max-w-xl rounded-[20px] border border-border/90 bg-card px-5 py-5 sm:px-6 sm:py-6"
+          className="max-w-xl rounded-[20px] border border-border/90 bg-card p-5 sm:p-6"
         >
           <div className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-4 gap-y-3.5">
             <Link
@@ -46,7 +46,7 @@ export function ContentAttribution({
                 <span
                   id={headingId}
                   itemProp="name"
-                  className="block font-display text-[16px] font-semibold leading-none tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-[17px]"
+                  className="block font-display text-[16px] leading-none font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-[17px]"
                 >
                   {t("heading")}
                 </span>

@@ -48,10 +48,10 @@ export async function HomeFeatured() {
     <section id="species" className="bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.5rem)] font-semibold leading-[1.12]">
+          <h2 className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.5rem)] leading-[1.12] font-semibold">
             {t("title")}
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -66,9 +66,9 @@ export async function HomeFeatured() {
               locale={locale}
               source="home_spotlight"
               aria-label={tDetail("imageAlt")}
-              className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+              className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
             >
-              <div className="relative aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5]">
+              <div className="relative aspect-4/5 sm:aspect-5/6 lg:aspect-4/5">
                 <CoverImage
                   src={imageSrc}
                   alt={tDetail("imageAlt")}
@@ -79,13 +79,13 @@ export async function HomeFeatured() {
             </TrackedSpeciesLink>
 
             <div className="lg:pb-4">
-              <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
                 {tDetail("eyebrow")}
               </p>
-              <h3 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.75rem)] font-semibold leading-[1.08] text-foreground">
+              <h3 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.75rem)] leading-[1.08] font-semibold text-foreground">
                 {spotlight.commonName}
               </h3>
-              <p className="mt-2 text-[15px] italic text-muted-foreground">
+              <p className="mt-2 text-[15px] text-muted-foreground italic">
                 {spotlight.scientificName}
               </p>
               <p className="mt-6 max-w-md text-[17px] leading-snug text-foreground/90 sm:text-[18px]">
@@ -101,7 +101,7 @@ export async function HomeFeatured() {
                       <dt className="text-[11px] tracking-[0.14em] text-muted-foreground">
                         {stat.label}
                       </dt>
-                      <dd className="mt-1.5 font-display text-[15px] font-medium leading-snug text-foreground">
+                      <dd className="mt-1.5 font-display text-[15px] leading-snug font-medium text-foreground">
                         {stat.value}
                       </dd>
                     </div>
@@ -112,7 +112,7 @@ export async function HomeFeatured() {
                 speciesId={spotlight.id}
                 locale={locale}
                 source="home_spotlight"
-                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               >
                 <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
                   {speciesSeoAnchor(
@@ -143,9 +143,9 @@ export async function HomeFeatured() {
                     locale={locale}
                     source="home_featured"
                     position={index + 1}
-                    className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                   >
-                    <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                    <div className="relative aspect-4/5 overflow-hidden bg-ink">
                       <CoverImage
                         src={cover ?? species.image}
                         alt={speciesImageAlt(
@@ -157,10 +157,10 @@ export async function HomeFeatured() {
                         className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                       />
                     </div>
-                    <p className="mt-4 text-[13px] italic text-muted-foreground">
+                    <p className="mt-4 text-[13px] text-muted-foreground italic">
                       {species.scientificName}
                     </p>
-                    <h3 className="mt-1 font-display text-[1.2rem] font-semibold leading-tight text-foreground">
+                    <h3 className="mt-1 font-display text-[1.2rem] leading-tight font-semibold text-foreground">
                       {species.commonName}
                     </h3>
                     {blurb ? (

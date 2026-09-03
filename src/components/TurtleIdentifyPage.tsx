@@ -297,7 +297,7 @@ export function TurtleIdentifyPage({
           <div className="mt-12 overflow-x-auto">
             <table className="w-full min-w-[640px] border-y border-border text-left">
               <thead>
-                <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                   <th className="py-4 pr-4 font-medium">
                     {t("emysVsColTrait")}
                   </th>
@@ -313,7 +313,7 @@ export function TurtleIdentifyPage({
                 {EMYS_VS_ROWS.map((row) => (
                   <tr
                     key={row}
-                    className="border-b border-border/80 last:border-b-0 align-top"
+                    className="border-b border-border/80 align-top last:border-b-0"
                   >
                     <th className="py-4 pr-4 text-[14px] font-medium text-foreground">
                       {t(`emysVsRow.${row}`)}
@@ -372,7 +372,7 @@ export function TurtleIdentifyPage({
           <div className="mt-12 overflow-x-auto">
             <table className="w-full min-w-[880px] border-y border-border text-left">
               <thead>
-                <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                   <th className="py-4 pr-3 font-medium">
                     {t("matrixColTrait")}
                   </th>
@@ -392,7 +392,7 @@ export function TurtleIdentifyPage({
                 {MATRIX_ROWS.map((row) => (
                   <tr
                     key={row}
-                    className="border-b border-border/80 last:border-b-0 align-top"
+                    className="border-b border-border/80 align-top last:border-b-0"
                   >
                     <th className="py-4 pr-3 text-[13px] font-medium text-foreground">
                       {t(`matrixRow.${row}`)}
@@ -445,7 +445,7 @@ export function TurtleIdentifyPage({
                       className="group block"
                     >
                       <figure>
-                        <span className="relative block aspect-[5/4] overflow-hidden rounded-2xl bg-ink">
+                        <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
                           <CoverImage
                             src={item.mobileImage ?? item.image}
                             alt={alt}
@@ -454,11 +454,11 @@ export function TurtleIdentifyPage({
                           />
                         </span>
                       </figure>
-                      <h3 className="mt-4 font-display text-[17px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                      <h3 className="mt-4 font-display text-[17px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
                         {item.commonName}
                       </h3>
                     </Link>
-                    <p className="mt-1 text-[12px] italic text-muted-foreground">
+                    <p className="mt-1 text-[12px] text-muted-foreground italic">
                       {item.scientificName}
                     </p>
                     <p className="mt-3 text-[12px] font-medium tracking-wide text-foreground/80">
@@ -512,10 +512,10 @@ export function TurtleIdentifyPage({
         <section className="border-t border-border bg-surface py-16 lg:py-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("regionsEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.4rem,2.5vw,1.9rem)] font-semibold leading-[1.1]">
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.4rem,2.5vw,1.9rem)] leading-[1.1] font-semibold">
                 {t("regionsTitle")}
               </h2>
               <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
@@ -561,7 +561,7 @@ function BranchCard({
       href={href}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-foreground/25"
     >
-      <span className="relative block aspect-[16/10] overflow-hidden bg-ink">
+      <span className="relative block aspect-16/10 overflow-hidden bg-ink">
         <CoverImage
           src={src}
           alt={alt}
@@ -600,7 +600,7 @@ function SpeciesResult({
     <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:p-6">
       <Link
         href={speciesHref(species.id, locale)}
-        className="relative block aspect-[5/4] w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
+        className="relative block aspect-5/4 w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
       >
         <CoverImage
           src={species.mobileImage ?? species.image}
@@ -613,7 +613,7 @@ function SpeciesResult({
         <p className="font-display text-[18px] font-semibold text-foreground">
           {species.commonName}
         </p>
-        <p className="mt-1 text-[13px] italic text-muted-foreground">
+        <p className="mt-1 text-[13px] text-muted-foreground italic">
           {species.scientificName}
         </p>
         <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
@@ -646,7 +646,7 @@ function ComparePhoto({
     <figure>
       <Link
         href={speciesHref(species.id, locale)}
-        className="relative block aspect-[5/4] overflow-hidden rounded-2xl bg-ink"
+        className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink"
       >
         <CoverImage
           src={species.mobileImage ?? species.image}
@@ -659,7 +659,7 @@ function ComparePhoto({
         <p className="font-display text-[16px] font-semibold text-foreground">
           {species.commonName}
         </p>
-        <p className="mt-1 text-[12px] italic text-muted-foreground">
+        <p className="mt-1 text-[12px] text-muted-foreground italic">
           {species.scientificName}
         </p>
         <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">

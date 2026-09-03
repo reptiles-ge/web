@@ -75,7 +75,7 @@ export async function NewsArticlePage({
         />
       ) : null}
       <main>
-        <article className="mx-auto max-w-[1400px] px-6 pt-[7.5rem] pb-16 sm:pt-[8.25rem] sm:pb-20 lg:px-10">
+        <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
           <header>
             <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
@@ -103,18 +103,18 @@ export async function NewsArticlePage({
                 </li>
                 <li
                   aria-current="page"
-                  className="min-w-0 max-w-[min(100%,42rem)] text-foreground"
+                  className="max-w-[min(100%,42rem)] min-w-0 text-foreground"
                 >
                   {copy.title}
                 </li>
               </ol>
             </nav>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {category ? <span>{category}</span> : null}
               {category ? <span aria-hidden="true"> · </span> : null}
               <time dateTime={article.publishedAt}>{dateLabel}</time>
             </p>
-            <h1 className="mt-5 font-display text-balance-tight text-[clamp(1.95rem,4.8vw,3.35rem)] font-semibold leading-[1.08] text-foreground">
+            <h1 className="text-balance-tight mt-5 font-display text-[clamp(1.95rem,4.8vw,3.35rem)] leading-[1.08] font-semibold text-foreground">
               {copy.title}
             </h1>
             <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
@@ -144,7 +144,7 @@ export async function NewsArticlePage({
                   as="h2"
                   slugSource={section.heading}
                   anchorLabel={t("anchorLink")}
-                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground"
+                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground"
                 >
                   {section.heading}
                 </AnchoredHeading>
@@ -181,7 +181,7 @@ export async function NewsArticlePage({
                   as="h2"
                   id="sources"
                   anchorLabel={t("anchorLink")}
-                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground"
+                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground"
                 >
                   {t("sourceHeading")}
                 </AnchoredHeading>
@@ -189,12 +189,12 @@ export async function NewsArticlePage({
                   href={primarySource.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-[clamp(1.35rem,2.2vw,1.7rem)] font-semibold leading-snug text-foreground transition-colors hover:text-primary"
+                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-[clamp(1.35rem,2.2vw,1.7rem)] leading-snug font-semibold text-foreground transition-colors hover:text-primary"
                 >
                   {sourceOrg}
                   <ArrowUpRight
                     aria-hidden="true"
-                    className="size-4 shrink-0 text-muted-foreground motion-safe:transition-transform motion-safe:duration-300 group-hover:text-primary motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"
+                    className="size-4 shrink-0 text-muted-foreground group-hover:text-primary motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
                   />
                 </a>
                 {moreSources.length > 0 ? (
@@ -225,7 +225,7 @@ export async function NewsArticlePage({
 
           {hasRelated ? (
             <section className="mt-16 border-t border-border pt-10 sm:mt-20">
-              <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground">
+              <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground">
                 {t("relatedHeading")}
               </h2>
               <ul className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -345,8 +345,8 @@ function NewsFigure({
         <div
           className={
             compact
-              ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
-              : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
+              ? "relative aspect-16/10 overflow-hidden rounded-[20px] bg-surface"
+              : "relative aspect-16/10 overflow-hidden rounded-[24px] bg-surface sm:aspect-2/1"
           }
         >
           <CoverImage
@@ -411,10 +411,10 @@ function RelatedAtlasCard({
   return (
     <Link
       href={href}
-      className="group block rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+      className="group block rounded-[4px] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
     >
       {image ? (
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[16px] bg-surface">
+        <div className="relative aspect-16/10 overflow-hidden rounded-[16px] bg-surface">
           <CoverImage
             src={image}
             alt={imageAlt}
@@ -423,11 +423,11 @@ function RelatedAtlasCard({
           />
         </div>
       ) : null}
-      <p className="mt-3 font-display text-[17px] font-semibold leading-snug text-foreground motion-safe:transition-colors group-hover:text-primary">
+      <p className="mt-3 font-display text-[17px] leading-snug font-semibold text-foreground group-hover:text-primary motion-safe:transition-colors">
         {title}
       </p>
       {subtitle ? (
-        <p className="mt-1 text-[13px] italic text-muted-foreground">
+        <p className="mt-1 text-[13px] text-muted-foreground italic">
           {subtitle}
         </p>
       ) : null}

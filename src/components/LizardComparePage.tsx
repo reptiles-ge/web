@@ -97,7 +97,7 @@ export function LizardComparePage({
           <div className="mt-14 overflow-x-auto">
             <table className="w-full min-w-[640px] border-y border-border text-left">
               <thead>
-                <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                   <th className="py-4 pr-4 font-medium">{t("col.trait")}</th>
                   {columns.map((item) => (
                     <th key={item.id} className="py-4 pr-4 font-medium">
@@ -181,7 +181,7 @@ function CompareCard({
       href={speciesHref(species.id, locale)}
       className="group block overflow-hidden rounded-[24px] border border-border bg-card"
     >
-      <span className="relative block aspect-[5/4] bg-ink">
+      <span className="relative block aspect-5/4 bg-ink">
         <CoverImage
           src={species.image}
           alt={speciesImageAlt(
@@ -197,10 +197,10 @@ function CompareCard({
         <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
           {role}
         </span>
-        <span className="mt-2 block font-display text-[20px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+        <span className="mt-2 block font-display text-[20px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </span>
-        <span className="mt-1 block text-[13px] italic text-muted-foreground">
+        <span className="mt-1 block text-[13px] text-muted-foreground italic">
           {species.scientificName}
         </span>
         <span className="mt-3 block text-[13px] text-muted-foreground">

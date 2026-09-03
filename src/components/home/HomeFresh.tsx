@@ -36,10 +36,10 @@ export async function HomeFresh() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.5rem)] font-semibold leading-[1.12]">
+            <h2 className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.5rem)] leading-[1.12] font-semibold">
               {t("title")}
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -49,7 +49,7 @@ export async function HomeFresh() {
           {lead ? (
             <Link
               href={newsIndexHref()}
-              className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+              className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
             >
               {tNews("allNews")}
               <ArrowUpRight className="size-3.5" aria-hidden="true" />
@@ -62,10 +62,10 @@ export async function HomeFresh() {
             <article>
               <Link
                 href={newsArticleHref(lead.slug)}
-                className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               >
                 {leadVisual ? (
-                  <div className="relative aspect-[16/10] overflow-hidden bg-surface">
+                  <div className="relative aspect-16/10 overflow-hidden bg-surface">
                     <CoverImage
                       src={leadVisual.src}
                       alt={leadVisual.alt}
@@ -79,7 +79,7 @@ export async function HomeFresh() {
                     {formatContentDate(lead.publishedAt, locale)}
                   </time>
                 </p>
-                <h3 className="mt-2 font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-[1.15] text-foreground transition-colors group-hover:text-primary">
+                <h3 className="mt-2 font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-[1.15] font-semibold text-foreground transition-colors group-hover:text-primary">
                   {leadCopy.title}
                 </h3>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
@@ -94,14 +94,14 @@ export async function HomeFresh() {
                       <li key={article.slug}>
                         <Link
                           href={newsArticleHref(article.slug)}
-                          className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                          className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                         >
                           <p className="text-[12px] text-muted-foreground">
                             <time dateTime={article.publishedAt}>
                               {formatContentDate(article.publishedAt, locale)}
                             </time>
                           </p>
-                          <p className="mt-1 font-display text-[16px] font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
+                          <p className="mt-1 font-display text-[16px] leading-snug font-semibold text-foreground transition-colors group-hover:text-primary">
                             {copy.title}
                           </p>
                         </Link>
@@ -115,7 +115,7 @@ export async function HomeFresh() {
 
           {updated.length > 0 ? (
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
                 {t("updated")}
               </p>
               <ul className="mt-5 divide-y divide-border border-y border-border">
@@ -131,9 +131,9 @@ export async function HomeFresh() {
                         locale={locale}
                         source="home_fresh"
                         position={index + 1}
-                        className="group flex items-center gap-4 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                        className="group flex items-center gap-4 py-4 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                       >
-                        <span className="relative size-16 shrink-0 overflow-hidden bg-ink sm:size-[4.5rem]">
+                        <span className="relative size-16 shrink-0 overflow-hidden bg-ink sm:size-18">
                           <CoverImage
                             src={cover ?? species.image}
                             alt={speciesImageAlt(
@@ -149,7 +149,7 @@ export async function HomeFresh() {
                           <span className="block truncate font-display text-[16px] font-semibold text-foreground">
                             {species.commonName}
                           </span>
-                          <span className="mt-0.5 block truncate text-[13px] italic text-muted-foreground">
+                          <span className="mt-0.5 block truncate text-[13px] text-muted-foreground italic">
                             {species.scientificName}
                           </span>
                           <time

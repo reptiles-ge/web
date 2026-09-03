@@ -232,7 +232,7 @@ function LocaleOptions({
   return (
     <>
       <div className="border-b border-border/60 px-4 py-3">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+        <p className="text-[11px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
           {title}
         </p>
       </div>
@@ -261,10 +261,10 @@ function LocaleOptions({
                   <LocaleFlag code={code} />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate font-display text-[15px] font-semibold leading-tight text-foreground">
+                  <span className="block truncate font-display text-[15px] leading-tight font-semibold text-foreground">
                     {labels[code]}
                   </span>
-                  <span className="mt-0.5 block text-[12px] uppercase tracking-[0.14em] text-muted-foreground">
+                  <span className="mt-0.5 block text-[12px] tracking-[0.14em] text-muted-foreground uppercase">
                     {code}
                   </span>
                 </span>

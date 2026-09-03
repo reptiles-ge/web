@@ -113,7 +113,7 @@ export function OverlayPanel({
               key="overlay-backdrop"
               type="button"
               aria-label={closeLabel}
-              className="fixed inset-0 z-[80] bg-ink/55 backdrop-blur-[2px] md:hidden"
+              className="fixed inset-0 z-80 bg-ink/55 backdrop-blur-[2px] md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -128,7 +128,7 @@ export function OverlayPanel({
               role="dialog"
               aria-modal="true"
               aria-label={title}
-              className={`fixed inset-x-0 bottom-0 z-[80] flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden ${mobileSheetClassName ?? ""}`}
+              className={`fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden ${mobileSheetClassName ?? ""}`}
               initial={{ opacity: 0.96, y: "100%" }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0.96, y: "100%" }}
@@ -176,7 +176,7 @@ export function OverlayPanel({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={panelTransition}
-            className={`absolute right-0 top-full z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block ${desktopClassName}`}
+            className={`absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block ${desktopClassName}`}
           >
             {desktopContent}
           </m.div>

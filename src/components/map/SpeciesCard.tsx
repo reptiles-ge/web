@@ -72,10 +72,10 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
       <div className="min-w-0 flex-1 py-0.5">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <h3 className="truncate font-display text-[15px] font-semibold leading-tight text-foreground">
+            <h3 className="truncate font-display text-[15px] leading-tight font-semibold text-foreground">
               {species.commonName}
             </h3>
-            <p className="mt-0.5 truncate text-[12px] italic text-muted-foreground">
+            <p className="mt-0.5 truncate text-[12px] text-muted-foreground italic">
               {species.scientificName}
             </p>
           </div>

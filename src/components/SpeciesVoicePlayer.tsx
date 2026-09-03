@@ -127,7 +127,7 @@ export function SpeciesVoicePlayer({
       </button>
       <span className="text-[12px] text-white/70">{t("voiceTitle")}</span>
       {duration > 0 ? (
-        <span className="text-[11px] tabular-nums text-white/45">
+        <span className="text-[11px] text-white/45 tabular-nums">
           {formatTime(playing || progress > 0 ? progress : duration)}
         </span>
       ) : null}

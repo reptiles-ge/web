@@ -97,7 +97,7 @@ function HubListRow({
     <li className={className}>
       <Link
         href={href}
-        className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-5"
+        className="group flex min-h-20 items-center gap-4 p-4 transition-colors hover:bg-surface focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset sm:px-5"
       >
         {src ? (
           <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
@@ -113,7 +113,7 @@ function HubListRow({
           <h3 className="font-display text-[16px] font-semibold text-foreground">
             {name}
           </h3>
-          <p className="mt-0.5 text-[12px] tabular-nums text-muted-foreground">
+          <p className="mt-0.5 text-[12px] text-muted-foreground tabular-nums">
             {countLabel}
           </p>
         </div>
@@ -133,10 +133,10 @@ export async function HomeGroups() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.5rem)] font-semibold leading-[1.12]">
+            <h2 className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.5rem)] leading-[1.12] font-semibold">
               {t("title")}
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -145,7 +145,7 @@ export async function HomeGroups() {
           </div>
           <Link
             href="/species"
-            className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+            className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
           >
             {t("catalog")}
             <ArrowUpRight className="size-3.5" aria-hidden="true" />
@@ -165,9 +165,9 @@ export async function HomeGroups() {
               <Link
                 key={hubId}
                 href={hub.path}
-                className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               >
-                <div className="relative aspect-[21/9]">
+                <div className="relative aspect-21/9">
                   {visual ? (
                     <CoverImage
                       src={visual.src}
@@ -176,9 +176,9 @@ export async function HomeGroups() {
                       className="object-cover object-[center_42%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                     />
                   ) : null}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/18 to-black/5" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/18 to-black/5" />
                   <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                    <p className="text-[11px] tabular-nums tracking-[0.16em] text-white/55">
+                    <p className="text-[11px] tracking-[0.16em] text-white/55 tabular-nums">
                       {t("count", { count })}
                     </p>
                     <h3 className="mt-1.5 font-display text-[clamp(1.45rem,2.4vw,2rem)] font-semibold text-white">
@@ -203,9 +203,9 @@ export async function HomeGroups() {
                   <Link
                     key={hubId}
                     href={hub.path}
-                    className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                   >
-                    <div className="relative aspect-[16/11]">
+                    <div className="relative aspect-16/11">
                       {visual ? (
                         <CoverImage
                           src={visual.src}
@@ -214,12 +214,12 @@ export async function HomeGroups() {
                           className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
                         />
                       ) : null}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/16 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-5">
-                        <p className="text-[11px] tabular-nums tracking-[0.14em] text-white/55">
+                        <p className="text-[11px] tracking-[0.14em] text-white/55 tabular-nums">
                           {t("count", { count })}
                         </p>
-                        <h3 className="mt-1 font-display text-[1.35rem] font-semibold leading-tight text-white">
+                        <h3 className="mt-1 font-display text-[1.35rem] leading-tight font-semibold text-white">
                           {tNav(hubId)}
                         </h3>
                       </div>

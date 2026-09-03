@@ -113,7 +113,7 @@ function FilterBar({
     <div
       role="radiogroup"
       aria-label={labels.filter}
-      className="flex gap-1 overflow-x-auto px-3 py-2.5 scrollbar-none"
+      className="flex scrollbar-none gap-1 overflow-x-auto px-3 py-2.5"
     >
       {FILTERS.map((item) => {
         const active = value === item;
@@ -203,7 +203,7 @@ function ResultRow({
       >
         <Thumb item={item} overlay={item.kind !== "species"} />
         <span className="min-w-0 flex-1">
-          <span className="block truncate font-display text-[15px] font-semibold leading-tight text-foreground">
+          <span className="block truncate font-display text-[15px] leading-tight font-semibold text-foreground">
             {highlight(item.title, query)}
           </span>
           <span
@@ -265,7 +265,7 @@ function EmptyState({
 function GroupLabel({ children }: { children: ReactNode }) {
   return (
     <div className="sticky top-0 z-10 border-b border-border/60 bg-card/90 px-4 py-2.5 backdrop-blur-md">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+      <p className="text-[11px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
         {children}
       </p>
     </div>
@@ -700,7 +700,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                     return;
                   onKeyDown(event);
                 }}
-                className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
+                className="min-w-0 flex-1 [appearance:textfield] bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
               />
               {query ? (
                 <button

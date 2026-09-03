@@ -26,10 +26,10 @@ export async function HomeSeo() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+        <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
           {t("eyebrow")}
         </p>
-        <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.55rem,2.8vw,2.15rem)] font-semibold leading-[1.15] text-foreground">
+        <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.55rem,2.8vw,2.15rem)] leading-[1.15] font-semibold text-foreground">
           {t("title")}
         </h2>
         <div className="mt-5 max-w-2xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
@@ -42,7 +42,7 @@ export async function HomeSeo() {
               <li key={hub.key}>
                 <Link
                   href={hub.href}
-                  className="text-[14px] text-foreground/80 underline decoration-border underline-offset-[5px] transition-colors hover:text-primary hover:decoration-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                  className="text-[14px] text-foreground/80 underline decoration-border underline-offset-[5px] transition-colors hover:text-primary hover:decoration-primary/40 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 >
                   {t(`links.${hub.key}`)}
                 </Link>

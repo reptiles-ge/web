@@ -91,15 +91,15 @@ export function SnakeRangePage({
 
       <section className="map-explorer relative overflow-hidden border-t border-border py-20 lg:py-28">
         <div
-          className="pointer-events-none absolute inset-0 map-explorer-texture"
+          className="map-explorer-texture pointer-events-none absolute inset-0"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("mapEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
               {t("mapTitle")}
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
@@ -173,7 +173,7 @@ function RegionSnakeRow({
             href={regionHref(region.id)}
             className="group inline-flex flex-wrap items-baseline gap-x-3 gap-y-1"
           >
-            <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+            <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
               {name}
             </h3>
             <span className="text-[12px] tracking-wide text-muted-foreground">
@@ -181,7 +181,7 @@ function RegionSnakeRow({
             </span>
             <ArrowUpRight className="size-3.5 text-muted-foreground/40 transition-colors group-hover:text-primary" />
           </Link>
-          <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-primary/80">
+          <p className="mt-2 text-[11px] font-medium tracking-[0.2em] text-primary/80 uppercase">
             {biome}
           </p>
           {snakes.length === 0 ? (

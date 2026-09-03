@@ -59,7 +59,7 @@ export function ClusterStat({
 }) {
   return (
     <div>
-      <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+      <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
         {value}
       </p>
       <p className="mt-2 text-[13px] text-muted-foreground">{label}</p>

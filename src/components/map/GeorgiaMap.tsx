@@ -119,7 +119,7 @@ export function GeorgiaMap({
         >
           <svg
             viewBox={GEORGIA_MAP_VIEWBOX}
-            className="h-auto w-full select-none drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)]"
+            className="h-auto w-full drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)] select-none"
           >
             <defs>
               <filter

@@ -23,7 +23,7 @@ export function CoverImage({
     <picture
       className={
         fill
-          ? "media-placeholder absolute inset-0 block h-full w-full"
+          ? "media-placeholder absolute inset-0 block size-full"
           : "media-placeholder relative block"
       }
     >
@@ -39,7 +39,7 @@ export function CoverImage({
         fetchPriority={priority ? "high" : "auto"}
         className={
           fill
-            ? `absolute inset-0 h-full w-full text-transparent${
+            ? `absolute inset-0 size-full text-transparent${
                 className ? ` ${className}` : ""
               }`
             : `text-transparent${className ? ` ${className}` : ""}`

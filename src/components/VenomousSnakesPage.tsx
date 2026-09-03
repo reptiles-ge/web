@@ -87,7 +87,7 @@ export function VenomousSnakesPage({
             sizes="100vw"
             className="object-cover object-[50%_35%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/92" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -124,7 +124,7 @@ export function VenomousSnakesPage({
               <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
                 Reptiles
               </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.6rem)] font-semibold leading-[1.05] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -152,7 +152,7 @@ export function VenomousSnakesPage({
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                 {species.length}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -160,7 +160,7 @@ export function VenomousSnakesPage({
               </p>
             </div>
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                 {highCount}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -168,7 +168,7 @@ export function VenomousSnakesPage({
               </p>
             </div>
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                 {moderateCount}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -212,13 +212,13 @@ export function VenomousSnakesPage({
                       className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
                     >
                       <div>
-                        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                        <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                           {t("featuredEyebrow")}
                         </p>
                         <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
                           {giurza.commonName}
                         </p>
-                        <p className="mt-1 text-[14px] italic text-muted-foreground">
+                        <p className="mt-1 text-[14px] text-muted-foreground italic">
                           {giurza.scientificName}
                         </p>
                       </div>
@@ -236,13 +236,13 @@ export function VenomousSnakesPage({
                       className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
                     >
                       <div>
-                        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                        <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                           {t("featuredWestEyebrow")}
                         </p>
                         <p className="mt-2 font-display text-[22px] font-semibold text-foreground">
                           {kaznakovi.commonName}
                         </p>
-                        <p className="mt-1 text-[14px] italic text-muted-foreground">
+                        <p className="mt-1 text-[14px] text-muted-foreground italic">
                           {kaznakovi.scientificName}
                         </p>
                       </div>
@@ -258,7 +258,7 @@ export function VenomousSnakesPage({
 
             <div className="mt-14 space-y-16">
               <div>
-                <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-tight">
+                <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
                   {t("vipersTitle")}
                 </h3>
                 <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -278,7 +278,7 @@ export function VenomousSnakesPage({
               </div>
               {rearFanged.length > 0 ? (
                 <div>
-                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-tight">
+                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
                     {t("rearFangedTitle")}
                   </h3>
                   <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -470,7 +470,7 @@ export function VenomousSnakesPage({
             className="object-cover opacity-50"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/88" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
@@ -537,7 +537,7 @@ function FaqSection() {
                       onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
-                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
                       </span>
                       <span
@@ -556,7 +556,7 @@ function FaqSection() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {t(`faq${n}A`)}
                         </p>
                       </div>

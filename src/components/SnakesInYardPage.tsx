@@ -57,7 +57,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
             sizes="100vw"
             className="object-cover object-[50%_45%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/92" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -94,7 +94,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
               <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
                 Reptiles
               </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.4rem)] font-semibold leading-[1.05] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.4rem)] leading-[1.05] font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -156,14 +156,14 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
               </div>
             </Reveal>
             <Reveal delay={80}>
-              <figure className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-ink sm:aspect-[5/6]">
+              <figure className="relative aspect-4/5 overflow-hidden rounded-[28px] bg-ink sm:aspect-5/6">
                 <CoverImage
                   src={coverSrc}
                   alt={t("coverImageAlt")}
                   sizes="(max-width: 1024px) 100vw, 44vw"
                   className="object-cover"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-6 pb-5 pt-16 text-[13px] leading-snug text-white/75">
+                <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 text-[13px] leading-snug text-white/75">
                   {t("coverCaption")}
                 </figcaption>
               </figure>
@@ -195,7 +195,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                   delay={index * 50}
                   className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
                 >
-                  <span className="font-display text-[clamp(2rem,3vw,2.5rem)] font-semibold leading-none text-primary/80">
+                  <span className="font-display text-[clamp(2rem,3vw,2.5rem)] leading-none font-semibold text-primary/80">
                     {String(n).padStart(2, "0")}
                   </span>
                   <div>
@@ -242,7 +242,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                     >
                       —
                     </span>
-                    <p className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                    <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                       {t(`myth${n}`)}
                     </p>
                   </Reveal>
@@ -269,7 +269,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
               <Reveal>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                    <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                       {t("contactBiteEyebrow")}
                     </p>
                     <h3 className="mt-4 font-display text-[clamp(1.25rem,2.2vw,1.55rem)] font-semibold text-foreground">
@@ -300,7 +300,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
               <Reveal delay={60}>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
-                    <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                    <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                       {t("contactAgencyEyebrow")}
                     </p>
                     <h3 className="mt-4 font-display text-[clamp(1.25rem,2.2vw,1.55rem)] font-semibold text-foreground">
@@ -353,7 +353,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
             className="object-cover opacity-45"
             aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/88" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
@@ -417,7 +417,7 @@ function FaqSection() {
                       onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
-                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
                       </span>
                       <span
@@ -436,7 +436,7 @@ function FaqSection() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {t(`faq${n}A`)}
                         </p>
                       </div>

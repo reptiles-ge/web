@@ -23,7 +23,7 @@ export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
         <details className="group max-w-2xl">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-1 text-left marker:content-none [&::-webkit-details-marker]:hidden">
             <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("sourcesEyebrow")}
               </p>
               <AnchoredHeading

@@ -219,7 +219,7 @@ function LookalikeSide({
 }) {
   return (
     <Link href={speciesHref(species.id, locale)} className="group min-w-0">
-      <span className="relative block aspect-[5/4] overflow-hidden rounded-2xl bg-ink">
+      <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
         <CoverImage
           src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
@@ -231,10 +231,10 @@ function LookalikeSide({
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
       </span>
-      <span className="mt-3 block font-display text-[15px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary sm:text-[16px]">
+      <span className="mt-3 block font-display text-[15px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[16px]">
         {species.commonName}
       </span>
-      <span className="mt-1 block text-[12px] italic text-muted-foreground">
+      <span className="mt-1 block text-[12px] text-muted-foreground italic">
         {species.scientificName}
       </span>
     </Link>

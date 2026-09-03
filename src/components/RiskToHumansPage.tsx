@@ -76,7 +76,7 @@ export function RiskToHumansPage({
   return (
     <div className="min-h-screen bg-background">
       <main>
-        <section className="bg-background pb-10 pt-28 sm:pb-14 sm:pt-32 lg:pb-16">
+        <section className="bg-background pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pb-16">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
@@ -107,7 +107,7 @@ export function RiskToHumansPage({
                 </ol>
               </nav>
 
-              <h1 className="max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.6rem)] font-semibold leading-[1.05] text-foreground">
+              <h1 className="text-balance-tight max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-foreground">
                 {t("title")}
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
@@ -147,7 +147,7 @@ export function RiskToHumansPage({
                 href={`#${DANGER_LEVEL_HASH[level]}`}
                 className="group block"
               >
-                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                   {countByLevel[level]}
                 </p>
                 <p className="mt-2 text-[13px] text-muted-foreground transition-colors group-hover:text-foreground">
@@ -245,7 +245,7 @@ export function RiskToHumansPage({
                     />
                     {tDanger(level)}
                   </span>
-                  <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+                  <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
                     {t(`${level}Title`)}
                   </h2>
                   <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -267,7 +267,7 @@ export function RiskToHumansPage({
                 </ol>
 
                 <div className="mt-14">
-                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] font-semibold leading-tight">
+                  <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
                     {level === "Harmless"
                       ? t("HarmlessSpeciesTitle")
                       : t("speciesTitle", { count: species.length })}
@@ -449,7 +449,7 @@ function FaqSection() {
                       onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     >
-                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
                       </span>
                       <span
@@ -468,7 +468,7 @@ function FaqSection() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {t(`faq${n}A`)}
                         </p>
                       </div>
