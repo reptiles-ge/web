@@ -95,7 +95,7 @@ export function SpeciesIdentification({
               >
                 <span
                   aria-hidden="true"
-                  className="font-display text-[28px] font-light text-primary/40 lg:text-[36px]"
+                  className="font-display text-[28px] font-light text-muted-foreground lg:text-[36px]"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
