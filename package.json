@@ -10,6 +10,7 @@
     "analyze": "pnpm run prebuild && ANALYZE=true pnpm exec next build --webpack",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "doctor": "react-doctor -y --verbose",
     "doctor:changed": "react-doctor -y --verbose --scope changed",
     "doctor:full": "react-doctor -y --verbose --scope full",
@@ -22,7 +23,17 @@
     "images:optimize:dry": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --dry-run",
     "images:optimize:news": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --news",
     "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,mjs,cjs,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@date-fns/tz": "^1.5.0",
@@ -59,11 +70,12 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-tailwindcss": "^4.4.0",
     "eslint-plugin-unused-imports": "^4.4.1",
+    "husky": "^9.1.7",
     "knip": "6.32.3",
+    "lint-staged": "^17.4.1",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "react-doctor": "^0.9.13",
-    "react-scan": "^0.5.7",
     "tailwindcss": "^4",
     "tsx": "^4.23.5",
     "typescript": "^5"
