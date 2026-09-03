@@ -4,11 +4,12 @@ import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
+import type { ReactNode } from "react";
+
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
@@ -31,10 +32,11 @@ import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 
 type RegionProfileProps = {
+  attribution?: ReactNode;
   region: Region;
 };
 
-export function RegionProfile({ region }: RegionProfileProps) {
+export function RegionProfile({ attribution, region }: RegionProfileProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("regions");
   const content = getRegionContent(region.id);
@@ -279,7 +281,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
           />
         ) : null}
 
-        <ContentAttribution />
+        {attribution}
 
         {related.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">

@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { RegionProfile } from "@/components/RegionProfile";
@@ -225,7 +226,7 @@ export default async function RegionPage({ params }: PageProps) {
             : [jsonLd, breadcrumbJsonLd]
         }
       />
-      <RegionProfile region={region} />
+      <RegionProfile attribution={<ContentAttribution />} region={region} />
       <NewsRelatedBlock
         articles={getPublishedNewsForRegion(region.id)}
         locale={locale}
