@@ -16,7 +16,3 @@ export function parseToSiteDateTime(raw: string): string | null {
   if (!isValid(parsed)) return null;
   return toSiteDateTime(parsed);
 }
-
-export function compareIsoDateTimes(a: string, b: string): number {
-  return parseISO(a).getTime() - parseISO(b).getTime();
-}

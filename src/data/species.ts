@@ -1,13 +1,11 @@
 import { species } from "./species.generated";
 import type {
-  DangerLevel,
   GalleryImage,
   PhotoCredit,
   Species,
 } from "./speciesTypes";
 
 export {
-  defaultSpeciesSources,
   type DangerLevel,
   type GalleryImage,
   type PhotoCredit,
@@ -17,12 +15,7 @@ export {
   type SpeciesIdentification,
   type SpeciesSource,
   type SpeciesStat,
-  type SpeciesTranslation,
 } from "./speciesTypes";
-
-export function gallerySrcs(gallery: GalleryImage[]): string[] {
-  return gallery.map((item) => item.src);
-}
 
 export function hasPhotoCredit(
   credit?: PhotoCredit,
@@ -68,12 +61,6 @@ export function resolvePhotoCredit(
 ): PhotoCredit | undefined {
   return credits.find(hasPhotoCredit);
 }
-
-export const dangerLabels: Record<DangerLevel, string> = {
-  Harmless: "უვნებელი",
-  Moderate: "საშუალო",
-  High: "მაღალი",
-};
 
 export const images = {
   hero: "https://cdn.reptiles.ge/hero-img.webp",
@@ -243,15 +230,4 @@ export function getCatalogSpecies() {
     if (item) catalog.push(item);
   }
   return catalog;
-}
-
-export function dangerClass(danger: DangerLevel) {
-  switch (danger) {
-    case "High":
-      return "bg-destructive/15 text-destructive";
-    case "Moderate":
-      return "bg-gold/20 text-gold";
-    default:
-      return "bg-primary/15 text-primary";
-  }
 }

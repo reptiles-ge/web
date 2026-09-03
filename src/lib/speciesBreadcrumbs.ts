@@ -75,7 +75,3 @@ export function buildSpeciesBreadcrumbs(options: {
   });
   return crumbs;
 }
-
-export function animalGroupToHubId(group: AnimalGroup): GroupHubId {
-  return ANIMAL_GROUP_TO_HUB[group];
-}
