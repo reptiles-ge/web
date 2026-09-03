@@ -3,7 +3,6 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import {
-  defaultSpeciesSources,
   type DangerLevel,
   type GalleryImage,
   type PhotoCredit,
@@ -15,38 +14,24 @@ import {
   type SpeciesStat,
   type SpeciesTranslation,
 } from "../src/data/speciesTypes";
+import {
+  groupHasVenomConcept,
+  speciesAtlasMeta,
+} from "../src/data/speciesAtlasMeta";
+import {
+  featuredSpeciesIds,
+  unpublishedSpeciesIds,
+} from "../src/data/speciesPublish";
 import { parseToSiteDateTime, toSiteDateTime } from "../src/lib/siteTime";
+import {
+  kaFrontmatterSchema,
+  sourcesAreValid,
+  translationFrontmatterSchema,
+  type KaFrontmatter,
+} from "./speciesFrontmatter";
 
 const contentRoot = path.join(process.cwd(), "src/content/species");
 const outFile = path.join(process.cwd(), "src/data/species.generated.ts");
-
-type SpeciesFrontmatter = {
-  id: string;
-  commonName: string;
-  scientificName: string;
-  genus: string;
-  family: string;
-  location: string;
-  description: string;
-  overview: string;
-  habitat: string;
-  diet: string;
-  behavior: string;
-  conservation: string;
-  interaction?: string;
-  danger?: DangerLevel;
-  image: string;
-  imageCredit?: PhotoCredit;
-  mobileImage?: string;
-  mobileImageCredit?: PhotoCredit;
-  gallery?: GalleryImage[];
-  stats: SpeciesStat[];
-  facts: string[];
-  identification?: SpeciesIdentification;
-  audio?: SpeciesAudio;
-  faq?: SpeciesFaq[];
-  sources?: SpeciesSource[];
-};
 
 function getGitLastCommitDate(filePaths: string[]): string | null {
   try {
@@ -85,57 +70,52 @@ function resolveUpdatedAt(filePaths: string[]): string {
   throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
 }
 
-function readSpeciesMdx(
-  filePath: string,
-  options?: { updatedAt?: string; sources?: SpeciesSource[] },
-): Species {
-  const raw = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(raw);
-  const fm = data as SpeciesFrontmatter;
+function formatZodError(filePath: string, error: { issues: Array<{ message: string; path: PropertyKey[] }> }) {
+  return error.issues
+    .map((issue) => {
+      const field = issue.path.length > 0 ? issue.path.join(".") : "(root)";
+      return `${filePath}: ${field}: ${issue.message}`;
+    })
+    .join("\n");
+}
 
-  if (!fm.id || !fm.commonName || !fm.scientificName) {
-    throw new Error(`Invalid species frontmatter: ${filePath}`);
-  }
-
+function toSpecies(fm: KaFrontmatter, options: { updatedAt: string }): Species {
+  const sources = (fm.sources ?? []) as SpeciesSource[];
   return {
     id: fm.id,
     commonName: fm.commonName,
     scientificName: fm.scientificName,
     genus: fm.genus,
     family: fm.family,
-    location: fm.location,
-    description: fm.description,
-    overview: fm.overview,
-    habitat: fm.habitat,
-    diet: fm.diet,
-    behavior: fm.behavior,
-    conservation: fm.conservation,
+    location: fm.location ?? "",
+    description: fm.description ?? "",
+    overview: fm.overview ?? "",
+    habitat: fm.habitat ?? "",
+    diet: fm.diet ?? "",
+    behavior: fm.behavior ?? "",
+    conservation: fm.conservation ?? "",
     ...(fm.interaction ? { interaction: fm.interaction } : {}),
-    ...(fm.danger ? { danger: fm.danger } : {}),
-    image: fm.image,
-    ...(fm.imageCredit ? { imageCredit: fm.imageCredit } : {}),
+    ...(fm.danger ? { danger: fm.danger as DangerLevel } : {}),
+    image: fm.image ?? "",
+    ...(fm.imageCredit ? { imageCredit: fm.imageCredit as PhotoCredit } : {}),
     ...(fm.mobileImage ? { mobileImage: fm.mobileImage } : {}),
     ...(fm.mobileImageCredit
-      ? { mobileImageCredit: fm.mobileImageCredit }
+      ? { mobileImageCredit: fm.mobileImageCredit as PhotoCredit }
       : {}),
-    gallery: fm.gallery ?? [],
-    stats: fm.stats ?? [],
+    gallery: (fm.gallery as GalleryImage[] | undefined) ?? [],
+    stats: (fm.stats as SpeciesStat[] | undefined) ?? [],
     facts: fm.facts ?? [],
-    ...(fm.identification ? { identification: fm.identification } : {}),
-    ...(fm.audio?.src ? { audio: fm.audio } : {}),
-    ...(fm.faq ? { faq: fm.faq } : {}),
-    updatedAt: options?.updatedAt ?? toSiteDateTime(new Date()),
-    sources:
-      options?.sources ??
-      (fm.sources && fm.sources.length > 0
-        ? fm.sources
-        : defaultSpeciesSources),
+    ...(fm.identification
+      ? { identification: fm.identification as SpeciesIdentification }
+      : {}),
+    ...(fm.audio?.src ? { audio: fm.audio as SpeciesAudio } : {}),
+    ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
+    updatedAt: options.updatedAt,
+    sources,
   };
 }
 
-const TRANSLATION_LOCALES = ["en", "ru", "tr"] as const;
-
-function toTranslation(fm: SpeciesFrontmatter): SpeciesTranslation {
+function toTranslation(fm: KaFrontmatter): SpeciesTranslation {
   return {
     commonName: fm.commonName,
     location: fm.location ?? "",
@@ -146,30 +126,29 @@ function toTranslation(fm: SpeciesFrontmatter): SpeciesTranslation {
     behavior: fm.behavior ?? "",
     conservation: fm.conservation ?? "",
     ...(fm.interaction ? { interaction: fm.interaction } : {}),
-    stats: fm.stats ?? [],
+    stats: (fm.stats as SpeciesStat[] | undefined) ?? [],
     facts: fm.facts ?? [],
-    ...(fm.identification ? { identification: fm.identification } : {}),
-    ...(fm.faq ? { faq: fm.faq } : {}),
-    ...(fm.gallery?.length ? { gallery: fm.gallery } : {}),
-    ...(fm.imageCredit ? { imageCredit: fm.imageCredit } : {}),
+    ...(fm.identification
+      ? { identification: fm.identification as SpeciesIdentification }
+      : {}),
+    ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
+    ...(fm.gallery?.length ? { gallery: fm.gallery as GalleryImage[] } : {}),
+    ...(fm.imageCredit ? { imageCredit: fm.imageCredit as PhotoCredit } : {}),
     ...(fm.mobileImageCredit
-      ? { mobileImageCredit: fm.mobileImageCredit }
+      ? { mobileImageCredit: fm.mobileImageCredit as PhotoCredit }
       : {}),
   };
-}
-
-function readTranslationMdx(filePath: string): SpeciesTranslation {
-  const { data } = matter(fs.readFileSync(filePath, "utf8"));
-  const fm = data as SpeciesFrontmatter;
-  if (!fm.id || !fm.commonName || !fm.scientificName) {
-    throw new Error(`Invalid species translation frontmatter: ${filePath}`);
-  }
-  return toTranslation(fm);
 }
 
 if (!fs.existsSync(contentRoot)) {
   throw new Error(`Missing content directory: ${contentRoot}`);
 }
+
+const TRANSLATION_LOCALES = ["en", "ru", "tr"] as const;
+
+const publishedIds = new Set(
+  featuredSpeciesIds.filter((id) => !unpublishedSpeciesIds.has(id)),
+);
 
 const ids = fs
   .readdirSync(contentRoot, { withFileTypes: true })
@@ -187,6 +166,8 @@ const translationTables = {
   tr: speciesTr,
 } as const;
 
+const errors: string[] = [];
+
 for (const id of ids) {
   const kaPath = path.join(contentRoot, id, "ka.mdx");
   const localePaths = TRANSLATION_LOCALES.map((locale) =>
@@ -194,29 +175,72 @@ for (const id of ids) {
   );
 
   if (!fs.existsSync(kaPath)) {
-    console.warn(`Skipping ${id}: missing ka.mdx`);
+    errors.push(`${path.join(contentRoot, id)}: missing ka.mdx`);
     continue;
   }
 
-  const rawKa = matter(fs.readFileSync(kaPath, "utf8"))
-    .data as SpeciesFrontmatter;
-  const updatedAt = resolveUpdatedAt([kaPath, ...localePaths]);
-  const sources =
-    rawKa.sources && rawKa.sources.length > 0
-      ? rawKa.sources
-      : defaultSpeciesSources;
-
-  const ka = readSpeciesMdx(kaPath, { updatedAt, sources });
-  if (ka.id !== id) {
-    throw new Error(`Folder/id mismatch: folder=${id} frontmatter=${ka.id}`);
+  const rawKa = matter(fs.readFileSync(kaPath, "utf8")).data;
+  const parsedKa = kaFrontmatterSchema.safeParse(rawKa);
+  if (!parsedKa.success) {
+    errors.push(formatZodError(kaPath, parsedKa.error));
+    continue;
   }
-  species.push(ka);
+
+  const fm = parsedKa.data;
+  if (fm.id !== id) {
+    errors.push(`${kaPath}: folder/id mismatch: folder=${id} frontmatter=${fm.id}`);
+  }
+
+  if (!sourcesAreValid(fm.sources)) {
+    errors.push(
+      `${kaPath}: sources: missing, empty, or only generic entries without a URL`,
+    );
+  }
+
+  const meta = speciesAtlasMeta[id];
+  const isPublished = publishedIds.has(id);
+  if (isPublished && !meta) {
+    errors.push(`${id}: missing speciesAtlasMeta entry`);
+  }
+
+  if (fm.danger && meta && !groupHasVenomConcept(meta.group)) {
+    errors.push(
+      `${kaPath}: danger: not allowed for group ${meta.group}`,
+    );
+  }
+
+  const enPath = path.join(contentRoot, id, "en.mdx");
+  if (isPublished && !fs.existsSync(enPath)) {
+    errors.push(`${id}: published taxon missing en.mdx`);
+  }
+
+  const updatedAt = resolveUpdatedAt([kaPath, ...localePaths]);
+  species.push(toSpecies(fm, { updatedAt }));
 
   for (const locale of TRANSLATION_LOCALES) {
     const filePath = path.join(contentRoot, id, `${locale}.mdx`);
     if (!fs.existsSync(filePath)) continue;
-    translationTables[locale][id] = readTranslationMdx(filePath);
+    const parsedTr = translationFrontmatterSchema.safeParse(
+      matter(fs.readFileSync(filePath, "utf8")).data,
+    );
+    if (!parsedTr.success) {
+      errors.push(formatZodError(filePath, parsedTr.error));
+      continue;
+    }
+    translationTables[locale][id] = toTranslation(parsedTr.data as KaFrontmatter);
   }
+}
+
+for (const id of publishedIds) {
+  if (!ids.includes(id)) {
+    errors.push(`${id}: published id has no content folder`);
+  }
+}
+
+if (errors.length > 0) {
+  console.error(`species:compile failed with ${errors.length} error(s):\n`);
+  console.error(errors.join("\n"));
+  process.exit(1);
 }
 
 const banner = `/* eslint-disable */
