@@ -430,7 +430,6 @@ function useSpeciesSearch() {
     openSearch,
     pickSuggestion,
     query,
-    queryEntry,
     rootRef,
     setActiveIndex,
     setOpen,
