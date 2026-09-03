@@ -325,7 +325,7 @@ function NewsFigure({
     : null;
   const photographer = visual.credit?.photographer;
   const creditMeta = [photographer, visual.credit?.location, dateLabel].filter(
-    Boolean,
+    (item): item is string => Boolean(item),
   );
 
   return (
