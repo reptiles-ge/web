@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
 
 import { routing } from "../src/i18n/routing";
 
@@ -15,9 +14,7 @@ async function main() {
     throw new Error("Run species:compile before search:compile");
   }
 
-  const { buildSearchIndex } = await import(
-    pathToFileURL(path.join(process.cwd(), "src/lib/searchIndexBuild.ts")).href
-  );
+  const { buildSearchIndex } = await import("../src/lib/searchIndexBuild.ts");
 
   const searchIndexes = Object.fromEntries(
     routing.locales.map((locale) => [locale, buildSearchIndex(locale)]),
