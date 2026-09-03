@@ -121,6 +121,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
     en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
   },
+  "latrodectus-tredecimguttatus": {
+    ka: "ყარაყურთი (Latrodectus tredecimguttatus) | შავი ქვრივი საქართველოში",
+    en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
+  },
 };
 
 export function speciesPageMetaTitle(

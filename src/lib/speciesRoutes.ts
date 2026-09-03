@@ -240,6 +240,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
 
 const LOOKALIKES: Record<string, string[]> = {
   "argiope-bruennichi": ["argiope-lobata"],
+  "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
   "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
   "ursus-arctos": ["canis-lupus", "sus-scrofa"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],

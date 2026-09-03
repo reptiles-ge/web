@@ -1385,15 +1385,31 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ka: [
       "ცრუ ყარაყურთი",
       "ცრუ შავი ქვრივი",
-      "ყარაყურთი",
-      "შავი ქვრივი",
       "Steatoda paykulliana",
     ],
     en: [
       "false black widow",
       "false widow",
-      "karakurt",
       "Steatoda paykulliana",
+    ],
+  },
+  "latrodectus-tredecimguttatus": {
+    ka: [
+      "ყარაყურთი",
+      "შავი ქვრივი",
+      "ხმელთაშუაზღვის შავი ქვრივი",
+      "ევროპული შავი ქვრივი",
+      "Latrodectus tredecimguttatus",
+      "Latrodectus mactans",
+      "каракурт",
+    ],
+    en: [
+      "Mediterranean black widow",
+      "European black widow",
+      "black widow Georgia",
+      "karakurt",
+      "Latrodectus tredecimguttatus",
+      "Latrodectus mactans",
     ],
   },
 };

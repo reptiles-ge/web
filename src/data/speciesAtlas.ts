@@ -528,6 +528,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "spider",
     habitats: ["grassland"],
   },
+  "latrodectus-tredecimguttatus": {
+    group: "spider",
+    habitats: ["grassland"],
+  },
 };
 
 export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
