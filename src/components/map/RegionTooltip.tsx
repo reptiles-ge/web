@@ -4,7 +4,8 @@ import type { Region } from "@/data/regions";
 import { getRegionSpecies, localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
-import { AnimatePresence, motion } from "framer-motion";
+import { m } from "@/components/MotionLazy";
+import { AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
 type RegionTooltipProps = {
@@ -25,7 +26,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
   return (
     <AnimatePresence>
       {region && position ? (
-        <motion.div
+        <m.div
           key={region.id}
           initial={{ opacity: 0, y: 8, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -62,7 +63,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
               {t("emptyPreview")}
             </p>
           )}
-        </motion.div>
+        </m.div>
       ) : null}
     </AnimatePresence>
   );

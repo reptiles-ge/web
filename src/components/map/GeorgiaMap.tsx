@@ -10,12 +10,14 @@ import { regionHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
 import {
   useCallback,
+  useEffect,
   useId,
   useMemo,
   useRef,
   useState,
   type MouseEvent,
 } from "react";
+import { MotionLazy } from "@/components/MotionLazy";
 
 type GeorgiaMapProps = {
   className?: string;
@@ -107,6 +109,7 @@ export function GeorgiaMap({
   }
 
   return (
+    <MotionLazy>
     <>
       <div
         ref={containerRef}

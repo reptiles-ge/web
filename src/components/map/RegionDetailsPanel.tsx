@@ -8,7 +8,8 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { regionHref } from "@/lib/speciesRoutes";
-import { AnimatePresence, motion } from "framer-motion";
+import { m } from "@/components/MotionLazy";
+import { AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -58,7 +59,7 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
     <AnimatePresence>
       {region ? (
         <>
-          <motion.button
+          <m.button
             type="button"
             aria-label={t("close")}
             className="fixed inset-0 z-40 bg-ink/35 backdrop-blur-[2px]"
@@ -69,7 +70,7 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
             onClick={onClose}
           />
 
-          <motion.aside
+          <m.aside
             role="dialog"
             aria-modal="true"
             aria-labelledby="region-panel-title"
@@ -96,7 +97,7 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
               locale={locale}
               onClose={onClose}
             />
-          </motion.aside>
+          </m.aside>
         </>
       ) : null}
     </AnimatePresence>
@@ -150,7 +151,7 @@ function PanelContent({
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6">
-        <motion.p
+        <m.p
           key={`${region.id}-desc`}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -158,7 +159,7 @@ function PanelContent({
           className="text-[15px] leading-relaxed text-muted-foreground"
         >
           {localizeRegionText(region.description, locale)}
-        </motion.p>
+        </m.p>
 
         <div className="mt-8">
           <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-muted-foreground">
@@ -170,7 +171,7 @@ function PanelContent({
         </div>
 
         {species.length > 0 ? (
-          <motion.div
+          <m.div
             key={`${region.id}-list`}
             initial="hidden"
             animate="show"
@@ -183,7 +184,7 @@ function PanelContent({
             className="mt-5 space-y-3 pb-4"
           >
             {species.map((item) => (
-              <motion.div
+              <m.div
                 key={item.id}
                 variants={{
                   hidden: { opacity: 0, y: 12 },
@@ -195,11 +196,11 @@ function PanelContent({
                 }}
               >
                 <SpeciesCard species={item} />
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         ) : (
-          <motion.div
+          <m.div
             key={`${region.id}-empty`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -215,7 +216,7 @@ function PanelContent({
             <p className="mt-2 max-w-[240px] text-[13px] leading-relaxed text-muted-foreground">
               {t("emptyBody")}
             </p>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </div>
