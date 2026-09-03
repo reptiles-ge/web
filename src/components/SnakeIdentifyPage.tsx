@@ -100,15 +100,14 @@ export function SnakeIdentifyPage({
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("signsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("signsTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("signsWarning")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("signsEyebrow")}
+              title={t("signsTitle")}
+              body={t("signsWarning")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           <ol className="mt-14 divide-y divide-border border-y border-border">
             {([1, 2, 3, 4] as const).map((n) => (
@@ -135,15 +134,14 @@ export function SnakeIdentifyPage({
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("chainEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("chainTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("chainBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("chainEyebrow")}
+              title={t("chainTitle")}
+              body={t("chainBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           {(giurza || kaznakovi) && (
             <div className="mt-10 flex flex-wrap gap-3">
@@ -181,15 +179,14 @@ export function SnakeIdentifyPage({
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
-              {t("pairsEyebrow")}
-            </p>
-            <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
-              {t("pairsTitle")}
-            </h2>
-            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("pairsBody")}
-            </p>
+            <ClusterSectionIntro
+              eyebrow={t("pairsEyebrow")}
+              title={t("pairsTitle")}
+              body={t("pairsBody")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              titleClassName={CLUSTER_TITLE_SECTION}
+              bodyClassName={CLUSTER_BODY}
+            />
           </Reveal>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {pairs.map((pair, index) => (
