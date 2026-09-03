@@ -12,6 +12,7 @@ import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { preconnect, preload } from "react-dom";
 import "./globals.css";
 
@@ -119,6 +120,13 @@ export default async function RootLayout({ children }: Props) {
     >
       {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <head>
+        {isProd ? null : (
+          <Script
+            src="//unpkg.com/react-scan/dist/auto.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
+        )}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">

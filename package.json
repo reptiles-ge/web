@@ -49,6 +49,7 @@
     "eslint-config-next": "16.2.12",
     "knip": "6.32.3",
     "react-doctor": "^0.9.13",
+    "react-scan": "^0.5.7",
     "tailwindcss": "^4",
     "tsx": "^4.23.5",
     "typescript": "^5"
