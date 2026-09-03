@@ -96,28 +96,6 @@ function AnimatedValue({
     };
   }, [value]);
 
-    let frame = 0;
-    let start: number | null = null;
-    const duration = 900;
-
-    function tick(ts: number) {
-      if (start === null) start = ts;
-      const progress = Math.min((ts - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const next = Math.round(from + (value - from) * eased);
-      displayRef.current = next;
-      setDisplay(next);
-      if (progress < 1) {
-        frame = window.requestAnimationFrame(tick);
-      }
-    }
-    frame = window.requestAnimationFrame(tick);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [value]);
-
   return <span className={className}>{display}</span>;
 }
 

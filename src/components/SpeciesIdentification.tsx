@@ -25,11 +25,9 @@ function IdentificationRichText({ text }: { text: string }) {
 
   return (
     <>
-      {parts.map((part, index) => {
+      {parts.map((part) => {
         const key =
-          part.type === "text"
-            ? `t:${index}:${part.value}`
-            : `s:${part.id}:${part.label}`;
+          part.type === "text" ? `t:${part.value}` : `s:${part.id}:${part.label}`;
         if (part.type === "text") {
           return <Fragment key={key}>{part.value}</Fragment>;
         }

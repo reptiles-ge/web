@@ -165,15 +165,20 @@ export function SpeciesGallery({
 
       {active !== null && activePhoto ? (
         <dialog
-          className="fixed inset-0 z-[100] m-0 flex h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-black/92 p-0"
+          className="fixed inset-0 z-[100] m-0 flex h-full max-h-none w-full max-w-none items-center justify-center border-0 bg-transparent p-0"
           open
           aria-label={t("gallery")}
-          onClick={() => setActive(null)}
           onCancel={(event) => {
             event.preventDefault();
             setActive(null);
           }}
         >
+          <button
+            type="button"
+            aria-label={t("close")}
+            className="absolute inset-0 bg-black/92"
+            onClick={() => setActive(null)}
+          />
           <button
             type="button"
             onClick={() => setActive(null)}
@@ -217,7 +222,7 @@ export function SpeciesGallery({
           )}
 
           <div
-            className="relative mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
+            className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative min-h-0 flex-1">
