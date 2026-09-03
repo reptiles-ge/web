@@ -1,6 +1,14 @@
 "use client";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_SECTION,
+  ClusterSectionIntro,
+  ClusterStat,
+} from "@/components/ClusterSectionIntro";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
@@ -30,30 +38,9 @@ export function SnakeSpeciesIndexPage({
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {species.length}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statSpecies")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {venomousCount}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statVenomous")}
-              </p>
-            </div>
-            <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
-                {familyCount}
-              </p>
-              <p className="mt-2 text-[13px] text-muted-foreground">
-                {t("statFamilies")}
-              </p>
-            </div>
+            <ClusterStat value={species.length} label={t("statSpecies")} />
+            <ClusterStat value={venomousCount} label={t("statVenomous")} />
+            <ClusterStat value={familyCount} label={t("statFamilies")} />
           </div>
         </section>
       }
