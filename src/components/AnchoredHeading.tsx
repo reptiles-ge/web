@@ -29,22 +29,28 @@ export function AnchoredHeading({
   className,
   anchorLabel,
 }: AnchoredHeadingProps) {
-  const headingId =
-    id ?? slugify(slugSource ?? textFromChildren(children));
+  const headingId = id ?? slugify(slugSource ?? textFromChildren(children));
 
   if (!headingId) {
     return <Tag className={className}>{children}</Tag>;
   }
 
   return (
-    <Tag id={headingId} className={`group/heading scroll-mt-28 ${className ?? ""}`}>
+    <Tag
+      id={headingId}
+      className={`group/heading scroll-mt-28 ${className ?? ""}`}
+    >
       <span className="inline">{children}</span>
       <a
         href={`#${headingId}`}
         className="ml-2 inline-flex translate-y-[-0.05em] items-center text-muted-foreground/0 transition-colors group-hover/heading:text-muted-foreground/70 focus-visible:text-primary focus-visible:outline-none"
         aria-label={anchorLabel}
       >
-        <LinkIcon className="size-[0.55em]" strokeWidth={2} aria-hidden="true" />
+        <LinkIcon
+          className="size-[0.55em]"
+          strokeWidth={2}
+          aria-hidden="true"
+        />
       </a>
     </Tag>
   );

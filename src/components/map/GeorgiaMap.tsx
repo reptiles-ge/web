@@ -109,95 +109,101 @@ export function GeorgiaMap({
 
   return (
     <MotionLazy>
-    <>
-      <div
-        ref={containerRef}
-        className={`relative mx-auto w-full max-w-[920px] ${className ?? ""}`}
-        onMouseMove={interactive ? updateTooltipFromEvent : undefined}
-      >
-        <svg
-          viewBox={GEORGIA_MAP_VIEWBOX}
-          role="img"
-          aria-label="Georgia"
-          className="h-auto w-full select-none drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)]"
+      <>
+        <div
+          ref={containerRef}
+          className={`relative mx-auto w-full max-w-[920px] ${className ?? ""}`}
+          onMouseMove={interactive ? updateTooltipFromEvent : undefined}
         >
-          <defs>
-            <filter
-              id={glowFilterId}
-              x="-20%"
-              y="-20%"
-              width="140%"
-              height="140%"
-            >
-              <feGaussianBlur stdDeviation="3.5" result="blur" />
-              <feColorMatrix
-                in="blur"
-                type="matrix"
-                values="0 0 0 0 0.18
+          <svg
+            viewBox={GEORGIA_MAP_VIEWBOX}
+            role="img"
+            aria-label="Georgia"
+            className="h-auto w-full select-none drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)]"
+          >
+            <defs>
+              <filter
+                id={glowFilterId}
+                x="-20%"
+                y="-20%"
+                width="140%"
+                height="140%"
+              >
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feColorMatrix
+                  in="blur"
+                  type="matrix"
+                  values="0 0 0 0 0.18
                         0 0 0 0 0.42
                         0 0 0 0 0.28
                         0 0 0 0.55 0"
-                result="glow"
-              />
-              <feMerge>
-                <feMergeNode in="glow" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <linearGradient id={seaGradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="var(--map-sea-from)" />
-              <stop offset="100%" stopColor="var(--map-sea-to)" />
-            </linearGradient>
-          </defs>
-
-          <rect
-            x="0"
-            y="0"
-            width="1000"
-            height="510"
-            fill={`url(#${seaGradientId})`}
-            rx="28"
-            opacity="0.35"
-          />
-
-          <g>
-            {regions.map((region: RegionData) => {
-              const isHighlighted = highlightedSet.has(region.id);
-              const isSelected =
-                isHighlighted || (usePanel && selectedId === region.id);
-              const isDimmed =
-                (hasHighlights ||
-                  Boolean(hoveredId) ||
-                  (usePanel && Boolean(selectedId))) &&
-                !isSelected &&
-                hoveredId !== region.id;
-
-              return (
-                <Region
-                  key={region.id}
-                  region={region}
-                  isHovered={hoveredId === region.id}
-                  isSelected={isSelected}
-                  isDimmed={isDimmed}
-                  interactive={interactive}
-                  glowFilterId={glowFilterId}
-                  onHover={handleHover}
-                  onSelect={handleSelect}
+                  result="glow"
                 />
-              );
-            })}
-          </g>
-        </svg>
+                <feMerge>
+                  <feMergeNode in="glow" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <linearGradient
+                id={seaGradientId}
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stopColor="var(--map-sea-from)" />
+                <stop offset="100%" stopColor="var(--map-sea-to)" />
+              </linearGradient>
+            </defs>
 
-        {interactive ? (
-          <RegionTooltip region={hoveredRegion} position={tooltipPos} />
+            <rect
+              x="0"
+              y="0"
+              width="1000"
+              height="510"
+              fill={`url(#${seaGradientId})`}
+              rx="28"
+              opacity="0.35"
+            />
+
+            <g>
+              {regions.map((region: RegionData) => {
+                const isHighlighted = highlightedSet.has(region.id);
+                const isSelected =
+                  isHighlighted || (usePanel && selectedId === region.id);
+                const isDimmed =
+                  (hasHighlights ||
+                    Boolean(hoveredId) ||
+                    (usePanel && Boolean(selectedId))) &&
+                  !isSelected &&
+                  hoveredId !== region.id;
+
+                return (
+                  <Region
+                    key={region.id}
+                    region={region}
+                    isHovered={hoveredId === region.id}
+                    isSelected={isSelected}
+                    isDimmed={isDimmed}
+                    interactive={interactive}
+                    glowFilterId={glowFilterId}
+                    onHover={handleHover}
+                    onSelect={handleSelect}
+                  />
+                );
+              })}
+            </g>
+          </svg>
+
+          {interactive ? (
+            <RegionTooltip region={hoveredRegion} position={tooltipPos} />
+          ) : null}
+        </div>
+
+        {usePanel ? (
+          <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
         ) : null}
-      </div>
-
-      {usePanel ? (
-        <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
-      ) : null}
-    </>
+      </>
     </MotionLazy>
   );
 }

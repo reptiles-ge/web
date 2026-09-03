@@ -1,9 +1,6 @@
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
-import {
-  getNewsCopy,
-  getPublishedNewsArticles,
-} from "@/data/news";
+import { getNewsCopy, getPublishedNewsArticles } from "@/data/news";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
 import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";

@@ -14,10 +14,7 @@ function resetScroll() {
   html.style.scrollBehavior = previous;
 }
 
-function routeKey(
-  pathname: string,
-  params: ReturnType<typeof useParams>,
-) {
+function routeKey(pathname: string, params: ReturnType<typeof useParams>) {
   const dynamic = Object.entries(params ?? {})
     .filter(([key]) => key !== "locale")
     .sort(([a], [b]) => a.localeCompare(b))

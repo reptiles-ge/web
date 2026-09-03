@@ -191,7 +191,12 @@ export function SnakeIdentifyPage({
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {pairs.map((pair, index) => (
               <Reveal key={`${pair.a.id}-${pair.b.id}`} delay={index * 50}>
-                <LookalikePair a={pair.a} b={pair.b} locale={locale} vs={t("vs")} />
+                <LookalikePair
+                  a={pair.a}
+                  b={pair.b}
+                  locale={locale}
+                  vs={t("vs")}
+                />
               </Reveal>
             ))}
           </div>

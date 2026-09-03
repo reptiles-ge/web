@@ -101,7 +101,8 @@ export function scoreMessageKey(percent: number): ScoreMessageKey {
 const QUIZ_IMAGE_OVERRIDES: Record<string, string> = {
   "zamenis-longissimus": "https://cdn.reptiles.ge/zamenis-longissimus-4.jpg",
   "vipera-kaznakovi": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
-  "vipera-transcaucasiana": "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
+  "vipera-transcaucasiana":
+    "https://cdn.reptiles.ge/vipera-transcaucasiana-2.jpg",
 };
 
 const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {

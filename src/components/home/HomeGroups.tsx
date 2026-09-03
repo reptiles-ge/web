@@ -1,9 +1,6 @@
 import { CoverImage } from "@/components/CoverImage";
 import { getSpeciesById } from "@/data/species";
-import {
-  getAtlasStats,
-  type AnimalGroup,
-} from "@/data/speciesAtlas";
+import { getAtlasStats, type AnimalGroup } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
@@ -193,42 +190,44 @@ export async function HomeGroups() {
             );
           })}
           <div className="mt-4 grid grid-cols-3 gap-4">
-            {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map((hubId) => {
-              const hub = GROUP_HUBS[hubId];
-              const visual = hubVisual(
-                hubId,
-                locale,
-                t("illustrationAlt", { name: tNav(hubId) }),
-              );
-              const count = groupCount(hub.group, stats);
-              return (
-                <Link
-                  key={hubId}
-                  href={hub.path}
-                  className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
-                >
-                  <div className="relative aspect-[16/11]">
-                    {visual ? (
-                      <CoverImage
-                        src={visual.src}
-                        alt={visual.alt}
-                        sizes="33vw"
-                        className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-                      />
-                    ) : null}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-[11px] tabular-nums tracking-[0.14em] text-white/55">
-                        {t("count", { count })}
-                      </p>
-                      <h3 className="mt-1 font-display text-[1.35rem] font-semibold leading-tight text-white">
-                        {tNav(hubId)}
-                      </h3>
+            {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map(
+              (hubId) => {
+                const hub = GROUP_HUBS[hubId];
+                const visual = hubVisual(
+                  hubId,
+                  locale,
+                  t("illustrationAlt", { name: tNav(hubId) }),
+                );
+                const count = groupCount(hub.group, stats);
+                return (
+                  <Link
+                    key={hubId}
+                    href={hub.path}
+                    className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                  >
+                    <div className="relative aspect-[16/11]">
+                      {visual ? (
+                        <CoverImage
+                          src={visual.src}
+                          alt={visual.alt}
+                          sizes="33vw"
+                          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                        />
+                      ) : null}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-5">
+                        <p className="text-[11px] tabular-nums tracking-[0.14em] text-white/55">
+                          {t("count", { count })}
+                        </p>
+                        <h3 className="mt-1 font-display text-[1.35rem] font-semibold leading-tight text-white">
+                          {tNav(hubId)}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              },
+            )}
           </div>
         </div>
 
@@ -253,9 +252,7 @@ export async function HomeGroups() {
                 countLabel={t("count", { count })}
                 src={visual?.src ?? null}
                 className={
-                  mobileOnly
-                    ? "bg-background sm:hidden"
-                    : "bg-background"
+                  mobileOnly ? "bg-background sm:hidden" : "bg-background"
                 }
               />
             );

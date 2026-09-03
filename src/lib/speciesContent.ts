@@ -86,15 +86,16 @@ const SAFETY_STAT_LABELS = new Set([
   "Tutma",
 ]);
 
-export function filterDisplayStats(
-  stats: SpeciesStat[],
-  group?: AnimalGroup,
-) {
+export function filterDisplayStats(stats: SpeciesStat[], group?: AnimalGroup) {
   return stats.filter((stat) => {
     const value = stat.value.trim();
     if (!value) return false;
     if (isPlaceholderStatValue(value)) return false;
-    if (group && !groupHasVenomConcept(group) && SAFETY_STAT_LABELS.has(stat.label)) {
+    if (
+      group &&
+      !groupHasVenomConcept(group) &&
+      SAFETY_STAT_LABELS.has(stat.label)
+    ) {
       return false;
     }
     return true;
@@ -154,9 +155,7 @@ export function getSpeciesActivityStat(species: Species) {
 export function isPlaceholderBody(text: string) {
   const normalized = text.trim().toLowerCase();
   if (!normalized) return true;
-  return PLACEHOLDER_BODY_MARKERS.some((marker) =>
-    normalized.includes(marker),
-  );
+  return PLACEHOLDER_BODY_MARKERS.some((marker) => normalized.includes(marker));
 }
 
 export function hasRealIdentification(

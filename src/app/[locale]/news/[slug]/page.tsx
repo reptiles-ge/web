@@ -1,9 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { NewsArticlePage } from "@/components/NewsArticlePage";
-import {
-  getNewsCopy,
-  getPublishedNewsArticleBySlug,
-} from "@/data/news";
+import { getNewsCopy, getPublishedNewsArticleBySlug } from "@/data/news";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";

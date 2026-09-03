@@ -15,7 +15,7 @@ export type QuizHref = {
 export type QuizDefinition = {
   id: QuizId;
   status: QuizStatus;
-    slugs?: Record<AppLocale, string>;
+  slugs?: Record<AppLocale, string>;
   group: QuizGroup;
   heroSpeciesId: string;
   messageKey: QuizMessageKey;

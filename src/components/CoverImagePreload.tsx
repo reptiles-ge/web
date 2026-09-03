@@ -7,7 +7,11 @@ type CoverImagePreloadProps = {
   media?: string;
 };
 
-export function CoverImagePreload({ src, sizes, media }: CoverImagePreloadProps) {
+export function CoverImagePreload({
+  src,
+  sizes,
+  media,
+}: CoverImagePreloadProps) {
   if (!src) return null;
 
   const best = pictureSources(src, {

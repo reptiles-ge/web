@@ -19,7 +19,10 @@ type RegionDetailsPanelProps = {
   onClose: () => void;
 };
 
-export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps) {
+export function RegionDetailsPanel({
+  region,
+  onClose,
+}: RegionDetailsPanelProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("map");
   const open = Boolean(region);
@@ -80,18 +83,10 @@ export function RegionDetailsPanel({ region, onClose }: RegionDetailsPanelProps)
             aria-modal="true"
             aria-labelledby="region-panel-title"
             initial={
-              isDesktop
-                ? { opacity: 0, x: 40 }
-                : { opacity: 0, y: "100%" }
+              isDesktop ? { opacity: 0, x: 40 } : { opacity: 0, y: "100%" }
             }
-            animate={
-              isDesktop ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }
-            }
-            exit={
-              isDesktop
-                ? { opacity: 0, x: 32 }
-                : { opacity: 0, y: "100%" }
-            }
+            animate={isDesktop ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
+            exit={isDesktop ? { opacity: 0, x: 32 } : { opacity: 0, y: "100%" }}
             transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-x-0 bottom-0 z-50 flex max-h-[86svh] flex-col rounded-t-[28px] border border-border bg-card shadow-[0_-24px_60px_-36px_rgba(14,20,17,0.5)] lg:inset-y-0 lg:right-0 lg:left-auto lg:max-h-none lg:w-full lg:max-w-[440px] lg:rounded-none lg:border-l lg:border-t-0 lg:shadow-[-24px_0_60px_-40px_rgba(14,20,17,0.45)]"
           >
@@ -116,12 +111,7 @@ type PanelContentProps = {
   onClose: () => void;
 };
 
-function PanelContent({
-  region,
-  species,
-  locale,
-  onClose,
-}: PanelContentProps) {
+function PanelContent({ region, species, locale, onClose }: PanelContentProps) {
   const t = useTranslations("map");
 
   return (

@@ -26,11 +26,7 @@ import {
   newsCategoryHub,
   type NewsVisual,
 } from "@/lib/newsVisual";
-import {
-  regionHref,
-  speciesHref,
-  type SpeciesHref,
-} from "@/lib/speciesRoutes";
+import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
@@ -67,7 +63,8 @@ export async function NewsArticlePage({
   );
   const regions = newsRelatedRegions(article);
   const hubs = newsRelatedHubs(article);
-  const hasRelated = species.length > 0 || regions.length > 0 || hubs.length > 0;
+  const hasRelated =
+    species.length > 0 || regions.length > 0 || hubs.length > 0;
 
   return (
     <div className="min-h-screen bg-background">
@@ -238,9 +235,7 @@ export async function NewsArticlePage({
                       href={speciesHref(item.id, locale)}
                       title={item.commonName}
                       subtitle={item.scientificName}
-                      image={
-                        isPlaceholderMedia(item.image) ? null : item.image
-                      }
+                      image={isPlaceholderMedia(item.image) ? null : item.image}
                       imageAlt={speciesPhotoAlt(
                         item.commonName,
                         item.scientificName,
@@ -327,11 +322,9 @@ function NewsFigure({
     ? formatPhotoDate(visual.credit.date, locale)
     : null;
   const photographer = visual.credit?.photographer;
-  const creditMeta = [
-    photographer,
-    visual.credit?.location,
-    dateLabel,
-  ].filter(Boolean);
+  const creditMeta = [photographer, visual.credit?.location, dateLabel].filter(
+    Boolean,
+  );
 
   return (
     <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
@@ -390,7 +383,9 @@ function NewsFigure({
             {visual.credit?.location || dateLabel ? (
               <span>
                 {photographer ? " · " : null}
-                {[visual.credit?.location, dateLabel].filter(Boolean).join(" · ")}
+                {[visual.credit?.location, dateLabel]
+                  .filter(Boolean)
+                  .join(" · ")}
               </span>
             ) : null}
           </>
@@ -432,7 +427,9 @@ function RelatedAtlasCard({
         {title}
       </p>
       {subtitle ? (
-        <p className="mt-1 text-[13px] italic text-muted-foreground">{subtitle}</p>
+        <p className="mt-1 text-[13px] italic text-muted-foreground">
+          {subtitle}
+        </p>
       ) : null}
     </Link>
   );

@@ -60,7 +60,10 @@ export function SnakeRangePage({
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
             <ClusterStat value={regions.length} label={t("statRegions")} />
             <ClusterStat value={mappedCount} label={t("statMapped")} />
-            <ClusterStat value={species.length - mappedCount} label={t("statPending")} />
+            <ClusterStat
+              value={species.length - mappedCount}
+              label={t("statPending")}
+            />
           </div>
         </section>
       }

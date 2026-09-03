@@ -1,6 +1,16 @@
 "use client";
 
-import { ClusterSectionIntro, CLUSTER_BODY, CLUSTER_EYEBROW, CLUSTER_HERO_BODY, CLUSTER_HERO_EYEBROW, CLUSTER_HERO_TITLE, CLUSTER_FAQ_BODY, CLUSTER_FAQ_TITLE, CLUSTER_TITLE_RELATED } from "@/components/ClusterSectionIntro";
+import {
+  ClusterSectionIntro,
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_HERO_BODY,
+  CLUSTER_HERO_EYEBROW,
+  CLUSTER_HERO_TITLE,
+  CLUSTER_FAQ_BODY,
+  CLUSTER_FAQ_TITLE,
+  CLUSTER_TITLE_RELATED,
+} from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";

@@ -166,10 +166,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
       <JsonLd data={pageLd} />
       <JsonLd data={howToLd} />
       <JsonLd data={faqLd} />
-      <SnakesInYardPage
-        heroSrc={heroSrc}
-        coverSrc={coverSrc}
-      />
+      <SnakesInYardPage heroSrc={heroSrc} coverSrc={coverSrc} />
     </>
   );
 }

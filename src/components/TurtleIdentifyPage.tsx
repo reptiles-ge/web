@@ -35,13 +35,15 @@ type TurtleId = (typeof TURTLE_ORDER)[number];
 type TurtleKind = "land" | "water";
 type TurtleStatus = "native" | "introduced";
 
-const TURTLE_META: Record<TurtleId, { kind: TurtleKind; status: TurtleStatus }> =
-  {
-    "testudo-graeca": { kind: "land", status: "native" },
-    "emys-orbicularis": { kind: "water", status: "native" },
-    "mauremys-caspica": { kind: "water", status: "native" },
-    "trachemys-scripta": { kind: "water", status: "introduced" },
-  };
+const TURTLE_META: Record<
+  TurtleId,
+  { kind: TurtleKind; status: TurtleStatus }
+> = {
+  "testudo-graeca": { kind: "land", status: "native" },
+  "emys-orbicularis": { kind: "water", status: "native" },
+  "mauremys-caspica": { kind: "water", status: "native" },
+  "trachemys-scripta": { kind: "water", status: "introduced" },
+};
 
 const MATRIX_ROWS = [
   "habitat",
@@ -296,8 +298,12 @@ export function TurtleIdentifyPage({
             <table className="w-full min-w-[640px] border-y border-border text-left">
               <thead>
                 <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  <th className="py-4 pr-4 font-medium">{t("emysVsColTrait")}</th>
-                  <th className="py-4 pr-4 font-medium">{t("emysVsColEmys")}</th>
+                  <th className="py-4 pr-4 font-medium">
+                    {t("emysVsColTrait")}
+                  </th>
+                  <th className="py-4 pr-4 font-medium">
+                    {t("emysVsColEmys")}
+                  </th>
                   <th className="py-4 pr-4 font-medium">
                     {t("emysVsColMauremys")}
                   </th>
@@ -367,7 +373,9 @@ export function TurtleIdentifyPage({
             <table className="w-full min-w-[880px] border-y border-border text-left">
               <thead>
                 <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                  <th className="py-4 pr-3 font-medium">{t("matrixColTrait")}</th>
+                  <th className="py-4 pr-3 font-medium">
+                    {t("matrixColTrait")}
+                  </th>
                   {turtles.map((item) => (
                     <th key={item.id} className="py-4 pr-3 font-medium">
                       <Link

@@ -139,13 +139,7 @@ function FilterBar({
   );
 }
 
-function Thumb({
-  item,
-  overlay,
-}: {
-  item: SearchDocument;
-  overlay?: boolean;
-}) {
+function Thumb({ item, overlay }: { item: SearchDocument; overlay?: boolean }) {
   const Icon = ICONS[item.icon];
 
   if (!item.image) {
@@ -304,8 +298,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   );
 
   const trimmed = deferredQuery.trim();
-  const showRecent =
-    open && !trimmed && filter === "all" && recent.length > 0;
+  const showRecent = open && !trimmed && filter === "all" && recent.length > 0;
 
   const groups = useMemo(() => {
     if (!showRecent) return searched.groups;
@@ -378,9 +371,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     if (value !== filter) {
       trackEvent("search_filter", {
         search_filter: value,
-        search_term: query.trim()
-          ? truncateSearchTerm(query)
-          : undefined,
+        search_term: query.trim() ? truncateSearchTerm(query) : undefined,
       });
     }
     setFilter(value);
@@ -398,7 +389,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
   useEffect(() => {
     function onShortcut(event: globalThis.KeyboardEvent) {
-      if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "k") {
+      if (
+        !(event.metaKey || event.ctrlKey) ||
+        event.key.toLowerCase() !== "k"
+      ) {
         return;
       }
       event.preventDefault();
@@ -448,8 +442,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const goTo = useCallback(
     (item: SearchDocument) => {
       const term = query.trim();
-      const isRecent =
-        !term && recent.some((entry) => entry.key === item.key);
+      const isRecent = !term && recent.some((entry) => entry.key === item.key);
       const position = flat.findIndex((entry) => entry.key === item.key) + 1;
       trackEvent("search_result_click", {
         search_term: term ? truncateSearchTerm(term) : undefined,
@@ -460,7 +453,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         result_count: flat.length,
         is_recent: isRecent,
       });
-      setRecent(resolveRecent(index, writeRecent({ kind: item.kind, id: item.id })));
+      setRecent(
+        resolveRecent(index, writeRecent({ kind: item.kind, id: item.id })),
+      );
       closeSearch();
       startTransition(() => {
         router.push(item.href);
@@ -525,7 +520,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     if (isRecent) return t("recent");
     if (!trimmed && kind === "page") return t("suggested");
     if (!trimmed && kind === "species") return t("featured");
-    return t(kind === "page" ? "pages" : kind === "species" ? "species" : "regions");
+    return t(
+      kind === "page" ? "pages" : kind === "species" ? "species" : "regions",
+    );
   };
 
   const results = (surfaceListId: string) => {
@@ -699,9 +696,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                   setOpen(true);
                 }}
                 onKeyDown={(event) => {
-            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
-            onKeyDown(event);
-          }}
+                  if (event.nativeEvent.isComposing || event.keyCode === 229)
+                    return;
+                  onKeyDown(event);
+                }}
                 className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
               />
               {query ? (

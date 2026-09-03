@@ -10,10 +10,7 @@ import { getRegionById } from "@/data/regions";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
-export type {
-  NewsArticle,
-  NewsPhoto,
-} from "@/data/newsTypes";
+export type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
   DAREVSKIA_UZZELLI_ARMENIA_2026,

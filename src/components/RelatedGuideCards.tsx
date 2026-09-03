@@ -71,7 +71,9 @@ export function RelatedGuideCard({
         href={href}
         className="group grid h-full overflow-hidden bg-card sm:grid-cols-[minmax(17rem,0.38fr)_1fr]"
       >
-        <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">{copy}</div>
+        <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">
+          {copy}
+        </div>
         <div className="relative min-h-[200px] bg-muted sm:min-h-[260px]">
           <CoverImage
             src={imageSrc}
@@ -108,9 +110,7 @@ export function RelatedGuideGrid({
   if (cards.length === 0) return null;
 
   const featured = cards.length === 1;
-  const columns = featured
-    ? "grid-cols-1"
-    : "sm:grid-cols-2 lg:grid-cols-3";
+  const columns = featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3";
 
   return (
     <div

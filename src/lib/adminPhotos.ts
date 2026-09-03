@@ -213,9 +213,7 @@ export async function addSpeciesPhotos(input: {
       storage,
     });
     if (optimized) catalog.push(optimized);
-    const kaItem: GalleryImage = kaCredit
-      ? { src, credit: kaCredit }
-      : { src };
+    const kaItem: GalleryImage = kaCredit ? { src, credit: kaCredit } : { src };
     const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
     if (enCredit && !creditsEqual(kaCredit, enCredit)) {
       overlays.en = { src, credit: enCredit };

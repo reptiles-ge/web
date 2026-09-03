@@ -22,7 +22,10 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Abkhazia joins the Black Sea coast, Colchic forests, and Caucasus foothills. Humid climate and fragmented montane habitats support both lowland and highland taxa — including Caucasian and Dinnik’s vipers.",
     },
     habitats: [
-      { ka: "შავი ზღვის სანაპირო და ტენიანი დაბლობი", en: "Black Sea coast and humid lowlands" },
+      {
+        ka: "შავი ზღვის სანაპირო და ტენიანი დაბლობი",
+        en: "Black Sea coast and humid lowlands",
+      },
       { ka: "კოლხური ტყეები", en: "Colchic forests" },
       { ka: "კავკასიონის მთისწინეთი", en: "Caucasus foothills" },
     ],
@@ -241,7 +244,12 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       { ka: "მთისწინეთი", en: "Foothills" },
       { ka: "მტკვრის ხეობა", en: "Mtkvari valley" },
     ],
-    relatedIds: ["mtskheta-mtianeti", "kvemo-kartli", "samtskhe-javakheti", "imereti"],
+    relatedIds: [
+      "mtskheta-mtianeti",
+      "kvemo-kartli",
+      "samtskhe-javakheti",
+      "imereti",
+    ],
     faq: [
       {
         question: {
@@ -361,7 +369,12 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       { ka: "პარკები და გამწვანება", en: "Parks and green belts" },
       { ka: "მდინარის პირას ჰაბიტატები", en: "Riverside habitats" },
     ],
-    relatedIds: ["kvemo-kartli", "mtskheta-mtianeti", "shida-kartli", "kakheti"],
+    relatedIds: [
+      "kvemo-kartli",
+      "mtskheta-mtianeti",
+      "shida-kartli",
+      "kakheti",
+    ],
     faq: [
       {
         question: {

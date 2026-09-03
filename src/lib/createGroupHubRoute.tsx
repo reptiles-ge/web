@@ -9,10 +9,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { routing, type AppLocale } from "@/i18n/routing";
-import {
-  GROUP_HUBS,
-  type GroupHubId,
-} from "@/lib/groupHubs";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import {
   absoluteUrl,
   localeAlternates,
@@ -45,7 +42,8 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const description = t("metaDescription");
     const url = absoluteUrl(localePath(locale, hub.path));
     const catalog = getCatalogSpeciesByGroup(hub.group);
-    const hero = catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
+    const hero =
+      catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
     const ogImage = speciesOgImageUrl(hub.heroSpeciesId, hero?.image);
 
     return {
@@ -148,7 +146,9 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     };
 
     const faqIndices =
-      hubId === "turtles" ? ([1, 2, 3, 4, 5, 6, 7, 8] as const) : ([1, 2, 3, 4, 5] as const);
+      hubId === "turtles"
+        ? ([1, 2, 3, 4, 5, 6, 7, 8] as const)
+        : ([1, 2, 3, 4, 5] as const);
 
     const mainEntity: Array<{
       "@type": "Question";
@@ -199,8 +199,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
   }
 
   return {
-    generateStaticParams: () =>
-      routing.locales.map((locale) => ({ locale })),
+    generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     generateMetadata,
     Page,
   };

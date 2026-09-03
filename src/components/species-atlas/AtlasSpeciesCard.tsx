@@ -2,14 +2,8 @@
 
 import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import {
-  getSpeciesAtlasMeta,
-  type AnimalGroup,
-} from "@/data/speciesAtlas";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/regions";
+import { getSpeciesAtlasMeta, type AnimalGroup } from "@/data/speciesAtlas";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";

@@ -52,30 +52,30 @@ export function listAdminSpecies(): AdminSpeciesSummary[] {
   }
   ids.sort((a, b) => a.localeCompare(b));
   return ids.flatMap((id) => {
-      const filePath = mdxPath(id, "ka");
-      if (!fs.existsSync(filePath)) return [];
-      const { data } = matter(fs.readFileSync(filePath, "utf8"));
-      const gallery = Array.isArray(data.gallery) ? data.gallery : [];
-      return [
-        {
-          id,
-          commonName: typeof data.commonName === "string" ? data.commonName : id,
-          scientificName:
-            typeof data.scientificName === "string" ? data.scientificName : "",
-          image: typeof data.image === "string" ? data.image : "",
-          galleryCount: gallery.filter(
-            (item) =>
-              item &&
-              typeof item === "object" &&
-              "src" in item &&
-              typeof item.src === "string" &&
-              item.src,
-          ).length,
-          group: speciesAtlasMeta[id]?.group ?? null,
-          unpublished: unpublishedSpeciesIds.has(id),
-        },
-      ];
-    });
+    const filePath = mdxPath(id, "ka");
+    if (!fs.existsSync(filePath)) return [];
+    const { data } = matter(fs.readFileSync(filePath, "utf8"));
+    const gallery = Array.isArray(data.gallery) ? data.gallery : [];
+    return [
+      {
+        id,
+        commonName: typeof data.commonName === "string" ? data.commonName : id,
+        scientificName:
+          typeof data.scientificName === "string" ? data.scientificName : "",
+        image: typeof data.image === "string" ? data.image : "",
+        galleryCount: gallery.filter(
+          (item) =>
+            item &&
+            typeof item === "object" &&
+            "src" in item &&
+            typeof item.src === "string" &&
+            item.src,
+        ).length,
+        group: speciesAtlasMeta[id]?.group ?? null,
+        unpublished: unpublishedSpeciesIds.has(id),
+      },
+    ];
+  });
 }
 
 export function readAdminSpeciesGallery(id: string): {
@@ -150,7 +150,11 @@ export function galleryStorageKeys(gallery: GalleryImage[]): Set<string> {
 
 function yamlScalar(value: string): string {
   if (value === "") return '""';
-  if (/^\d/.test(value) || /[:#{}[\],&*!|>'"%@`]/.test(value) || /^\s|\s$/.test(value)) {
+  if (
+    /^\d/.test(value) ||
+    /[:#{}[\],&*!|>'"%@`]/.test(value) ||
+    /^\s|\s$/.test(value)
+  ) {
     return JSON.stringify(value);
   }
   return value;
@@ -192,8 +196,12 @@ export function formatGalleryItemYaml(item: GalleryImage): string {
   return `${lines.join("\n")}\n`;
 }
 
-function findGalleryRange(lines: string[]): { start: number; end: number } | null {
-  const start = lines.findIndex((line) => /^gallery:\s*(?:\[\])?\s*$/.test(line));
+function findGalleryRange(
+  lines: string[],
+): { start: number; end: number } | null {
+  const start = lines.findIndex((line) =>
+    /^gallery:\s*(?:\[\])?\s*$/.test(line),
+  );
   if (start === -1) return null;
   let end = start + 1;
   while (end < lines.length) {
@@ -208,7 +216,10 @@ function findGalleryRange(lines: string[]): { start: number; end: number } | nul
   return { start, end };
 }
 
-export function appendGalleryItemToMdx(raw: string, item: GalleryImage): string {
+export function appendGalleryItemToMdx(
+  raw: string,
+  item: GalleryImage,
+): string {
   const parsed = matter(raw);
   const gallery = normalizeGallery(parsed.data.gallery);
   if (gallery.some((entry) => entry.src === item.src)) {

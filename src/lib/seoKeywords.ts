@@ -1,8 +1,5 @@
 import type { Species } from "@/data/species";
-import {
-  caucasusPlaceName,
-  georgiaPlaceName,
-} from "@/i18n/localeMeta";
+import { caucasusPlaceName, georgiaPlaceName } from "@/i18n/localeMeta";
 import type { AppLocale } from "@/i18n/routing";
 
 const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
@@ -17,22 +14,14 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
   "ablepharus-pannonicus": {
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
-    en: [
-      "Asian snake-eyed skink",
-      "lidless skink",
-      "snake-eyed skink",
-    ],
+    en: ["Asian snake-eyed skink", "lidless skink", "snake-eyed skink"],
   },
   "vipera-dinniki": {
     ka: ["დინიკის გველგესლა", "Pelias dinniki"],
     en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],
   },
   "malpolon-insignitus": {
-    ka: [
-      "ხვლიკიჭამია გველი",
-      "ხვლიკიჭამია",
-      "Malpolon monspessulanus",
-    ],
+    ka: ["ხვლიკიჭამია გველი", "ხვლიკიჭამია", "Malpolon monspessulanus"],
     en: [
       "Montpellier snake",
       "eastern Montpellier snake",
@@ -96,11 +85,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["eastern steppe viper", "steppe viper"],
   },
   "testudo-graeca": {
-    ka: [
-      "ხმელეთის კუ",
-      "ხმელთაშუაზღვის კუ",
-      "Testudo graeca ibera",
-    ],
+    ka: ["ხმელეთის კუ", "ხმელთაშუაზღვის კუ", "Testudo graeca ibera"],
     en: [
       "Greek tortoise",
       "spur-thighed tortoise",
@@ -142,11 +127,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "darevskia-derjugini": {
-    ka: [
-      "კავკასიური ტყის ხვლიკი",
-      "ართვინის ხვლიკი",
-      "Lacerta derjugini",
-    ],
+    ka: ["კავკასიური ტყის ხვლიკი", "ართვინის ხვლიკი", "Lacerta derjugini"],
     en: [
       "Artvin lizard",
       "Artwin lizard",
@@ -182,17 +163,10 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
   "darevskia-dahli": {
     ka: ["Lacerta dahli", "Lacerta saxicola dahli"],
-    en: [
-      "Dahl's lizard",
-      "Lacerta dahli",
-      "Lacerta saxicola dahli",
-    ],
+    en: ["Dahl's lizard", "Lacerta dahli", "Lacerta saxicola dahli"],
   },
   "darevskia-portschinskii": {
-    ka: [
-      "Lacerta portschinskii",
-      "Lacerta saxicola portschinskii",
-    ],
+    ka: ["Lacerta portschinskii", "Lacerta saxicola portschinskii"],
     en: [
       "Kura lizard",
       "Portschinsky's lizard",
@@ -219,11 +193,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "darevskia-mixta": {
-    ka: [
-      "ქართული კლდის ხვლიკი",
-      "Lacerta mixta",
-      "Lacerta saxicola mixta",
-    ],
+    ka: ["ქართული კლდის ხვლიკი", "Lacerta mixta", "Lacerta saxicola mixta"],
     en: [
       "Georgian lizard",
       "Ajarian lizard",
@@ -247,22 +217,11 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "darevskia-praticola": {
-    ka: [
-      "მდელოს ხვლიკი",
-      "Lacerta praticola",
-      "Darevskia praticola praticola",
-    ],
-    en: [
-      "meadow lizard",
-      "Lacerta praticola",
-      "Darevskia praticola praticola",
-    ],
+    ka: ["მდელოს ხვლიკი", "Lacerta praticola", "Darevskia praticola praticola"],
+    en: ["meadow lizard", "Lacerta praticola", "Darevskia praticola praticola"],
   },
   "darevskia-valentini": {
-    ka: [
-      "Lacerta valentini",
-      "Lacerta saxicola valentini",
-    ],
+    ka: ["Lacerta valentini", "Lacerta saxicola valentini"],
     en: [
       "Valentin's rock lizard",
       "Caucasian rock lizard",
@@ -285,11 +244,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "platyceps-najadum": {
-    ka: [
-      "წენგოსფერი მცურავი",
-      "უშხამო მცურავი",
-      "Coluber najadum",
-    ],
+    ka: ["წენგოსფერი მცურავი", "უშხამო მცურავი", "Coluber najadum"],
     en: [
       "Dahl's whip snake",
       "slender whip snake",
@@ -307,11 +262,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "eirenis-collaris": {
-    ka: [
-      "Coluber collaris",
-      "Contia collaris",
-      "ჯუჯა გველი",
-    ],
+    ka: ["Coluber collaris", "Contia collaris", "ჯუჯა გველი"],
     en: [
       "collared dwarf racer",
       "Collared Dwarf Racer",
@@ -344,16 +295,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "elaphe-urartica": {
-    ka: [
-      "ურარტუს ხალებიანი მცურავი",
-      "ლაქებიანი მცურავი",
-      "Elaphe sauromates",
-    ],
-    en: [
-      "Urartian rat snake",
-      "blotched ratsnake",
-      "Elaphe sauromates",
-    ],
+    ka: ["ურარტუს ხალებიანი მცურავი", "ლაქებიანი მცურავი", "Elaphe sauromates"],
+    en: ["Urartian rat snake", "blotched ratsnake", "Elaphe sauromates"],
   },
   "elaphe-dione": {
     ka: ["სახეებიანი მცურავი"],
@@ -395,11 +338,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "rana-macrocnemis": {
-    ka: [
-      "კავკასიური მურა ბაყაყი",
-      "მურა ბაყაყი",
-      "Rana camerani",
-    ],
+    ka: ["კავკასიური მურა ბაყაყი", "მურა ბაყაყი", "Rana camerani"],
     en: [
       "long-legged wood frog",
       "Anatolian brown frog",
@@ -408,17 +347,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "pelodytes-caucasicus": {
-    ka: [
-      "კავკასიური ჯვარულა",
-      "ჯვრიანა",
-      "ჯვარულა",
-      "Pelodytes",
-    ],
-    en: [
-      "Caucasian mud-diver",
-      "parsley frog",
-      "Pelodytes",
-    ],
+    ka: ["კავკასიური ჯვარულა", "ჯვრიანა", "ჯვარულა", "Pelodytes"],
+    en: ["Caucasian mud-diver", "parsley frog", "Pelodytes"],
   },
   "hyla-orientalis": {
     ka: [
@@ -445,11 +375,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "pelophylax-ridibundus": {
-    ka: [
-      "ტბის ბაყაყი",
-      "Rana ridibunda",
-      "Pelophylax bedriagae",
-    ],
+    ka: ["ტბის ბაყაყი", "Rana ridibunda", "Pelophylax bedriagae"],
     en: [
       "lake frog",
       "Eurasian marsh frog",
@@ -459,11 +385,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
 
   "bufo-verrucosissimus": {
-    ka: [
-      "კოლხური გომბეშო",
-      "Bufo bufo verrucosissimus",
-      "Bufo bufo",
-    ],
+    ka: ["კოლხური გომბეშო", "Bufo bufo verrucosissimus", "Bufo bufo"],
     en: [
       "Colchic toad",
       "Caucasus toad",
@@ -474,11 +396,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
   },
   "emys-orbicularis": {
     ka: ["ევროპული ჭაობის კუ", "Emys orbicularis persica"],
-    en: [
-      "European pond terrapin",
-      "pond turtle",
-      "Emys orbicularis persica",
-    ],
+    en: ["European pond terrapin", "pond turtle", "Emys orbicularis persica"],
   },
   "bufotes-viridis": {
     ka: ["Bufo viridis", "Pseudepidalea viridis", "Bufotes sitibundus"],
@@ -494,12 +412,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["Caucasian salamander", "Salamandra caucasica"],
   },
   "natrix-tessellata": {
-    ka: [
-      "წყლის ანკარა",
-      "წყლის გველი",
-      "უშხამო ანკარა",
-      "dice snake",
-    ],
+    ka: ["წყლის ანკარა", "წყლის გველი", "უშხამო ანკარა", "dice snake"],
     en: [
       "dice snake",
       "tessellated water snake",
@@ -566,11 +479,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     en: ["yellow bunting", "Emberiza citrinella erythrogenys"],
   },
   "picus-viridis": {
-    ka: [
-      "კოდალა",
-      "სამხრული მწვანე კოდალა",
-      "Picus viridis karelini",
-    ],
+    ka: ["კოდალა", "სამხრული მწვანე კოდალა", "Picus viridis karelini"],
     en: [
       "green woodpecker",
       "Eurasian green woodpecker",
@@ -593,11 +502,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "jynx-torquilla": {
-    ka: [
-      "ჩვეულებრივი მაქცია",
-      "კოდალასებრნი",
-      "Jynx torquilla torquilla",
-    ],
+    ka: ["ჩვეულებრივი მაქცია", "კოდალასებრნი", "Jynx torquilla torquilla"],
     en: [
       "wryneck",
       "northern wryneck",
@@ -606,11 +511,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "cuculus-canorus": {
-    ka: [
-      "ჩვეულებრივი გუგული",
-      "გუგულისებრნი",
-      "Cuculus canorus canorus",
-    ],
+    ka: ["ჩვეულებრივი გუგული", "გუგულისებრნი", "Cuculus canorus canorus"],
     en: [
       "European cuckoo",
       "Eurasian cuckoo",
@@ -625,12 +526,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "ყაპყაპისნაირნი",
       "Upupa epops epops",
     ],
-    en: [
-      "hoopoe",
-      "common hoopoe",
-      "European hoopoe",
-      "Upupa epops epops",
-    ],
+    en: ["hoopoe", "common hoopoe", "European hoopoe", "Upupa epops epops"],
   },
   "apus-apus": {
     ka: [
@@ -639,12 +535,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "ნამგალასნაირნი",
       "Apus apus apus",
     ],
-    en: [
-      "Eurasian swift",
-      "European swift",
-      "swift",
-      "Apus apus apus",
-    ],
+    en: ["Eurasian swift", "European swift", "swift", "Apus apus apus"],
   },
   "streptopelia-turtur": {
     ka: [
@@ -729,12 +620,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "otus-scops": {
-    ka: [
-      "წყრომი",
-      "ბუსებრნი",
-      "Strix scops",
-      "Otus scops scops",
-    ],
+    ka: ["წყრომი", "ბუსებრნი", "Strix scops", "Otus scops scops"],
     en: [
       "European scops owl",
       "common scops owl",
@@ -779,12 +665,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "athene-noctua": {
-    ka: [
-      "ბუკნაჭო",
-      "ბუსებრნი",
-      "Athene noctua indigena",
-      "Strix noctua",
-    ],
+    ka: ["ბუკნაჭო", "ბუსებრნი", "Athene noctua indigena", "Strix noctua"],
     en: [
       "owl of Athena",
       "owl of Minerva",
@@ -810,16 +691,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "accipiter-nisus": {
-    ka: [
-      "მიმინო",
-      "ქორისებრნი",
-      "Accipiter nisus nisus",
-    ],
-    en: [
-      "sparrowhawk",
-      "northern sparrowhawk",
-      "Accipiter nisus nisus",
-    ],
+    ka: ["მიმინო", "ქორისებრნი", "Accipiter nisus nisus"],
+    en: ["sparrowhawk", "northern sparrowhawk", "Accipiter nisus nisus"],
   },
   "accipiter-gentilis": {
     ka: [
@@ -855,18 +728,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "corvus-corax": {
-    ka: [
-      "ყორნისებრნი",
-      "ჩრდილოეთის ყორანი",
-      "Corvus corax corax",
-      "ворон",
-    ],
-    en: [
-      "common raven",
-      "raven",
-      "Northern Raven",
-      "Corvus corax corax",
-    ],
+    ka: ["ყორნისებრნი", "ჩრდილოეთის ყორანი", "Corvus corax corax", "ворон"],
+    en: ["common raven", "raven", "Northern Raven", "Corvus corax corax"],
   },
   "turdus-merula": {
     ka: [
@@ -883,11 +746,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "motacilla-alba": {
-    ka: [
-      "ბოლოქანქარა",
-      "ბოლოქანქარასებრნი",
-      "Motacilla alba alba",
-    ],
+    ka: ["ბოლოქანქარა", "ბოლოქანქარასებრნი", "Motacilla alba alba"],
     en: [
       "pied wagtail",
       "white wagtail",
@@ -1307,13 +1166,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "sus-scrofa": {
-    ka: [
-      "ტახი",
-      "ნეზვი",
-      "გოჭი",
-      "Sus scrofa attila",
-      "Sus scrofa domesticus",
-    ],
+    ka: ["ტახი", "ნეზვი", "გოჭი", "Sus scrofa attila", "Sus scrofa domesticus"],
     en: [
       "Eurasian wild pig",
       "wild pig",
@@ -1323,11 +1176,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "procyon-lotor": {
-    ka: [
-      "ჩვეულებრივი ენოტი",
-      "ჩრდილოამერიკული ენოტი",
-      "Procyon lotor",
-    ],
+    ka: ["ჩვეულებრივი ენოტი", "ჩრდილოამერიკული ენოტი", "Procyon lotor"],
     en: [
       "common raccoon",
       "northern raccoon",
@@ -1370,11 +1219,7 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "argiope-lobata": {
-    ka: [
-      "ლობებიანი არგიოპა",
-      "არგიოპა ლობატა",
-      "Argiope lobata",
-    ],
+    ka: ["ლობებიანი არგიოპა", "არგიოპა ლობატა", "Argiope lobata"],
     en: [
       "lobed argiope",
       "black-lobed garden orb-web spider",
@@ -1382,16 +1227,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
     ],
   },
   "steatoda-paykulliana": {
-    ka: [
-      "ცრუ ყარაყურთი",
-      "ცრუ შავი ქვრივი",
-      "Steatoda paykulliana",
-    ],
-    en: [
-      "false black widow",
-      "false widow",
-      "Steatoda paykulliana",
-    ],
+    ka: ["ცრუ ყარაყურთი", "ცრუ შავი ქვრივი", "Steatoda paykulliana"],
+    en: ["false black widow", "false widow", "Steatoda paykulliana"],
   },
   "latrodectus-tredecimguttatus": {
     ka: [

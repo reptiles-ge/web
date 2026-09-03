@@ -440,13 +440,7 @@ export type HubClusterCard =
   | {
       kind: "species";
       id: string;
-      key:
-        | "giurza"
-        | "najadum"
-        | "jojo"
-        | "gvelxokera"
-        | "slider"
-        | "tortoise";
+      key: "giurza" | "najadum" | "jojo" | "gvelxokera" | "slider" | "tortoise";
     };
 
 export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
@@ -454,7 +448,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { kind: "page", href: "/snakes/saxeoebebi", key: "index" },
     { kind: "page", href: "/venomous-snakes", key: "venomous" },
     { kind: "quiz", id: "snake", key: "quiz" },
-    { kind: "page", href: "/snakes/shxamiani-gvelis-amocnoba", key: "identify" },
+    {
+      kind: "page",
+      href: "/snakes/shxamiani-gvelis-amocnoba",
+      key: "identify",
+    },
     { kind: "page", href: "/snakes/gvelis-nakbeni", key: "bite" },
     { kind: "page", href: "/snakes/gavrtseleba", key: "range" },
     { kind: "page", href: "/snakes/didi-gvelebi", key: "largest" },
@@ -645,7 +643,9 @@ export function getHubClusterCardImage(card: HubClusterCard) {
   const override = PAGE_CARD_IMAGES[card.href];
   if (override) return override;
 
-  const guide = CLUSTER_GUIDE_LIST.find((entry) => entry.pathname === card.href);
+  const guide = CLUSTER_GUIDE_LIST.find(
+    (entry) => entry.pathname === card.href,
+  );
   if (guide) {
     if (guide.heroImage) return guide.heroImage;
     return speciesCardImage(guide.heroSpeciesId);
@@ -657,7 +657,9 @@ export function getHubClusterCardImage(card: HubClusterCard) {
   return undefined;
 }
 
-export function getRelatedGuideCards(guideId: ClusterGuideId): HubClusterCard[] {
+export function getRelatedGuideCards(
+  guideId: ClusterGuideId,
+): HubClusterCard[] {
   const guide = CLUSTER_GUIDES[guideId];
   return HUB_CLUSTER_CARDS[guide.parentHub].filter(
     (card) =>

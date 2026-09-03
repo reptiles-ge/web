@@ -5,10 +5,7 @@ import {
   type Species,
 } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import {
-  RACER_CLUSTER_IDS,
-  VENOMOUS_VIPER_IDS,
-} from "@/lib/clusterGuides";
+import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 
 const viperClusterIds = new Set<string>(VENOMOUS_VIPER_IDS);
@@ -41,17 +38,11 @@ function relatedScore(base: Species, candidate: Species): number {
     score += 15;
   }
 
-  if (
-    viperClusterIds.has(base.id) &&
-    viperClusterIds.has(candidate.id)
-  ) {
+  if (viperClusterIds.has(base.id) && viperClusterIds.has(candidate.id)) {
     score += 50;
   }
 
-  if (
-    racerClusterIds.has(base.id) &&
-    racerClusterIds.has(candidate.id)
-  ) {
+  if (racerClusterIds.has(base.id) && racerClusterIds.has(candidate.id)) {
     score += 50;
   }
 
@@ -68,9 +59,9 @@ export function getRelatedSpecies(id: string, limit = 4): Species[] {
     scored.push({ item, score: relatedScore(base, item) });
   }
   scored.sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score;
-      return a.item.scientificName.localeCompare(b.item.scientificName);
-    });
+    if (b.score !== a.score) return b.score - a.score;
+    return a.item.scientificName.localeCompare(b.item.scientificName);
+  });
 
   const picked = scored.filter(({ score }) => score >= 40).slice(0, limit);
   if (picked.length >= limit) {

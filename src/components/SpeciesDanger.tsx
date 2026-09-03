@@ -4,10 +4,7 @@ import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import type { DangerLevel, Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { dangerPageHref } from "@/lib/dangerLevels";
-import {
-  getSpeciesRiskChip,
-  usesDangerScale,
-} from "@/lib/speciesRisk";
+import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import { Shield } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
@@ -109,7 +106,10 @@ export function SpeciesDanger({
           <span
             className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${tone.chip}`}
           >
-            <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
+            <span
+              className={`size-1.5 rounded-full ${tone.dot}`}
+              aria-hidden="true"
+            />
             {value}
           </span>
         </div>
@@ -129,10 +129,17 @@ export function SpeciesDanger({
         title={linked && linkToDangerPage ? undefined : `${label}: ${value}`}
       >
         <Shield className="size-3.5 text-white/45" aria-hidden="true" />
-        <span className="text-[11px] tracking-[0.14em] text-white/45">{label}</span>
+        <span className="text-[11px] tracking-[0.14em] text-white/45">
+          {label}
+        </span>
         <span className="h-3 w-px bg-white/15" aria-hidden="true" />
-        <span className={`inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide ${tone.valueHero}`}>
-          <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
+        <span
+          className={`inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide ${tone.valueHero}`}
+        >
+          <span
+            className={`size-1.5 rounded-full ${tone.dot}`}
+            aria-hidden="true"
+          />
           {value}
         </span>
       </span>

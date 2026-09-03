@@ -73,7 +73,9 @@ function compactAsset(
     for (const format of formats) {
       const derivative = byFormatWidth.get(`${format}@${width}`);
       if (!derivative) {
-        throw new Error(`${key} is missing the ${width}px ${format} derivative.`);
+        throw new Error(
+          `${key} is missing the ${width}px ${format} derivative.`,
+        );
       }
       const expected = `${prefix}${assetPath}-${width}.${format}`;
       if (storage.urlFor(derivative.key) !== expected) {
@@ -114,22 +116,30 @@ export async function optimizeUploadedOriginal(input: {
   return { key: input.key, src: input.src, entry, asset };
 }
 
-function parseGeneratedImages(objectLiteral: string): Record<string, OptimizedImageEntry> {
+function parseGeneratedImages(
+  objectLiteral: string,
+): Record<string, OptimizedImageEntry> {
   const jsonReady = objectLiteral
     .replace(/,\s*([}\]])/g, "$1")
     .replace(/\b(path|width|height|widths|formats)\s*:/g, '"$1":');
   try {
     const parsed = JSON.parse(jsonReady) as unknown;
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
-      throw new Error("optimizedImages.generated.ts is not in the expected format");
+      throw new Error(
+        "optimizedImages.generated.ts is not in the expected format",
+      );
     }
     return parsed as Record<string, OptimizedImageEntry>;
   } catch {
-    throw new Error("optimizedImages.generated.ts is not in the expected format");
+    throw new Error(
+      "optimizedImages.generated.ts is not in the expected format",
+    );
   }
 }
 
-function formatGeneratedImages(images: Record<string, OptimizedImageEntry>): string {
+function formatGeneratedImages(
+  images: Record<string, OptimizedImageEntry>,
+): string {
   const entries = Object.entries(images).map(([src, asset]) => {
     const widths = `[${asset.widths.join(", ")}]`;
     const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
@@ -153,11 +163,15 @@ function upsertGeneratedFile(
     "export const optimizedImages: Record<string, OptimizedImageEntry> = ";
   const start = raw.indexOf(marker);
   if (start < 0) {
-    throw new Error("optimizedImages.generated.ts is not in the expected format");
+    throw new Error(
+      "optimizedImages.generated.ts is not in the expected format",
+    );
   }
   const objectPart = raw.slice(start + marker.length).trimEnd();
   if (!objectPart.endsWith(";")) {
-    throw new Error("optimizedImages.generated.ts is not in the expected format");
+    throw new Error(
+      "optimizedImages.generated.ts is not in the expected format",
+    );
   }
   const images = parseGeneratedImages(objectPart.slice(0, -1));
   for (const update of updates) {
@@ -200,7 +214,9 @@ export async function applyOptimizeCatalog(
   });
 
   const assets = updates.filter(
-    (update): update is OptimizeCatalogUpdate & { asset: OptimizedImageEntry } =>
+    (
+      update,
+    ): update is OptimizeCatalogUpdate & { asset: OptimizedImageEntry } =>
       update.asset !== null,
   );
   if (assets.length === 0) return;

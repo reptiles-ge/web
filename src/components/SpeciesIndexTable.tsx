@@ -2,10 +2,7 @@
 
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/regions";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import type { Species } from "@/data/species";
 import { isVenomousDanger, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -112,7 +109,13 @@ export function SpeciesIndexTable({
         </div>
       ) : null}
       {showFamilyFilter ? (
-        <div className={showDangerFilter ? "mt-3 flex flex-wrap gap-2" : "flex flex-wrap gap-2"}>
+        <div
+          className={
+            showDangerFilter
+              ? "mt-3 flex flex-wrap gap-2"
+              : "flex flex-wrap gap-2"
+          }
+        >
           <button
             type="button"
             onClick={() => {
@@ -174,7 +177,9 @@ export function SpeciesIndexTable({
             ))}
           </div>
 
-          <div className={`${showFilters ? "mt-10" : ""} hidden overflow-x-auto lg:block`}>
+          <div
+            className={`${showFilters ? "mt-10" : ""} hidden overflow-x-auto lg:block`}
+          >
             <table className="w-full min-w-[920px] border-y border-border text-left">
               <thead>
                 <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -190,7 +195,11 @@ export function SpeciesIndexTable({
               <tbody>
                 {filtered.map((item, rowIndex) => {
                   const href = speciesHref(item.id, locale);
-                  const range = formatRange(item.id, locale, tShared("rangePending"));
+                  const range = formatRange(
+                    item.id,
+                    locale,
+                    tShared("rangePending"),
+                  );
                   const size = getSpeciesSizeStat(item) ?? dash;
                   const habitat = getSpeciesHabitatStat(item) ?? dash;
                   const activity = getSpeciesActivityStat(item) ?? dash;
@@ -222,7 +231,11 @@ export function SpeciesIndexTable({
                         </Link>
                       </td>
                       <td className="py-3 pr-4">
-                        <Link href={href} className="group block" onClick={onClick}>
+                        <Link
+                          href={href}
+                          className="group block"
+                          onClick={onClick}
+                        >
                           <span className="font-display text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary">
                             {item.commonName}
                           </span>

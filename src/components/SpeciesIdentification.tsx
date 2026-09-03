@@ -1,7 +1,10 @@
 "use client";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { getSpeciesById, type SpeciesIdentification as Identification } from "@/data/species";
+import {
+  getSpeciesById,
+  type SpeciesIdentification as Identification,
+} from "@/data/species";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -27,7 +30,9 @@ function IdentificationRichText({ text }: { text: string }) {
     <>
       {parts.map((part) => {
         const key =
-          part.type === "text" ? `t:${part.value}` : `s:${part.id}:${part.label}`;
+          part.type === "text"
+            ? `t:${part.value}`
+            : `s:${part.id}:${part.label}`;
         if (part.type === "text") {
           return <Fragment key={key}>{part.value}</Fragment>;
         }

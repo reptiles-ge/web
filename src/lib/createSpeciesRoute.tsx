@@ -31,10 +31,7 @@ import {
 } from "@/lib/site";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getPublishedNewsForSpecies } from "@/data/news";
-import {
-  getSpeciesHeroSources,
-  isPlaceholderBody,
-} from "@/lib/speciesContent";
+import { getSpeciesHeroSources, isPlaceholderBody } from "@/lib/speciesContent";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,

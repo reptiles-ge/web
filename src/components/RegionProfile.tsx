@@ -6,9 +6,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import {
-  getRegionContent,
-} from "@/data/regionContent";
+import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
@@ -43,8 +41,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
   const biome = localizeRegionText(content.biome, locale);
 
   const species = useMemo(
-    () =>
-      getRegionSpecies(region).map((item) => localizeSpecies(item, locale)),
+    () => getRegionSpecies(region).map((item) => localizeSpecies(item, locale)),
     [region, locale],
   );
   const venomous = useMemo(
@@ -71,8 +68,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
         <section
           className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
           style={{
-            paddingTop:
-              "7rem",
+            paddingTop: "7rem",
           }}
         >
           <CoverImage
@@ -155,10 +151,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
               </AnchoredHeading>
             </Reveal>
             <div className="mt-12 lg:mt-14">
-              <GeorgiaMap
-                highlightedIds={[region.id]}
-                interactive={false}
-              />
+              <GeorgiaMap highlightedIds={[region.id]} interactive={false} />
             </div>
           </div>
         </section>
@@ -234,7 +227,9 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 ))}
               </div>
             ) : (
-              <p className="mt-10 text-[14px] text-muted-foreground">{t("empty")}</p>
+              <p className="mt-10 text-[14px] text-muted-foreground">
+                {t("empty")}
+              </p>
             )}
             <p className="mt-10 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
               {t("dataGapBody")}
@@ -474,4 +469,3 @@ function RegionFaqSection({
     </section>
   );
 }
-

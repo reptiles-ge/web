@@ -111,9 +111,7 @@ export async function NewsArticleCard({
         ) : null}
         <div
           className={
-            visual
-              ? "mt-5 flex flex-1 flex-col"
-              : "flex flex-1 flex-col"
+            visual ? "mt-5 flex flex-1 flex-col" : "flex flex-1 flex-col"
           }
         >
           {meta}

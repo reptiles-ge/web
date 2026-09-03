@@ -36,11 +36,7 @@ import {
 } from "@/data/news";
 import { transliterateKa } from "@/lib/slugify";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
-import {
-  regionHref,
-  speciesHref,
-  type SpeciesHref,
-} from "@/lib/speciesRoutes";
+import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 
 export type SearchKind = "page" | "species" | "region";
 export type SearchFilter = "all" | SearchKind;
@@ -116,7 +112,12 @@ const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
   turtle: { ka: "კუ", en: "Turtle", ru: "Черепаха", tr: "Kaplumbağa" },
   amphibian: { ka: "ამფიბია", en: "Amphibian", ru: "Амфибия", tr: "Amfibi" },
   bird: { ka: "ფრინველი", en: "Bird", ru: "Птица", tr: "Kuş" },
-  mammal: { ka: "ძუძუმწოვარი", en: "Mammal", ru: "Млекопитающее", tr: "Memeli" },
+  mammal: {
+    ka: "ძუძუმწოვარი",
+    en: "Mammal",
+    ru: "Млекопитающее",
+    tr: "Memeli",
+  },
   spider: { ka: "ობობა", en: "Spider", ru: "Паук", tr: "Örümcek" },
 };
 
@@ -148,7 +149,14 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "Darevskia, ჯოჯო და გველხოკერა",
       en: "Darevskia, agama, and glass lizard",
     },
-    keywords: ["ხვლიკები", "xvlikebi", "lizards", "darevskia", "ящерицы", "kertenkele"],
+    keywords: [
+      "ხვლიკები",
+      "xvlikebi",
+      "lizards",
+      "darevskia",
+      "ящерицы",
+      "kertenkele",
+    ],
     icon: "hub",
   },
   turtles: {
@@ -162,7 +170,14 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "ხმელეთის და წყლის კუები ერთ ჰაბში",
       en: "Land and freshwater turtles in one hub",
     },
-    keywords: ["კუები", "kuebi", "turtles", "tortoise", "черепахи", "kaplumbağa"],
+    keywords: [
+      "კუები",
+      "kuebi",
+      "turtles",
+      "tortoise",
+      "черепахи",
+      "kaplumbağa",
+    ],
     icon: "hub",
   },
   amphibians: {
@@ -176,7 +191,15 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "ბაყაყები, ტრიტონები და სალამანდრები",
       en: "Frogs, newts, and salamanders",
     },
-    keywords: ["ამფიბიები", "amfibiebi", "amphibians", "ბაყაყები", "frogs", "амфибии", "amfibi"],
+    keywords: [
+      "ამფიბიები",
+      "amfibiebi",
+      "amphibians",
+      "ბაყაყები",
+      "frogs",
+      "амфибии",
+      "amfibi",
+    ],
     icon: "hub",
   },
   birds: {
@@ -190,13 +213,7 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "ფრინველების პროფილები ბუნების ატლასში",
       en: "Bird profiles in the nature atlas",
     },
-    keywords: [
-      "ფრინველები",
-      "prinvelebi",
-      "birds",
-      "გრატა",
-      "yellowhammer",
-    ],
+    keywords: ["ფრინველები", "prinvelebi", "birds", "გრატა", "yellowhammer"],
     icon: "hub",
   },
   mammals: {
@@ -293,7 +310,12 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     icon: "atlas",
   },
   "snake-identify": {
-    title: { ka: "შხამიანი თუ უშხამო?", en: "Venomous or harmless?", ru: "Ядовитая или нет?", tr: "Zehirli mi zararsız mı?" },
+    title: {
+      ka: "შხამიანი თუ უშხამო?",
+      en: "Venomous or harmless?",
+      ru: "Ядовитая или нет?",
+      tr: "Zehirli mi zararsız mı?",
+    },
     subtitle: {
       ka: "ამოცნობის გიდი გველებისთვის",
       en: "Identification guide for snakes",
@@ -422,7 +444,10 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     icon: "guide",
   },
   "turtle-water": {
-    title: { ka: "წყლის კუები საქართველოში", en: "Freshwater turtles of Georgia" },
+    title: {
+      ka: "წყლის კუები საქართველოში",
+      en: "Freshwater turtles of Georgia",
+    },
     subtitle: {
       ka: "ჭაობის კუ, კასპიური კუ, წითელყურა",
       en: "Pond turtle, Caspian turtle, slider",
@@ -708,13 +733,7 @@ const SNAKE_QUIZ_COPY: PageCopy = {
     ka: "ფოტო-ქვიზი საქართველოს გველებზე",
     en: "A photo quiz of Georgia’s snakes",
   },
-  keywords: [
-    "ქვიზი",
-    "quiz",
-    "რომელი გველია",
-    "which snake",
-    "გველების ქვიზი",
-  ],
+  keywords: ["ქვიზი", "quiz", "რომელი გველია", "which snake", "გველების ქვიზი"],
   icon: "identify",
   suggested: true,
   rank: 9,
@@ -801,8 +820,10 @@ function speciesGroupText(species: Species) {
       extra.push("უშხამო", "harmless", "неядовитые", "zararsız");
     }
   }
-  if (isFrogSpecies(species.id)) extra.push("ბაყაყი", "frog", "toad", "лягушка", "kurbağa");
-  if (isNewtSpecies(species.id)) extra.push("ტრიტონი", "სალამანდრა", "newt", "тритон", "semender");
+  if (isFrogSpecies(species.id))
+    extra.push("ბაყაყი", "frog", "toad", "лягушка", "kurbağa");
+  if (isNewtSpecies(species.id))
+    extra.push("ტრიტონი", "სალამანდრა", "newt", "тритон", "semender");
   extra.push(
     GROUP_LABELS[group].ka,
     GROUP_LABELS[group].en,
@@ -811,19 +832,21 @@ function speciesGroupText(species: Species) {
   );
   extra.push(group === "snake" ? "გველი გველები snakes змеи yılanlar" : "");
   extra.push(group === "lizard" ? "ხვლიკი lizards ящерицы kertenkele" : "");
-  extra.push(group === "turtle" ? "კუ turtles tortoise черепахи kaplumbağa" : "");
+  extra.push(
+    group === "turtle" ? "კუ turtles tortoise черепахи kaplumbağa" : "",
+  );
   extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
-      extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
-      extra.push(
+  extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
+  extra.push(
     group === "mammal"
       ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"
       : "",
   );
-      extra.push(
-        group === "spider"
-          ? "ობობა spiders argiope არგიოპა lobata ცრუ ყარაყურთი ყარაყურთი steatoda false widow паук örümcek wasp"
-          : "",
-      );
+  extra.push(
+    group === "spider"
+      ? "ობობა spiders argiope არგიოპა lobata ცრუ ყარაყურთი ყარაყურთი steatoda false widow паук örümcek wasp"
+      : "",
+  );
   return extra;
 }
 
@@ -873,7 +896,10 @@ function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
   };
 }
 
-function toRegionDocument(locale: AppLocale, region: (typeof regions)[number]): SearchDocument {
+function toRegionDocument(
+  locale: AppLocale,
+  region: (typeof regions)[number],
+): SearchDocument {
   return {
     key: `region:${region.id}`,
     kind: "region",
@@ -1026,7 +1052,8 @@ export function searchIndex(
   if (!trimmed) {
     const idle = scoped
       .filter((item) => {
-        if (filter === "species") return item.kind === "species" && item.featured;
+        if (filter === "species")
+          return item.kind === "species" && item.featured;
         if (filter === "region") return item.kind === "region";
         if (filter === "page") return item.kind === "page";
         return (

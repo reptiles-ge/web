@@ -58,7 +58,10 @@ export function SnakeBitePage({
       heroObjectClass="object-[50%_70%]"
       attributionSourcesHref="#sources"
     >
-      <section id="content" className="scroll-mt-28 bg-background py-20 lg:py-28">
+      <section
+        id="content"
+        className="scroll-mt-28 bg-background py-20 lg:py-28"
+      >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-destructive">
@@ -209,7 +212,10 @@ export function SnakeBitePage({
               <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
                 {t.rich("venomBody", {
                   venomous: (chunks) => (
-                    <Link href="/venomous-snakes" className={inlineLinkClassName}>
+                    <Link
+                      href="/venomous-snakes"
+                      className={inlineLinkClassName}
+                    >
                       {chunks}
                     </Link>
                   ),

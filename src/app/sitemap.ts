@@ -15,10 +15,7 @@ import {
 } from "@/lib/site";
 import { liveQuizzes } from "@/lib/quizzes";
 import { regionHref } from "@/lib/speciesRoutes";
-import {
-  getPublishedNewsArticles,
-  newsLatestModified,
-} from "@/data/news";
+import { getPublishedNewsArticles, newsLatestModified } from "@/data/news";
 import {
   newsArticleAlternates,
   newsArticleUrl,

@@ -4,13 +4,7 @@ import type { NewsMark } from "@/data/newsTypes";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
-function NewsMarkNode({
-  mark,
-  locale,
-}: {
-  mark: NewsMark;
-  locale: AppLocale;
-}) {
+function NewsMarkNode({ mark, locale }: { mark: NewsMark; locale: AppLocale }) {
   if (typeof mark === "string") return mark;
 
   if (mark.type === "sci") {

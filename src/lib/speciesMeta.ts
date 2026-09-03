@@ -168,7 +168,9 @@ export function speciesMetaDescription(overview: string, maxLength = 160) {
 
   const truncated = lead.slice(0, maxLength - 1);
   const lastSpace = truncated.lastIndexOf(" ");
-  const clipped = (lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated).trim();
+  const clipped = (
+    lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated
+  ).trim();
   return `${clipped}…`;
 }
 

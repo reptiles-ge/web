@@ -1,4 +1,7 @@
-function kaLatin<K extends `/${string}`, L extends `/${string}`>(ka: K, latin: L) {
+function kaLatin<K extends `/${string}`, L extends `/${string}`>(
+  ka: K,
+  latin: L,
+) {
   return { ka, en: latin, ru: latin, tr: latin } as const;
 }
 
@@ -32,7 +35,10 @@ export const pathnames = {
   "/turtles": kaLatin("/kuebi", "/turtles"),
   "/turtles/saxeoebebi": kaLatin("/kuebi/saxeoebebi", "/turtles/species"),
   "/turtles/xmelis-kuebi": kaLatin("/kuebi/xmelis-kuebi", "/turtles/land"),
-  "/turtles/tsqlis-kuebi": kaLatin("/kuebi/tsqlis-kuebi", "/turtles/freshwater"),
+  "/turtles/tsqlis-kuebi": kaLatin(
+    "/kuebi/tsqlis-kuebi",
+    "/turtles/freshwater",
+  ),
   "/turtles/identifikacia": kaLatin(
     "/kuebi/identifikacia",
     "/turtles/identify",
@@ -59,11 +65,11 @@ export const pathnames = {
   "/mammals/[slug]": kaLatin("/dzuzumtsovrebi/[slug]", "/mammals/[slug]"),
   "/spiders": kaLatin("/obobebi", "/spiders"),
   "/spiders/[slug]": kaLatin("/obobebi/[slug]", "/spiders/[slug]"),
-  "/venomous-snakes": kaLatin(
-    "/gvelebi/shxamiani-gvelebi",
-    "/venomous-snakes",
+  "/venomous-snakes": kaLatin("/gvelebi/shxamiani-gvelebi", "/venomous-snakes"),
+  "/snakes-in-the-yard": kaLatin(
+    "/gvelebi/gveli-ezoshi",
+    "/snakes-in-the-yard",
   ),
-  "/snakes-in-the-yard": kaLatin("/gvelebi/gveli-ezoshi", "/snakes-in-the-yard"),
   "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
   "/quiz": "/quiz",
   "/quiz/[slug]": "/quiz/[slug]",

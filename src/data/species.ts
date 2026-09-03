@@ -1,9 +1,5 @@
 import { species } from "./species.generated";
-import type {
-  GalleryImage,
-  PhotoCredit,
-  Species,
-} from "./speciesTypes";
+import type { GalleryImage, PhotoCredit, Species } from "./speciesTypes";
 
 export {
   type DangerLevel,
@@ -17,12 +13,8 @@ export {
   type SpeciesStat,
 } from "./speciesTypes";
 
-export function hasPhotoCredit(
-  credit?: PhotoCredit,
-): credit is PhotoCredit {
-  return Boolean(
-    credit?.photographer || credit?.location || credit?.date,
-  );
+export function hasPhotoCredit(credit?: PhotoCredit): credit is PhotoCredit {
+  return Boolean(credit?.photographer || credit?.location || credit?.date);
 }
 
 export function overlayPhotoCredit(
@@ -198,9 +190,7 @@ export const featuredSpeciesIds = [
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
 
-export const unpublishedSpeciesIds = new Set<string>([
-  "dolichophis-caspius",
-]);
+export const unpublishedSpeciesIds = new Set<string>(["dolichophis-caspius"]);
 
 export function isPublishedSpeciesId(id: string) {
   return !unpublishedSpeciesIds.has(id);

@@ -21,20 +21,12 @@ import type { Species } from "@/data/species";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
-import {
-  HUB_CLUSTER_CARDS,
-  splitHubSpecies,
-} from "@/lib/clusterGuides";
+import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
 import { quizHref } from "@/lib/quizzes";
 import { trackEvent } from "@/lib/analytics";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Plus,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
@@ -383,8 +375,7 @@ function readStatExtraItems(
   return null;
 }
 
-const faqLinkClassName =
-  "text-foreground underline-offset-4 hover:underline";
+const faqLinkClassName = "text-foreground underline-offset-4 hover:underline";
 
 function SnakesFaq5Answer() {
   const t = useTranslations("snakes");
@@ -415,7 +406,10 @@ function TurtlesFaq4Answer() {
   });
 }
 
-function hubFaqIndices(hubId: GroupHubId, t: ReturnType<typeof useTranslations>) {
+function hubFaqIndices(
+  hubId: GroupHubId,
+  t: ReturnType<typeof useTranslations>,
+) {
   const max = hubId === "turtles" ? 8 : 5;
   const indices: number[] = [];
   for (let n = 1; n <= max; n += 1) {

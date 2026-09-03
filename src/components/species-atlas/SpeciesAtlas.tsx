@@ -29,7 +29,12 @@ import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { parseAsString, parseAsStringEnum, throttle, useQueryState } from "nuqs";
+import {
+  parseAsString,
+  parseAsStringEnum,
+  throttle,
+  useQueryState,
+} from "nuqs";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
 const GROUP_OPTIONS = [
@@ -41,7 +46,7 @@ const GROUP_OPTIONS = [
   "bird",
   "mammal",
   "spider",
-  ] as const satisfies readonly (AnimalGroup | "all")[];
+] as const satisfies readonly (AnimalGroup | "all")[];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
 
@@ -51,9 +56,12 @@ const HABITAT_OPTIONS = [
   "mountain",
   "wetland",
   "grassland",
-  ] as const satisfies readonly (HabitatTag | "all")[];
+] as const satisfies readonly (HabitatTag | "all")[];
 
-const REGION_OPTIONS = ["all", ...regions.map((region) => region.id)] as readonly string[];
+const REGION_OPTIONS = [
+  "all",
+  ...regions.map((region) => region.id),
+] as readonly string[];
 
 function AnimatedValue({
   value,

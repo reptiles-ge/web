@@ -2,10 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
-import {
-  trackSpeciesClick,
-  type SpeciesClickSource,
-} from "@/lib/analytics";
+import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
 import { speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 import type { ReactNode } from "react";
 

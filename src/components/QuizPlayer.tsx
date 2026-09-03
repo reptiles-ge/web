@@ -46,13 +46,15 @@ type Draft = {
   hintOpen: boolean;
 };
 
-const OPTION_MARKS: Record<AppLocale, readonly [string, string, string, string]> =
-  {
-    ka: ["ა", "ბ", "გ", "დ"],
-    en: ["A", "B", "C", "D"],
-    ru: ["А", "Б", "В", "Г"],
-    tr: ["A", "B", "C", "D"],
-  };
+const OPTION_MARKS: Record<
+  AppLocale,
+  readonly [string, string, string, string]
+> = {
+  ka: ["ა", "ბ", "გ", "დ"],
+  en: ["A", "B", "C", "D"],
+  ru: ["А", "Б", "В", "Г"],
+  tr: ["A", "B", "C", "D"],
+};
 
 function draftKey(quizId: string) {
   return `reptiles.quiz.draft.${quizId}`;
@@ -258,7 +260,9 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
   }
 
   const coverSpecies = playing
-    ? (question ? (byId.get(question.correctId) ?? introCover) : introCover)
+    ? question
+      ? (byId.get(question.correctId) ?? introCover)
+      : introCover
     : introCover;
   const coverSrc = playing
     ? (question?.image ?? questions?.at(-1)?.image ?? introCover?.image)

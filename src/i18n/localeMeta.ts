@@ -122,4 +122,3 @@ export function georgiaReptilesLabel(locale: string) {
     locale,
   );
 }
-

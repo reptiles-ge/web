@@ -108,7 +108,10 @@ export function LizardComparePage({
               </thead>
               <tbody>
                 {([1, 2, 3, 4, 5, 6] as const).map((n) => (
-                  <tr key={n} className="border-b border-border/80 last:border-b-0">
+                  <tr
+                    key={n}
+                    className="border-b border-border/80 last:border-b-0"
+                  >
                     <td className="py-4 pr-4 font-display text-[15px] font-medium">
                       {t(`row${n}Label`)}
                     </td>

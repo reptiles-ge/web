@@ -139,9 +139,18 @@ export function AboutPage() {
             </Reveal>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-3">
-              <MethodCard title={t("methodCardTitle")} body={t("methodCardBody")} />
-              <MethodCard title={t("sourcesCardTitle")} body={t("sourcesCardBody")} />
-              <MethodCard title={t("photosCardTitle")} body={t("photosCardBody")} />
+              <MethodCard
+                title={t("methodCardTitle")}
+                body={t("methodCardBody")}
+              />
+              <MethodCard
+                title={t("sourcesCardTitle")}
+                body={t("sourcesCardBody")}
+              />
+              <MethodCard
+                title={t("photosCardTitle")}
+                body={t("photosCardBody")}
+              />
             </div>
 
             <ul className="mt-10 flex flex-wrap gap-3">

@@ -1,4 +1,7 @@
-import { isLocalAdminEnabled, localAdminForbiddenResponse } from "@/lib/adminAccess";
+import {
+  isLocalAdminEnabled,
+  localAdminForbiddenResponse,
+} from "@/lib/adminAccess";
 import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { addSpeciesPhotos } from "@/lib/adminPhotos";
 
@@ -30,7 +33,10 @@ export async function POST(request: Request) {
     .filter((item): item is File => item instanceof File && item.size > 0);
 
   if (uploads.length === 0) {
-    return Response.json({ error: "Choose at least one photo" }, { status: 400 });
+    return Response.json(
+      { error: "Choose at least one photo" },
+      { status: 400 },
+    );
   }
 
   try {
@@ -53,8 +59,7 @@ export async function POST(request: Request) {
 
     return Response.json(result);
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Upload failed";
+    const message = error instanceof Error ? error.message : "Upload failed";
     return Response.json({ error: message }, { status: 400 });
   }
 }

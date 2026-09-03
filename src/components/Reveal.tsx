@@ -7,11 +7,7 @@ type RevealProps = {
   as?: "div" | "li" | "article" | "section";
 };
 
-export function Reveal({
-  children,
-  className,
-  as = "div",
-}: RevealProps) {
+export function Reveal({ children, className, as = "div" }: RevealProps) {
   const Comp = as as ElementType;
   return <Comp className={className}>{children}</Comp>;
 }

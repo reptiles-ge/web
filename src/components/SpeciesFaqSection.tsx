@@ -77,7 +77,9 @@ export function SpeciesFaqSection({
                     </span>
                     <span
                       className={`mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300 ${
-                        isOpen ? "rotate-45 bg-ink text-ink-foreground" : "text-foreground"
+                        isOpen
+                          ? "rotate-45 bg-ink text-ink-foreground"
+                          : "text-foreground"
                       }`}
                     >
                       <Plus className="size-4" strokeWidth={1.75} />

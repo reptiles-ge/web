@@ -1,4 +1,9 @@
-import { getSpeciesHubId, getSpeciesPublicSlug, resolveSpecies, resolveSpeciesInHub } from "@/lib/speciesRoutes";
+import {
+  getSpeciesHubId,
+  getSpeciesPublicSlug,
+  resolveSpecies,
+  resolveSpeciesInHub,
+} from "@/lib/speciesRoutes";
 import type { GroupHubId } from "@/lib/groupHubs";
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
@@ -111,10 +116,7 @@ export default function proxy(request: NextRequest) {
     new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
   );
   if (kaHub) {
-    const species = resolveSpeciesInHub(
-      KA_PREFIX_TO_HUB[kaHub[1]],
-      kaHub[2],
-    );
+    const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
     if (species) {
       const next = speciesPath("ka", species.id);
       if (next !== pathname) return redirectTo(request, next);

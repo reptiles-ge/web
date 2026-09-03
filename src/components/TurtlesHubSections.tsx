@@ -12,8 +12,7 @@ import { Link } from "@/i18n/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-const regionLinkClass =
-  "text-foreground underline-offset-4 hover:underline";
+const regionLinkClass = "text-foreground underline-offset-4 hover:underline";
 
 export function TurtlesHubSections() {
   const t = useTranslations("turtles");

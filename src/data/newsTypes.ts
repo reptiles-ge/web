@@ -22,8 +22,7 @@ export type NewsMark =
   | { type: "sci"; name: string };
 
 export type NewsSectionBlock =
-  | { type: "p"; parts: NewsMark[] }
-  | { type: "figure"; src: string };
+  { type: "p"; parts: NewsMark[] } | { type: "figure"; src: string };
 
 export type NewsSection = {
   heading: string;

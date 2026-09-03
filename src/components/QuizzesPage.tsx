@@ -97,7 +97,10 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           </h2>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-border bg-border/80 sm:grid-cols-3">
             {how.map((step, index) => (
-              <li key={step.title} className="bg-card px-6 py-7 sm:px-8 sm:py-9">
+              <li
+                key={step.title}
+                className="bg-card px-6 py-7 sm:px-8 sm:py-9"
+              >
                 <span className="font-display text-[12px] tracking-[0.22em] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>

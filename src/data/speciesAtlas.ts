@@ -6,13 +6,7 @@ import {
 } from "@/data/species";
 
 export type AnimalGroup =
-  | "snake"
-  | "lizard"
-  | "turtle"
-  | "amphibian"
-  | "bird"
-  | "mammal"
-  | "spider";
+  "snake" | "lizard" | "turtle" | "amphibian" | "bird" | "mammal" | "spider";
 
 export type HabitatTag = "forest" | "mountain" | "wetland" | "grassland";
 
@@ -670,7 +664,8 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
 export function getRecentlyUpdatedSpecies(limit = 4) {
   return [...getCatalogSpecies()]
     .sort(
-      (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+      (a, b) =>
+        new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
     )
     .slice(0, limit);
 }
@@ -698,7 +693,7 @@ export function countAtlasFacets(filters: AtlasFilters) {
   if (filters.habitat !== "all") count += 1;
   if (filters.region !== "all") count += 1;
   return count;
-};
+}
 
 export function filterAtlasSpecies(
   catalog: Array<Species & { searchText?: string }>,

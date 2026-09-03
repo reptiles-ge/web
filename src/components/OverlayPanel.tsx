@@ -111,53 +111,53 @@ export function OverlayPanel({
           {open ? (
             <m.button
               key="overlay-backdrop"
-                type="button"
-                aria-label={closeLabel}
-                className="fixed inset-0 z-[80] bg-ink/55 backdrop-blur-[2px] md:hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.22 }}
-                onClick={onClose}
-              />
+              type="button"
+              aria-label={closeLabel}
+              className="fixed inset-0 z-[80] bg-ink/55 backdrop-blur-[2px] md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={onClose}
+            />
           ) : null}
           {open ? (
-              <m.div
-                key="overlay-sheet"
-                ref={sheetRef}
-                role="dialog"
-                aria-modal="true"
-                aria-label={title}
-                className={`fixed inset-x-0 bottom-0 z-[80] flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden ${mobileSheetClassName ?? ""}`}
-                initial={{ opacity: 0.96, y: "100%" }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0.96, y: "100%" }}
-                transition={sheetTransition}
-              >
-                <div className="flex shrink-0 flex-col items-center px-4 pt-3">
-                  <span
-                    className="mb-3 h-1 w-10 rounded-full bg-border"
-                    aria-hidden="true"
-                  />
-                  <div className="flex w-full items-center justify-between gap-3 pb-3">
-                    <h2 className="font-display text-[18px] font-semibold text-foreground">
-                      {title}
-                    </h2>
-                    <button
-                      type="button"
-                      aria-label={closeLabel}
-                      onClick={onClose}
-                      className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      <X className="size-4" aria-hidden="true" />
-                    </button>
-                  </div>
-                  {mobileHeader}
+            <m.div
+              key="overlay-sheet"
+              ref={sheetRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={title}
+              className={`fixed inset-x-0 bottom-0 z-[80] flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden ${mobileSheetClassName ?? ""}`}
+              initial={{ opacity: 0.96, y: "100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0.96, y: "100%" }}
+              transition={sheetTransition}
+            >
+              <div className="flex shrink-0 flex-col items-center px-4 pt-3">
+                <span
+                  className="mb-3 h-1 w-10 rounded-full bg-border"
+                  aria-hidden="true"
+                />
+                <div className="flex w-full items-center justify-between gap-3 pb-3">
+                  <h2 className="font-display text-[18px] font-semibold text-foreground">
+                    {title}
+                  </h2>
+                  <button
+                    type="button"
+                    aria-label={closeLabel}
+                    onClick={onClose}
+                    className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <X className="size-4" aria-hidden="true" />
+                  </button>
                 </div>
-                <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
-                  {mobileContent}
-                </div>
-              </m.div>
+                {mobileHeader}
+              </div>
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[max(1rem,env(safe-area-inset-bottom))]">
+                {mobileContent}
+              </div>
+            </m.div>
           ) : null}
         </AnimatePresence>,
         document.body,

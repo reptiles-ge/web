@@ -2,7 +2,10 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { appendGalleryItemToSpecies, isSpeciesContentId } from "@/lib/adminGalleryMdx";
+import {
+  appendGalleryItemToSpecies,
+  isSpeciesContentId,
+} from "@/lib/adminGalleryMdx";
 import type { GalleryImage } from "@/data/speciesTypes";
 import {
   applyOptimizeCatalog,
@@ -68,7 +71,9 @@ function githubRepoName(cwd: string) {
   return parsed.nameWithOwner;
 }
 
-function findOpenPhotoPullRequest(id: string): { branch: string; url: string } | null {
+function findOpenPhotoPullRequest(
+  id: string,
+): { branch: string; url: string } | null {
   try {
     const raw = run(
       "gh",
@@ -86,7 +91,10 @@ function findOpenPhotoPullRequest(id: string): { branch: string; url: string } |
       ],
       REPO_ROOT,
     );
-    const prs = JSON.parse(raw) as Array<{ headRefName?: string; url?: string }>;
+    const prs = JSON.parse(raw) as Array<{
+      headRefName?: string;
+      url?: string;
+    }>;
     const prefix = `photos/${id}-`;
     const match = prs.find(
       (pr) =>
@@ -132,11 +140,7 @@ function createPullRequest(input: {
     throw new Error(created || "gh pr create did not return a URL");
   }
   try {
-    run(
-      "gh",
-      ["pr", "edit", url, "--body", input.body],
-      input.cwd,
-    );
+    run("gh", ["pr", "edit", url, "--body", input.body], input.cwd);
   } catch {
     return url;
   }

@@ -64,7 +64,9 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       }
       form.reset();
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "ატვირთვა ვერ მოხერხდა");
+      setError(
+        caught instanceof Error ? caught.message : "ატვირთვა ვერ მოხერხდა",
+      );
     } finally {
       setBusy(false);
     }
@@ -161,9 +163,7 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
         {error ? (
           <p className="mt-4 text-[13px] text-destructive">{error}</p>
         ) : null}
-        {ok ? (
-          <p className="mt-4 text-[13px] text-primary">{ok}</p>
-        ) : null}
+        {ok ? <p className="mt-4 text-[13px] text-primary">{ok}</p> : null}
         {pullRequestUrl ? (
           <a
             href={pullRequestUrl}

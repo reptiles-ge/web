@@ -12,7 +12,12 @@ import {
   regions,
 } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import { georgiaPlaceName, georgiaReptilesLabel, openGraphLocale, pickLocalized } from "@/i18n/localeMeta";
+import {
+  georgiaPlaceName,
+  georgiaReptilesLabel,
+  openGraphLocale,
+  pickLocalized,
+} from "@/i18n/localeMeta";
 import { routing, type AppLocale } from "@/i18n/routing";
 import {
   absoluteUrl,

@@ -76,9 +76,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function SpeciesIndexPage({
-  params,
-}: Props) {
+export default async function SpeciesIndexPage({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();

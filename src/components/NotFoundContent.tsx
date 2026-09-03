@@ -38,10 +38,11 @@ export async function NotFoundContent() {
         style={{
           paddingTop: "6rem",
         }}
-      >        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] font-semibold leading-none tracking-tight text-white/[0.08]">
+      >
+        {" "}
+        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] font-semibold leading-none tracking-tight text-white/[0.08]">
           404
         </p>
-
         <div className="-mt-6 max-w-2xl sm:-mt-10 lg:-mt-14">
           <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
             {t("eyebrow")}
@@ -69,7 +70,6 @@ export async function NotFoundContent() {
             </Link>
           </div>
         </div>
-
         <div className="mt-16 grid gap-px overflow-hidden rounded-[24px] bg-white/10 sm:mt-20 sm:grid-cols-3">
           {pathways.map((pathway) => (
             <Link

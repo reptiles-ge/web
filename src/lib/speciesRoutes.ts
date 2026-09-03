@@ -39,12 +39,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "naxevartetqela-mematlia",
     "naxevartetqela-buzicheria",
   ],
-  "erithacus-rubecula": [
-    "gultitela",
-    "bultsitela",
-    "european-robin",
-    "robin",
-  ],
+  "erithacus-rubecula": ["gultitela", "bultsitela", "european-robin", "robin"],
   "sciurus-anomalus": ["sparsuli-tsiqvi"],
   "capreolus-capreolus": ["shveli"],
   "ursus-arctos": ["datvi", "mura-dathvi"],
@@ -125,12 +120,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "boreal-owl",
     "tengmalms-owl",
   ],
-  "tyto-alba": [
-    "buxrintsa",
-    "bukhrintsa",
-    "barn-owl",
-    "western-barn-owl",
-  ],
+  "tyto-alba": ["buxrintsa", "bukhrintsa", "barn-owl", "western-barn-owl"],
   "athene-noctua": ["choti", "little-owl", "buknacho"],
   "bubo-bubo": [
     "chveulebrivi-zarnasho",
@@ -204,11 +194,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "honey-buzzard",
     "european-honey-buzzard",
   ],
-  "aegypius-monachus": [
-    "cinereous-vulture",
-    "black-vulture",
-    "shavi-svavi",
-  ],
+  "aegypius-monachus": ["cinereous-vulture", "black-vulture", "shavi-svavi"],
   "gyps-fulvus": [
     "orbi",
     "tetrtava-orbi",
@@ -222,19 +208,9 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "eurasian-black-kite",
     "milvus-korschun",
   ],
-  "corvus-corax": [
-    "qorani",
-    "northern-raven",
-    "common-raven",
-    "raven",
-  ],
+  "corvus-corax": ["qorani", "northern-raven", "common-raven", "raven"],
   "pica-pica": ["kachkachi", "eurasian-magpie", "common-magpie"],
-  "procyon-lotor": [
-    "enoti",
-    "chveulebrivi-enoti",
-    "raccoon",
-    "racoon",
-  ],
+  "procyon-lotor": ["enoti", "chveulebrivi-enoti", "raccoon", "racoon"],
   "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
 };
 
@@ -246,11 +222,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
   "meles-canescens": ["mustela-nivalis"],
-  "pseudopus-apodus": [
-    "anguis-colchica",
-    "natrix-natrix",
-    "natrix-tessellata",
-  ],
+  "pseudopus-apodus": ["anguis-colchica", "natrix-natrix", "natrix-tessellata"],
   "anguis-colchica": ["pseudopus-apodus", "natrix-natrix"],
   "paralaudakia-caucasia": [
     "tenuidactylus-caspius",
@@ -470,11 +442,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "lacerta-media",
     "darevskia-derjugini",
   ],
-  "lacerta-strigata": [
-    "lacerta-agilis",
-    "lacerta-media",
-    "ophisops-elegans",
-  ],
+  "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
   "darevskia-adjarica": [
     "darevskia-clarkorum",
@@ -527,7 +495,12 @@ const LOOKALIKES: Record<string, string[]> = {
   "otus-scops": ["strix-aluco", "athene-noctua"],
   "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
   "athene-noctua": ["otus-scops", "strix-aluco", "aegolius-funereus"],
-  "tyto-alba": ["strix-aluco", "otus-scops", "aegolius-funereus", "athene-noctua"],
+  "tyto-alba": [
+    "strix-aluco",
+    "otus-scops",
+    "aegolius-funereus",
+    "athene-noctua",
+  ],
   "bubo-bubo": [
     "strix-aluco",
     "athene-noctua",

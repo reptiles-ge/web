@@ -9,11 +9,7 @@ import {
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 
 export type SpeciesBreadcrumbHref =
-  | "/"
-  | "/species"
-  | "/venomous-snakes"
-  | `/${GroupHubId}`
-  | ClusterGuidePath;
+  "/" | "/species" | "/venomous-snakes" | `/${GroupHubId}` | ClusterGuidePath;
 
 export type SpeciesBreadcrumbCrumb = {
   name: string;

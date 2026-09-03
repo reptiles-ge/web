@@ -18,12 +18,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Plus,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -39,10 +34,7 @@ const AGENCY_PHONE = "0322721600";
 const AGENCY_PHONE_DISPLAY = "032 272 16 00";
 const EMERGENCY_PHONE = "112";
 
-export function SnakesInYardPage({
-  heroSrc,
-  coverSrc,
-}: SnakesInYardPageProps) {
+export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
   const t = useTranslations("snakesInYard");
   const tSnakes = useTranslations("snakes");
   const locale = useLocale() as AppLocale;
@@ -63,69 +55,69 @@ export function SnakesInYardPage({
             alt={t("heroImageAlt")}
             priority
             sizes="100vw"
-                className="object-cover object-[50%_45%]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/92" />
-              <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
+            className="object-cover object-[50%_45%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/92" />
+          <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
-              <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-                <Reveal>
-                  <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
-                    <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
-                      <li>
-                        <Link
-                          href="/"
-                          className="inline-flex items-center gap-2 transition-colors hover:text-white"
-                        >
-                          <ArrowLeft className="size-3.5" />
-                          {t("breadcrumbHome")}
-                        </Link>
-                      </li>
-                      <li aria-hidden="true" className="text-white/30">
-                        /
-                      </li>
-                      <li>
-                        <Link
-                          href="/snakes"
-                          className="transition-colors hover:text-white"
-                        >
-                          {tSnakes("breadcrumbCurrent")}
-                        </Link>
-                      </li>
-                      <li aria-hidden="true" className="text-white/30">
-                        /
-                      </li>
-                      <li className="text-white/80">{t("breadcrumbCurrent")}</li>
-                    </ol>
-                  </nav>
+          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+            <Reveal>
+              <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
+                <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
+                  <li>
+                    <Link
+                      href="/"
+                      className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                    >
+                      <ArrowLeft className="size-3.5" />
+                      {t("breadcrumbHome")}
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="text-white/30">
+                    /
+                  </li>
+                  <li>
+                    <Link
+                      href="/snakes"
+                      className="transition-colors hover:text-white"
+                    >
+                      {tSnakes("breadcrumbCurrent")}
+                    </Link>
+                  </li>
+                  <li aria-hidden="true" className="text-white/30">
+                    /
+                  </li>
+                  <li className="text-white/80">{t("breadcrumbCurrent")}</li>
+                </ol>
+              </nav>
 
-                  <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
-                    Reptiles
-                  </p>
-                  <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.4rem)] font-semibold leading-[1.05] text-white sm:mt-4">
-                    {t("title")}
-                  </h1>
-                  <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
-                    {t("subtitle")}
-                  </p>
-                  <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
-                    <a
-                      href="#actions"
-                      className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
-                    >
-                      {t("ctaActions")}
-                      <ArrowRight className="size-4" />
-                    </a>
-                    <a
-                      href="#myths"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
-                    >
-                      {t("ctaMyths")}
-                    </a>
-                  </div>
-                </Reveal>
+              <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
+                Reptiles
+              </p>
+              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2.1rem,6vw,4.4rem)] font-semibold leading-[1.05] text-white sm:mt-4">
+                {t("title")}
+              </h1>
+              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
+                {t("subtitle")}
+              </p>
+              <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
+                <a
+                  href="#actions"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                >
+                  {t("ctaActions")}
+                  <ArrowRight className="size-4" />
+                </a>
+                <a
+                  href="#myths"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                >
+                  {t("ctaMyths")}
+                </a>
               </div>
-            </section>
+            </Reveal>
+          </div>
+        </section>
 
         <section className="border-b border-border bg-surface py-16 sm:py-20 lg:py-24">
           <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-10">

@@ -17,12 +17,7 @@ import type { DangerLevel, Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Plus,
-  Shield,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, Plus, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ComponentProps } from "react";
 
@@ -131,7 +126,9 @@ export function RiskToHumansPage({
                         className={`size-1.5 rounded-full ${tone.dot}`}
                         aria-hidden="true"
                       />
-                      <span className={`text-[12px] font-semibold tracking-wide ${tone.value}`}>
+                      <span
+                        className={`text-[12px] font-semibold tracking-wide ${tone.value}`}
+                      >
                         {tDanger(level)}
                       </span>
                     </a>
@@ -161,7 +158,10 @@ export function RiskToHumansPage({
           </div>
         </section>
 
-        <section id="content" className="scroll-mt-28 bg-background py-20 lg:py-28">
+        <section
+          id="content"
+          className="scroll-mt-28 bg-background py-20 lg:py-28"
+        >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
@@ -174,7 +174,10 @@ export function RiskToHumansPage({
                   bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
                 >
                   <p className="mt-4 inline-flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
-                    <Shield className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+                    <Shield
+                      className="mt-0.5 size-3.5 shrink-0"
+                      aria-hidden="true"
+                    />
                     {t("scaleDisclaimer")}
                   </p>
                 </ClusterSectionIntro>
@@ -273,11 +276,18 @@ export function RiskToHumansPage({
                     {t(`${level}SpeciesBody`)}
                   </p>
                   {species.length > 0 ? (
-                    <SpeciesGuideList species={species} locale={locale} source="guide" />
+                    <SpeciesGuideList
+                      species={species}
+                      locale={locale}
+                      source="guide"
+                    />
                   ) : null}
                   {level === "Harmless" ? (
                     <Link
-                      href={{ pathname: "/species", query: { danger: "harmless" } }}
+                      href={{
+                        pathname: "/species",
+                        query: { danger: "harmless" },
+                      }}
                       className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/30"
                     >
                       {t("HarmlessAtlasCta")}
@@ -396,7 +406,9 @@ function PathCard({
         <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
           {title}
         </p>
-        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">{body}</p>
+        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+          {body}
+        </p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
           {cta}
           <ArrowUpRight className="size-3.5" />

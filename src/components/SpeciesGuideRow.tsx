@@ -2,10 +2,7 @@
 
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/regions";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import type { Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";

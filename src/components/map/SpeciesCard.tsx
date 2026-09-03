@@ -85,7 +85,10 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           <span
             className={`mt-2.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide ${tone.chip}`}
           >
-            <span className={`size-1.5 rounded-full ${tone.dot}`} aria-hidden="true" />
+            <span
+              className={`size-1.5 rounded-full ${tone.dot}`}
+              aria-hidden="true"
+            />
             {riskLabel}
           </span>
         ) : null}

@@ -35,7 +35,11 @@ export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
               </AnchoredHeading>
             </div>
             <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-300 group-open:rotate-180 group-open:border-foreground/20 group-open:text-foreground">
-              <ChevronDown className="size-4" strokeWidth={1.75} aria-hidden="true" />
+              <ChevronDown
+                className="size-4"
+                strokeWidth={1.75}
+                aria-hidden="true"
+              />
             </span>
           </summary>
           <ul className="mt-8 space-y-0 border-t border-border">

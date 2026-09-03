@@ -5,10 +5,7 @@ import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { routing, type AppLocale } from "@/i18n/routing";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import {
-  quizStaticParams,
-  resolveQuizBySlug,
-} from "@/lib/quizzes";
+import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
 import {
   absoluteUrl,
   localePath,

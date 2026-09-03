@@ -12,10 +12,7 @@ import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesSources } from "@/components/SpeciesSources";
-import {
-  resolvePhotoCredit,
-  type Species,
-} from "@/data/species";
+import { resolvePhotoCredit, type Species } from "@/data/species";
 import { pictureSources } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { usesDangerScale } from "@/lib/speciesRisk";
@@ -93,10 +90,7 @@ export function SpeciesProfile({
   const heroPrimarySources = pictureSources(mobileHeroSrc ?? desktopHeroSrc, {
     sizes: "100vw",
   });
-  const heroCredit = resolvePhotoCredit(
-    species.imageCredit,
-    primary?.credit,
-  );
+  const heroCredit = resolvePhotoCredit(species.imageCredit, primary?.credit);
   const mobileHeroCredit = resolvePhotoCredit(
     species.mobileImageCredit,
     species.imageCredit,
@@ -130,7 +124,13 @@ export function SpeciesProfile({
       has_range: getRegionsForSpecies(species.id).length > 0,
       has_identification: showIdentification,
     });
-  }, [species.id, species.scientificName, group, gallery.length, showIdentification]);
+  }, [
+    species.id,
+    species.scientificName,
+    group,
+    gallery.length,
+    showIdentification,
+  ]);
   const biologyBlocks = useMemo(
     () =>
       [
@@ -147,13 +147,7 @@ export function SpeciesProfile({
           id: "conservation",
         },
       ].filter((block) => !isPlaceholderBody(block.body)),
-    [
-      species.behavior,
-      species.conservation,
-      species.diet,
-      species.habitat,
-      t,
-    ],
+    [species.behavior, species.conservation, species.diet, species.habitat, t],
   );
 
   return (
@@ -162,8 +156,7 @@ export function SpeciesProfile({
         <section
           className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
           style={{
-            paddingTop:
-              "7rem",
+            paddingTop: "7rem",
           }}
         >
           {desktopHeroSrc ? (
@@ -173,10 +166,7 @@ export function SpeciesProfile({
                   {heroDesktopSources.map((source) => (
                     <source key={source.key} {...source.props} />
                   ))}
-                  <source
-                    media="(min-width: 1024px)"
-                    srcSet={desktopHeroSrc}
-                  />
+                  <source media="(min-width: 1024px)" srcSet={desktopHeroSrc} />
                 </>
               ) : null}
               {heroPrimarySources.map((source) => (
@@ -228,7 +218,12 @@ export function SpeciesProfile({
                 {breadcrumbs.map((crumb, index) => {
                   const isLast = index === breadcrumbs.length - 1;
                   return (
-                    <li key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name} className="inline-flex items-center gap-2">
+                    <li
+                      key={
+                        crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name
+                      }
+                      className="inline-flex items-center gap-2"
+                    >
                       {index > 0 ? (
                         <span aria-hidden="true" className="text-white/30">
                           /
@@ -357,14 +352,14 @@ export function SpeciesProfile({
         </section>
 
         {gallery.length > 0 ? (
-        <SpeciesGallery
-          images={gallery}
-          name={species.commonName}
-          scientificName={species.scientificName}
-          location={species.location}
-          tone="background"
-          speciesId={species.id}
-        />
+          <SpeciesGallery
+            images={gallery}
+            name={species.commonName}
+            scientificName={species.scientificName}
+            location={species.location}
+            tone="background"
+            speciesId={species.id}
+          />
         ) : null}
 
         <SpeciesRangeMap

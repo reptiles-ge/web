@@ -61,10 +61,7 @@ export function SpeciesRangeMap({
         </div>
 
         <div className="mt-14 lg:mt-16">
-          <GeorgiaMap
-            highlightedIds={highlightedIds}
-            interactive={false}
-          />
+          <GeorgiaMap highlightedIds={highlightedIds} interactive={false} />
         </div>
 
         <nav

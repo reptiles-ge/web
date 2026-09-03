@@ -59,7 +59,10 @@ export function VenomousSnakesPage({
   ).length;
   const giurza = species.find((item) => item.id === "macrovipera-lebetina");
   const kaznakovi = species.find((item) => item.id === "vipera-kaznakovi");
-  const relatedGuides = getHubPageRelatedGuides("snakes", "/venomous-snakes").filter(
+  const relatedGuides = getHubPageRelatedGuides(
+    "snakes",
+    "/venomous-snakes",
+  ).filter(
     (card) =>
       card.kind === "quiz" ||
       (card.kind === "page" &&
@@ -184,7 +187,10 @@ export function VenomousSnakesPage({
           source="other"
         />
 
-        <section id="species" className="scroll-mt-28 bg-background py-20 lg:py-28">
+        <section
+          id="species"
+          className="scroll-mt-28 bg-background py-20 lg:py-28"
+        >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
@@ -264,7 +270,11 @@ export function VenomousSnakesPage({
                     ),
                   })}
                 </p>
-                <SpeciesGuideList species={vipers} locale={locale} source="guide" />
+                <SpeciesGuideList
+                  species={vipers}
+                  locale={locale}
+                  source="guide"
+                />
               </div>
               {rearFanged.length > 0 ? (
                 <div>
@@ -274,7 +284,11 @@ export function VenomousSnakesPage({
                   <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                     {t("rearFangedBody")}
                   </p>
-                  <SpeciesGuideList species={rearFanged} locale={locale} source="guide" />
+                  <SpeciesGuideList
+                    species={rearFanged}
+                    locale={locale}
+                    source="guide"
+                  />
                 </div>
               ) : null}
             </div>
