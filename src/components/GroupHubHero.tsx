@@ -167,7 +167,7 @@ export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProp
 }
 
 function readStatExtraItems(
-  t: ReturnType<typeof getTranslations>,
+  t: Awaited<ReturnType<typeof getTranslations>>,
 ): null | string[] {
   if (!t.has("statExtraItems")) return null;
   const items = t.raw("statExtraItems");

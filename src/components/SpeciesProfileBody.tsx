@@ -179,7 +179,7 @@ function biologyGridClass(count: number) {
   return "md:grid-cols-1";
 }
 
-function SpeciesProfileBiology({
+async function SpeciesProfileBiology({
   blocks,
   isSnake,
 }: {
