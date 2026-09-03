@@ -2,7 +2,7 @@
 
 import type { Region as RegionData } from "@/data/regions";
 import { localizeRegionText } from "@/data/regions";
-import { m } from "@/components/MotionLazy";
+import { m } from "framer-motion";
 import { useLocale } from "next-intl";
 
 type RegionProps = {

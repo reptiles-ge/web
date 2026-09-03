@@ -4,7 +4,7 @@ import type { Region } from "@/data/regions";
 import { getRegionSpecies, localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
-import { m } from "@/components/MotionLazy";
+import { m } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 

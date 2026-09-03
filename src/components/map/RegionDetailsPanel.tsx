@@ -8,7 +8,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { regionHref } from "@/lib/speciesRoutes";
-import { m } from "@/components/MotionLazy";
+import { m } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";

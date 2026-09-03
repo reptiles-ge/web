@@ -1,7 +1,8 @@
 "use client";
 
 import { CoverImage } from "@/components/CoverImage";
-import { MotionLazy, m } from "@/components/MotionLazy";
+import { m } from "framer-motion";
+import { MotionLazy } from "@/components/MotionLazy";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";

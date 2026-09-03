@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence } from "framer-motion";
-import { MotionLazy, m } from "@/components/MotionLazy";
+import { m } from "framer-motion";
+import { MotionLazy } from "@/components/MotionLazy";
 import { X } from "lucide-react";
 import {
   useEffect,
