@@ -367,8 +367,8 @@ function NewsFigure({
           credit={visual.credit}
           creditMeta={creditMeta}
           dateLabel={dateLabel}
-          photographer={photographer}
           photoCreditLabel={photoCreditLabel}
+          photographer={photographer}
         />
       </figcaption>
     </figure>
@@ -379,14 +379,14 @@ function NewsFigureCredit({
   credit,
   creditMeta,
   dateLabel,
-  photographer,
   photoCreditLabel,
+  photographer,
 }: {
   credit: NewsVisual["credit"];
   creditMeta: string[];
   dateLabel: null | string;
-  photographer: string | undefined;
   photoCreditLabel: string;
+  photographer: string | undefined;
 }) {
   if (!hasPhotoCredit(credit) || creditMeta.length === 0) return null;
   return (

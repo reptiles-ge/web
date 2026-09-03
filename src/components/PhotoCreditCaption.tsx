@@ -1,7 +1,7 @@
 "use client";
 
-import { type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -40,9 +40,9 @@ export function PhotoCreditCaption({
         className={className}
         credit={credit}
         dateLabel={dateLabel}
-        photographer={photographer}
         photoCredit={t("photoCredit")}
         photoDate={t("photoDate")}
+        photographer={photographer}
         photoLocation={t("photoLocation")}
       />
     );
@@ -74,51 +74,21 @@ export function PhotoCreditCaption({
   );
 }
 
-function PhotoCreditName({
-  credit,
-  speciesId,
-}: {
-  credit: PhotoCredit;
-  speciesId?: string;
-}) {
-  if (!credit.photographer) return null;
-  if (!credit.url) return <span>{credit.photographer}</span>;
-  return (
-    <a
-      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
-      href={credit.url}
-      onClick={(event) => {
-        event.stopPropagation();
-        if (speciesId) {
-          trackEvent("source_click", {
-            link_type: "photo_credit",
-            species_id: speciesId,
-          });
-        }
-      }}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      {credit.photographer}
-    </a>
-  );
-}
-
 function LightboxCredit({
   className,
   credit,
   dateLabel,
-  photographer,
   photoCredit,
   photoDate,
+  photographer,
   photoLocation,
 }: {
   className: string;
   credit: PhotoCredit;
   dateLabel: null | string;
-  photographer: ReactNode;
   photoCredit: string;
   photoDate: string;
+  photographer: ReactNode;
   photoLocation: string;
 }) {
   return (
@@ -147,5 +117,35 @@ function LightboxCredit({
         </p>
       ) : null}
     </div>
+  );
+}
+
+function PhotoCreditName({
+  credit,
+  speciesId,
+}: {
+  credit: PhotoCredit;
+  speciesId?: string;
+}) {
+  if (!credit.photographer) return null;
+  if (!credit.url) return <span>{credit.photographer}</span>;
+  return (
+    <a
+      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+      href={credit.url}
+      onClick={(event) => {
+        event.stopPropagation();
+        if (speciesId) {
+          trackEvent("source_click", {
+            link_type: "photo_credit",
+            species_id: speciesId,
+          });
+        }
+      }}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {credit.photographer}
+    </a>
   );
 }

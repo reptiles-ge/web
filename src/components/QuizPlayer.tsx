@@ -75,6 +75,10 @@ export function QuizPlayer(props: QuizPlayerProps) {
   return <QuizPlayerSession key={props.quizId} {...props} />;
 }
 
+function draftKey(quizId: string) {
+  return `reptiles.quiz.draft.${quizId}`;
+}
+
 function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
   const t = useTranslations("snakeQuiz");
   const headingId = useId();
@@ -329,8 +333,8 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
             correctSpecies={correctSpecies}
             feedbackRef={feedbackRef}
             headingId={headingId}
-            hintOpen={hintOpen}
             hintedQuestions={hintedQuestions}
+            hintOpen={hintOpen}
             index={index}
             nextLabel={nextLabel}
             onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
@@ -349,10 +353,6 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
       </div>
     </section>
   );
-}
-
-function draftKey(quizId: string) {
-  return `reptiles.quiz.draft.${quizId}`;
 }
 
 function quizReducer(state: QuizSession, action: QuizAction): QuizSession {
