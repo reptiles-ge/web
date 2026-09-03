@@ -189,9 +189,11 @@ function ResultRow({
   onHover: () => void;
 }) {
   return (
-    <li role="option" aria-selected={active}>
+    <li>
       <button
         type="button"
+        role="option"
+        aria-selected={active}
         id={optionId}
         ref={(node) => {
           if (active) node?.scrollIntoView({ block: "nearest" });
@@ -199,7 +201,7 @@ function ResultRow({
         onMouseEnter={onHover}
         onMouseDown={(event) => event.preventDefault()}
         onClick={onActivate}
-        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-all duration-200 ${
+        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-[background-color,box-shadow] duration-200 ${
           active
             ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
             : "hover:bg-secondary/80 active:bg-secondary"
@@ -362,12 +364,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
   const openSearch = useCallback(
     (method: "click" | "shortcut" | "mobile") => {
-      setOpen((was) => {
-        if (!was) trackEvent("search_open", { entry_method: method });
-        return true;
-      });
+      if (!open) trackEvent("search_open", { entry_method: method });
+      setOpen(true);
     },
-    [],
+    [open],
   );
 
   function changeFilter(value: SearchFilter) {
@@ -456,6 +456,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   );
 
   function onKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
+    if (event.nativeEvent.isComposing || event.key === "Process") return;
+
     if (!open) {
       if (event.key === "ArrowDown") openSearch("click");
       return;
