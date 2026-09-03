@@ -6,12 +6,15 @@ import perfectionist from "eslint-plugin-perfectionist";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import unusedImports from "eslint-plugin-unused-imports";
 
+const perfectionistNatural = perfectionist.configs["recommended-natural"];
+
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
-  perfectionist.configs["recommended-natural"],
   {
+    ...perfectionistNatural,
     rules: {
+      ...perfectionistNatural.rules,
       "perfectionist/sort-objects": [
         "error",
         {
