@@ -13,7 +13,7 @@ type ClusterGuideLeadProps = {
   title: string;
 };
 
-export async function ClusterGuideLead({
+export function ClusterGuideLead({
   body,
   eyebrow,
   title,

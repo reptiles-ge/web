@@ -210,11 +210,11 @@ function OverlayMobileSheet({
             mobileSheetClassName,
           )}
           exit={{ opacity: 0.96, y: "100%" }}
-          initial={{ opacity: 0.96, y: "100%" }}
+          initial={reduceMotion ? false : { opacity: 0.96, y: "100%" }}
           key="overlay-sheet"
           ref={sheetRef}
           role="dialog"
-          transition={sheetTransition}
+          transition={reduceMotion ? { duration: 0 } : sheetTransition}
         >
           <div className="flex shrink-0 flex-col items-center px-4 pt-3">
             <span
