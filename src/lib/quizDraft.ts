@@ -37,10 +37,13 @@ export function useQuizDraft(
   },
 ) {
   const quizIdRef = useRef(quizId);
-  quizIdRef.current = quizId;
   const [draftReady, setDraftReady] = useState(false);
   const { answers, complete, hintOpen, index, playing, questions, selectedId } =
     session;
+
+  useEffect(() => {
+    quizIdRef.current = quizId;
+  }, [quizId]);
 
   useEffect(() => {
     try {
