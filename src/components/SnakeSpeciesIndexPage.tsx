@@ -5,11 +5,11 @@ import { useLocale, useTranslations } from "next-intl";
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
+import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
-  CLUSTER_TITLE_GUIDE,
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
   ClusterStat,
@@ -47,34 +47,24 @@ export function SnakeSpeciesIndexPage({
         </section>
       }
     >
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-            <Reveal>
-              <ClusterSectionIntro
-                eyebrow={t("guideEyebrow")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                title={t("guideTitle")}
-                titleClassName={CLUSTER_TITLE_GUIDE}
-              />
-            </Reveal>
-            <Reveal delay={60}>
-              <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-                <p>{t("guideP1")}</p>
-                <p>
-                  {t.rich("guideP2", {
-                    kaznakovi: (chunks) => (
-                      <SpeciesInlineLink id="vipera-kaznakovi">
-                        {chunks}
-                      </SpeciesInlineLink>
-                    ),
-                  })}
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      <ClusterGuideLead
+        body={
+          <>
+            <p>{t("guideP1")}</p>
+            <p>
+              {t.rich("guideP2", {
+                kaznakovi: (chunks) => (
+                  <SpeciesInlineLink id="vipera-kaznakovi">
+                    {chunks}
+                  </SpeciesInlineLink>
+                ),
+              })}
+            </p>
+          </>
+        }
+        eyebrow={t("guideEyebrow")}
+        title={t("guideTitle")}
+      />
 
       <section
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
