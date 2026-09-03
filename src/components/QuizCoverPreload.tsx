@@ -2,6 +2,8 @@
 
 import type { SnakeQuizQuestion } from "@/lib/snakeQuiz";
 
+import { CoverImagePreload } from "@/components/CoverImagePreload";
+
 export function QuizCoverPreload({
   nextQuestion,
 }: {
@@ -11,24 +13,24 @@ export function QuizCoverPreload({
   const image = nextQuestion?.image;
   const split = Boolean(mobile && mobile !== image);
 
-  return (
-    <>
-      {split ? (
-        <link
-          as="image"
-          href={mobile}
+  if (!image) return null;
+
+  if (split && mobile) {
+    return (
+      <>
+        <CoverImagePreload
           media="(max-width: 1023px)"
-          rel="preload"
+          sizes="100vw"
+          src={mobile}
         />
-      ) : null}
-      {image ? (
-        <link
-          as="image"
-          href={image}
-          media={split ? "(min-width: 1024px)" : undefined}
-          rel="preload"
+        <CoverImagePreload
+          media="(min-width: 1024px)"
+          sizes="100vw"
+          src={image}
         />
-      ) : null}
-    </>
-  );
+      </>
+    );
+  }
+
+  return <CoverImagePreload sizes="100vw" src={image} />;
 }
