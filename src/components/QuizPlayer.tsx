@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { ArrowRight, Check, Lightbulb, RotateCcw, Share2 } from "lucide-react";
@@ -9,6 +8,7 @@ import {
   useEffect,
   useId,
   useMemo,
+  useReducer,
   useRef,
   useState,
 } from "react";
@@ -43,10 +43,27 @@ type Draft = {
   selectedId: null | string;
 };
 
+type QuizAction =
+  | { correct: boolean; optionId: string; type: "select"; }
+  | { draft: Draft; type: "restore" }
+  | { open: boolean; type: "setHintOpen" }
+  | { questions: SnakeQuizQuestion[]; type: "start" }
+  | { type: "advance" };
+
 type QuizPlayerProps = {
   quizId: string;
   shareUrl: string;
   snakes: SnakeQuizSpecies[];
+};
+
+type QuizSession = {
+  answers: Answered[];
+  complete: boolean;
+  hintOpen: boolean;
+  index: number;
+  playing: boolean;
+  questions: null | SnakeQuizQuestion[];
+  selectedId: null | string;
 };
 
 const OPTION_MARKS: Record<
@@ -57,6 +74,16 @@ const OPTION_MARKS: Record<
   ka: ["ა", "ბ", "გ", "დ"],
   ru: ["А", "Б", "В", "Г"],
   tr: ["A", "B", "C", "D"],
+};
+
+const initialSession: QuizSession = {
+  answers: [],
+  complete: false,
+  hintOpen: false,
+  index: 0,
+  playing: false,
+  questions: null,
+  selectedId: null,
 };
 
 export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
@@ -72,13 +99,9 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
   const abandonSent = useRef(false);
   const hintedQuestions = useRef(new Set<number>());
 
-  const [playing, setPlaying] = useState(false);
-  const [questions, setQuestions] = useState<null | SnakeQuizQuestion[]>(null);
-  const [index, setIndex] = useState(0);
-  const [answers, setAnswers] = useState<Answered[]>([]);
-  const [selectedId, setSelectedId] = useState<null | string>(null);
-  const [complete, setComplete] = useState(false);
-  const [hintOpen, setHintOpen] = useState(false);
+  const [session, dispatch] = useReducer(quizReducer, initialSession);
+  const { answers, complete, hintOpen, index, playing, questions, selectedId } =
+    session;
   const [draftReady, setDraftReady] = useState(false);
 
   const introCover =
@@ -87,13 +110,7 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
   const startRound = useCallback(
     (reason: "restart" | "start") => {
       const next = generateSnakeQuiz(snakes);
-      setQuestions(next);
-      setIndex(0);
-      setAnswers([]);
-      setSelectedId(null);
-      setComplete(false);
-      setHintOpen(false);
-      setPlaying(true);
+      dispatch({ questions: next, type: "start" });
       abandonSent.current = false;
       hintedQuestions.current = new Set();
       trackEvent("quiz_start", {
@@ -113,13 +130,7 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
       if (!Array.isArray(draft.questions) || draft.questions.length === 0) {
         return;
       }
-      setQuestions(draft.questions);
-      setIndex(draft.index ?? 0);
-      setAnswers(draft.answers ?? []);
-      setSelectedId(draft.selectedId ?? null);
-      setHintOpen(Boolean(draft.hintOpen));
-      setComplete(false);
-      setPlaying(true);
+      dispatch({ draft, type: "restore" });
     } catch {
       return;
     } finally {
@@ -184,8 +195,7 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
   function onSelect(optionId: string, difficulty: QuizDifficulty) {
     if (!question || revealed) return;
     const correct = optionId === question.correctId;
-    setSelectedId(optionId);
-    setAnswers((current) => [...current, { correct, selectedId: optionId }]);
+    dispatch({ correct, optionId, type: "select" });
     trackEvent("quiz_answer", {
       difficulty,
       is_correct: correct,
@@ -226,7 +236,7 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
         answers.filter((item) => item.correct).length,
         questions.length,
       );
-      setComplete(true);
+      dispatch({ type: "advance" });
       sessionStorage.removeItem(draftKey(quizId));
       trackEvent("quiz_complete", {
         correct_count: answers.filter((item) => item.correct).length,
@@ -236,9 +246,7 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
       });
       return;
     }
-    setIndex((current) => current + 1);
-    setSelectedId(null);
-    setHintOpen(false);
+    dispatch({ type: "advance" });
   }
 
   const coverSpecies = playing
@@ -390,7 +398,7 @@ export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
                     className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/20 bg-black/35 px-3.5 text-[13px] font-medium text-white/90 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-black/50 hover:text-white"
                     onClick={() => {
                       const next = !hintOpen;
-                      setHintOpen(next);
+                      dispatch({ open: next, type: "setHintOpen" });
                       if (next && !hintedQuestions.current.has(index)) {
                         hintedQuestions.current.add(index);
                         trackEvent("quiz_hint", {
@@ -666,6 +674,57 @@ function QuizBreadcrumbs() {
       </ol>
     </nav>
   );
+}
+
+function quizReducer(state: QuizSession, action: QuizAction): QuizSession {
+  switch (action.type) {
+    case "advance": {
+      if (!state.questions) return state;
+      if (state.index + 1 >= state.questions.length) {
+        return { ...state, complete: true };
+      }
+      return {
+        ...state,
+        hintOpen: false,
+        index: state.index + 1,
+        selectedId: null,
+      };
+    }
+    case "restore":
+      return {
+        answers: action.draft.answers ?? [],
+        complete: false,
+        hintOpen: Boolean(action.draft.hintOpen),
+        index: action.draft.index ?? 0,
+        playing: true,
+        questions: action.draft.questions,
+        selectedId: action.draft.selectedId ?? null,
+      };
+    case "select":
+      if (state.selectedId !== null) return state;
+      return {
+        ...state,
+        answers: [
+          ...state.answers,
+          { correct: action.correct, selectedId: action.optionId },
+        ],
+        selectedId: action.optionId,
+      };
+    case "setHintOpen":
+      return { ...state, hintOpen: action.open };
+    case "start":
+      return {
+        answers: [],
+        complete: false,
+        hintOpen: false,
+        index: 0,
+        playing: true,
+        questions: action.questions,
+        selectedId: null,
+      };
+    default:
+      return state;
+  }
 }
 
 function ResultOverlay({
