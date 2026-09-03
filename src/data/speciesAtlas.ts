@@ -645,10 +645,11 @@ export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
     byGroup[getSpeciesAtlasMeta(item.id).group] += 1;
   }
 
-  const updatedDates = catalog
-    .map((item) => item.updatedAt)
-    .filter(Boolean)
-    .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+  const updatedDates: string[] = [];
+  for (const item of catalog) {
+    if (item.updatedAt) updatedDates.push(item.updatedAt);
+  }
+  updatedDates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
   return {
     total: catalog.length,
