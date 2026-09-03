@@ -5,6 +5,7 @@ import {
   getPublishedNewsArticles,
 } from "@/data/news";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
+import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";

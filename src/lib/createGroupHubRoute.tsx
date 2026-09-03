@@ -150,29 +150,37 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const faqIndices =
       hubId === "turtles" ? ([1, 2, 3, 4, 5, 6, 7, 8] as const) : ([1, 2, 3, 4, 5] as const);
 
+    const mainEntity: Array<{
+      "@type": "Question";
+      name: string;
+      acceptedAnswer: { "@type": "Answer"; text: string };
+    }> = [];
+    for (const n of faqIndices) {
+      if (!t.has(`faq${n}Q`)) continue;
+      mainEntity.push({
+        "@type": "Question",
+        name: t(`faq${n}Q`),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            hubId === "snakes" && n === 5
+              ? t.markup("faq5A", {
+                  bite: (chunks) => chunks,
+                  yard: (chunks) => chunks,
+                })
+              : hubId === "turtles" && n === 4
+                ? t.markup("faq4A", {
+                    identify: (chunks) => chunks,
+                  })
+                : t(`faq${n}A`),
+        },
+      });
+    }
+
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faqIndices
-        .filter((n) => t.has(`faq${n}Q`))
-        .map((n) => ({
-          "@type": "Question",
-          name: t(`faq${n}Q`),
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              hubId === "snakes" && n === 5
-                ? t.markup("faq5A", {
-                    bite: (chunks) => chunks,
-                    yard: (chunks) => chunks,
-                  })
-                : hubId === "turtles" && n === 4
-                  ? t.markup("faq4A", {
-                      identify: (chunks) => chunks,
-                    })
-                  : t(`faq${n}A`),
-          },
-        })),
+      mainEntity,
     };
 
     return (

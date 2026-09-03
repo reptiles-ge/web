@@ -129,14 +129,15 @@ const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
 
 function spoilsAnswer(text: string, species: Species) {
   const haystack = stripSpeciesInlineLinks(text).toLowerCase();
-  const needles = [
+  for (const item of [
     species.commonName,
     species.scientificName,
     ...species.scientificName.split(/\s+/),
-  ]
-    .map((item) => item.trim().toLowerCase())
-    .filter((item) => item.length > 3);
-  return needles.some((needle) => haystack.includes(needle));
+  ]) {
+    const needle = item.trim().toLowerCase();
+    if (needle.length > 3 && haystack.includes(needle)) return true;
+  }
+  return false;
 }
 
 export function buildQuizHint(species: Species) {
@@ -199,9 +200,13 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
 }
 
 export function getSnakeQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
-  return species
-    .filter((item) => isSnakeSpecies(item) && Boolean(item.image))
-    .map(toSnakeQuizSpecies);
+  const catalog: SnakeQuizSpecies[] = [];
+  for (const item of species) {
+    if (isSnakeSpecies(item) && Boolean(item.image)) {
+      catalog.push(toSnakeQuizSpecies(item));
+    }
+  }
+  return catalog;
 }
 
 function shuffle<T>(items: T[], rng: () => number): T[] {
@@ -231,17 +236,20 @@ export function pickSnakeDistractors(
   }
 
   const lookalikes = new Set(getSpeciesLookalikes(correctId));
-  const related = getRelatedSpecies(correctId, 8)
-    .filter(isSnakeSpecies)
-    .map((item) => item.id)
-    .filter((id) => available.some((item) => item.id === id));
+  const availableIds = new Set(available.map((item) => item.id));
+  const related = new Set<string>();
+  for (const item of getRelatedSpecies(correctId, 8)) {
+    if (isSnakeSpecies(item) && availableIds.has(item.id)) {
+      related.add(item.id);
+    }
+  }
+  const correct = pool.find((entry) => entry.id === correctId);
 
   const ranked = available
     .map((item) => {
       let score = 0;
       if (lookalikes.has(item.id)) score += 80;
-      if (related.includes(item.id)) score += 40;
-      const correct = pool.find((entry) => entry.id === correctId);
+      if (related.has(item.id)) score += 40;
       if (correct) {
         if (item.genus === correct.genus) score += 100;
         if (item.family === correct.family) score += 35;

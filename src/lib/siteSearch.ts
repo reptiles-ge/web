@@ -1076,9 +1076,11 @@ function groupDocuments(
     buckets[item.kind].push(item);
   }
 
-  const groups = (Object.keys(buckets) as SearchKind[])
-    .map((kind) => ({ kind, items: buckets[kind] }))
-    .filter((group) => group.items.length > 0);
+  const groups: Array<{ kind: SearchKind; items: typeof buckets.page }> = [];
+  for (const kind of Object.keys(buckets) as SearchKind[]) {
+    const items = buckets[kind];
+    if (items.length > 0) groups.push({ kind, items });
+  }
 
   groups.sort((a, b) => {
     const aScore = a.items[0]?.score ?? 0;

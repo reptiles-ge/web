@@ -74,7 +74,10 @@ export function galleryImageObjects(
   species: SpeciesPhotoContext,
   locale: AppLocale,
 ) {
-  return photos
-    .filter((photo) => Boolean(photo.src))
-    .map((photo) => galleryImageObject(photo, species, locale));
+  const objects = [];
+  for (const photo of photos) {
+    if (!photo.src) continue;
+    objects.push(galleryImageObject(photo, species, locale));
+  }
+  return objects;
 }
