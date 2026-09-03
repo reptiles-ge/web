@@ -614,7 +614,8 @@
   "attribution": {
     "heading": "Reptiles.ge",
     "subtitle": "Atlas of animals of Georgia",
-    "body": "Prepared by Reptiles.ge from established scientific and biological sources. Sources used are listed on this page.",
+    "body": "This page is an editorial compilation of the sources cited here. Sources are listed on this page.",
+    "updated": "Last updated {date}",
     "sources": "Sources",
     "methodology": "Our methodology"
   },

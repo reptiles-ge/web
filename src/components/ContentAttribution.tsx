@@ -1,20 +1,25 @@
 import { ArrowRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/Logo";
 import { Link } from "@/i18n/navigation";
+import { type AppLocale } from "@/i18n/routing";
+import { formatContentDate } from "@/lib/formatDate";
 import { siteEntityId } from "@/lib/site";
 
 type ContentAttributionProps = {
   showMethodology?: boolean;
   sourcesHref?: string;
+  updatedAt?: string;
 };
 
 export async function ContentAttribution({
   showMethodology = true,
   sourcesHref,
+  updatedAt,
 }: ContentAttributionProps) {
   const t = await getTranslations("attribution");
+  const locale = (await getLocale()) as AppLocale;
   const headingId = "content-attribution-heading";
   const showSources = Boolean(sourcesHref);
   const showLinks = showSources || showMethodology;
@@ -63,6 +68,15 @@ export async function ContentAttribution({
             >
               {t("body")}
             </p>
+            {updatedAt ? (
+              <p className="col-span-2 text-[12px] text-muted-foreground sm:col-span-1 sm:col-start-2">
+                <time dateTime={updatedAt}>
+                  {t("updated", {
+                    date: formatContentDate(updatedAt, locale),
+                  })}
+                </time>
+              </p>
+            ) : null}
             {showLinks ? (
               <p className="col-span-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] font-medium sm:col-span-1 sm:col-start-2">
                 {showSources && sourcesHref ? (

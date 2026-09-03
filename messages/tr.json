@@ -614,7 +614,8 @@
   "attribution": {
     "heading": "Reptiles.ge",
     "subtitle": "Gürcistan hayvanları atlası",
-    "body": "Reptiles.ge tarafından yerleşik bilimsel ve biyolojik kaynaklardan hazırlanmıştır. Kullanılan kaynaklar bu sayfada listelenir.",
+    "body": "Bu sayfa burada anılan kaynakların editoryal derlemesidir. Kaynaklar bu sayfada listelenir.",
+    "updated": "Son güncelleme {date}",
     "sources": "Kaynaklar",
     "methodology": "Yöntemimiz"
   },

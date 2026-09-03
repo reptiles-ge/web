@@ -142,6 +142,7 @@ export async function SpeciesProfileBody({
             ? `#${SPECIES_SECTION_IDS.sources}`
             : undefined
         }
+        updatedAt={species.updatedAt}
       />
 
       <SpeciesSources sources={species.sources} speciesId={species.id} />
