@@ -1,13 +1,16 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { JsonLd } from "@/components/JsonLd";
 import { NewsArticlePage } from "@/components/NewsArticlePage";
-import {
-  getNewsCopy,
-  getPublishedNewsArticleBySlug,
-} from "@/data/news";
+import { getNewsCopy, getPublishedNewsArticleBySlug } from "@/data/news";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
   newsArticleUrl,
@@ -24,10 +27,6 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -35,16 +34,12 @@ type Props = {
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return publishedNewsStaticParams();
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     return {
+      robots: { follow: false, index: false },
       title: "News",
-      robots: { index: false, follow: false },
     };
   }
 
@@ -53,8 +48,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) {
     const t = await getTranslations({ locale, namespace: "news" });
     return {
+      robots: { follow: false, index: false },
       title: t("notFound"),
-      robots: { index: false, follow: false },
     };
   }
 
@@ -66,33 +61,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const published = newsDateTime(article.publishedAt);
 
   return {
-    title,
-    description,
     alternates: newsArticleAlternates(locale, article.slug),
+    description,
     openGraph: {
-      type: "article",
+      description,
       locale: openGraphLocale(locale),
-      url,
+      publishedTime: published,
       siteName: siteConfig.name,
       title,
-      description,
-      publishedTime: published,
+      type: "article",
+      url,
       ...(article.updatedAt
         ? { modifiedTime: newsDateTime(article.updatedAt) }
         : {}),
       images: [openGraphJpeg(ogImage, title)],
     },
+    robots: {
+      follow: true,
+      index: true,
+    },
+    title,
     twitter: {
       card: "summary_large_image",
-      title,
       description,
       images: [ogImage],
-    },
-    robots: {
-      index: true,
-      follow: true,
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return publishedNewsStaticParams();
 }
 
 export default async function NewsArticleRoute({ params }: Props) {
@@ -126,21 +125,21 @@ export default async function NewsArticleRoute({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: tShared("breadcrumbHome"),
         item: absoluteUrl(localePath(locale, "/")),
+        name: tShared("breadcrumbHome"),
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: t("breadcrumbNews"),
         item: newsIndexUrl(locale),
+        name: t("breadcrumbNews"),
+        position: 2,
       },
       {
         "@type": "ListItem",
-        position: 3,
-        name: copy.title,
         item: url,
+        name: copy.title,
+        position: 3,
       },
     ],
   };
@@ -169,26 +168,12 @@ export default async function NewsArticleRoute({ params }: Props) {
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    headline: copy.title,
-    description: copy.metaDescription,
     datePublished: published,
+    description: copy.metaDescription,
+    headline: copy.title,
     ...(article.updatedAt
       ? { dateModified: newsDateTime(article.updatedAt) }
       : {}),
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": url,
-    },
-    url,
-    image: {
-      "@type": "ImageObject",
-      url: ogImage,
-      contentUrl: ogImage,
-    },
-    author: { "@id": siteEntityId("organization") },
-    publisher: org,
-    isPartOf: { "@id": siteEntityId("website") },
-    inLanguage: locale,
     about: [
       ...aboutPlaces,
       {
@@ -196,12 +181,26 @@ export default async function NewsArticleRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
     ],
-    mentions,
+    author: { "@id": siteEntityId("organization") },
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
       name: source.name,
       url: source.url,
     })),
+    image: {
+      "@type": "ImageObject",
+      contentUrl: ogImage,
+      url: ogImage,
+    },
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
+    mainEntityOfPage: {
+      "@id": url,
+      "@type": "WebPage",
+    },
+    mentions,
+    publisher: org,
+    url,
   };
 
   return (

@@ -1,9 +1,11 @@
+import { getTranslations } from "next-intl/server";
+
+import type { NewsArticle } from "@/data/news";
+import type { AppLocale } from "@/i18n/routing";
+
 import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import type { NewsArticle } from "@/data/news";
 import { newsIndexHref } from "@/lib/news";
-import { getTranslations } from "next-intl/server";
 
 type NewsRelatedBlockProps = {
   articles: NewsArticle[];
@@ -23,23 +25,23 @@ export async function NewsRelatedBlock({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-[1.1] text-foreground">
+            <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.1] font-semibold text-foreground">
               {t("relatedNewsHeading")}
             </h2>
           </div>
           <Link
-            href={newsIndexHref()}
             className="text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+            href={newsIndexHref()}
           >
             {t("allNews")}
           </Link>
         </div>
         <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
           {articles.map((article) => (
-            <li key={article.id} className="h-full">
+            <li className="h-full" key={article.id}>
               <NewsArticleCard
                 article={article}
                 locale={locale}

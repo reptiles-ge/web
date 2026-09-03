@@ -1,38 +1,38 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/regions";
-import type { Species } from "@/data/species";
-import { isVenomousDanger, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import {
   getSpeciesActivityStat,
   getSpeciesHabitatStat,
   getSpeciesSizeStat,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
 
-type DangerFilter = "all" | "venomous" | "harmless";
+type DangerFilter = "all" | "harmless" | "venomous";
 
 export function SpeciesIndexTable({
-  species,
   locale,
   showDangerFilter = true,
   showFamilyFilter = true,
+  species,
 }: {
-  species: Species[];
   locale: AppLocale;
   showDangerFilter?: boolean;
   showFamilyFilter?: boolean;
+  species: Species[];
 }) {
   const t = useTranslations("speciesIndex");
   const tShared = useTranslations("groupHubShared");
@@ -65,10 +65,10 @@ export function SpeciesIndexTable({
     resultCount: number,
   ) {
     trackEvent("index_filter", {
-      page_type: "guide",
-      group,
       danger_filter: nextDanger,
       family_filter: nextFamily,
+      group,
+      page_type: "guide",
       result_count: resultCount,
     });
   }
@@ -92,18 +92,19 @@ export function SpeciesIndexTable({
             const active = danger === key;
             return (
               <button
+                className={cn(
+                  "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
+                  active
+                    ? "border-ink bg-ink text-ink-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+                )}
                 key={key}
-                type="button"
                 onClick={() => {
                   if (key === danger) return;
                   setDanger(key);
                   emitIndexFilter(key, family, countFiltered(key, family));
                 }}
-                className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                  active
-                    ? "border-ink bg-ink text-ink-foreground"
-                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-                }`}
+                type="button"
               >
                 {t(`filter.${key}`)}
               </button>
@@ -112,19 +113,26 @@ export function SpeciesIndexTable({
         </div>
       ) : null}
       {showFamilyFilter ? (
-        <div className={showDangerFilter ? "mt-3 flex flex-wrap gap-2" : "flex flex-wrap gap-2"}>
+        <div
+          className={
+            showDangerFilter
+              ? "mt-3 flex flex-wrap gap-2"
+              : "flex flex-wrap gap-2"
+          }
+        >
           <button
-            type="button"
+            className={cn(
+              "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
+              family === "all"
+                ? "border-ink bg-ink text-ink-foreground"
+                : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+            )}
             onClick={() => {
               if (family === "all") return;
               setFamily("all");
               emitIndexFilter(danger, "all", countFiltered(danger, "all"));
             }}
-            className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-              family === "all"
-                ? "border-ink bg-ink text-ink-foreground"
-                : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-            }`}
+            type="button"
           >
             {t("filter.familyAll")}
           </button>
@@ -132,18 +140,19 @@ export function SpeciesIndexTable({
             const active = family === name;
             return (
               <button
+                className={cn(
+                  "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
+                  active
+                    ? "border-ink bg-ink text-ink-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+                )}
                 key={name}
-                type="button"
                 onClick={() => {
                   if (family === name) return;
                   setFamily(name);
                   emitIndexFilter(danger, name, countFiltered(danger, name));
                 }}
-                className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                  active
-                    ? "border-ink bg-ink text-ink-foreground"
-                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-                }`}
+                type="button"
               >
                 {name}
               </button>
@@ -157,27 +166,35 @@ export function SpeciesIndexTable({
       ) : (
         <>
           <div
-            className={`${showFilters ? "mt-10" : ""} space-y-px divide-y divide-border border-y border-border lg:hidden`}
+            className={cn(
+              showFilters && "mt-10",
+              "space-y-px divide-y divide-border border-y border-border lg:hidden",
+            )}
           >
             {filtered.map((item, index) => (
-              <Reveal key={item.id} delay={Math.min(index * 30, 240)}>
+              <Reveal delay={Math.min(index * 30, 240)} key={item.id}>
                 <IndexCard
-                  species={item}
-                  locale={locale}
                   dash={dash}
-                  rangePending={tShared("rangePending")}
-                  venomousYes={t("venomousYes")}
-                  venomousNo={t("venomousNo")}
+                  locale={locale}
                   position={index + 1}
+                  rangePending={tShared("rangePending")}
+                  species={item}
+                  venomousNo={t("venomousNo")}
+                  venomousYes={t("venomousYes")}
                 />
               </Reveal>
             ))}
           </div>
 
-          <div className={`${showFilters ? "mt-10" : ""} hidden overflow-x-auto lg:block`}>
+          <div
+            className={cn(
+              showFilters && "mt-10",
+              "hidden overflow-x-auto lg:block",
+            )}
+          >
             <table className="w-full min-w-[920px] border-y border-border text-left">
               <thead>
-                <tr className="border-b border-border text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                   <th className="py-4 pr-4 font-medium">{t("col.photo")}</th>
                   <th className="py-4 pr-4 font-medium">{t("col.name")}</th>
                   <th className="py-4 pr-4 font-medium">{t("col.venom")}</th>
@@ -190,43 +207,51 @@ export function SpeciesIndexTable({
               <tbody>
                 {filtered.map((item, rowIndex) => {
                   const href = speciesHref(item.id, locale);
-                  const range = formatRange(item.id, locale, tShared("rangePending"));
+                  const range = formatRange(
+                    item.id,
+                    locale,
+                    tShared("rangePending"),
+                  );
                   const size = getSpeciesSizeStat(item) ?? dash;
                   const habitat = getSpeciesHabitatStat(item) ?? dash;
                   const activity = getSpeciesActivityStat(item) ?? dash;
                   const onClick = () =>
                     trackSpeciesClick({
-                      species_id: item.id,
-                      source: "index",
                       position: rowIndex + 1,
+                      source: "index",
+                      species_id: item.id,
                     });
                   return (
                     <tr
-                      key={item.id}
                       className="border-b border-border/80 last:border-b-0"
+                      key={item.id}
                     >
                       <td className="py-3 pr-4">
-                        <Link href={href} className="block" onClick={onClick}>
+                        <Link className="block" href={href} onClick={onClick}>
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
                             <CoverImage
-                              src={item.mobileImage ?? item.image}
                               alt={speciesImageAlt(
                                 item.commonName,
                                 item.scientificName,
                                 item.location,
                               )}
-                              sizes="56px"
                               className="object-cover"
+                              sizes="56px"
+                              src={item.mobileImage ?? item.image}
                             />
                           </span>
                         </Link>
                       </td>
                       <td className="py-3 pr-4">
-                        <Link href={href} className="group block" onClick={onClick}>
+                        <Link
+                          className="group block"
+                          href={href}
+                          onClick={onClick}
+                        >
                           <span className="font-display text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary">
                             {item.commonName}
                           </span>
-                          <span className="mt-0.5 block text-[13px] italic text-muted-foreground">
+                          <span className="mt-0.5 block text-[13px] text-muted-foreground italic">
                             {item.scientificName}
                           </span>
                         </Link>
@@ -236,13 +261,13 @@ export function SpeciesIndexTable({
                           ? t("venomousYes")
                           : t("venomousNo")}
                       </td>
-                      <td className="max-w-[12rem] py-3 pr-4 text-[13px] text-muted-foreground">
+                      <td className="max-w-48 py-3 pr-4 text-[13px] text-muted-foreground">
                         {range}
                       </td>
-                      <td className="max-w-[11rem] py-3 pr-4 text-[13px] text-muted-foreground">
+                      <td className="max-w-44 py-3 pr-4 text-[13px] text-muted-foreground">
                         {size}
                       </td>
-                      <td className="max-w-[11rem] py-3 pr-4 text-[13px] text-muted-foreground">
+                      <td className="max-w-44 py-3 pr-4 text-[13px] text-muted-foreground">
                         {habitat}
                       </td>
                       <td className="py-3 text-[13px] text-muted-foreground">
@@ -271,21 +296,21 @@ function formatRange(id: string, locale: AppLocale, pending: string) {
 }
 
 function IndexCard({
-  species,
-  locale,
   dash,
-  rangePending,
-  venomousYes,
-  venomousNo,
+  locale,
   position,
+  rangePending,
+  species,
+  venomousNo,
+  venomousYes,
 }: {
-  species: Species;
-  locale: AppLocale;
   dash: string;
-  rangePending: string;
-  venomousYes: string;
-  venomousNo: string;
+  locale: AppLocale;
   position: number;
+  rangePending: string;
+  species: Species;
+  venomousNo: string;
+  venomousYes: string;
 }) {
   const href = speciesHref(species.id, locale);
   const range = formatRange(species.id, locale, rangePending);
@@ -295,33 +320,33 @@ function IndexCard({
 
   return (
     <Link
+      className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
       href={href}
       onClick={() =>
         trackSpeciesClick({
-          species_id: species.id,
-          source: "index",
           position,
+          source: "index",
+          species_id: species.id,
         })
       }
-      className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
     >
-      <span className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-ink sm:aspect-square">
+      <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square">
         <CoverImage
-          src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          sizes="(max-width: 640px) 100vw, 88px"
           className="object-cover"
+          sizes="(max-width: 640px) 100vw, 88px"
+          src={species.mobileImage ?? species.image}
         />
       </span>
       <span>
-        <span className="font-display text-[1.35rem] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+        <span className="font-display text-[1.35rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </span>
-        <span className="mt-1 block text-[13px] italic text-muted-foreground">
+        <span className="mt-1 block text-[13px] text-muted-foreground italic">
           {species.scientificName}
         </span>
         <span className="mt-3 block text-[13px] text-muted-foreground">

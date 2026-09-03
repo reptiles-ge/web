@@ -1,14 +1,17 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { JsonLd } from "@/components/JsonLd";
 import { QuizLanding } from "@/components/QuizLanding";
 import { QuizPlayer } from "@/components/QuizPlayer";
 import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import { routing, type AppLocale } from "@/i18n/routing";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import {
-  quizStaticParams,
-  resolveQuizBySlug,
-} from "@/lib/quizzes";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
+import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
 import {
   absoluteUrl,
   localePath,
@@ -18,22 +21,14 @@ import {
   siteEntityId,
 } from "@/lib/site";
 import { getSnakeQuizCatalog, QUIZ_LENGTH } from "@/lib/snakeQuiz";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-const OG_SIZE = { width: 1200, height: 630 };
+const OG_SIZE = { height: 630, width: 1200 };
 
 export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return quizStaticParams();
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
@@ -53,40 +48,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = absoluteUrl(quiz.ogImage);
 
   return {
-    title: { absolute: title },
+    alternates: quizAlternates(locale, quiz.id),
     description,
     keywords: t("keywords")
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean),
-    alternates: quizAlternates(locale, quiz.id),
     openGraph: {
-      title,
       description,
-      url,
-      type: "website",
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
       images: [
         {
+          alt: title,
+          height: OG_SIZE.height,
           url: ogImage,
           width: OG_SIZE.width,
-          height: OG_SIZE.height,
-          alt: title,
         },
       ],
-    },
-    twitter: {
-      card: "summary_large_image",
+      locale: openGraphLocale(locale),
+      siteName: siteConfig.name,
       title,
-      description,
-      images: [ogImage],
+      type: "website",
+      url,
     },
     robots: {
-      index: true,
       follow: true,
+      index: true,
+    },
+    title: { absolute: title },
+    twitter: {
+      card: "summary_large_image",
+      description,
+      images: [ogImage],
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return quizStaticParams();
 }
 
 export default async function QuizSlugRoute({ params }: Props) {
@@ -126,21 +125,21 @@ export default async function QuizSlugRoute({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: tShared("breadcrumbHome"),
         item: absoluteUrl(localePath(locale, "/")),
+        name: tShared("breadcrumbHome"),
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: tQuizzes("breadcrumbCurrent"),
         item: absoluteUrl(localePath(locale, "/quiz")),
+        name: tQuizzes("breadcrumbCurrent"),
+        position: 2,
       },
       {
         "@type": "ListItem",
-        position: 3,
-        name: t("breadcrumbCurrent"),
         item: url,
+        name: t("breadcrumbCurrent"),
+        position: 3,
       },
     ],
   };
@@ -148,17 +147,17 @@ export default async function QuizSlugRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    name: t("metaTitle"),
-    description: t("metaDescription"),
-    url,
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Thing",
       name: t("title"),
     },
+    description: t("metaDescription"),
     educationalLevel: "beginner",
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
+    name: t("metaTitle"),
     numberOfQuestions: QUIZ_LENGTH,
+    url,
   };
 
   const faqLd = {
@@ -166,11 +165,11 @@ export default async function QuizSlugRoute({ params }: Props) {
     "@type": "FAQPage",
     mainEntity: [1, 2, 3, 4].map((n) => ({
       "@type": "Question",
-      name: t(`faq${n}Q` as Parameters<typeof t>[0]),
       acceptedAnswer: {
         "@type": "Answer",
         text: t(`faq${n}A` as Parameters<typeof t>[0]),
       },
+      name: t(`faq${n}Q` as Parameters<typeof t>[0]),
     })),
   };
 
@@ -179,7 +178,7 @@ export default async function QuizSlugRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <QuizPlayer quizId={quiz.id} snakes={snakes} shareUrl={url} />
+      <QuizPlayer quizId={quiz.id} shareUrl={url} snakes={snakes} />
       <QuizLanding snakes={snakes} species={catalog} />
     </>
   );

@@ -1,32 +1,31 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
-import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { getPublishedNewsForHub } from "@/data/news";
 import { images } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
-import { routing, type AppLocale } from "@/i18n/routing";
-import {
-  GROUP_HUBS,
-  type GroupHubId,
-} from "@/lib/groupHubs";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
-  openGraphJpeg,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -45,35 +44,36 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const description = t("metaDescription");
     const url = absoluteUrl(localePath(locale, hub.path));
     const catalog = getCatalogSpeciesByGroup(hub.group);
-    const hero = catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
+    const hero =
+      catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
     const ogImage = speciesOgImageUrl(hub.heroSpeciesId, hero?.image);
 
     return {
-      title,
+      alternates: localeAlternates(locale, hub.path),
       description,
       keywords: t("keywords")
         .split(",")
         .map((item) => item.trim())
         .filter(Boolean),
-      alternates: localeAlternates(locale, hub.path),
       openGraph: {
-        title,
         description,
-        url,
-        type: "website",
+        images: [openGraphJpeg(ogImage, title)],
         locale: openGraphLocale(locale),
         siteName: siteConfig.name,
-        images: [openGraphJpeg(ogImage, title)],
-      },
-      twitter: {
-        card: "summary_large_image",
         title,
-        description,
-        images: [ogImage],
+        type: "website",
+        url,
       },
       robots: {
-        index: true,
         follow: true,
+        index: true,
+      },
+      title,
+      twitter: {
+        card: "summary_large_image",
+        description,
+        images: [ogImage],
+        title,
       },
     };
   }
@@ -108,15 +108,15 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       itemListElement: [
         {
           "@type": "ListItem",
-          position: 1,
-          name: tShared("breadcrumbHome"),
           item: absoluteUrl(localePath(locale, "/")),
+          name: tShared("breadcrumbHome"),
+          position: 1,
         },
         {
           "@type": "ListItem",
-          position: 2,
-          name: t("breadcrumbCurrent"),
           item: url,
+          name: t("breadcrumbCurrent"),
+          position: 2,
         },
       ],
     };
@@ -124,42 +124,43 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const collectionLd = {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      name: t("metaTitle"),
-      description: t("metaDescription"),
-      url,
-      isPartOf: { "@id": siteEntityId("website") },
-      author: { "@id": siteEntityId("organization") },
-      publisher: { "@id": siteEntityId("organization") },
       about: {
         "@type": "Place",
         name: georgiaPlaceName(locale),
       },
+      author: { "@id": siteEntityId("organization") },
+      description: t("metaDescription"),
       inLanguage: locale,
+      isPartOf: { "@id": siteEntityId("website") },
       mainEntity: {
         "@type": "ItemList",
-        numberOfItems: species.length,
         itemListElement: species.map((item, index) => ({
           "@type": "ListItem",
+          name: `${item.commonName} (${item.scientificName})`,
           position: index + 1,
           url: speciesPageUrl(locale, item.id),
-          name: `${item.commonName} (${item.scientificName})`,
         })),
+        numberOfItems: species.length,
       },
+      name: t("metaTitle"),
+      publisher: { "@id": siteEntityId("organization") },
+      url,
     };
 
     const faqIndices =
-      hubId === "turtles" ? ([1, 2, 3, 4, 5, 6, 7, 8] as const) : ([1, 2, 3, 4, 5] as const);
+      hubId === "turtles"
+        ? ([1, 2, 3, 4, 5, 6, 7, 8] as const)
+        : ([1, 2, 3, 4, 5] as const);
 
     const mainEntity: Array<{
       "@type": "Question";
-      name: string;
       acceptedAnswer: { "@type": "Answer"; text: string };
+      name: string;
     }> = [];
     for (const n of faqIndices) {
       if (!t.has(`faq${n}Q`)) continue;
       mainEntity.push({
         "@type": "Question",
-        name: t(`faq${n}Q`),
         acceptedAnswer: {
           "@type": "Answer",
           text:
@@ -174,6 +175,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
                   })
                 : t(`faq${n}A`),
         },
+        name: t(`faq${n}Q`),
       });
     }
 
@@ -185,11 +187,11 @@ export function createGroupHubRoute(hubId: GroupHubId) {
 
     return (
       <>
-        <CoverImagePreload src={heroSrc} sizes="100vw" />
+        <CoverImagePreload sizes="100vw" src={heroSrc} />
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />
-        <GroupHubPage hubId={hubId} species={species} heroSrc={heroSrc} />
+        <GroupHubPage heroSrc={heroSrc} hubId={hubId} species={species} />
         <NewsRelatedBlock
           articles={getPublishedNewsForHub(hubId)}
           locale={locale}
@@ -199,9 +201,8 @@ export function createGroupHubRoute(hubId: GroupHubId) {
   }
 
   return {
-    generateStaticParams: () =>
-      routing.locales.map((locale) => ({ locale })),
     generateMetadata,
+    generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     Page,
   };
 }

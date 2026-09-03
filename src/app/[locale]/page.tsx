@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+import type { ReactElement } from "react";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { FinalCTA } from "@/components/FinalCTA";
 import { Hero } from "@/components/Hero";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
@@ -9,19 +16,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
-  absoluteUrl,
-  localeAlternates,
-  localePath,
-  organizationJsonLd,
-  siteConfig,
-  siteEntityId,
-  SITE_OG_IMAGE_URL,
-  openGraphJpeg,
-  speciesPageUrl,
-  websiteJsonLd,
-} from "@/lib/site";
-import { HOME_DEFINED_TERMS, siteKeywords } from "@/lib/seoKeywords";
-import {
   allRightsReservedLabel,
   atlasDatasetName,
   atlasVariableName,
@@ -30,20 +24,24 @@ import {
   openGraphLocale,
   pickLocalized,
 } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import type { ReactElement } from "react";
+import { type AppLocale, routing } from "@/i18n/routing";
+import { HOME_DEFINED_TERMS, siteKeywords } from "@/lib/seoKeywords";
+import {
+  absoluteUrl,
+  localeAlternates,
+  localePath,
+  openGraphJpeg,
+  organizationJsonLd,
+  SITE_OG_IMAGE_URL,
+  siteConfig,
+  siteEntityId,
+  speciesPageUrl,
+  websiteJsonLd,
+} from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -57,28 +55,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = SITE_OG_IMAGE_URL;
 
   return {
+    alternates,
+    description,
+    keywords: siteKeywords(locale),
+    openGraph: {
+      description,
+      images: [openGraphJpeg(ogImage, title)],
+      locale: openGraphLocale(locale),
+      siteName: siteConfig.name,
+      title,
+      type: "website",
+      url,
+    },
     title: {
       absolute: title,
     },
-    description,
-    keywords: siteKeywords(locale),
-    alternates,
-    openGraph: {
-      title,
-      description,
-      url,
-      type: "website",
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      images: [openGraphJpeg(ogImage, title)],
-    },
     twitter: {
       card: "summary_large_image",
-      title,
       description,
       images: [ogImage],
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function Home({ params }: Props): Promise<ReactElement> {
@@ -104,35 +106,42 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
       org,
       websiteJsonLd({ description }),
       {
-        "@type": "WebPage",
         "@id": homeUrl,
-        url: homeUrl,
-        name: t("title"),
+        "@type": "WebPage",
+        about: [{ "@id": datasetId }, { "@id": termsId }],
         description,
         inLanguage: locale,
         isPartOf: { "@id": siteEntityId("website") },
-        about: [{ "@id": datasetId }, { "@id": termsId }],
+        name: t("title"),
         potentialAction: {
           "@type": "SearchAction",
+          "query-input": "required name=search_term_string",
           target: {
             "@type": "EntryPoint",
             urlTemplate: `${speciesSearchUrl}?q={search_term_string}`,
           },
-          "query-input": "required name=search_term_string",
         },
+        url: homeUrl,
       },
       {
-        "@type": "Dataset",
         "@id": datasetId,
-        name: atlasDatasetName(locale),
-        description,
-        url: homeUrl,
+        "@type": "Dataset",
         creator: { "@id": siteEntityId("organization") },
+        description,
+        inLanguage: [...routing.locales],
+        isAccessibleForFree: true,
+        license: {
+          "@type": "CreativeWork",
+          name: allRightsReservedLabel(locale),
+          url: absoluteUrl(localePath(locale, "/about")),
+        },
+        name: atlasDatasetName(locale),
         publisher: { "@id": siteEntityId("organization") },
         spatialCoverage: {
           "@type": "Place",
           name: georgiaPlaceName(locale),
         },
+        url: homeUrl,
         variableMeasured: [
           {
             "@type": "PropertyValue",
@@ -150,28 +159,21 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
             value: stats.venomous,
           },
         ],
-        isAccessibleForFree: true,
-        inLanguage: [...routing.locales],
-        license: {
-          "@type": "CreativeWork",
-          name: allRightsReservedLabel(locale),
-          url: absoluteUrl(localePath(locale, "/about")),
-        },
       },
       {
-        "@type": "DefinedTermSet",
         "@id": termsId,
-        name: georgiaReptilesLabel(locale),
+        "@type": "DefinedTermSet",
         alternateName:
           locale === "ka"
             ? georgiaReptilesLabel("en")
             : georgiaReptilesLabel("ka"),
-        url: homeUrl,
         hasDefinedTerm: HOME_DEFINED_TERMS.map((term) => ({
           "@type": "DefinedTerm",
           name: pickLocalized(term, locale),
           url: speciesPageUrl(locale as AppLocale, term.speciesId),
         })),
+        name: georgiaReptilesLabel(locale),
+        url: homeUrl,
       },
     ],
   };

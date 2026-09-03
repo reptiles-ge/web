@@ -1,19 +1,17 @@
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
+import type { AppLocale } from "@/i18n/routing";
+import type { GroupHubId } from "@/lib/groupHubs";
+
 import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
 import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
 import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
 import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
-import type { GroupHubId } from "@/lib/groupHubs";
-import type { AppLocale } from "@/i18n/routing";
-import { getSpeciesById } from "@/data/species";
 import { getRegionById } from "@/data/regions";
+import { getSpeciesById } from "@/data/species";
 import { GROUP_HUBS } from "@/lib/groupHubs";
-import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
-export type {
-  NewsArticle,
-  NewsPhoto,
-} from "@/data/newsTypes";
+export type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
   DAREVSKIA_UZZELLI_ARMENIA_2026,
@@ -36,6 +34,16 @@ export function getAllNewsArticles() {
   return NEWS_ARTICLES;
 }
 
+export function getNewsCopy(article: NewsArticle, locale: AppLocale) {
+  return article.copy[locale];
+}
+
+export function getPublishedNewsArticleBySlug(slug: string) {
+  const article = bySlug.get(slug);
+  if (!article || article.status !== "published") return undefined;
+  return article;
+}
+
 export function getPublishedNewsArticles() {
   return NEWS_ARTICLES.filter((article) => article.status === "published")
     .slice()
@@ -46,19 +54,9 @@ export function getPublishedNewsArticles() {
     });
 }
 
-export function getPublishedNewsArticleBySlug(slug: string) {
-  const article = bySlug.get(slug);
-  if (!article || article.status !== "published") return undefined;
-  return article;
-}
-
-export function getNewsCopy(article: NewsArticle, locale: AppLocale) {
-  return article.copy[locale];
-}
-
-export function getPublishedNewsForSpecies(speciesId: string) {
+export function getPublishedNewsForHub(hubId: GroupHubId) {
   return getPublishedNewsArticles().filter((article) =>
-    article.relatedSpeciesIds.includes(speciesId),
+    article.relatedHubIds.includes(hubId),
   );
 }
 
@@ -68,10 +66,17 @@ export function getPublishedNewsForRegion(regionId: string) {
   );
 }
 
-export function getPublishedNewsForHub(hubId: GroupHubId) {
+export function getPublishedNewsForSpecies(speciesId: string) {
   return getPublishedNewsArticles().filter((article) =>
-    article.relatedHubIds.includes(hubId),
+    article.relatedSpeciesIds.includes(speciesId),
   );
+}
+
+export function newsArticlePhotos(article: NewsArticle) {
+  const photos: NewsPhoto[] = [];
+  if (article.image) photos.push(article.image);
+  if (article.gallery) photos.push(...article.gallery);
+  return photos;
 }
 
 export function newsLatestModified(articles = getPublishedNewsArticles()) {
@@ -83,10 +88,21 @@ export function newsLatestModified(articles = getPublishedNewsArticles()) {
   return latest || undefined;
 }
 
-export function newsRelatedSpecies(article: NewsArticle) {
-  return article.relatedSpeciesIds
-    .map((id) => getSpeciesById(id))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+export function newsLocalizedDek(article: NewsArticle, locale: AppLocale) {
+  return getNewsCopy(article, locale).dek;
+}
+
+export function newsLocalizedTitle(article: NewsArticle, locale: AppLocale) {
+  return getNewsCopy(article, locale).title;
+}
+
+export function newsPhotoBySrc(article: NewsArticle, src: string) {
+  if (article.image?.src === src) return article.image;
+  return article.gallery?.find((photo) => photo.src === src);
+}
+
+export function newsRelatedHubs(article: NewsArticle) {
+  return article.relatedHubIds.map((id) => GROUP_HUBS[id]);
 }
 
 export function newsRelatedRegions(article: NewsArticle) {
@@ -95,8 +111,10 @@ export function newsRelatedRegions(article: NewsArticle) {
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
 }
 
-export function newsRelatedHubs(article: NewsArticle) {
-  return article.relatedHubIds.map((id) => GROUP_HUBS[id]);
+export function newsRelatedSpecies(article: NewsArticle) {
+  return article.relatedSpeciesIds
+    .map((id) => getSpeciesById(id))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
 }
 
 export function newsSearchKeywords(article: NewsArticle) {
@@ -111,27 +129,7 @@ export function newsSearchKeywords(article: NewsArticle) {
   ];
 }
 
-export function newsLocalizedDek(article: NewsArticle, locale: AppLocale) {
-  return getNewsCopy(article, locale).dek;
-}
-
-export function newsLocalizedTitle(article: NewsArticle, locale: AppLocale) {
-  return getNewsCopy(article, locale).title;
-}
-
 export function newsSourceOrg(article: NewsArticle) {
   const name = article.sources[0]?.name ?? "";
   return name.split(" — ")[0]?.trim() || name;
-}
-
-export function newsArticlePhotos(article: NewsArticle) {
-  const photos: NewsPhoto[] = [];
-  if (article.image) photos.push(article.image);
-  if (article.gallery) photos.push(...article.gallery);
-  return photos;
-}
-
-export function newsPhotoBySrc(article: NewsArticle, src: string) {
-  if (article.image?.src === src) return article.image;
-  return article.gallery?.find((photo) => photo.src === src);
 }

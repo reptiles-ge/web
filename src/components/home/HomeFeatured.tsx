@@ -1,9 +1,14 @@
+import { ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
+import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import {
   filterDisplayStats,
   getSpeciesHeroSources,
@@ -11,9 +16,6 @@ import {
   isPlaceholderMedia,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesSeoAnchor } from "@/lib/seoKeywords";
-import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 
 const SPOTLIGHT_ID = "vipera-dinniki";
 const SPOTLIGHT_IMAGE = "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg";
@@ -45,13 +47,13 @@ export async function HomeFeatured() {
     .filter((item) => !isPlaceholderMedia(item.image));
 
   return (
-    <section id="species" className="bg-surface py-20 lg:py-28">
+    <section className="bg-surface py-20 lg:py-28" id="species">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.5rem)] font-semibold leading-[1.12]">
+          <h2 className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.5rem)] leading-[1.12] font-semibold">
             {t("title")}
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -62,30 +64,30 @@ export async function HomeFeatured() {
         <article className="mt-12 lg:mt-16">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
             <TrackedSpeciesLink
-              speciesId={spotlight.id}
+              aria-label={tDetail("imageAlt")}
+              className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               locale={locale}
               source="home_spotlight"
-              aria-label={tDetail("imageAlt")}
-              className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+              speciesId={spotlight.id}
             >
-              <div className="relative aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5]">
+              <div className="relative aspect-4/5 sm:aspect-5/6 lg:aspect-4/5">
                 <CoverImage
-                  src={imageSrc}
                   alt={tDetail("imageAlt")}
-                  sizes="(max-width: 1023px) 100vw, 55vw"
                   className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                  sizes="(max-width: 1023px) 100vw, 55vw"
+                  src={imageSrc}
                 />
               </div>
             </TrackedSpeciesLink>
 
             <div className="lg:pb-4">
-              <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
                 {tDetail("eyebrow")}
               </p>
-              <h3 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.75rem)] font-semibold leading-[1.08] text-foreground">
+              <h3 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.75rem)] leading-[1.08] font-semibold text-foreground">
                 {spotlight.commonName}
               </h3>
-              <p className="mt-2 text-[15px] italic text-muted-foreground">
+              <p className="mt-2 text-[15px] text-muted-foreground italic">
                 {spotlight.scientificName}
               </p>
               <p className="mt-6 max-w-md text-[17px] leading-snug text-foreground/90 sm:text-[18px]">
@@ -101,7 +103,7 @@ export async function HomeFeatured() {
                       <dt className="text-[11px] tracking-[0.14em] text-muted-foreground">
                         {stat.label}
                       </dt>
-                      <dd className="mt-1.5 font-display text-[15px] font-medium leading-snug text-foreground">
+                      <dd className="mt-1.5 font-display text-[15px] leading-snug font-medium text-foreground">
                         {stat.value}
                       </dd>
                     </div>
@@ -109,10 +111,10 @@ export async function HomeFeatured() {
                 </dl>
               ) : null}
               <TrackedSpeciesLink
-                speciesId={spotlight.id}
+                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 locale={locale}
                 source="home_spotlight"
-                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                speciesId={spotlight.id}
               >
                 <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
                   {speciesSeoAnchor(
@@ -120,7 +122,7 @@ export async function HomeFeatured() {
                     spotlight.scientificName,
                   )}
                 </span>
-                <ArrowUpRight className="size-4" aria-hidden="true" />
+                <ArrowUpRight aria-hidden="true" className="size-4" />
               </TrackedSpeciesLink>
             </div>
           </div>
@@ -139,28 +141,28 @@ export async function HomeFeatured() {
               return (
                 <li key={species.id}>
                   <TrackedSpeciesLink
-                    speciesId={species.id}
+                    className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                     locale={locale}
-                    source="home_featured"
                     position={index + 1}
-                    className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    source="home_featured"
+                    speciesId={species.id}
                   >
-                    <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+                    <div className="relative aspect-4/5 overflow-hidden bg-ink">
                       <CoverImage
-                        src={cover ?? species.image}
                         alt={speciesImageAlt(
                           species.commonName,
                           species.scientificName,
                           species.location,
                         )}
-                        sizes="(max-width: 639px) 100vw, 33vw"
                         className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                        sizes="(max-width: 639px) 100vw, 33vw"
+                        src={cover ?? species.image}
                       />
                     </div>
-                    <p className="mt-4 text-[13px] italic text-muted-foreground">
+                    <p className="mt-4 text-[13px] text-muted-foreground italic">
                       {species.scientificName}
                     </p>
-                    <h3 className="mt-1 font-display text-[1.2rem] font-semibold leading-tight text-foreground">
+                    <h3 className="mt-1 font-display text-[1.2rem] leading-tight font-semibold text-foreground">
                       {species.commonName}
                     </h3>
                     {blurb ? (

@@ -1,24 +1,26 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
+
+import type { AppLocale } from "@/i18n/routing";
+import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
+
+import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
-  CLUSTER_TITLE_GUIDE,
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
-import type { AppLocale } from "@/i18n/routing";
-import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
-import { useLocale, useTranslations } from "next-intl";
 
 export function TurtleSpeciesIndexPage({
   guideId,
-  species,
   heroSrc,
+  species,
 }: ClusterGuideViewProps) {
   const t = useTranslations("turtleIndex");
   const locale = useLocale() as AppLocale;
@@ -29,60 +31,50 @@ export function TurtleSpeciesIndexPage({
 
   return (
     <ClusterPageFrame
+      ctaHash="#index"
       guideId={guideId}
       heroSrc={heroSrc}
-      ctaHash="#index"
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat value={species.length} label={t("statSpecies")} />
-            <ClusterStat value={introducedCount} label={t("statIntroduced")} />
-            <ClusterStat value={familyCount} label={t("statFamilies")} />
+            <ClusterStat label={t("statSpecies")} value={species.length} />
+            <ClusterStat label={t("statIntroduced")} value={introducedCount} />
+            <ClusterStat label={t("statFamilies")} value={familyCount} />
           </div>
         </section>
       }
     >
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-            <Reveal>
-              <ClusterSectionIntro
-                eyebrow={t("guideEyebrow")}
-                title={t("guideTitle")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_GUIDE}
-              />
-            </Reveal>
-            <Reveal delay={60}>
-              <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-                <p>{t("guideP1")}</p>
-                <p>{t("guideP2")}</p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      <ClusterGuideLead
+        body={
+          <>
+            <p>{t("guideP1")}</p>
+            <p>{t("guideP2")}</p>
+          </>
+        }
+        eyebrow={t("guideEyebrow")}
+        title={t("guideTitle")}
+      />
 
       <section
-        id="index"
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+        id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("tableEyebrow")}
-              title={t("tableTitle", { count: species.length })}
               body={t("tableBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("tableEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("tableTitle", { count: species.length })}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
           <div className="mt-10">
             <SpeciesIndexTable
-              species={species}
               locale={locale}
               showDangerFilter={false}
+              species={species}
             />
           </div>
         </div>

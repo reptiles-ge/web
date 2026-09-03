@@ -1,15 +1,17 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
+import { useTranslations } from "next-intl";
+
 import { useTheme } from "@/components/ThemeProvider";
 import {
   chromeIconButtonBase,
   chromeIconButtonClass,
 } from "@/lib/chromeStyles";
-import { Moon, Sun } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { cn } from "@/lib/cn";
 
 type ThemeToggleProps = {
-  variant?: "light" | "dark";
+  variant?: "dark" | "light";
 };
 
 export function ThemeToggle({ variant = "light" }: ThemeToggleProps) {
@@ -19,16 +21,16 @@ export function ThemeToggle({ variant = "light" }: ThemeToggleProps) {
 
   return (
     <button
-      type="button"
       aria-label={isDark ? t("toLight") : t("toDark")}
-      title={isDark ? t("toLight") : t("toDark")}
+      className={cn(chromeIconButtonBase, chromeIconButtonClass(variant))}
       onClick={toggleTheme}
-      className={`${chromeIconButtonBase} ${chromeIconButtonClass(variant)}`}
+      title={isDark ? t("toLight") : t("toDark")}
+      type="button"
     >
       {isDark ? (
-        <Sun className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
+        <Sun aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
       ) : (
-        <Moon className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
+        <Moon aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
       )}
     </button>
   );

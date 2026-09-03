@@ -1,13 +1,18 @@
-import { pictureSources } from "@/data/optimizedImages";
 import { preload } from "react-dom";
 
+import { pictureSources } from "@/data/optimizedImages";
+
 type CoverImagePreloadProps = {
-  src: string | null | undefined;
-  sizes: string;
   media?: string;
+  sizes: string;
+  src: null | string | undefined;
 };
 
-export function CoverImagePreload({ src, sizes, media }: CoverImagePreloadProps) {
+export function CoverImagePreload({
+  media,
+  sizes,
+  src,
+}: CoverImagePreloadProps) {
   if (!src) return null;
 
   const best = pictureSources(src, {
@@ -26,10 +31,10 @@ export function CoverImagePreload({ src, sizes, media }: CoverImagePreloadProps)
 
   preload(src, {
     as: "image",
-    type: best.props.type,
-    imageSrcSet: best.props.srcSet,
-    imageSizes: best.props.sizes,
     fetchPriority: "high",
+    imageSizes: best.props.sizes,
+    imageSrcSet: best.props.srcSet,
+    type: best.props.type,
     ...(media ? { media } : {}),
   });
   return null;

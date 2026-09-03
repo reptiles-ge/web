@@ -1,6 +1,6 @@
 import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
 import { getPathname } from "@/i18n/navigation";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { getNewsImageSrc } from "@/lib/newsVisual";
 import {
   absoluteUrl,
@@ -10,43 +10,43 @@ import {
 } from "@/lib/site";
 import { parseToSiteDateTime } from "@/lib/siteTime";
 
-export function newsIndexHref() {
-  return "/news" as const;
+export function newsArticleAlternates(locale: AppLocale, slug: string) {
+  return localeAlternates(locale, newsArticleHref(slug));
 }
 
 export function newsArticleHref(slug: string) {
   return {
-    pathname: "/news/[slug]" as const,
     params: { slug },
+    pathname: "/news/[slug]" as const,
   };
 }
 
-export function newsIndexPath(locale: AppLocale) {
-  return getPathname({ locale, href: newsIndexHref() });
-}
-
 export function newsArticlePath(locale: AppLocale, slug: string) {
-  return getPathname({ locale, href: newsArticleHref(slug) });
-}
-
-export function newsIndexUrl(locale: AppLocale) {
-  return absoluteUrl(newsIndexPath(locale));
+  return getPathname({ href: newsArticleHref(slug), locale });
 }
 
 export function newsArticleUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(newsArticlePath(locale, slug));
 }
 
+export function newsDateTime(isoDate: string) {
+  return parseToSiteDateTime(isoDate) ?? `${isoDate}T00:00:00+04:00`;
+}
+
 export function newsIndexAlternates(locale: AppLocale) {
   return localeAlternates(locale, newsIndexHref());
 }
 
-export function newsArticleAlternates(locale: AppLocale, slug: string) {
-  return localeAlternates(locale, newsArticleHref(slug));
+export function newsIndexHref() {
+  return "/news" as const;
 }
 
-export function newsDateTime(isoDate: string) {
-  return parseToSiteDateTime(isoDate) ?? `${isoDate}T00:00:00+04:00`;
+export function newsIndexPath(locale: AppLocale) {
+  return getPathname({ href: newsIndexHref(), locale });
+}
+
+export function newsIndexUrl(locale: AppLocale) {
+  return absoluteUrl(newsIndexPath(locale));
 }
 
 export function newsOgImageUrl(article?: NewsArticle) {

@@ -1,19 +1,20 @@
 "use client";
 
-import { Logo } from "@/components/Logo";
-import { Link } from "@/i18n/navigation";
-import { siteEntityId } from "@/lib/site";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { Logo } from "@/components/Logo";
+import { Link } from "@/i18n/navigation";
+import { siteEntityId } from "@/lib/site";
+
 type ContentAttributionProps = {
-  sourcesHref?: string;
   showMethodology?: boolean;
+  sourcesHref?: string;
 };
 
 export function ContentAttribution({
-  sourcesHref,
   showMethodology = true,
+  sourcesHref,
 }: ContentAttributionProps) {
   const t = useTranslations("attribution");
   const headingId = "content-attribution-heading";
@@ -25,16 +26,16 @@ export function ContentAttribution({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <aside
           aria-labelledby={headingId}
+          className="max-w-xl rounded-[20px] border border-border/90 bg-card p-5 sm:p-6"
+          itemID={siteEntityId("organization")}
           itemScope
           itemType="https://schema.org/Organization"
-          itemID={siteEntityId("organization")}
-          className="max-w-xl rounded-[20px] border border-border/90 bg-card px-5 py-5 sm:px-6 sm:py-6"
         >
           <div className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-4 gap-y-3.5">
             <Link
+              className="group col-span-2 grid grid-cols-[2.75rem_minmax(0,1fr)] items-start gap-x-4"
               href="/about"
               rel="author"
-              className="group col-span-2 grid grid-cols-[2.75rem_minmax(0,1fr)] items-start gap-x-4"
             >
               <span
                 aria-hidden="true"
@@ -44,23 +45,23 @@ export function ContentAttribution({
               </span>
               <span className="min-w-0">
                 <span
+                  className="block font-display text-[16px] leading-none font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-[17px]"
                   id={headingId}
                   itemProp="name"
-                  className="block font-display text-[16px] font-semibold leading-none tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-[17px]"
                 >
                   {t("heading")}
                 </span>
                 <span
-                  itemProp="alternateName"
                   className="mt-2 block text-[12px] leading-snug text-muted-foreground sm:text-[13px]"
+                  itemProp="alternateName"
                 >
                   {t("subtitle")}
                 </span>
               </span>
             </Link>
             <p
-              itemProp="description"
               className="col-span-2 text-[13px] leading-relaxed text-muted-foreground sm:col-span-1 sm:col-start-2 sm:text-[14px]"
+              itemProp="description"
             >
               {t("body")}
             </p>
@@ -68,16 +69,16 @@ export function ContentAttribution({
               <p className="col-span-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] font-medium sm:col-span-1 sm:col-start-2">
                 {showSources && sourcesHref ? (
                   <a
-                    href={sourcesHref}
                     className="text-foreground/80 transition-colors hover:text-primary"
+                    href={sourcesHref}
                   >
                     {t("sources")}
                   </a>
                 ) : null}
                 {showMethodology ? (
                   <Link
-                    href={{ pathname: "/about", hash: "methodology" }}
                     className="inline-flex items-center gap-1 text-foreground/80 transition-colors hover:text-primary"
+                    href={{ hash: "methodology", pathname: "/about" }}
                   >
                     {t("methodology")}
                     <ArrowRight className="size-3.5" strokeWidth={1.75} />

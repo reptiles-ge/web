@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { JsonLd } from "@/components/JsonLd";
 import { NewsIndexPage } from "@/components/NewsIndexPage";
 import { getPublishedNewsArticles } from "@/data/news";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   newsArticleUrl,
   newsIndexAlternates,
@@ -10,17 +16,13 @@ import {
   newsOgImageUrl,
 } from "@/lib/news";
 import {
+  absoluteUrl,
   localePath,
   openGraphJpeg,
   organizationJsonLd,
   siteConfig,
   siteEntityId,
-  absoluteUrl,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -30,10 +32,6 @@ const orgLd = {
   "@context": "https://schema.org",
   ...organizationJsonLd(),
 };
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
@@ -47,29 +45,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = newsOgImageUrl();
 
   return {
-    title,
-    description,
     alternates: newsIndexAlternates(locale),
+    description,
     openGraph: {
-      title,
       description,
-      url,
-      type: "website",
+      images: [openGraphJpeg(ogImage, title)],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
-      images: [openGraphJpeg(ogImage, title)],
-    },
-    twitter: {
-      card: "summary_large_image",
       title,
-      description,
-      images: [ogImage],
+      type: "website",
+      url,
     },
     robots: {
-      index: true,
       follow: true,
+      index: true,
+    },
+    title,
+    twitter: {
+      card: "summary_large_image",
+      description,
+      images: [ogImage],
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function NewsIndexRoute({ params }: Props) {
@@ -95,15 +97,15 @@ export default async function NewsIndexRoute({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: tShared("breadcrumbHome"),
         item: absoluteUrl(localePath(locale, "/")),
+        name: tShared("breadcrumbHome"),
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: t("breadcrumbNews"),
         item: url,
+        name: t("breadcrumbNews"),
+        position: 2,
       },
     ],
   };
@@ -111,22 +113,22 @@ export default async function NewsIndexRoute({ params }: Props) {
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: t("metaTitle"),
     description: t("metaDescription"),
-    url,
-    isPartOf: { "@id": siteEntityId("website") },
-    publisher: { "@id": siteEntityId("organization") },
     inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: articles.length,
       itemListElement: articles.map((article, index) => ({
         "@type": "ListItem",
+        name: article.copy[locale].title,
         position: index + 1,
         url: newsArticleUrl(locale, article.slug),
-        name: article.copy[locale].title,
       })),
+      numberOfItems: articles.length,
     },
+    name: t("metaTitle"),
+    publisher: { "@id": siteEntityId("organization") },
+    url,
   };
 
   return (

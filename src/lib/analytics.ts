@@ -1,48 +1,48 @@
-import { getSpeciesAtlasMeta, type AnimalGroup } from "@/data/speciesAtlas";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { type AppLocale, routing } from "@/i18n/routing";
 
-export type AnalyticsValue = string | number | boolean;
+export type AnalyticsValue = boolean | number | string;
+
+export type MapContext = "atlas" | "guide" | "home" | "region_page";
 
 export type PageType =
-  | "home"
-  | "species"
-  | "hub"
-  | "guide"
-  | "atlas"
-  | "region"
-  | "region_index"
-  | "quiz"
-  | "quiz_index"
   | "about"
+  | "atlas"
   | "contact"
+  | "guide"
+  | "home"
+  | "hub"
   | "news"
   | "news_article"
   | "not_found"
-  | "other";
+  | "other"
+  | "quiz"
+  | "quiz_index"
+  | "region"
+  | "region_index"
+  | "species";
+
+export type QuizCtaSource = "hub" | "other" | "quiz_index" | "species";
 
 export type SpeciesClickSource =
-  | "related"
-  | "identification"
-  | "search"
   | "atlas"
-  | "hub"
-  | "index"
   | "carousel"
-  | "home_spotlight"
+  | "footer"
+  | "guide"
   | "home_featured"
   | "home_fresh"
   | "home_safety"
+  | "home_spotlight"
+  | "hub"
+  | "identification"
+  | "index"
   | "map_panel"
-  | "region"
-  | "guide"
+  | "other"
   | "quiz_question"
   | "quiz_result"
-  | "footer"
-  | "other";
-
-export type MapContext = "home" | "atlas" | "region_page" | "guide";
-
-export type QuizCtaSource = "species" | "hub" | "quiz_index" | "other";
+  | "region"
+  | "related"
+  | "search";
 
 type DataLayerRecord = Record<string, AnalyticsValue | undefined> & {
   event?: string;
@@ -56,10 +56,6 @@ declare global {
 
 const SEARCH_TERM_MAX = 100;
 
-export function truncateSearchTerm(term: string) {
-  return term.trim().slice(0, SEARCH_TERM_MAX);
-}
-
 export function currentLanguage(): AppLocale {
   if (typeof document === "undefined") return "ka";
   const lang = document.documentElement.lang;
@@ -69,33 +65,19 @@ export function currentLanguage(): AppLocale {
   return "ka";
 }
 
-function compact(params: Record<string, AnalyticsValue | undefined>) {
-  const next: Record<string, AnalyticsValue> = {};
-  for (const [key, value] of Object.entries(params)) {
-    if (value !== undefined) next[key] = value;
-  }
-  return next;
-}
-
-function push(payload: DataLayerRecord) {
-  if (typeof window === "undefined") return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(payload);
-}
-
 export function pushPageContext(params: {
+  entity_id?: string;
+  group?: AnimalGroup | string;
   language: AppLocale;
   page_type: PageType;
-  group?: AnimalGroup | string;
-  entity_id?: string;
 }) {
   push({
     event: "page_context",
     ...compact({
+      entity_id: params.entity_id,
+      group: params.group,
       language: params.language,
       page_type: params.page_type,
-      group: params.group,
-      entity_id: params.entity_id,
     }),
   });
 }
@@ -112,16 +94,34 @@ export function trackEvent(
 }
 
 export function trackSpeciesClick(params: {
-  species_id: string;
-  source: SpeciesClickSource;
-  position?: number;
   group?: AnimalGroup | string;
+  position?: number;
+  source: SpeciesClickSource;
+  species_id: string;
 }) {
   const group = params.group ?? getSpeciesAtlasMeta(params.species_id).group;
   trackEvent("species_click", {
-    species_id: params.species_id,
     group,
-    source: params.source,
     position: params.position,
+    source: params.source,
+    species_id: params.species_id,
   });
+}
+
+export function truncateSearchTerm(term: string) {
+  return term.trim().slice(0, SEARCH_TERM_MAX);
+}
+
+function compact(params: Record<string, AnalyticsValue | undefined>) {
+  const next: Record<string, AnalyticsValue> = {};
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined) next[key] = value;
+  }
+  return next;
+}
+
+function push(payload: DataLayerRecord) {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(payload);
 }

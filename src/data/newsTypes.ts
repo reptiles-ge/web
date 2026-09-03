@@ -1,60 +1,59 @@
-import type { GroupHubId } from "@/lib/groupHubs";
-import type { AppLocale } from "@/i18n/routing";
 import type { PhotoCredit } from "@/data/speciesTypes";
+import type { AppLocale } from "@/i18n/routing";
+import type { GroupHubId } from "@/lib/groupHubs";
 
-export type NewsArticleStatus = "published" | "draft";
+export type NewsArticle = {
+  copy: Record<AppLocale, NewsLocaleCopy>;
+  gallery?: readonly NewsPhoto[];
+  id: string;
+  image?: NewsPhoto;
+  publishedAt: string;
+  relatedHubIds: readonly GroupHubId[];
+  relatedRegionIds: readonly string[];
+  relatedSpeciesIds: readonly string[];
+  slug: string;
+  sources: readonly NewsSource[];
+  status: NewsArticleStatus;
+  updatedAt?: string;
+};
 
-export type NewsPhoto = {
-  src: string;
-  alt: Record<AppLocale, string>;
-  credit?: PhotoCredit;
-  fromAtlas?: boolean;
-  plate?: boolean;
+export type NewsArticleStatus = "draft" | "published";
+
+export type NewsLocaleCopy = {
+  dek: string;
+  lead: string;
+  metaDescription: string;
+  metaTitle: string;
+  sections: NewsSection[];
+  title: string;
 };
 
 export type NewsMark =
   | string
-  | { type: "species"; id: string; label: string }
-  | { type: "region"; id: string; label: string }
-  | { type: "hub"; id: GroupHubId; label: string }
-  | { type: "news-index"; label: string }
-  | { type: "external"; href: string; label: string }
-  | { type: "sci"; name: string };
+  | { href: string; label: string; type: "external" }
+  | { id: GroupHubId; label: string; type: "hub" }
+  | { id: string; label: string; type: "region" }
+  | { id: string; label: string; type: "species" }
+  | { label: string; type: "news-index" }
+  | { name: string; type: "sci" };
 
-export type NewsSectionBlock =
-  | { type: "p"; parts: NewsMark[] }
-  | { type: "figure"; src: string };
+export type NewsPhoto = {
+  alt: Record<AppLocale, string>;
+  credit?: PhotoCredit;
+  fromAtlas?: boolean;
+  plate?: boolean;
+  src: string;
+};
 
 export type NewsSection = {
-  heading: string;
   blocks: NewsSectionBlock[];
+  heading: string;
 };
 
-export type NewsLocaleCopy = {
-  title: string;
-  metaTitle: string;
-  metaDescription: string;
-  dek: string;
-  lead: string;
-  sections: NewsSection[];
-};
+export type NewsSectionBlock =
+  { parts: NewsMark[]; type: "p" } | { src: string; type: "figure" };
 
 export type NewsSource = {
   name: string;
   url: string;
-};
-
-export type NewsArticle = {
-  id: string;
-  slug: string;
-  status: NewsArticleStatus;
-  publishedAt: string;
-  updatedAt?: string;
-  relatedSpeciesIds: readonly string[];
-  relatedRegionIds: readonly string[];
-  relatedHubIds: readonly GroupHubId[];
-  sources: readonly NewsSource[];
-  image?: NewsPhoto;
-  gallery?: readonly NewsPhoto[];
-  copy: Record<AppLocale, NewsLocaleCopy>;
 };

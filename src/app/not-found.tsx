@@ -1,27 +1,20 @@
-import { Navbar } from "@/components/Navbar";
-import { NotFoundContent } from "@/components/NotFoundContent";
-import { routing, type AppLocale } from "@/i18n/routing";
+import type { Metadata } from "next";
+
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { cookies } from "next/headers";
-import type { Metadata } from "next";
+
+import { Navbar } from "@/components/Navbar";
+import { NotFoundContent } from "@/components/NotFoundContent";
+import { type AppLocale, routing } from "@/i18n/routing";
 
 export const metadata: Metadata = {
   robots: {
-    index: false,
     follow: true,
-    googleBot: { index: false, follow: true },
+    googleBot: { follow: true, index: false },
+    index: false,
   },
 };
-
-async function resolveNotFoundLocale(): Promise<AppLocale> {
-  const jar = await cookies();
-  const fromCookie = jar.get("NEXT_LOCALE")?.value;
-  if (fromCookie && routing.locales.includes(fromCookie as AppLocale)) {
-    return fromCookie as AppLocale;
-  }
-  return routing.defaultLocale;
-}
 
 export default async function RootNotFound() {
   const locale = await resolveNotFoundLocale();
@@ -34,4 +27,13 @@ export default async function RootNotFound() {
       <NotFoundContent />
     </NextIntlClientProvider>
   );
+}
+
+async function resolveNotFoundLocale(): Promise<AppLocale> {
+  const jar = await cookies();
+  const fromCookie = jar.get("NEXT_LOCALE")?.value;
+  if (fromCookie && routing.locales.includes(fromCookie as AppLocale)) {
+    return fromCookie as AppLocale;
+  }
+  return routing.defaultLocale;
 }

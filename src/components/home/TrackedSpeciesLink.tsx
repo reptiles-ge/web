@@ -1,45 +1,44 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import {
-  trackSpeciesClick,
-  type SpeciesClickSource,
-} from "@/lib/analytics";
-import { speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 import type { ReactNode } from "react";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { Link } from "@/i18n/navigation";
+import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
+import { speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
+
 type TrackedSpeciesLinkProps = {
-  speciesId: string;
-  locale: AppLocale;
-  source: SpeciesClickSource;
-  position?: number;
-  className?: string;
   "aria-label"?: string;
   children: ReactNode;
+  className?: string;
+  locale: AppLocale;
+  position?: number;
+  source: SpeciesClickSource;
+  speciesId: string;
 };
 
 export function TrackedSpeciesLink({
-  speciesId,
-  locale,
-  source,
-  position,
-  className,
   "aria-label": ariaLabel,
   children,
+  className,
+  locale,
+  position,
+  source,
+  speciesId,
 }: TrackedSpeciesLinkProps) {
   const href: SpeciesHref = speciesHref(speciesId, locale);
 
   return (
     <Link
-      href={href}
-      className={className}
       aria-label={ariaLabel}
+      className={className}
+      href={href}
       onClick={() =>
         trackSpeciesClick({
-          species_id: speciesId,
-          source,
           position,
+          source,
+          species_id: speciesId,
         })
       }
     >

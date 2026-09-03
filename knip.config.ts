@@ -1,9 +1,14 @@
 import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
-  project: ["src/**/*.{ts,tsx,css}", "!src/i18n/global.ts", "scripts/**/*.ts"],
-  ignoreDependencies: ["sharp"],
+  ignoreDependencies: [
+    "eslint-plugin-import",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-react-hooks",
+    "sharp",
+  ],
   ignoreExportsUsedInFile: true,
+  project: ["src/**/*.{ts,tsx,css}", "!src/i18n/global.ts", "scripts/**/*.ts"],
 };
 
 export default config;

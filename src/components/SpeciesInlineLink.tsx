@@ -1,23 +1,26 @@
 "use client";
 
+import type { ReactNode } from "react";
+
+import { useLocale } from "next-intl";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { getSpeciesById } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { trackSpeciesClick, type SpeciesClickSource } from "@/lib/analytics";
+import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { useLocale } from "next-intl";
-import type { ReactNode } from "react";
 
 const inlineLinkClassName =
   "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground";
 
 export function SpeciesInlineLink({
-  id,
   children,
+  id,
   source = "guide",
 }: {
-  id: string;
   children: ReactNode;
+  id: string;
   source?: SpeciesClickSource;
 }) {
   const locale = useLocale() as AppLocale;
@@ -26,14 +29,14 @@ export function SpeciesInlineLink({
 
   return (
     <Link
+      className={inlineLinkClassName}
       href={speciesHref(id, locale)}
       onClick={() =>
         trackSpeciesClick({
-          species_id: id,
           source,
+          species_id: id,
         })
       }
-      className={inlineLinkClassName}
     >
       {children}
     </Link>

@@ -22,21 +22,21 @@ export const CLUSTER_FAQ_BODY =
   "mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground";
 
 export function ClusterSectionIntro({
-  eyebrow,
-  title,
   body,
-  eyebrowClassName,
-  titleClassName,
   bodyClassName,
   children,
+  eyebrow,
+  eyebrowClassName,
+  title,
+  titleClassName,
 }: {
-  eyebrow: string;
-  title: string;
   body?: string;
-  eyebrowClassName: string;
-  titleClassName: string;
   bodyClassName?: string;
   children?: ReactNode;
+  eyebrow: string;
+  eyebrowClassName: string;
+  title: string;
+  titleClassName: string;
 }) {
   return (
     <>
@@ -51,15 +51,15 @@ export function ClusterSectionIntro({
 }
 
 export function ClusterStat({
-  value,
   label,
+  value,
 }: {
-  value: ReactNode;
   label: string;
+  value: ReactNode;
 }) {
   return (
     <div>
-      <p className="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold leading-none text-foreground">
+      <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
         {value}
       </p>
       <p className="mt-2 text-[13px] text-muted-foreground">{label}</p>

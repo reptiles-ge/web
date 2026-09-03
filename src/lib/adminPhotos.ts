@@ -1,24 +1,26 @@
-import { createRequire } from "node:module";
-import path from "node:path";
 import {
   BunnyStorageAdapter,
   INPUT_MIME_TYPES,
   type SupportedInputFormat,
 } from "@reptiles-ge/img-compression";
-import { kaToSlug } from "@/lib/slugify";
-import { CDN_BASE } from "@/lib/site";
+import { createRequire } from "node:module";
+import path from "node:path";
+
 import type { GalleryImage, PhotoCredit } from "@/data/species";
+
 import {
   creditsEqual,
+  type GalleryOverlayLocale,
   galleryStorageKeys,
   readAdminSpeciesGallery,
-  type GalleryOverlayLocale,
 } from "@/lib/adminGalleryMdx";
 import { openPhotoPullRequest } from "@/lib/adminPhotoPullRequest";
 import {
-  optimizeUploadedOriginal,
   type OptimizeCatalogUpdate,
+  optimizeUploadedOriginal,
 } from "@/lib/imageOptimize";
+import { CDN_BASE } from "@/lib/site";
+import { kaToSlug } from "@/lib/slugify";
 
 const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
@@ -27,25 +29,138 @@ const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
   webp: "webp",
 };
 
-type SharpInstance = {
-  rotate: () => SharpInstance;
-  metadata: () => Promise<{ format?: string; hasAlpha?: boolean }>;
-  jpeg: (options: { quality: number; mozjpeg: boolean }) => SharpInstance;
-  png: () => SharpInstance;
-  webp: (options: { quality: number }) => SharpInstance;
-  toBuffer: () => Promise<Buffer>;
+export type AddSpeciesPhotosResult = {
+  added: GalleryImage[];
+  pullRequestError?: string;
+  pullRequestUrl?: string;
+};
+
+export type AdminPhotoCreditInput = {
+  date?: string;
+  location?: string;
+  locationEn?: string;
+  photographer?: string;
+  photographerEn?: string;
 };
 
 type SharpFn = (input: Buffer) => SharpInstance;
 
-function loadSharp(): SharpFn {
-  const require = createRequire(
-    path.join(
-      process.cwd(),
-      "node_modules/@reptiles-ge/img-compression/package.json",
-    ),
+type SharpInstance = {
+  jpeg: (options: { mozjpeg: boolean; quality: number }) => SharpInstance;
+  metadata: () => Promise<{ format?: string; hasAlpha?: boolean }>;
+  png: () => SharpInstance;
+  rotate: () => SharpInstance;
+  toBuffer: () => Promise<Buffer>;
+  webp: (options: { quality: number }) => SharpInstance;
+};
+
+export async function addSpeciesPhotos(input: {
+  credit: AdminPhotoCreditInput;
+  files: Array<{ bytes: Buffer; filename: string }>;
+  id: string;
+}): Promise<AddSpeciesPhotosResult> {
+  if (input.files.length === 0) {
+    throw new Error("Choose at least one photo");
+  }
+
+  const current = readAdminSpeciesGallery(input.id);
+  const used = galleryStorageKeys(current.gallery);
+  const storage = createStorage();
+  const slug = photographerSlug(input.credit.photographer);
+  const kaCredit = creditFromInput(input.credit, "ka");
+  const enCredit = creditFromInput(input.credit, "en");
+  const added: GalleryImage[] = [];
+  const items: Array<{
+    ka: GalleryImage;
+    overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>>;
+  }> = [];
+  const catalog: OptimizeCatalogUpdate[] = [];
+
+  const preparedFiles = await Promise.all(
+    input.files.map((file) => prepareOriginal(file.bytes)),
   );
-  return require("sharp") as SharpFn;
+  const uploads = await allocateUploadKeys(
+    storage,
+    used,
+    input.id,
+    slug,
+    preparedFiles,
+  );
+
+  const optimizedList = await Promise.all(
+    uploads.map(async (upload) => {
+      await storage.put(upload.key, upload.buffer, {
+        contentType: upload.contentType,
+      });
+      const src = storage.urlFor(upload.key);
+      const optimized = await optimizeUploadedOriginal({
+        key: upload.key,
+        source: upload.buffer,
+        src,
+        storage,
+      });
+      const kaItem: GalleryImage = kaCredit
+        ? { credit: kaCredit, src }
+        : { src };
+      const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
+      if (enCredit && !creditsEqual(kaCredit, enCredit)) {
+        overlays.en = { credit: enCredit, src };
+      }
+      return { kaItem, optimized, overlays };
+    }),
+  );
+
+  for (const result of optimizedList) {
+    if (result.optimized) catalog.push(result.optimized);
+    items.push({ ka: result.kaItem, overlays: result.overlays });
+    added.push(result.kaItem);
+  }
+
+  try {
+    const pullRequestUrl = await openPhotoPullRequest({
+      catalog,
+      id: input.id,
+      items,
+    });
+    return { added, pullRequestUrl };
+  } catch (error) {
+    const pullRequestError =
+      error instanceof Error ? error.message : "Could not open pull request";
+    return { added, pullRequestError };
+  }
+}
+
+async function allocateUploadKeys(
+  storage: BunnyStorageAdapter,
+  used: Set<string>,
+  id: string,
+  slug: null | string,
+  preparedFiles: Array<{
+    buffer: Buffer;
+    contentType: string;
+    ext: string;
+  }>,
+  index = 0,
+  acc: Array<{ buffer: Buffer; contentType: string; key: string }> = [],
+): Promise<Array<{ buffer: Buffer; contentType: string; key: string }>> {
+  if (index >= preparedFiles.length) return acc;
+  const prepared = preparedFiles[index];
+  if (!prepared) return acc;
+  const key = await nextStorageKey(storage, used, id, slug, prepared.ext);
+  acc.push({
+    buffer: prepared.buffer,
+    contentType: prepared.contentType,
+    key,
+  });
+  return allocateUploadKeys(
+    storage,
+    used,
+    id,
+    slug,
+    preparedFiles,
+    index + 1,
+    acc,
+  );
 }
 
 function createStorage() {
@@ -57,26 +172,18 @@ function createStorage() {
     );
   }
   return new BunnyStorageAdapter({
-    storageZone: zone,
     accessKey,
     cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
+    storageZone: zone,
     ...(process.env.BUNNY_STORAGE_REGION
       ? { region: process.env.BUNNY_STORAGE_REGION }
       : {}),
   });
 }
 
-export type AdminPhotoCreditInput = {
-  photographer?: string;
-  photographerEn?: string;
-  location?: string;
-  locationEn?: string;
-  date?: string;
-};
-
 function creditFromInput(
   input: AdminPhotoCreditInput,
-  locale: "ka" | "en",
+  locale: "en" | "ka",
 ): PhotoCredit | undefined {
   const photographer =
     locale === "en"
@@ -95,19 +202,21 @@ function creditFromInput(
   return Object.keys(credit).length > 0 ? credit : undefined;
 }
 
-function photographerSlug(photographer: string | undefined) {
-  if (!photographer) return null;
-  const first = photographer.trim().split(/\s+/)[0] ?? "";
-  const slug = kaToSlug(first);
-  if (!slug || slug.length < 2) return null;
-  return slug.slice(0, 24);
+function loadSharp(): SharpFn {
+  const require = createRequire(
+    path.join(
+      process.cwd(),
+      "node_modules/@reptiles-ge/img-compression/package.json",
+    ),
+  );
+  return require("sharp") as SharpFn;
 }
 
 async function nextStorageKey(
   storage: BunnyStorageAdapter,
   used: Set<string>,
   id: string,
-  slug: string | null,
+  slug: null | string,
   ext: string,
 ) {
   let n = 1;
@@ -122,11 +231,19 @@ async function nextStorageKey(
   throw new Error("Could not allocate a free CDN filename");
 }
 
+function photographerSlug(photographer: string | undefined) {
+  if (!photographer) return null;
+  const first = photographer.trim().split(/\s+/)[0] ?? "";
+  const slug = kaToSlug(first);
+  if (!slug || slug.length < 2) return null;
+  return slug.slice(0, 24);
+}
+
 async function prepareOriginal(bytes: Buffer): Promise<{
   buffer: Buffer;
-  format: SupportedInputFormat;
   contentType: string;
   ext: string;
+  format: SupportedInputFormat;
 }> {
   if (bytes.byteLength > MAX_UPLOAD_BYTES) {
     throw new Error("File is larger than 12 MB");
@@ -150,90 +267,17 @@ async function prepareOriginal(bytes: Buffer): Promise<{
     const buffer = await image.png().toBuffer();
     return {
       buffer,
-      format: "png",
       contentType: INPUT_MIME_TYPES.png,
       ext: OUTPUT_EXT.png,
+      format: "png",
     };
   }
 
-  const buffer = await image.jpeg({ quality: 92, mozjpeg: true }).toBuffer();
+  const buffer = await image.jpeg({ mozjpeg: true, quality: 92 }).toBuffer();
   return {
     buffer,
-    format: "jpeg",
     contentType: INPUT_MIME_TYPES.jpeg,
     ext: OUTPUT_EXT.jpeg,
+    format: "jpeg",
   };
-}
-
-export type AddSpeciesPhotosResult = {
-  added: GalleryImage[];
-  pullRequestUrl?: string;
-  pullRequestError?: string;
-};
-
-export async function addSpeciesPhotos(input: {
-  id: string;
-  files: Array<{ bytes: Buffer; filename: string }>;
-  credit: AdminPhotoCreditInput;
-}): Promise<AddSpeciesPhotosResult> {
-  if (input.files.length === 0) {
-    throw new Error("Choose at least one photo");
-  }
-
-  const current = readAdminSpeciesGallery(input.id);
-  const used = galleryStorageKeys(current.gallery);
-  const storage = createStorage();
-  const slug = photographerSlug(input.credit.photographer);
-  const kaCredit = creditFromInput(input.credit, "ka");
-  const enCredit = creditFromInput(input.credit, "en");
-  const added: GalleryImage[] = [];
-  const items: Array<{
-    ka: GalleryImage;
-    overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>>;
-  }> = [];
-  const catalog: OptimizeCatalogUpdate[] = [];
-
-  for (const file of input.files) {
-    const prepared = await prepareOriginal(file.bytes);
-    const key = await nextStorageKey(
-      storage,
-      used,
-      input.id,
-      slug,
-      prepared.ext,
-    );
-    await storage.put(key, prepared.buffer, {
-      contentType: prepared.contentType,
-    });
-    const src = storage.urlFor(key);
-    const optimized = await optimizeUploadedOriginal({
-      key,
-      source: prepared.buffer,
-      src,
-      storage,
-    });
-    if (optimized) catalog.push(optimized);
-    const kaItem: GalleryImage = kaCredit
-      ? { src, credit: kaCredit }
-      : { src };
-    const overlays: Partial<Record<GalleryOverlayLocale, GalleryImage>> = {};
-    if (enCredit && !creditsEqual(kaCredit, enCredit)) {
-      overlays.en = { src, credit: enCredit };
-    }
-    items.push({ ka: kaItem, overlays });
-    added.push(kaItem);
-  }
-
-  try {
-    const pullRequestUrl = await openPhotoPullRequest({
-      id: input.id,
-      items,
-      catalog,
-    });
-    return { added, pullRequestUrl };
-  } catch (error) {
-    const pullRequestError =
-      error instanceof Error ? error.message : "Could not open pull request";
-    return { added, pullRequestError };
-  }
 }

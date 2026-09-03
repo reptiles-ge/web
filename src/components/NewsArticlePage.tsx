@@ -1,9 +1,15 @@
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+
+import type { NewsArticle } from "@/data/news";
+import type { AppLocale } from "@/i18n/routing";
+import type { GroupHubId } from "@/lib/groupHubs";
+
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { NewsRichText } from "@/components/NewsRichText";
-import type { NewsArticle } from "@/data/news";
 import {
   getNewsCopy,
   newsPhotoBySrc,
@@ -12,12 +18,11 @@ import {
   newsRelatedSpecies,
   newsSourceOrg,
 } from "@/data/news";
-import { getSpeciesById, hasPhotoCredit } from "@/data/species";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
+import { getSpeciesById, hasPhotoCredit } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import {
@@ -26,16 +31,9 @@ import {
   newsCategoryHub,
   type NewsVisual,
 } from "@/lib/newsVisual";
-import {
-  regionHref,
-  speciesHref,
-  type SpeciesHref,
-} from "@/lib/speciesRoutes";
-import type { GroupHubId } from "@/lib/groupHubs";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 
 type NewsArticlePageProps = {
   article: NewsArticle;
@@ -67,25 +65,26 @@ export async function NewsArticlePage({
   );
   const regions = newsRelatedRegions(article);
   const hubs = newsRelatedHubs(article);
-  const hasRelated = species.length > 0 || regions.length > 0 || hubs.length > 0;
+  const hasRelated =
+    species.length > 0 || regions.length > 0 || hubs.length > 0;
 
   return (
     <div className="min-h-screen bg-background">
       {visual ? (
         <CoverImagePreload
-          src={visual.src}
           sizes="(max-width: 1023px) 100vw, 1400px"
+          src={visual.src}
         />
       ) : null}
       <main>
-        <article className="mx-auto max-w-[1400px] px-6 pt-[7.5rem] pb-16 sm:pt-[8.25rem] sm:pb-20 lg:px-10">
+        <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
           <header>
             <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                 <li>
                   <Link
-                    href="/"
                     className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                    href="/"
                   >
                     {tShared("breadcrumbHome")}
                   </Link>
@@ -95,8 +94,8 @@ export async function NewsArticlePage({
                 </li>
                 <li>
                   <Link
-                    href={newsIndexHref()}
                     className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                    href={newsIndexHref()}
                   >
                     {t("breadcrumbNews")}
                   </Link>
@@ -106,18 +105,18 @@ export async function NewsArticlePage({
                 </li>
                 <li
                   aria-current="page"
-                  className="min-w-0 max-w-[min(100%,42rem)] text-foreground"
+                  className="max-w-[min(100%,42rem)] min-w-0 text-foreground"
                 >
                   {copy.title}
                 </li>
               </ol>
             </nav>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {category ? <span>{category}</span> : null}
               {category ? <span aria-hidden="true"> · </span> : null}
               <time dateTime={article.publishedAt}>{dateLabel}</time>
             </p>
-            <h1 className="mt-5 font-display text-balance-tight text-[clamp(1.95rem,4.8vw,3.35rem)] font-semibold leading-[1.08] text-foreground">
+            <h1 className="text-balance-tight mt-5 font-display text-[clamp(1.95rem,4.8vw,3.35rem)] leading-[1.08] font-semibold text-foreground">
               {copy.title}
             </h1>
             <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
@@ -127,12 +126,12 @@ export async function NewsArticlePage({
 
           {visual ? (
             <NewsFigure
-              visual={visual}
               locale={locale}
-              sizes="(max-width: 1023px) 100vw, 1400px"
-              priority
-              photoFromAtlas={t("photoFromAtlas")}
               photoCreditLabel={t("photoCredit")}
+              photoFromAtlas={t("photoFromAtlas")}
+              priority
+              sizes="(max-width: 1023px) 100vw, 1400px"
+              visual={visual}
             />
           ) : null}
 
@@ -142,12 +141,12 @@ export async function NewsArticlePage({
             </p>
 
             {copy.sections.map((section) => (
-              <section key={section.heading} className="mt-14 sm:mt-16">
+              <section className="mt-14 sm:mt-16" key={section.heading}>
                 <AnchoredHeading
-                  as="h2"
-                  slugSource={section.heading}
                   anchorLabel={t("anchorLink")}
-                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground"
+                  as="h2"
+                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground"
+                  slugSource={section.heading}
                 >
                   {section.heading}
                 </AnchoredHeading>
@@ -158,19 +157,19 @@ export async function NewsArticlePage({
                       if (!photo) return null;
                       return (
                         <NewsFigure
-                          key={block.src}
-                          visual={localizeNewsPhoto(photo, locale)}
-                          locale={locale}
-                          sizes="(max-width: 1023px) 100vw, 1400px"
-                          photoFromAtlas={t("photoFromAtlas")}
-                          photoCreditLabel={t("photoCredit")}
                           compact
+                          key={block.src}
+                          locale={locale}
+                          photoCreditLabel={t("photoCredit")}
+                          photoFromAtlas={t("photoFromAtlas")}
+                          sizes="(max-width: 1023px) 100vw, 1400px"
+                          visual={localizeNewsPhoto(photo, locale)}
                         />
                       );
                     }
                     return (
                       <p key={`p:${section.heading}:${index}`}>
-                        <NewsRichText parts={block.parts} locale={locale} />
+                        <NewsRichText locale={locale} parts={block.parts} />
                       </p>
                     );
                   })}
@@ -181,23 +180,23 @@ export async function NewsArticlePage({
             {primarySource ? (
               <aside className="mt-16 border-t border-border pt-10 sm:mt-20">
                 <AnchoredHeading
-                  as="h2"
-                  id="sources"
                   anchorLabel={t("anchorLink")}
-                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground"
+                  as="h2"
+                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground"
+                  id="sources"
                 >
                   {t("sourceHeading")}
                 </AnchoredHeading>
                 <a
+                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-[clamp(1.35rem,2.2vw,1.7rem)] leading-snug font-semibold text-foreground transition-colors hover:text-primary"
                   href={primarySource.url}
-                  target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-[clamp(1.35rem,2.2vw,1.7rem)] font-semibold leading-snug text-foreground transition-colors hover:text-primary"
+                  target="_blank"
                 >
                   {sourceOrg}
                   <ArrowUpRight
                     aria-hidden="true"
-                    className="size-4 shrink-0 text-muted-foreground motion-safe:transition-transform motion-safe:duration-300 group-hover:text-primary motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5"
+                    className="size-4 shrink-0 text-muted-foreground group-hover:text-primary motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
                   />
                 </a>
                 {moreSources.length > 0 ? (
@@ -205,10 +204,10 @@ export async function NewsArticlePage({
                     {moreSources.map((source) => (
                       <li key={source.url}>
                         <a
-                          href={source.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
                           className="group inline-flex max-w-full items-start gap-2 text-[14px] text-muted-foreground transition-colors hover:text-foreground"
+                          href={source.url}
+                          rel="noopener noreferrer"
+                          target="_blank"
                         >
                           <span className="border-b border-border pb-0.5 transition-colors group-hover:border-foreground/40">
                             {source.name}
@@ -228,7 +227,7 @@ export async function NewsArticlePage({
 
           {hasRelated ? (
             <section className="mt-16 border-t border-border pt-10 sm:mt-20">
-              <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] font-semibold leading-[1.15] text-foreground">
+              <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground">
                 {t("relatedHeading")}
               </h2>
               <ul className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -236,17 +235,15 @@ export async function NewsArticlePage({
                   <li key={item.id}>
                     <RelatedAtlasCard
                       href={speciesHref(item.id, locale)}
-                      title={item.commonName}
-                      subtitle={item.scientificName}
-                      image={
-                        isPlaceholderMedia(item.image) ? null : item.image
-                      }
+                      image={isPlaceholderMedia(item.image) ? null : item.image}
                       imageAlt={speciesPhotoAlt(
                         item.commonName,
                         item.scientificName,
                         item.location,
                         item.imageCredit,
                       )}
+                      subtitle={item.scientificName}
+                      title={item.commonName}
                     />
                   </li>
                 ))}
@@ -254,9 +251,9 @@ export async function NewsArticlePage({
                   <li key={region.id}>
                     <RelatedAtlasCard
                       href={regionHref(region.id)}
-                      title={localizeRegionText(region.name, locale)}
                       image={getRegionHeroImage(region.id)}
                       imageAlt={localizeRegionText(region.name, locale)}
+                      title={localizeRegionText(region.name, locale)}
                     />
                   </li>
                 ))}
@@ -266,7 +263,6 @@ export async function NewsArticlePage({
                     <li key={relatedHub.id}>
                       <RelatedAtlasCard
                         href={relatedHub.path}
-                        title={tNav(relatedHub.id)}
                         image={
                           hero && !isPlaceholderMedia(hero.image)
                             ? hero.image
@@ -282,6 +278,7 @@ export async function NewsArticlePage({
                               )
                             : ""
                         }
+                        title={tNav(relatedHub.id)}
                       />
                     </li>
                   );
@@ -292,8 +289,8 @@ export async function NewsArticlePage({
 
           <p className="mt-16 sm:mt-20">
             <Link
-              href={newsIndexHref()}
               className="inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+              href={newsIndexHref()}
             >
               <ArrowLeft aria-hidden="true" className="size-3.5" />
               {t("allNews")}
@@ -307,132 +304,155 @@ export async function NewsArticlePage({
 }
 
 function NewsFigure({
-  visual,
-  locale,
-  sizes,
-  priority = false,
   compact = false,
-  photoFromAtlas,
+  locale,
   photoCreditLabel,
+  photoFromAtlas,
+  priority = false,
+  sizes,
+  visual,
 }: {
-  visual: NewsVisual;
-  locale: AppLocale;
-  sizes: string;
-  priority?: boolean;
   compact?: boolean;
-  photoFromAtlas: string;
+  locale: AppLocale;
   photoCreditLabel: string;
+  photoFromAtlas: string;
+  priority?: boolean;
+  sizes: string;
+  visual: NewsVisual;
 }) {
   const dateLabel = visual.credit?.date
     ? formatPhotoDate(visual.credit.date, locale)
     : null;
   const photographer = visual.credit?.photographer;
-  const creditMeta = [
-    photographer,
-    visual.credit?.location,
-    dateLabel,
-  ].filter(Boolean);
+  const creditMeta = [photographer, visual.credit?.location, dateLabel].filter(
+    (item): item is string => Boolean(item),
+  );
 
   return (
     <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
       {visual.plate ? (
         <CoverImage
-          src={visual.src}
           alt={visual.alt}
-          sizes={sizes}
-          priority={priority}
-          fill={false}
           className={
             compact
               ? "h-auto w-full rounded-[20px] bg-surface"
               : "h-auto w-full rounded-[24px] bg-surface"
           }
+          fill={false}
+          priority={priority}
+          sizes={sizes}
+          src={visual.src}
         />
       ) : (
         <div
           className={
             compact
-              ? "relative aspect-[16/10] overflow-hidden rounded-[20px] bg-surface"
-              : "relative aspect-[16/10] overflow-hidden rounded-[24px] bg-surface sm:aspect-[2/1]"
+              ? "relative aspect-16/10 overflow-hidden rounded-[20px] bg-surface"
+              : "relative aspect-16/10 overflow-hidden rounded-[24px] bg-surface sm:aspect-2/1"
           }
         >
           <CoverImage
-            src={visual.src}
             alt={visual.alt}
-            sizes={sizes}
-            priority={priority}
             className="object-cover object-center"
+            priority={priority}
+            sizes={sizes}
+            src={visual.src}
           />
         </div>
       )}
       <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
         {visual.fromAtlas ? `${photoFromAtlas} ` : null}
         {visual.alt}
-        {hasPhotoCredit(visual.credit) && creditMeta.length > 0 ? (
-          <>
-            {" "}
-            {photographer ? (
-              visual.credit?.url ? (
-                <a
-                  href={visual.credit.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-                >
-                  {photoCreditLabel} {photographer}
-                </a>
-              ) : (
-                <span>
-                  {photoCreditLabel} {photographer}
-                </span>
-              )
-            ) : null}
-            {visual.credit?.location || dateLabel ? (
-              <span>
-                {photographer ? " · " : null}
-                {[visual.credit?.location, dateLabel].filter(Boolean).join(" · ")}
-              </span>
-            ) : null}
-          </>
-        ) : null}
+        <NewsFigureCredit
+          credit={visual.credit}
+          creditMeta={creditMeta}
+          dateLabel={dateLabel}
+          photoCreditLabel={photoCreditLabel}
+          photographer={photographer}
+        />
       </figcaption>
     </figure>
   );
 }
 
+function NewsFigureCredit({
+  credit,
+  creditMeta,
+  dateLabel,
+  photoCreditLabel,
+  photographer,
+}: {
+  credit: NewsVisual["credit"];
+  creditMeta: string[];
+  dateLabel: null | string;
+  photoCreditLabel: string;
+  photographer: string | undefined;
+}) {
+  if (!hasPhotoCredit(credit) || creditMeta.length === 0) return null;
+  return (
+    <>
+      {" "}
+      {photographer ? (
+        credit.url ? (
+          <a
+            className="text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+            href={credit.url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {photoCreditLabel} {photographer}
+          </a>
+        ) : (
+          <span>
+            {photoCreditLabel} {photographer}
+          </span>
+        )
+      ) : null}
+      {credit.location || dateLabel ? (
+        <span>
+          {photographer ? " · " : null}
+          {[credit.location, dateLabel].filter(Boolean).join(" · ")}
+        </span>
+      ) : null}
+    </>
+  );
+}
+
 function RelatedAtlasCard({
   href,
-  title,
-  subtitle,
   image,
   imageAlt,
+  subtitle,
+  title,
 }: {
-  href: SpeciesHref | ReturnType<typeof regionHref> | `/${GroupHubId}`;
-  title: string;
-  subtitle?: string;
-  image: string | null;
+  href: `/${GroupHubId}` | ReturnType<typeof regionHref> | SpeciesHref;
+  image: null | string;
   imageAlt: string;
+  subtitle?: string;
+  title: string;
 }) {
   return (
     <Link
+      className="group block rounded-[4px] focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
       href={href}
-      className="group block rounded-[4px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
     >
       {image ? (
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[16px] bg-surface">
+        <div className="relative aspect-16/10 overflow-hidden rounded-[16px] bg-surface">
           <CoverImage
-            src={image}
             alt={imageAlt}
-            sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
             className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+            sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 33vw"
+            src={image}
           />
         </div>
       ) : null}
-      <p className="mt-3 font-display text-[17px] font-semibold leading-snug text-foreground motion-safe:transition-colors group-hover:text-primary">
+      <p className="mt-3 font-display text-[17px] leading-snug font-semibold text-foreground group-hover:text-primary motion-safe:transition-colors">
         {title}
       </p>
       {subtitle ? (
-        <p className="mt-1 text-[13px] italic text-muted-foreground">{subtitle}</p>
+        <p className="mt-1 text-[13px] text-muted-foreground italic">
+          {subtitle}
+        </p>
       ) : null}
     </Link>
   );

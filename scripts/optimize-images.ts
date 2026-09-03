@@ -33,7 +33,10 @@ const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 const MANIFEST_ROOT = path.join(process.cwd(), "src/data");
 const MANIFEST_KEY = "image-manifest.json";
-const OUT_FILE = path.join(process.cwd(), "src/data/optimizedImages.generated.ts");
+const OUT_FILE = path.join(
+  process.cwd(),
+  "src/data/optimizedImages.generated.ts",
+);
 const CHECKPOINT_INTERVAL = 25;
 
 const MAX_WIDTH = 2400;
@@ -215,7 +218,11 @@ function collectTargets(ids: string[], all: boolean, news: boolean): Target[] {
   return [...targets.values()].sort((a, b) => a.key.localeCompare(b.key));
 }
 
-function collectCoverKeys(ids: string[], all: boolean, news: boolean): Set<string> {
+function collectCoverKeys(
+  ids: string[],
+  all: boolean,
+  news: boolean,
+): Set<string> {
   const wanted = new Set(ids);
   const keys = new Set<string>();
 
@@ -255,8 +262,7 @@ async function readSource(target: Target): Promise<Buffer> {
       if (response.ok) {
         return Buffer.from(await response.arrayBuffer());
       }
-    } catch {
-    }
+    } catch {}
     const local = await readLocalSource(target);
     if (local) return local;
     throw new Error(`HTTP fetch failed and no local file for ${target.src}`);
@@ -305,7 +311,13 @@ async function ensureOgImage(input: {
   og: OgImageConfig;
   force: boolean;
   dryRun: boolean;
-}): Promise<{ status: OgStatus; key: string; bytes?: number; quality?: number; enlarged?: boolean }> {
+}): Promise<{
+  status: OgStatus;
+  key: string;
+  bytes?: number;
+  quality?: number;
+  enlarged?: boolean;
+}> {
   const key = ogImageKey(input.og, input.target.key);
   if (!input.force && (await input.storage.exists(key))) {
     return { status: "skipped", key };
@@ -335,7 +347,8 @@ async function ensureOgImage(input: {
 function formatOgResult(result: Awaited<ReturnType<typeof ensureOgImage>>) {
   if (result.status === "skipped") return `og skipped ${result.key}`;
   if (result.status === "planned") return `og planned ${result.key}`;
-  const size = result.bytes === undefined ? "" : ` ${formatBytes(result.bytes)}`;
+  const size =
+    result.bytes === undefined ? "" : ` ${formatBytes(result.bytes)}`;
   const quality = result.quality === undefined ? "" : ` q${result.quality}`;
   const enlarged = result.enlarged ? " enlarged" : "";
   return `og written ${result.key}${size}${quality}${enlarged}`;
@@ -363,9 +376,7 @@ function compactAsset(
         null,
       );
     if (!widest) return false;
-    return (
-      widest.width < entry.width || widest.byteSize < entry.originalSize
-    );
+    return widest.width < entry.width || widest.byteSize < entry.originalSize;
   });
 
   if (formats.length === 0) return null;
@@ -386,7 +397,9 @@ function compactAsset(
     for (const format of formats) {
       const derivative = byFormatWidth.get(`${format}@${width}`);
       if (!derivative) {
-        throw new Error(`${key} is missing the ${width}px ${format} derivative.`);
+        throw new Error(
+          `${key} is missing the ${width}px ${format} derivative.`,
+        );
       }
       const expected = `${prefix}${assetPath}-${width}.${format}`;
       if (storage.urlFor(derivative.key) !== expected) {
@@ -412,16 +425,16 @@ function formatGeneratedImages(
   const entries = Object.entries(images)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([src, asset]) => {
-    const widths = `[${asset.widths.join(", ")}]`;
-    const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
-    return `  ${JSON.stringify(src)}: {
+      const widths = `[${asset.widths.join(", ")}]`;
+      const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
+      return `  ${JSON.stringify(src)}: {
     path: ${JSON.stringify(asset.path)},
     width: ${asset.width},
     height: ${asset.height},
     widths: ${widths},
     formats: ${formats},
   },`;
-  });
+    });
   return `{\n${entries.join("\n")}\n}`;
 }
 
@@ -433,7 +446,10 @@ async function generateDataFile(
 ) {
   const prefix = `${storage.urlFor(config.optimizedPrefix)}/`;
 
-  const images: Record<string, NonNullable<ReturnType<typeof compactAsset>>> = {};
+  const images: Record<
+    string,
+    NonNullable<ReturnType<typeof compactAsset>>
+  > = {};
   let skippedNoGain = 0;
 
   for (const [key, entry] of Object.entries(manifest.entries).sort(([a], [b]) =>
@@ -482,22 +498,38 @@ async function run() {
   const byKey = collectSources();
 
   if (options.emitOnly) {
-    const current = await loadManifest(manifestStorage, MANIFEST_KEY, (message) =>
-      console.warn(`  warning  ${message}`),
+    const current = await loadManifest(
+      manifestStorage,
+      MANIFEST_KEY,
+      (message) => console.warn(`  warning  ${message}`),
     );
     await generateDataFile(current, byKey, storage, config);
     return 0;
   }
 
-  const discovered = collectTargets(options.speciesIds, options.all, options.news);
-  const coverKeys = collectCoverKeys(options.speciesIds, options.all, options.news);
-  const targets =
-    options.limit === undefined ? discovered : discovered.slice(0, options.limit);
-
-  const manifest = await loadManifest(manifestStorage, MANIFEST_KEY, (message) =>
-    console.warn(`  warning  ${message}`),
+  const discovered = collectTargets(
+    options.speciesIds,
+    options.all,
+    options.news,
   );
-  const entries = new Map<string, ManifestEntry>(Object.entries(manifest.entries));
+  const coverKeys = collectCoverKeys(
+    options.speciesIds,
+    options.all,
+    options.news,
+  );
+  const targets =
+    options.limit === undefined
+      ? discovered
+      : discovered.slice(0, options.limit);
+
+  const manifest = await loadManifest(
+    manifestStorage,
+    MANIFEST_KEY,
+    (message) => console.warn(`  warning  ${message}`),
+  );
+  const entries = new Map<string, ManifestEntry>(
+    Object.entries(manifest.entries),
+  );
 
   console.log(
     `Storage: ${storage.name}. Widths: ${[...config.additionalWidths, config.maxWidth].join(", ")}. ` +
@@ -623,7 +655,9 @@ async function run() {
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         failures.push(`${target.key}: ${message}`);
-        console.error(`${position} ${"failed".padEnd(11)} ${target.key}: ${message}`);
+        console.error(
+          `${position} ${"failed".padEnd(11)} ${target.key}: ${message}`,
+        );
       }
 
       sinceCheckpoint += 1;
@@ -635,7 +669,10 @@ async function run() {
   };
 
   await Promise.all(
-    Array.from({ length: Math.min(options.concurrency, targets.length) }, worker),
+    Array.from(
+      { length: Math.min(options.concurrency, targets.length) },
+      worker,
+    ),
   );
 
   if (!options.dryRun) {

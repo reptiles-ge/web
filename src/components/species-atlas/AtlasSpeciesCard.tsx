@@ -1,36 +1,32 @@
 "use client";
 
-import { CoverImage } from "@/components/CoverImage";
-import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import {
-  getSpeciesAtlasMeta,
-  type AnimalGroup,
-} from "@/data/speciesAtlas";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/regions";
-import type { Species } from "@/data/species";
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { trackSpeciesClick } from "@/lib/analytics";
-import { speciesHref } from "@/lib/speciesRoutes";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
+import { CoverImage } from "@/components/CoverImage";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { Link } from "@/i18n/navigation";
+import { trackSpeciesClick } from "@/lib/analytics";
+import { speciesImageAlt } from "@/lib/speciesMeta";
+import { speciesHref } from "@/lib/speciesRoutes";
+
 type AtlasSpeciesCardProps = {
-  species: Species;
-  locale: AppLocale;
-  index?: number;
   eager?: boolean;
+  index?: number;
+  locale: AppLocale;
+  species: Species;
 };
 
 export function AtlasSpeciesCard({
-  species,
-  locale,
-  index = 0,
   eager = false,
+  index = 0,
+  locale,
+  species,
 }: AtlasSpeciesCardProps) {
   const t = useTranslations("speciesAtlas");
   const meta = getSpeciesAtlasMeta(species.id);
@@ -56,54 +52,54 @@ export function AtlasSpeciesCard({
       }}
     >
       <Link
+        aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
+        className="absolute inset-0 z-10"
         href={speciesHref(species.id, locale)}
         onClick={() =>
           trackSpeciesClick({
-            species_id: species.id,
-            source: "atlas",
-            position: index + 1,
             group: meta.group,
+            position: index + 1,
+            source: "atlas",
+            species_id: species.id,
           })
         }
-        className="absolute inset-0 z-10"
-        aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
       />
 
-      <div className="relative aspect-[4/5] overflow-hidden bg-ink sm:aspect-[5/6]">
+      <div className="relative aspect-4/5 overflow-hidden bg-ink sm:aspect-5/6">
         {imageSrc ? (
           <CoverImage
-            src={imageSrc}
             alt={speciesImageAlt(
               species.commonName,
               species.scientificName,
               species.location,
             )}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             priority={eager}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            src={imageSrc}
           />
         ) : (
           <div
-            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
             aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/10" />
-        <div className="absolute left-4 top-4 z-[1] flex flex-wrap gap-2">
-          <span className="rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-white/85 backdrop-blur-md">
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/15 to-black/10" />
+        <div className="absolute top-4 left-4 z-1 flex flex-wrap gap-2">
+          <span className="rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-medium tracking-[0.16em] text-white/85 uppercase backdrop-blur-md">
             {t(`groups.${meta.group as AnimalGroup}`)}
           </span>
         </div>
-        <div className="absolute bottom-4 left-4 right-4 z-[1]">
+        <div className="absolute inset-x-4 bottom-4 z-1">
           <SpeciesRiskChip species={species} variant="hero" />
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col px-5 pb-5 pt-5 sm:px-6 sm:pb-6">
-        <h3 className="font-display text-[1.35rem] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary sm:text-[1.5rem]">
+      <div className="flex flex-1 flex-col p-5 sm:px-6 sm:pb-6">
+        <h3 className="font-display text-[1.35rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[1.5rem]">
           {species.commonName}
         </h3>
-        <p className="mt-1.5 text-[13px] italic tracking-wide text-muted-foreground">
+        <p className="mt-1.5 text-[13px] tracking-wide text-muted-foreground italic">
           {species.scientificName}
         </p>
         <p className="mt-3 line-clamp-2 text-[14px] leading-relaxed text-muted-foreground">
@@ -112,7 +108,7 @@ export function AtlasSpeciesCard({
 
         {regionNames.length > 0 ? (
           <div className="mt-4 border-t border-border/70 pt-4">
-            <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[10px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {t("foundIn")}
             </p>
             <p className="mt-1.5 text-[13px] leading-snug text-foreground/80">
@@ -126,7 +122,7 @@ export function AtlasSpeciesCard({
         <div className="mt-5 flex items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
             {t("exploreSpecies")}
-            <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </span>
         </div>
       </div>

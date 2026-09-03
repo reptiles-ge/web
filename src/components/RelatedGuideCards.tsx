@@ -1,30 +1,33 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
-import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import {
   getHubClusterCardImage,
   type HubClusterCard,
 } from "@/lib/clusterGuides";
+import { cn } from "@/lib/cn";
 import { quizHref } from "@/lib/quizzes";
-import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
-import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 export function RelatedGuideCard({
   card,
+  featured = false,
   locale,
   species = [],
-  featured = false,
 }: {
   card: HubClusterCard;
+  featured?: boolean;
   locale: AppLocale;
   species?: Species[];
-  featured?: boolean;
 }) {
   const t = useTranslations("groupHubShared");
   const item =
@@ -68,16 +71,18 @@ export function RelatedGuideCard({
   if (featured && imageSrc) {
     return (
       <Link
-        href={href}
         className="group grid h-full overflow-hidden bg-card sm:grid-cols-[minmax(17rem,0.38fr)_1fr]"
+        href={href}
       >
-        <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">{copy}</div>
-        <div className="relative min-h-[200px] bg-muted sm:min-h-[260px]">
+        <div className="flex min-h-[180px] flex-col p-7 sm:p-8 lg:p-9">
+          {copy}
+        </div>
+        <div className="relative min-h-[200px] bg-secondary sm:min-h-[260px]">
           <CoverImage
-            src={imageSrc}
             alt=""
-            sizes="(max-width: 640px) 100vw, 65vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 100vw, 65vw"
+            src={imageSrc}
           />
         </div>
       </Link>
@@ -86,8 +91,8 @@ export function RelatedGuideCard({
 
   return (
     <Link
-      href={href}
       className="group flex h-full min-h-[180px] flex-col bg-card p-7 transition-colors hover:bg-background"
+      href={href}
     >
       {copy}
     </Link>
@@ -96,33 +101,35 @@ export function RelatedGuideCard({
 
 export function RelatedGuideGrid({
   cards,
+  className = "mt-12",
   locale,
   species = [],
-  className = "mt-12",
 }: {
   cards: HubClusterCard[];
+  className?: string;
   locale: AppLocale;
   species?: Species[];
-  className?: string;
 }) {
   if (cards.length === 0) return null;
 
   const featured = cards.length === 1;
-  const columns = featured
-    ? "grid-cols-1"
-    : "sm:grid-cols-2 lg:grid-cols-3";
+  const columns = featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3";
 
   return (
     <div
-      className={`${className} grid gap-px overflow-hidden rounded-[24px] bg-border/80 ${columns}`}
+      className={cn(
+        className,
+        "grid gap-px overflow-hidden rounded-[24px] bg-border/80",
+        columns,
+      )}
     >
       {cards.map((card, index) => (
-        <Reveal key={card.key} delay={index * 50} className="contents">
+        <Reveal className="contents" delay={index * 50} key={card.key}>
           <RelatedGuideCard
             card={card}
+            featured={featured}
             locale={locale}
             species={species}
-            featured={featured}
           />
         </Reveal>
       ))}

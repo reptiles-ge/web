@@ -1,13 +1,57 @@
-export type DangerLevel = "Harmless" | "Moderate" | "High";
+export type DangerLevel = "Harmless" | "High" | "Moderate";
 
-export type SpeciesStat = {
-  label: string;
-  value: string;
+export type GalleryImage = {
+  credit?: PhotoCredit;
+  src: string;
+};
+
+export type PhotoCredit = {
+  date?: string;
+  location?: string;
+  photographer?: string;
+  url?: string;
+};
+
+export type Species = {
+  audio?: SpeciesAudio;
+  behavior: string;
+  commonName: string;
+  conservation: string;
+  danger?: DangerLevel;
+  description: string;
+  diet: string;
+  facts: string[];
+  family: string;
+  faq?: SpeciesFaq[];
+  gallery: GalleryImage[];
+  genus: string;
+  habitat: string;
+  id: string;
+  identification?: SpeciesIdentification;
+  image: string;
+  imageCredit?: PhotoCredit;
+  interaction?: string;
+  location: string;
+  mobileImage?: string;
+  mobileImageCredit?: PhotoCredit;
+  overview: string;
+  scientificName: string;
+  sources: SpeciesSource[];
+  stats: SpeciesStat[];
+  updatedAt: string;
+};
+
+export type SpeciesAudio = {
+  date?: string;
+  location?: string;
+  recordist?: string;
+  src: string;
+  url?: string;
 };
 
 export type SpeciesFaq = {
-  question: string;
   answer: string;
+  question: string;
 };
 
 export type SpeciesIdentification = {
@@ -15,58 +59,14 @@ export type SpeciesIdentification = {
   traits: string[];
 };
 
-export type PhotoCredit = {
-  photographer?: string;
-  url?: string;
-  location?: string;
-  date?: string;
-};
-
-export type GalleryImage = {
-  src: string;
-  credit?: PhotoCredit;
-};
-
 export type SpeciesSource = {
   name: string;
   url?: string;
 };
 
-export type SpeciesAudio = {
-  src: string;
-  recordist?: string;
-  url?: string;
-  location?: string;
-  date?: string;
-};
-
-export type Species = {
-  id: string;
-  commonName: string;
-  scientificName: string;
-  genus: string;
-  family: string;
-  location: string;
-  description: string;
-  overview: string;
-  habitat: string;
-  diet: string;
-  behavior: string;
-  conservation: string;
-  interaction?: string;
-  danger?: DangerLevel;
-  image: string;
-  imageCredit?: PhotoCredit;
-  mobileImage?: string;
-  mobileImageCredit?: PhotoCredit;
-  gallery: GalleryImage[];
-  stats: SpeciesStat[];
-  facts: string[];
-  identification?: SpeciesIdentification;
-  audio?: SpeciesAudio;
-  faq?: SpeciesFaq[];
-  updatedAt: string;
-  sources: SpeciesSource[];
+export type SpeciesStat = {
+  label: string;
+  value: string;
 };
 
 export const defaultSpeciesSources: SpeciesSource[] = [
@@ -76,20 +76,20 @@ export const defaultSpeciesSources: SpeciesSource[] = [
 ];
 
 export type SpeciesTranslation = {
-  commonName: string;
-  location: string;
-  description: string;
-  overview: string;
-  habitat: string;
-  diet: string;
   behavior: string;
+  commonName: string;
   conservation: string;
-  interaction?: string;
-  stats: SpeciesStat[];
+  description: string;
+  diet: string;
   facts: string[];
-  identification?: SpeciesIdentification;
   faq?: SpeciesFaq[];
   gallery?: GalleryImage[];
+  habitat: string;
+  identification?: SpeciesIdentification;
   imageCredit?: PhotoCredit;
+  interaction?: string;
+  location: string;
   mobileImageCredit?: PhotoCredit;
+  overview: string;
+  stats: SpeciesStat[];
 };

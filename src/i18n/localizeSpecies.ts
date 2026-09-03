@@ -1,13 +1,10 @@
+import type { SpeciesTranslation } from "@/data/speciesTypes";
+import type { AppLocale } from "@/i18n/routing";
+
+import { mergeGallery, overlayPhotoCredit, type Species } from "@/data/species";
 import { speciesEn } from "@/data/species-en";
 import { speciesRu } from "@/data/species-ru";
 import { speciesTr } from "@/data/species-tr";
-import {
-  mergeGallery,
-  overlayPhotoCredit,
-  type Species,
-} from "@/data/species";
-import type { SpeciesTranslation } from "@/data/speciesTypes";
-import type { AppLocale } from "@/i18n/routing";
 
 const TRANSLATIONS: Record<
   Exclude<AppLocale, "ka">,
@@ -23,12 +20,7 @@ export function localizeSpecies(species: Species, locale: AppLocale): Species {
   const translation = TRANSLATIONS[locale][species.id];
   if (!translation) return species;
 
-  const {
-    gallery,
-    imageCredit,
-    mobileImageCredit,
-    ...text
-  } = translation;
+  const { gallery, imageCredit, mobileImageCredit, ...text } = translation;
 
   const localizedCredit = overlayPhotoCredit(species.imageCredit, imageCredit);
   const localizedMobileCredit = overlayPhotoCredit(

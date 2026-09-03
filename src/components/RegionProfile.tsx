@@ -1,14 +1,19 @@
 "use client";
 
+import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import {
-  getRegionContent,
-} from "@/data/regionContent";
+import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
@@ -17,17 +22,13 @@ import {
   localizeRegionText,
   type Region,
 } from "@/data/regions";
-import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
-import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+import { cn } from "@/lib/cn";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { REGION_SECTION_IDS } from "@/lib/toc";
-import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
 
 type RegionProfileProps = {
   region: Region;
@@ -43,8 +44,7 @@ export function RegionProfile({ region }: RegionProfileProps) {
   const biome = localizeRegionText(content.biome, locale);
 
   const species = useMemo(
-    () =>
-      getRegionSpecies(region).map((item) => localizeSpecies(item, locale)),
+    () => getRegionSpecies(region).map((item) => localizeSpecies(item, locale)),
     [region, locale],
   );
   const venomous = useMemo(
@@ -54,21 +54,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
       ),
     [region, locale],
   );
-  const related = useMemo(
-    () =>
-      content.relatedIds
-        .map((id) => getRegionById(id))
-        .filter((item): item is Region => Boolean(item)),
-    [content.relatedIds],
-  );
-  const faq = useMemo(
-    () =>
-      content.faq.map((item) => ({
-        question: localizeRegionText(item.question, locale),
-        answer: localizeRegionText(item.answer, locale),
-      })),
-    [content.faq, locale],
-  );
+  const related = content.relatedIds
+    .map((id) => getRegionById(id))
+    .filter((item): item is Region => Boolean(item));
+  const faq = content.faq.map((item) => ({
+    answer: localizeRegionText(item.answer, locale),
+    question: localizeRegionText(item.question, locale),
+  }));
 
   const heroSrc = getRegionHeroImage(region.id);
   const heroAlt = t("regionHeroAlt", { name });
@@ -79,18 +71,17 @@ export function RegionProfile({ region }: RegionProfileProps) {
         <section
           className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
           style={{
-            paddingTop:
-              "7rem",
+            paddingTop: "7rem",
           }}
         >
           <CoverImage
-            src={heroSrc}
             alt={heroAlt}
+            className="object-cover object-center"
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            src={heroSrc}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/92" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -100,26 +91,26 @@ export function RegionProfile({ region }: RegionProfileProps) {
                 className="mb-4 flex flex-wrap items-center gap-2 text-[13px] text-white/45 sm:mb-6"
               >
                 <Link
-                  href="/"
                   className="inline-flex items-center gap-2 font-medium transition-colors hover:text-white"
+                  href="/"
                 >
                   <ArrowLeft className="size-3.5" />
                   {t("breadcrumbHome")}
                 </Link>
                 <span aria-hidden>/</span>
                 <Link
-                  href="/regions"
                   className="font-medium transition-colors hover:text-white"
+                  href="/regions"
                 >
                   {t("allRegions")}
                 </Link>
                 <span aria-hidden>/</span>
                 <span className="text-white/70">{name}</span>
               </nav>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("regionEyebrow")}
               </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(1.85rem,5vw,4.2rem)] font-semibold leading-[1.08] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(1.85rem,5vw,4.2rem)] leading-[1.08] font-semibold text-white sm:mt-4">
                 {t("regionTitle", { name, nameIn })}
               </h1>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
@@ -145,28 +136,25 @@ export function RegionProfile({ region }: RegionProfileProps) {
 
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
-            className="pointer-events-none absolute inset-0 map-explorer-texture"
             aria-hidden="true"
+            className="map-explorer-texture pointer-events-none absolute inset-0"
           />
           <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("rangeEyebrow")}
               </p>
               <AnchoredHeading
+                anchorLabel={t("anchorLink")}
+                className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
                 id={REGION_SECTION_IDS.range}
                 slugSource={t("rangeTitle", { name })}
-                className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
-                anchorLabel={t("anchorLink")}
               >
                 {t("rangeTitle", { name })}
               </AnchoredHeading>
             </Reveal>
             <div className="mt-12 lg:mt-14">
-              <GeorgiaMap
-                highlightedIds={[region.id]}
-                interactive={false}
-              />
+              <GeorgiaMap highlightedIds={[region.id]} interactive={false} />
             </div>
           </div>
         </section>
@@ -175,13 +163,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("habitatsEyebrow")}
                 </p>
                 <AnchoredHeading
-                  id={REGION_SECTION_IDS.habitats}
-                  className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold leading-[1.05]"
                   anchorLabel={t("anchorLink")}
+                  className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold"
+                  id={REGION_SECTION_IDS.habitats}
                 >
                   {t("habitatsTitle")}
                 </AnchoredHeading>
@@ -192,10 +180,10 @@ export function RegionProfile({ region }: RegionProfileProps) {
               <ul className="space-y-0 divide-y divide-border border-y border-border">
                 {content.habitats.map((habitat, index) => (
                   <Reveal
-                    key={habitat.ka}
                     as="li"
-                    delay={index * 50}
                     className="flex items-baseline justify-between gap-6 py-5"
+                    delay={index * 50}
+                    key={habitat.ka}
                   >
                     <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
                       {localizeRegionText(habitat, locale)}
@@ -215,14 +203,14 @@ export function RegionProfile({ region }: RegionProfileProps) {
             <Reveal>
               <div className="flex items-end justify-between gap-6">
                 <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("speciesEyebrow")}
                   </p>
                   <AnchoredHeading
+                    anchorLabel={t("anchorLink")}
+                    className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
                     id={REGION_SECTION_IDS.species}
                     slugSource={t("speciesTitle", { name, nameIn })}
-                    className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
-                    anchorLabel={t("anchorLink")}
                   >
                     {t("speciesTitle", { name, nameIn })}
                   </AnchoredHeading>
@@ -236,13 +224,15 @@ export function RegionProfile({ region }: RegionProfileProps) {
             {species.length > 0 ? (
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {species.map((item, index) => (
-                  <Reveal key={item.id} delay={index * 60}>
+                  <Reveal delay={index * 60} key={item.id}>
                     <PhotoSpeciesCard species={item} />
                   </Reveal>
                 ))}
               </div>
             ) : (
-              <p className="mt-10 text-[14px] text-muted-foreground">{t("empty")}</p>
+              <p className="mt-10 text-[14px] text-muted-foreground">
+                {t("empty")}
+              </p>
             )}
             <p className="mt-10 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
               {t("dataGapBody")}
@@ -254,16 +244,16 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("venomousEyebrow")}
                 </p>
                 <AnchoredHeading
-                  id={REGION_SECTION_IDS.venomous}
-                  slugSource={t("venomousTitle", { nameIn, name })}
-                  className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
                   anchorLabel={t("anchorLink")}
+                  className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
+                  id={REGION_SECTION_IDS.venomous}
+                  slugSource={t("venomousTitle", { name, nameIn })}
                 >
-                  {t("venomousTitle", { nameIn, name })}
+                  {t("venomousTitle", { name, nameIn })}
                 </AnchoredHeading>
                 <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
                   {t("venomousBody")}
@@ -271,8 +261,8 @@ export function RegionProfile({ region }: RegionProfileProps) {
               </Reveal>
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {venomous.map((item, index) => (
-                  <Reveal key={item.id} delay={index * 60}>
-                    <PhotoSpeciesCard species={item} showDanger />
+                  <Reveal delay={index * 60} key={item.id}>
+                    <PhotoSpeciesCard showDanger species={item} />
                   </Reveal>
                 ))}
               </div>
@@ -295,13 +285,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("relatedEyebrow")}
                 </p>
                 <AnchoredHeading
-                  id={REGION_SECTION_IDS.related}
-                  className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-semibold leading-[1.05]"
                   anchorLabel={t("anchorLink")}
+                  className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05] font-semibold"
+                  id={REGION_SECTION_IDS.related}
                 >
                   {t("relatedTitle")}
                 </AnchoredHeading>
@@ -313,16 +303,16 @@ export function RegionProfile({ region }: RegionProfileProps) {
                     <li key={item.id}>
                       <Reveal delay={index * 50}>
                         <Link
-                          href={regionHref(item.id)}
                           className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
+                          href={regionHref(item.id)}
                         >
                           <div className="flex min-h-[3.4rem] items-start justify-between gap-3">
-                            <h3 className="font-display text-[22px] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                            <h3 className="font-display text-[22px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
                               {localizeRegionText(item.name, locale)}
                             </h3>
-                            <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                            <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                           </div>
-                          <p className="mt-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                          <p className="mt-2 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
                             {localizeRegionText(relatedContent.biome, locale)}
                           </p>
                           <p className="mt-3 text-[13px] text-muted-foreground">
@@ -345,37 +335,37 @@ export function RegionProfile({ region }: RegionProfileProps) {
 }
 
 function PhotoSpeciesCard({
-  species,
   showDanger = false,
+  species,
 }: {
-  species: Species;
   showDanger?: boolean;
+  species: Species;
 }) {
   const locale = useLocale() as AppLocale;
   return (
     <Link
+      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
       href={speciesHref(species.id, locale)}
       onClick={() =>
         trackSpeciesClick({
-          species_id: species.id,
           source: "region",
+          species_id: species.id,
         })
       }
-      className="group relative block aspect-[4/5] overflow-hidden rounded-[28px] bg-ink"
     >
       <CoverImage
-        src={species.mobileImage ?? species.image}
         alt={speciesImageAlt(
           species.commonName,
           species.scientificName,
           species.location,
         )}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        src={species.mobileImage ?? species.image}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 p-6">
-        <p className="text-[12px] italic text-white/50">
+        <p className="text-[12px] text-white/50 italic">
           {species.scientificName}
         </p>
         <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
@@ -399,26 +389,26 @@ function RegionFaqSection({
   nameIn,
   regionId,
 }: {
-  items: { question: string; answer: string }[];
+  items: { answer: string; question: string }[];
   name: string;
   nameIn: string;
   regionId: string;
 }) {
   const t = useTranslations("regions");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
 
   return (
     <section className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("faqEyebrow")}
             </p>
             <AnchoredHeading
-              id={REGION_SECTION_IDS.faq}
-              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
               anchorLabel={t("anchorLink")}
+              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              id={REGION_SECTION_IDS.faq}
             >
               {t("faqTitle")}
             </AnchoredHeading>
@@ -430,44 +420,46 @@ function RegionFaqSection({
             {items.map((item, index) => {
               const isOpen = open === index;
               return (
-                <Reveal key={item.question} delay={index * 60}>
+                <Reveal delay={index * 60} key={item.question}>
                   <div className="border-t border-border last:border-b">
                     <button
-                      type="button"
                       aria-expanded={isOpen}
+                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                       onClick={() => {
                         const next = isOpen ? null : index;
                         setOpen(next);
                         if (next !== null) {
                           trackEvent("faq_open", {
-                            page_type: "region",
                             entity_id: regionId,
                             faq_index: next,
+                            page_type: "region",
                           });
                         }
                       }}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                      type="button"
                     >
-                      <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {item.question}
                       </span>
                       <span
-                        className={`mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300 ${
+                        className={cn(
+                          "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
                           isOpen
                             ? "rotate-45 bg-ink text-ink-foreground"
-                            : "text-foreground"
-                        }`}
+                            : "text-foreground",
+                        )}
                       >
                         <Plus className="size-4" strokeWidth={1.75} />
                       </span>
                     </button>
                     <div
-                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                      }`}
+                      className={cn(
+                        "grid transition-[grid-template-rows] duration-300 ease-out",
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                      )}
                     >
                       <div className="overflow-hidden">
-                        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                           {item.answer}
                         </p>
                       </div>
@@ -482,4 +474,3 @@ function RegionFaqSection({
     </section>
   );
 }
-

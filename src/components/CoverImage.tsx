@@ -1,29 +1,29 @@
 import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
 
 type CoverImageProps = {
-  src: string;
   alt: string;
-  sizes: string;
-  className?: string;
-  priority?: boolean;
-  fill?: boolean;
   "aria-hidden"?: boolean;
+  className?: string;
+  fill?: boolean;
+  priority?: boolean;
+  sizes: string;
+  src: string;
 };
 
 export function CoverImage({
-  src,
   alt,
-  sizes,
-  className,
-  priority = false,
-  fill = true,
   "aria-hidden": ariaHidden,
+  className,
+  fill = true,
+  priority = false,
+  sizes,
+  src,
 }: CoverImageProps) {
   return (
     <picture
       className={
         fill
-          ? "media-placeholder absolute inset-0 block h-full w-full"
+          ? "media-placeholder absolute inset-0 block size-full"
           : "media-placeholder relative block"
       }
     >
@@ -31,19 +31,19 @@ export function CoverImage({
         <source key={source.key} {...source.props} />
       ))}
       <img
-        src={optimizedImgSrc(src)}
         alt={alt}
         aria-hidden={ariaHidden}
-        loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
-        fetchPriority={priority ? "high" : "auto"}
         className={
           fill
-            ? `absolute inset-0 h-full w-full text-transparent${
+            ? `absolute inset-0 size-full text-transparent${
                 className ? ` ${className}` : ""
               }`
             : `text-transparent${className ? ` ${className}` : ""}`
         }
+        decoding={priority ? "sync" : "async"}
+        fetchPriority={priority ? "high" : "auto"}
+        loading={priority ? "eager" : "lazy"}
+        src={optimizedImgSrc(src)}
       />
     </picture>
   );

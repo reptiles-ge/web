@@ -1,69 +1,46 @@
 import type { Species } from "@/data/species";
+
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { type ClusterGuidePath, HUB_INDEX_PATH } from "@/lib/clusterGuides";
 import {
-  getSpeciesAtlasMeta,
-  isVenomousDanger,
-  type AnimalGroup,
-} from "@/data/speciesAtlas";
-import {
-  HUB_INDEX_PATH,
-  type ClusterGuidePath,
-} from "@/lib/clusterGuides";
-import { ANIMAL_GROUP_TO_HUB, GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+  ANIMAL_GROUP_TO_HUB,
+  GROUP_HUBS,
+  type GroupHubId,
+} from "@/lib/groupHubs";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
 
-export type SpeciesBreadcrumbHref =
-  | "/"
-  | "/species"
-  | "/venomous-snakes"
-  | `/${GroupHubId}`
-  | ClusterGuidePath;
-
 export type SpeciesBreadcrumbCrumb = {
-  name: string;
   href?: SpeciesBreadcrumbHref;
+  name: string;
 };
 
-export function getSpeciesParentHub(species: Species): {
-  kind: "venomous" | "group";
-  href: "/venomous-snakes" | `/${GroupHubId}`;
-  hubId: GroupHubId;
-} {
-  const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
-  if (isVenomousDanger(species.danger) && getSpeciesAtlasMeta(species.id).group === "snake") {
-    return { kind: "venomous", href: "/venomous-snakes", hubId };
-  }
-
-  return {
-    kind: "group",
-    href: GROUP_HUBS[hubId].path,
-    hubId,
-  };
-}
+export type SpeciesBreadcrumbHref =
+  "/" | "/species" | "/venomous-snakes" | `/${GroupHubId}` | ClusterGuidePath;
 
 export function buildSpeciesBreadcrumbs(options: {
-  species: Species;
-  homeLabel: string;
-  venomousLabel: string;
   groupLabel: string;
+  homeLabel: string;
   indexLabel: string;
+  species: Species;
+  venomousLabel: string;
 }): SpeciesBreadcrumbCrumb[] {
   const parent = getSpeciesParentHub(options.species);
   const hubPath = GROUP_HUBS[parent.hubId].path;
 
   const crumbs: SpeciesBreadcrumbCrumb[] = [
-    { name: options.homeLabel, href: "/" },
-    { name: options.groupLabel, href: hubPath },
+    { href: "/", name: options.homeLabel },
+    { href: hubPath, name: options.groupLabel },
   ];
 
   if (parent.kind === "venomous") {
     crumbs.push({
-      name: options.venomousLabel,
       href: "/venomous-snakes",
+      name: options.venomousLabel,
     });
   } else if (HUB_INDEX_PATH[parent.hubId] !== hubPath) {
     crumbs.push({
-      name: options.indexLabel,
       href: HUB_INDEX_PATH[parent.hubId],
+      name: options.indexLabel,
     });
   }
 
@@ -74,4 +51,24 @@ export function buildSpeciesBreadcrumbs(options: {
     ),
   });
   return crumbs;
+}
+
+export function getSpeciesParentHub(species: Species): {
+  href: "/venomous-snakes" | `/${GroupHubId}`;
+  hubId: GroupHubId;
+  kind: "group" | "venomous";
+} {
+  const hubId = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(species.id).group];
+  if (
+    isVenomousDanger(species.danger) &&
+    getSpeciesAtlasMeta(species.id).group === "snake"
+  ) {
+    return { href: "/venomous-snakes", hubId, kind: "venomous" };
+  }
+
+  return {
+    href: GROUP_HUBS[hubId].path,
+    hubId,
+    kind: "group",
+  };
 }

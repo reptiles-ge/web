@@ -5,14 +5,44 @@ import {
   type Species,
 } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import {
-  RACER_CLUSTER_IDS,
-  VENOMOUS_VIPER_IDS,
-} from "@/lib/clusterGuides";
+import { RACER_CLUSTER_IDS, VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 
 const viperClusterIds = new Set<string>(VENOMOUS_VIPER_IDS);
 const racerClusterIds = new Set<string>(RACER_CLUSTER_IDS);
+
+export function getRelatedSpecies(id: string, limit = 4): Species[] {
+  const base = getSpeciesById(id);
+  if (!base) return [];
+
+  const scored: Array<{ item: Species; score: number }> = [];
+  for (const item of getCatalogSpecies()) {
+    if (item.id === base.id) continue;
+    scored.push({ item, score: relatedScore(base, item) });
+  }
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return a.item.scientificName.localeCompare(b.item.scientificName);
+  });
+
+  const picked = scored.filter(({ score }) => score >= 40).slice(0, limit);
+  if (picked.length >= limit) {
+    return picked.map(({ item }) => item);
+  }
+
+  const have = new Set(picked.map(({ item }) => item.id));
+  const baseGroup = getSpeciesAtlasMeta(base.id).group;
+  for (const entry of scored) {
+    const id = entry.item.id;
+    if (picked.length >= limit) break;
+    if (have.has(id)) continue;
+    if (getSpeciesAtlasMeta(id).group !== baseGroup) continue;
+    picked.push(entry);
+    have.add(id);
+  }
+
+  return picked.map(({ item }) => item);
+}
 
 function relatedScore(base: Species, candidate: Species): number {
   let score = 0;
@@ -41,52 +71,13 @@ function relatedScore(base: Species, candidate: Species): number {
     score += 15;
   }
 
-  if (
-    viperClusterIds.has(base.id) &&
-    viperClusterIds.has(candidate.id)
-  ) {
+  if (viperClusterIds.has(base.id) && viperClusterIds.has(candidate.id)) {
     score += 50;
   }
 
-  if (
-    racerClusterIds.has(base.id) &&
-    racerClusterIds.has(candidate.id)
-  ) {
+  if (racerClusterIds.has(base.id) && racerClusterIds.has(candidate.id)) {
     score += 50;
   }
 
   return score;
-}
-
-export function getRelatedSpecies(id: string, limit = 4): Species[] {
-  const base = getSpeciesById(id);
-  if (!base) return [];
-
-  const scored: Array<{ item: Species; score: number }> = [];
-  for (const item of getCatalogSpecies()) {
-    if (item.id === base.id) continue;
-    scored.push({ item, score: relatedScore(base, item) });
-  }
-  scored.sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score;
-      return a.item.scientificName.localeCompare(b.item.scientificName);
-    });
-
-  const picked = scored.filter(({ score }) => score >= 40).slice(0, limit);
-  if (picked.length >= limit) {
-    return picked.map(({ item }) => item);
-  }
-
-  const have = new Set(picked.map(({ item }) => item.id));
-  const baseGroup = getSpeciesAtlasMeta(base.id).group;
-  for (const entry of scored) {
-    const id = entry.item.id;
-    if (picked.length >= limit) break;
-    if (have.has(id)) continue;
-    if (getSpeciesAtlasMeta(id).group !== baseGroup) continue;
-    picked.push(entry);
-    have.add(id);
-  }
-
-  return picked.map(({ item }) => item);
 }

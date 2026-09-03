@@ -1,28 +1,31 @@
 "use client";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import type { SpeciesFaq } from "@/data/species";
-import { trackEvent, type PageType } from "@/lib/analytics";
-import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import type { SpeciesFaq } from "@/data/species";
+
+import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { type PageType, trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
+
 type SpeciesFaqSectionProps = {
+  entityId: string;
   items: SpeciesFaq[];
   name: string;
-  entityId: string;
   pageType: PageType;
 };
 
 export function SpeciesFaqSection({
+  entityId,
   items,
   name,
-  entityId,
   pageType,
 }: SpeciesFaqSectionProps) {
   const t = useTranslations("profile");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
 
   if (items.length === 0) return null;
 
@@ -31,13 +34,13 @@ export function SpeciesFaqSection({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
-            <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("faq")}
             </p>
             <AnchoredHeading
-              id={SPECIES_SECTION_IDS.faq}
-              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
               anchorLabel={t("anchorLink")}
+              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              id={SPECIES_SECTION_IDS.faq}
             >
               {t("faqTitle")}
             </AnchoredHeading>
@@ -53,43 +56,47 @@ export function SpeciesFaqSection({
               const isOpen = open === index;
               return (
                 <div
-                  key={item.question}
                   className="border-t border-border last:border-b"
+                  key={item.question}
                 >
                   <button
-                    type="button"
                     aria-expanded={isOpen}
+                    className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     onClick={() => {
                       const next = isOpen ? null : index;
                       setOpen(next);
                       if (next !== null) {
                         trackEvent("faq_open", {
-                          page_type: pageType,
                           entity_id: entityId,
                           faq_index: next,
+                          page_type: pageType,
                         });
                       }
                     }}
-                    className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                    type="button"
                   >
-                    <span className="font-display text-[17px] font-medium leading-snug text-foreground sm:text-[19px]">
+                    <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                       {item.question}
                     </span>
                     <span
-                      className={`mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300 ${
-                        isOpen ? "rotate-45 bg-ink text-ink-foreground" : "text-foreground"
-                      }`}
+                      className={cn(
+                        "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
+                        isOpen
+                          ? "rotate-45 bg-ink text-ink-foreground"
+                          : "text-foreground",
+                      )}
                     >
                       <Plus className="size-4" strokeWidth={1.75} />
                     </span>
                   </button>
                   <div
-                    className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                    }`}
+                    className={cn(
+                      "grid transition-[grid-template-rows] duration-300 ease-out",
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                    )}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-7 pr-12 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                      <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
                         {item.answer}
                       </p>
                     </div>

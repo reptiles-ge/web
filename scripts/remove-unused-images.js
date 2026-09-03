@@ -147,7 +147,9 @@ function main() {
     return;
   }
 
-  console.log(`Unused images (${unused.length}, ${formatBytes(unusedBytes)}):\n`);
+  console.log(
+    `Unused images (${unused.length}, ${formatBytes(unusedBytes)}):\n`,
+  );
   for (const item of unused) {
     console.log(`  ${item.path}  (${formatBytes(item.size)})`);
   }
@@ -162,7 +164,9 @@ function main() {
     fs.unlinkSync(path.join(ROOT, item.path));
     console.log(`  deleted ${item.path}`);
   }
-  console.log(`\nRemoved ${unused.length} files (${formatBytes(unusedBytes)}).`);
+  console.log(
+    `\nRemoved ${unused.length} files (${formatBytes(unusedBytes)}).`,
+  );
 }
 
 main();

@@ -1,4 +1,5 @@
 <!-- BEGIN:nextjs-agent-rules -->
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
@@ -12,36 +13,36 @@ This file is the project map for agents. Humans: see `README.md`.
 
 ## Stack
 
-| Piece | Detail |
-| --- | --- |
-| App | Next.js 16 App Router, React 19, TypeScript strict |
-| i18n | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `messages/en.json` |
-| Style | Tailwind 4, no CSS-in-JS |
-| Alias | `@/*` → `src/*` |
-| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`) |
-| Images | `https://cdn.reptiles.ge` (`images.unoptimized: true`) |
-| Site | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka` |
+| Piece        | Detail                                                               |
+| ------------ | -------------------------------------------------------------------- |
+| App          | Next.js 16 App Router, React 19, TypeScript strict                   |
+| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `messages/en.json` |
+| Style        | Tailwind 4, no CSS-in-JS                                             |
+| Alias        | `@/*` → `src/*`                                                      |
+| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)              |
+| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)               |
+| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`       |
 
 Do not add code comments. Do not invent UI copy in one locale only.
 
 ## Read first
 
-| Task | Start here |
-| --- | --- |
-| Species profile / MDX | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts` |
-| Catalog, publish, danger | `src/data/species.ts` |
-| Group (snake/lizard/…) | `src/data/speciesAtlas.ts` |
-| Public URL / slug / lookalikes | `src/lib/speciesRoutes.ts` |
-| Localized pathnames | `src/i18n/pathnames.ts` |
-| Group hubs | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx` |
-| Cluster guides | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx` |
-| Species page factory | `src/lib/createSpeciesRoute.tsx` |
-| Regions + map IDs | `src/data/regions.ts` — **never infer** `speciesIds` |
-| Checklist authority | `src/data/herpetofauna-checklist.ts` |
-| Quiz registry | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts` |
-| News | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts` |
-| 301 map | `next.config.ts` **and** `src/proxy.ts` |
-| UI strings | `messages/ka.json` + `messages/en.json` (same keys) |
+| Task                           | Start here                                                                |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts` |
+| Catalog, publish, danger       | `src/data/species.ts`                                                     |
+| Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                |
+| Public URL / slug / lookalikes | `src/lib/speciesRoutes.ts`                                                |
+| Localized pathnames            | `src/i18n/pathnames.ts`                                                   |
+| Group hubs                     | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                 |
+| Cluster guides                 | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`         |
+| Species page factory           | `src/lib/createSpeciesRoute.tsx`                                          |
+| Regions + map IDs              | `src/data/regions.ts` — **never infer** `speciesIds`                      |
+| Checklist authority            | `src/data/herpetofauna-checklist.ts`                                      |
+| Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                              |
+| News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                |
+| 301 map                        | `next.config.ts` **and** `src/proxy.ts`                                   |
+| UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                       |
 
 ## Architecture
 
@@ -109,29 +110,29 @@ Sources we trust: Tarkhnishvili et al. 2026; Iankoshvili & Tarkhnishvili 2021 (w
 
 KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `proxy.ts`. Folder under `src/app/[locale]/` matches the **internal** pathname.
 
-| KA | EN | Kind |
-| --- | --- | --- |
-| `/` | `/en` | Home |
-| `/species` | `/en/species` | Atlas |
-| `/gvelebi` | `/en/snakes` | Hub |
-| `/gvelebi/saxeoebebi` | `/en/snakes/species` | Index |
-| `/gvelebi/shxamiani-gvelebi` | `/en/venomous-snakes` | Guide |
-| `/gvelebi/shxamiani-gvelis-amocnoba` | `/en/snakes/identify-venomous` | Guide |
-| `/gvelebi/gvelis-nakbeni` | `/en/snakes/bite` | Guide (educational) |
-| `/gvelebi/gavrtseleba` | `/en/snakes/range` | Guide |
-| `/gvelebi/didi-gvelebi` | `/en/snakes/largest` | Guide |
-| `/gvelebi/gveli-ezoshi` | `/en/snakes-in-the-yard` | Guide |
-| `/gvelebi/giurza` (etc.) | `/en/snakes/macrovipera-lebetina` | Species |
-| `/xvlikebi` … | `/en/lizards` … | Hub + index + ID + glass-lizard compare |
-| `/kuebi` … | `/en/turtles` … | Hub + index + land + freshwater + ID |
-| `/amfibiebi` … | `/en/amphibians` … | Hub + index + frogs guide + frogs index + newts |
-| `/prinvelebi` | `/en/birds` | Hub + species only |
-| `/dzuzumtsovrebi` | `/en/mammals` | Hub + species only |
-| `/regions`, `/regions/{id}` | same | 12 regions |
-| `/quiz`, `/quiz/romeli-gvelia` | `/en/quiz`, `/en/quiz/which-snake` | Hub + one live quiz |
-| `/riskis-doneebi` | `/en/risk-to-humans` | Risk legend |
-| `/about`, `/contact` | `/en/about`, `/en/contact` | Site |
-| `/news`, `/news/{slug}` | `/en/news`, `/en/news/{slug}` | News |
+| KA                                   | EN                                 | Kind                                            |
+| ------------------------------------ | ---------------------------------- | ----------------------------------------------- |
+| `/`                                  | `/en`                              | Home                                            |
+| `/species`                           | `/en/species`                      | Atlas                                           |
+| `/gvelebi`                           | `/en/snakes`                       | Hub                                             |
+| `/gvelebi/saxeoebebi`                | `/en/snakes/species`               | Index                                           |
+| `/gvelebi/shxamiani-gvelebi`         | `/en/venomous-snakes`              | Guide                                           |
+| `/gvelebi/shxamiani-gvelis-amocnoba` | `/en/snakes/identify-venomous`     | Guide                                           |
+| `/gvelebi/gvelis-nakbeni`            | `/en/snakes/bite`                  | Guide (educational)                             |
+| `/gvelebi/gavrtseleba`               | `/en/snakes/range`                 | Guide                                           |
+| `/gvelebi/didi-gvelebi`              | `/en/snakes/largest`               | Guide                                           |
+| `/gvelebi/gveli-ezoshi`              | `/en/snakes-in-the-yard`           | Guide                                           |
+| `/gvelebi/giurza` (etc.)             | `/en/snakes/macrovipera-lebetina`  | Species                                         |
+| `/xvlikebi` …                        | `/en/lizards` …                    | Hub + index + ID + glass-lizard compare         |
+| `/kuebi` …                           | `/en/turtles` …                    | Hub + index + land + freshwater + ID            |
+| `/amfibiebi` …                       | `/en/amphibians` …                 | Hub + index + frogs guide + frogs index + newts |
+| `/prinvelebi`                        | `/en/birds`                        | Hub + species only                              |
+| `/dzuzumtsovrebi`                    | `/en/mammals`                      | Hub + species only                              |
+| `/regions`, `/regions/{id}`          | same                               | 12 regions                                      |
+| `/quiz`, `/quiz/romeli-gvelia`       | `/en/quiz`, `/en/quiz/which-snake` | Hub + one live quiz                             |
+| `/riskis-doneebi`                    | `/en/risk-to-humans`               | Risk legend                                     |
+| `/about`, `/contact`                 | `/en/about`, `/en/contact`         | Site                                            |
+| `/news`, `/news/{slug}`              | `/en/news`, `/en/news/{slug}`      | News                                            |
 
 There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not standalone Red List guides.
 

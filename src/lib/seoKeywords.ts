@@ -1,213 +1,31 @@
 import type { Species } from "@/data/species";
-import {
-  caucasusPlaceName,
-  georgiaPlaceName,
-} from "@/i18n/localeMeta";
 import type { AppLocale } from "@/i18n/routing";
 
-const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
-  "eremias-arguta": {
-    ka: ["ფსვენი", "სტეპის ფსვენი", "Eremias arguta transcaucasica"],
-    en: [
-      "steppe runner",
-      "steppe racerunner",
-      "racerunner",
-      "Eremias arguta transcaucasica",
-    ],
-  },
+import { caucasusPlaceName, georgiaPlaceName } from "@/i18n/localeMeta";
+
+const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
   "ablepharus-pannonicus": {
+    en: ["Asian snake-eyed skink", "lidless skink", "snake-eyed skink"],
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
+  },
+  "coronella-austriaca": {
+    en: ["smooth snake", "Coronella"],
+    ka: ["გლუვი გველი", "სპილენძა გველი"],
+  },
+  "darevskia-adjarica": {
     en: [
-      "Asian snake-eyed skink",
-      "lidless skink",
-      "snake-eyed skink",
+      "Adjarian rock lizard",
+      "red-bellied lizard",
+      "Lacerta parvula adjarica",
+      "Darevskia parvula adjarica",
     ],
-  },
-  "vipera-dinniki": {
-    ka: ["დინიკის გველგესლა", "Pelias dinniki"],
-    en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],
-  },
-  "malpolon-insignitus": {
     ka: [
-      "ხვლიკიჭამია გველი",
-      "ხვლიკიჭამია",
-      "Malpolon monspessulanus",
-    ],
-    en: [
-      "Montpellier snake",
-      "eastern Montpellier snake",
-      "Malpolon monspessulanus",
-    ],
-  },
-  "macrovipera-lebetina": {
-    ka: [
-      "გიურზა",
-      "გიუზა",
-      "giurza",
-      "Macrovipera lebetina",
-      "Vipera lebetina",
-    ],
-    en: [
-      "Levantine viper",
-      "blunt-nosed viper",
-      "giurza",
-      "gyurza",
-      "Macrovipera lebetina",
-    ],
-  },
-  "vipera-kaznakovi": {
-    ka: [
-      "კავკასიური გველგესლა",
-      "გველგესლა",
-      "შხამიანი გველგესლა",
-      "Pelias kaznakovi",
-    ],
-    en: [
-      "Caucasus viper",
-      "Caucasian viper",
-      "Kaznakov's viper",
-      "venomous viper Georgia",
-      "Pelias kaznakovi",
-    ],
-  },
-  "vipera-transcaucasiana": {
-    ka: [
-      "ცხვირრქოსანი გველგესლა",
-      "გველგესლა",
-      "შხამიანი გველგესლა",
-      "Vipera ammodytes",
-      "Vipera transcaucasiana",
-    ],
-    en: [
-      "Transcaucasian long-nosed viper",
-      "nose-horned viper",
-      "Transcaucasian sand viper",
-      "venomous viper Georgia",
-      "Vipera transcaucasiana",
-      "Vipera ammodytes transcaucasiana",
-    ],
-  },
-  "vipera-darevskii": {
-    ka: ["დარევსკის გველგესლა", "გველგესლა"],
-    en: ["Darevsky's viper"],
-  },
-  "vipera-renardi": {
-    ka: ["ველის გველგესლა", "სტეპის გველგესლა", "გველგესლა"],
-    en: ["eastern steppe viper", "steppe viper"],
-  },
-  "testudo-graeca": {
-    ka: [
-      "ხმელეთის კუ",
-      "ხმელთაშუაზღვის კუ",
-      "Testudo graeca ibera",
-    ],
-    en: [
-      "Greek tortoise",
-      "spur-thighed tortoise",
-      "Mediterranean tortoise",
-      "Testudo graeca ibera",
-    ],
-  },
-  "lacerta-strigata": {
-    ka: [],
-    en: [
-      "Caspian green lizard",
-      "Caucasus emerald lizard",
-      "five-streaked lizard",
-      "striated lizard",
-    ],
-  },
-  "lacerta-media": {
-    ka: ["Lacerta trilineata media"],
-    en: [
-      "medium lizard",
-      "three-lined lizard",
-      "Levant green lizard",
-      "Lacerta trilineata media",
-    ],
-  },
-  "darevskia-pontica": {
-    ka: [
-      "მდელოს ხვლიკი",
-      "პონტური მდელოს ხვლიკი",
-      "Lacerta praticola pontica",
-      "Darevskia praticola pontica",
-    ],
-    en: [
-      "Pontic lizard",
-      "meadow lizard",
-      "Colchic meadow lizard",
-      "Lacerta praticola pontica",
-      "Darevskia praticola pontica",
-    ],
-  },
-  "darevskia-derjugini": {
-    ka: [
-      "კავკასიური ტყის ხვლიკი",
-      "ართვინის ხვლიკი",
-      "Lacerta derjugini",
-    ],
-    en: [
-      "Artvin lizard",
-      "Artwin lizard",
-      "Derjugin's lizard",
-      "Lacerta derjugini",
-    ],
-  },
-  "paralaudakia-caucasia": {
-    ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
-    en: [
-      "Caucasian rock agama",
-      "Laudakia caucasia",
-      "Agama caucasica",
-      "Stellio caucasius",
-    ],
-  },
-  "pseudopus-apodus": {
-    ka: ["გველხოკერა"],
-    en: ["European glass lizard", "sheltopusik"],
-  },
-  "darevskia-daghestanica": {
-    ka: [
-      "დაღესტნური კლდის ხვლიკი",
-      "Lacerta daghestanica",
-      "Lacerta caucasica daghestanica",
-    ],
-    en: [
-      "Dagestan lizard",
-      "Dagestan rock lizard",
-      "Lacerta daghestanica",
-      "Lacerta caucasica daghestanica",
-    ],
-  },
-  "darevskia-dahli": {
-    ka: ["Lacerta dahli", "Lacerta saxicola dahli"],
-    en: [
-      "Dahl's lizard",
-      "Lacerta dahli",
-      "Lacerta saxicola dahli",
-    ],
-  },
-  "darevskia-portschinskii": {
-    ka: [
-      "Lacerta portschinskii",
-      "Lacerta saxicola portschinskii",
-    ],
-    en: [
-      "Kura lizard",
-      "Portschinsky's lizard",
-      "Lacerta portschinskii",
-      "Lacerta saxicola portschinskii",
+      "აჭარული ხვლიკი",
+      "Lacerta parvula adjarica",
+      "Darevskia parvula adjarica",
     ],
   },
   "darevskia-clarkorum": {
-    ka: [
-      "ლაზური ხვლიკი",
-      "ჭარნალის ხვლიკი",
-      "Lacerta clarkorum",
-      "Darevskia dryada",
-      "Lacerta dryada",
-    ],
     en: [
       "Clark's lizard",
       "Clarks' lizard",
@@ -217,13 +35,41 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Darevskia dryada",
       "Lacerta dryada",
     ],
+    ka: [
+      "ლაზური ხვლიკი",
+      "ჭარნალის ხვლიკი",
+      "Lacerta clarkorum",
+      "Darevskia dryada",
+      "Lacerta dryada",
+    ],
+  },
+  "darevskia-daghestanica": {
+    en: [
+      "Dagestan lizard",
+      "Dagestan rock lizard",
+      "Lacerta daghestanica",
+      "Lacerta caucasica daghestanica",
+    ],
+    ka: [
+      "დაღესტნური კლდის ხვლიკი",
+      "Lacerta daghestanica",
+      "Lacerta caucasica daghestanica",
+    ],
+  },
+  "darevskia-dahli": {
+    en: ["Dahl's lizard", "Lacerta dahli", "Lacerta saxicola dahli"],
+    ka: ["Lacerta dahli", "Lacerta saxicola dahli"],
+  },
+  "darevskia-derjugini": {
+    en: [
+      "Artvin lizard",
+      "Artwin lizard",
+      "Derjugin's lizard",
+      "Lacerta derjugini",
+    ],
+    ka: ["კავკასიური ტყის ხვლიკი", "ართვინის ხვლიკი", "Lacerta derjugini"],
   },
   "darevskia-mixta": {
-    ka: [
-      "ქართული კლდის ხვლიკი",
-      "Lacerta mixta",
-      "Lacerta saxicola mixta",
-    ],
     en: [
       "Georgian lizard",
       "Ajarian lizard",
@@ -232,109 +78,104 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Lacerta mixta",
       "Lacerta saxicola mixta",
     ],
+    ka: ["ქართული კლდის ხვლიკი", "Lacerta mixta", "Lacerta saxicola mixta"],
   },
-  "darevskia-adjarica": {
-    ka: [
-      "აჭარული ხვლიკი",
-      "Lacerta parvula adjarica",
-      "Darevskia parvula adjarica",
-    ],
+  "darevskia-pontica": {
     en: [
-      "Adjarian rock lizard",
-      "red-bellied lizard",
-      "Lacerta parvula adjarica",
-      "Darevskia parvula adjarica",
+      "Pontic lizard",
+      "meadow lizard",
+      "Colchic meadow lizard",
+      "Lacerta praticola pontica",
+      "Darevskia praticola pontica",
     ],
-  },
-  "darevskia-praticola": {
     ka: [
       "მდელოს ხვლიკი",
-      "Lacerta praticola",
-      "Darevskia praticola praticola",
-    ],
-    en: [
-      "meadow lizard",
-      "Lacerta praticola",
-      "Darevskia praticola praticola",
+      "პონტური მდელოს ხვლიკი",
+      "Lacerta praticola pontica",
+      "Darevskia praticola pontica",
     ],
   },
-  "darevskia-valentini": {
-    ka: [
-      "Lacerta valentini",
-      "Lacerta saxicola valentini",
+  "darevskia-portschinskii": {
+    en: [
+      "Kura lizard",
+      "Portschinsky's lizard",
+      "Lacerta portschinskii",
+      "Lacerta saxicola portschinskii",
     ],
+    ka: ["Lacerta portschinskii", "Lacerta saxicola portschinskii"],
+  },
+  "darevskia-praticola": {
+    en: ["meadow lizard", "Lacerta praticola", "Darevskia praticola praticola"],
+    ka: ["მდელოს ხვლიკი", "Lacerta praticola", "Darevskia praticola praticola"],
+  },
+  "darevskia-valentini": {
     en: [
       "Valentin's rock lizard",
       "Caucasian rock lizard",
       "Lacerta valentini",
       "Lacerta saxicola valentini",
     ],
+    ka: ["Lacerta valentini", "Lacerta saxicola valentini"],
   },
   "dolichophis-schmidti": {
-    ka: [
-      "წითელმუცელა",
-      "Coluber schmidti",
-      "Hierophis schmidti",
-      "Coluber jugularis schmidti",
-    ],
     en: [
       "Schmidt's whip snake",
       "Schmidt's racer",
       "Coluber schmidti",
       "Hierophis schmidti",
     ],
-  },
-  "platyceps-najadum": {
     ka: [
-      "წენგოსფერი მცურავი",
-      "უშხამო მცურავი",
-      "Coluber najadum",
-    ],
-    en: [
-      "Dahl's whip snake",
-      "slender whip snake",
-      "non-venomous whip snake",
-      "Coluber najadum",
-    ],
-  },
-  "eryx-jaculus": {
-    ka: ["ქვიშიანი ბოა", "Eryx jaculus turcicus"],
-    en: [
-      "javelin boa",
-      "sand boa",
-      "western sand boa",
-      "Eryx jaculus turcicus",
+      "წითელმუცელა",
+      "Coluber schmidti",
+      "Hierophis schmidti",
+      "Coluber jugularis schmidti",
     ],
   },
   "eirenis-collaris": {
-    ka: [
-      "Coluber collaris",
-      "Contia collaris",
-      "ჯუჯა გველი",
-    ],
     en: [
       "collared dwarf racer",
       "Collared Dwarf Racer",
       "Coluber collaris",
       "Contia collaris",
     ],
+    ka: ["Coluber collaris", "Contia collaris", "ჯუჯა გველი"],
   },
   "eirenis-modestus": {
-    ka: ["Coronella modesta", "Contia modesta"],
     en: [
       "Asia Minor dwarf snake",
       "ringheaded dwarf snake",
       "Coronella modesta",
       "Contia modesta",
     ],
+    ka: ["Coronella modesta", "Contia modesta"],
+  },
+  "elaphe-dione": {
+    en: ["steppe ratsnake", "Dione's ratsnake", "steppe rat snake"],
+    ka: ["სახეებიანი მცურავი"],
+  },
+  "elaphe-urartica": {
+    en: ["Urartian rat snake", "blotched ratsnake", "Elaphe sauromates"],
+    ka: ["ურარტუს ხალებიანი მცურავი", "ლაქებიანი მცურავი", "Elaphe sauromates"],
+  },
+  "eremias-arguta": {
+    en: [
+      "steppe runner",
+      "steppe racerunner",
+      "racerunner",
+      "Eremias arguta transcaucasica",
+    ],
+    ka: ["ფსვენი", "სტეპის ფსვენი", "Eremias arguta transcaucasica"],
+  },
+  "eryx-jaculus": {
+    en: [
+      "javelin boa",
+      "sand boa",
+      "western sand boa",
+      "Eryx jaculus turcicus",
+    ],
+    ka: ["ქვიშიანი ბოა", "Eryx jaculus turcicus"],
   },
   "hemorrhois-ravergieri": {
-    ka: [
-      "Coluber ravergieri",
-      "Zamenis ravergieri",
-      "ჭრელი მცურავი",
-      "ნაირფერი გველი",
-    ],
     en: [
       "spotted whipsnake",
       "variegated racer",
@@ -342,49 +183,80 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Zamenis ravergieri",
       "Ravergier's whip snake",
     ],
-  },
-  "elaphe-urartica": {
     ka: [
-      "ურარტუს ხალებიანი მცურავი",
-      "ლაქებიანი მცურავი",
-      "Elaphe sauromates",
+      "Coluber ravergieri",
+      "Zamenis ravergieri",
+      "ჭრელი მცურავი",
+      "ნაირფერი გველი",
     ],
+  },
+  "hyla-orientalis": {
     en: [
-      "Urartian rat snake",
-      "blotched ratsnake",
-      "Elaphe sauromates",
+      "eastern tree frog",
+      "Oriental treefrog",
+      "Hyla arborea",
+      "Hyla arborea schelkownikowi",
+      "European treefrog",
+    ],
+    ka: [
+      "ვასაკა",
+      "Hyla arborea",
+      "Hyla arborea schelkownikowi",
+      "აღმოსავლური ხის ბაყაყი",
     ],
   },
-  "elaphe-dione": {
-    ka: ["სახეებიანი მცურავი"],
-    en: ["steppe ratsnake", "Dione's ratsnake", "steppe rat snake"],
-  },
-  "telescopus-fallax": {
-    ka: ["კატისთვალა", "Tarbophis fallax", "Telescopus fallax iberus"],
+  "hyla-savignyi": {
     en: [
-      "European cat snake",
-      "Mediterranean cat snake",
-      "Tarbophis fallax",
-      "Telescopus fallax iberus",
+      "Savigny's treefrog",
+      "lemon-yellow treefrog",
+      "Middle East treefrog",
+      "Hyla arborea savignyi",
+    ],
+    ka: ["Hyla arborea savignyi"],
+  },
+  "lacerta-media": {
+    en: [
+      "medium lizard",
+      "three-lined lizard",
+      "Levant green lizard",
+      "Lacerta trilineata media",
+    ],
+    ka: ["Lacerta trilineata media"],
+  },
+  "lacerta-strigata": {
+    en: [
+      "Caspian green lizard",
+      "Caucasus emerald lizard",
+      "five-streaked lizard",
+      "striated lizard",
+    ],
+    ka: [],
+  },
+  "macrovipera-lebetina": {
+    en: [
+      "Levantine viper",
+      "blunt-nosed viper",
+      "giurza",
+      "gyurza",
+      "Macrovipera lebetina",
+    ],
+    ka: [
+      "გიურზა",
+      "გიუზა",
+      "giurza",
+      "Macrovipera lebetina",
+      "Vipera lebetina",
     ],
   },
-  "zamenis-longissimus": {
-    ka: ["ესკულაპის მცურავი", "გრძელი მცურავი"],
-    en: ["Aesculapian snake"],
-  },
-  "coronella-austriaca": {
-    ka: ["გლუვი გველი", "სპილენძა გველი"],
-    en: ["smooth snake", "Coronella"],
+  "malpolon-insignitus": {
+    en: [
+      "Montpellier snake",
+      "eastern Montpellier snake",
+      "Malpolon monspessulanus",
+    ],
+    ka: ["ხვლიკიჭამია გველი", "ხვლიკიჭამია", "Malpolon monspessulanus"],
   },
   "natrix-natrix": {
-    ka: [
-      "ანკარა",
-      "ანკარა გველი",
-      "გველი ანკარა",
-      "უშხამო ანკარა",
-      "დიდთავა ანკარა",
-      "Natrix megalocephala",
-    ],
     en: [
       "grass snake",
       "ringed snake",
@@ -393,77 +265,271 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "non-venomous grass snake",
       "Natrix megalocephala",
     ],
-  },
-  "rana-macrocnemis": {
     ka: [
-      "კავკასიური მურა ბაყაყი",
-      "მურა ბაყაყი",
-      "Rana camerani",
+      "ანკარა",
+      "ანკარა გველი",
+      "გველი ანკარა",
+      "უშხამო ანკარა",
+      "დიდთავა ანკარა",
+      "Natrix megalocephala",
     ],
+  },
+  "paralaudakia-caucasia": {
     en: [
-      "long-legged wood frog",
-      "Anatolian brown frog",
-      "Caucasus frog",
-      "Rana camerani",
+      "Caucasian rock agama",
+      "Laudakia caucasia",
+      "Agama caucasica",
+      "Stellio caucasius",
     ],
+    ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
   },
   "pelodytes-caucasicus": {
-    ka: [
-      "კავკასიური ჯვარულა",
-      "ჯვრიანა",
-      "ჯვარულა",
-      "Pelodytes",
-    ],
-    en: [
-      "Caucasian mud-diver",
-      "parsley frog",
-      "Pelodytes",
-    ],
-  },
-  "hyla-orientalis": {
-    ka: [
-      "ვასაკა",
-      "Hyla arborea",
-      "Hyla arborea schelkownikowi",
-      "აღმოსავლური ხის ბაყაყი",
-    ],
-    en: [
-      "eastern tree frog",
-      "Oriental treefrog",
-      "Hyla arborea",
-      "Hyla arborea schelkownikowi",
-      "European treefrog",
-    ],
-  },
-  "hyla-savignyi": {
-    ka: ["Hyla arborea savignyi"],
-    en: [
-      "Savigny's treefrog",
-      "lemon-yellow treefrog",
-      "Middle East treefrog",
-      "Hyla arborea savignyi",
-    ],
+    en: ["Caucasian mud-diver", "parsley frog", "Pelodytes"],
+    ka: ["კავკასიური ჯვარულა", "ჯვრიანა", "ჯვარულა", "Pelodytes"],
   },
   "pelophylax-ridibundus": {
-    ka: [
-      "ტბის ბაყაყი",
-      "Rana ridibunda",
-      "Pelophylax bedriagae",
-    ],
     en: [
       "lake frog",
       "Eurasian marsh frog",
       "Rana ridibunda",
       "Pelophylax bedriagae",
     ],
+    ka: ["ტბის ბაყაყი", "Rana ridibunda", "Pelophylax bedriagae"],
+  },
+  "platyceps-najadum": {
+    en: [
+      "Dahl's whip snake",
+      "slender whip snake",
+      "non-venomous whip snake",
+      "Coluber najadum",
+    ],
+    ka: ["წენგოსფერი მცურავი", "უშხამო მცურავი", "Coluber najadum"],
+  },
+  "pseudopus-apodus": {
+    en: ["European glass lizard", "sheltopusik"],
+    ka: ["გველხოკერა"],
+  },
+  "rana-macrocnemis": {
+    en: [
+      "long-legged wood frog",
+      "Anatolian brown frog",
+      "Caucasus frog",
+      "Rana camerani",
+    ],
+    ka: ["კავკასიური მურა ბაყაყი", "მურა ბაყაყი", "Rana camerani"],
+  },
+  "telescopus-fallax": {
+    en: [
+      "European cat snake",
+      "Mediterranean cat snake",
+      "Tarbophis fallax",
+      "Telescopus fallax iberus",
+    ],
+    ka: ["კატისთვალა", "Tarbophis fallax", "Telescopus fallax iberus"],
+  },
+  "testudo-graeca": {
+    en: [
+      "Greek tortoise",
+      "spur-thighed tortoise",
+      "Mediterranean tortoise",
+      "Testudo graeca ibera",
+    ],
+    ka: ["ხმელეთის კუ", "ხმელთაშუაზღვის კუ", "Testudo graeca ibera"],
+  },
+  "vipera-darevskii": {
+    en: ["Darevsky's viper"],
+    ka: ["დარევსკის გველგესლა", "გველგესლა"],
+  },
+  "vipera-dinniki": {
+    en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],
+    ka: ["დინიკის გველგესლა", "Pelias dinniki"],
+  },
+  "vipera-kaznakovi": {
+    en: [
+      "Caucasus viper",
+      "Caucasian viper",
+      "Kaznakov's viper",
+      "venomous viper Georgia",
+      "Pelias kaznakovi",
+    ],
+    ka: [
+      "კავკასიური გველგესლა",
+      "გველგესლა",
+      "შხამიანი გველგესლა",
+      "Pelias kaznakovi",
+    ],
+  },
+  "vipera-renardi": {
+    en: ["eastern steppe viper", "steppe viper"],
+    ka: ["ველის გველგესლა", "სტეპის გველგესლა", "გველგესლა"],
+  },
+  "vipera-transcaucasiana": {
+    en: [
+      "Transcaucasian long-nosed viper",
+      "nose-horned viper",
+      "Transcaucasian sand viper",
+      "venomous viper Georgia",
+      "Vipera transcaucasiana",
+      "Vipera ammodytes transcaucasiana",
+    ],
+    ka: [
+      "ცხვირრქოსანი გველგესლა",
+      "გველგესლა",
+      "შხამიანი გველგესლა",
+      "Vipera ammodytes",
+      "Vipera transcaucasiana",
+    ],
+  },
+  "zamenis-longissimus": {
+    en: ["Aesculapian snake"],
+    ka: ["ესკულაპის მცურავი", "გრძელი მცურავი"],
   },
 
-  "bufo-verrucosissimus": {
-    ka: [
-      "კოლხური გომბეშო",
-      "Bufo bufo verrucosissimus",
-      "Bufo bufo",
+  "accipiter-gentilis": {
+    en: [
+      "northern goshawk",
+      "Eurasian Northern Goshawk",
+      "goshawk",
+      "Astur gentilis",
+      "Accipiter gentilis caucasicus",
+      "Falco gentilis",
     ],
+    ka: [
+      "დიდი ქორი",
+      "ქორისებრნი",
+      "Astur gentilis",
+      "Accipiter gentilis caucasicus",
+      "Falco gentilis",
+    ],
+  },
+  "accipiter-nisus": {
+    en: ["sparrowhawk", "northern sparrowhawk", "Accipiter nisus nisus"],
+    ka: ["მიმინო", "ქორისებრნი", "Accipiter nisus nisus"],
+  },
+  "aegolius-funereus": {
+    en: [
+      "Boreal owl",
+      "Tengmalm's Owl",
+      "Richardson's owl",
+      "Strix funerea",
+      "Aegolius funereus caucasicus",
+      "Nyctala caucasica",
+    ],
+    ka: [
+      "მიკიოტი",
+      "ომიდი",
+      "ბუსებრნი",
+      "Strix funerea",
+      "Aegolius funereus caucasicus",
+      "Nyctala caucasica",
+    ],
+  },
+  "aegypius-monachus": {
+    en: [
+      "Eurasian black vulture",
+      "black vulture",
+      "monk vulture",
+      "Vultur monachus",
+      "Aegipius monachus",
+    ],
+    ka: [
+      "შავი სვავი",
+      "ლეშიჭამია",
+      "ქორისებრნი",
+      "Vultur monachus",
+      "Aegipius monachus",
+    ],
+  },
+  "anas-platyrhynchos": {
+    en: [
+      "wild duck",
+      "common mallard",
+      "dabbling duck",
+      "Anas boschas",
+      "Anas platyrhynchos platyrhynchos",
+    ],
+    ka: [
+      "იხვი",
+      "ველური იხვი",
+      "იხვისებრნი",
+      "Anas boschas",
+      "Anas platyrhynchos platyrhynchos",
+    ],
+  },
+  "apus-apus": {
+    en: ["Eurasian swift", "European swift", "swift", "Apus apus apus"],
+    ka: [
+      "ჩვეულებრივი ნამგალა",
+      "ნამგალასებრნი",
+      "ნამგალასნაირნი",
+      "Apus apus apus",
+    ],
+  },
+  "aquila-chrysaetos": {
+    en: [
+      "Mediterranean Golden Eagle",
+      "golden eagle",
+      "Aquila chrysaetos homeyeri",
+      "Aquila chrysaetus",
+      "Falco chrysaetos",
+    ],
+    ka: [
+      "ოქროსფერი არწივი",
+      "არწივი",
+      "Aquila chrysaetos homeyeri",
+      "Aquila chrysaetus",
+      "Falco chrysaetos",
+    ],
+  },
+  "argiope-bruennichi": {
+    en: [
+      "wasp spider",
+      "wasp-spider",
+      "Brünnich's argiope",
+      "Argiope bruennichi",
+    ],
+    ka: [
+      "არგიოპა",
+      "ბრუნიქის არგიოპა",
+      "ბზიკისებრი ობობა",
+      "Argiope bruennichi",
+    ],
+  },
+  "argiope-lobata": {
+    en: [
+      "lobed argiope",
+      "black-lobed garden orb-web spider",
+      "Argiope lobata",
+    ],
+    ka: ["ლობებიანი არგიოპა", "არგიოპა ლობატა", "Argiope lobata"],
+  },
+  "athene-noctua": {
+    en: [
+      "owl of Athena",
+      "owl of Minerva",
+      "Athene noctua indigena",
+      "Strix noctua",
+    ],
+    ka: ["ბუკნაჭო", "ბუსებრნი", "Athene noctua indigena", "Strix noctua"],
+  },
+  "bubo-bubo": {
+    en: [
+      "zarnasho",
+      "eagle owl",
+      "Eurasian Eagle-Owl",
+      "eagle-owl",
+      "Bubo bubo interpositus",
+      "Strix bubo",
+    ],
+    ka: [
+      "ჩვეულებრივი ზარნაშო",
+      "zarnasho",
+      "ბუსებრნი",
+      "Bubo bubo interpositus",
+      "Strix bubo",
+    ],
+  },
+  "bufo-verrucosissimus": {
     en: [
       "Colchic toad",
       "Caucasus toad",
@@ -471,49 +537,339 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Bufo bufo verrucosissimus",
       "common toad",
     ],
-  },
-  "emys-orbicularis": {
-    ka: ["ევროპული ჭაობის კუ", "Emys orbicularis persica"],
-    en: [
-      "European pond terrapin",
-      "pond turtle",
-      "Emys orbicularis persica",
-    ],
+    ka: ["კოლხური გომბეშო", "Bufo bufo verrucosissimus", "Bufo bufo"],
   },
   "bufotes-viridis": {
-    ka: ["Bufo viridis", "Pseudepidalea viridis", "Bufotes sitibundus"],
     en: [
       "Bufo viridis",
       "Pseudepidalea viridis",
       "Bufotes sitibundus",
       "European green toad",
     ],
+    ka: ["Bufo viridis", "Pseudepidalea viridis", "Bufotes sitibundus"],
   },
-  "mertensiella-caucasica": {
-    ka: ["Salamandra caucasica"],
-    en: ["Caucasian salamander", "Salamandra caucasica"],
-  },
-  "natrix-tessellata": {
-    ka: [
-      "წყლის ანკარა",
-      "წყლის გველი",
-      "უშხამო ანკარა",
-      "dice snake",
-    ],
+  "buteo-buteo": {
     en: [
-      "dice snake",
-      "tessellated water snake",
-      "water snake Georgia",
-      "non-venomous water snake",
+      "Eurasian buzzard",
+      "steppe buzzard",
+      "common eagle",
+      "Buteo buteo vulpinus",
+      "Buteo buteo menetriesi",
+      "Falco buteo",
+    ],
+    ka: [
+      "კაკაჩა",
+      "ჩვეულებრივი არწივი",
+      "სტეპის კაკაჩა",
+      "ქორისებრნი",
+      "Buteo buteo vulpinus",
+      "Buteo buteo menetriesi",
+      "Falco buteo",
+    ],
+  },
+  "canis-aureus": {
+    en: [
+      "common jackal",
+      "Asiatic jackal",
+      "Eurasian golden jackal",
+      "Canis aureus moreoticus",
+      "Canis aureus caucasica",
+    ],
+    ka: [
+      "ტურა",
+      "ოქროს ტურა",
+      "Canis aureus moreoticus",
+      "Canis aureus caucasica",
+    ],
+  },
+  "canis-lupus": {
+    en: [
+      "gray wolf",
+      "wolf",
+      "timber wolf",
+      "Canis lupus cubanensis",
+      "Canis lupus lupus",
+      "Caucasus wolf",
+    ],
+    ka: [
+      "მგელი",
+      "რუხი მგელი",
+      "ნაცრისფერი მგელი",
+      "Canis lupus cubanensis",
+      "Canis lupus lupus",
+    ],
+  },
+  "capra-aegagrus": {
+    en: [
+      "bezoar goat",
+      "bezoar ibex",
+      "wild goat",
+      "Capra aegagrus aegagrus",
+      "Capra hircus aegagrus",
+    ],
+    ka: [
+      "ველური თხა",
+      "ბეზოარული თხა",
+      "Capra aegagrus aegagrus",
+      "Capra hircus aegagrus",
+    ],
+  },
+  "capreolus-capreolus": {
+    en: [
+      "roe deer",
+      "western roe deer",
+      "European roe",
+      "Cervus capreolus",
+      "Capreolus capreolus caucasicus",
+    ],
+    ka: [
+      "შველი",
+      "ევროპული შველი",
+      "ნუკრი",
+      "Cervus capreolus",
+      "Capreolus capreolus caucasicus",
+    ],
+  },
+  "ciconia-ciconia": {
+    en: [
+      "western white stork",
+      "European white stork",
+      "stork",
+      "Ciconia ciconia ciconia",
+      "Ardea ciconia",
+    ],
+    ka: [
+      "ლაკლაკი",
+      "ყარყატი",
+      "თეთრი ლაკლაკი",
+      "Ciconia ciconia ciconia",
+      "Ardea ciconia",
+    ],
+  },
+  "columba-palumbus": {
+    en: [
+      "woodpigeon",
+      "wood pigeon",
+      "common wood pigeon",
+      "common wood-pigeon",
+      "Columba palumbus palumbus",
+    ],
+    ka: [
+      "ტყის მტრედი",
+      "მტრედისებრნი",
+      "მტრედისნაირნი",
+      "Columba palumbus palumbus",
+    ],
+  },
+  "corvus-corax": {
+    en: ["common raven", "raven", "Northern Raven", "Corvus corax corax"],
+    ka: ["ყორნისებრნი", "ჩრდილოეთის ყორანი", "Corvus corax corax", "ворон"],
+  },
+  "coturnix-coturnix": {
+    en: [
+      "European quail",
+      "Eurasian quail",
+      "Coturnix coturnix coturnix",
+      "Tetrao coturnix",
+    ],
+    ka: [
+      "ჩვეულებრივი მწყერი",
+      "ხოხბისებრნი",
+      "ქათმისნაირნი",
+      "Coturnix coturnix coturnix",
+      "перепел",
+    ],
+  },
+  "cuculus-canorus": {
+    en: [
+      "European cuckoo",
+      "Eurasian cuckoo",
+      "cuckoo",
+      "Cuculus canorus canorus",
+    ],
+    ka: ["ჩვეულებრივი გუგული", "გუგულისებრნი", "Cuculus canorus canorus"],
+  },
+  "dendrocopos-major": {
+    en: [
+      "great spotted woodpecker",
+      "Greater Spotted Woodpecker",
+      "pied woodpecker",
+      "Dendrocopos major tenuirostris",
+    ],
+    ka: [
+      "ჭრელი კოდალა",
+      "კოდალა",
+      "კავკასიური დიდი ჭრელი კოდალა",
+      "Dendrocopos major tenuirostris",
+    ],
+  },
+  "emberiza-citrinella": {
+    en: ["yellow bunting", "Emberiza citrinella erythrogenys"],
+    ka: [
+      "მოყვითალო გრატა",
+      "ქეროზა",
+      "რუხი გულწითელა",
+      "Emberiza citrinella erythrogenys",
+    ],
+  },
+  "emys-orbicularis": {
+    en: ["European pond terrapin", "pond turtle", "Emys orbicularis persica"],
+    ka: ["ევროპული ჭაობის კუ", "Emys orbicularis persica"],
+  },
+  "erinaceus-concolor": {
+    en: [
+      "European hedgehog",
+      "eastern hedgehog",
+      "white-breasted hedgehog",
+      "white-chested hedgehog",
+      "Erinaceus europaeus",
+      "Erinaceus concolor transcaucasicus",
+      "Erinaceus europaeus transcaucasicus",
+    ],
+    ka: [
+      "აღმოსავლეთევროპული ზღარბი",
+      "თეთრმკერდა ზღარბი",
+      "სამხრეთული თეთრმკერდა ზღარბი",
+      "ზღარბი",
+      "Erinaceus europaeus",
+      "Erinaceus concolor transcaucasicus",
+      "Erinaceus europaeus transcaucasicus",
+    ],
+  },
+  "erithacus-rubecula": {
+    en: [
+      "robin",
+      "robin redbreast",
+      "Eurasian robin",
+      "Motacilla rubecula",
+      "Erithacus rubecula caucasicus",
+    ],
+    ka: [
+      "ბულწითელა",
+      "მემატლიასებრნი",
+      "Motacilla rubecula",
+      "Erithacus rubecula caucasicus",
+    ],
+  },
+  "falco-peregrinus": {
+    en: [
+      "peregrine",
+      "Peregrine Falcon",
+      "Falconidae",
+      "Falco peregrinus brookei",
+      "Falco peregrinus peregrinus",
+    ],
+    ka: [
+      "ჩვეულებრივი შავარდენი",
+      "შავარდნისებრნი",
+      "შავარდნისნაირნი",
+      "Falco peregrinus brookei",
+      "საპსანი",
+    ],
+  },
+  "ficedula-hypoleuca": {
+    en: [
+      "pied flycatcher",
+      "western pied flycatcher",
+      "Motacilla hypoleuca",
+      "Muscicapa hypoleuca",
+      "Ficedula hypoleuca hypoleuca",
+    ],
+    ka: [
+      "ჭრელი ბუზიჭერია",
+      "მემატლიასებრნი",
+      "Motacilla hypoleuca",
+      "Muscicapa hypoleuca",
+    ],
+  },
+  "ficedula-semitorquata": {
+    en: [
+      "semicollared flycatcher",
+      "half-collared flycatcher",
+      "Muscicapa semitorquata",
+    ],
+    ka: [
+      "ნახევართეთრყელა მემატლია",
+      "ნახევართეთრყელა ბუზიჭერია",
+      "მემატლიასებრნი",
+      "Muscicapa semitorquata",
+    ],
+  },
+  "glareola-pratincola": {
+    en: [
+      "common pratincole",
+      "red-winged pratincole",
+      "pratincole",
+      "Hirundo pratincola",
+    ],
+    ka: [
+      "მერცხალა",
+      "ჟღალფრთიანა მერცხალა",
+      "მერცხალასებრნი",
+      "Hirundo pratincola",
+    ],
+  },
+  "gyps-fulvus": {
+    en: [
+      "Eurasian griffon",
+      "Eurasian Griffon Vulture",
+      "griffon",
+      "Gyps fulvus fulvus",
+      "Vultur fulvus",
+    ],
+    ka: [
+      "ჩვეულებრივი ორბი",
+      "თეთრთავა ორბი",
+      "ლეშიჭამია",
+      "ქორისებრნი",
+      "Gyps fulvus fulvus",
+      "Vultur fulvus",
+    ],
+  },
+  "jynx-torquilla": {
+    en: [
+      "wryneck",
+      "northern wryneck",
+      "European wryneck",
+      "Jynx torquilla torquilla",
+    ],
+    ka: ["ჩვეულებრივი მაქცია", "კოდალასებრნი", "Jynx torquilla torquilla"],
+  },
+  "larus-fuscus": {
+    en: [
+      "Baltic Gull",
+      "Heuglin's Gull",
+      "lesser blackback",
+      "Larus fuscus fuscus",
+      "Larus heuglini",
+    ],
+    ka: [
+      "შავზურგა თოლია",
+      "თოლიასებრნი",
+      "Larus fuscus fuscus",
+      "Larus heuglini",
+    ],
+  },
+  "latrodectus-tredecimguttatus": {
+    en: [
+      "Mediterranean black widow",
+      "European black widow",
+      "black widow Georgia",
+      "karakurt",
+      "Latrodectus tredecimguttatus",
+      "Latrodectus mactans",
+    ],
+    ka: [
+      "ყარაყურთი",
+      "შავი ქვრივი",
+      "ხმელთაშუაზღვის შავი ქვრივი",
+      "ევროპული შავი ქვრივი",
+      "Latrodectus tredecimguttatus",
+      "Latrodectus mactans",
+      "каракурт",
     ],
   },
   "lissotriton-lantzi": {
-    ka: [
-      "ჩვეულებრივი ტრიტონი",
-      "გლუვი ტრიტონი",
-      "Triturus vulgaris lantzi",
-      "Lissotriton vulgaris lantzi",
-    ],
     en: [
       "Caucasian newt",
       "Lantz's newt",
@@ -521,8 +877,142 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Triturus vulgaris lantzi",
       "Lissotriton vulgaris lantzi",
     ],
+    ka: [
+      "ჩვეულებრივი ტრიტონი",
+      "გლუვი ტრიტონი",
+      "Triturus vulgaris lantzi",
+      "Lissotriton vulgaris lantzi",
+    ],
+  },
+  "luscinia-megarhynchos": {
+    en: [
+      "nightingale",
+      "rufous nightingale",
+      "Caucasian nightingale",
+      "Luscinia megarhynchos africana",
+    ],
+    ka: [
+      "სამხრეთული ბულბული",
+      "სამხრული ბულბული",
+      "იადონი",
+      "მემატლიასებრნი",
+      "Luscinia megarhynchos africana",
+    ],
+  },
+  "lutra-lutra": {
+    en: [
+      "European otter",
+      "common otter",
+      "European river otter",
+      "Mustela lutra",
+      "Lutra vulgaris",
+      "Lutra lutra meridionalis",
+    ],
+    ka: [
+      "წავი",
+      "ევრაზიული წავი",
+      "Mustela lutra",
+      "Lutra vulgaris",
+      "Lutra lutra meridionalis",
+    ],
+  },
+  "lynx-lynx": {
+    en: [
+      "European lynx",
+      "Caucasian lynx",
+      "Caucasus lynx",
+      "Lynx lynx dinniki",
+      "Felis lynx",
+    ],
+    ka: [
+      "ევრაზიული ფოცხვერი",
+      "კავკასიური ფოცხვერი",
+      "Lynx lynx dinniki",
+      "Felis lynx",
+    ],
+  },
+  "meles-canescens": {
+    en: [
+      "European badger",
+      "Eurasian badger",
+      "Southwest Asian badger",
+      "Transcaucasian badger",
+      "Meles meles",
+      "Meles meles minor",
+    ],
+    ka: [
+      "ევროპული მაჩვი",
+      "Meles meles",
+      "Meles meles minor",
+      "Meles canescens",
+      "კავკასიური მაჩვი",
+    ],
+  },
+  "mertensiella-caucasica": {
+    en: ["Caucasian salamander", "Salamandra caucasica"],
+    ka: ["Salamandra caucasica"],
+  },
+  "milvus-migrans": {
+    en: [
+      "Eurasian black kite",
+      "black kite Georgia",
+      "fork-tailed kite",
+      "Milvus korschun",
+      "Falco migrans",
+      "Milvus migrans migrans",
+    ],
+    ka: [
+      "ძერა",
+      "ქორისებრნი",
+      "Milvus korschun",
+      "Falco migrans",
+      "Milvus migrans migrans",
+    ],
+  },
+  "motacilla-alba": {
+    en: [
+      "pied wagtail",
+      "white wagtail",
+      "Motacilla alba alba",
+      "Motacillidae",
+    ],
+    ka: ["ბოლოქანქარა", "ბოლოქანქარასებრნი", "Motacilla alba alba"],
+  },
+  "mustela-nivalis": {
+    en: [
+      "weasel",
+      "common weasel",
+      "little weasel",
+      "Putorius nivalis",
+      "Mustela nivalis caucasica",
+      "Mustela nivalis dinniki",
+    ],
+    ka: [
+      "სინდიოფალა",
+      "Putorius nivalis",
+      "Mustela nivalis caucasica",
+      "Mustela nivalis dinniki",
+    ],
+  },
+  "natrix-tessellata": {
+    en: [
+      "dice snake",
+      "tessellated water snake",
+      "water snake Georgia",
+      "non-venomous water snake",
+    ],
+    ka: ["წყლის ანკარა", "წყლის გველი", "უშხამო ანკარა", "dice snake"],
   },
   "ommatotriton-ophryticus": {
+    en: [
+      "newt Georgia",
+      "Caucasian banded newt",
+      "northern banded newt",
+      "Asia Minor newt",
+      "banded newt",
+      "Triturus vittatus",
+      "Triturus vittatus ophryticus",
+    ],
     ka: [
       "ტრიტონი",
       "ტრიტონი საქართველოში",
@@ -533,208 +1023,8 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Triturus vittatus",
       "Triturus vittatus ophryticus",
     ],
-    en: [
-      "newt Georgia",
-      "Caucasian banded newt",
-      "northern banded newt",
-      "Asia Minor newt",
-      "banded newt",
-      "Triturus vittatus",
-      "Triturus vittatus ophryticus",
-    ],
-  },
-  "triturus-karelinii": {
-    ka: [
-      "სავარცხლიანი ტრიტონი",
-      "Triturus cristatus karelinii",
-      "southern crested newt",
-    ],
-    en: [
-      "southern crested newt",
-      "Karelin's crested newt",
-      "Triturus cristatus karelinii",
-      "crested newt",
-    ],
-  },
-  "emberiza-citrinella": {
-    ka: [
-      "მოყვითალო გრატა",
-      "ქეროზა",
-      "რუხი გულწითელა",
-      "Emberiza citrinella erythrogenys",
-    ],
-    en: ["yellow bunting", "Emberiza citrinella erythrogenys"],
-  },
-  "picus-viridis": {
-    ka: [
-      "კოდალა",
-      "სამხრული მწვანე კოდალა",
-      "Picus viridis karelini",
-    ],
-    en: [
-      "green woodpecker",
-      "Eurasian green woodpecker",
-      "yaffle",
-      "Picus viridis karelini",
-    ],
-  },
-  "dendrocopos-major": {
-    ka: [
-      "ჭრელი კოდალა",
-      "კოდალა",
-      "კავკასიური დიდი ჭრელი კოდალა",
-      "Dendrocopos major tenuirostris",
-    ],
-    en: [
-      "great spotted woodpecker",
-      "Greater Spotted Woodpecker",
-      "pied woodpecker",
-      "Dendrocopos major tenuirostris",
-    ],
-  },
-  "jynx-torquilla": {
-    ka: [
-      "ჩვეულებრივი მაქცია",
-      "კოდალასებრნი",
-      "Jynx torquilla torquilla",
-    ],
-    en: [
-      "wryneck",
-      "northern wryneck",
-      "European wryneck",
-      "Jynx torquilla torquilla",
-    ],
-  },
-  "cuculus-canorus": {
-    ka: [
-      "ჩვეულებრივი გუგული",
-      "გუგულისებრნი",
-      "Cuculus canorus canorus",
-    ],
-    en: [
-      "European cuckoo",
-      "Eurasian cuckoo",
-      "cuckoo",
-      "Cuculus canorus canorus",
-    ],
-  },
-  "upupa-epops": {
-    ka: [
-      "ჩვეულებრივი ოფოფი",
-      "ოფოფისებრნი",
-      "ყაპყაპისნაირნი",
-      "Upupa epops epops",
-    ],
-    en: [
-      "hoopoe",
-      "common hoopoe",
-      "European hoopoe",
-      "Upupa epops epops",
-    ],
-  },
-  "apus-apus": {
-    ka: [
-      "ჩვეულებრივი ნამგალა",
-      "ნამგალასებრნი",
-      "ნამგალასნაირნი",
-      "Apus apus apus",
-    ],
-    en: [
-      "Eurasian swift",
-      "European swift",
-      "swift",
-      "Apus apus apus",
-    ],
-  },
-  "streptopelia-turtur": {
-    ka: [
-      "ჩვეულებრივი გვრიტი",
-      "მტრედისებრნი",
-      "Streptopelia turtur turtur",
-      "Streptopelia turtur arenicola",
-    ],
-    en: [
-      "turtle dove",
-      "European turtle-dove",
-      "turtle-dove",
-      "Streptopelia turtur turtur",
-      "Streptopelia turtur arenicola",
-    ],
-  },
-  "columba-palumbus": {
-    ka: [
-      "ტყის მტრედი",
-      "მტრედისებრნი",
-      "მტრედისნაირნი",
-      "Columba palumbus palumbus",
-    ],
-    en: [
-      "woodpigeon",
-      "wood pigeon",
-      "common wood pigeon",
-      "common wood-pigeon",
-      "Columba palumbus palumbus",
-    ],
-  },
-  "buteo-buteo": {
-    ka: [
-      "კაკაჩა",
-      "ჩვეულებრივი არწივი",
-      "სტეპის კაკაჩა",
-      "ქორისებრნი",
-      "Buteo buteo vulpinus",
-      "Buteo buteo menetriesi",
-      "Falco buteo",
-    ],
-    en: [
-      "Eurasian buzzard",
-      "steppe buzzard",
-      "common eagle",
-      "Buteo buteo vulpinus",
-      "Buteo buteo menetriesi",
-      "Falco buteo",
-    ],
-  },
-  "pernis-apivorus": {
-    ka: [
-      "კვერნაჭამია",
-      "კრაზანაჭამია",
-      "ირაო",
-      "ჩვეულებრივი ბოლოკარკაზი",
-      "ცუდქორა",
-      "ქორისებრნი",
-      "Falco apivorus",
-    ],
-    en: [
-      "honey buzzard",
-      "European Honey-buzzard",
-      "wasp buzzard",
-      "pern",
-      "Falco apivorus",
-    ],
-  },
-  "strix-aluco": {
-    ka: [
-      "ტყის ბუ",
-      "რუხი ბუ",
-      "ჩვეულებრივი ტყის ბუ",
-      "ბუსებრნი",
-      "Strix aluco willkonskii",
-    ],
-    en: [
-      "brown owl",
-      "Eurasian tawny owl",
-      "forest owl",
-      "Strix aluco willkonskii",
-    ],
   },
   "otus-scops": {
-    ka: [
-      "წყრომი",
-      "ბუსებრნი",
-      "Strix scops",
-      "Otus scops scops",
-    ],
     en: [
       "European scops owl",
       "common scops owl",
@@ -742,550 +1032,18 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Strix scops",
       "Otus scops scops",
     ],
-  },
-  "aegolius-funereus": {
-    ka: [
-      "მიკიოტი",
-      "ომიდი",
-      "ბუსებრნი",
-      "Strix funerea",
-      "Aegolius funereus caucasicus",
-      "Nyctala caucasica",
-    ],
-    en: [
-      "Boreal owl",
-      "Tengmalm's Owl",
-      "Richardson's owl",
-      "Strix funerea",
-      "Aegolius funereus caucasicus",
-      "Nyctala caucasica",
-    ],
-  },
-  "tyto-alba": {
-    ka: [
-      "ბუხრინწა",
-      "ბუსებრნი",
-      "Tyto alba guttata",
-      "Tyto alba erlangeri",
-      "Strix alba",
-    ],
-    en: [
-      "barn owl",
-      "Western Barn Owl",
-      "Common Barn Owl",
-      "Tyto alba guttata",
-      "Tyto alba erlangeri",
-      "Strix alba",
-    ],
-  },
-  "athene-noctua": {
-    ka: [
-      "ბუკნაჭო",
-      "ბუსებრნი",
-      "Athene noctua indigena",
-      "Strix noctua",
-    ],
-    en: [
-      "owl of Athena",
-      "owl of Minerva",
-      "Athene noctua indigena",
-      "Strix noctua",
-    ],
-  },
-  "bubo-bubo": {
-    ka: [
-      "ჩვეულებრივი ზარნაშო",
-      "zarnasho",
-      "ბუსებრნი",
-      "Bubo bubo interpositus",
-      "Strix bubo",
-    ],
-    en: [
-      "zarnasho",
-      "eagle owl",
-      "Eurasian Eagle-Owl",
-      "eagle-owl",
-      "Bubo bubo interpositus",
-      "Strix bubo",
-    ],
-  },
-  "accipiter-nisus": {
-    ka: [
-      "მიმინო",
-      "ქორისებრნი",
-      "Accipiter nisus nisus",
-    ],
-    en: [
-      "sparrowhawk",
-      "northern sparrowhawk",
-      "Accipiter nisus nisus",
-    ],
-  },
-  "accipiter-gentilis": {
-    ka: [
-      "დიდი ქორი",
-      "ქორისებრნი",
-      "Astur gentilis",
-      "Accipiter gentilis caucasicus",
-      "Falco gentilis",
-    ],
-    en: [
-      "northern goshawk",
-      "Eurasian Northern Goshawk",
-      "goshawk",
-      "Astur gentilis",
-      "Accipiter gentilis caucasicus",
-      "Falco gentilis",
-    ],
-  },
-  "falco-peregrinus": {
-    ka: [
-      "ჩვეულებრივი შავარდენი",
-      "შავარდნისებრნი",
-      "შავარდნისნაირნი",
-      "Falco peregrinus brookei",
-      "საპსანი",
-    ],
-    en: [
-      "peregrine",
-      "Peregrine Falcon",
-      "Falconidae",
-      "Falco peregrinus brookei",
-      "Falco peregrinus peregrinus",
-    ],
-  },
-  "corvus-corax": {
-    ka: [
-      "ყორნისებრნი",
-      "ჩრდილოეთის ყორანი",
-      "Corvus corax corax",
-      "ворон",
-    ],
-    en: [
-      "common raven",
-      "raven",
-      "Northern Raven",
-      "Corvus corax corax",
-    ],
-  },
-  "turdus-merula": {
-    ka: [
-      "შაშვი",
-      "შაშვისებრნი",
-      "Turdus merula aterrimus",
-      "Turdus merula merula",
-    ],
-    en: [
-      "Eurasian blackbird",
-      "European blackbird",
-      "blackbird",
-      "Turdus merula aterrimus",
-    ],
-  },
-  "motacilla-alba": {
-    ka: [
-      "ბოლოქანქარა",
-      "ბოლოქანქარასებრნი",
-      "Motacilla alba alba",
-    ],
-    en: [
-      "pied wagtail",
-      "white wagtail",
-      "Motacilla alba alba",
-      "Motacillidae",
-    ],
-  },
-  "glareola-pratincola": {
-    ka: [
-      "მერცხალა",
-      "ჟღალფრთიანა მერცხალა",
-      "მერცხალასებრნი",
-      "Hirundo pratincola",
-    ],
-    en: [
-      "common pratincole",
-      "red-winged pratincole",
-      "pratincole",
-      "Hirundo pratincola",
-    ],
-  },
-  "larus-fuscus": {
-    ka: [
-      "შავზურგა თოლია",
-      "თოლიასებრნი",
-      "Larus fuscus fuscus",
-      "Larus heuglini",
-    ],
-    en: [
-      "Baltic Gull",
-      "Heuglin's Gull",
-      "lesser blackback",
-      "Larus fuscus fuscus",
-      "Larus heuglini",
-    ],
-  },
-  "ficedula-hypoleuca": {
-    ka: [
-      "ჭრელი ბუზიჭერია",
-      "მემატლიასებრნი",
-      "Motacilla hypoleuca",
-      "Muscicapa hypoleuca",
-    ],
-    en: [
-      "pied flycatcher",
-      "western pied flycatcher",
-      "Motacilla hypoleuca",
-      "Muscicapa hypoleuca",
-      "Ficedula hypoleuca hypoleuca",
-    ],
-  },
-  "ficedula-semitorquata": {
-    ka: [
-      "ნახევართეთრყელა მემატლია",
-      "ნახევართეთრყელა ბუზიჭერია",
-      "მემატლიასებრნი",
-      "Muscicapa semitorquata",
-    ],
-    en: [
-      "semicollared flycatcher",
-      "half-collared flycatcher",
-      "Muscicapa semitorquata",
-    ],
-  },
-  "erithacus-rubecula": {
-    ka: [
-      "ბულწითელა",
-      "მემატლიასებრნი",
-      "Motacilla rubecula",
-      "Erithacus rubecula caucasicus",
-    ],
-    en: [
-      "robin",
-      "robin redbreast",
-      "Eurasian robin",
-      "Motacilla rubecula",
-      "Erithacus rubecula caucasicus",
-    ],
-  },
-  "luscinia-megarhynchos": {
-    ka: [
-      "სამხრეთული ბულბული",
-      "სამხრული ბულბული",
-      "იადონი",
-      "მემატლიასებრნი",
-      "Luscinia megarhynchos africana",
-    ],
-    en: [
-      "nightingale",
-      "rufous nightingale",
-      "Caucasian nightingale",
-      "Luscinia megarhynchos africana",
-    ],
-  },
-  "ciconia-ciconia": {
-    ka: [
-      "ლაკლაკი",
-      "ყარყატი",
-      "თეთრი ლაკლაკი",
-      "Ciconia ciconia ciconia",
-      "Ardea ciconia",
-    ],
-    en: [
-      "western white stork",
-      "European white stork",
-      "stork",
-      "Ciconia ciconia ciconia",
-      "Ardea ciconia",
-    ],
-  },
-  "anas-platyrhynchos": {
-    ka: [
-      "იხვი",
-      "ველური იხვი",
-      "იხვისებრნი",
-      "Anas boschas",
-      "Anas platyrhynchos platyrhynchos",
-    ],
-    en: [
-      "wild duck",
-      "common mallard",
-      "dabbling duck",
-      "Anas boschas",
-      "Anas platyrhynchos platyrhynchos",
-    ],
-  },
-  "phasianus-colchicus": {
-    ka: [
-      "კოლხური ხოხობი",
-      "ხოხბისებრნი",
-      "Phasianus colchicus colchicus",
-      "фазан",
-    ],
-    en: [
-      "Colchic pheasant",
-      "black-necked pheasant",
-      "ring-necked pheasant",
-      "Phasianus colchicus colchicus",
-    ],
-  },
-  "coturnix-coturnix": {
-    ka: [
-      "ჩვეულებრივი მწყერი",
-      "ხოხბისებრნი",
-      "ქათმისნაირნი",
-      "Coturnix coturnix coturnix",
-      "перепел",
-    ],
-    en: [
-      "European quail",
-      "Eurasian quail",
-      "Coturnix coturnix coturnix",
-      "Tetrao coturnix",
-    ],
-  },
-  "aegypius-monachus": {
-    ka: [
-      "შავი სვავი",
-      "ლეშიჭამია",
-      "ქორისებრნი",
-      "Vultur monachus",
-      "Aegipius monachus",
-    ],
-    en: [
-      "Eurasian black vulture",
-      "black vulture",
-      "monk vulture",
-      "Vultur monachus",
-      "Aegipius monachus",
-    ],
-  },
-  "milvus-migrans": {
-    ka: [
-      "ძერა",
-      "ქორისებრნი",
-      "Milvus korschun",
-      "Falco migrans",
-      "Milvus migrans migrans",
-    ],
-    en: [
-      "Eurasian black kite",
-      "black kite Georgia",
-      "fork-tailed kite",
-      "Milvus korschun",
-      "Falco migrans",
-      "Milvus migrans migrans",
-    ],
-  },
-  "gyps-fulvus": {
-    ka: [
-      "ჩვეულებრივი ორბი",
-      "თეთრთავა ორბი",
-      "ლეშიჭამია",
-      "ქორისებრნი",
-      "Gyps fulvus fulvus",
-      "Vultur fulvus",
-    ],
-    en: [
-      "Eurasian griffon",
-      "Eurasian Griffon Vulture",
-      "griffon",
-      "Gyps fulvus fulvus",
-      "Vultur fulvus",
-    ],
-  },
-  "aquila-chrysaetos": {
-    ka: [
-      "ოქროსფერი არწივი",
-      "არწივი",
-      "Aquila chrysaetos homeyeri",
-      "Aquila chrysaetus",
-      "Falco chrysaetos",
-    ],
-    en: [
-      "Mediterranean Golden Eagle",
-      "golden eagle",
-      "Aquila chrysaetos homeyeri",
-      "Aquila chrysaetus",
-      "Falco chrysaetos",
-    ],
-  },
-  "canis-lupus": {
-    ka: [
-      "მგელი",
-      "რუხი მგელი",
-      "ნაცრისფერი მგელი",
-      "Canis lupus cubanensis",
-      "Canis lupus lupus",
-    ],
-    en: [
-      "gray wolf",
-      "wolf",
-      "timber wolf",
-      "Canis lupus cubanensis",
-      "Canis lupus lupus",
-      "Caucasus wolf",
-    ],
-  },
-  "canis-aureus": {
-    ka: [
-      "ტურა",
-      "ოქროს ტურა",
-      "Canis aureus moreoticus",
-      "Canis aureus caucasica",
-    ],
-    en: [
-      "common jackal",
-      "Asiatic jackal",
-      "Eurasian golden jackal",
-      "Canis aureus moreoticus",
-      "Canis aureus caucasica",
-    ],
-  },
-  "vulpes-vulpes": {
-    ka: [
-      "ჩვეულებრივი მელა",
-      "წითელი მელა",
-      "Canis vulpes",
-      "Vulpes vulpes caucasica",
-      "Vulpes vulpes alpherakyi",
-    ],
-    en: [
-      "common fox",
-      "cross fox",
-      "silver fox",
-      "Canis vulpes",
-      "Vulpes vulpes caucasica",
-      "Vulpes vulpes alpherakyi",
-    ],
-  },
-  "meles-canescens": {
-    ka: [
-      "ევროპული მაჩვი",
-      "Meles meles",
-      "Meles meles minor",
-      "Meles canescens",
-      "კავკასიური მაჩვი",
-    ],
-    en: [
-      "European badger",
-      "Eurasian badger",
-      "Southwest Asian badger",
-      "Transcaucasian badger",
-      "Meles meles",
-      "Meles meles minor",
-    ],
-  },
-  "lutra-lutra": {
-    ka: [
-      "წავი",
-      "ევრაზიული წავი",
-      "Mustela lutra",
-      "Lutra vulgaris",
-      "Lutra lutra meridionalis",
-    ],
-    en: [
-      "European otter",
-      "common otter",
-      "European river otter",
-      "Mustela lutra",
-      "Lutra vulgaris",
-      "Lutra lutra meridionalis",
-    ],
-  },
-  "mustela-nivalis": {
-    ka: [
-      "სინდიოფალა",
-      "Putorius nivalis",
-      "Mustela nivalis caucasica",
-      "Mustela nivalis dinniki",
-    ],
-    en: [
-      "weasel",
-      "common weasel",
-      "little weasel",
-      "Putorius nivalis",
-      "Mustela nivalis caucasica",
-      "Mustela nivalis dinniki",
-    ],
-  },
-  "ursus-arctos": {
-    ka: [
-      "დათვი",
-      "მურა",
-      "Ursus arctos arctos",
-      "Ursus arctos syriacus",
-      "Ursus arctos caucasicus",
-    ],
-    en: [
-      "grizzly",
-      "Eurasian brown bear",
-      "Ursus arctos arctos",
-      "Ursus arctos syriacus",
-      "Ursus arctos caucasicus",
-    ],
-  },
-  "capreolus-capreolus": {
-    ka: [
-      "შველი",
-      "ევროპული შველი",
-      "ნუკრი",
-      "Cervus capreolus",
-      "Capreolus capreolus caucasicus",
-    ],
-    en: [
-      "roe deer",
-      "western roe deer",
-      "European roe",
-      "Cervus capreolus",
-      "Capreolus capreolus caucasicus",
-    ],
-  },
-  "sciurus-anomalus": {
-    ka: [
-      "სპარსული ციყვი",
-      "ციყვი",
-      "Sciurus persicus",
-      "Sciurus anomalus anomalus",
-    ],
-    en: [
-      "Persian squirrel",
-      "golden squirrel",
-      "Transcaucasian squirrel",
-      "Sciurus persicus",
-      "Sciurus anomalus anomalus",
-    ],
-  },
-  "lynx-lynx": {
-    ka: [
-      "ევრაზიული ფოცხვერი",
-      "კავკასიური ფოცხვერი",
-      "Lynx lynx dinniki",
-      "Felis lynx",
-    ],
-    en: [
-      "European lynx",
-      "Caucasian lynx",
-      "Caucasus lynx",
-      "Lynx lynx dinniki",
-      "Felis lynx",
-    ],
-  },
-  "capra-aegagrus": {
-    ka: [
-      "ველური თხა",
-      "ბეზოარული თხა",
-      "Capra aegagrus aegagrus",
-      "Capra hircus aegagrus",
-    ],
-    en: [
-      "bezoar goat",
-      "bezoar ibex",
-      "wild goat",
-      "Capra aegagrus aegagrus",
-      "Capra hircus aegagrus",
-    ],
+    ka: ["წყრომი", "ბუსებრნი", "Strix scops", "Otus scops scops"],
   },
   "panthera-pardus": {
+    en: [
+      "Persian leopard",
+      "Anatolian leopard",
+      "leopard",
+      "vepkhi",
+      "Panthera pardus tulliana",
+      "Panthera pardus ciscaucasica",
+      "Panthera pardus saxicolor",
+    ],
     ka: [
       "ჯიქი",
       "ლეოპარდი",
@@ -1296,24 +1054,107 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Panthera pardus ciscaucasica",
       "Panthera pardus saxicolor",
     ],
+  },
+  "pernis-apivorus": {
     en: [
-      "Persian leopard",
-      "Anatolian leopard",
-      "leopard",
-      "vepkhi",
-      "Panthera pardus tulliana",
-      "Panthera pardus ciscaucasica",
-      "Panthera pardus saxicolor",
+      "honey buzzard",
+      "European Honey-buzzard",
+      "wasp buzzard",
+      "pern",
+      "Falco apivorus",
+    ],
+    ka: [
+      "კვერნაჭამია",
+      "კრაზანაჭამია",
+      "ირაო",
+      "ჩვეულებრივი ბოლოკარკაზი",
+      "ცუდქორა",
+      "ქორისებრნი",
+      "Falco apivorus",
+    ],
+  },
+  "phasianus-colchicus": {
+    en: [
+      "Colchic pheasant",
+      "black-necked pheasant",
+      "ring-necked pheasant",
+      "Phasianus colchicus colchicus",
+    ],
+    ka: [
+      "კოლხური ხოხობი",
+      "ხოხბისებრნი",
+      "Phasianus colchicus colchicus",
+      "фазан",
+    ],
+  },
+  "picus-viridis": {
+    en: [
+      "green woodpecker",
+      "Eurasian green woodpecker",
+      "yaffle",
+      "Picus viridis karelini",
+    ],
+    ka: ["კოდალა", "სამხრული მწვანე კოდალა", "Picus viridis karelini"],
+  },
+  "procyon-lotor": {
+    en: [
+      "common raccoon",
+      "northern raccoon",
+      "North American raccoon",
+      "racoon",
+    ],
+    ka: ["ჩვეულებრივი ენოტი", "ჩრდილოამერიკული ენოტი", "Procyon lotor"],
+  },
+  "sciurus-anomalus": {
+    en: [
+      "Persian squirrel",
+      "golden squirrel",
+      "Transcaucasian squirrel",
+      "Sciurus persicus",
+      "Sciurus anomalus anomalus",
+    ],
+    ka: [
+      "სპარსული ციყვი",
+      "ციყვი",
+      "Sciurus persicus",
+      "Sciurus anomalus anomalus",
+    ],
+  },
+  "steatoda-paykulliana": {
+    en: ["false black widow", "false widow", "Steatoda paykulliana"],
+    ka: ["ცრუ ყარაყურთი", "ცრუ შავი ქვრივი", "Steatoda paykulliana"],
+  },
+  "streptopelia-turtur": {
+    en: [
+      "turtle dove",
+      "European turtle-dove",
+      "turtle-dove",
+      "Streptopelia turtur turtur",
+      "Streptopelia turtur arenicola",
+    ],
+    ka: [
+      "ჩვეულებრივი გვრიტი",
+      "მტრედისებრნი",
+      "Streptopelia turtur turtur",
+      "Streptopelia turtur arenicola",
+    ],
+  },
+  "strix-aluco": {
+    en: [
+      "brown owl",
+      "Eurasian tawny owl",
+      "forest owl",
+      "Strix aluco willkonskii",
+    ],
+    ka: [
+      "ტყის ბუ",
+      "რუხი ბუ",
+      "ჩვეულებრივი ტყის ბუ",
+      "ბუსებრნი",
+      "Strix aluco willkonskii",
     ],
   },
   "sus-scrofa": {
-    ka: [
-      "ტახი",
-      "ნეზვი",
-      "გოჭი",
-      "Sus scrofa attila",
-      "Sus scrofa domesticus",
-    ],
     en: [
       "Eurasian wild pig",
       "wild pig",
@@ -1321,114 +1162,103 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Sus scrofa attila",
       "Sus scrofa domesticus",
     ],
+    ka: ["ტახი", "ნეზვი", "გოჭი", "Sus scrofa attila", "Sus scrofa domesticus"],
   },
-  "procyon-lotor": {
-    ka: [
-      "ჩვეულებრივი ენოტი",
-      "ჩრდილოამერიკული ენოტი",
-      "Procyon lotor",
-    ],
+  "triturus-karelinii": {
     en: [
-      "common raccoon",
-      "northern raccoon",
-      "North American raccoon",
-      "racoon",
+      "southern crested newt",
+      "Karelin's crested newt",
+      "Triturus cristatus karelinii",
+      "crested newt",
     ],
-  },
-  "erinaceus-concolor": {
     ka: [
-      "აღმოსავლეთევროპული ზღარბი",
-      "თეთრმკერდა ზღარბი",
-      "სამხრეთული თეთრმკერდა ზღარბი",
-      "ზღარბი",
-      "Erinaceus europaeus",
-      "Erinaceus concolor transcaucasicus",
-      "Erinaceus europaeus transcaucasicus",
-    ],
-    en: [
-      "European hedgehog",
-      "eastern hedgehog",
-      "white-breasted hedgehog",
-      "white-chested hedgehog",
-      "Erinaceus europaeus",
-      "Erinaceus concolor transcaucasicus",
-      "Erinaceus europaeus transcaucasicus",
+      "სავარცხლიანი ტრიტონი",
+      "Triturus cristatus karelinii",
+      "southern crested newt",
     ],
   },
-  "argiope-bruennichi": {
-    ka: [
-      "არგიოპა",
-      "ბრუნიქის არგიოპა",
-      "ბზიკისებრი ობობა",
-      "Argiope bruennichi",
-    ],
+  "turdus-merula": {
     en: [
-      "wasp spider",
-      "wasp-spider",
-      "Brünnich's argiope",
-      "Argiope bruennichi",
+      "Eurasian blackbird",
+      "European blackbird",
+      "blackbird",
+      "Turdus merula aterrimus",
+    ],
+    ka: [
+      "შაშვი",
+      "შაშვისებრნი",
+      "Turdus merula aterrimus",
+      "Turdus merula merula",
     ],
   },
-  "argiope-lobata": {
-    ka: [
-      "ლობებიანი არგიოპა",
-      "არგიოპა ლობატა",
-      "Argiope lobata",
-    ],
+  "tyto-alba": {
     en: [
-      "lobed argiope",
-      "black-lobed garden orb-web spider",
-      "Argiope lobata",
+      "barn owl",
+      "Western Barn Owl",
+      "Common Barn Owl",
+      "Tyto alba guttata",
+      "Tyto alba erlangeri",
+      "Strix alba",
+    ],
+    ka: [
+      "ბუხრინწა",
+      "ბუსებრნი",
+      "Tyto alba guttata",
+      "Tyto alba erlangeri",
+      "Strix alba",
     ],
   },
-  "steatoda-paykulliana": {
+  "upupa-epops": {
+    en: ["hoopoe", "common hoopoe", "European hoopoe", "Upupa epops epops"],
     ka: [
-      "ცრუ ყარაყურთი",
-      "ცრუ შავი ქვრივი",
-      "Steatoda paykulliana",
-    ],
-    en: [
-      "false black widow",
-      "false widow",
-      "Steatoda paykulliana",
+      "ჩვეულებრივი ოფოფი",
+      "ოფოფისებრნი",
+      "ყაპყაპისნაირნი",
+      "Upupa epops epops",
     ],
   },
-  "latrodectus-tredecimguttatus": {
-    ka: [
-      "ყარაყურთი",
-      "შავი ქვრივი",
-      "ხმელთაშუაზღვის შავი ქვრივი",
-      "ევროპული შავი ქვრივი",
-      "Latrodectus tredecimguttatus",
-      "Latrodectus mactans",
-      "каракурт",
-    ],
+  "ursus-arctos": {
     en: [
-      "Mediterranean black widow",
-      "European black widow",
-      "black widow Georgia",
-      "karakurt",
-      "Latrodectus tredecimguttatus",
-      "Latrodectus mactans",
+      "grizzly",
+      "Eurasian brown bear",
+      "Ursus arctos arctos",
+      "Ursus arctos syriacus",
+      "Ursus arctos caucasicus",
+    ],
+    ka: [
+      "დათვი",
+      "მურა",
+      "Ursus arctos arctos",
+      "Ursus arctos syriacus",
+      "Ursus arctos caucasicus",
+    ],
+  },
+  "vulpes-vulpes": {
+    en: [
+      "common fox",
+      "cross fox",
+      "silver fox",
+      "Canis vulpes",
+      "Vulpes vulpes caucasica",
+      "Vulpes vulpes alpherakyi",
+    ],
+    ka: [
+      "ჩვეულებრივი მელა",
+      "წითელი მელა",
+      "Canis vulpes",
+      "Vulpes vulpes caucasica",
+      "Vulpes vulpes alpherakyi",
     ],
   },
 };
 
-export function uniqueKeywords(values: Array<string | undefined | null>) {
-  const seen = new Set<string>();
-  const keywords: string[] = [];
-
-  for (const value of values) {
-    const item = value?.trim();
-    if (!item) continue;
-    const key = item.toLocaleLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    keywords.push(item);
-  }
-
-  return keywords;
-}
+export type SeoDefinedTerm = {
+  en: string;
+  ka: string;
+  ru?: string;
+  speciesId: string;
+  tr?: string;
+};
 
 export function siteKeywords(locale: AppLocale) {
   if (locale === "en") {
@@ -1464,14 +1294,18 @@ export function siteKeywords(locale: AppLocale) {
   ];
 }
 
-export function speciesSeoAnchor(commonName: string, scientificName: string) {
-  return `${commonName} (${scientificName})`;
-}
-
 export function speciesAliasKeywords(id: string, locale: AppLocale) {
   const aliases = SPECIES_ALIASES[id];
   if (!aliases) return [];
   return locale === "ka" ? aliases.ka : aliases.en;
+}
+
+export function speciesJsonLdKeywords(species: Species, locale: AppLocale) {
+  return speciesSeoKeywords(species, locale).join(", ");
+}
+
+export function speciesSeoAnchor(commonName: string, scientificName: string) {
+  return `${commonName} (${scientificName})`;
 }
 
 export function speciesSeoKeywords(species: Species, locale: AppLocale) {
@@ -1486,72 +1320,76 @@ export function speciesSeoKeywords(species: Species, locale: AppLocale) {
   ]);
 }
 
-export function speciesJsonLdKeywords(species: Species, locale: AppLocale) {
-  return speciesSeoKeywords(species, locale).join(", ");
-}
+export function uniqueKeywords(values: Array<null | string | undefined>) {
+  const seen = new Set<string>();
+  const keywords: string[] = [];
 
-export type SeoDefinedTerm = {
-  ka: string;
-  en: string;
-  ru?: string;
-  tr?: string;
-  speciesId: string;
-};
+  for (const value of values) {
+    const item = value?.trim();
+    if (!item) continue;
+    const key = item.toLocaleLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    keywords.push(item);
+  }
+
+  return keywords;
+}
 
 export const HOME_DEFINED_TERMS: SeoDefinedTerm[] = [
   {
-    ka: "გიურზა",
     en: "Levantine viper",
+    ka: "გიურზა",
     speciesId: "macrovipera-lebetina",
   },
   {
-    ka: "დინიკის გველგესლა",
     en: "Dinnik's viper",
+    ka: "დინიკის გველგესლა",
     speciesId: "vipera-dinniki",
   },
   {
-    ka: "კავკასიური გველგესლა",
     en: "Caucasus viper",
+    ka: "კავკასიური გველგესლა",
     speciesId: "vipera-kaznakovi",
   },
   {
-    ka: "ცხვირრქოსანი გველგესლა",
     en: "Nose-horned viper",
+    ka: "ცხვირრქოსანი გველგესლა",
     speciesId: "vipera-transcaucasiana",
   },
   {
-    ka: "დარევსკის გველგესლა",
     en: "Darevsky's viper",
+    ka: "დარევსკის გველგესლა",
     speciesId: "vipera-darevskii",
   },
   {
-    ka: "ველის გველგესლა",
     en: "eastern steppe viper",
+    ka: "ველის გველგესლა",
     speciesId: "vipera-renardi",
   },
   {
-    ka: "გველხოკერა",
     en: "European glass lizard",
+    ka: "გველხოკერა",
     speciesId: "pseudopus-apodus",
   },
   {
-    ka: "წენგოსფერი მცურავი",
     en: "Dahl's whip snake",
+    ka: "წენგოსფერი მცურავი",
     speciesId: "platyceps-najadum",
   },
   {
-    ka: "სახეებიანი მცურავი",
     en: "steppe ratsnake",
+    ka: "სახეებიანი მცურავი",
     speciesId: "elaphe-dione",
   },
   {
-    ka: "კატისთვალა",
     en: "European cat snake",
+    ka: "კატისთვალა",
     speciesId: "telescopus-fallax",
   },
   {
-    ka: "ესკულაპის მცურავი",
     en: "Aesculapian snake",
+    ka: "ესკულაპის მცურავი",
     speciesId: "zamenis-longissimus",
   },
 ];

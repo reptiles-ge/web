@@ -1,20 +1,21 @@
+import type { AnimalGroup } from "@/data/speciesAtlas";
+import type { AppLocale } from "@/i18n/routing";
+import type { PageType } from "@/lib/analytics";
+
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
-import type { PageType } from "@/lib/analytics";
 import { resolveQuizBySlug } from "@/lib/quizzes";
 import { resolveSpeciesInHub } from "@/lib/speciesRoutes";
-import type { AppLocale } from "@/i18n/routing";
-import type { AnimalGroup } from "@/data/speciesAtlas";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 
 const SPECIES_PATH_TO_HUB: Record<string, GroupHubId> = {
-  "/snakes/[slug]": "snakes",
-  "/lizards/[slug]": "lizards",
-  "/turtles/[slug]": "turtles",
   "/amphibians/[slug]": "amphibians",
   "/birds/[slug]": "birds",
+  "/lizards/[slug]": "lizards",
   "/mammals/[slug]": "mammals",
+  "/snakes/[slug]": "snakes",
   "/spiders/[slug]": "spiders",
+  "/turtles/[slug]": "turtles",
 };
 
 const HUB_BY_PATH = Object.fromEntries(
@@ -26,21 +27,21 @@ const GUIDE_BY_PATH = Object.fromEntries(
 );
 
 const STANDALONE_GUIDES = new Set([
-  "/venomous-snakes",
-  "/snakes-in-the-yard",
   "/risk-to-humans",
+  "/snakes-in-the-yard",
+  "/venomous-snakes",
 ]);
 
 export type ResolvedPageContext = {
-  page_type: PageType;
-  group?: AnimalGroup;
   entity_id?: string;
+  group?: AnimalGroup;
+  page_type: PageType;
 };
 
 export function resolvePageContext(
   pathname: string,
   locale: AppLocale,
-  params: { slug?: string; id?: string },
+  params: { id?: string; slug?: string },
 ): ResolvedPageContext {
   if (pathname === "/") {
     return { page_type: "home" };
@@ -55,7 +56,7 @@ export function resolvePageContext(
     return { page_type: "news" };
   }
   if (pathname === "/news/[slug]" && params.slug) {
-    return { page_type: "news_article", entity_id: params.slug };
+    return { entity_id: params.slug, page_type: "news_article" };
   }
   if (pathname === "/species") {
     return { page_type: "atlas" };
@@ -67,14 +68,14 @@ export function resolvePageContext(
     return { page_type: "region_index" };
   }
   if (pathname === "/regions/[id]" && params.id) {
-    return { page_type: "region", entity_id: params.id };
+    return { entity_id: params.id, page_type: "region" };
   }
   if (pathname === "/quiz/[slug]" && params.slug) {
     const quiz = resolveQuizBySlug(locale, params.slug);
     return {
-      page_type: "quiz",
-      group: quiz?.group,
       entity_id: quiz?.id,
+      group: quiz?.group,
+      page_type: "quiz",
     };
   }
 
@@ -83,9 +84,9 @@ export function resolvePageContext(
     const species = resolveSpeciesInHub(speciesHub, params.slug);
     if (species) {
       return {
-        page_type: "species",
-        group: getSpeciesAtlasMeta(species.id).group,
         entity_id: species.id,
+        group: getSpeciesAtlasMeta(species.id).group,
+        page_type: "species",
       };
     }
     return { page_type: "other" };
@@ -94,26 +95,26 @@ export function resolvePageContext(
   const hub = HUB_BY_PATH[pathname];
   if (hub) {
     return {
-      page_type: "hub",
-      group: hub.group,
       entity_id: hub.id,
+      group: hub.group,
+      page_type: "hub",
     };
   }
 
   const guide = GUIDE_BY_PATH[pathname];
   if (guide) {
     return {
-      page_type: "guide",
-      group: GROUP_HUB_LIST.find((item) => item.id === guide.parentHub)?.group,
       entity_id: guide.id,
+      group: GROUP_HUB_LIST.find((item) => item.id === guide.parentHub)?.group,
+      page_type: "guide",
     };
   }
 
   if (STANDALONE_GUIDES.has(pathname)) {
     return {
-      page_type: "guide",
-      group: "snake",
       entity_id: pathname.replace(/^\//, ""),
+      group: "snake",
+      page_type: "guide",
     };
   }
 

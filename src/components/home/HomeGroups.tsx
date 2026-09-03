@@ -1,129 +1,30 @@
+import { ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { getSpeciesById } from "@/data/species";
-import {
-  getAtlasStats,
-  type AnimalGroup,
-} from "@/data/speciesAtlas";
+import { type AnimalGroup, getAtlasStats } from "@/data/speciesAtlas";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
-import { ArrowUpRight } from "lucide-react";
 
 const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
 const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
 const USE_GROUP_ILLUSTRATIONS = true;
 
 const GROUP_ILLUSTRATIONS: Record<GroupHubId, string> = {
-  snakes: "/images/home/groups/snakes.jpg",
-  lizards: "/images/home/groups/lizards.jpg",
-  turtles: "/images/home/groups/turtles.jpg",
   amphibians: "/images/home/groups/amphibians.jpg",
   birds: "/images/home/groups/birds.jpg",
+  lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
+  snakes: "/images/home/groups/snakes.jpg",
   spiders: "/images/home/groups/spiders.jpg",
+  turtles: "/images/home/groups/turtles.jpg",
 };
-
-function groupCount(
-  group: AnimalGroup,
-  stats: ReturnType<typeof getAtlasStats>,
-) {
-  switch (group) {
-    case "snake":
-      return stats.snakes;
-    case "lizard":
-      return stats.lizards;
-    case "turtle":
-      return stats.turtles;
-    case "amphibian":
-      return stats.amphibians;
-    case "bird":
-      return stats.birds;
-    case "mammal":
-      return stats.mammals;
-    case "spider":
-      return stats.spiders;
-  }
-}
-
-function hubPhoto(hubId: GroupHubId, locale: AppLocale) {
-  const hub = GROUP_HUBS[hubId];
-  const species = getSpeciesById(hub.heroSpeciesId);
-  if (!species) return null;
-  const localized = localizeSpecies(species, locale);
-  const src =
-    localized.mobileImage && !isPlaceholderMedia(localized.mobileImage)
-      ? localized.mobileImage
-      : localized.image;
-  if (isPlaceholderMedia(src)) return null;
-  return {
-    src,
-    alt: speciesImageAlt(
-      localized.commonName,
-      localized.scientificName,
-      localized.location,
-    ),
-  };
-}
-
-function hubVisual(
-  hubId: GroupHubId,
-  locale: AppLocale,
-  illustrationAlt: string,
-) {
-  if (USE_GROUP_ILLUSTRATIONS) {
-    return {
-      src: GROUP_ILLUSTRATIONS[hubId],
-      alt: illustrationAlt,
-    };
-  }
-  return hubPhoto(hubId, locale);
-}
-
-function HubListRow({
-  href,
-  name,
-  countLabel,
-  src,
-  className,
-}: {
-  href: `/${GroupHubId}`;
-  name: string;
-  countLabel: string;
-  src: string | null;
-  className?: string;
-}) {
-  return (
-    <li className={className}>
-      <Link
-        href={href}
-        className="group flex min-h-20 items-center gap-4 px-4 py-4 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-5"
-      >
-        {src ? (
-          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
-            <CoverImage
-              src={src}
-              alt=""
-              sizes="56px"
-              className="object-cover"
-            />
-          </span>
-        ) : null}
-        <div className="min-w-0">
-          <h3 className="font-display text-[16px] font-semibold text-foreground">
-            {name}
-          </h3>
-          <p className="mt-0.5 text-[12px] tabular-nums text-muted-foreground">
-            {countLabel}
-          </p>
-        </div>
-      </Link>
-    </li>
-  );
-}
 
 export async function HomeGroups() {
   const locale = (await getLocale()) as AppLocale;
@@ -136,10 +37,10 @@ export async function HomeGroups() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+            <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-4 font-display text-balance-tight text-[clamp(1.65rem,3.2vw,2.5rem)] font-semibold leading-[1.12]">
+            <h2 className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.5rem)] leading-[1.12] font-semibold">
               {t("title")}
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -147,11 +48,11 @@ export async function HomeGroups() {
             </p>
           </div>
           <Link
+            className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
             href="/species"
-            className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
           >
             {t("catalog")}
-            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            <ArrowUpRight aria-hidden="true" className="size-3.5" />
           </Link>
         </div>
 
@@ -166,22 +67,22 @@ export async function HomeGroups() {
             const count = groupCount(hub.group, stats);
             return (
               <Link
-                key={hubId}
+                className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 href={hub.path}
-                className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                key={hubId}
               >
-                <div className="relative aspect-[21/9]">
+                <div className="relative aspect-21/9">
                   {visual ? (
                     <CoverImage
-                      src={visual.src}
                       alt={visual.alt}
-                      sizes="100vw"
                       className="object-cover object-[center_42%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                      sizes="100vw"
+                      src={visual.src}
                     />
                   ) : null}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/18 to-black/5" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/18 to-black/5" />
                   <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                    <p className="text-[11px] tabular-nums tracking-[0.16em] text-white/55">
+                    <p className="text-[11px] tracking-[0.16em] text-white/55 tabular-nums">
                       {t("count", { count })}
                     </p>
                     <h3 className="mt-1.5 font-display text-[clamp(1.45rem,2.4vw,2rem)] font-semibold text-white">
@@ -193,42 +94,44 @@ export async function HomeGroups() {
             );
           })}
           <div className="mt-4 grid grid-cols-3 gap-4">
-            {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map((hubId) => {
-              const hub = GROUP_HUBS[hubId];
-              const visual = hubVisual(
-                hubId,
-                locale,
-                t("illustrationAlt", { name: tNav(hubId) }),
-              );
-              const count = groupCount(hub.group, stats);
-              return (
-                <Link
-                  key={hubId}
-                  href={hub.path}
-                  className="group relative block overflow-hidden bg-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
-                >
-                  <div className="relative aspect-[16/11]">
-                    {visual ? (
-                      <CoverImage
-                        src={visual.src}
-                        alt={visual.alt}
-                        sizes="33vw"
-                        className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-                      />
-                    ) : null}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/16 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-[11px] tabular-nums tracking-[0.14em] text-white/55">
-                        {t("count", { count })}
-                      </p>
-                      <h3 className="mt-1 font-display text-[1.35rem] font-semibold leading-tight text-white">
-                        {tNav(hubId)}
-                      </h3>
+            {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map(
+              (hubId) => {
+                const hub = GROUP_HUBS[hubId];
+                const visual = hubVisual(
+                  hubId,
+                  locale,
+                  t("illustrationAlt", { name: tNav(hubId) }),
+                );
+                const count = groupCount(hub.group, stats);
+                return (
+                  <Link
+                    className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                    href={hub.path}
+                    key={hubId}
+                  >
+                    <div className="relative aspect-16/11">
+                      {visual ? (
+                        <CoverImage
+                          alt={visual.alt}
+                          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                          sizes="33vw"
+                          src={visual.src}
+                        />
+                      ) : null}
+                      <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/16 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-5">
+                        <p className="text-[11px] tracking-[0.14em] text-white/55 tabular-nums">
+                          {t("count", { count })}
+                        </p>
+                        <h3 className="mt-1 font-display text-[1.35rem] leading-tight font-semibold text-white">
+                          {tNav(hubId)}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              },
+            )}
           </div>
         </div>
 
@@ -247,16 +150,14 @@ export async function HomeGroups() {
 
             return (
               <HubListRow
-                key={hubId}
-                href={hub.path}
-                name={tNav(hubId)}
-                countLabel={t("count", { count })}
-                src={visual?.src ?? null}
                 className={
-                  mobileOnly
-                    ? "bg-background sm:hidden"
-                    : "bg-background"
+                  mobileOnly ? "bg-background sm:hidden" : "bg-background"
                 }
+                countLabel={t("count", { count })}
+                href={hub.path}
+                key={hubId}
+                name={tNav(hubId)}
+                src={visual?.src ?? null}
               />
             );
           })}
@@ -264,4 +165,102 @@ export async function HomeGroups() {
       </div>
     </section>
   );
+}
+
+function groupCount(
+  group: AnimalGroup,
+  stats: ReturnType<typeof getAtlasStats>,
+) {
+  switch (group) {
+    case "amphibian":
+      return stats.amphibians;
+    case "bird":
+      return stats.birds;
+    case "lizard":
+      return stats.lizards;
+    case "mammal":
+      return stats.mammals;
+    case "snake":
+      return stats.snakes;
+    case "spider":
+      return stats.spiders;
+    case "turtle":
+      return stats.turtles;
+  }
+}
+
+function HubListRow({
+  className,
+  countLabel,
+  href,
+  name,
+  src,
+}: {
+  className?: string;
+  countLabel: string;
+  href: `/${GroupHubId}`;
+  name: string;
+  src: null | string;
+}) {
+  return (
+    <li className={className}>
+      <Link
+        className="group flex min-h-20 items-center gap-4 p-4 transition-colors hover:bg-surface focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset sm:px-5"
+        href={href}
+      >
+        {src ? (
+          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
+            <CoverImage
+              alt=""
+              className="object-cover"
+              sizes="56px"
+              src={src}
+            />
+          </span>
+        ) : null}
+        <div className="min-w-0">
+          <h3 className="font-display text-[16px] font-semibold text-foreground">
+            {name}
+          </h3>
+          <p className="mt-0.5 text-[12px] text-muted-foreground tabular-nums">
+            {countLabel}
+          </p>
+        </div>
+      </Link>
+    </li>
+  );
+}
+
+function hubPhoto(hubId: GroupHubId, locale: AppLocale) {
+  const hub = GROUP_HUBS[hubId];
+  const species = getSpeciesById(hub.heroSpeciesId);
+  if (!species) return null;
+  const localized = localizeSpecies(species, locale);
+  const src =
+    localized.mobileImage && !isPlaceholderMedia(localized.mobileImage)
+      ? localized.mobileImage
+      : localized.image;
+  if (isPlaceholderMedia(src)) return null;
+  return {
+    alt: speciesImageAlt(
+      localized.commonName,
+      localized.scientificName,
+      localized.location,
+    ),
+    src,
+  };
+}
+
+function hubVisual(
+  hubId: GroupHubId,
+  locale: AppLocale,
+  illustrationAlt: string,
+) {
+  if (USE_GROUP_ILLUSTRATIONS) {
+    return {
+      alt: illustrationAlt,
+      src: GROUP_ILLUSTRATIONS[hubId],
+    };
+  }
+  return hubPhoto(hubId, locale);
 }

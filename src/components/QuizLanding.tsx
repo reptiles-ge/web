@@ -1,11 +1,13 @@
-import { CoverImage } from "@/components/CoverImage";
-import type { Species } from "@/data/species";
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { SNAKE_LOOKALIKE_PAIRS } from "@/lib/clusterGuides";
-import type { SnakeQuizSpecies } from "@/lib/snakeQuiz";
-import { speciesHref } from "@/lib/speciesRoutes";
 import { getLocale, getTranslations } from "next-intl/server";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+import type { SnakeQuizSpecies } from "@/lib/snakeQuiz";
+
+import { CoverImage } from "@/components/CoverImage";
+import { Link } from "@/i18n/navigation";
+import { SNAKE_LOOKALIKE_PAIRS } from "@/lib/clusterGuides";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 const LOOKALIKE_BODIES = [
   "lookalike1Body",
@@ -53,8 +55,8 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
             {snakes.map((item) => (
               <li key={item.id}>
                 <Link
-                  href={speciesHref(item.id, locale)}
                   className="text-foreground underline-offset-4 hover:underline"
+                  href={speciesHref(item.id, locale)}
                 >
                   {item.commonName} ({item.scientificName})
                 </Link>
@@ -66,10 +68,10 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
 
       <article className="border-t border-white/10 bg-background px-6 py-16 text-foreground lg:px-10 lg:py-24">
         <div className="mx-auto max-w-[1400px]">
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("practiceEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-3xl font-display text-[clamp(1.7rem,3.4vw,2.7rem)] font-semibold leading-[1.08]">
+          <h2 className="mt-4 max-w-3xl font-display text-[clamp(1.7rem,3.4vw,2.7rem)] leading-[1.08] font-semibold">
             {t("practiceTitle")}
           </h2>
           <div className="mt-8 max-w-3xl space-y-5 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
@@ -89,24 +91,24 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {pairs.map((pair) => (
               <li
-                key={`${pair.a.id}-${pair.b.id}`}
                 className="rounded-[24px] border border-border bg-card p-5 sm:p-6"
+                key={`${pair.a.id}-${pair.b.id}`}
               >
                 <div className="flex items-center gap-3">
-                  <LookalikeThumb species={pair.a} locale={locale} />
-                  <LookalikeThumb species={pair.b} locale={locale} />
+                  <LookalikeThumb locale={locale} species={pair.a} />
+                  <LookalikeThumb locale={locale} species={pair.b} />
                 </div>
                 <p className="mt-4 text-[14px] font-medium text-foreground">
                   <Link
-                    href={speciesHref(pair.a.id, locale)}
                     className="underline-offset-4 hover:underline"
+                    href={speciesHref(pair.a.id, locale)}
                   >
                     {pair.a.commonName}
                   </Link>
                   {" · "}
                   <Link
-                    href={speciesHref(pair.b.id, locale)}
                     className="underline-offset-4 hover:underline"
+                    href={speciesHref(pair.b.id, locale)}
                   >
                     {pair.b.commonName}
                   </Link>
@@ -126,8 +128,8 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
               {t("practiceGuideBody")}
             </p>
             <Link
-              href="/snakes/shxamiani-gvelis-amocnoba"
               className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
+              href="/snakes/shxamiani-gvelis-amocnoba"
             >
               {t("practiceGuideCta")}
             </Link>
@@ -159,22 +161,22 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
 }
 
 function LookalikeThumb({
-  species,
   locale,
+  species,
 }: {
-  species: Species;
   locale: AppLocale;
+  species: Species;
 }) {
   return (
     <Link
-      href={speciesHref(species.id, locale)}
       className="relative size-14 overflow-hidden rounded-2xl sm:size-16"
+      href={speciesHref(species.id, locale)}
     >
       <CoverImage
-        src={species.image}
         alt={species.commonName}
-        sizes="64px"
         className="object-cover"
+        sizes="64px"
+        src={species.image}
       />
     </Link>
   );

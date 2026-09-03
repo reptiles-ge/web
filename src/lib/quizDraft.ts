@@ -1,0 +1,91 @@
+"use client";
+
+import { type Dispatch, useEffect, useRef, useState } from "react";
+
+import type { SnakeQuizQuestion } from "@/lib/snakeQuiz";
+
+export type QuizDraft = {
+  answers: Answered[];
+  hintOpen: boolean;
+  index: number;
+  questions: SnakeQuizQuestion[];
+  selectedId: null | string;
+};
+
+type Answered = {
+  correct: boolean;
+  selectedId: string;
+};
+
+type RestoreAction = { draft: QuizDraft; type: "restore" };
+
+export function draftKey(quizId: string) {
+  return `reptiles.quiz.draft.${quizId}`;
+}
+
+export function useQuizDraft(
+  quizId: string,
+  dispatch: Dispatch<RestoreAction>,
+  session: {
+    answers: Answered[];
+    complete: boolean;
+    hintOpen: boolean;
+    index: number;
+    playing: boolean;
+    questions: null | SnakeQuizQuestion[];
+    selectedId: null | string;
+  },
+) {
+  const quizIdRef = useRef(quizId);
+  const [draftReady, setDraftReady] = useState(false);
+  const { answers, complete, hintOpen, index, playing, questions, selectedId } =
+    session;
+
+  useEffect(() => {
+    quizIdRef.current = quizId;
+  }, [quizId]);
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      try {
+        const raw = sessionStorage.getItem(draftKey(quizIdRef.current));
+        if (raw) {
+          const draft = JSON.parse(raw) as QuizDraft;
+          if (Array.isArray(draft.questions) && draft.questions.length > 0) {
+            dispatch({ draft, type: "restore" });
+          }
+        }
+      } catch {
+        return;
+      } finally {
+        setDraftReady(true);
+      }
+    });
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!draftReady) return;
+    if (!playing || complete || !questions) {
+      sessionStorage.removeItem(draftKey(quizId));
+      return;
+    }
+    const draft: QuizDraft = {
+      answers,
+      hintOpen,
+      index,
+      questions,
+      selectedId,
+    };
+    sessionStorage.setItem(draftKey(quizId), JSON.stringify(draft));
+  }, [
+    answers,
+    complete,
+    draftReady,
+    hintOpen,
+    index,
+    playing,
+    questions,
+    quizId,
+    selectedId,
+  ]);
+}

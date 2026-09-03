@@ -1,25 +1,27 @@
+import { ArrowRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
+
 import { CoverImage } from "@/components/CoverImage";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
 import { quizHref } from "@/lib/quizzes";
-import { ArrowRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 
 export type QuizCardModel = QuizDefinition & {
   image: string;
   imageAlt: string;
 };
 
-type QuizzesPageProps = {
-  items: QuizCardModel[];
-};
-
 type QuizCopy = {
-  title: string;
   lead: string;
   tag: string;
+  title: string;
+};
+
+type QuizzesPageProps = {
+  items: QuizCardModel[];
 };
 
 export async function QuizzesPage({ items }: QuizzesPageProps) {
@@ -28,9 +30,9 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   const locale = (await getLocale()) as AppLocale;
   const featured = items.find((item) => item.status === "live") ?? items[0];
   const how = [
-    { title: t("how1Title"), body: t("how1Body") },
-    { title: t("how2Title"), body: t("how2Body") },
-    { title: t("how3Title"), body: t("how3Body") },
+    { body: t("how1Body"), title: t("how1Title") },
+    { body: t("how2Body"), title: t("how2Title") },
+    { body: t("how3Body"), title: t("how3Title") },
   ] as const;
   const copy = quizCopy(t);
 
@@ -38,14 +40,14 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="pb-10 pt-28 sm:pb-14 sm:pt-32 lg:pb-16">
+      <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link
-                  href="/"
                   className="transition-colors hover:text-foreground"
+                  href="/"
                 >
                   {tShared("breadcrumbHome")}
                 </Link>
@@ -56,11 +58,11 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
               <li className="text-foreground">{t("breadcrumbCurrent")}</li>
             </ol>
           </nav>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
           <div className="mt-4 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
-            <h1 className="font-display text-[clamp(2.8rem,9vw,7rem)] font-semibold leading-[0.9] text-foreground">
+            <h1 className="font-display text-[clamp(2.8rem,9vw,7rem)] leading-[0.9] font-semibold text-foreground">
               {t("title")}
             </h1>
             <p className="max-w-md text-[15px] leading-relaxed text-muted-foreground sm:text-[16px] lg:justify-self-end lg:pb-3">
@@ -69,10 +71,10 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           </div>
 
           <FeaturedQuizCard
-            item={featured}
-            locale={locale}
             copy={copy[featured.messageKey]}
+            item={featured}
             liveLabel={t("live")}
+            locale={locale}
             questionsLabel={
               featured.questions
                 ? t("questions", { count: featured.questions })
@@ -89,15 +91,18 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
 
       <section className="border-t border-border bg-background py-16 text-foreground lg:py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("howEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.6rem,3.4vw,2.6rem)] font-semibold leading-[1.08]">
+          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.08] font-semibold">
             {t("howTitle")}
           </h2>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-border bg-border/80 sm:grid-cols-3">
             {how.map((step, index) => (
-              <li key={step.title} className="bg-card px-6 py-7 sm:px-8 sm:py-9">
+              <li
+                className="bg-card px-6 py-7 sm:px-8 sm:py-9"
+                key={step.title}
+              >
                 <span className="font-display text-[12px] tracking-[0.22em] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -116,41 +121,19 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   );
 }
 
-function quizCopy(
-  t: Awaited<ReturnType<typeof getTranslations<"quizzes">>>,
-): Record<QuizMessageKey, QuizCopy> {
-  return {
-    snake: {
-      title: t("snakeTitle"),
-      lead: t("snakeLead"),
-      tag: t("snakeTag"),
-    },
-    lizard: {
-      title: t("lizardTitle"),
-      lead: t("lizardLead"),
-      tag: t("lizardTag"),
-    },
-    turtle: {
-      title: t("turtleTitle"),
-      lead: t("turtleLead"),
-      tag: t("turtleTag"),
-    },
-  };
-}
-
 function FeaturedQuizCard({
-  item,
-  locale,
   copy,
+  item,
   liveLabel,
+  locale,
   questionsLabel,
   startLabel,
 }: {
-  item: QuizCardModel;
-  locale: AppLocale;
   copy: QuizCopy;
+  item: QuizCardModel;
   liveLabel: string;
-  questionsLabel: string | null;
+  locale: AppLocale;
+  questionsLabel: null | string;
   startLabel: string;
 }) {
   const href = quizHref(item.id, locale);
@@ -158,29 +141,29 @@ function FeaturedQuizCard({
     <div className="grid sm:grid-cols-[14rem_1fr] lg:grid-cols-[18rem_1fr]">
       <div className="relative h-44 sm:h-auto">
         <CoverImage
-          src={item.image}
           alt={item.imageAlt}
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           priority
           sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 100vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          src={item.image}
         />
       </div>
       <div className="p-5 sm:p-7 lg:p-8">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-foreground">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-foreground uppercase">
             <span className="size-1.5 rounded-full bg-emerald-500" />
             {liveLabel}
           </span>
-          <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+          <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
             {copy.tag}
           </span>
           {questionsLabel ? (
-            <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+            <span className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {questionsLabel}
             </span>
           ) : null}
         </div>
-        <h2 className="mt-4 max-w-xl font-display text-[clamp(1.45rem,3.2vw,2.25rem)] font-semibold leading-[1.08] text-foreground">
+        <h2 className="mt-4 max-w-xl font-display text-[clamp(1.45rem,3.2vw,2.25rem)] leading-[1.08] font-semibold text-foreground">
           {copy.title}
         </h2>
         <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -196,12 +179,34 @@ function FeaturedQuizCard({
 
   return (
     <QuizCtaLink
+      className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
       href={href}
       quizId={item.id}
       source="quiz_index"
-      className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
     >
       {inner}
     </QuizCtaLink>
   );
+}
+
+function quizCopy(
+  t: Awaited<ReturnType<typeof getTranslations<"quizzes">>>,
+): Record<QuizMessageKey, QuizCopy> {
+  return {
+    lizard: {
+      lead: t("lizardLead"),
+      tag: t("lizardTag"),
+      title: t("lizardTitle"),
+    },
+    snake: {
+      lead: t("snakeLead"),
+      tag: t("snakeTag"),
+      title: t("snakeTitle"),
+    },
+    turtle: {
+      lead: t("turtleLead"),
+      tag: t("turtleTag"),
+      title: t("turtleTitle"),
+    },
+  };
 }

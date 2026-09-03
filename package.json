@@ -2,13 +2,16 @@
   "name": "reptiles",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
     "dev": "next dev",
     "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
     "build": "next build",
+    "analyze": "pnpm run prebuild && ANALYZE=true pnpm exec next build --webpack",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "doctor": "react-doctor -y --verbose",
     "doctor:changed": "react-doctor -y --verbose --scope changed",
     "doctor:full": "react-doctor -y --verbose --scope full",
@@ -20,7 +23,18 @@
     "images:optimize": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts",
     "images:optimize:dry": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --dry-run",
     "images:optimize:news": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --news",
-    "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only"
+    "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,mjs,cjs,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@date-fns/tz": "^1.5.0",
@@ -28,24 +42,41 @@
     "@next/third-parties": "^16.2.12",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "framer-motion": "^12.43.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.28.0",
     "next": "16.2.12",
     "next-intl": "^4.13.4",
+    "nuqs": "2.10.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^3.6.0",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "16.2.12",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#feat/og-images",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "^4.13.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-perfectionist": "5.10.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-tailwindcss": "^4.4.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "husky": "^9.1.7",
     "knip": "6.32.3",
+    "lint-staged": "^17.4.1",
+    "prettier": "^3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "react-doctor": "^0.9.13",
     "tailwindcss": "^4",
     "tsx": "^4.23.5",

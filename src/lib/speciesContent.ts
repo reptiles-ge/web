@@ -1,5 +1,6 @@
-import { groupHasVenomConcept, type AnimalGroup } from "@/data/speciesAtlas";
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
+
+import { type AnimalGroup, groupHasVenomConcept } from "@/data/speciesAtlas";
 
 const PLACEHOLDER_MEDIA = [
   "/images/species-placeholder.png",
@@ -33,24 +34,11 @@ const PLACEHOLDER_BODY_MARKERS = [
   "რეგიონები არ არის გამოგონილი",
 ];
 
-export function isPlaceholderMedia(src: string | undefined | null) {
-  if (!src) return true;
-  return PLACEHOLDER_MEDIA.some((item) => src.includes(item));
-}
-
-export function hasRealSpeciesPhotos(species: Species) {
-  if (!isPlaceholderMedia(species.image)) return true;
-  if (species.mobileImage && !isPlaceholderMedia(species.mobileImage)) {
-    return true;
-  }
-  return species.gallery.some((item) => !isPlaceholderMedia(item.src));
-}
-
 export function getSpeciesHeroSources(species: Species) {
   const gallery: GalleryImage[] = hasRealSpeciesPhotos(species)
     ? (species.gallery.length > 0
         ? species.gallery
-        : [{ src: species.image, credit: species.imageCredit }]
+        : [{ credit: species.imageCredit, src: species.image }]
       ).filter((item) => !isPlaceholderMedia(item.src))
     : [];
   const primary = gallery[0];
@@ -63,7 +51,20 @@ export function getSpeciesHeroSources(species: Species) {
       ? species.image
       : (primary?.src ?? null);
 
-  return { gallery, primary, mobileHeroSrc, desktopHeroSrc };
+  return { desktopHeroSrc, gallery, mobileHeroSrc, primary };
+}
+
+export function hasRealSpeciesPhotos(species: Species) {
+  if (!isPlaceholderMedia(species.image)) return true;
+  if (species.mobileImage && !isPlaceholderMedia(species.mobileImage)) {
+    return true;
+  }
+  return species.gallery.some((item) => !isPlaceholderMedia(item.src));
+}
+
+export function isPlaceholderMedia(src: null | string | undefined) {
+  if (!src) return true;
+  return PLACEHOLDER_MEDIA.some((item) => src.includes(item));
 }
 
 export function isPlaceholderStatValue(value: string) {
@@ -72,29 +73,30 @@ export function isPlaceholderStatValue(value: string) {
 }
 
 const SAFETY_STAT_LABELS = new Set([
-  "შხამი",
-  "Venom",
-  "Яд",
-  "Zehir",
-  "ადამიანის რისკი",
-  "Human risk",
-  "Риск для человека",
-  "İnsan riski",
-  "მოპყრობა",
   "Handling",
-  "Обращение",
+  "Human risk",
+  "İnsan riski",
   "Tutma",
+  "Venom",
+  "Zehir",
+  "Обращение",
+  "Риск для человека",
+  "Яд",
+  "ადამიანის რისკი",
+  "მოპყრობა",
+  "შხამი",
 ]);
 
-export function filterDisplayStats(
-  stats: SpeciesStat[],
-  group?: AnimalGroup,
-) {
+export function filterDisplayStats(stats: SpeciesStat[], group?: AnimalGroup) {
   return stats.filter((stat) => {
     const value = stat.value.trim();
     if (!value) return false;
     if (isPlaceholderStatValue(value)) return false;
-    if (group && !groupHasVenomConcept(group) && SAFETY_STAT_LABELS.has(stat.label)) {
+    if (
+      group &&
+      !groupHasVenomConcept(group) &&
+      SAFETY_STAT_LABELS.has(stat.label)
+    ) {
       return false;
     }
     return true;
@@ -102,61 +104,46 @@ export function filterDisplayStats(
 }
 
 const SIZE_LABELS = new Set([
-  "სიგრძე",
+  "Boyut",
   "Length",
   "Size",
-  "ზომა",
+  "Uzunluk",
   "Длина",
   "Размер",
-  "Uzunluk",
-  "Boyut",
+  "ზომა",
+  "სიგრძე",
 ]);
 const HABITAT_LABELS = new Set([
-  "ჰაბიტატი",
   "Habitat",
-  "Местообитание",
   "Yaşam alanı",
+  "Местообитание",
+  "ჰაბიტატი",
 ]);
 const ACTIVITY_LABELS = new Set([
-  "აქტიურობა",
   "Activity",
-  "Активность",
   "Aktivite",
-  "სეზონი",
-  "Season",
-  "Сезон",
-  "Mevsim",
-  "სტატუსი საქართველოში",
-  "Status in Georgia",
-  "Статус в Грузии",
   "Gürcistan'daki durum",
+  "Mevsim",
+  "Season",
+  "Status in Georgia",
+  "Активность",
+  "Сезон",
+  "Статус в Грузии",
+  "აქტიურობა",
+  "სეზონი",
+  "სტატუსი საქართველოში",
 ]);
 
-function getStatByLabels(species: Species, labels: Set<string>) {
-  const found = filterDisplayStats(species.stats).find((stat) =>
-    labels.has(stat.label),
-  );
-  return found?.value ?? null;
-}
-
-export function getSpeciesSizeStat(species: Species) {
-  return getStatByLabels(species, SIZE_LABELS);
+export function getSpeciesActivityStat(species: Species) {
+  return getStatByLabels(species, ACTIVITY_LABELS);
 }
 
 export function getSpeciesHabitatStat(species: Species) {
   return getStatByLabels(species, HABITAT_LABELS);
 }
 
-export function getSpeciesActivityStat(species: Species) {
-  return getStatByLabels(species, ACTIVITY_LABELS);
-}
-
-export function isPlaceholderBody(text: string) {
-  const normalized = text.trim().toLowerCase();
-  if (!normalized) return true;
-  return PLACEHOLDER_BODY_MARKERS.some((marker) =>
-    normalized.includes(marker),
-  );
+export function getSpeciesSizeStat(species: Species) {
+  return getStatByLabels(species, SIZE_LABELS);
 }
 
 export function hasRealIdentification(
@@ -181,4 +168,17 @@ export function hasRealIdentification(
     );
   });
   return !metaOnly;
+}
+
+export function isPlaceholderBody(text: string) {
+  const normalized = text.trim().toLowerCase();
+  if (!normalized) return true;
+  return PLACEHOLDER_BODY_MARKERS.some((marker) => normalized.includes(marker));
+}
+
+function getStatByLabels(species: Species, labels: Set<string>) {
+  const found = filterDisplayStats(species.stats).find((stat) =>
+    labels.has(stat.label),
+  );
+  return found?.value ?? null;
 }

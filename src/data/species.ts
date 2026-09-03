@@ -1,9 +1,6 @@
+import type { GalleryImage, PhotoCredit, Species } from "./speciesTypes";
+
 import { species } from "./species.generated";
-import type {
-  GalleryImage,
-  PhotoCredit,
-  Species,
-} from "./speciesTypes";
 
 export {
   type DangerLevel,
@@ -17,12 +14,22 @@ export {
   type SpeciesStat,
 } from "./speciesTypes";
 
-export function hasPhotoCredit(
-  credit?: PhotoCredit,
-): credit is PhotoCredit {
-  return Boolean(
-    credit?.photographer || credit?.location || credit?.date,
-  );
+export function hasPhotoCredit(credit?: PhotoCredit): credit is PhotoCredit {
+  return Boolean(credit?.photographer || credit?.location || credit?.date);
+}
+
+export function mergeGallery(
+  base: GalleryImage[],
+  translated?: GalleryImage[],
+): GalleryImage[] {
+  if (!translated?.length) return base;
+  const bySrc = new Map(translated.map((item) => [item.src, item]));
+  return base.map((item) => {
+    const extra = bySrc.get(item.src);
+    if (!extra) return item;
+    const credit = overlayPhotoCredit(item.credit, extra.credit);
+    return credit ? { credit, src: item.src } : { src: item.src };
+  });
 }
 
 export function overlayPhotoCredit(
@@ -42,20 +49,6 @@ export function overlayPhotoCredit(
   return hasPhotoCredit(merged) ? merged : undefined;
 }
 
-export function mergeGallery(
-  base: GalleryImage[],
-  translated?: GalleryImage[],
-): GalleryImage[] {
-  if (!translated?.length) return base;
-  const bySrc = new Map(translated.map((item) => [item.src, item]));
-  return base.map((item) => {
-    const extra = bySrc.get(item.src);
-    if (!extra) return item;
-    const credit = overlayPhotoCredit(item.credit, extra.credit);
-    return credit ? { src: item.src, credit } : { src: item.src };
-  });
-}
-
 export function resolvePhotoCredit(
   ...credits: Array<PhotoCredit | undefined>
 ): PhotoCredit | undefined {
@@ -63,9 +56,9 @@ export function resolvePhotoCredit(
 }
 
 export const images = {
-  hero: "https://cdn.reptiles.ge/hero-img.webp",
-  detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
+  detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+  hero: "https://cdn.reptiles.ge/hero-img.webp",
 };
 
 export const featuredSpeciesIds = [
@@ -198,20 +191,19 @@ export const featuredSpeciesIds = [
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
 
-export const unpublishedSpeciesIds = new Set<string>([
-  "dolichophis-caspius",
-]);
+export const unpublishedSpeciesIds = new Set<string>(["dolichophis-caspius"]);
 
-export function isPublishedSpeciesId(id: string) {
-  return !unpublishedSpeciesIds.has(id);
+export function getCatalogSpecies() {
+  const catalog: Species[] = [];
+  for (const id of catalogSpeciesIds) {
+    if (!isPublishedSpeciesId(id)) continue;
+    const item = getSpeciesById(id);
+    if (item) catalog.push(item);
+  }
+  return catalog;
 }
 
 export { species };
-
-export function getSpeciesById(id: string) {
-  if (!isPublishedSpeciesId(id)) return undefined;
-  return species.find((item) => item.id === id);
-}
 
 export function getFeaturedSpecies() {
   const featured: Species[] = [];
@@ -222,12 +214,11 @@ export function getFeaturedSpecies() {
   return featured;
 }
 
-export function getCatalogSpecies() {
-  const catalog: Species[] = [];
-  for (const id of catalogSpeciesIds) {
-    if (!isPublishedSpeciesId(id)) continue;
-    const item = getSpeciesById(id);
-    if (item) catalog.push(item);
-  }
-  return catalog;
+export function getSpeciesById(id: string) {
+  if (!isPublishedSpeciesId(id)) return undefined;
+  return species.find((item) => item.id === id);
+}
+
+export function isPublishedSpeciesId(id: string) {
+  return !unpublishedSpeciesIds.has(id);
 }

@@ -34,12 +34,8 @@ const KA_LATIN: Record<string, string> = {
   ჰ: "h",
 };
 
-export function transliterateKa(value: string): string {
-  let out = "";
-  for (const char of value) {
-    out += KA_LATIN[char] ?? char;
-  }
-  return out;
+export function kaToSlug(value: string): string {
+  return slugify(transliterateKa(value));
 }
 
 export function slugify(value: string): string {
@@ -53,6 +49,10 @@ export function slugify(value: string): string {
     .replace(/^-|-$/g, "");
 }
 
-export function kaToSlug(value: string): string {
-  return slugify(transliterateKa(value));
+export function transliterateKa(value: string): string {
+  let out = "";
+  for (const char of value) {
+    out += KA_LATIN[char] ?? char;
+  }
+  return out;
 }

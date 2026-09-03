@@ -1,30 +1,13 @@
 import type { GalleryImage, PhotoCredit, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+
 import { absoluteImageUrl } from "@/lib/site";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 
 type SpeciesPhotoContext = Pick<
   Species,
-  "commonName" | "scientificName" | "location"
+  "commonName" | "location" | "scientificName"
 >;
-
-function encodingFormat(src: string) {
-  const path = src.split("?")[0]?.toLowerCase() ?? "";
-  if (path.endsWith(".webp")) return "image/webp";
-  if (path.endsWith(".png")) return "image/png";
-  if (path.endsWith(".gif")) return "image/gif";
-  if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
-  return undefined;
-}
-
-function personNode(credit: PhotoCredit) {
-  if (!credit.photographer) return undefined;
-  return {
-    "@type": "Person",
-    name: credit.photographer,
-    ...(credit.url ? { url: credit.url } : {}),
-  };
-}
 
 export function galleryImageObject(
   photo: GalleryImage,
@@ -44,16 +27,16 @@ export function galleryImageObject(
 
   return {
     "@type": "ImageObject",
-    contentUrl: url,
-    url,
-    name,
     caption: name,
+    contentUrl: url,
     inLanguage: locale,
+    name,
+    url,
     ...(format ? { encodingFormat: format } : {}),
     ...(creator
       ? {
-          creator,
           copyrightHolder: creator,
+          creator,
           creditText: credit?.photographer,
         }
       : {}),
@@ -80,4 +63,22 @@ export function galleryImageObjects(
     objects.push(galleryImageObject(photo, species, locale));
   }
   return objects;
+}
+
+function encodingFormat(src: string) {
+  const path = src.split("?")[0]?.toLowerCase() ?? "";
+  if (path.endsWith(".webp")) return "image/webp";
+  if (path.endsWith(".png")) return "image/png";
+  if (path.endsWith(".gif")) return "image/gif";
+  if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
+  return undefined;
+}
+
+function personNode(credit: PhotoCredit) {
+  if (!credit.photographer) return undefined;
+  return {
+    "@type": "Person",
+    name: credit.photographer,
+    ...(credit.url ? { url: credit.url } : {}),
+  };
 }

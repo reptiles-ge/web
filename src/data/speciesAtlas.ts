@@ -1,22 +1,16 @@
-import { regions, getRegionsForSpecies } from "@/data/regions";
+import { getRegionsForSpecies, regions } from "@/data/regions";
 import {
-  getCatalogSpecies,
   type DangerLevel,
+  getCatalogSpecies,
   type Species,
 } from "@/data/species";
 
 export type AnimalGroup =
-  | "snake"
-  | "lizard"
-  | "turtle"
-  | "amphibian"
-  | "bird"
-  | "mammal"
-  | "spider";
+  "amphibian" | "bird" | "lizard" | "mammal" | "snake" | "spider" | "turtle";
 
-export type HabitatTag = "forest" | "mountain" | "wetland" | "grassland";
+export type AtlasDangerFilter = "all" | "harmless" | "venomous";
 
-export type AtlasDangerFilter = "all" | "venomous" | "harmless";
+export type HabitatTag = "forest" | "grassland" | "mountain" | "wetland";
 
 export type SpeciesAtlasMeta = {
   group: AnimalGroup;
@@ -24,121 +18,109 @@ export type SpeciesAtlasMeta = {
 };
 
 export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
-  "mertensiella-caucasica": {
-    group: "amphibian",
-    habitats: ["wetland", "forest"],
-  },
-  "lissotriton-lantzi": {
-    group: "amphibian",
-    habitats: ["wetland", "forest"],
-  },
-  "ommatotriton-ophryticus": {
-    group: "amphibian",
-    habitats: ["wetland", "forest", "mountain"],
-  },
-  "triturus-karelinii": {
-    group: "amphibian",
-    habitats: ["wetland", "forest"],
-  },
-  "pelobates-syriacus": {
-    group: "amphibian",
-    habitats: ["grassland", "wetland"],
-  },
-  "pelodytes-caucasicus": {
-    group: "amphibian",
-    habitats: ["wetland", "forest", "mountain"],
-  },
-  "bufotes-viridis": {
-    group: "amphibian",
-    habitats: ["grassland", "wetland"],
-  },
-  "bufo-verrucosissimus": {
-    group: "amphibian",
-    habitats: ["wetland", "forest"],
-  },
-  "hyla-orientalis": {
-    group: "amphibian",
-    habitats: ["wetland", "forest"],
-  },
-  "hyla-savignyi": {
-    group: "amphibian",
-    habitats: ["grassland", "wetland"],
-  },
-  "rana-macrocnemis": {
-    group: "amphibian",
-    habitats: ["wetland", "forest"],
-  },
-  "pelophylax-ridibundus": {
-    group: "amphibian",
-    habitats: ["wetland"],
-  },
-  "testudo-graeca": {
-    group: "turtle",
-    habitats: ["grassland"],
-  },
-  "emys-orbicularis": {
-    group: "turtle",
-    habitats: ["wetland"],
-  },
-  "trachemys-scripta": {
-    group: "turtle",
-    habitats: ["wetland"],
-  },
-  "mauremys-caspica": {
-    group: "turtle",
-    habitats: ["wetland"],
-  },
-  "tenuidactylus-caspius": {
+  "ablepharus-pannonicus": {
     group: "lizard",
     habitats: ["grassland", "mountain"],
+  },
+  "accipiter-gentilis": {
+    group: "bird",
+    habitats: ["forest", "mountain"],
+  },
+  "accipiter-nisus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "aegolius-funereus": {
+    group: "bird",
+    habitats: ["forest", "mountain"],
+  },
+  "aegypius-monachus": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
+  "anas-platyrhynchos": {
+    group: "bird",
+    habitats: ["wetland"],
   },
   "anguis-colchica": {
     group: "lizard",
     habitats: ["grassland", "forest", "mountain"],
   },
-  "pseudopus-apodus": {
-    group: "lizard",
-    habitats: ["grassland", "forest", "mountain"],
-  },
-  "paralaudakia-caucasia": {
-    group: "lizard",
+  "apus-apus": {
+    group: "bird",
     habitats: ["grassland", "mountain"],
   },
-  "eumeces-schneiderii": {
-    group: "lizard",
-    habitats: ["grassland", "mountain"],
+  "aquila-chrysaetos": {
+    group: "bird",
+    habitats: ["mountain", "forest", "grassland"],
   },
-  "ablepharus-pannonicus": {
-    group: "lizard",
-    habitats: ["grassland", "mountain"],
+  "argiope-bruennichi": {
+    group: "spider",
+    habitats: ["grassland", "wetland"],
   },
-  "eremias-velox": {
-    group: "lizard",
-    habitats: ["grassland", "forest"],
-  },
-  "eremias-arguta": {
-    group: "lizard",
+  "argiope-lobata": {
+    group: "spider",
     habitats: ["grassland"],
   },
-  "ophisops-elegans": {
-    group: "lizard",
-    habitats: ["grassland", "forest"],
-  },
-  "lacerta-agilis": {
-    group: "lizard",
-    habitats: ["grassland", "forest"],
-  },
-  "lacerta-strigata": {
-    group: "lizard",
+  "athene-noctua": {
+    group: "bird",
     habitats: ["grassland"],
   },
-  "lacerta-media": {
-    group: "lizard",
-    habitats: ["grassland", "forest"],
+  "bubo-bubo": {
+    group: "bird",
+    habitats: ["mountain", "forest", "grassland"],
   },
-  "phoenicolacerta-laevis": {
-    group: "lizard",
-    habitats: ["grassland", "forest"],
+  "bufo-verrucosissimus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "bufotes-viridis": {
+    group: "amphibian",
+    habitats: ["grassland", "wetland"],
+  },
+  "buteo-buteo": {
+    group: "bird",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "canis-aureus": {
+    group: "mammal",
+    habitats: ["grassland", "forest", "wetland"],
+  },
+  "canis-lupus": {
+    group: "mammal",
+    habitats: ["mountain", "forest", "grassland"],
+  },
+  "capra-aegagrus": {
+    group: "mammal",
+    habitats: ["mountain", "forest"],
+  },
+  "capreolus-capreolus": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "ciconia-ciconia": {
+    group: "bird",
+    habitats: ["wetland", "grassland"],
+  },
+  "columba-palumbus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "coronella-austriaca": {
+    group: "snake",
+    habitats: ["forest", "mountain", "grassland"],
+  },
+  "corvus-corax": {
+    group: "bird",
+    habitats: ["mountain", "grassland", "forest"],
+  },
+  "coturnix-coturnix": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
+  "cuculus-canorus": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
   },
   "darevskia-adjarica": {
     group: "lizard",
@@ -180,6 +162,14 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "lizard",
     habitats: ["mountain", "forest"],
   },
+  "darevskia-obscura": {
+    group: "lizard",
+    habitats: ["mountain", "forest"],
+  },
+  "darevskia-pontica": {
+    group: "lizard",
+    habitats: ["forest", "grassland"],
+  },
   "darevskia-portschinskii": {
     group: "lizard",
     habitats: ["mountain", "forest"],
@@ -187,14 +177,6 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "darevskia-praticola": {
     group: "lizard",
     habitats: ["forest", "grassland"],
-  },
-  "darevskia-pontica": {
-    group: "lizard",
-    habitats: ["forest", "grassland"],
-  },
-  "darevskia-obscura": {
-    group: "lizard",
-    habitats: ["mountain", "forest"],
   },
   "darevskia-raddei": {
     group: "lizard",
@@ -204,39 +186,11 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "lizard",
     habitats: ["mountain", "grassland"],
   },
-  "xerotyphlops-vermicularis": {
-    group: "snake",
-    habitats: ["grassland"],
+  "dendrocopos-major": {
+    group: "bird",
+    habitats: ["forest"],
   },
-  "eryx-jaculus": {
-    group: "snake",
-    habitats: ["grassland"],
-  },
-  "natrix-natrix": {
-    group: "snake",
-    habitats: ["wetland", "forest"],
-  },
-  "natrix-tessellata": {
-    group: "snake",
-    habitats: ["wetland"],
-  },
-  "coronella-austriaca": {
-    group: "snake",
-    habitats: ["forest", "mountain", "grassland"],
-  },
-  "elaphe-urartica": {
-    group: "snake",
-    habitats: ["grassland", "forest"],
-  },
-  "elaphe-dione": {
-    group: "snake",
-    habitats: ["grassland", "mountain"],
-  },
-  "zamenis-longissimus": {
-    group: "snake",
-    habitats: ["forest", "mountain"],
-  },
-  "zamenis-hohenackeri": {
+  "dolichophis-caspius": {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
@@ -244,15 +198,7 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
-  "dolichophis-caspius": {
-    group: "snake",
-    habitats: ["grassland", "mountain"],
-  },
-  "hemorrhois-ravergieri": {
-    group: "snake",
-    habitats: ["grassland", "mountain"],
-  },
-  "platyceps-najadum": {
+  "eirenis-collaris": {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
@@ -260,97 +206,49 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
-  "eirenis-collaris": {
+  "elaphe-dione": {
     group: "snake",
     habitats: ["grassland", "mountain"],
   },
-  "telescopus-fallax": {
+  "elaphe-urartica": {
     group: "snake",
-    habitats: ["mountain", "grassland"],
-  },
-  "malpolon-insignitus": {
-    group: "snake",
-    habitats: ["grassland"],
-  },
-  "macrovipera-lebetina": {
-    group: "snake",
-    habitats: ["grassland", "mountain"],
-  },
-  "vipera-renardi": {
-    group: "snake",
-    habitats: ["grassland", "mountain"],
-  },
-  "vipera-kaznakovi": {
-    group: "snake",
-    habitats: ["forest", "mountain", "wetland"],
-  },
-  "vipera-dinniki": {
-    group: "snake",
-    habitats: ["mountain", "forest"],
-  },
-  "vipera-darevskii": {
-    group: "snake",
-    habitats: ["mountain", "grassland"],
-  },
-  "vipera-transcaucasiana": {
-    group: "snake",
-    habitats: ["mountain", "grassland"],
-  },
-  "vipera-ammodytes": {
-    group: "snake",
-    habitats: ["mountain", "grassland"],
+    habitats: ["grassland", "forest"],
   },
   "emberiza-citrinella": {
     group: "bird",
     habitats: ["grassland"],
   },
-  "picus-viridis": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
+  "emys-orbicularis": {
+    group: "turtle",
+    habitats: ["wetland"],
   },
-  "dendrocopos-major": {
-    group: "bird",
-    habitats: ["forest"],
+  "eremias-arguta": {
+    group: "lizard",
+    habitats: ["grassland"],
   },
-  "jynx-torquilla": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
-  },
-  "cuculus-canorus": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
-  },
-  "upupa-epops": {
-    group: "bird",
+  "eremias-velox": {
+    group: "lizard",
     habitats: ["grassland", "forest"],
   },
-  "apus-apus": {
-    group: "bird",
-    habitats: ["grassland", "mountain"],
+  "erinaceus-concolor": {
+    group: "mammal",
+    habitats: ["forest", "grassland"],
   },
-  "strix-aluco": {
-    group: "bird",
-    habitats: ["forest"],
-  },
-  "otus-scops": {
+  "erithacus-rubecula": {
     group: "bird",
     habitats: ["forest", "grassland"],
   },
-  "aegolius-funereus": {
-    group: "bird",
-    habitats: ["forest", "mountain"],
-  },
-  "tyto-alba": {
-    group: "bird",
+  "eryx-jaculus": {
+    group: "snake",
     habitats: ["grassland"],
   },
-  "athene-noctua": {
-    group: "bird",
-    habitats: ["grassland"],
+  "eumeces-schneiderii": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
   },
-  "bubo-bubo": {
+  "falco-peregrinus": {
     group: "bird",
-    habitats: ["mountain", "forest", "grassland"],
+    habitats: ["mountain", "grassland", "wetland"],
   },
   "ficedula-hypoleuca": {
     group: "bird",
@@ -360,177 +258,273 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["forest"],
   },
-  "erithacus-rubecula": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
-  },
-  "luscinia-megarhynchos": {
+  "garrulus-glandarius": {
     group: "bird",
     habitats: ["forest"],
-  },
-  "buteo-buteo": {
-    group: "bird",
-    habitats: ["forest", "grassland", "mountain"],
-  },
-  "pernis-apivorus": {
-    group: "bird",
-    habitats: ["forest", "mountain"],
-  },
-  "accipiter-nisus": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
-  },
-  "accipiter-gentilis": {
-    group: "bird",
-    habitats: ["forest", "mountain"],
-  },
-  "falco-peregrinus": {
-    group: "bird",
-    habitats: ["mountain", "grassland", "wetland"],
   },
   "glareola-pratincola": {
     group: "bird",
     habitats: ["wetland", "grassland"],
   },
-  "larus-fuscus": {
-    group: "bird",
-    habitats: ["wetland"],
-  },
-  "turdus-merula": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
-  },
-  "motacilla-alba": {
-    group: "bird",
-    habitats: ["grassland", "wetland"],
-  },
-  "streptopelia-turtur": {
-    group: "bird",
-    habitats: ["grassland", "forest"],
-  },
-  "columba-palumbus": {
-    group: "bird",
-    habitats: ["forest", "grassland"],
-  },
-  "ciconia-ciconia": {
-    group: "bird",
-    habitats: ["wetland", "grassland"],
-  },
-  "anas-platyrhynchos": {
-    group: "bird",
-    habitats: ["wetland"],
-  },
-  "phasianus-colchicus": {
-    group: "bird",
-    habitats: ["grassland", "forest"],
-  },
-  "coturnix-coturnix": {
-    group: "bird",
-    habitats: ["grassland"],
-  },
-  "aquila-chrysaetos": {
-    group: "bird",
-    habitats: ["mountain", "forest", "grassland"],
-  },
-  "aegypius-monachus": {
-    group: "bird",
-    habitats: ["grassland"],
-  },
   "gyps-fulvus": {
     group: "bird",
     habitats: ["mountain", "grassland"],
   },
-  "milvus-migrans": {
-    group: "bird",
-    habitats: ["wetland", "forest", "grassland"],
+  "hemorrhois-ravergieri": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
   },
-  "corvus-corax": {
-    group: "bird",
-    habitats: ["mountain", "grassland", "forest"],
+  "hyla-orientalis": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
   },
-  "pica-pica": {
+  "hyla-savignyi": {
+    group: "amphibian",
+    habitats: ["grassland", "wetland"],
+  },
+  "jynx-torquilla": {
     group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "lacerta-agilis": {
+    group: "lizard",
     habitats: ["grassland", "forest"],
   },
-  "garrulus-glandarius": {
+  "lacerta-media": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "lacerta-strigata": {
+    group: "lizard",
+    habitats: ["grassland"],
+  },
+  "larus-fuscus": {
+    group: "bird",
+    habitats: ["wetland"],
+  },
+  "latrodectus-tredecimguttatus": {
+    group: "spider",
+    habitats: ["grassland"],
+  },
+  "lissotriton-lantzi": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "luscinia-megarhynchos": {
     group: "bird",
     habitats: ["forest"],
-  },
-  "vulpes-vulpes": {
-    group: "mammal",
-    habitats: ["forest", "grassland", "mountain"],
-  },
-  "canis-aureus": {
-    group: "mammal",
-    habitats: ["grassland", "forest", "wetland"],
-  },
-  "canis-lupus": {
-    group: "mammal",
-    habitats: ["mountain", "forest", "grassland"],
-  },
-  "mustela-nivalis": {
-    group: "mammal",
-    habitats: ["grassland", "forest", "mountain"],
   },
   "lutra-lutra": {
     group: "mammal",
     habitats: ["wetland", "forest", "mountain"],
   },
+  "lynx-lynx": {
+    group: "mammal",
+    habitats: ["forest", "mountain", "grassland"],
+  },
+  "macrovipera-lebetina": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "malpolon-insignitus": {
+    group: "snake",
+    habitats: ["grassland"],
+  },
+  "mauremys-caspica": {
+    group: "turtle",
+    habitats: ["wetland"],
+  },
   "meles-canescens": {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],
   },
-  "sciurus-anomalus": {
-    group: "mammal",
-    habitats: ["forest"],
+  "mertensiella-caucasica": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
   },
-  "capreolus-capreolus": {
-    group: "mammal",
-    habitats: ["forest", "grassland", "mountain"],
+  "milvus-migrans": {
+    group: "bird",
+    habitats: ["wetland", "forest", "grassland"],
   },
-  "ursus-arctos": {
-    group: "mammal",
-    habitats: ["forest", "mountain", "grassland"],
+  "motacilla-alba": {
+    group: "bird",
+    habitats: ["grassland", "wetland"],
   },
-  "erinaceus-concolor": {
+  "mustela-nivalis": {
     group: "mammal",
+    habitats: ["grassland", "forest", "mountain"],
+  },
+  "natrix-natrix": {
+    group: "snake",
+    habitats: ["wetland", "forest"],
+  },
+  "natrix-tessellata": {
+    group: "snake",
+    habitats: ["wetland"],
+  },
+  "ommatotriton-ophryticus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest", "mountain"],
+  },
+  "ophisops-elegans": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "otus-scops": {
+    group: "bird",
     habitats: ["forest", "grassland"],
-  },
-  "sus-scrofa": {
-    group: "mammal",
-    habitats: ["forest", "grassland", "mountain"],
   },
   "panthera-pardus": {
     group: "mammal",
     habitats: ["mountain", "forest", "grassland"],
   },
-  "lynx-lynx": {
-    group: "mammal",
-    habitats: ["forest", "mountain", "grassland"],
+  "paralaudakia-caucasia": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
+  },
+  "pelobates-syriacus": {
+    group: "amphibian",
+    habitats: ["grassland", "wetland"],
+  },
+  "pelodytes-caucasicus": {
+    group: "amphibian",
+    habitats: ["wetland", "forest", "mountain"],
+  },
+  "pelophylax-ridibundus": {
+    group: "amphibian",
+    habitats: ["wetland"],
+  },
+  "pernis-apivorus": {
+    group: "bird",
+    habitats: ["forest", "mountain"],
+  },
+  "phasianus-colchicus": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
+  "phoenicolacerta-laevis": {
+    group: "lizard",
+    habitats: ["grassland", "forest"],
+  },
+  "pica-pica": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
+  "picus-viridis": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "platyceps-najadum": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
   },
   "procyon-lotor": {
     group: "mammal",
     habitats: ["forest", "wetland", "grassland"],
   },
-  "capra-aegagrus": {
+  "pseudopus-apodus": {
+    group: "lizard",
+    habitats: ["grassland", "forest", "mountain"],
+  },
+  "rana-macrocnemis": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "sciurus-anomalus": {
     group: "mammal",
-    habitats: ["mountain", "forest"],
-  },
-  "argiope-bruennichi": {
-    group: "spider",
-    habitats: ["grassland", "wetland"],
-  },
-  "argiope-lobata": {
-    group: "spider",
-    habitats: ["grassland"],
+    habitats: ["forest"],
   },
   "steatoda-paykulliana": {
     group: "spider",
     habitats: ["grassland"],
   },
-  "latrodectus-tredecimguttatus": {
-    group: "spider",
+  "streptopelia-turtur": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
+  "strix-aluco": {
+    group: "bird",
+    habitats: ["forest"],
+  },
+  "sus-scrofa": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "telescopus-fallax": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "tenuidactylus-caspius": {
+    group: "lizard",
+    habitats: ["grassland", "mountain"],
+  },
+  "testudo-graeca": {
+    group: "turtle",
     habitats: ["grassland"],
+  },
+  "trachemys-scripta": {
+    group: "turtle",
+    habitats: ["wetland"],
+  },
+  "triturus-karelinii": {
+    group: "amphibian",
+    habitats: ["wetland", "forest"],
+  },
+  "turdus-merula": {
+    group: "bird",
+    habitats: ["forest", "grassland"],
+  },
+  "tyto-alba": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
+  "upupa-epops": {
+    group: "bird",
+    habitats: ["grassland", "forest"],
+  },
+  "ursus-arctos": {
+    group: "mammal",
+    habitats: ["forest", "mountain", "grassland"],
+  },
+  "vipera-ammodytes": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "vipera-darevskii": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "vipera-dinniki": {
+    group: "snake",
+    habitats: ["mountain", "forest"],
+  },
+  "vipera-kaznakovi": {
+    group: "snake",
+    habitats: ["forest", "mountain", "wetland"],
+  },
+  "vipera-renardi": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "vipera-transcaucasiana": {
+    group: "snake",
+    habitats: ["mountain", "grassland"],
+  },
+  "vulpes-vulpes": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
+  "xerotyphlops-vermicularis": {
+    group: "snake",
+    habitats: ["grassland"],
+  },
+  "zamenis-hohenackeri": {
+    group: "snake",
+    habitats: ["grassland", "mountain"],
+  },
+  "zamenis-longissimus": {
+    group: "snake",
+    habitats: ["forest", "mountain"],
   },
 };
 
@@ -543,10 +537,6 @@ export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
   );
 }
 
-export function isVenomousDanger(danger?: DangerLevel) {
-  return danger === "High" || danger === "Moderate";
-}
-
 export function groupHasVenomConcept(group: AnimalGroup) {
   return (
     group === "snake" ||
@@ -557,40 +547,80 @@ export function groupHasVenomConcept(group: AnimalGroup) {
   );
 }
 
-const venomousDangerOrder: Record<DangerLevel, number> = {
-  High: 0,
-  Moderate: 1,
-  Harmless: 2,
-};
-
-export function getVenomousCatalogSpecies(
-  catalog: Species[] = getCatalogSpecies(),
-) {
-  return catalog
-    .filter(
-      (item) =>
-        isVenomousDanger(item.danger) &&
-        getSpeciesAtlasMeta(item.id).group === "snake",
-    )
-    .sort(
-      (a, b) =>
-        venomousDangerOrder[a.danger ?? "Harmless"] -
-          venomousDangerOrder[b.danger ?? "Harmless"] ||
-        a.scientificName.localeCompare(b.scientificName),
-    );
+export function isVenomousDanger(danger?: DangerLevel) {
+  return danger === "High" || danger === "Moderate";
 }
 
-function familyRank(species: Species) {
-  return species.family === "Viperidae" ? 0 : 1;
+const venomousDangerOrder: Record<DangerLevel, number> = {
+  Harmless: 2,
+  High: 0,
+  Moderate: 1,
+};
+
+export type AtlasFilters = {
+  danger: AtlasDangerFilter;
+  group: "all" | AnimalGroup;
+  habitat: "all" | HabitatTag;
+  query: string;
+  region: "all" | string;
+};
+
+export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
+  const urls = new Set<string>();
+  for (const item of catalog) {
+    if (item.image) urls.add(item.image);
+    if (item.mobileImage) urls.add(item.mobileImage);
+    for (const photo of item.gallery) {
+      urls.add(photo.src);
+    }
+  }
+  return urls.size;
+}
+
+export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
+  const byGroup: Record<AnimalGroup, number> = {
+    amphibian: 0,
+    bird: 0,
+    lizard: 0,
+    mammal: 0,
+    snake: 0,
+    spider: 0,
+    turtle: 0,
+  };
+
+  for (const item of catalog) {
+    byGroup[getSpeciesAtlasMeta(item.id).group] += 1;
+  }
+
+  const updatedDates: string[] = [];
+  for (const item of catalog) {
+    if (item.updatedAt) updatedDates.push(item.updatedAt);
+  }
+  updatedDates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+
+  return {
+    amphibians: byGroup.amphibian,
+    birds: byGroup.bird,
+    lastUpdated: updatedDates.at(-1) ?? null,
+    lizards: byGroup.lizard,
+    mammals: byGroup.mammal,
+    photos: getAtlasPhotoCount(catalog),
+    regions: regions.length,
+    snakes: byGroup.snake,
+    spiders: byGroup.spider,
+    total: catalog.length,
+    turtles: byGroup.turtle,
+    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
+  };
 }
 
 export function getCatalogByDanger(
   catalog: Species[] = getCatalogSpecies(),
 ): Record<DangerLevel, Species[]> {
   const groups: Record<DangerLevel, Species[]> = {
+    Harmless: [],
     High: [],
     Moderate: [],
-    Harmless: [],
   };
 
   for (const item of catalog) {
@@ -618,78 +648,53 @@ export function getCatalogSpeciesByGroup(
     .sort((a, b) => a.scientificName.localeCompare(b.scientificName));
 }
 
-export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
-  const urls = new Set<string>();
-  for (const item of catalog) {
-    if (item.image) urls.add(item.image);
-    if (item.mobileImage) urls.add(item.mobileImage);
-    for (const photo of item.gallery) {
-      urls.add(photo.src);
-    }
-  }
-  return urls.size;
-}
-
-export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
-  const byGroup: Record<AnimalGroup, number> = {
-    snake: 0,
-    lizard: 0,
-    turtle: 0,
-    amphibian: 0,
-    bird: 0,
-    mammal: 0,
-    spider: 0,
-  };
-
-  for (const item of catalog) {
-    byGroup[getSpeciesAtlasMeta(item.id).group] += 1;
-  }
-
-  const updatedDates: string[] = [];
-  for (const item of catalog) {
-    if (item.updatedAt) updatedDates.push(item.updatedAt);
-  }
-  updatedDates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
-
-  return {
-    total: catalog.length,
-    snakes: byGroup.snake,
-    lizards: byGroup.lizard,
-    turtles: byGroup.turtle,
-    amphibians: byGroup.amphibian,
-    birds: byGroup.bird,
-    mammals: byGroup.mammal,
-    spiders: byGroup.spider,
-    regions: regions.length,
-    photos: getAtlasPhotoCount(catalog),
-    venomous: catalog.filter((item) => isVenomousDanger(item.danger)).length,
-    lastUpdated: updatedDates.at(-1) ?? null,
-  };
-}
-
 export function getRecentlyUpdatedSpecies(limit = 4) {
   return [...getCatalogSpecies()]
     .sort(
-      (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+      (a, b) =>
+        new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
     )
     .slice(0, limit);
 }
 
-export type AtlasFilters = {
-  group: AnimalGroup | "all";
-  danger: AtlasDangerFilter;
-  habitat: HabitatTag | "all";
-  region: string | "all";
-  query: string;
-};
+export function getVenomousCatalogSpecies(
+  catalog: Species[] = getCatalogSpecies(),
+) {
+  return catalog
+    .filter(
+      (item) =>
+        isVenomousDanger(item.danger) &&
+        getSpeciesAtlasMeta(item.id).group === "snake",
+    )
+    .sort(
+      (a, b) =>
+        venomousDangerOrder[a.danger ?? "Harmless"] -
+          venomousDangerOrder[b.danger ?? "Harmless"] ||
+        a.scientificName.localeCompare(b.scientificName),
+    );
+}
+
+function familyRank(species: Species) {
+  return species.family === "Viperidae" ? 0 : 1;
+}
 
 export const defaultAtlasFilters: AtlasFilters = {
-  group: "all",
   danger: "all",
+  group: "all",
   habitat: "all",
-  region: "all",
   query: "",
+  region: "all",
 };
+
+export function atlasFiltersToSearchParams(filters: AtlasFilters) {
+  const params = new URLSearchParams();
+  if (filters.group !== "all") params.set("type", filters.group);
+  if (filters.danger !== "all") params.set("danger", filters.danger);
+  if (filters.habitat !== "all") params.set("habitat", filters.habitat);
+  if (filters.region !== "all") params.set("region", filters.region);
+  if (filters.query.trim()) params.set("q", filters.query.trim());
+  return params;
+}
 
 export function countAtlasFacets(filters: AtlasFilters) {
   let count = 0;
@@ -698,7 +703,7 @@ export function countAtlasFacets(filters: AtlasFilters) {
   if (filters.habitat !== "all") count += 1;
   if (filters.region !== "all") count += 1;
   return count;
-};
+}
 
 export function filterAtlasSpecies(
   catalog: Array<Species & { searchText?: string }>,
@@ -756,6 +761,10 @@ export function filterAtlasSpecies(
   });
 }
 
+export function hasActiveAtlasFilters(filters: AtlasFilters) {
+  return atlasFiltersToSearchParams(filters).toString().length > 0;
+}
+
 export function parseAtlasFilters(
   input: Record<string, string | string[] | undefined>,
 ): AtlasFilters {
@@ -774,7 +783,7 @@ export function parseAtlasFilters(
   const region = read("region");
   const query = read("q") ?? "";
 
-  const groups: Array<AnimalGroup | "all"> = [
+  const groups: Array<"all" | AnimalGroup> = [
     "all",
     "snake",
     "lizard",
@@ -785,7 +794,7 @@ export function parseAtlasFilters(
     "spider",
   ];
   const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];
-  const habitats: Array<HabitatTag | "all"> = [
+  const habitats: Array<"all" | HabitatTag> = [
     "all",
     "forest",
     "mountain",
@@ -794,33 +803,19 @@ export function parseAtlasFilters(
   ];
 
   return {
-    group: groups.includes(group as AnimalGroup | "all")
-      ? (group as AnimalGroup | "all")
-      : "all",
     danger: dangers.includes(danger as AtlasDangerFilter)
       ? (danger as AtlasDangerFilter)
       : "all",
-    habitat: habitats.includes(habitat as HabitatTag | "all")
-      ? (habitat as HabitatTag | "all")
+    group: groups.includes(group as "all" | AnimalGroup)
+      ? (group as "all" | AnimalGroup)
       : "all",
+    habitat: habitats.includes(habitat as "all" | HabitatTag)
+      ? (habitat as "all" | HabitatTag)
+      : "all",
+    query,
     region:
       region && (region === "all" || regions.some((item) => item.id === region))
         ? region
         : "all",
-    query,
   };
-}
-
-export function atlasFiltersToSearchParams(filters: AtlasFilters) {
-  const params = new URLSearchParams();
-  if (filters.group !== "all") params.set("type", filters.group);
-  if (filters.danger !== "all") params.set("danger", filters.danger);
-  if (filters.habitat !== "all") params.set("habitat", filters.habitat);
-  if (filters.region !== "all") params.set("region", filters.region);
-  if (filters.query.trim()) params.set("q", filters.query.trim());
-  return params;
-}
-
-export function hasActiveAtlasFilters(filters: AtlasFilters) {
-  return atlasFiltersToSearchParams(filters).toString().length > 0;
 }

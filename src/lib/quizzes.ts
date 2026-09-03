@@ -1,65 +1,65 @@
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { QUIZ_LENGTH } from "@/lib/snakeQuiz";
 
-export type QuizStatus = "live" | "soon";
-export type QuizId = "snake" | "lizard" | "turtle";
-export type QuizMessageKey = QuizId;
-export type QuizGenerator = "snake";
-export type QuizGroup = "snake" | "lizard" | "turtle";
-
-export type QuizHref = {
-  pathname: "/quiz/[slug]";
-  params: { slug: string };
-};
-
 export type QuizDefinition = {
-  id: QuizId;
-  status: QuizStatus;
-    slugs?: Record<AppLocale, string>;
+  generator?: QuizGenerator;
   group: QuizGroup;
   heroSpeciesId: string;
+  id: QuizId;
   messageKey: QuizMessageKey;
   messageNamespace: "snakeQuiz";
   ogImage: string;
-  generator?: QuizGenerator;
   questions?: number;
+  slugs?: Record<AppLocale, string>;
+  status: QuizStatus;
 };
+export type QuizGenerator = "snake";
+export type QuizGroup = "lizard" | "snake" | "turtle";
+export type QuizHref = {
+  params: { slug: string };
+  pathname: "/quiz/[slug]";
+};
+export type QuizId = "lizard" | "snake" | "turtle";
+
+export type QuizMessageKey = QuizId;
+
+export type QuizStatus = "live" | "soon";
 
 export const QUIZ_INDEX = [
   {
-    id: "snake",
-    status: "live",
-    slugs: {
-      ka: "romeli-gvelia",
-      en: "which-snake",
-      ru: "kakaya-zmeya",
-      tr: "hangi-yilan",
-    },
+    generator: "snake",
     group: "snake",
     heroSpeciesId: "natrix-natrix",
+    id: "snake",
     messageKey: "snake",
     messageNamespace: "snakeQuiz",
     ogImage: "/images/guides/snake-quiz-og.jpg",
-    generator: "snake",
     questions: QUIZ_LENGTH,
+    slugs: {
+      en: "which-snake",
+      ka: "romeli-gvelia",
+      ru: "kakaya-zmeya",
+      tr: "hangi-yilan",
+    },
+    status: "live",
   },
   {
-    id: "lizard",
-    status: "soon",
     group: "lizard",
     heroSpeciesId: "pseudopus-apodus",
+    id: "lizard",
     messageKey: "lizard",
     messageNamespace: "snakeQuiz",
     ogImage: "/images/guides/snake-quiz-og.jpg",
+    status: "soon",
   },
   {
-    id: "turtle",
-    status: "soon",
     group: "turtle",
     heroSpeciesId: "testudo-graeca",
+    id: "turtle",
     messageKey: "turtle",
     messageNamespace: "snakeQuiz",
     ogImage: "/images/guides/snake-quiz-og.jpg",
+    status: "soon",
   },
 ] as const satisfies readonly QuizDefinition[];
 
@@ -79,17 +79,13 @@ export function liveQuizzes() {
   );
 }
 
-export function resolveQuizBySlug(locale: AppLocale, slug: string) {
-  return liveQuizzes().find((quiz) => quiz.slugs[locale] === slug);
-}
-
 export function quizHref(id: string, locale: AppLocale): QuizHref {
   const quiz = getQuizById(id);
   const slug = quiz?.status === "live" ? quiz.slugs[locale] : undefined;
   if (!slug) {
-    return { pathname: "/quiz/[slug]", params: { slug: "romeli-gvelia" } };
+    return { params: { slug: "romeli-gvelia" }, pathname: "/quiz/[slug]" };
   }
-  return { pathname: "/quiz/[slug]", params: { slug } };
+  return { params: { slug }, pathname: "/quiz/[slug]" };
 }
 
 export function quizStaticParams() {
@@ -99,4 +95,8 @@ export function quizStaticParams() {
       slug: quiz.slugs[locale],
     })),
   );
+}
+
+export function resolveQuizBySlug(locale: AppLocale, slug: string) {
+  return liveQuizzes().find((quiz) => quiz.slugs[locale] === slug);
 }

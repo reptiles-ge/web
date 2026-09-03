@@ -1,9 +1,10 @@
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+
 import { CoverImage } from "@/components/CoverImage";
 import { NotFoundAnalytics } from "@/components/NotFoundAnalytics";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
 
 const pathways = [
   { href: "/snakes" as const, key: "snakes" as const },
@@ -17,19 +18,19 @@ export async function NotFoundContent() {
 
   return (
     <main
-      data-hide-footer
       className="relative flex min-h-svh flex-col overflow-hidden bg-ink text-ink-foreground"
+      data-hide-footer
     >
       <NotFoundAnalytics />
       <div className="absolute inset-0">
         <CoverImage
-          src={images.cta}
           alt={t("imageAlt")}
+          className="object-cover object-center opacity-55"
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-55"
+          src={images.cta}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/55 to-black/90" />
         <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_20%,transparent_10%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
@@ -38,15 +39,16 @@ export async function NotFoundContent() {
         style={{
           paddingTop: "6rem",
         }}
-      >        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] font-semibold leading-none tracking-tight text-white/[0.08]">
+      >
+        {" "}
+        <p className="font-display text-[clamp(4.5rem,18vw,11rem)] leading-none font-semibold tracking-tight text-white/8">
           404
         </p>
-
         <div className="-mt-6 max-w-2xl sm:-mt-10 lg:-mt-14">
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+          <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
             {t("eyebrow")}
           </p>
-          <h1 className="mt-4 font-display text-balance-tight text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.05] text-white">
+          <h1 className="text-balance-tight mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.05] font-semibold text-white">
             {t("title")}
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/60 sm:mt-6 sm:text-[16px]">
@@ -55,36 +57,35 @@ export async function NotFoundContent() {
 
           <div className="mt-9 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
             <Link
-              href="/"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-transform duration-300 hover:scale-[1.02]"
+              href="/"
             >
               {t("home")}
               <ArrowRight className="size-4" />
             </Link>
             <Link
-              href="/regions"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-[14px] font-medium text-white/90 backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/10"
+              href="/regions"
             >
               {t("regions")}
             </Link>
           </div>
         </div>
-
         <div className="mt-16 grid gap-px overflow-hidden rounded-[24px] bg-white/10 sm:mt-20 sm:grid-cols-3">
           {pathways.map((pathway) => (
             <Link
-              key={pathway.key}
-              href={pathway.href}
               className="group flex min-h-[140px] flex-col justify-between bg-ink/80 p-6 backdrop-blur-md transition-colors hover:bg-ink/60 sm:p-7"
+              href={pathway.href}
+              key={pathway.key}
             >
-              <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
+              <p className="text-[11px] font-medium tracking-[0.2em] text-white/40 uppercase">
                 {t(`paths.${pathway.key}.eyebrow`)}
               </p>
               <div className="mt-8 flex items-end justify-between gap-3">
-                <p className="font-display text-[1.15rem] font-semibold leading-tight text-white sm:text-[1.25rem]">
+                <p className="font-display text-[1.15rem] leading-tight font-semibold text-white sm:text-[1.25rem]">
                   {t(`paths.${pathway.key}.title`)}
                 </p>
-                <ArrowUpRight className="size-4 shrink-0 text-white/45 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+                <ArrowUpRight className="size-4 shrink-0 text-white/45 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
               </div>
             </Link>
           ))}

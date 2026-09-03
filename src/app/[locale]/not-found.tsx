@@ -1,11 +1,12 @@
-import { NotFoundContent } from "@/components/NotFoundContent";
 import type { Metadata } from "next";
+
+import { NotFoundContent } from "@/components/NotFoundContent";
 
 export const metadata: Metadata = {
   robots: {
-    index: false,
     follow: true,
-    googleBot: { index: false, follow: true },
+    googleBot: { follow: true, index: false },
+    index: false,
   },
 };
 

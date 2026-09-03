@@ -2,46 +2,43 @@
 
 import {
   createContext,
+  type ReactNode,
   useCallback,
   useContext,
   useEffect,
   useMemo,
-  useState,
-  type ReactNode,
+  useSyncExternalStore,
 } from "react";
 
-export type Theme = "light" | "dark";
+export type Theme = "dark" | "light";
 
 const STORAGE_KEY = "reptiles-theme";
 
 type ThemeContextValue = {
-  theme: Theme;
   setTheme: (theme: Theme) => void;
+  theme: Theme;
   toggleTheme: () => void;
 };
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
+const ThemeContext = createContext<null | ThemeContextValue>(null);
 
-function applyTheme(theme: Theme) {
-  const root = document.documentElement;
-  root.classList.toggle("dark", theme === "dark");
-  root.style.colorScheme = theme;
-}
+const THEME_EVENT = "reptiles-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    () => "light" as const,
+  );
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    const next: Theme = stored === "dark" ? "dark" : "light";
-    setThemeState(next);
-    applyTheme(next);
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
-    applyTheme(next);
     window.localStorage.setItem(STORAGE_KEY, next);
+    applyTheme(next);
+    window.dispatchEvent(new Event(THEME_EVENT));
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -49,7 +46,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [setTheme, theme]);
 
   const value = useMemo(
-    () => ({ theme, setTheme, toggleTheme }),
+    () => ({ setTheme, theme, toggleTheme }),
     [theme, setTheme, toggleTheme],
   );
 
@@ -64,6 +61,28 @@ export function useTheme() {
     throw new Error("useTheme must be used within ThemeProvider");
   }
   return context;
+}
+
+function applyTheme(theme: Theme) {
+  const root = document.documentElement;
+  root.classList.toggle("dark", theme === "dark");
+  root.style.colorScheme = theme;
+}
+
+function getThemeSnapshot(): Theme {
+  return window.localStorage.getItem(STORAGE_KEY) === "dark" ? "dark" : "light";
+}
+
+function subscribeTheme(onChange: () => void) {
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) onChange();
+  };
+  window.addEventListener("storage", onStorage);
+  window.addEventListener(THEME_EVENT, onChange);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(THEME_EVENT, onChange);
+  };
 }
 
 export const themeInitScript = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}else{document.documentElement.classList.remove('dark');document.documentElement.style.colorScheme='light';}}catch(e){}})();`;

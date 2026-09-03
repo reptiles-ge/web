@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { JsonLd } from "@/components/JsonLd";
-import { QuizzesPage, type QuizCardModel } from "@/components/QuizzesPage";
+import { type QuizCardModel, QuizzesPage } from "@/components/QuizzesPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { liveQuizzes } from "@/lib/quizzes";
 import {
   absoluteUrl,
@@ -11,10 +17,6 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -22,10 +24,6 @@ type Props = {
 
 const PATH = "/quiz";
 const OG_IMAGE = "/images/guides/snake-quiz-og.jpg";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
@@ -39,40 +37,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = absoluteUrl(OG_IMAGE);
 
   return {
-    title: { absolute: title },
+    alternates: localeAlternates(locale, PATH),
     description,
     keywords: t("keywords")
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean),
-    alternates: localeAlternates(locale, PATH),
     openGraph: {
-      title,
       description,
-      url,
-      type: "website",
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
       images: [
         {
+          alt: title,
+          height: 630,
           url: ogImage,
           width: 1200,
-          height: 630,
-          alt: title,
         },
       ],
-    },
-    twitter: {
-      card: "summary_large_image",
+      locale: openGraphLocale(locale),
+      siteName: siteConfig.name,
       title,
-      description,
-      images: [ogImage],
+      type: "website",
+      url,
     },
     robots: {
-      index: true,
       follow: true,
+      index: true,
+    },
+    title: { absolute: title },
+    twitter: {
+      card: "summary_large_image",
+      description,
+      images: [ogImage],
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function QuizzesIndexRoute({ params }: Props) {
@@ -103,15 +105,15 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: tShared("breadcrumbHome"),
         item: absoluteUrl(localePath(locale, "/")),
+        name: tShared("breadcrumbHome"),
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: t("breadcrumbCurrent"),
         item: url,
+        name: t("breadcrumbCurrent"),
+        position: 2,
       },
     ],
   };
@@ -119,11 +121,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: t("metaTitle"),
     description: t("metaDescription"),
-    url,
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
     hasPart: [
       {
         "@type": "Quiz",
@@ -131,6 +129,10 @@ export default async function QuizzesIndexRoute({ params }: Props) {
         url: quizPageUrl(locale, "snake"),
       },
     ],
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
+    name: t("metaTitle"),
+    url,
   };
 
   return (

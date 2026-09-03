@@ -1,5 +1,5 @@
 minimumReleaseAge: 10080
 trustPolicy: no-downgrade
 onlyBuiltDependencies:
-  - "@reptiles-ge/img-compression"
+  - "@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28"
   - sharp

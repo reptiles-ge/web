@@ -36,12 +36,12 @@ Agents and contributors: read **[AGENTS.md](./AGENTS.md)** before changing taxon
 
 ## Scripts
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Compile species, start Next.js |
-| `npm run build` | Production build |
-| `npm run species:compile` | MDX → generated catalog |
-| `npm run images:optimize` | Image pipeline (CDN / OG) |
+| Command                   | Purpose                        |
+| ------------------------- | ------------------------------ |
+| `npm run dev`             | Compile species, start Next.js |
+| `npm run build`           | Production build               |
+| `npm run species:compile` | MDX → generated catalog        |
+| `npm run images:optimize` | Image pipeline (CDN / OG)      |
 
 ## License
 

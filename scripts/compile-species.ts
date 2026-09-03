@@ -198,7 +198,8 @@ for (const id of ids) {
     continue;
   }
 
-  const rawKa = matter(fs.readFileSync(kaPath, "utf8")).data as SpeciesFrontmatter;
+  const rawKa = matter(fs.readFileSync(kaPath, "utf8"))
+    .data as SpeciesFrontmatter;
   const updatedAt = resolveUpdatedAt([kaPath, ...localePaths]);
   const sources =
     rawKa.sources && rawKa.sources.length > 0

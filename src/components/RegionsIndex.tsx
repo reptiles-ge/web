@@ -1,5 +1,10 @@
 "use client";
 
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
@@ -7,14 +12,11 @@ import { getRegionContent } from "@/data/regionContent";
 import {
   getCatalogRegionStats,
   localizeRegionText,
-  regions,
   type Region,
+  regions,
 } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { regionHref } from "@/lib/speciesRoutes";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
 
 const REGIONS_HERO = "https://cdn.reptiles.ge/regions-hero-1.jpg";
 
@@ -33,28 +35,28 @@ export function RegionsIndex() {
           }}
         >
           <CoverImage
-            src={REGIONS_HERO}
             alt={t("heroImageAlt")}
+            className="object-cover object-[50%_45%]"
             priority
             sizes="100vw"
-            className="object-cover object-[50%_45%]"
+            src={REGIONS_HERO}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/90" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <Link
-                href={{ pathname: "/", hash: "atlas" }}
                 className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
+                href={{ hash: "atlas", pathname: "/" }}
               >
                 <ArrowLeft className="size-3.5" />
                 {t("back")}
               </Link>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-3 max-w-3xl font-display text-balance-tight text-[clamp(1.95rem,5.5vw,4.5rem)] font-semibold leading-[1.08] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-[clamp(1.95rem,5.5vw,4.5rem)] leading-[1.08] font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
@@ -77,15 +79,15 @@ export function RegionsIndex() {
 
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
-            className="pointer-events-none absolute inset-0 map-explorer-texture"
             aria-hidden="true"
+            className="map-explorer-texture pointer-events-none absolute inset-0"
           />
           <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("mapEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05] text-foreground">
+              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold text-foreground">
                 {t("mapTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
@@ -93,9 +95,9 @@ export function RegionsIndex() {
               </p>
             </Reveal>
             <div className="mt-12 lg:mt-16">
-              <GeorgiaMap selectionMode="navigate" mapContext="region_page" />
+              <GeorgiaMap mapContext="region_page" selectionMode="navigate" />
             </div>
-            <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground/80">
+            <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground">
               {t("mapHint")}
             </p>
           </div>
@@ -104,10 +106,10 @@ export function RegionsIndex() {
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("clusterEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
                 {t("clusterTitle")}
               </h2>
               <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -115,29 +117,29 @@ export function RegionsIndex() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/snakes/gavrtseleba"
                   className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                  href="/snakes/gavrtseleba"
                 >
                   {t("clusterSnakes")}
                   <ArrowUpRight className="size-3.5 opacity-50" />
                 </Link>
                 <Link
-                  href="/lizards/saxeoebebi"
                   className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                  href="/lizards/saxeoebebi"
                 >
                   {t("clusterLizards")}
                   <ArrowUpRight className="size-3.5 opacity-50" />
                 </Link>
                 <Link
-                  href="/turtles/saxeoebebi"
                   className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                  href="/turtles/saxeoebebi"
                 >
                   {t("clusterTurtles")}
                   <ArrowUpRight className="size-3.5 opacity-50" />
                 </Link>
                 <Link
-                  href="/amphibians/saxeoebebi"
                   className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                  href="/amphibians/saxeoebebi"
                 >
                   {t("clusterAmphibians")}
                   <ArrowUpRight className="size-3.5 opacity-50" />
@@ -150,10 +152,10 @@ export function RegionsIndex() {
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("directoryEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
                 {t("directoryTitle")}
               </h2>
             </Reveal>
@@ -162,7 +164,7 @@ export function RegionsIndex() {
               {regions.map((region, index) => (
                 <li key={region.id}>
                   <Reveal delay={index * 25}>
-                    <RegionDirectoryRow region={region} locale={locale} />
+                    <RegionDirectoryRow locale={locale} region={region} />
                   </Reveal>
                 </li>
               ))}
@@ -173,10 +175,10 @@ export function RegionsIndex() {
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("seo.eyebrow")}
               </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
                 {t("seo.title")}
               </h2>
               <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
@@ -187,8 +189,8 @@ export function RegionsIndex() {
               <ul className="mt-8 max-w-3xl space-y-2 border-l-2 border-primary/25 pl-4">
                 <li>
                   <Link
-                    href="/species"
                     className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                    href="/species"
                   >
                     {t("seo.links.species")}
                     <ArrowUpRight className="size-3.5 opacity-50" />
@@ -196,8 +198,8 @@ export function RegionsIndex() {
                 </li>
                 <li>
                   <Link
-                    href="/venomous-snakes"
                     className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                    href="/venomous-snakes"
                   >
                     {t("seo.links.venomous")}
                     <ArrowUpRight className="size-3.5 opacity-50" />
@@ -205,8 +207,8 @@ export function RegionsIndex() {
                 </li>
                 <li>
                   <Link
-                    href="/snakes/gavrtseleba"
                     className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                    href="/snakes/gavrtseleba"
                   >
                     {t("seo.links.range")}
                     <ArrowUpRight className="size-3.5 opacity-50" />
@@ -214,8 +216,8 @@ export function RegionsIndex() {
                 </li>
                 <li>
                   <Link
-                    href="/"
                     className="inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                    href="/"
                   >
                     {t("seo.links.home")}
                     <ArrowUpRight className="size-3.5 opacity-50" />
@@ -231,11 +233,11 @@ export function RegionsIndex() {
 }
 
 function RegionDirectoryRow({
-  region,
   locale,
+  region,
 }: {
-  region: Region;
   locale: AppLocale;
+  region: Region;
 }) {
   const t = useTranslations("regions");
   const content = getRegionContent(region.id);
@@ -245,26 +247,26 @@ function RegionDirectoryRow({
 
   return (
     <Link
-      href={regionHref(region.id)}
       className="group flex items-start justify-between gap-6 py-8 transition-colors sm:py-9"
+      href={regionHref(region.id)}
     >
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+          <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
             {name}
           </h3>
           <span className="text-[12px] tracking-wide text-muted-foreground">
             {t("speciesCount", { count: region.speciesIds.length })}
           </span>
         </div>
-        <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-primary/80">
+        <p className="mt-2 text-[11px] font-medium tracking-[0.2em] text-primary/80 uppercase">
           {biome}
         </p>
-        <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-muted-foreground line-clamp-2">
+        <p className="mt-3 line-clamp-2 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
           {overview}
         </p>
       </div>
-      <ArrowUpRight className="mt-2 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+      <ArrowUpRight className="mt-2 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
     </Link>
   );
 }
