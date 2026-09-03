@@ -126,6 +126,7 @@ export default async function RootLayout({ children }: Props) {
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              title="Google Tag Manager"
               sandbox="allow-scripts"
               height="0"
               width="0"
