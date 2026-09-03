@@ -2,9 +2,10 @@
 
 import { ChevronDown, Menu, X } from "lucide-react";
 
+import type { NavLink } from "@/components/NavbarMenu";
+
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
-import type { NavLink } from "@/components/NavbarMenu";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
@@ -26,8 +27,8 @@ export function NavbarChrome({
   onToggleMenu,
   openMenuAria,
   otherGroupLinks,
-  reptilesLabel,
   reptileGroupLinks,
+  reptilesLabel,
   restLinks,
   scrolled,
   speciesHref,
@@ -153,6 +154,16 @@ export function NavbarChrome({
   );
 }
 
+function desktopNavLinkClass(scrolled: boolean, active = false) {
+  return cn(
+    "relative text-[13px] font-medium tracking-wide transition-colors",
+    scrolled
+      ? "text-foreground/70 hover:text-foreground"
+      : "text-white/70 hover:text-white",
+    active && (scrolled ? "text-foreground" : "text-white"),
+  );
+}
+
 function NavbarGroupsDropdown({
   closeMenuLabel,
   groupsActive,
@@ -232,15 +243,5 @@ function NavbarGroupsDropdown({
         </>
       ) : null}
     </div>
-  );
-}
-
-function desktopNavLinkClass(scrolled: boolean, active = false) {
-  return cn(
-    "relative text-[13px] font-medium tracking-wide transition-colors",
-    scrolled
-      ? "text-foreground/70 hover:text-foreground"
-      : "text-white/70 hover:text-white",
-    active && (scrolled ? "text-foreground" : "text-white"),
   );
 }

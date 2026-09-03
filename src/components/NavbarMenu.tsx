@@ -5,6 +5,10 @@ import { ChevronDown } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
+export type MobileNavItem =
+  | { href: NavLink["href"]; kind: "link"; label: string }
+  | { kind: "groups" };
+
 export type NavLink = {
   href:
     | "/about"
@@ -16,15 +20,11 @@ export type NavLink = {
     | "/quiz"
     | "/regions"
     | "/snakes"
-    | "/spiders"
     | "/species"
+    | "/spiders"
     | "/turtles";
   label: string;
 };
-
-export type MobileNavItem =
-  | { href: NavLink["href"]; kind: "link"; label: string }
-  | { kind: "groups" };
 
 export function NavbarMenu({
   closeMenuLabel,

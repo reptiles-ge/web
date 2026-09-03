@@ -54,77 +54,42 @@ export type SearchGroupTitles = {
   suggested: string;
 };
 
-export function SearchResultsList({
-  activeIndex,
-  emptyHint,
-  emptyTitle,
-  groups,
-  listId,
-  listLabel,
-  onHover,
-  onPickSuggestion,
-  onSelect,
-  query,
-  showRecent,
-  suggestions,
-  titles,
+export function FilterBar({
+  labels,
+  onChange,
+  value,
 }: {
-  activeIndex: number;
-  emptyHint: string;
-  emptyTitle: string;
-  groups: SearchGroup[];
-  listId: string;
-  listLabel: string;
-  onHover: (index: number) => void;
-  onPickSuggestion: (value: string) => void;
-  onSelect: (item: SearchDocument) => void;
-  query: string;
-  showRecent: boolean;
-  suggestions: string[];
-  titles: SearchGroupTitles;
+  labels: SearchFilterLabels;
+  onChange: (value: SearchFilter) => void;
+  value: SearchFilter;
 }) {
-  let cursor = 0;
-  const empty = groups.every((group) => group.items.length === 0);
-
   return (
-    <div aria-label={listLabel} id={listId} role="listbox">
-      {empty ? (
-        <EmptyState
-          hint={emptyHint}
-          onPick={onPickSuggestion}
-          suggestions={suggestions}
-          title={emptyTitle}
-        />
-      ) : (
-        groups.map((group, groupIndex) => {
-          const isRecentGroup = showRecent && groupIndex === 0;
-          const start = cursor;
-          cursor += group.items.length;
-          return (
-            <div key={`${group.kind}-${groupIndex}`}>
-              <GroupLabel>
-                {groupHeading(group.kind, isRecentGroup, query, titles)}
-              </GroupLabel>
-              <ul className="p-1.5">
-                {group.items.map((item, index) => {
-                  const globalIndex = start + index;
-                  return (
-                    <ResultRow
-                      active={globalIndex === activeIndex}
-                      item={item}
-                      key={item.key}
-                      onActivate={() => onSelect(item)}
-                      onHover={() => onHover(globalIndex)}
-                      optionId={`${listId}-option-${item.key}`}
-                      query={query}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        })
-      )}
+    <div
+      aria-label={labels.filter}
+      className="flex scrollbar-none gap-1 overflow-x-auto px-3 py-2.5"
+      role="radiogroup"
+    >
+      {FILTERS.map((item) => {
+        const active = value === item;
+        return (
+          <button
+            aria-checked={active}
+            className={cn(
+              "shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors",
+              active
+                ? "bg-primary text-white dark:text-ink"
+                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground",
+            )}
+            key={item}
+            onClick={() => onChange(item)}
+            onMouseDown={(event) => event.preventDefault()}
+            role="radio"
+            type="button"
+          >
+            {labels[item]}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -215,42 +180,77 @@ export function SearchDesktopPanel({
   );
 }
 
-export function FilterBar({
-  labels,
-  onChange,
-  value,
+export function SearchResultsList({
+  activeIndex,
+  emptyHint,
+  emptyTitle,
+  groups,
+  listId,
+  listLabel,
+  onHover,
+  onPickSuggestion,
+  onSelect,
+  query,
+  showRecent,
+  suggestions,
+  titles,
 }: {
-  labels: SearchFilterLabels;
-  onChange: (value: SearchFilter) => void;
-  value: SearchFilter;
+  activeIndex: number;
+  emptyHint: string;
+  emptyTitle: string;
+  groups: SearchGroup[];
+  listId: string;
+  listLabel: string;
+  onHover: (index: number) => void;
+  onPickSuggestion: (value: string) => void;
+  onSelect: (item: SearchDocument) => void;
+  query: string;
+  showRecent: boolean;
+  suggestions: string[];
+  titles: SearchGroupTitles;
 }) {
+  let cursor = 0;
+  const empty = groups.every((group) => group.items.length === 0);
+
   return (
-    <div
-      aria-label={labels.filter}
-      className="flex scrollbar-none gap-1 overflow-x-auto px-3 py-2.5"
-      role="radiogroup"
-    >
-      {FILTERS.map((item) => {
-        const active = value === item;
-        return (
-          <button
-            aria-checked={active}
-            className={cn(
-              "shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors",
-              active
-                ? "bg-primary text-white dark:text-ink"
-                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground",
-            )}
-            key={item}
-            onClick={() => onChange(item)}
-            onMouseDown={(event) => event.preventDefault()}
-            role="radio"
-            type="button"
-          >
-            {labels[item]}
-          </button>
-        );
-      })}
+    <div aria-label={listLabel} id={listId} role="listbox">
+      {empty ? (
+        <EmptyState
+          hint={emptyHint}
+          onPick={onPickSuggestion}
+          suggestions={suggestions}
+          title={emptyTitle}
+        />
+      ) : (
+        groups.map((group, groupIndex) => {
+          const isRecentGroup = showRecent && groupIndex === 0;
+          const start = cursor;
+          cursor += group.items.length;
+          return (
+            <div key={`${group.kind}-${groupIndex}`}>
+              <GroupLabel>
+                {groupHeading(group.kind, isRecentGroup, query, titles)}
+              </GroupLabel>
+              <ul className="p-1.5">
+                {group.items.map((item, index) => {
+                  const globalIndex = start + index;
+                  return (
+                    <ResultRow
+                      active={globalIndex === activeIndex}
+                      item={item}
+                      key={item.key}
+                      onActivate={() => onSelect(item)}
+                      onHover={() => onHover(globalIndex)}
+                      optionId={`${listId}-option-${item.key}`}
+                      query={query}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
@@ -290,6 +290,22 @@ function EmptyState({
       ) : null}
     </div>
   );
+}
+
+function groupHeading(
+  kind: SearchKind,
+  isRecent: boolean,
+  query: string,
+  titles: SearchGroupTitles,
+) {
+  if (isRecent) return titles.recent;
+  if (!query && kind === "page") return titles.suggested;
+  if (!query && kind === "species") return titles.featured;
+  return kind === "page"
+    ? titles.pages
+    : kind === "species"
+      ? titles.species
+      : titles.regions;
 }
 
 function GroupLabel({ children }: { children: ReactNode }) {
@@ -417,20 +433,4 @@ function Thumb({ item, overlay }: { item: SearchDocument; overlay?: boolean }) {
       ) : null}
     </span>
   );
-}
-
-function groupHeading(
-  kind: SearchKind,
-  isRecent: boolean,
-  query: string,
-  titles: SearchGroupTitles,
-) {
-  if (isRecent) return titles.recent;
-  if (!query && kind === "page") return titles.suggested;
-  if (!query && kind === "species") return titles.featured;
-  return kind === "page"
-    ? titles.pages
-    : kind === "species"
-      ? titles.species
-      : titles.regions;
 }

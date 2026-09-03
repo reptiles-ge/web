@@ -213,6 +213,62 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   );
 }
 
+function onSearchKeyDown(
+  event: ReactKeyboardEvent<HTMLInputElement>,
+  {
+    activeIndex,
+    closeSearch,
+    flat,
+    goTo,
+    open,
+    openSearch,
+    setActiveIndex,
+  }: {
+    activeIndex: number;
+    closeSearch: () => void;
+    flat: SearchDocument[];
+    goTo: (item: SearchDocument) => void;
+    open: boolean;
+    openSearch: (method: "click" | "mobile" | "shortcut") => void;
+    setActiveIndex: (updater: (value: number) => number) => void;
+  },
+) {
+  if (event.nativeEvent.isComposing || event.key === "Process") return;
+
+  if (!open) {
+    if (event.key === "ArrowDown") openSearch("click");
+    return;
+  }
+
+  if (event.key === "ArrowDown") {
+    event.preventDefault();
+    setActiveIndex((value) =>
+      flat.length === 0 ? 0 : (value + 1) % flat.length,
+    );
+    return;
+  }
+
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
+    setActiveIndex((value) =>
+      flat.length === 0 ? 0 : (value - 1 + flat.length) % flat.length,
+    );
+    return;
+  }
+
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const selected = flat[activeIndex];
+    if (selected) goTo(selected);
+    return;
+  }
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeSearch();
+  }
+}
+
 function useSpeciesSearch() {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("search");
@@ -438,60 +494,4 @@ function useSpeciesSearch() {
     suggestions,
     trimmed,
   };
-}
-
-function onSearchKeyDown(
-  event: ReactKeyboardEvent<HTMLInputElement>,
-  {
-    activeIndex,
-    closeSearch,
-    flat,
-    goTo,
-    open,
-    openSearch,
-    setActiveIndex,
-  }: {
-    activeIndex: number;
-    closeSearch: () => void;
-    flat: SearchDocument[];
-    goTo: (item: SearchDocument) => void;
-    open: boolean;
-    openSearch: (method: "click" | "mobile" | "shortcut") => void;
-    setActiveIndex: (updater: (value: number) => number) => void;
-  },
-) {
-  if (event.nativeEvent.isComposing || event.key === "Process") return;
-
-  if (!open) {
-    if (event.key === "ArrowDown") openSearch("click");
-    return;
-  }
-
-  if (event.key === "ArrowDown") {
-    event.preventDefault();
-    setActiveIndex((value) =>
-      flat.length === 0 ? 0 : (value + 1) % flat.length,
-    );
-    return;
-  }
-
-  if (event.key === "ArrowUp") {
-    event.preventDefault();
-    setActiveIndex((value) =>
-      flat.length === 0 ? 0 : (value - 1 + flat.length) % flat.length,
-    );
-    return;
-  }
-
-  if (event.key === "Enter") {
-    event.preventDefault();
-    const selected = flat[activeIndex];
-    if (selected) goTo(selected);
-    return;
-  }
-
-  if (event.key === "Escape") {
-    event.preventDefault();
-    closeSearch();
-  }
 }

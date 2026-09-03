@@ -6,6 +6,8 @@ import {
   type RefObject,
 } from "react";
 
+import type { SearchFilter } from "@/lib/siteSearch";
+
 import {
   FilterBar,
   type SearchFilterLabels,
@@ -16,10 +18,89 @@ import {
   chromeShellClass,
 } from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
-import type { SearchFilter } from "@/lib/siteSearch";
 
 const searchInputClass =
   "min-w-0 flex-1 bg-transparent text-[13px] font-medium outline-none [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden";
+
+export function SpeciesSearchMobileHeader({
+  activeOptionId,
+  clearLabel,
+  filter,
+  filterLabels,
+  inputRef,
+  listId,
+  onChange,
+  onClear,
+  onFilterChange,
+  onKeyDown,
+  open,
+  openLabel,
+  placeholder,
+  query,
+}: {
+  activeOptionId?: string;
+  clearLabel: string;
+  filter: SearchFilter;
+  filterLabels: SearchFilterLabels;
+  inputRef: RefObject<HTMLInputElement | null>;
+  listId: string;
+  onChange: (value: string) => void;
+  onClear: () => void;
+  onFilterChange: (value: SearchFilter) => void;
+  onKeyDown: (event: ReactKeyboardEvent<HTMLInputElement>) => void;
+  open: boolean;
+  openLabel: string;
+  placeholder: string;
+  query: string;
+}) {
+  return (
+    <>
+      <div className="mb-2 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
+        <Search
+          aria-hidden="true"
+          className="size-4 shrink-0 text-muted-foreground"
+        />
+        <input
+          aria-activedescendant={activeOptionId}
+          aria-autocomplete="list"
+          aria-controls={listId}
+          aria-expanded={open}
+          aria-label={openLabel}
+          autoComplete="off"
+          className="min-w-0 flex-1 [appearance:textfield] bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
+          enterKeyHint="search"
+          onChange={(event) => onChange(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
+            onKeyDown(event);
+          }}
+          placeholder={placeholder}
+          ref={inputRef}
+          role="combobox"
+          type="search"
+          value={query}
+        />
+        {query ? (
+          <button
+            aria-label={clearLabel}
+            className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            onClick={onClear}
+            type="button"
+          >
+            <X aria-hidden="true" className="size-4" />
+          </button>
+        ) : null}
+      </div>
+      <div className="-mx-4 w-[calc(100%+2rem)]">
+        <FilterBar
+          labels={filterLabels}
+          onChange={onFilterChange}
+          value={filter}
+        />
+      </div>
+    </>
+  );
+}
 
 export function SpeciesSearchTrigger({
   activeOptionId,
@@ -140,86 +221,6 @@ export function SpeciesSearchTrigger({
             {modKey}K
           </kbd>
         ) : null}
-      </div>
-    </>
-  );
-}
-
-export function SpeciesSearchMobileHeader({
-  activeOptionId,
-  clearLabel,
-  filter,
-  filterLabels,
-  inputRef,
-  listId,
-  onChange,
-  onClear,
-  onFilterChange,
-  onKeyDown,
-  open,
-  openLabel,
-  placeholder,
-  query,
-}: {
-  activeOptionId?: string;
-  clearLabel: string;
-  filter: SearchFilter;
-  filterLabels: SearchFilterLabels;
-  inputRef: RefObject<HTMLInputElement | null>;
-  listId: string;
-  onChange: (value: string) => void;
-  onClear: () => void;
-  onFilterChange: (value: SearchFilter) => void;
-  onKeyDown: (event: ReactKeyboardEvent<HTMLInputElement>) => void;
-  open: boolean;
-  openLabel: string;
-  placeholder: string;
-  query: string;
-}) {
-  return (
-    <>
-      <div className="mb-2 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
-        <Search
-          aria-hidden="true"
-          className="size-4 shrink-0 text-muted-foreground"
-        />
-        <input
-          aria-activedescendant={activeOptionId}
-          aria-autocomplete="list"
-          aria-controls={listId}
-          aria-expanded={open}
-          aria-label={openLabel}
-          autoComplete="off"
-          className="min-w-0 flex-1 [appearance:textfield] bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
-          enterKeyHint="search"
-          onChange={(event) => onChange(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
-            onKeyDown(event);
-          }}
-          placeholder={placeholder}
-          ref={inputRef}
-          role="combobox"
-          type="search"
-          value={query}
-        />
-        {query ? (
-          <button
-            aria-label={clearLabel}
-            className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            onClick={onClear}
-            type="button"
-          >
-            <X aria-hidden="true" className="size-4" />
-          </button>
-        ) : null}
-      </div>
-      <div className="-mx-4 w-[calc(100%+2rem)]">
-        <FilterBar
-          labels={filterLabels}
-          onChange={onFilterChange}
-          value={filter}
-        />
       </div>
     </>
   );
