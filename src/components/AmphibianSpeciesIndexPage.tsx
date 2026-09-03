@@ -97,10 +97,8 @@ export function AmphibianSpeciesIndexPage({
                 <ArrowUpRight className="size-3.5" />
               </Link>
             </div>
+            </ClusterSectionIntro>
           </Reveal>
-          <div className="mt-10">
-            <SpeciesIndexTable
-              species={frogs}
               locale={locale}
               showDangerFilter={false}
             />
@@ -126,10 +124,8 @@ export function AmphibianSpeciesIndexPage({
               {t("newtsCta")}
               <ArrowUpRight className="size-3.5" />
             </Link>
+            </ClusterSectionIntro>
           </Reveal>
-          <div className="mt-10">
-            <SpeciesIndexTable
-              species={newts}
               locale={locale}
               showDangerFilter={false}
             />
