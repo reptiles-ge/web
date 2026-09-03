@@ -11,6 +11,19 @@ const eslintConfig = defineConfig([
   ...nextTs,
   perfectionist.configs["recommended-natural"],
   {
+    rules: {
+      "perfectionist/sort-objects": [
+        "error",
+        {
+          type: "natural",
+          order: "asc",
+          partitionByComment: true,
+          partitionByNewLine: true,
+        },
+      ],
+    },
+  },
+  {
     ...tailwindcss.configs.recommended,
     settings: {
       ...tailwindcss.configs.recommended.settings,
@@ -75,23 +88,6 @@ const eslintConfig = defineConfig([
           argsIgnorePattern: "^_",
           vars: "all",
           varsIgnorePattern: "^_",
-        },
-      ],
-      "perfectionist/sort-jsx-props": [
-        "error",
-        {
-          type: "natural",
-          order: "asc",
-          groups: ["multiline", "unknown", "shorthand"],
-        },
-      ],
-      "perfectionist/sort-objects": [
-        "error",
-        {
-          type: "natural",
-          order: "asc",
-          partitionByComment: true,
-          partitionByNewLine: true,
         },
       ],
     },
