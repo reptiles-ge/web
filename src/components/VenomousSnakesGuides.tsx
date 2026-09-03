@@ -7,7 +7,6 @@ import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
-import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,

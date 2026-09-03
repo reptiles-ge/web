@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -11,7 +11,6 @@ import {
   CLUSTER_EYEBROW,
   CLUSTER_HERO_BODY,
   CLUSTER_HERO_EYEBROW,
-  CLUSTER_TITLE_GUIDE,
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
@@ -19,6 +18,8 @@ import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
+import { SnakesInYardHero } from "@/components/SnakesInYardHero";
+import { SnakesInYardSections } from "@/components/SnakesInYardSections";
 import { Link } from "@/i18n/navigation";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
 
@@ -27,8 +28,6 @@ type SnakesInYardPageProps = {
   heroSrc: string;
 };
 
-const ACTION_KEYS = [1, 2, 3] as const;
-const MYTH_KEYS = [1, 2, 3, 4] as const;
 const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
 const AGENCY_PHONE = "0322721600";
 const AGENCY_PHONE_DISPLAY = "032 272 16 00";
@@ -36,7 +35,6 @@ const EMERGENCY_PHONE = "112";
 
 export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
   const t = useTranslations("snakesInYard");
-  const tSnakes = useTranslations("snakes");
   const locale = useLocale() as AppLocale;
   const relatedGuides = getHubPageRelatedGuides(
     "snakes",
@@ -46,211 +44,8 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
   return (
     <div className="min-h-screen bg-background">
       <main>
-        <section
-          className="relative flex min-h-[88svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-16 lg:min-h-[92svh] lg:pb-20"
-          style={{ paddingTop: "7rem" }}
-        >
-          <CoverImage
-            alt={t("heroImageAlt")}
-            className="object-cover object-[50%_45%]"
-            priority
-            sizes="100vw"
-            src={heroSrc}
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/92" />
-          <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
-
-          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
-                <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
-                  <li>
-                    <Link
-                      className="inline-flex items-center gap-2 transition-colors hover:text-white"
-                      href="/"
-                    >
-                      <ArrowLeft className="size-3.5" />
-                      {t("breadcrumbHome")}
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="text-white/30">
-                    /
-                  </li>
-                  <li>
-                    <Link
-                      className="transition-colors hover:text-white"
-                      href="/snakes"
-                    >
-                      {tSnakes("breadcrumbCurrent")}
-                    </Link>
-                  </li>
-                  <li aria-hidden="true" className="text-white/30">
-                    /
-                  </li>
-                  <li className="text-white/80">{t("breadcrumbCurrent")}</li>
-                </ol>
-              </nav>
-
-              <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
-                Reptiles
-              </p>
-              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.4rem)] leading-[1.05] font-semibold text-white sm:mt-4">
-                {t("title")}
-              </h1>
-              <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
-                {t("subtitle")}
-              </p>
-              <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
-                <a
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
-                  href="#actions"
-                >
-                  {t("ctaActions")}
-                  <ArrowRight className="size-4" />
-                </a>
-                <a
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
-                  href="#myths"
-                >
-                  {t("ctaMyths")}
-                </a>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className="border-b border-border bg-surface py-16 sm:py-20 lg:py-24">
-          <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-10">
-            <Reveal>
-              <ClusterSectionIntro
-                body={t("whyLead")}
-                bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
-                eyebrow={t("whyEyebrow")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                title={t("whyTitle")}
-                titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
-              />
-              <div className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-                <div className="bg-card p-7 sm:p-8">
-                  <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
-                    01
-                  </p>
-                  <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
-                    {t("whyShelterTitle")}
-                  </h3>
-                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-                    {t("whyShelterBody")}
-                  </p>
-                </div>
-                <div className="bg-card p-7 sm:p-8">
-                  <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
-                    02
-                  </p>
-                  <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
-                    {t("whyFoodTitle")}
-                  </h3>
-                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-                    {t("whyFoodBody")}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <figure className="relative aspect-4/5 overflow-hidden rounded-[28px] bg-ink sm:aspect-5/6">
-                <CoverImage
-                  alt={t("coverImageAlt")}
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 44vw"
-                  src={coverSrc}
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 text-[13px] leading-snug text-white/75">
-                  {t("coverCaption")}
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-        </section>
-
-        <section
-          className="scroll-mt-28 bg-background py-20 lg:py-28"
-          id="actions"
-        >
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
-              <ClusterSectionIntro
-                body={t("actionsLead")}
-                bodyClassName={CLUSTER_BODY}
-                eyebrow={t("actionsEyebrow")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                title={t("actionsTitle")}
-                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
-              />
-            </Reveal>
-
-            <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
-              {ACTION_KEYS.map((n, index) => (
-                <Reveal
-                  as="li"
-                  className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
-                  delay={index * 50}
-                  key={n}
-                >
-                  <span className="font-display text-[clamp(2rem,3vw,2.5rem)] leading-none font-semibold text-primary/80">
-                    {String(n).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-[clamp(1.25rem,2.2vw,1.65rem)] font-semibold text-foreground">
-                      {t(`action${n}Title`)}
-                    </h3>
-                    <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                      {t(`action${n}Body`)}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section
-          className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
-          id="myths"
-        >
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-              <Reveal>
-                <ClusterSectionIntro
-                  body={t("mythsLead")}
-                  bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
-                  eyebrow={t("mythsEyebrow")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  title={t("mythsTitle")}
-                  titleClassName={CLUSTER_TITLE_GUIDE}
-                />
-              </Reveal>
-              <ul className="divide-y divide-border border-y border-border">
-                {MYTH_KEYS.map((n, index) => (
-                  <Reveal
-                    as="li"
-                    className="flex items-start gap-4 py-5 sm:gap-5 sm:py-6"
-                    delay={index * 40}
-                    key={n}
-                  >
-                    <span
-                      aria-hidden
-                      className="mt-0.5 text-[13px] font-medium text-destructive"
-                    >
-                      —
-                    </span>
-                    <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                      {t(`myth${n}`)}
-                    </p>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+        <SnakesInYardHero heroSrc={heroSrc} />
+        <SnakesInYardSections coverSrc={coverSrc} />
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
