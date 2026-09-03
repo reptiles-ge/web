@@ -97,11 +97,12 @@ export function SpeciesIndexTable({
                   setDanger(key);
                   emitIndexFilter(key, family, countFiltered(key, family));
                 }}
-                className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                className={cn(
+                  "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
                   active
                     ? "border-ink bg-ink text-ink-foreground"
-                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-                }`}
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+                )}
               >
                 {t(`filter.${key}`)}
               </button>
@@ -124,11 +125,12 @@ export function SpeciesIndexTable({
               setFamily("all");
               emitIndexFilter(danger, "all", countFiltered(danger, "all"));
             }}
-            className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+            className={cn(
+              "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
               family === "all"
                 ? "border-ink bg-ink text-ink-foreground"
-                : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-            }`}
+                : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+            )}
           >
             {t("filter.familyAll")}
           </button>
@@ -143,11 +145,12 @@ export function SpeciesIndexTable({
                   setFamily(name);
                   emitIndexFilter(danger, name, countFiltered(danger, name));
                 }}
-                className={`rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                className={cn(
+                  "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
                   active
                     ? "border-ink bg-ink text-ink-foreground"
-                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-                }`}
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+                )}
               >
                 {name}
               </button>
@@ -161,7 +164,10 @@ export function SpeciesIndexTable({
       ) : (
         <>
           <div
-            className={`${showFilters ? "mt-10" : ""} space-y-px divide-y divide-border border-y border-border lg:hidden`}
+            className={cn(
+              showFilters && "mt-10",
+              "space-y-px divide-y divide-border border-y border-border lg:hidden",
+            )}
           >
             {filtered.map((item, index) => (
               <Reveal key={item.id} delay={Math.min(index * 30, 240)}>
@@ -179,7 +185,7 @@ export function SpeciesIndexTable({
           </div>
 
           <div
-            className={`${showFilters ? "mt-10" : ""} hidden overflow-x-auto lg:block`}
+            className={cn(showFilters && "mt-10", "hidden overflow-x-auto lg:block")}
           >
             <table className="w-full min-w-[920px] border-y border-border text-left">
               <thead>
