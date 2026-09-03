@@ -115,19 +115,17 @@ export async function optimizeUploadedOriginal(input: {
 }
 
 function parseGeneratedImages(objectLiteral: string): Record<string, OptimizedImageEntry> {
+  const jsonReady = objectLiteral
+    .replace(/,\s*([}\]])/g, "$1")
+    .replace(/\b(path|width|height|widths|formats)\s*:/g, '"$1":');
   try {
-    return JSON.parse(objectLiteral) as Record<string, OptimizedImageEntry>;
-  } catch {
-    let parsed: unknown;
-    try {
-      parsed = new Function(`"use strict"; return (${objectLiteral});`)();
-    } catch {
-      throw new Error("optimizedImages.generated.ts is not in the expected format");
-    }
+    const parsed = JSON.parse(jsonReady) as unknown;
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
       throw new Error("optimizedImages.generated.ts is not in the expected format");
     }
     return parsed as Record<string, OptimizedImageEntry>;
+  } catch {
+    throw new Error("optimizedImages.generated.ts is not in the expected format");
   }
 }
 
@@ -136,14 +134,14 @@ function formatGeneratedImages(images: Record<string, OptimizedImageEntry>): str
     const widths = `[${asset.widths.join(", ")}]`;
     const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
     return `  ${JSON.stringify(src)}: {
-    path: ${JSON.stringify(asset.path)},
-    width: ${asset.width},
-    height: ${asset.height},
-    widths: ${widths},
-    formats: ${formats},
-  },`;
+    "path": ${JSON.stringify(asset.path)},
+    "width": ${asset.width},
+    "height": ${asset.height},
+    "widths": ${widths},
+    "formats": ${formats}
+  }`;
   });
-  return `{\n${entries.join("\n")}\n}`;
+  return `{\n${entries.join(",\n")}\n}`;
 }
 
 function upsertGeneratedFile(

@@ -260,10 +260,13 @@ export function SpeciesAtlas({
     [locale],
   );
 
-  const activeFilters: AtlasFilters = {
-    ...filters,
-    query: deferredQuery,
-  };
+  const activeFilters: AtlasFilters = useMemo(
+    () => ({
+      ...filters,
+      query: deferredQuery,
+    }),
+    [filters, deferredQuery],
+  );
 
   const filtered = useMemo(
     () => filterAtlasSpecies(catalog, activeFilters),
