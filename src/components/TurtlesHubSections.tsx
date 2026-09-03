@@ -105,7 +105,7 @@ export function TurtlesHubSections() {
                   <p className="mt-3 flex-1 text-[14px] leading-relaxed text-muted-foreground">
                     {t(`where.${item.key}.body`)}
                   </p>
-                  <p className="mt-4 text-[12px] text-muted-foreground/80">
+                  <p className="mt-4 text-[12px] text-muted-foreground">
                     {item.regions.map((region, regionIndex) => (
                       <span key={region.id}>
                         {regionIndex > 0 ? " · " : null}

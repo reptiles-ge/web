@@ -1,5 +1,6 @@
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
+import dynamic from "next/dynamic";
 import {
   absoluteUrl,
   CDN_BASE,
@@ -44,6 +45,13 @@ const notoSans = Noto_Sans({
 type Props = {
   children: ReactNode;
 };
+
+const AxeDevConsole =
+  process.env.NODE_ENV === "production"
+    ? () => null
+    : dynamic(() =>
+        import("@/components/AxeDevConsole").then((mod) => mod.AxeDevConsole),
+      );
 
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
@@ -144,7 +152,10 @@ export default async function RootLayout({ children }: Props) {
           </noscript>
         ) : null}
         <NuqsAdapter>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            {children}
+            <AxeDevConsole />
+          </ThemeProvider>
         </NuqsAdapter>
       </body>
     </html>

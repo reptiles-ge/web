@@ -112,13 +112,13 @@ export function GeorgiaMap({
       <>
         <div
           ref={containerRef}
+          role="group"
+          aria-label="Georgia"
           className={`relative mx-auto w-full max-w-[920px] ${className ?? ""}`}
           onMouseMove={interactive ? updateTooltipFromEvent : undefined}
         >
           <svg
             viewBox={GEORGIA_MAP_VIEWBOX}
-            role="img"
-            aria-label="Georgia"
             className="h-auto w-full select-none drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)]"
           >
             <defs>

@@ -122,7 +122,7 @@ export function SpeciesGuideRow({
           {species.description}
         </p>
         {regions.length > 0 ? (
-          <p className="mt-3 text-[12px] text-muted-foreground/80">
+          <p className="mt-3 text-[12px] text-muted-foreground">
             {`${regions.join(" · ")}${extra > 0 ? ` +${extra}` : ""}`}
           </p>
         ) : null}

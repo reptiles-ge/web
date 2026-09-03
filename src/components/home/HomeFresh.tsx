@@ -154,7 +154,7 @@ export async function HomeFresh() {
                           </span>
                           <time
                             dateTime={species.updatedAt}
-                            className="mt-1 block text-[12px] text-muted-foreground/80"
+                            className="mt-1 block text-[12px] text-muted-foreground"
                           >
                             {formatContentDate(species.updatedAt, locale)}
                           </time>

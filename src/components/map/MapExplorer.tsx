@@ -41,7 +41,7 @@ export function MapExplorer() {
           <GeorgiaMap selectionMode="navigate" mapContext="home" />
         </div>
 
-        <p className="mt-6 text-center text-[12px] tracking-wide text-muted-foreground/80">
+        <p className="mt-6 text-center text-[12px] tracking-wide text-muted-foreground">
           {t("hint")}
         </p>
       </div>
