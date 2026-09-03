@@ -8,7 +8,6 @@ const config: KnipConfig = {
     "sharp",
   ],
   ignoreExportsUsedInFile: true,
-  ignore: ["src/data/search-index.generated.ts"],
   project: ["src/**/*.{ts,tsx,css}", "!src/i18n/global.ts", "scripts/**/*.ts"],
 };
 
