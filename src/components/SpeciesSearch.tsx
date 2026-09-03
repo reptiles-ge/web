@@ -344,6 +344,13 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   }, []);
 
   useEffect(() => {
+    if (open) return;
+    lastSearchKey.current = "";
+    desktopInputRef.current?.blur();
+    mobileInputRef.current?.blur();
+  }, [open]);
+
+  useEffect(() => {
     if (!open) return;
     if (!window.matchMedia("(max-width: 767px)").matches) return;
 
@@ -357,9 +364,6 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     setOpen(false);
     setQuery("");
     setFilter("all");
-    lastSearchKey.current = "";
-    desktopInputRef.current?.blur();
-    mobileInputRef.current?.blur();
   }, []);
 
   const openSearch = useCallback(

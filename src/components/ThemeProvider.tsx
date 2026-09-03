@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 
@@ -22,26 +22,45 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+const THEME_EVENT = "reptiles-theme";
+
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.toggle("dark", theme === "dark");
   root.style.colorScheme = theme;
 }
 
+function subscribeTheme(onChange: () => void) {
+  const onStorage = (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) onChange();
+  };
+  window.addEventListener("storage", onStorage);
+  window.addEventListener(THEME_EVENT, onChange);
+  return () => {
+    window.removeEventListener("storage", onStorage);
+    window.removeEventListener(THEME_EVENT, onChange);
+  };
+}
+
+function getThemeSnapshot(): Theme {
+  return window.localStorage.getItem(STORAGE_KEY) === "dark" ? "dark" : "light";
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    () => "light" as const,
+  );
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    const next: Theme = stored === "dark" ? "dark" : "light";
-    setThemeState(next);
-    applyTheme(next);
-  }, []);
+    applyTheme(theme);
+  }, [theme]);
 
   const setTheme = useCallback((next: Theme) => {
-    setThemeState(next);
-    applyTheme(next);
     window.localStorage.setItem(STORAGE_KEY, next);
+    applyTheme(next);
+    window.dispatchEvent(new Event(THEME_EVENT));
   }, []);
 
   const toggleTheme = useCallback(() => {

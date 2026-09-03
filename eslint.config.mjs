@@ -35,6 +35,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "src/data/species.generated.ts",
+    "scripts/**",
   ]),
 ]);
 

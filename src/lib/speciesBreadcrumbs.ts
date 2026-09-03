@@ -1,9 +1,5 @@
 import type { Species } from "@/data/species";
-import {
-  getSpeciesAtlasMeta,
-  isVenomousDanger,
-  type AnimalGroup,
-} from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { HUB_INDEX_PATH, type ClusterGuidePath } from "@/lib/clusterGuides";
 import {
   ANIMAL_GROUP_TO_HUB,

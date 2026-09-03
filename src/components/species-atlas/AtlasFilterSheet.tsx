@@ -59,11 +59,19 @@ export function AtlasFilterSheet({
     () => false,
   );
   const [draft, setDraft] = useState<AtlasFilters>(filters);
+  const [syncedOpen, setSyncedOpen] = useState(open);
+  const [syncedFilters, setSyncedFilters] = useState(filters);
 
-  useEffect(() => {
-    if (!open) return;
+  if (open !== syncedOpen) {
+    setSyncedOpen(open);
+    if (open) {
+      setDraft(filters);
+      setSyncedFilters(filters);
+    }
+  } else if (open && filters !== syncedFilters) {
+    setSyncedFilters(filters);
     setDraft(filters);
-  }, [open, filters]);
+  }
 
   useEffect(() => {
     if (!open) return;

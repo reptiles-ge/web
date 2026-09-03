@@ -194,13 +194,6 @@ function LensRow({
   );
 }
 
-function scrollToExplorer() {
-  document.getElementById("explorer")?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}
-
 export function SpeciesAtlas() {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("speciesAtlas");

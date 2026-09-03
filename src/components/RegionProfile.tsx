@@ -54,21 +54,13 @@ export function RegionProfile({ region }: RegionProfileProps) {
       ),
     [region, locale],
   );
-  const related = useMemo(
-    () =>
-      content.relatedIds
-        .map((id) => getRegionById(id))
-        .filter((item): item is Region => Boolean(item)),
-    [content.relatedIds],
-  );
-  const faq = useMemo(
-    () =>
-      content.faq.map((item) => ({
-        question: localizeRegionText(item.question, locale),
-        answer: localizeRegionText(item.answer, locale),
-      })),
-    [content.faq, locale],
-  );
+  const related = content.relatedIds
+    .map((id) => getRegionById(id))
+    .filter((item): item is Region => Boolean(item));
+  const faq = content.faq.map((item) => ({
+    question: localizeRegionText(item.question, locale),
+    answer: localizeRegionText(item.answer, locale),
+  }));
 
   const heroSrc = getRegionHeroImage(region.id);
   const heroAlt = t("regionHeroAlt", { name });
