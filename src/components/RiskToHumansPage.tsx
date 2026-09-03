@@ -23,6 +23,8 @@ type RiskToHumansPageProps = {
   harmlessCount: number;
 };
 
+const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
+
 function levelTone(level: DangerLevel) {
   switch (level) {
     case "High":

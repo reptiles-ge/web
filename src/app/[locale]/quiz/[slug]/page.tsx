@@ -103,15 +103,17 @@ export default async function QuizSlugRoute({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const t = await getTranslations({
-    locale,
-    namespace: quiz.messageNamespace,
-  });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const tQuizzes = await getTranslations({ locale, namespace: "quizzes" });
+  const [t, tShared, tQuizzes] = await Promise.all([
+    getTranslations({
+      locale,
+      namespace: quiz.messageNamespace,
+    }),
+    getTranslations({
+      locale,
+      namespace: "groupHubShared",
+    }),
+    getTranslations({ locale, namespace: "quizzes" }),
+  ]);
   const url = quizPageUrl(locale, quiz.id);
   const catalog = getCatalogSpecies().map((item) =>
     localizeSpecies(item, locale),

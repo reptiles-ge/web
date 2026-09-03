@@ -46,12 +46,14 @@ export async function NewsArticlePage({
   article,
   locale,
 }: NewsArticlePageProps) {
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
+  const [t, tNav, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({
+      locale,
+      namespace: "groupHubShared",
+    }),
+  ]);
   const copy = getNewsCopy(article, locale);
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const sourceOrg = newsSourceOrg(article);
