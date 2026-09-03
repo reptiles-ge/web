@@ -1,6 +1,18 @@
 "use client";
 
-import { ArrowUpRight, BookMarked, BookOpen, Home, Info, Mail, MapPinned, Newspaper, ScanSearch, Search, ShieldAlert } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookMarked,
+  BookOpen,
+  Home,
+  Info,
+  Mail,
+  MapPinned,
+  Newspaper,
+  ScanSearch,
+  Search,
+  ShieldAlert,
+} from "lucide-react";
 
 import { CoverImage } from "@/components/CoverImage";
 import { cn } from "@/lib/cn";

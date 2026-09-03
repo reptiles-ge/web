@@ -2,8 +2,8 @@
 
 import { CornerDownLeft } from "lucide-react";
 
-import { SpeciesSearchFilterBar } from "@/components/SpeciesSearchFilterBar";
-import { SearchResultsList, type SearchFilterLabels, type SearchGroupTitles } from "@/components/SpeciesSearchResults";
+import { SearchResultsList, type SearchGroupTitles } from "@/components/SpeciesSearchResults";
+import { SpeciesSearchFilterBar, type SearchFilterLabels } from "@/components/SpeciesSearchFilterBar";
 import { type SearchDocument, type SearchFilter, type SearchGroup } from "@/lib/siteSearch";
 
 export function SearchDesktopPanel({
