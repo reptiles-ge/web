@@ -3,9 +3,7 @@ import fs from "node:fs";
 import http2 from "node:http2";
 import path from "node:path";
 import matter from "gray-matter";
-import {
-  optimizedBaseUrl,
-} from "../src/data/optimizedImages.generated";
+import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
@@ -15,7 +13,7 @@ const SPECIES_ROOT = path.join(SRC_ROOT, "content", "species");
 
 const IMAGE_EXT = /\.(avif|gif|jpe?g|png|svg|webp)(\?.*)?$/i;
 const CDN_URL_RE = /https:\/\/cdn\.reptiles\.ge\/[^"'\\\s)>]+/g;
-const LOCAL_IMAGE_RE = /\/images\/[^"'\\\s)>]+/g;
+const LOCAL_IMAGE_RE = /(?<!cdn\.reptiles\.ge)\/images\/[^"'\\\s)>]+/g;
 
 const SKIP_DIR_NAMES = new Set([".git", ".next", "node_modules"]);
 const SKIP_FILE_NAMES = new Set([
@@ -115,9 +113,7 @@ function parseArguments(argv: string[]): CliOptions {
 function isSourceSrc(value: string) {
   if (value.includes("/optimized/")) return false;
   if (!IMAGE_EXT.test(value)) return false;
-  return (
-    value.startsWith(`${CDN_BASE}/`) || value.startsWith("/images/")
-  );
+  return value.startsWith(`${CDN_BASE}/`) || value.startsWith("/images/");
 }
 
 function relPath(filePath: string) {
@@ -394,7 +390,8 @@ async function main() {
   if (!options.json) {
     console.error(
       `Checking ${targets.length} served URL${targets.length === 1 ? "" : "s"} ` +
-        `(${collected.optimized} with avif/webp, ${collected.fallbacks} original)…`,
+        `from ${collected.sources} sources ` +
+        `(${collected.optimized} avif/webp, ${collected.fallbacks} original)…`,
     );
   }
 
