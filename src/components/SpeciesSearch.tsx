@@ -126,11 +126,12 @@ function FilterBar({
             aria-checked={active}
             onMouseDown={(event) => event.preventDefault()}
             onClick={() => onChange(item)}
-            className={`shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors ${
+            className={cn(
+              "shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors",
               active
                 ? "bg-primary text-white dark:text-ink"
-                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground"
-            }`}
+                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground",
+            )}
           >
             {labels[item]}
           </button>
@@ -196,11 +197,12 @@ function ResultRow({
         onMouseEnter={onHover}
         onMouseDown={(event) => event.preventDefault()}
         onClick={onActivate}
-        className={`group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-[background-color,box-shadow] duration-200 ${
+        className={cn(
+          "group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-[background-color,box-shadow] duration-200",
           active
             ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
-            : "hover:bg-secondary/80 active:bg-secondary"
-        }`}
+            : "hover:bg-secondary/80 active:bg-secondary",
+        )}
       >
         <Thumb item={item} overlay={item.kind !== "species"} />
         <span className="min-w-0 flex-1">
