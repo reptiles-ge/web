@@ -1,18 +1,13 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useMemo } from "react";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
+import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { pictureSources } from "@/data/optimizedImages";
-import { getRegionsForSpecies } from "@/data/regions";
 import { resolvePhotoCredit, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import { trackEvent } from "@/lib/analytics";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
@@ -32,34 +27,24 @@ type SpeciesProfileProps = {
   species: Species;
 };
 
-export function SpeciesProfile({
-  related: rawRelated,
-  species: rawSpecies,
+export async function SpeciesProfile({
+  related,
+  species,
 }: SpeciesProfileProps) {
-  const locale = useLocale() as AppLocale;
-  const t = useTranslations("profile");
-  const tHubs = useTranslations("groupHubShared");
-  const tDanger = useTranslations("danger");
-  const species = useMemo(
-    () => localizeSpecies(rawSpecies, locale),
-    [rawSpecies, locale],
-  );
-  const related = useMemo(
-    () => rawRelated.map((item) => localizeSpecies(item, locale)),
-    [rawRelated, locale],
-  );
+  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations("profile");
+  const tHubs = await getTranslations("groupHubShared");
+  const tDanger = await getTranslations("danger");
   const guideLinks = getSpeciesGuideLinks(species.id);
-  const breadcrumbs = useMemo(() => {
-    const parent = getSpeciesParentHub(species);
-    const groupLabel = tHubs(`hubs.${parent.hubId}`);
-    return buildSpeciesBreadcrumbs({
-      groupLabel,
-      homeLabel: t("breadcrumbHome"),
-      indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
-      species,
-      venomousLabel: t("breadcrumbVenomous"),
-    });
-  }, [species, t, tHubs]);
+  const parent = getSpeciesParentHub(species);
+  const groupLabel = tHubs(`hubs.${parent.hubId}`);
+  const breadcrumbs = buildSpeciesBreadcrumbs({
+    groupLabel,
+    homeLabel: t("breadcrumbHome"),
+    indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
+    species,
+    venomousLabel: t("breadcrumbVenomous"),
+  });
   const { desktopHeroSrc, gallery, mobileHeroSrc, primary } =
     getSpeciesHeroSources(species);
   const heroDesktopSources = pictureSources(desktopHeroSrc, {
@@ -92,46 +77,31 @@ export function SpeciesProfile({
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const showIdentification = hasRealIdentification(species.identification);
-
-  useEffect(() => {
-    trackEvent("species_view", {
-      group,
-      has_gallery: gallery.length > 0,
-      has_identification: showIdentification,
-      has_range: getRegionsForSpecies(species.id).length > 0,
-      page_type: "species",
-      scientific_name: species.scientificName,
-      species_id: species.id,
-    });
-  }, [
-    species.id,
-    species.scientificName,
-    group,
-    gallery.length,
-    showIdentification,
-  ]);
-  const biologyBlocks = useMemo(
-    () =>
-      [
-        {
-          body: species.habitat,
-          id: "habitat",
-          title: t("habitat"),
-        },
-        { body: species.diet, id: "diet", title: t("diet") },
-        { body: species.behavior, id: "behavior", title: t("behavior") },
-        {
-          body: species.conservation,
-          id: "conservation",
-          title: t("conservation"),
-        },
-      ].filter((block) => !isPlaceholderBody(block.body)),
-    [species.behavior, species.conservation, species.diet, species.habitat, t],
-  );
+  const biologyBlocks = [
+    {
+      body: species.habitat,
+      id: "habitat",
+      title: t("habitat"),
+    },
+    { body: species.diet, id: "diet", title: t("diet") },
+    { body: species.behavior, id: "behavior", title: t("behavior") },
+    {
+      body: species.conservation,
+      id: "conservation",
+      title: t("conservation"),
+    },
+  ].filter((block) => !isPlaceholderBody(block.body));
 
   return (
     <div className="min-h-screen bg-background">
       <div>
+        <SpeciesViewTracker
+          galleryCount={gallery.length}
+          group={group}
+          hasIdentification={showIdentification}
+          scientificName={species.scientificName}
+          speciesId={species.id}
+        />
         <SpeciesProfileHero
           breadcrumbs={breadcrumbs}
           desktopHeroSrc={desktopHeroSrc}
