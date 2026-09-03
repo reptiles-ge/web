@@ -7,6 +7,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
+import { ClusterPathCard } from "@/components/ClusterPathCard";
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
@@ -104,22 +105,24 @@ export function VenomousSnakesGuides({
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-            <VenomousGuideTile
-              body={t("idBody")}
-              cta={t("idCta")}
-              delay={0}
-              eyebrow={t("idEyebrow")}
-              href="/snakes/shxamiani-gvelis-amocnoba"
-              title={t("idTitle")}
-            />
-            <VenomousGuideTile
-              body={t("biteBody")}
-              cta={t("biteCta")}
-              delay={60}
-              eyebrow={t("biteEyebrow")}
-              href="/snakes/gvelis-nakbeni"
-              title={t("biteTitle")}
-            />
+            <Reveal>
+              <ClusterPathCard
+                body={t("idBody")}
+                cta={t("idCta")}
+                eyebrow={t("idEyebrow")}
+                href="/snakes/shxamiani-gvelis-amocnoba"
+                title={t("idTitle")}
+              />
+            </Reveal>
+            <Reveal delay={60}>
+              <ClusterPathCard
+                body={t("biteBody")}
+                cta={t("biteCta")}
+                eyebrow={t("biteEyebrow")}
+                href="/snakes/gvelis-nakbeni"
+                title={t("biteTitle")}
+              />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -159,46 +162,5 @@ export function VenomousSnakesGuides({
         <RelatedGuideGrid cards={relatedGuides} locale={locale} />
       </ClusterContentSection>
     </>
-  );
-}
-
-function VenomousGuideTile({
-  body,
-  cta,
-  delay,
-  eyebrow,
-  href,
-  title,
-}: {
-  body: string;
-  cta: string;
-  delay: number;
-  eyebrow: string;
-  href: "/snakes/gvelis-nakbeni" | "/snakes/shxamiani-gvelis-amocnoba";
-  title: string;
-}) {
-  return (
-    <Reveal delay={delay}>
-      <Link
-        className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
-        href={href}
-      >
-        <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-          {eyebrow}
-        </span>
-        <div className="mt-6">
-          <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-            {title}
-          </p>
-          <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-            {body}
-          </p>
-          <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-            {cta}
-            <ArrowUpRight className="size-3.5" />
-          </span>
-        </div>
-      </Link>
-    </Reveal>
   );
 }

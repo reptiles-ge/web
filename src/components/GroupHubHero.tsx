@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
@@ -8,6 +8,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { CoverImage } from "@/components/CoverImage";
+import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { Reveal } from "@/components/Reveal";
 import { isVenomousDanger } from "@/data/speciesAtlas";
@@ -50,23 +51,16 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <Reveal>
-            <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
-              <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
-                <li>
-                  <Link
-                    className="inline-flex items-center gap-2 transition-colors hover:text-white"
-                    href="/"
-                  >
-                    <ArrowLeft className="size-3.5" />
-                    {tShared("breadcrumbHome")}
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="text-white/30">
-                  /
-                </li>
-                <li className="text-white/80">{t("breadcrumbCurrent")}</li>
-              </ol>
-            </nav>
+            <InkHeroBreadcrumb
+              crumbs={[
+                {
+                  href: "/",
+                  label: tShared("breadcrumbHome"),
+                  withBack: true,
+                },
+                { label: t("breadcrumbCurrent") },
+              ]}
+            />
 
             <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
               Reptiles

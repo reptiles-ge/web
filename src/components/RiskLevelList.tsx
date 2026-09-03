@@ -201,7 +201,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
             <Reveal>
-              <PathCard
+              <ClusterPathCard
                 body={t("venomousBody")}
                 cta={t("venomousCta")}
                 eyebrow={t("venomousEyebrow")}
@@ -210,7 +210,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
               />
             </Reveal>
             <Reveal delay={60}>
-              <PathCard
+              <ClusterPathCard
                 body={t("idBody")}
                 cta={t("idCta")}
                 eyebrow={t("idEyebrow")}
@@ -248,39 +248,3 @@ function levelTone(level: DangerLevel) {
   }
 }
 
-function PathCard({
-  body,
-  cta,
-  eyebrow,
-  href,
-  title,
-}: {
-  body: string;
-  cta: string;
-  eyebrow: string;
-  href: ComponentProps<typeof Link>["href"];
-  title: string;
-}) {
-  return (
-    <Link
-      className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
-      href={href}
-    >
-      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-        {eyebrow}
-      </span>
-      <div className="mt-6">
-        <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-          {title}
-        </p>
-        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-          {body}
-        </p>
-        <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-          {cta}
-          <ArrowUpRight className="size-3.5" />
-        </span>
-      </div>
-    </Link>
-  );
-}
