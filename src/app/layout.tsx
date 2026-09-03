@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import { preconnect, preload } from "react-dom";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
 const GTM_ID = "GTM-NM65ZMML";
@@ -142,7 +143,9 @@ export default async function RootLayout({ children }: Props) {
             />
           </noscript>
         ) : null}
-        <ThemeProvider>{children}</ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider>{children}</ThemeProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
