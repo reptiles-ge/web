@@ -15,7 +15,6 @@ type ChromeVariant = "dark" | "light";
 export function NavbarChrome({
   chromeVariant,
   closeMenuLabel,
-  closeMenuAria,
   discoverLabel,
   groupsActive,
   groupsLabel,
@@ -133,7 +132,7 @@ export function NavbarChrome({
         <button
           aria-controls={menuId}
           aria-expanded={menuOpen}
-          aria-label={menuOpen ? closeMenuAria : openMenuAria}
+          aria-label={menuOpen ? closeMenuLabel : openMenuAria}
           className={cn(
             "inline-flex size-10 items-center justify-center rounded-full transition-colors lg:hidden",
             elevated

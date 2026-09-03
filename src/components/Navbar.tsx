@@ -99,7 +99,6 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <NavbarChrome
         chromeVariant={chromeVariant}
-        closeMenuAria={t("closeMenu")}
         closeMenuLabel={t("closeMenu")}
         discoverLabel={t("discover")}
         groupsActive={groupsActive}
