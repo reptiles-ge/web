@@ -4,17 +4,17 @@ import { type Dispatch, useEffect, useState } from "react";
 
 import type { SnakeQuizQuestion } from "@/lib/snakeQuiz";
 
-type Answered = {
-  correct: boolean;
-  selectedId: string;
-};
-
 export type QuizDraft = {
   answers: Answered[];
   hintOpen: boolean;
   index: number;
   questions: SnakeQuizQuestion[];
   selectedId: null | string;
+};
+
+type Answered = {
+  correct: boolean;
+  selectedId: string;
 };
 
 type RestoreAction = { draft: QuizDraft; type: "restore" };

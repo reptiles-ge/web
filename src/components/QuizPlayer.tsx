@@ -8,12 +8,11 @@ import {
   useMemo,
   useReducer,
   useRef,
-  useState,
 } from "react";
 
 import { QuizStage } from "@/components/QuizStage";
 import { trackEvent } from "@/lib/analytics";
-import { draftKey, useQuizDraft } from "@/lib/quizDraft";
+import { draftKey, type QuizDraft, useQuizDraft } from "@/lib/quizDraft";
 import {
   generateSnakeQuiz,
   QUIZ_LENGTH,
@@ -30,7 +29,7 @@ type Answered = {
 
 type QuizAction =
   | { correct: boolean; optionId: string; type: "select"; }
-  | { draft: import("@/lib/quizDraft").QuizDraft; type: "restore" }
+  | { draft: QuizDraft; type: "restore" }
   | { open: boolean; type: "setHintOpen" }
   | { questions: SnakeQuizQuestion[]; type: "start" }
   | { type: "advance" };
@@ -197,8 +196,8 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
       coverSrc={coverSrc}
       feedbackRef={feedbackRef}
       headingId={headingId}
-      hintOpen={hintOpen}
       hintedQuestions={hintedQuestions}
+      hintOpen={hintOpen}
       index={index}
       nextLabel={nextLabel}
       nextQuestion={nextQuestion}

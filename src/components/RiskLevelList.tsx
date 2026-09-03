@@ -2,7 +2,6 @@
 
 import { ArrowUpRight, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { type ComponentProps } from "react";
 
 import type { DangerLevel, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";

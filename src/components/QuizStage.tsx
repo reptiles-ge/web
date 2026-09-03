@@ -3,15 +3,16 @@
 import { useTranslations } from "next-intl";
 import { type RefObject } from "react";
 
-import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
-import { QuizResultOverlay } from "@/components/QuizResultOverlay";
-import { QuizRound } from "@/components/QuizRound";
-import { cn } from "@/lib/cn";
 import type {
   QuizDifficulty,
   SnakeQuizQuestion,
   SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
+
+import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
+import { QuizResultOverlay } from "@/components/QuizResultOverlay";
+import { QuizRound } from "@/components/QuizRound";
+import { cn } from "@/lib/cn";
 
 type Answered = {
   correct: boolean;
@@ -29,8 +30,8 @@ type QuizStageProps = {
   coverSrc: string | undefined;
   feedbackRef: RefObject<HTMLParagraphElement | null>;
   headingId: string;
-  hintOpen: boolean;
   hintedQuestions: RefObject<Set<number>>;
+  hintOpen: boolean;
   index: number;
   nextLabel: string;
   nextQuestion: SnakeQuizQuestion | undefined;
@@ -61,8 +62,8 @@ export function QuizStage({
   coverSrc,
   feedbackRef,
   headingId,
-  hintOpen,
   hintedQuestions,
+  hintOpen,
   index,
   nextLabel,
   nextQuestion,
@@ -172,8 +173,8 @@ export function QuizStage({
             correctSpecies={correctSpecies}
             feedbackRef={feedbackRef}
             headingId={headingId}
-            hintOpen={hintOpen}
             hintedQuestions={hintedQuestions}
+            hintOpen={hintOpen}
             index={index}
             nextLabel={nextLabel}
             onHintToggle={onHintToggle}
