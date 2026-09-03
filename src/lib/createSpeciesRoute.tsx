@@ -307,7 +307,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
           )}
         />
-        <SpeciesProfile related={related} species={raw} />
+        <SpeciesProfile
+          related={related.map((item) => localizeSpecies(item, locale))}
+          species={item}
+        />
         <NewsRelatedBlock
           articles={getPublishedNewsForSpecies(raw.id)}
           locale={locale}

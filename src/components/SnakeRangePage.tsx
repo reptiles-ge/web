@@ -1,8 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -31,19 +28,17 @@ import {
 } from "@/lib/clusterGuides";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
-export function SnakeRangePage({
+export async function SnakeRangePage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeRange");
-  const tShared = useTranslations("groupHubShared");
-  const locale = useLocale() as AppLocale;
-  const mappedCount = useMemo(
-    () =>
-      species.filter((item) => getRegionsForSpecies(item.id).length > 0).length,
-    [species],
-  );
+  const t = await getTranslations("snakeRange");
+  const tShared = await getTranslations("groupHubShared");
+  const locale = (await getLocale()) as AppLocale;
+  const mappedCount = species.filter(
+    (item) => getRegionsForSpecies(item.id).length > 0,
+  ).length;
   const highlightedIds: string[] = [];
   for (const region of regions) {
     if (getRegionSnakeSpecies(region).length > 0) {
