@@ -1,5 +1,6 @@
-import createBundleAnalyzer from "@next/bundle-analyzer";
 import type { NextConfig } from "next";
+
+import createBundleAnalyzer from "@next/bundle-analyzer";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withBundleAnalyzer = createBundleAnalyzer({
@@ -12,209 +13,207 @@ const LATIN_LOCALES = ["en", "ru", "tr"] as const;
 
 function latinRedirects(
   pairs: Array<[string, string, number?]>,
-): Array<{ source: string; destination: string; statusCode: number }> {
+): Array<{ destination: string; source: string; statusCode: number }> {
   return LATIN_LOCALES.flatMap((locale) =>
     pairs.map(([from, to, status = 301]) => ({
-      source: `/${locale}${from}`,
       destination: `/${locale}${to}`,
+      source: `/${locale}${from}`,
       statusCode: status,
     })),
   );
 }
 
 const nextConfig: NextConfig = {
-  trailingSlash: false,
-  serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
   experimental: {
     inlineCss: true,
-  },
-  images: {
-    unoptimized: true,
-    qualities: [75, 90],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.reptiles.ge",
-      },
-    ],
   },
   async headers() {
     return [
       {
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
         source: "/api/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
         source: "/admin",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
-        source: "/admin/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        source: "/admin/:path*",
       },
     ];
+  },
+  images: {
+    qualities: [75, 90],
+    remotePatterns: [
+      {
+        hostname: "cdn.reptiles.ge",
+        protocol: "https",
+      },
+    ],
+    unoptimized: true,
   },
   async redirects() {
     return [
       {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.reptiles.ge" }],
         destination: "https://reptiles.ge/:path*",
+        has: [{ type: "host", value: "www.reptiles.ge" }],
+        source: "/:path*",
         statusCode: 301,
       },
       {
+        destination: "/gvelebi",
         source: "/snakes",
-        destination: "/gvelebi",
         statusCode: 301,
       },
       {
-        source: "/lizards",
         destination: "/xvlikebi",
+        source: "/lizards",
         statusCode: 301,
       },
       {
-        source: "/turtles",
         destination: "/kuebi",
+        source: "/turtles",
         statusCode: 301,
       },
       {
-        source: "/amphibians",
         destination: "/amfibiebi",
+        source: "/amphibians",
         statusCode: 301,
       },
       {
-        source: "/venomous-snakes",
         destination: "/gvelebi/shxamiani-gvelebi",
+        source: "/venomous-snakes",
         statusCode: 301,
       },
       {
-        source: "/snakes-in-the-yard",
         destination: "/gvelebi/gveli-ezoshi",
+        source: "/snakes-in-the-yard",
         statusCode: 301,
       },
       {
-        source: "/species/vipera-ammodytes",
         destination: "/gvelebi/tsxvirrkosani-gvelgesla",
+        source: "/species/vipera-ammodytes",
         statusCode: 301,
       },
       {
-        source: "/amphibians/frogs",
         destination: "/amfibiebi/bayayi",
+        source: "/amphibians/frogs",
         statusCode: 301,
       },
       {
+        destination: "/gvelebi/saxeoebebi",
         source: "/snakes/species",
-        destination: "/gvelebi/saxeoebebi",
         statusCode: 301,
       },
       {
-        source: "/snakes/identify-venomous",
         destination: "/gvelebi/shxamiani-gvelis-amocnoba",
+        source: "/snakes/identify-venomous",
         statusCode: 301,
       },
       {
-        source: "/snakes/bite",
         destination: "/gvelebi/gvelis-nakbeni",
+        source: "/snakes/bite",
         statusCode: 301,
       },
       {
-        source: "/snakes/range",
         destination: "/gvelebi/gavrtseleba",
+        source: "/snakes/range",
         statusCode: 301,
       },
       {
-        source: "/snakes/largest",
         destination: "/gvelebi/didi-gvelebi",
+        source: "/snakes/largest",
         statusCode: 301,
       },
       {
+        destination: "/gvelebi",
         source: "/gvelebi/qvitelmutsela-mtsuravi",
-        destination: "/gvelebi",
         statusCode: 302,
       },
       {
+        destination: "/gvelebi",
         source: "/snakes/dolichophis-caspius",
-        destination: "/gvelebi",
         statusCode: 302,
       },
       {
+        destination: "/gvelebi",
         source: "/species/dolichophis-caspius",
-        destination: "/gvelebi",
         statusCode: 302,
       },
       {
+        destination: "/gvelebi/saxeoebebi",
         source: "/gvelebi/sakartvelos-gvelebi",
-        destination: "/gvelebi/saxeoebebi",
         statusCode: 301,
       },
       {
+        destination: "/gvelebi/saxeoebebi",
         source: "/snakes/sakartvelos-gvelebi",
-        destination: "/gvelebi/saxeoebebi",
         statusCode: 301,
       },
       {
-        source: "/lizards/species",
         destination: "/xvlikebi/saxeoebebi",
+        source: "/lizards/species",
         statusCode: 301,
       },
       {
-        source: "/lizards/identify",
         destination: "/xvlikebi/identifikacia",
+        source: "/lizards/identify",
         statusCode: 301,
       },
       {
-        source: "/lizards/lizard-or-glass-lizard",
         destination: "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+        source: "/lizards/lizard-or-glass-lizard",
         statusCode: 301,
       },
       {
-        source: "/turtles/species",
         destination: "/kuebi/saxeoebebi",
+        source: "/turtles/species",
         statusCode: 301,
       },
       {
-        source: "/turtles/land",
         destination: "/kuebi/xmelis-kuebi",
+        source: "/turtles/land",
         statusCode: 301,
       },
       {
-        source: "/turtles/freshwater",
         destination: "/kuebi/tsqlis-kuebi",
+        source: "/turtles/freshwater",
         statusCode: 301,
       },
       {
-        source: "/turtles/identify",
         destination: "/kuebi/identifikacia",
+        source: "/turtles/identify",
         statusCode: 301,
       },
       {
-        source: "/amphibians/species",
         destination: "/amfibiebi/saxeoebebi",
+        source: "/amphibians/species",
         statusCode: 301,
       },
       {
-        source: "/amphibians/frogs/species",
         destination: "/amfibiebi/bayayi/saxeoebebi",
+        source: "/amphibians/frogs/species",
         statusCode: 301,
       },
       {
-        source: "/amphibians/newts",
         destination: "/amfibiebi/tritoni-salamandra",
+        source: "/amphibians/newts",
         statusCode: 301,
       },
       {
-        source: "/identify",
         destination: "/species",
+        source: "/identify",
         statusCode: 301,
       },
       {
+        destination: "/quiz/romeli-gvelia",
         source: "/quiz/gvelis-identifikacia",
-        destination: "/quiz/romeli-gvelia",
         statusCode: 301,
       },
       {
-        source: "/quiz/which-snake",
         destination: "/quiz/romeli-gvelia",
+        source: "/quiz/which-snake",
         statusCode: 301,
       },
       ...latinRedirects([
@@ -271,47 +270,49 @@ const nextConfig: NextConfig = {
         ["/species/dolichophis-caspius", "/snakes", 302],
       ]),
       {
+        destination: "/en/quiz/which-snake",
         source: "/en/quiz/gvelis-identifikacia",
-        destination: "/en/quiz/which-snake",
         statusCode: 301,
       },
       {
+        destination: "/en/quiz/which-snake",
         source: "/en/quiz/romeli-gvelia",
-        destination: "/en/quiz/which-snake",
         statusCode: 301,
       },
       {
+        destination: "/ru/quiz/kakaya-zmeya",
         source: "/ru/quiz/gvelis-identifikacia",
-        destination: "/ru/quiz/kakaya-zmeya",
         statusCode: 301,
       },
       {
+        destination: "/ru/quiz/kakaya-zmeya",
         source: "/ru/quiz/romeli-gvelia",
-        destination: "/ru/quiz/kakaya-zmeya",
         statusCode: 301,
       },
       {
+        destination: "/ru/quiz/kakaya-zmeya",
         source: "/ru/quiz/which-snake",
-        destination: "/ru/quiz/kakaya-zmeya",
         statusCode: 301,
       },
       {
+        destination: "/tr/quiz/hangi-yilan",
         source: "/tr/quiz/gvelis-identifikacia",
-        destination: "/tr/quiz/hangi-yilan",
         statusCode: 301,
       },
       {
+        destination: "/tr/quiz/hangi-yilan",
         source: "/tr/quiz/romeli-gvelia",
-        destination: "/tr/quiz/hangi-yilan",
         statusCode: 301,
       },
       {
-        source: "/tr/quiz/which-snake",
         destination: "/tr/quiz/hangi-yilan",
+        source: "/tr/quiz/which-snake",
         statusCode: 301,
       },
     ];
   },
+  serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
+  trailingSlash: false,
 };
 
 export default withBundleAnalyzer(withNextIntl(nextConfig));

@@ -1,10 +1,10 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 import perfectionist from "eslint-plugin-perfectionist";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import unusedImports from "eslint-plugin-unused-imports";
+import { defineConfig, globalIgnores } from "eslint/config";
 
 const perfectionistNatural = perfectionist.configs["recommended-natural"];
 
@@ -18,16 +18,38 @@ const eslintConfig = defineConfig([
       "perfectionist/sort-objects": [
         "error",
         {
-          type: "natural",
           order: "asc",
           partitionByComment: true,
           partitionByNewLine: true,
+          type: "natural",
         },
       ],
     },
   },
   {
     ...tailwindcss.configs.recommended,
+    rules: {
+      ...tailwindcss.configs.recommended.rules,
+      "tailwindcss/classnames-order": "off",
+      "tailwindcss/no-arbitrary-value": "off",
+      "tailwindcss/no-custom-classname": [
+        "warn",
+        {
+          whitelist: [
+            "hero-drift",
+            "media-placeholder",
+            "no-scrollbar",
+            "glass-card",
+            "species-carousel-track",
+            "map-explorer",
+            "map-explorer-texture",
+            "text-balance-tight",
+            "font-display",
+          ],
+        },
+      ],
+      "tailwindcss/no-unnecessary-arbitrary-value": "off",
+    },
     settings: {
       ...tailwindcss.configs.recommended.settings,
       tailwindcss: {
@@ -46,28 +68,6 @@ const eslintConfig = defineConfig([
           "twJoin",
         ],
       },
-    },
-    rules: {
-      ...tailwindcss.configs.recommended.rules,
-      "tailwindcss/classnames-order": "off",
-      "tailwindcss/no-arbitrary-value": "off",
-      "tailwindcss/no-unnecessary-arbitrary-value": "off",
-      "tailwindcss/no-custom-classname": [
-        "warn",
-        {
-          whitelist: [
-            "hero-drift",
-            "media-placeholder",
-            "no-scrollbar",
-            "glass-card",
-            "species-carousel-track",
-            "map-explorer",
-            "map-explorer-texture",
-            "text-balance-tight",
-            "font-display",
-          ],
-        },
-      ],
     },
   },
   {
