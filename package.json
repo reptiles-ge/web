@@ -7,7 +7,7 @@
     "dev": "next dev",
     "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
     "build": "next build",
-    "analyze": "ANALYZE=true pnpm build",
+    "analyze": "pnpm run prebuild && ANALYZE=true pnpm exec next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "doctor": "react-doctor -y --verbose",
