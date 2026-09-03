@@ -553,7 +553,7 @@
   },
   "about": {
     "metaTitle": "About",
-    "metaDescription": "Reptiles — Georgia’s bilingual animal atlas: how profiles are written, and which sources we use. Reptiles remain the deepest layer.",
+    "metaDescription": "Reptiles.ge is a four-language atlas of animals of Georgia. Georgian is canonical. Herpetofauna follows Tarkhnishvili et al. 2026; empty fields stay empty rather than invented.",
     "back": "Home",
     "brand": "Reptiles",
     "eyebrow": "About the company",
@@ -562,9 +562,9 @@
     "heroImageAlt": "Misty Caucasus ridge at dusk",
     "companyEyebrow": "Who we are",
     "companyTitle": "Reptiles — atlas of animals of Georgia",
-    "companyBody1": "We build a bilingual atlas of animals of Georgia — sourced, and useful in the field. Reptiles and amphibians are still the deepest layer; birds and mammals are added in the same structure.",
-    "companyBody2": "Our work connects science with public understanding: clear identification, regional context, venom risk, and conservation status — without noise or speculation.",
-    "companyBody3": "Every profile is curated against established biodiversity sources and updated as taxonomy, Red List status, and field evidence change.",
+    "companyBody1": "Reptiles.ge is an atlas of animals of Georgia. Herpetofauna is the deep layer, following Tarkhnishvili et al. 2026. Birds, mammals, and spiders are thinner hubs in the same catalog. The site is published in four languages; Georgian is the canonical text.",
+    "companyBody2": "We do not invent administrative regions, measurements, IUCN category, or national Red List status. Candidate taxa stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
+    "companyBody3": "The atlas is an editorial compilation. Photos always carry a credit; Georgia-field verification is marked only with evidence. Corrections go through the contact page.",
     "pillars": {
       "discover": {
         "title": "Discover",
@@ -581,17 +581,16 @@
     },
     "methodEyebrow": "How we work",
     "methodTitle": "Standards & sources",
-    "methodLead": "Each profile combines taxonomic identity, Georgia-relevant habitat and behavior, conservation status, identification traits, and FAQs.",
-    "methodCardTitle": "Scientific review",
-    "methodCardBody": "Accounts are reviewed as new literature and Red List changes appear. Field corrections are welcomed and checked against published sources.",
-    "sourcesCardTitle": "Cited sources",
-    "sourcesCardBody": "Primary references include IUCN Red List assessments, GBIF occurrence data, the Reptile Database, and peer-reviewed papers linked on each species page.",
+    "methodLead": "Profiles compile taxonomy and what published sources already support for Georgia. Missing size, range, or status stays hidden rather than filled with plausible prose.",
+    "methodCardTitle": "What we will not infer",
+    "methodCardBody": "Administrative regions, measurements, IUCN, and the national Red List appear only when a cited source already used on the site names them. Checklist candidates are not treated as confirmed.",
+    "sourcesCardTitle": "Herpetofauna checklist",
+    "sourcesCardBody": "Amphibians and reptiles follow Tarkhnishvili et al. 2026 (DOI 10.3897/caucasiana.5.e189214). Snake distribution may also cite Iankoshvili & Tarkhnishvili 2021 when that paper is already used on a profile.",
     "photosCardTitle": "Photography",
-    "photosCardBody": "Images are selected for identification value and field context. Credits appear on species pages when photographer attribution is available.",
+    "photosCardBody": "Images are credited. CDN photos are often generic; we do not call them Georgia-field-verified without evidence.",
     "sources": {
-      "iucn": "IUCN Red List",
-      "gbif": "GBIF",
-      "reptileDb": "Reptile Database"
+      "tarkhnishvili": "Tarkhnishvili et al. 2026",
+      "iankoshvili": "Iankoshvili & Tarkhnishvili 2021"
     },
     "contributeEyebrow": "Collaborate",
     "contributeTitle": "Corrections and field notes",
