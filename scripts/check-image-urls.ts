@@ -197,11 +197,6 @@ function collectSources(): Map<string, ImageHit> {
     add(`${CDN_BASE}/regions/${id}.jpg`, `regions/${id}`);
   }
 
-  for (const src of Object.keys(optimizedImages)) {
-    if (bySrc.has(src)) continue;
-    if (isSourceSrc(src)) add(src, "optimizedImages.generated.ts");
-  }
-
   return bySrc;
 }
 
@@ -264,7 +259,6 @@ function createCdnClient(timeoutMs: number): CdnClient {
 
     connecting = (async () => {
       const next = http2.connect(CDN_BASE);
-      next.setTimeout(timeoutMs);
       next.on("error", () => {
         session = undefined;
       });
@@ -388,10 +382,11 @@ function printProgress(done: number, total: number, json: boolean) {
 
 async function main() {
   const options = parseArguments(process.argv.slice(2));
-  const collected = [...collectUrls().values()].sort((a, b) =>
+  const collected = collectServedUrls();
+  const sorted = [...collected.hits.values()].sort((a, b) =>
     a.url.localeCompare(b.url),
   );
-  const targets = options.limit ? collected.slice(0, options.limit) : collected;
+  const targets = options.limit ? sorted.slice(0, options.limit) : sorted;
 
   if (targets.length === 0) {
     throw new Error("No photo URLs found.");
@@ -399,7 +394,8 @@ async function main() {
 
   if (!options.json) {
     console.error(
-      `Checking ${targets.length} unique photo URL${targets.length === 1 ? "" : "s"}…`,
+      `Checking ${targets.length} served URL${targets.length === 1 ? "" : "s"} ` +
+        `(${collected.optimized} with avif/webp, ${collected.fallbacks} original)…`,
     );
   }
 
