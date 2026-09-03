@@ -51,7 +51,11 @@ export function AdminSpeciesList({
   return (
     <div>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <label className="sr-only" htmlFor="admin-species-search">
+          სახელი ან id
+        </label>
         <input
+          id="admin-species-search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="სახელი ან id"

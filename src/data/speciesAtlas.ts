@@ -687,6 +687,15 @@ export const defaultAtlasFilters: AtlasFilters = {
   query: "",
 };
 
+export function countAtlasFacets(filters: AtlasFilters) {
+  let count = 0;
+  if (filters.group !== "all") count += 1;
+  if (filters.danger !== "all") count += 1;
+  if (filters.habitat !== "all") count += 1;
+  if (filters.region !== "all") count += 1;
+  return count;
+};
+
 export function filterAtlasSpecies(
   catalog: Array<Species & { searchText?: string }>,
   filters: AtlasFilters,

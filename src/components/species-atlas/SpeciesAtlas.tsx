@@ -3,7 +3,6 @@
 import {
   AtlasFilterButton,
   AtlasFilterSheet,
-  countAtlasFacets,
 } from "@/components/species-atlas/AtlasFilterSheet";
 import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
 import { CoverImage } from "@/components/CoverImage";
@@ -11,6 +10,7 @@ import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import {
   atlasFiltersToSearchParams,
+  countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
   getAtlasStats,
@@ -68,20 +68,24 @@ function AnimatedValue({
   className?: string;
 }) {
   const [display, setDisplay] = useState(value);
+  const displayRef = useRef(value);
+  displayRef.current = display;
 
   useEffect(() => {
-    if (display === value) return;
+    const from = displayRef.current;
+    if (from === value) return;
 
     let frame = 0;
     let start: number | null = null;
-    const from = display;
     const duration = 900;
 
     function tick(ts: number) {
       if (start === null) start = ts;
       const progress = Math.min((ts - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(from + (value - from) * eased));
+      const next = Math.round(from + (value - from) * eased);
+      displayRef.current = next;
+      setDisplay(next);
       if (progress < 1) {
         frame = window.requestAnimationFrame(tick);
       }
@@ -120,7 +124,7 @@ function HeroPathway({
   delay?: number;
 }) {
   const className =
-    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
+    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
   const style = { animationDelay: `${delay}ms` };
   const content = (
     <>
@@ -508,7 +512,7 @@ export function SpeciesAtlas({
                   ) : null}
                   <Link
                     href="/regions"
-                    className="group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5"
+                    className="group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5"
                   >
                     <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/40">
                       {t("stats.pathwayPlace")}

@@ -26,6 +26,11 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+const orgLd = {
+  "@context": "https://schema.org",
+  ...organizationJsonLd(),
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -122,11 +127,6 @@ export default async function NewsIndexRoute({ params }: Props) {
         name: article.copy[locale].title,
       })),
     },
-  };
-
-  const orgLd = {
-    "@context": "https://schema.org",
-    ...organizationJsonLd(),
   };
 
   return (

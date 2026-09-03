@@ -389,7 +389,7 @@ export function RiskToHumansPage({
 function FaqSection() {
   const t = useTranslations("riskToHumans");
   const [open, setOpen] = useState<number | null>(0);
-  const items = [1, 2, 3, 4, 5] as const;
+  const items = FAQ_ITEMS;
 
   return (
     <section className="border-t border-border bg-surface py-24 lg:py-32">

@@ -25,9 +25,11 @@ type GeorgiaMapProps = {
   mapContext?: MapContext;
 };
 
+const EMPTY_HIGHLIGHTED_IDS: string[] = [];
+
 export function GeorgiaMap({
   className,
-  highlightedIds = [],
+  highlightedIds = EMPTY_HIGHLIGHTED_IDS,
   interactive = true,
   selectionMode = "panel",
   mapContext = "home",

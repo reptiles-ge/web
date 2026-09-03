@@ -54,7 +54,7 @@ export function SpeciesCard({
         </span>
       </div>
       <div className="absolute inset-x-0 bottom-0 p-6">
-        <div className="glass-card rounded-3xl p-5 transition-all duration-500 group-hover:-translate-y-1">
+        <div className="glass-card rounded-3xl p-5 transition-[transform] duration-500 group-hover:-translate-y-1">
           <p className="text-[11px] italic tracking-wide text-white/55">
             {species.scientificName}
           </p>
@@ -65,7 +65,7 @@ export function SpeciesCard({
             <MapPin className="size-3.5" aria-hidden="true" />
             {species.location}
           </div>
-          <p className="mt-4 max-h-0 overflow-hidden text-[13px] leading-relaxed text-white/70 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
+          <p className="mt-4 max-h-0 overflow-hidden text-[13px] leading-relaxed text-white/70 opacity-0 transition-[max-height,opacity] duration-500 group-hover:max-h-32 group-hover:opacity-100">
             {species.description}
           </p>
           <SpeciesRiskChip species={species} variant="card" />

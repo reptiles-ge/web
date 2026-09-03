@@ -34,15 +34,6 @@ const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
   "grassland",
 ];
 
-export function countAtlasFacets(filters: AtlasFilters) {
-  let count = 0;
-  if (filters.group !== "all") count += 1;
-  if (filters.danger !== "all") count += 1;
-  if (filters.habitat !== "all") count += 1;
-  if (filters.region !== "all") count += 1;
-  return count;
-}
-
 type AtlasFilterSheetProps = {
   open: boolean;
   filters: AtlasFilters;

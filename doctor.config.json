@@ -1,6 +1,6 @@
 {
   "$schema": "https://react.doctor/schema/config.json",
   "ignore": {
-    "files": ["src/data/*.generated.ts"]
+    "files": ["src/data/*.generated.ts", "index.html"]
   }
 }
