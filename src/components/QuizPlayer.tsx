@@ -454,13 +454,14 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                       aria-checked={selected}
                       disabled={revealed}
                       onClick={() => onSelect(optionId, question.difficulty)}
-                      className={`flex min-h-11 items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-17 sm:gap-3 sm:px-5 sm:py-3.5 ${optionClass(
-                        {
+                      className={cn(
+                        "flex min-h-11 items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-17 sm:gap-3 sm:px-5 sm:py-3.5",
+                        optionClass({
                           revealed,
                           selected,
                           correct: isCorrect,
-                        },
-                      )}`}
+                        }),
+                      )}
                     >
                       <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-[12px] font-medium sm:size-8">
                         {OPTION_MARKS[locale][optionIndex]}
@@ -807,11 +808,12 @@ function ResultOverlay({
                   </span>
                 </span>
                 <span
-                  className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-medium whitespace-nowrap sm:px-2.5 ${
+                  className={cn(
+                    "shrink-0 rounded-full px-2 py-1 text-[11px] font-medium whitespace-nowrap sm:px-2.5",
                     answer.correct
                       ? "bg-emerald-500/20 text-emerald-100"
-                      : "bg-destructive/25 text-red-100"
-                  }`}
+                      : "bg-destructive/25 text-red-100",
+                  )}
                 >
                   {answer.correct ? t("resultCorrect") : t("resultWrong")}
                 </span>
