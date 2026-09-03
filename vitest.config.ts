@@ -2,6 +2,7 @@ import path from "node:path";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
+  cacheDir: path.resolve(__dirname, "node_modules/.vite"),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
@@ -16,9 +17,6 @@ export default defineConfig({
     },
   },
   test: {
-    cache: {
-      dir: path.resolve(__dirname, "node_modules/.vitest"),
-    },
     environment: "node",
     fileParallelism: false,
     include: ["src/**/*.test.ts"],
