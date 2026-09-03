@@ -21,6 +21,7 @@ const eslintConfig = defineConfig([
     rules: {
       ...tailwindcss.configs.recommended.rules,
       "tailwindcss/no-arbitrary-value": "off",
+      "tailwindcss/no-unnecessary-arbitrary-value": "off",
       "tailwindcss/no-custom-classname": [
         "warn",
         {

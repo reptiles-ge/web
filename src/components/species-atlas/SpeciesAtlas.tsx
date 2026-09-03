@@ -130,15 +130,15 @@ function HeroPathway({
   const style = { animationDelay: `${delay}ms` };
   const content = (
     <>
-      <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/40">
+      <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
         {eyebrow}
       </span>
-      <span className="mt-3 font-display text-[1.35rem] font-semibold leading-tight text-white sm:text-[1.5rem]">
+      <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">
         {title}
       </span>
       <span className="mt-2 flex items-center gap-1.5 text-[13px] text-white/55 transition-colors group-hover:text-white/80">
         {meta}
-        <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
     </>
   );
@@ -192,7 +192,7 @@ function LensRow({
 }) {
   return (
     <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
-      <p className="w-24 shrink-0 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:pt-0.5">
+      <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
         {label}
       </p>
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -466,10 +466,10 @@ export function SpeciesAtlas() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-black/92" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/40 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(95%_70%_at_50%_15%,transparent_20%,rgba(0,0,0,0.6)_100%)]" />
 
-          <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
+          <div className="relative z-10 mx-auto w-full max-w-350 px-6 lg:px-10">
             <Reveal>
               <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
@@ -488,10 +488,10 @@ export function SpeciesAtlas() {
                 </ol>
               </nav>
 
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-white/45">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
-              <h1 className="mt-3 max-w-4xl font-display text-balance-tight text-[clamp(2rem,5.8vw,4.6rem)] font-semibold leading-[1.05] text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2rem,5.8vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
@@ -500,7 +500,7 @@ export function SpeciesAtlas() {
 
               <div className="mt-10 max-w-4xl sm:mt-12">
                 <div className="flex flex-wrap items-end gap-x-4 gap-y-2 border-b border-white/12 pb-5">
-                  <p className="font-display text-[clamp(3rem,8vw,4.75rem)] font-semibold leading-none tracking-tight text-white">
+                  <p className="font-display text-[clamp(3rem,8vw,4.75rem)] leading-none font-semibold tracking-tight text-white">
                     <AnimatedValue value={stats.total} />
                   </p>
                   <div className="pb-1.5">
@@ -516,11 +516,11 @@ export function SpeciesAtlas() {
                   </div>
                 </div>
 
-                <p className="mt-5 text-[11px] font-medium uppercase tracking-[0.28em] text-white/40">
+                <p className="mt-5 text-[11px] font-medium tracking-[0.28em] text-white/40 uppercase">
                   {t("stats.pathwaysLabel")}
                 </p>
 
-                <div className="mt-3 flex gap-2.5 overflow-x-auto pb-1 no-scrollbar sm:mt-4 sm:flex-wrap sm:gap-3 sm:overflow-visible">
+                <div className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto pb-1 sm:mt-4 sm:flex-wrap sm:gap-3 sm:overflow-visible">
                   <HeroPathway
                     delay={0}
                     eyebrow={t("groups.snake")}
@@ -607,19 +607,19 @@ export function SpeciesAtlas() {
                   ) : null}
                   <Link
                     href="/regions"
-                    className="group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5"
+                    className="group flex min-w-42 flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
                   >
-                    <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/40">
+                    <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
                       {t("stats.pathwayPlace")}
                     </span>
-                    <span className="mt-3 font-display text-[1.35rem] font-semibold leading-tight text-white sm:text-[1.5rem]">
+                    <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">
                       {t("stats.pathwayRegionsTitle", {
                         count: stats.regions,
                       })}
                     </span>
                     <span className="mt-2 flex items-center gap-1.5 text-[13px] text-white/55 transition-colors group-hover:text-white/80">
                       {t("stats.pathwayMap")}
-                      <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </Link>
                 </div>
@@ -636,13 +636,13 @@ export function SpeciesAtlas() {
           id="explorer"
           className="border-b border-border bg-background py-16 lg:py-24"
         >
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-350 px-6 lg:px-10">
             <Reveal>
               <div className="max-w-2xl">
-                <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                   {t("explorerEyebrow")}
                 </p>
-                <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.05] text-foreground">
+                <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] font-semibold text-foreground">
                   {t("explorerTitle")}
                 </h2>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
@@ -656,7 +656,7 @@ export function SpeciesAtlas() {
                 <label className="relative min-w-0 flex-1">
                   <span className="sr-only">{t("searchPlaceholder")}</span>
                   <Search
-                    className="pointer-events-none absolute left-0 top-1/2 size-4 -translate-y-1/2 text-muted-foreground md:left-0"
+                    className="pointer-events-none absolute top-1/2 left-0 size-4 -translate-y-1/2 text-muted-foreground md:left-0"
                     aria-hidden="true"
                   />
                   <input
@@ -666,13 +666,13 @@ export function SpeciesAtlas() {
                       updateFilter("query", event.target.value)
                     }
                     placeholder={t("searchPlaceholder")}
-                    className="w-full border-0 border-b border-border bg-transparent py-3 pl-7 pr-8 text-[15px] text-foreground outline-none transition-[border-color] placeholder:text-muted-foreground/70 focus:border-foreground"
+                    className="w-full border-0 border-b border-border bg-transparent py-3 pr-8 pl-7 text-[15px] text-foreground transition-[border-color] outline-none placeholder:text-muted-foreground/70 focus:border-foreground"
                   />
                   {filters.query ? (
                     <button
                       type="button"
                       onClick={() => updateFilter("query", "")}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                      className="absolute top-1/2 right-0 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
                       aria-label={t("clearSearch")}
                     >
                       <X className="size-3.5" />
@@ -707,7 +707,7 @@ export function SpeciesAtlas() {
                 <div
                   role="tablist"
                   aria-label={t("filters.type")}
-                  className="flex gap-6 overflow-x-auto no-scrollbar sm:gap-8"
+                  className="no-scrollbar flex gap-6 overflow-x-auto sm:gap-8"
                 >
                   {GROUP_OPTIONS.map((group) => {
                     const active = filters.group === group;
@@ -778,10 +778,10 @@ export function SpeciesAtlas() {
                 </LensRow>
 
                 <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
-                  <p className="w-24 shrink-0 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:pt-0.5">
+                  <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
                     {t("filters.region")}
                   </p>
-                  <label className="relative inline-flex min-w-[12rem] items-center">
+                  <label className="relative inline-flex min-w-48 items-center">
                     <select
                       value={filters.region}
                       onChange={(event) =>
@@ -827,15 +827,15 @@ export function SpeciesAtlas() {
 
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
-            className="pointer-events-none absolute inset-0 map-explorer-texture"
+            className="map-explorer-texture pointer-events-none absolute inset-0"
             aria-hidden="true"
           />
-          <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="relative mx-auto max-w-350 px-6 lg:px-10">
             <Reveal className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("mapEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05] text-foreground">
+              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold text-foreground">
                 {t("mapTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
@@ -859,12 +859,12 @@ export function SpeciesAtlas() {
         <SeoAuthoritySection />
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-350 px-6 lg:px-10">
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("recentEyebrow")}
               </p>
-              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
                 {t("recentTitle")}
               </h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
@@ -883,13 +883,13 @@ export function SpeciesAtlas() {
         </section>
 
         <section className="border-t border-border bg-surface/60 py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="mx-auto max-w-350 px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
-                <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+                <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                   {t("aboutEyebrow")}
                 </p>
-                <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]">
+                <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
                   {t("aboutTitle")}
                 </h2>
                 <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -938,10 +938,10 @@ function ComingSoonPanel({
 
   return (
     <div className="mt-12 rounded-[28px] border border-border bg-card px-6 py-14 text-center sm:px-10">
-      <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground">
+      <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
         {t("emptyEyebrow")}
       </p>
-      <h3 className="mx-auto mt-4 max-w-lg font-display text-[clamp(1.4rem,3vw,2rem)] font-semibold leading-tight">
+      <h3 className="mx-auto mt-4 max-w-lg font-display text-[clamp(1.4rem,3vw,2rem)] leading-tight font-semibold">
         {title}
       </h3>
       <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -991,14 +991,14 @@ function RecentSpeciesRow({ species }: { species: Species }) {
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-2">
-          <h3 className="font-display text-[1.15rem] font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+          <h3 className="font-display text-[1.15rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
             {species.commonName}
           </h3>
-          <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+          <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] tracking-[0.14em] text-muted-foreground uppercase">
             {t(`groups.${meta.group}`)}
           </span>
         </div>
-        <p className="mt-1 truncate text-[13px] italic text-muted-foreground">
+        <p className="mt-1 truncate text-[13px] text-muted-foreground italic">
           {species.scientificName}
         </p>
         <p className="mt-2 text-[12px] text-muted-foreground">
@@ -1049,29 +1049,29 @@ function SeoAuthoritySection() {
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[860px] px-6 lg:px-10">
+      <div className="mx-auto max-w-215 px-6 lg:px-10">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground">
+          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("seoEyebrow")}
           </p>
         </Reveal>
 
         <article className="mt-8 space-y-12">
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.reptilesTitle")}
             </h2>
-            <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+            <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
               <p>{t("seo.reptilesP1")}</p>
               <p>{t("seo.reptilesP2")}</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.amphibiansTitle")}
             </h2>
-            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+            <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
               {t("seo.amphibiansP1")}
             </p>
             <p className="mt-4">
@@ -1086,10 +1086,10 @@ function SeoAuthoritySection() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.birdsTitle")}
             </h2>
-            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+            <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
               {t("seo.birdsP1")}
             </p>
             <p className="mt-4">
@@ -1104,10 +1104,10 @@ function SeoAuthoritySection() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.mammalsTitle")}
             </h2>
-            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+            <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
               {t("seo.mammalsP1")}
             </p>
             <p className="mt-4">
@@ -1122,10 +1122,10 @@ function SeoAuthoritySection() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.spidersTitle")}
             </h2>
-            <p className="mt-5 text-[15px] leading-[1.75] text-muted-foreground">
+            <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
               {t("seo.spidersP1")}
             </p>
             <p className="mt-4">
@@ -1140,10 +1140,10 @@ function SeoAuthoritySection() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.venomousTitle")}
             </h2>
-            <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+            <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
               <p>{t("seo.venomousP1")}</p>
               <p>{t("seo.venomousP2")}</p>
             </div>
@@ -1191,10 +1191,10 @@ function SeoAuthoritySection() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
               {t("seo.regionsTitle")}
             </h2>
-            <div className="mt-5 space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
+            <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
               <p>{t("seo.regionsP1")}</p>
               <p>{t("seo.regionsP2")}</p>
             </div>
