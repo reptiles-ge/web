@@ -732,7 +732,7 @@ export function SpeciesAtlas() {
                         </span>
                         <span
                           className={`ml-2 align-top text-[12px] tabular-nums ${
-                            active ? "text-primary" : "text-muted-foreground/70"
+                            active ? "text-primary" : "text-muted-foreground"
                           }`}
                         >
                           {count}
