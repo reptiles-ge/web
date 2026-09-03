@@ -5,6 +5,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import { speciesHref } from "@/lib/speciesRoutes";
 import {
   generateSnakeQuiz,

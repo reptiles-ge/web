@@ -5,6 +5,7 @@ import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { hasPhotoCredit, type GalleryImage } from "@/data/species";
 import { pictureSources } from "@/data/optimizedImages";
 import { trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";

@@ -7,13 +7,14 @@ import type { Species } from "@/data/species";
 import { isVenomousDanger, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import {
   getSpeciesActivityStat,
   getSpeciesHabitatStat,
   getSpeciesSizeStat,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
