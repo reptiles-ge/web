@@ -2,6 +2,7 @@
   "name": "reptiles",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
     "dev": "next dev",
