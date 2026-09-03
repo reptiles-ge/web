@@ -233,6 +233,14 @@ function groupDocuments(
       groups.push({ items: itemsForKind, kind });
   }
 
+  groups.sort((a, b) => {
+    const aScore = a.items[0]?.score ?? 0;
+    const bScore = b.items[0]?.score ?? 0;
+    if (bScore !== aScore) return bScore - aScore;
+    const order: SearchKind[] = ["page", "species", "region"];
+    return order.indexOf(a.kind) - order.indexOf(b.kind);
+  });
+
   return groups;
 }
 
