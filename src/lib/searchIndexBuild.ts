@@ -1,4 +1,4 @@
-import type { AppLocale, AppPathnames } from "@/i18n/routing";
+import type { AppLocale } from "@/i18n/routing";
 
 import {
   getPublishedNewsArticles,
@@ -34,69 +34,16 @@ import {
 } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { newsArticleHref } from "@/lib/news";
-import { quizHref, type QuizHref } from "@/lib/quizzes";
+import { quizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
 import { transliterateKa } from "@/lib/slugify";
-import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
-
-export type ScoredDocument = SearchDocument & { score: number };
-export type SearchDocument = {
-  featured?: boolean;
-  href: SearchHref;
-  icon: SearchIcon;
-  id: string;
-  image?: string;
-  key: string;
-  kind: SearchKind;
-  rank?: number;
-  scoreTitles: string[];
-  searchText: string;
-  subtitle: string;
-  suggested?: boolean;
-  title: string;
-};
-export type SearchFilter = "all" | SearchKind;
-
-export type SearchGroup = {
-  items: ScoredDocument[];
-  kind: SearchKind;
-};
-
-export type SearchHref =
-  | QuizHref
-  | SearchPageHref
-  | SpeciesHref
-  | { params: { id: string }; pathname: "/regions/[id]" }
-  | { params: { slug: string }; pathname: "/news/[slug]" };
-
-export type SearchIcon =
-  | "atlas"
-  | "contact"
-  | "guide"
-  | "hub"
-  | "identify"
-  | "info"
-  | "map"
-  | "news"
-  | "safety"
-  | "yard";
-
-export type SearchKind = "page" | "region" | "species";
-
-export type SearchPageHref = Exclude<
-  AppPathnames,
-  | "/amphibians/[slug]"
-  | "/birds/[slug]"
-  | "/lizards/[slug]"
-  | "/mammals/[slug]"
-  | "/news/[slug]"
-  | "/quiz/[slug]"
-  | "/regions/[id]"
-  | "/snakes/[slug]"
-  | "/species/[id]"
-  | "/spiders/[slug]"
-  | "/turtles/[slug]"
->;
+import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+import {
+  type SearchDocument,
+  type SearchHref,
+  type SearchIcon,
+  type SearchPageHref,
+} from "@/lib/siteSearch";
 
 type PageCopy = {
   icon: SearchIcon;
