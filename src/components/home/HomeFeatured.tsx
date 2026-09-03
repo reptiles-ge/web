@@ -1,9 +1,14 @@
+import { ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
+import { speciesSeoAnchor } from "@/lib/seoKeywords";
 import {
   filterDisplayStats,
   getSpeciesHeroSources,
@@ -11,9 +16,6 @@ import {
   isPlaceholderMedia,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesSeoAnchor } from "@/lib/seoKeywords";
-import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 
 const SPOTLIGHT_ID = "vipera-dinniki";
 const SPOTLIGHT_IMAGE = "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg";
@@ -45,7 +47,7 @@ export async function HomeFeatured() {
     .filter((item) => !isPlaceholderMedia(item.image));
 
   return (
-    <section id="species" className="bg-surface py-20 lg:py-28">
+    <section className="bg-surface py-20 lg:py-28" id="species">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-xl">
           <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
@@ -62,18 +64,18 @@ export async function HomeFeatured() {
         <article className="mt-12 lg:mt-16">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
             <TrackedSpeciesLink
-              speciesId={spotlight.id}
-              locale={locale}
-              source="home_spotlight"
               aria-label={tDetail("imageAlt")}
               className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              locale={locale}
+              source="home_spotlight"
+              speciesId={spotlight.id}
             >
               <div className="relative aspect-4/5 sm:aspect-5/6 lg:aspect-4/5">
                 <CoverImage
-                  src={imageSrc}
                   alt={tDetail("imageAlt")}
-                  sizes="(max-width: 1023px) 100vw, 55vw"
                   className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                  sizes="(max-width: 1023px) 100vw, 55vw"
+                  src={imageSrc}
                 />
               </div>
             </TrackedSpeciesLink>
@@ -109,10 +111,10 @@ export async function HomeFeatured() {
                 </dl>
               ) : null}
               <TrackedSpeciesLink
-                speciesId={spotlight.id}
+                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 locale={locale}
                 source="home_spotlight"
-                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                speciesId={spotlight.id}
               >
                 <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
                   {speciesSeoAnchor(
@@ -120,7 +122,7 @@ export async function HomeFeatured() {
                     spotlight.scientificName,
                   )}
                 </span>
-                <ArrowUpRight className="size-4" aria-hidden="true" />
+                <ArrowUpRight aria-hidden="true" className="size-4" />
               </TrackedSpeciesLink>
             </div>
           </div>
@@ -139,22 +141,22 @@ export async function HomeFeatured() {
               return (
                 <li key={species.id}>
                   <TrackedSpeciesLink
-                    speciesId={species.id}
-                    locale={locale}
-                    source="home_featured"
-                    position={index + 1}
                     className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                    locale={locale}
+                    position={index + 1}
+                    source="home_featured"
+                    speciesId={species.id}
                   >
                     <div className="relative aspect-4/5 overflow-hidden bg-ink">
                       <CoverImage
-                        src={cover ?? species.image}
                         alt={speciesImageAlt(
                           species.commonName,
                           species.scientificName,
                           species.location,
                         )}
-                        sizes="(max-width: 639px) 100vw, 33vw"
                         className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                        sizes="(max-width: 639px) 100vw, 33vw"
+                        src={cover ?? species.image}
                       />
                     </div>
                     <p className="mt-4 text-[13px] text-muted-foreground italic">

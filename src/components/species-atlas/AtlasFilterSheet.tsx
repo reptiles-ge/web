@@ -1,20 +1,22 @@
 "use client";
 
-import {
-  defaultAtlasFilters,
-  type AnimalGroup,
-  type AtlasFilters,
-  type HabitatTag,
-} from "@/data/speciesAtlas";
-import { localizeRegionText, regions } from "@/data/regions";
-import type { AppLocale } from "@/i18n/routing";
-import { cn } from "@/lib/cn";
 import { SlidersHorizontal, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
-const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
+import type { AppLocale } from "@/i18n/routing";
+
+import { localizeRegionText, regions } from "@/data/regions";
+import {
+  type AnimalGroup,
+  type AtlasFilters,
+  defaultAtlasFilters,
+  type HabitatTag,
+} from "@/data/speciesAtlas";
+import { cn } from "@/lib/cn";
+
+const GROUP_OPTIONS: Array<"all" | AnimalGroup> = [
   "all",
   "snake",
   "lizard",
@@ -27,7 +29,7 @@ const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
 
-const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
+const HABITAT_OPTIONS: Array<"all" | HabitatTag> = [
   "all",
   "forest",
   "mountain",
@@ -38,19 +40,46 @@ const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
 const emptySubscribe = () => () => {};
 
 type AtlasFilterSheetProps = {
-  open: boolean;
   filters: AtlasFilters;
   locale: AppLocale;
-  onClose: () => void;
   onApply: (next: AtlasFilters) => void;
+  onClose: () => void;
+  open: boolean;
 };
 
+export function AtlasFilterButton({
+  count,
+  onClick,
+}: {
+  count: number;
+  onClick: () => void;
+}) {
+  const t = useTranslations("speciesAtlas");
+
+  return (
+    <button
+      aria-haspopup="dialog"
+      className="relative inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-card px-4 py-3 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 md:hidden"
+      onClick={onClick}
+      type="button"
+    >
+      <SlidersHorizontal aria-hidden="true" className="size-3.5" />
+      {t("filterButton")}
+      {count > 0 ? (
+        <span className="flex size-5 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-white dark:text-ink">
+          {count}
+        </span>
+      ) : null}
+    </button>
+  );
+}
+
 export function AtlasFilterSheet({
-  open,
   filters,
   locale,
-  onClose,
   onApply,
+  onClose,
+  open,
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
   const titleId = useId();
@@ -109,40 +138,40 @@ export function AtlasFilterSheet({
 
   return createPortal(
     <dialog
-      open
-      className="fixed inset-0 z-80 m-0 size-full max-h-none max-w-none border-0 bg-transparent p-0 md:hidden"
       aria-labelledby={titleId}
+      className="fixed inset-0 z-80 m-0 size-full max-h-none max-w-none border-0 bg-transparent p-0 md:hidden"
       onCancel={(event) => {
         event.preventDefault();
         onClose();
       }}
+      open
     >
       <button
-        type="button"
         aria-label={t("filterClose")}
         className="absolute inset-0 animate-[search-sheet-backdrop-in_220ms_ease-out] bg-ink/55 backdrop-blur-[2px]"
         onClick={onClose}
+        type="button"
       />
       <div className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] animate-[search-sheet-in_320ms_cubic-bezier(0.22,1,0.36,1)] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)]">
         <div className="flex shrink-0 flex-col items-center px-5 pt-3">
           <span
-            className="mb-3 h-1 w-10 rounded-full bg-border"
             aria-hidden="true"
+            className="mb-3 h-1 w-10 rounded-full bg-border"
           />
           <div className="flex w-full items-center justify-between gap-3 pb-4">
             <h2
-              id={titleId}
               className="font-display text-[18px] font-semibold text-foreground"
+              id={titleId}
             >
               {t("filterTitle")}
             </h2>
             <button
-              type="button"
               aria-label={t("filterClose")}
-              onClick={onClose}
               className="flex size-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground"
+              onClick={onClose}
+              type="button"
             >
-              <X className="size-4" aria-hidden="true" />
+              <X aria-hidden="true" className="size-4" />
             </button>
           </div>
         </div>
@@ -151,8 +180,8 @@ export function AtlasFilterSheet({
           <SheetSection label={t("filters.type")}>
             {GROUP_OPTIONS.map((group) => (
               <SheetChip
-                key={group}
                 active={draft.group === group}
+                key={group}
                 onClick={() => updateDraft("group", group)}
               >
                 {group === "all"
@@ -165,8 +194,8 @@ export function AtlasFilterSheet({
           <SheetSection label={t("filters.danger")}>
             {DANGER_OPTIONS.map((danger) => (
               <SheetChip
-                key={danger}
                 active={draft.danger === danger}
+                key={danger}
                 onClick={() => updateDraft("danger", danger)}
               >
                 {t(`danger.${danger}`)}
@@ -177,8 +206,8 @@ export function AtlasFilterSheet({
           <SheetSection label={t("filters.habitat")}>
             {HABITAT_OPTIONS.map((habitat) => (
               <SheetChip
-                key={habitat}
                 active={draft.habitat === habitat}
+                key={habitat}
                 onClick={() => updateDraft("habitat", habitat)}
               >
                 {habitat === "all"
@@ -197,8 +226,8 @@ export function AtlasFilterSheet({
             </SheetChip>
             {regions.map((region) => (
               <SheetChip
-                key={region.id}
                 active={draft.region === region.id}
+                key={region.id}
                 onClick={() => updateDraft("region", region.id)}
               >
                 {localizeRegionText(region.name, locale)}
@@ -210,16 +239,16 @@ export function AtlasFilterSheet({
         <div className="shrink-0 border-t border-border bg-card px-5 pt-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
           <div className="grid grid-cols-2 gap-3">
             <button
-              type="button"
-              onClick={clearDraft}
               className="rounded-full border border-border bg-background px-4 py-3.5 text-[14px] font-medium text-foreground transition-colors hover:border-primary/25"
+              onClick={clearDraft}
+              type="button"
             >
               {t("filterClear")}
             </button>
             <button
-              type="button"
-              onClick={save}
               className="rounded-full bg-primary px-4 py-3.5 text-[14px] font-medium text-white transition-colors hover:bg-primary/90 dark:text-ink"
+              onClick={save}
+              type="button"
             >
               {t("filterApply")}
             </button>
@@ -231,39 +260,38 @@ export function AtlasFilterSheet({
   );
 }
 
-export function AtlasFilterButton({
-  count,
+function SheetChip({
+  active,
+  children,
   onClick,
 }: {
-  count: number;
+  active: boolean;
+  children: React.ReactNode;
   onClick: () => void;
 }) {
-  const t = useTranslations("speciesAtlas");
-
   return (
     <button
-      type="button"
+      aria-pressed={active}
+      className={cn(
+        "rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition-colors",
+        active
+          ? "bg-primary text-white dark:text-ink"
+          : "bg-secondary text-foreground/75",
+      )}
       onClick={onClick}
-      className="relative inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-card px-4 py-3 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 md:hidden"
-      aria-haspopup="dialog"
+      type="button"
     >
-      <SlidersHorizontal className="size-3.5" aria-hidden="true" />
-      {t("filterButton")}
-      {count > 0 ? (
-        <span className="flex size-5 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-white dark:text-ink">
-          {count}
-        </span>
-      ) : null}
+      {children}
     </button>
   );
 }
 
 function SheetSection({
-  label,
   children,
+  label,
 }: {
-  label: string;
   children: React.ReactNode;
+  label: string;
 }) {
   return (
     <div className="border-b border-border/70 py-5 last:border-b-0">
@@ -272,31 +300,5 @@ function SheetSection({
       </p>
       <div className="flex flex-wrap gap-2">{children}</div>
     </div>
-  );
-}
-
-function SheetChip({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={cn(
-        "rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide transition-colors",
-        active
-          ? "bg-primary text-white dark:text-ink"
-          : "bg-secondary text-foreground/75",
-      )}
-    >
-      {children}
-    </button>
   );
 }

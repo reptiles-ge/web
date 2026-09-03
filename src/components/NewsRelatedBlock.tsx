@@ -1,9 +1,11 @@
+import { getTranslations } from "next-intl/server";
+
+import type { NewsArticle } from "@/data/news";
+import type { AppLocale } from "@/i18n/routing";
+
 import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import type { NewsArticle } from "@/data/news";
 import { newsIndexHref } from "@/lib/news";
-import { getTranslations } from "next-intl/server";
 
 type NewsRelatedBlockProps = {
   articles: NewsArticle[];
@@ -31,15 +33,15 @@ export async function NewsRelatedBlock({
             </h2>
           </div>
           <Link
-            href={newsIndexHref()}
             className="text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+            href={newsIndexHref()}
           >
             {t("allNews")}
           </Link>
         </div>
         <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
           {articles.map((article) => (
-            <li key={article.id} className="h-full">
+            <li className="h-full" key={article.id}>
               <NewsArticleCard
                 article={article}
                 locale={locale}

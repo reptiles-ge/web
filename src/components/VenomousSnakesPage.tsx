@@ -1,10 +1,18 @@
 "use client";
 
-import { ContentAttribution } from "@/components/ContentAttribution";
-import { CoverImage } from "@/components/CoverImage";
-import { QuizPracticeCta } from "@/components/QuizPracticeCta";
-import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Plus,
+  Shield,
+} from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useState } from "react";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
@@ -18,11 +26,14 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
+import { QuizPracticeCta } from "@/components/QuizPracticeCta";
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
+import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
-import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import {
   getHubPageRelatedGuides,
   getRearFangedSpecies,
@@ -30,24 +41,15 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { speciesHref } from "@/lib/speciesRoutes";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Plus,
-  Shield,
-} from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
 
 type VenomousSnakesPageProps = {
-  species: Species[];
   heroSrc: string;
+  species: Species[];
 };
 
 export function VenomousSnakesPage({
-  species,
   heroSrc,
+  species,
 }: VenomousSnakesPageProps) {
   const t = useTranslations("venomousSnakes");
   const tSnakes = useTranslations("snakes");
@@ -82,11 +84,11 @@ export function VenomousSnakesPage({
           }}
         >
           <CoverImage
-            src={heroSrc}
             alt={t("heroImageAlt")}
+            className="object-cover object-[50%_35%]"
             priority
             sizes="100vw"
-            className="object-cover object-[50%_35%]"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
@@ -97,8 +99,8 @@ export function VenomousSnakesPage({
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
                     <Link
-                      href="/"
                       className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                      href="/"
                     >
                       <ArrowLeft className="size-3.5" />
                       {t("breadcrumbHome")}
@@ -109,8 +111,8 @@ export function VenomousSnakesPage({
                   </li>
                   <li>
                     <Link
-                      href="/snakes"
                       className="transition-colors hover:text-white"
+                      href="/snakes"
                     >
                       {tSnakes("breadcrumbCurrent")}
                     </Link>
@@ -133,15 +135,15 @@ export function VenomousSnakesPage({
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
                 <a
-                  href="#species"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="#species"
                 >
                   {t("ctaSpecies")}
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
-                  href={{ pathname: "/species", query: { danger: "venomous" } }}
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  href={{ pathname: "/species", query: { danger: "venomous" } }}
                 >
                   {t("ctaAtlas")}
                 </Link>
@@ -180,27 +182,27 @@ export function VenomousSnakesPage({
         </section>
 
         <QuizPracticeCta
-          locale={locale}
-          eyebrow={t("quizCtaEyebrow")}
-          title={t("quizCtaTitle")}
           body={t("quizCtaBody")}
           cta={t("quizCta")}
+          eyebrow={t("quizCtaEyebrow")}
+          locale={locale}
           source="other"
+          title={t("quizCtaTitle")}
         />
 
         <section
-          id="species"
           className="scroll-mt-28 bg-background py-20 lg:py-28"
+          id="species"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("speciesEyebrow")}
-                title={t("speciesTitle", { count: species.length })}
                 body={t("speciesBody")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_SECTION}
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={t("speciesEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("speciesTitle", { count: species.length })}
+                titleClassName={CLUSTER_TITLE_SECTION}
               />
             </Reveal>
 
@@ -209,8 +211,8 @@ export function VenomousSnakesPage({
                 {giurza ? (
                   <Reveal delay={40}>
                     <Link
-                      href={speciesHref(giurza.id, locale)}
                       className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
+                      href={speciesHref(giurza.id, locale)}
                     >
                       <div>
                         <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
@@ -233,8 +235,8 @@ export function VenomousSnakesPage({
                 {kaznakovi ? (
                   <Reveal delay={60}>
                     <Link
-                      href={speciesHref(kaznakovi.id, locale)}
                       className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
+                      href={speciesHref(kaznakovi.id, locale)}
                     >
                       <div>
                         <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
@@ -272,9 +274,9 @@ export function VenomousSnakesPage({
                   })}
                 </p>
                 <SpeciesGuideList
-                  species={vipers}
                   locale={locale}
                   source="guide"
+                  species={vipers}
                 />
               </div>
               {rearFanged.length > 0 ? (
@@ -286,9 +288,9 @@ export function VenomousSnakesPage({
                     {t("rearFangedBody")}
                   </p>
                   <SpeciesGuideList
-                    species={rearFanged}
                     locale={locale}
                     source="guide"
+                    species={rearFanged}
                   />
                 </div>
               ) : null}
@@ -301,15 +303,15 @@ export function VenomousSnakesPage({
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
                 <ClusterSectionIntro
-                  eyebrow={t("safetyEyebrow")}
-                  title={t("safetyTitle")}
                   body={t("safetyLead")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  titleClassName={CLUSTER_TITLE_GUIDE}
                   bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+                  eyebrow={t("safetyEyebrow")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  title={t("safetyTitle")}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
                 >
                   <p className="mt-4 inline-flex items-center gap-2 text-[13px] text-muted-foreground">
-                    <Shield className="size-3.5 shrink-0" aria-hidden="true" />
+                    <Shield aria-hidden="true" className="size-3.5 shrink-0" />
                     {t("safetyDisclaimer")}
                   </p>
                 </ClusterSectionIntro>
@@ -317,10 +319,10 @@ export function VenomousSnakesPage({
               <ol className="space-y-0 divide-y divide-border border-y border-border">
                 {([1, 2, 3, 4] as const).map((n, index) => (
                   <Reveal
-                    key={n}
                     as="li"
-                    delay={index * 50}
                     className="flex items-start gap-5 py-6"
+                    delay={index * 50}
+                    key={n}
                   >
                     <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
                       {String(n).padStart(2, "0")}
@@ -345,18 +347,18 @@ export function VenomousSnakesPage({
             <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
               <Reveal>
                 <ClusterSectionIntro
-                  eyebrow={t("yardEyebrow")}
-                  title={t("yardTitle")}
                   body={t("yardBody")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  titleClassName={CLUSTER_TITLE_RELATED}
                   bodyClassName={CLUSTER_BODY}
+                  eyebrow={t("yardEyebrow")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  title={t("yardTitle")}
+                  titleClassName={CLUSTER_TITLE_RELATED}
                 />
               </Reveal>
               <Reveal delay={80}>
                 <Link
-                  href="/snakes-in-the-yard"
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+                  href="/snakes-in-the-yard"
                 >
                   {t("yardCta")}
                   <ArrowUpRight className="size-4" />
@@ -371,8 +373,8 @@ export function VenomousSnakesPage({
             <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
               <Reveal>
                 <Link
-                  href="/snakes/shxamiani-gvelis-amocnoba"
                   className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
+                  href="/snakes/shxamiani-gvelis-amocnoba"
                 >
                   <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                     {t("idEyebrow")}
@@ -393,8 +395,8 @@ export function VenomousSnakesPage({
               </Reveal>
               <Reveal delay={60}>
                 <Link
-                  href="/snakes/gvelis-nakbeni"
                   className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
+                  href="/snakes/gvelis-nakbeni"
                 >
                   <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                     {t("biteEyebrow")}
@@ -422,18 +424,18 @@ export function VenomousSnakesPage({
             <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
               <Reveal>
                 <ClusterSectionIntro
-                  eyebrow={t("lookalikesEyebrow")}
-                  title={t("lookalikesTitle")}
                   body={t("lookalikesBody")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  titleClassName={CLUSTER_TITLE_RELATED}
                   bodyClassName={CLUSTER_BODY}
+                  eyebrow={t("lookalikesEyebrow")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  title={t("lookalikesTitle")}
+                  titleClassName={CLUSTER_TITLE_RELATED}
                 />
               </Reveal>
               <Reveal delay={80}>
                 <Link
-                  href={{ pathname: "/species", query: { danger: "harmless" } }}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+                  href={{ pathname: "/species", query: { danger: "harmless" } }}
                 >
                   {t("lookalikesCta")}
                   <ArrowUpRight className="size-4" />
@@ -447,12 +449,12 @@ export function VenomousSnakesPage({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("relatedGuidesEyebrow")}
-                title={t("relatedGuidesTitle")}
                 body={t("relatedGuidesBody")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_RELATED}
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={t("relatedGuidesEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("relatedGuidesTitle")}
+                titleClassName={CLUSTER_TITLE_RELATED}
               />
             </Reveal>
             <RelatedGuideGrid cards={relatedGuides} locale={locale} />
@@ -465,34 +467,34 @@ export function VenomousSnakesPage({
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage
-            src={heroSrc}
             alt=""
-            sizes="100vw"
-            className="object-cover opacity-50"
             aria-hidden
+            className="object-cover opacity-50"
+            sizes="100vw"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("ctaEyebrow")}
-                title={t("ctaTitle")}
                 body={t("ctaBody")}
-                eyebrowClassName={CLUSTER_HERO_EYEBROW}
-                titleClassName={CLUSTER_HERO_TITLE}
                 bodyClassName={CLUSTER_HERO_BODY}
+                eyebrow={t("ctaEyebrow")}
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                title={t("ctaTitle")}
+                titleClassName={CLUSTER_HERO_TITLE}
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href="/species"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="/species"
                 >
                   {t("ctaAllSpecies")}
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
-                  href="/regions"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  href="/regions"
                 >
                   {t("ctaRegions")}
                 </Link>
@@ -509,7 +511,7 @@ const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
 
 function FaqSection() {
   const t = useTranslations("venomousSnakes");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
   const items = FAQ_ITEMS;
 
   return (
@@ -518,25 +520,25 @@ function FaqSection() {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("faqEyebrow")}
-              title={t("faqTitle")}
               body={t("faqIntro")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_FAQ_TITLE}
               bodyClassName={CLUSTER_FAQ_BODY}
+              eyebrow={t("faqEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("faqTitle")}
+              titleClassName={CLUSTER_FAQ_TITLE}
             />
           </Reveal>
           <div>
             {items.map((n, index) => {
               const isOpen = open === index;
               return (
-                <Reveal key={n} delay={index * 50}>
+                <Reveal delay={index * 50} key={n}>
                   <div className="border-t border-border last:border-b">
                     <button
-                      type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                      onClick={() => setOpen(isOpen ? null : index)}
+                      type="button"
                     >
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}

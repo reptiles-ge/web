@@ -1,20 +1,21 @@
 "use client";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { cn } from "@/lib/cn";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { cn } from "@/lib/cn";
+
 type BiologyBlockProps = {
-  title: string;
   body: string;
-  headingId?: string;
   delay?: number;
+  headingId?: string;
+  title: string;
 };
 
 const PREVIEW_LENGTH = 140;
 
-export function BiologyBlock({ title, body, headingId }: BiologyBlockProps) {
+export function BiologyBlock({ body, headingId, title }: BiologyBlockProps) {
   const t = useTranslations("profile");
   const needsExpand = body.length > PREVIEW_LENGTH;
   const [open, setOpen] = useState(false);
@@ -23,11 +24,11 @@ export function BiologyBlock({ title, body, headingId }: BiologyBlockProps) {
     <div>
       <div className="h-px w-12 bg-gold" />
       <AnchoredHeading
+        anchorLabel={t("anchorLink")}
         as="h3"
+        className="mt-6 font-display text-[22px] font-medium"
         id={headingId}
         slugSource={title}
-        className="mt-6 font-display text-[22px] font-medium"
-        anchorLabel={t("anchorLink")}
       >
         {title}
       </AnchoredHeading>
@@ -41,9 +42,9 @@ export function BiologyBlock({ title, body, headingId }: BiologyBlockProps) {
       </p>
       {needsExpand ? (
         <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
           className="mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80"
+          onClick={() => setOpen((value) => !value)}
+          type="button"
         >
           {open ? t("readLess") : t("readMore")}
         </button>

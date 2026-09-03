@@ -1,126 +1,30 @@
+import { ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { getSpeciesById } from "@/data/species";
-import { getAtlasStats, type AnimalGroup } from "@/data/speciesAtlas";
+import { type AnimalGroup, getAtlasStats } from "@/data/speciesAtlas";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
-import { ArrowUpRight } from "lucide-react";
 
 const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
 const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
 const USE_GROUP_ILLUSTRATIONS = true;
 
 const GROUP_ILLUSTRATIONS: Record<GroupHubId, string> = {
-  snakes: "/images/home/groups/snakes.jpg",
-  lizards: "/images/home/groups/lizards.jpg",
-  turtles: "/images/home/groups/turtles.jpg",
   amphibians: "/images/home/groups/amphibians.jpg",
   birds: "/images/home/groups/birds.jpg",
+  lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
+  snakes: "/images/home/groups/snakes.jpg",
   spiders: "/images/home/groups/spiders.jpg",
+  turtles: "/images/home/groups/turtles.jpg",
 };
-
-function groupCount(
-  group: AnimalGroup,
-  stats: ReturnType<typeof getAtlasStats>,
-) {
-  switch (group) {
-    case "snake":
-      return stats.snakes;
-    case "lizard":
-      return stats.lizards;
-    case "turtle":
-      return stats.turtles;
-    case "amphibian":
-      return stats.amphibians;
-    case "bird":
-      return stats.birds;
-    case "mammal":
-      return stats.mammals;
-    case "spider":
-      return stats.spiders;
-  }
-}
-
-function hubPhoto(hubId: GroupHubId, locale: AppLocale) {
-  const hub = GROUP_HUBS[hubId];
-  const species = getSpeciesById(hub.heroSpeciesId);
-  if (!species) return null;
-  const localized = localizeSpecies(species, locale);
-  const src =
-    localized.mobileImage && !isPlaceholderMedia(localized.mobileImage)
-      ? localized.mobileImage
-      : localized.image;
-  if (isPlaceholderMedia(src)) return null;
-  return {
-    src,
-    alt: speciesImageAlt(
-      localized.commonName,
-      localized.scientificName,
-      localized.location,
-    ),
-  };
-}
-
-function hubVisual(
-  hubId: GroupHubId,
-  locale: AppLocale,
-  illustrationAlt: string,
-) {
-  if (USE_GROUP_ILLUSTRATIONS) {
-    return {
-      src: GROUP_ILLUSTRATIONS[hubId],
-      alt: illustrationAlt,
-    };
-  }
-  return hubPhoto(hubId, locale);
-}
-
-function HubListRow({
-  href,
-  name,
-  countLabel,
-  src,
-  className,
-}: {
-  href: `/${GroupHubId}`;
-  name: string;
-  countLabel: string;
-  src: string | null;
-  className?: string;
-}) {
-  return (
-    <li className={className}>
-      <Link
-        href={href}
-        className="group flex min-h-20 items-center gap-4 p-4 transition-colors hover:bg-surface focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset sm:px-5"
-      >
-        {src ? (
-          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
-            <CoverImage
-              src={src}
-              alt=""
-              sizes="56px"
-              className="object-cover"
-            />
-          </span>
-        ) : null}
-        <div className="min-w-0">
-          <h3 className="font-display text-[16px] font-semibold text-foreground">
-            {name}
-          </h3>
-          <p className="mt-0.5 text-[12px] text-muted-foreground tabular-nums">
-            {countLabel}
-          </p>
-        </div>
-      </Link>
-    </li>
-  );
-}
 
 export async function HomeGroups() {
   const locale = (await getLocale()) as AppLocale;
@@ -144,11 +48,11 @@ export async function HomeGroups() {
             </p>
           </div>
           <Link
-            href="/species"
             className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+            href="/species"
           >
             {t("catalog")}
-            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            <ArrowUpRight aria-hidden="true" className="size-3.5" />
           </Link>
         </div>
 
@@ -163,17 +67,17 @@ export async function HomeGroups() {
             const count = groupCount(hub.group, stats);
             return (
               <Link
-                key={hubId}
-                href={hub.path}
                 className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href={hub.path}
+                key={hubId}
               >
                 <div className="relative aspect-21/9">
                   {visual ? (
                     <CoverImage
-                      src={visual.src}
                       alt={visual.alt}
-                      sizes="100vw"
                       className="object-cover object-[center_42%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                      sizes="100vw"
+                      src={visual.src}
                     />
                   ) : null}
                   <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/18 to-black/5" />
@@ -201,17 +105,17 @@ export async function HomeGroups() {
                 const count = groupCount(hub.group, stats);
                 return (
                   <Link
-                    key={hubId}
-                    href={hub.path}
                     className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                    href={hub.path}
+                    key={hubId}
                   >
                     <div className="relative aspect-16/11">
                       {visual ? (
                         <CoverImage
-                          src={visual.src}
                           alt={visual.alt}
-                          sizes="33vw"
                           className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                          sizes="33vw"
+                          src={visual.src}
                         />
                       ) : null}
                       <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/16 to-transparent" />
@@ -246,14 +150,14 @@ export async function HomeGroups() {
 
             return (
               <HubListRow
-                key={hubId}
-                href={hub.path}
-                name={tNav(hubId)}
-                countLabel={t("count", { count })}
-                src={visual?.src ?? null}
                 className={
                   mobileOnly ? "bg-background sm:hidden" : "bg-background"
                 }
+                countLabel={t("count", { count })}
+                href={hub.path}
+                key={hubId}
+                name={tNav(hubId)}
+                src={visual?.src ?? null}
               />
             );
           })}
@@ -261,4 +165,102 @@ export async function HomeGroups() {
       </div>
     </section>
   );
+}
+
+function groupCount(
+  group: AnimalGroup,
+  stats: ReturnType<typeof getAtlasStats>,
+) {
+  switch (group) {
+    case "amphibian":
+      return stats.amphibians;
+    case "bird":
+      return stats.birds;
+    case "lizard":
+      return stats.lizards;
+    case "mammal":
+      return stats.mammals;
+    case "snake":
+      return stats.snakes;
+    case "spider":
+      return stats.spiders;
+    case "turtle":
+      return stats.turtles;
+  }
+}
+
+function HubListRow({
+  className,
+  countLabel,
+  href,
+  name,
+  src,
+}: {
+  className?: string;
+  countLabel: string;
+  href: `/${GroupHubId}`;
+  name: string;
+  src: null | string;
+}) {
+  return (
+    <li className={className}>
+      <Link
+        className="group flex min-h-20 items-center gap-4 p-4 transition-colors hover:bg-surface focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset sm:px-5"
+        href={href}
+      >
+        {src ? (
+          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
+            <CoverImage
+              alt=""
+              className="object-cover"
+              sizes="56px"
+              src={src}
+            />
+          </span>
+        ) : null}
+        <div className="min-w-0">
+          <h3 className="font-display text-[16px] font-semibold text-foreground">
+            {name}
+          </h3>
+          <p className="mt-0.5 text-[12px] text-muted-foreground tabular-nums">
+            {countLabel}
+          </p>
+        </div>
+      </Link>
+    </li>
+  );
+}
+
+function hubPhoto(hubId: GroupHubId, locale: AppLocale) {
+  const hub = GROUP_HUBS[hubId];
+  const species = getSpeciesById(hub.heroSpeciesId);
+  if (!species) return null;
+  const localized = localizeSpecies(species, locale);
+  const src =
+    localized.mobileImage && !isPlaceholderMedia(localized.mobileImage)
+      ? localized.mobileImage
+      : localized.image;
+  if (isPlaceholderMedia(src)) return null;
+  return {
+    alt: speciesImageAlt(
+      localized.commonName,
+      localized.scientificName,
+      localized.location,
+    ),
+    src,
+  };
+}
+
+function hubVisual(
+  hubId: GroupHubId,
+  locale: AppLocale,
+  illustrationAlt: string,
+) {
+  if (USE_GROUP_ILLUSTRATIONS) {
+    return {
+      alt: illustrationAlt,
+      src: GROUP_ILLUSTRATIONS[hubId],
+    };
+  }
+  return hubPhoto(hubId, locale);
 }

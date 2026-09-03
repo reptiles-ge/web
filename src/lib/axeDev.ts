@@ -4,8 +4,8 @@ type AxeInstance = typeof import("axe-core");
 
 let axe: AxeInstance | null = null;
 let observer: MutationObserver | null = null;
-let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-let idleHandle: number | null = null;
+let debounceTimer: null | ReturnType<typeof setTimeout> = null;
+let idleHandle: null | number = null;
 let running = false;
 let started = false;
 let configured = false;
@@ -16,9 +16,9 @@ const IDLE_TIMEOUT_MS = 3000;
 
 const IMPACT_ORDER: Readonly<Record<string, number>> = {
   critical: 0,
-  serious: 1,
-  moderate: 2,
   minor: 3,
+  moderate: 2,
+  serious: 1,
 };
 
 const RUN_OPTIONS: RunOptions = {
@@ -32,8 +32,81 @@ const AXE_CONTEXT = {
   exclude: ["#react-scan-root", "nextjs-portal", "[data-next-badge-root]"],
 };
 
-function makeNodeKey(violationId: string, target: string[]): string {
-  return `${violationId}::${target.join(",")}`;
+export function resetReportedKeys(): void {
+  reportedKeys = new Set();
+  scheduleScan();
+}
+
+export async function startAxeScanner(): Promise<void> {
+  if (typeof window === "undefined") return;
+  if (process.env.NODE_ENV === "production") return;
+  if (started) return;
+
+  const axeModule = await import("axe-core");
+  axe = axeModule;
+  configureAxe(axe);
+
+  observer = new MutationObserver(scheduleScan);
+  observer.observe(document.documentElement, {
+    attributeFilter: [
+      "open",
+      "hidden",
+      "aria-expanded",
+      "aria-hidden",
+      "aria-disabled",
+      "disabled",
+      "lang",
+      "dir",
+      "role",
+      "tabindex",
+      "aria-label",
+      "aria-labelledby",
+      "aria-describedby",
+      "class",
+      "style",
+      "aria-checked",
+      "aria-selected",
+      "aria-current",
+      "aria-pressed",
+      "title",
+      "placeholder",
+      "aria-live",
+      "aria-atomic",
+      "aria-relevant",
+      "aria-invalid",
+      "aria-errormessage",
+    ],
+    attributes: true,
+    characterData: false,
+    childList: true,
+    subtree: true,
+  });
+
+  started = true;
+  console.info(
+    "%caxe-core active — WCAG 2.2 AA",
+    "background:#14532d;color:#fff;padding:4px 10px;border-radius:4px;font-weight:bold",
+  );
+  reportToTerminal({
+    event: "active",
+    path: `${window.location.pathname}${window.location.search}`,
+  });
+  scheduleScan();
+}
+
+export function stopAxeScanner(): void {
+  if (debounceTimer) {
+    clearTimeout(debounceTimer);
+    debounceTimer = null;
+  }
+  if (idleHandle !== null && typeof cancelIdleCallback === "function") {
+    cancelIdleCallback(idleHandle);
+    idleHandle = null;
+  }
+  observer?.disconnect();
+  observer = null;
+  running = false;
+  started = false;
 }
 
 function configureAxe(instance: AxeInstance): void {
@@ -41,34 +114,11 @@ function configureAxe(instance: AxeInstance): void {
   instance.configure({
     branding: "reptiles.ge",
     rules: [
-      { id: "target-size", enabled: true },
-      { id: "color-contrast-enhanced", enabled: false },
+      { enabled: true, id: "target-size" },
+      { enabled: false, id: "color-contrast-enhanced" },
     ],
   });
   configured = true;
-}
-
-function reportToTerminal(
-  payload:
-    | { event: "active"; path: string }
-    | {
-        path: string;
-        violations: Array<{
-          id: string;
-          impact: string | null;
-          help: string;
-          helpUrl: string;
-          nodes: Array<{ target: string; html: string; summary: string }>;
-        }>;
-      },
-) {
-  if (process.env.NODE_ENV === "production") return;
-  void fetch("/api/dev/axe", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    keepalive: true,
-  }).catch(() => {});
 }
 
 function logViolations(results: AxeResults): void {
@@ -95,14 +145,14 @@ function logViolations(results: AxeResults): void {
   reportToTerminal({
     path: `${window.location.pathname}${window.location.search}`,
     violations: sorted.map((violation) => ({
-      id: violation.id,
-      impact: violation.impact ?? null,
       help: violation.help,
       helpUrl: violation.helpUrl,
+      id: violation.id,
+      impact: violation.impact ?? null,
       nodes: violation.nodes.map((node) => ({
-        target: (node.target as string[]).join(", "),
         html: node.html,
         summary: node.failureSummary ?? "",
+        target: (node.target as string[]).join(", "),
       })),
     })),
   });
@@ -141,17 +191,8 @@ function logViolations(results: AxeResults): void {
   console.groupEnd();
 }
 
-async function runAxe(): Promise<void> {
-  if (!axe || running) return;
-  running = true;
-  try {
-    const results = await axe.run(AXE_CONTEXT, RUN_OPTIONS);
-    logViolations(results);
-  } catch (error) {
-    console.error("[axe-core] Scan error:", error);
-  } finally {
-    running = false;
-  }
+function makeNodeKey(violationId: string, target: string[]): string {
+  return `${violationId}::${target.join(",")}`;
 }
 
 function performScan(): void {
@@ -169,84 +210,43 @@ function performScan(): void {
   void runAxe();
 }
 
+function reportToTerminal(
+  payload:
+    | { event: "active"; path: string }
+    | {
+        path: string;
+        violations: Array<{
+          help: string;
+          helpUrl: string;
+          id: string;
+          impact: null | string;
+          nodes: Array<{ html: string; summary: string; target: string; }>;
+        }>;
+      },
+) {
+  if (process.env.NODE_ENV === "production") return;
+  void fetch("/api/dev/axe", {
+    body: JSON.stringify(payload),
+    headers: { "Content-Type": "application/json" },
+    keepalive: true,
+    method: "POST",
+  }).catch(() => {});
+}
+
+async function runAxe(): Promise<void> {
+  if (!axe || running) return;
+  running = true;
+  try {
+    const results = await axe.run(AXE_CONTEXT, RUN_OPTIONS);
+    logViolations(results);
+  } catch (error) {
+    console.error("[axe-core] Scan error:", error);
+  } finally {
+    running = false;
+  }
+}
+
 function scheduleScan(): void {
   if (debounceTimer) clearTimeout(debounceTimer);
   debounceTimer = setTimeout(performScan, DEBOUNCE_MS);
-}
-
-export async function startAxeScanner(): Promise<void> {
-  if (typeof window === "undefined") return;
-  if (process.env.NODE_ENV === "production") return;
-  if (started) return;
-
-  const axeModule = await import("axe-core");
-  axe = axeModule;
-  configureAxe(axe);
-
-  observer = new MutationObserver(scheduleScan);
-  observer.observe(document.documentElement, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: [
-      "open",
-      "hidden",
-      "aria-expanded",
-      "aria-hidden",
-      "aria-disabled",
-      "disabled",
-      "lang",
-      "dir",
-      "role",
-      "tabindex",
-      "aria-label",
-      "aria-labelledby",
-      "aria-describedby",
-      "class",
-      "style",
-      "aria-checked",
-      "aria-selected",
-      "aria-current",
-      "aria-pressed",
-      "title",
-      "placeholder",
-      "aria-live",
-      "aria-atomic",
-      "aria-relevant",
-      "aria-invalid",
-      "aria-errormessage",
-    ],
-    characterData: false,
-  });
-
-  started = true;
-  console.info(
-    "%caxe-core active — WCAG 2.2 AA",
-    "background:#14532d;color:#fff;padding:4px 10px;border-radius:4px;font-weight:bold",
-  );
-  reportToTerminal({
-    event: "active",
-    path: `${window.location.pathname}${window.location.search}`,
-  });
-  scheduleScan();
-}
-
-export function stopAxeScanner(): void {
-  if (debounceTimer) {
-    clearTimeout(debounceTimer);
-    debounceTimer = null;
-  }
-  if (idleHandle !== null && typeof cancelIdleCallback === "function") {
-    cancelIdleCallback(idleHandle);
-    idleHandle = null;
-  }
-  observer?.disconnect();
-  observer = null;
-  running = false;
-  started = false;
-}
-
-export function resetReportedKeys(): void {
-  reportedKeys = new Set();
-  scheduleScan();
 }

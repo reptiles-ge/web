@@ -1,31 +1,34 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { trackEvent, type QuizCtaSource } from "@/lib/analytics";
-import { quizHref } from "@/lib/quizzes";
-import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { ArrowUpRight } from "lucide-react";
+
+import type { AppLocale } from "@/i18n/routing";
+
+import { Link } from "@/i18n/navigation";
+import { type QuizCtaSource, trackEvent } from "@/lib/analytics";
+import { quizHref } from "@/lib/quizzes";
+
 export function QuizCtaLink({
+  children,
+  className,
   href,
   quizId,
   source,
   speciesId,
-  className,
-  children,
 }: {
+  children: ReactNode;
+  className?: string;
   href: ReturnType<typeof quizHref>;
   quizId: string;
   source: QuizCtaSource;
   speciesId?: string;
-  className?: string;
-  children: ReactNode;
 }) {
   return (
     <Link
-      href={href}
       className={className}
+      href={href}
       onClick={() =>
         trackEvent("quiz_cta_click", {
           quiz_id: quizId,
@@ -40,23 +43,23 @@ export function QuizCtaLink({
 }
 
 export function QuizPracticeCta({
-  locale,
-  eyebrow,
-  title,
   body,
-  cta,
   className = "border-t border-border bg-surface pt-8 pb-8 lg:pt-10 lg:pb-10",
+  cta,
+  eyebrow,
+  locale,
   source = "other",
   speciesId,
+  title,
 }: {
-  locale: AppLocale;
-  eyebrow: string;
-  title: string;
   body: string;
-  cta: string;
   className?: string;
+  cta: string;
+  eyebrow: string;
+  locale: AppLocale;
   source?: QuizCtaSource;
   speciesId?: string;
+  title: string;
 }) {
   return (
     <section className={className}>
@@ -74,11 +77,11 @@ export function QuizPracticeCta({
             </p>
           </div>
           <QuizCtaLink
+            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
             href={quizHref("snake", locale)}
             quizId="snake"
             source={source}
             speciesId={speciesId}
-            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
           >
             {cta}
             <ArrowUpRight className="size-3.5" />

@@ -1,17 +1,19 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useMemo, useState } from "react";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { Logo } from "@/components/Logo";
 import { TopGeCounter } from "@/components/TopGeCounter";
 import { localizeRegionText, regions } from "@/data/regions";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
-import { Link, usePathname } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/navigation";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
-import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
 
 const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
@@ -40,10 +42,6 @@ const companyLinks = [
   { href: "/news" as const, labelKey: "news" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
 ];
-
-function shouldHideFooter(pathname: string) {
-  return pathname === "/contact" || pathname.startsWith("/quiz/");
-}
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -74,17 +72,17 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.7fr] lg:gap-16">
           <div>
             <Link
-              href="/"
               className="inline-flex transition-opacity hover:opacity-90"
+              href="/"
             >
-              <Logo size={52} showWordmark wordmarkClassName="text-[19px]" />
+              <Logo showWordmark size={52} wordmarkClassName="text-[19px]" />
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("tagline")}
             </p>
             <Link
-              href="/species"
               className="group mt-7 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+              href="/species"
             >
               {t("exploreCta")}
               <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -99,8 +97,8 @@ export function Footer() {
               {exploreLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                    href={link.href}
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -117,8 +115,8 @@ export function Footer() {
               {guideLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                    href={link.href}
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -135,8 +133,8 @@ export function Footer() {
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+                    href={link.href}
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -153,18 +151,18 @@ export function Footer() {
                 {t("venomousTitle")}
               </p>
               <Link
-                href="/venomous-snakes"
                 className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href="/venomous-snakes"
               >
                 {t("venomousAll")}
               </Link>
             </div>
             <ul className="mt-5 columns-2 gap-x-8">
               {venomous.map((item) => (
-                <li key={item.id} className="mb-3 break-inside-avoid">
+                <li className="mb-3 break-inside-avoid" key={item.id}>
                   <Link
-                    href={speciesHref(item.id, locale)}
                     className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                    href={speciesHref(item.id, locale)}
                   >
                     <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
                       {item.commonName}
@@ -184,18 +182,18 @@ export function Footer() {
                 {t("regionsTitle")}
               </p>
               <Link
-                href="/regions"
                 className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href="/regions"
               >
                 {t("regionsAll")}
               </Link>
             </div>
             <ul className="mt-5 columns-2 gap-x-8 sm:columns-3">
               {regions.map((region) => (
-                <li key={region.id} className="mb-2.5 break-inside-avoid">
+                <li className="mb-2.5 break-inside-avoid" key={region.id}>
                   <Link
-                    href={regionHref(region.id)}
                     className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                    href={regionHref(region.id)}
                   >
                     {localizeRegionText(region.name, locale)}
                   </Link>
@@ -217,4 +215,8 @@ export function Footer() {
       </div>
     </footer>
   );
+}
+
+function shouldHideFooter(pathname: string) {
+  return pathname === "/contact" || pathname.startsWith("/quiz/");
 }

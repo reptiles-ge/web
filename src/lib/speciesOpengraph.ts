@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+
 import { species } from "@/data/species";
 import {
   FALLBACK_OG_IMAGE_URL,
@@ -10,40 +11,10 @@ import { resolveSpeciesId } from "@/lib/speciesRoutes";
 
 export const speciesOgAlt = "Reptiles — Georgia";
 export const speciesOgSize = {
-  width: 1200,
   height: 630,
+  width: 1200,
 };
 export const speciesOgContentType = OG_IMAGE_TYPE;
-
-async function readLocalImage(relativePath: string) {
-  try {
-    const buffer = await readFile(join(process.cwd(), "public", relativePath));
-    return buffer;
-  } catch {
-    return null;
-  }
-}
-
-async function fetchOg(url: string) {
-  const response = await fetch(url, {
-    next: { revalidate: 60 * 60 * 24 * 30 },
-  });
-
-  if (!response.ok) {
-    return null;
-  }
-
-  return Buffer.from(await response.arrayBuffer());
-}
-
-function jpegResponse(buffer: Buffer) {
-  return new Response(new Uint8Array(buffer), {
-    headers: {
-      "Content-Type": OG_IMAGE_TYPE,
-      "Cache-Control": "public, max-age=31536000, immutable",
-    },
-  });
-}
 
 export async function speciesOpengraphResponse(param: string) {
   const id = resolveSpeciesId(param) ?? param;
@@ -62,4 +33,34 @@ export async function speciesOpengraphResponse(param: string) {
   }
 
   throw new Error(`Failed to load OG image for ${id}`);
+}
+
+async function fetchOg(url: string) {
+  const response = await fetch(url, {
+    next: { revalidate: 60 * 60 * 24 * 30 },
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+
+  return Buffer.from(await response.arrayBuffer());
+}
+
+function jpegResponse(buffer: Buffer) {
+  return new Response(new Uint8Array(buffer), {
+    headers: {
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Type": OG_IMAGE_TYPE,
+    },
+  });
+}
+
+async function readLocalImage(relativePath: string) {
+  try {
+    const buffer = await readFile(join(process.cwd(), "public", relativePath));
+    return buffer;
+  } catch {
+    return null;
+  }
 }

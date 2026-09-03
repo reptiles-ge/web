@@ -87,24 +87,78 @@ const largeSnakeIdSet = new Set<string>(LARGE_SNAKE_IDS);
 const turtleLandIdSet = new Set<string>(TURTLE_LAND_IDS);
 const turtleWaterIdSet = new Set<string>(TURTLE_WATER_IDS);
 
-export function isFrogSpecies(id: string) {
-  return frogIdSet.has(id);
-}
+export type ClusterGuideConfig = {
+  faqCount: 4 | 5 | 8 | 10;
+  heroImage?: string;
+  heroSpeciesId: string;
+  id: ClusterGuideId;
+  matches: (species: Species) => boolean;
+  messageKey: ClusterMessageKey;
+  parentHub: GroupHubId;
+  pathname: ClusterGuidePath;
+  primaryCta: "hash" | "tel";
+  schema: "article" | "collection";
+};
 
-export function isNewtSpecies(id: string) {
-  return newtIdSet.has(id);
-}
+export type ClusterGuideId =
+  | "amphibian-frogs"
+  | "amphibian-frogs-index"
+  | "amphibian-index"
+  | "amphibian-newts"
+  | "lizard-glass"
+  | "lizard-identify"
+  | "lizard-index"
+  | "snake-bite"
+  | "snake-identify"
+  | "snake-index"
+  | "snake-largest"
+  | "snake-range"
+  | "turtle-identify"
+  | "turtle-index"
+  | "turtle-land"
+  | "turtle-water";
 
-export function isSnakeSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "snake";
-}
+export type ClusterGuidePath =
+  | "/amphibians/bayayi"
+  | "/amphibians/bayayi/saxeoebebi"
+  | "/amphibians/saxeoebebi"
+  | "/amphibians/tritoni-salamandra"
+  | "/birds"
+  | "/lizards/identifikacia"
+  | "/lizards/saxeoebebi"
+  | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
+  | "/mammals"
+  | "/snakes/didi-gvelebi"
+  | "/snakes/gavrtseleba"
+  | "/snakes/gvelis-nakbeni"
+  | "/snakes/saxeoebebi"
+  | "/snakes/shxamiani-gvelis-amocnoba"
+  | "/spiders"
+  | "/turtles/identifikacia"
+  | "/turtles/saxeoebebi"
+  | "/turtles/tsqlis-kuebi"
+  | "/turtles/xmelis-kuebi";
 
-export function isLizardSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "lizard";
-}
+export type ClusterMessageKey =
+  | "amphibianFrogs"
+  | "amphibianFrogsIndex"
+  | "amphibianIndex"
+  | "amphibianNewts"
+  | "lizardCompare"
+  | "lizardIdentify"
+  | "lizardIndex"
+  | "snakeBite"
+  | "snakeIdentify"
+  | "snakeIndex"
+  | "snakeLargest"
+  | "snakeRange"
+  | "turtleIdentify"
+  | "turtleIndex"
+  | "turtleLand"
+  | "turtleWater";
 
-export function isTurtleSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "turtle";
+export function getRegionSnakeSpecies(region: Region) {
+  return getRegionSpecies(region).filter(isSnakeSpecies);
 }
 
 export function isAmphibianSpecies(species: Species) {
@@ -115,8 +169,24 @@ export function isDarevskiaSpecies(species: Species) {
   return species.genus === "Darevskia";
 }
 
-export function getRegionSnakeSpecies(region: Region) {
-  return getRegionSpecies(region).filter(isSnakeSpecies);
+export function isFrogSpecies(id: string) {
+  return frogIdSet.has(id);
+}
+
+export function isLizardSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "lizard";
+}
+
+export function isNewtSpecies(id: string) {
+  return newtIdSet.has(id);
+}
+
+export function isSnakeSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "snake";
+}
+
+export function isTurtleSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "turtle";
 }
 
 export function orderSpeciesByIds(species: Species[], ids: readonly string[]) {
@@ -126,264 +196,194 @@ export function orderSpeciesByIds(species: Species[], ids: readonly string[]) {
     .filter((item): item is Species => Boolean(item));
 }
 
-export type ClusterGuideId =
-  | "amphibian-frogs"
-  | "snake-index"
-  | "snake-identify"
-  | "snake-bite"
-  | "snake-range"
-  | "snake-largest"
-  | "lizard-index"
-  | "lizard-identify"
-  | "lizard-glass"
-  | "turtle-index"
-  | "turtle-land"
-  | "turtle-water"
-  | "turtle-identify"
-  | "amphibian-index"
-  | "amphibian-frogs-index"
-  | "amphibian-newts";
-
-export type ClusterGuidePath =
-  | "/amphibians/bayayi"
-  | "/snakes/saxeoebebi"
-  | "/snakes/shxamiani-gvelis-amocnoba"
-  | "/snakes/gvelis-nakbeni"
-  | "/snakes/gavrtseleba"
-  | "/snakes/didi-gvelebi"
-  | "/lizards/saxeoebebi"
-  | "/lizards/identifikacia"
-  | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
-  | "/turtles/saxeoebebi"
-  | "/turtles/xmelis-kuebi"
-  | "/turtles/tsqlis-kuebi"
-  | "/turtles/identifikacia"
-  | "/amphibians/saxeoebebi"
-  | "/amphibians/bayayi/saxeoebebi"
-  | "/amphibians/tritoni-salamandra"
-  | "/birds"
-  | "/mammals"
-  | "/spiders";
-
-export type ClusterMessageKey =
-  | "amphibianFrogs"
-  | "snakeIndex"
-  | "snakeIdentify"
-  | "snakeBite"
-  | "snakeRange"
-  | "snakeLargest"
-  | "lizardIndex"
-  | "lizardIdentify"
-  | "lizardCompare"
-  | "turtleIndex"
-  | "turtleLand"
-  | "turtleWater"
-  | "turtleIdentify"
-  | "amphibianIndex"
-  | "amphibianFrogsIndex"
-  | "amphibianNewts";
-
-export type ClusterGuideConfig = {
-  id: ClusterGuideId;
-  pathname: ClusterGuidePath;
-  parentHub: GroupHubId;
-  messageKey: ClusterMessageKey;
-  heroSpeciesId: string;
-  heroImage?: string;
-  matches: (species: Species) => boolean;
-  faqCount: 4 | 5 | 8 | 10;
-  schema: "collection" | "article";
-  primaryCta: "hash" | "tel";
-};
-
 export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
   "amphibian-frogs": {
-    id: "amphibian-frogs",
-    pathname: "/amphibians/bayayi",
-    parentHub: "amphibians",
-    messageKey: "amphibianFrogs",
+    faqCount: 4,
     heroSpeciesId: "pelophylax-ridibundus",
+    id: "amphibian-frogs",
     matches: (species) => isFrogSpecies(species.id),
-    faqCount: 4,
+    messageKey: "amphibianFrogs",
+    parentHub: "amphibians",
+    pathname: "/amphibians/bayayi",
+    primaryCta: "hash",
     schema: "collection",
-    primaryCta: "hash",
   },
-  "snake-index": {
-    id: "snake-index",
-    pathname: "/snakes/saxeoebebi",
-    parentHub: "snakes",
-    messageKey: "snakeIndex",
-    heroSpeciesId: "macrovipera-lebetina",
-    heroImage: "/images/guides/snake-species-cover.png",
-    matches: isSnakeSpecies,
+  "amphibian-frogs-index": {
     faqCount: 4,
+    heroSpeciesId: "pelophylax-ridibundus",
+    id: "amphibian-frogs-index",
+    matches: (species) => isFrogSpecies(species.id),
+    messageKey: "amphibianFrogsIndex",
+    parentHub: "amphibians",
+    pathname: "/amphibians/bayayi/saxeoebebi",
+    primaryCta: "hash",
     schema: "collection",
-    primaryCta: "hash",
   },
-  "snake-identify": {
-    id: "snake-identify",
-    pathname: "/snakes/shxamiani-gvelis-amocnoba",
-    parentHub: "snakes",
-    messageKey: "snakeIdentify",
-    heroSpeciesId: "vipera-kaznakovi",
-    heroImage: "/images/guides/identify-venomous-cover.png",
-    matches: (species) =>
-      isSnakeSpecies(species) || species.id === LARGE_SNAKE_LIZARD_ID,
+  "amphibian-index": {
     faqCount: 4,
-    schema: "article",
+    heroSpeciesId: "mertensiella-caucasica",
+    id: "amphibian-index",
+    matches: isAmphibianSpecies,
+    messageKey: "amphibianIndex",
+    parentHub: "amphibians",
+    pathname: "/amphibians/saxeoebebi",
     primaryCta: "hash",
+    schema: "collection",
   },
-  "snake-bite": {
-    id: "snake-bite",
-    pathname: "/snakes/gvelis-nakbeni",
-    parentHub: "snakes",
-    messageKey: "snakeBite",
-    heroSpeciesId: "macrovipera-lebetina",
-    heroImage: "/images/guides/snake-bite-cover.png",
-    matches: (species) =>
-      isSnakeSpecies(species) && isVenomousDanger(species.danger),
-    faqCount: 8,
-    schema: "article",
-    primaryCta: "tel",
-  },
-  "snake-range": {
-    id: "snake-range",
-    pathname: "/snakes/gavrtseleba",
-    parentHub: "snakes",
-    messageKey: "snakeRange",
-    heroSpeciesId: "coronella-austriaca",
-    heroImage: "/images/guides/snake-range-cover.png",
-    matches: isSnakeSpecies,
+  "amphibian-newts": {
     faqCount: 4,
-    schema: "article",
+    heroSpeciesId: "mertensiella-caucasica",
+    id: "amphibian-newts",
+    matches: (species) => isNewtSpecies(species.id),
+    messageKey: "amphibianNewts",
+    parentHub: "amphibians",
+    pathname: "/amphibians/tritoni-salamandra",
     primaryCta: "hash",
+    schema: "collection",
   },
-  "snake-largest": {
-    id: "snake-largest",
-    pathname: "/snakes/didi-gvelebi",
-    parentHub: "snakes",
-    messageKey: "snakeLargest",
-    heroSpeciesId: "dolichophis-schmidti",
-    heroImage: "/images/guides/largest-snakes-cover.png",
-    matches: (species) =>
-      largeSnakeIdSet.has(species.id) || species.id === LARGE_SNAKE_LIZARD_ID,
+  "lizard-glass": {
     faqCount: 4,
-    schema: "article",
-    primaryCta: "hash",
-  },
-  "lizard-index": {
-    id: "lizard-index",
-    pathname: "/lizards/saxeoebebi",
-    parentHub: "lizards",
-    messageKey: "lizardIndex",
     heroSpeciesId: "pseudopus-apodus",
-    matches: isLizardSpecies,
-    faqCount: 4,
-    schema: "collection",
+    id: "lizard-glass",
+    matches: (species) =>
+      (GLASS_LIZARD_COMPARE_IDS as readonly string[]).includes(species.id),
+    messageKey: "lizardCompare",
+    parentHub: "lizards",
+    pathname: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
     primaryCta: "hash",
+    schema: "article",
   },
   "lizard-identify": {
-    id: "lizard-identify",
-    pathname: "/lizards/identifikacia",
-    parentHub: "lizards",
-    messageKey: "lizardIdentify",
+    faqCount: 4,
     heroSpeciesId: "paralaudakia-caucasia",
+    id: "lizard-identify",
     matches: (species) =>
       isLizardSpecies(species) ||
       species.id === "natrix-natrix" ||
       species.id === "natrix-tessellata",
-    faqCount: 4,
-    schema: "article",
-    primaryCta: "hash",
-  },
-  "lizard-glass": {
-    id: "lizard-glass",
-    pathname: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+    messageKey: "lizardIdentify",
     parentHub: "lizards",
-    messageKey: "lizardCompare",
-    heroSpeciesId: "pseudopus-apodus",
-    matches: (species) =>
-      (GLASS_LIZARD_COMPARE_IDS as readonly string[]).includes(species.id),
-    faqCount: 4,
+    pathname: "/lizards/identifikacia",
+    primaryCta: "hash",
     schema: "article",
-    primaryCta: "hash",
   },
-  "turtle-index": {
-    id: "turtle-index",
-    pathname: "/turtles/saxeoebebi",
-    parentHub: "turtles",
-    messageKey: "turtleIndex",
-    heroSpeciesId: "testudo-graeca",
-    matches: isTurtleSpecies,
+  "lizard-index": {
     faqCount: 4,
-    schema: "collection",
+    heroSpeciesId: "pseudopus-apodus",
+    id: "lizard-index",
+    matches: isLizardSpecies,
+    messageKey: "lizardIndex",
+    parentHub: "lizards",
+    pathname: "/lizards/saxeoebebi",
     primaryCta: "hash",
+    schema: "collection",
   },
-  "turtle-land": {
-    id: "turtle-land",
-    pathname: "/turtles/xmelis-kuebi",
-    parentHub: "turtles",
-    messageKey: "turtleLand",
-    heroSpeciesId: "testudo-graeca",
-    matches: (species) => turtleLandIdSet.has(species.id),
-    faqCount: 4,
-    schema: "collection",
-    primaryCta: "hash",
+  "snake-bite": {
+    faqCount: 8,
+    heroImage: "/images/guides/snake-bite-cover.png",
+    heroSpeciesId: "macrovipera-lebetina",
+    id: "snake-bite",
+    matches: (species) =>
+      isSnakeSpecies(species) && isVenomousDanger(species.danger),
+    messageKey: "snakeBite",
+    parentHub: "snakes",
+    pathname: "/snakes/gvelis-nakbeni",
+    primaryCta: "tel",
+    schema: "article",
   },
-  "turtle-water": {
-    id: "turtle-water",
-    pathname: "/turtles/tsqlis-kuebi",
-    parentHub: "turtles",
-    messageKey: "turtleWater",
-    heroSpeciesId: "emys-orbicularis",
-    matches: (species) => turtleWaterIdSet.has(species.id),
+  "snake-identify": {
     faqCount: 4,
-    schema: "collection",
+    heroImage: "/images/guides/identify-venomous-cover.png",
+    heroSpeciesId: "vipera-kaznakovi",
+    id: "snake-identify",
+    matches: (species) =>
+      isSnakeSpecies(species) || species.id === LARGE_SNAKE_LIZARD_ID,
+    messageKey: "snakeIdentify",
+    parentHub: "snakes",
+    pathname: "/snakes/shxamiani-gvelis-amocnoba",
     primaryCta: "hash",
+    schema: "article",
+  },
+  "snake-index": {
+    faqCount: 4,
+    heroImage: "/images/guides/snake-species-cover.png",
+    heroSpeciesId: "macrovipera-lebetina",
+    id: "snake-index",
+    matches: isSnakeSpecies,
+    messageKey: "snakeIndex",
+    parentHub: "snakes",
+    pathname: "/snakes/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
+  "snake-largest": {
+    faqCount: 4,
+    heroImage: "/images/guides/largest-snakes-cover.png",
+    heroSpeciesId: "dolichophis-schmidti",
+    id: "snake-largest",
+    matches: (species) =>
+      largeSnakeIdSet.has(species.id) || species.id === LARGE_SNAKE_LIZARD_ID,
+    messageKey: "snakeLargest",
+    parentHub: "snakes",
+    pathname: "/snakes/didi-gvelebi",
+    primaryCta: "hash",
+    schema: "article",
+  },
+  "snake-range": {
+    faqCount: 4,
+    heroImage: "/images/guides/snake-range-cover.png",
+    heroSpeciesId: "coronella-austriaca",
+    id: "snake-range",
+    matches: isSnakeSpecies,
+    messageKey: "snakeRange",
+    parentHub: "snakes",
+    pathname: "/snakes/gavrtseleba",
+    primaryCta: "hash",
+    schema: "article",
   },
   "turtle-identify": {
-    id: "turtle-identify",
-    pathname: "/turtles/identifikacia",
-    parentHub: "turtles",
-    messageKey: "turtleIdentify",
+    faqCount: 4,
     heroSpeciesId: "testudo-graeca",
+    id: "turtle-identify",
     matches: isTurtleSpecies,
-    faqCount: 4,
+    messageKey: "turtleIdentify",
+    parentHub: "turtles",
+    pathname: "/turtles/identifikacia",
+    primaryCta: "hash",
     schema: "article",
-    primaryCta: "hash",
   },
-  "amphibian-index": {
-    id: "amphibian-index",
-    pathname: "/amphibians/saxeoebebi",
-    parentHub: "amphibians",
-    messageKey: "amphibianIndex",
-    heroSpeciesId: "mertensiella-caucasica",
-    matches: isAmphibianSpecies,
+  "turtle-index": {
     faqCount: 4,
-    schema: "collection",
+    heroSpeciesId: "testudo-graeca",
+    id: "turtle-index",
+    matches: isTurtleSpecies,
+    messageKey: "turtleIndex",
+    parentHub: "turtles",
+    pathname: "/turtles/saxeoebebi",
     primaryCta: "hash",
+    schema: "collection",
   },
-  "amphibian-frogs-index": {
-    id: "amphibian-frogs-index",
-    pathname: "/amphibians/bayayi/saxeoebebi",
-    parentHub: "amphibians",
-    messageKey: "amphibianFrogsIndex",
-    heroSpeciesId: "pelophylax-ridibundus",
-    matches: (species) => isFrogSpecies(species.id),
+  "turtle-land": {
     faqCount: 4,
-    schema: "collection",
+    heroSpeciesId: "testudo-graeca",
+    id: "turtle-land",
+    matches: (species) => turtleLandIdSet.has(species.id),
+    messageKey: "turtleLand",
+    parentHub: "turtles",
+    pathname: "/turtles/xmelis-kuebi",
     primaryCta: "hash",
+    schema: "collection",
   },
-  "amphibian-newts": {
-    id: "amphibian-newts",
-    pathname: "/amphibians/tritoni-salamandra",
-    parentHub: "amphibians",
-    messageKey: "amphibianNewts",
-    heroSpeciesId: "mertensiella-caucasica",
-    matches: (species) => isNewtSpecies(species.id),
+  "turtle-water": {
     faqCount: 4,
-    schema: "collection",
+    heroSpeciesId: "emys-orbicularis",
+    id: "turtle-water",
+    matches: (species) => turtleWaterIdSet.has(species.id),
+    messageKey: "turtleWater",
+    parentHub: "turtles",
+    pathname: "/turtles/tsqlis-kuebi",
     primaryCta: "hash",
+    schema: "collection",
   },
 };
 
@@ -391,137 +391,147 @@ export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
 
 export type ClusterGuideViewProps = {
   guideId: ClusterGuideId;
-  species: Species[];
   heroSrc: string;
+  species: Species[];
 };
 
 export type HubClusterCard =
   | {
-      kind: "page";
       href:
-        | "/venomous-snakes"
-        | "/snakes-in-the-yard"
-        | "/snakes"
-        | "/lizards"
         | "/birds"
+        | "/lizards"
         | "/mammals"
+        | "/snakes"
+        | "/snakes-in-the-yard"
         | "/spiders"
+        | "/venomous-snakes"
         | ClusterGuidePath;
       key:
-        | "snakesHub"
-        | "lizardsHub"
-        | "venomous"
-        | "yard"
-        | "frogs"
-        | "index"
-        | "identify"
+        | "amphibianIndex"
+        | "birdsHub"
         | "bite"
-        | "range"
-        | "largest"
-        | "lizardIndex"
-        | "lizardIdentify"
+        | "frogs"
+        | "frogsIndex"
         | "glassLizard"
+        | "identify"
+        | "index"
+        | "largest"
+        | "lizardIdentify"
+        | "lizardIndex"
+        | "lizardsHub"
+        | "mammalsHub"
+        | "newts"
+        | "range"
+        | "snakesHub"
+        | "spidersHub"
+        | "turtleIdentify"
         | "turtleIndex"
         | "turtleLand"
         | "turtleWater"
-        | "turtleIdentify"
-        | "amphibianIndex"
-        | "frogsIndex"
-        | "newts"
-        | "birdsHub"
-        | "mammalsHub"
-        | "spidersHub";
+        | "venomous"
+        | "yard";
+      kind: "page";
     }
   | {
-      kind: "quiz";
       id: "snake";
       key: "quiz";
+      kind: "quiz";
     }
   | {
-      kind: "species";
       id: string;
-      key: "giurza" | "najadum" | "jojo" | "gvelxokera" | "slider" | "tortoise";
+      key: "giurza" | "gvelxokera" | "jojo" | "najadum" | "slider" | "tortoise";
+      kind: "species";
     };
 
 export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
-  snakes: [
-    { kind: "page", href: "/snakes/saxeoebebi", key: "index" },
-    { kind: "page", href: "/venomous-snakes", key: "venomous" },
-    { kind: "quiz", id: "snake", key: "quiz" },
-    {
-      kind: "page",
-      href: "/snakes/shxamiani-gvelis-amocnoba",
-      key: "identify",
-    },
-    { kind: "page", href: "/snakes/gvelis-nakbeni", key: "bite" },
-    { kind: "page", href: "/snakes/gavrtseleba", key: "range" },
-    { kind: "page", href: "/snakes/didi-gvelebi", key: "largest" },
-    { kind: "page", href: "/snakes-in-the-yard", key: "yard" },
-    { kind: "species", id: "macrovipera-lebetina", key: "giurza" },
-  ],
-  lizards: [
-    { kind: "page", href: "/lizards/saxeoebebi", key: "lizardIndex" },
-    { kind: "page", href: "/lizards/identifikacia", key: "lizardIdentify" },
-    {
-      kind: "page",
-      href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
-      key: "glassLizard",
-    },
-    { kind: "species", id: "paralaudakia-caucasia", key: "jojo" },
-    { kind: "species", id: "pseudopus-apodus", key: "gvelxokera" },
-  ],
-  turtles: [
-    { kind: "page", href: "/turtles/saxeoebebi", key: "turtleIndex" },
-    { kind: "page", href: "/turtles/identifikacia", key: "turtleIdentify" },
-    { kind: "page", href: "/turtles/xmelis-kuebi", key: "turtleLand" },
-    { kind: "page", href: "/turtles/tsqlis-kuebi", key: "turtleWater" },
-    { kind: "species", id: "testudo-graeca", key: "tortoise" },
-    { kind: "species", id: "trachemys-scripta", key: "slider" },
-  ],
   amphibians: [
-    { kind: "page", href: "/amphibians/saxeoebebi", key: "amphibianIndex" },
-    { kind: "page", href: "/amphibians/bayayi", key: "frogs" },
-    { kind: "page", href: "/amphibians/bayayi/saxeoebebi", key: "frogsIndex" },
-    { kind: "page", href: "/amphibians/tritoni-salamandra", key: "newts" },
+    { href: "/amphibians/saxeoebebi", key: "amphibianIndex", kind: "page" },
+    { href: "/amphibians/bayayi", key: "frogs", kind: "page" },
+    { href: "/amphibians/bayayi/saxeoebebi", key: "frogsIndex", kind: "page" },
+    { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
   birds: [],
+  lizards: [
+    { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
+    { href: "/lizards/identifikacia", key: "lizardIdentify", kind: "page" },
+    {
+      href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+      key: "glassLizard",
+      kind: "page",
+    },
+    { id: "paralaudakia-caucasia", key: "jojo", kind: "species" },
+    { id: "pseudopus-apodus", key: "gvelxokera", kind: "species" },
+  ],
   mammals: [],
+  snakes: [
+    { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
+    { href: "/venomous-snakes", key: "venomous", kind: "page" },
+    { id: "snake", key: "quiz", kind: "quiz" },
+    {
+      href: "/snakes/shxamiani-gvelis-amocnoba",
+      key: "identify",
+      kind: "page",
+    },
+    { href: "/snakes/gvelis-nakbeni", key: "bite", kind: "page" },
+    { href: "/snakes/gavrtseleba", key: "range", kind: "page" },
+    { href: "/snakes/didi-gvelebi", key: "largest", kind: "page" },
+    { href: "/snakes-in-the-yard", key: "yard", kind: "page" },
+    { id: "macrovipera-lebetina", key: "giurza", kind: "species" },
+  ],
   spiders: [],
+  turtles: [
+    { href: "/turtles/saxeoebebi", key: "turtleIndex", kind: "page" },
+    { href: "/turtles/identifikacia", key: "turtleIdentify", kind: "page" },
+    { href: "/turtles/xmelis-kuebi", key: "turtleLand", kind: "page" },
+    { href: "/turtles/tsqlis-kuebi", key: "turtleWater", kind: "page" },
+    { id: "testudo-graeca", key: "tortoise", kind: "species" },
+    { id: "trachemys-scripta", key: "slider", kind: "species" },
+  ],
 };
 
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
-  snakes: "/snakes/saxeoebebi",
-  lizards: "/lizards/saxeoebebi",
-  turtles: "/turtles/saxeoebebi",
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds",
+  lizards: "/lizards/saxeoebebi",
   mammals: "/mammals",
+  snakes: "/snakes/saxeoebebi",
   spiders: "/spiders",
+  turtles: "/turtles/saxeoebebi",
+};
+
+export type SpeciesSection = {
+  items: Species[];
+  key: string;
 };
 
 export function getHubIndexTitleKey(hubId: GroupHubId) {
   switch (hubId) {
-    case "snakes":
-      return "cluster.index.title" as const;
-    case "lizards":
-      return "cluster.lizardIndex.title" as const;
-    case "turtles":
-      return "cluster.turtleIndex.title" as const;
     case "birds":
       return "hubs.birds" as const;
+    case "lizards":
+      return "cluster.lizardIndex.title" as const;
     case "mammals":
       return "hubs.mammals" as const;
+    case "snakes":
+      return "cluster.index.title" as const;
     case "spiders":
       return "hubs.spiders" as const;
+    case "turtles":
+      return "cluster.turtleIndex.title" as const;
     default:
       return "cluster.amphibianIndex.title" as const;
   }
 }
 
-export type SpeciesSection = {
-  key: string;
-  items: Species[];
-};
+export function getRearFangedSpecies(species: Species[]) {
+  return species.filter(
+    (item) => isVenomousDanger(item.danger) && item.family !== "Viperidae",
+  );
+}
+
+export function getViperSpecies(species: Species[]) {
+  return species.filter((item) => item.family === "Viperidae");
+}
 
 export function splitHubSpecies(
   hubId: GroupHubId,
@@ -531,18 +541,18 @@ export function splitHubSpecies(
     const racerIds = new Set<string>(RACER_CLUSTER_IDS);
     return [
       {
-        key: "venomous",
         items: species.filter((item) => isVenomousDanger(item.danger)),
+        key: "venomous",
       },
       {
-        key: "racers",
         items: species.filter((item) => racerIds.has(item.id)),
+        key: "racers",
       },
       {
-        key: "harmless",
         items: species.filter(
           (item) => !isVenomousDanger(item.danger) && !racerIds.has(item.id),
         ),
+        key: "harmless",
       },
     ].filter((section) => section.items.length > 0);
   }
@@ -550,25 +560,25 @@ export function splitHubSpecies(
   if (hubId === "lizards") {
     return [
       {
-        key: "featured",
         items: species.filter(
           (item) =>
             item.id === "paralaudakia-caucasia" ||
             item.id === "pseudopus-apodus",
         ),
+        key: "featured",
       },
       {
-        key: "darevskia",
         items: species.filter((item) => item.genus === "Darevskia"),
+        key: "darevskia",
       },
       {
-        key: "other",
         items: species.filter(
           (item) =>
             item.genus !== "Darevskia" &&
             item.id !== "paralaudakia-caucasia" &&
             item.id !== "pseudopus-apodus",
         ),
+        key: "other",
       },
     ].filter((section) => section.items.length > 0);
   }
@@ -576,42 +586,32 @@ export function splitHubSpecies(
   if (hubId === "turtles") {
     return [
       {
-        key: "native",
         items: species.filter((item) => item.id !== "trachemys-scripta"),
+        key: "native",
       },
       {
-        key: "introduced",
         items: species.filter((item) => item.id === "trachemys-scripta"),
+        key: "introduced",
       },
     ].filter((section) => section.items.length > 0);
   }
 
   if (hubId === "birds" || hubId === "mammals" || hubId === "spiders") {
-    return [{ key: "all", items: species }].filter(
+    return [{ items: species, key: "all" }].filter(
       (section) => section.items.length > 0,
     );
   }
 
   return [
     {
-      key: "frogs",
       items: species.filter((item) => isFrogSpecies(item.id)),
+      key: "frogs",
     },
     {
-      key: "newts",
       items: species.filter((item) => isNewtSpecies(item.id)),
+      key: "newts",
     },
   ].filter((section) => section.items.length > 0);
-}
-
-export function getViperSpecies(species: Species[]) {
-  return species.filter((item) => item.family === "Viperidae");
-}
-
-export function getRearFangedSpecies(species: Species[]) {
-  return species.filter(
-    (item) => isVenomousDanger(item.danger) && item.family !== "Viperidae",
-  );
 }
 
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
@@ -620,16 +620,9 @@ const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 const PAGE_CARD_IMAGES: Partial<
   Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
 > = {
-  "/venomous-snakes": "/images/guides/identify-venomous-cover.png",
   "/snakes-in-the-yard": "/images/guides/snakes-in-the-yard-cover.jpg",
+  "/venomous-snakes": "/images/guides/identify-venomous-cover.png",
 };
-
-function speciesCardImage(id: string) {
-  const item = getSpeciesById(id);
-  const src = item?.image;
-  if (!src || isPlaceholderMedia(src)) return undefined;
-  return src;
-}
 
 export function getHubClusterCardImage(card: HubClusterCard) {
   if (card.kind === "species") {
@@ -657,17 +650,6 @@ export function getHubClusterCardImage(card: HubClusterCard) {
   return undefined;
 }
 
-export function getRelatedGuideCards(
-  guideId: ClusterGuideId,
-): HubClusterCard[] {
-  const guide = CLUSTER_GUIDES[guideId];
-  return HUB_CLUSTER_CARDS[guide.parentHub].filter(
-    (card) =>
-      card.kind === "quiz" ||
-      (card.kind === "page" && card.href !== guide.pathname),
-  );
-}
-
 export function getHubPageRelatedGuides(
   hubId: GroupHubId,
   excludeHref: Extract<HubClusterCard, { kind: "page" }>["href"],
@@ -676,6 +658,17 @@ export function getHubPageRelatedGuides(
     (card) =>
       card.kind === "quiz" ||
       (card.kind === "page" && card.href !== excludeHref),
+  );
+}
+
+export function getRelatedGuideCards(
+  guideId: ClusterGuideId,
+): HubClusterCard[] {
+  const guide = CLUSTER_GUIDES[guideId];
+  return HUB_CLUSTER_CARDS[guide.parentHub].filter(
+    (card) =>
+      card.kind === "quiz" ||
+      (card.kind === "page" && card.href !== guide.pathname),
   );
 }
 
@@ -688,117 +681,117 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
 
   if (group === "snake") {
     if (isVenomousDanger(species.danger)) {
-      links.push({ kind: "page", href: "/venomous-snakes", key: "venomous" });
+      links.push({ href: "/venomous-snakes", key: "venomous", kind: "page" });
     }
     if (racerClusterIdSet.has(id)) {
-      links.push({ kind: "page", href: "/snakes", key: "snakesHub" });
+      links.push({ href: "/snakes", key: "snakesHub", kind: "page" });
     }
-    links.push({ kind: "page", href: "/snakes/saxeoebebi", key: "index" });
-    links.push({ kind: "quiz", id: "snake", key: "quiz" });
+    links.push({ href: "/snakes/saxeoebebi", key: "index", kind: "page" });
+    links.push({ id: "snake", key: "quiz", kind: "quiz" });
     if (isVenomousDanger(species.danger)) {
       links.push({
-        kind: "page",
         href: "/snakes/shxamiani-gvelis-amocnoba",
         key: "identify",
+        kind: "page",
       });
       links.push({
-        kind: "page",
         href: "/snakes/gvelis-nakbeni",
         key: "bite",
+        kind: "page",
       });
     } else {
       links.push({
-        kind: "page",
         href: "/snakes/shxamiani-gvelis-amocnoba",
         key: "identify",
+        kind: "page",
       });
       links.push({
-        kind: "page",
         href: "/snakes-in-the-yard",
         key: "yard",
+        kind: "page",
       });
       links.push({
-        kind: "page",
         href: "/snakes/gavrtseleba",
         key: "range",
+        kind: "page",
       });
     }
     if (largeSnakeIdSet.has(id)) {
       links.push({
-        kind: "page",
         href: "/snakes/didi-gvelebi",
         key: "largest",
+        kind: "page",
       });
     }
   } else if (group === "lizard") {
     if (id === "pseudopus-apodus") {
-      links.push({ kind: "page", href: "/lizards", key: "lizardsHub" });
+      links.push({ href: "/lizards", key: "lizardsHub", kind: "page" });
     }
     links.push({
-      kind: "page",
       href: "/lizards/saxeoebebi",
       key: "lizardIndex",
+      kind: "page",
     });
     links.push({
-      kind: "page",
       href: "/lizards/identifikacia",
       key: "lizardIdentify",
+      kind: "page",
     });
     if (glassCompareIdSet.has(id)) {
       links.push({
-        kind: "page",
         href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
         key: "glassLizard",
+        kind: "page",
       });
     }
   } else if (group === "turtle") {
     links.push({
-      kind: "page",
       href: "/turtles/saxeoebebi",
       key: "turtleIndex",
+      kind: "page",
     });
     if (turtleLandIdSet.has(id)) {
       links.push({
-        kind: "page",
         href: "/turtles/xmelis-kuebi",
         key: "turtleLand",
+        kind: "page",
       });
     } else {
       links.push({
-        kind: "page",
         href: "/turtles/tsqlis-kuebi",
         key: "turtleWater",
+        kind: "page",
       });
     }
     links.push({
-      kind: "page",
       href: "/turtles/identifikacia",
       key: "turtleIdentify",
+      kind: "page",
     });
   } else if (group === "bird") {
-    links.push({ kind: "page", href: "/birds", key: "birdsHub" });
+    links.push({ href: "/birds", key: "birdsHub", kind: "page" });
   } else if (group === "mammal") {
-    links.push({ kind: "page", href: "/mammals", key: "mammalsHub" });
+    links.push({ href: "/mammals", key: "mammalsHub", kind: "page" });
   } else if (group === "spider") {
-    links.push({ kind: "page", href: "/spiders", key: "spidersHub" });
+    links.push({ href: "/spiders", key: "spidersHub", kind: "page" });
   } else {
     links.push({
-      kind: "page",
       href: "/amphibians/saxeoebebi",
       key: "amphibianIndex",
+      kind: "page",
     });
     if (isFrogSpecies(id)) {
-      links.push({ kind: "page", href: "/amphibians/bayayi", key: "frogs" });
+      links.push({ href: "/amphibians/bayayi", key: "frogs", kind: "page" });
       links.push({
-        kind: "page",
         href: "/amphibians/bayayi/saxeoebebi",
         key: "frogsIndex",
+        kind: "page",
       });
     } else {
       links.push({
-        kind: "page",
         href: "/amphibians/tritoni-salamandra",
         key: "newts",
+        kind: "page",
       });
     }
   }
@@ -812,4 +805,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       return true;
     })
     .slice(0, 4);
+}
+
+function speciesCardImage(id: string) {
+  const item = getSpeciesById(id);
+  const src = item?.image;
+  if (!src || isPlaceholderMedia(src)) return undefined;
+  return src;
 }

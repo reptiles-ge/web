@@ -1,12 +1,16 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
-import type { Species } from "@/data/species";
-import { isVenomousDanger, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import {
@@ -16,21 +20,19 @@ import {
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
 
-type DangerFilter = "all" | "venomous" | "harmless";
+type DangerFilter = "all" | "harmless" | "venomous";
 
 export function SpeciesIndexTable({
-  species,
   locale,
   showDangerFilter = true,
   showFamilyFilter = true,
+  species,
 }: {
-  species: Species[];
   locale: AppLocale;
   showDangerFilter?: boolean;
   showFamilyFilter?: boolean;
+  species: Species[];
 }) {
   const t = useTranslations("speciesIndex");
   const tShared = useTranslations("groupHubShared");
@@ -63,10 +65,10 @@ export function SpeciesIndexTable({
     resultCount: number,
   ) {
     trackEvent("index_filter", {
-      page_type: "guide",
-      group,
       danger_filter: nextDanger,
       family_filter: nextFamily,
+      group,
+      page_type: "guide",
       result_count: resultCount,
     });
   }
@@ -90,19 +92,19 @@ export function SpeciesIndexTable({
             const active = danger === key;
             return (
               <button
-                key={key}
-                type="button"
-                onClick={() => {
-                  if (key === danger) return;
-                  setDanger(key);
-                  emitIndexFilter(key, family, countFiltered(key, family));
-                }}
                 className={cn(
                   "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
                   active
                     ? "border-ink bg-ink text-ink-foreground"
                     : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
                 )}
+                key={key}
+                onClick={() => {
+                  if (key === danger) return;
+                  setDanger(key);
+                  emitIndexFilter(key, family, countFiltered(key, family));
+                }}
+                type="button"
               >
                 {t(`filter.${key}`)}
               </button>
@@ -119,18 +121,18 @@ export function SpeciesIndexTable({
           }
         >
           <button
-            type="button"
-            onClick={() => {
-              if (family === "all") return;
-              setFamily("all");
-              emitIndexFilter(danger, "all", countFiltered(danger, "all"));
-            }}
             className={cn(
               "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
               family === "all"
                 ? "border-ink bg-ink text-ink-foreground"
                 : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
             )}
+            onClick={() => {
+              if (family === "all") return;
+              setFamily("all");
+              emitIndexFilter(danger, "all", countFiltered(danger, "all"));
+            }}
+            type="button"
           >
             {t("filter.familyAll")}
           </button>
@@ -138,19 +140,19 @@ export function SpeciesIndexTable({
             const active = family === name;
             return (
               <button
-                key={name}
-                type="button"
-                onClick={() => {
-                  if (family === name) return;
-                  setFamily(name);
-                  emitIndexFilter(danger, name, countFiltered(danger, name));
-                }}
                 className={cn(
                   "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
                   active
                     ? "border-ink bg-ink text-ink-foreground"
                     : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
                 )}
+                key={name}
+                onClick={() => {
+                  if (family === name) return;
+                  setFamily(name);
+                  emitIndexFilter(danger, name, countFiltered(danger, name));
+                }}
+                type="button"
               >
                 {name}
               </button>
@@ -170,15 +172,15 @@ export function SpeciesIndexTable({
             )}
           >
             {filtered.map((item, index) => (
-              <Reveal key={item.id} delay={Math.min(index * 30, 240)}>
+              <Reveal delay={Math.min(index * 30, 240)} key={item.id}>
                 <IndexCard
-                  species={item}
-                  locale={locale}
                   dash={dash}
-                  rangePending={tShared("rangePending")}
-                  venomousYes={t("venomousYes")}
-                  venomousNo={t("venomousNo")}
+                  locale={locale}
                   position={index + 1}
+                  rangePending={tShared("rangePending")}
+                  species={item}
+                  venomousNo={t("venomousNo")}
+                  venomousYes={t("venomousYes")}
                 />
               </Reveal>
             ))}
@@ -215,35 +217,35 @@ export function SpeciesIndexTable({
                   const activity = getSpeciesActivityStat(item) ?? dash;
                   const onClick = () =>
                     trackSpeciesClick({
-                      species_id: item.id,
-                      source: "index",
                       position: rowIndex + 1,
+                      source: "index",
+                      species_id: item.id,
                     });
                   return (
                     <tr
-                      key={item.id}
                       className="border-b border-border/80 last:border-b-0"
+                      key={item.id}
                     >
                       <td className="py-3 pr-4">
-                        <Link href={href} className="block" onClick={onClick}>
+                        <Link className="block" href={href} onClick={onClick}>
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
                             <CoverImage
-                              src={item.mobileImage ?? item.image}
                               alt={speciesImageAlt(
                                 item.commonName,
                                 item.scientificName,
                                 item.location,
                               )}
-                              sizes="56px"
                               className="object-cover"
+                              sizes="56px"
+                              src={item.mobileImage ?? item.image}
                             />
                           </span>
                         </Link>
                       </td>
                       <td className="py-3 pr-4">
                         <Link
-                          href={href}
                           className="group block"
+                          href={href}
                           onClick={onClick}
                         >
                           <span className="font-display text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary">
@@ -294,21 +296,21 @@ function formatRange(id: string, locale: AppLocale, pending: string) {
 }
 
 function IndexCard({
-  species,
-  locale,
   dash,
-  rangePending,
-  venomousYes,
-  venomousNo,
+  locale,
   position,
+  rangePending,
+  species,
+  venomousNo,
+  venomousYes,
 }: {
-  species: Species;
-  locale: AppLocale;
   dash: string;
-  rangePending: string;
-  venomousYes: string;
-  venomousNo: string;
+  locale: AppLocale;
   position: number;
+  rangePending: string;
+  species: Species;
+  venomousNo: string;
+  venomousYes: string;
 }) {
   const href = speciesHref(species.id, locale);
   const range = formatRange(species.id, locale, rangePending);
@@ -318,26 +320,26 @@ function IndexCard({
 
   return (
     <Link
+      className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
       href={href}
       onClick={() =>
         trackSpeciesClick({
-          species_id: species.id,
-          source: "index",
           position,
+          source: "index",
+          species_id: species.id,
         })
       }
-      className="group grid gap-4 py-6 sm:grid-cols-[5.5rem_1fr]"
     >
       <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square">
         <CoverImage
-          src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          sizes="(max-width: 640px) 100vw, 88px"
           className="object-cover"
+          sizes="(max-width: 640px) 100vw, 88px"
+          src={species.mobileImage ?? species.image}
         />
       </span>
       <span>

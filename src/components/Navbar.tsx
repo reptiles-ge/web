@@ -1,45 +1,16 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useEffect, useId, useState } from "react";
+
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useEffect, useId, useState } from "react";
-
-function hasDarkHeroTop(pathname: string) {
-  if (pathname === "/contact") return false;
-  if (pathname === "/") return true;
-  if (pathname === "/about") return true;
-  if (pathname === "/venomous-snakes") return true;
-  if (pathname === "/snakes-in-the-yard") return true;
-  if (
-    pathname === "/snakes" ||
-    pathname.startsWith("/snakes/") ||
-    pathname === "/lizards" ||
-    pathname.startsWith("/lizards/") ||
-    pathname === "/turtles" ||
-    pathname.startsWith("/turtles/") ||
-    pathname === "/amphibians" ||
-    pathname.startsWith("/amphibians/") ||
-    pathname === "/birds" ||
-    pathname.startsWith("/birds/") ||
-    pathname === "/mammals" ||
-    pathname.startsWith("/mammals/") ||
-    pathname === "/spiders" ||
-    pathname.startsWith("/spiders/")
-  ) {
-    return true;
-  }
-  if (pathname === "/species" || pathname.startsWith("/species/")) return true;
-  if (pathname.startsWith("/quiz/")) return true;
-  if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
-  return false;
-}
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -68,16 +39,16 @@ export function Navbar() {
   ];
   const groupLinks = [...reptileGroupLinks, ...otherGroupLinks];
   const mobileNavItems = [
-    { kind: "link" as const, href: "/species" as const, label: t("species") },
+    { href: "/species" as const, kind: "link" as const, label: t("species") },
     { kind: "groups" as const },
     {
-      kind: "link" as const,
       href: "/quiz" as const,
+      kind: "link" as const,
       label: t("quizzes"),
     },
-    { kind: "link" as const, href: "/regions" as const, label: t("atlas") },
-    { kind: "link" as const, href: "/news" as const, label: t("news") },
-    { kind: "link" as const, href: "/about" as const, label: t("about") },
+    { href: "/regions" as const, kind: "link" as const, label: t("atlas") },
+    { href: "/news" as const, kind: "link" as const, label: t("news") },
+    { href: "/about" as const, kind: "link" as const, label: t("about") },
   ];
   const [groupsOpen, setGroupsOpen] = useState(false);
   const [mobileGroupsOpen, setMobileGroupsOpen] = useState(false);
@@ -142,21 +113,21 @@ export function Navbar() {
             scrolled || menuOpen ? "opacity-100" : "opacity-0",
           )}
           style={{
+            backdropFilter: "blur(24px) saturate(160%)",
             background:
               "color-mix(in oklab, var(--background) 72%, transparent)",
-            backdropFilter: "blur(24px) saturate(160%)",
             borderBottom: "1px solid var(--border)",
           }}
         />
         <Link
-          href="/"
           className="relative z-10 shrink-0 transition-opacity hover:opacity-90"
+          href="/"
           onClick={() => setMenuOpen(false)}
         >
           <Logo
-            size={44}
             priority
             showWordmark
+            size={44}
             wordmarkClassName={cn(
               "hidden text-[17px] transition-colors sm:inline",
               scrolled || menuOpen ? "text-foreground" : "text-white",
@@ -165,19 +136,20 @@ export function Navbar() {
         </Link>
         <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
           <Link
-            href="/species"
             className={cn(
               "relative text-[13px] font-medium tracking-wide transition-colors",
               scrolled
                 ? "text-foreground/70 hover:text-foreground"
                 : "text-white/70 hover:text-white",
             )}
+            href="/species"
           >
             {t("species")}
           </Link>
           <div className="relative">
             <button
-              type="button"
+              aria-expanded={groupsOpen}
+              aria-haspopup="true"
               className={cn(
                 "inline-flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors",
                 scrolled
@@ -186,9 +158,8 @@ export function Navbar() {
                 (groupsActive || groupsOpen) &&
                   (scrolled ? "text-foreground" : "text-white"),
               )}
-              aria-expanded={groupsOpen}
-              aria-haspopup="true"
               onClick={() => setGroupsOpen((open) => !open)}
+              type="button"
             >
               {t("groups")}
               <ChevronDown
@@ -202,10 +173,10 @@ export function Navbar() {
             {groupsOpen ? (
               <>
                 <button
-                  type="button"
-                  className="fixed inset-0 z-40 cursor-default"
                   aria-label={t("closeMenu")}
+                  className="fixed inset-0 z-40 cursor-default"
                   onClick={() => setGroupsOpen(false)}
+                  type="button"
                 />
                 <div className="absolute top-full left-1/2 z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-border bg-background py-2 shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
                   <p className="px-4 pt-1.5 pb-1 text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
@@ -213,10 +184,10 @@ export function Navbar() {
                   </p>
                   {reptileGroupLinks.map((link) => (
                     <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setGroupsOpen(false)}
                       className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                      href={link.href}
+                      key={link.href}
+                      onClick={() => setGroupsOpen(false)}
                     >
                       {link.label}
                     </Link>
@@ -224,10 +195,10 @@ export function Navbar() {
                   <div className="my-2 border-t border-border" />
                   {otherGroupLinks.map((link) => (
                     <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setGroupsOpen(false)}
                       className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                      href={link.href}
+                      key={link.href}
+                      onClick={() => setGroupsOpen(false)}
                     >
                       {link.label}
                     </Link>
@@ -247,9 +218,9 @@ export function Navbar() {
               );
               return (
                 <Link
-                  key={link.href}
-                  href={link.href}
                   className={cn("relative", className)}
+                  href={link.href}
+                  key={link.href}
                 >
                   {link.label}
                 </Link>
@@ -261,28 +232,28 @@ export function Navbar() {
           <ThemeToggle variant={chromeVariant} />
           <LanguageSwitcher variant={chromeVariant} />
           <Link
-            href="/species"
             className={cn(
               "hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex",
               scrolled
                 ? "bg-primary text-white hover:bg-primary/90 dark:text-ink"
                 : "bg-white/90 text-ink hover:bg-white",
             )}
+            href="/species"
           >
             {t("discover")}
           </Link>
           <button
-            type="button"
+            aria-controls={menuId}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
             className={cn(
               "inline-flex size-10 items-center justify-center rounded-full transition-colors lg:hidden",
               scrolled || menuOpen
                 ? "text-foreground hover:bg-foreground/5"
                 : "text-white hover:bg-white/10",
             )}
-            aria-expanded={menuOpen}
-            aria-controls={menuId}
-            aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
             onClick={() => setMenuOpen((open) => !open)}
+            type="button"
           >
             {menuOpen ? (
               <X className="size-5" strokeWidth={1.75} />
@@ -294,20 +265,20 @@ export function Navbar() {
       </div>
 
       <div
-        id={menuId}
         className={cn(
           "lg:hidden",
           menuOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
+        id={menuId}
       >
         <button
-          type="button"
           aria-label={t("closeMenu")}
           className={cn(
             "fixed inset-0 z-40 bg-black/45 transition-opacity duration-300",
             menuOpen ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setMenuOpen(false)}
+          type="button"
         />
         <nav
           aria-label={t("openMenu")}
@@ -324,10 +295,10 @@ export function Navbar() {
                 return (
                   <li key="groups">
                     <button
-                      type="button"
-                      className="flex w-full items-center justify-between gap-4 rounded-2xl px-3 py-3.5 text-left transition-colors hover:bg-surface"
                       aria-expanded={mobileGroupsOpen}
+                      className="flex w-full items-center justify-between gap-4 rounded-2xl px-3 py-3.5 text-left transition-colors hover:bg-surface"
                       onClick={() => setMobileGroupsOpen((open) => !open)}
+                      type="button"
                     >
                       <span className="flex items-center gap-2 font-display text-[1.35rem] font-semibold text-foreground">
                         {t("groups")}
@@ -347,10 +318,10 @@ export function Navbar() {
                       <div className="mb-1 flex flex-col px-3 pb-2">
                         {groupLinks.map((group) => (
                           <Link
-                            key={group.href}
-                            href={group.href}
-                            onClick={() => setMenuOpen(false)}
                             className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
+                            href={group.href}
+                            key={group.href}
+                            onClick={() => setMenuOpen(false)}
                           >
                             {group.label}
                           </Link>
@@ -364,9 +335,9 @@ export function Navbar() {
               return (
                 <li key={item.href}>
                   <Link
+                    className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
                   >
                     <span className="flex items-center gap-2.5 font-display text-[1.35rem] font-semibold text-foreground">
                       {item.label}
@@ -380,9 +351,9 @@ export function Navbar() {
             })}
           </ul>
           <Link
+            className="mt-5 flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
             href="/species"
             onClick={() => setMenuOpen(false)}
-            className="mt-5 flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
           >
             {t("discover")}
           </Link>
@@ -390,4 +361,34 @@ export function Navbar() {
       </div>
     </header>
   );
+}
+
+function hasDarkHeroTop(pathname: string) {
+  if (pathname === "/contact") return false;
+  if (pathname === "/") return true;
+  if (pathname === "/about") return true;
+  if (pathname === "/venomous-snakes") return true;
+  if (pathname === "/snakes-in-the-yard") return true;
+  if (
+    pathname === "/snakes" ||
+    pathname.startsWith("/snakes/") ||
+    pathname === "/lizards" ||
+    pathname.startsWith("/lizards/") ||
+    pathname === "/turtles" ||
+    pathname.startsWith("/turtles/") ||
+    pathname === "/amphibians" ||
+    pathname.startsWith("/amphibians/") ||
+    pathname === "/birds" ||
+    pathname.startsWith("/birds/") ||
+    pathname === "/mammals" ||
+    pathname.startsWith("/mammals/") ||
+    pathname === "/spiders" ||
+    pathname.startsWith("/spiders/")
+  ) {
+    return true;
+  }
+  if (pathname === "/species" || pathname.startsWith("/species/")) return true;
+  if (pathname.startsWith("/quiz/")) return true;
+  if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
+  return false;
 }

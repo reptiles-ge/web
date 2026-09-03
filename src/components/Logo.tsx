@@ -1,32 +1,33 @@
-import { cn } from "@/lib/cn";
 import Image from "next/image";
+
+import { cn } from "@/lib/cn";
 
 type LogoProps = {
   className?: string;
-  size?: number;
   priority?: boolean;
   showWordmark?: boolean;
+  size?: number;
   wordmarkClassName?: string;
 };
 
 export function Logo({
   className = "",
-  size = 40,
   priority = false,
   showWordmark = false,
+  size = 40,
   wordmarkClassName = "",
 }: LogoProps) {
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <Image
-        src="https://cdn.reptiles.ge/logo.webp"
         alt="Reptiles"
-        width={size}
+        className="shrink-0 object-contain"
+        fetchPriority="auto"
         height={size}
         loading={priority ? "eager" : "lazy"}
-        fetchPriority="auto"
-        className="shrink-0 object-contain"
         sizes={`${Math.round(size * 2)}px`}
+        src="https://cdn.reptiles.ge/logo.webp"
+        width={size}
       />
       {showWordmark ? (
         <span

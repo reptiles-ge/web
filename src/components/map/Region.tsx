@@ -1,32 +1,35 @@
 "use client";
 
-import type { Region as RegionData } from "@/data/regions";
-import { localizeRegionText } from "@/data/regions";
-import { cn } from "@/lib/cn";
-import { m } from "framer-motion";
-import { useLocale } from "next-intl";
 import type { KeyboardEvent } from "react";
 
+import { m } from "framer-motion";
+import { useLocale } from "next-intl";
+
+import type { Region as RegionData } from "@/data/regions";
+
+import { localizeRegionText } from "@/data/regions";
+import { cn } from "@/lib/cn";
+
 type RegionProps = {
-  region: RegionData;
+  glowFilterId?: string;
+  interactive?: boolean;
+  isDimmed: boolean;
   isHovered: boolean;
   isSelected: boolean;
-  isDimmed: boolean;
-  interactive?: boolean;
-  glowFilterId?: string;
-  onHover: (id: string | null) => void;
+  onHover: (id: null | string) => void;
   onSelect: (id: string) => void;
+  region: RegionData;
 };
 
 export function Region({
-  region,
+  glowFilterId = "map-region-glow",
+  interactive = true,
+  isDimmed,
   isHovered,
   isSelected,
-  isDimmed,
-  interactive = true,
-  glowFilterId = "map-region-glow",
   onHover,
   onSelect,
+  region,
 }: RegionProps) {
   const locale = useLocale();
   const active = isHovered || isSelected;
@@ -37,48 +40,48 @@ export function Region({
       d={region.path}
       {...(interactive
         ? {
-            role: "button" as const,
-            tabIndex: 0,
             "aria-label": label,
             "aria-pressed": isSelected,
-            onMouseEnter: () => onHover(region.id),
-            onMouseLeave: () => onHover(null),
-            onFocus: () => onHover(region.id),
             onBlur: () => onHover(null),
             onClick: () => onSelect(region.id),
+            onFocus: () => onHover(region.id),
             onKeyDown: (event: KeyboardEvent<SVGPathElement>) => {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 onSelect(region.id);
               }
             },
+            onMouseEnter: () => onHover(region.id),
+            onMouseLeave: () => onHover(null),
+            role: "button" as const,
+            tabIndex: 0,
           }
         : {
             "aria-hidden": true as const,
             pointerEvents: "none" as const,
           })}
-      initial={false}
       animate={{
         fill: active
           ? "var(--map-region-active)"
           : isDimmed
             ? "var(--map-region-dim)"
             : "var(--map-region)",
+        filter: active ? `url(#${glowFilterId})` : "none",
         stroke: active ? "var(--map-stroke-active)" : "var(--map-stroke)",
         strokeWidth: active ? 1.6 : 0.9,
-        filter: active ? `url(#${glowFilterId})` : "none",
       }}
-      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "outline-none",
         interactive
           ? "cursor-pointer focus-visible:stroke-[2.2px]"
           : "cursor-default",
       )}
+      initial={false}
       style={{
-        transformOrigin: "center",
         opacity: isDimmed && !active ? 0.55 : 1,
+        transformOrigin: "center",
       }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
     />
   );
 }

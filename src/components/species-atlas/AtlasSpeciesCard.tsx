@@ -1,30 +1,32 @@
 "use client";
 
-import { CoverImage } from "@/components/CoverImage";
-import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { getSpeciesAtlasMeta, type AnimalGroup } from "@/data/speciesAtlas";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
-import type { Species } from "@/data/species";
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { trackSpeciesClick } from "@/lib/analytics";
-import { speciesHref } from "@/lib/speciesRoutes";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
+import { CoverImage } from "@/components/CoverImage";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { Link } from "@/i18n/navigation";
+import { trackSpeciesClick } from "@/lib/analytics";
+import { speciesImageAlt } from "@/lib/speciesMeta";
+import { speciesHref } from "@/lib/speciesRoutes";
+
 type AtlasSpeciesCardProps = {
-  species: Species;
-  locale: AppLocale;
-  index?: number;
   eager?: boolean;
+  index?: number;
+  locale: AppLocale;
+  species: Species;
 };
 
 export function AtlasSpeciesCard({
-  species,
-  locale,
-  index = 0,
   eager = false,
+  index = 0,
+  locale,
+  species,
 }: AtlasSpeciesCardProps) {
   const t = useTranslations("speciesAtlas");
   const meta = getSpeciesAtlasMeta(species.id);
@@ -50,36 +52,36 @@ export function AtlasSpeciesCard({
       }}
     >
       <Link
+        aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
+        className="absolute inset-0 z-10"
         href={speciesHref(species.id, locale)}
         onClick={() =>
           trackSpeciesClick({
-            species_id: species.id,
-            source: "atlas",
-            position: index + 1,
             group: meta.group,
+            position: index + 1,
+            source: "atlas",
+            species_id: species.id,
           })
         }
-        className="absolute inset-0 z-10"
-        aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
       />
 
       <div className="relative aspect-4/5 overflow-hidden bg-ink sm:aspect-5/6">
         {imageSrc ? (
           <CoverImage
-            src={imageSrc}
             alt={speciesImageAlt(
               species.commonName,
               species.scientificName,
               species.location,
             )}
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             priority={eager}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            src={imageSrc}
           />
         ) : (
           <div
-            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
             aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
           />
         )}
         <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/15 to-black/10" />

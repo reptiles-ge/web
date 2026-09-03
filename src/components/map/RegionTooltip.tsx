@@ -1,19 +1,21 @@
 "use client";
 
-import type { Region } from "@/data/regions";
-import { getRegionSpecies, localizeRegionText } from "@/data/regions";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
 import { m } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
+import type { Region } from "@/data/regions";
+import type { AppLocale } from "@/i18n/routing";
+
+import { getRegionSpecies, localizeRegionText } from "@/data/regions";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+
 type RegionTooltipProps = {
-  region: Region | null;
-  position: { x: number; y: number } | null;
+  position: null | { x: number; y: number };
+  region: null | Region;
 };
 
-export function RegionTooltip({ region, position }: RegionTooltipProps) {
+export function RegionTooltip({ position, region }: RegionTooltipProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("map");
 
@@ -27,17 +29,17 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
     <AnimatePresence>
       {region && position ? (
         <m.div
-          key={region.id}
-          initial={{ opacity: 0, y: 8, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 6, scale: 0.97 }}
-          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           className="pointer-events-none absolute z-20 hidden max-w-[240px] rounded-2xl border border-border/80 bg-card/95 px-4 py-3.5 shadow-[0_18px_40px_-24px_rgba(14,20,17,0.55)] backdrop-blur-md md:block"
+          exit={{ opacity: 0, scale: 0.97, y: 6 }}
+          initial={{ opacity: 0, scale: 0.96, y: 8 }}
+          key={region.id}
           style={{
             left: position.x,
             top: position.y,
             transform: "translate(-50%, calc(-100% - 14px))",
           }}
+          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="font-display text-[17px] leading-tight font-semibold text-foreground">
             {localizeRegionText(region.name, locale)}
@@ -48,7 +50,7 @@ export function RegionTooltip({ region, position }: RegionTooltipProps) {
           {species.length > 0 ? (
             <ul className="mt-2.5 space-y-1.5 border-t border-border/70 pt-2.5">
               {species.map((item) => (
-                <li key={item.id} className="leading-snug">
+                <li className="leading-snug" key={item.id}>
                   <p className="truncate text-[12px] font-medium text-foreground/80">
                     {item.commonName}
                   </p>

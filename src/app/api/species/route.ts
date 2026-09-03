@@ -2,14 +2,14 @@ import { getFeaturedSpecies } from "@/data/species";
 
 export async function GET() {
   const list = getFeaturedSpecies().map((item) => ({
-    id: item.id,
     commonName: item.commonName,
-    scientificName: item.scientificName,
-    genus: item.genus,
-    location: item.location,
-    description: item.description,
     danger: item.danger,
+    description: item.description,
+    genus: item.genus,
+    id: item.id,
     image: item.image,
+    location: item.location,
+    scientificName: item.scientificName,
   }));
 
   return Response.json(

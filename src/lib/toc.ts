@@ -1,21 +1,21 @@
 export const SPECIES_SECTION_IDS = {
   atAGlance: "at-a-glance",
-  overview: "overview",
-  gallery: "gallery",
-  range: "range",
-  identification: "identification",
-  voice: "voice",
   biology: "biology",
   faq: "faq",
-  sources: "sources",
+  gallery: "gallery",
+  identification: "identification",
+  overview: "overview",
+  range: "range",
   related: "related",
+  sources: "sources",
+  voice: "voice",
 } as const;
 
 export const REGION_SECTION_IDS = {
-  range: "range",
+  faq: "faq",
   habitats: "habitats",
+  range: "range",
+  related: "related",
   species: "species",
   venomous: "venomous",
-  faq: "faq",
-  related: "related",
 } as const;

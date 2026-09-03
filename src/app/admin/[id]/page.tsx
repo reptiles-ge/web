@@ -1,11 +1,12 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
 import { AdminSpeciesEditor } from "@/components/admin/AdminSpeciesEditor";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
 import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
-import { notFound } from "next/navigation";
-import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -28,8 +29,8 @@ export default async function AdminSpeciesPage({ params }: Props) {
   return (
     <main className="mx-auto max-w-5xl px-5 py-10">
       <Link
-        href="/admin"
         className="text-[13px] text-muted-foreground hover:text-foreground"
+        href="/admin"
       >
         ← ყველა სახეობა
       </Link>
@@ -41,7 +42,7 @@ export default async function AdminSpeciesPage({ params }: Props) {
         {species.unpublished ? " · unpublished" : ""}
       </p>
       <div className="mt-10">
-        <AdminSpeciesEditor id={id} gallery={species.gallery} />
+        <AdminSpeciesEditor gallery={species.gallery} id={id} />
       </div>
     </main>
   );

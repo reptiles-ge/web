@@ -1,9 +1,11 @@
 "use client";
 
-import { ContentAttribution } from "@/components/ContentAttribution";
-import { CoverImage } from "@/components/CoverImage";
-import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useState } from "react";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
@@ -15,17 +17,17 @@ import {
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { ContentAttribution } from "@/components/ContentAttribution";
+import { CoverImage } from "@/components/CoverImage";
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
+import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
 
 type SnakesInYardPageProps = {
-  heroSrc: string;
   coverSrc: string;
+  heroSrc: string;
 };
 
 const ACTION_KEYS = [1, 2, 3] as const;
@@ -35,7 +37,7 @@ const AGENCY_PHONE = "0322721600";
 const AGENCY_PHONE_DISPLAY = "032 272 16 00";
 const EMERGENCY_PHONE = "112";
 
-export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
+export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
   const t = useTranslations("snakesInYard");
   const tSnakes = useTranslations("snakes");
   const locale = useLocale() as AppLocale;
@@ -52,11 +54,11 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
           style={{ paddingTop: "7rem" }}
         >
           <CoverImage
-            src={heroSrc}
             alt={t("heroImageAlt")}
+            className="object-cover object-[50%_45%]"
             priority
             sizes="100vw"
-            className="object-cover object-[50%_45%]"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
@@ -67,8 +69,8 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
                     <Link
-                      href="/"
                       className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                      href="/"
                     >
                       <ArrowLeft className="size-3.5" />
                       {t("breadcrumbHome")}
@@ -79,8 +81,8 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                   </li>
                   <li>
                     <Link
-                      href="/snakes"
                       className="transition-colors hover:text-white"
+                      href="/snakes"
                     >
                       {tSnakes("breadcrumbCurrent")}
                     </Link>
@@ -103,15 +105,15 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
                 <a
-                  href="#actions"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="#actions"
                 >
                   {t("ctaActions")}
                   <ArrowRight className="size-4" />
                 </a>
                 <a
-                  href="#myths"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  href="#myths"
                 >
                   {t("ctaMyths")}
                 </a>
@@ -124,12 +126,12 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
           <div className="mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("whyEyebrow")}
-                title={t("whyTitle")}
                 body={t("whyLead")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
                 bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
+                eyebrow={t("whyEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("whyTitle")}
+                titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
               />
               <div className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
                 <div className="bg-card p-7 sm:p-8">
@@ -159,10 +161,10 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
             <Reveal delay={80}>
               <figure className="relative aspect-4/5 overflow-hidden rounded-[28px] bg-ink sm:aspect-5/6">
                 <CoverImage
-                  src={coverSrc}
                   alt={t("coverImageAlt")}
-                  sizes="(max-width: 1024px) 100vw, 44vw"
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 44vw"
+                  src={coverSrc}
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 text-[13px] leading-snug text-white/75">
                   {t("coverCaption")}
@@ -173,28 +175,28 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
         </section>
 
         <section
-          id="actions"
           className="scroll-mt-28 bg-background py-20 lg:py-28"
+          id="actions"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("actionsEyebrow")}
-                title={t("actionsTitle")}
                 body={t("actionsLead")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={t("actionsEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("actionsTitle")}
+                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
               />
             </Reveal>
 
             <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
               {ACTION_KEYS.map((n, index) => (
                 <Reveal
-                  key={n}
                   as="li"
-                  delay={index * 50}
                   className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
+                  delay={index * 50}
+                  key={n}
                 >
                   <span className="font-display text-[clamp(2rem,3vw,2.5rem)] leading-none font-semibold text-primary/80">
                     {String(n).padStart(2, "0")}
@@ -214,32 +216,32 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
         </section>
 
         <section
-          id="myths"
           className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+          id="myths"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
                 <ClusterSectionIntro
-                  eyebrow={t("mythsEyebrow")}
-                  title={t("mythsTitle")}
                   body={t("mythsLead")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  titleClassName={CLUSTER_TITLE_GUIDE}
                   bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+                  eyebrow={t("mythsEyebrow")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  title={t("mythsTitle")}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
                 />
               </Reveal>
               <ul className="divide-y divide-border border-y border-border">
                 {MYTH_KEYS.map((n, index) => (
                   <Reveal
-                    key={n}
                     as="li"
-                    delay={index * 40}
                     className="flex items-start gap-4 py-5 sm:gap-5 sm:py-6"
+                    delay={index * 40}
+                    key={n}
                   >
                     <span
-                      className="mt-0.5 text-[13px] font-medium text-destructive"
                       aria-hidden
+                      className="mt-0.5 text-[13px] font-medium text-destructive"
                     >
                       —
                     </span>
@@ -257,12 +259,12 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("appearEyebrow")}
-                title={t("appearTitle")}
                 body={t("appearBody")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_RELATED}
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={t("appearEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("appearTitle")}
+                titleClassName={CLUSTER_TITLE_RELATED}
               />
             </Reveal>
 
@@ -281,8 +283,8 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                     </p>
                   </div>
                   <a
-                    href={`tel:${EMERGENCY_PHONE}`}
                     className="mt-8 inline-flex items-center gap-2 self-start rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+                    href={`tel:${EMERGENCY_PHONE}`}
                   >
                     {t("contactBiteCta")}
                     <span className="font-display tracking-wide">
@@ -290,8 +292,8 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                     </span>
                   </a>
                   <Link
-                    href="/snakes/gvelis-nakbeni"
                     className="mt-3 inline-flex items-center gap-2 self-start text-[13px] font-medium text-foreground/70 transition-colors hover:text-primary"
+                    href="/snakes/gvelis-nakbeni"
                   >
                     {t("contactBiteGuideCta")}
                     <ArrowUpRight className="size-3.5" />
@@ -312,8 +314,8 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
                     </p>
                   </div>
                   <a
-                    href={`tel:${AGENCY_PHONE}`}
                     className="mt-8 inline-flex items-center gap-2 self-start rounded-full border border-border bg-background px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    href={`tel:${AGENCY_PHONE}`}
                   >
                     {t("contactAgencyCta")}
                     <span className="font-display tracking-wide">
@@ -330,12 +332,12 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("relatedGuidesEyebrow")}
-                title={t("relatedGuidesTitle")}
                 body={t("relatedGuidesBody")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_RELATED}
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={t("relatedGuidesEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("relatedGuidesTitle")}
+                titleClassName={CLUSTER_TITLE_RELATED}
               />
             </Reveal>
             <RelatedGuideGrid cards={relatedGuides} locale={locale} />
@@ -348,34 +350,34 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
 
         <section className="relative flex min-h-[60svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage
-            src={heroSrc}
             alt=""
-            sizes="100vw"
-            className="object-cover opacity-45"
             aria-hidden
+            className="object-cover opacity-45"
+            sizes="100vw"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("ctaEyebrow")}
-                title={t("ctaTitle")}
                 body={t("ctaBody")}
-                eyebrowClassName={CLUSTER_HERO_EYEBROW}
-                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white"
                 bodyClassName={CLUSTER_HERO_BODY}
+                eyebrow={t("ctaEyebrow")}
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                title={t("ctaTitle")}
+                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white"
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href="/species"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="/species"
                 >
                   {t("ctaAtlas")}
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
-                  href="/venomous-snakes"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  href="/venomous-snakes"
                 >
                   {t("ctaVenomous")}
                 </Link>
@@ -390,7 +392,7 @@ export function SnakesInYardPage({ heroSrc, coverSrc }: SnakesInYardPageProps) {
 
 function FaqSection() {
   const t = useTranslations("snakesInYard");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
 
   return (
     <section className="border-t border-border bg-background py-24 lg:py-32">
@@ -398,25 +400,25 @@ function FaqSection() {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("faqEyebrow")}
-              title={t("faqTitle")}
               body={t("faqIntro")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_FAQ_TITLE}
               bodyClassName={CLUSTER_FAQ_BODY}
+              eyebrow={t("faqEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("faqTitle")}
+              titleClassName={CLUSTER_FAQ_TITLE}
             />
           </Reveal>
           <div>
             {FAQ_KEYS.map((n, index) => {
               const isOpen = open === index;
               return (
-                <Reveal key={n} delay={index * 50}>
+                <Reveal delay={index * 50} key={n}>
                   <div className="border-t border-border last:border-b">
                     <button
-                      type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                      onClick={() => setOpen(isOpen ? null : index)}
+                      type="button"
                     >
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}

@@ -1,4 +1,4 @@
-export type ChromeVariant = "light" | "dark";
+export type ChromeVariant = "dark" | "light";
 
 export function chromeIconButtonClass(variant: ChromeVariant = "light") {
   return variant === "dark"

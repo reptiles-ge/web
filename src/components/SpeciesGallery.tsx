@@ -1,37 +1,38 @@
 "use client";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { hasPhotoCredit, type GalleryImage } from "@/data/species";
-import { pictureSources } from "@/data/optimizedImages";
-import { trackEvent } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
-import { speciesPhotoAlt } from "@/lib/speciesMeta";
-import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
+import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
+import { pictureSources } from "@/data/optimizedImages";
+import { type GalleryImage, hasPhotoCredit } from "@/data/species";
+import { trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import { speciesPhotoAlt } from "@/lib/speciesMeta";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
+
 type SpeciesGalleryProps = {
   images: GalleryImage[];
+  location: string;
   name: string;
   scientificName: string;
-  location: string;
-  tone?: "background" | "surface";
   speciesId: string;
+  tone?: "background" | "surface";
 };
 
 export function SpeciesGallery({
   images,
+  location,
   name,
   scientificName,
-  location,
-  tone = "background",
   speciesId,
+  tone = "background",
 }: SpeciesGalleryProps) {
   const t = useTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
-  const [active, setActive] = useState<number | null>(null);
+  const [active, setActive] = useState<null | number>(null);
   const opened = useRef(false);
 
   useEffect(() => {
@@ -80,10 +81,10 @@ export function SpeciesGallery({
             {t("gallery")}
           </p>
           <AnchoredHeading
+            anchorLabel={t("anchorLink")}
+            className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
             id={SPECIES_SECTION_IDS.gallery}
             slugSource={`${name} ${t("galleryTitle")}`}
-            className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
-            anchorLabel={t("anchorLink")}
           >
             {name} {t("galleryTitle")}
           </AnchoredHeading>
@@ -108,29 +109,29 @@ export function SpeciesGallery({
               );
               return (
                 <figure
-                  key={photo.src}
                   className={cn(
                     "group relative overflow-hidden rounded-[24px] bg-ink",
                     featured
                       ? "col-span-2 aspect-16/10 md:col-span-3"
                       : "aspect-4/5",
                   )}
+                  key={photo.src}
                 >
                   <button
-                    type="button"
+                    aria-label={photoAlt}
+                    className="absolute inset-0 w-full text-left focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none"
                     onClick={() => {
                       if (!opened.current) {
                         opened.current = true;
                         trackEvent("gallery_open", {
-                          species_id: speciesId,
                           image_count: photos.length,
                           image_index: index,
+                          species_id: speciesId,
                         });
                       }
                       setActive(index);
                     }}
-                    className="absolute inset-0 w-full text-left focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none"
-                    aria-label={photoAlt}
+                    type="button"
                   >
                     <picture className="media-placeholder absolute inset-0 block size-full">
                       {pictureSources(photo.src, {
@@ -141,11 +142,11 @@ export function SpeciesGallery({
                         <source key={source.key} {...source.props} />
                       ))}
                       <img
-                        src={photo.src}
                         alt={photoAlt}
-                        loading="lazy"
-                        decoding="async"
                         className="absolute inset-0 size-full object-cover text-transparent"
+                        decoding="async"
+                        loading="lazy"
+                        src={photo.src}
                       />
                     </picture>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
@@ -157,8 +158,8 @@ export function SpeciesGallery({
                   </button>
                   <PhotoCreditCaption
                     credit={photo.credit}
-                    variant="thumb"
                     speciesId={speciesId}
+                    variant="thumb"
                   />
                 </figure>
               );
@@ -169,25 +170,25 @@ export function SpeciesGallery({
 
       {active !== null && activePhoto ? (
         <dialog
-          className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0"
-          open
           aria-label={t("gallery")}
+          className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0"
           onCancel={(event) => {
             event.preventDefault();
             setActive(null);
           }}
+          open
         >
           <button
-            type="button"
             aria-label={t("close")}
             className="absolute inset-0 bg-black/92"
             onClick={() => setActive(null)}
+            type="button"
           />
           <button
-            type="button"
-            onClick={() => setActive(null)}
-            className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
             aria-label={t("close")}
+            className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
+            onClick={() => setActive(null)}
+            type="button"
           >
             <X className="size-5" />
           </button>
@@ -195,7 +196,8 @@ export function SpeciesGallery({
           {photos.length > 1 && (
             <>
               <button
-                type="button"
+                aria-label={t("prevPhoto")}
+                className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
                 onClick={(event) => {
                   event.stopPropagation();
                   setActive((current) =>
@@ -204,21 +206,20 @@ export function SpeciesGallery({
                       : (current - 1 + photos.length) % photos.length,
                   );
                 }}
-                className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
-                aria-label={t("prevPhoto")}
+                type="button"
               >
                 <ChevronLeft className="size-5" />
               </button>
               <button
-                type="button"
+                aria-label={t("nextPhoto")}
+                className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
                 onClick={(event) => {
                   event.stopPropagation();
                   setActive((current) =>
                     current === null ? null : (current + 1) % photos.length,
                   );
                 }}
-                className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
-                aria-label={t("nextPhoto")}
+                type="button"
               >
                 <ChevronRight className="size-5" />
               </button>
@@ -237,24 +238,24 @@ export function SpeciesGallery({
                   <source key={source.key} {...source.props} />
                 ))}
                 <img
-                  src={activePhoto.src}
                   alt={speciesPhotoAlt(
                     name,
                     scientificName,
                     location,
                     activePhoto.credit,
                   )}
+                  className="absolute inset-0 size-full object-contain text-transparent"
                   decoding="async"
                   fetchPriority="high"
-                  className="absolute inset-0 size-full object-contain text-transparent"
+                  src={activePhoto.src}
                 />
               </picture>
             </div>
             <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
               <PhotoCreditCaption
                 credit={activePhoto.credit}
-                variant="lightbox"
                 speciesId={speciesId}
+                variant="lightbox"
               />
               <p className="text-[12px] tracking-[0.2em] text-white/35">
                 {active + 1} / {photos.length}

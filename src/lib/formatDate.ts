@@ -1,19 +1,17 @@
-import type { AppLocale } from "@/i18n/routing";
-import { SITE_TIME_ZONE } from "@/lib/siteTime";
 import { tz } from "@date-fns/tz";
 import { format, isValid, parseISO } from "date-fns";
 import { enUS, ka, ru, tr } from "date-fns/locale";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { SITE_TIME_ZONE } from "@/lib/siteTime";
+
 const DATE_LOCALE = {
-  ka,
   en: enUS,
+  ka,
   ru,
   tr,
 } as const;
-
-function dateFnsLocale(locale: AppLocale) {
-  return DATE_LOCALE[locale];
-}
 
 export function formatContentDate(isoDate: string, locale: AppLocale): string {
   const date = isoDate.includes("T")
@@ -43,4 +41,8 @@ export function formatPhotoDate(value: string, locale: AppLocale): string {
   }
 
   return formatContentDate(trimmed, locale);
+}
+
+function dateFnsLocale(locale: AppLocale) {
+  return DATE_LOCALE[locale];
 }

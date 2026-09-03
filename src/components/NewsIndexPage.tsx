@@ -1,11 +1,13 @@
+import { ArrowRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+
+import type { NewsArticle } from "@/data/news";
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { Link } from "@/i18n/navigation";
-import type { NewsArticle } from "@/data/news";
-import type { AppLocale } from "@/i18n/routing";
 import { getNewsVisual } from "@/lib/newsVisual";
-import { ArrowRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
 
 type NewsIndexPageProps = {
   articles: NewsArticle[];
@@ -26,8 +28,8 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
     <div className="min-h-screen bg-background">
       {featuredVisual ? (
         <CoverImagePreload
-          src={featuredVisual.src}
           sizes="(max-width: 1023px) 100vw, 58vw"
+          src={featuredVisual.src}
         />
       ) : null}
       <main>
@@ -37,8 +39,8 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                 <li>
                   <Link
-                    href="/"
                     className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
+                    href="/"
                   >
                     {tShared("breadcrumbHome")}
                   </Link>
@@ -81,7 +83,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                     </h2>
                     <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 lg:mt-12">
                       {rest.map((article) => (
-                        <li key={article.id} className="h-full">
+                        <li className="h-full" key={article.id}>
                           <NewsArticleCard
                             article={article}
                             locale={locale}
@@ -106,8 +108,8 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
               {t("atlasCtaBody")}
             </p>
             <Link
-              href="/species"
               className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              href="/species"
             >
               <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
                 {t("atlasCta")}

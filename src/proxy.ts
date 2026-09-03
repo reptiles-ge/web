@@ -1,54 +1,43 @@
+import createMiddleware from "next-intl/middleware";
+import { NextRequest, NextResponse } from "next/server";
+
+import type { GroupHubId } from "@/lib/groupHubs";
+
+import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
   resolveSpecies,
   resolveSpeciesInHub,
 } from "@/lib/speciesRoutes";
-import type { GroupHubId } from "@/lib/groupHubs";
-import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
-import createMiddleware from "next-intl/middleware";
-import { NextRequest, NextResponse } from "next/server";
 
 const intlMiddleware = createMiddleware(routing);
 
 const KA_HUB: Record<GroupHubId, string> = {
-  snakes: "gvelebi",
-  lizards: "xvlikebi",
-  turtles: "kuebi",
   amphibians: "amfibiebi",
   birds: "prinvelebi",
+  lizards: "xvlikebi",
   mammals: "dzuzumtsovrebi",
+  snakes: "gvelebi",
   spiders: "obobebi",
+  turtles: "kuebi",
 };
 
 const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
-  gvelebi: "snakes",
-  xvlikebi: "lizards",
-  kuebi: "turtles",
   amfibiebi: "amphibians",
-  prinvelebi: "birds",
   dzuzumtsovrebi: "mammals",
+  gvelebi: "snakes",
+  kuebi: "turtles",
   obobebi: "spiders",
+  prinvelebi: "birds",
+  xvlikebi: "lizards",
 };
 
 const HUB_SEGMENT = "snakes|lizards|turtles|amphibians|birds|mammals|spiders";
 const KA_HUB_SEGMENT =
   "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|obobebi";
 const PREFIX_SEGMENT = "en|ru|tr";
-
-function redirectTo(request: NextRequest, pathname: string) {
-  const url = request.nextUrl.clone();
-  url.pathname = pathname;
-  return NextResponse.redirect(url, 301);
-}
-
-function speciesPath(locale: AppLocale, id: string) {
-  const hub = getSpeciesHubId(id);
-  const slug = getSpeciesPublicSlug(id, locale);
-  if (locale === "ka") return `/${KA_HUB[hub]}/${slug}`;
-  return `/${locale}/${hub}/${slug}`;
-}
 
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname.replace(/\/$/, "") || "/";
@@ -124,6 +113,19 @@ export default function proxy(request: NextRequest) {
   }
 
   return intlMiddleware(request);
+}
+
+function redirectTo(request: NextRequest, pathname: string) {
+  const url = request.nextUrl.clone();
+  url.pathname = pathname;
+  return NextResponse.redirect(url, 301);
+}
+
+function speciesPath(locale: AppLocale, id: string) {
+  const hub = getSpeciesHubId(id);
+  const slug = getSpeciesPublicSlug(id, locale);
+  if (locale === "ka") return `/${KA_HUB[hub]}/${slug}`;
+  return `/${locale}/${hub}/${slug}`;
 }
 
 export const config = {

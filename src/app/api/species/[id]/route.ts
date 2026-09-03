@@ -12,7 +12,7 @@ export async function GET(_request: Request, context: RouteContext) {
   if (!item) {
     return Response.json(
       { error: "Species not found" },
-      { status: 404, headers: { "X-Robots-Tag": "noindex, nofollow" } },
+      { headers: { "X-Robots-Tag": "noindex, nofollow" }, status: 404 },
     );
   }
 
@@ -20,8 +20,8 @@ export async function GET(_request: Request, context: RouteContext) {
 
   return Response.json(
     {
-      species: item,
       related,
+      species: item,
     },
     { headers: { "X-Robots-Tag": "noindex, nofollow" } },
   );

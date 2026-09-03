@@ -8,11 +8,6 @@ import { addSpeciesPhotos } from "@/lib/adminPhotos";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function textField(form: FormData, key: string) {
-  const value = form.get(key);
-  return typeof value === "string" ? value.trim() : "";
-}
-
 export async function POST(request: Request) {
   if (!isLocalAdminEnabled()) return localAdminForbiddenResponse();
 
@@ -41,20 +36,20 @@ export async function POST(request: Request) {
 
   try {
     const result = await addSpeciesPhotos({
-      id,
-      files: await Promise.all(
-        uploads.map(async (file) => ({
-          filename: file.name,
-          bytes: Buffer.from(await file.arrayBuffer()),
-        })),
-      ),
       credit: {
-        photographer: textField(form, "photographer"),
-        photographerEn: textField(form, "photographerEn"),
+        date: textField(form, "date"),
         location: textField(form, "location"),
         locationEn: textField(form, "locationEn"),
-        date: textField(form, "date"),
+        photographer: textField(form, "photographer"),
+        photographerEn: textField(form, "photographerEn"),
       },
+      files: await Promise.all(
+        uploads.map(async (file) => ({
+          bytes: Buffer.from(await file.arrayBuffer()),
+          filename: file.name,
+        })),
+      ),
+      id,
     });
 
     return Response.json(result);
@@ -62,4 +57,9 @@ export async function POST(request: Request) {
     const message = error instanceof Error ? error.message : "Upload failed";
     return Response.json({ error: message }, { status: 400 });
   }
+}
+
+function textField(form: FormData, key: string) {
+  const value = form.get(key);
+  return typeof value === "string" ? value.trim() : "";
 }

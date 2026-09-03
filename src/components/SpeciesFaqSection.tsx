@@ -1,29 +1,31 @@
 "use client";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import type { SpeciesFaq } from "@/data/species";
-import { trackEvent, type PageType } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
-import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import type { SpeciesFaq } from "@/data/species";
+
+import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { type PageType, trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
+
 type SpeciesFaqSectionProps = {
+  entityId: string;
   items: SpeciesFaq[];
   name: string;
-  entityId: string;
   pageType: PageType;
 };
 
 export function SpeciesFaqSection({
+  entityId,
   items,
   name,
-  entityId,
   pageType,
 }: SpeciesFaqSectionProps) {
   const t = useTranslations("profile");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
 
   if (items.length === 0) return null;
 
@@ -36,9 +38,9 @@ export function SpeciesFaqSection({
               {t("faq")}
             </p>
             <AnchoredHeading
-              id={SPECIES_SECTION_IDS.faq}
-              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
               anchorLabel={t("anchorLink")}
+              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              id={SPECIES_SECTION_IDS.faq}
             >
               {t("faqTitle")}
             </AnchoredHeading>
@@ -54,24 +56,24 @@ export function SpeciesFaqSection({
               const isOpen = open === index;
               return (
                 <div
-                  key={item.question}
                   className="border-t border-border last:border-b"
+                  key={item.question}
                 >
                   <button
-                    type="button"
                     aria-expanded={isOpen}
+                    className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                     onClick={() => {
                       const next = isOpen ? null : index;
                       setOpen(next);
                       if (next !== null) {
                         trackEvent("faq_open", {
-                          page_type: pageType,
                           entity_id: entityId,
                           faq_index: next,
+                          page_type: pageType,
                         });
                       }
                     }}
-                    className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                    type="button"
                   >
                     <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                       {item.question}

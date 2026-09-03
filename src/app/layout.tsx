@@ -1,46 +1,49 @@
-import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
-import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
+import { GoogleTagManager } from "@next/third-parties/google";
+import { getLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
+import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
+import Script from "next/script";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { preconnect, preload } from "react-dom";
+
+import { themeInitScript, ThemeProvider } from "@/components/ThemeProvider";
+import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import {
   absoluteUrl,
   CDN_BASE,
-  SITE_OG_IMAGE_URL,
   openGraphJpeg,
+  SITE_OG_IMAGE_URL,
   siteConfig,
 } from "@/lib/site";
-import { GoogleTagManager } from "@next/third-parties/google";
-import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
-import { getLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import Script from "next/script";
-import { preconnect, preload } from "react-dom";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
+
 import "./globals.css";
 
 const GTM_ID = "GTM-NM65ZMML";
 const FACEBOOK_APP_ID = "1033733009490487";
 
 const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin", "latin-ext"],
   display: "optional",
   preload: false,
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-sora",
 });
 
 const notoSansGeorgian = Noto_Sans_Georgian({
-  variable: "--font-noto-georgian",
-  subsets: ["georgian", "latin"],
   display: "optional",
+  subsets: ["georgian", "latin"],
+  variable: "--font-noto-georgian",
 });
 
 const notoSans = Noto_Sans({
-  variable: "--font-noto-sans",
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
   display: "optional",
   preload: false,
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: "--font-noto-sans",
+  weight: ["400", "500", "600", "700"],
 });
 
 type Props = {
@@ -55,12 +58,6 @@ const AxeDevConsole =
       );
 
 export const metadata: Metadata = {
-  metadataBase: new URL(absoluteUrl("/")),
-  title: {
-    default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
   applicationName: siteConfig.name,
   authors: [
     {
@@ -68,42 +65,48 @@ export const metadata: Metadata = {
       url: absoluteUrl("/"),
     },
   ],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
   category: "science",
-  openGraph: {
-    type: "website",
-    locale: siteConfig.locale,
-    url: absoluteUrl("/"),
-    siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [openGraphJpeg(SITE_OG_IMAGE_URL, siteConfig.title)],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: [SITE_OG_IMAGE_URL],
-  },
+  creator: siteConfig.name,
+  description: siteConfig.description,
   facebook: {
     appId: FACEBOOK_APP_ID,
   },
+  formatDetection: {
+    address: false,
+    email: false,
+    telephone: false,
+  },
+  metadataBase: new URL(absoluteUrl("/")),
+  openGraph: {
+    description: siteConfig.description,
+    images: [openGraphJpeg(SITE_OG_IMAGE_URL, siteConfig.title)],
+    locale: siteConfig.locale,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    type: "website",
+    url: absoluteUrl("/"),
+  },
+  publisher: siteConfig.name,
   robots: {
-    index: true,
     follow: true,
     googleBot: {
-      index: true,
       follow: true,
+      index: true,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+    index: true,
   },
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
+  title: {
+    default: siteConfig.title,
+    template: `%s — ${siteConfig.name}`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    description: siteConfig.description,
+    images: [SITE_OG_IMAGE_URL],
+    title: siteConfig.title,
   },
 };
 
@@ -123,7 +126,6 @@ export default async function RootLayout({ children }: Props) {
 
   return (
     <html
-      lang={locale}
       className={cn(
         sora.variable,
         notoSansGeorgian.variable,
@@ -131,14 +133,15 @@ export default async function RootLayout({ children }: Props) {
         "h-full antialiased",
       )}
       data-scroll-behavior="smooth"
+      lang={locale}
       suppressHydrationWarning
     >
       {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <head>
         {isProd ? null : (
           <Script
-            src="//unpkg.com/react-scan/dist/auto.global.js"
             crossOrigin="anonymous"
+            src="//unpkg.com/react-scan/dist/auto.global.js"
             strategy="beforeInteractive"
           />
         )}
@@ -148,12 +151,12 @@ export default async function RootLayout({ children }: Props) {
         {isProd ? (
           <noscript>
             <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              title="Google Tag Manager"
-              sandbox="allow-scripts"
               height="0"
-              width="0"
+              sandbox="allow-scripts"
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
               style={{ display: "none", visibility: "hidden" }}
+              title="Google Tag Manager"
+              width="0"
             />
           </noscript>
         ) : null}

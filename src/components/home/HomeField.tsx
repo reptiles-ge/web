@@ -1,24 +1,26 @@
+import { ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { quizHref } from "@/lib/quizzes";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 
 const GUIDES = [
   {
-    key: "identify" as const,
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
+    key: "identify" as const,
   },
   {
-    key: "yard" as const,
     href: "/snakes-in-the-yard" as const,
+    key: "yard" as const,
   },
   {
     key: "quiz" as const,
@@ -78,22 +80,22 @@ export async function HomeField() {
                     return (
                       <li key={species.id}>
                         <TrackedSpeciesLink
-                          speciesId={species.id}
-                          locale={locale}
-                          source="home_safety"
-                          position={index + 1}
                           className="group flex min-h-16 items-center gap-3 py-3 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+                          locale={locale}
+                          position={index + 1}
+                          source="home_safety"
+                          speciesId={species.id}
                         >
                           <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
                             <CoverImage
-                              src={src}
                               alt={speciesImageAlt(
                                 species.commonName,
                                 species.scientificName,
                                 species.location,
                               )}
-                              sizes="56px"
                               className="object-cover"
+                              sizes="56px"
+                              src={src}
                             />
                           </span>
                           <span className="min-w-0">
@@ -121,22 +123,22 @@ export async function HomeField() {
                     return (
                       <li key={species.id}>
                         <TrackedSpeciesLink
-                          speciesId={species.id}
-                          locale={locale}
-                          source="home_safety"
-                          position={index + 1}
                           className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+                          locale={locale}
+                          position={index + 1}
+                          source="home_safety"
+                          speciesId={species.id}
                         >
                           <span className="relative block aspect-3/4 overflow-hidden bg-ink">
                             <CoverImage
-                              src={src}
                               alt={speciesImageAlt(
                                 species.commonName,
                                 species.scientificName,
                                 species.location,
                               )}
-                              sizes="80px"
                               className="object-cover"
+                              sizes="80px"
+                              src={src}
                             />
                           </span>
                           <span className="mt-2 block text-[11px] leading-snug text-muted-foreground italic">
@@ -151,18 +153,18 @@ export async function HomeField() {
             ) : null}
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
               <Link
-                href="/venomous-snakes"
                 className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href="/venomous-snakes"
               >
                 {tKnowledge("venomous.cta")}
-                <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                <ArrowUpRight aria-hidden="true" className="size-3.5" />
               </Link>
               <Link
-                href="/snakes/gvelis-nakbeni"
                 className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href="/snakes/gvelis-nakbeni"
               >
                 {tSafety("bite")}
-                <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                <ArrowUpRight aria-hidden="true" className="size-3.5" />
               </Link>
             </div>
           </div>
@@ -171,12 +173,12 @@ export async function HomeField() {
             {GUIDES.map((guide, index) => (
               <li key={guide.key}>
                 <Link
+                  className="group flex min-h-30 flex-col justify-center py-6 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                   href={
                     guide.key === "quiz"
                       ? quizHref("snake", locale)
                       : guide.href
                   }
-                  className="group flex min-h-30 flex-col justify-center py-6 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 >
                   <span className="text-[11px] tracking-[0.2em] text-muted-foreground tabular-nums">
                     {String(index + 1).padStart(2, "0")}

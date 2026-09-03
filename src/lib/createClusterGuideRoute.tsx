@@ -1,7 +1,15 @@
-import { CoverImagePreload } from "@/components/CoverImagePreload";
+import type { Metadata } from "next";
+import type { ComponentType } from "react";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
+import { JsonLd } from "@/components/JsonLd";
 import { LizardComparePage } from "@/components/LizardComparePage";
 import { LizardIdentifyPage } from "@/components/LizardIdentifyPage";
 import { LizardSpeciesIndexPage } from "@/components/LizardSpeciesIndexPage";
@@ -12,11 +20,10 @@ import { SnakeRangePage } from "@/components/SnakeRangePage";
 import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
 import { TurtleSpeciesIndexPage } from "@/components/TurtleSpeciesIndexPage";
-import { JsonLd } from "@/components/JsonLd";
 import { getCatalogSpecies } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
   type ClusterGuideId,
@@ -27,17 +34,12 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
-  openGraphJpeg,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import type { ComponentType } from "react";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -48,21 +50,21 @@ const CLUSTER_PAGES: Record<
   ComponentType<ClusterGuideViewProps>
 > = {
   "amphibian-frogs": ClusterGuidePage,
-  "snake-index": SnakeSpeciesIndexPage,
-  "snake-identify": SnakeIdentifyPage,
-  "snake-bite": SnakeBitePage,
-  "snake-range": SnakeRangePage,
-  "snake-largest": SnakeLargestPage,
-  "lizard-index": LizardSpeciesIndexPage,
-  "lizard-identify": LizardIdentifyPage,
+  "amphibian-frogs-index": FrogSpeciesIndexPage,
+  "amphibian-index": AmphibianSpeciesIndexPage,
+  "amphibian-newts": ClusterGuidePage,
   "lizard-glass": LizardComparePage,
+  "lizard-identify": LizardIdentifyPage,
+  "lizard-index": LizardSpeciesIndexPage,
+  "snake-bite": SnakeBitePage,
+  "snake-identify": SnakeIdentifyPage,
+  "snake-index": SnakeSpeciesIndexPage,
+  "snake-largest": SnakeLargestPage,
+  "snake-range": SnakeRangePage,
+  "turtle-identify": TurtleIdentifyPage,
   "turtle-index": TurtleSpeciesIndexPage,
   "turtle-land": ClusterGuidePage,
   "turtle-water": ClusterGuidePage,
-  "turtle-identify": TurtleIdentifyPage,
-  "amphibian-index": AmphibianSpeciesIndexPage,
-  "amphibian-frogs-index": FrogSpeciesIndexPage,
-  "amphibian-newts": ClusterGuidePage,
 };
 
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
@@ -88,39 +90,39 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
     const ogImageTag = guide.heroImage
       ? {
+          alt: t("heroImageAlt"),
+          height: 630,
           url: ogImage,
           width: 1200,
-          height: 630,
-          alt: t("heroImageAlt"),
         }
       : openGraphJpeg(ogImage, title);
 
     return {
-      title,
+      alternates: localeAlternates(locale, guide.pathname),
       description,
       keywords: t("keywords")
         .split(",")
         .map((item) => item.trim())
         .filter(Boolean),
-      alternates: localeAlternates(locale, guide.pathname),
       openGraph: {
-        title,
         description,
-        url,
-        type: "website",
+        images: [ogImageTag],
         locale: openGraphLocale(locale),
         siteName: siteConfig.name,
-        images: [ogImageTag],
-      },
-      twitter: {
-        card: "summary_large_image",
         title,
-        description,
-        images: [ogImage],
+        type: "website",
+        url,
       },
       robots: {
-        index: true,
         follow: true,
+        index: true,
+      },
+      title,
+      twitter: {
+        card: "summary_large_image",
+        description,
+        images: [ogImage],
+        title,
       },
     };
   }
@@ -164,21 +166,21 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       itemListElement: [
         {
           "@type": "ListItem",
-          position: 1,
-          name: tShared("breadcrumbHome"),
           item: absoluteUrl(localePath(locale, "/")),
+          name: tShared("breadcrumbHome"),
+          position: 1,
         },
         {
           "@type": "ListItem",
-          position: 2,
-          name: tParent("breadcrumbCurrent"),
           item: absoluteUrl(localePath(locale, parent.path)),
+          name: tParent("breadcrumbCurrent"),
+          position: 2,
         },
         {
           "@type": "ListItem",
-          position: 3,
-          name: t("breadcrumbCurrent"),
           item: url,
+          name: t("breadcrumbCurrent"),
+          position: 3,
         },
       ],
     };
@@ -188,42 +190,42 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
         ? {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: t("metaTitle"),
-            description: t("metaDescription"),
-            url,
-            isPartOf: { "@id": siteEntityId("website") },
-            author: { "@id": siteEntityId("organization") },
-            publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
               name: georgiaPlaceName(locale),
             },
+            author: { "@id": siteEntityId("organization") },
+            description: t("metaDescription"),
             inLanguage: locale,
+            isPartOf: { "@id": siteEntityId("website") },
             mainEntity: {
               "@type": "ItemList",
-              numberOfItems: species.length,
               itemListElement: species.map((item, index) => ({
                 "@type": "ListItem",
+                name: `${item.commonName} (${item.scientificName})`,
                 position: index + 1,
                 url: speciesPageUrl(locale, item.id),
-                name: `${item.commonName} (${item.scientificName})`,
               })),
+              numberOfItems: species.length,
             },
+            name: t("metaTitle"),
+            publisher: { "@id": siteEntityId("organization") },
+            url,
           }
         : {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: t("metaTitle"),
-            description: t("metaDescription"),
-            url,
-            isPartOf: { "@id": siteEntityId("website") },
-            author: { "@id": siteEntityId("organization") },
-            publisher: { "@id": siteEntityId("organization") },
             about: {
               "@type": "Place",
               name: georgiaPlaceName(locale),
             },
+            author: { "@id": siteEntityId("organization") },
+            description: t("metaDescription"),
             inLanguage: locale,
+            isPartOf: { "@id": siteEntityId("website") },
+            name: t("metaTitle"),
+            publisher: { "@id": siteEntityId("organization") },
+            url,
           };
 
     const faqNumbers = Array.from(
@@ -235,28 +237,28 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       "@type": "FAQPage",
       mainEntity: faqNumbers.map((n) => ({
         "@type": "Question",
-        name: t(`faq${n}Q` as Parameters<typeof t>[0]),
         acceptedAnswer: {
           "@type": "Answer",
           text: t(`faq${n}A` as Parameters<typeof t>[0]),
         },
+        name: t(`faq${n}Q` as Parameters<typeof t>[0]),
       })),
     };
 
     return (
       <>
-        {heroSrc ? <CoverImagePreload src={heroSrc} sizes="100vw" /> : null}
+        {heroSrc ? <CoverImagePreload sizes="100vw" src={heroSrc} /> : null}
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={pageLd} />
         <JsonLd data={faqLd} />
-        <PageView guideId={guideId} species={species} heroSrc={heroSrc} />
+        <PageView guideId={guideId} heroSrc={heroSrc} species={species} />
       </>
     );
   }
 
   return {
-    generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     generateMetadata,
+    generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     Page,
   };
 }

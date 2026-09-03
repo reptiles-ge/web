@@ -1,21 +1,23 @@
 "use client";
 
-import { AtlasSpeciesCard } from "@/components/species-atlas/AtlasSpeciesCard";
+import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
+
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+
+import { AtlasSpeciesCard } from "@/components/species-atlas/AtlasSpeciesCard";
 import {
   initialAtlasVisibleCount,
   nextAtlasVisibleCount,
 } from "@/lib/atlasInfiniteScroll";
-import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
 
 type AtlasSpeciesGridProps = {
-  species: Species[];
   locale: AppLocale;
+  species: Species[];
 };
 
-export function AtlasSpeciesGrid({ species, locale }: AtlasSpeciesGridProps) {
+export function AtlasSpeciesGrid({ locale, species }: AtlasSpeciesGridProps) {
   const t = useTranslations("speciesAtlas");
   const sentinelRef = useRef<HTMLDivElement>(null);
   const [visibleCount, setVisibleCount] = useState(() =>
@@ -56,20 +58,20 @@ export function AtlasSpeciesGrid({ species, locale }: AtlasSpeciesGridProps) {
         {visible.map((item, index) => (
           <li key={item.id}>
             <AtlasSpeciesCard
-              species={item}
-              locale={locale}
-              index={index}
               eager={index < 3}
+              index={index}
+              locale={locale}
+              species={item}
             />
           </li>
         ))}
       </ul>
 
       {hasMore ? (
-        <div ref={sentinelRef} className="h-px w-full" aria-hidden="true" />
+        <div aria-hidden="true" className="h-px w-full" ref={sentinelRef} />
       ) : null}
 
-      <p className="sr-only" aria-live="polite">
+      <p aria-live="polite" className="sr-only">
         {t("showingCount", {
           shown: visible.length,
           total: species.length,

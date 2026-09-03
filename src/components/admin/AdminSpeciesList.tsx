@@ -3,21 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { AdminSpeciesSummary } from "@/lib/adminGalleryMdx";
-import { cn } from "@/lib/cn";
+
 import type { AnimalGroup } from "@/data/speciesAtlas";
+import type { AdminSpeciesSummary } from "@/lib/adminGalleryMdx";
+
+import { cn } from "@/lib/cn";
 
 const GROUP_LABEL: Record<AnimalGroup, string> = {
-  snake: "გველები",
-  lizard: "ხვლიკები",
-  turtle: "კუები",
   amphibian: "ამფიბიები",
   bird: "ფრინველები",
+  lizard: "ხვლიკები",
   mammal: "ძუძუმწოვრები",
+  snake: "გველები",
   spider: "ობობები",
+  turtle: "კუები",
 };
 
-const GROUPS: Array<AnimalGroup | "all"> = [
+const GROUPS: Array<"all" | AnimalGroup> = [
   "all",
   "snake",
   "lizard",
@@ -34,7 +36,7 @@ export function AdminSpeciesList({
   species: AdminSpeciesSummary[];
 }) {
   const [query, setQuery] = useState("");
-  const [group, setGroup] = useState<AnimalGroup | "all">("all");
+  const [group, setGroup] = useState<"all" | AnimalGroup>("all");
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -56,24 +58,24 @@ export function AdminSpeciesList({
           სახელი ან id
         </label>
         <input
+          className="h-11 w-full rounded-lg border border-border bg-card px-3 text-[14px] outline-none focus:border-primary sm:max-w-sm"
           id="admin-species-search"
-          value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="სახელი ან id"
-          className="h-11 w-full rounded-lg border border-border bg-card px-3 text-[14px] outline-none focus:border-primary sm:max-w-sm"
+          value={query}
         />
         <div className="flex flex-wrap gap-1.5">
           {GROUPS.map((item) => (
             <button
-              key={item}
-              type="button"
-              onClick={() => setGroup(item)}
               className={cn(
                 "rounded-full px-3 py-1.5 text-[12px]",
                 group === item
                   ? "bg-foreground text-background"
                   : "bg-secondary text-muted-foreground",
               )}
+              key={item}
+              onClick={() => setGroup(item)}
+              type="button"
             >
               {item === "all" ? "ყველა" : GROUP_LABEL[item]}
             </button>
@@ -87,17 +89,17 @@ export function AdminSpeciesList({
         {filtered.map((item) => (
           <li key={item.id}>
             <Link
-              href={`/admin/${item.id}`}
               className="flex items-center gap-4 px-4 py-3 transition-colors hover:bg-secondary/60"
+              href={`/admin/${item.id}`}
             >
               <span className="media-placeholder relative size-12 shrink-0 overflow-hidden rounded-md bg-secondary">
                 {item.image ? (
                   <Image
-                    src={item.image}
                     alt=""
+                    className="object-cover"
                     fill
                     sizes="48px"
-                    className="object-cover"
+                    src={item.image}
                   />
                 ) : null}
               </span>

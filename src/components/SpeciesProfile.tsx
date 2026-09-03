@@ -1,26 +1,44 @@
 "use client";
 
+import { ArrowUpRight, MapPin } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useMemo } from "react";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
+import { QuizPracticeCta } from "@/components/QuizPracticeCta";
+import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
-import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
-import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesSources } from "@/components/SpeciesSources";
-import { resolvePhotoCredit, type Species } from "@/data/species";
+import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { pictureSources } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { usesDangerScale } from "@/lib/speciesRisk";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import { formatContentDate } from "@/lib/formatDate";
 import { getRegionsForSpecies } from "@/data/regions";
+import { resolvePhotoCredit, type Species } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import {
+  getHubIndexTitleKey,
+  getSpeciesGuideLinks,
+  isSnakeSpecies,
+} from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
+import { dangerPageHref } from "@/lib/dangerLevels";
+import { formatContentDate } from "@/lib/formatDate";
+import {
+  buildSpeciesBreadcrumbs,
+  getSpeciesParentHub,
+} from "@/lib/speciesBreadcrumbs";
 import {
   filterDisplayStats,
   getSpeciesHeroSources,
@@ -29,34 +47,18 @@ import {
   isPlaceholderMedia,
 } from "@/lib/speciesContent";
 import { speciesImageAlt, speciesPhotoAlt } from "@/lib/speciesMeta";
-import {
-  buildSpeciesBreadcrumbs,
-  getSpeciesParentHub,
-} from "@/lib/speciesBreadcrumbs";
+import { usesDangerScale } from "@/lib/speciesRisk";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { dangerPageHref } from "@/lib/dangerLevels";
-import { QuizPracticeCta } from "@/components/QuizPracticeCta";
-import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import {
-  getHubIndexTitleKey,
-  getSpeciesGuideLinks,
-  isSnakeSpecies,
-} from "@/lib/clusterGuides";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
-import { ArrowUpRight, MapPin } from "lucide-react";
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useMemo } from "react";
 
 type SpeciesProfileProps = {
-  species: Species;
   related: Species[];
+  species: Species;
 };
 
 export function SpeciesProfile({
-  species: rawSpecies,
   related: rawRelated,
+  species: rawSpecies,
 }: SpeciesProfileProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("profile");
@@ -75,18 +77,18 @@ export function SpeciesProfile({
     const parent = getSpeciesParentHub(species);
     const groupLabel = tHubs(`hubs.${parent.hubId}`);
     return buildSpeciesBreadcrumbs({
-      species,
-      homeLabel: t("breadcrumbHome"),
-      venomousLabel: t("breadcrumbVenomous"),
       groupLabel,
+      homeLabel: t("breadcrumbHome"),
       indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
+      species,
+      venomousLabel: t("breadcrumbVenomous"),
     });
   }, [species, t, tHubs]);
-  const { gallery, primary, mobileHeroSrc, desktopHeroSrc } =
+  const { desktopHeroSrc, gallery, mobileHeroSrc, primary } =
     getSpeciesHeroSources(species);
   const heroDesktopSources = pictureSources(desktopHeroSrc, {
-    sizes: "100vw",
     media: "(min-width: 1024px)",
+    sizes: "100vw",
   });
   const heroPrimarySources = pictureSources(mobileHeroSrc ?? desktopHeroSrc, {
     sizes: "100vw",
@@ -117,13 +119,13 @@ export function SpeciesProfile({
 
   useEffect(() => {
     trackEvent("species_view", {
-      species_id: species.id,
       group,
+      has_gallery: gallery.length > 0,
+      has_identification: showIdentification,
+      has_range: getRegionsForSpecies(species.id).length > 0,
       page_type: "species",
       scientific_name: species.scientificName,
-      has_gallery: gallery.length > 0,
-      has_range: getRegionsForSpecies(species.id).length > 0,
-      has_identification: showIdentification,
+      species_id: species.id,
     });
   }, [
     species.id,
@@ -136,16 +138,16 @@ export function SpeciesProfile({
     () =>
       [
         {
-          title: t("habitat"),
           body: species.habitat,
           id: "habitat",
+          title: t("habitat"),
         },
-        { title: t("diet"), body: species.diet, id: "diet" },
-        { title: t("behavior"), body: species.behavior, id: "behavior" },
+        { body: species.diet, id: "diet", title: t("diet") },
+        { body: species.behavior, id: "behavior", title: t("behavior") },
         {
-          title: t("conservation"),
           body: species.conservation,
           id: "conservation",
+          title: t("conservation"),
         },
       ].filter((block) => !isPlaceholderBody(block.body)),
     [species.behavior, species.conservation, species.diet, species.habitat, t],
@@ -174,17 +176,17 @@ export function SpeciesProfile({
                 <source key={source.key} {...source.props} />
               ))}
               <img
-                src={mobileHeroSrc ?? desktopHeroSrc}
                 alt={mobileHeroSrc ? mobileImageAlt : imageAlt}
-                fetchPriority="high"
-                decoding="async"
                 className="size-full object-cover text-transparent"
+                decoding="async"
+                fetchPriority="high"
+                src={mobileHeroSrc ?? desktopHeroSrc}
               />
             </picture>
           ) : (
             <div
-              className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_20%,rgba(255,255,255,0.12),transparent_60%),linear-gradient(160deg,#1c1916_0%,#0f0e0c_55%,#171411_100%)]"
               aria-hidden="true"
+              className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_20%,rgba(255,255,255,0.12),transparent_60%),linear-gradient(160deg,#1c1916_0%,#0f0e0c_55%,#171411_100%)]"
             />
           )}
           <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
@@ -196,8 +198,8 @@ export function SpeciesProfile({
             >
               <PhotoCreditCaption
                 credit={heroCredit}
-                variant="hero"
                 speciesId={species.id}
+                variant="hero"
               />
             </div>
           ) : null}
@@ -208,8 +210,8 @@ export function SpeciesProfile({
             >
               <PhotoCreditCaption
                 credit={mobileHeroCredit}
-                variant="hero"
                 speciesId={species.id}
+                variant="hero"
               />
             </div>
           ) : null}
@@ -220,10 +222,10 @@ export function SpeciesProfile({
                   const isLast = index === breadcrumbs.length - 1;
                   return (
                     <li
+                      className="inline-flex items-center gap-2"
                       key={
                         crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name
                       }
-                      className="inline-flex items-center gap-2"
                     >
                       {index > 0 ? (
                         <span aria-hidden="true" className="text-white/30">
@@ -232,15 +234,15 @@ export function SpeciesProfile({
                       ) : null}
                       {crumb.href && !isLast ? (
                         <Link
-                          href={crumb.href}
                           className="transition-colors hover:text-white"
+                          href={crumb.href}
                         >
                           {crumb.name}
                         </Link>
                       ) : (
                         <span
-                          className={isLast ? "text-white/80" : undefined}
                           aria-current={isLast ? "page" : undefined}
+                          className={isLast ? "text-white/80" : undefined}
                         >
                           {crumb.name}
                         </span>
@@ -261,7 +263,7 @@ export function SpeciesProfile({
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
-                <MapPin className="size-3.5 text-white/45" aria-hidden="true" />
+                <MapPin aria-hidden="true" className="size-3.5 text-white/45" />
                 {species.location}
               </span>
               {species.audio ? (
@@ -271,7 +273,7 @@ export function SpeciesProfile({
                 />
               ) : null}
               {usesDangerScale(group) ? (
-                <SpeciesRiskChip species={species} variant="hero" linked />
+                <SpeciesRiskChip linked species={species} variant="hero" />
               ) : null}
             </div>
           </div>
@@ -284,15 +286,15 @@ export function SpeciesProfile({
                 {t("atAGlance")}
               </p>
               <AnchoredHeading
-                id={SPECIES_SECTION_IDS.atAGlance}
-                className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
                 anchorLabel={t("anchorLink")}
+                className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+                id={SPECIES_SECTION_IDS.atAGlance}
               >
                 {t("atAGlanceTitle")}
               </AnchoredHeading>
               <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
                 {displayStats.map((stat) => (
-                  <div key={stat.label} className="bg-background p-6 lg:p-8">
+                  <div className="bg-background p-6 lg:p-8" key={stat.label}>
                     <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
                       {stat.label}
                     </p>
@@ -301,8 +303,8 @@ export function SpeciesProfile({
                       dangerValue &&
                       stat.value === dangerValue ? (
                         <Link
-                          href={dangerPageHref(species.danger)}
                           className="transition-colors hover:text-primary"
+                          href={dangerPageHref(species.danger)}
                         >
                           {stat.value}
                         </Link>
@@ -333,10 +335,10 @@ export function SpeciesProfile({
               {t("overview")}
             </p>
             <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
               id={SPECIES_SECTION_IDS.overview}
               slugSource={`${t("whoIs")} ${species.commonName}`}
-              className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
-              anchorLabel={t("anchorLink")}
             >
               {t("whoIs")} {species.commonName}
             </AnchoredHeading>
@@ -355,11 +357,11 @@ export function SpeciesProfile({
         {gallery.length > 0 ? (
           <SpeciesGallery
             images={gallery}
+            location={species.location}
             name={species.commonName}
             scientificName={species.scientificName}
-            location={species.location}
-            tone="background"
             speciesId={species.id}
+            tone="background"
           />
         ) : null}
 
@@ -370,21 +372,21 @@ export function SpeciesProfile({
 
         {showIdentification && species.identification ? (
           <SpeciesIdentification
-            name={species.commonName}
             identification={species.identification}
+            name={species.commonName}
           />
         ) : null}
 
         {isSnakeSpecies(species) ? (
           <QuizPracticeCta
-            locale={locale}
-            eyebrow={t("quizCtaEyebrow")}
-            title={t("quizCtaTitle")}
             body={t("quizCtaBody", { name: species.commonName })}
-            cta={t("quizCta")}
             className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
+            cta={t("quizCta")}
+            eyebrow={t("quizCtaEyebrow")}
+            locale={locale}
             source="species"
             speciesId={species.id}
+            title={t("quizCtaTitle")}
           />
         ) : null}
 
@@ -400,9 +402,9 @@ export function SpeciesProfile({
                 {t("biology")}
               </p>
               <AnchoredHeading
-                id={SPECIES_SECTION_IDS.biology}
-                className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
                 anchorLabel={t("anchorLink")}
+                className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+                id={SPECIES_SECTION_IDS.biology}
               >
                 {t("biologyTitle")}
               </AnchoredHeading>
@@ -420,10 +422,10 @@ export function SpeciesProfile({
               >
                 {biologyBlocks.map((block) => (
                   <BiologyBlock
-                    key={block.title}
-                    title={block.title}
                     body={block.body}
                     headingId={block.id}
+                    key={block.title}
+                    title={block.title}
                   />
                 ))}
               </div>
@@ -433,9 +435,9 @@ export function SpeciesProfile({
 
         {species.faq && species.faq.length > 0 ? (
           <SpeciesFaqSection
+            entityId={species.id}
             items={species.faq}
             name={species.commonName}
-            entityId={species.id}
             pageType="species"
           />
         ) : null}
@@ -461,8 +463,8 @@ export function SpeciesProfile({
               </h2>
               <RelatedGuideGrid
                 cards={guideLinks}
-                locale={locale}
                 className="mt-8"
+                locale={locale}
               />
             </div>
           </section>
@@ -477,16 +479,16 @@ export function SpeciesProfile({
                     {t("related")}
                   </p>
                   <AnchoredHeading
-                    id={SPECIES_SECTION_IDS.related}
-                    className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]"
                     anchorLabel={t("anchorLink")}
+                    className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]"
+                    id={SPECIES_SECTION_IDS.related}
                   >
                     {t("relatedTitle")}
                   </AnchoredHeading>
                 </div>
                 <Link
-                  href="/species"
                   className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
+                  href="/species"
                 >
                   {t("allSpecies")}
                   <ArrowUpRight className="size-3.5" />
@@ -502,32 +504,32 @@ export function SpeciesProfile({
                         : null;
                   return (
                     <Link
-                      key={item.id}
+                      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
                       href={speciesHref(item.id, locale)}
+                      key={item.id}
                       onClick={() =>
                         trackSpeciesClick({
-                          species_id: item.id,
-                          source: "related",
                           position: relatedIndex + 1,
+                          source: "related",
+                          species_id: item.id,
                         })
                       }
-                      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
                     >
                       {cover ? (
                         <CoverImage
-                          src={cover}
                           alt={speciesImageAlt(
                             item.commonName,
                             item.scientificName,
                             item.location,
                           )}
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          src={cover}
                         />
                       ) : (
                         <div
-                          className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
                           aria-hidden="true"
+                          className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
                         />
                       )}
                       <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />

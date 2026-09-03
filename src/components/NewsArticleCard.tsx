@@ -1,13 +1,15 @@
-import { CoverImage } from "@/components/CoverImage";
+import { ArrowRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+
 import type { NewsArticle } from "@/data/news";
+import type { AppLocale } from "@/i18n/routing";
+
+import { CoverImage } from "@/components/CoverImage";
 import { newsLocalizedDek, newsLocalizedTitle } from "@/data/news";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref } from "@/lib/news";
 import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
-import { ArrowRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
 
 type NewsArticleCardProps = {
   article: NewsArticle;
@@ -61,17 +63,17 @@ export async function NewsArticleCard({
     return (
       <article>
         <Link
-          href={newsArticleHref(article.slug)}
           className="group grid gap-8 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16"
+          href={newsArticleHref(article.slug)}
         >
           {visual ? (
             <div className="relative aspect-16/10 overflow-hidden rounded-xl bg-ink sm:aspect-5/3 lg:aspect-4/3">
               <CoverImage
-                src={visual.src}
                 alt={visual.alt}
-                sizes="(max-width: 1023px) 100vw, 58vw"
-                priority
                 className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                priority
+                sizes="(max-width: 1023px) 100vw, 58vw"
+                src={visual.src}
               />
             </div>
           ) : null}
@@ -96,16 +98,16 @@ export async function NewsArticleCard({
   return (
     <article className="h-full">
       <Link
-        href={newsArticleHref(article.slug)}
         className="group flex h-full flex-col focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none"
+        href={newsArticleHref(article.slug)}
       >
         {visual ? (
           <div className="relative aspect-16/10 overflow-hidden rounded-xl bg-ink">
             <CoverImage
-              src={visual.src}
               alt={visual.alt}
-              sizes="(max-width: 639px) 100vw, 50vw"
               className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+              sizes="(max-width: 639px) 100vw, 50vw"
+              src={visual.src}
             />
           </div>
         ) : null}

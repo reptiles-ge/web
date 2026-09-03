@@ -1,23 +1,24 @@
-import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
+import { Link } from "@/i18n/navigation";
+
 const hubs = [
-  { key: "species" as const, href: "/species" },
-  { key: "snakes" as const, href: "/snakes" },
-  { key: "lizards" as const, href: "/lizards" },
-  { key: "turtles" as const, href: "/turtles" },
-  { key: "amphibians" as const, href: "/amphibians" },
-  { key: "birds" as const, href: "/birds" },
-  { key: "mammals" as const, href: "/mammals" },
-  { key: "spiders" as const, href: "/spiders" },
-  { key: "venomous" as const, href: "/venomous-snakes" },
-  { key: "identify" as const, href: "/snakes/shxamiani-gvelis-amocnoba" },
-  { key: "bite" as const, href: "/snakes/gvelis-nakbeni" },
-  { key: "yard" as const, href: "/snakes-in-the-yard" },
-  { key: "lizardIdentify" as const, href: "/lizards/identifikacia" },
-  { key: "frogs" as const, href: "/amphibians/bayayi" },
-  { key: "turtleIdentify" as const, href: "/turtles/identifikacia" },
-  { key: "regions" as const, href: "/regions" },
+  { href: "/species", key: "species" as const },
+  { href: "/snakes", key: "snakes" as const },
+  { href: "/lizards", key: "lizards" as const },
+  { href: "/turtles", key: "turtles" as const },
+  { href: "/amphibians", key: "amphibians" as const },
+  { href: "/birds", key: "birds" as const },
+  { href: "/mammals", key: "mammals" as const },
+  { href: "/spiders", key: "spiders" as const },
+  { href: "/venomous-snakes", key: "venomous" as const },
+  { href: "/snakes/shxamiani-gvelis-amocnoba", key: "identify" as const },
+  { href: "/snakes/gvelis-nakbeni", key: "bite" as const },
+  { href: "/snakes-in-the-yard", key: "yard" as const },
+  { href: "/lizards/identifikacia", key: "lizardIdentify" as const },
+  { href: "/amphibians/bayayi", key: "frogs" as const },
+  { href: "/turtles/identifikacia", key: "turtleIdentify" as const },
+  { href: "/regions", key: "regions" as const },
 ] as const;
 
 export async function HomeSeo() {
@@ -41,8 +42,8 @@ export async function HomeSeo() {
             {hubs.map((hub) => (
               <li key={hub.key}>
                 <Link
-                  href={hub.href}
                   className="text-[14px] text-foreground/80 underline decoration-border underline-offset-[5px] transition-colors hover:text-primary hover:decoration-primary/40 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                  href={hub.href}
                 >
                   {t(`links.${hub.key}`)}
                 </Link>

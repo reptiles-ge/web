@@ -1,10 +1,11 @@
-import { CoverImage } from "@/components/CoverImage";
-import { CoverImagePreload } from "@/components/CoverImagePreload";
-import { getAtlasStats } from "@/data/speciesAtlas";
-import { images } from "@/data/species";
-import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+
+import { CoverImage } from "@/components/CoverImage";
+import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { images } from "@/data/species";
+import { getAtlasStats } from "@/data/speciesAtlas";
+import { Link } from "@/i18n/navigation";
 
 export async function Hero() {
   const t = await getTranslations("hero");
@@ -13,17 +14,17 @@ export async function Hero() {
 
   return (
     <section
-      id="top"
       className="relative flex min-h-136 w-full items-end overflow-hidden bg-ink pt-28 pb-12 sm:min-h-152 sm:pb-16 lg:h-[88svh] lg:max-h-216 lg:items-end lg:pt-32 lg:pb-20"
+      id="top"
     >
-      <CoverImagePreload src={images.hero} sizes="100vw" />
+      <CoverImagePreload sizes="100vw" src={images.hero} />
       <div className="absolute inset-0">
         <CoverImage
-          src={images.hero}
           alt={t("imageAlt")}
+          className="hero-drift scale-105 object-cover object-[center_35%]"
           priority
           sizes="100vw"
-          className="hero-drift scale-105 object-cover object-[center_35%]"
+          src={images.hero}
         />
       </div>
       <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/45 to-black/25" />
@@ -55,15 +56,15 @@ export async function Hero() {
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
           <Link
-            href="/species"
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-[14px] font-medium text-ink transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none motion-safe:hover:scale-[1.02]"
+            href="/species"
           >
             {t("viewSpecies")}
-            <ArrowRight className="size-4" aria-hidden="true" />
+            <ArrowRight aria-hidden="true" className="size-4" />
           </Link>
           <Link
-            href="/regions"
             className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3 text-[14px] font-medium text-white/90 transition-colors hover:border-white/50 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
+            href="/regions"
           >
             {t("exploreRegions")}
           </Link>

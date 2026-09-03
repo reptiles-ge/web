@@ -1,51 +1,53 @@
 "use client";
 
+import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { type ReactNode, useState } from "react";
+
+import type { AppLocale } from "@/i18n/routing";
+
 import {
-  ClusterSectionIntro,
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
+  CLUSTER_FAQ_BODY,
+  CLUSTER_FAQ_TITLE,
   CLUSTER_HERO_BODY,
   CLUSTER_HERO_EYEBROW,
   CLUSTER_HERO_TITLE,
-  CLUSTER_FAQ_BODY,
-  CLUSTER_FAQ_TITLE,
   CLUSTER_TITLE_RELATED,
+  ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import {
   CLUSTER_GUIDES,
-  getRelatedGuideCards,
   type ClusterGuideId,
+  getRelatedGuideCards,
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { GROUP_HUBS } from "@/lib/groupHubs";
-import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useState, type ReactNode } from "react";
 
 type ClusterPageFrameProps = {
-  guideId: ClusterGuideId;
-  heroSrc: string;
-  ctaHash?: string;
-  heroObjectClass?: string;
-  stats?: ReactNode;
   attributionSourcesHref?: string;
   children: ReactNode;
+  ctaHash?: string;
+  guideId: ClusterGuideId;
+  heroObjectClass?: string;
+  heroSrc: string;
+  stats?: ReactNode;
 };
 
 export function ClusterPageFrame({
-  guideId,
-  heroSrc,
-  ctaHash = "#content",
-  heroObjectClass = "object-[50%_35%]",
-  stats,
   attributionSourcesHref,
   children,
+  ctaHash = "#content",
+  guideId,
+  heroObjectClass = "object-[50%_35%]",
+  heroSrc,
+  stats,
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
@@ -63,11 +65,11 @@ export function ClusterPageFrame({
           style={{ paddingTop: "7rem" }}
         >
           <CoverImage
-            src={heroSrc}
             alt={t("heroImageAlt")}
+            className={cn("object-cover", heroObjectClass)}
             priority
             sizes="100vw"
-            className={cn("object-cover", heroObjectClass)}
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
@@ -78,8 +80,8 @@ export function ClusterPageFrame({
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
                     <Link
-                      href="/"
                       className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                      href="/"
                     >
                       <ArrowLeft className="size-3.5" />
                       {tShared("breadcrumbHome")}
@@ -90,8 +92,8 @@ export function ClusterPageFrame({
                   </li>
                   <li>
                     <Link
-                      href={parent.path}
                       className="transition-colors hover:text-white"
+                      href={parent.path}
                     >
                       {tParent("breadcrumbCurrent")}
                     </Link>
@@ -115,24 +117,24 @@ export function ClusterPageFrame({
               <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
                 {guide.primaryCta === "tel" ? (
                   <a
-                    href="tel:112"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                    href="tel:112"
                   >
                     {t("ctaSpecies")}
                     <ArrowRight className="size-4" />
                   </a>
                 ) : (
                   <a
-                    href={ctaHash}
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                    href={ctaHash}
                   >
                     {t("ctaSpecies")}
                     <ArrowRight className="size-4" />
                   </a>
                 )}
                 <Link
-                  href={parent.path}
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  href={parent.path}
                 >
                   {t("ctaParent")}
                 </Link>
@@ -150,12 +152,12 @@ export function ClusterPageFrame({
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <Reveal>
                 <ClusterSectionIntro
-                  eyebrow={tShared("relatedGuidesEyebrow")}
-                  title={tShared("relatedGuidesTitle")}
                   body={tShared("relatedGuidesBody")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  titleClassName={CLUSTER_TITLE_RELATED}
                   bodyClassName={CLUSTER_BODY}
+                  eyebrow={tShared("relatedGuidesEyebrow")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  title={tShared("relatedGuidesTitle")}
+                  titleClassName={CLUSTER_TITLE_RELATED}
                 />
               </Reveal>
               <RelatedGuideGrid cards={relatedGuides} locale={locale} />
@@ -169,34 +171,34 @@ export function ClusterPageFrame({
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage
-            src={heroSrc}
             alt=""
-            sizes="100vw"
-            className="object-cover opacity-50"
             aria-hidden
+            className="object-cover opacity-50"
+            sizes="100vw"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("ctaEyebrow")}
-                title={t("ctaTitle")}
                 body={t("ctaBody")}
-                eyebrowClassName={CLUSTER_HERO_EYEBROW}
-                titleClassName={CLUSTER_HERO_TITLE}
                 bodyClassName={CLUSTER_HERO_BODY}
+                eyebrow={t("ctaEyebrow")}
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                title={t("ctaTitle")}
+                titleClassName={CLUSTER_HERO_TITLE}
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href={parent.path}
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href={parent.path}
                 >
                   {t("ctaParent")}
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
-                  href="/species"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  href="/species"
                 >
                   {tShared("ctaAllSpecies")}
                 </Link>
@@ -212,7 +214,7 @@ export function ClusterPageFrame({
 function ClusterFaq({ guideId }: { guideId: ClusterGuideId }) {
   const guide = CLUSTER_GUIDES[guideId];
   const t = useTranslations(guide.messageKey);
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
   const items = Array.from({ length: guide.faqCount }, (_, index) => index + 1);
 
   return (
@@ -221,12 +223,12 @@ function ClusterFaq({ guideId }: { guideId: ClusterGuideId }) {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("faqEyebrow")}
-              title={t("faqTitle")}
               body={t("faqIntro")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_FAQ_TITLE}
               bodyClassName={CLUSTER_FAQ_BODY}
+              eyebrow={t("faqEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("faqTitle")}
+              titleClassName={CLUSTER_FAQ_TITLE}
             />
           </Reveal>
           <div>
@@ -235,13 +237,13 @@ function ClusterFaq({ guideId }: { guideId: ClusterGuideId }) {
               const qKey = `faq${n}Q` as Parameters<typeof t>[0];
               const aKey = `faq${n}A` as Parameters<typeof t>[0];
               return (
-                <Reveal key={n} delay={index * 50}>
+                <Reveal delay={index * 50} key={n}>
                   <div className="border-t border-border last:border-b">
                     <button
-                      type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                      onClick={() => setOpen(isOpen ? null : index)}
+                      type="button"
                     >
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(qKey)}

@@ -1,5 +1,12 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useMemo } from "react";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
   CLUSTER_EYEBROW,
@@ -14,25 +21,20 @@ import { getRegionContent } from "@/data/regionContent";
 import {
   getRegionsForSpecies,
   localizeRegionText,
-  regions,
   type Region,
+  regions,
 } from "@/data/regions";
-import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import {
-  getRegionSnakeSpecies,
   type ClusterGuideViewProps,
+  getRegionSnakeSpecies,
 } from "@/lib/clusterGuides";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
-import { ArrowUpRight } from "lucide-react";
-import { useMemo } from "react";
-import { useLocale, useTranslations } from "next-intl";
 
 export function SnakeRangePage({
   guideId,
-  species,
   heroSrc,
+  species,
 }: ClusterGuideViewProps) {
   const t = useTranslations("snakeRange");
   const tShared = useTranslations("groupHubShared");
@@ -51,18 +53,18 @@ export function SnakeRangePage({
 
   return (
     <ClusterPageFrame
-      guideId={guideId}
-      heroSrc={heroSrc}
       ctaHash="#regions"
+      guideId={guideId}
       heroObjectClass="object-[55%_68%]"
+      heroSrc={heroSrc}
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat value={regions.length} label={t("statRegions")} />
-            <ClusterStat value={mappedCount} label={t("statMapped")} />
+            <ClusterStat label={t("statRegions")} value={regions.length} />
+            <ClusterStat label={t("statMapped")} value={mappedCount} />
             <ClusterStat
-              value={species.length - mappedCount}
               label={t("statPending")}
+              value={species.length - mappedCount}
             />
           </div>
         </section>
@@ -74,8 +76,8 @@ export function SnakeRangePage({
             <Reveal>
               <ClusterSectionIntro
                 eyebrow={t("guideEyebrow")}
-                title={t("guideTitle")}
                 eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("guideTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
             </Reveal>
@@ -91,8 +93,8 @@ export function SnakeRangePage({
 
       <section className="map-explorer relative overflow-hidden border-t border-border py-20 lg:py-28">
         <div
-          className="map-explorer-texture pointer-events-none absolute inset-0"
           aria-hidden="true"
+          className="map-explorer-texture pointer-events-none absolute inset-0"
         />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal className="mx-auto max-w-2xl text-center">
@@ -108,34 +110,34 @@ export function SnakeRangePage({
           </Reveal>
           <div className="mt-12 lg:mt-16">
             <GeorgiaMap
-              selectionMode="navigate"
-              mapContext="guide"
               highlightedIds={highlightedIds}
+              mapContext="guide"
+              selectionMode="navigate"
             />
           </div>
         </div>
       </section>
 
       <section
-        id="regions"
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+        id="regions"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
               eyebrow={t("listEyebrow")}
-              title={t("listTitle")}
               eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("listTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
           <ul className="mt-14 divide-y divide-border border-y border-border">
             {regions.map((region, index) => (
-              <Reveal key={region.id} delay={Math.min(index * 25, 200)}>
+              <Reveal delay={Math.min(index * 25, 200)} key={region.id}>
                 <RegionSnakeRow
-                  region={region}
                   locale={locale}
                   pending={tShared("rangePending")}
+                  region={region}
                   snakeCountLabel={t("snakeCount", {
                     count: getRegionSnakeSpecies(region).length,
                   })}
@@ -150,14 +152,14 @@ export function SnakeRangePage({
 }
 
 function RegionSnakeRow({
-  region,
   locale,
   pending,
+  region,
   snakeCountLabel,
 }: {
-  region: Region;
   locale: AppLocale;
   pending: string;
+  region: Region;
   snakeCountLabel: string;
 }) {
   const snakes = getRegionSnakeSpecies(region);
@@ -170,8 +172,8 @@ function RegionSnakeRow({
       <div className="flex items-start justify-between gap-6">
         <div className="min-w-0 flex-1">
           <Link
-            href={regionHref(region.id)}
             className="group inline-flex flex-wrap items-baseline gap-x-3 gap-y-1"
+            href={regionHref(region.id)}
           >
             <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
               {name}
@@ -190,7 +192,7 @@ function RegionSnakeRow({
             <ul className="mt-4 flex flex-wrap gap-2">
               {snakes.map((item) => (
                 <li key={item.id}>
-                  <SpeciesChip species={item} locale={locale} />
+                  <SpeciesChip locale={locale} species={item} />
                 </li>
               ))}
             </ul>
@@ -202,16 +204,16 @@ function RegionSnakeRow({
 }
 
 function SpeciesChip({
-  species,
   locale,
+  species,
 }: {
-  species: Species;
   locale: AppLocale;
+  species: Species;
 }) {
   return (
     <Link
-      href={speciesHref(species.id, locale)}
       className="inline-flex rounded-full border border-border bg-background px-3 py-1.5 text-[12px] text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+      href={speciesHref(species.id, locale)}
     >
       {species.commonName}
     </Link>

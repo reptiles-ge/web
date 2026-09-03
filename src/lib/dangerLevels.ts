@@ -9,9 +9,9 @@ export const DANGER_LEVEL_ORDER = [
 ] as const satisfies readonly DangerLevel[];
 
 export const DANGER_LEVEL_HASH: Record<DangerLevel, string> = {
+  Harmless: "harmless",
   High: "high",
   Moderate: "moderate",
-  Harmless: "harmless",
 };
 
 export const HARMLESS_EXAMPLE_IDS = [
@@ -28,7 +28,7 @@ export function dangerPageHref(level?: DangerLevel) {
   }
 
   return {
-    pathname: DANGER_PAGE_PATH,
     hash: DANGER_LEVEL_HASH[level],
+    pathname: DANGER_PAGE_PATH,
   };
 }

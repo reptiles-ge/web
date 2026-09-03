@@ -1,12 +1,13 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+
 import {
   resetReportedKeys,
   startAxeScanner,
   stopAxeScanner,
 } from "@/lib/axeDev";
-import { useEffect } from "react";
 
 export function AxeDevConsole() {
   const pathname = usePathname();

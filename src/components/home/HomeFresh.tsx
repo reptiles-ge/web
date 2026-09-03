@@ -1,18 +1,20 @@
+import { ArrowUpRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getNewsCopy, getPublishedNewsArticles } from "@/data/news";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
-import type { Species } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref, newsIndexHref } from "@/lib/news";
 import { getNewsVisual } from "@/lib/newsVisual";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { Link } from "@/i18n/navigation";
-import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 
 export async function HomeFresh() {
   const locale = (await getLocale()) as AppLocale;
@@ -48,11 +50,11 @@ export async function HomeFresh() {
           </div>
           {lead ? (
             <Link
-              href={newsIndexHref()}
               className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              href={newsIndexHref()}
             >
               {tNews("allNews")}
-              <ArrowUpRight className="size-3.5" aria-hidden="true" />
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
             </Link>
           ) : null}
         </div>
@@ -61,16 +63,16 @@ export async function HomeFresh() {
           {lead && leadCopy ? (
             <article>
               <Link
-                href={newsArticleHref(lead.slug)}
                 className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href={newsArticleHref(lead.slug)}
               >
                 {leadVisual ? (
                   <div className="relative aspect-16/10 overflow-hidden bg-surface">
                     <CoverImage
-                      src={leadVisual.src}
                       alt={leadVisual.alt}
-                      sizes="(max-width: 1023px) 100vw, 60vw"
                       className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
+                      sizes="(max-width: 1023px) 100vw, 60vw"
+                      src={leadVisual.src}
                     />
                   </div>
                 ) : null}
@@ -93,8 +95,8 @@ export async function HomeFresh() {
                     return (
                       <li key={article.slug}>
                         <Link
-                          href={newsArticleHref(article.slug)}
                           className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                          href={newsArticleHref(article.slug)}
                         >
                           <p className="text-[12px] text-muted-foreground">
                             <time dateTime={article.publishedAt}>
@@ -127,22 +129,22 @@ export async function HomeFresh() {
                   return (
                     <li key={species.id}>
                       <TrackedSpeciesLink
-                        speciesId={species.id}
-                        locale={locale}
-                        source="home_fresh"
-                        position={index + 1}
                         className="group flex items-center gap-4 py-4 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                        locale={locale}
+                        position={index + 1}
+                        source="home_fresh"
+                        speciesId={species.id}
                       >
                         <span className="relative size-16 shrink-0 overflow-hidden bg-ink sm:size-18">
                           <CoverImage
-                            src={cover ?? species.image}
                             alt={speciesImageAlt(
                               species.commonName,
                               species.scientificName,
                               species.location,
                             )}
-                            sizes="72px"
                             className="object-cover"
+                            sizes="72px"
+                            src={cover ?? species.image}
                           />
                         </span>
                         <span className="min-w-0">
@@ -153,8 +155,8 @@ export async function HomeFresh() {
                             {species.scientificName}
                           </span>
                           <time
-                            dateTime={species.updatedAt}
                             className="mt-1 block text-[12px] text-muted-foreground"
+                            dateTime={species.updatedAt}
                           >
                             {formatContentDate(species.updatedAt, locale)}
                           </time>

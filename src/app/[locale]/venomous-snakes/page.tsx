@@ -1,11 +1,17 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
-import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   absoluteUrl,
   localeAlternates,
@@ -16,10 +22,6 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -27,10 +29,6 @@ type Props = {
 
 const PATH = "/venomous-snakes";
 const OG_SPECIES = "macrovipera-lebetina";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
@@ -45,33 +43,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
 
   return {
-    title,
+    alternates: localeAlternates(locale, PATH),
     description,
     keywords: t("keywords")
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean),
-    alternates: localeAlternates(locale, PATH),
     openGraph: {
-      title,
       description,
-      url,
-      type: "website",
+      images: [openGraphJpeg(ogImage, title)],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
-      images: [openGraphJpeg(ogImage, title)],
-    },
-    twitter: {
-      card: "summary_large_image",
       title,
-      description,
-      images: [ogImage],
+      type: "website",
+      url,
     },
     robots: {
-      index: true,
       follow: true,
+      index: true,
+    },
+    title,
+    twitter: {
+      card: "summary_large_image",
+      description,
+      images: [ogImage],
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function VenomousSnakesRoute({ params }: Props) {
@@ -101,21 +103,21 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: t("breadcrumbHome"),
         item: absoluteUrl(localePath(locale, "/")),
+        name: t("breadcrumbHome"),
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: tSnakes("breadcrumbCurrent"),
         item: absoluteUrl(localePath(locale, "/snakes")),
+        name: tSnakes("breadcrumbCurrent"),
+        position: 2,
       },
       {
         "@type": "ListItem",
-        position: 3,
-        name: t("breadcrumbCurrent"),
         item: url,
+        name: t("breadcrumbCurrent"),
+        position: 3,
       },
     ],
   };
@@ -125,47 +127,47 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     "@type": "FAQPage",
     mainEntity: ([1, 2, 3, 4, 5] as const).map((n) => ({
       "@type": "Question",
-      name: t(`faq${n}Q`),
       acceptedAnswer: {
         "@type": "Answer",
         text: t(`faq${n}A`),
       },
+      name: t(`faq${n}Q`),
     })),
   };
 
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: t("metaTitle"),
-    description: t("metaDescription"),
-    url,
-    isPartOf: { "@id": siteEntityId("website") },
-    author: { "@id": siteEntityId("organization") },
-    publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Place",
       name: georgiaPlaceName(locale),
     },
+    author: { "@id": siteEntityId("organization") },
+    description: t("metaDescription"),
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: venomous.length,
       itemListElement: venomous.map((item, index) => ({
         "@type": "ListItem",
+        name: `${item.commonName} (${item.scientificName})`,
         position: index + 1,
         url: speciesPageUrl(locale, item.id),
-        name: `${item.commonName} (${item.scientificName})`,
       })),
+      numberOfItems: venomous.length,
     },
-    inLanguage: locale,
+    name: t("metaTitle"),
+    publisher: { "@id": siteEntityId("organization") },
+    url,
   };
 
   return (
     <>
-      {heroSrc ? <CoverImagePreload src={heroSrc} sizes="100vw" /> : null}
+      {heroSrc ? <CoverImagePreload sizes="100vw" src={heroSrc} /> : null}
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <VenomousSnakesPage species={venomous} heroSrc={heroSrc} />
+      <VenomousSnakesPage heroSrc={heroSrc} species={venomous} />
     </>
   );
 }

@@ -5,24 +5,24 @@ import {
   type Species,
 } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   ANIMAL_GROUP_TO_HUB,
-  RESERVED_HUB_SLUGS,
   type GroupHubId,
+  RESERVED_HUB_SLUGS,
 } from "@/lib/groupHubs";
 import { kaToSlug } from "@/lib/slugify";
 
 export type SpeciesHref = {
+  params: { slug: string };
   pathname:
-    | "/snakes/[slug]"
-    | "/lizards/[slug]"
-    | "/turtles/[slug]"
     | "/amphibians/[slug]"
     | "/birds/[slug]"
+    | "/lizards/[slug]"
     | "/mammals/[slug]"
-    | "/spiders/[slug]";
-  params: { slug: string };
+    | "/snakes/[slug]"
+    | "/spiders/[slug]"
+    | "/turtles/[slug]";
 };
 
 const KA_SLUG_OVERRIDES: Record<string, string> = {
@@ -33,51 +33,25 @@ const KA_SLUG_OVERRIDES: Record<string, string> = {
 };
 
 const KA_SLUG_ALIASES: Record<string, string[]> = {
-  "pelodytes-caucasicus": ["kavkasiuri-jvarula"],
-  "ficedula-hypoleuca": ["chreli-buzicheria"],
-  "ficedula-semitorquata": [
-    "naxevartetqela-mematlia",
-    "naxevartetqela-buzicheria",
+  "accipiter-gentilis": [
+    "didi-kori",
+    "goshawk",
+    "northern-goshawk",
+    "eurasian-goshawk",
+    "astur-gentilis",
   ],
-  "erithacus-rubecula": ["gultitela", "bultsitela", "european-robin", "robin"],
-  "sciurus-anomalus": ["sparsuli-tsiqvi"],
-  "capreolus-capreolus": ["shveli"],
-  "ursus-arctos": ["datvi", "mura-dathvi"],
-  "canis-aureus": ["tura"],
-  "panthera-pardus": ["jiqi", "jiki", "leopardi", "kavkasiuri-jiqi"],
-  "lynx-lynx": ["fotsxveri", "lynx", "evraziuli-fotsxveri"],
-  "sus-scrofa": ["taxi", "gareuli-gori"],
-  "erinaceus-concolor": [
-    "evropuli-zgarbi",
-    "tetrmkerda-zgharbi",
-    "aghmosavletevropuli-zgharbi",
+  "accipiter-nisus": ["mimino", "korisebri-mimino"],
+  "aegolius-funereus": [
+    "bukioti",
+    "mikoti",
+    "omidi",
+    "boreal-owl",
+    "tengmalms-owl",
   ],
-  "canis-lupus": ["mgeli"],
-  "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
-  "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
-  "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
-  "dendrocopos-major": [
-    "chreli-kodala",
-    "didi-kodala",
-    "great-spotted-woodpecker",
-  ],
-  "upupa-epops": [
-    "hoopoe",
-    "eurasian-hoopoe",
-    "common-hoopoe",
-    "chveulebrivi-ofofi",
-    "udod",
-    "ibibik",
-  ],
+  "aegypius-monachus": ["cinereous-vulture", "black-vulture", "shavi-svavi"],
+  "anas-platyrhynchos": ["gareuli-ikhvi", "ikhvi", "mallard"],
   "apus-apus": ["chveulebrivi-namgala", "namgala"],
-  "streptopelia-turtur": ["gvriti", "chveulebrivi-gvriti"],
-  "columba-palumbus": [
-    "kedani",
-    "tqis-mtredi",
-    "woodpigeon",
-    "common-woodpigeon",
-    "wood-pigeon",
-  ],
+  "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
   "argiope-bruennichi": [
     "argiopa",
     "brunnikis-argiopa",
@@ -92,6 +66,75 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "black-lobed-argiope",
     "loblu-orumcek",
   ],
+  "athene-noctua": ["choti", "little-owl", "buknacho"],
+  "bubo-bubo": [
+    "chveulebrivi-zarnasho",
+    "eagle-owl",
+    "eurasian-eagle-owl",
+    "filin",
+    "puhu",
+  ],
+  "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
+  "canis-aureus": ["tura"],
+  "canis-lupus": ["mgeli"],
+  "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
+  "capreolus-capreolus": ["shveli"],
+  "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
+  "columba-palumbus": [
+    "kedani",
+    "tqis-mtredi",
+    "woodpigeon",
+    "common-woodpigeon",
+    "wood-pigeon",
+  ],
+  "corvus-corax": ["qorani", "northern-raven", "common-raven", "raven"],
+  "coturnix-coturnix": ["mtsqeri", "mwyeri"],
+  "dendrocopos-major": [
+    "chreli-kodala",
+    "didi-kodala",
+    "great-spotted-woodpecker",
+  ],
+  "erinaceus-concolor": [
+    "evropuli-zgarbi",
+    "tetrmkerda-zgharbi",
+    "aghmosavletevropuli-zgharbi",
+  ],
+  "erithacus-rubecula": ["gultitela", "bultsitela", "european-robin", "robin"],
+  "falco-peregrinus": [
+    "shavardeni",
+    "chveulebrivi-shavardeni",
+    "peregrine",
+    "peregrine-falcon",
+  ],
+  "ficedula-hypoleuca": ["chreli-buzicheria"],
+  "ficedula-semitorquata": [
+    "naxevartetqela-mematlia",
+    "naxevartetqela-buzicheria",
+  ],
+  "garrulus-glandarius": ["japara", "chxikvi"],
+  "glareola-pratincola": [
+    "mertsxala",
+    "mdelos-mertsxala",
+    "zhghalfrtiana-mertsxala",
+    "mertskhala",
+    "mdelos-mertskhala",
+    "collared-pratincole",
+  ],
+  "gyps-fulvus": [
+    "orbi",
+    "tetrtava-orbi",
+    "chveulebrivi-orbi",
+    "griffon",
+    "eurasian-griffon",
+  ],
+  "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
+  "larus-fuscus": [
+    "shavzurga-tolia",
+    "lesser-black-backed-gull",
+    "baltic-gull",
+    "heuglini",
+    "klusha",
+  ],
   "latrodectus-tredecimguttatus": [
     "shavi-qvrivi",
     "qaraqurti",
@@ -101,6 +144,50 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "european-black-widow",
     "mediterranean-black-widow",
   ],
+  "luscinia-megarhynchos": [
+    "samxretuli-bulbuli",
+    "samhruli-bulbuli",
+    "iadoni",
+    "nightingale",
+    "common-nightingale",
+    "rufous-nightingale",
+  ],
+  "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
+  "lynx-lynx": ["fotsxveri", "lynx", "evraziuli-fotsxveri"],
+  "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
+  "milvus-migrans": [
+    "dzera",
+    "black-kite",
+    "eurasian-black-kite",
+    "milvus-korschun",
+  ],
+  "motacilla-alba": [
+    "tetri-bolokankara",
+    "tetri-boloqanqara",
+    "white-wagtail",
+    "pied-wagtail",
+  ],
+  "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
+  "panthera-pardus": ["jiqi", "jiki", "leopardi", "kavkasiuri-jiqi"],
+  "pelodytes-caucasicus": ["kavkasiuri-jvarula"],
+  "pernis-apivorus": [
+    "kvernachamia",
+    "krazanachamia",
+    "irao",
+    "chveulebrivi-bolokarkazi",
+    "tsudkora",
+    "honey-buzzard",
+    "european-honey-buzzard",
+  ],
+  "phasianus-colchicus": [
+    "khokhobi",
+    "kolkhuri-khokhobi",
+    "common-pheasant",
+    "pheasant",
+  ],
+  "pica-pica": ["kachkachi", "eurasian-magpie", "common-magpie"],
+  "procyon-lotor": ["enoti", "chveulebrivi-enoti", "raccoon", "racoon"],
+  "sciurus-anomalus": ["sparsuli-tsiqvi"],
   "steatoda-paykulliana": [
     "tsru-qaraqurti",
     "tsru-shavi-qvrivi",
@@ -111,296 +198,41 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "yalancı-kara-dul",
     "lozhnyi-karakurt",
   ],
+  "streptopelia-turtur": ["gvriti", "chveulebrivi-gvriti"],
   "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
-  "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
-  "aegolius-funereus": [
-    "bukioti",
-    "mikoti",
-    "omidi",
-    "boreal-owl",
-    "tengmalms-owl",
-  ],
-  "tyto-alba": ["buxrintsa", "bukhrintsa", "barn-owl", "western-barn-owl"],
-  "athene-noctua": ["choti", "little-owl", "buknacho"],
-  "bubo-bubo": [
-    "chveulebrivi-zarnasho",
-    "eagle-owl",
-    "eurasian-eagle-owl",
-    "filin",
-    "puhu",
-  ],
-  "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
-  "anas-platyrhynchos": ["gareuli-ikhvi", "ikhvi", "mallard"],
-  "coturnix-coturnix": ["mtsqeri", "mwyeri"],
-  "phasianus-colchicus": [
-    "khokhobi",
-    "kolkhuri-khokhobi",
-    "common-pheasant",
-    "pheasant",
-  ],
-  "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
-  "accipiter-nisus": ["mimino", "korisebri-mimino"],
-  "accipiter-gentilis": [
-    "didi-kori",
-    "goshawk",
-    "northern-goshawk",
-    "eurasian-goshawk",
-    "astur-gentilis",
-  ],
+  "sus-scrofa": ["taxi", "gareuli-gori"],
   "turdus-merula": ["shashvi", "shavi-shashvi"],
-  "motacilla-alba": [
-    "tetri-bolokankara",
-    "tetri-boloqanqara",
-    "white-wagtail",
-    "pied-wagtail",
+  "tyto-alba": ["buxrintsa", "bukhrintsa", "barn-owl", "western-barn-owl"],
+  "upupa-epops": [
+    "hoopoe",
+    "eurasian-hoopoe",
+    "common-hoopoe",
+    "chveulebrivi-ofofi",
+    "udod",
+    "ibibik",
   ],
-  "luscinia-megarhynchos": [
-    "samxretuli-bulbuli",
-    "samhruli-bulbuli",
-    "iadoni",
-    "nightingale",
-    "common-nightingale",
-    "rufous-nightingale",
-  ],
-  "falco-peregrinus": [
-    "shavardeni",
-    "chveulebrivi-shavardeni",
-    "peregrine",
-    "peregrine-falcon",
-  ],
-  "glareola-pratincola": [
-    "mertsxala",
-    "mdelos-mertsxala",
-    "zhghalfrtiana-mertsxala",
-    "mertskhala",
-    "mdelos-mertskhala",
-    "collared-pratincole",
-  ],
-  "larus-fuscus": [
-    "shavzurga-tolia",
-    "lesser-black-backed-gull",
-    "baltic-gull",
-    "heuglini",
-    "klusha",
-  ],
-  "garrulus-glandarius": ["japara", "chxikvi"],
-  "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
-  "pernis-apivorus": [
-    "kvernachamia",
-    "krazanachamia",
-    "irao",
-    "chveulebrivi-bolokarkazi",
-    "tsudkora",
-    "honey-buzzard",
-    "european-honey-buzzard",
-  ],
-  "aegypius-monachus": ["cinereous-vulture", "black-vulture", "shavi-svavi"],
-  "gyps-fulvus": [
-    "orbi",
-    "tetrtava-orbi",
-    "chveulebrivi-orbi",
-    "griffon",
-    "eurasian-griffon",
-  ],
-  "milvus-migrans": [
-    "dzera",
-    "black-kite",
-    "eurasian-black-kite",
-    "milvus-korschun",
-  ],
-  "corvus-corax": ["qorani", "northern-raven", "common-raven", "raven"],
-  "pica-pica": ["kachkachi", "eurasian-magpie", "common-magpie"],
-  "procyon-lotor": ["enoti", "chveulebrivi-enoti", "raccoon", "racoon"],
-  "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
+  "ursus-arctos": ["datvi", "mura-dathvi"],
 };
 
 const LOOKALIKES: Record<string, string[]> = {
-  "argiope-bruennichi": ["argiope-lobata"],
-  "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
-  "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
-  "ursus-arctos": ["canis-lupus", "sus-scrofa"],
-  "lynx-lynx": ["panthera-pardus", "canis-lupus"],
-  "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
-  "meles-canescens": ["mustela-nivalis"],
-  "pseudopus-apodus": ["anguis-colchica", "natrix-natrix", "natrix-tessellata"],
-  "anguis-colchica": ["pseudopus-apodus", "natrix-natrix"],
-  "paralaudakia-caucasia": [
-    "tenuidactylus-caspius",
-    "darevskia-portschinskii",
+  "ablepharus-pannonicus": [
+    "ophisops-elegans",
     "eumeces-schneiderii",
+    "anguis-colchica",
   ],
-  "macrovipera-lebetina": [
-    "malpolon-insignitus",
-    "dolichophis-schmidti",
-    "vipera-renardi",
-  ],
-  "malpolon-insignitus": [
-    "macrovipera-lebetina",
-    "dolichophis-schmidti",
-    "hemorrhois-ravergieri",
-  ],
-  "vipera-kaznakovi": [
-    "natrix-natrix",
-    "vipera-dinniki",
-    "coronella-austriaca",
-    "vipera-transcaucasiana",
-  ],
-  "vipera-dinniki": [
-    "vipera-kaznakovi",
-    "vipera-darevskii",
-    "coronella-austriaca",
-  ],
-  "vipera-transcaucasiana": [
-    "vipera-kaznakovi",
-    "coronella-austriaca",
-    "macrovipera-lebetina",
-    "vipera-dinniki",
-    "vipera-darevskii",
-  ],
-  "natrix-natrix": [
-    "natrix-tessellata",
-    "vipera-kaznakovi",
-    "pseudopus-apodus",
-  ],
-  "natrix-tessellata": [
-    "natrix-natrix",
-    "vipera-kaznakovi",
-    "pseudopus-apodus",
-  ],
-  "coronella-austriaca": [
-    "vipera-transcaucasiana",
-    "vipera-kaznakovi",
-    "vipera-dinniki",
-    "vipera-darevskii",
-  ],
-  "elaphe-urartica": [
-    "elaphe-dione",
-    "zamenis-hohenackeri",
-    "dolichophis-schmidti",
-    "hemorrhois-ravergieri",
-    "macrovipera-lebetina",
-  ],
-  "elaphe-dione": [
-    "elaphe-urartica",
-    "zamenis-hohenackeri",
-    "hemorrhois-ravergieri",
-    "dolichophis-schmidti",
-    "macrovipera-lebetina",
-    "platyceps-najadum",
-    "telescopus-fallax",
-  ],
-  "hemorrhois-ravergieri": [
-    "platyceps-najadum",
-    "elaphe-urartica",
-    "dolichophis-schmidti",
-    "macrovipera-lebetina",
-    "vipera-transcaucasiana",
-  ],
-  "zamenis-longissimus": [
-    "zamenis-hohenackeri",
-    "natrix-natrix",
-    "coronella-austriaca",
-    "vipera-kaznakovi",
-  ],
-  "zamenis-hohenackeri": [
-    "zamenis-longissimus",
-    "elaphe-dione",
-    "elaphe-urartica",
-    "coronella-austriaca",
-    "hemorrhois-ravergieri",
-    "vipera-transcaucasiana",
-  ],
-  "dolichophis-schmidti": [
-    "malpolon-insignitus",
-    "platyceps-najadum",
-    "hemorrhois-ravergieri",
-    "elaphe-urartica",
-    "macrovipera-lebetina",
-    "elaphe-dione",
-  ],
-  "platyceps-najadum": [
-    "hemorrhois-ravergieri",
-    "dolichophis-schmidti",
-    "elaphe-urartica",
-    "elaphe-dione",
-    "telescopus-fallax",
-    "macrovipera-lebetina",
-    "vipera-transcaucasiana",
-  ],
-  "telescopus-fallax": [
-    "vipera-transcaucasiana",
-    "coronella-austriaca",
-    "elaphe-dione",
-  ],
-  "eirenis-modestus": [
-    "eirenis-collaris",
-    "coronella-austriaca",
-    "xerotyphlops-vermicularis",
-  ],
-  "eirenis-collaris": [
-    "eirenis-modestus",
-    "coronella-austriaca",
-    "xerotyphlops-vermicularis",
-  ],
-  "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
-  "xerotyphlops-vermicularis": ["eryx-jaculus"],
-  "testudo-graeca": [
-    "emys-orbicularis",
-    "mauremys-caspica",
-    "trachemys-scripta",
-  ],
-  "emys-orbicularis": [
-    "mauremys-caspica",
-    "trachemys-scripta",
-    "testudo-graeca",
-  ],
-  "mauremys-caspica": [
-    "emys-orbicularis",
-    "trachemys-scripta",
-    "testudo-graeca",
-  ],
-  "trachemys-scripta": [
-    "emys-orbicularis",
-    "mauremys-caspica",
-    "testudo-graeca",
-  ],
-  "mertensiella-caucasica": [
-    "lissotriton-lantzi",
-    "ommatotriton-ophryticus",
-    "triturus-karelinii",
-  ],
-  "lissotriton-lantzi": [
-    "ommatotriton-ophryticus",
-    "triturus-karelinii",
-    "mertensiella-caucasica",
-  ],
-  "ommatotriton-ophryticus": [
-    "lissotriton-lantzi",
-    "triturus-karelinii",
-    "mertensiella-caucasica",
-  ],
-  "triturus-karelinii": [
-    "ommatotriton-ophryticus",
-    "lissotriton-lantzi",
-    "mertensiella-caucasica",
-  ],
-  "hyla-orientalis": [
-    "hyla-savignyi",
-    "pelophylax-ridibundus",
-    "bufotes-viridis",
-  ],
-  "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
-  "pelobates-syriacus": [
-    "pelodytes-caucasicus",
-    "bufotes-viridis",
-    "pelophylax-ridibundus",
-    "rana-macrocnemis",
-    "bufo-verrucosissimus",
-  ],
-  "bufotes-viridis": [
-    "bufo-verrucosissimus",
-    "pelobates-syriacus",
-    "hyla-orientalis",
+  "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
+  "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus", "buteo-buteo"],
+  "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
+  "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
+  "anguis-colchica": ["pseudopus-apodus", "natrix-natrix"],
+  "argiope-bruennichi": ["argiope-lobata"],
+  "athene-noctua": ["otus-scops", "strix-aluco", "aegolius-funereus"],
+  "bubo-bubo": [
+    "strix-aluco",
+    "athene-noctua",
+    "otus-scops",
+    "tyto-alba",
+    "aegolius-funereus",
   ],
   "bufo-verrucosissimus": [
     "bufotes-viridis",
@@ -408,53 +240,31 @@ const LOOKALIKES: Record<string, string[]> = {
     "rana-macrocnemis",
     "pelobates-syriacus",
   ],
-  "rana-macrocnemis": [
-    "pelophylax-ridibundus",
-    "pelodytes-caucasicus",
+  "bufotes-viridis": [
     "bufo-verrucosissimus",
-    "bufotes-viridis",
-  ],
-  "pelophylax-ridibundus": [
-    "rana-macrocnemis",
-    "hyla-orientalis",
-    "bufotes-viridis",
-    "pelodytes-caucasicus",
-  ],
-  "pelodytes-caucasicus": [
     "pelobates-syriacus",
-    "rana-macrocnemis",
-    "pelophylax-ridibundus",
-    "bufo-verrucosissimus",
     "hyla-orientalis",
-    "bufotes-viridis",
   ],
-  "eumeces-schneiderii": ["ablepharus-pannonicus"],
-  "ablepharus-pannonicus": [
-    "ophisops-elegans",
-    "eumeces-schneiderii",
-    "anguis-colchica",
+  "buteo-buteo": [
+    "pernis-apivorus",
+    "aquila-chrysaetos",
+    "accipiter-nisus",
+    "falco-peregrinus",
   ],
-  "eremias-velox": ["eremias-arguta"],
-  "eremias-arguta": ["eremias-velox", "ophisops-elegans"],
-  "ophisops-elegans": ["ablepharus-pannonicus"],
-  "lacerta-agilis": [
-    "lacerta-strigata",
-    "lacerta-media",
-    "darevskia-derjugini",
+  "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
+  "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
+  "columba-palumbus": ["streptopelia-turtur"],
+  "coronella-austriaca": [
+    "vipera-transcaucasiana",
+    "vipera-kaznakovi",
+    "vipera-dinniki",
+    "vipera-darevskii",
   ],
-  "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
-  "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
+  "coturnix-coturnix": ["phasianus-colchicus"],
   "darevskia-adjarica": [
     "darevskia-clarkorum",
     "darevskia-derjugini",
     "darevskia-mixta",
-  ],
-  "darevskia-mixta": [
-    "darevskia-clarkorum",
-    "darevskia-caucasica",
-    "darevskia-derjugini",
-    "darevskia-adjarica",
-    "darevskia-brauneri",
   ],
   "darevskia-alpina": ["darevskia-caucasica", "darevskia-brauneri"],
   "darevskia-armeniaca": [
@@ -463,12 +273,12 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-dahli",
   ],
   "darevskia-caucasica": ["darevskia-daghestanica", "darevskia-mixta"],
-  "darevskia-daghestanica": ["darevskia-caucasica", "darevskia-derjugini"],
   "darevskia-clarkorum": [
     "darevskia-adjarica",
     "darevskia-derjugini",
     "darevskia-mixta",
   ],
+  "darevskia-daghestanica": ["darevskia-caucasica", "darevskia-derjugini"],
   "darevskia-dahli": [
     "darevskia-mixta",
     "darevskia-portschinskii",
@@ -479,44 +289,168 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-pontica",
     "darevskia-mixta",
   ],
-  "darevskia-portschinskii": [
-    "darevskia-dahli",
-    "darevskia-obscura",
-    "darevskia-valentini",
+  "darevskia-mixta": [
+    "darevskia-clarkorum",
+    "darevskia-caucasica",
+    "darevskia-derjugini",
+    "darevskia-adjarica",
+    "darevskia-brauneri",
   ],
-  "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
   "darevskia-pontica": [
     "darevskia-praticola",
     "darevskia-derjugini",
     "lacerta-agilis",
   ],
+  "darevskia-portschinskii": [
+    "darevskia-dahli",
+    "darevskia-obscura",
+    "darevskia-valentini",
+  ],
   "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],
-  "otus-scops": ["strix-aluco", "athene-noctua"],
-  "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
-  "athene-noctua": ["otus-scops", "strix-aluco", "aegolius-funereus"],
-  "tyto-alba": [
-    "strix-aluco",
-    "otus-scops",
-    "aegolius-funereus",
-    "athene-noctua",
+  "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
+  "dendrocopos-major": ["picus-viridis", "jynx-torquilla"],
+  "dolichophis-schmidti": [
+    "malpolon-insignitus",
+    "platyceps-najadum",
+    "hemorrhois-ravergieri",
+    "elaphe-urartica",
+    "macrovipera-lebetina",
+    "elaphe-dione",
   ],
-  "bubo-bubo": [
-    "strix-aluco",
-    "athene-noctua",
-    "otus-scops",
-    "tyto-alba",
-    "aegolius-funereus",
+  "eirenis-collaris": [
+    "eirenis-modestus",
+    "coronella-austriaca",
+    "xerotyphlops-vermicularis",
   ],
+  "eirenis-modestus": [
+    "eirenis-collaris",
+    "coronella-austriaca",
+    "xerotyphlops-vermicularis",
+  ],
+  "elaphe-dione": [
+    "elaphe-urartica",
+    "zamenis-hohenackeri",
+    "hemorrhois-ravergieri",
+    "dolichophis-schmidti",
+    "macrovipera-lebetina",
+    "platyceps-najadum",
+    "telescopus-fallax",
+  ],
+  "elaphe-urartica": [
+    "elaphe-dione",
+    "zamenis-hohenackeri",
+    "dolichophis-schmidti",
+    "hemorrhois-ravergieri",
+    "macrovipera-lebetina",
+  ],
+  "emys-orbicularis": [
+    "mauremys-caspica",
+    "trachemys-scripta",
+    "testudo-graeca",
+  ],
+  "eremias-arguta": ["eremias-velox", "ophisops-elegans"],
+  "eremias-velox": ["eremias-arguta"],
+  "erithacus-rubecula": ["luscinia-megarhynchos"],
+  "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
+  "eumeces-schneiderii": ["ablepharus-pannonicus"],
+  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
-  "erithacus-rubecula": ["luscinia-megarhynchos"],
+  "garrulus-glandarius": ["pica-pica", "corvus-corax"],
+  "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
+  "hemorrhois-ravergieri": [
+    "platyceps-najadum",
+    "elaphe-urartica",
+    "dolichophis-schmidti",
+    "macrovipera-lebetina",
+    "vipera-transcaucasiana",
+  ],
+  "hyla-orientalis": [
+    "hyla-savignyi",
+    "pelophylax-ridibundus",
+    "bufotes-viridis",
+  ],
+  "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
+  "lacerta-agilis": [
+    "lacerta-strigata",
+    "lacerta-media",
+    "darevskia-derjugini",
+  ],
+  "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
+  "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
+  "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
+  "lissotriton-lantzi": [
+    "ommatotriton-ophryticus",
+    "triturus-karelinii",
+    "mertensiella-caucasica",
+  ],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
-  "buteo-buteo": [
-    "pernis-apivorus",
-    "aquila-chrysaetos",
-    "accipiter-nisus",
-    "falco-peregrinus",
+  "lynx-lynx": ["panthera-pardus", "canis-lupus"],
+  "macrovipera-lebetina": [
+    "malpolon-insignitus",
+    "dolichophis-schmidti",
+    "vipera-renardi",
+  ],
+  "malpolon-insignitus": [
+    "macrovipera-lebetina",
+    "dolichophis-schmidti",
+    "hemorrhois-ravergieri",
+  ],
+  "mauremys-caspica": [
+    "emys-orbicularis",
+    "trachemys-scripta",
+    "testudo-graeca",
+  ],
+  "meles-canescens": ["mustela-nivalis"],
+  "mertensiella-caucasica": [
+    "lissotriton-lantzi",
+    "ommatotriton-ophryticus",
+    "triturus-karelinii",
+  ],
+  "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
+  "natrix-natrix": [
+    "natrix-tessellata",
+    "vipera-kaznakovi",
+    "pseudopus-apodus",
+  ],
+  "natrix-tessellata": [
+    "natrix-natrix",
+    "vipera-kaznakovi",
+    "pseudopus-apodus",
+  ],
+  "ommatotriton-ophryticus": [
+    "lissotriton-lantzi",
+    "triturus-karelinii",
+    "mertensiella-caucasica",
+  ],
+  "ophisops-elegans": ["ablepharus-pannonicus"],
+  "otus-scops": ["strix-aluco", "athene-noctua"],
+  "paralaudakia-caucasia": [
+    "tenuidactylus-caspius",
+    "darevskia-portschinskii",
+    "eumeces-schneiderii",
+  ],
+  "pelobates-syriacus": [
+    "pelodytes-caucasicus",
+    "bufotes-viridis",
+    "pelophylax-ridibundus",
+    "rana-macrocnemis",
+    "bufo-verrucosissimus",
+  ],
+  "pelodytes-caucasicus": [
+    "pelobates-syriacus",
+    "rana-macrocnemis",
+    "pelophylax-ridibundus",
+    "bufo-verrucosissimus",
+    "hyla-orientalis",
+    "bufotes-viridis",
+  ],
+  "pelophylax-ridibundus": [
+    "rana-macrocnemis",
+    "hyla-orientalis",
+    "bufotes-viridis",
+    "pelodytes-caucasicus",
   ],
   "pernis-apivorus": [
     "buteo-buteo",
@@ -524,20 +458,86 @@ const LOOKALIKES: Record<string, string[]> = {
     "accipiter-gentilis",
     "falco-peregrinus",
   ],
-  "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus", "buteo-buteo"],
-  "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
-  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
-  "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
-  "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
-  "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
-  "pica-pica": ["corvus-corax", "garrulus-glandarius"],
-  "columba-palumbus": ["streptopelia-turtur"],
-  "garrulus-glandarius": ["pica-pica", "corvus-corax"],
-  "dendrocopos-major": ["picus-viridis", "jynx-torquilla"],
-  "coturnix-coturnix": ["phasianus-colchicus"],
   "phasianus-colchicus": ["coturnix-coturnix"],
-  "vulpes-vulpes": ["canis-lupus"],
+  "pica-pica": ["corvus-corax", "garrulus-glandarius"],
+  "platyceps-najadum": [
+    "hemorrhois-ravergieri",
+    "dolichophis-schmidti",
+    "elaphe-urartica",
+    "elaphe-dione",
+    "telescopus-fallax",
+    "macrovipera-lebetina",
+    "vipera-transcaucasiana",
+  ],
   "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
+  "pseudopus-apodus": ["anguis-colchica", "natrix-natrix", "natrix-tessellata"],
+  "rana-macrocnemis": [
+    "pelophylax-ridibundus",
+    "pelodytes-caucasicus",
+    "bufo-verrucosissimus",
+    "bufotes-viridis",
+  ],
+  "telescopus-fallax": [
+    "vipera-transcaucasiana",
+    "coronella-austriaca",
+    "elaphe-dione",
+  ],
+  "testudo-graeca": [
+    "emys-orbicularis",
+    "mauremys-caspica",
+    "trachemys-scripta",
+  ],
+  "trachemys-scripta": [
+    "emys-orbicularis",
+    "mauremys-caspica",
+    "testudo-graeca",
+  ],
+  "triturus-karelinii": [
+    "ommatotriton-ophryticus",
+    "lissotriton-lantzi",
+    "mertensiella-caucasica",
+  ],
+  "tyto-alba": [
+    "strix-aluco",
+    "otus-scops",
+    "aegolius-funereus",
+    "athene-noctua",
+  ],
+  "ursus-arctos": ["canis-lupus", "sus-scrofa"],
+  "vipera-dinniki": [
+    "vipera-kaznakovi",
+    "vipera-darevskii",
+    "coronella-austriaca",
+  ],
+  "vipera-kaznakovi": [
+    "natrix-natrix",
+    "vipera-dinniki",
+    "coronella-austriaca",
+    "vipera-transcaucasiana",
+  ],
+  "vipera-transcaucasiana": [
+    "vipera-kaznakovi",
+    "coronella-austriaca",
+    "macrovipera-lebetina",
+    "vipera-dinniki",
+    "vipera-darevskii",
+  ],
+  "vulpes-vulpes": ["canis-lupus"],
+  "xerotyphlops-vermicularis": ["eryx-jaculus"],
+  "zamenis-hohenackeri": [
+    "zamenis-longissimus",
+    "elaphe-dione",
+    "elaphe-urartica",
+    "coronella-austriaca",
+    "hemorrhois-ravergieri",
+    "vipera-transcaucasiana",
+  ],
+  "zamenis-longissimus": [
+    "zamenis-hohenackeri",
+    "natrix-natrix",
+    "coronella-austriaca",
+    "vipera-kaznakovi",
+  ],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
@@ -595,23 +595,44 @@ export function getSpeciesHubId(id: string): GroupHubId {
   return hubForSpeciesId(id);
 }
 
+export function getSpeciesLookalikes(id: string): string[] {
+  return [...(lookalikeIndex[id] ?? [])].filter(isPublishedSpeciesId);
+}
+
 export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
   if (locale !== "ka") return id;
   return kaSlugById[id] ?? id;
 }
 
-export function getSpeciesLookalikes(id: string): string[] {
-  return [...(lookalikeIndex[id] ?? [])].filter(isPublishedSpeciesId);
+export function legacySpeciesStaticParams() {
+  const seen = new Set<string>();
+  const params: Array<{ id: string; locale: AppLocale; }> = [];
+  for (const locale of routing.locales) {
+    for (const item of getCatalogSpecies()) {
+      const keys = new Set([getSpeciesPublicSlug(item.id, "ka"), item.id]);
+      for (const id of keys) {
+        const token = `${locale}:${id}`;
+        if (seen.has(token)) continue;
+        seen.add(token);
+        params.push({ id, locale });
+      }
+    }
+  }
+  return params;
 }
 
-export function resolveSpeciesId(param: string): string | undefined {
-  return idByAnySlug[param];
+export function regionHref(id: string) {
+  return { params: { id }, pathname: "/regions/[id]" as const };
 }
 
 export function resolveSpecies(param: string): Species | undefined {
   const id = resolveSpeciesId(param);
   if (!id) return undefined;
   return getSpeciesById(id);
+}
+
+export function resolveSpeciesId(param: string): string | undefined {
+  return idByAnySlug[param];
 }
 
 export function resolveSpeciesInHub(
@@ -629,20 +650,20 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
   const hub = getSpeciesHubId(id);
   const slug = getSpeciesPublicSlug(id, locale);
   switch (hub) {
-    case "snakes":
-      return { pathname: "/snakes/[slug]", params: { slug } };
-    case "lizards":
-      return { pathname: "/lizards/[slug]", params: { slug } };
-    case "turtles":
-      return { pathname: "/turtles/[slug]", params: { slug } };
     case "birds":
-      return { pathname: "/birds/[slug]", params: { slug } };
+      return { params: { slug }, pathname: "/birds/[slug]" };
+    case "lizards":
+      return { params: { slug }, pathname: "/lizards/[slug]" };
     case "mammals":
-      return { pathname: "/mammals/[slug]", params: { slug } };
+      return { params: { slug }, pathname: "/mammals/[slug]" };
+    case "snakes":
+      return { params: { slug }, pathname: "/snakes/[slug]" };
     case "spiders":
-      return { pathname: "/spiders/[slug]", params: { slug } };
+      return { params: { slug }, pathname: "/spiders/[slug]" };
+    case "turtles":
+      return { params: { slug }, pathname: "/turtles/[slug]" };
     default:
-      return { pathname: "/amphibians/[slug]", params: { slug } };
+      return { params: { slug }, pathname: "/amphibians/[slug]" };
   }
 }
 
@@ -651,8 +672,8 @@ export function speciesStaticParams(hubId: GroupHubId) {
   for (const item of getCatalogSpecies()) {
     if (getSpeciesHubId(item.id) !== hubId) continue;
     const slugs = new Set([
-      getSpeciesPublicSlug(item.id, "ka"),
       getSpeciesPublicSlug(item.id, "en"),
+      getSpeciesPublicSlug(item.id, "ka"),
       ...(KA_SLUG_ALIASES[item.id] ?? []),
     ]);
     for (const locale of routing.locales) {
@@ -662,25 +683,4 @@ export function speciesStaticParams(hubId: GroupHubId) {
     }
   }
   return params;
-}
-
-export function legacySpeciesStaticParams() {
-  const seen = new Set<string>();
-  const params: Array<{ locale: AppLocale; id: string }> = [];
-  for (const locale of routing.locales) {
-    for (const item of getCatalogSpecies()) {
-      const keys = new Set([item.id, getSpeciesPublicSlug(item.id, "ka")]);
-      for (const id of keys) {
-        const token = `${locale}:${id}`;
-        if (seen.has(token)) continue;
-        seen.add(token);
-        params.push({ locale, id });
-      }
-    }
-  }
-  return params;
-}
-
-export function regionHref(id: string) {
-  return { pathname: "/regions/[id]" as const, params: { id } };
 }

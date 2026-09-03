@@ -2,18 +2,19 @@
 
 import Image from "next/image";
 import { useState } from "react";
+
 import type { GalleryImage } from "@/data/speciesTypes";
 
 type Props = {
-  id: string;
   gallery: GalleryImage[];
+  id: string;
 };
 
-export function AdminSpeciesEditor({ id, gallery }: Props) {
+export function AdminSpeciesEditor({ gallery, id }: Props) {
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [ok, setOk] = useState<string | null>(null);
-  const [pullRequestUrl, setPullRequestUrl] = useState<string | null>(null);
+  const [error, setError] = useState<null | string>(null);
+  const [ok, setOk] = useState<null | string>(null);
+  const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
   const [pending, setPending] = useState<GalleryImage[]>([]);
   const photos = [...gallery, ...pending];
 
@@ -28,14 +29,14 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       const body = new FormData(form);
       body.set("id", id);
       const response = await fetch("/api/admin/photos", {
-        method: "POST",
         body,
+        method: "POST",
       });
       const payload = (await response.json()) as {
-        error?: string;
         added?: GalleryImage[];
-        pullRequestUrl?: string;
+        error?: string;
         pullRequestError?: string;
+        pullRequestUrl?: string;
       };
       if (!response.ok) {
         throw new Error(payload.error ?? "ატვირთვა ვერ მოხერხდა");
@@ -82,16 +83,16 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
           <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {photos.map((item) => (
               <li
-                key={item.src}
                 className="overflow-hidden rounded-lg border border-border bg-card"
+                key={item.src}
               >
                 <div className="media-placeholder relative aspect-4/3 w-full">
                   <Image
-                    src={item.src}
                     alt=""
+                    className="object-cover"
                     fill
                     sizes="(max-width: 640px) 50vw, 33vw"
-                    className="object-cover"
+                    src={item.src}
                   />
                 </div>
                 <p className="truncate px-2.5 py-2 text-[11px] text-muted-foreground">
@@ -104,8 +105,8 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
       </section>
 
       <form
-        onSubmit={onSubmit}
         className="rounded-xl border border-border bg-card p-5"
+        onSubmit={onSubmit}
       >
         <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
@@ -116,48 +117,48 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
         <label className="mt-5 block text-[12px] text-muted-foreground">
           ფოტოები
           <input
-            name="photos"
-            type="file"
             accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"
-            multiple
-            required
             className="mt-1.5 block w-full text-[13px]"
+            multiple
+            name="photos"
+            required
+            type="file"
           />
         </label>
         <label className="mt-4 block text-[12px] text-muted-foreground">
           ფოტოგრაფი
           <input
-            name="photographer"
             className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="photographer"
           />
         </label>
         <label className="mt-3 block text-[12px] text-muted-foreground">
           ფოტოგრაფი (EN)
           <input
-            name="photographerEn"
             className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="photographerEn"
           />
         </label>
         <label className="mt-3 block text-[12px] text-muted-foreground">
           ადგილი
           <input
-            name="location"
             className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="location"
           />
         </label>
         <label className="mt-3 block text-[12px] text-muted-foreground">
           ადგილი (EN)
           <input
-            name="locationEn"
             className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="locationEn"
           />
         </label>
         <label className="mt-3 block text-[12px] text-muted-foreground">
           თარიღი
           <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
             name="date"
             type="date"
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
           />
         </label>
         {error ? (
@@ -166,18 +167,18 @@ export function AdminSpeciesEditor({ id, gallery }: Props) {
         {ok ? <p className="mt-4 text-[13px] text-primary">{ok}</p> : null}
         {pullRequestUrl ? (
           <a
-            href={pullRequestUrl}
-            target="_blank"
-            rel="noreferrer"
             className="mt-2 inline-block text-[13px] break-all text-primary underline"
+            href={pullRequestUrl}
+            rel="noreferrer"
+            target="_blank"
           >
             {pullRequestUrl}
           </a>
         ) : null}
         <button
-          type="submit"
-          disabled={busy}
           className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
+          disabled={busy}
+          type="submit"
         >
           {busy ? "იტვირთება…" : "ატვირთვა"}
         </button>

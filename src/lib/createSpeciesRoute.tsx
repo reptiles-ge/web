@@ -1,36 +1,43 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound, permanentRedirect } from "next/navigation";
+
+import type { GroupHubId } from "@/lib/groupHubs";
+
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { getPublishedNewsForSpecies } from "@/data/news";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { openGraphLocale } from "@/i18n/localeMeta";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
-import { routing, type AppLocale } from "@/i18n/routing";
-import type { GroupHubId } from "@/lib/groupHubs";
+import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
-import { getRelatedSpecies } from "@/lib/speciesRelated";
+import { galleryImageObjects } from "@/lib/photoMeta";
 import {
-  buildSpeciesBreadcrumbs,
-  getSpeciesParentHub,
-} from "@/lib/speciesBreadcrumbs";
-import {
-  getSpeciesPublicSlug,
-  resolveSpeciesInHub,
-  speciesHref,
-  speciesStaticParams,
-} from "@/lib/speciesRoutes";
+  speciesAliasKeywords,
+  speciesJsonLdKeywords,
+  speciesSeoKeywords,
+} from "@/lib/seoKeywords";
 import {
   absoluteUrl,
   localePath,
+  openGraphJpeg,
   organizationJsonLd,
   siteConfig,
   siteEntityId,
   speciesAlternates,
   speciesOgImageUrl,
   speciesPageUrl,
-  openGraphJpeg,
 } from "@/lib/site";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { getPublishedNewsForSpecies } from "@/data/news";
+import {
+  buildSpeciesBreadcrumbs,
+  getSpeciesParentHub,
+} from "@/lib/speciesBreadcrumbs";
 import { getSpeciesHeroSources, isPlaceholderBody } from "@/lib/speciesContent";
 import {
   speciesFallbackDescriptionKey,
@@ -38,18 +45,14 @@ import {
   speciesPageMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
-import { galleryImageObjects } from "@/lib/photoMeta";
-import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { getRelatedSpecies } from "@/lib/speciesRelated";
 import {
-  speciesAliasKeywords,
-  speciesJsonLdKeywords,
-  speciesSeoKeywords,
-} from "@/lib/seoKeywords";
+  getSpeciesPublicSlug,
+  resolveSpeciesInHub,
+  speciesHref,
+  speciesStaticParams,
+} from "@/lib/speciesRoutes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound, permanentRedirect } from "next/navigation";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -64,8 +67,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const { locale: localeParam, slug } = await params;
     if (!hasLocale(routing.locales, localeParam)) {
       return {
+        robots: { follow: false, index: false },
         title: "Species not found",
-        robots: { index: false, follow: false },
       };
     }
 
@@ -75,8 +78,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     if (!raw) {
       return {
+        robots: { follow: false, index: false },
         title: t("notFound"),
-        robots: { index: false, follow: false },
       };
     }
 
@@ -102,31 +105,31 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const ogImageTag = openGraphJpeg(ogImage, title);
 
     return {
+      alternates: speciesAlternates(locale, item.id),
+      description,
+      keywords,
+      openGraph: {
+        description,
+        images: [ogImageTag],
+        locale: openGraphLocale(locale),
+        modifiedTime: raw.updatedAt,
+        siteName: siteConfig.name,
+        title,
+        type: "article",
+        url,
+      },
+      robots: {
+        follow: true,
+        index: true,
+      },
       title: {
         absolute: title,
       },
-      description,
-      keywords,
-      alternates: speciesAlternates(locale, item.id),
-      openGraph: {
-        type: "article",
-        locale: openGraphLocale(locale),
-        url,
-        siteName: siteConfig.name,
-        title,
-        description,
-        modifiedTime: raw.updatedAt,
-        images: [ogImageTag],
-      },
       twitter: {
         card: "summary_large_image",
-        title,
         description,
         images: [ogImage],
-      },
-      robots: {
-        index: true,
-        follow: true,
+        title,
       },
     };
   }
@@ -148,7 +151,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const expectedSlug = getSpeciesPublicSlug(raw.id, locale);
     if (slug !== expectedSlug) {
       permanentRedirect(
-        getPathname({ locale, href: speciesHref(raw.id, locale) }),
+        getPathname({ href: speciesHref(raw.id, locale), locale }),
       );
     }
 
@@ -164,11 +167,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       ? tHubs(`hubs.${parent.hubId}`)
       : tHubs("hubs.snakes");
     const breadcrumbCrumbs = buildSpeciesBreadcrumbs({
-      species: item,
-      homeLabel: tProfile("breadcrumbHome"),
-      venomousLabel: tProfile("breadcrumbVenomous"),
       groupLabel,
+      homeLabel: tProfile("breadcrumbHome"),
       indexLabel: tHubs(getHubIndexTitleKey(parent.hubId)),
+      species: item,
+      venomousLabel: tProfile("breadcrumbVenomous"),
     });
 
     const pageUrl = speciesPageUrl(locale, item.id);
@@ -177,8 +180,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const ogImageObject = {
       "@type": "ImageObject",
       contentUrl: ogImage,
-      url: ogImage,
       name: `${item.commonName} (${item.scientificName})`,
+      url: ogImage,
     };
 
     const sameAs = raw.sources
@@ -188,16 +191,16 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const aliases = speciesAliasKeywords(item.id, locale);
     const taxon = {
       "@type": "Taxon",
-      name: item.scientificName,
       alternateName: [item.commonName, ...aliases].filter(
         (name, index, list) => list.indexOf(name) === index,
       ),
-      taxonRank: "Species",
+      name: item.scientificName,
       parentTaxon: {
         "@type": "Taxon",
         name: item.genus,
         taxonRank: "Genus",
       },
+      taxonRank: "Species",
       ...(sameAs.length > 0 ? { sameAs } : {}),
     };
 
@@ -206,20 +209,9 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: `${item.commonName} (${item.scientificName})`,
-      description: item.description,
-      keywords: speciesJsonLdKeywords(item, locale),
-      image: [ogImageObject, ...photoObjects],
-      associatedMedia: photoObjects,
-      dateModified: raw.updatedAt,
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": pageUrl,
-      },
-      mainEntity: taxon,
       about: taxon,
+      associatedMedia: photoObjects,
       author: { "@id": siteEntityId("organization") },
-      publisher: org,
       citation: raw.sources.map((source) =>
         source.url
           ? {
@@ -232,7 +224,18 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
               name: source.name,
             },
       ),
+      dateModified: raw.updatedAt,
+      description: item.description,
+      headline: `${item.commonName} (${item.scientificName})`,
+      image: [ogImageObject, ...photoObjects],
       inLanguage: locale,
+      keywords: speciesJsonLdKeywords(item, locale),
+      mainEntity: taxon,
+      mainEntityOfPage: {
+        "@id": pageUrl,
+        "@type": "WebPage",
+      },
+      publisher: org,
     };
 
     const breadcrumbLd = {
@@ -240,11 +243,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       "@type": "BreadcrumbList",
       itemListElement: breadcrumbCrumbs.map((crumb, index) => ({
         "@type": "ListItem",
-        position: index + 1,
-        name: crumb.name,
         item: crumb.href
           ? absoluteUrl(localePath(locale, crumb.href))
           : pageUrl,
+        name: crumb.name,
+        position: index + 1,
       })),
     };
 
@@ -253,11 +256,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         ? {
             "@context": "https://schema.org",
             "@type": "ImageGallery",
+            about: taxon,
+            associatedMedia: photoObjects,
+            inLanguage: locale,
             name: `${item.commonName} ${tProfile("galleryTitle")}`,
             url: `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`,
-            about: taxon,
-            inLanguage: locale,
-            associatedMedia: photoObjects,
           }
         : null;
 
@@ -268,16 +271,16 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             "@type": "FAQPage",
             mainEntity: item.faq.map((entry) => ({
               "@type": "Question",
-              name: entry.question,
               acceptedAnswer: {
                 "@type": "Answer",
                 text: entry.answer,
               },
+              name: entry.question,
             })),
           }
         : null;
 
-    const { mobileHeroSrc, desktopHeroSrc } = getSpeciesHeroSources(raw);
+    const { desktopHeroSrc, mobileHeroSrc } = getSpeciesHeroSources(raw);
 
     return (
       <>
@@ -285,18 +288,18 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           mobileHeroSrc ? (
             <>
               <CoverImagePreload
-                src={mobileHeroSrc}
-                sizes="100vw"
                 media="(max-width: 1023px)"
+                sizes="100vw"
+                src={mobileHeroSrc}
               />
               <CoverImagePreload
-                src={desktopHeroSrc}
-                sizes="100vw"
                 media="(min-width: 1024px)"
+                sizes="100vw"
+                src={desktopHeroSrc}
               />
             </>
           ) : (
-            <CoverImagePreload src={desktopHeroSrc} sizes="100vw" />
+            <CoverImagePreload sizes="100vw" src={desktopHeroSrc} />
           )
         ) : null}
         <JsonLd
@@ -304,7 +307,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
           )}
         />
-        <SpeciesProfile species={raw} related={related} />
+        <SpeciesProfile related={related} species={raw} />
         <NewsRelatedBlock
           articles={getPublishedNewsForSpecies(raw.id)}
           locale={locale}
@@ -314,8 +317,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
   }
 
   return {
-    generateStaticParams,
     generateMetadata,
+    generateStaticParams,
     Page,
   };
 }

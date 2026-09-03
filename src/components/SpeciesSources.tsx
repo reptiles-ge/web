@@ -1,11 +1,13 @@
 "use client";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import type { SpeciesSource } from "@/data/species";
-import { trackEvent } from "@/lib/analytics";
-import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
+
+import type { SpeciesSource } from "@/data/species";
+
+import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { trackEvent } from "@/lib/analytics";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesSourcesProps = {
   sources: SpeciesSource[];
@@ -27,9 +29,9 @@ export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
                 {t("sourcesEyebrow")}
               </p>
               <AnchoredHeading
-                id={SPECIES_SECTION_IDS.sources}
-                className="mt-3 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] leading-[1.1] text-foreground"
                 anchorLabel={t("anchorLink")}
+                className="mt-3 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] leading-[1.1] text-foreground"
+                id={SPECIES_SECTION_IDS.sources}
                 showAnchor={false}
               >
                 {t("sourcesTitle")}
@@ -37,30 +39,30 @@ export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
             </div>
             <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-300 group-open:rotate-180 group-open:border-foreground/20 group-open:text-foreground">
               <ChevronDown
+                aria-hidden="true"
                 className="size-4"
                 strokeWidth={1.75}
-                aria-hidden="true"
               />
             </span>
           </summary>
           <ul className="mt-8 space-y-0 border-t border-border">
             {sources.map((source) => (
               <li
-                key={source.name}
                 className="border-b border-border py-4 text-[15px] leading-relaxed text-foreground/80"
+                key={source.name}
               >
                 {source.url ? (
                   <a
-                    href={source.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="transition-colors hover:text-primary"
+                    href={source.url}
                     onClick={() =>
                       trackEvent("source_click", {
-                        species_id: speciesId,
                         link_type: "source",
+                        species_id: speciesId,
                       })
                     }
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     {source.name}
                   </a>

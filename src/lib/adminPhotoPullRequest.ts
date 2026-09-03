@@ -2,11 +2,13 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+
+import type { GalleryImage } from "@/data/speciesTypes";
+
 import {
   appendGalleryItemToSpecies,
   isSpeciesContentId,
 } from "@/lib/adminGalleryMdx";
-import type { GalleryImage } from "@/data/speciesTypes";
 import {
   applyOptimizeCatalog,
   type OptimizeCatalogUpdate,
@@ -16,144 +18,13 @@ const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/main";
 const BASE_BRANCH = "main";
 
-function run(cmd: string, args: string[], cwd: string) {
-  try {
-    return execFileSync(cmd, args, {
-      cwd,
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
-      env: { ...process.env, GIT_TERMINAL_PROMPT: "0" },
-    }).trim();
-  } catch (error) {
-    const err = error as { stderr?: string; stdout?: string; message?: string };
-    const detail = [err.stderr, err.stdout, err.message]
-      .filter((part) => Boolean(part && part.trim()))
-      .join("\n")
-      .trim();
-    throw new Error(detail || `${cmd} ${args.join(" ")} failed`);
-  }
-}
-
-function speciesMdxRel(id: string) {
-  return ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"].map((file) =>
-    path.join("src/content/species", id, file),
-  );
-}
-
-function stamp() {
-  const now = new Date();
-  const pad = (value: number) => String(value).padStart(2, "0");
-  return (
-    `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-` +
-    `${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`
-  );
-}
-
-function hasStagedChanges(cwd: string) {
-  try {
-    execFileSync("git", ["diff", "--cached", "--quiet"], {
-      cwd,
-      stdio: "ignore",
-      env: { ...process.env, GIT_TERMINAL_PROMPT: "0" },
-    });
-    return false;
-  } catch {
-    return true;
-  }
-}
-
-function githubRepoName(cwd: string) {
-  const raw = run("gh", ["repo", "view", "--json", "nameWithOwner"], cwd);
-  const parsed = JSON.parse(raw) as { nameWithOwner?: string };
-  if (!parsed.nameWithOwner) {
-    throw new Error("Could not resolve GitHub repository");
-  }
-  return parsed.nameWithOwner;
-}
-
-function findOpenPhotoPullRequest(
-  id: string,
-): { branch: string; url: string } | null {
-  try {
-    const raw = run(
-      "gh",
-      [
-        "pr",
-        "list",
-        "--base",
-        BASE_BRANCH,
-        "--state",
-        "open",
-        "--limit",
-        "50",
-        "--json",
-        "headRefName,url",
-      ],
-      REPO_ROOT,
-    );
-    const prs = JSON.parse(raw) as Array<{
-      headRefName?: string;
-      url?: string;
-    }>;
-    const prefix = `photos/${id}-`;
-    const match = prs.find(
-      (pr) =>
-        typeof pr.headRefName === "string" &&
-        pr.headRefName.startsWith(prefix) &&
-        typeof pr.url === "string" &&
-        pr.url.startsWith("http"),
-    );
-    if (!match?.headRefName || !match.url) return null;
-    return { branch: match.headRefName, url: match.url };
-  } catch {
-    return null;
-  }
-}
-
-function createPullRequest(input: {
-  cwd: string;
-  repo: string;
-  branch: string;
-  title: string;
-  body: string;
-}) {
-  const created = run(
-    "gh",
-    [
-      "pr",
-      "create",
-      "--repo",
-      input.repo,
-      "--base",
-      BASE_BRANCH,
-      "--head",
-      input.branch,
-      "--title",
-      input.title,
-      "--body",
-      input.body,
-    ],
-    input.cwd,
-  );
-  const url = created.match(/https:\/\/github\.com\/\S+/)?.[0] ?? created;
-  if (!url.startsWith("http")) {
-    throw new Error(created || "gh pr create did not return a URL");
-  }
-  try {
-    run("gh", ["pr", "edit", url, "--body", input.body], input.cwd);
-  } catch {
-    return url;
-  }
-  return url;
-}
-
 export async function openPhotoPullRequest(input: {
+  catalog?: OptimizeCatalogUpdate[];
   id: string;
   items: Array<{
     ka: GalleryImage;
     overlays?: Partial<Record<"en" | "ru" | "tr", GalleryImage>>;
   }>;
-  catalog?: OptimizeCatalogUpdate[];
 }): Promise<string> {
   if (!isSpeciesContentId(input.id)) {
     throw new Error("Invalid species id");
@@ -264,11 +135,11 @@ export async function openPhotoPullRequest(input: {
     for (let attempt = 1; attempt <= 4; attempt += 1) {
       try {
         return createPullRequest({
+          body: prBody,
+          branch,
           cwd: worktree,
           repo,
-          branch,
           title,
-          body: prBody,
         });
       } catch (error) {
         lastError = error instanceof Error ? error.message : lastError;
@@ -282,22 +153,153 @@ export async function openPhotoPullRequest(input: {
       try {
         run("git", ["worktree", "remove", "--force", worktree], REPO_ROOT);
       } catch {
-        fs.rmSync(worktree, { recursive: true, force: true });
+        fs.rmSync(worktree, { force: true, recursive: true });
         try {
           run("git", ["worktree", "prune"], REPO_ROOT);
         } catch {
-          fs.rmSync(worktree, { recursive: true, force: true });
+          fs.rmSync(worktree, { force: true, recursive: true });
         }
       }
     } else {
-      fs.rmSync(worktree, { recursive: true, force: true });
+      fs.rmSync(worktree, { force: true, recursive: true });
     }
     if (pushed) {
       try {
         run("git", ["branch", "-D", branch], REPO_ROOT);
       } catch {
-        fs.rmSync(worktree, { recursive: true, force: true });
+        fs.rmSync(worktree, { force: true, recursive: true });
       }
     }
   }
+}
+
+function createPullRequest(input: {
+  body: string;
+  branch: string;
+  cwd: string;
+  repo: string;
+  title: string;
+}) {
+  const created = run(
+    "gh",
+    [
+      "pr",
+      "create",
+      "--repo",
+      input.repo,
+      "--base",
+      BASE_BRANCH,
+      "--head",
+      input.branch,
+      "--title",
+      input.title,
+      "--body",
+      input.body,
+    ],
+    input.cwd,
+  );
+  const url = created.match(/https:\/\/github\.com\/\S+/)?.[0] ?? created;
+  if (!url.startsWith("http")) {
+    throw new Error(created || "gh pr create did not return a URL");
+  }
+  try {
+    run("gh", ["pr", "edit", url, "--body", input.body], input.cwd);
+  } catch {
+    return url;
+  }
+  return url;
+}
+
+function findOpenPhotoPullRequest(
+  id: string,
+): null | { branch: string; url: string } {
+  try {
+    const raw = run(
+      "gh",
+      [
+        "pr",
+        "list",
+        "--base",
+        BASE_BRANCH,
+        "--state",
+        "open",
+        "--limit",
+        "50",
+        "--json",
+        "headRefName,url",
+      ],
+      REPO_ROOT,
+    );
+    const prs = JSON.parse(raw) as Array<{
+      headRefName?: string;
+      url?: string;
+    }>;
+    const prefix = `photos/${id}-`;
+    const match = prs.find(
+      (pr) =>
+        typeof pr.headRefName === "string" &&
+        pr.headRefName.startsWith(prefix) &&
+        typeof pr.url === "string" &&
+        pr.url.startsWith("http"),
+    );
+    if (!match?.headRefName || !match.url) return null;
+    return { branch: match.headRefName, url: match.url };
+  } catch {
+    return null;
+  }
+}
+
+function githubRepoName(cwd: string) {
+  const raw = run("gh", ["repo", "view", "--json", "nameWithOwner"], cwd);
+  const parsed = JSON.parse(raw) as { nameWithOwner?: string };
+  if (!parsed.nameWithOwner) {
+    throw new Error("Could not resolve GitHub repository");
+  }
+  return parsed.nameWithOwner;
+}
+
+function hasStagedChanges(cwd: string) {
+  try {
+    execFileSync("git", ["diff", "--cached", "--quiet"], {
+      cwd,
+      env: { ...process.env, GIT_TERMINAL_PROMPT: "0" },
+      stdio: "ignore",
+    });
+    return false;
+  } catch {
+    return true;
+  }
+}
+
+function run(cmd: string, args: string[], cwd: string) {
+  try {
+    return execFileSync(cmd, args, {
+      cwd,
+      encoding: "utf8",
+      env: { ...process.env, GIT_TERMINAL_PROMPT: "0" },
+      stdio: ["ignore", "pipe", "pipe"],
+    }).trim();
+  } catch (error) {
+    const err = error as { message?: string; stderr?: string; stdout?: string; };
+    const detail = [err.stderr, err.stdout, err.message]
+      .filter((part) => Boolean(part && part.trim()))
+      .join("\n")
+      .trim();
+    throw new Error(detail || `${cmd} ${args.join(" ")} failed`);
+  }
+}
+
+function speciesMdxRel(id: string) {
+  return ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"].map((file) =>
+    path.join("src/content/species", id, file),
+  );
+}
+
+function stamp() {
+  const now = new Date();
+  const pad = (value: number) => String(value).padStart(2, "0");
+  return (
+    `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-` +
+    `${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`
+  );
 }

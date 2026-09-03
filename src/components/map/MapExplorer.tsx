@@ -1,18 +1,19 @@
 "use client";
 
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Link } from "@/i18n/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+
+import { GeorgiaMap } from "@/components/map/GeorgiaMap";
+import { Link } from "@/i18n/navigation";
 
 export function MapExplorer() {
   const t = useTranslations("map");
 
   return (
-    <section id="atlas" className="map-explorer relative py-20 lg:py-28">
+    <section className="map-explorer relative py-20 lg:py-28" id="atlas">
       <div
-        className="map-explorer-texture pointer-events-none absolute inset-0"
         aria-hidden="true"
+        className="map-explorer-texture pointer-events-none absolute inset-0"
       />
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -29,16 +30,16 @@ export function MapExplorer() {
             </p>
           </div>
           <Link
-            href="/regions"
             className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+            href="/regions"
           >
             {t("allRegions")}
-            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+            <ArrowUpRight aria-hidden="true" className="size-3.5" />
           </Link>
         </div>
 
         <div className="mt-10 lg:mt-14">
-          <GeorgiaMap selectionMode="navigate" mapContext="home" />
+          <GeorgiaMap mapContext="home" selectionMode="navigate" />
         </div>
 
         <p className="mt-6 text-center text-[12px] tracking-wide text-muted-foreground">

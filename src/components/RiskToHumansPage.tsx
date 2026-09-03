@@ -1,6 +1,12 @@
 "use client";
 
-import { ContentAttribution } from "@/components/ContentAttribution";
+import { ArrowRight, ArrowUpRight, Plus, Shield } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { type ComponentProps, useState } from "react";
+
+import type { DangerLevel, Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import {
   CLUSTER_EYEBROW,
   CLUSTER_FAQ_BODY,
@@ -11,67 +17,40 @@ import {
   CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
-import type { DangerLevel, Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
-import { ArrowRight, ArrowUpRight, Plus, Shield } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useState, type ComponentProps } from "react";
 
 type RiskToHumansPageProps = {
+  harmlessCount: number;
+  harmlessExamples: Species[];
   high: Species[];
   moderate: Species[];
-  harmlessExamples: Species[];
-  harmlessCount: number;
 };
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
 
-function levelTone(level: DangerLevel) {
-  switch (level) {
-    case "High":
-      return {
-        dot: "bg-destructive",
-        value: "text-destructive",
-        chip: "bg-destructive/15 text-destructive",
-      };
-    case "Moderate":
-      return {
-        dot: "bg-gold",
-        value: "text-gold",
-        chip: "bg-gold/20 text-gold",
-      };
-    default:
-      return {
-        dot: "bg-primary",
-        value: "text-primary",
-        chip: "bg-primary/15 text-primary",
-      };
-  }
-}
-
 export function RiskToHumansPage({
+  harmlessCount,
+  harmlessExamples,
   high,
   moderate,
-  harmlessExamples,
-  harmlessCount,
 }: RiskToHumansPageProps) {
   const t = useTranslations("riskToHumans");
   const tDanger = useTranslations("danger");
   const locale = useLocale() as AppLocale;
   const speciesByLevel: Record<DangerLevel, Species[]> = {
+    Harmless: harmlessExamples,
     High: high,
     Moderate: moderate,
-    Harmless: harmlessExamples,
   };
   const countByLevel: Record<DangerLevel, number> = {
+    Harmless: harmlessCount,
     High: high.length,
     Moderate: moderate.length,
-    Harmless: harmlessCount,
   };
 
   return (
@@ -84,8 +63,8 @@ export function RiskToHumansPage({
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                   <li>
                     <Link
-                      href="/"
                       className="transition-colors hover:text-foreground"
+                      href="/"
                     >
                       {t("breadcrumbHome")}
                     </Link>
@@ -95,8 +74,8 @@ export function RiskToHumansPage({
                   </li>
                   <li>
                     <Link
-                      href="/species"
                       className="transition-colors hover:text-foreground"
+                      href="/species"
                     >
                       {t("breadcrumbSpecies")}
                     </Link>
@@ -119,16 +98,16 @@ export function RiskToHumansPage({
                   const tone = levelTone(level);
                   return (
                     <a
-                      key={level}
-                      href={`#${DANGER_LEVEL_HASH[level]}`}
                       className={cn(
                         "inline-flex items-center gap-2 rounded-full px-3.5 py-2 transition-opacity hover:opacity-80",
                         tone.chip,
                       )}
+                      href={`#${DANGER_LEVEL_HASH[level]}`}
+                      key={level}
                     >
                       <span
-                        className={cn("size-1.5 rounded-full", tone.dot)}
                         aria-hidden="true"
+                        className={cn("size-1.5 rounded-full", tone.dot)}
                       />
                       <span
                         className={cn(
@@ -150,9 +129,9 @@ export function RiskToHumansPage({
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
             {DANGER_LEVEL_ORDER.map((level) => (
               <a
-                key={level}
-                href={`#${DANGER_LEVEL_HASH[level]}`}
                 className="group block"
+                href={`#${DANGER_LEVEL_HASH[level]}`}
+                key={level}
               >
                 <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
                   {countByLevel[level]}
@@ -166,24 +145,24 @@ export function RiskToHumansPage({
         </section>
 
         <section
-          id="content"
           className="scroll-mt-28 bg-background py-20 lg:py-28"
+          id="content"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <Reveal>
                 <ClusterSectionIntro
-                  eyebrow={t("scaleEyebrow")}
-                  title={t("scaleTitle")}
                   body={t("scaleLead")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  titleClassName={CLUSTER_TITLE_GUIDE}
                   bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+                  eyebrow={t("scaleEyebrow")}
+                  eyebrowClassName={CLUSTER_EYEBROW}
+                  title={t("scaleTitle")}
+                  titleClassName={CLUSTER_TITLE_GUIDE}
                 >
                   <p className="mt-4 inline-flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
                     <Shield
-                      className="mt-0.5 size-3.5 shrink-0"
                       aria-hidden="true"
+                      className="mt-0.5 size-3.5 shrink-0"
                     />
                     {t("scaleDisclaimer")}
                   </p>
@@ -194,25 +173,25 @@ export function RiskToHumansPage({
                   const tone = levelTone(level);
                   return (
                     <Reveal
-                      key={level}
                       as="li"
-                      delay={index * 50}
                       className="flex items-start gap-5 py-6"
+                      delay={index * 50}
+                      key={level}
                     >
                       <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <div>
                         <a
-                          href={`#${DANGER_LEVEL_HASH[level]}`}
                           className={cn(
                             "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider",
                             tone.chip,
                           )}
+                          href={`#${DANGER_LEVEL_HASH[level]}`}
                         >
                           <span
-                            className={cn("size-1.5 rounded-full", tone.dot)}
                             aria-hidden="true"
+                            className={cn("size-1.5 rounded-full", tone.dot)}
                           />
                           {tDanger(level)}
                         </a>
@@ -238,12 +217,12 @@ export function RiskToHumansPage({
 
           return (
             <section
-              key={level}
-              id={DANGER_LEVEL_HASH[level]}
               className={cn(
                 "scroll-mt-28 border-t border-border py-20 lg:py-28",
                 isSurface ? "bg-surface" : "bg-background",
               )}
+              id={DANGER_LEVEL_HASH[level]}
+              key={level}
             >
               <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
                 <Reveal>
@@ -254,8 +233,8 @@ export function RiskToHumansPage({
                     )}
                   >
                     <span
-                      className={cn("size-1.5 rounded-full", tone.dot)}
                       aria-hidden="true"
+                      className={cn("size-1.5 rounded-full", tone.dot)}
                     />
                     {tDanger(level)}
                   </span>
@@ -269,7 +248,7 @@ export function RiskToHumansPage({
 
                 <ol className="mt-10 max-w-2xl divide-y divide-border border-y border-border">
                   {([1, 2, 3] as const).map((n) => (
-                    <li key={n} className="py-5">
+                    <li className="py-5" key={n}>
                       <p className="font-display text-[17px] font-medium text-foreground">
                         {t(`${level}Point${n}Title`)}
                       </p>
@@ -291,18 +270,18 @@ export function RiskToHumansPage({
                   </p>
                   {species.length > 0 ? (
                     <SpeciesGuideList
-                      species={species}
                       locale={locale}
                       source="guide"
+                      species={species}
                     />
                   ) : null}
                   {level === "Harmless" ? (
                     <Link
+                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/30"
                       href={{
                         pathname: "/species",
                         query: { danger: "harmless" },
                       }}
-                      className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/30"
                     >
                       {t("HarmlessAtlasCta")}
                       <ArrowUpRight className="size-4" />
@@ -311,15 +290,15 @@ export function RiskToHumansPage({
                   {level === "High" ? (
                     <div className="mt-8 flex flex-wrap gap-3">
                       <Link
-                        href="/venomous-snakes"
                         className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white dark:text-ink"
+                        href="/venomous-snakes"
                       >
                         {t("linkVenomous")}
                         <ArrowUpRight className="size-4" />
                       </Link>
                       <Link
-                        href="/snakes/gvelis-nakbeni"
                         className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+                        href="/snakes/gvelis-nakbeni"
                       >
                         {t("linkBite")}
                         <ArrowUpRight className="size-4" />
@@ -337,20 +316,20 @@ export function RiskToHumansPage({
             <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
               <Reveal>
                 <PathCard
-                  href="/venomous-snakes"
-                  eyebrow={t("venomousEyebrow")}
-                  title={t("venomousTitle")}
                   body={t("venomousBody")}
                   cta={t("venomousCta")}
+                  eyebrow={t("venomousEyebrow")}
+                  href="/venomous-snakes"
+                  title={t("venomousTitle")}
                 />
               </Reveal>
               <Reveal delay={60}>
                 <PathCard
-                  href="/snakes/shxamiani-gvelis-amocnoba"
-                  eyebrow={t("idEyebrow")}
-                  title={t("idTitle")}
                   body={t("idBody")}
                   cta={t("idCta")}
+                  eyebrow={t("idEyebrow")}
+                  href="/snakes/shxamiani-gvelis-amocnoba"
+                  title={t("idTitle")}
                 />
               </Reveal>
             </div>
@@ -365,24 +344,24 @@ export function RiskToHumansPage({
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("ctaEyebrow")}
-                title={t("ctaTitle")}
                 body={t("ctaBody")}
-                eyebrowClassName={CLUSTER_HERO_EYEBROW}
-                titleClassName={CLUSTER_HERO_TITLE}
                 bodyClassName={CLUSTER_HERO_BODY}
+                eyebrow={t("ctaEyebrow")}
+                eyebrowClassName={CLUSTER_HERO_EYEBROW}
+                title={t("ctaTitle")}
+                titleClassName={CLUSTER_HERO_TITLE}
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href="/species"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="/species"
                 >
                   {t("ctaAllSpecies")}
                   <ArrowRight className="size-4" />
                 </Link>
                 <Link
-                  href="/venomous-snakes"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 transition-colors hover:border-white/35 hover:text-white"
+                  href="/venomous-snakes"
                 >
                   {t("ctaVenomous")}
                 </Link>
@@ -395,46 +374,9 @@ export function RiskToHumansPage({
   );
 }
 
-function PathCard({
-  href,
-  eyebrow,
-  title,
-  body,
-  cta,
-}: {
-  href: ComponentProps<typeof Link>["href"];
-  eyebrow: string;
-  title: string;
-  body: string;
-  cta: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
-    >
-      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-        {eyebrow}
-      </span>
-      <div className="mt-6">
-        <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
-          {title}
-        </p>
-        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
-          {body}
-        </p>
-        <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
-          {cta}
-          <ArrowUpRight className="size-3.5" />
-        </span>
-      </div>
-    </Link>
-  );
-}
-
 function FaqSection() {
   const t = useTranslations("riskToHumans");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
   const items = FAQ_ITEMS;
 
   return (
@@ -443,25 +385,25 @@ function FaqSection() {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("faqEyebrow")}
-              title={t("faqTitle")}
               body={t("faqIntro")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_FAQ_TITLE}
               bodyClassName={CLUSTER_FAQ_BODY}
+              eyebrow={t("faqEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("faqTitle")}
+              titleClassName={CLUSTER_FAQ_TITLE}
             />
           </Reveal>
           <div>
             {items.map((n, index) => {
               const isOpen = open === index;
               return (
-                <Reveal key={n} delay={index * 50}>
+                <Reveal delay={index * 50} key={n}>
                   <div className="border-t border-border last:border-b">
                     <button
-                      type="button"
                       aria-expanded={isOpen}
-                      onClick={() => setOpen(isOpen ? null : index)}
                       className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                      onClick={() => setOpen(isOpen ? null : index)}
+                      type="button"
                     >
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
@@ -497,5 +439,65 @@ function FaqSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function levelTone(level: DangerLevel) {
+  switch (level) {
+    case "High":
+      return {
+        chip: "bg-destructive/15 text-destructive",
+        dot: "bg-destructive",
+        value: "text-destructive",
+      };
+    case "Moderate":
+      return {
+        chip: "bg-gold/20 text-gold",
+        dot: "bg-gold",
+        value: "text-gold",
+      };
+    default:
+      return {
+        chip: "bg-primary/15 text-primary",
+        dot: "bg-primary",
+        value: "text-primary",
+      };
+  }
+}
+
+function PathCard({
+  body,
+  cta,
+  eyebrow,
+  href,
+  title,
+}: {
+  body: string;
+  cta: string;
+  eyebrow: string;
+  href: ComponentProps<typeof Link>["href"];
+  title: string;
+}) {
+  return (
+    <Link
+      className="group flex min-h-[180px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background sm:p-9"
+      href={href}
+    >
+      <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
+        {eyebrow}
+      </span>
+      <div className="mt-6">
+        <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
+          {title}
+        </p>
+        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+          {body}
+        </p>
+        <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
+          {cta}
+          <ArrowUpRight className="size-3.5" />
+        </span>
+      </div>
+    </Link>
   );
 }

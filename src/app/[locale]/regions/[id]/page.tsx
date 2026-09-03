@@ -1,24 +1,30 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { RegionProfile } from "@/components/RegionProfile";
+import { getPublishedNewsForRegion } from "@/data/news";
 import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
-import { getPublishedNewsForRegion } from "@/data/news";
 import {
   getRegionById,
   getRegionSpecies,
   localizeRegionText,
   regions,
 } from "@/data/regions";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import {
   georgiaPlaceName,
   georgiaReptilesLabel,
   openGraphLocale,
   pickLocalized,
 } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   absoluteUrl,
   localeAlternates,
@@ -28,31 +34,21 @@ import {
   speciesPageUrl,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type PageProps = {
-  params: Promise<{ locale: string; id: string }>;
+  params: Promise<{ id: string; locale: string; }>;
 };
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    regions.map((region) => ({ locale, id: region.id })),
-  );
-}
-
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { locale: localeParam, id } = await params;
+  const { id, locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     return {
+      robots: { follow: false, index: false },
       title: "Region not found",
-      robots: { index: false, follow: false },
     };
   }
 
@@ -62,8 +58,8 @@ export async function generateMetadata({
 
   if (!region) {
     return {
+      robots: { follow: false, index: false },
       title: t("notFound"),
-      robots: { index: false, follow: false },
     };
   }
 
@@ -72,14 +68,14 @@ export async function generateMetadata({
   const content = getRegionContent(region.id);
   const title = t("regionMetaTitle", { name, nameIn });
   const description = t("regionMetaDescription", {
+    count: region.speciesIds.length,
     name,
     nameIn,
-    count: region.speciesIds.length,
   });
   const path = regionHref(region.id);
 
   return {
-    title,
+    alternates: localeAlternates(locale, path),
     description,
     keywords: [
       name,
@@ -87,8 +83,8 @@ export async function generateMetadata({
       georgiaReptilesLabel(locale),
       pickLocalized(
         {
-          ka: "საქართველოს რეგიონები",
           en: "regions of Georgia",
+          ka: "საქართველოს რეგიონები",
           ru: "регионы Грузии",
           tr: "Gürcistan bölgeleri",
         },
@@ -96,29 +92,35 @@ export async function generateMetadata({
       ),
       localizeRegionText(content.biome, locale),
     ],
-    alternates: localeAlternates(locale, path),
     openGraph: {
-      type: "article",
+      description,
       locale: openGraphLocale(locale),
-      url: absoluteUrl(localePath(locale, path)),
       siteName: siteConfig.name,
       title,
-      description,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
+      type: "article",
+      url: absoluteUrl(localePath(locale, path)),
     },
     robots: {
-      index: true,
       follow: true,
+      index: true,
+    },
+    title,
+    twitter: {
+      card: "summary_large_image",
+      description,
+      title,
     },
   };
 }
 
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    regions.map((region) => ({ id: region.id, locale })),
+  );
+}
+
 export default async function RegionPage({ params }: PageProps) {
-  const { locale: localeParam, id } = await params;
+  const { id, locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
   }
@@ -144,32 +146,32 @@ export default async function RegionPage({ params }: PageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: t("regionMetaTitle", { name, nameIn }),
-    description: overview,
-    url: pageUrl,
-    isPartOf: { "@id": siteEntityId("website") },
-    author: { "@id": siteEntityId("organization") },
-    publisher: { "@id": siteEntityId("organization") },
     about: {
       "@type": "Place",
-      name,
-      description: overview,
       containedInPlace: {
         "@type": "Country",
         name: georgiaPlaceName(locale),
       },
+      description: overview,
+      name,
     },
+    author: { "@id": siteEntityId("organization") },
+    description: overview,
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: species.length,
       itemListElement: species.map((item, index) => ({
         "@type": "ListItem",
+        name: `${item.commonName} (${item.scientificName})`,
         position: index + 1,
         url: speciesPageUrl(locale, item.id),
-        name: `${item.commonName} (${item.scientificName})`,
       })),
+      numberOfItems: species.length,
     },
-    inLanguage: locale,
+    name: t("regionMetaTitle", { name, nameIn }),
+    publisher: { "@id": siteEntityId("organization") },
+    url: pageUrl,
   };
 
   const breadcrumbJsonLd = {
@@ -178,21 +180,21 @@ export default async function RegionPage({ params }: PageProps) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: siteConfig.name,
         item: absoluteUrl(localePath(locale, "/")),
+        name: siteConfig.name,
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: t("metaTitle"),
         item: absoluteUrl(localePath(locale, "/regions")),
+        name: t("metaTitle"),
+        position: 2,
       },
       {
         "@type": "ListItem",
-        position: 3,
-        name,
         item: pageUrl,
+        name,
+        position: 3,
       },
     ],
   };
@@ -204,18 +206,18 @@ export default async function RegionPage({ params }: PageProps) {
           "@type": "FAQPage",
           mainEntity: content.faq.map((entry) => ({
             "@type": "Question",
-            name: localizeRegionText(entry.question, locale),
             acceptedAnswer: {
               "@type": "Answer",
               text: localizeRegionText(entry.answer, locale),
             },
+            name: localizeRegionText(entry.question, locale),
           })),
         }
       : null;
 
   return (
     <>
-      <CoverImagePreload src={getRegionHeroImage(region.id)} sizes="100vw" />
+      <CoverImagePreload sizes="100vw" src={getRegionHeroImage(region.id)} />
       <JsonLd
         data={
           faqJsonLd

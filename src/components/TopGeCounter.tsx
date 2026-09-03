@@ -5,7 +5,7 @@ export function TopGeCounter() {
 
   return (
     <>
-      <div id="top-ge-counter-container" data-site-id="118888" />
+      <div data-site-id="118888" id="top-ge-counter-container" />
       <Script
         src="https://counter.top.ge/counter.js"
         strategy="afterInteractive"

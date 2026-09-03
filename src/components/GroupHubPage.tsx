@@ -1,5 +1,13 @@
 "use client";
 
+import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useMemo, useState } from "react";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+import type { GroupHubId } from "@/lib/groupHubs";
+
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
@@ -17,27 +25,21 @@ import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
-import type { Species } from "@/data/species";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
+import { trackEvent } from "@/lib/analytics";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { quizHref } from "@/lib/quizzes";
-import { trackEvent } from "@/lib/analytics";
-import type { GroupHubId } from "@/lib/groupHubs";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { quizHref } from "@/lib/quizzes";
 
 type GroupHubPageProps = {
+  heroSrc: string;
   hubId: GroupHubId;
   species: Species[];
-  heroSrc: string;
 };
 
-export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
+export function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
   const t = useTranslations(hubId);
   const tShared = useTranslations("groupHubShared");
   const tSnakes = useTranslations("snakes");
@@ -59,11 +61,11 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
           style={{ paddingTop: "7rem" }}
         >
           <CoverImage
-            src={heroSrc}
             alt={t("heroImageAlt")}
+            className="object-cover object-[50%_35%]"
             priority
             sizes="100vw"
-            className="object-cover object-[50%_35%]"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
@@ -74,8 +76,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
                     <Link
-                      href="/"
                       className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                      href="/"
                     >
                       <ArrowLeft className="size-3.5" />
                       {tShared("breadcrumbHome")}
@@ -99,24 +101,24 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
                 <a
-                  href="#species"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="#species"
                 >
                   {t("ctaSpecies")}
                   <ArrowRight className="size-4" />
                 </a>
                 <Link
-                  href="/species"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  href="/species"
                 >
                   {tShared("ctaAllSpecies")}
                 </Link>
                 {hubId === "snakes" ? (
                   <QuizCtaLink
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
                     href={quizHref("snake", locale)}
                     quizId="snake"
                     source="hub"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
                   >
                     {tSnakes("ctaQuiz")}
                     <ArrowUpRight className="size-4" />
@@ -124,8 +126,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 ) : null}
                 {hubId === "turtles" ? (
                   <Link
-                    href="/turtles/identifikacia"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                    href="/turtles/identifikacia"
                   >
                     {t("ctaIdentify")}
                     <ArrowUpRight className="size-4" />
@@ -176,8 +178,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                 <ul className="flex flex-wrap gap-2">
                   {extraItems.map((item) => (
                     <li
-                      key={item}
                       className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1.5 text-[13px] leading-tight font-medium text-foreground"
+                      key={item}
                     >
                       {item}
                     </li>
@@ -197,8 +199,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               <Reveal>
                 <ClusterSectionIntro
                   eyebrow={t("guideEyebrow")}
-                  title={t("guideTitle")}
                   eyebrowClassName={CLUSTER_EYEBROW}
+                  title={t("guideTitle")}
                   titleClassName={CLUSTER_TITLE_GUIDE}
                 />
               </Reveal>
@@ -212,26 +214,26 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
 
             <RelatedGuideGrid
               cards={clusterCards}
+              className="mt-14"
               locale={locale}
               species={species}
-              className="mt-14"
             />
           </div>
         </section>
 
         <section
-          id="species"
           className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+          id="species"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={t("speciesEyebrow")}
-                title={t("speciesTitle", { count: species.length })}
                 body={t("speciesBody")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_SECTION}
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={t("speciesEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("speciesTitle", { count: species.length })}
+                titleClassName={CLUSTER_TITLE_SECTION}
               />
             </Reveal>
 
@@ -249,9 +251,9 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
                     )}
                   </p>
                   <SpeciesGuideList
-                    species={section.items}
                     locale={locale}
                     source="hub"
+                    species={section.items}
                   />
                 </div>
               ))}
@@ -260,8 +262,8 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
             {hubId === "turtles" ? (
               <Reveal delay={80}>
                 <Link
-                  href="/turtles/saxeoebebi"
                   className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href="/turtles/saxeoebebi"
                 >
                   {t("speciesIndexCta")}
                   <ArrowUpRight className="size-4" />
@@ -277,20 +279,20 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Reveal>
               <ClusterSectionIntro
-                eyebrow={tShared("relatedEyebrow")}
-                title={tShared("relatedTitle")}
                 body={tShared("relatedBody")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                titleClassName={CLUSTER_TITLE_RELATED}
                 bodyClassName={CLUSTER_BODY}
+                eyebrow={tShared("relatedEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={tShared("relatedTitle")}
+                titleClassName={CLUSTER_TITLE_RELATED}
               />
             </Reveal>
             <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {relatedHubs.map((hub, index) => (
-                <Reveal key={hub.id} delay={index * 50} className="contents">
+                <Reveal className="contents" delay={index * 50} key={hub.id}>
                   <Link
-                    href={hub.path}
                     className="group flex h-full min-h-[160px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
+                    href={hub.path}
                   >
                     <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
@@ -312,11 +314,11 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage
-            src={heroSrc}
             alt=""
-            sizes="100vw"
-            className="object-cover opacity-50"
             aria-hidden
+            className="object-cover opacity-50"
+            sizes="100vw"
+            src={heroSrc}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
@@ -332,24 +334,24 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
-                  href="/species"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                  href="/species"
                 >
                   {tShared("ctaAllSpecies")}
                   <ArrowRight className="size-4" />
                 </Link>
                 {hubId === "turtles" ? (
                   <Link
-                    href="/turtles/identifikacia"
                     className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                    href="/turtles/identifikacia"
                   >
                     {t("ctaIdentify")}
                     <ArrowUpRight className="size-4" />
                   </Link>
                 ) : null}
                 <Link
-                  href="/regions"
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+                  href="/regions"
                 >
                   {tShared("ctaRegions")}
                 </Link>
@@ -364,7 +366,7 @@ export function GroupHubPage({ hubId, species, heroSrc }: GroupHubPageProps) {
 
 function readStatExtraItems(
   t: ReturnType<typeof useTranslations>,
-): string[] | null {
+): null | string[] {
   if (!t.has("statExtraItems")) return null;
   const items = t.raw("statExtraItems");
   if (
@@ -379,50 +381,9 @@ function readStatExtraItems(
 
 const faqLinkClassName = "text-foreground underline-offset-4 hover:underline";
 
-function SnakesFaq5Answer() {
-  const t = useTranslations("snakes");
-
-  return t.rich("faq5A", {
-    bite: (chunks) => (
-      <Link href="/snakes/gvelis-nakbeni" className={faqLinkClassName}>
-        {chunks}
-      </Link>
-    ),
-    yard: (chunks) => (
-      <Link href="/snakes-in-the-yard" className={faqLinkClassName}>
-        {chunks}
-      </Link>
-    ),
-  });
-}
-
-function TurtlesFaq4Answer() {
-  const t = useTranslations("turtles");
-
-  return t.rich("faq4A", {
-    identify: (chunks) => (
-      <Link href="/turtles/identifikacia" className={faqLinkClassName}>
-        {chunks}
-      </Link>
-    ),
-  });
-}
-
-function hubFaqIndices(
-  hubId: GroupHubId,
-  t: ReturnType<typeof useTranslations>,
-) {
-  const max = hubId === "turtles" ? 8 : 5;
-  const indices: number[] = [];
-  for (let n = 1; n <= max; n += 1) {
-    if (t.has(`faq${n}Q`)) indices.push(n);
-  }
-  return indices;
-}
-
 function FaqSection({ hubId }: { hubId: GroupHubId }) {
   const t = useTranslations(hubId);
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<null | number>(0);
   const items = useMemo(() => hubFaqIndices(hubId, t), [hubId, t]);
 
   return (
@@ -431,35 +392,35 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("faqEyebrow")}
-              title={t("faqTitle")}
               body={t("faqIntro")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_FAQ_TITLE}
               bodyClassName={CLUSTER_FAQ_BODY}
+              eyebrow={t("faqEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("faqTitle")}
+              titleClassName={CLUSTER_FAQ_TITLE}
             />
           </Reveal>
           <div>
             {items.map((n, index) => {
               const isOpen = open === index;
               return (
-                <Reveal key={n} delay={index * 50}>
+                <Reveal delay={index * 50} key={n}>
                   <div className="border-t border-border last:border-b">
                     <button
-                      type="button"
                       aria-expanded={isOpen}
+                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
                       onClick={() => {
                         const next = isOpen ? null : index;
                         setOpen(next);
                         if (next !== null) {
                           trackEvent("faq_open", {
-                            page_type: "hub",
                             entity_id: hubId,
                             faq_index: next,
+                            page_type: "hub",
                           });
                         }
                       }}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
+                      type="button"
                     >
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
@@ -502,4 +463,45 @@ function FaqSection({ hubId }: { hubId: GroupHubId }) {
       </div>
     </section>
   );
+}
+
+function hubFaqIndices(
+  hubId: GroupHubId,
+  t: ReturnType<typeof useTranslations>,
+) {
+  const max = hubId === "turtles" ? 8 : 5;
+  const indices: number[] = [];
+  for (let n = 1; n <= max; n += 1) {
+    if (t.has(`faq${n}Q`)) indices.push(n);
+  }
+  return indices;
+}
+
+function SnakesFaq5Answer() {
+  const t = useTranslations("snakes");
+
+  return t.rich("faq5A", {
+    bite: (chunks) => (
+      <Link className={faqLinkClassName} href="/snakes/gvelis-nakbeni">
+        {chunks}
+      </Link>
+    ),
+    yard: (chunks) => (
+      <Link className={faqLinkClassName} href="/snakes-in-the-yard">
+        {chunks}
+      </Link>
+    ),
+  });
+}
+
+function TurtlesFaq4Answer() {
+  const t = useTranslations("turtles");
+
+  return t.rich("faq4A", {
+    identify: (chunks) => (
+      <Link className={faqLinkClassName} href="/turtles/identifikacia">
+        {chunks}
+      </Link>
+    ),
+  });
 }

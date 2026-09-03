@@ -1,5 +1,8 @@
 "use client";
 
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
@@ -9,8 +12,6 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
 
 const regionLinkClass = "text-foreground underline-offset-4 hover:underline";
 
@@ -25,8 +26,8 @@ export function TurtlesHubSections() {
             <Reveal>
               <ClusterSectionIntro
                 eyebrow={t("rangeEyebrow")}
-                title={t("rangeTitle")}
                 eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("rangeTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
             </Reveal>
@@ -36,7 +37,7 @@ export function TurtlesHubSections() {
                 <p>
                   {t.rich("rangeP2", {
                     regions: (chunks) => (
-                      <Link href="/regions" className={regionLinkClass}>
+                      <Link className={regionLinkClass} href="/regions">
                         {chunks}
                       </Link>
                     ),
@@ -52,12 +53,12 @@ export function TurtlesHubSections() {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("whereEyebrow")}
-              title={t("whereTitle")}
               body={t("whereIntro")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_RELATED}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("whereEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("whereTitle")}
+              titleClassName={CLUSTER_TITLE_RELATED}
             />
           </Reveal>
 
@@ -94,7 +95,7 @@ export function TurtlesHubSections() {
                 },
               ] as const
             ).map((item, index) => (
-              <Reveal key={item.key} delay={index * 40} className="contents">
+              <Reveal className="contents" delay={index * 40} key={item.key}>
                 <article className="flex h-full flex-col bg-card p-7 sm:p-8">
                   <h3 className="font-display text-[18px] font-semibold text-foreground sm:text-[20px]">
                     {t(`where.${item.key}.title`)}
@@ -110,11 +111,11 @@ export function TurtlesHubSections() {
                       <span key={region.id}>
                         {regionIndex > 0 ? " · " : null}
                         <Link
-                          href={{
-                            pathname: "/regions/[id]",
-                            params: { id: region.id },
-                          }}
                           className={regionLinkClass}
+                          href={{
+                            params: { id: region.id },
+                            pathname: "/regions/[id]",
+                          }}
                         >
                           {t(region.labelKey)}
                         </Link>
@@ -134,8 +135,8 @@ export function TurtlesHubSections() {
             <Reveal>
               <ClusterSectionIntro
                 eyebrow={t("identifyEyebrow")}
-                title={t("identifyTitle")}
                 eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("identifyTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
             </Reveal>
@@ -148,7 +149,7 @@ export function TurtlesHubSections() {
 
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {([1, 2, 3, 4] as const).map((n, index) => (
-              <Reveal key={n} delay={index * 40}>
+              <Reveal delay={index * 40} key={n}>
                 <li className="border-t border-border pt-4">
                   <p className="text-[12px] tracking-[0.18em] text-muted-foreground">
                     {String(n).padStart(2, "0")}
@@ -166,8 +167,8 @@ export function TurtlesHubSections() {
 
           <Reveal delay={120}>
             <Link
-              href="/turtles/identifikacia"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[14px] font-medium text-ink-foreground transition-opacity hover:opacity-90"
+              href="/turtles/identifikacia"
             >
               {t("identifyCta")}
               <ArrowRight className="size-4" />
@@ -193,15 +194,15 @@ export function TurtlesHubSections() {
                   </p>
                 </div>
                 <Link
-                  href="/turtles/xmelis-kuebi"
                   className="mt-8 inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href="/turtles/xmelis-kuebi"
                 >
                   {t("landCta")}
                   <ArrowUpRight className="size-4" />
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={60} className="contents">
+            <Reveal className="contents" delay={60}>
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
                   <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
@@ -215,8 +216,8 @@ export function TurtlesHubSections() {
                   </p>
                 </div>
                 <Link
-                  href="/turtles/tsqlis-kuebi"
                   className="mt-8 inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href="/turtles/tsqlis-kuebi"
                 >
                   {t("waterCta")}
                   <ArrowUpRight className="size-4" />

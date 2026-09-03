@@ -1,16 +1,17 @@
-import { siteConfig } from "@/lib/site";
 import type { MetadataRoute } from "next";
+
+import { siteConfig } from "@/lib/site";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    background_color: "#0f1410",
+    categories: ["education", "science", "reference"],
+    description: siteConfig.description,
+    display: "standalone",
+    lang: siteConfig.language,
     name: siteConfig.name,
     short_name: siteConfig.shortName,
-    description: siteConfig.description,
     start_url: "/",
-    display: "standalone",
-    background_color: "#0f1410",
     theme_color: "#142018",
-    lang: siteConfig.language,
-    categories: ["education", "science", "reference"],
   };
 }

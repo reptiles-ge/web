@@ -1,30 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { CoverImage } from "@/components/CoverImage";
-import { OverlayPanel } from "@/components/OverlayPanel";
-import { useRouter } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
-import {
-  chromeIconButtonBase,
-  chromeIconButtonClass,
-  chromeShellClass,
-} from "@/lib/chromeStyles";
-import { cn } from "@/lib/cn";
-import {
-  buildSearchIndex,
-  flattenGroups,
-  readRecent,
-  resolveRecent,
-  searchIndex,
-  writeRecent,
-  type SearchDocument,
-  type SearchFilter,
-  type SearchGroup,
-  type SearchIcon,
-  type SearchKind,
-} from "@/lib/siteSearch";
 import {
   ArrowUpRight,
   BookMarked,
@@ -42,6 +18,8 @@ import {
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import {
+  type KeyboardEvent as ReactKeyboardEvent,
+  type ReactNode,
   startTransition,
   useCallback,
   useDeferredValue,
@@ -50,232 +28,52 @@ import {
   useMemo,
   useRef,
   useState,
-  type KeyboardEvent as ReactKeyboardEvent,
-  type ReactNode,
 } from "react";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { CoverImage } from "@/components/CoverImage";
+import { OverlayPanel } from "@/components/OverlayPanel";
+import { useRouter } from "@/i18n/navigation";
+import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+  chromeShellClass,
+} from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
+import {
+  buildSearchIndex,
+  flattenGroups,
+  readRecent,
+  resolveRecent,
+  type SearchDocument,
+  type SearchFilter,
+  type SearchGroup,
+  type SearchIcon,
+  searchIndex,
+  type SearchKind,
+  writeRecent,
+} from "@/lib/siteSearch";
+
 type SpeciesSearchProps = {
-  variant?: "light" | "dark";
+  variant?: "dark" | "light";
 };
 
 const FILTERS: SearchFilter[] = ["all", "page", "species", "region"];
 
 const ICONS: Record<SearchIcon, typeof Search> = {
   atlas: BookMarked,
-  hub: BookOpen,
-  guide: BookOpen,
-  identify: ScanSearch,
-  safety: ShieldAlert,
-  map: MapPinned,
-  yard: Home,
-  info: Info,
   contact: Mail,
+  guide: BookOpen,
+  hub: BookOpen,
+  identify: ScanSearch,
+  info: Info,
+  map: MapPinned,
   news: Newspaper,
+  safety: ShieldAlert,
+  yard: Home,
 };
-
-function highlight(text: string, query: string) {
-  const q = query.trim();
-  if (!q) return text;
-  const lower = text.toLowerCase();
-  const nq = q.toLowerCase();
-  let index = lower.indexOf(nq);
-  let length = nq.length;
-  if (index < 0) {
-    for (const token of nq.split(/\s+/).filter((item) => item.length > 1)) {
-      index = lower.indexOf(token);
-      if (index >= 0) {
-        length = token.length;
-        break;
-      }
-    }
-  }
-  if (index < 0) return text;
-  return (
-    <>
-      {text.slice(0, index)}
-      <mark className="rounded-[3px] bg-primary/15 text-inherit">
-        {text.slice(index, index + length)}
-      </mark>
-      {text.slice(index + length)}
-    </>
-  );
-}
-
-function FilterBar({
-  value,
-  onChange,
-  labels,
-}: {
-  value: SearchFilter;
-  onChange: (value: SearchFilter) => void;
-  labels: Record<SearchFilter, string> & { filter: string };
-}) {
-  return (
-    <div
-      role="radiogroup"
-      aria-label={labels.filter}
-      className="flex scrollbar-none gap-1 overflow-x-auto px-3 py-2.5"
-    >
-      {FILTERS.map((item) => {
-        const active = value === item;
-        return (
-          <button
-            key={item}
-            type="button"
-            role="radio"
-            aria-checked={active}
-            onMouseDown={(event) => event.preventDefault()}
-            onClick={() => onChange(item)}
-            className={cn(
-              "shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors",
-              active
-                ? "bg-primary text-white dark:text-ink"
-                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground",
-            )}
-          >
-            {labels[item]}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-function Thumb({ item, overlay }: { item: SearchDocument; overlay?: boolean }) {
-  const Icon = ICONS[item.icon];
-
-  if (!item.image) {
-    return (
-      <span className="flex size-12 shrink-0 items-center justify-center rounded-[14px] bg-secondary text-muted-foreground">
-        <Icon className="size-4" strokeWidth={1.75} aria-hidden="true" />
-      </span>
-    );
-  }
-
-  return (
-    <span className="relative size-12 shrink-0 overflow-hidden rounded-[14px] bg-ink">
-      <CoverImage
-        src={item.image}
-        alt=""
-        sizes="48px"
-        className="object-cover transition-transform duration-500 group-hover/item:scale-105"
-      />
-      {overlay ? (
-        <span className="absolute right-0.5 bottom-0.5 flex size-4.5 items-center justify-center rounded-md bg-ink/70 text-white backdrop-blur-sm">
-          <Icon className="size-2.5" strokeWidth={2} aria-hidden="true" />
-        </span>
-      ) : null}
-    </span>
-  );
-}
-
-function ResultRow({
-  item,
-  active,
-  optionId,
-  query,
-  onActivate,
-  onHover,
-}: {
-  item: SearchDocument;
-  active: boolean;
-  optionId: string;
-  query: string;
-  onActivate: () => void;
-  onHover: () => void;
-}) {
-  return (
-    <li>
-      <button
-        type="button"
-        role="option"
-        aria-selected={active}
-        id={optionId}
-        ref={(node) => {
-          if (active) node?.scrollIntoView({ block: "nearest" });
-        }}
-        onMouseEnter={onHover}
-        onMouseDown={(event) => event.preventDefault()}
-        onClick={onActivate}
-        className={cn(
-          "group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-[background-color,box-shadow] duration-200",
-          active
-            ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
-            : "hover:bg-secondary/80 active:bg-secondary",
-        )}
-      >
-        <Thumb item={item} overlay={item.kind !== "species"} />
-        <span className="min-w-0 flex-1">
-          <span className="block truncate font-display text-[15px] leading-tight font-semibold text-foreground">
-            {highlight(item.title, query)}
-          </span>
-          <span
-            className={cn(
-              "mt-0.5 block truncate text-[12px] text-muted-foreground",
-              item.kind === "species" && "italic",
-            )}
-          >
-            {highlight(item.subtitle, query)}
-          </span>
-        </span>
-        <ArrowUpRight
-          className={cn(
-            "size-3.5 shrink-0 transition-opacity",
-            active ? "text-primary opacity-100" : "opacity-0",
-          )}
-          aria-hidden="true"
-        />
-      </button>
-    </li>
-  );
-}
-
-function EmptyState({
-  title,
-  hint,
-  suggestions,
-  onPick,
-}: {
-  title: string;
-  hint: string;
-  suggestions: string[];
-  onPick: (value: string) => void;
-}) {
-  return (
-    <div className="px-4 py-9 text-center">
-      <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-full bg-secondary">
-        <Search className="size-4 text-muted-foreground" aria-hidden="true" />
-      </div>
-      <p className="text-[13px] font-medium text-foreground">{title}</p>
-      <p className="mt-1 text-[12px] text-muted-foreground">{hint}</p>
-      {suggestions.length > 0 ? (
-        <div className="mt-4 flex flex-wrap justify-center gap-1.5">
-          {suggestions.map((item) => (
-            <button
-              key={item}
-              type="button"
-              onMouseDown={(event) => event.preventDefault()}
-              onClick={() => onPick(item)}
-              className="rounded-full bg-secondary px-3 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-foreground"
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-      ) : null}
-    </div>
-  );
-}
-
-function GroupLabel({ children }: { children: ReactNode }) {
-  return (
-    <div className="sticky top-0 z-10 border-b border-border/60 bg-card/90 px-4 py-2.5 backdrop-blur-md">
-      <p className="text-[11px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
-        {children}
-      </p>
-    </div>
-  );
-}
 
 export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const locale = useLocale() as AppLocale;
@@ -294,7 +92,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const [modKey, setModKey] = useState("");
   const deferredQuery = useDeferredValue(query);
   const lastSearchKey = useRef("");
-  const queryEntry = useRef<"type" | "suggestion">("type");
+  const queryEntry = useRef<"suggestion" | "type">("type");
 
   const index = useMemo(() => buildSearchIndex(locale), [locale]);
   const searched = useMemo(
@@ -308,8 +106,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   const groups = useMemo(() => {
     if (!showRecent) return searched.groups;
     const recentGroup: SearchGroup = {
-      kind: "page",
       items: recent.slice(0, 4).map((item) => ({ ...item, score: 0 })),
+      kind: "page",
     };
     const rest: SearchGroup[] = [];
     for (const group of searched.groups) {
@@ -365,7 +163,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   }, []);
 
   const openSearch = useCallback(
-    (method: "click" | "shortcut" | "mobile") => {
+    (method: "click" | "mobile" | "shortcut") => {
       if (!open) trackEvent("search_open", { entry_method: method });
       setOpen(true);
     },
@@ -427,17 +225,17 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       lastSearchKey.current = key;
       const term = truncateSearchTerm(q);
       trackEvent("search_query", {
-        search_term: term,
-        search_filter: filter,
-        result_count: count,
-        has_results: count > 0,
         entry_method: queryEntry.current,
+        has_results: count > 0,
+        result_count: count,
+        search_filter: filter,
+        search_term: term,
       });
       queryEntry.current = "type";
       if (count === 0) {
         trackEvent("search_no_result", {
-          search_term: term,
           search_filter: filter,
+          search_term: term,
         });
       }
     }, 500);
@@ -450,16 +248,16 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       const isRecent = !term && recent.some((entry) => entry.key === item.key);
       const position = flat.findIndex((entry) => entry.key === item.key) + 1;
       trackEvent("search_result_click", {
-        search_term: term ? truncateSearchTerm(term) : undefined,
-        search_filter: filter,
-        result_kind: item.kind,
-        result_id: item.id,
-        result_position: position > 0 ? position : undefined,
-        result_count: flat.length,
         is_recent: isRecent,
+        result_count: flat.length,
+        result_id: item.id,
+        result_kind: item.kind,
+        result_position: position > 0 ? position : undefined,
+        search_filter: filter,
+        search_term: term ? truncateSearchTerm(term) : undefined,
       });
       setRecent(
-        resolveRecent(index, writeRecent({ kind: item.kind, id: item.id })),
+        resolveRecent(index, writeRecent({ id: item.id, kind: item.kind })),
       );
       closeSearch();
       startTransition(() => {
@@ -514,11 +312,11 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     : "placeholder:text-muted-foreground/70";
 
   const filterLabels = {
-    filter: t("filter"),
     all: t("all"),
+    filter: t("filter"),
     page: t("pages"),
-    species: t("species"),
     region: t("regions"),
+    species: t("species"),
   };
 
   const groupTitle = (kind: SearchKind, isRecent: boolean) => {
@@ -535,17 +333,17 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     const empty = flat.length === 0;
 
     return (
-      <div id={surfaceListId} role="listbox" aria-label={t("title")}>
+      <div aria-label={t("title")} id={surfaceListId} role="listbox">
         {empty ? (
           <EmptyState
-            title={t("noResults")}
             hint={t("noResultsHint")}
-            suggestions={suggestions}
             onPick={(value) => {
               queryEntry.current = "suggestion";
               setQuery(value);
               openSearch("click");
             }}
+            suggestions={suggestions}
+            title={t("noResults")}
           />
         ) : (
           groups.map((group, groupIndex) => {
@@ -560,13 +358,13 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                     const globalIndex = start + index;
                     return (
                       <ResultRow
-                        key={item.key}
-                        item={item}
                         active={globalIndex === activeIndex}
+                        item={item}
+                        key={item.key}
+                        onActivate={() => goTo(item)}
+                        onHover={() => setActiveIndex(globalIndex)}
                         optionId={`${surfaceListId}-option-${item.key}`}
                         query={trimmed}
-                        onHover={() => setActiveIndex(globalIndex)}
-                        onActivate={() => goTo(item)}
                       />
                     );
                   })}
@@ -590,13 +388,13 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   return (
     <div className="relative shrink-0" ref={rootRef}>
       <button
-        type="button"
-        aria-label={t("open")}
         aria-expanded={open}
-        onClick={() => openSearch("mobile")}
+        aria-label={t("open")}
         className={cn(chromeIconButtonBase, "md:hidden", iconButtonClass)}
+        onClick={() => openSearch("mobile")}
+        type="button"
       >
-        <Search className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
+        <Search aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
       </button>
 
       <div
@@ -606,25 +404,20 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
         )}
       >
         <Search
-          className={cn("size-3.5 shrink-0", iconClass)}
           aria-hidden="true"
+          className={cn("size-3.5 shrink-0", iconClass)}
         />
         <input
-          ref={desktopInputRef}
-          type="search"
-          value={query}
-          role="combobox"
-          aria-expanded={open}
-          aria-controls={listId}
-          aria-autocomplete="list"
           aria-activedescendant={
             open && active ? `${listId}-option-${active.key}` : undefined
           }
+          aria-autocomplete="list"
+          aria-controls={listId}
+          aria-expanded={open}
           aria-keyshortcuts="Meta+K Control+K"
           aria-label={t("open")}
-          placeholder={t("placeholder")}
           autoComplete="off"
-          onFocus={() => openSearch("click")}
+          className={cn(searchInputClass, inputClass)}
           onBlur={(event) => {
             const next = event.relatedTarget as Node | null;
             if (!rootRef.current?.contains(next)) {
@@ -635,31 +428,36 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             setQuery(event.target.value);
             setOpen(true);
           }}
+          onFocus={() => openSearch("click")}
           onKeyDown={(event) => {
             if (event.nativeEvent.isComposing || event.keyCode === 229) return;
             onKeyDown(event);
           }}
-          className={cn(searchInputClass, inputClass)}
+          placeholder={t("placeholder")}
+          ref={desktopInputRef}
+          role="combobox"
+          type="search"
+          value={query}
         />
         {query ? (
           <button
-            type="button"
             aria-label={t("clear")}
-            tabIndex={-1}
-            onMouseDown={(event) => event.preventDefault()}
-            onClick={() => {
-              setQuery("");
-              setOpen(true);
-              desktopInputRef.current?.focus();
-            }}
             className={cn(
               "rounded-full p-0.5 transition-colors",
               isDark
                 ? "text-white/50 hover:bg-white/10 hover:text-white"
                 : "text-muted-foreground hover:bg-secondary hover:text-foreground",
             )}
+            onClick={() => {
+              setQuery("");
+              setOpen(true);
+              desktopInputRef.current?.focus();
+            }}
+            onMouseDown={(event) => event.preventDefault()}
+            tabIndex={-1}
+            type="button"
           >
-            <X className="size-3.5" aria-hidden="true" />
+            <X aria-hidden="true" className="size-3.5" />
           </button>
         ) : modKey ? (
           <kbd
@@ -674,76 +472,15 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
       </div>
 
       <OverlayPanel
-        open={open}
-        onClose={closeSearch}
-        title={t("title")}
         closeLabel={t("close")}
-        rootRef={rootRef}
         desktopClassName="w-[min(26.75rem,calc(100vw-1.5rem))]"
-        mobileSheetClassName="min-h-[74dvh]"
-        mobileHeader={
-          <>
-            <div className="mb-2 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
-              <Search
-                className="size-4 shrink-0 text-muted-foreground"
-                aria-hidden="true"
-              />
-              <input
-                ref={mobileInputRef}
-                type="search"
-                value={query}
-                role="combobox"
-                aria-expanded={open}
-                aria-controls={mobileListId}
-                aria-autocomplete="list"
-                aria-activedescendant={
-                  active ? `${mobileListId}-option-${active.key}` : undefined
-                }
-                aria-label={t("open")}
-                placeholder={t("placeholder")}
-                autoComplete="off"
-                enterKeyHint="search"
-                onChange={(event) => {
-                  setQuery(event.target.value);
-                  setOpen(true);
-                }}
-                onKeyDown={(event) => {
-                  if (event.nativeEvent.isComposing || event.keyCode === 229)
-                    return;
-                  onKeyDown(event);
-                }}
-                className="min-w-0 flex-1 [appearance:textfield] bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
-              />
-              {query ? (
-                <button
-                  type="button"
-                  aria-label={t("clear")}
-                  onClick={() => {
-                    setQuery("");
-                    mobileInputRef.current?.focus();
-                  }}
-                  className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                >
-                  <X className="size-4" aria-hidden="true" />
-                </button>
-              ) : null}
-            </div>
-            <div className="-mx-4 w-[calc(100%+2rem)]">
-              <FilterBar
-                value={filter}
-                onChange={changeFilter}
-                labels={filterLabels}
-              />
-            </div>
-          </>
-        }
         desktopContent={
           <div className="flex max-h-[min(480px,68vh)] flex-col">
             <div className="border-b border-border/60">
               <FilterBar
-                value={filter}
-                onChange={changeFilter}
                 labels={filterLabels}
+                onChange={changeFilter}
+                value={filter}
               />
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto">
@@ -756,7 +493,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                 {t("navigate")}
               </span>
               <span className="inline-flex items-center gap-1">
-                <CornerDownLeft className="size-3" aria-hidden="true" />
+                <CornerDownLeft aria-hidden="true" className="size-3" />
                 {t("select")}
               </span>
               <span className="ml-auto inline-flex items-center gap-1">
@@ -767,7 +504,272 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
           </div>
         }
         mobileContent={results(mobileListId)}
+        mobileHeader={
+          <>
+            <div className="mb-2 flex w-full items-center gap-2.5 rounded-[18px] border border-border bg-background px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]">
+              <Search
+                aria-hidden="true"
+                className="size-4 shrink-0 text-muted-foreground"
+              />
+              <input
+                aria-activedescendant={
+                  active ? `${mobileListId}-option-${active.key}` : undefined
+                }
+                aria-autocomplete="list"
+                aria-controls={mobileListId}
+                aria-expanded={open}
+                aria-label={t("open")}
+                autoComplete="off"
+                className="min-w-0 flex-1 [appearance:textfield] bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
+                enterKeyHint="search"
+                onChange={(event) => {
+                  setQuery(event.target.value);
+                  setOpen(true);
+                }}
+                onKeyDown={(event) => {
+                  if (event.nativeEvent.isComposing || event.keyCode === 229)
+                    return;
+                  onKeyDown(event);
+                }}
+                placeholder={t("placeholder")}
+                ref={mobileInputRef}
+                role="combobox"
+                type="search"
+                value={query}
+              />
+              {query ? (
+                <button
+                  aria-label={t("clear")}
+                  className="rounded-full p-1 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  onClick={() => {
+                    setQuery("");
+                    mobileInputRef.current?.focus();
+                  }}
+                  type="button"
+                >
+                  <X aria-hidden="true" className="size-4" />
+                </button>
+              ) : null}
+            </div>
+            <div className="-mx-4 w-[calc(100%+2rem)]">
+              <FilterBar
+                labels={filterLabels}
+                onChange={changeFilter}
+                value={filter}
+              />
+            </div>
+          </>
+        }
+        mobileSheetClassName="min-h-[74dvh]"
+        onClose={closeSearch}
+        open={open}
+        rootRef={rootRef}
+        title={t("title")}
       />
     </div>
+  );
+}
+
+function EmptyState({
+  hint,
+  onPick,
+  suggestions,
+  title,
+}: {
+  hint: string;
+  onPick: (value: string) => void;
+  suggestions: string[];
+  title: string;
+}) {
+  return (
+    <div className="px-4 py-9 text-center">
+      <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-full bg-secondary">
+        <Search aria-hidden="true" className="size-4 text-muted-foreground" />
+      </div>
+      <p className="text-[13px] font-medium text-foreground">{title}</p>
+      <p className="mt-1 text-[12px] text-muted-foreground">{hint}</p>
+      {suggestions.length > 0 ? (
+        <div className="mt-4 flex flex-wrap justify-center gap-1.5">
+          {suggestions.map((item) => (
+            <button
+              className="rounded-full bg-secondary px-3 py-1 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-secondary/80 hover:text-foreground"
+              key={item}
+              onClick={() => onPick(item)}
+              onMouseDown={(event) => event.preventDefault()}
+              type="button"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function FilterBar({
+  labels,
+  onChange,
+  value,
+}: {
+  labels: Record<SearchFilter, string> & { filter: string };
+  onChange: (value: SearchFilter) => void;
+  value: SearchFilter;
+}) {
+  return (
+    <div
+      aria-label={labels.filter}
+      className="flex scrollbar-none gap-1 overflow-x-auto px-3 py-2.5"
+      role="radiogroup"
+    >
+      {FILTERS.map((item) => {
+        const active = value === item;
+        return (
+          <button
+            aria-checked={active}
+            className={cn(
+              "shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors",
+              active
+                ? "bg-primary text-white dark:text-ink"
+                : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground",
+            )}
+            key={item}
+            onClick={() => onChange(item)}
+            onMouseDown={(event) => event.preventDefault()}
+            role="radio"
+            type="button"
+          >
+            {labels[item]}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function GroupLabel({ children }: { children: ReactNode }) {
+  return (
+    <div className="sticky top-0 z-10 border-b border-border/60 bg-card/90 px-4 py-2.5 backdrop-blur-md">
+      <p className="text-[11px] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+        {children}
+      </p>
+    </div>
+  );
+}
+
+function highlight(text: string, query: string) {
+  const q = query.trim();
+  if (!q) return text;
+  const lower = text.toLowerCase();
+  const nq = q.toLowerCase();
+  let index = lower.indexOf(nq);
+  let length = nq.length;
+  if (index < 0) {
+    for (const token of nq.split(/\s+/).filter((item) => item.length > 1)) {
+      index = lower.indexOf(token);
+      if (index >= 0) {
+        length = token.length;
+        break;
+      }
+    }
+  }
+  if (index < 0) return text;
+  return (
+    <>
+      {text.slice(0, index)}
+      <mark className="rounded-[3px] bg-primary/15 text-inherit">
+        {text.slice(index, index + length)}
+      </mark>
+      {text.slice(index + length)}
+    </>
+  );
+}
+
+function ResultRow({
+  active,
+  item,
+  onActivate,
+  onHover,
+  optionId,
+  query,
+}: {
+  active: boolean;
+  item: SearchDocument;
+  onActivate: () => void;
+  onHover: () => void;
+  optionId: string;
+  query: string;
+}) {
+  return (
+    <li>
+      <button
+        aria-selected={active}
+        className={cn(
+          "group/item flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-[background-color,box-shadow] duration-200",
+          active
+            ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
+            : "hover:bg-secondary/80 active:bg-secondary",
+        )}
+        id={optionId}
+        onClick={onActivate}
+        onMouseDown={(event) => event.preventDefault()}
+        onMouseEnter={onHover}
+        ref={(node) => {
+          if (active) node?.scrollIntoView({ block: "nearest" });
+        }}
+        role="option"
+        type="button"
+      >
+        <Thumb item={item} overlay={item.kind !== "species"} />
+        <span className="min-w-0 flex-1">
+          <span className="block truncate font-display text-[15px] leading-tight font-semibold text-foreground">
+            {highlight(item.title, query)}
+          </span>
+          <span
+            className={cn(
+              "mt-0.5 block truncate text-[12px] text-muted-foreground",
+              item.kind === "species" && "italic",
+            )}
+          >
+            {highlight(item.subtitle, query)}
+          </span>
+        </span>
+        <ArrowUpRight
+          aria-hidden="true"
+          className={cn(
+            "size-3.5 shrink-0 transition-opacity",
+            active ? "text-primary opacity-100" : "opacity-0",
+          )}
+        />
+      </button>
+    </li>
+  );
+}
+
+function Thumb({ item, overlay }: { item: SearchDocument; overlay?: boolean }) {
+  const Icon = ICONS[item.icon];
+
+  if (!item.image) {
+    return (
+      <span className="flex size-12 shrink-0 items-center justify-center rounded-[14px] bg-secondary text-muted-foreground">
+        <Icon aria-hidden="true" className="size-4" strokeWidth={1.75} />
+      </span>
+    );
+  }
+
+  return (
+    <span className="relative size-12 shrink-0 overflow-hidden rounded-[14px] bg-ink">
+      <CoverImage
+        alt=""
+        className="object-cover transition-transform duration-500 group-hover/item:scale-105"
+        sizes="48px"
+        src={item.image}
+      />
+      {overlay ? (
+        <span className="absolute right-0.5 bottom-0.5 flex size-4.5 items-center justify-center rounded-md bg-ink/70 text-white backdrop-blur-sm">
+          <Icon aria-hidden="true" className="size-2.5" strokeWidth={2} />
+        </span>
+      ) : null}
+    </span>
   );
 }

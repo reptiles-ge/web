@@ -1,25 +1,27 @@
+import { ArrowRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
+import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
+
 import { CoverImage } from "@/components/CoverImage";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
 import { quizHref } from "@/lib/quizzes";
-import { ArrowRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
 
 export type QuizCardModel = QuizDefinition & {
   image: string;
   imageAlt: string;
 };
 
-type QuizzesPageProps = {
-  items: QuizCardModel[];
-};
-
 type QuizCopy = {
-  title: string;
   lead: string;
   tag: string;
+  title: string;
+};
+
+type QuizzesPageProps = {
+  items: QuizCardModel[];
 };
 
 export async function QuizzesPage({ items }: QuizzesPageProps) {
@@ -28,9 +30,9 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   const locale = (await getLocale()) as AppLocale;
   const featured = items.find((item) => item.status === "live") ?? items[0];
   const how = [
-    { title: t("how1Title"), body: t("how1Body") },
-    { title: t("how2Title"), body: t("how2Body") },
-    { title: t("how3Title"), body: t("how3Body") },
+    { body: t("how1Body"), title: t("how1Title") },
+    { body: t("how2Body"), title: t("how2Title") },
+    { body: t("how3Body"), title: t("how3Title") },
   ] as const;
   const copy = quizCopy(t);
 
@@ -44,8 +46,8 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link
-                  href="/"
                   className="transition-colors hover:text-foreground"
+                  href="/"
                 >
                   {tShared("breadcrumbHome")}
                 </Link>
@@ -69,10 +71,10 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           </div>
 
           <FeaturedQuizCard
-            item={featured}
-            locale={locale}
             copy={copy[featured.messageKey]}
+            item={featured}
             liveLabel={t("live")}
+            locale={locale}
             questionsLabel={
               featured.questions
                 ? t("questions", { count: featured.questions })
@@ -98,8 +100,8 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-border bg-border/80 sm:grid-cols-3">
             {how.map((step, index) => (
               <li
-                key={step.title}
                 className="bg-card px-6 py-7 sm:px-8 sm:py-9"
+                key={step.title}
               >
                 <span className="font-display text-[12px] tracking-[0.22em] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
@@ -119,41 +121,19 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   );
 }
 
-function quizCopy(
-  t: Awaited<ReturnType<typeof getTranslations<"quizzes">>>,
-): Record<QuizMessageKey, QuizCopy> {
-  return {
-    snake: {
-      title: t("snakeTitle"),
-      lead: t("snakeLead"),
-      tag: t("snakeTag"),
-    },
-    lizard: {
-      title: t("lizardTitle"),
-      lead: t("lizardLead"),
-      tag: t("lizardTag"),
-    },
-    turtle: {
-      title: t("turtleTitle"),
-      lead: t("turtleLead"),
-      tag: t("turtleTag"),
-    },
-  };
-}
-
 function FeaturedQuizCard({
-  item,
-  locale,
   copy,
+  item,
   liveLabel,
+  locale,
   questionsLabel,
   startLabel,
 }: {
-  item: QuizCardModel;
-  locale: AppLocale;
   copy: QuizCopy;
+  item: QuizCardModel;
   liveLabel: string;
-  questionsLabel: string | null;
+  locale: AppLocale;
+  questionsLabel: null | string;
   startLabel: string;
 }) {
   const href = quizHref(item.id, locale);
@@ -161,11 +141,11 @@ function FeaturedQuizCard({
     <div className="grid sm:grid-cols-[14rem_1fr] lg:grid-cols-[18rem_1fr]">
       <div className="relative h-44 sm:h-auto">
         <CoverImage
-          src={item.image}
           alt={item.imageAlt}
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           priority
           sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 100vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          src={item.image}
         />
       </div>
       <div className="p-5 sm:p-7 lg:p-8">
@@ -199,12 +179,34 @@ function FeaturedQuizCard({
 
   return (
     <QuizCtaLink
+      className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
       href={href}
       quizId={item.id}
       source="quiz_index"
-      className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
     >
       {inner}
     </QuizCtaLink>
   );
+}
+
+function quizCopy(
+  t: Awaited<ReturnType<typeof getTranslations<"quizzes">>>,
+): Record<QuizMessageKey, QuizCopy> {
+  return {
+    lizard: {
+      lead: t("lizardLead"),
+      tag: t("lizardTag"),
+      title: t("lizardTitle"),
+    },
+    snake: {
+      lead: t("snakeLead"),
+      tag: t("snakeTag"),
+      title: t("snakeTitle"),
+    },
+    turtle: {
+      lead: t("turtleLead"),
+      tag: t("turtleTag"),
+      title: t("turtleTitle"),
+    },
+  };
 }

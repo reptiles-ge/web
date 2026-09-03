@@ -1,14 +1,20 @@
+import type { Metadata } from "next";
+
+import { hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+
 import { JsonLd } from "@/components/JsonLd";
 import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
+import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import {
   getAtlasStats,
   hasActiveAtlasFilters,
   parseAtlasFilters,
 } from "@/data/speciesAtlas";
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { routing, type AppLocale } from "@/i18n/routing";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { type AppLocale, routing } from "@/i18n/routing";
 import {
   absoluteUrl,
   localeAlternates,
@@ -19,19 +25,11 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
-import { hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({
   params,
@@ -51,29 +49,33 @@ export async function generateMetadata({
   const filtered = hasActiveAtlasFilters(parseAtlasFilters(await searchParams));
 
   return {
-    title,
-    description,
     alternates: localeAlternates(locale, path),
+    description,
     openGraph: {
-      title,
       description,
-      url,
-      type: "website",
+      images: [openGraphJpeg(ogImage, title)],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
-      images: [openGraphJpeg(ogImage, title)],
-    },
-    twitter: {
-      card: "summary_large_image",
       title,
-      description,
-      images: [ogImage],
+      type: "website",
+      url,
     },
     robots: {
-      index: !filtered,
       follow: true,
+      index: !filtered,
+    },
+    title,
+    twitter: {
+      card: "summary_large_image",
+      description,
+      images: [ogImage],
+      title,
     },
   };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function SpeciesIndexPage({ params }: Props) {
@@ -98,15 +100,15 @@ export default async function SpeciesIndexPage({ params }: Props) {
     itemListElement: [
       {
         "@type": "ListItem",
-        position: 1,
-        name: t("breadcrumbHome"),
         item: absoluteUrl(localePath(locale, "/")),
+        name: t("breadcrumbHome"),
+        position: 1,
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: t("breadcrumbSpecies"),
         item: url,
+        name: t("breadcrumbSpecies"),
+        position: 2,
       },
     ],
   };
@@ -114,26 +116,26 @@ export default async function SpeciesIndexPage({ params }: Props) {
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: t("metaTitle"),
-    description: t("metaDescription"),
-    url,
-    isPartOf: { "@id": siteEntityId("website") },
     about: {
       "@type": "Place",
       name: georgiaPlaceName(locale),
     },
+    dateModified: stats.lastUpdated ?? undefined,
+    description: t("metaDescription"),
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: catalog.length,
       itemListElement: catalog.map((item, index) => ({
         "@type": "ListItem",
+        name: `${item.commonName} (${item.scientificName})`,
         position: index + 1,
         url: speciesPageUrl(locale, item.id),
-        name: `${item.commonName} (${item.scientificName})`,
       })),
+      numberOfItems: catalog.length,
     },
-    inLanguage: locale,
-    dateModified: stats.lastUpdated ?? undefined,
+    name: t("metaTitle"),
+    url,
   };
 
   return (

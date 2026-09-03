@@ -1,41 +1,19 @@
 import type { DangerLevel, PhotoCredit } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
-import { isVenomousDanger } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 
-export function speciesTitleIntentKey(
-  group: AnimalGroup,
-  danger?: DangerLevel,
-):
-  | "titleSnakeVenomous"
-  | "titleSnake"
-  | "titleLizard"
-  | "titleTurtle"
-  | "titleAmphibian"
-  | "titleBird"
-  | "titleMammal"
-  | "titleSpider" {
-  if (group === "snake") {
-    return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
-  }
-  if (group === "lizard") return "titleLizard";
-  if (group === "turtle") return "titleTurtle";
-  if (group === "bird") return "titleBird";
-  if (group === "mammal") return "titleMammal";
-  if (group === "spider") return "titleSpider";
-  return "titleAmphibian";
-}
+import { isVenomousDanger } from "@/data/speciesAtlas";
 
 export function speciesFallbackDescriptionKey(
   group: AnimalGroup,
   danger?: DangerLevel,
 ):
-  | "descriptionVenomous"
-  | "descriptionReptile"
   | "descriptionAmphibian"
   | "descriptionBird"
   | "descriptionMammal"
-  | "descriptionSpider" {
+  | "descriptionReptile"
+  | "descriptionSpider"
+  | "descriptionVenomous" {
   if (group === "snake" && isVenomousDanger(danger)) {
     return "descriptionVenomous";
   }
@@ -54,78 +32,121 @@ export function speciesMetaTitle(
   return `${commonName} (${scientificName}) | ${intent}`;
 }
 
+export function speciesTitleIntentKey(
+  group: AnimalGroup,
+  danger?: DangerLevel,
+):
+  | "titleAmphibian"
+  | "titleBird"
+  | "titleLizard"
+  | "titleMammal"
+  | "titleSnake"
+  | "titleSnakeVenomous"
+  | "titleSpider"
+  | "titleTurtle" {
+  if (group === "snake") {
+    return isVenomousDanger(danger) ? "titleSnakeVenomous" : "titleSnake";
+  }
+  if (group === "lizard") return "titleLizard";
+  if (group === "turtle") return "titleTurtle";
+  if (group === "bird") return "titleBird";
+  if (group === "mammal") return "titleMammal";
+  if (group === "spider") return "titleSpider";
+  return "titleAmphibian";
+}
+
 const SPECIES_META_TITLE_OVERRIDE: Partial<
-  Record<string, { ka: string; en: string }>
+  Record<string, { en: string; ka: string; }>
 > = {
-  "natrix-natrix": {
-    ka: "ჩვეულებრივი ანკარა (Natrix natrix) | უშხამო გველი საქართველოში",
-    en: "Grass snake (Natrix natrix) | Non-venomous snake in Georgia",
-  },
-  "vipera-kaznakovi": {
-    ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",
-    en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
-  },
-  "ommatotriton-ophryticus": {
-    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
-    en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
-  },
-  "macrovipera-lebetina": {
-    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი აღმოსავლეთ საქართველოში",
-    en: "Levantine viper (Macrovipera lebetinus) | Venomous snake of eastern Georgia",
-  },
-  "natrix-tessellata": {
-    ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
-    en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
-  },
-  "vipera-transcaucasiana": {
-    ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) | შხამიანი გველი მცირე კავკასიონზე",
-    en: "Nose-horned viper (Vipera ammodytes) | Venomous snake of the Lesser Caucasus",
-  },
-  "platyceps-najadum": {
-    ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
-    en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
-  },
-  "dolichophis-schmidti": {
-    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
-    en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
-  },
-  "milvus-migrans": {
-    ka: "შავი ძერა (Milvus migrans) | მტაცებელი ფრინველი საქართველოში",
-    en: "Black kite (Milvus migrans) | Raptor in Georgia",
-  },
-  "luscinia-megarhynchos": {
-    ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
-    en: "Common nightingale (Luscinia megarhynchos) | Songbird in Georgia",
-  },
-  "erithacus-rubecula": {
-    ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
-    en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
-  },
-  "columba-palumbus": {
-    ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
-    en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
-  },
-  "motacilla-alba": {
-    ka: "თეთრი ბოლოქანქარა (Motacilla alba) | ბოლოქანქარა საქართველოში",
-    en: "White wagtail (Motacilla alba) | Wagtail in Georgia",
-  },
   "argiope-bruennichi": {
-    ka: "არგიოპა (Argiope bruennichi) | ობობა საქართველოში",
     en: "Wasp spider (Argiope bruennichi) | Orb-weaver in Georgia",
+    ka: "არგიოპა (Argiope bruennichi) | ობობა საქართველოში",
   },
   "argiope-lobata": {
-    ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
     en: "Lobed argiope (Argiope lobata) | Orb-weaver in Georgia",
+    ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
   },
-  "steatoda-paykulliana": {
-    ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
-    en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
+  "columba-palumbus": {
+    en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
+    ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
+  },
+  "dolichophis-schmidti": {
+    en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
+    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
+  },
+  "erithacus-rubecula": {
+    en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
+    ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
   },
   "latrodectus-tredecimguttatus": {
-    ka: "ყარაყურთი (Latrodectus tredecimguttatus) | შავი ქვრივი საქართველოში",
     en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
+    ka: "ყარაყურთი (Latrodectus tredecimguttatus) | შავი ქვრივი საქართველოში",
+  },
+  "luscinia-megarhynchos": {
+    en: "Common nightingale (Luscinia megarhynchos) | Songbird in Georgia",
+    ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
+  },
+  "macrovipera-lebetina": {
+    en: "Levantine viper (Macrovipera lebetinus) | Venomous snake of eastern Georgia",
+    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი აღმოსავლეთ საქართველოში",
+  },
+  "milvus-migrans": {
+    en: "Black kite (Milvus migrans) | Raptor in Georgia",
+    ka: "შავი ძერა (Milvus migrans) | მტაცებელი ფრინველი საქართველოში",
+  },
+  "motacilla-alba": {
+    en: "White wagtail (Motacilla alba) | Wagtail in Georgia",
+    ka: "თეთრი ბოლოქანქარა (Motacilla alba) | ბოლოქანქარა საქართველოში",
+  },
+  "natrix-natrix": {
+    en: "Grass snake (Natrix natrix) | Non-venomous snake in Georgia",
+    ka: "ჩვეულებრივი ანკარა (Natrix natrix) | უშხამო გველი საქართველოში",
+  },
+  "natrix-tessellata": {
+    en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
+    ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
+  },
+  "ommatotriton-ophryticus": {
+    en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
+    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
+  },
+  "platyceps-najadum": {
+    en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
+    ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
+  },
+  "steatoda-paykulliana": {
+    en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
+    ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
+  },
+  "vipera-kaznakovi": {
+    en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",
+  },
+  "vipera-transcaucasiana": {
+    en: "Nose-horned viper (Vipera ammodytes) | Venomous snake of the Lesser Caucasus",
+    ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) | შხამიანი გველი მცირე კავკასიონზე",
   },
 };
+
+export function speciesImageAlt(
+  commonName: string,
+  scientificName: string,
+  location: string,
+) {
+  return `${commonName} (${scientificName}) ${location}`;
+}
+
+export function speciesMetaDescription(overview: string, maxLength = 160) {
+  const lead = firstSentence(overview);
+  if (lead.length <= maxLength) return lead;
+
+  const truncated = lead.slice(0, maxLength - 1);
+  const lastSpace = truncated.lastIndexOf(" ");
+  const clipped = (
+    lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated
+  ).trim();
+  return `${clipped}…`;
+}
 
 export function speciesPageMetaTitle(
   speciesId: string,
@@ -141,14 +162,6 @@ export function speciesPageMetaTitle(
   return speciesMetaTitle(commonName, scientificName, intent);
 }
 
-export function speciesImageAlt(
-  commonName: string,
-  scientificName: string,
-  location: string,
-) {
-  return `${commonName} (${scientificName}) ${location}`;
-}
-
 export function speciesPhotoAlt(
   commonName: string,
   scientificName: string,
@@ -160,18 +173,6 @@ export function speciesPhotoAlt(
   if (place) parts.push(place);
   if (credit?.photographer) parts.push(credit.photographer);
   return parts.join(" — ");
-}
-
-export function speciesMetaDescription(overview: string, maxLength = 160) {
-  const lead = firstSentence(overview);
-  if (lead.length <= maxLength) return lead;
-
-  const truncated = lead.slice(0, maxLength - 1);
-  const lastSpace = truncated.lastIndexOf(" ");
-  const clipped = (
-    lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated
-  ).trim();
-  return `${clipped}…`;
 }
 
 function firstSentence(text: string) {

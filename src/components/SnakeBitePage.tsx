@@ -1,14 +1,16 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+
+import type { AppLocale } from "@/i18n/routing";
+import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
+
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { formatContentDate } from "@/lib/formatDate";
-import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
 
 const DO_STEPS = [1, 2, 3, 4, 5, 6] as const;
 const DONT_STEPS = [1, 2, 3, 4, 5, 6] as const;
@@ -18,14 +20,14 @@ const EXTERNAL_SOURCES = [1, 2, 3, 4] as const;
 const SITE_SOURCES = [1, 2] as const;
 
 const EXTERNAL_SOURCE_HREFS = {
-  ka: {
-    1: "https://112.gov.ge/?page_id=599",
+  en: {
+    1: "https://112.gov.ge/?lang=en&page_id=1686",
     2: "https://www.who.int/teams/control-of-neglected-tropical-diseases/snakebite-envenoming/treatment",
     3: "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
     4: "https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html",
   },
-  en: {
-    1: "https://112.gov.ge/?lang=en&page_id=1686",
+  ka: {
+    1: "https://112.gov.ge/?page_id=599",
     2: "https://www.who.int/teams/control-of-neglected-tropical-diseases/snakebite-envenoming/treatment",
     3: "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
     4: "https://www.cdc.gov/niosh/outdoor-workers/about/venomous-snakes.html",
@@ -45,22 +47,22 @@ const inlineLinkClassName =
 
 export function SnakeBitePage({
   guideId,
-  species,
   heroSrc,
+  species,
 }: ClusterGuideViewProps) {
   const t = useTranslations("snakeBite");
   const locale = useLocale() as AppLocale;
 
   return (
     <ClusterPageFrame
-      guideId={guideId}
-      heroSrc={heroSrc}
-      heroObjectClass="object-[50%_70%]"
       attributionSourcesHref="#sources"
+      guideId={guideId}
+      heroObjectClass="object-[50%_70%]"
+      heroSrc={heroSrc}
     >
       <section
-        id="content"
         className="scroll-mt-28 bg-background py-20 lg:py-28"
+        id="content"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
@@ -76,16 +78,16 @@ export function SnakeBitePage({
             <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
               {([1, 2, 3, 4] as const).map((n) => (
                 <li
-                  key={n}
                   className="py-4 text-[15px] leading-relaxed text-foreground"
+                  key={n}
                 >
                   {t(`summary${n}`)}
                 </li>
               ))}
             </ul>
             <a
-              href="tel:112"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white dark:text-ink"
+              href="tel:112"
             >
               {t("call112")}
               <span className="font-display tracking-wide">112</span>
@@ -109,7 +111,7 @@ export function SnakeBitePage({
               </h2>
               <ol className="mt-8 divide-y divide-border border-y border-border">
                 {DO_STEPS.map((n) => (
-                  <li key={n} className="py-5">
+                  <li className="py-5" key={n}>
                     <h3 className="font-display text-[17px] font-medium text-foreground">
                       <span className="mr-2 text-muted-foreground">
                         {String(n).padStart(2, "0")}
@@ -132,7 +134,7 @@ export function SnakeBitePage({
               </h2>
               <ol className="mt-8 divide-y divide-border border-y border-border">
                 {DONT_STEPS.map((n) => (
-                  <li key={n} className="py-5">
+                  <li className="py-5" key={n}>
                     <h3 className="font-display text-[17px] font-medium text-foreground">
                       {t(`dont${n}Title`)}
                     </h3>
@@ -165,7 +167,7 @@ export function SnakeBitePage({
           </Reveal>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
             {SYMPTOM_ITEMS.map((n, index) => (
-              <Reveal key={n} delay={Math.min(index * 40, 240)}>
+              <Reveal delay={Math.min(index * 40, 240)} key={n}>
                 <li className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground">
                   {t(`symptom${n}`)}
                 </li>
@@ -194,8 +196,8 @@ export function SnakeBitePage({
               <ul className="mt-8 divide-y divide-border border-y border-border">
                 {DANGER_ITEMS.map((n) => (
                   <li
-                    key={n}
                     className="py-4 text-[15px] leading-relaxed text-foreground"
+                    key={n}
                   >
                     {t(`danger${n}`)}
                   </li>
@@ -211,18 +213,18 @@ export function SnakeBitePage({
               </h2>
               <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
                 {t.rich("venomBody", {
-                  venomous: (chunks) => (
+                  identify: (chunks) => (
                     <Link
-                      href="/venomous-snakes"
                       className={inlineLinkClassName}
+                      href="/snakes/shxamiani-gvelis-amocnoba"
                     >
                       {chunks}
                     </Link>
                   ),
-                  identify: (chunks) => (
+                  venomous: (chunks) => (
                     <Link
-                      href="/snakes/shxamiani-gvelis-amocnoba"
                       className={inlineLinkClassName}
+                      href="/venomous-snakes"
                     >
                       {chunks}
                     </Link>
@@ -253,8 +255,8 @@ export function SnakeBitePage({
               {t.rich("unseenId", {
                 identify: (chunks) => (
                   <Link
-                    href="/snakes/shxamiani-gvelis-amocnoba"
                     className={inlineLinkClassName}
+                    href="/snakes/shxamiani-gvelis-amocnoba"
                   >
                     {chunks}
                   </Link>
@@ -277,49 +279,49 @@ export function SnakeBitePage({
             <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
               {t.rich("speciesBody", {
                 count: species.length,
-                venomous: (chunks) => (
-                  <Link href="/venomous-snakes" className={inlineLinkClassName}>
-                    {chunks}
-                  </Link>
-                ),
                 index: (chunks) => (
                   <Link
-                    href="/snakes/saxeoebebi"
                     className={inlineLinkClassName}
+                    href="/snakes/saxeoebebi"
                   >
                     {chunks}
                   </Link>
                 ),
                 range: (chunks) => (
                   <Link
-                    href="/snakes/gavrtseleba"
                     className={inlineLinkClassName}
+                    href="/snakes/gavrtseleba"
                   >
+                    {chunks}
+                  </Link>
+                ),
+                venomous: (chunks) => (
+                  <Link className={inlineLinkClassName} href="/venomous-snakes">
                     {chunks}
                   </Link>
                 ),
               })}
             </p>
           </Reveal>
-          <SpeciesGuideList species={species} locale={locale} source="guide" />
+          <SpeciesGuideList locale={locale} source="guide" species={species} />
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              href="/venomous-snakes"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white dark:text-ink"
+              href="/venomous-snakes"
             >
               {t("linkVenomous")}
               <ArrowUpRight className="size-4" />
             </Link>
             <Link
-              href="/snakes-in-the-yard"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+              href="/snakes-in-the-yard"
             >
               {t("linkYard")}
               <ArrowUpRight className="size-4" />
             </Link>
             <Link
-              href="/snakes"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+              href="/snakes"
             >
               {t("linkSnakes")}
               <ArrowUpRight className="size-4" />
@@ -329,8 +331,8 @@ export function SnakeBitePage({
       </section>
 
       <section
-        id="sources"
         className="scroll-mt-28 border-t border-border bg-background py-20 lg:py-28"
+        id="sources"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
@@ -350,12 +352,12 @@ export function SnakeBitePage({
           </p>
           <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
             {EXTERNAL_SOURCES.map((n) => (
-              <li key={n} className="py-6">
+              <li className="py-6" key={n}>
                 <a
-                  href={externalSourceHref(locale, n)}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="group inline-flex items-start gap-2"
+                  href={externalSourceHref(locale, n)}
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <span>
                     <span className="font-display text-[17px] font-medium text-foreground transition-colors group-hover:text-primary">
@@ -376,7 +378,7 @@ export function SnakeBitePage({
           </p>
           <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
             {SITE_SOURCES.map((n) => (
-              <li key={n} className="py-6">
+              <li className="py-6" key={n}>
                 <p className="font-display text-[17px] font-medium">
                   {t(`sourceSite${n}Title`)}
                 </p>

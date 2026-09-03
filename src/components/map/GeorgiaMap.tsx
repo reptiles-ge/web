@@ -1,30 +1,31 @@
 "use client";
 
-import { Region } from "@/components/map/Region";
-import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
-import { RegionTooltip } from "@/components/map/RegionTooltip";
-import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
-import { regions, type Region as RegionData } from "@/data/regions";
-import { trackEvent, type MapContext } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
-import { regionHref } from "@/lib/speciesRoutes";
-import { useRouter } from "@/i18n/navigation";
 import {
+  type MouseEvent,
   useCallback,
   useId,
   useMemo,
   useRef,
   useState,
-  type MouseEvent,
 } from "react";
+
+import { Region } from "@/components/map/Region";
+import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
+import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { MotionLazy } from "@/components/MotionLazy";
+import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
+import { type Region as RegionData, regions } from "@/data/regions";
+import { useRouter } from "@/i18n/navigation";
+import { type MapContext, trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import { regionHref } from "@/lib/speciesRoutes";
 
 type GeorgiaMapProps = {
   className?: string;
   highlightedIds?: string[];
   interactive?: boolean;
-  selectionMode?: "panel" | "navigate";
   mapContext?: MapContext;
+  selectionMode?: "navigate" | "panel";
 };
 
 const EMPTY_HIGHLIGHTED_IDS: string[] = [];
@@ -33,17 +34,17 @@ export function GeorgiaMap({
   className,
   highlightedIds = EMPTY_HIGHLIGHTED_IDS,
   interactive = true,
-  selectionMode = "panel",
   mapContext = "home",
+  selectionMode = "panel",
 }: GeorgiaMapProps) {
   const router = useRouter();
   const reactId = useId();
   const glowFilterId = `map-region-glow-${reactId.replace(/:/g, "")}`;
   const seaGradientId = `map-sea-${reactId.replace(/:/g, "")}`;
   const containerRef = useRef<HTMLDivElement>(null);
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(
+  const [hoveredId, setHoveredId] = useState<null | string>(null);
+  const [selectedId, setSelectedId] = useState<null | string>(null);
+  const [tooltipPos, setTooltipPos] = useState<null | { x: number; y: number }>(
     null,
   );
 
@@ -68,7 +69,7 @@ export function GeorgiaMap({
   );
 
   const handleHover = useCallback(
-    (id: string | null) => {
+    (id: null | string) => {
       if (!interactive) return;
       setHoveredId(id);
       if (!id) setTooltipPos(null);
@@ -80,9 +81,9 @@ export function GeorgiaMap({
     (id: string) => {
       if (!interactive) return;
       trackEvent("map_region_select", {
-        region_id: id,
-        map_context: mapContext,
         action: selectionMode === "navigate" ? "navigate" : "panel",
+        map_context: mapContext,
+        region_id: id,
       });
       if (selectionMode === "navigate") {
         router.push(regionHref(id));
@@ -112,33 +113,33 @@ export function GeorgiaMap({
     <MotionLazy>
       <>
         <div
-          ref={containerRef}
-          role="group"
           aria-label="Georgia"
           className={cn("relative mx-auto w-full max-w-[920px]", className)}
           onMouseMove={interactive ? updateTooltipFromEvent : undefined}
+          ref={containerRef}
+          role="group"
         >
           <svg
-            viewBox={GEORGIA_MAP_VIEWBOX}
             className="h-auto w-full drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)] select-none"
+            viewBox={GEORGIA_MAP_VIEWBOX}
           >
             <defs>
               <filter
+                height="140%"
                 id={glowFilterId}
+                width="140%"
                 x="-20%"
                 y="-20%"
-                width="140%"
-                height="140%"
               >
-                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feGaussianBlur result="blur" stdDeviation="3.5" />
                 <feColorMatrix
                   in="blur"
+                  result="glow"
                   type="matrix"
                   values="0 0 0 0 0.18
                         0 0 0 0 0.42
                         0 0 0 0 0.28
                         0 0 0 0.55 0"
-                  result="glow"
                 />
                 <feMerge>
                   <feMergeNode in="glow" />
@@ -148,8 +149,8 @@ export function GeorgiaMap({
               <linearGradient
                 id={seaGradientId}
                 x1="0%"
-                y1="0%"
                 x2="100%"
+                y1="0%"
                 y2="100%"
               >
                 <stop offset="0%" stopColor="var(--map-sea-from)" />
@@ -158,13 +159,13 @@ export function GeorgiaMap({
             </defs>
 
             <rect
+              fill={`url(#${seaGradientId})`}
+              height="510"
+              opacity="0.35"
+              rx="28"
+              width="1000"
               x="0"
               y="0"
-              width="1000"
-              height="510"
-              fill={`url(#${seaGradientId})`}
-              rx="28"
-              opacity="0.35"
             />
 
             <g>
@@ -181,15 +182,15 @@ export function GeorgiaMap({
 
                 return (
                   <Region
-                    key={region.id}
-                    region={region}
+                    glowFilterId={glowFilterId}
+                    interactive={interactive}
+                    isDimmed={isDimmed}
                     isHovered={hoveredId === region.id}
                     isSelected={isSelected}
-                    isDimmed={isDimmed}
-                    interactive={interactive}
-                    glowFilterId={glowFilterId}
+                    key={region.id}
                     onHover={handleHover}
                     onSelect={handleSelect}
+                    region={region}
                   />
                 );
               })}
@@ -197,12 +198,12 @@ export function GeorgiaMap({
           </svg>
 
           {interactive ? (
-            <RegionTooltip region={hoveredRegion} position={tooltipPos} />
+            <RegionTooltip position={tooltipPos} region={hoveredRegion} />
           ) : null}
         </div>
 
         {usePanel ? (
-          <RegionDetailsPanel region={selectedRegion} onClose={handleClose} />
+          <RegionDetailsPanel onClose={handleClose} region={selectedRegion} />
         ) : null}
       </>
     </MotionLazy>

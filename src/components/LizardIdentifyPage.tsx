@@ -1,5 +1,11 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
   CLUSTER_BODY,
@@ -11,23 +17,19 @@ import {
 import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
-import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
 import {
+  type ClusterGuideViewProps,
   isDarevskiaSpecies,
   LIZARD_LOOKALIKE_PAIRS,
-  type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
-import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
 
 export function LizardIdentifyPage({
   guideId,
-  species,
   heroSrc,
+  species,
 }: ClusterGuideViewProps) {
   const t = useTranslations("lizardIdentify");
   const locale = useLocale() as AppLocale;
@@ -45,15 +47,15 @@ export function LizardIdentifyPage({
   );
 
   return (
-    <ClusterPageFrame guideId={guideId} heroSrc={heroSrc} ctaHash="#flow">
+    <ClusterPageFrame ctaHash="#flow" guideId={guideId} heroSrc={heroSrc}>
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
               <ClusterSectionIntro
                 eyebrow={t("guideEyebrow")}
-                title={t("guideTitle")}
                 eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("guideTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
             </Reveal>
@@ -68,23 +70,23 @@ export function LizardIdentifyPage({
       </section>
 
       <section
-        id="flow"
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+        id="flow"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("flowEyebrow")}
-              title={t("flowTitle")}
               body={t("flowBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("flowEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("flowTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
           <ol className="mt-14 divide-y divide-border border-y border-border">
             {([1, 2, 3, 4, 5] as const).map((n) => (
-              <Reveal key={n} delay={n * 40}>
+              <Reveal delay={n * 40} key={n}>
                 <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr] sm:items-start">
                   <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
                     {String(n).padStart(2, "0")}
@@ -108,18 +110,18 @@ export function LizardIdentifyPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("darevskiaEyebrow")}
-              title={t("darevskiaTitle")}
               body={t("darevskiaBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("darevskiaEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("darevskiaTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
           <SpeciesGuideList
-            species={darevskia}
             locale={locale}
             source="guide"
+            species={darevskia}
           />
         </div>
       </section>
@@ -128,28 +130,28 @@ export function LizardIdentifyPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("featuredEyebrow")}
-              title={t("featuredTitle")}
               body={t("featuredBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("featuredEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("featuredTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
           <div className="mt-8 flex flex-wrap gap-3">
             {featured.map((item) => (
               <Link
-                key={item.id}
-                href={speciesHref(item.id, locale)}
                 className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                href={speciesHref(item.id, locale)}
+                key={item.id}
               >
                 {item.commonName}
                 <ArrowUpRight className="size-3.5" />
               </Link>
             ))}
             <Link
-              href="/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
+              href="/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
             >
               {t("compareCta")}
               <ArrowUpRight className="size-3.5" />
@@ -162,17 +164,17 @@ export function LizardIdentifyPage({
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("pairsEyebrow")}
-              title={t("pairsTitle")}
               body={t("pairsBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("pairsEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("pairsTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {pairs.map((pair, index) => (
-              <Reveal key={`${pair.a.id}-${pair.b.id}`} delay={index * 50}>
+              <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
                 <LookalikePair
                   a={pair.a}
                   b={pair.b}
@@ -201,34 +203,34 @@ function LookalikePair({
 }) {
   return (
     <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-[24px] border border-border bg-card p-4 sm:gap-5 sm:p-5">
-      <LookalikeSide species={a} locale={locale} />
+      <LookalikeSide locale={locale} species={a} />
       <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
         {vs}
       </span>
-      <LookalikeSide species={b} locale={locale} />
+      <LookalikeSide locale={locale} species={b} />
     </div>
   );
 }
 
 function LookalikeSide({
-  species,
   locale,
+  species,
 }: {
-  species: Species;
   locale: AppLocale;
+  species: Species;
 }) {
   return (
-    <Link href={speciesHref(species.id, locale)} className="group min-w-0">
+    <Link className="group min-w-0" href={speciesHref(species.id, locale)}>
       <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
         <CoverImage
-          src={species.mobileImage ?? species.image}
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,
             species.location,
           )}
-          sizes="(max-width: 1024px) 40vw, 280px"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          sizes="(max-width: 1024px) 40vw, 280px"
+          src={species.mobileImage ?? species.image}
         />
       </span>
       <span className="mt-3 block font-display text-[15px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[16px]">

@@ -1,33 +1,5 @@
 "use client";
 
-import {
-  AtlasFilterButton,
-  AtlasFilterSheet,
-} from "@/components/species-atlas/AtlasFilterSheet";
-import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
-import { CoverImage } from "@/components/CoverImage";
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
-import {
-  countAtlasFacets,
-  defaultAtlasFilters,
-  filterAtlasSpecies,
-  getAtlasStats,
-  getRecentlyUpdatedSpecies,
-  getSpeciesAtlasMeta,
-  type AnimalGroup,
-  type AtlasFilters,
-  type HabitatTag,
-} from "@/data/speciesAtlas";
-import { localizeRegionText, regions } from "@/data/regions";
-import { getCatalogSpecies, images, type Species } from "@/data/species";
-import { Link } from "@/i18n/navigation";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale } from "@/i18n/routing";
-import { formatContentDate } from "@/lib/formatDate";
-import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
-import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import {
@@ -38,6 +10,36 @@ import {
 } from "nuqs";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { CoverImage } from "@/components/CoverImage";
+import { GeorgiaMap } from "@/components/map/GeorgiaMap";
+import { Reveal } from "@/components/Reveal";
+import {
+  AtlasFilterButton,
+  AtlasFilterSheet,
+} from "@/components/species-atlas/AtlasFilterSheet";
+import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
+import { localizeRegionText, regions } from "@/data/regions";
+import { getCatalogSpecies, images, type Species } from "@/data/species";
+import {
+  type AnimalGroup,
+  type AtlasFilters,
+  countAtlasFacets,
+  defaultAtlasFilters,
+  filterAtlasSpecies,
+  getAtlasStats,
+  getRecentlyUpdatedSpecies,
+  getSpeciesAtlasMeta,
+  type HabitatTag,
+} from "@/data/speciesAtlas";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { Link } from "@/i18n/navigation";
+import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import { formatContentDate } from "@/lib/formatDate";
+import { speciesHref } from "@/lib/speciesRoutes";
+
 const GROUP_OPTIONS = [
   "all",
   "snake",
@@ -47,7 +49,7 @@ const GROUP_OPTIONS = [
   "bird",
   "mammal",
   "spider",
-] as const satisfies readonly (AnimalGroup | "all")[];
+] as const satisfies readonly ("all" | AnimalGroup)[];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
 
@@ -57,152 +59,12 @@ const HABITAT_OPTIONS = [
   "mountain",
   "wetland",
   "grassland",
-] as const satisfies readonly (HabitatTag | "all")[];
+] as const satisfies readonly ("all" | HabitatTag)[];
 
 const REGION_OPTIONS = [
   "all",
   ...regions.map((region) => region.id),
 ] as readonly string[];
-
-function AnimatedValue({
-  value,
-  className,
-}: {
-  value: number;
-  className?: string;
-}) {
-  const [display, setDisplay] = useState(value);
-  const displayRef = useRef(value);
-
-  useEffect(() => {
-    const from = displayRef.current;
-    if (from === value) return;
-
-    let frame = 0;
-    let start: number | null = null;
-    const duration = 900;
-
-    function tick(ts: number) {
-      if (start === null) start = ts;
-      const progress = Math.min((ts - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const next = Math.round(from + (value - from) * eased);
-      displayRef.current = next;
-      setDisplay(next);
-      if (progress < 1) {
-        frame = window.requestAnimationFrame(tick);
-      }
-    }
-    frame = window.requestAnimationFrame(tick);
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [value]);
-
-  return <span className={className}>{display}</span>;
-}
-
-function HeroPathway({
-  onClick,
-  href,
-  eyebrow,
-  title,
-  meta,
-  delay = 0,
-}: {
-  onClick?: () => void;
-  href?:
-    | "/snakes"
-    | "/lizards"
-    | "/turtles"
-    | "/amphibians"
-    | "/birds"
-    | "/mammals"
-    | "/spiders"
-    | "/venomous-snakes";
-  eyebrow: string;
-  title: string;
-  meta: string;
-  delay?: number;
-}) {
-  const className =
-    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
-  const style = { animationDelay: `${delay}ms` };
-  const content = (
-    <>
-      <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
-        {eyebrow}
-      </span>
-      <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">
-        {title}
-      </span>
-      <span className="mt-2 flex items-center gap-1.5 text-[13px] text-white/55 transition-colors group-hover:text-white/80">
-        {meta}
-        <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </span>
-    </>
-  );
-
-  if (href) {
-    return (
-      <Link href={href} className={className} style={style}>
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <button type="button" onClick={onClick} className={className} style={style}>
-      {content}
-    </button>
-  );
-}
-
-function LensOption({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={cn(
-        "text-[14px] transition-colors",
-        active
-          ? "font-medium text-foreground"
-          : "text-muted-foreground hover:text-foreground",
-      )}
-    >
-      {children}
-    </button>
-  );
-}
-
-function LensRow({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
-      <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
-        {label}
-      </p>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-        {children}
-      </div>
-    </div>
-  );
-}
 
 export function SpeciesAtlas() {
   const locale = useLocale() as AppLocale;
@@ -239,7 +101,7 @@ export function SpeciesAtlas() {
 
   const [filterOpen, setFilterOpen] = useState(false);
   const filters = useMemo<AtlasFilters>(
-    () => ({ group, danger, habitat, region, query }),
+    () => ({ danger, group, habitat, query, region }),
     [group, danger, habitat, region, query],
   );
   const deferredQuery = useDeferredValue(filters.query);
@@ -320,29 +182,29 @@ export function SpeciesAtlas() {
         !filters.query.trim();
       trackEvent("atlas_filter", {
         action: isDefault ? "reset" : "apply",
-        group_filter: filters.group,
         danger_filter: filters.danger,
+        group_filter: filters.group,
         habitat_filter: filters.habitat,
         region_filter: filters.region,
+        result_count: filtered.length,
         search_term: filters.query.trim()
           ? truncateSearchTerm(filters.query)
           : undefined,
-        result_count: filtered.length,
       });
     }, delay);
     return () => window.clearTimeout(timer);
   }, [filters, filtered.length]);
 
   const groupCounts = useMemo(() => {
-    const counts: Record<AnimalGroup | "all", number> = {
+    const counts: Record<"all" | AnimalGroup, number> = {
       all: catalog.length,
-      snake: 0,
-      lizard: 0,
-      turtle: 0,
       amphibian: 0,
       bird: 0,
+      lizard: 0,
       mammal: 0,
+      snake: 0,
       spider: 0,
+      turtle: 0,
     };
     for (const item of catalog) {
       counts[getSpeciesAtlasMeta(item.id).group] += 1;
@@ -357,40 +219,40 @@ export function SpeciesAtlas() {
     value: AtlasFilters[K],
   ) {
     switch (key) {
-      case "group":
-        setGroup(value as AtlasFilters["group"], {
-          history: "replace",
-          shallow: true,
-          scroll: false,
-        });
-        break;
       case "danger":
         setDanger(value as AtlasFilters["danger"], {
           history: "replace",
-          shallow: true,
           scroll: false,
+          shallow: true,
+        });
+        break;
+      case "group":
+        setGroup(value as AtlasFilters["group"], {
+          history: "replace",
+          scroll: false,
+          shallow: true,
         });
         break;
       case "habitat":
         setHabitat(value as AtlasFilters["habitat"], {
           history: "replace",
-          shallow: true,
           scroll: false,
-        });
-        break;
-      case "region":
-        setRegion(value as AtlasFilters["region"], {
-          history: "replace",
           shallow: true,
-          scroll: false,
         });
         break;
       case "query":
         setQuery(value as AtlasFilters["query"], {
           history: "replace",
-          shallow: true,
-          scroll: false,
           limitUrlUpdates: throttle(200),
+          scroll: false,
+          shallow: true,
+        });
+        break;
+      case "region":
+        setRegion(value as AtlasFilters["region"], {
+          history: "replace",
+          scroll: false,
+          shallow: true,
         });
         break;
     }
@@ -399,54 +261,54 @@ export function SpeciesAtlas() {
   function resetFilters() {
     setGroup(defaultAtlasFilters.group, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setDanger(defaultAtlasFilters.danger, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setHabitat(defaultAtlasFilters.habitat, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setRegion(defaultAtlasFilters.region, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setQuery(defaultAtlasFilters.query, {
       history: "replace",
-      shallow: true,
-      scroll: false,
       limitUrlUpdates: throttle(200),
+      scroll: false,
+      shallow: true,
     });
   }
 
   function applyFilters(next: AtlasFilters) {
-    setGroup(next.group, { history: "replace", shallow: true, scroll: false });
+    setGroup(next.group, { history: "replace", scroll: false, shallow: true });
     setDanger(next.danger, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setHabitat(next.habitat, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setRegion(next.region, {
       history: "replace",
-      shallow: true,
       scroll: false,
+      shallow: true,
     });
     setQuery(next.query, {
       history: "replace",
-      shallow: true,
-      scroll: false,
       limitUrlUpdates: throttle(200),
+      scroll: false,
+      shallow: true,
     });
   }
 
@@ -462,11 +324,11 @@ export function SpeciesAtlas() {
           }}
         >
           <CoverImage
-            src={images.hero}
             alt={t("heroImageAlt")}
+            className="object-cover"
             priority
             sizes="100vw"
-            className="object-cover"
+            src={images.hero}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/40 to-black/92" />
           <div className="absolute inset-0 bg-[radial-gradient(95%_70%_at_50%_15%,transparent_20%,rgba(0,0,0,0.6)_100%)]" />
@@ -477,8 +339,8 @@ export function SpeciesAtlas() {
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
                     <Link
-                      href="/"
                       className="transition-colors hover:text-white"
+                      href="/"
                     >
                       {t("breadcrumbHome")}
                     </Link>
@@ -526,90 +388,90 @@ export function SpeciesAtlas() {
                   <HeroPathway
                     delay={0}
                     eyebrow={t("groups.snake")}
+                    href="/snakes"
+                    meta={t("stats.pathwayExplore")}
                     title={t("stats.pathwaySnakesTitle", {
                       count: stats.snakes,
                     })}
-                    meta={t("stats.pathwayExplore")}
-                    href="/snakes"
                   />
                   <HeroPathway
                     delay={60}
                     eyebrow={t("stats.pathwayRisk")}
+                    href="/venomous-snakes"
+                    meta={t("stats.pathwayExplore")}
                     title={t("stats.pathwayVenomousTitle", {
                       count: stats.venomous,
                     })}
-                    meta={t("stats.pathwayExplore")}
-                    href="/venomous-snakes"
                   />
                   {stats.lizards > 0 ? (
                     <HeroPathway
                       delay={120}
                       eyebrow={t("groups.lizard")}
+                      href="/lizards"
+                      meta={t("stats.pathwayExplore")}
                       title={t("stats.pathwayLizardsTitle", {
                         count: stats.lizards,
                       })}
-                      meta={t("stats.pathwayExplore")}
-                      href="/lizards"
                     />
                   ) : null}
                   {stats.turtles > 0 ? (
                     <HeroPathway
                       delay={180}
                       eyebrow={t("groups.turtle")}
+                      href="/turtles"
+                      meta={t("stats.pathwayExplore")}
                       title={t("stats.pathwayTurtlesTitle", {
                         count: stats.turtles,
                       })}
-                      meta={t("stats.pathwayExplore")}
-                      href="/turtles"
                     />
                   ) : null}
                   {stats.amphibians > 0 ? (
                     <HeroPathway
                       delay={240}
                       eyebrow={t("groups.amphibian")}
+                      href="/amphibians"
+                      meta={t("stats.pathwayExplore")}
                       title={t("stats.pathwayAmphibiansTitle", {
                         count: stats.amphibians,
                       })}
-                      meta={t("stats.pathwayExplore")}
-                      href="/amphibians"
                     />
                   ) : null}
                   {stats.birds > 0 ? (
                     <HeroPathway
                       delay={260}
                       eyebrow={t("groups.bird")}
+                      href="/birds"
+                      meta={t("stats.pathwayExplore")}
                       title={t("stats.pathwayBirdsTitle", {
                         count: stats.birds,
                       })}
-                      meta={t("stats.pathwayExplore")}
-                      href="/birds"
                     />
                   ) : null}
                   {stats.mammals > 0 ? (
                     <HeroPathway
                       delay={280}
                       eyebrow={t("groups.mammal")}
+                      href="/mammals"
+                      meta={t("stats.pathwayExplore")}
                       title={t("stats.pathwayMammalsTitle", {
                         count: stats.mammals,
                       })}
-                      meta={t("stats.pathwayExplore")}
-                      href="/mammals"
                     />
                   ) : null}
                   {stats.spiders > 0 ? (
                     <HeroPathway
                       delay={300}
                       eyebrow={t("groups.spider")}
+                      href="/spiders"
+                      meta={t("stats.pathwayExplore")}
                       title={t("stats.pathwaySpidersTitle", {
                         count: stats.spiders,
                       })}
-                      meta={t("stats.pathwayExplore")}
-                      href="/spiders"
                     />
                   ) : null}
                   <Link
-                    href="/regions"
                     className="group flex min-w-42 flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
+                    href="/regions"
                   >
                     <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
                       {t("stats.pathwayPlace")}
@@ -635,8 +497,8 @@ export function SpeciesAtlas() {
         </section>
 
         <section
-          id="explorer"
           className="border-b border-border bg-background py-16 lg:py-24"
+          id="explorer"
         >
           <div className="mx-auto max-w-350 px-6 lg:px-10">
             <Reveal>
@@ -658,24 +520,24 @@ export function SpeciesAtlas() {
                 <label className="relative min-w-0 flex-1">
                   <span className="sr-only">{t("searchPlaceholder")}</span>
                   <Search
-                    className="pointer-events-none absolute top-1/2 left-0 size-4 -translate-y-1/2 text-muted-foreground md:left-0"
                     aria-hidden="true"
+                    className="pointer-events-none absolute top-1/2 left-0 size-4 -translate-y-1/2 text-muted-foreground md:left-0"
                   />
                   <input
-                    type="search"
-                    value={filters.query}
+                    className="w-full border-0 border-b border-border bg-transparent py-3 pr-8 pl-7 text-[15px] text-foreground transition-[border-color] outline-none placeholder:text-muted-foreground/70 focus:border-foreground"
                     onChange={(event) =>
                       updateFilter("query", event.target.value)
                     }
                     placeholder={t("searchPlaceholder")}
-                    className="w-full border-0 border-b border-border bg-transparent py-3 pr-8 pl-7 text-[15px] text-foreground transition-[border-color] outline-none placeholder:text-muted-foreground/70 focus:border-foreground"
+                    type="search"
+                    value={filters.query}
                   />
                   {filters.query ? (
                     <button
-                      type="button"
-                      onClick={() => updateFilter("query", "")}
-                      className="absolute top-1/2 right-0 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
                       aria-label={t("clearSearch")}
+                      className="absolute top-1/2 right-0 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                      onClick={() => updateFilter("query", "")}
+                      type="button"
                     >
                       <X className="size-3.5" />
                     </button>
@@ -689,16 +551,16 @@ export function SpeciesAtlas() {
 
               <div className="mt-4 flex items-center justify-between gap-3 md:mt-6">
                 <p
-                  className="text-[13px] text-muted-foreground"
                   aria-live="polite"
+                  className="text-[13px] text-muted-foreground"
                 >
                   {t("resultsCount", { count: filtered.length })}
                 </p>
                 {hasActiveFilters ? (
                   <button
-                    type="button"
-                    onClick={resetFilters}
                     className="text-[13px] font-medium text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                    onClick={resetFilters}
+                    type="button"
                   >
                     {t("resetFilters")}
                   </button>
@@ -707,26 +569,26 @@ export function SpeciesAtlas() {
 
               <div className="mt-8 hidden md:block">
                 <div
-                  role="tablist"
                   aria-label={t("filters.type")}
                   className="no-scrollbar flex gap-6 overflow-x-auto sm:gap-8"
+                  role="tablist"
                 >
                   {GROUP_OPTIONS.map((group) => {
                     const active = filters.group === group;
                     const count = groupCounts[group];
                     return (
                       <button
-                        key={group}
-                        type="button"
-                        role="tab"
                         aria-selected={active}
-                        onClick={() => updateFilter("group", group)}
                         className={cn(
                           "group/tab relative shrink-0 pb-4 transition-colors",
                           active
                             ? "text-foreground"
                             : "text-muted-foreground hover:text-foreground",
                         )}
+                        key={group}
+                        onClick={() => updateFilter("group", group)}
+                        role="tab"
+                        type="button"
                       >
                         <span className="font-display text-[1.15rem] font-semibold tracking-tight sm:text-[1.35rem]">
                           {group === "all"
@@ -759,8 +621,8 @@ export function SpeciesAtlas() {
                 <LensRow label={t("filters.danger")}>
                   {DANGER_OPTIONS.map((danger) => (
                     <LensOption
-                      key={danger}
                       active={filters.danger === danger}
+                      key={danger}
                       onClick={() => updateFilter("danger", danger)}
                     >
                       {t(`danger.${danger}`)}
@@ -771,8 +633,8 @@ export function SpeciesAtlas() {
                 <LensRow label={t("filters.habitat")}>
                   {HABITAT_OPTIONS.map((habitat) => (
                     <LensOption
-                      key={habitat}
                       active={filters.habitat === habitat}
+                      key={habitat}
                       onClick={() => updateFilter("habitat", habitat)}
                     >
                       {habitat === "all"
@@ -788,12 +650,12 @@ export function SpeciesAtlas() {
                   </p>
                   <label className="relative inline-flex min-w-48 items-center">
                     <select
-                      value={filters.region}
+                      aria-label={t("filters.region")}
+                      className="w-full cursor-pointer appearance-none border-0 bg-transparent py-0 pr-7 text-[14px] font-medium text-foreground outline-none"
                       onChange={(event) =>
                         updateFilter("region", event.target.value)
                       }
-                      className="w-full cursor-pointer appearance-none border-0 bg-transparent py-0 pr-7 text-[14px] font-medium text-foreground outline-none"
-                      aria-label={t("filters.region")}
+                      value={filters.region}
                     >
                       <option value="all">{t("filters.allRegions")}</option>
                       {regions.map((region) => (
@@ -803,8 +665,8 @@ export function SpeciesAtlas() {
                       ))}
                     </select>
                     <ChevronDown
-                      className="pointer-events-none absolute right-0 size-3.5 text-muted-foreground"
                       aria-hidden="true"
+                      className="pointer-events-none absolute right-0 size-3.5 text-muted-foreground"
                     />
                   </label>
                 </div>
@@ -812,15 +674,15 @@ export function SpeciesAtlas() {
             </div>
 
             <AtlasFilterSheet
-              open={filterOpen}
               filters={filters}
               locale={locale}
-              onClose={() => setFilterOpen(false)}
               onApply={applyFilters}
+              onClose={() => setFilterOpen(false)}
+              open={filterOpen}
             />
 
             {filtered.length > 0 ? (
-              <AtlasSpeciesGrid species={filtered} locale={locale} />
+              <AtlasSpeciesGrid locale={locale} species={filtered} />
             ) : (
               <ComingSoonPanel
                 group={filters.group !== "all" ? filters.group : null}
@@ -832,8 +694,8 @@ export function SpeciesAtlas() {
 
         <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
           <div
-            className="map-explorer-texture pointer-events-none absolute inset-0"
             aria-hidden="true"
+            className="map-explorer-texture pointer-events-none absolute inset-0"
           />
           <div className="relative mx-auto max-w-350 px-6 lg:px-10">
             <Reveal className="mx-auto max-w-2xl text-center">
@@ -848,12 +710,12 @@ export function SpeciesAtlas() {
               </p>
             </Reveal>
             <div className="mt-12 lg:mt-16">
-              <GeorgiaMap selectionMode="navigate" mapContext="atlas" />
+              <GeorgiaMap mapContext="atlas" selectionMode="navigate" />
             </div>
             <div className="mt-10 flex justify-center">
               <Link
-                href="/regions"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                href="/regions"
               >
                 {t("openRegionsAtlas")}
               </Link>
@@ -910,14 +772,14 @@ export function SpeciesAtlas() {
               </Reveal>
 
               <div className="grid gap-6 sm:grid-cols-2">
-                <TrustCard title={t("methodTitle")} body={t("methodBody")} />
-                <TrustCard title={t("sourcesTitle")} body={t("sourcesBody")} />
-                <TrustCard title={t("photosTitle")} body={t("photosBody")} />
+                <TrustCard body={t("methodBody")} title={t("methodTitle")} />
+                <TrustCard body={t("sourcesBody")} title={t("sourcesTitle")} />
+                <TrustCard body={t("photosBody")} title={t("photosTitle")} />
                 <TrustCard
-                  title={t("contributorsTitle")}
                   body={t("contributorsBody")}
                   href="/about"
                   linkLabel={t("contributorsLink")}
+                  title={t("contributorsTitle")}
                 />
               </div>
             </div>
@@ -928,11 +790,50 @@ export function SpeciesAtlas() {
   );
 }
 
+function AnimatedValue({
+  className,
+  value,
+}: {
+  className?: string;
+  value: number;
+}) {
+  const [display, setDisplay] = useState(value);
+  const displayRef = useRef(value);
+
+  useEffect(() => {
+    const from = displayRef.current;
+    if (from === value) return;
+
+    let frame = 0;
+    let start: null | number = null;
+    const duration = 900;
+
+    function tick(ts: number) {
+      if (start === null) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const next = Math.round(from + (value - from) * eased);
+      displayRef.current = next;
+      setDisplay(next);
+      if (progress < 1) {
+        frame = window.requestAnimationFrame(tick);
+      }
+    }
+    frame = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, [value]);
+
+  return <span className={className}>{display}</span>;
+}
+
 function ComingSoonPanel({
   group,
   onReset,
 }: {
-  group: AnimalGroup | "all" | null;
+  group: "all" | AnimalGroup | null;
   onReset: () => void;
 }) {
   const t = useTranslations("speciesAtlas");
@@ -954,18 +855,119 @@ function ComingSoonPanel({
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
         <button
-          type="button"
-          onClick={onReset}
           className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
+          onClick={onReset}
+          type="button"
         >
           {t("resetFilters")}
         </button>
         <Link
-          href="/contact"
           className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30"
+          href="/contact"
         >
           {t("suggestSpecies")}
         </Link>
+      </div>
+    </div>
+  );
+}
+
+function HeroPathway({
+  delay = 0,
+  eyebrow,
+  href,
+  meta,
+  onClick,
+  title,
+}: {
+  delay?: number;
+  eyebrow: string;
+  href?:
+    | "/amphibians"
+    | "/birds"
+    | "/lizards"
+    | "/mammals"
+    | "/snakes"
+    | "/spiders"
+    | "/turtles"
+    | "/venomous-snakes";
+  meta: string;
+  onClick?: () => void;
+  title: string;
+}) {
+  const className =
+    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
+  const style = { animationDelay: `${delay}ms` };
+  const content = (
+    <>
+      <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
+        {eyebrow}
+      </span>
+      <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">
+        {title}
+      </span>
+      <span className="mt-2 flex items-center gap-1.5 text-[13px] text-white/55 transition-colors group-hover:text-white/80">
+        {meta}
+        <ArrowUpRight className="size-3.5 opacity-70 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <Link className={className} href={href} style={style}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button className={className} onClick={onClick} style={style} type="button">
+      {content}
+    </button>
+  );
+}
+
+function LensOption({
+  active,
+  children,
+  onClick,
+}: {
+  active: boolean;
+  children: React.ReactNode;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      aria-pressed={active}
+      className={cn(
+        "text-[14px] transition-colors",
+        active
+          ? "font-medium text-foreground"
+          : "text-muted-foreground hover:text-foreground",
+      )}
+      onClick={onClick}
+      type="button"
+    >
+      {children}
+    </button>
+  );
+}
+
+function LensRow({
+  children,
+  label,
+}: {
+  children: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
+      <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
+        {label}
+      </p>
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+        {children}
       </div>
     </div>
   );
@@ -978,8 +980,8 @@ function RecentSpeciesRow({ species }: { species: Species }) {
 
   return (
     <Link
-      href={speciesHref(species.id, locale)}
       className="group flex items-center gap-4 rounded-[22px] border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
+      href={speciesHref(species.id, locale)}
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">
         {(species.mobileImage || species.image) &&
@@ -987,10 +989,10 @@ function RecentSpeciesRow({ species }: { species: Species }) {
           "species-placeholder",
         ) ? (
           <CoverImage
-            src={species.mobileImage ?? species.image}
             alt=""
-            sizes="84px"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="84px"
+            src={species.mobileImage ?? species.image}
           />
         ) : null}
       </div>
@@ -1013,38 +1015,6 @@ function RecentSpeciesRow({ species }: { species: Species }) {
         </p>
       </div>
     </Link>
-  );
-}
-
-function TrustCard({
-  title,
-  body,
-  href,
-  linkLabel,
-}: {
-  title: string;
-  body: string;
-  href?: "/about";
-  linkLabel?: string;
-}) {
-  return (
-    <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
-      <h3 className="font-display text-[1.15rem] font-semibold text-foreground">
-        {title}
-      </h3>
-      <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-        {body}
-      </p>
-      {href && linkLabel ? (
-        <Link
-          href={href}
-          className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
-        >
-          {linkLabel}
-          <ArrowUpRight className="size-3.5" />
-        </Link>
-      ) : null}
-    </div>
   );
 }
 
@@ -1081,8 +1051,8 @@ function SeoAuthoritySection() {
             </p>
             <p className="mt-4">
               <Link
-                href="/amphibians"
                 className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+                href="/amphibians"
               >
                 {t("seo.amphibiansTitle")}
                 <ArrowUpRight className="size-3.5" />
@@ -1099,8 +1069,8 @@ function SeoAuthoritySection() {
             </p>
             <p className="mt-4">
               <Link
-                href="/birds"
                 className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+                href="/birds"
               >
                 {t("seo.birdsTitle")}
                 <ArrowUpRight className="size-3.5" />
@@ -1117,8 +1087,8 @@ function SeoAuthoritySection() {
             </p>
             <p className="mt-4">
               <Link
-                href="/mammals"
                 className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+                href="/mammals"
               >
                 {t("seo.mammalsTitle")}
                 <ArrowUpRight className="size-3.5" />
@@ -1135,8 +1105,8 @@ function SeoAuthoritySection() {
             </p>
             <p className="mt-4">
               <Link
-                href="/spiders"
                 className="inline-flex items-center gap-1.5 text-[14px] font-medium text-primary"
+                href="/spiders"
               >
                 {t("seo.spidersTitle")}
                 <ArrowUpRight className="size-3.5" />
@@ -1155,40 +1125,40 @@ function SeoAuthoritySection() {
             <ul className="mt-5 space-y-2 border-l-2 border-primary/25 pl-4">
               <li>
                 <Link
-                  href={speciesHref("macrovipera-lebetina", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href={speciesHref("macrovipera-lebetina", locale)}
                 >
                   Macrovipera lebetina
                 </Link>
               </li>
               <li>
                 <Link
-                  href={speciesHref("vipera-kaznakovi", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href={speciesHref("vipera-kaznakovi", locale)}
                 >
                   Vipera kaznakovi
                 </Link>
               </li>
               <li>
                 <Link
-                  href={speciesHref("vipera-dinniki", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href={speciesHref("vipera-dinniki", locale)}
                 >
                   Vipera dinniki
                 </Link>
               </li>
               <li>
                 <Link
-                  href={speciesHref("vipera-transcaucasiana", locale)}
                   className="text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+                  href={speciesHref("vipera-transcaucasiana", locale)}
                 >
                   Vipera transcaucasiana
                 </Link>
               </li>
             </ul>
             <Link
-              href="/venomous-snakes"
               className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-medium text-primary transition-colors hover:text-primary/80"
+              href="/venomous-snakes"
             >
               {t("seo.venomousGuideCta")}
               <ArrowUpRight className="size-3.5" />
@@ -1205,8 +1175,8 @@ function SeoAuthoritySection() {
             </div>
             <p className="mt-5">
               <Link
-                href="/regions"
                 className="inline-flex items-center gap-2 text-[14px] font-medium text-primary"
+                href="/regions"
               >
                 {t("openRegionsAtlas")}
                 <ArrowUpRight className="size-3.5" />
@@ -1216,5 +1186,37 @@ function SeoAuthoritySection() {
         </article>
       </div>
     </section>
+  );
+}
+
+function TrustCard({
+  body,
+  href,
+  linkLabel,
+  title,
+}: {
+  body: string;
+  href?: "/about";
+  linkLabel?: string;
+  title: string;
+}) {
+  return (
+    <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
+      <h3 className="font-display text-[1.15rem] font-semibold text-foreground">
+        {title}
+      </h3>
+      <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+        {body}
+      </p>
+      {href && linkLabel ? (
+        <Link
+          className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+          href={href}
+        >
+          {linkLabel}
+          <ArrowUpRight className="size-3.5" />
+        </Link>
+      ) : null}
+    </div>
   );
 }

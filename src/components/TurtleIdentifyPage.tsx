@@ -1,5 +1,12 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+
+import type { Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
+import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
+
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
   CLUSTER_BODY,
@@ -15,13 +22,8 @@ import {
   localizeRegionText,
   type Region,
 } from "@/data/regions";
-import type { Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
-import { speciesHref, regionHref } from "@/lib/speciesRoutes";
-import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 const TURTLE_ORDER = [
   "testudo-graeca",
@@ -33,15 +35,15 @@ const TURTLE_ORDER = [
 type TurtleId = (typeof TURTLE_ORDER)[number];
 
 type TurtleKind = "land" | "water";
-type TurtleStatus = "native" | "introduced";
+type TurtleStatus = "introduced" | "native";
 
 const TURTLE_META: Record<
   TurtleId,
   { kind: TurtleKind; status: TurtleStatus }
 > = {
-  "testudo-graeca": { kind: "land", status: "native" },
   "emys-orbicularis": { kind: "water", status: "native" },
   "mauremys-caspica": { kind: "water", status: "native" },
+  "testudo-graeca": { kind: "land", status: "native" },
   "trachemys-scripta": { kind: "water", status: "introduced" },
 };
 
@@ -65,8 +67,8 @@ const EMYS_VS_ROWS = [
 
 export function TurtleIdentifyPage({
   guideId,
-  species,
   heroSrc,
+  species,
 }: ClusterGuideViewProps) {
   const t = useTranslations("turtleIdentify");
   const locale = useLocale() as AppLocale;
@@ -88,15 +90,15 @@ export function TurtleIdentifyPage({
   const regions = [...regionMap.values()];
 
   return (
-    <ClusterPageFrame guideId={guideId} heroSrc={heroSrc} ctaHash="#flow">
+    <ClusterPageFrame ctaHash="#flow" guideId={guideId} heroSrc={heroSrc}>
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
             <Reveal>
               <ClusterSectionIntro
                 eyebrow={t("guideEyebrow")}
-                title={t("guideTitle")}
                 eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("guideTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
             </Reveal>
@@ -107,8 +109,8 @@ export function TurtleIdentifyPage({
                   {t.rich("guideP2", {
                     index: (chunks) => (
                       <Link
-                        href="/turtles/saxeoebebi"
                         className="font-medium text-foreground underline-offset-4 hover:underline"
+                        href="/turtles/saxeoebebi"
                       >
                         {chunks}
                       </Link>
@@ -122,18 +124,18 @@ export function TurtleIdentifyPage({
       </section>
 
       <section
-        id="flow"
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+        id="flow"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("flowEyebrow")}
-              title={t("flowTitle")}
               body={t("flowBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("flowEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("flowTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
 
@@ -147,30 +149,30 @@ export function TurtleIdentifyPage({
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {testudo ? (
                 <BranchCard
-                  href="#land"
-                  src={testudo.mobileImage ?? testudo.image}
                   alt={t("branchLandAlt")}
-                  title={t("branchLandTitle")}
                   body={t("branchLandBody")}
+                  href="#land"
                   result={t("branchLandResult")}
+                  src={testudo.mobileImage ?? testudo.image}
+                  title={t("branchLandTitle")}
                 />
               ) : null}
               {emys ? (
                 <BranchCard
-                  href="#water"
-                  src={emys.mobileImage ?? emys.image}
                   alt={t("branchWaterAlt")}
-                  title={t("branchWaterTitle")}
                   body={t("branchWaterBody")}
+                  href="#water"
                   result={t("branchWaterResult")}
+                  src={emys.mobileImage ?? emys.image}
+                  title={t("branchWaterTitle")}
                 />
               ) : null}
             </div>
           </div>
 
           <div
-            id="land"
             className="mt-14 scroll-mt-28 border-y border-border py-10"
+            id="land"
           >
             <h3 className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
               {t("landResultTitle")}
@@ -180,22 +182,22 @@ export function TurtleIdentifyPage({
             </p>
             {testudo ? (
               <SpeciesResult
-                species={testudo}
-                locale={locale}
                 cue={t("cue.testudo-graeca")}
+                locale={locale}
                 profileLabel={t("viewProfile")}
+                species={testudo}
               />
             ) : null}
             <Link
-              href="/turtles/xmelis-kuebi"
               className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
+              href="/turtles/xmelis-kuebi"
             >
               {t("linkLand")}
               <ArrowUpRight className="size-3.5" />
             </Link>
           </div>
 
-          <div id="water" className="mt-14 scroll-mt-28">
+          <div className="mt-14 scroll-mt-28" id="water">
             <h3 className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
               {t("step2Title")}
             </h3>
@@ -205,30 +207,30 @@ export function TurtleIdentifyPage({
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {slider ? (
                 <BranchCard
-                  href="#slider"
-                  src={slider.mobileImage ?? slider.image}
                   alt={t("branchSliderAlt")}
-                  title={t("branchSliderTitle")}
                   body={t("branchSliderBody")}
+                  href="#slider"
                   result={t("branchSliderResult")}
+                  src={slider.mobileImage ?? slider.image}
+                  title={t("branchSliderTitle")}
                 />
               ) : null}
               {mauremys ? (
                 <BranchCard
-                  href="#emys-vs"
-                  src={mauremys.mobileImage ?? mauremys.image}
                   alt={t("branchNativeAlt")}
-                  title={t("branchNativeTitle")}
                   body={t("branchNativeBody")}
+                  href="#emys-vs"
                   result={t("branchNativeResult")}
+                  src={mauremys.mobileImage ?? mauremys.image}
+                  title={t("branchNativeTitle")}
                 />
               ) : null}
             </div>
           </div>
 
           <div
-            id="slider"
             className="mt-14 scroll-mt-28 border-t border-border pt-10"
+            id="slider"
           >
             <h3 className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
               {t("sliderResultTitle")}
@@ -238,15 +240,15 @@ export function TurtleIdentifyPage({
             </p>
             {slider ? (
               <SpeciesResult
-                species={slider}
-                locale={locale}
                 cue={t("cue.trachemys-scripta")}
+                locale={locale}
                 profileLabel={t("viewProfile")}
+                species={slider}
               />
             ) : null}
             <Link
-              href="/turtles/tsqlis-kuebi"
               className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
+              href="/turtles/tsqlis-kuebi"
             >
               {t("linkWater")}
               <ArrowUpRight className="size-3.5" />
@@ -256,40 +258,40 @@ export function TurtleIdentifyPage({
       </section>
 
       <section
-        id="emys-vs"
         className="scroll-mt-28 border-t border-border bg-background py-20 lg:py-28"
+        id="emys-vs"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("emysVsEyebrow")}
-              title={t("emysVsTitle")}
               body={t("emysVsBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("emysVsEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("emysVsTitle")}
+              titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
             />
           </Reveal>
 
           {emys && mauremys ? (
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               <ComparePhoto
-                species={emys}
-                locale={locale}
                 alt={t("alt.emys-orbicularis", {
                   name: emys.commonName,
                   scientific: emys.scientificName,
                 })}
                 caption={t("emysVsEmysCaption")}
+                locale={locale}
+                species={emys}
               />
               <ComparePhoto
-                species={mauremys}
-                locale={locale}
                 alt={t("alt.mauremys-caspica", {
                   name: mauremys.commonName,
                   scientific: mauremys.scientificName,
                 })}
                 caption={t("emysVsMauremysCaption")}
+                locale={locale}
+                species={mauremys}
               />
             </div>
           ) : null}
@@ -312,8 +314,8 @@ export function TurtleIdentifyPage({
               <tbody>
                 {EMYS_VS_ROWS.map((row) => (
                   <tr
-                    key={row}
                     className="border-b border-border/80 align-top last:border-b-0"
+                    key={row}
                   >
                     <th className="py-4 pr-4 text-[14px] font-medium text-foreground">
                       {t(`emysVsRow.${row}`)}
@@ -333,8 +335,8 @@ export function TurtleIdentifyPage({
           <div className="mt-8 flex flex-wrap gap-3">
             {emys ? (
               <Link
-                href={speciesHref(emys.id, locale)}
                 className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                href={speciesHref(emys.id, locale)}
               >
                 {emys.commonName}
                 <ArrowUpRight className="size-3.5" />
@@ -342,8 +344,8 @@ export function TurtleIdentifyPage({
             ) : null}
             {mauremys ? (
               <Link
-                href={speciesHref(mauremys.id, locale)}
                 className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                href={speciesHref(mauremys.id, locale)}
               >
                 {mauremys.commonName}
                 <ArrowUpRight className="size-3.5" />
@@ -354,18 +356,18 @@ export function TurtleIdentifyPage({
       </section>
 
       <section
-        id="matrix"
         className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
+        id="matrix"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("matrixEyebrow")}
-              title={t("matrixTitle")}
               body={t("matrixBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("matrixEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("matrixTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
 
@@ -377,10 +379,10 @@ export function TurtleIdentifyPage({
                     {t("matrixColTrait")}
                   </th>
                   {turtles.map((item) => (
-                    <th key={item.id} className="py-4 pr-3 font-medium">
+                    <th className="py-4 pr-3 font-medium" key={item.id}>
                       <Link
-                        href={speciesHref(item.id, locale)}
                         className="text-foreground underline-offset-4 hover:underline"
+                        href={speciesHref(item.id, locale)}
                       >
                         {item.commonName}
                       </Link>
@@ -391,16 +393,16 @@ export function TurtleIdentifyPage({
               <tbody>
                 {MATRIX_ROWS.map((row) => (
                   <tr
-                    key={row}
                     className="border-b border-border/80 align-top last:border-b-0"
+                    key={row}
                   >
                     <th className="py-4 pr-3 text-[13px] font-medium text-foreground">
                       {t(`matrixRow.${row}`)}
                     </th>
                     {TURTLE_ORDER.map((id) => (
                       <td
-                        key={id}
                         className="py-4 pr-3 text-[13px] leading-relaxed text-muted-foreground"
+                        key={id}
                       >
                         {t(`matrix.${id}.${row}`)}
                       </td>
@@ -414,18 +416,18 @@ export function TurtleIdentifyPage({
       </section>
 
       <section
-        id="chooser"
         className="scroll-mt-28 border-t border-border bg-background py-20 lg:py-28"
+        id="chooser"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Reveal>
             <ClusterSectionIntro
-              eyebrow={t("chooserEyebrow")}
-              title={t("chooserTitle")}
               body={t("chooserBody")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              titleClassName={CLUSTER_TITLE_SECTION}
               bodyClassName={CLUSTER_BODY}
+              eyebrow={t("chooserEyebrow")}
+              eyebrowClassName={CLUSTER_EYEBROW}
+              title={t("chooserTitle")}
+              titleClassName={CLUSTER_TITLE_SECTION}
             />
           </Reveal>
 
@@ -438,19 +440,19 @@ export function TurtleIdentifyPage({
                 scientific: item.scientificName,
               });
               return (
-                <Reveal key={item.id} delay={index * 40}>
+                <Reveal delay={index * 40} key={item.id}>
                   <article className="flex h-full flex-col">
                     <Link
-                      href={speciesHref(item.id, locale)}
                       className="group block"
+                      href={speciesHref(item.id, locale)}
                     >
                       <figure>
                         <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
                           <CoverImage
-                            src={item.mobileImage ?? item.image}
                             alt={alt}
-                            sizes="(max-width: 640px) 90vw, (max-width: 1280px) 45vw, 280px"
                             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                            sizes="(max-width: 640px) 90vw, (max-width: 1280px) 45vw, 280px"
+                            src={item.mobileImage ?? item.image}
                           />
                         </span>
                       </figure>
@@ -470,8 +472,8 @@ export function TurtleIdentifyPage({
                       {t(`cue.${item.id}` as Parameters<typeof t>[0])}
                     </p>
                     <Link
-                      href={speciesHref(item.id, locale)}
                       className="mt-5 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
+                      href={speciesHref(item.id, locale)}
                     >
                       {t("viewProfile")}
                       <ArrowUpRight className="size-3.5" />
@@ -484,22 +486,22 @@ export function TurtleIdentifyPage({
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              href="/turtles/saxeoebebi"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+              href="/turtles/saxeoebebi"
             >
               {t("linkIndex")}
               <ArrowUpRight className="size-3.5" />
             </Link>
             <Link
-              href="/turtles/xmelis-kuebi"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+              href="/turtles/xmelis-kuebi"
             >
               {t("linkLand")}
               <ArrowUpRight className="size-3.5" />
             </Link>
             <Link
-              href="/turtles/tsqlis-kuebi"
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+              href="/turtles/tsqlis-kuebi"
             >
               {t("linkWater")}
               <ArrowUpRight className="size-3.5" />
@@ -525,9 +527,9 @@ export function TurtleIdentifyPage({
             <div className="mt-8 flex flex-wrap gap-3">
               {regions.map((region) => (
                 <Link
-                  key={region.id}
-                  href={regionHref(region.id)}
                   className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                  href={regionHref(region.id)}
+                  key={region.id}
                 >
                   {localizeRegionText(region.name, locale)}
                   <ArrowUpRight className="size-3.5" />
@@ -542,31 +544,31 @@ export function TurtleIdentifyPage({
 }
 
 function BranchCard({
-  href,
-  src,
   alt,
-  title,
   body,
+  href,
   result,
+  src,
+  title,
 }: {
-  href: string;
-  src: string;
   alt: string;
-  title: string;
   body: string;
+  href: string;
   result: string;
+  src: string;
+  title: string;
 }) {
   return (
     <a
-      href={href}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-foreground/25"
+      href={href}
     >
       <span className="relative block aspect-16/10 overflow-hidden bg-ink">
         <CoverImage
-          src={src}
           alt={alt}
-          sizes="(max-width: 768px) 90vw, 45vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 90vw, 45vw"
+          src={src}
         />
       </span>
       <span className="flex flex-1 flex-col p-5 sm:p-6">
@@ -585,74 +587,28 @@ function BranchCard({
   );
 }
 
-function SpeciesResult({
-  species,
-  locale,
-  cue,
-  profileLabel,
-}: {
-  species: Species;
-  locale: AppLocale;
-  cue: string;
-  profileLabel: string;
-}) {
-  return (
-    <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:p-6">
-      <Link
-        href={speciesHref(species.id, locale)}
-        className="relative block aspect-5/4 w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
-      >
-        <CoverImage
-          src={species.mobileImage ?? species.image}
-          alt={`${species.commonName} (${species.scientificName})`}
-          sizes="180px"
-          className="object-cover"
-        />
-      </Link>
-      <div className="min-w-0">
-        <p className="font-display text-[18px] font-semibold text-foreground">
-          {species.commonName}
-        </p>
-        <p className="mt-1 text-[13px] text-muted-foreground italic">
-          {species.scientificName}
-        </p>
-        <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-          {cue}
-        </p>
-        <Link
-          href={speciesHref(species.id, locale)}
-          className="mt-4 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
-        >
-          {profileLabel}
-          <ArrowUpRight className="size-3.5" />
-        </Link>
-      </div>
-    </div>
-  );
-}
-
 function ComparePhoto({
-  species,
-  locale,
   alt,
   caption,
+  locale,
+  species,
 }: {
-  species: Species;
-  locale: AppLocale;
   alt: string;
   caption: string;
+  locale: AppLocale;
+  species: Species;
 }) {
   return (
     <figure>
       <Link
-        href={speciesHref(species.id, locale)}
         className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink"
+        href={speciesHref(species.id, locale)}
       >
         <CoverImage
-          src={species.mobileImage ?? species.image}
           alt={alt}
-          sizes="(max-width: 768px) 90vw, 45vw"
           className="object-cover"
+          sizes="(max-width: 768px) 90vw, 45vw"
+          src={species.mobileImage ?? species.image}
         />
       </Link>
       <figcaption className="mt-3">
@@ -667,5 +623,51 @@ function ComparePhoto({
         </p>
       </figcaption>
     </figure>
+  );
+}
+
+function SpeciesResult({
+  cue,
+  locale,
+  profileLabel,
+  species,
+}: {
+  cue: string;
+  locale: AppLocale;
+  profileLabel: string;
+  species: Species;
+}) {
+  return (
+    <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:p-6">
+      <Link
+        className="relative block aspect-5/4 w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
+        href={speciesHref(species.id, locale)}
+      >
+        <CoverImage
+          alt={`${species.commonName} (${species.scientificName})`}
+          className="object-cover"
+          sizes="180px"
+          src={species.mobileImage ?? species.image}
+        />
+      </Link>
+      <div className="min-w-0">
+        <p className="font-display text-[18px] font-semibold text-foreground">
+          {species.commonName}
+        </p>
+        <p className="mt-1 text-[13px] text-muted-foreground italic">
+          {species.scientificName}
+        </p>
+        <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+          {cue}
+        </p>
+        <Link
+          className="mt-4 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
+          href={speciesHref(species.id, locale)}
+        >
+          {profileLabel}
+          <ArrowUpRight className="size-3.5" />
+        </Link>
+      </div>
+    </div>
   );
 }

@@ -1,19 +1,13 @@
 "use client";
 
-import type { SpeciesAudio } from "@/data/species";
-import { trackEvent } from "@/lib/analytics";
-import { SPECIES_SECTION_IDS } from "@/lib/toc";
 import { Loader2, Pause, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-function formatTime(seconds: number) {
-  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
-  const whole = Math.floor(seconds);
-  const m = Math.floor(whole / 60);
-  const s = whole % 60;
-  return `${m}:${s.toString().padStart(2, "0")}`;
-}
+import type { SpeciesAudio } from "@/data/species";
+
+import { trackEvent } from "@/lib/analytics";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 export function SpeciesVoicePlayer({
   audio,
@@ -105,17 +99,17 @@ export function SpeciesVoicePlayer({
 
   return (
     <div
+      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 py-1 pr-3.5 pl-1 backdrop-blur-md"
       id={SPECIES_SECTION_IDS.voice}
       title={credit}
-      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 py-1 pr-3.5 pl-1 backdrop-blur-md"
     >
-      <audio ref={audioRef} preload="none" />
+      <audio preload="none" ref={audioRef} />
       <button
-        type="button"
-        onClick={toggle}
-        disabled={loading}
         aria-label={playing ? t("voicePause") : t("voicePlay")}
         className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-ink"
+        disabled={loading}
+        onClick={toggle}
+        type="button"
       >
         {loading ? (
           <Loader2 className="size-3 animate-spin" />
@@ -133,4 +127,12 @@ export function SpeciesVoicePlayer({
       ) : null}
     </div>
   );
+}
+
+function formatTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const whole = Math.floor(seconds);
+  const m = Math.floor(whole / 60);
+  const s = whole % 60;
+  return `${m}:${s.toString().padStart(2, "0")}`;
 }

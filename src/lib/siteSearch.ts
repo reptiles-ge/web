@@ -1,8 +1,16 @@
+import type { AppLocale, AppPathnames } from "@/i18n/routing";
+
+import {
+  getPublishedNewsArticles,
+  newsLocalizedDek,
+  newsLocalizedTitle,
+  newsSearchKeywords,
+} from "@/data/news";
 import { getRegionHeroImage } from "@/data/regionImages";
 import {
+  type LocalizedText,
   localizeRegionText,
   regions,
-  type LocalizedText,
 } from "@/data/regions";
 import {
   featuredSpeciesIds,
@@ -11,186 +19,112 @@ import {
   type Species,
 } from "@/data/species";
 import {
+  type AnimalGroup,
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
   isVenomousDanger,
-  type AnimalGroup,
 } from "@/data/speciesAtlas";
 import { pickLocalized } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import type { AppLocale, AppPathnames } from "@/i18n/routing";
 import {
   CLUSTER_GUIDE_LIST,
+  type ClusterGuideId,
   isFrogSpecies,
   isNewtSpecies,
-  type ClusterGuideId,
 } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
-import { quizHref, type QuizHref } from "@/lib/quizzes";
 import { newsArticleHref } from "@/lib/news";
-import {
-  getPublishedNewsArticles,
-  newsLocalizedDek,
-  newsLocalizedTitle,
-  newsSearchKeywords,
-} from "@/data/news";
-import { transliterateKa } from "@/lib/slugify";
+import { quizHref, type QuizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
+import { transliterateKa } from "@/lib/slugify";
 import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 
-export type SearchKind = "page" | "species" | "region";
+export type ScoredDocument = SearchDocument & { score: number };
+export type SearchDocument = {
+  featured?: boolean;
+  href: SearchHref;
+  icon: SearchIcon;
+  id: string;
+  image?: string;
+  key: string;
+  kind: SearchKind;
+  rank?: number;
+  scoreTitles: string[];
+  searchText: string;
+  subtitle: string;
+  suggested?: boolean;
+  title: string;
+};
 export type SearchFilter = "all" | SearchKind;
+
+export type SearchGroup = {
+  items: ScoredDocument[];
+  kind: SearchKind;
+};
+
+export type SearchHref =
+  | QuizHref
+  | SearchPageHref
+  | SpeciesHref
+  | { params: { id: string }; pathname: "/regions/[id]"; }
+  | { params: { slug: string }; pathname: "/news/[slug]"; };
+
 export type SearchIcon =
   | "atlas"
-  | "hub"
-  | "guide"
-  | "identify"
-  | "safety"
-  | "map"
-  | "yard"
-  | "info"
   | "contact"
-  | "news";
+  | "guide"
+  | "hub"
+  | "identify"
+  | "info"
+  | "map"
+  | "news"
+  | "safety"
+  | "yard";
+
+export type SearchKind = "page" | "region" | "species";
 
 export type SearchPageHref = Exclude<
   AppPathnames,
-  | "/species/[id]"
-  | "/snakes/[slug]"
-  | "/lizards/[slug]"
-  | "/turtles/[slug]"
   | "/amphibians/[slug]"
   | "/birds/[slug]"
+  | "/lizards/[slug]"
   | "/mammals/[slug]"
-  | "/spiders/[slug]"
+  | "/news/[slug]"
   | "/quiz/[slug]"
   | "/regions/[id]"
-  | "/news/[slug]"
+  | "/snakes/[slug]"
+  | "/species/[id]"
+  | "/spiders/[slug]"
+  | "/turtles/[slug]"
 >;
 
-export type SearchHref =
-  | SearchPageHref
-  | SpeciesHref
-  | QuizHref
-  | { pathname: "/regions/[id]"; params: { id: string } }
-  | { pathname: "/news/[slug]"; params: { slug: string } };
-
-export type SearchDocument = {
-  key: string;
-  kind: SearchKind;
-  id: string;
-  href: SearchHref;
-  title: string;
-  subtitle: string;
-  searchText: string;
-  scoreTitles: string[];
-  image?: string;
-  icon: SearchIcon;
-  suggested?: boolean;
-  rank?: number;
-  featured?: boolean;
-};
-
-export type ScoredDocument = SearchDocument & { score: number };
-
-export type SearchGroup = {
-  kind: SearchKind;
-  items: ScoredDocument[];
-};
-
 type PageCopy = {
-  title: LocalizedText;
-  subtitle: LocalizedText;
-  keywords: string[];
   icon: SearchIcon;
-  suggested?: boolean;
+  keywords: string[];
   rank?: number;
+  subtitle: LocalizedText;
+  suggested?: boolean;
+  title: LocalizedText;
 };
 
 const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
-  snake: { ka: "გველი", en: "Snake", ru: "Змея", tr: "Yılan" },
-  lizard: { ka: "ხვლიკი", en: "Lizard", ru: "Ящерица", tr: "Kertenkele" },
-  turtle: { ka: "კუ", en: "Turtle", ru: "Черепаха", tr: "Kaplumbağa" },
-  amphibian: { ka: "ამფიბია", en: "Amphibian", ru: "Амфибия", tr: "Amfibi" },
-  bird: { ka: "ფრინველი", en: "Bird", ru: "Птица", tr: "Kuş" },
+  amphibian: { en: "Amphibian", ka: "ამფიბია", ru: "Амфибия", tr: "Amfibi" },
+  bird: { en: "Bird", ka: "ფრინველი", ru: "Птица", tr: "Kuş" },
+  lizard: { en: "Lizard", ka: "ხვლიკი", ru: "Ящерица", tr: "Kertenkele" },
   mammal: {
-    ka: "ძუძუმწოვარი",
     en: "Mammal",
+    ka: "ძუძუმწოვარი",
     ru: "Млекопитающее",
     tr: "Memeli",
   },
-  spider: { ka: "ობობა", en: "Spider", ru: "Паук", tr: "Örümcek" },
+  snake: { en: "Snake", ka: "გველი", ru: "Змея", tr: "Yılan" },
+  spider: { en: "Spider", ka: "ობობა", ru: "Паук", tr: "Örümcek" },
+  turtle: { en: "Turtle", ka: "კუ", ru: "Черепаха", tr: "Kaplumbağa" },
 };
 
 const HUB_COPY: Record<GroupHubId, PageCopy> = {
-  snakes: {
-    title: {
-      ka: "გველები საქართველოში",
-      en: "Snakes in Georgia",
-      ru: "Змеи Грузии",
-      tr: "Gürcistan yılanları",
-    },
-    subtitle: {
-      ka: "სრული ჰაბი — შხამიანი და უშხამო სახეობები",
-      en: "The hub for venomous and harmless snakes",
-    },
-    keywords: ["გველები", "gvelebi", "snakes", "snake hub", "змеи", "yılanlar"],
-    icon: "hub",
-    suggested: true,
-    rank: 6,
-  },
-  lizards: {
-    title: {
-      ka: "ხვლიკები საქართველოში",
-      en: "Lizards in Georgia",
-      ru: "Ящерицы Грузии",
-      tr: "Gürcistan kertenkeleleri",
-    },
-    subtitle: {
-      ka: "Darevskia, ჯოჯო და გველხოკერა",
-      en: "Darevskia, agama, and glass lizard",
-    },
-    keywords: [
-      "ხვლიკები",
-      "xvlikebi",
-      "lizards",
-      "darevskia",
-      "ящерицы",
-      "kertenkele",
-    ],
-    icon: "hub",
-  },
-  turtles: {
-    title: {
-      ka: "კუები საქართველოში",
-      en: "Turtles in Georgia",
-      ru: "Черепахи Грузии",
-      tr: "Gürcistan kaplumbağaları",
-    },
-    subtitle: {
-      ka: "ხმელეთის და წყლის კუები ერთ ჰაბში",
-      en: "Land and freshwater turtles in one hub",
-    },
-    keywords: [
-      "კუები",
-      "kuebi",
-      "turtles",
-      "tortoise",
-      "черепахи",
-      "kaplumbağa",
-    ],
-    icon: "hub",
-  },
   amphibians: {
-    title: {
-      ka: "ამფიბიები საქართველოში",
-      en: "Amphibians in Georgia",
-      ru: "Амфибии Грузии",
-      tr: "Gürcistan amfibileri",
-    },
-    subtitle: {
-      ka: "ბაყაყები, ტრიტონები და სალამანდრები",
-      en: "Frogs, newts, and salamanders",
-    },
+    icon: "hub",
     keywords: [
       "ამფიბიები",
       "amfibiebi",
@@ -200,33 +134,54 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "амфибии",
       "amfibi",
     ],
-    icon: "hub",
+    subtitle: {
+      en: "Frogs, newts, and salamanders",
+      ka: "ბაყაყები, ტრიტონები და სალამანდრები",
+    },
+    title: {
+      en: "Amphibians in Georgia",
+      ka: "ამფიბიები საქართველოში",
+      ru: "Амфибии Грузии",
+      tr: "Gürcistan amfibileri",
+    },
   },
   birds: {
+    icon: "hub",
+    keywords: ["ფრინველები", "prinvelebi", "birds", "გრატა", "yellowhammer"],
+    subtitle: {
+      en: "Bird profiles in the nature atlas",
+      ka: "ფრინველების პროფილები ბუნების ატლასში",
+    },
     title: {
-      ka: "ფრინველები საქართველოში",
       en: "Birds in Georgia",
+      ka: "ფრინველები საქართველოში",
       ru: "Птицы Грузии",
       tr: "Gürcistan kuşları",
     },
-    subtitle: {
-      ka: "ფრინველების პროფილები ბუნების ატლასში",
-      en: "Bird profiles in the nature atlas",
-    },
-    keywords: ["ფრინველები", "prinvelebi", "birds", "გრატა", "yellowhammer"],
+  },
+  lizards: {
     icon: "hub",
+    keywords: [
+      "ხვლიკები",
+      "xvlikebi",
+      "lizards",
+      "darevskia",
+      "ящерицы",
+      "kertenkele",
+    ],
+    subtitle: {
+      en: "Darevskia, agama, and glass lizard",
+      ka: "Darevskia, ჯოჯო და გველხოკერა",
+    },
+    title: {
+      en: "Lizards in Georgia",
+      ka: "ხვლიკები საქართველოში",
+      ru: "Ящерицы Грузии",
+      tr: "Gürcistan kertenkeleleri",
+    },
   },
   mammals: {
-    title: {
-      ka: "ძუძუმწოვრები საქართველოში",
-      en: "Mammals in Georgia",
-      ru: "Млекопитающие Грузии",
-      tr: "Gürcistan memelileri",
-    },
-    subtitle: {
-      ka: "ძუძუმწოვრების პროფილები ბუნების ატლასში",
-      en: "Mammal profiles in the nature atlas",
-    },
+    icon: "hub",
     keywords: [
       "ძუძუმწოვრები",
       "dzuzumtsovrebi",
@@ -258,21 +213,35 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "raccoon",
       "procyon",
     ],
+    subtitle: {
+      en: "Mammal profiles in the nature atlas",
+      ka: "ძუძუმწოვრების პროფილები ბუნების ატლასში",
+    },
+    title: {
+      en: "Mammals in Georgia",
+      ka: "ძუძუმწოვრები საქართველოში",
+      ru: "Млекопитающие Грузии",
+      tr: "Gürcistan memelileri",
+    },
+  },
+  snakes: {
     icon: "hub",
+    keywords: ["გველები", "gvelebi", "snakes", "snake hub", "змеи", "yılanlar"],
+    rank: 6,
+    subtitle: {
+      en: "The hub for venomous and harmless snakes",
+      ka: "სრული ჰაბი — შხამიანი და უშხამო სახეობები",
+    },
+    suggested: true,
+    title: {
+      en: "Snakes in Georgia",
+      ka: "გველები საქართველოში",
+      ru: "Змеи Грузии",
+      tr: "Gürcistan yılanları",
+    },
   },
   spiders: {
-    title: {
-      ka: "ობობები საქართველოში",
-      en: "Spiders in Georgia",
-      ru: "Пауки Грузии",
-      tr: "Gürcistan örümcekleri",
-    },
-    subtitle: {
-      ka: "ობობების პროფილები ბუნების ატლასში",
-      en: "Spider profiles in the nature atlas",
-      ru: "Профили пауков в атласе природы",
-      tr: "Doğa atlasında örümcek profilleri",
-    },
+    icon: "hub",
     keywords: [
       "ობობები",
       "obobebi",
@@ -292,55 +261,139 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       "пауки",
       "örümcek",
     ],
+    subtitle: {
+      en: "Spider profiles in the nature atlas",
+      ka: "ობობების პროფილები ბუნების ატლასში",
+      ru: "Профили пауков в атласе природы",
+      tr: "Doğa atlasında örümcek profilleri",
+    },
+    title: {
+      en: "Spiders in Georgia",
+      ka: "ობობები საქართველოში",
+      ru: "Пауки Грузии",
+      tr: "Gürcistan örümcekleri",
+    },
+  },
+  turtles: {
     icon: "hub",
+    keywords: [
+      "კუები",
+      "kuebi",
+      "turtles",
+      "tortoise",
+      "черепахи",
+      "kaplumbağa",
+    ],
+    subtitle: {
+      en: "Land and freshwater turtles in one hub",
+      ka: "ხმელეთის და წყლის კუები ერთ ჰაბში",
+    },
+    title: {
+      en: "Turtles in Georgia",
+      ka: "კუები საქართველოში",
+      ru: "Черепахи Грузии",
+      tr: "Gürcistan kaplumbağaları",
+    },
   },
 };
 
 const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
-  "snake-index": {
-    title: {
-      ka: "გველის სახეობები საქართველოში",
-      en: "Snake species of Georgia",
-    },
+  "amphibian-frogs": {
+    icon: "hub",
+    keywords: ["ბაყაყები", "bayayi", "frogs", "anura", "გომბეშო", "toad"],
+    rank: 8,
     subtitle: {
-      ka: "სრული ინდექსი — სახელი, რისკი, არეალი",
-      en: "Full index — names, venom, range",
+      en: "The frog hub — Anura",
+      ka: "ბაყაყების ჰაბი — Anura",
     },
-    keywords: ["სახეობები", "index", "სია", "list", "კატალოგი"],
-    icon: "atlas",
-  },
-  "snake-identify": {
-    title: {
-      ka: "შხამიანი თუ უშხამო?",
-      en: "Venomous or harmless?",
-      ru: "Ядовитая или нет?",
-      tr: "Zehirli mi zararsız mı?",
-    },
-    subtitle: {
-      ka: "ამოცნობის გიდი გველებისთვის",
-      en: "Identification guide for snakes",
-    },
-    keywords: [
-      "ამოცნობა",
-      "identifikacia",
-      "identify",
-      "შხამიანი თუ",
-      "venomous or",
-      "გველგესლა",
-    ],
-    icon: "identify",
     suggested: true,
-    rank: 7,
+    title: { en: "Frogs of Georgia", ka: "ბაყაყები საქართველოში" },
+  },
+  "amphibian-frogs-index": {
+    icon: "atlas",
+    keywords: ["ბაყაყების სახეობები", "frog species"],
+    subtitle: {
+      en: "Full frog index",
+      ka: "სრული ინდექსი ბაყაყებზე",
+    },
+    title: {
+      en: "Frog species of Georgia",
+      ka: "საქართველოს ბაყაყების სახეობები",
+    },
+  },
+  "amphibian-index": {
+    icon: "atlas",
+    keywords: ["ამფიბიების სახეობები", "amphibian species"],
+    subtitle: {
+      en: "Full amphibian index",
+      ka: "სრული ინდექსი ამფიბიებზე",
+    },
+    title: {
+      en: "Amphibian species of Georgia",
+      ka: "საქართველოს ამფიბიების სახეობები",
+    },
+  },
+  "amphibian-newts": {
+    icon: "guide",
+    keywords: [
+      "ტრიტონი",
+      "tritoni",
+      "სალამანდრა",
+      "newt",
+      "salamander",
+      "caudata",
+    ],
+    subtitle: {
+      en: "Caudata — four species in the atlas",
+      ka: "Caudata — ოთხი სახეობა ატლასში",
+    },
+    title: {
+      en: "Newts and salamanders of Georgia",
+      ka: "ტრიტონები და სალამანდრები საქართველოში",
+    },
+  },
+  "lizard-glass": {
+    icon: "identify",
+    keywords: [
+      "გველხოკერა",
+      "gvelxokera",
+      "glass lizard",
+      "pseudopus",
+      "უფეხო",
+      "legless",
+    ],
+    subtitle: {
+      en: "How to tell a legless lizard from a snake",
+      ka: "როგორ გაარჩიო უფეხო ხვლიკი გველისგან",
+    },
+    title: {
+      en: "Lizard, glass lizard, or snake?",
+      ka: "ხვლიკი, გველხოკერა თუ გველი?",
+    },
+  },
+  "lizard-identify": {
+    icon: "identify",
+    keywords: ["ამოცნობა", "identify", "რა ხვლიკია", "what lizard"],
+    subtitle: {
+      en: "Identification guide for lizards",
+      ka: "ამოცნობის გიდი ხვლიკებისთვის",
+    },
+    title: { en: "What lizard is this?", ka: "ეს რა ხვლიკია?" },
+  },
+  "lizard-index": {
+    icon: "atlas",
+    keywords: ["ხვლიკების სახეობები", "lizard species", "darevskia"],
+    subtitle: {
+      en: "Full lizard index",
+      ka: "სრული ინდექსი ხვლიკებზე",
+    },
+    title: {
+      en: "Lizard species of Georgia",
+      ka: "საქართველოს ხვლიკების სახეობები",
+    },
   },
   "snake-bite": {
-    title: {
-      ka: "გველის ნაკბენი საქართველოში — რა უნდა გავაკეთოთ?",
-      en: "Snakebite in Georgia — what should you do?",
-    },
-    subtitle: {
-      ka: "112, რა გააკეთო და რა არ გააკეთო",
-      en: "112, what to do and what not to do",
-    },
+    icon: "safety",
     keywords: [
       "ნაკბენი",
       "nakbeni",
@@ -354,120 +407,78 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       "მიკბინა",
       "შხამი",
     ],
-    icon: "safety",
-    suggested: true,
     rank: 3,
-  },
-  "snake-range": {
-    title: {
-      ka: "სად გვხვდება გველები საქართველოში?",
-      en: "Where do snakes occur in Georgia?",
-    },
     subtitle: {
-      ka: "გავრცელება რეგიონების მიხედვით",
-      en: "Occurrence by region",
+      en: "112, what to do and what not to do",
+      ka: "112, რა გააკეთო და რა არ გააკეთო",
     },
-    keywords: ["გავრცელება", "gavrtseleba", "range", "სად გვხვდება", "habitat"],
-    icon: "map",
+    suggested: true,
+    title: {
+      en: "Snakebite in Georgia — what should you do?",
+      ka: "გველის ნაკბენი საქართველოში — რა უნდა გავაკეთოთ?",
+    },
+  },
+  "snake-identify": {
+    icon: "identify",
+    keywords: [
+      "ამოცნობა",
+      "identifikacia",
+      "identify",
+      "შხამიანი თუ",
+      "venomous or",
+      "გველგესლა",
+    ],
+    rank: 7,
+    subtitle: {
+      en: "Identification guide for snakes",
+      ka: "ამოცნობის გიდი გველებისთვის",
+    },
+    suggested: true,
+    title: {
+      en: "Venomous or harmless?",
+      ka: "შხამიანი თუ უშხამო?",
+      ru: "Ядовитая или нет?",
+      tr: "Zehirli mi zararsız mı?",
+    },
+  },
+  "snake-index": {
+    icon: "atlas",
+    keywords: ["სახეობები", "index", "სია", "list", "კატალოგი"],
+    subtitle: {
+      en: "Full index — names, venom, range",
+      ka: "სრული ინდექსი — სახელი, რისკი, არეალი",
+    },
+    title: {
+      en: "Snake species of Georgia",
+      ka: "გველის სახეობები საქართველოში",
+    },
   },
   "snake-largest": {
-    title: {
-      ka: "საქართველოს ყველაზე დიდი გველები",
-      en: "The largest snakes of Georgia",
-    },
-    subtitle: {
-      ka: "ზომით, არა მითებით",
-      en: "By published length — not myths",
-    },
+    icon: "guide",
     keywords: ["დიდი გველები", "largest", "გრძელი", "longest", "ზომა"],
-    icon: "guide",
-  },
-  "lizard-index": {
+    subtitle: {
+      en: "By published length — not myths",
+      ka: "ზომით, არა მითებით",
+    },
     title: {
-      ka: "საქართველოს ხვლიკების სახეობები",
-      en: "Lizard species of Georgia",
+      en: "The largest snakes of Georgia",
+      ka: "საქართველოს ყველაზე დიდი გველები",
     },
-    subtitle: {
-      ka: "სრული ინდექსი ხვლიკებზე",
-      en: "Full lizard index",
-    },
-    keywords: ["ხვლიკების სახეობები", "lizard species", "darevskia"],
-    icon: "atlas",
   },
-  "lizard-identify": {
-    title: { ka: "ეს რა ხვლიკია?", en: "What lizard is this?" },
+  "snake-range": {
+    icon: "map",
+    keywords: ["გავრცელება", "gavrtseleba", "range", "სად გვხვდება", "habitat"],
     subtitle: {
-      ka: "ამოცნობის გიდი ხვლიკებისთვის",
-      en: "Identification guide for lizards",
+      en: "Occurrence by region",
+      ka: "გავრცელება რეგიონების მიხედვით",
     },
-    keywords: ["ამოცნობა", "identify", "რა ხვლიკია", "what lizard"],
-    icon: "identify",
-  },
-  "lizard-glass": {
     title: {
-      ka: "ხვლიკი, გველხოკერა თუ გველი?",
-      en: "Lizard, glass lizard, or snake?",
+      en: "Where do snakes occur in Georgia?",
+      ka: "სად გვხვდება გველები საქართველოში?",
     },
-    subtitle: {
-      ka: "როგორ გაარჩიო უფეხო ხვლიკი გველისგან",
-      en: "How to tell a legless lizard from a snake",
-    },
-    keywords: [
-      "გველხოკერა",
-      "gvelxokera",
-      "glass lizard",
-      "pseudopus",
-      "უფეხო",
-      "legless",
-    ],
-    icon: "identify",
-  },
-  "turtle-index": {
-    title: {
-      ka: "საქართველოს კუების სახეობები",
-      en: "Turtle species of Georgia",
-    },
-    subtitle: {
-      ka: "სრული ინდექსი კუებზე",
-      en: "Full turtle index",
-    },
-    keywords: ["კუების სახეობები", "turtle species"],
-    icon: "atlas",
-  },
-  "turtle-land": {
-    title: { ka: "ხმელეთის კუები საქართველოში", en: "Land turtles of Georgia" },
-    subtitle: {
-      ka: "ხმელეთის კუ — Spur-thighed tortoise",
-      en: "The spur-thighed tortoise",
-    },
-    keywords: ["ხმელეთის კუ", "land turtle", "tortoise", "testudo"],
-    icon: "guide",
-  },
-  "turtle-water": {
-    title: {
-      ka: "წყლის კუები საქართველოში",
-      en: "Freshwater turtles of Georgia",
-    },
-    subtitle: {
-      ka: "ჭაობის კუ, კასპიური კუ, წითელყურა",
-      en: "Pond turtle, Caspian turtle, slider",
-    },
-    keywords: [
-      "წყლის კუ",
-      "freshwater",
-      "pond turtle",
-      "წითელყურა",
-      "slider",
-      "emys",
-    ],
-    icon: "guide",
   },
   "turtle-identify": {
-    title: { ka: "კუს ამოცნობა", en: "Identify a turtle" },
-    subtitle: {
-      ka: "ამოცნობის გიდი კუებისთვის",
-      en: "Identification guide for turtles",
-    },
+    icon: "identify",
     keywords: [
       "ამოცნობა",
       "identify",
@@ -478,104 +489,86 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       "წყლის კუ",
       "წითელყურა",
     ],
-    icon: "identify",
-  },
-  "amphibian-index": {
-    title: {
-      ka: "საქართველოს ამფიბიების სახეობები",
-      en: "Amphibian species of Georgia",
-    },
     subtitle: {
-      ka: "სრული ინდექსი ამფიბიებზე",
-      en: "Full amphibian index",
+      en: "Identification guide for turtles",
+      ka: "ამოცნობის გიდი კუებისთვის",
     },
-    keywords: ["ამფიბიების სახეობები", "amphibian species"],
+    title: { en: "Identify a turtle", ka: "კუს ამოცნობა" },
+  },
+  "turtle-index": {
     icon: "atlas",
-  },
-  "amphibian-frogs": {
-    title: { ka: "ბაყაყები საქართველოში", en: "Frogs of Georgia" },
+    keywords: ["კუების სახეობები", "turtle species"],
     subtitle: {
-      ka: "ბაყაყების ჰაბი — Anura",
-      en: "The frog hub — Anura",
+      en: "Full turtle index",
+      ka: "სრული ინდექსი კუებზე",
     },
-    keywords: ["ბაყაყები", "bayayi", "frogs", "anura", "გომბეშო", "toad"],
-    icon: "hub",
-    suggested: true,
-    rank: 8,
-  },
-  "amphibian-frogs-index": {
     title: {
-      ka: "საქართველოს ბაყაყების სახეობები",
-      en: "Frog species of Georgia",
+      en: "Turtle species of Georgia",
+      ka: "საქართველოს კუების სახეობები",
     },
-    subtitle: {
-      ka: "სრული ინდექსი ბაყაყებზე",
-      en: "Full frog index",
-    },
-    keywords: ["ბაყაყების სახეობები", "frog species"],
-    icon: "atlas",
   },
-  "amphibian-newts": {
-    title: {
-      ka: "ტრიტონები და სალამანდრები საქართველოში",
-      en: "Newts and salamanders of Georgia",
-    },
-    subtitle: {
-      ka: "Caudata — ოთხი სახეობა ატლასში",
-      en: "Caudata — four species in the atlas",
-    },
-    keywords: [
-      "ტრიტონი",
-      "tritoni",
-      "სალამანდრა",
-      "newt",
-      "salamander",
-      "caudata",
-    ],
+  "turtle-land": {
     icon: "guide",
+    keywords: ["ხმელეთის კუ", "land turtle", "tortoise", "testudo"],
+    subtitle: {
+      en: "The spur-thighed tortoise",
+      ka: "ხმელეთის კუ — Spur-thighed tortoise",
+    },
+    title: { en: "Land turtles of Georgia", ka: "ხმელეთის კუები საქართველოში" },
+  },
+  "turtle-water": {
+    icon: "guide",
+    keywords: [
+      "წყლის კუ",
+      "freshwater",
+      "pond turtle",
+      "წითელყურა",
+      "slider",
+      "emys",
+    ],
+    subtitle: {
+      en: "Pond turtle, Caspian turtle, slider",
+      ka: "ჭაობის კუ, კასპიური კუ, წითელყურა",
+    },
+    title: {
+      en: "Freshwater turtles of Georgia",
+      ka: "წყლის კუები საქართველოში",
+    },
   },
 };
 
 const STATIC_PAGES: Array<
   PageCopy & {
-    id: string;
-    href: SearchPageHref;
-    heroSpeciesId?: string;
     heroImage?: string;
+    heroSpeciesId?: string;
+    href: SearchPageHref;
+    id: string;
   }
 > = [
   {
-    id: "species-atlas",
+    heroSpeciesId: "vipera-kaznakovi",
     href: "/species",
+    icon: "atlas",
+    id: "species-atlas",
+    keywords: ["ატლასი", "atlas", "კატალოგი", "catalog", "სახეობები"],
+    rank: 4,
+    subtitle: {
+      en: "The full catalog by type, risk, and region",
+      ka: "სრული კატალოგი ტიპის, რისკისა და რეგიონის მიხედვით",
+    },
+    suggested: true,
     title: {
-      ka: "სახეობების ატლასი",
       en: "Species atlas",
+      ka: "სახეობების ატლასი",
       ru: "Атлас видов",
       tr: "Tür atlası",
     },
-    subtitle: {
-      ka: "სრული კატალოგი ტიპის, რისკისა და რეგიონის მიხედვით",
-      en: "The full catalog by type, risk, and region",
-    },
-    keywords: ["ატლასი", "atlas", "კატალოგი", "catalog", "სახეობები"],
-    icon: "atlas",
-    suggested: true,
-    rank: 4,
-    heroSpeciesId: "vipera-kaznakovi",
   },
   {
-    id: "venomous-snakes",
+    heroSpeciesId: "macrovipera-lebetina",
     href: "/venomous-snakes",
-    title: {
-      ka: "შხამიანი გველები საქართველოში",
-      en: "Venomous snakes in Georgia",
-      ru: "Ядовитые змеи Грузии",
-      tr: "Gürcistan’ın zehirli yılanları",
-    },
-    subtitle: {
-      ka: "ექვსი სამედიცინოდ მნიშვნელოვანი სახეობა",
-      en: "Six medically important species",
-    },
+    icon: "safety",
+    id: "venomous-snakes",
     keywords: [
       "შხამიანი",
       "shxamiani",
@@ -585,24 +578,24 @@ const STATIC_PAGES: Array<
       "გიურზა",
       "giurza",
     ],
-    icon: "safety",
-    suggested: true,
     rank: 1,
-    heroSpeciesId: "macrovipera-lebetina",
+    subtitle: {
+      en: "Six medically important species",
+      ka: "ექვსი სამედიცინოდ მნიშვნელოვანი სახეობა",
+    },
+    suggested: true,
+    title: {
+      en: "Venomous snakes in Georgia",
+      ka: "შხამიანი გველები საქართველოში",
+      ru: "Ядовитые змеи Грузии",
+      tr: "Gürcistan’ın zehirli yılanları",
+    },
   },
   {
-    id: "risk-to-humans",
+    heroSpeciesId: "macrovipera-lebetina",
     href: "/risk-to-humans",
-    title: {
-      ka: "რისკი ადამიანისთვის",
-      en: "Risk to humans",
-      ru: "Риск для человека",
-      tr: "İnsan için risk",
-    },
-    subtitle: {
-      ka: "უვნებელი, საშუალო, მაღალი — რას ნიშნავს თითოეული ნიშანი",
-      en: "Harmless, moderate, high — what each label means",
-    },
+    icon: "safety",
+    id: "risk-to-humans",
     keywords: [
       "რისკი",
       "risk",
@@ -613,22 +606,24 @@ const STATIC_PAGES: Array<
       "danger",
       "შხამი",
     ],
-    icon: "safety",
-    suggested: true,
     rank: 2,
-    heroSpeciesId: "macrovipera-lebetina",
+    subtitle: {
+      en: "Harmless, moderate, high — what each label means",
+      ka: "უვნებელი, საშუალო, მაღალი — რას ნიშნავს თითოეული ნიშანი",
+    },
+    suggested: true,
+    title: {
+      en: "Risk to humans",
+      ka: "რისკი ადამიანისთვის",
+      ru: "Риск для человека",
+      tr: "İnsan için risk",
+    },
   },
   {
-    id: "snakes-in-yard",
+    heroImage: "/images/guides/snakes-in-the-yard-cover.jpg",
     href: "/snakes-in-the-yard",
-    title: {
-      ka: "როგორ მოვიშოროთ გველი ეზოდან?",
-      en: "How do we get snakes out of the yard?",
-    },
-    subtitle: {
-      ka: "რა მუშაობს, რა არა — პრაქტიკული გიდი",
-      en: "What works, what doesn’t — a practical guide",
-    },
+    icon: "yard",
+    id: "snakes-in-yard",
     keywords: [
       "ეზო",
       "ezoshi",
@@ -638,64 +633,59 @@ const STATIC_PAGES: Array<
       "repellent",
       "გოგირდი",
     ],
-    icon: "yard",
-    suggested: true,
     rank: 6,
-    heroImage: "/images/guides/snakes-in-the-yard-cover.jpg",
-  },
-  {
-    id: "quizzes",
-    href: "/quiz",
-    title: { ka: "ქვიზები", en: "Quizzes" },
     subtitle: {
-      ka: "ფოტო-ქვიზი საქართველოს გველებზე",
-      en: "A photo quiz of Georgia’s snakes",
+      en: "What works, what doesn’t — a practical guide",
+      ka: "რა მუშაობს, რა არა — პრაქტიკული გიდი",
     },
-    keywords: ["ქვიზი", "ქვიზები", "quiz", "quizzes", "ამოცნობა"],
-    icon: "identify",
     suggested: true,
-    rank: 3,
-    heroImage: "/images/guides/snake-quiz-og.jpg",
-  },
-  {
-    id: "regions-index",
-    href: "/regions",
-    title: { ka: "საქართველოს რეგიონები", en: "Regions of Georgia" },
-    subtitle: {
-      ka: "ქვეწარმავლები ადგილის მიხედვით",
-      en: "Reptiles by place",
-    },
-    keywords: ["რეგიონები", "regions", "რუკა", "map", "ატლასი"],
-    icon: "map",
-    suggested: true,
-    rank: 5,
-  },
-  {
-    id: "about",
-    href: "/about",
-    title: { ka: "შესახებ", en: "About" },
-    subtitle: {
-      ka: "როგორ შედგება ატლასი და საიდან მოდის ცოდნა",
-      en: "How the atlas is built and sourced",
-    },
-    keywords: ["შესახებ", "about", "წყაროები", "sources", "პროექტი"],
-    icon: "info",
-  },
-  {
-    id: "news",
-    href: "/news",
     title: {
-      ka: "სიახლეები",
-      en: "News",
-      ru: "Новости",
-      tr: "Haberler",
+      en: "How do we get snakes out of the yard?",
+      ka: "როგორ მოვიშოროთ გველი ეზოდან?",
     },
+  },
+  {
+    heroImage: "/images/guides/snake-quiz-og.jpg",
+    href: "/quiz",
+    icon: "identify",
+    id: "quizzes",
+    keywords: ["ქვიზი", "ქვიზები", "quiz", "quizzes", "ამოცნობა"],
+    rank: 3,
     subtitle: {
-      ka: "საველე აღრიცხვები და მიგრაციის დღეები",
-      en: "Field counts and migration days",
-      ru: "Полевые учёты и дни миграции",
-      tr: "Saha sayımları ve göç günleri",
+      en: "A photo quiz of Georgia’s snakes",
+      ka: "ფოტო-ქვიზი საქართველოს გველებზე",
     },
+    suggested: true,
+    title: { en: "Quizzes", ka: "ქვიზები" },
+  },
+  {
+    href: "/regions",
+    icon: "map",
+    id: "regions-index",
+    keywords: ["რეგიონები", "regions", "რუკა", "map", "ატლასი"],
+    rank: 5,
+    subtitle: {
+      en: "Reptiles by place",
+      ka: "ქვეწარმავლები ადგილის მიხედვით",
+    },
+    suggested: true,
+    title: { en: "Regions of Georgia", ka: "საქართველოს რეგიონები" },
+  },
+  {
+    href: "/about",
+    icon: "info",
+    id: "about",
+    keywords: ["შესახებ", "about", "წყაროები", "sources", "პროექტი"],
+    subtitle: {
+      en: "How the atlas is built and sourced",
+      ka: "როგორ შედგება ატლასი და საიდან მოდის ცოდნა",
+    },
+    title: { en: "About", ka: "შესახებ" },
+  },
+  {
+    href: "/news",
+    icon: "news",
+    id: "news",
     keywords: [
       "სიახლეები",
       "news",
@@ -705,237 +695,52 @@ const STATIC_PAGES: Array<
       "batumi",
       "მიგრაცია",
     ],
-    icon: "news",
-    suggested: true,
     rank: 11,
+    subtitle: {
+      en: "Field counts and migration days",
+      ka: "საველე აღრიცხვები და მიგრაციის დღეები",
+      ru: "Полевые учёты и дни миграции",
+      tr: "Saha sayımları ve göç günleri",
+    },
+    suggested: true,
+    title: {
+      en: "News",
+      ka: "სიახლეები",
+      ru: "Новости",
+      tr: "Haberler",
+    },
   },
   {
-    id: "contact",
     href: "/contact",
-    title: { ka: "კონტაქტი", en: "Contact" },
-    subtitle: {
-      ka: "კითხვა, შენიშვნა ან თანამშრომლობა",
-      en: "Questions, notes, or collaboration",
-    },
-    keywords: ["კონტაქტი", "contact", "ელფოსტა", "email"],
     icon: "contact",
+    id: "contact",
+    keywords: ["კონტაქტი", "contact", "ელფოსტა", "email"],
+    subtitle: {
+      en: "Questions, notes, or collaboration",
+      ka: "კითხვა, შენიშვნა ან თანამშრომლობა",
+    },
+    title: { en: "Contact", ka: "კონტაქტი" },
   },
 ];
 
 const SNAKE_QUIZ_COPY: PageCopy = {
+  icon: "identify",
+  keywords: ["ქვიზი", "quiz", "რომელი გველია", "which snake", "გველების ქვიზი"],
+  rank: 9,
+  subtitle: {
+    en: "A photo quiz of Georgia’s snakes",
+    ka: "ფოტო-ქვიზი საქართველოს გველებზე",
+  },
+  suggested: true,
   title: {
-    ka: "რომელი გველია?",
     en: "Which snake is it?",
+    ka: "რომელი გველია?",
     ru: "Какая это змея?",
     tr: "Bu hangi yılan?",
   },
-  subtitle: {
-    ka: "ფოტო-ქვიზი საქართველოს გველებზე",
-    en: "A photo quiz of Georgia’s snakes",
-  },
-  keywords: ["ქვიზი", "quiz", "რომელი გველია", "which snake", "გველების ქვიზი"],
-  icon: "identify",
-  suggested: true,
-  rank: 9,
 };
 
 const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
-
-function pickLocale(text: LocalizedText, locale: AppLocale) {
-  return pickLocalized(text, locale);
-}
-
-function coverFromSpecies(id?: string, fallback?: string) {
-  if (fallback) return fallback;
-  if (!id) return undefined;
-  const species = getSpeciesById(id);
-  return species?.mobileImage ?? species?.image;
-}
-
-function blob(parts: Array<string | undefined>) {
-  const raw = parts.filter(Boolean).join(" ");
-  return `${raw} ${transliterateKa(raw)}`.toLowerCase();
-}
-
-function normalize(value: string) {
-  return value.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
-}
-
-function fieldScore(query: string, field: string, weight: number) {
-  if (!field) return 0;
-  if (field === query) return weight;
-  if (field.startsWith(query)) return Math.round(weight * 0.92);
-  const tokens = field.split(/[\s,./():+_|–—-]+/);
-  if (tokens.some((token) => token.startsWith(query))) {
-    return Math.round(weight * 0.78);
-  }
-  if (field.includes(query)) return Math.round(weight * 0.48);
-  return 0;
-}
-
-function hrefSearchText(href: SearchHref) {
-  if (typeof href === "string") return href;
-  if ("slug" in href.params) return href.params.slug;
-  if ("id" in href.params) return href.params.id;
-  return "";
-}
-
-function toPageDocument(
-  locale: AppLocale,
-  id: string,
-  href: SearchHref,
-  copy: PageCopy,
-  image?: string,
-): SearchDocument {
-  return {
-    key: `page:${id}`,
-    kind: "page",
-    id,
-    href,
-    title: pickLocale(copy.title, locale),
-    subtitle: pickLocale(copy.subtitle, locale),
-    scoreTitles: [copy.title.ka, copy.title.en],
-    searchText: blob([
-      copy.title.ka,
-      copy.title.en,
-      copy.subtitle.ka,
-      copy.subtitle.en,
-      ...copy.keywords,
-      hrefSearchText(href),
-    ]),
-    image,
-    icon: copy.icon,
-    suggested: copy.suggested,
-    rank: copy.rank,
-  };
-}
-
-function speciesGroupText(species: Species) {
-  const group = getSpeciesAtlasMeta(species.id).group;
-  const extra: string[] = [];
-  if (groupHasVenomConcept(group)) {
-    if (isVenomousDanger(species.danger)) {
-      extra.push("შხამიანი", "venomous", "viper", "ядовитые", "zehirli");
-    } else {
-      extra.push("უშხამო", "harmless", "неядовитые", "zararsız");
-    }
-  }
-  if (isFrogSpecies(species.id))
-    extra.push("ბაყაყი", "frog", "toad", "лягушка", "kurbağa");
-  if (isNewtSpecies(species.id))
-    extra.push("ტრიტონი", "სალამანდრა", "newt", "тритон", "semender");
-  extra.push(
-    GROUP_LABELS[group].ka,
-    GROUP_LABELS[group].en,
-    GROUP_LABELS[group].ru ?? "",
-    GROUP_LABELS[group].tr ?? "",
-  );
-  extra.push(group === "snake" ? "გველი გველები snakes змеи yılanlar" : "");
-  extra.push(group === "lizard" ? "ხვლიკი lizards ящерицы kertenkele" : "");
-  extra.push(
-    group === "turtle" ? "კუ turtles tortoise черепахи kaplumbağa" : "",
-  );
-  extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
-  extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
-  extra.push(
-    group === "mammal"
-      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"
-      : "",
-  );
-  extra.push(
-    group === "spider"
-      ? "ობობა spiders argiope არგიოპა lobata ცრუ ყარაყურთი ყარაყურთი steatoda false widow паук örümcek wasp"
-      : "",
-  );
-  return extra;
-}
-
-function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
-  const localized = localizeSpecies(raw, locale);
-  const ka = localizeSpecies(raw, "ka");
-  const en = localizeSpecies(raw, "en");
-  const ru = localizeSpecies(raw, "ru");
-  const tr = localizeSpecies(raw, "tr");
-  const group = getSpeciesAtlasMeta(raw.id).group;
-
-  return {
-    key: `species:${raw.id}`,
-    kind: "species",
-    id: raw.id,
-    href: speciesHref(raw.id, locale),
-    title: localized.commonName,
-    subtitle: raw.scientificName,
-    scoreTitles: [
-      ka.commonName,
-      en.commonName,
-      ru.commonName,
-      tr.commonName,
-      raw.scientificName,
-      raw.genus,
-    ],
-    searchText: blob([
-      ka.commonName,
-      en.commonName,
-      ru.commonName,
-      tr.commonName,
-      raw.scientificName,
-      raw.genus,
-      raw.family,
-      ka.location,
-      en.location,
-      ru.location,
-      tr.location,
-      raw.id,
-      ...speciesAliasKeywords(raw.id, "ka"),
-      ...speciesAliasKeywords(raw.id, "en"),
-      ...speciesGroupText(raw),
-    ]),
-    image: raw.mobileImage ?? raw.image,
-    icon: group === "snake" ? "safety" : "guide",
-    featured: FEATURED_SPECIES.has(raw.id),
-  };
-}
-
-function toRegionDocument(
-  locale: AppLocale,
-  region: (typeof regions)[number],
-): SearchDocument {
-  return {
-    key: `region:${region.id}`,
-    kind: "region",
-    id: region.id,
-    href: regionHref(region.id),
-    title: localizeRegionText(region.name, locale),
-    subtitle: localizeRegionText(region.description, locale),
-    scoreTitles: [
-      region.name.ka,
-      region.name.en,
-      region.name.ru ?? "",
-      region.name.tr ?? "",
-      region.nameIn.ka,
-      region.nameIn.en,
-      region.nameIn.ru ?? "",
-      region.nameIn.tr ?? "",
-    ],
-    searchText: blob([
-      region.name.ka,
-      region.name.en,
-      region.name.ru,
-      region.name.tr,
-      region.nameIn.ka,
-      region.nameIn.en,
-      region.nameIn.ru,
-      region.nameIn.tr,
-      region.description.ka,
-      region.description.en,
-      region.description.ru,
-      region.description.tr,
-      region.id,
-    ]),
-    image: getRegionHeroImage(region.id),
-    icon: "map",
-  };
-}
 
 export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
   const pages = [
@@ -983,15 +788,15 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     const title = newsLocalizedTitle(article, locale);
     const dek = newsLocalizedDek(article, locale);
     return {
+      href: newsArticleHref(article.slug),
+      icon: "news" as const,
+      id: article.id,
       key: `news:${article.id}`,
       kind: "page" as const,
-      id: article.id,
-      href: newsArticleHref(article.slug),
-      title,
-      subtitle: dek,
       scoreTitles: Object.values(article.copy).map((copy) => copy.title),
       searchText: blob(newsSearchKeywords(article)),
-      icon: "news" as const,
+      subtitle: dek,
+      title,
     };
   });
 
@@ -1027,11 +832,213 @@ export function scoreDocument(query: string, doc: SearchDocument) {
   return score;
 }
 
+function blob(parts: Array<string | undefined>) {
+  const raw = parts.filter(Boolean).join(" ");
+  return `${raw} ${transliterateKa(raw)}`.toLowerCase();
+}
+
+function coverFromSpecies(id?: string, fallback?: string) {
+  if (fallback) return fallback;
+  if (!id) return undefined;
+  const species = getSpeciesById(id);
+  return species?.mobileImage ?? species?.image;
+}
+
+function fieldScore(query: string, field: string, weight: number) {
+  if (!field) return 0;
+  if (field === query) return weight;
+  if (field.startsWith(query)) return Math.round(weight * 0.92);
+  const tokens = field.split(/[\s,./():+_|–—-]+/);
+  if (tokens.some((token) => token.startsWith(query))) {
+    return Math.round(weight * 0.78);
+  }
+  if (field.includes(query)) return Math.round(weight * 0.48);
+  return 0;
+}
+
+function hrefSearchText(href: SearchHref) {
+  if (typeof href === "string") return href;
+  if ("slug" in href.params) return href.params.slug;
+  if ("id" in href.params) return href.params.id;
+  return "";
+}
+
+function normalize(value: string) {
+  return value.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function pickLocale(text: LocalizedText, locale: AppLocale) {
+  return pickLocalized(text, locale);
+}
+
+function speciesGroupText(species: Species) {
+  const group = getSpeciesAtlasMeta(species.id).group;
+  const extra: string[] = [];
+  if (groupHasVenomConcept(group)) {
+    if (isVenomousDanger(species.danger)) {
+      extra.push("შხამიანი", "venomous", "viper", "ядовитые", "zehirli");
+    } else {
+      extra.push("უშხამო", "harmless", "неядовитые", "zararsız");
+    }
+  }
+  if (isFrogSpecies(species.id))
+    extra.push("ბაყაყი", "frog", "toad", "лягушка", "kurbağa");
+  if (isNewtSpecies(species.id))
+    extra.push("ტრიტონი", "სალამანდრა", "newt", "тритон", "semender");
+  extra.push(
+    GROUP_LABELS[group].ka,
+    GROUP_LABELS[group].en,
+    GROUP_LABELS[group].ru ?? "",
+    GROUP_LABELS[group].tr ?? "",
+  );
+  extra.push(group === "snake" ? "გველი გველები snakes змеи yılanlar" : "");
+  extra.push(group === "lizard" ? "ხვლიკი lizards ящерицы kertenkele" : "");
+  extra.push(
+    group === "turtle" ? "კუ turtles tortoise черепахи kaplumbağa" : "",
+  );
+  extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
+  extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
+  extra.push(
+    group === "mammal"
+      ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"
+      : "",
+  );
+  extra.push(
+    group === "spider"
+      ? "ობობა spiders argiope არგიოპა lobata ცრუ ყარაყურთი ყარაყურთი steatoda false widow паук örümcek wasp"
+      : "",
+  );
+  return extra;
+}
+
+function toPageDocument(
+  locale: AppLocale,
+  id: string,
+  href: SearchHref,
+  copy: PageCopy,
+  image?: string,
+): SearchDocument {
+  return {
+    href,
+    icon: copy.icon,
+    id,
+    image,
+    key: `page:${id}`,
+    kind: "page",
+    rank: copy.rank,
+    scoreTitles: [copy.title.ka, copy.title.en],
+    searchText: blob([
+      copy.title.ka,
+      copy.title.en,
+      copy.subtitle.ka,
+      copy.subtitle.en,
+      ...copy.keywords,
+      hrefSearchText(href),
+    ]),
+    subtitle: pickLocale(copy.subtitle, locale),
+    suggested: copy.suggested,
+    title: pickLocale(copy.title, locale),
+  };
+}
+
+function toRegionDocument(
+  locale: AppLocale,
+  region: (typeof regions)[number],
+): SearchDocument {
+  return {
+    href: regionHref(region.id),
+    icon: "map",
+    id: region.id,
+    image: getRegionHeroImage(region.id),
+    key: `region:${region.id}`,
+    kind: "region",
+    scoreTitles: [
+      region.name.ka,
+      region.name.en,
+      region.name.ru ?? "",
+      region.name.tr ?? "",
+      region.nameIn.ka,
+      region.nameIn.en,
+      region.nameIn.ru ?? "",
+      region.nameIn.tr ?? "",
+    ],
+    searchText: blob([
+      region.name.ka,
+      region.name.en,
+      region.name.ru,
+      region.name.tr,
+      region.nameIn.ka,
+      region.nameIn.en,
+      region.nameIn.ru,
+      region.nameIn.tr,
+      region.description.ka,
+      region.description.en,
+      region.description.ru,
+      region.description.tr,
+      region.id,
+    ]),
+    subtitle: localizeRegionText(region.description, locale),
+    title: localizeRegionText(region.name, locale),
+  };
+}
+
+function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
+  const localized = localizeSpecies(raw, locale);
+  const ka = localizeSpecies(raw, "ka");
+  const en = localizeSpecies(raw, "en");
+  const ru = localizeSpecies(raw, "ru");
+  const tr = localizeSpecies(raw, "tr");
+  const group = getSpeciesAtlasMeta(raw.id).group;
+
+  return {
+    featured: FEATURED_SPECIES.has(raw.id),
+    href: speciesHref(raw.id, locale),
+    icon: group === "snake" ? "safety" : "guide",
+    id: raw.id,
+    image: raw.mobileImage ?? raw.image,
+    key: `species:${raw.id}`,
+    kind: "species",
+    scoreTitles: [
+      ka.commonName,
+      en.commonName,
+      ru.commonName,
+      tr.commonName,
+      raw.scientificName,
+      raw.genus,
+    ],
+    searchText: blob([
+      ka.commonName,
+      en.commonName,
+      ru.commonName,
+      tr.commonName,
+      raw.scientificName,
+      raw.genus,
+      raw.family,
+      ka.location,
+      en.location,
+      ru.location,
+      tr.location,
+      raw.id,
+      ...speciesAliasKeywords(raw.id, "ka"),
+      ...speciesAliasKeywords(raw.id, "en"),
+      ...speciesGroupText(raw),
+    ]),
+    subtitle: raw.scientificName,
+    title: localized.commonName,
+  };
+}
+
 const LIMITS: Record<SearchKind, number> = {
   page: 5,
-  species: 6,
   region: 4,
+  species: 6,
 };
+
+export type RecentRef = { id: string; kind: SearchKind; };
+
+export function flattenGroups(groups: SearchGroup[]) {
+  return groups.flatMap((group) => group.items);
+}
 
 export function searchIndex(
   index: SearchDocument[],
@@ -1045,8 +1052,8 @@ export function searchIndex(
 
   const totals: Record<SearchKind, number> = {
     page: 0,
-    species: 0,
     region: 0,
+    species: 0,
   };
 
   if (!trimmed) {
@@ -1066,8 +1073,8 @@ export function searchIndex(
     const groups = groupDocuments(
       idle.map((item) => ({ ...item, score: 0 })),
       filter === "all"
-        ? { page: 6, species: 5, region: 0 }
-        : { page: 12, species: 8, region: 12 },
+        ? { page: 6, region: 0, species: 5 }
+        : { page: 12, region: 12, species: 8 },
     );
     for (const group of groups) totals[group.kind] = group.items.length;
     return { groups, totals };
@@ -1084,7 +1091,7 @@ export function searchIndex(
   scored.sort((a, b) => b.score - a.score || a.title.localeCompare(b.title));
 
   const limits =
-    filter === "all" ? LIMITS : { page: 12, species: 12, region: 12 };
+    filter === "all" ? LIMITS : { page: 12, region: 12, species: 12 };
 
   return { groups: groupDocuments(scored, limits), totals };
 }
@@ -1095,18 +1102,18 @@ function groupDocuments(
 ): SearchGroup[] {
   const buckets: Record<SearchKind, ScoredDocument[]> = {
     page: [],
-    species: [],
     region: [],
+    species: [],
   };
   for (const item of items) {
     if (buckets[item.kind].length >= limits[item.kind]) continue;
     buckets[item.kind].push(item);
   }
 
-  const groups: Array<{ kind: SearchKind; items: typeof buckets.page }> = [];
+  const groups: Array<{ items: typeof buckets.page; kind: SearchKind; }> = [];
   for (const kind of Object.keys(buckets) as SearchKind[]) {
     const items = buckets[kind];
-    if (items.length > 0) groups.push({ kind, items });
+    if (items.length > 0) groups.push({ items, kind });
   }
 
   groups.sort((a, b) => {
@@ -1119,12 +1126,6 @@ function groupDocuments(
 
   return groups;
 }
-
-export function flattenGroups(groups: SearchGroup[]) {
-  return groups.flatMap((group) => group.items);
-}
-
-export type RecentRef = { kind: SearchKind; id: string };
 
 export const SEARCH_RECENT_KEY = "reptiles.search.recent";
 
@@ -1148,6 +1149,14 @@ export function readRecent(): RecentRef[] {
   }
 }
 
+export function resolveRecent(index: SearchDocument[], recent: RecentRef[]) {
+  return recent
+    .map((item) =>
+      index.find((doc) => doc.kind === item.kind && doc.id === item.id),
+    )
+    .filter((item): item is SearchDocument => Boolean(item));
+}
+
 export function writeRecent(entry: RecentRef) {
   const next = [
     entry,
@@ -1157,12 +1166,4 @@ export function writeRecent(entry: RecentRef) {
   ].slice(0, 5);
   window.localStorage.setItem(SEARCH_RECENT_KEY, JSON.stringify(next));
   return next;
-}
-
-export function resolveRecent(index: SearchDocument[], recent: RecentRef[]) {
-  return recent
-    .map((item) =>
-      index.find((doc) => doc.kind === item.kind && doc.id === item.id),
-    )
-    .filter((item): item is SearchDocument => Boolean(item));
 }

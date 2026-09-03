@@ -1,84 +1,65 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { CoverImage } from "@/components/CoverImage";
-import { Link } from "@/i18n/navigation";
-import type { AppLocale } from "@/i18n/routing";
-import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
-import { speciesHref } from "@/lib/speciesRoutes";
-import {
-  generateSnakeQuiz,
-  QUIZ_LENGTH,
-  scoreMessageKey,
-  scorePercent,
-  type QuizDifficulty,
-  type SnakeQuizQuestion,
-  type SnakeQuizSpecies,
-} from "@/lib/snakeQuiz";
 import { ArrowRight, Check, Lightbulb, RotateCcw, Share2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import {
+  type KeyboardEvent,
   useCallback,
   useEffect,
   useId,
   useMemo,
   useRef,
   useState,
-  type KeyboardEvent,
 } from "react";
 
-type QuizPlayerProps = {
-  quizId: string;
-  snakes: SnakeQuizSpecies[];
-  shareUrl: string;
-};
+import type { AppLocale } from "@/i18n/routing";
+
+import { CoverImage } from "@/components/CoverImage";
+import { Link } from "@/i18n/navigation";
+import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import {
+  generateSnakeQuiz,
+  QUIZ_LENGTH,
+  type QuizDifficulty,
+  scoreMessageKey,
+  scorePercent,
+  type SnakeQuizQuestion,
+  type SnakeQuizSpecies,
+} from "@/lib/snakeQuiz";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 type Answered = {
-  selectedId: string;
   correct: boolean;
+  selectedId: string;
 };
 
 type Draft = {
-  questions: SnakeQuizQuestion[];
-  index: number;
   answers: Answered[];
-  selectedId: string | null;
   hintOpen: boolean;
+  index: number;
+  questions: SnakeQuizQuestion[];
+  selectedId: null | string;
+};
+
+type QuizPlayerProps = {
+  quizId: string;
+  shareUrl: string;
+  snakes: SnakeQuizSpecies[];
 };
 
 const OPTION_MARKS: Record<
   AppLocale,
   readonly [string, string, string, string]
 > = {
-  ka: ["ა", "ბ", "გ", "დ"],
   en: ["A", "B", "C", "D"],
+  ka: ["ა", "ბ", "გ", "დ"],
   ru: ["А", "Б", "В", "Г"],
   tr: ["A", "B", "C", "D"],
 };
 
-function draftKey(quizId: string) {
-  return `reptiles.quiz.draft.${quizId}`;
-}
-
-function optionClass(state: {
-  revealed: boolean;
-  selected: boolean;
-  correct: boolean;
-}) {
-  if (!state.revealed) {
-    return "border-white/15 bg-black/35 text-white hover:border-white/45 hover:bg-black/50";
-  }
-  if (state.correct) {
-    return "border-emerald-300/80 bg-emerald-500/25 text-white";
-  }
-  if (state.selected) {
-    return "border-destructive/80 bg-destructive/30 text-white";
-  }
-  return "border-white/10 bg-black/25 text-white/45";
-}
-
-export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
+export function QuizPlayer({ quizId, shareUrl, snakes }: QuizPlayerProps) {
   const t = useTranslations("snakeQuiz");
   const locale = useLocale() as AppLocale;
   const headingId = useId();
@@ -92,10 +73,10 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
   const hintedQuestions = useRef(new Set<number>());
 
   const [playing, setPlaying] = useState(false);
-  const [questions, setQuestions] = useState<SnakeQuizQuestion[] | null>(null);
+  const [questions, setQuestions] = useState<null | SnakeQuizQuestion[]>(null);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Answered[]>([]);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<null | string>(null);
   const [complete, setComplete] = useState(false);
   const [hintOpen, setHintOpen] = useState(false);
   const [draftReady, setDraftReady] = useState(false);
@@ -104,7 +85,7 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
     snakes.find((item) => item.id === "natrix-natrix") ?? snakes[0];
 
   const startRound = useCallback(
-    (reason: "start" | "restart") => {
+    (reason: "restart" | "start") => {
       const next = generateSnakeQuiz(snakes);
       setQuestions(next);
       setIndex(0);
@@ -116,9 +97,9 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       abandonSent.current = false;
       hintedQuestions.current = new Set();
       trackEvent("quiz_start", {
-        quiz_id: quizId,
         method: reason,
         question_count: next.length,
+        quiz_id: quizId,
       });
     },
     [snakes, quizId],
@@ -153,11 +134,11 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       return;
     }
     const draft: Draft = {
-      questions,
-      index,
       answers,
-      selectedId,
       hintOpen,
+      index,
+      questions,
+      selectedId,
     };
     sessionStorage.setItem(draftKey(quizId), JSON.stringify(draft));
   }, [
@@ -178,9 +159,9 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       if (!playing || complete || !questions) return;
       abandonSent.current = true;
       trackEvent("quiz_abandon", {
-        quiz_id: quizId,
-        question_index: index + 1,
         answered_count: answers.length,
+        question_index: index + 1,
+        quiz_id: quizId,
       });
     }
 
@@ -204,14 +185,14 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
     if (!question || revealed) return;
     const correct = optionId === question.correctId;
     setSelectedId(optionId);
-    setAnswers((current) => [...current, { selectedId: optionId, correct }]);
+    setAnswers((current) => [...current, { correct, selectedId: optionId }]);
     trackEvent("quiz_answer", {
-      quiz_id: quizId,
-      question_index: index + 1,
-      species_id: question.correctId,
-      selected_id: optionId,
-      is_correct: correct,
       difficulty,
+      is_correct: correct,
+      question_index: index + 1,
+      quiz_id: quizId,
+      selected_id: optionId,
+      species_id: question.correctId,
     });
   }
 
@@ -248,10 +229,10 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       setComplete(true);
       sessionStorage.removeItem(draftKey(quizId));
       trackEvent("quiz_complete", {
-        quiz_id: quizId,
         correct_count: answers.filter((item) => item.correct).length,
-        total: questions.length,
         percent,
+        quiz_id: quizId,
+        total: questions.length,
       });
       return;
     }
@@ -291,15 +272,14 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       {nextQuestion?.mobileImage &&
       nextQuestion.mobileImage !== nextQuestion.image ? (
         <link
-          rel="preload"
           as="image"
           href={nextQuestion.mobileImage}
           media="(max-width: 1023px)"
+          rel="preload"
         />
       ) : null}
       {nextQuestion?.image ? (
         <link
-          rel="preload"
           as="image"
           href={nextQuestion.image}
           media={
@@ -308,31 +288,32 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
               ? "(min-width: 1024px)"
               : undefined
           }
+          rel="preload"
         />
       ) : null}
       <div className="absolute inset-0 overflow-hidden">
         {coverSrc ? (
           <picture
-            key={coverKey}
             className="media-placeholder absolute inset-0 block size-full"
+            key={coverKey}
           >
             {coverMobileSrc && coverMobileSrc !== coverSrc ? (
               <source media="(min-width: 1024px)" srcSet={coverSrc} />
             ) : null}
             <img
-              src={
-                coverMobileSrc && coverMobileSrc !== coverSrc
-                  ? coverMobileSrc
-                  : coverSrc
-              }
               alt={
                 playing && revealed && correctSpecies
                   ? correctSpecies.imageAlt
                   : t("imageAltHidden")
               }
-              fetchPriority={!playing ? "high" : "auto"}
-              decoding="async"
               className="hero-drift size-full object-cover text-transparent"
+              decoding="async"
+              fetchPriority={!playing ? "high" : "auto"}
+              src={
+                coverMobileSrc && coverMobileSrc !== coverSrc
+                  ? coverMobileSrc
+                  : coverSrc
+              }
             />
           </picture>
         ) : null}
@@ -357,15 +338,15 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
           />
         ) : complete && questions ? (
           <ResultOverlay
-            headingId={headingId}
-            quizId={quizId}
-            correctCount={correctCount}
-            total={total}
-            questions={questions}
             answers={answers}
             byId={byId}
-            shareUrl={shareUrl}
+            correctCount={correctCount}
+            headingId={headingId}
             onRestart={() => startRound("restart")}
+            questions={questions}
+            quizId={quizId}
+            shareUrl={shareUrl}
+            total={total}
           />
         ) : !question ? (
           <p className="text-white/70">{t("loading")}</p>
@@ -374,12 +355,11 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
             <header className="shrink-0">
               <div className="flex items-center gap-3 text-[11px] tracking-[0.18em] text-white/70 uppercase sm:text-[12px]">
                 <span>{t("progress", { current: index + 1, total })}</span>
-                <span className="h-px flex-1 bg-white/20" aria-hidden="true" />
+                <span aria-hidden="true" className="h-px flex-1 bg-white/20" />
               </div>
-              <div className="mt-2 flex gap-1.5 sm:mt-3" aria-hidden="true">
+              <div aria-hidden="true" className="mt-2 flex gap-1.5 sm:mt-3">
                 {Array.from({ length: total }, (_, i) => (
                   <span
-                    key={i}
                     className={cn(
                       "h-1 flex-1 rounded-full transition-colors duration-300",
                       i < index || (i === index && revealed)
@@ -388,41 +368,42 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                           ? "bg-white/55"
                           : "bg-white/20",
                     )}
+                    key={i}
                   />
                 ))}
               </div>
               <h2
-                id={headingId}
                 className="mt-3 max-w-2xl font-display text-[clamp(1.3rem,6.4vw,3.4rem)] leading-[1.08] font-semibold text-white sm:mt-6"
+                id={headingId}
               >
                 {t("question")}
               </h2>
             </header>
 
-            <div className="min-h-3 flex-1" aria-hidden="true" />
+            <div aria-hidden="true" className="min-h-3 flex-1" />
 
             <div className="shrink-0">
               {!revealed && correctSpecies?.hint ? (
                 <div className="mb-2.5 sm:mb-3">
                   <button
-                    type="button"
+                    aria-expanded={hintOpen}
+                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/20 bg-black/35 px-3.5 text-[13px] font-medium text-white/90 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-black/50 hover:text-white"
                     onClick={() => {
                       const next = !hintOpen;
                       setHintOpen(next);
                       if (next && !hintedQuestions.current.has(index)) {
                         hintedQuestions.current.add(index);
                         trackEvent("quiz_hint", {
-                          quiz_id: quizId,
-                          question_index: index + 1,
-                          species_id: question.correctId,
                           difficulty: question.difficulty,
+                          question_index: index + 1,
+                          quiz_id: quizId,
+                          species_id: question.correctId,
                         });
                       }
                     }}
-                    aria-expanded={hintOpen}
-                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-white/20 bg-black/35 px-3.5 text-[13px] font-medium text-white/90 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-black/50 hover:text-white"
+                    type="button"
                   >
-                    <Lightbulb className="size-3.5" aria-hidden="true" />
+                    <Lightbulb aria-hidden="true" className="size-3.5" />
                     {hintOpen ? t("hintHide") : t("hint")}
                   </button>
                   {hintOpen ? (
@@ -433,10 +414,10 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                 </div>
               ) : null}
               <div
-                role="radiogroup"
                 aria-labelledby={headingId}
-                onKeyDown={onRadioKeyDown}
                 className="grid gap-1.5 sm:grid-cols-2 sm:gap-3"
+                onKeyDown={onRadioKeyDown}
+                role="radiogroup"
               >
                 {question.optionIds.map((optionId, optionIndex) => {
                   const option = byId.get(optionId);
@@ -445,23 +426,23 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                   const isCorrect = optionId === question.correctId;
                   return (
                     <button
-                      key={optionId}
-                      ref={(node) => {
-                        optionRefs.current[optionIndex] = node;
-                      }}
-                      type="button"
-                      role="radio"
                       aria-checked={selected}
-                      disabled={revealed}
-                      onClick={() => onSelect(optionId, question.difficulty)}
                       className={cn(
                         "flex min-h-11 items-center gap-2.5 rounded-2xl border px-3 py-2.5 text-left backdrop-blur-md transition-colors duration-200 sm:min-h-17 sm:gap-3 sm:px-5 sm:py-3.5",
                         optionClass({
+                          correct: isCorrect,
                           revealed,
                           selected,
-                          correct: isCorrect,
                         }),
                       )}
+                      disabled={revealed}
+                      key={optionId}
+                      onClick={() => onSelect(optionId, question.difficulty)}
+                      ref={(node) => {
+                        optionRefs.current[optionIndex] = node;
+                      }}
+                      role="radio"
+                      type="button"
                     >
                       <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-[12px] font-medium sm:size-8">
                         {OPTION_MARKS[locale][optionIndex]}
@@ -482,7 +463,6 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
               </div>
 
               <div
-                aria-live="polite"
                 aria-label={
                   revealed && correctSpecies
                     ? t("revealLead", {
@@ -491,13 +471,14 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                       })
                     : undefined
                 }
+                aria-live="polite"
               >
                 {revealed && correctSpecies ? (
                   <div className="mt-2.5 rounded-[20px] border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:rounded-[24px] sm:p-6">
                     <p
+                      className="font-display text-[1.1rem] font-semibold text-white outline-none sm:text-[1.45rem]"
                       ref={feedbackRef}
                       tabIndex={-1}
-                      className="font-display text-[1.1rem] font-semibold text-white outline-none sm:text-[1.45rem]"
                     >
                       {selectedId === question.correctId
                         ? t("correct")
@@ -512,26 +493,26 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                     </p>
                     <div className="mt-5 hidden sm:flex sm:items-center sm:gap-3">
                       <button
-                        type="button"
-                        onClick={onNext}
                         className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
+                        onClick={onNext}
+                        type="button"
                       >
                         {nextLabel}
-                        <ArrowRight className="size-4" aria-hidden="true" />
+                        <ArrowRight aria-hidden="true" className="size-4" />
                       </button>
                       <Link
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
                         href={speciesHref(question.correctId, locale)}
                         onClick={() =>
                           trackSpeciesClick({
-                            species_id: question.correctId,
-                            source: "quiz_question",
                             position: index + 1,
+                            source: "quiz_question",
+                            species_id: question.correctId,
                           })
                         }
-                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
                       >
                         {t("learnMore")}
-                        <ArrowRight className="size-3.5" aria-hidden="true" />
+                        <ArrowRight aria-hidden="true" className="size-3.5" />
                       </Link>
                     </div>
                   </div>
@@ -542,26 +523,26 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
             {revealed && correctSpecies ? (
               <div className="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-black/80 px-5 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-xl sm:hidden">
                 <button
-                  type="button"
-                  onClick={onNext}
                   className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink"
+                  onClick={onNext}
+                  type="button"
                 >
                   {nextLabel}
-                  <ArrowRight className="size-4" aria-hidden="true" />
+                  <ArrowRight aria-hidden="true" className="size-4" />
                 </button>
                 <Link
+                  className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
                   href={speciesHref(question.correctId, locale)}
                   onClick={() =>
                     trackSpeciesClick({
-                      species_id: question.correctId,
-                      source: "quiz_question",
                       position: index + 1,
+                      source: "quiz_question",
+                      species_id: question.correctId,
                     })
                   }
-                  className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
                 >
                   {t("learnMore")}
-                  <ArrowRight className="size-3.5" aria-hidden="true" />
+                  <ArrowRight aria-hidden="true" className="size-3.5" />
                 </Link>
               </div>
             ) : null}
@@ -572,33 +553,8 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
   );
 }
 
-function QuizBreadcrumbs() {
-  const t = useTranslations("snakeQuiz");
-  const tQuizzes = useTranslations("quizzes");
-
-  return (
-    <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
-      <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
-        <li>
-          <Link href="/" className="transition-colors hover:text-white">
-            {t("breadcrumbHome")}
-          </Link>
-        </li>
-        <li aria-hidden="true" className="text-white/30">
-          /
-        </li>
-        <li>
-          <Link href="/quiz" className="transition-colors hover:text-white">
-            {tQuizzes("breadcrumbCurrent")}
-          </Link>
-        </li>
-        <li aria-hidden="true" className="text-white/30">
-          /
-        </li>
-        <li className="text-white/80">{t("breadcrumbCurrent")}</li>
-      </ol>
-    </nav>
-  );
+function draftKey(quizId: string) {
+  return `reptiles.quiz.draft.${quizId}`;
 }
 
 function IntroOverlay({
@@ -610,9 +566,9 @@ function IntroOverlay({
 }) {
   const t = useTranslations("snakeQuiz");
   const rules = [
-    { title: t("rule1Title"), body: t("rule1Body") },
-    { title: t("rule2Title"), body: t("rule2Body") },
-    { title: t("rule3Title"), body: t("rule3Body") },
+    { body: t("rule1Body"), title: t("rule1Title") },
+    { body: t("rule2Body"), title: t("rule2Title") },
+    { body: t("rule3Body"), title: t("rule3Title") },
   ] as const;
 
   return (
@@ -623,8 +579,8 @@ function IntroOverlay({
           {t("eyebrow")}
         </p>
         <h1
-          id={headingId}
           className="mt-3 max-w-3xl font-display text-[clamp(1.85rem,10vw,5.4rem)] leading-[0.98] font-semibold text-white sm:mt-4"
+          id={headingId}
         >
           {t("title")}
         </h1>
@@ -635,8 +591,8 @@ function IntroOverlay({
         <ul className="mt-5 grid gap-px overflow-hidden rounded-[24px] border border-white/12 bg-white/10 sm:mt-10 sm:grid-cols-3">
           {rules.map((rule, index) => (
             <li
-              key={rule.title}
               className="bg-black/40 px-4 py-3.5 backdrop-blur-xl sm:p-6"
+              key={rule.title}
             >
               <span className="font-display text-[12px] tracking-[0.22em] text-white/40">
                 {String(index + 1).padStart(2, "0")}
@@ -653,12 +609,12 @@ function IntroOverlay({
 
         <div className="mt-5 sm:mt-8">
           <button
-            type="button"
-            onClick={onStart}
             className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
+            onClick={onStart}
+            type="button"
           >
             {t("start")}
-            <ArrowRight className="size-4" aria-hidden="true" />
+            <ArrowRight aria-hidden="true" className="size-4" />
           </button>
         </div>
       </div>
@@ -666,26 +622,72 @@ function IntroOverlay({
   );
 }
 
+function optionClass(state: {
+  correct: boolean;
+  revealed: boolean;
+  selected: boolean;
+}) {
+  if (!state.revealed) {
+    return "border-white/15 bg-black/35 text-white hover:border-white/45 hover:bg-black/50";
+  }
+  if (state.correct) {
+    return "border-emerald-300/80 bg-emerald-500/25 text-white";
+  }
+  if (state.selected) {
+    return "border-destructive/80 bg-destructive/30 text-white";
+  }
+  return "border-white/10 bg-black/25 text-white/45";
+}
+
+function QuizBreadcrumbs() {
+  const t = useTranslations("snakeQuiz");
+  const tQuizzes = useTranslations("quizzes");
+
+  return (
+    <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
+      <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
+        <li>
+          <Link className="transition-colors hover:text-white" href="/">
+            {t("breadcrumbHome")}
+          </Link>
+        </li>
+        <li aria-hidden="true" className="text-white/30">
+          /
+        </li>
+        <li>
+          <Link className="transition-colors hover:text-white" href="/quiz">
+            {tQuizzes("breadcrumbCurrent")}
+          </Link>
+        </li>
+        <li aria-hidden="true" className="text-white/30">
+          /
+        </li>
+        <li className="text-white/80">{t("breadcrumbCurrent")}</li>
+      </ol>
+    </nav>
+  );
+}
+
 function ResultOverlay({
-  headingId,
-  quizId,
-  correctCount,
-  total,
-  questions,
   answers,
   byId,
-  shareUrl,
+  correctCount,
+  headingId,
   onRestart,
+  questions,
+  quizId,
+  shareUrl,
+  total,
 }: {
-  headingId: string;
-  quizId: string;
-  correctCount: number;
-  total: number;
-  questions: SnakeQuizQuestion[];
   answers: Answered[];
   byId: Map<string, SnakeQuizSpecies>;
-  shareUrl: string;
+  correctCount: number;
+  headingId: string;
   onRestart: () => void;
+  questions: SnakeQuizQuestion[];
+  quizId: string;
+  shareUrl: string;
+  total: number;
 }) {
   const t = useTranslations("snakeQuiz");
   const locale = useLocale() as AppLocale;
@@ -700,14 +702,14 @@ function ResultOverlay({
     try {
       if (typeof navigator.share === "function") {
         await navigator.share({
-          title: t("title"),
           text,
+          title: t("title"),
           url: shareUrl,
         });
         trackEvent("quiz_share", {
-          quiz_id: quizId,
           method: "share",
           percent,
+          quiz_id: quizId,
         });
         return;
       }
@@ -719,9 +721,9 @@ function ResultOverlay({
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2000);
       trackEvent("quiz_share", {
-        quiz_id: quizId,
         method: "copy",
         percent,
+        quiz_id: quizId,
       });
     } catch {
       return;
@@ -735,8 +737,8 @@ function ResultOverlay({
         {t("resultEyebrow")}
       </p>
       <h2
-        id={headingId}
         className="mt-3 font-display text-[clamp(2.6rem,16vw,8rem)] leading-none font-semibold text-white sm:mt-4"
+        id={headingId}
       >
         {correctCount}
         <span className="text-white/35"> / {total}</span>
@@ -749,22 +751,22 @@ function ResultOverlay({
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
         <button
-          type="button"
-          onClick={onRestart}
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
+          onClick={onRestart}
+          type="button"
         >
-          <RotateCcw className="size-4" aria-hidden="true" />
+          <RotateCcw aria-hidden="true" className="size-4" />
           {t("restart")}
         </button>
         <button
-          type="button"
-          onClick={onShare}
           className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/25 px-6 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10 sm:w-auto"
+          onClick={onShare}
+          type="button"
         >
           {copied ? (
-            <Check className="size-4" aria-hidden="true" />
+            <Check aria-hidden="true" className="size-4" />
           ) : (
-            <Share2 className="size-4" aria-hidden="true" />
+            <Share2 aria-hidden="true" className="size-4" />
           )}
           {copied ? t("shareCopied") : t("share")}
         </button>
@@ -779,24 +781,24 @@ function ResultOverlay({
           const answer = answers[questionIndex];
           if (!species || !answer) return null;
           return (
-            <li key={`${item.correctId}-${questionIndex}`} className="min-w-0">
+            <li className="min-w-0" key={`${item.correctId}-${questionIndex}`}>
               <Link
+                className="flex min-w-0 items-center gap-2.5 rounded-[20px] border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
                 href={speciesHref(item.correctId, locale)}
                 onClick={() =>
                   trackSpeciesClick({
-                    species_id: item.correctId,
-                    source: "quiz_result",
                     position: questionIndex + 1,
+                    source: "quiz_result",
+                    species_id: item.correctId,
                   })
                 }
-                className="flex min-w-0 items-center gap-2.5 rounded-[20px] border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
               >
                 <span className="relative size-12 shrink-0 overflow-hidden rounded-2xl sm:size-16">
                   <CoverImage
-                    src={species.image}
                     alt={species.imageAlt}
-                    sizes="64px"
                     className="object-cover"
+                    sizes="64px"
+                    src={species.image}
                   />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -831,25 +833,25 @@ function ResultOverlay({
       </p>
       <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Link
-          href="/snakes/shxamiani-gvelis-amocnoba"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+          href="/snakes/shxamiani-gvelis-amocnoba"
         >
           {t("ctaIdentify")}
-          <ArrowRight className="size-4" aria-hidden="true" />
+          <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
         <Link
-          href="/venomous-snakes"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+          href="/venomous-snakes"
         >
           {t("ctaVenomous")}
-          <ArrowRight className="size-4" aria-hidden="true" />
+          <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
         <Link
-          href="/snakes"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
+          href="/snakes"
         >
           {t("discoverSnakes")}
-          <ArrowRight className="size-4" aria-hidden="true" />
+          <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
       </div>
     </div>
