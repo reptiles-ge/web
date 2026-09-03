@@ -62,8 +62,8 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     modKey,
     open,
     openSearch,
+    pickSuggestion,
     query,
-    queryEntry,
     rootRef,
     setActiveIndex,
     setOpen,
@@ -98,11 +98,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     groups,
     listLabel: t("title"),
     onHover: setActiveIndex,
-    onPickSuggestion: (value: string) => {
-      queryEntry.current = "suggestion";
-      setQuery(value);
-      openSearch("click");
-    },
+    onPickSuggestion: pickSuggestion,
     onSelect: goTo,
     query: trimmed,
     showRecent,
@@ -407,6 +403,15 @@ function useSpeciesSearch() {
     [closeSearch, filter, flat, index, query, recent, router],
   );
 
+  const pickSuggestion = useCallback(
+    (value: string) => {
+      queryEntry.current = "suggestion";
+      setQuery(value);
+      openSearch("click");
+    },
+    [openSearch],
+  );
+
   return {
     active: flat[activeIndex],
     activeIndex,
@@ -423,6 +428,7 @@ function useSpeciesSearch() {
     modKey,
     open,
     openSearch,
+    pickSuggestion,
     query,
     queryEntry,
     rootRef,
