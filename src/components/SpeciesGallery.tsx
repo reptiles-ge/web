@@ -34,12 +34,27 @@ export function SpeciesGallery({
   const photos = images.filter((item) => Boolean(item.src));
   const [active, setActive] = useState<null | number>(null);
   const opened = useRef(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const restoreIndex = useRef<null | number>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (active === null) {
+      if (dialog.open) dialog.close();
+      return;
+    }
+    restoreIndex.current = active;
+    if (!dialog.open) dialog.showModal();
+    closeButtonRef.current?.focus();
+  }, [active]);
 
   useEffect(() => {
     if (active === null) return;
 
     function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setActive(null);
       if (event.key === "ArrowLeft") {
         setActive((current) =>
           current === null
@@ -54,14 +69,8 @@ export function SpeciesGallery({
       }
     }
 
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
-
-    return () => {
-      document.body.style.overflow = previous;
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [active, photos.length]);
 
   if (photos.length === 0) return null;
@@ -131,6 +140,9 @@ export function SpeciesGallery({
                       }
                       setActive(index);
                     }}
+                    ref={(node) => {
+                      triggerRefs.current[index] = node;
+                    }}
                     type="button"
                   >
                     <picture className="media-placeholder absolute inset-0 block size-full">
@@ -168,26 +180,29 @@ export function SpeciesGallery({
         </div>
       </section>
 
-      {active !== null && activePhoto ? (
-        <dialog
-          aria-label={t("gallery")}
-          className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0"
-          onCancel={(event) => {
-            event.preventDefault();
-            setActive(null);
-          }}
-          open
-        >
+      <dialog
+        aria-label={t("gallery")}
+        className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/92"
+        onClose={() => {
+          setActive(null);
+          const index = restoreIndex.current;
+          if (index !== null) triggerRefs.current[index]?.focus();
+        }}
+        ref={dialogRef}
+      >
+        {activePhoto ? (
+          <>
           <button
             aria-label={t("close")}
-            className="absolute inset-0 bg-black/92"
-            onClick={() => setActive(null)}
+            className="absolute inset-0 bg-transparent"
+            onClick={() => dialogRef.current?.close()}
             type="button"
           />
           <button
             aria-label={t("close")}
             className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
-            onClick={() => setActive(null)}
+            onClick={() => dialogRef.current?.close()}
+            ref={closeButtonRef}
             type="button"
           >
             <X className="size-5" />
