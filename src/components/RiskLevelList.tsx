@@ -7,6 +7,7 @@ import { type ComponentProps } from "react";
 import type { DangerLevel, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClusterPathCard } from "@/components/ClusterPathCard";
 import {
   CLUSTER_EYEBROW,
   CLUSTER_TITLE_GUIDE,

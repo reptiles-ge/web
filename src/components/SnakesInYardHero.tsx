@@ -1,11 +1,11 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { CoverImage } from "@/components/CoverImage";
+import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { Reveal } from "@/components/Reveal";
-import { Link } from "@/i18n/navigation";
 
 export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
   const t = useTranslations("snakesInYard");
