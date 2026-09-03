@@ -78,7 +78,6 @@ export async function generateMetadata({
 
 export default async function SpeciesIndexPage({
   params,
-  searchParams,
 }: Props) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
@@ -87,9 +86,6 @@ export default async function SpeciesIndexPage({
 
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
-
-  const sp = await searchParams;
-  const initialFilters = parseAtlasFilters(sp);
 
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
   const url = absoluteUrl(localePath(locale, "/species"));
@@ -146,7 +142,7 @@ export default async function SpeciesIndexPage({
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={collectionLd} />
-      <SpeciesAtlas initialFilters={initialFilters} />
+      <SpeciesAtlas />
     </>
   );
 }

@@ -9,7 +9,6 @@ import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Reveal } from "@/components/Reveal";
 import {
-  atlasFiltersToSearchParams,
   countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
@@ -22,7 +21,7 @@ import {
 } from "@/data/speciesAtlas";
 import { localizeRegionText, regions } from "@/data/regions";
 import { getCatalogSpecies, images, type Species } from "@/data/species";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
@@ -30,13 +29,10 @@ import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { parseAsString, parseAsStringEnum, throttle, useQueryState } from "nuqs";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
-type SpeciesAtlasProps = {
-  initialFilters?: AtlasFilters;
-};
-
-const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
+const GROUP_OPTIONS = [
   "all",
   "snake",
   "lizard",
@@ -45,17 +41,19 @@ const GROUP_OPTIONS: Array<AnimalGroup | "all"> = [
   "bird",
   "mammal",
   "spider",
-];
+  ] as const satisfies readonly (AnimalGroup | "all")[];
 
 const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;
 
-const HABITAT_OPTIONS: Array<HabitatTag | "all"> = [
+const HABITAT_OPTIONS = [
   "all",
   "forest",
   "mountain",
   "wetland",
   "grassland",
-];
+  ] as const satisfies readonly (HabitatTag | "all")[];
+
+const REGION_OPTIONS = ["all", ...regions.map((region) => region.id)] as readonly string[];
 
 function AnimatedValue({
   value,
@@ -203,16 +201,44 @@ function scrollToExplorer() {
   });
 }
 
-export function SpeciesAtlas({
-  initialFilters = defaultAtlasFilters,
-}: SpeciesAtlasProps) {
+export function SpeciesAtlas() {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("speciesAtlas");
-  const router = useRouter();
-  const pathname = usePathname();
 
-  const [filters, setFilters] = useState<AtlasFilters>(initialFilters);
+  const [group, setGroup] = useQueryState(
+    "type",
+    parseAsStringEnum([...GROUP_OPTIONS]).withDefault(
+      defaultAtlasFilters.group,
+    ),
+  );
+  const [danger, setDanger] = useQueryState(
+    "danger",
+    parseAsStringEnum([...DANGER_OPTIONS]).withDefault(
+      defaultAtlasFilters.danger,
+    ),
+  );
+  const [habitat, setHabitat] = useQueryState(
+    "habitat",
+    parseAsStringEnum([...HABITAT_OPTIONS]).withDefault(
+      defaultAtlasFilters.habitat,
+    ),
+  );
+  const [region, setRegion] = useQueryState(
+    "region",
+    parseAsStringEnum([...REGION_OPTIONS]).withDefault(
+      defaultAtlasFilters.region,
+    ),
+  );
+  const [query, setQuery] = useQueryState(
+    "q",
+    parseAsString.withDefault(defaultAtlasFilters.query),
+  );
+
   const [filterOpen, setFilterOpen] = useState(false);
+  const filters = useMemo<AtlasFilters>(
+    () => ({ group, danger, habitat, region, query }),
+    [group, danger, habitat, region, query],
+  );
   const deferredQuery = useDeferredValue(filters.query);
   const skipAtlasFilter = useRef(true);
   const lastQuery = useRef(filters.query);
@@ -323,32 +349,102 @@ export function SpeciesAtlas({
 
   const facetCount = countAtlasFacets(filters);
 
-  useEffect(() => {
-    const params = atlasFiltersToSearchParams(filters);
-    const next = params.toString();
-    const current =
-      typeof window !== "undefined"
-        ? window.location.search.replace(/^\?/, "")
-        : "";
-    if (next === current) return;
-    router.replace(
-      {
-        pathname: "/species",
-        query: Object.fromEntries(params.entries()),
-      },
-      { scroll: false },
-    );
-  }, [filters, pathname, router]);
-
   function updateFilter<K extends keyof AtlasFilters>(
     key: K,
     value: AtlasFilters[K],
   ) {
-    setFilters((prev) => ({ ...prev, [key]: value }));
+    switch (key) {
+      case "group":
+        setGroup(value as AtlasFilters["group"], {
+          history: "replace",
+          shallow: true,
+          scroll: false,
+        });
+        break;
+      case "danger":
+        setDanger(value as AtlasFilters["danger"], {
+          history: "replace",
+          shallow: true,
+          scroll: false,
+        });
+        break;
+      case "habitat":
+        setHabitat(value as AtlasFilters["habitat"], {
+          history: "replace",
+          shallow: true,
+          scroll: false,
+        });
+        break;
+      case "region":
+        setRegion(value as AtlasFilters["region"], {
+          history: "replace",
+          shallow: true,
+          scroll: false,
+        });
+        break;
+      case "query":
+        setQuery(value as AtlasFilters["query"], {
+          history: "replace",
+          shallow: true,
+          scroll: false,
+          limitUrlUpdates: throttle(200),
+        });
+        break;
+    }
   }
 
   function resetFilters() {
-    setFilters(defaultAtlasFilters);
+    setGroup(defaultAtlasFilters.group, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setDanger(defaultAtlasFilters.danger, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setHabitat(defaultAtlasFilters.habitat, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setRegion(defaultAtlasFilters.region, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setQuery(defaultAtlasFilters.query, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+      limitUrlUpdates: throttle(200),
+    });
+  }
+
+  function applyFilters(next: AtlasFilters) {
+    setGroup(next.group, { history: "replace", shallow: true, scroll: false });
+    setDanger(next.danger, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setHabitat(next.habitat, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setRegion(next.region, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+    });
+    setQuery(next.query, {
+      history: "replace",
+      shallow: true,
+      scroll: false,
+      limitUrlUpdates: throttle(200),
+    });
   }
 
   const hasActiveFilters = facetCount > 0 || filters.query.trim().length > 0;
@@ -714,7 +810,7 @@ export function SpeciesAtlas({
               filters={filters}
               locale={locale}
               onClose={() => setFilterOpen(false)}
-              onApply={setFilters}
+              onApply={applyFilters}
             />
 
             {filtered.length > 0 ? (
