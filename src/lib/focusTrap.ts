@@ -34,7 +34,7 @@ export function focusableIn(root: ParentNode | null | undefined) {
   });
 }
 
-export function prefersReducedMotion() {
+function prefersReducedMotion() {
   if (typeof window === "undefined") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
