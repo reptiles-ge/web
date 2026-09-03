@@ -222,6 +222,6 @@ function OverlayMobileSheet({
         </m.div>
       ) : null}
     </AnimatePresence>,
-    typeof document === "undefined" ? (null as never) : document.body,
+    document.body,
   );
 }

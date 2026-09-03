@@ -27,35 +27,14 @@ export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
-          <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
-            <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
-              <li>
-                <Link
-                  className="inline-flex items-center gap-2 transition-colors hover:text-white"
-                  href="/"
-                >
-                  <ArrowLeft className="size-3.5" />
-                  {t("breadcrumbHome")}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-white/30">
-                /
-              </li>
-              <li>
-                <Link
-                  className="transition-colors hover:text-white"
-                  href="/snakes"
-                >
-                  {tSnakes("breadcrumbCurrent")}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-white/30">
-                /
-              </li>
-              <li className="text-white/80">{t("breadcrumbCurrent")}</li>
-            </ol>
-          </nav>
+          <Reveal>
+            <InkHeroBreadcrumb
+              crumbs={[
+                { href: "/", label: t("breadcrumbHome"), withBack: true },
+                { href: "/snakes", label: tSnakes("breadcrumbCurrent") },
+                { label: t("breadcrumbCurrent") },
+              ]}
+            />
 
           <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
             Reptiles
