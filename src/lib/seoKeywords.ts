@@ -1381,6 +1381,37 @@ const SPECIES_ALIASES: Record<string, { ka: string[]; en: string[] }> = {
       "Argiope lobata",
     ],
   },
+  "steatoda-paykulliana": {
+    ka: [
+      "ცრუ ყარაყურთი",
+      "ცრუ შავი ქვრივი",
+      "Steatoda paykulliana",
+    ],
+    en: [
+      "false black widow",
+      "false widow",
+      "Steatoda paykulliana",
+    ],
+  },
+  "latrodectus-tredecimguttatus": {
+    ka: [
+      "ყარაყურთი",
+      "შავი ქვრივი",
+      "ხმელთაშუაზღვის შავი ქვრივი",
+      "ევროპული შავი ქვრივი",
+      "Latrodectus tredecimguttatus",
+      "Latrodectus mactans",
+      "каракурт",
+    ],
+    en: [
+      "Mediterranean black widow",
+      "European black widow",
+      "black widow Georgia",
+      "karakurt",
+      "Latrodectus tredecimguttatus",
+      "Latrodectus mactans",
+    ],
+  },
 };
 
 export function uniqueKeywords(values: Array<string | undefined | null>) {

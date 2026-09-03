@@ -97,6 +97,25 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "black-lobed-argiope",
     "loblu-orumcek",
   ],
+  "latrodectus-tredecimguttatus": [
+    "shavi-qvrivi",
+    "qaraqurti",
+    "karakurt",
+    "latrodectus-mactans",
+    "black-widow",
+    "european-black-widow",
+    "mediterranean-black-widow",
+  ],
+  "steatoda-paykulliana": [
+    "tsru-qaraqurti",
+    "tsru-shavi-qvrivi",
+    "cru-qaraqurti",
+    "false-black-widow",
+    "false-widow",
+    "yalancı-karakurt",
+    "yalancı-kara-dul",
+    "lozhnyi-karakurt",
+  ],
   "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
   "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
   "aegolius-funereus": [
@@ -221,6 +240,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
 
 const LOOKALIKES: Record<string, string[]> = {
   "argiope-bruennichi": ["argiope-lobata"],
+  "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
   "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
   "ursus-arctos": ["canis-lupus", "sus-scrofa"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
