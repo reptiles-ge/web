@@ -9,6 +9,7 @@ import unusedImports from "eslint-plugin-unused-imports";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  perfectionist.configs["recommended-natural"],
   {
     ...tailwindcss.configs.recommended,
     settings: {
@@ -61,7 +62,6 @@ const eslintConfig = defineConfig([
   },
   {
     plugins: {
-      perfectionist,
       "unused-imports": unusedImports,
     },
     rules: {
@@ -77,6 +77,23 @@ const eslintConfig = defineConfig([
           varsIgnorePattern: "^_",
         },
       ],
+      "perfectionist/sort-jsx-props": [
+        "error",
+        {
+          type: "natural",
+          order: "asc",
+          groups: ["multiline", "unknown", "shorthand"],
+        },
+      ],
+      "perfectionist/sort-objects": [
+        "error",
+        {
+          type: "natural",
+          order: "asc",
+          partitionByComment: true,
+          partitionByNewLine: true,
+        },
+      ],
     },
   },
   eslintConfigPrettier,
@@ -86,6 +103,8 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "src/data/species.generated.ts",
+    "src/data/georgia-paths.generated.ts",
+    "src/data/optimizedImages.generated.ts",
     "scripts/**",
   ]),
 ]);
