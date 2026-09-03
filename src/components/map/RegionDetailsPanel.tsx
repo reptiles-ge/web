@@ -14,6 +14,7 @@ import { SpeciesCard } from "@/components/map/SpeciesCard";
 import { getRegionSpecies, localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
+import { cycleTab } from "@/lib/focusTrap";
 import { regionHref } from "@/lib/speciesRoutes";
 
 type PanelContentProps = {
@@ -37,6 +38,8 @@ export function RegionDetailsPanel({
   const open = Boolean(region);
   const [isDesktop, setIsDesktop] = useState(false);
   const onCloseRef = useRef(onClose);
+  const panelRef = useRef<HTMLElement | null>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     onCloseRef.current = onClose;
