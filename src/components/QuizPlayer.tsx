@@ -341,13 +341,14 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
       </div>
 
       <div
-        className={`relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-5 pt-24 sm:px-8 sm:pt-28 lg:px-10 ${
+        className={cn(
+          "relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-5 pt-24 sm:px-8 sm:pt-28 lg:px-10",
           playing && !complete
             ? revealed
               ? "min-h-dvh pb-[calc(8.25rem+env(safe-area-inset-bottom))] sm:pb-[max(2rem,env(safe-area-inset-bottom))]"
               : "min-h-dvh pb-[max(1.25rem,env(safe-area-inset-bottom))] sm:pb-10"
-            : "pb-[max(1.25rem,env(safe-area-inset-bottom))]"
-        }`}
+            : "pb-[max(1.25rem,env(safe-area-inset-bottom))]",
+        )}
       >
         {!playing ? (
           <IntroOverlay
@@ -379,13 +380,14 @@ export function QuizPlayer({ quizId, snakes, shareUrl }: QuizPlayerProps) {
                 {Array.from({ length: total }, (_, i) => (
                   <span
                     key={i}
-                    className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                    className={cn(
+                      "h-1 flex-1 rounded-full transition-colors duration-300",
                       i < index || (i === index && revealed)
                         ? "bg-white"
                         : i === index
                           ? "bg-white/55"
-                          : "bg-white/20"
-                    }`}
+                          : "bg-white/20",
+                    )}
                   />
                 ))}
               </div>

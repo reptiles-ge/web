@@ -180,7 +180,10 @@ export function OverlayPanel({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.98 }}
             transition={panelTransition}
-            className={`absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block ${desktopClassName}`}
+            className={cn(
+              "absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block",
+              desktopClassName,
+            )}
           >
             {desktopContent}
           </m.div>
