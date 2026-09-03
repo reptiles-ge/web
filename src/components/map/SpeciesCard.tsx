@@ -2,6 +2,7 @@
 
 import { CoverImage } from "@/components/CoverImage";
 import type { Species } from "@/data/species";
+import { cn } from "@/lib/cn";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -83,10 +84,13 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
         </div>
         {riskLabel ? (
           <span
-            className={`mt-2.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide ${tone.chip}`}
+            className={cn(
+              "mt-2.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wide",
+              tone.chip,
+            )}
           >
             <span
-              className={`size-1.5 rounded-full ${tone.dot}`}
+              className={cn("size-1.5 rounded-full", tone.dot)}
               aria-hidden="true"
             />
             {riskLabel}

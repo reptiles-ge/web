@@ -16,6 +16,7 @@ import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import type { DangerLevel, Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
+import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
 import { ArrowRight, ArrowUpRight, Plus, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -120,14 +121,20 @@ export function RiskToHumansPage({
                     <a
                       key={level}
                       href={`#${DANGER_LEVEL_HASH[level]}`}
-                      className={`inline-flex items-center gap-2 rounded-full px-3.5 py-2 transition-opacity hover:opacity-80 ${tone.chip}`}
+                      className={cn(
+                        "inline-flex items-center gap-2 rounded-full px-3.5 py-2 transition-opacity hover:opacity-80",
+                        tone.chip,
+                      )}
                     >
                       <span
-                        className={`size-1.5 rounded-full ${tone.dot}`}
+                        className={cn("size-1.5 rounded-full", tone.dot)}
                         aria-hidden="true"
                       />
                       <span
-                        className={`text-[12px] font-semibold tracking-wide ${tone.value}`}
+                        className={cn(
+                          "text-[12px] font-semibold tracking-wide",
+                          tone.value,
+                        )}
                       >
                         {tDanger(level)}
                       </span>
@@ -198,10 +205,13 @@ export function RiskToHumansPage({
                       <div>
                         <a
                           href={`#${DANGER_LEVEL_HASH[level]}`}
-                          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${tone.chip}`}
+                          className={cn(
+                            "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider",
+                            tone.chip,
+                          )}
                         >
                           <span
-                            className={`size-1.5 rounded-full ${tone.dot}`}
+                            className={cn("size-1.5 rounded-full", tone.dot)}
                             aria-hidden="true"
                           />
                           {tDanger(level)}

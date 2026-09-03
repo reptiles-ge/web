@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { AdminSpeciesSummary } from "@/lib/adminGalleryMdx";
+import { cn } from "@/lib/cn";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 
 const GROUP_LABEL: Record<AnimalGroup, string> = {
@@ -67,11 +68,12 @@ export function AdminSpeciesList({
               key={item}
               type="button"
               onClick={() => setGroup(item)}
-              className={`rounded-full px-3 py-1.5 text-[12px] ${
+              className={cn(
+                "rounded-full px-3 py-1.5 text-[12px]",
                 group === item
                   ? "bg-foreground text-background"
-                  : "bg-secondary text-muted-foreground"
-              }`}
+                  : "bg-secondary text-muted-foreground",
+              )}
             >
               {item === "all" ? "ყველა" : GROUP_LABEL[item]}
             </button>

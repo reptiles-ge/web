@@ -18,6 +18,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
+import { cn } from "@/lib/cn";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Plus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
@@ -421,19 +422,21 @@ function FaqSection() {
                         {t(`faq${n}Q`)}
                       </span>
                       <span
-                        className={`mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300 ${
+                        className={cn(
+                          "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
                           isOpen
                             ? "rotate-45 bg-ink text-ink-foreground"
-                            : "text-foreground"
-                        }`}
+                            : "text-foreground",
+                        )}
                       >
                         <Plus className="size-4" strokeWidth={1.75} />
                       </span>
                     </button>
                     <div
-                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                      }`}
+                      className={cn(
+                        "grid transition-[grid-template-rows] duration-300 ease-out",
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                      )}
                     >
                       <div className="overflow-hidden">
                         <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">

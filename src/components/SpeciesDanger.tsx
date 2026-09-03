@@ -3,6 +3,7 @@
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import type { DangerLevel, Species } from "@/data/species";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import { Shield } from "lucide-react";
@@ -104,10 +105,13 @@ export function SpeciesDanger({
             {label}
           </span>
           <span
-            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider ${tone.chip}`}
+            className={cn(
+              "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider",
+              tone.chip,
+            )}
           >
             <span
-              className={`size-1.5 rounded-full ${tone.dot}`}
+              className={cn("size-1.5 rounded-full", tone.dot)}
               aria-hidden="true"
             />
             {value}
@@ -134,10 +138,13 @@ export function SpeciesDanger({
         </span>
         <span className="h-3 w-px bg-white/15" aria-hidden="true" />
         <span
-          className={`inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide ${tone.valueHero}`}
+          className={cn(
+            "inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide",
+            tone.valueHero,
+          )}
         >
           <span
-            className={`size-1.5 rounded-full ${tone.dot}`}
+            className={cn("size-1.5 rounded-full", tone.dot)}
             aria-hidden="true"
           />
           {value}

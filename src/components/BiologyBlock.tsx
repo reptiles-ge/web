@@ -1,6 +1,7 @@
 "use client";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { cn } from "@/lib/cn";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -31,9 +32,10 @@ export function BiologyBlock({ title, body, headingId }: BiologyBlockProps) {
         {title}
       </AnchoredHeading>
       <p
-        className={`mt-4 text-[15px] leading-relaxed text-muted-foreground ${
-          !open && needsExpand ? "line-clamp-3" : ""
-        }`}
+        className={cn(
+          "mt-4 text-[15px] leading-relaxed text-muted-foreground",
+          !open && needsExpand ? "line-clamp-3" : "",
+        )}
       >
         {body}
       </p>

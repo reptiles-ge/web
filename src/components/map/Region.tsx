@@ -2,6 +2,7 @@
 
 import type { Region as RegionData } from "@/data/regions";
 import { localizeRegionText } from "@/data/regions";
+import { cn } from "@/lib/cn";
 import { m } from "framer-motion";
 import { useLocale } from "next-intl";
 import type { KeyboardEvent } from "react";
@@ -68,7 +69,12 @@ export function Region({
         filter: active ? `url(#${glowFilterId})` : "none",
       }}
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-      className={`outline-none ${interactive ? "cursor-pointer focus-visible:stroke-[2.2px]" : "cursor-default"}`}
+      className={cn(
+        "outline-none",
+        interactive
+          ? "cursor-pointer focus-visible:stroke-[2.2px]"
+          : "cursor-default",
+      )}
       style={{
         transformOrigin: "center",
         opacity: isDimmed && !active ? 0.55 : 1,

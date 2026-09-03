@@ -9,6 +9,7 @@ import {
   getHubClusterCardImage,
   type HubClusterCard,
 } from "@/lib/clusterGuides";
+import { cn } from "@/lib/cn";
 import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
@@ -114,7 +115,11 @@ export function RelatedGuideGrid({
 
   return (
     <div
-      className={`${className} grid gap-px overflow-hidden rounded-[24px] bg-border/80 ${columns}`}
+      className={cn(
+        className,
+        "grid gap-px overflow-hidden rounded-[24px] bg-border/80",
+        columns,
+      )}
     >
       {cards.map((card, index) => (
         <Reveal key={card.key} delay={index * 50} className="contents">

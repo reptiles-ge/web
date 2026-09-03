@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import { slugify } from "@/lib/slugify";
 import { Link as LinkIcon } from "lucide-react";
 import type { ReactNode } from "react";
@@ -40,7 +41,7 @@ export function AnchoredHeading({
   return (
     <Tag
       id={headingId}
-      className={`group/heading scroll-mt-28 ${className ?? ""}`}
+      className={cn("group/heading scroll-mt-28", className)}
     >
       <span className="inline">{children}</span>
       {showAnchor ? (

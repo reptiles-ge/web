@@ -6,6 +6,7 @@ import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
 import { regions, type Region as RegionData } from "@/data/regions";
 import { trackEvent, type MapContext } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 import { regionHref } from "@/lib/speciesRoutes";
 import { useRouter } from "@/i18n/navigation";
 import {
@@ -114,7 +115,7 @@ export function GeorgiaMap({
           ref={containerRef}
           role="group"
           aria-label="Georgia"
-          className={`relative mx-auto w-full max-w-[920px] ${className ?? ""}`}
+          className={cn("relative mx-auto w-full max-w-[920px]", className)}
           onMouseMove={interactive ? updateTooltipFromEvent : undefined}
         >
           <svg

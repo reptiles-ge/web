@@ -1,3 +1,4 @@
+import { cn } from "@/lib/cn";
 import Image from "next/image";
 
 type LogoProps = {
@@ -16,7 +17,7 @@ export function Logo({
   wordmarkClassName = "",
 }: LogoProps) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
       <Image
         src="https://cdn.reptiles.ge/logo.webp"
         alt="Reptiles"
@@ -29,7 +30,10 @@ export function Logo({
       />
       {showWordmark ? (
         <span
-          className={`font-display font-semibold tracking-tight ${wordmarkClassName}`}
+          className={cn(
+            "font-display font-semibold tracking-tight",
+            wordmarkClassName,
+          )}
         >
           Reptiles
         </span>

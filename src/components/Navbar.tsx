@@ -6,6 +6,7 @@ import { Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link, usePathname } from "@/i18n/navigation";
+import { cn } from "@/lib/cn";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useState } from "react";
@@ -130,14 +131,16 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div
-        className={`mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 transition-all duration-500 lg:px-10 ${
-          scrolled || menuOpen ? "py-3" : "py-5"
-        }`}
+        className={cn(
+          "mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 transition-all duration-500 lg:px-10",
+          scrolled || menuOpen ? "py-3" : "py-5",
+        )}
       >
         <div
-          className={`pointer-events-none absolute inset-x-0 top-0 -z-10 h-full transition-opacity duration-500 ${
-            scrolled || menuOpen ? "opacity-100" : "opacity-0"
-          }`}
+          className={cn(
+            "pointer-events-none absolute inset-x-0 top-0 -z-10 h-full transition-opacity duration-500",
+            scrolled || menuOpen ? "opacity-100" : "opacity-0",
+          )}
           style={{
             background:
               "color-mix(in oklab, var(--background) 72%, transparent)",
@@ -154,37 +157,45 @@ export function Navbar() {
             size={44}
             priority
             showWordmark
-            wordmarkClassName={`hidden text-[17px] transition-colors sm:inline ${
-              scrolled || menuOpen ? "text-foreground" : "text-white"
-            }`}
+            wordmarkClassName={cn(
+              "hidden text-[17px] transition-colors sm:inline",
+              scrolled || menuOpen ? "text-foreground" : "text-white",
+            )}
           />
         </Link>
         <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
           <Link
             href="/species"
-            className={`relative text-[13px] font-medium tracking-wide transition-colors ${
+            className={cn(
+              "relative text-[13px] font-medium tracking-wide transition-colors",
               scrolled
                 ? "text-foreground/70 hover:text-foreground"
-                : "text-white/70 hover:text-white"
-            }`}
+                : "text-white/70 hover:text-white",
+            )}
           >
             {t("species")}
           </Link>
           <div className="relative">
             <button
               type="button"
-              className={`inline-flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors ${
+              className={cn(
+                "inline-flex items-center gap-1 text-[13px] font-medium tracking-wide transition-colors",
                 scrolled
                   ? "text-foreground/70 hover:text-foreground"
-                  : "text-white/70 hover:text-white"
-              } ${groupsActive || groupsOpen ? (scrolled ? "text-foreground" : "text-white") : ""}`}
+                  : "text-white/70 hover:text-white",
+                (groupsActive || groupsOpen) &&
+                  (scrolled ? "text-foreground" : "text-white"),
+              )}
               aria-expanded={groupsOpen}
               aria-haspopup="true"
               onClick={() => setGroupsOpen((open) => !open)}
             >
               {t("groups")}
               <ChevronDown
-                className={`size-3.5 transition-transform ${groupsOpen ? "rotate-180" : ""}`}
+                className={cn(
+                  "size-3.5 transition-transform",
+                  groupsOpen && "rotate-180",
+                )}
                 strokeWidth={1.75}
               />
             </button>
