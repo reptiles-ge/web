@@ -173,11 +173,12 @@ function LensOption({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`text-[14px] transition-colors ${
+      className={cn(
+        "text-[14px] transition-colors",
         active
           ? "font-medium text-foreground"
-          : "text-muted-foreground hover:text-foreground"
-      }`}
+          : "text-muted-foreground hover:text-foreground",
+      )}
     >
       {children}
     </button>
@@ -720,11 +721,12 @@ export function SpeciesAtlas() {
                         role="tab"
                         aria-selected={active}
                         onClick={() => updateFilter("group", group)}
-                        className={`group/tab relative shrink-0 pb-4 transition-colors ${
+                        className={cn(
+                          "group/tab relative shrink-0 pb-4 transition-colors",
                           active
                             ? "text-foreground"
-                            : "text-muted-foreground hover:text-foreground"
-                        }`}
+                            : "text-muted-foreground hover:text-foreground",
+                        )}
                       >
                         <span className="font-display text-[1.15rem] font-semibold tracking-tight sm:text-[1.35rem]">
                           {group === "all"
@@ -732,18 +734,20 @@ export function SpeciesAtlas() {
                             : t(`groups.${group}`)}
                         </span>
                         <span
-                          className={`ml-2 align-top text-[12px] tabular-nums ${
-                            active ? "text-primary" : "text-muted-foreground"
-                          }`}
+                          className={cn(
+                            "ml-2 align-top text-[12px] tabular-nums",
+                            active ? "text-primary" : "text-muted-foreground",
+                          )}
                         >
                           {count}
                         </span>
                         <span
-                          className={`absolute inset-x-0 bottom-0 h-px transition-colors ${
+                          className={cn(
+                            "absolute inset-x-0 bottom-0 h-px transition-colors",
                             active
                               ? "bg-foreground"
-                              : "bg-transparent group-hover/tab:bg-border"
-                          }`}
+                              : "bg-transparent group-hover/tab:bg-border",
+                          )}
                         />
                       </button>
                     );
