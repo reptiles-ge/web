@@ -1,23 +1,15 @@
 "use client";
 
-import { EmptyState } from "@/components/SpeciesSearchEmpty";
-import { groupHeading, GroupLabel } from "@/components/SpeciesSearchGroupLabel";
+import { GroupLabel } from "@/components/SpeciesSearchGroupLabel";
 import { ResultRow } from "@/components/SpeciesSearchRow";
+import { searchGroupHeading } from "@/lib/searchGroupHeading";
 import {
   type SearchDocument,
   type SearchGroup,
 } from "@/lib/siteSearch";
 
 export type { SearchFilterLabels } from "@/components/SpeciesSearchFilterBar";
-
-export type SearchGroupTitles = {
-  featured: string;
-  pages: string;
-  recent: string;
-  regions: string;
-  species: string;
-  suggested: string;
-};
+export type { SearchGroupTitles } from "@/lib/searchGroupHeading";
 
 export function SearchResultsList({
   activeIndex,
@@ -68,7 +60,7 @@ export function SearchResultsList({
           return (
             <div key={`${group.kind}-${groupIndex}`}>
               <GroupLabel>
-                {groupHeading(group.kind, isRecentGroup, query, titles)}
+                {searchGroupHeading(group.kind, isRecentGroup, query, titles)}
               </GroupLabel>
               <ul className="p-1.5">
                 {group.items.map((item, index) => {

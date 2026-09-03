@@ -1,5 +1,13 @@
-import type { SearchGroupTitles } from "@/components/SpeciesSearchResults";
 import { type SearchKind } from "@/lib/siteSearch";
+
+export type SearchGroupTitles = {
+  featured: string;
+  pages: string;
+  recent: string;
+  regions: string;
+  species: string;
+  suggested: string;
+};
 
 export function searchGroupHeading(
   kind: SearchKind,
