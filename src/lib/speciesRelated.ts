@@ -62,10 +62,12 @@ export function getRelatedSpecies(id: string, limit = 4): Species[] {
   const base = getSpeciesById(id);
   if (!base) return [];
 
-  const scored = getCatalogSpecies()
-    .filter((item) => item.id !== base.id)
-    .map((item) => ({ item, score: relatedScore(base, item) }))
-    .sort((a, b) => {
+  const scored: Array<{ item: Species; score: number }> = [];
+  for (const item of getCatalogSpecies()) {
+    if (item.id === base.id) continue;
+    scored.push({ item, score: relatedScore(base, item) });
+  }
+  scored.sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;
       return a.item.scientificName.localeCompare(b.item.scientificName);
     });
@@ -78,11 +80,12 @@ export function getRelatedSpecies(id: string, limit = 4): Species[] {
   const have = new Set(picked.map(({ item }) => item.id));
   const baseGroup = getSpeciesAtlasMeta(base.id).group;
   for (const entry of scored) {
+    const id = entry.item.id;
     if (picked.length >= limit) break;
-    if (have.has(entry.item.id)) continue;
-    if (getSpeciesAtlasMeta(entry.item.id).group !== baseGroup) continue;
+    if (have.has(id)) continue;
+    if (getSpeciesAtlasMeta(id).group !== baseGroup) continue;
     picked.push(entry);
-    have.add(entry.item.id);
+    have.add(id);
   }
 
   return picked.map(({ item }) => item);
