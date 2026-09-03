@@ -47,6 +47,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "eslint-plugin-perfectionist": "5.10.1",
     "knip": "6.32.3",
     "react-doctor": "^0.9.13",
     "react-scan": "^0.5.7",
