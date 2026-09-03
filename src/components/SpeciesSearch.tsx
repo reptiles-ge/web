@@ -382,17 +382,27 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     setFilter(value);
   }
 
+  const openSearchRef = useRef(openSearch);
+  const closeSearchRef = useRef(closeSearch);
+  const openRef = useRef(open);
+
+  useEffect(() => {
+    openSearchRef.current = openSearch;
+    closeSearchRef.current = closeSearch;
+    openRef.current = open;
+  }, [openSearch, closeSearch, open]);
+
   useEffect(() => {
     function onShortcut(event: globalThis.KeyboardEvent) {
       if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== "k") {
         return;
       }
       event.preventDefault();
-      if (open) {
-        closeSearch();
+      if (openRef.current) {
+        closeSearchRef.current();
         return;
       }
-      openSearch("shortcut");
+      openSearchRef.current("shortcut");
       const mobile = window.matchMedia("(max-width: 767px)").matches;
       window.requestAnimationFrame(() => {
         (mobile ? mobileInputRef : desktopInputRef).current?.focus();
@@ -401,7 +411,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
     window.addEventListener("keydown", onShortcut);
     return () => window.removeEventListener("keydown", onShortcut);
-  }, [closeSearch, open, openSearch]);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -616,7 +626,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
             setQuery(event.target.value);
             setOpen(true);
           }}
-          onKeyDown={onKeyDown}
+          onKeyDown={(event) => {
+            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
+            onKeyDown(event);
+          }}
           className={`${searchInputClass} ${inputClass}`}
         />
         {query ? (
@@ -681,7 +694,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
                   setQuery(event.target.value);
                   setOpen(true);
                 }}
-                onKeyDown={onKeyDown}
+                onKeyDown={(event) => {
+            if (event.nativeEvent.isComposing || event.keyCode === 229) return;
+            onKeyDown(event);
+          }}
                 className="min-w-0 flex-1 bg-transparent text-[16px] font-medium outline-none placeholder:text-muted-foreground/70 [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
               />
               {query ? (

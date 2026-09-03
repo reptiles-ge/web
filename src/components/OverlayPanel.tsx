@@ -109,9 +109,8 @@ export function OverlayPanel({
     ? createPortal(
         <AnimatePresence>
           {open ? (
-            <>
-              <m.button
-                key="overlay-backdrop"
+            <m.button
+              key="overlay-backdrop"
                 type="button"
                 aria-label={closeLabel}
                 className="fixed inset-0 z-[80] bg-ink/55 backdrop-blur-[2px] md:hidden"
@@ -121,6 +120,8 @@ export function OverlayPanel({
                 transition={{ duration: 0.22 }}
                 onClick={onClose}
               />
+          ) : null}
+          {open ? (
               <m.div
                 key="overlay-sheet"
                 ref={sheetRef}
@@ -157,7 +158,6 @@ export function OverlayPanel({
                   {mobileContent}
                 </div>
               </m.div>
-            </>
           ) : null}
         </AnimatePresence>,
         document.body,
