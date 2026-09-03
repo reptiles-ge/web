@@ -11,8 +11,8 @@ import { CoverImage } from "@/components/CoverImage";
 import { Reveal } from "@/components/Reveal";
 import { localizeRegionText, type Region } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
-import { TURTLE_META, type TurtleId } from "@/lib/turtleIdentify";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+import { TURTLE_META, type TurtleId } from "@/lib/turtleIdentify";
 
 type TurtleIdentifyChooserProps = {
   locale: AppLocale;

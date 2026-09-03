@@ -9,8 +9,8 @@ import type { AppLocale } from "@/i18n/routing";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
-import { TURTLE_ORDER } from "@/lib/turtleIdentify";
 import { speciesHref } from "@/lib/speciesRoutes";
+import { TURTLE_ORDER } from "@/lib/turtleIdentify";
 
 const MATRIX_ROWS = [
   "habitat",
