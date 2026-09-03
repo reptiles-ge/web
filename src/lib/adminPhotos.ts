@@ -79,25 +79,13 @@ export async function addSpeciesPhotos(input: {
   const preparedFiles = await Promise.all(
     input.files.map((file) => prepareOriginal(file.bytes)),
   );
-  const uploads: Array<{
-    buffer: Buffer;
-    contentType: string;
-    key: string;
-  }> = [];
-  for (const prepared of preparedFiles) {
-    const key = await nextStorageKey(
-      storage,
-      used,
-      input.id,
-      slug,
-      prepared.ext,
-    );
-    uploads.push({
-      buffer: prepared.buffer,
-      contentType: prepared.contentType,
-      key,
-    });
-  }
+  const uploads = await allocateUploadKeys(
+    storage,
+    used,
+    input.id,
+    slug,
+    preparedFiles,
+  );
 
   const optimizedList = await Promise.all(
     uploads.map(async (upload) => {
@@ -140,6 +128,39 @@ export async function addSpeciesPhotos(input: {
       error instanceof Error ? error.message : "Could not open pull request";
     return { added, pullRequestError };
   }
+}
+
+async function allocateUploadKeys(
+  storage: BunnyStorageAdapter,
+  used: Set<string>,
+  id: string,
+  slug: null | string,
+  preparedFiles: Array<{
+    buffer: Buffer;
+    contentType: string;
+    ext: string;
+  }>,
+  index = 0,
+  acc: Array<{ buffer: Buffer; contentType: string; key: string }> = [],
+): Promise<Array<{ buffer: Buffer; contentType: string; key: string }>> {
+  if (index >= preparedFiles.length) return acc;
+  const prepared = preparedFiles[index];
+  if (!prepared) return acc;
+  const key = await nextStorageKey(storage, used, id, slug, prepared.ext);
+  acc.push({
+    buffer: prepared.buffer,
+    contentType: prepared.contentType,
+    key,
+  });
+  return allocateUploadKeys(
+    storage,
+    used,
+    id,
+    slug,
+    preparedFiles,
+    index + 1,
+    acc,
+  );
 }
 
 function createStorage() {
