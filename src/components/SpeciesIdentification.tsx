@@ -26,8 +26,12 @@ function IdentificationRichText({ text }: { text: string }) {
   return (
     <>
       {parts.map((part, index) => {
+        const key =
+          part.type === "text"
+            ? `t:${index}:${part.value}`
+            : `s:${part.id}:${part.label}`;
         if (part.type === "text") {
-          return <Fragment key={index}>{part.value}</Fragment>;
+          return <Fragment key={key}>{part.value}</Fragment>;
         }
 
         const target = getSpeciesById(part.id);

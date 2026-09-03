@@ -158,7 +158,7 @@ export async function NewsArticlePage({
                       if (!photo) return null;
                       return (
                         <NewsFigure
-                          key={`${block.src}-${index}`}
+                          key={block.src}
                           visual={localizeNewsPhoto(photo, locale)}
                           locale={locale}
                           sizes="(max-width: 1023px) 100vw, 1400px"
@@ -169,7 +169,7 @@ export async function NewsArticlePage({
                       );
                     }
                     return (
-                      <p key={index}>
+                      <p key={`p:${section.heading}:${index}`}>
                         <NewsRichText parts={block.parts} locale={locale} />
                       </p>
                     );
