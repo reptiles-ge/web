@@ -4,6 +4,7 @@ import type { Region as RegionData } from "@/data/regions";
 import { localizeRegionText } from "@/data/regions";
 import { m } from "framer-motion";
 import { useLocale } from "next-intl";
+import type { KeyboardEvent } from "react";
 
 type RegionProps = {
   region: RegionData;
@@ -28,32 +29,33 @@ export function Region({
 }: RegionProps) {
   const locale = useLocale();
   const active = isHovered || isSelected;
+  const label = localizeRegionText(region.name, locale);
 
   return (
     <m.path
       d={region.path}
-      role={interactive ? "button" : undefined}
-      tabIndex={interactive ? 0 : undefined}
-      aria-label={
-        interactive ? localizeRegionText(region.name, locale) : undefined
-      }
-      aria-pressed={interactive ? isSelected : undefined}
-      onMouseEnter={interactive ? () => onHover(region.id) : undefined}
-      onMouseLeave={interactive ? () => onHover(null) : undefined}
-      onFocus={interactive ? () => onHover(region.id) : undefined}
-      onBlur={interactive ? () => onHover(null) : undefined}
-      onClick={interactive ? () => onSelect(region.id) : undefined}
-      onKeyDown={
-        interactive
-          ? (event) => {
+      {...(interactive
+        ? {
+            role: "button" as const,
+            tabIndex: 0,
+            "aria-label": label,
+            "aria-pressed": isSelected,
+            onMouseEnter: () => onHover(region.id),
+            onMouseLeave: () => onHover(null),
+            onFocus: () => onHover(region.id),
+            onBlur: () => onHover(null),
+            onClick: () => onSelect(region.id),
+            onKeyDown: (event: KeyboardEvent<SVGPathElement>) => {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 onSelect(region.id);
               }
-            }
-          : undefined
-      }
-      pointerEvents={interactive ? undefined : "none"}
+            },
+          }
+        : {
+            "aria-hidden": true as const,
+            pointerEvents: "none" as const,
+          })}
       initial={false}
       animate={{
         fill: active
