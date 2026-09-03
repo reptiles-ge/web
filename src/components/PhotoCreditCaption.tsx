@@ -1,5 +1,6 @@
 "use client";
 
+import { type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -115,7 +116,7 @@ function LightboxCredit({
   className: string;
   credit: PhotoCredit;
   dateLabel: null | string;
-  photographer: React.ReactNode;
+  photographer: ReactNode;
   photoCredit: string;
   photoDate: string;
   photoLocation: string;

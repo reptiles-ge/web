@@ -375,6 +375,49 @@ function NewsFigure({
   );
 }
 
+function NewsFigureCredit({
+  credit,
+  creditMeta,
+  dateLabel,
+  photographer,
+  photoCreditLabel,
+}: {
+  credit: NewsVisual["credit"];
+  creditMeta: string[];
+  dateLabel: null | string;
+  photographer: string | undefined;
+  photoCreditLabel: string;
+}) {
+  if (!hasPhotoCredit(credit) || creditMeta.length === 0) return null;
+  return (
+    <>
+      {" "}
+      {photographer ? (
+        credit.url ? (
+          <a
+            className="text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+            href={credit.url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {photoCreditLabel} {photographer}
+          </a>
+        ) : (
+          <span>
+            {photoCreditLabel} {photographer}
+          </span>
+        )
+      ) : null}
+      {credit.location || dateLabel ? (
+        <span>
+          {photographer ? " · " : null}
+          {[credit.location, dateLabel].filter(Boolean).join(" · ")}
+        </span>
+      ) : null}
+    </>
+  );
+}
+
 function RelatedAtlasCard({
   href,
   image,
