@@ -60,6 +60,7 @@ import {
   chromeIconButtonClass,
   chromeShellClass,
 } from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
 import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
@@ -250,11 +251,12 @@ function LocaleOptions({
                 type="button"
                 role="option"
                 aria-selected={active}
-                className={`group/item flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition-[background-color,box-shadow] duration-200 ${
+                className={cn(
+                  "group/item flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition-[background-color,box-shadow] duration-200",
                   active
                     ? "bg-primary/9 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
-                    : "hover:bg-secondary/80 active:bg-secondary"
-                }`}
+                    : "hover:bg-secondary/80 active:bg-secondary",
+                )}
                 onClick={() => onSelect(code)}
               >
                 <span className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-[14px] bg-secondary">
@@ -269,9 +271,10 @@ function LocaleOptions({
                   </span>
                 </span>
                 <span
-                  className={`mr-1 size-1.5 shrink-0 rounded-full transition-opacity ${
-                    active ? "bg-primary opacity-100" : "opacity-0"
-                  }`}
+                  className={cn(
+                    "mr-1 size-1.5 shrink-0 rounded-full transition-opacity",
+                    active ? "bg-primary opacity-100" : "opacity-0",
+                  )}
                   aria-hidden="true"
                 />
               </button>
@@ -398,7 +401,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         aria-label={t("switch")}
         aria-expanded={open}
         onClick={() => setOpen(true)}
-        className={`${chromeIconButtonBase} md:hidden ${iconButtonClass}`}
+        className={cn(chromeIconButtonBase, "md:hidden", iconButtonClass)}
       >
         <Globe className="size-3.5" strokeWidth={1.75} aria-hidden="true" />
       </button>
@@ -409,7 +412,10 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         aria-expanded={open}
         aria-controls={listId}
         onClick={() => setOpen((value) => !value)}
-        className={`group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex ${shellClass}`}
+        className={cn(
+          "group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex",
+          shellClass,
+        )}
       >
         <LocaleFlag code={locale} />
         <span className="text-[13px] font-medium tracking-wide">
