@@ -28,6 +28,17 @@ describe("sanitizeVisitPath", () => {
     expect(sanitizeVisitPath("https://evil.example/")).toBeNull();
     expect(sanitizeVisitPath("/gvelebi\n/giurza")).toBeNull();
   });
+
+  it("drops fbclid and other click ids", () => {
+    expect(
+      sanitizeVisitPath(
+        "/amfibiebi/mtsvane-gombesho?fbclid=IwY2xjawUH_E1wZG9mAWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHhYVlNQvjW8VTIa5WjvdE24l9QY4kTZQ5aAfcFuoipUs-vLy3GdtCgz3hAis_aem_Xv7yattSoi9zPIgzSwL6Uw",
+      ),
+    ).toBe("/amfibiebi/mtsvane-gombesho?utm_source=facebook");
+    expect(
+      sanitizeVisitPath("/gvelebi/giurza?gclid=abc&utm_campaign=spring"),
+    ).toBe("/gvelebi/giurza?utm_campaign=spring&utm_source=google");
+  });
 });
 
 describe("sanitizeVisitReferrer", () => {
@@ -129,6 +140,22 @@ describe("formatVisitMessage", () => {
         "",
         "გვერდი: გიურზა",
         "URL: /en/snakes/macrovipera-lebetina",
+      ].join("\n"),
+    );
+  });
+
+  it("does not show fbclid on the URL line", () => {
+    expect(
+      formatVisitMessage({
+        path: "/amfibiebi/mtsvane-gombesho?fbclid=IwY2xjawUH_E1wZG9mAWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHhYVlNQvjW8VTIa5WjvdE24l9QY4kTZQ5aAfcFuoipUs-vLy3GdtCgz3hAis_aem_Xv7yattSoi9zPIgzSwL6Uw",
+      }),
+    ).toBe(
+      [
+        "ახალი ვიზიტი · KA",
+        "",
+        "URL: /amfibiebi/mtsvane-gombesho",
+        "",
+        "წყარო: Facebook",
       ].join("\n"),
     );
   });

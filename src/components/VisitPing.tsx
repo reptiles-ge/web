@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { VISIT_STORAGE_KEY } from "@/lib/visitNotify";
+import { sanitizeVisitPath, VISIT_STORAGE_KEY } from "@/lib/visitNotify";
 
 let inFlight = false;
 
@@ -15,7 +15,10 @@ export function VisitPing() {
     inFlight = true;
     writeSeen();
 
-    const path = `${window.location.pathname}${window.location.search}`;
+    const path =
+      sanitizeVisitPath(
+        `${window.location.pathname}${window.location.search}`,
+      ) ?? window.location.pathname;
     const referrer = document.referrer || undefined;
 
     void fetch("/api/visit", {

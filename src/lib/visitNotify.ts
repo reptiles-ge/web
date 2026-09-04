@@ -9,9 +9,44 @@ export const VISIT_COOKIE = "rp_v";
 export const VISIT_STORAGE_KEY = "reptiles-visit";
 
 const PATH_MAX = 200;
+const PATH_RAW_MAX = 1_500;
 const REFERRER_MAX = 300;
 const CITY_MAX = 80;
 const UA_MAX = 512;
+
+const CLICK_SOURCE: Record<string, string> = {
+  fbclid: "facebook",
+  gbraid: "google",
+  gclid: "google",
+  igsh: "instagram",
+  igshid: "instagram",
+  msclkid: "bing",
+  ttclid: "tiktok",
+  twclid: "x",
+  wbraid: "google",
+};
+
+const TRACKING_QUERY = new Set([
+  "_hsenc",
+  "_hsmi",
+  "dclid",
+  "fbclid",
+  "gbraid",
+  "gclid",
+  "gclsrc",
+  "igsh",
+  "igshid",
+  "li_fat_id",
+  "mc_cid",
+  "mc_eid",
+  "msclkid",
+  "srsltid",
+  "ttclid",
+  "twclid",
+  "wbraid",
+  "yclid",
+  "ysclid",
+]);
 
 const SOURCE_HOSTS: Array<{ match: RegExp; name: string }> = [
   { match: /(^|\.)google\./i, name: "Google" },
@@ -128,10 +163,12 @@ export function sanitizeVisitPath(value: unknown) {
   if (typeof value !== "string") return null;
   const path = value.trim();
   if (!path.startsWith("/")) return null;
-  if (path.length > PATH_MAX) return null;
+  if (path.length > PATH_RAW_MAX) return null;
   if (path.includes("://")) return null;
   if (/[\u0000-\u001f\u007f]/.test(path)) return null;
-  return path;
+  const cleaned = stripVisitTracking(path);
+  if (cleaned.length > PATH_MAX) return null;
+  return cleaned;
 }
 
 export function sanitizeVisitReferrer(value: unknown) {
@@ -173,8 +210,7 @@ export function visitGeo(request: Request) {
     request.headers.get("x-vercel-ip-country") ??
     request.headers.get("cf-ipcountry");
   const city =
-    request.headers.get("x-vercel-ip-city") ??
-    request.headers.get("cf-ipcity");
+    request.headers.get("x-vercel-ip-city") ?? request.headers.get("cf-ipcity");
   return {
     city: sanitizeVisitCity(city),
     country: sanitizeVisitCountry(country),
@@ -286,9 +322,32 @@ function sanitizeVisitCountry(value?: null | string) {
   return code;
 }
 
+function isTrackingQuery(key: string) {
+  const name = key.toLowerCase();
+  return TRACKING_QUERY.has(name) || name.endsWith("clid");
+}
+
 function sourceLine(referrer?: string, path?: string) {
   const source = visitReferrerSource(referrer, path);
   return source ? `წყარო: ${source}` : undefined;
+}
+
+function stripVisitTracking(path: string) {
+  const q = path.indexOf("?");
+  if (q === -1) return path;
+  const pathname = path.slice(0, q);
+  const params = new URLSearchParams(path.slice(q + 1));
+  let clickSource: string | undefined;
+  for (const key of [...params.keys()]) {
+    const source = CLICK_SOURCE[key.toLowerCase()];
+    if (source && !clickSource) clickSource = source;
+    if (isTrackingQuery(key)) params.delete(key);
+  }
+  if (clickSource && !params.get("utm_source")) {
+    params.set("utm_source", clickSource);
+  }
+  const next = params.toString();
+  return next ? `${pathname}?${next}` : pathname;
 }
 
 function visitBrowserName(ua: string) {
