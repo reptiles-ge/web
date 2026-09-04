@@ -306,6 +306,9 @@
     "photoCredit": "Photo:",
     "photoLocation": "Location:",
     "photoDate": "Date:",
+    "georgiaFieldPhoto": "Georgia field photo",
+    "checklistCandidate": "A candidate species on the 2026 checklist — do not mark it as confirmed.",
+    "checklistIntroduced": "Listed as introduced, not native fauna.",
     "close": "Close",
     "prevPhoto": "Previous photo",
     "nextPhoto": "Next photo",
@@ -649,6 +652,15 @@
         "title": "Snakes in Georgia"
       }
     }
+  },
+  "errorPage": {
+    "eyebrow": "Error",
+    "title": "This page failed to load",
+    "body": "Try again, or return to the atlas. If this is a venomous-snake page, call 112 for emergency help.",
+    "home": "Back to home",
+    "contact": "Contact",
+    "retry": "Try again",
+    "emergency": "Emergency: 112"
   },
   "speciesMeta": {
     "notFound": "Species not found",

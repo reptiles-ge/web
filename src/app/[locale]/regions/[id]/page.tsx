@@ -16,6 +16,7 @@ import {
   getRegionById,
   getRegionSpecies,
   localizeRegionText,
+  localizeRegionTextIfPresent,
   regions,
 } from "@/data/regions";
 import {
@@ -91,8 +92,8 @@ export async function generateMetadata({
         },
         locale,
       ),
-      localizeRegionText(content.biome, locale),
-    ],
+      localizeRegionTextIfPresent(content.biome, locale),
+    ].filter((item): item is string => Boolean(item)),
     openGraph: {
       description,
       locale: openGraphLocale(locale),
@@ -138,7 +139,8 @@ export default async function RegionPage({ params }: PageProps) {
   const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const overview = localizeRegionText(content.overview, locale);
+  const overview =
+    localizeRegionTextIfPresent(content.overview, locale) ?? name;
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
   const species = getRegionSpecies(region).map((item) =>
     localizeSpecies(item, locale),
@@ -200,18 +202,25 @@ export default async function RegionPage({ params }: PageProps) {
     ],
   };
 
+  const faqItems = content.faq.flatMap((entry) => {
+    const question = localizeRegionTextIfPresent(entry.question, locale);
+    const answer = localizeRegionTextIfPresent(entry.answer, locale);
+    if (!question || !answer) return [];
+    return [{ answer, question }];
+  });
+
   const faqJsonLd =
-    content.faq.length > 0
+    faqItems.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: content.faq.map((entry) => ({
+          mainEntity: faqItems.map((entry) => ({
             "@type": "Question",
             acceptedAnswer: {
               "@type": "Answer",
-              text: localizeRegionText(entry.answer, locale),
+              text: entry.answer,
             },
-            name: localizeRegionText(entry.question, locale),
+            name: entry.question,
           })),
         }
       : null;

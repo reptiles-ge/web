@@ -923,6 +923,8 @@ function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
       raw.id,
       ...speciesAliasKeywords(raw.id, "ka"),
       ...speciesAliasKeywords(raw.id, "en"),
+      ...speciesAliasKeywords(raw.id, "ru"),
+      ...speciesAliasKeywords(raw.id, "tr"),
       ...speciesGroupText(raw),
     ]),
     subtitle: raw.scientificName,

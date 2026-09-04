@@ -28,6 +28,7 @@ type BiologyBlockItem = {
 
 type SpeciesProfileBodyProps = {
   biologyBlocks: BiologyBlockItem[];
+  checklistNote: null | string;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   gallery: GalleryImage[];
@@ -41,6 +42,7 @@ type SpeciesProfileBodyProps = {
 
 export async function SpeciesProfileBody({
   biologyBlocks,
+  checklistNote,
   dangerValue,
   displayStats,
   gallery,
@@ -57,6 +59,7 @@ export async function SpeciesProfileBody({
   return (
     <>
       <SpeciesProfileFacts
+        checklistNote={checklistNote}
         danger={species.danger}
         dangerValue={dangerValue}
         displayStats={displayStats}

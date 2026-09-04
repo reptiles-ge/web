@@ -33,6 +33,29 @@ import {
 const contentRoot = path.join(process.cwd(), "src/content/species");
 const outFile = path.join(process.cwd(), "src/data/species.generated.ts");
 
+function getGitFirstCommitDate(filePaths: string[]): string | null {
+  let oldest: string | null = null;
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) continue;
+    try {
+      const out = execFileSync(
+        "git",
+        ["log", "--follow", "--format=%cI", "--reverse", "--", filePath],
+        { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+      );
+      const first = out
+        .split("\n")
+        .map((line) => line.trim())
+        .find(Boolean);
+      const parsed = first ? parseToSiteDateTime(first) : null;
+      if (parsed && (!oldest || parsed < oldest)) oldest = parsed;
+    } catch {
+      continue;
+    }
+  }
+  return oldest;
+}
+
 function getGitLastCommitDate(filePaths: string[]): string | null {
   try {
     const out = execFileSync(
@@ -70,6 +93,51 @@ function resolveUpdatedAt(filePaths: string[]): string {
   throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
 }
 
+function resolvePublishedAt(
+  filePaths: string[],
+  override: string | undefined,
+  updatedAt: string,
+): string {
+  if (override) {
+    const parsed = parseToSiteDateTime(override);
+    if (parsed) return parsed;
+  }
+  return getGitFirstCommitDate(filePaths) ?? updatedAt;
+}
+
+function creditLacksLocation(credit?: PhotoCredit) {
+  return !credit?.location?.trim();
+}
+
+function warnGeorgiaFieldWithoutLocation(filePath: string, fm: KaFrontmatter) {
+  const hits: string[] = [];
+  if (
+    fm.imageCredit?.photoConfidence === "georgia-field" &&
+    creditLacksLocation(fm.imageCredit)
+  ) {
+    hits.push("imageCredit");
+  }
+  if (
+    fm.mobileImageCredit?.photoConfidence === "georgia-field" &&
+    creditLacksLocation(fm.mobileImageCredit)
+  ) {
+    hits.push("mobileImageCredit");
+  }
+  for (const [index, image] of (fm.gallery ?? []).entries()) {
+    const georgiaField =
+      image.photoConfidence === "georgia-field" ||
+      image.credit?.photoConfidence === "georgia-field";
+    if (georgiaField && creditLacksLocation(image.credit)) {
+      hits.push(`gallery[${index}]`);
+    }
+  }
+  if (hits.length > 0) {
+    console.warn(
+      `${filePath}: georgia-field photoConfidence without location (${hits.join(", ")})`,
+    );
+  }
+}
+
 function formatZodError(
   filePath: string,
   error: { issues: Array<{ message: string; path: PropertyKey[] }> },
@@ -82,7 +150,10 @@ function formatZodError(
     .join("\n");
 }
 
-function toSpecies(fm: KaFrontmatter, options: { updatedAt: string }): Species {
+function toSpecies(
+  fm: KaFrontmatter,
+  options: { publishedAt: string; updatedAt: string },
+): Species {
   const sources = (fm.sources ?? []) as SpeciesSource[];
   return {
     id: fm.id,
@@ -113,6 +184,7 @@ function toSpecies(fm: KaFrontmatter, options: { updatedAt: string }): Species {
       : {}),
     ...(fm.audio?.src ? { audio: fm.audio as SpeciesAudio } : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
+    publishedAt: options.publishedAt,
     updatedAt: options.updatedAt,
     sources,
   };
@@ -218,7 +290,13 @@ for (const id of ids) {
   }
 
   const updatedAt = resolveUpdatedAt([kaPath, ...localePaths]);
-  species.push(toSpecies(fm, { updatedAt }));
+  const publishedAt = resolvePublishedAt(
+    [kaPath, ...localePaths],
+    fm.datePublished,
+    updatedAt,
+  );
+  species.push(toSpecies(fm, { publishedAt, updatedAt }));
+  warnGeorgiaFieldWithoutLocation(kaPath, fm);
 
   for (const locale of TRANSLATION_LOCALES) {
     const filePath = path.join(contentRoot, id, `${locale}.mdx`);

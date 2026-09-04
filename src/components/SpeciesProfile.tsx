@@ -7,7 +7,7 @@ import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { pictureSources } from "@/data/optimizedImages";
 import { resolvePhotoCredit, type Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
@@ -77,6 +77,13 @@ export async function SpeciesProfile({
   const group = getSpeciesAtlasMeta(species.id).group;
   const displayStats = filterDisplayStats(species.stats, group);
   const dangerValue = species.danger ? tDanger(species.danger) : null;
+  const checklist = getHerpetofaunaChecklistStatus(species.id);
+  const checklistNote =
+    checklist === "candidate"
+      ? t("checklistCandidate")
+      : checklist === "introduced"
+        ? t("checklistIntroduced")
+        : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const showIdentification = hasRealIdentification(species.identification);
   const biologyBlocks = [
@@ -119,6 +126,7 @@ export async function SpeciesProfile({
         />
         <SpeciesProfileBody
           biologyBlocks={biologyBlocks}
+          checklistNote={checklistNote}
           dangerValue={dangerValue}
           displayStats={displayStats}
           gallery={gallery}

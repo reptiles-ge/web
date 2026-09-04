@@ -13,6 +13,7 @@ import { formatPhotoDate } from "@/lib/formatDate";
 type PhotoCreditCaptionProps = {
   className?: string;
   credit?: PhotoCredit;
+  photoConfidence?: PhotoCredit["photoConfidence"];
   speciesId?: string;
   variant?: "hero" | "lightbox" | "thumb";
 };
@@ -20,13 +21,16 @@ type PhotoCreditCaptionProps = {
 export function PhotoCreditCaption({
   className = "",
   credit,
+  photoConfidence,
   speciesId,
   variant = "thumb",
 }: PhotoCreditCaptionProps) {
   const t = useTranslations("profile");
   const locale = useLocale() as AppLocale;
 
-  if (!hasPhotoCredit(credit) || variant === "hero") return null;
+  const georgiaField =
+    photoConfidence === "georgia-field" ||
+    credit?.photoConfidence === "georgia-field";
 
   const dateLabel = credit.date ? formatPhotoDate(credit.date, locale) : null;
   const photographer = (

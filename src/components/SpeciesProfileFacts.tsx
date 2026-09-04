@@ -11,6 +11,7 @@ import { isPlaceholderBody } from "@/lib/speciesContent";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesProfileFactsProps = {
+  checklistNote?: null | string;
   danger?: DangerLevel;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
@@ -19,6 +20,7 @@ type SpeciesProfileFactsProps = {
 };
 
 export function SpeciesProfileFacts({
+  checklistNote,
   danger,
   dangerValue,
   displayStats,
@@ -61,6 +63,11 @@ export function SpeciesProfileFacts({
             </div>
           ))}
         </div>
+        {checklistNote ? (
+          <p className="mt-6 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
+            {checklistNote}
+          </p>
+        ) : null}
         {interaction && !isPlaceholderBody(interaction) ? (
           <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-foreground/80 sm:text-[16px]">
             <span className="font-medium text-foreground">

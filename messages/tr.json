@@ -306,6 +306,9 @@
     "photoCredit": "Fotoğraf:",
     "photoLocation": "Yer:",
     "photoDate": "Tarih:",
+    "georgiaFieldPhoto": "Gürcistan saha fotoğrafı",
+    "checklistCandidate": "2026 kontrol listesinde aday tür — doğrulanmış diye işaretlemeyin.",
+    "checklistIntroduced": "Kontrol listesinde sonradan getirilmiş; yerli fauna değil.",
     "close": "Kapat",
     "prevPhoto": "Önceki fotoğraf",
     "nextPhoto": "Sonraki fotoğraf",
@@ -649,6 +652,15 @@
         "title": "Gürcistan’daki yılanlar"
       }
     }
+  },
+  "errorPage": {
+    "eyebrow": "Hata",
+    "title": "Bu sayfa yüklenemedi",
+    "body": "Yeniden deneyin veya atlasa dönün. Bu zehirli yılan sayfasıysa acil yardım için 112'yi arayın.",
+    "home": "Ana sayfaya dön",
+    "contact": "İletişim",
+    "retry": "Yeniden dene",
+    "emergency": "Acil yardım: 112"
   },
   "speciesMeta": {
     "notFound": "Tür bulunamadı",

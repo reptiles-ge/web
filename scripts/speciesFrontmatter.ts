@@ -2,11 +2,18 @@ import { z } from "zod";
 
 const nonempty = z.string().trim().min(1);
 
+const photoConfidenceSchema = z.enum([
+  "georgia-field",
+  "placeholder",
+  "range-typical",
+]);
+
 const photoCreditSchema = z
   .object({
     date: z.string().optional(),
     location: z.string().optional(),
     photographer: z.string().optional(),
+    photoConfidence: photoConfidenceSchema.optional(),
     url: z.string().optional(),
   })
   .passthrough();
@@ -14,6 +21,7 @@ const photoCreditSchema = z
 const galleryImageSchema = z
   .object({
     credit: photoCreditSchema.optional(),
+    photoConfidence: photoConfidenceSchema.optional(),
     src: nonempty,
   })
   .passthrough();
@@ -43,6 +51,7 @@ export const kaFrontmatterSchema = z
     commonName: nonempty,
     conservation: z.string().optional(),
     danger: dangerLevelSchema.optional(),
+    datePublished: z.string().optional(),
     description: z.string().optional(),
     diet: z.string().optional(),
     facts: z.array(z.string()).optional(),

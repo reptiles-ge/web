@@ -19,6 +19,7 @@ import {
   getRegionSpecies,
   getRegionVenomousSpecies,
   localizeRegionText,
+  localizeRegionTextIfPresent,
   type Region,
 } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -40,8 +41,8 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
   const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const overview = localizeRegionText(content.overview, locale);
-  const biome = localizeRegionText(content.biome, locale);
+  const overview = localizeRegionTextIfPresent(content.overview, locale);
+  const biome = localizeRegionTextIfPresent(content.biome, locale);
 
   const species = useMemo(
     () => getRegionSpecies(region).map((item) => localizeSpecies(item, locale)),
@@ -57,10 +58,12 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
   const related = content.relatedIds
     .map((id) => getRegionById(id))
     .filter((item): item is Region => Boolean(item));
-  const faq = content.faq.map((item) => ({
-    answer: localizeRegionText(item.answer, locale),
-    question: localizeRegionText(item.question, locale),
-  }));
+  const faq = content.faq.flatMap((item) => {
+    const question = localizeRegionTextIfPresent(item.question, locale);
+    const answer = localizeRegionTextIfPresent(item.answer, locale);
+    if (!question || !answer) return [];
+    return [{ answer, question }];
+  });
 
   const heroSrc = getRegionHeroImage(region.id);
   const heroAlt = t("regionHeroAlt", { name });
@@ -113,13 +116,17 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
               <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(1.85rem,5vw,4.2rem)] leading-[1.08] font-semibold text-white sm:mt-4">
                 {t("regionTitle", { name, nameIn })}
               </h1>
-              <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
-                {overview}
-              </p>
+              {overview ? (
+                <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
+                  {overview}
+                </p>
+              ) : null}
               <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7">
-                <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
-                  {biome}
-                </span>
+                {biome ? (
+                  <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
+                    {biome}
+                  </span>
+                ) : null}
                 <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md">
                   {t("speciesCount", { count: species.length })}
                 </span>
@@ -313,7 +320,10 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                             <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                           </div>
                           <p className="mt-2 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
-                            {localizeRegionText(relatedContent.biome, locale)}
+                            {localizeRegionTextIfPresent(
+                              relatedContent.biome,
+                              locale,
+                            )}
                           </p>
                           <p className="mt-3 text-[13px] text-muted-foreground">
                             {t("speciesCount", {
