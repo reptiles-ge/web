@@ -4,7 +4,7 @@ Bilingual atlas of animals of Georgia: species profiles, identification, range, 
 
 Georgian is canonical. English, Russian, and Turkish are full alternates (`/en/…`, `/ru/…`, `/tr/…`), not machine overlays.
 
-Herpetofauna (snakes, lizards, turtles, amphibians) is the core, aligned with Tarkhnishvili et al. 2026 (`src/data/herpetofauna-checklist.ts`). Birds, mammals, and spiders are present as hubs and profiles.
+Herpetofauna (snakes, lizards, turtles, amphibians) is the core, aligned with Tarkhnishvili et al. 2026 (`src/data/herpetofauna-checklist.ts`). Birds and mammals have hubs, species indexes of published profiles, and pages; spiders are hubs and profiles. These indexes are not complete national lists.
 
 ## Stack
 

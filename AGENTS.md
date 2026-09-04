@@ -7,7 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # reptiles.ge — agent map
 
-Bilingual (KA canonical, EN secondary; RU/TR also live) atlas of animals of Georgia: [reptiles.ge](https://reptiles.ge). Herpetofauna is the deepest layer (Tarkhnishvili et al. 2026 checklist). Birds and mammals exist as hubs + profiles, without the same guide clusters.
+Bilingual (KA canonical, EN secondary; RU/TR also live) atlas of animals of Georgia: [reptiles.ge](https://reptiles.ge). Herpetofauna is the deepest layer (Tarkhnishvili et al. 2026 checklist). Birds and mammals have hubs, species-index clusters, and profiles — indexes list published atlas pages, not a complete national fauna.
 
 This file is the project map for agents. Humans: see `README.md`.
 
@@ -127,10 +127,10 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/xvlikebi/darevskia`                | `/en/lizards/darevskia`            | Guide (colour is not ID)                            |
 | `/kuebi` …                           | `/en/turtles` …                    | Hub + index + land + freshwater + ID            |
 | `/amfibiebi` …                       | `/en/amphibians` …                 | Hub + index + frogs guide + frogs index + newts |
-| `/prinvelebi`                        | `/en/birds`                        | Hub + species only                              |
-| `/dzuzumtsovrebi`                    | `/en/mammals`                      | Hub + species only                              |
+| `/prinvelebi`, `/prinvelebi/saxeoebebi` | `/en/birds`, `/en/birds/species` | Hub + published-profile index                   |
+| `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi` | `/en/mammals`, `/en/mammals/species` | Hub + published-profile index               |
 | `/regions`, `/regions/{id}`          | same                               | 12 regions                                      |
-| `/quiz`, `/quiz/romeli-gvelia`       | `/en/quiz`, `/en/quiz/which-snake` | Hub + one live quiz                             |
+| `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes |
 | `/riskis-doneebi`                    | `/en/risk-to-humans`               | Risk legend                                     |
 | `/about`, `/contact`                 | `/en/about`, `/en/contact`         | Site                                            |
 | `/news`, `/news/{slug}`              | `/en/news`, `/en/news/{slug}`      | News                                            |
@@ -143,11 +143,11 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 
 ## Quiz
 
-- Registry: `QUIZ_INDEX` in `src/lib/quizzes.ts`. Only `snake` is `live` (`romeli-gvelia` / `which-snake`). Lizard and turtle are `soon` (no href, no URL).
-- Engine: `src/lib/snakeQuiz.ts`. Pool = published snakes from the catalog. Glass lizard must never be an option (`isSnakeSpecies`).
+- Registry: `QUIZ_INDEX` in `src/lib/quizzes.ts`. Live: `snake` (`romeli-gvelia` / `which-snake`) and `lizard` (`romeli-xvlikia` / `which-lizard`). Turtle stays `soon` (no href, no URL).
+- Engine: `src/lib/snakeQuiz.ts`. Snake pool = published snakes; glass lizard must never be a snake option (`isSnakeSpecies`). Lizard pool = published lizards, including the glass lizard. Darevskia stay separate species; colour is not ID.
 - Landing is indexable. Question / score / session are **client state** — never add `/quiz/.../result` or query-param indexable modes.
-- Intent: this quiz owns `რომელი გველია` / Georgia snake quiz. Canonical how-to remains `/gvelebi/shxamiani-gvelis-amocnoba`. Do not add `/quiz/gvelis-amocnoba`.
-- Second live quiz needs a new registry entry + unique intent — do not clone `SnakeQuiz` page folders.
+- Intent: snake quiz owns `რომელი გველია`. Lizard quiz owns `რომელი ხვლიკია` — not `/xvlikebi/identifikacia` (`ეს რა ხვლიკია?`). Do not add `/quiz/gvelis-amocnoba` or a lizard-identify quiz slug. Do not clone quiz page folders.
+- A further live quiz still needs a new registry entry + unique intent.
 
 ## News
 
@@ -182,8 +182,7 @@ npm run species:compile
 
 - Georgia-field photo verification (`photoConfidence: georgia-field` needs photographer + Georgia locality; do not tag generic CDN images).
 - Conservation cluster pages — not implemented; do not link them.
-- Further quizzes (lizard / amphibian / venomous-practice) — only after a unique intent slot and the existing registry.
-- Birds/mammals: no species-index cluster pages yet.
+- Further quizzes (turtle / amphibian / venomous-practice) — only after a unique intent slot and the existing registry.
 - Region fauna is incomplete by design where the paper names no admin unit.
 
 ## Do not

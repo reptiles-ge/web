@@ -1,0 +1,31 @@
+{
+  "ci": {
+    "assert": {
+      "assertions": {
+        "bf-cache": "off",
+        "categories:accessibility": "off",
+        "categories:best-practices": "off",
+        "categories:performance": "off",
+        "categories:pwa": "off",
+        "categories:seo": "off",
+        "cumulative-layout-shift": "off",
+        "document-title": "error",
+        "errors-in-console": "off",
+        "first-contentful-paint": "off",
+        "http-status-code": "error",
+        "interactive": "off",
+        "is-on-https": "off",
+        "largest-contentful-paint": "off",
+        "lcp-lazy-loaded": "error",
+        "max-potential-fid": "off",
+        "meta-description": "error",
+        "speed-index": "off",
+        "total-blocking-time": "off",
+        "uses-http2": "off"
+      }
+    },
+    "collect": {
+      "numberOfRuns": 1
+    }
+  }
+}
