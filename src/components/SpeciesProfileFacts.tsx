@@ -46,23 +46,25 @@ export function SpeciesProfileFacts({
         >
           {t("atAGlanceTitle")}
         </AnchoredHeading>
-        <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
-          {displayStats.map((stat) => (
-            <div className="bg-background p-6 lg:p-8" key={stat.label}>
-              <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
-                {stat.label}
-              </p>
-              <p className="mt-3 font-display text-[20px] leading-tight font-medium lg:text-[24px]">
-                <SpeciesProfileStatValue
-                  danger={danger}
-                  dangerValue={dangerValue}
-                  linkDangerStats={linkDangerStats}
-                  value={stat.value}
-                />
-              </p>
-            </div>
-          ))}
-        </div>
+        {displayStats.length > 0 ? (
+          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
+            {displayStats.map((stat) => (
+              <div className="bg-background p-6 lg:p-8" key={stat.label}>
+                <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
+                  {stat.label}
+                </p>
+                <p className="mt-3 font-display text-[20px] leading-tight font-medium lg:text-[24px]">
+                  <SpeciesProfileStatValue
+                    danger={danger}
+                    dangerValue={dangerValue}
+                    linkDangerStats={linkDangerStats}
+                    value={stat.value}
+                  />
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : null}
         {checklistNote ? (
           <p className="mt-6 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
             {checklistNote}

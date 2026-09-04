@@ -170,6 +170,7 @@ export function SpeciesGallery({
                   </button>
                   <PhotoCreditCaption
                     credit={photo.credit}
+                    photoConfidence={photo.photoConfidence}
                     speciesId={speciesId}
                     variant="thumb"
                   />
@@ -269,6 +270,7 @@ export function SpeciesGallery({
               <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
                 <PhotoCreditCaption
                   credit={activePhoto.credit}
+                  photoConfidence={activePhoto.photoConfidence}
                   speciesId={speciesId}
                   variant="lightbox"
                 />
