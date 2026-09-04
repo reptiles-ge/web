@@ -5,6 +5,13 @@ import perfectionist from "eslint-plugin-perfectionist";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import unusedImports from "eslint-plugin-unused-imports";
 import { defineConfig, globalIgnores } from "eslint/config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const cssConfigPath = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "src/app/globals.css",
+);
 
 const perfectionistNatural = perfectionist.configs["recommended-natural"];
 
@@ -44,6 +51,12 @@ const eslintConfig = defineConfig([
             "map-explorer",
             "map-explorer-texture",
             "text-balance-tight",
+            "text-display-card",
+            "text-display-hero",
+            "text-display-kicker",
+            "text-display-lead",
+            "text-display-stat",
+            "text-display-title",
             "font-display",
           ],
         },
@@ -54,7 +67,7 @@ const eslintConfig = defineConfig([
       ...tailwindcss.configs.recommended.settings,
       tailwindcss: {
         ...tailwindcss.configs.recommended.settings?.tailwindcss,
-        cssConfigPath: "./src/app/globals.css",
+        cssConfigPath,
         functions: [
           "cn",
           "clsx",
@@ -98,6 +111,7 @@ const eslintConfig = defineConfig([
   eslintConfigPrettier,
   globalIgnores([
     ".next/**",
+    ".pnpm-store/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
