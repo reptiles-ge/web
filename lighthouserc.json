@@ -25,7 +25,10 @@
       }
     },
     "collect": {
-      "numberOfRuns": 1
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--no-sandbox --disable-dev-shm-usage --ignore-certificate-errors --allow-insecure-localhost --disable-features=HttpsFirstBalancedModeAutoEnable,HttpsUpgrades,HttpsFirstModeV2,LocalNetworkAccessChecks"
+      }
     }
   }
 }
