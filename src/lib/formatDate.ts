@@ -9,16 +9,24 @@ const DATE_LOCALE = {
   tr: "tr-TR",
 } as const;
 
+const CONTENT_DATE_FORMAT = {
+  en: contentFormatter("en"),
+  ka: contentFormatter("ka"),
+  ru: contentFormatter("ru"),
+  tr: contentFormatter("tr"),
+} as const;
+
+const PHOTO_MONTH_FORMAT = {
+  en: monthFormatter("en"),
+  ka: monthFormatter("ka"),
+  ru: monthFormatter("ru"),
+  tr: monthFormatter("tr"),
+} as const;
+
 export function formatContentDate(isoDate: string, locale: AppLocale): string {
   const date = parseDisplayDate(isoDate);
   if (!date) return isoDate;
-
-  return new Intl.DateTimeFormat(DATE_LOCALE[locale], {
-    day: "numeric",
-    month: "long",
-    timeZone: SITE_TIME_ZONE,
-    year: "numeric",
-  }).format(date);
+  return CONTENT_DATE_FORMAT[locale].format(date);
 }
 
 export function formatPhotoDate(value: string, locale: AppLocale): string {
@@ -29,14 +37,27 @@ export function formatPhotoDate(value: string, locale: AppLocale): string {
   if (/^\d{4}-\d{2}$/.test(trimmed)) {
     const date = parseDisplayDate(`${trimmed}-01`);
     if (!date) return trimmed;
-    return new Intl.DateTimeFormat(DATE_LOCALE[locale], {
-      month: "long",
-      timeZone: SITE_TIME_ZONE,
-      year: "numeric",
-    }).format(date);
+    return PHOTO_MONTH_FORMAT[locale].format(date);
   }
 
   return formatContentDate(trimmed, locale);
+}
+
+function contentFormatter(locale: AppLocale) {
+  return new Intl.DateTimeFormat(DATE_LOCALE[locale], {
+    day: "numeric",
+    month: "long",
+    timeZone: SITE_TIME_ZONE,
+    year: "numeric",
+  });
+}
+
+function monthFormatter(locale: AppLocale) {
+  return new Intl.DateTimeFormat(DATE_LOCALE[locale], {
+    month: "long",
+    timeZone: SITE_TIME_ZONE,
+    year: "numeric",
+  });
 }
 
 function parseDisplayDate(raw: string): Date | null {
