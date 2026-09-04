@@ -1,4 +1,3 @@
-import ka from "../../messages/ka.json";
 import { getPublishedNewsArticleBySlug, newsLocalizedTitle } from "@/data/news";
 import { getRegionById } from "@/data/regions";
 import { pathnames } from "@/i18n/pathnames";
@@ -7,6 +6,8 @@ import { CLUSTER_GUIDE_LIST, type ClusterMessageKey } from "@/lib/clusterGuides"
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { resolveQuizBySlug } from "@/lib/quizzes";
 import { resolveSpecies, resolveSpeciesInHub } from "@/lib/speciesRoutes";
+
+import ka from "../../messages/ka.json";
 
 const SPECIES_PATH_TO_HUB: Partial<Record<AppPathnames, GroupHubId>> = {
   "/amphibians/[slug]": "amphibians",
@@ -59,7 +60,6 @@ const STATIC_TITLES: Partial<Record<AppPathnames, string>> = {
   "/snakes-in-the-yard": ka.footer.yard,
   "/species": ka.footer.species,
   "/spiders": ka.footer.spiders,
-  "/spiders/saxeoebebi": "ობობების სახეობები",
   "/turtles": ka.footer.turtles,
   "/venomous-snakes": ka.footer.venomous,
 };
@@ -73,6 +73,14 @@ const HUB_BY_PATH = Object.fromEntries(
 );
 
 const TITLE_MAX = 80;
+
+export function displayVisitPath(path: string) {
+  const pathname = path.split("?")[0]?.trim() || "/";
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    return pathname.slice(0, -1);
+  }
+  return pathname;
+}
 
 export function visitLocaleFromPath(pathname: string): AppLocale {
   if (pathname === "/en" || pathname.startsWith("/en/")) return "en";
@@ -92,25 +100,27 @@ export function visitPageLabel(path: string) {
   return title.length > TITLE_MAX ? `${title.slice(0, TITLE_MAX - 1)}…` : title;
 }
 
-export function displayVisitPath(path: string) {
-  const pathname = path.split("?")[0]?.trim() || "/";
-  if (pathname.length > 1 && pathname.endsWith("/")) {
-    return pathname.slice(0, -1);
-  }
-  return pathname;
-}
-
-function stripLocalePrefix(pathname: string, locale: AppLocale) {
-  if (locale === "ka") return pathname;
-  const prefix = `/${locale}`;
-  if (pathname === prefix) return "/";
-  return pathname.slice(prefix.length) || "/";
-}
-
 function localizedPattern(internal: AppPathnames, locale: AppLocale) {
   const value = pathnames[internal];
   if (typeof value === "string") return value;
   return value[locale];
+}
+
+function matchPattern(pattern: string, path: string) {
+  const patternParts = pattern.split("/");
+  const pathParts = path.split("/");
+  if (patternParts.length !== pathParts.length) return null;
+  const params: Record<string, string> = {};
+  for (let i = 0; i < patternParts.length; i++) {
+    const part = patternParts[i];
+    const value = pathParts[i];
+    if (part.startsWith("[") && part.endsWith("]")) {
+      params[part.slice(1, -1)] = value;
+      continue;
+    }
+    if (part !== value) return null;
+  }
+  return params;
 }
 
 function matchPublicPath(publicPath: string, locale: AppLocale) {
@@ -130,21 +140,11 @@ function matchPublicPath(publicPath: string, locale: AppLocale) {
   return null;
 }
 
-function matchPattern(pattern: string, path: string) {
-  const patternParts = pattern.split("/");
-  const pathParts = path.split("/");
-  if (patternParts.length !== pathParts.length) return null;
-  const params: Record<string, string> = {};
-  for (let i = 0; i < patternParts.length; i++) {
-    const part = patternParts[i];
-    const value = pathParts[i];
-    if (part.startsWith("[") && part.endsWith("]")) {
-      params[part.slice(1, -1)] = value;
-      continue;
-    }
-    if (part !== value) return null;
-  }
-  return params;
+function stripLocalePrefix(pathname: string, locale: AppLocale) {
+  if (locale === "ka") return pathname;
+  const prefix = `/${locale}`;
+  if (pathname === prefix) return "/";
+  return pathname.slice(prefix.length) || "/";
 }
 
 function titleForMatch(
