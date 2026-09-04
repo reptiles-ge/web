@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { regions } from "@/data/regions";
 import { getRegionContent } from "@/data/regionContent";
-import { localizeRegionTextIfPresent } from "@/data/regions";
+import { localizeRegionTextIfPresent, regions } from "@/data/regions";
 import { getCatalogSpecies, unpublishedSpeciesIds } from "@/data/species";
 
 describe("region speciesIds", () => {
@@ -15,6 +14,18 @@ describe("region speciesIds", () => {
         );
         expect(published.has(id), `${region.id}:${id}`).toBe(true);
       }
+    }
+  });
+});
+
+describe("region FAQ locale gating", () => {
+  it("omits English-only FAQ copy for Russian", () => {
+    const content = getRegionContent("adjara");
+    expect(content).toBeDefined();
+    for (const entry of content!.faq) {
+      expect(localizeRegionTextIfPresent(entry.question, "ru")).toBeNull();
+      expect(localizeRegionTextIfPresent(entry.answer, "ru")).toBeNull();
+      expect(localizeRegionTextIfPresent(entry.question, "ka")).toBeTruthy();
     }
   });
 });

@@ -24,8 +24,8 @@ describe("herpetofauna checklist", () => {
   });
 
   it("keeps birds, mammals, and spiders out of scope", () => {
-    expect(getHerpetofaunaChecklistStatus("emberiza-citrinella")).toBeNull();
-    expect(getHerpetofaunaChecklistStatus("vulpes-vulpes")).toBeNull();
+    expect(getHerpetofaunaChecklistStatus("accipiter-gentilis")).toBeNull();
+    expect(getHerpetofaunaChecklistStatus("canis-lupus")).toBeNull();
     expect(getHerpetofaunaChecklistStatus("argiope-bruennichi")).toBeNull();
   });
 
