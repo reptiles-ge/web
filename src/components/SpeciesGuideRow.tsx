@@ -99,7 +99,7 @@ export function SpeciesGuideRow({
         })
       }
     >
-      <div className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-card">
+      <div className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
         <CoverImage
           alt={speciesImageAlt(
             species.commonName,

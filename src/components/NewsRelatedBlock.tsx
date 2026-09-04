@@ -28,7 +28,7 @@ export async function NewsRelatedBlock({
             <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.1] font-semibold text-foreground">
+            <h2 className="mt-3 font-display text-display-title font-semibold text-foreground">
               {t("relatedNewsHeading")}
             </h2>
           </div>

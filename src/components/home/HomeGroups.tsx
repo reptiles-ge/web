@@ -85,7 +85,7 @@ export async function HomeGroups() {
                     <p className="text-[11px] tracking-[0.16em] text-white/55 tabular-nums">
                       {t("count", { count })}
                     </p>
-                    <h3 className="mt-1.5 font-display text-[clamp(1.45rem,2.4vw,2rem)] font-semibold text-white">
+                    <h3 className="mt-1.5 font-display text-display-card font-semibold text-white">
                       {tNav(hubId)}
                     </h3>
                   </div>

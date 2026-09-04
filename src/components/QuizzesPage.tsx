@@ -94,7 +94,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("howEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.08] font-semibold">
+          <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
             {t("howTitle")}
           </h2>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-card border border-border bg-border/80 sm:grid-cols-3">
@@ -163,7 +163,7 @@ function FeaturedQuizCard({
             </span>
           ) : null}
         </div>
-        <h2 className="mt-4 max-w-xl font-display text-[clamp(1.45rem,3.2vw,2.25rem)] leading-[1.08] font-semibold text-foreground">
+        <h2 className="mt-4 max-w-xl font-display text-display-title font-semibold text-foreground">
           {copy.title}
         </h2>
         <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -179,7 +179,7 @@ function FeaturedQuizCard({
 
   return (
     <QuizCtaLink
-      className="group mt-10 block overflow-hidden rounded-media border border-border bg-card sm:mt-14 sm:rounded-media"
+      className="group mt-10 block overflow-hidden rounded-media border border-border bg-card sm:mt-14"
       href={href}
       quizId={item.id}
       source="quiz_index"

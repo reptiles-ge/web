@@ -71,7 +71,7 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("practiceEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-3xl font-display text-[clamp(1.7rem,3.4vw,2.7rem)] leading-[1.08] font-semibold">
+          <h2 className="mt-4 max-w-3xl font-display text-display-title font-semibold">
             {t("practiceTitle")}
           </h2>
           <div className="mt-8 max-w-3xl space-y-5 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
@@ -82,7 +82,7 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
             <p>{t("practiceP4")}</p>
           </div>
 
-          <h3 className="mt-14 font-display text-[clamp(1.35rem,2.4vw,1.9rem)] font-semibold">
+          <h3 className="mt-14 font-display text-display-card font-semibold">
             {t("lookalikesTitle")}
           </h3>
           <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">

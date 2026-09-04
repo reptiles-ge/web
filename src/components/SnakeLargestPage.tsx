@@ -151,7 +151,7 @@ function LargestRow({
         className="group grid gap-5 py-7 sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 lg:grid-cols-[9rem_1fr_auto]"
         href={speciesHref(species.id, locale)}
       >
-        <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-card">
+        <span className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
           <CoverImage
             alt={speciesImageAlt(
               species.commonName,

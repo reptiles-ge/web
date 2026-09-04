@@ -51,7 +51,7 @@ export async function ContactPage() {
             <p className="mt-12 font-display text-[clamp(2.8rem,8vw,4.25rem)] leading-[0.95] font-semibold tracking-tight">
               {t("brand")}
             </p>
-            <h1 className="mt-5 font-display text-[clamp(1.45rem,3.5vw,1.9rem)] leading-snug font-medium text-foreground/75">
+            <h1 className="mt-5 font-display text-display-card font-medium text-foreground/75">
               {t("title")}
             </h1>
             <p className="mt-7 max-w-[34ch] text-[15px] leading-relaxed text-muted-foreground">

@@ -69,7 +69,7 @@ export function QuizPracticeCta({
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {eyebrow}
             </p>
-            <h2 className="mt-3 font-display text-[clamp(1.4rem,2.4vw,1.9rem)] leading-[1.08] font-semibold">
+            <h2 className="mt-3 font-display text-display-card font-semibold">
               {title}
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">

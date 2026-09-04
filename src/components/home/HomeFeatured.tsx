@@ -84,7 +84,7 @@ export async function HomeFeatured() {
               <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
                 {tDetail("eyebrow")}
               </p>
-              <h3 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.75rem)] leading-[1.08] font-semibold text-foreground">
+              <h3 className="mt-4 font-display text-display-title font-semibold text-foreground">
                 {spotlight.commonName}
               </h3>
               <p className="mt-2 text-[15px] text-muted-foreground italic">

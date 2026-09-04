@@ -46,11 +46,11 @@ function SnakesInYardActions() {
         <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
           {ACTION_KEYS.map((n) => (
             <li className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]" key={n}>
-              <span className="font-display text-[clamp(2rem,3vw,2.5rem)] leading-none font-semibold text-primary/80">
+              <span className="font-display text-display-stat font-semibold text-primary/80">
                 {String(n).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="font-display text-[clamp(1.25rem,2.2vw,1.65rem)] font-semibold text-foreground">
+                <h3 className="font-display text-display-card font-semibold text-foreground">
                   {t(`action${n}Title`)}
                 </h3>
                 <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
@@ -119,7 +119,7 @@ function SnakesInYardWhy({ coverSrc }: { coverSrc: string }) {
             eyebrow={t("whyEyebrow")}
             eyebrowClassName={CLUSTER_EYEBROW}
             title={t("whyTitle")}
-            titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
+            titleClassName="mt-5 font-display text-display-title font-semibold"
           />
           <div className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
             <div className="bg-card p-7 sm:p-8">

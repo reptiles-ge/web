@@ -72,7 +72,7 @@ export async function AboutPage() {
                 <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                   {t("companyEyebrow")}
                 </p>
-                <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] leading-[1.05] font-semibold text-foreground">
+                <h2 className="mt-4 font-display text-display-title font-semibold text-foreground">
                   {t("companyTitle")}
                 </h2>
               </div>

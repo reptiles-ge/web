@@ -21,7 +21,7 @@ export function ErrorFallback({ reset }: { reset: () => void }) {
       <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
         {t("eyebrow")}
       </p>
-      <h1 className="mt-4 font-display text-[clamp(1.8rem,4vw,2.8rem)] leading-[1.1] font-semibold">
+      <h1 className="mt-4 font-display text-display-title font-semibold">
         {t("title")}
       </h1>
       <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">

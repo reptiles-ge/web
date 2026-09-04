@@ -251,7 +251,7 @@ function RegionDirectoryRow({
     >
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+          <h3 className="font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
             {name}
           </h3>
           <span className="text-[12px] tracking-wide text-muted-foreground">
