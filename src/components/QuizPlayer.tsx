@@ -10,6 +10,7 @@ import {
 } from "react";
 
 import { QuizCopyProvider, useQuizCopy } from "@/components/QuizCopyContext";
+import { QuizStage } from "@/components/QuizStage";
 import { trackEvent } from "@/lib/analytics";
 import { draftKey, type QuizDraft, useQuizDraft } from "@/lib/quizDraft";
 import {
