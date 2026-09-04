@@ -2,7 +2,12 @@
 
 import { useEffect } from "react";
 
-import { sanitizeVisitPath, VISIT_STORAGE_KEY } from "@/lib/visitNotify";
+import {
+  isVisitBlocked,
+  sanitizeVisitPath,
+  VISIT_STORAGE_KEY,
+  writeVisitSeenValue,
+} from "@/lib/visitNotify";
 
 let inFlight = false;
 
@@ -52,7 +57,7 @@ function clearSeen() {
 
 function readSeen() {
   try {
-    return window.localStorage.getItem(VISIT_STORAGE_KEY) === "1";
+    return isVisitBlocked(window.localStorage.getItem(VISIT_STORAGE_KEY));
   } catch {
     return true;
   }
@@ -60,7 +65,7 @@ function readSeen() {
 
 function writeSeen() {
   try {
-    window.localStorage.setItem(VISIT_STORAGE_KEY, "1");
+    window.localStorage.setItem(VISIT_STORAGE_KEY, writeVisitSeenValue());
   } catch {
     return;
   }
