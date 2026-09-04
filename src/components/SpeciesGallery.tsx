@@ -182,7 +182,7 @@ export function SpeciesGallery({
 
       <dialog
         aria-label={t("gallery")}
-        className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/92"
+        className="fixed inset-0 z-100 m-0 hidden size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/92 open:flex"
         onClose={() => {
           setActive(null);
           const index = restoreIndex.current;

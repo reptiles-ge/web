@@ -3,6 +3,7 @@ import type { AppPathnames } from "@/i18n/routing";
 import { type QuizHref } from "@/lib/quizzes";
 import { type SpeciesHref } from "@/lib/speciesRoutes";
 
+export type RecentRef = { id: string; kind: SearchKind };
 export type ScoredDocument = SearchDocument & { score: number };
 export type SearchDocument = {
   featured?: boolean;
@@ -19,6 +20,7 @@ export type SearchDocument = {
   suggested?: boolean;
   title: string;
 };
+
 export type SearchFilter = "all" | SearchKind;
 
 export type SearchGroup = {
@@ -61,8 +63,6 @@ export type SearchPageHref = Exclude<
   | "/spiders/[slug]"
   | "/turtles/[slug]"
 >;
-
-export type RecentRef = { id: string; kind: SearchKind };
 
 const LIMITS: Record<SearchKind, number> = {
   page: 5,

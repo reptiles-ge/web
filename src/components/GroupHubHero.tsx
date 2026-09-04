@@ -21,10 +21,12 @@ type GroupHubHeroProps = {
 };
 
 export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
-  const t = await getTranslations(hubId);
-  const tShared = await getTranslations("groupHubShared");
-  const tSnakes = await getTranslations("snakes");
-  const locale = (await getLocale()) as AppLocale;
+  const [t, tShared, tSnakes, locale] = await Promise.all([
+    getTranslations(hubId),
+    getTranslations("groupHubShared"),
+    getTranslations("snakes"),
+    getLocale() as Promise<AppLocale>,
+  ]);
   const venomousCount = species.filter((item) =>
     isVenomousDanger(item.danger),
   ).length;

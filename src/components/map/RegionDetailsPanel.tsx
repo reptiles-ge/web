@@ -108,8 +108,8 @@ export function RegionDetailsPanel({
             initial={
               isDesktop ? { opacity: 0, x: 40 } : { opacity: 0, y: "100%" }
             }
-            role="dialog"
             ref={panelRef}
+            role="dialog"
             transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="mx-auto mt-3 h-1 w-10 shrink-0 rounded-full bg-border lg:hidden" />

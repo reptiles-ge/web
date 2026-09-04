@@ -14,7 +14,7 @@ async function main() {
     throw new Error("Run species:compile before search:compile");
   }
 
-  const { buildSearchIndex } = await import("../src/lib/searchIndexBuild.ts");
+  const { buildSearchIndex } = await import("../src/lib/searchIndexBuild");
 
   const searchIndexes = Object.fromEntries(
     routing.locales.map((locale) => [locale, buildSearchIndex(locale)]),

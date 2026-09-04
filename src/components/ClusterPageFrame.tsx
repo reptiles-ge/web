@@ -48,10 +48,12 @@ export async function ClusterPageFrame({
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
-  const t = await getTranslations(guide.messageKey);
-  const tShared = await getTranslations("groupHubShared");
-  const tParent = await getTranslations(parent.messageKey);
-  const locale = (await getLocale()) as AppLocale;
+  const [t, tShared, tParent, locale] = await Promise.all([
+    getTranslations(guide.messageKey),
+    getTranslations("groupHubShared"),
+    getTranslations(parent.messageKey),
+    getLocale() as Promise<AppLocale>,
+  ]);
   const relatedGuides = getRelatedGuideCards(guideId);
   const faqItems = Array.from({ length: guide.faqCount }, (_, index) => {
     const n = index + 1;

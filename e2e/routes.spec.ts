@@ -18,6 +18,19 @@ test("giurza profile is indexable with Taxon JSON-LD", async ({ page }) => {
     .locator('script[type="application/ld+json"]')
     .allTextContents();
   expect(jsonLd.some((block) => block.includes('"Taxon"'))).toBe(true);
+  const nodes = jsonLd.flatMap((block) => {
+    const parsed = JSON.parse(block) as unknown;
+    return (Array.isArray(parsed) ? parsed : [parsed]) as Record<
+      string,
+      unknown
+    >[];
+  });
+  const article = nodes.find((block) => block["@type"] === "Article");
+  expect(article).toBeTruthy();
+  const author = article?.author as Record<string, unknown>;
+  expect(author["@type"]).toBe("Organization");
+  expect(JSON.stringify(author)).not.toContain("Person");
+  expect(article).not.toHaveProperty("reviewedBy");
 });
 
 test("English species page advertises KA as x-default", async ({ page }) => {
@@ -80,8 +93,29 @@ test("quiz landing is indexable and play stays on the same URL", async ({
 test("404 is noindex", async ({ page }) => {
   const response = await page.goto("/this-path-is-not-on-the-map-xyz");
   expect(response?.status()).toBe(404);
-  const robots = await page
+  const contents = await page
     .locator('meta[name="robots"]')
-    .getAttribute("content");
-  expect(robots ?? "").toMatch(/noindex/i);
+    .evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute("content") ?? ""),
+    );
+  expect(contents.length).toBeGreaterThan(0);
+  expect(contents.every((value) => /noindex/i.test(value))).toBe(true);
+});
+
+test.describe("JS-disabled shells", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("hub, species, about, and contact still render H1", async ({ page }) => {
+    await page.goto("/gvelebi");
+    await expect(page.locator("h1")).toBeVisible();
+
+    await page.goto("/gvelebi/giurza");
+    await expect(page.locator("h1")).toContainText("გიურზა");
+
+    await page.goto("/about");
+    await expect(page.locator("h1")).toBeVisible();
+
+    await page.goto("/contact");
+    await expect(page.locator("h1")).toBeVisible();
+  });
 });

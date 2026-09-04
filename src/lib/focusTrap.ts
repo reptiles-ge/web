@@ -5,7 +5,7 @@ const FOCUSABLE =
 
 export function cycleTab(
   event: KeyboardEvent,
-  roots: Array<ParentNode | null | undefined>,
+  roots: Array<null | ParentNode | undefined>,
 ) {
   if (event.key !== "Tab") return;
   const items = roots.flatMap((root) => focusableIn(root));
@@ -31,13 +31,21 @@ export function cycleTab(
   }
 }
 
-export function focusableIn(root: ParentNode | null | undefined) {
+export function focusableIn(root: null | ParentNode | undefined) {
   if (!root) return [];
   return [...root.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((node) => {
     if (node.closest("[inert]")) return false;
     if (node.getAttribute("aria-hidden") === "true") return false;
     return node.getClientRects().length > 0;
   });
+}
+
+export function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    prefersReducedMotion,
+    () => false,
+  );
 }
 
 function prefersReducedMotion() {
@@ -49,12 +57,4 @@ function subscribeReducedMotion(onChange: () => void) {
   const media = window.matchMedia("(prefers-reduced-motion: reduce)");
   media.addEventListener("change", onChange);
   return () => media.removeEventListener("change", onChange);
-}
-
-export function usePrefersReducedMotion() {
-  return useSyncExternalStore(
-    subscribeReducedMotion,
-    prefersReducedMotion,
-    () => false,
-  );
 }

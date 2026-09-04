@@ -187,11 +187,11 @@ async function SpeciesProfileBiology({
   blocks: BiologyBlockItem[];
   isSnake: boolean;
 }) {
-  const t = await getTranslations("profile");
-
   if (blocks.length === 0) {
     return null;
   }
+
+  const t = await getTranslations("profile");
 
   return (
     <section

@@ -1,9 +1,7 @@
-import { createRequire } from "node:module";
+import { expect, type Page, test } from "@playwright/test";
+import path from "node:path";
 
-import { expect, test, type Page } from "@playwright/test";
-
-const require = createRequire(import.meta.url);
-const axeSource = require.resolve("axe-core/axe.min.js");
+const axeSource = path.join(process.cwd(), "node_modules/axe-core/axe.min.js");
 
 async function axeInclude(page: Page, include: string) {
   await page.addScriptTag({ path: axeSource });
@@ -15,7 +13,7 @@ async function axeInclude(page: Page, include: string) {
             context: string,
             options: { reporter: string },
           ) => Promise<{
-            violations: Array<{ id: string; help: string }>;
+            violations: Array<{ help: string; id: string }>;
           }>;
         };
       }
@@ -29,6 +27,23 @@ test("species gallery has no axe violations", async ({ page }) => {
   await page.locator("#gallery").scrollIntoViewIfNeeded();
   const results = await axeInclude(page, "#gallery");
   expect(results.violations).toEqual([]);
+});
+
+test("gallery lightbox uses a modal dialog and restores focus", async ({
+  page,
+}) => {
+  await page.goto("/gvelebi/giurza");
+  const gallery = page
+    .locator("section")
+    .filter({ has: page.locator("#gallery") });
+  const thumb = gallery.locator("button").first();
+  await thumb.scrollIntoViewIfNeeded();
+  await thumb.click();
+  const dialog = page.locator("dialog");
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+  await expect(thumb).toBeFocused();
 });
 
 test("header search overlay has no axe violations", async ({ page }) => {

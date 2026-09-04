@@ -31,10 +31,12 @@ export async function SpeciesProfile({
   related,
   species,
 }: SpeciesProfileProps) {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("profile");
-  const tHubs = await getTranslations("groupHubShared");
-  const tDanger = await getTranslations("danger");
+  const [locale, t, tHubs, tDanger] = await Promise.all([
+    getLocale() as Promise<AppLocale>,
+    getTranslations("profile"),
+    getTranslations("groupHubShared"),
+    getTranslations("danger"),
+  ]);
   const guideLinks = getSpeciesGuideLinks(species.id);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
