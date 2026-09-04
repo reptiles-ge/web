@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
-import { CLUSTER_GUIDES, isDarevskiaSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
+import {
+  CLUSTER_GUIDES,
+  isDarevskiaSpecies,
+  isSnakeSpecies,
+} from "@/lib/clusterGuides";
 
 describe("isSnakeSpecies", () => {
   it("treats published snakes as snakes", () => {

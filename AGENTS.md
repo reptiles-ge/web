@@ -180,7 +180,7 @@ npm run species:compile
 
 ## Open work (do not assume done)
 
-- Georgia-field photo verification (`photoConfidence` vs generic CDN).
+- Georgia-field photo verification (`photoConfidence: georgia-field` needs photographer + Georgia locality; do not tag generic CDN images).
 - Conservation cluster pages — not implemented; do not link them.
 - Further quizzes (lizard / amphibian / venomous-practice) — only after a unique intent slot and the existing registry.
 - Birds/mammals: no species-index cluster pages yet.
