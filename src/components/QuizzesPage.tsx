@@ -70,6 +70,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
             </p>
           </div>
 
+          <div className="mt-10 space-y-4 sm:mt-14 sm:space-y-5">
           {live.map((item, index) => (
             <FeaturedQuizCard
               copy={copy[item.messageKey]}
@@ -86,6 +87,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
               startLabel={t("start")}
             />
           ))}
+          </div>
 
           <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground sm:mt-10">
             {t("upcomingLine")}
@@ -149,7 +151,7 @@ function FeaturedQuizCard({
         <CoverImage
           alt={item.imageAlt}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          priority
+          priority={priority}
           sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 100vw"
           src={item.image}
         />
@@ -185,7 +187,7 @@ function FeaturedQuizCard({
 
   return (
     <QuizCtaLink
-      className="group mt-10 block overflow-hidden rounded-media border border-border bg-card sm:mt-14"
+      className="group block overflow-hidden rounded-media border border-border bg-card"
       href={href}
       quizId={item.id}
       source="quiz_index"

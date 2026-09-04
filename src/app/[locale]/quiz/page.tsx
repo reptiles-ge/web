@@ -96,7 +96,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const items: QuizCardModel[] = liveQuizzes().map((quiz) => ({
     ...quiz,
     image: quiz.ogImage,
-    imageAlt: t("snakeTitle"),
+    imageAlt: t(`${quiz.messageKey}Title`),
   }));
 
   const breadcrumbLd = {
@@ -122,13 +122,11 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     description: t("metaDescription"),
-    hasPart: [
-      {
-        "@type": "Quiz",
-        name: t("snakeTitle"),
-        url: quizPageUrl(locale, "snake"),
-      },
-    ],
+    hasPart: liveQuizzes().map((quiz) => ({
+      "@type": "Quiz",
+      name: t(`${quiz.messageKey}Title`),
+      url: quizPageUrl(locale, quiz.id),
+    })),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     name: t("metaTitle"),

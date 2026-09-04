@@ -299,6 +299,23 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       ka: "ტრიტონები და სალამანდრები საქართველოში",
     },
   },
+  "bird-index": {
+    icon: "atlas",
+    keywords: [
+      "ფრინველების სახეობები",
+      "bird species",
+      "орнитофауна",
+      "kuş türleri",
+    ],
+    subtitle: {
+      en: "Published bird profiles — not a full national list",
+      ka: "გამოქვეყნებული პროფილები — არა სრული ეროვნული სია",
+    },
+    title: {
+      en: "Bird species of Georgia",
+      ka: "საქართველოს ფრინველების სახეობები",
+    },
+  },
   "lizard-darevskia": {
     icon: "identify",
     keywords: [
@@ -355,6 +372,23 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     title: {
       en: "Lizard species of Georgia",
       ka: "საქართველოს ხვლიკების სახეობები",
+    },
+  },
+  "mammal-index": {
+    icon: "atlas",
+    keywords: [
+      "ძუძუმწოვრების სახეობები",
+      "mammal species",
+      "териофауна",
+      "memeli türleri",
+    ],
+    subtitle: {
+      en: "Published mammal profiles — not a full national list",
+      ka: "გამოქვეყნებული პროფილები — არა სრული ეროვნული სია",
+    },
+    title: {
+      en: "Mammal species of Georgia",
+      ka: "საქართველოს ძუძუმწოვრების სახეობები",
     },
   },
   "snake-bite": {
@@ -705,6 +739,29 @@ const SNAKE_QUIZ_COPY: PageCopy = {
   },
 };
 
+const LIZARD_QUIZ_COPY: PageCopy = {
+  icon: "identify",
+  keywords: [
+    "ქვიზი",
+    "quiz",
+    "რომელი ხვლიკია",
+    "which lizard",
+    "ხვლიკების ქვიზი",
+  ],
+  rank: 8,
+  subtitle: {
+    en: "A photo quiz of Georgia’s lizards",
+    ka: "ფოტო-ქვიზი საქართველოს ხვლიკებზე",
+  },
+  suggested: true,
+  title: {
+    en: "Which lizard is it?",
+    ka: "რომელი ხვლიკია?",
+    ru: "Какая это ящерица?",
+    tr: "Bu hangi kertenkele?",
+  },
+};
+
 const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
 
 export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
@@ -724,6 +781,13 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
       quizHref("snake", locale),
       SNAKE_QUIZ_COPY,
       "/images/guides/snake-quiz-og.jpg",
+    ),
+    toPageDocument(
+      locale,
+      "lizard-quiz",
+      quizHref("lizard", locale),
+      LIZARD_QUIZ_COPY,
+      "/images/home/groups/lizards.jpg",
     ),
     ...GROUP_HUB_LIST.map((hub) =>
       toPageDocument(

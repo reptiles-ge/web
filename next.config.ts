@@ -249,6 +249,11 @@ const nextConfig: NextConfig = {
         source: "/quiz/which-snake",
         statusCode: 301,
       },
+      {
+        destination: "/quiz/romeli-xvlikia",
+        source: "/quiz/which-lizard",
+        statusCode: 301,
+      },
       ...latinRedirects([
         ["/gvelebi", "/snakes"],
         ["/xvlikebi", "/lizards"],
@@ -318,6 +323,11 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/en/quiz/which-lizard",
+        source: "/en/quiz/romeli-xvlikia",
+        statusCode: 301,
+      },
+      {
         destination: "/ru/quiz/kakaya-zmeya",
         source: "/ru/quiz/gvelis-identifikacia",
         statusCode: 301,
@@ -333,6 +343,16 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/ru/quiz/kakaya-yashcheritsa",
+        source: "/ru/quiz/romeli-xvlikia",
+        statusCode: 301,
+      },
+      {
+        destination: "/ru/quiz/kakaya-yashcheritsa",
+        source: "/ru/quiz/which-lizard",
+        statusCode: 301,
+      },
+      {
         destination: "/tr/quiz/hangi-yilan",
         source: "/tr/quiz/gvelis-identifikacia",
         statusCode: 301,
@@ -345,6 +365,16 @@ const nextConfig: NextConfig = {
       {
         destination: "/tr/quiz/hangi-yilan",
         source: "/tr/quiz/which-snake",
+        statusCode: 301,
+      },
+      {
+        destination: "/tr/quiz/hangi-kertenkele",
+        source: "/tr/quiz/romeli-xvlikia",
+        statusCode: 301,
+      },
+      {
+        destination: "/tr/quiz/hangi-kertenkele",
+        source: "/tr/quiz/which-lizard",
         statusCode: 301,
       },
     ];
