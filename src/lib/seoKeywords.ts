@@ -271,6 +271,12 @@ const SPECIES_ALIASES: Record<
     ru: ["восточная мальполон", "мальполон"],
     tr: ["Doğu Montpellier yılanı"],
   },
+  "mauremys-caspica": {
+    en: ["Caspian turtle", "stripe-necked terrapin"],
+    ka: ["კასპიური კუ"],
+    ru: ["каспийская черепаха"],
+    tr: ["Hazar kaplumbağası"],
+  },
   "natrix-natrix": {
     en: [
       "grass snake",
@@ -364,12 +370,6 @@ const SPECIES_ALIASES: Record<
     ka: ["წითელყურა კუ"],
     ru: ["красноухая черепаха"],
     tr: ["Kırmızı yanaklı su kaplumbağası"],
-  },
-  "mauremys-caspica": {
-    en: ["Caspian turtle", "stripe-necked terrapin"],
-    ka: ["კასპიური კუ"],
-    ru: ["каспийская черепаха"],
-    tr: ["Hazar kaplumbağası"],
   },
   "vipera-darevskii": {
     en: ["Darevsky's viper"],

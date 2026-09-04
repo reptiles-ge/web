@@ -4,8 +4,8 @@ import {
   getHerpetofaunaChecklistStatus,
   herpetofaunaChecklistIds,
 } from "@/data/herpetofauna-checklist";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getCatalogSpecies } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 
 const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
 

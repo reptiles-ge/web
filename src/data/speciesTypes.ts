@@ -1,18 +1,18 @@
 export type DangerLevel = "Harmless" | "High" | "Moderate";
 
-export type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";
-
 export type GalleryImage = {
   credit?: PhotoCredit;
   photoConfidence?: PhotoConfidence;
   src: string;
 };
 
+export type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";
+
 export type PhotoCredit = {
   date?: string;
   location?: string;
-  photographer?: string;
   photoConfidence?: PhotoConfidence;
+  photographer?: string;
   url?: string;
 };
 

@@ -5,9 +5,9 @@ import type { AppLocale } from "@/i18n/routing";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
+import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import { pictureSources } from "@/data/optimizedImages";
 import { resolvePhotoCredit, type Species } from "@/data/species";
-import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
