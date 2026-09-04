@@ -469,6 +469,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
     { href: "/lizards/identifikacia", key: "lizardIdentify", kind: "page" },
+    { href: "/lizards/darevskia", key: "lizardDarevskia", kind: "page" },
     {
       href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
       key: "glassLizard",
@@ -747,6 +748,13 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "lizardIndex",
       kind: "page",
     });
+    if (species.genus === "Darevskia") {
+      links.push({
+        href: "/lizards/darevskia",
+        key: "lizardDarevskia",
+        kind: "page",
+      });
+    }
     links.push({
       href: "/lizards/identifikacia",
       key: "lizardIdentify",
