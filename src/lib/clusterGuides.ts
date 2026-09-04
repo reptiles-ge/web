@@ -105,10 +105,12 @@ export type ClusterGuideId =
   | "amphibian-frogs-index"
   | "amphibian-index"
   | "amphibian-newts"
+  | "bird-index"
   | "lizard-darevskia"
   | "lizard-glass"
   | "lizard-identify"
   | "lizard-index"
+  | "mammal-index"
   | "snake-bite"
   | "snake-identify"
   | "snake-index"
@@ -125,11 +127,13 @@ export type ClusterGuidePath =
   | "/amphibians/saxeoebebi"
   | "/amphibians/tritoni-salamandra"
   | "/birds"
+  | "/birds/saxeoebebi"
   | "/lizards/darevskia"
   | "/lizards/identifikacia"
   | "/lizards/saxeoebebi"
   | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
   | "/mammals"
+  | "/mammals/saxeoebebi"
   | "/snakes/didi-gvelebi"
   | "/snakes/gavrtseleba"
   | "/snakes/gvelis-nakbeni"
@@ -146,10 +150,12 @@ export type ClusterMessageKey =
   | "amphibianFrogsIndex"
   | "amphibianIndex"
   | "amphibianNewts"
+  | "birdIndex"
   | "lizardCompare"
   | "lizardDarevskia"
   | "lizardIdentify"
   | "lizardIndex"
+  | "mammalIndex"
   | "snakeBite"
   | "snakeIdentify"
   | "snakeIndex"
@@ -168,6 +174,10 @@ export function isAmphibianSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "amphibian";
 }
 
+export function isBirdSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "bird";
+}
+
 export function isDarevskiaSpecies(species: Species) {
   return species.genus === "Darevskia";
 }
@@ -178,6 +188,10 @@ export function isFrogSpecies(id: string) {
 
 export function isLizardSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "lizard";
+}
+
+export function isMammalSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "mammal";
 }
 
 export function isNewtSpecies(id: string) {
@@ -244,6 +258,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     primaryCta: "hash",
     schema: "collection",
   },
+  "bird-index": {
+    faqCount: 4,
+    heroSpeciesId: "emberiza-citrinella",
+    id: "bird-index",
+    matches: isBirdSpecies,
+    messageKey: "birdIndex",
+    parentHub: "birds",
+    pathname: "/birds/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
   "lizard-darevskia": {
     faqCount: 4,
     heroSpeciesId: "darevskia-derjugini",
@@ -289,6 +314,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "lizardIndex",
     parentHub: "lizards",
     pathname: "/lizards/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
+  "mammal-index": {
+    faqCount: 4,
+    heroSpeciesId: "vulpes-vulpes",
+    id: "mammal-index",
+    matches: isMammalSpecies,
+    messageKey: "mammalIndex",
+    parentHub: "mammals",
+    pathname: "/mammals/saxeoebebi",
     primaryCta: "hash",
     schema: "collection",
   },
@@ -423,6 +459,7 @@ export type HubClusterCard =
       key:
         | "amphibianIndex"
         | "birdsHub"
+        | "birdIndex"
         | "bite"
         | "frogs"
         | "frogsIndex"
@@ -433,7 +470,9 @@ export type HubClusterCard =
         | "lizardDarevskia"
         | "lizardIdentify"
         | "lizardIndex"
+        | "lizardQuiz"
         | "lizardsHub"
+        | "mammalIndex"
         | "mammalsHub"
         | "newts"
         | "range"
@@ -448,8 +487,8 @@ export type HubClusterCard =
       kind: "page";
     }
   | {
-      id: "snake";
-      key: "quiz";
+      id: "lizard" | "snake";
+      key: "lizardQuiz" | "quiz";
       kind: "quiz";
     }
   | {
@@ -465,9 +504,10 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/amphibians/bayayi/saxeoebebi", key: "frogsIndex", kind: "page" },
     { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
-  birds: [],
+  birds: [{ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" }],
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
+    { id: "lizard", key: "lizardQuiz", kind: "quiz" },
     { href: "/lizards/identifikacia", key: "lizardIdentify", kind: "page" },
     { href: "/lizards/darevskia", key: "lizardDarevskia", kind: "page" },
     {
@@ -478,7 +518,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { id: "paralaudakia-caucasia", key: "jojo", kind: "species" },
     { id: "pseudopus-apodus", key: "gvelxokera", kind: "species" },
   ],
-  mammals: [],
+  mammals: [{ href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" }],
   snakes: [
     { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },
@@ -507,9 +547,9 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
 
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   amphibians: "/amphibians/saxeoebebi",
-  birds: "/birds",
+  birds: "/birds/saxeoebebi",
   lizards: "/lizards/saxeoebebi",
-  mammals: "/mammals",
+  mammals: "/mammals/saxeoebebi",
   snakes: "/snakes/saxeoebebi",
   spiders: "/spiders",
   turtles: "/turtles/saxeoebebi",
@@ -523,11 +563,11 @@ export type SpeciesSection = {
 export function getHubIndexTitleKey(hubId: GroupHubId) {
   switch (hubId) {
     case "birds":
-      return "hubs.birds" as const;
+      return "cluster.birdIndex.title" as const;
     case "lizards":
       return "cluster.lizardIndex.title" as const;
     case "mammals":
-      return "hubs.mammals" as const;
+      return "cluster.mammalIndex.title" as const;
     case "snakes":
       return "cluster.index.title" as const;
     case "spiders":
@@ -646,7 +686,9 @@ export function getHubClusterCardImage(card: HubClusterCard) {
   }
 
   if (card.kind === "quiz") {
-    return "/images/guides/snake-quiz-og.jpg";
+    return card.id === "lizard"
+      ? "/images/home/groups/lizards.jpg"
+      : "/images/guides/snake-quiz-og.jpg";
   }
 
   const override = PAGE_CARD_IMAGES[card.href];
@@ -748,6 +790,7 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "lizardIndex",
       kind: "page",
     });
+    links.push({ id: "lizard", key: "lizardQuiz", kind: "quiz" });
     if (species.genus === "Darevskia") {
       links.push({
         href: "/lizards/darevskia",
@@ -792,9 +835,9 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       kind: "page",
     });
   } else if (group === "bird") {
-    links.push({ href: "/birds", key: "birdsHub", kind: "page" });
+    links.push({ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" });
   } else if (group === "mammal") {
-    links.push({ href: "/mammals", key: "mammalsHub", kind: "page" });
+    links.push({ href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" });
   } else if (group === "spider") {
     links.push({ href: "/spiders", key: "spidersHub", kind: "page" });
   } else {

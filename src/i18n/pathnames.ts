@@ -25,6 +25,7 @@ export const pathnames = {
   ),
   "/birds": kaLatin("/prinvelebi", "/birds"),
   "/birds/[slug]": kaLatin("/prinvelebi/[slug]", "/birds/[slug]"),
+  "/birds/saxeoebebi": kaLatin("/prinvelebi/saxeoebebi", "/birds/species"),
   "/contact": "/contact",
   "/lizards": kaLatin("/xvlikebi", "/lizards"),
   "/lizards/[slug]": kaLatin("/xvlikebi/[slug]", "/lizards/[slug]"),
@@ -40,6 +41,10 @@ export const pathnames = {
   ),
   "/mammals": kaLatin("/dzuzumtsovrebi", "/mammals"),
   "/mammals/[slug]": kaLatin("/dzuzumtsovrebi/[slug]", "/mammals/[slug]"),
+  "/mammals/saxeoebebi": kaLatin(
+    "/dzuzumtsovrebi/saxeoebebi",
+    "/mammals/species",
+  ),
   "/news": "/news",
   "/news/[slug]": "/news/[slug]",
   "/quiz": "/quiz",
