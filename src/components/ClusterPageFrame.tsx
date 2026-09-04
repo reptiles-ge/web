@@ -1,16 +1,13 @@
-"use client";
-
-import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { type ReactNode, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
-  CLUSTER_FAQ_BODY,
-  CLUSTER_FAQ_TITLE,
   CLUSTER_HERO_BODY,
   CLUSTER_HERO_EYEBROW,
   CLUSTER_HERO_TITLE,
@@ -20,7 +17,6 @@ import {
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   CLUSTER_GUIDES,
@@ -40,7 +36,7 @@ type ClusterPageFrameProps = {
   stats?: ReactNode;
 };
 
-export function ClusterPageFrame({
+export async function ClusterPageFrame({
   attributionSourcesHref,
   children,
   ctaHash = "#content",
@@ -51,15 +47,23 @@ export function ClusterPageFrame({
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
-  const t = useTranslations(guide.messageKey);
-  const tShared = useTranslations("groupHubShared");
-  const tParent = useTranslations(parent.messageKey);
-  const locale = useLocale() as AppLocale;
+  const [t, tShared, tParent, locale] = await Promise.all([
+    getTranslations(guide.messageKey),
+    getTranslations("groupHubShared"),
+    getTranslations(parent.messageKey),
+    getLocale() as Promise<AppLocale>,
+  ]);
   const relatedGuides = getRelatedGuideCards(guideId);
+  const faqItems = Array.from({ length: guide.faqCount }, (_, index) => {
+    const n = index + 1;
+    const qKey = `faq${n}Q` as Parameters<typeof t>[0];
+    const aKey = `faq${n}A` as Parameters<typeof t>[0];
+    return { answer: t(aKey), question: t(qKey) };
+  });
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <section
           className="relative flex min-h-[88svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:pb-16 lg:min-h-[92svh] lg:pb-20"
           style={{ paddingTop: "7rem" }}
@@ -75,7 +79,7 @@ export function ClusterPageFrame({
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
@@ -105,10 +109,10 @@ export function ClusterPageFrame({
                 </ol>
               </nav>
 
-              <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
+              <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
                 Reptiles
               </p>
-              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -139,7 +143,7 @@ export function ClusterPageFrame({
                   {t("ctaParent")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
@@ -150,7 +154,7 @@ export function ClusterPageFrame({
         {relatedGuides.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
+              <div>
                 <ClusterSectionIntro
                   body={tShared("relatedGuidesBody")}
                   bodyClassName={CLUSTER_BODY}
@@ -159,13 +163,20 @@ export function ClusterPageFrame({
                   title={tShared("relatedGuidesTitle")}
                   titleClassName={CLUSTER_TITLE_RELATED}
                 />
-              </Reveal>
+              </div>
               <RelatedGuideGrid cards={relatedGuides} locale={locale} />
             </div>
           </section>
         ) : null}
 
-        <ClusterFaq guideId={guideId} />
+        <ClusterFaqSection
+          intro={{
+            body: t("faqIntro"),
+            eyebrow: t("faqEyebrow"),
+            title: t("faqTitle"),
+          }}
+          items={faqItems}
+        />
 
         <ContentAttribution sourcesHref={attributionSourcesHref} />
 
@@ -179,7 +190,7 @@ export function ClusterPageFrame({
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("ctaBody")}
                 bodyClassName={CLUSTER_HERO_BODY}
@@ -203,81 +214,10 @@ export function ClusterPageFrame({
                   {tShared("ctaAllSpecies")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
-      </main>
-    </div>
-  );
-}
-
-function ClusterFaq({ guideId }: { guideId: ClusterGuideId }) {
-  const guide = CLUSTER_GUIDES[guideId];
-  const t = useTranslations(guide.messageKey);
-  const [open, setOpen] = useState<null | number>(0);
-  const items = Array.from({ length: guide.faqCount }, (_, index) => index + 1);
-
-  return (
-    <section className="border-t border-border bg-surface py-24 lg:py-32">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <Reveal>
-            <ClusterSectionIntro
-              body={t("faqIntro")}
-              bodyClassName={CLUSTER_FAQ_BODY}
-              eyebrow={t("faqEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("faqTitle")}
-              titleClassName={CLUSTER_FAQ_TITLE}
-            />
-          </Reveal>
-          <div>
-            {items.map((n, index) => {
-              const isOpen = open === index;
-              const qKey = `faq${n}Q` as Parameters<typeof t>[0];
-              const aKey = `faq${n}A` as Parameters<typeof t>[0];
-              return (
-                <Reveal delay={index * 50} key={n}>
-                  <div className="border-t border-border last:border-b">
-                    <button
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                      onClick={() => setOpen(isOpen ? null : index)}
-                      type="button"
-                    >
-                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                        {t(qKey)}
-                      </span>
-                      <span
-                        className={cn(
-                          "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
-                          isOpen
-                            ? "rotate-45 bg-ink text-ink-foreground"
-                            : "text-foreground",
-                        )}
-                      >
-                        <Plus className="size-4" strokeWidth={1.75} />
-                      </span>
-                    </button>
-                    <div
-                      className={cn(
-                        "grid transition-[grid-template-rows] duration-300 ease-out",
-                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                          {t(aKey)}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
   );
 }

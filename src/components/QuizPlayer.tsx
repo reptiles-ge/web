@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import {
   useCallback,
   useEffect,
@@ -10,10 +9,12 @@ import {
   useRef,
 } from "react";
 
+import { QuizCopyProvider, useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizStage } from "@/components/QuizStage";
 import { trackEvent } from "@/lib/analytics";
 import { draftKey, type QuizDraft, useQuizDraft } from "@/lib/quizDraft";
 import {
+  generateLizardQuiz,
   generateSnakeQuiz,
   QUIZ_LENGTH,
   type QuizDifficulty,
@@ -28,16 +29,16 @@ type Answered = {
 };
 
 type QuizAction =
-  | { correct: boolean; optionId: string; type: "select"; }
+  | { correct: boolean; optionId: string; type: "select" }
   | { draft: QuizDraft; type: "restore" }
   | { open: boolean; type: "setHintOpen" }
   | { questions: SnakeQuizQuestion[]; type: "start" }
   | { type: "advance" };
 
 type QuizPlayerProps = {
+  pool: SnakeQuizSpecies[];
   quizId: string;
   shareUrl: string;
-  snakes: SnakeQuizSpecies[];
 };
 
 type QuizSession = {
@@ -80,7 +81,9 @@ function quizCoverState({
   questions: null | SnakeQuizQuestion[];
 }) {
   const coverSpecies = playing
-    ? (question ? (byId.get(question.correctId) ?? introCover) : introCover)
+    ? question
+      ? (byId.get(question.correctId) ?? introCover)
+      : introCover
     : introCover;
   return {
     coverKey: !playing
@@ -97,12 +100,12 @@ function quizCoverState({
   };
 }
 
-function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
-  const t = useTranslations("snakeQuiz");
+function QuizPlayerSession({ pool, quizId, shareUrl }: QuizPlayerProps) {
+  const t = useQuizCopy();
   const headingId = useId();
   const byId = useMemo(
-    () => new Map(snakes.map((item) => [item.id, item])),
-    [snakes],
+    () => new Map(pool.map((item) => [item.id, item])),
+    [pool],
   );
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const feedbackRef = useRef<HTMLParagraphElement>(null);
@@ -114,12 +117,16 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
     session;
   useQuizDraft(quizId, dispatch, session);
 
-  const introCover =
-    snakes.find((item) => item.id === "natrix-natrix") ?? snakes[0];
+  const introCoverId =
+    quizId === "lizard" ? "paralaudakia-caucasia" : "natrix-natrix";
+  const introCover = pool.find((item) => item.id === introCoverId) ?? pool[0];
 
   const startRound = useCallback(
     (reason: "restart" | "start") => {
-      const next = generateSnakeQuiz(snakes);
+      const next =
+        quizId === "lizard"
+          ? generateLizardQuiz(pool)
+          : generateSnakeQuiz(pool);
       dispatch({ questions: next, type: "start" });
       abandonSent.current = false;
       hintedQuestions.current = new Set();
@@ -129,7 +136,7 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
         quiz_id: quizId,
       });
     },
-    [snakes, quizId],
+    [pool, quizId],
   );
 
   useEffect(() => {
@@ -208,39 +215,42 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
     questions && index + 1 >= questions.length ? t("seeResult") : t("next");
 
   return (
-    <QuizStage
-      answers={answers}
-      byId={byId}
-      complete={complete}
-      correctCount={correctCount}
-      correctSpecies={correctSpecies}
-      coverKey={cover.coverKey}
-      coverMobileSrc={cover.coverMobileSrc}
-      coverSrc={cover.coverSrc}
-      feedbackRef={feedbackRef}
-      headingId={headingId}
-      hintedQuestions={hintedQuestions}
-      hintOpen={hintOpen}
-      index={index}
-      nextLabel={nextLabel}
-      nextQuestion={nextQuestion}
-      onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
-      onNext={onNext}
-      onRestart={() => startRound("restart")}
-      onSelect={onSelect}
-      onStart={() => startRound("start")}
-      optionRefs={optionRefs}
-      playing={playing}
-      question={question}
-      questions={questions}
-      quizId={quizId}
-      revealed={revealed}
-      selectedId={selectedId}
-      shareUrl={shareUrl}
-      total={total}
-    />
+    <QuizCopyProvider
+      namespace={quizId === "lizard" ? "lizardQuiz" : "snakeQuiz"}
+    >
+      <QuizStage
+        answers={answers}
+        byId={byId}
+        complete={complete}
+        correctCount={correctCount}
+        correctSpecies={correctSpecies}
+        coverKey={cover.coverKey}
+        coverMobileSrc={cover.coverMobileSrc}
+        coverSrc={cover.coverSrc}
+        feedbackRef={feedbackRef}
+        headingId={headingId}
+        hintedQuestions={hintedQuestions}
+        hintOpen={hintOpen}
+        index={index}
+        nextLabel={nextLabel}
+        nextQuestion={nextQuestion}
+        onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
+        onNext={onNext}
+        onRestart={() => startRound("restart")}
+        onSelect={onSelect}
+        onStart={() => startRound("start")}
+        optionRefs={optionRefs}
+        playing={playing}
+        question={question}
+        questions={questions}
+        quizId={quizId}
+        revealed={revealed}
+        selectedId={selectedId}
+        shareUrl={shareUrl}
+        total={total}
+      />
+    </QuizCopyProvider>
   );
-
 }
 
 function quizReducer(state: QuizSession, action: QuizAction): QuizSession {

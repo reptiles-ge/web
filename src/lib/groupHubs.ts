@@ -94,6 +94,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
   lizards: [
     "saxeoebebi",
     "identifikacia",
+    "darevskia",
     "xvlikis-da-gvelxokeras-gansxvaveba",
     "species",
     "identify",

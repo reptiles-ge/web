@@ -8,7 +8,6 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/cn";
 
 type ClusterContentSectionProps = {
@@ -38,7 +37,7 @@ export function ClusterContentSection({
       id={id}
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <ClusterSectionIntro
             body={body}
             bodyClassName={CLUSTER_BODY}
@@ -47,7 +46,7 @@ export function ClusterContentSection({
             title={title}
             titleClassName={CLUSTER_TITLE_SECTION}
           />
-        </Reveal>
+        </div>
         {children}
       </div>
     </section>

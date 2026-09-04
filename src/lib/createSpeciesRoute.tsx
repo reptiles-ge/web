@@ -29,7 +29,6 @@ import {
   openGraphJpeg,
   organizationJsonLd,
   siteConfig,
-  siteEntityId,
   speciesAlternates,
   speciesOgImageUrl,
   speciesPageUrl,
@@ -113,6 +112,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         images: [ogImageTag],
         locale: openGraphLocale(locale),
         modifiedTime: raw.updatedAt,
+        publishedTime: raw.publishedAt,
         siteName: siteConfig.name,
         title,
         type: "article",
@@ -211,7 +211,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       "@type": "Article",
       about: taxon,
       associatedMedia: photoObjects,
-      author: { "@id": siteEntityId("organization") },
+      author: org,
       citation: raw.sources.map((source) =>
         source.url
           ? {
@@ -225,6 +225,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             },
       ),
       dateModified: raw.updatedAt,
+      datePublished: raw.publishedAt,
       description: item.description,
       headline: `${item.commonName} (${item.scientificName})`,
       image: [ogImageObject, ...photoObjects],
@@ -307,7 +308,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
           )}
         />
-        <SpeciesProfile related={related} species={raw} />
+        <SpeciesProfile
+          related={related.map((item) => localizeSpecies(item, locale))}
+          species={item}
+        />
         <NewsRelatedBlock
           articles={getPublishedNewsForSpecies(raw.id)}
           locale={locale}

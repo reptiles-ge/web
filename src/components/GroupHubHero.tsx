@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -10,7 +8,6 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
-import { Reveal } from "@/components/Reveal";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -22,11 +19,17 @@ type GroupHubHeroProps = {
   species: Species[];
 };
 
-export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
-  const t = useTranslations(hubId);
-  const tShared = useTranslations("groupHubShared");
-  const tSnakes = useTranslations("snakes");
-  const locale = useLocale() as AppLocale;
+export async function GroupHubHero({
+  heroSrc,
+  hubId,
+  species,
+}: GroupHubHeroProps) {
+  const [t, tShared, tSnakes, locale] = await Promise.all([
+    getTranslations(hubId),
+    getTranslations("groupHubShared"),
+    getTranslations("snakes"),
+    getLocale() as Promise<AppLocale>,
+  ]);
   const venomousCount = species.filter((item) =>
     isVenomousDanger(item.danger),
   ).length;
@@ -50,7 +53,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
         <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <InkHeroBreadcrumb
               crumbs={[
                 {
@@ -62,10 +65,10 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
               ]}
             />
 
-            <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
+            <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
               Reptiles
             </p>
-            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
+            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -96,6 +99,17 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
                   <ArrowUpRight className="size-4" />
                 </QuizCtaLink>
               ) : null}
+              {hubId === "lizards" ? (
+                <QuizCtaLink
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  href={quizHref("lizard", locale)}
+                  quizId="lizard"
+                  source="hub"
+                >
+                  {t("ctaQuiz")}
+                  <ArrowUpRight className="size-4" />
+                </QuizCtaLink>
+              ) : null}
               {hubId === "turtles" ? (
                 <Link
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
@@ -106,7 +120,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
                 </Link>
               ) : null}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -119,7 +133,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
             )}
           >
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+              <p className="font-display text-display-stat font-semibold text-foreground">
                 {species.length}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -127,7 +141,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
               </p>
             </div>
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+              <p className="font-display text-display-stat font-semibold text-foreground">
                 {familyCount}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -136,7 +150,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
             </div>
             {extraItems ? null : (
               <div>
-                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+                <p className="font-display text-display-stat font-semibold text-foreground">
                   {hubId === "snakes" ? venomousCount : t("statExtraValue")}
                 </p>
                 <p className="mt-2 text-[13px] text-muted-foreground">
@@ -169,7 +183,7 @@ export function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
 }
 
 function readStatExtraItems(
-  t: ReturnType<typeof useTranslations>,
+  t: Awaited<ReturnType<typeof getTranslations>>,
 ): null | string[] {
   if (!t.has("statExtraItems")) return null;
   const items = t.raw("statExtraItems");

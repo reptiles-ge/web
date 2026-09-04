@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 
 import { ClusterStat } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 
 type VenomousSnakesHeroProps = {
@@ -43,7 +42,7 @@ export function VenomousSnakesHero({
         <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                 <li>
@@ -73,10 +72,10 @@ export function VenomousSnakesHero({
               </ol>
             </nav>
 
-            <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
+            <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
               Reptiles
             </p>
-            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
+            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -97,7 +96,7 @@ export function VenomousSnakesHero({
                 {t("ctaAtlas")}
               </Link>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

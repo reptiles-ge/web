@@ -7,7 +7,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getCatalogRegionStats,
@@ -27,7 +26,7 @@ export function RegionsIndex() {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <section
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
           style={{
@@ -45,7 +44,7 @@ export function RegionsIndex() {
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <Link
                 className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
                 href={{ hash: "atlas", pathname: "/" }}
@@ -56,7 +55,7 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
-              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-[clamp(1.95rem,5.5vw,4.5rem)] leading-[1.08] font-semibold text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-hero font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
@@ -73,7 +72,7 @@ export function RegionsIndex() {
                   {t("statVenomous", { count: stats.venomousCount })}
                 </span>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
@@ -83,17 +82,17 @@ export function RegionsIndex() {
             className="map-explorer-texture pointer-events-none absolute inset-0"
           />
           <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto max-w-2xl text-center">
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("mapEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold text-foreground">
+              <h2 className="mt-5 font-display text-display-title font-semibold text-foreground">
                 {t("mapTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
                 {t("mapSubtitle")}
               </p>
-            </Reveal>
+            </div>
             <div className="mt-12 lg:mt-16">
               <GeorgiaMap mapContext="region_page" selectionMode="navigate" />
             </div>
@@ -105,11 +104,11 @@ export function RegionsIndex() {
 
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("clusterEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
                 {t("clusterTitle")}
               </h2>
               <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -145,27 +144,27 @@ export function RegionsIndex() {
                   <ArrowUpRight className="size-3.5 opacity-50" />
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("directoryEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
                 {t("directoryTitle")}
               </h2>
-            </Reveal>
+            </div>
 
             <ul className="mt-14 divide-y divide-border/80 border-y border-border/80">
-              {regions.map((region, index) => (
+              {regions.map((region) => (
                 <li key={region.id}>
-                  <Reveal delay={index * 25}>
+                  <div>
                     <RegionDirectoryRow locale={locale} region={region} />
-                  </Reveal>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -174,11 +173,11 @@ export function RegionsIndex() {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("seo.eyebrow")}
               </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+              <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold text-foreground">
                 {t("seo.title")}
               </h2>
               <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">
@@ -224,10 +223,10 @@ export function RegionsIndex() {
                   </Link>
                 </li>
               </ul>
-            </Reveal>
+            </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
@@ -252,7 +251,7 @@ function RegionDirectoryRow({
     >
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+          <h3 className="font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
             {name}
           </h3>
           <span className="text-[12px] tracking-wide text-muted-foreground">

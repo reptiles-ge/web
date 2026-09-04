@@ -21,7 +21,7 @@ export async function FinalCTA() {
         <p className="text-[11px] font-medium tracking-[0.28em] text-white/45 uppercase">
           {t("eyebrow")}
         </p>
-        <h2 className="text-balance-tight mt-4 max-w-2xl font-display text-[clamp(1.7rem,3.6vw,2.75rem)] leading-[1.1] font-semibold text-white">
+        <h2 className="text-balance-tight mt-4 max-w-2xl font-display text-display-title font-semibold text-white">
           {t("title")}
         </h2>
         <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/60">

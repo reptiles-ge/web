@@ -7,7 +7,6 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   getHubClusterCardImage,
@@ -119,19 +118,19 @@ export function RelatedGuideGrid({
     <div
       className={cn(
         className,
-        "grid gap-px overflow-hidden rounded-[24px] bg-border/80",
+        "grid gap-px overflow-hidden rounded-card bg-border/80",
         columns,
       )}
     >
-      {cards.map((card, index) => (
-        <Reveal className="contents" delay={index * 50} key={card.key}>
+      {cards.map((card) => (
+        <div className="contents" key={card.key}>
           <RelatedGuideCard
             card={card}
             featured={featured}
             locale={locale}
             species={species}
           />
-        </Reveal>
+        </div>
       ))}
     </div>
   );

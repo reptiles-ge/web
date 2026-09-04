@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -11,7 +9,6 @@ import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import {
@@ -21,13 +18,13 @@ import {
 } from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function LizardIdentifyPage({
+export async function LizardIdentifyPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("lizardIdentify");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("lizardIdentify");
+  const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
   const featured = [
     byId.get("paralaudakia-caucasia"),
@@ -75,6 +72,13 @@ export function LizardIdentifyPage({
         title={t("darevskiaTitle")}
       >
         <SpeciesGuideList locale={locale} source="guide" species={darevskia} />
+        <Link
+          className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+          href="/lizards/darevskia"
+        >
+          {t("darevskiaCta")}
+          <ArrowUpRight className="size-3.5" />
+        </Link>
       </ClusterContentSection>
 
       <ClusterContentSection
@@ -110,15 +114,15 @@ export function LizardIdentifyPage({
         title={t("pairsTitle")}
       >
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {pairs.map((pair, index) => (
-            <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
+          {pairs.map((pair) => (
+            <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
                 a={pair.a}
                 b={pair.b}
                 locale={locale}
                 vs={t("vs")}
               />
-            </Reveal>
+            </div>
           ))}
         </div>
       </ClusterContentSection>

@@ -28,17 +28,50 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   async headers() {
+    const security = [
+      {
+        key: "Content-Security-Policy",
+        value: [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://va.vercel-scripts.com",
+          "style-src 'self' 'unsafe-inline'",
+          "img-src 'self' data: blob: https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.google.ge",
+          "font-src 'self' data:",
+          "connect-src 'self' https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+          "frame-src https://www.googletagmanager.com",
+          "frame-ancestors 'none'",
+          "base-uri 'self'",
+          "form-action 'self'",
+        ].join("; "),
+      },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "X-Frame-Options", value: "DENY" },
+    ];
     return [
       {
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        headers: security,
+        source: "/:path*",
+      },
+      {
+        headers: [
+          ...security,
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
         source: "/api/:path*",
       },
       {
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        headers: [
+          ...security,
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
         source: "/admin",
       },
       {
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+        headers: [
+          ...security,
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
         source: "/admin/:path*",
       },
     ];
@@ -216,6 +249,11 @@ const nextConfig: NextConfig = {
         source: "/quiz/which-snake",
         statusCode: 301,
       },
+      {
+        destination: "/quiz/romeli-xvlikia",
+        source: "/quiz/which-lizard",
+        statusCode: 301,
+      },
       ...latinRedirects([
         ["/gvelebi", "/snakes"],
         ["/xvlikebi", "/lizards"],
@@ -240,6 +278,7 @@ const nextConfig: NextConfig = {
         ["/gvelebi/sakartvelos-gvelebi", "/snakes/species"],
         ["/xvlikebi/saxeoebebi", "/lizards/species"],
         ["/xvlikebi/identifikacia", "/lizards/identify"],
+        ["/xvlikebi/darevskia", "/lizards/darevskia"],
         [
           "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
           "/lizards/lizard-or-glass-lizard",
@@ -264,6 +303,10 @@ const nextConfig: NextConfig = {
         ["/amphibians/saxeoebebi", "/amphibians/species"],
         ["/amphibians/bayayi/saxeoebebi", "/amphibians/frogs/species"],
         ["/amphibians/tritoni-salamandra", "/amphibians/newts"],
+        ["/prinvelebi/saxeoebebi", "/birds/species"],
+        ["/birds/saxeoebebi", "/birds/species"],
+        ["/dzuzumtsovrebi/saxeoebebi", "/mammals/species"],
+        ["/mammals/saxeoebebi", "/mammals/species"],
         ["/identify", "/species"],
         ["/snakes/dolichophis-caspius", "/snakes", 302],
         ["/gvelebi/qvitelmutsela-mtsuravi", "/snakes", 302],
@@ -277,6 +320,11 @@ const nextConfig: NextConfig = {
       {
         destination: "/en/quiz/which-snake",
         source: "/en/quiz/romeli-gvelia",
+        statusCode: 301,
+      },
+      {
+        destination: "/en/quiz/which-lizard",
+        source: "/en/quiz/romeli-xvlikia",
         statusCode: 301,
       },
       {
@@ -295,6 +343,16 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/ru/quiz/kakaya-yashcheritsa",
+        source: "/ru/quiz/romeli-xvlikia",
+        statusCode: 301,
+      },
+      {
+        destination: "/ru/quiz/kakaya-yashcheritsa",
+        source: "/ru/quiz/which-lizard",
+        statusCode: 301,
+      },
+      {
         destination: "/tr/quiz/hangi-yilan",
         source: "/tr/quiz/gvelis-identifikacia",
         statusCode: 301,
@@ -307,6 +365,16 @@ const nextConfig: NextConfig = {
       {
         destination: "/tr/quiz/hangi-yilan",
         source: "/tr/quiz/which-snake",
+        statusCode: 301,
+      },
+      {
+        destination: "/tr/quiz/hangi-kertenkele",
+        source: "/tr/quiz/romeli-xvlikia",
+        statusCode: 301,
+      },
+      {
+        destination: "/tr/quiz/hangi-kertenkele",
+        source: "/tr/quiz/which-lizard",
         statusCode: 301,
       },
     ];

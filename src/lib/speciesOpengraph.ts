@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { species } from "@/data/species";
+import { getSpeciesById } from "@/data/species";
 import {
   FALLBACK_OG_IMAGE_URL,
   OG_IMAGE_TYPE,
@@ -18,7 +18,7 @@ export const speciesOgContentType = OG_IMAGE_TYPE;
 
 export async function speciesOpengraphResponse(param: string) {
   const id = resolveSpeciesId(param) ?? param;
-  const item = species.find((entry) => entry.id === id);
+  const item = getSpeciesById(id);
   const url = speciesOgImageUrl(id, item?.image);
 
   const fromCdn = await fetchOg(url);

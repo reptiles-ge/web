@@ -17,7 +17,7 @@ export async function NotFoundContent() {
   const t = await getTranslations("notFound");
 
   return (
-    <main
+    <div
       className="relative flex min-h-svh flex-col overflow-hidden bg-ink text-ink-foreground"
       data-hide-footer
     >
@@ -48,7 +48,7 @@ export async function NotFoundContent() {
           <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
             {t("eyebrow")}
           </p>
-          <h1 className="text-balance-tight mt-4 font-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.05] font-semibold text-white">
+          <h1 className="text-balance-tight mt-4 font-display text-display-hero font-semibold text-white">
             {t("title")}
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/60 sm:mt-6 sm:text-[16px]">
@@ -71,14 +71,14 @@ export async function NotFoundContent() {
             </Link>
           </div>
         </div>
-        <div className="mt-16 grid gap-px overflow-hidden rounded-[24px] bg-white/10 sm:mt-20 sm:grid-cols-3">
+        <div className="mt-16 grid gap-px overflow-hidden rounded-card bg-white/10 sm:mt-20 sm:grid-cols-3">
           {pathways.map((pathway) => (
             <Link
               className="group flex min-h-[140px] flex-col justify-between bg-ink/80 p-6 backdrop-blur-md transition-colors hover:bg-ink/60 sm:p-7"
               href={pathway.href}
               key={pathway.key}
             >
-              <p className="text-[11px] font-medium tracking-[0.2em] text-white/40 uppercase">
+              <p className="text-[11px] font-medium tracking-[0.2em] text-white/50 uppercase">
                 {t(`paths.${pathway.key}.eyebrow`)}
               </p>
               <div className="mt-8 flex items-end justify-between gap-3">
@@ -91,6 +91,6 @@ export async function NotFoundContent() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

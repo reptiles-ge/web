@@ -7,7 +7,6 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -172,7 +171,7 @@ export function SpeciesIndexTable({
             )}
           >
             {filtered.map((item, index) => (
-              <Reveal delay={Math.min(index * 30, 240)} key={item.id}>
+              <div key={item.id}>
                 <IndexCard
                   dash={dash}
                   locale={locale}
@@ -182,7 +181,7 @@ export function SpeciesIndexTable({
                   venomousNo={t("venomousNo")}
                   venomousYes={t("venomousYes")}
                 />
-              </Reveal>
+              </div>
             ))}
           </div>
 

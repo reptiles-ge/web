@@ -34,12 +34,27 @@ export function SpeciesGallery({
   const photos = images.filter((item) => Boolean(item.src));
   const [active, setActive] = useState<null | number>(null);
   const opened = useRef(false);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const restoreIndex = useRef<null | number>(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (active === null) {
+      if (dialog.open) dialog.close();
+      return;
+    }
+    restoreIndex.current = active;
+    if (!dialog.open) dialog.showModal();
+    closeButtonRef.current?.focus();
+  }, [active]);
 
   useEffect(() => {
     if (active === null) return;
 
     function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setActive(null);
       if (event.key === "ArrowLeft") {
         setActive((current) =>
           current === null
@@ -54,14 +69,8 @@ export function SpeciesGallery({
       }
     }
 
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
-
-    return () => {
-      document.body.style.overflow = previous;
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [active, photos.length]);
 
   if (photos.length === 0) return null;
@@ -82,7 +91,7 @@ export function SpeciesGallery({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+            className="mt-5 font-display text-display-title"
             id={SPECIES_SECTION_IDS.gallery}
             slugSource={`${name} ${t("galleryTitle")}`}
           >
@@ -110,7 +119,7 @@ export function SpeciesGallery({
               return (
                 <figure
                   className={cn(
-                    "group relative overflow-hidden rounded-[24px] bg-ink",
+                    "group relative overflow-hidden rounded-card bg-ink",
                     featured
                       ? "col-span-2 aspect-16/10 md:col-span-3"
                       : "aspect-4/5",
@@ -130,6 +139,9 @@ export function SpeciesGallery({
                         });
                       }
                       setActive(index);
+                    }}
+                    ref={(node) => {
+                      triggerRefs.current[index] = node;
                     }}
                     type="button"
                   >
@@ -158,6 +170,7 @@ export function SpeciesGallery({
                   </button>
                   <PhotoCreditCaption
                     credit={photo.credit}
+                    photoConfidence={photo.photoConfidence}
                     speciesId={speciesId}
                     variant="thumb"
                   />
@@ -168,102 +181,107 @@ export function SpeciesGallery({
         </div>
       </section>
 
-      {active !== null && activePhoto ? (
-        <dialog
-          aria-label={t("gallery")}
-          className="fixed inset-0 z-100 m-0 flex size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0"
-          onCancel={(event) => {
-            event.preventDefault();
-            setActive(null);
-          }}
-          open
-        >
-          <button
-            aria-label={t("close")}
-            className="absolute inset-0 bg-black/92"
-            onClick={() => setActive(null)}
-            type="button"
-          />
-          <button
-            aria-label={t("close")}
-            className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
-            onClick={() => setActive(null)}
-            type="button"
-          >
-            <X className="size-5" />
-          </button>
+      <dialog
+        aria-label={t("gallery")}
+        className="fixed inset-0 z-100 m-0 hidden size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/92 open:flex"
+        onClose={() => {
+          setActive(null);
+          const index = restoreIndex.current;
+          if (index !== null) triggerRefs.current[index]?.focus();
+        }}
+        ref={dialogRef}
+      >
+        {activePhoto ? (
+          <>
+            <button
+              aria-label={t("close")}
+              className="absolute inset-0 bg-transparent"
+              onClick={() => dialogRef.current?.close()}
+              type="button"
+            />
+            <button
+              aria-label={t("close")}
+              className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
+              onClick={() => dialogRef.current?.close()}
+              ref={closeButtonRef}
+              type="button"
+            >
+              <X className="size-5" />
+            </button>
 
-          {photos.length > 1 && (
-            <>
-              <button
-                aria-label={t("prevPhoto")}
-                className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActive((current) =>
-                    current === null
-                      ? null
-                      : (current - 1 + photos.length) % photos.length,
-                  );
-                }}
-                type="button"
-              >
-                <ChevronLeft className="size-5" />
-              </button>
-              <button
-                aria-label={t("nextPhoto")}
-                className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActive((current) =>
-                    current === null ? null : (current + 1) % photos.length,
-                  );
-                }}
-                type="button"
-              >
-                <ChevronRight className="size-5" />
-              </button>
-            </>
-          )}
+            {photos.length > 1 && (
+              <>
+                <button
+                  aria-label={t("prevPhoto")}
+                  className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setActive((current) =>
+                      current === null
+                        ? null
+                        : (current - 1 + photos.length) % photos.length,
+                    );
+                  }}
+                  type="button"
+                >
+                  <ChevronLeft className="size-5" />
+                </button>
+                <button
+                  aria-label={t("nextPhoto")}
+                  className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    setActive((current) =>
+                      current === null ? null : (current + 1) % photos.length,
+                    );
+                  }}
+                  type="button"
+                >
+                  <ChevronRight className="size-5" />
+                </button>
+              </>
+            )}
 
-          <div
-            className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="relative min-h-0 flex-1">
-              <picture>
-                {pictureSources(activePhoto.src, {
-                  sizes: "(max-width: 1196px) 92vw, 1100px",
-                }).map((source) => (
-                  <source key={source.key} {...source.props} />
-                ))}
-                <img
-                  alt={speciesPhotoAlt(
-                    name,
-                    scientificName,
-                    location,
-                    activePhoto.credit,
-                  )}
-                  className="absolute inset-0 size-full object-contain text-transparent"
-                  decoding="async"
-                  fetchPriority="high"
-                  src={activePhoto.src}
+            <div
+              className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="relative min-h-0 flex-1">
+                <picture>
+                  {pictureSources(activePhoto.src, {
+                    sizes: "(max-width: 1196px) 92vw, 1100px",
+                  }).map((source) => (
+                    <source key={source.key} {...source.props} />
+                  ))}
+                  <img
+                    alt={speciesPhotoAlt(
+                      name,
+                      scientificName,
+                      location,
+                      activePhoto.credit,
+                    )}
+                    className="absolute inset-0 size-full object-contain text-transparent"
+                    decoding="async"
+                    fetchPriority="high"
+                    src={activePhoto.src}
+                  />
+                </picture>
+              </div>
+              <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
+                <PhotoCreditCaption
+                  credit={activePhoto.credit}
+                  photoConfidence={activePhoto.photoConfidence}
+                  speciesId={speciesId}
+                  variant="lightbox"
                 />
-              </picture>
+                <p className="text-[12px] tracking-[0.2em] text-white/50">
+                  {(active ?? 0) + 1} / {photos.length}
+                </p>
+              </div>
             </div>
-            <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
-              <PhotoCreditCaption
-                credit={activePhoto.credit}
-                speciesId={speciesId}
-                variant="lightbox"
-              />
-              <p className="text-[12px] tracking-[0.2em] text-white/35">
-                {active + 1} / {photos.length}
-              </p>
-            </div>
-          </div>
-        </dialog>
-      ) : null}
+          </>
+        ) : null}
+      </dialog>
     </>
   );
 }

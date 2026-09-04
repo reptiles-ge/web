@@ -1,7 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
-import { m } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { X } from "lucide-react";
 import {
   type ReactNode,
@@ -14,6 +13,7 @@ import { createPortal } from "react-dom";
 
 import { MotionLazy } from "@/components/MotionLazy";
 import { cn } from "@/lib/cn";
+import { cycleTab, usePrefersReducedMotion } from "@/lib/focusTrap";
 
 const panelTransition = { duration: 0.22, ease: [0.22, 1, 0.36, 1] as const };
 const sheetTransition = { duration: 0.32, ease: [0.22, 1, 0.36, 1] as const };
@@ -55,7 +55,10 @@ export function OverlayPanel({
     () => false,
   );
   const sheetRef = useRef<HTMLDivElement>(null);
+  const desktopRef = useRef<HTMLDivElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
   const onCloseRef = useRef(onClose);
+  const reduceMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -64,11 +67,17 @@ export function OverlayPanel({
   useEffect(() => {
     if (!open) return;
 
+    openerRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
     function onPointerDown(event: MouseEvent) {
       const target = event.target as Node;
       if (
         rootRef.current?.contains(target) ||
-        sheetRef.current?.contains(target)
+        sheetRef.current?.contains(target) ||
+        desktopRef.current?.contains(target)
       ) {
         return;
       }
@@ -76,7 +85,11 @@ export function OverlayPanel({
     }
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onCloseRef.current();
+      if (event.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      cycleTab(event, [rootRef.current, desktopRef.current, sheetRef.current]);
     }
 
     document.addEventListener("mousedown", onPointerDown);
@@ -84,6 +97,7 @@ export function OverlayPanel({
     return () => {
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
+      openerRef.current?.focus();
     };
   }, [open, rootRef]);
 
@@ -114,15 +128,16 @@ export function OverlayPanel({
           <m.div
             animate={{ opacity: 1, scale: 1, y: 0 }}
             className={cn(
-              "absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block",
+              "absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-card border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block",
               desktopClassName,
             )}
             exit={{ opacity: 0, scale: 0.98, y: -4 }}
             id={panelId}
-            initial={{ opacity: 0, scale: 0.98, y: -6 }}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: -6 }}
             key="overlay-panel"
+            ref={desktopRef}
             role={panelRole}
-            transition={panelTransition}
+            transition={reduceMotion ? { duration: 0 } : panelTransition}
           >
             {desktopContent}
           </m.div>
@@ -136,6 +151,7 @@ export function OverlayPanel({
           mobileSheetClassName={mobileSheetClassName}
           onClose={onClose}
           open={open}
+          reduceMotion={reduceMotion}
           sheetRef={sheetRef}
           title={title}
         />
@@ -151,6 +167,7 @@ function OverlayMobileSheet({
   mobileSheetClassName,
   onClose,
   open,
+  reduceMotion,
   sheetRef,
   title,
 }: {
@@ -160,6 +177,7 @@ function OverlayMobileSheet({
   mobileSheetClassName?: string;
   onClose: () => void;
   open: boolean;
+  reduceMotion: boolean;
   sheetRef: RefObject<HTMLDivElement | null>;
   title: string;
 }) {
@@ -172,11 +190,11 @@ function OverlayMobileSheet({
           animate={{ opacity: 1 }}
           aria-label={closeLabel}
           className="fixed inset-0 z-80 bg-ink/55 backdrop-blur-[2px] md:hidden"
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
+          exit={reduceMotion ? undefined : { opacity: 0 }}
+          initial={reduceMotion ? false : { opacity: 0 }}
           key="overlay-backdrop"
           onClick={onClose}
-          transition={{ duration: 0.22 }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.22 }}
           type="button"
         />
       ) : null}
@@ -189,12 +207,12 @@ function OverlayMobileSheet({
             "fixed inset-x-0 bottom-0 z-80 flex max-h-[92dvh] flex-col rounded-t-[28px] bg-card shadow-[0_-18px_60px_rgba(14,20,17,0.28)] md:hidden",
             mobileSheetClassName,
           )}
-          exit={{ opacity: 0.96, y: "100%" }}
-          initial={{ opacity: 0.96, y: "100%" }}
+          exit={reduceMotion ? undefined : { opacity: 0.96, y: "100%" }}
+          initial={reduceMotion ? false : { opacity: 0.96, y: "100%" }}
           key="overlay-sheet"
           ref={sheetRef}
           role="dialog"
-          transition={sheetTransition}
+          transition={reduceMotion ? { duration: 0 } : sheetTransition}
         >
           <div className="flex shrink-0 flex-col items-center px-4 pt-3">
             <span

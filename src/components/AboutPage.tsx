@@ -1,36 +1,29 @@
-"use client";
-
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 
 const SOURCE_LINKS = [
   {
-    href: "https://www.iucnredlist.org/",
-    key: "iucn" as const,
+    href: "https://doi.org/10.3897/caucasiana.5.e189214",
+    key: "tarkhnishvili" as const,
   },
   {
-    href: "https://www.gbif.org/",
-    key: "gbif" as const,
-  },
-  {
-    href: "https://reptile-database.reptarium.cz/",
-    key: "reptileDb" as const,
+    href: "https://doi.org/10.1080/09397140.2021.1957208",
+    key: "iankoshvili" as const,
   },
 ];
 
 const PILLARS = ["discover", "understand", "protect"] as const;
 
-export function AboutPage() {
-  const t = useTranslations("about");
+export async function AboutPage() {
+  const t = await getTranslations("about");
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <section
           className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[62svh] lg:pb-16"
           style={{
@@ -48,7 +41,7 @@ export function AboutPage() {
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <Link
                 className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
                 href="/"
@@ -62,28 +55,28 @@ export function AboutPage() {
               <p className="mt-5 text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
-              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-[clamp(1.75rem,4.5vw,3.25rem)] leading-[1.08] font-semibold text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-lead font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
                 {t("subtitle")}
               </p>
-            </Reveal>
+            </div>
           </div>
         </section>
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-              <Reveal>
+              <div>
                 <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                   {t("companyEyebrow")}
                 </p>
-                <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] leading-[1.05] font-semibold text-foreground">
+                <h2 className="mt-4 font-display text-display-title font-semibold text-foreground">
                   {t("companyTitle")}
                 </h2>
-              </Reveal>
-              <Reveal>
+              </div>
+              <div>
                 <div className="space-y-5 text-[15px] leading-[1.75] text-muted-foreground">
                   <p>{t("companyBody1")}</p>
                   <p>{t("companyBody2")}</p>
@@ -98,10 +91,10 @@ export function AboutPage() {
                   </span>
                   <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </Link>
-              </Reveal>
+              </div>
             </div>
 
-            <div className="mt-16 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-3 lg:mt-20">
+            <div className="mt-16 grid gap-px overflow-hidden rounded-media bg-border/80 sm:grid-cols-3 lg:mt-20">
               {PILLARS.map((pillar, index) => (
                 <div
                   className="bg-card px-6 py-8 sm:px-8 sm:py-10"
@@ -127,17 +120,17 @@ export function AboutPage() {
           id="methodology"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("methodEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
                 {t("methodTitle")}
               </h2>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                 {t("methodLead")}
               </p>
-            </Reveal>
+            </div>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-3">
               <MethodCard
@@ -174,18 +167,18 @@ export function AboutPage() {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("exploreEyebrow")}
               </p>
-              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
                 {t("exploreTitle")}
               </h2>
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                 {t("exploreBody")}
               </p>
-            </Reveal>
-            <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
+            </div>
+            <div className="mt-12 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {(
                 [
                   { href: "/species" as const, key: "species" as const },
@@ -222,11 +215,11 @@ export function AboutPage() {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[860px] px-6 text-center lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("contributeEyebrow")}
               </p>
-              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-4 font-display text-display-title font-semibold">
                 {t("contributeTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
@@ -239,17 +232,17 @@ export function AboutPage() {
                 {t("contributeCta")}
                 <ArrowUpRight className="size-3.5" />
               </Link>
-            </Reveal>
+            </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
 
 function MethodCard({ body, title }: { body: string; title: string }) {
   return (
-    <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
+    <div className="rounded-card border border-border/80 bg-card px-5 py-6 sm:px-6">
       <h3 className="font-display text-[1.15rem] font-semibold text-foreground">
         {title}
       </h3>

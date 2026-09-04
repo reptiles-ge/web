@@ -82,7 +82,7 @@ export async function NewsArticleCard({
               {t("featured")}
             </p>
             <div className="mt-3">{meta}</div>
-            <Heading className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.6rem)] leading-[1.1] font-semibold text-foreground group-hover:text-primary motion-safe:transition-colors">
+            <Heading className="text-balance-tight mt-4 font-display text-display-title font-semibold text-foreground group-hover:text-primary motion-safe:transition-colors">
               {title}
             </Heading>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
@@ -117,7 +117,7 @@ export async function NewsArticleCard({
           }
         >
           {meta}
-          <Heading className="mt-2.5 font-display text-[clamp(1.15rem,1.8vw,1.4rem)] leading-[1.18] font-semibold text-foreground group-hover:text-primary motion-safe:transition-colors">
+          <Heading className="mt-2.5 font-display text-display-kicker font-semibold text-foreground group-hover:text-primary motion-safe:transition-colors">
             {title}
           </Heading>
           <p className="mt-2 line-clamp-3 text-[14px] leading-relaxed text-muted-foreground">

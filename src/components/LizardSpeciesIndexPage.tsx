@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -13,7 +11,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import {
@@ -21,13 +18,13 @@ import {
   isDarevskiaSpecies,
 } from "@/lib/clusterGuides";
 
-export function LizardSpeciesIndexPage({
+export async function LizardSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("lizardIndex");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("lizardIndex");
+  const locale = (await getLocale()) as AppLocale;
   const featured = species.filter(
     (item) =>
       item.id === "paralaudakia-caucasia" || item.id === "pseudopus-apodus",
@@ -72,7 +69,7 @@ export function LizardSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("featuredBody")}
               bodyClassName={CLUSTER_BODY}
@@ -81,14 +78,14 @@ export function LizardSpeciesIndexPage({
               title={t("featuredTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <SpeciesGuideList locale={locale} source="guide" species={featured} />
         </div>
       </section>
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("darevskiaBody")}
               bodyClassName={CLUSTER_BODY}
@@ -97,7 +94,7 @@ export function LizardSpeciesIndexPage({
               title={t("darevskiaTitle", { count: darevskia.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}
@@ -111,7 +108,7 @@ export function LizardSpeciesIndexPage({
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("otherBody")}
               bodyClassName={CLUSTER_BODY}
@@ -120,7 +117,7 @@ export function LizardSpeciesIndexPage({
               title={t("otherTitle", { count: other.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}

@@ -8,7 +8,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { localizeRegionText, type Region } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
@@ -37,9 +36,8 @@ export function TurtleIdentifyChooser({
         title={t("chooserTitle")}
       >
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-          {turtles.map((item, index) => (
+          {turtles.map((item) => (
             <TurtleChooserCard
-              index={index}
               item={item}
               key={item.id}
               locale={locale}
@@ -98,11 +96,9 @@ export function TurtleIdentifyChooser({
 }
 
 function TurtleChooserCard({
-  index,
   item,
   locale,
 }: {
-  index: number;
   item: Species;
   locale: AppLocale;
 }) {
@@ -117,7 +113,7 @@ function TurtleChooserCard({
   });
 
   return (
-    <Reveal delay={index * 40}>
+    <div>
       <article className="flex h-full flex-col">
         <Link className="group block" href={speciesHref(item.id, locale)}>
           <figure>
@@ -153,6 +149,6 @@ function TurtleChooserCard({
           <ArrowUpRight className="size-3.5" />
         </Link>
       </article>
-    </Reveal>
+    </div>
   );
 }

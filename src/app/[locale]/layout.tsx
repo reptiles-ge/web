@@ -1,16 +1,19 @@
 import type { ReactNode } from "react";
 
-import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
-import { ClarityInit } from "@/components/ClarityInit";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SkipLink } from "@/components/SkipLink";
 import { routing } from "@/i18n/routing";
 
 type Props = {
@@ -30,18 +33,19 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const isProd = process.env.NODE_ENV === "production";
+  const t = await getTranslations("nav");
 
   return (
     <NextIntlClientProvider messages={messages}>
+      <SkipLink label={t("skipToContent")} />
       <ScrollToTop />
       <AnalyticsPageContext />
       <Navbar />
-      {children}
+      <main id="main" tabIndex={-1}>
+        {children}
+      </main>
       <Footer />
-      <Analytics />
       <SpeedInsights />
-      {isProd ? <ClarityInit /> : null}
     </NextIntlClientProvider>
   );
 }

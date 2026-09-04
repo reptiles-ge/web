@@ -13,6 +13,8 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
+  SITE_OG_IMAGE_URL,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -32,12 +34,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t("metaDescription");
   const path = "/regions";
   const url = absoluteUrl(localePath(locale, path));
+  const ogImage = openGraphJpeg(SITE_OG_IMAGE_URL, title);
 
   return {
     alternates: localeAlternates(locale, path),
     description,
     openGraph: {
       description,
+      images: [ogImage],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
@@ -52,6 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       description,
+      images: [SITE_OG_IMAGE_URL],
       title,
     },
   };

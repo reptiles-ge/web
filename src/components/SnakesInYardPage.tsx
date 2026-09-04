@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -17,7 +15,6 @@ import {
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
 import { SnakesInYardHero } from "@/components/SnakesInYardHero";
 import { SnakesInYardSections } from "@/components/SnakesInYardSections";
 import { Link } from "@/i18n/navigation";
@@ -33,9 +30,9 @@ const AGENCY_PHONE = "0322721600";
 const AGENCY_PHONE_DISPLAY = "032 272 16 00";
 const EMERGENCY_PHONE = "112";
 
-export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
-  const t = useTranslations("snakesInYard");
-  const locale = useLocale() as AppLocale;
+export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
+  const t = await getTranslations("snakesInYard");
+  const locale = (await getLocale()) as AppLocale;
   const relatedGuides = getHubPageRelatedGuides(
     "snakes",
     "/snakes-in-the-yard",
@@ -43,13 +40,13 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <SnakesInYardHero heroSrc={heroSrc} />
         <SnakesInYardSections coverSrc={coverSrc} />
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("appearBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -58,16 +55,16 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
                 title={t("appearTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
+            </div>
 
-            <div className="mt-12 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2">
-              <Reveal>
+            <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border/80 sm:grid-cols-2">
+              <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
                     <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                       {t("contactBiteEyebrow")}
                     </p>
-                    <h3 className="mt-4 font-display text-[clamp(1.25rem,2.2vw,1.55rem)] font-semibold text-foreground">
+                    <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
                       {t("contactBiteTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -91,14 +88,14 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
                     <ArrowUpRight className="size-3.5" />
                   </Link>
                 </div>
-              </Reveal>
-              <Reveal delay={60}>
+              </div>
+              <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
                     <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                       {t("contactAgencyEyebrow")}
                     </p>
-                    <h3 className="mt-4 font-display text-[clamp(1.25rem,2.2vw,1.55rem)] font-semibold text-foreground">
+                    <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
                       {t("contactAgencyTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -115,14 +112,14 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
                     </span>
                   </a>
                 </div>
-              </Reveal>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("relatedGuidesBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -131,7 +128,7 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
                 title={t("relatedGuidesTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
+            </div>
             <RelatedGuideGrid cards={relatedGuides} locale={locale} />
           </div>
         </section>
@@ -161,14 +158,14 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("ctaBody")}
                 bodyClassName={CLUSTER_HERO_BODY}
                 eyebrow={t("ctaEyebrow")}
                 eyebrowClassName={CLUSTER_HERO_EYEBROW}
                 title={t("ctaTitle")}
-                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white"
+                titleClassName="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white"
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
@@ -185,10 +182,10 @@ export function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
                   {t("ctaVenomous")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

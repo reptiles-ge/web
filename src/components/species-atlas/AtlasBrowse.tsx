@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { Reveal } from "@/components/Reveal";
 import {
   AtlasFilterButton,
   AtlasFilterSheet,
@@ -62,19 +61,19 @@ export function AtlasBrowse({
       id="explorer"
     >
       <div className="mx-auto max-w-350 px-6 lg:px-10">
-        <Reveal>
+        <div>
           <div className="max-w-2xl">
             <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("explorerEyebrow")}
             </p>
-            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] font-semibold text-foreground">
+            <h2 className="mt-4 font-display text-display-title font-semibold text-foreground">
               {t("explorerTitle")}
             </h2>
             <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
               {t("explorerSubtitle")}
             </p>
           </div>
-        </Reveal>
+        </div>
 
         <div className="mt-10 lg:mt-12">
           <div className="flex items-center gap-3">
@@ -263,11 +262,11 @@ function ComingSoonPanel({
       : t("emptyTitle");
 
   return (
-    <div className="mt-12 rounded-[28px] border border-border bg-card px-6 py-14 text-center sm:px-10">
+    <div className="mt-12 rounded-media border border-border bg-card px-6 py-14 text-center sm:px-10">
       <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
         {t("emptyEyebrow")}
       </p>
-      <h3 className="mx-auto mt-4 max-w-lg font-display text-[clamp(1.4rem,3vw,2rem)] leading-tight font-semibold">
+      <h3 className="mx-auto mt-4 max-w-lg font-display text-display-card font-semibold">
         {title}
       </h3>
       <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">

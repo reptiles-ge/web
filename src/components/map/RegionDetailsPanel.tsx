@@ -1,7 +1,6 @@
 "use client";
 
-import { m } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
@@ -14,6 +13,7 @@ import { SpeciesCard } from "@/components/map/SpeciesCard";
 import { getRegionSpecies, localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
+import { cycleTab } from "@/lib/focusTrap";
 import { regionHref } from "@/lib/speciesRoutes";
 
 type PanelContentProps = {
@@ -37,6 +37,8 @@ export function RegionDetailsPanel({
   const open = Boolean(region);
   const [isDesktop, setIsDesktop] = useState(false);
   const onCloseRef = useRef(onClose);
+  const panelRef = useRef<HTMLElement | null>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -55,8 +57,17 @@ export function RegionDetailsPanel({
   useEffect(() => {
     if (!open) return;
 
+    openerRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") onCloseRef.current();
+      if (event.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      cycleTab(event, [panelRef.current]);
     }
 
     const previous = document.body.style.overflow;
@@ -65,6 +76,7 @@ export function RegionDetailsPanel({
     return () => {
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKeyDown);
+      openerRef.current?.focus();
     };
   }, [open]);
 
@@ -96,6 +108,7 @@ export function RegionDetailsPanel({
             initial={
               isDesktop ? { opacity: 0, x: 40 } : { opacity: 0, y: "100%" }
             }
+            ref={panelRef}
             role="dialog"
             transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -124,7 +137,7 @@ function PanelContent({ locale, onClose, region, species }: PanelContentProps) {
             {t("regionLabel")}
           </p>
           <h2
-            className="mt-2 font-display text-[clamp(1.55rem,3vw,2rem)] leading-tight font-semibold text-foreground"
+            className="mt-2 font-display text-display-card font-semibold text-foreground"
             id="region-panel-title"
           >
             {localizeRegionText(region.name, locale)}
@@ -199,7 +212,7 @@ function PanelContent({ locale, onClose, region, species }: PanelContentProps) {
         ) : (
           <m.div
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 flex flex-col items-center rounded-[24px] border border-dashed border-border bg-secondary/40 px-6 py-12 text-center"
+            className="mt-6 flex flex-col items-center rounded-card border border-dashed border-border bg-secondary/40 px-6 py-12 text-center"
             initial={{ opacity: 0, y: 10 }}
             key={`${region.id}-empty`}
             transition={{ delay: 0.1, duration: 0.35 }}

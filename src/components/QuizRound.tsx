@@ -1,12 +1,17 @@
 "use client";
 
 import { ArrowRight, Lightbulb } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { type KeyboardEvent, type RefObject } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
-import type { QuizDifficulty, SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
+import type {
+  QuizDifficulty,
+  SnakeQuizQuestion,
+  SnakeQuizSpecies,
+} from "@/lib/snakeQuiz";
 
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -61,7 +66,7 @@ export function QuizRound({
   selectedId,
   total,
 }: QuizRoundProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
 
   function onRadioKeyDown(event: KeyboardEvent<HTMLDivElement>) {
@@ -211,13 +216,15 @@ export function QuizRound({
           aria-live="polite"
         >
           {revealed ? (
-            <div className="mt-2.5 rounded-[20px] border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:rounded-[24px] sm:p-6">
+            <div className="mt-2.5 rounded-card border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:p-6">
               <p
                 className="font-display text-[1.1rem] font-semibold text-white outline-none sm:text-[1.45rem]"
                 ref={feedbackRef}
                 tabIndex={-1}
               >
-                {selectedId === question.correctId ? t("correct") : t("incorrect")}
+                {selectedId === question.correctId
+                  ? t("correct")
+                  : t("incorrect")}
               </p>
               <p className="mt-1.5 text-[13px] leading-relaxed text-white/75 sm:mt-2 sm:text-[15px]">
                 {t("revealLead", {

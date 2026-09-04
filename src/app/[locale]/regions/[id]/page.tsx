@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
@@ -15,6 +16,7 @@ import {
   getRegionById,
   getRegionSpecies,
   localizeRegionText,
+  localizeRegionTextIfPresent,
   regions,
 } from "@/data/regions";
 import {
@@ -29,6 +31,7 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
   speciesPageUrl,
@@ -73,6 +76,8 @@ export async function generateMetadata({
     nameIn,
   });
   const path = regionHref(region.id);
+  const ogImageSrc = getRegionHeroImage(region.id);
+  const ogImage = openGraphJpeg(ogImageSrc, title);
 
   return {
     alternates: localeAlternates(locale, path),
@@ -90,10 +95,11 @@ export async function generateMetadata({
         },
         locale,
       ),
-      localizeRegionText(content.biome, locale),
-    ],
+      localizeRegionTextIfPresent(content.biome, locale),
+    ].filter((item): item is string => Boolean(item)),
     openGraph: {
       description,
+      images: [ogImage],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
@@ -108,6 +114,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       description,
+      images: [ogImageSrc],
       title,
     },
   };
@@ -137,7 +144,8 @@ export default async function RegionPage({ params }: PageProps) {
   const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const overview = localizeRegionText(content.overview, locale);
+  const overview =
+    localizeRegionTextIfPresent(content.overview, locale) ?? name;
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
   const species = getRegionSpecies(region).map((item) =>
     localizeSpecies(item, locale),
@@ -199,18 +207,25 @@ export default async function RegionPage({ params }: PageProps) {
     ],
   };
 
+  const faqItems = content.faq.flatMap((entry) => {
+    const question = localizeRegionTextIfPresent(entry.question, locale);
+    const answer = localizeRegionTextIfPresent(entry.answer, locale);
+    if (!question || !answer) return [];
+    return [{ answer, question }];
+  });
+
   const faqJsonLd =
-    content.faq.length > 0
+    faqItems.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: content.faq.map((entry) => ({
+          mainEntity: faqItems.map((entry) => ({
             "@type": "Question",
             acceptedAnswer: {
               "@type": "Answer",
-              text: localizeRegionText(entry.answer, locale),
+              text: entry.answer,
             },
-            name: localizeRegionText(entry.question, locale),
+            name: entry.question,
           })),
         }
       : null;
@@ -225,7 +240,7 @@ export default async function RegionPage({ params }: PageProps) {
             : [jsonLd, breadcrumbJsonLd]
         }
       />
-      <RegionProfile region={region} />
+      <RegionProfile attribution={<ContentAttribution />} region={region} />
       <NewsRelatedBlock
         articles={getPublishedNewsForRegion(region.id)}
         locale={locale}

@@ -34,7 +34,7 @@ export async function Hero() {
         <p className="text-[11px] font-medium tracking-[0.28em] text-white/55 uppercase">
           {t("kicker")}
         </p>
-        <h1 className="text-balance-tight mt-4 max-w-3xl font-display text-[clamp(1.7rem,4.2vw,3.15rem)] leading-[1.12] font-semibold text-white">
+        <h1 className="text-balance-tight mt-4 max-w-3xl font-display text-display-lead font-semibold text-white">
           {t("title")}
         </h1>
         <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/68 sm:mt-5 sm:text-[16px]">

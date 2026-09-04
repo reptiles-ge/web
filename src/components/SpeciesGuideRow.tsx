@@ -7,7 +7,6 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -29,14 +28,14 @@ export function SpeciesGuideList({
   return (
     <div className="mt-12 divide-y divide-border border-y border-border">
       {species.map((item, index) => (
-        <Reveal delay={Math.min(index * 40, 320)} key={item.id}>
+        <div key={item.id}>
           <SpeciesGuideRow
             index={index}
             locale={locale}
             source={source}
             species={item}
           />
-        </Reveal>
+        </div>
       ))}
     </div>
   );
@@ -100,7 +99,7 @@ export function SpeciesGuideRow({
         })
       }
     >
-      <div className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
+      <div className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
         <CoverImage
           alt={speciesImageAlt(
             species.commonName,
@@ -181,7 +180,7 @@ function SpeciesGuideRowCopy({
             </span>
           ) : null}
         </div>
-        <h3 className="mt-2 font-display text-[clamp(1.35rem,2.5vw,1.85rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+        <h3 className="mt-2 font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </h3>
         <p className="mt-1 text-[13px] tracking-wide text-muted-foreground italic">

@@ -1,30 +1,27 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function AtlasSeo() {
-  const t = useTranslations("speciesAtlas");
-  const locale = useLocale() as AppLocale;
+export async function AtlasSeo() {
+  const t = await getTranslations("speciesAtlas");
+  const locale = (await getLocale()) as AppLocale;
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-215 px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("seoEyebrow")}
           </p>
-        </Reveal>
+        </div>
 
         <article className="mt-8 space-y-12">
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.reptilesTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
@@ -34,7 +31,7 @@ export function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.amphibiansTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -52,7 +49,7 @@ export function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.birdsTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -70,7 +67,7 @@ export function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.mammalsTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -88,7 +85,7 @@ export function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.spidersTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -106,7 +103,7 @@ export function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.venomousTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
@@ -157,7 +154,7 @@ export function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.regionsTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">

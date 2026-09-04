@@ -2,12 +2,16 @@ export type DangerLevel = "Harmless" | "High" | "Moderate";
 
 export type GalleryImage = {
   credit?: PhotoCredit;
+  photoConfidence?: PhotoConfidence;
   src: string;
 };
+
+export type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";
 
 export type PhotoCredit = {
   date?: string;
   location?: string;
+  photoConfidence?: PhotoConfidence;
   photographer?: string;
   url?: string;
 };
@@ -35,6 +39,7 @@ export type Species = {
   mobileImage?: string;
   mobileImageCredit?: PhotoCredit;
   overview: string;
+  publishedAt: string;
   scientificName: string;
   sources: SpeciesSource[];
   stats: SpeciesStat[];
@@ -68,12 +73,6 @@ export type SpeciesStat = {
   label: string;
   value: string;
 };
-
-export const defaultSpeciesSources: SpeciesSource[] = [
-  {
-    name: "Scientific publications",
-  },
-];
 
 export type SpeciesTranslation = {
   behavior: string;

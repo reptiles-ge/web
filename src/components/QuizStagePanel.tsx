@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { type RefObject } from "react";
 
 import type {
@@ -9,6 +8,7 @@ import type {
   SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
 
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
 import { QuizResultOverlay } from "@/components/QuizResultOverlay";
 import { QuizRound } from "@/components/QuizRound";
@@ -73,7 +73,7 @@ export function QuizStagePanel({
   shareUrl,
   total,
 }: QuizStagePanelProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
 
   if (!playing) {
     return <QuizIntroOverlay headingId={headingId} onStart={onStart} />;

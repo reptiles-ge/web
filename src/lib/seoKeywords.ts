@@ -3,7 +3,10 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { caucasusPlaceName, georgiaPlaceName } from "@/i18n/localeMeta";
 
-const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
+const SPECIES_ALIASES: Record<
+  string,
+  { en: string[]; ka: string[]; ru?: string[]; tr?: string[] }
+> = {
   "ablepharus-pannonicus": {
     en: ["Asian snake-eyed skink", "lidless skink", "snake-eyed skink"],
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
@@ -11,6 +14,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
   "coronella-austriaca": {
     en: ["smooth snake", "Coronella"],
     ka: ["გლუვი გველი", "სპილენძა გველი"],
+    ru: ["медянка", "обыкновенная медянка"],
+    tr: ["Avusturya yılanı", "Coronella"],
   },
   "darevskia-adjarica": {
     en: [
@@ -214,6 +219,12 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
     ],
     ka: ["Hyla arborea savignyi"],
   },
+  "lacerta-agilis": {
+    en: ["sand lizard"],
+    ka: ["მარდი ხვლიკი"],
+    ru: ["прыткая ящерица"],
+    tr: ["Kum kertenkelesi"],
+  },
   "lacerta-media": {
     en: [
       "medium lizard",
@@ -247,6 +258,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "Macrovipera lebetina",
       "Vipera lebetina",
     ],
+    ru: ["гюрза", "Macrovipera lebetina", "Vipera lebetina"],
+    tr: ["Levant engereği", "giurza", "Macrovipera lebetina"],
   },
   "malpolon-insignitus": {
     en: [
@@ -255,6 +268,14 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "Malpolon monspessulanus",
     ],
     ka: ["ხვლიკიჭამია გველი", "ხვლიკიჭამია", "Malpolon monspessulanus"],
+    ru: ["восточная мальполон", "мальполон"],
+    tr: ["Doğu Montpellier yılanı"],
+  },
+  "mauremys-caspica": {
+    en: ["Caspian turtle", "stripe-necked terrapin"],
+    ka: ["კასპიური კუ"],
+    ru: ["каспийская черепаха"],
+    tr: ["Hazar kaplumbağası"],
   },
   "natrix-natrix": {
     en: [
@@ -273,6 +294,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "დიდთავა ანკარა",
       "Natrix megalocephala",
     ],
+    ru: ["обыкновенный уж", "уж"],
+    tr: ["Çim yılanı"],
   },
   "paralaudakia-caucasia": {
     en: [
@@ -282,6 +305,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "Stellio caucasius",
     ],
     ka: ["კავკასიური ჯოჯო", "Laudakia caucasia", "Agama caucasica"],
+    ru: ["кавказская агама", "джоджо"],
+    tr: ["Kafkas agama"],
   },
   "pelodytes-caucasicus": {
     en: ["Caucasian mud-diver", "parsley frog", "Pelodytes"],
@@ -308,6 +333,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
   "pseudopus-apodus": {
     en: ["European glass lizard", "sheltopusik"],
     ka: ["გველხოკერა"],
+    ru: ["желтопузик"],
+    tr: ["Yılan kertenkele"],
   },
   "rana-macrocnemis": {
     en: [
@@ -335,14 +362,26 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "Testudo graeca ibera",
     ],
     ka: ["ხმელეთის კუ", "ხმელთაშუაზღვის კუ", "Testudo graeca ibera"],
+    ru: ["средиземноморская черепаха"],
+    tr: ["Akdeniz tosbağası"],
+  },
+  "trachemys-scripta": {
+    en: ["red-eared slider", "pond slider"],
+    ka: ["წითელყურა კუ"],
+    ru: ["красноухая черепаха"],
+    tr: ["Kırmızı yanaklı su kaplumbağası"],
   },
   "vipera-darevskii": {
     en: ["Darevsky's viper"],
     ka: ["დარევსკის გველგესლა", "გველგესლა"],
+    ru: ["гадюка Даревского"],
+    tr: ["Darevski engereği"],
   },
   "vipera-dinniki": {
     en: ["Dinnik's viper", "Caucasus subalpine viper", "Pelias dinniki"],
     ka: ["დინიკის გველგესლა", "Pelias dinniki"],
+    ru: ["гадюка Динника"],
+    tr: ["Dinnik engereği"],
   },
   "vipera-kaznakovi": {
     en: [
@@ -358,10 +397,14 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "შხამიანი გველგესლა",
       "Pelias kaznakovi",
     ],
+    ru: ["кавказская гадюка"],
+    tr: ["Kafkas engereği"],
   },
   "vipera-renardi": {
     en: ["eastern steppe viper", "steppe viper"],
     ka: ["ველის გველგესლა", "სტეპის გველგესლა", "გველგესლა"],
+    ru: ["степная гадюка"],
+    tr: ["Bozkır engereği"],
   },
   "vipera-transcaucasiana": {
     en: [
@@ -379,6 +422,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "Vipera ammodytes",
       "Vipera transcaucasiana",
     ],
+    ru: ["носатая гадюка"],
+    tr: ["Boynuzlu engerek"],
   },
   "zamenis-longissimus": {
     en: ["Aesculapian snake"],
@@ -715,6 +760,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
   "emys-orbicularis": {
     en: ["European pond terrapin", "pond turtle", "Emys orbicularis persica"],
     ka: ["ევროპული ჭაობის კუ", "Emys orbicularis persica"],
+    ru: ["европейская болотная черепаха"],
+    tr: ["Avrupa bataklık kaplumbağası"],
   },
   "erinaceus-concolor": {
     en: [
@@ -1002,6 +1049,8 @@ const SPECIES_ALIASES: Record<string, { en: string[]; ka: string[] }> = {
       "non-venomous water snake",
     ],
     ka: ["წყლის ანკარა", "წყლის გველი", "უშხამო ანკარა", "dice snake"],
+    ru: ["водяной уж"],
+    tr: ["Kareli yılan"],
   },
   "ommatotriton-ophryticus": {
     en: [
@@ -1297,7 +1346,10 @@ export function siteKeywords(locale: AppLocale) {
 export function speciesAliasKeywords(id: string, locale: AppLocale) {
   const aliases = SPECIES_ALIASES[id];
   if (!aliases) return [];
-  return locale === "ka" ? aliases.ka : aliases.en;
+  if (locale === "ka") return aliases.ka;
+  if (locale === "ru") return aliases.ru ?? [];
+  if (locale === "tr") return aliases.tr ?? [];
+  return aliases.en;
 }
 
 export function speciesJsonLdKeywords(species: Species, locale: AppLocale) {

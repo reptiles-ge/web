@@ -41,7 +41,7 @@ export async function HomeFresh() {
             <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
-            <h2 className="text-balance-tight mt-4 font-display text-[clamp(1.65rem,3.2vw,2.5rem)] leading-[1.12] font-semibold">
+            <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
               {t("title")}
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -81,7 +81,7 @@ export async function HomeFresh() {
                     {formatContentDate(lead.publishedAt, locale)}
                   </time>
                 </p>
-                <h3 className="mt-2 font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-[1.15] font-semibold text-foreground transition-colors group-hover:text-primary">
+                <h3 className="mt-2 font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
                   {leadCopy.title}
                 </h3>
                 <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">

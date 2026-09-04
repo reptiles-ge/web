@@ -30,7 +30,7 @@ export async function HomeSeo() {
         <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
           {t("eyebrow")}
         </p>
-        <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.55rem,2.8vw,2.15rem)] leading-[1.15] font-semibold text-foreground">
+        <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold text-foreground">
           {t("title")}
         </h2>
         <div className="mt-5 max-w-2xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">

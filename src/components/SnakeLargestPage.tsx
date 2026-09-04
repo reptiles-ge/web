@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -16,7 +14,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -28,13 +25,13 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function SnakeLargestPage({
+export async function SnakeLargestPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeLargest");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("snakeLargest");
+  const locale = (await getLocale()) as AppLocale;
   const snakes = orderSpeciesByIds(species, LARGE_SNAKE_IDS);
   const lizard = species.find((item) => item.id === LARGE_SNAKE_LIZARD_ID);
 
@@ -61,7 +58,7 @@ export function SnakeLargestPage({
         id="list"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("listBody")}
               bodyClassName={CLUSTER_BODY}
@@ -70,17 +67,17 @@ export function SnakeLargestPage({
               title={t("listTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <ol className="mt-12 divide-y divide-border border-y border-border">
             {snakes.map((item, index) => (
-              <Reveal delay={Math.min(index * 40, 280)} key={item.id}>
+              <div key={item.id}>
                 <LargestRow
                   dash={t("emDash")}
                   index={index}
                   locale={locale}
                   species={item}
                 />
-              </Reveal>
+              </div>
             ))}
           </ol>
         </div>
@@ -90,7 +87,7 @@ export function SnakeLargestPage({
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
-              <Reveal>
+              <div>
                 <ClusterSectionIntro
                   body={t("lizardBody")}
                   bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground"
@@ -110,10 +107,10 @@ export function SnakeLargestPage({
                     <ArrowUpRight className="size-4" />
                   </Link>
                 </ClusterSectionIntro>
-              </Reveal>
-              <Reveal delay={60}>
+              </div>
+              <div>
                 <Link
-                  className="relative block aspect-16/10 overflow-hidden rounded-[28px] bg-ink"
+                  className="relative block aspect-16/10 overflow-hidden rounded-media bg-ink"
                   href={speciesHref(lizard.id, locale)}
                 >
                   <CoverImage
@@ -127,7 +124,7 @@ export function SnakeLargestPage({
                     src={lizard.image}
                   />
                 </Link>
-              </Reveal>
+              </div>
             </div>
           </div>
         </section>
@@ -154,7 +151,7 @@ function LargestRow({
         className="group grid gap-5 py-7 sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 lg:grid-cols-[9rem_1fr_auto]"
         href={speciesHref(species.id, locale)}
       >
-        <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
+        <span className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
           <CoverImage
             alt={speciesImageAlt(
               species.commonName,
@@ -170,7 +167,7 @@ function LargestRow({
           <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="mt-2 block font-display text-[clamp(1.35rem,2.5vw,1.85rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+          <span className="mt-2 block font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
             {species.commonName}
           </span>
           <span className="mt-1 block text-[13px] text-muted-foreground italic">

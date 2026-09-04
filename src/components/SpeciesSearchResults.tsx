@@ -7,12 +7,8 @@ import {
   searchGroupHeading,
   type SearchGroupTitles,
 } from "@/lib/searchGroupHeading";
-import {
-  type SearchDocument,
-  type SearchGroup,
-} from "@/lib/siteSearch";
+import { type SearchDocument, type SearchGroup } from "@/lib/siteSearch";
 
-export type { SearchFilterLabels } from "@/components/SpeciesSearchFilterBar";
 export type { SearchGroupTitles } from "@/lib/searchGroupHeading";
 
 export function SearchResultsList({
@@ -61,12 +57,20 @@ export function SearchResultsList({
           const isRecentGroup = showRecent && groupIndex === 0;
           const start = cursor;
           cursor += group.items.length;
+          const heading = searchGroupHeading(
+            group.kind,
+            isRecentGroup,
+            query,
+            titles,
+          );
           return (
-            <div key={`${group.kind}-${groupIndex}`}>
-              <GroupLabel>
-                {searchGroupHeading(group.kind, isRecentGroup, query, titles)}
-              </GroupLabel>
-              <ul className="p-1.5">
+            <div
+              aria-label={heading}
+              key={`${group.kind}-${groupIndex}`}
+              role="group"
+            >
+              <GroupLabel>{heading}</GroupLabel>
+              <div className="p-1.5">
                 {group.items.map((item, index) => {
                   const globalIndex = start + index;
                   return (
@@ -81,7 +85,7 @@ export function SearchResultsList({
                     />
                   );
                 })}
-              </ul>
+              </div>
             </div>
           );
         })

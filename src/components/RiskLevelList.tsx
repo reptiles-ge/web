@@ -12,7 +12,6 @@ import {
   CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -35,7 +34,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("scaleLead")}
                 bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
@@ -52,17 +51,12 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                   {t("scaleDisclaimer")}
                 </p>
               </ClusterSectionIntro>
-            </Reveal>
+            </div>
             <ol className="space-y-0 divide-y divide-border border-y border-border">
               {DANGER_LEVEL_ORDER.map((level, index) => {
                 const tone = levelTone(level);
                 return (
-                  <Reveal
-                    as="li"
-                    className="flex items-start gap-5 py-6"
-                    delay={index * 50}
-                    key={level}
-                  >
+                  <li className="flex items-start gap-5 py-6" key={level}>
                     <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -87,7 +81,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                         {t(`scale${level}Body`)}
                       </p>
                     </div>
-                  </Reveal>
+                  </li>
                 );
               })}
             </ol>
@@ -110,7 +104,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
             key={level}
           >
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
+              <div>
                 <span
                   className={cn(
                     "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-wider",
@@ -123,13 +117,13 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                   />
                   {tDanger(level)}
                 </span>
-                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+                <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
                   {t(`${level}Title`)}
                 </h2>
                 <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                   {t(`${level}Lead`)}
                 </p>
-              </Reveal>
+              </div>
 
               <ol className="mt-10 max-w-2xl divide-y divide-border border-y border-border">
                 {([1, 2, 3] as const).map((n) => (
@@ -145,7 +139,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
               </ol>
 
               <div className="mt-14">
-                <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
+                <h3 className="font-display text-display-card font-semibold">
                   {level === "Harmless"
                     ? t("HarmlessSpeciesTitle")
                     : t("speciesTitle", { count: species.length })}
@@ -198,8 +192,8 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-            <Reveal>
+          <div className="grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
+            <div>
               <ClusterPathCard
                 body={t("venomousBody")}
                 cta={t("venomousCta")}
@@ -207,8 +201,8 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                 href="/venomous-snakes"
                 title={t("venomousTitle")}
               />
-            </Reveal>
-            <Reveal delay={60}>
+            </div>
+            <div>
               <ClusterPathCard
                 body={t("idBody")}
                 cta={t("idCta")}
@@ -216,7 +210,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                 href="/snakes/shxamiani-gvelis-amocnoba"
                 title={t("idTitle")}
               />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

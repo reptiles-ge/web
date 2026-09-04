@@ -1,11 +1,9 @@
-"use client";
-
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { SnakeBiteSections } from "@/components/SnakeBiteSections";
 
-export function SnakeBitePage({
+export async function SnakeBitePage({
   guideId,
   heroSrc,
   species,

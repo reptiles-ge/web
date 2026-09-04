@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -12,7 +10,6 @@ import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
@@ -24,13 +21,13 @@ import {
 } from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function SnakeIdentifyPage({
+export async function SnakeIdentifyPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeIdentify");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("snakeIdentify");
+  const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
   const vipers = getViperSpecies(species);
   const rearFanged = getRearFangedSpecies(species);
@@ -70,7 +67,7 @@ export function SnakeIdentifyPage({
         title={t("guideTitle")}
       />
 
-      <Reveal>
+      <div>
         <QuizPracticeCta
           body={t("quizCtaBody")}
           cta={t("quizCta")}
@@ -79,7 +76,7 @@ export function SnakeIdentifyPage({
           source="other"
           title={t("quizCtaTitle")}
         />
-      </Reveal>
+      </div>
 
       <ClusterContentSection
         body={t("signsWarning")}
@@ -139,15 +136,15 @@ export function SnakeIdentifyPage({
         title={t("pairsTitle")}
       >
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {pairs.map((pair, index) => (
-            <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
+          {pairs.map((pair) => (
+            <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
                 a={pair.a}
                 b={pair.b}
                 locale={locale}
                 vs={t("vs")}
               />
-            </Reveal>
+            </div>
           ))}
         </div>
       </ClusterContentSection>

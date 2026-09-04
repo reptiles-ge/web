@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -14,7 +12,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { Link } from "@/i18n/navigation";
 import {
@@ -23,13 +20,13 @@ import {
   isNewtSpecies,
 } from "@/lib/clusterGuides";
 
-export function AmphibianSpeciesIndexPage({
+export async function AmphibianSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("amphibianIndex");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("amphibianIndex");
+  const locale = (await getLocale()) as AppLocale;
   const frogs = species.filter((item) => isFrogSpecies(item.id));
   const newts = species.filter((item) => isNewtSpecies(item.id));
 
@@ -64,7 +61,7 @@ export function AmphibianSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("frogsBody")}
               bodyClassName={CLUSTER_BODY}
@@ -90,7 +87,7 @@ export function AmphibianSpeciesIndexPage({
                 </Link>
               </div>
             </ClusterSectionIntro>
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}
@@ -103,7 +100,7 @@ export function AmphibianSpeciesIndexPage({
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("newtsBody")}
               bodyClassName={CLUSTER_BODY}
@@ -120,7 +117,7 @@ export function AmphibianSpeciesIndexPage({
                 <ArrowUpRight className="size-3.5" />
               </Link>
             </ClusterSectionIntro>
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}

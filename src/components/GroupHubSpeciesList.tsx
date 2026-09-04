@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -12,7 +10,6 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesSection } from "@/lib/clusterGuides";
@@ -23,13 +20,13 @@ type GroupHubSpeciesListProps = {
   speciesCount: number;
 };
 
-export function GroupHubSpeciesList({
+export async function GroupHubSpeciesList({
   hubId,
   sections,
   speciesCount,
 }: GroupHubSpeciesListProps) {
-  const t = useTranslations(hubId);
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations(hubId);
+  const locale = (await getLocale()) as AppLocale;
 
   return (
     <section
@@ -37,7 +34,7 @@ export function GroupHubSpeciesList({
       id="species"
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <ClusterSectionIntro
             body={t("speciesBody")}
             bodyClassName={CLUSTER_BODY}
@@ -46,12 +43,12 @@ export function GroupHubSpeciesList({
             title={t("speciesTitle", { count: speciesCount })}
             titleClassName={CLUSTER_TITLE_SECTION}
           />
-        </Reveal>
+        </div>
 
         <div className="mt-14 space-y-16">
           {sections.map((section) => (
             <div key={section.key}>
-              <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
+              <h3 className="font-display text-display-card font-semibold">
                 {t(`section.${section.key}.title` as "speciesTitle", {
                   count: section.items.length,
                 })}
@@ -68,16 +65,22 @@ export function GroupHubSpeciesList({
           ))}
         </div>
 
-        {hubId === "turtles" ? (
-          <Reveal delay={80}>
+        {hubId === "turtles" || hubId === "birds" || hubId === "mammals" ? (
+          <div>
             <Link
               className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-              href="/turtles/saxeoebebi"
+              href={
+                hubId === "turtles"
+                  ? "/turtles/saxeoebebi"
+                  : hubId === "birds"
+                    ? "/birds/saxeoebebi"
+                    : "/mammals/saxeoebebi"
+              }
             >
               {t("speciesIndexCta")}
               <ArrowUpRight className="size-4" />
             </Link>
-          </Reveal>
+          </div>
         ) : null}
       </div>
     </section>

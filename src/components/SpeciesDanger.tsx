@@ -47,7 +47,7 @@ export function SpeciesDanger({
         value={value}
       >
         <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
-          <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.14em] text-white/40">
+          <span className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.14em] text-white/50">
             <Shield aria-hidden="true" className="size-3 opacity-70" />
             {label}
           </span>

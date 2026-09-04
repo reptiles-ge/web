@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -15,13 +13,13 @@ import {
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { Link } from "@/i18n/navigation";
 
-export function FrogSpeciesIndexPage({
+export async function FrogSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("amphibianFrogsIndex");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("amphibianFrogsIndex");
+  const locale = (await getLocale()) as AppLocale;
   const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (

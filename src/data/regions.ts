@@ -1,4 +1,5 @@
 import type { RegionPathId } from "@/data/georgia-paths";
+import type { AppLocale } from "@/i18n/routing";
 
 import { georgiaRegionPaths } from "@/data/georgia-paths";
 import { getSpeciesById, type Species } from "@/data/species";
@@ -632,9 +633,26 @@ export function getRegionVenomousSpecies(region: Region): Species[] {
   );
 }
 
+export function hasLocalizedText(
+  text: LocalizedText,
+  locale: AppLocale,
+): boolean {
+  const value = text[locale];
+  return typeof value === "string" && value.trim().length > 0;
+}
+
 export function localizeRegionText(
   text: LocalizedText,
   locale: string,
 ): string {
   return pickLocalized(text, locale);
+}
+
+export function localizeRegionTextIfPresent(
+  text: LocalizedText,
+  locale: AppLocale,
+): null | string {
+  if (!hasLocalizedText(text, locale)) return null;
+  const value = text[locale];
+  return value ?? null;
 }

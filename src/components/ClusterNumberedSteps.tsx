@@ -1,6 +1,5 @@
 "use client";
 
-import { Reveal } from "@/components/Reveal";
 
 type ClusterNumberedStep = {
   body: string;
@@ -15,7 +14,7 @@ export function ClusterNumberedSteps({
   return (
     <ol className="mt-14 divide-y divide-border border-y border-border">
       {steps.map((step, index) => (
-        <Reveal delay={(index + 1) * 40} key={step.title}>
+        <div key={step.title}>
           <li className="grid gap-4 py-7 sm:grid-cols-[4rem_1fr] sm:items-start">
             <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
               {String(index + 1).padStart(2, "0")}
@@ -29,7 +28,7 @@ export function ClusterNumberedSteps({
               </p>
             </div>
           </li>
-        </Reveal>
+        </div>
       ))}
     </ol>
   );

@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, Species } from "@/data/species";
 
@@ -13,7 +11,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
-import { Reveal } from "@/components/Reveal";
 import { RiskLevelList } from "@/components/RiskLevelList";
 import { RiskToHumansHero } from "@/components/RiskToHumansHero";
 import { Link } from "@/i18n/navigation";
@@ -27,13 +24,13 @@ type RiskToHumansPageProps = {
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
 
-export function RiskToHumansPage({
+export async function RiskToHumansPage({
   harmlessCount,
   harmlessExamples,
   high,
   moderate,
 }: RiskToHumansPageProps) {
-  const t = useTranslations("riskToHumans");
+  const t = await getTranslations("riskToHumans");
   const speciesByLevel: Record<DangerLevel, Species[]> = {
     Harmless: harmlessExamples,
     High: high,
@@ -47,7 +44,7 @@ export function RiskToHumansPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <main>
+      <div>
         <RiskToHumansHero countByLevel={countByLevel} />
         <RiskLevelList speciesByLevel={speciesByLevel} />
 
@@ -67,7 +64,7 @@ export function RiskToHumansPage({
 
         <section className="border-t border-border bg-ink py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("ctaBody")}
                 bodyClassName={CLUSTER_HERO_BODY}
@@ -91,10 +88,10 @@ export function RiskToHumansPage({
                   {t("ctaVenomous")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

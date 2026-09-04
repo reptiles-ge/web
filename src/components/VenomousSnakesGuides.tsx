@@ -16,7 +16,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 
 type VenomousSnakesGuidesProps = {
@@ -35,7 +34,7 @@ export function VenomousSnakesGuides({
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("safetyLead")}
                 bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
@@ -49,15 +48,10 @@ export function VenomousSnakesGuides({
                   {t("safetyDisclaimer")}
                 </p>
               </ClusterSectionIntro>
-            </Reveal>
+            </div>
             <ol className="space-y-0 divide-y divide-border border-y border-border">
-              {([1, 2, 3, 4] as const).map((n, index) => (
-                <Reveal
-                  as="li"
-                  className="flex items-start gap-5 py-6"
-                  delay={index * 50}
-                  key={n}
-                >
+              {([1, 2, 3, 4] as const).map((n) => (
+                <li className="flex items-start gap-5 py-6" key={n}>
                   <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
                     {String(n).padStart(2, "0")}
                   </span>
@@ -69,7 +63,7 @@ export function VenomousSnakesGuides({
                       {t(`safetyStep${n}Body`)}
                     </p>
                   </div>
-                </Reveal>
+                </li>
               ))}
             </ol>
           </div>
@@ -79,7 +73,7 @@ export function VenomousSnakesGuides({
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("yardBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -88,8 +82,8 @@ export function VenomousSnakesGuides({
                 title={t("yardTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
-            <Reveal delay={80}>
+            </div>
+            <div>
               <Link
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
                 href="/snakes-in-the-yard"
@@ -97,15 +91,15 @@ export function VenomousSnakesGuides({
                 {t("yardCta")}
                 <ArrowUpRight className="size-4" />
               </Link>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-            <Reveal>
+          <div className="grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
+            <div>
               <ClusterPathCard
                 body={t("idBody")}
                 cta={t("idCta")}
@@ -113,8 +107,8 @@ export function VenomousSnakesGuides({
                 href="/snakes/shxamiani-gvelis-amocnoba"
                 title={t("idTitle")}
               />
-            </Reveal>
-            <Reveal delay={60}>
+            </div>
+            <div>
               <ClusterPathCard
                 body={t("biteBody")}
                 cta={t("biteCta")}
@@ -122,7 +116,7 @@ export function VenomousSnakesGuides({
                 href="/snakes/gvelis-nakbeni"
                 title={t("biteTitle")}
               />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -130,7 +124,7 @@ export function VenomousSnakesGuides({
       <section className="bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("lookalikesBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -139,8 +133,8 @@ export function VenomousSnakesGuides({
                 title={t("lookalikesTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
-            <Reveal delay={80}>
+            </div>
+            <div>
               <Link
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
                 href={{ pathname: "/species", query: { danger: "harmless" } }}
@@ -148,7 +142,7 @@ export function VenomousSnakesGuides({
                 {t("lookalikesCta")}
                 <ArrowUpRight className="size-4" />
               </Link>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

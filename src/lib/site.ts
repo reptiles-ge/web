@@ -181,6 +181,7 @@ export function speciesPageUrl(locale: AppLocale, id: string) {
 
 export function websiteJsonLd(options: {
   description: string;
+  searchUrlTemplate?: string;
 }): Record<string, unknown> {
   return {
     "@id": siteEntityId("website"),
@@ -190,6 +191,18 @@ export function websiteJsonLd(options: {
     name: siteConfig.name,
     publisher: { "@id": siteEntityId("organization") },
     url: absoluteUrl("/"),
+    ...(options.searchUrlTemplate
+      ? {
+          potentialAction: {
+            "@type": "SearchAction",
+            "query-input": "required name=search_term_string",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: options.searchUrlTemplate,
+            },
+          },
+        }
+      : {}),
   };
 }
 

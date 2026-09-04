@@ -1,5 +1,5 @@
 import { type PhotoCredit, type Species } from "@/data/species";
-import { isSnakeSpecies } from "@/lib/clusterGuides";
+import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
@@ -61,6 +61,50 @@ const POOL_BY_DIFFICULTY: Record<QuizDifficulty, readonly string[]> = {
   easy: EASY_SNAKE_IDS,
   hard: HARD_SNAKE_IDS,
   medium: MEDIUM_SNAKE_IDS,
+};
+
+export const EASY_LIZARD_IDS = [
+  "ablepharus-pannonicus",
+  "anguis-colchica",
+  "eumeces-schneiderii",
+  "lacerta-agilis",
+  "lacerta-strigata",
+  "paralaudakia-caucasia",
+  "pseudopus-apodus",
+  "tenuidactylus-caspius",
+] as const;
+
+export const MEDIUM_LIZARD_IDS = [
+  "eremias-arguta",
+  "eremias-velox",
+  "lacerta-media",
+  "ophisops-elegans",
+  "phoenicolacerta-laevis",
+] as const;
+
+export const HARD_LIZARD_IDS = [
+  "darevskia-adjarica",
+  "darevskia-alpina",
+  "darevskia-armeniaca",
+  "darevskia-brauneri",
+  "darevskia-caucasica",
+  "darevskia-clarkorum",
+  "darevskia-daghestanica",
+  "darevskia-dahli",
+  "darevskia-derjugini",
+  "darevskia-mixta",
+  "darevskia-obscura",
+  "darevskia-pontica",
+  "darevskia-portschinskii",
+  "darevskia-praticola",
+  "darevskia-raddei",
+  "darevskia-valentini",
+] as const;
+
+const LIZARD_POOL_BY_DIFFICULTY: Record<QuizDifficulty, readonly string[]> = {
+  easy: EASY_LIZARD_IDS,
+  hard: HARD_LIZARD_IDS,
+  medium: MEDIUM_LIZARD_IDS,
 };
 
 export type SnakeQuizQuestion = {
@@ -151,7 +195,7 @@ export function buildQuizHint(species: Species) {
   return species.location;
 }
 
-export function generateSnakeQuiz(
+export function generateLizardQuiz(
   pool: SnakeQuizSpecies[],
   options?: {
     difficulty?: QuizDifficulty;
@@ -159,9 +203,26 @@ export function generateSnakeQuiz(
     mode?: QuizMode;
     rng?: () => number;
   },
+) {
+  return generateSnakeQuiz(pool, {
+    ...options,
+    pools: LIZARD_POOL_BY_DIFFICULTY,
+  });
+}
+
+export function generateSnakeQuiz(
+  pool: SnakeQuizSpecies[],
+  options?: {
+    difficulty?: QuizDifficulty;
+    length?: number;
+    mode?: QuizMode;
+    pools?: Record<QuizDifficulty, readonly string[]>;
+    rng?: () => number;
+  },
 ): SnakeQuizQuestion[] {
   const rng = options?.rng ?? Math.random;
   const length = options?.length ?? QUIZ_LENGTH;
+  const difficultyPools = options?.pools ?? POOL_BY_DIFFICULTY;
   const byId = catalogById(pool);
   if (pool.length < QUIZ_OPTION_COUNT) return [];
 
@@ -170,7 +231,7 @@ export function generateSnakeQuiz(
 
   if (options?.difficulty) {
     const ids = takeUnique(
-      idsForDifficulty(options.difficulty, pool),
+      idsForDifficulty(options.difficulty, pool, difficultyPools),
       length,
       used,
       rng,
@@ -182,7 +243,7 @@ export function generateSnakeQuiz(
     const mix = DEFAULT_QUIZ_MIX;
     (Object.keys(mix) as QuizDifficulty[]).forEach((difficulty) => {
       const ids = takeUnique(
-        idsForDifficulty(difficulty, pool),
+        idsForDifficulty(difficulty, pool, difficultyPools),
         mix[difficulty],
         used,
         rng,
@@ -231,6 +292,16 @@ export function generateSnakeQuiz(
     });
 }
 
+export function getLizardQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
+  const catalog: SnakeQuizSpecies[] = [];
+  for (const item of species) {
+    if (isLizardSpecies(item) && Boolean(item.image)) {
+      catalog.push(toSnakeQuizSpecies(item));
+    }
+  }
+  return catalog;
+}
+
 export function getSnakeQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
   const catalog: SnakeQuizSpecies[] = [];
   for (const item of species) {
@@ -256,7 +327,7 @@ export function pickSnakeDistractors(
   const availableIds = new Set(available.map((item) => item.id));
   const related = new Set<string>();
   for (const item of getRelatedSpecies(correctId, 8)) {
-    if (isSnakeSpecies(item) && availableIds.has(item.id)) {
+    if (availableIds.has(item.id)) {
       related.add(item.id);
     }
   }
@@ -322,8 +393,9 @@ function catalogById(pool: SnakeQuizSpecies[]) {
 function idsForDifficulty(
   difficulty: QuizDifficulty,
   pool: SnakeQuizSpecies[],
+  pools: Record<QuizDifficulty, readonly string[]> = POOL_BY_DIFFICULTY,
 ) {
-  const preferred = POOL_BY_DIFFICULTY[difficulty];
+  const preferred = pools[difficulty];
   const fromPool = preferred.filter((id) =>
     pool.some((item) => item.id === id),
   );

@@ -1,8 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -16,7 +13,6 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getRegionsForSpecies,
@@ -31,19 +27,17 @@ import {
 } from "@/lib/clusterGuides";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
-export function SnakeRangePage({
+export async function SnakeRangePage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("snakeRange");
-  const tShared = useTranslations("groupHubShared");
-  const locale = useLocale() as AppLocale;
-  const mappedCount = useMemo(
-    () =>
-      species.filter((item) => getRegionsForSpecies(item.id).length > 0).length,
-    [species],
-  );
+  const t = await getTranslations("snakeRange");
+  const tShared = await getTranslations("groupHubShared");
+  const locale = (await getLocale()) as AppLocale;
+  const mappedCount = species.filter(
+    (item) => getRegionsForSpecies(item.id).length > 0,
+  ).length;
   const highlightedIds: string[] = [];
   for (const region of regions) {
     if (getRegionSnakeSpecies(region).length > 0) {
@@ -87,17 +81,17 @@ export function SnakeRangePage({
           className="map-explorer-texture pointer-events-none absolute inset-0"
         />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("mapEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-5 font-display text-display-title font-semibold">
               {t("mapTitle")}
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
               {t("mapBody")}
             </p>
-          </Reveal>
+          </div>
           <div className="mt-12 lg:mt-16">
             <GeorgiaMap
               highlightedIds={highlightedIds}
@@ -113,17 +107,17 @@ export function SnakeRangePage({
         id="regions"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               eyebrow={t("listEyebrow")}
               eyebrowClassName={CLUSTER_EYEBROW}
               title={t("listTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <ul className="mt-14 divide-y divide-border border-y border-border">
-            {regions.map((region, index) => (
-              <Reveal delay={Math.min(index * 25, 200)} key={region.id}>
+            {regions.map((region) => (
+              <div key={region.id}>
                 <RegionSnakeRow
                   locale={locale}
                   pending={tShared("rangePending")}
@@ -132,7 +126,7 @@ export function SnakeRangePage({
                     count: getRegionSnakeSpecies(region).length,
                   })}
                 />
-              </Reveal>
+              </div>
             ))}
           </ul>
         </div>
@@ -165,7 +159,7 @@ function RegionSnakeRow({
             className="group inline-flex flex-wrap items-baseline gap-x-3 gap-y-1"
             href={regionHref(region.id)}
           >
-            <h3 className="font-display text-[clamp(1.3rem,2.5vw,1.75rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+            <h3 className="font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
               {name}
             </h3>
             <span className="text-[12px] tracking-wide text-muted-foreground">

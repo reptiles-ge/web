@@ -6,8 +6,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
+import { CatalogSpeciesIndexPage } from "@/components/CatalogSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { DarevskiaGuidePage } from "@/components/DarevskiaGuidePage";
 import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { LizardComparePage } from "@/components/LizardComparePage";
@@ -19,7 +21,6 @@ import { SnakeLargestPage } from "@/components/SnakeLargestPage";
 import { SnakeRangePage } from "@/components/SnakeRangePage";
 import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
-import { TurtleSpeciesIndexPage } from "@/components/TurtleSpeciesIndexPage";
 import { getCatalogSpecies } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -53,16 +54,19 @@ const CLUSTER_PAGES: Record<
   "amphibian-frogs-index": FrogSpeciesIndexPage,
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
+  "bird-index": CatalogSpeciesIndexPage,
+  "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
   "lizard-identify": LizardIdentifyPage,
   "lizard-index": LizardSpeciesIndexPage,
+  "mammal-index": CatalogSpeciesIndexPage,
   "snake-bite": SnakeBitePage,
   "snake-identify": SnakeIdentifyPage,
   "snake-index": SnakeSpeciesIndexPage,
   "snake-largest": SnakeLargestPage,
   "snake-range": SnakeRangePage,
   "turtle-identify": TurtleIdentifyPage,
-  "turtle-index": TurtleSpeciesIndexPage,
+  "turtle-index": CatalogSpeciesIndexPage,
   "turtle-land": ClusterGuidePage,
   "turtle-water": ClusterGuidePage,
 };

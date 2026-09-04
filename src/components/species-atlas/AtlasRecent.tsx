@@ -5,7 +5,6 @@ import { useLocale, useTranslations } from "next-intl";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -18,17 +17,17 @@ export function AtlasRecent({ species }: { species: Species[] }) {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-350 px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("recentEyebrow")}
           </p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-4 font-display text-display-title font-semibold">
             {t("recentTitle")}
           </h2>
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
             {t("recentSubtitle")}
           </p>
-        </Reveal>
+        </div>
 
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
           {species.map((item) => (
@@ -49,7 +48,7 @@ function RecentSpeciesRow({ species }: { species: Species }) {
 
   return (
     <Link
-      className="group flex items-center gap-4 rounded-[22px] border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
+      className="group flex items-center gap-4 rounded-card border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
       href={speciesHref(species.id, locale)}
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">

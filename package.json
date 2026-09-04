@@ -4,9 +4,10 @@
   "private": true,
   "packageManager": "pnpm@10.34.5",
   "scripts": {
-    "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
+    "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
     "dev": "next dev",
-    "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-georgia-map.ts",
+    "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
+    "pretest": "tsx scripts/compile-species.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
     "build": "next build",
     "analyze": "pnpm run prebuild && ANALYZE=true pnpm exec next build --webpack",
     "start": "next start",
@@ -16,7 +17,11 @@
     "doctor:changed": "react-doctor -y --verbose --scope changed",
     "doctor:full": "react-doctor -y --verbose --scope full",
     "knip": "knip",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "species:compile": "tsx scripts/compile-species.ts",
+    "search:compile": "tsx scripts/compile-search.ts",
     "map:compile": "tsx scripts/compile-georgia-map.ts",
     "images:check": "tsx scripts/check-image-urls.ts",
     "images:unused": "node scripts/remove-unused-images.js",
@@ -38,13 +43,9 @@
     ]
   },
   "dependencies": {
-    "@date-fns/tz": "^1.5.0",
-    "@microsoft/clarity": "^1.0.2",
     "@next/third-parties": "^16.2.12",
-    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
-    "date-fns": "^4.4.0",
     "framer-motion": "^12.43.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.28.0",
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "16.2.12",
+    "@playwright/test": "1.55.1",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#feat/og-images",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -81,6 +83,8 @@
     "react-doctor": "^0.9.13",
     "tailwindcss": "^4",
     "tsx": "^4.23.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "3.2.4",
+    "zod": "3.25.76"
   }
 }

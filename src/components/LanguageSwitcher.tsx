@@ -35,6 +35,8 @@ const STATIC_LOCALE_PATHS = [
   "/amphibians/saxeoebebi",
   "/amphibians/bayayi/saxeoebebi",
   "/amphibians/tritoni-salamandra",
+  "/birds/saxeoebebi",
+  "/mammals/saxeoebebi",
   "/regions",
   "/quiz",
   "/news",

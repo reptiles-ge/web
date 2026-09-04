@@ -28,7 +28,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   const t = await getTranslations("quizzes");
   const tShared = await getTranslations("groupHubShared");
   const locale = (await getLocale()) as AppLocale;
-  const featured = items.find((item) => item.status === "live") ?? items[0];
+  const live = items.filter((item) => item.status === "live");
   const how = [
     { body: t("how1Body"), title: t("how1Title") },
     { body: t("how2Body"), title: t("how2Title") },
@@ -36,7 +36,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   ] as const;
   const copy = quizCopy(t);
 
-  if (!featured) return null;
+  if (live.length === 0) return null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,18 +70,24 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
             </p>
           </div>
 
-          <FeaturedQuizCard
-            copy={copy[featured.messageKey]}
-            item={featured}
-            liveLabel={t("live")}
-            locale={locale}
-            questionsLabel={
-              featured.questions
-                ? t("questions", { count: featured.questions })
-                : null
-            }
-            startLabel={t("start")}
-          />
+          <div className="mt-10 space-y-4 sm:mt-14 sm:space-y-5">
+            {live.map((item, index) => (
+              <FeaturedQuizCard
+                copy={copy[item.messageKey]}
+                item={item}
+                key={item.id}
+                liveLabel={t("live")}
+                locale={locale}
+                priority={index === 0}
+                questionsLabel={
+                  item.questions
+                    ? t("questions", { count: item.questions })
+                    : null
+                }
+                startLabel={t("start")}
+              />
+            ))}
+          </div>
 
           <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground sm:mt-10">
             {t("upcomingLine")}
@@ -94,10 +100,10 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("howEyebrow")}
           </p>
-          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.08] font-semibold">
+          <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
             {t("howTitle")}
           </h2>
-          <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] border border-border bg-border/80 sm:grid-cols-3">
+          <ul className="mt-10 grid gap-px overflow-hidden rounded-card border border-border bg-border/80 sm:grid-cols-3">
             {how.map((step, index) => (
               <li
                 className="bg-card px-6 py-7 sm:px-8 sm:py-9"
@@ -126,6 +132,7 @@ function FeaturedQuizCard({
   item,
   liveLabel,
   locale,
+  priority,
   questionsLabel,
   startLabel,
 }: {
@@ -133,6 +140,7 @@ function FeaturedQuizCard({
   item: QuizCardModel;
   liveLabel: string;
   locale: AppLocale;
+  priority: boolean;
   questionsLabel: null | string;
   startLabel: string;
 }) {
@@ -143,7 +151,7 @@ function FeaturedQuizCard({
         <CoverImage
           alt={item.imageAlt}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          priority
+          priority={priority}
           sizes="(min-width: 1024px) 18rem, (min-width: 640px) 14rem, 100vw"
           src={item.image}
         />
@@ -163,7 +171,7 @@ function FeaturedQuizCard({
             </span>
           ) : null}
         </div>
-        <h2 className="mt-4 max-w-xl font-display text-[clamp(1.45rem,3.2vw,2.25rem)] leading-[1.08] font-semibold text-foreground">
+        <h2 className="mt-4 max-w-xl font-display text-display-title font-semibold text-foreground">
           {copy.title}
         </h2>
         <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -179,7 +187,7 @@ function FeaturedQuizCard({
 
   return (
     <QuizCtaLink
-      className="group mt-10 block overflow-hidden rounded-[28px] border border-border bg-card sm:mt-14 sm:rounded-[36px]"
+      className="group block overflow-hidden rounded-media border border-border bg-card"
       href={href}
       quizId={item.id}
       source="quiz_index"

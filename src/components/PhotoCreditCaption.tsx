@@ -13,6 +13,7 @@ import { formatPhotoDate } from "@/lib/formatDate";
 type PhotoCreditCaptionProps = {
   className?: string;
   credit?: PhotoCredit;
+  photoConfidence?: PhotoCredit["photoConfidence"];
   speciesId?: string;
   variant?: "hero" | "lightbox" | "thumb";
 };
@@ -20,19 +21,21 @@ type PhotoCreditCaptionProps = {
 export function PhotoCreditCaption({
   className = "",
   credit,
+  photoConfidence,
   speciesId,
   variant = "thumb",
 }: PhotoCreditCaptionProps) {
   const t = useTranslations("profile");
   const locale = useLocale() as AppLocale;
+  const georgiaField = isGeorgiaFieldPhoto(photoConfidence, credit);
 
-  if (!hasPhotoCredit(credit) || variant === "hero") return null;
+  if (variant === "hero") return null;
+  if (!hasPhotoCredit(credit) && !georgiaField) return null;
 
-  const dateLabel = credit.date ? formatPhotoDate(credit.date, locale) : null;
-  const photographer = (
+  const dateLabel = credit?.date ? formatPhotoDate(credit.date, locale) : null;
+  const photographer = credit ? (
     <PhotoCreditName credit={credit} speciesId={speciesId} />
-  );
-  const meta = [credit.location, dateLabel].filter(Boolean).join(" · ");
+  ) : null;
 
   if (variant === "lightbox") {
     return (
@@ -40,6 +43,8 @@ export function PhotoCreditCaption({
         className={className}
         credit={credit}
         dateLabel={dateLabel}
+        georgiaField={georgiaField}
+        georgiaFieldLabel={t("georgiaFieldPhoto")}
         photoCredit={t("photoCredit")}
         photoDate={t("photoDate")}
         photographer={photographer}
@@ -49,28 +54,25 @@ export function PhotoCreditCaption({
   }
 
   return (
-    <figcaption
-      className={cn(
-        "pointer-events-none absolute inset-x-0 bottom-0 z-2 bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100",
-        className,
-      )}
-    >
-      {photographer ? (
-        <p>
-          <span className="text-white/45">{t("photoCredit")} </span>
-          <span className="pointer-events-auto">{photographer}</span>
-        </p>
-      ) : null}
-      {meta ? (
-        <p className="mt-0.5 text-white/55">
-          {credit.location ? <span>{credit.location}</span> : null}
-          {credit.location && dateLabel ? " · " : null}
-          {dateLabel && credit.date ? (
-            <time dateTime={credit.date}>{dateLabel}</time>
-          ) : null}
-        </p>
-      ) : null}
-    </figcaption>
+    <ThumbCredit
+      className={className}
+      credit={credit}
+      dateLabel={dateLabel}
+      georgiaField={georgiaField}
+      georgiaFieldLabel={t("georgiaFieldPhoto")}
+      photoCredit={t("photoCredit")}
+      photographer={photographer}
+    />
+  );
+}
+
+function isGeorgiaFieldPhoto(
+  photoConfidence?: PhotoCredit["photoConfidence"],
+  credit?: PhotoCredit,
+) {
+  return (
+    photoConfidence === "georgia-field" ||
+    credit?.photoConfidence === "georgia-field"
   );
 }
 
@@ -78,14 +80,18 @@ function LightboxCredit({
   className,
   credit,
   dateLabel,
+  georgiaField,
+  georgiaFieldLabel,
   photoCredit,
   photoDate,
   photographer,
   photoLocation,
 }: {
   className: string;
-  credit: PhotoCredit;
+  credit?: PhotoCredit;
   dateLabel: null | string;
+  georgiaField: boolean;
+  georgiaFieldLabel: string;
   photoCredit: string;
   photoDate: string;
   photographer: ReactNode;
@@ -100,22 +106,23 @@ function LightboxCredit({
     >
       {photographer ? (
         <p>
-          <span className="text-white/35">{photoCredit} </span>
+          <span className="text-white/50">{photoCredit} </span>
           {photographer}
         </p>
       ) : null}
-      {credit.location ? (
+      {credit?.location ? (
         <p>
-          <span className="text-white/35">{photoLocation} </span>
+          <span className="text-white/50">{photoLocation} </span>
           <span>{credit.location}</span>
         </p>
       ) : null}
-      {dateLabel ? (
+      {dateLabel && credit?.date ? (
         <p>
-          <span className="text-white/35">{photoDate} </span>
+          <span className="text-white/50">{photoDate} </span>
           <time dateTime={credit.date}>{dateLabel}</time>
         </p>
       ) : null}
+      {georgiaField ? <p>{georgiaFieldLabel}</p> : null}
     </div>
   );
 }
@@ -147,5 +154,54 @@ function PhotoCreditName({
     >
       {credit.photographer}
     </a>
+  );
+}
+
+function ThumbCredit({
+  className,
+  credit,
+  dateLabel,
+  georgiaField,
+  georgiaFieldLabel,
+  photoCredit,
+  photographer,
+}: {
+  className: string;
+  credit?: PhotoCredit;
+  dateLabel: null | string;
+  georgiaField: boolean;
+  georgiaFieldLabel: string;
+  photoCredit: string;
+  photographer: ReactNode;
+}) {
+  const location = credit?.location;
+  const dateTime = credit?.date;
+
+  return (
+    <figcaption
+      className={cn(
+        "pointer-events-none absolute inset-x-0 bottom-0 z-2 bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100",
+        className,
+      )}
+    >
+      {photographer ? (
+        <p>
+          <span className="text-white/45">{photoCredit} </span>
+          <span className="pointer-events-auto">{photographer}</span>
+        </p>
+      ) : null}
+      {location || dateLabel ? (
+        <p className="mt-0.5 text-white/55">
+          {location ? <span>{location}</span> : null}
+          {location && dateLabel ? " · " : null}
+          {dateLabel && dateTime ? (
+            <time dateTime={dateTime}>{dateLabel}</time>
+          ) : null}
+        </p>
+      ) : null}
+      {georgiaField ? (
+        <p className="mt-0.5 text-white/55">{georgiaFieldLabel}</p>
+      ) : null}
+    </figcaption>
   );
 }

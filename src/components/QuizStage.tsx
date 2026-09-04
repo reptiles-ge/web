@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { type RefObject } from "react";
 
 import type {
@@ -9,6 +8,7 @@ import type {
   SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
 
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizCover } from "@/components/QuizCover";
 import { QuizStagePanel } from "@/components/QuizStagePanel";
 import { cn } from "@/lib/cn";
@@ -81,7 +81,7 @@ export function QuizStage({
   shareUrl,
   total,
 }: QuizStageProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
 
   return (
     <section
@@ -137,11 +137,7 @@ export function QuizStage({
   );
 }
 
-function stagePadClass(
-  playing: boolean,
-  complete: boolean,
-  revealed: boolean,
-) {
+function stagePadClass(playing: boolean, complete: boolean, revealed: boolean) {
   if (!playing || complete) {
     return "pb-[max(1.25rem,env(safe-area-inset-bottom))]";
   }

@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -16,7 +14,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -27,13 +24,13 @@ import { getSpeciesSizeStat } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export function LizardComparePage({
+export async function LizardComparePage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("lizardCompare");
-  const locale = useLocale() as AppLocale;
+  const t = await getTranslations("lizardCompare");
+  const locale = (await getLocale()) as AppLocale;
   const ordered = orderSpeciesByIds(species, GLASS_LIZARD_COMPARE_IDS);
   const glass = ordered.find((item) => item.id === "pseudopus-apodus");
   const slowWorm = ordered.find((item) => item.id === "anguis-colchica");
@@ -62,7 +59,7 @@ export function LizardComparePage({
         id="compare"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("tableBody")}
               bodyClassName={CLUSTER_BODY}
@@ -71,18 +68,18 @@ export function LizardComparePage({
               title={t("tableTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {columns.map((item, index) => (
-              <Reveal delay={index * 50} key={item.id}>
+            {columns.map((item) => (
+              <div key={item.id}>
                 <CompareCard
                   locale={locale}
                   role={t(`role.${roleKey(item.id)}`)}
                   size={getSpeciesSizeStat(item) ?? dash}
                   species={item}
                 />
-              </Reveal>
+              </div>
             ))}
           </div>
 
@@ -126,7 +123,7 @@ export function LizardComparePage({
       {diceSnake ? (
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("alsoBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -143,7 +140,7 @@ export function LizardComparePage({
                   <ArrowUpRight className="size-4" />
                 </Link>
               </ClusterSectionIntro>
-            </Reveal>
+            </div>
           </div>
         </section>
       ) : null}
@@ -164,7 +161,7 @@ function CompareCard({
 }) {
   return (
     <Link
-      className="group block overflow-hidden rounded-[24px] border border-border bg-card"
+      className="group block overflow-hidden rounded-card border border-border bg-card"
       href={speciesHref(species.id, locale)}
     >
       <span className="relative block aspect-5/4 bg-ink">

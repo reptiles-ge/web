@@ -1,9 +1,8 @@
-"use client";
+import type { ReactNode } from "react";
 
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
-import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -14,20 +13,39 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import {
+  CLUSTER_GUIDES,
+  type ClusterGuideViewProps,
+} from "@/lib/clusterGuides";
 
-export function TurtleSpeciesIndexPage({
+export async function CatalogSpeciesIndexPage({
   guideId,
   heroSrc,
   species,
 }: ClusterGuideViewProps) {
-  const t = useTranslations("turtleIndex");
-  const locale = useLocale() as AppLocale;
+  const messageKey = CLUSTER_GUIDES[guideId].messageKey;
+  if (
+    messageKey !== "birdIndex" &&
+    messageKey !== "mammalIndex" &&
+    messageKey !== "turtleIndex"
+  ) {
+    return null;
+  }
+  const t = await getTranslations(messageKey);
+  const locale = (await getLocale()) as AppLocale;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const introducedCount = species.filter(
     (item) => item.id === "trachemys-scripta",
   ).length;
+  const middleStat: { label: string; value: ReactNode } =
+    messageKey === "turtleIndex"
+      ? { label: t("statIntroduced"), value: introducedCount }
+      : { label: t("statFamilies"), value: familyCount };
+  const lastStat: { label: string; value: ReactNode } =
+    messageKey === "turtleIndex"
+      ? { label: t("statFamilies"), value: familyCount }
+      : { label: t("statExtra"), value: t("statExtraValue") };
 
   return (
     <ClusterPageFrame
@@ -38,8 +56,8 @@ export function TurtleSpeciesIndexPage({
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
             <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statIntroduced")} value={introducedCount} />
-            <ClusterStat label={t("statFamilies")} value={familyCount} />
+            <ClusterStat label={middleStat.label} value={middleStat.value} />
+            <ClusterStat label={lastStat.label} value={lastStat.value} />
           </div>
         </section>
       }
@@ -60,7 +78,7 @@ export function TurtleSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("tableBody")}
               bodyClassName={CLUSTER_BODY}
@@ -69,7 +87,7 @@ export function TurtleSpeciesIndexPage({
               title={t("tableTitle", { count: species.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}

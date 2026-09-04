@@ -9,7 +9,6 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/cn";
 
 type ClusterFaqItem = {
@@ -43,7 +42,7 @@ export function ClusterFaqSection({
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={intro.body}
               bodyClassName={CLUSTER_FAQ_BODY}
@@ -52,12 +51,12 @@ export function ClusterFaqSection({
               title={intro.title}
               titleClassName={CLUSTER_FAQ_TITLE}
             />
-          </Reveal>
+          </div>
           <div>
             {items.map((item, index) => {
               const isOpen = open === index;
               return (
-                <Reveal delay={index * 50} key={item.question}>
+                <div key={item.question}>
                   <div className="border-t border-border last:border-b">
                     <button
                       aria-expanded={isOpen}
@@ -92,7 +91,7 @@ export function ClusterFaqSection({
                       </div>
                     </div>
                   </div>
-                </Reveal>
+                </div>
               );
             })}
           </div>

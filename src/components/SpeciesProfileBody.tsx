@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -30,6 +28,7 @@ type BiologyBlockItem = {
 
 type SpeciesProfileBodyProps = {
   biologyBlocks: BiologyBlockItem[];
+  checklistNote: null | string;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   gallery: GalleryImage[];
@@ -41,8 +40,9 @@ type SpeciesProfileBodyProps = {
   species: Species;
 };
 
-export function SpeciesProfileBody({
+export async function SpeciesProfileBody({
   biologyBlocks,
+  checklistNote,
   dangerValue,
   displayStats,
   gallery,
@@ -53,12 +53,13 @@ export function SpeciesProfileBody({
   showIdentification,
   species,
 }: SpeciesProfileBodyProps) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
   const snake = isSnakeSpecies(species);
 
   return (
     <>
       <SpeciesProfileFacts
+        checklistNote={checklistNote}
         danger={species.danger}
         dangerValue={dangerValue}
         displayStats={displayStats}
@@ -73,7 +74,7 @@ export function SpeciesProfileBody({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+            className="mt-5 max-w-2xl font-display text-display-title"
             id={SPECIES_SECTION_IDS.overview}
             slugSource={`${t("whoIs")} ${species.commonName}`}
           >
@@ -144,6 +145,7 @@ export function SpeciesProfileBody({
             ? `#${SPECIES_SECTION_IDS.sources}`
             : undefined
         }
+        updatedAt={species.updatedAt}
       />
 
       <SpeciesSources sources={species.sources} speciesId={species.id} />
@@ -154,7 +156,7 @@ export function SpeciesProfileBody({
             <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {t("guidesEyebrow")}
             </p>
-            <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.45rem,2.6vw,1.9rem)] leading-tight font-semibold">
+            <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
               {t("guidesTitle")}
             </h2>
             <RelatedGuideGrid
@@ -181,18 +183,18 @@ function biologyGridClass(count: number) {
   return "md:grid-cols-1";
 }
 
-function SpeciesProfileBiology({
+async function SpeciesProfileBiology({
   blocks,
   isSnake,
 }: {
   blocks: BiologyBlockItem[];
   isSnake: boolean;
 }) {
-  const t = useTranslations("profile");
-
   if (blocks.length === 0) {
     return null;
   }
+
+  const t = await getTranslations("profile");
 
   return (
     <section
@@ -207,7 +209,7 @@ function SpeciesProfileBiology({
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+          className="mt-5 max-w-2xl font-display text-display-title"
           id={SPECIES_SECTION_IDS.biology}
         >
           {t("biologyTitle")}

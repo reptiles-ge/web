@@ -32,7 +32,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
           src={featuredVisual.src}
         />
       ) : null}
-      <main>
+      <div>
         <header className="pt-30 pb-12 sm:pt-33 sm:pb-16 lg:pb-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
@@ -51,7 +51,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                 <li className="text-foreground">{t("breadcrumbNews")}</li>
               </ol>
             </nav>
-            <h1 className="text-balance-tight max-w-3xl font-display text-[clamp(2.15rem,5.5vw,3.75rem)] leading-[1.05] font-semibold text-foreground">
+            <h1 className="text-balance-tight max-w-3xl font-display text-display-hero font-semibold text-foreground">
               {t("h1")}
             </h1>
             <p className="mt-6 max-w-2xl text-[17px] leading-snug text-foreground/90 sm:text-[18px]">
@@ -78,7 +78,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                 ) : null}
                 {rest.length > 0 ? (
                   <div className="mt-16 border-t border-border pt-14 sm:mt-20 sm:pt-16 lg:mt-24 lg:pt-20">
-                    <h2 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-[1.15] font-semibold text-foreground">
+                    <h2 className="font-display text-display-card font-semibold text-foreground">
                       {t("moreStories")}
                     </h2>
                     <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 lg:mt-12">
@@ -101,7 +101,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <h2 className="text-balance-tight max-w-xl font-display text-[clamp(1.55rem,2.8vw,2.15rem)] leading-[1.15] font-semibold text-foreground">
+            <h2 className="text-balance-tight max-w-xl font-display text-display-title font-semibold text-foreground">
               {t("atlasCtaTitle")}
             </h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -121,7 +121,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

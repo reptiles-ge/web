@@ -1,7 +1,5 @@
-"use client";
-
 import { MapPin } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
 import type { PhotoCredit, Species } from "@/data/species";
@@ -28,7 +26,7 @@ type SpeciesProfileHeroProps = {
   species: Species;
 };
 
-export function SpeciesProfileHero({
+export async function SpeciesProfileHero({
   breadcrumbs,
   desktopHeroSrc,
   group,
@@ -41,7 +39,7 @@ export function SpeciesProfileHero({
   mobileImageAlt,
   species,
 }: SpeciesProfileHeroProps) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
 
   return (
     <section
@@ -97,7 +95,7 @@ export function SpeciesProfileHero({
             ))}
           </ol>
         </nav>
-        <h1 className="text-balance-tight max-w-4xl font-display text-[clamp(1.85rem,5vw,4.5rem)] leading-[1.08] font-semibold text-white">
+        <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white">
           {species.commonName}
         </h1>
         <p className="mt-3 font-display text-[15px] tracking-wide text-white/55 italic sm:text-[17px]">

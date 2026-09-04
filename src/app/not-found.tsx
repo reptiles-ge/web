@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { cookies } from "next/headers";
 
 import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
+import { SkipLink } from "@/components/SkipLink";
 import { type AppLocale, routing } from "@/i18n/routing";
 
 export const metadata: Metadata = {
@@ -20,11 +25,15 @@ export default async function RootNotFound() {
   const locale = await resolveNotFoundLocale();
   setRequestLocale(locale);
   const messages = await getMessages();
+  const t = await getTranslations("nav");
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <SkipLink label={t("skipToContent")} />
       <Navbar />
-      <NotFoundContent />
+      <main id="main" tabIndex={-1}>
+        <NotFoundContent />
+      </main>
     </NextIntlClientProvider>
   );
 }

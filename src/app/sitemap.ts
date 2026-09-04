@@ -22,6 +22,7 @@ import {
   speciesAlternates,
   speciesPageUrl,
 } from "@/lib/site";
+import { speciesPageImageUrls } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
@@ -84,10 +85,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     for (const item of catalog) {
       const { languages } = speciesAlternates(locale, item.id);
+      const images = speciesPageImageUrls(item);
       push({
         alternates: { languages },
         lastModified: toLastModified(item.updatedAt),
         url: speciesPageUrl(locale, item.id),
+        ...(images.length > 0 ? { images } : {}),
       });
     }
 
