@@ -396,7 +396,7 @@ function SnakeBiteSymptoms() {
           </p>
         </div>
         <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
-          {SYMPTOM_ITEMS.map((n, index) => (
+          {SYMPTOM_ITEMS.map((n) => (
             <div key={n}>
               <li className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground">
                 {t(`symptom${n}`)}

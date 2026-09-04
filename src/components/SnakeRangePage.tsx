@@ -116,7 +116,7 @@ export async function SnakeRangePage({
             />
           </div>
           <ul className="mt-14 divide-y divide-border border-y border-border">
-            {regions.map((region, index) => (
+            {regions.map((region) => (
               <div key={region.id}>
                 <RegionSnakeRow
                   locale={locale}

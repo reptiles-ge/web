@@ -160,7 +160,7 @@ export function RegionsIndex() {
             </div>
 
             <ul className="mt-14 divide-y divide-border/80 border-y border-border/80">
-              {regions.map((region, index) => (
+              {regions.map((region) => (
                 <li key={region.id}>
                   <div>
                     <RegionDirectoryRow locale={locale} region={region} />

@@ -122,7 +122,7 @@ export function RelatedGuideGrid({
         columns,
       )}
     >
-      {cards.map((card, index) => (
+      {cards.map((card) => (
         <div className="contents" key={card.key}>
           <RelatedGuideCard
             card={card}
