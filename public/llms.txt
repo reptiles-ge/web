@@ -1,0 +1,253 @@
+# Reptiles.ge
+
+> Digital atlas of animals of Georgia: species profiles, identification, regional records, and educational safety pages. Georgian is canonical. Herpetofauna is the deepest layer.
+
+Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, and spiders are thinner published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.
+
+Use Georgian URLs below as canonical (`x-default`). Prefixed locales are `/en`, `/ru`, and `/tr`. Default-locale group paths are Georgian (`/gvelebi`); prefixed locales use English pathnames (`/en/snakes`). Species slugs are Georgian on `ka` (overrides: `giurza`, `jojo`, `gvelxokera`, `bukhrintsa`) and the catalog id on `en`/`ru`/`tr` (example: `https://reptiles.ge/en/snakes/macrovipera-lebetina`). Do not use `/ka` prefixes or unprefixed English hub paths such as `/snakes` on the default locale.
+
+Priority order: About (methods) → 2026 herpetofauna checklist article → species atlas → group hubs and indexes → species profiles → identification and safety guides → region pages (only taxa with an administrative-unit record in the atlas).
+
+## Core
+
+- [Home](https://reptiles.ge/): Georgian homepage for the atlas.
+- [Species atlas](https://reptiles.ge/species): Catalog of published profiles (124 live pages). Not a complete national fauna.
+- [About](https://reptiles.ge/about): What the atlas is, what it will not infer, photography credits, and herpetofauna sources.
+- [Georgia herpetofauna checklist 2026](https://reptiles.ge/news/georgia-herpetofauna-checklist-2026): Editorial article on Tarkhnishvili et al. 2026 (12 amphibians, 56 reptiles in that paper).
+
+## Group hubs
+
+- [Snakes](https://reptiles.ge/gvelebi): Snake hub for Georgia (22 published species).
+- [Lizards](https://reptiles.ge/xvlikebi): Lizard hub, including Darevskia and the glass lizard (29 published species).
+- [Turtles](https://reptiles.ge/kuebi): Turtle hub (4 published taxa, including one introduced slider).
+- [Amphibians](https://reptiles.ge/amfibiebi): Amphibian hub (12 published species).
+- [Birds](https://reptiles.ge/prinvelebi): Bird hub. Published atlas profiles only — not a national avifauna list.
+- [Mammals](https://reptiles.ge/dzuzumtsovrebi): Mammal hub. Published atlas profiles only — not a national mammal list.
+- [Spiders](https://reptiles.ge/obobebi): Spider hub (4 published species). No separate spider index page.
+
+## Species indexes
+
+- [Snake index](https://reptiles.ge/gvelebi/saxeoebebi): Table of published snake profiles.
+- [Lizard index](https://reptiles.ge/xvlikebi/saxeoebebi): Table of published lizard profiles.
+- [Turtle index](https://reptiles.ge/kuebi/saxeoebebi): Table of published turtle profiles.
+- [Amphibian index](https://reptiles.ge/amfibiebi/saxeoebebi): Table of published amphibian profiles.
+- [Bird index](https://reptiles.ge/prinvelebi/saxeoebebi): Published bird profiles only.
+- [Mammal index](https://reptiles.ge/dzuzumtsovrebi/saxeoebebi): Published mammal profiles only.
+
+## Identification and field guides
+
+- [Venomous vs harmless snakes](https://reptiles.ge/gvelebi/shxamiani-gvelis-amocnoba): Visual cues are not universal; compare lookalikes and profiles.
+- [Lizard identification](https://reptiles.ge/xvlikebi/identifikacia): Field marks, lookalikes, and Darevskia caution (colour is not ID).
+- [Darevskia](https://reptiles.ge/xvlikebi/darevskia): Sixteen rock-lizard profiles kept separate. Colour is not identification. Candidates stay candidates.
+- [Lizard or glass lizard](https://reptiles.ge/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba): Glass lizard vs slow worm vs snakes. None of the three is venomous on this page.
+- [Turtle identification](https://reptiles.ge/kuebi/identifikacia): Four-taxon comparison (land, native freshwater, introduced slider).
+- [Frogs of Georgia](https://reptiles.ge/amfibiebi/bayayi): Anura guide (8 species in the atlas).
+- [Frog index](https://reptiles.ge/amfibiebi/bayayi/saxeoebebi): Frog and toad index table.
+- [Newts and salamanders](https://reptiles.ge/amfibiebi/tritoni-salamandra): Caudata guide (4 species in the atlas).
+- [Land turtles](https://reptiles.ge/kuebi/xmelis-kuebi): Spur-thighed tortoise cluster.
+- [Freshwater turtles](https://reptiles.ge/kuebi/tsqlis-kuebi): Pond turtle, Caspian turtle, and introduced slider.
+- [Snake range](https://reptiles.ge/gvelebi/gavrtseleba): Snake occurrence across the 12 regions as recorded in the atlas.
+- [Largest snakes](https://reptiles.ge/gvelebi/didi-gvelebi): Size only where profiles cite it. Glass lizard is a lizard.
+
+## Safety
+
+- [Venomous snakes in Georgia](https://reptiles.ge/gvelebi/shxamiani-gvelebi): Medically significant vipers in the atlas, plus identification links. Educational.
+- [Snakebite](https://reptiles.ge/gvelebi/gvelis-nakbeni): Educational page. Call 112. Not a medical protocol and not first-aid instruction for unsupervised use.
+- [Snakes in the yard](https://reptiles.ge/gvelebi/gveli-ezoshi): Practical notes on snakes near houses. Not a guaranteed repellent method.
+- [Risk to humans](https://reptiles.ge/riskis-doneebi): What Harmless, Moderate, and High mean on atlas profiles.
+
+## Regions
+
+Region lists include only taxa assigned to that administrative unit in the atlas. Absence is not a national-range claim.
+
+- [Regions](https://reptiles.ge/regions): Map of Georgia’s 12 regions used by the atlas.
+- [Abkhazia](https://reptiles.ge/regions/abkhazia): Atlas records for Abkhazia.
+- [Samegrelo — Zemo Svaneti](https://reptiles.ge/regions/samegrelo): Atlas records for Samegrelo — Zemo Svaneti.
+- [Guria](https://reptiles.ge/regions/guria): Atlas records for Guria.
+- [Adjara](https://reptiles.ge/regions/adjara): Atlas records for Adjara.
+- [Imereti](https://reptiles.ge/regions/imereti): Atlas records for Imereti.
+- [Racha — Lechkhumi — Kvemo Svaneti](https://reptiles.ge/regions/racha): Atlas records for Racha — Lechkhumi — Kvemo Svaneti.
+- [Samtskhe — Javakheti](https://reptiles.ge/regions/samtskhe-javakheti): Atlas records for Samtskhe — Javakheti.
+- [Shida Kartli](https://reptiles.ge/regions/shida-kartli): Atlas records for Shida Kartli.
+- [Mtskheta — Mtianeti](https://reptiles.ge/regions/mtskheta-mtianeti): Atlas records for Mtskheta — Mtianeti.
+- [Kvemo Kartli](https://reptiles.ge/regions/kvemo-kartli): Atlas records for Kvemo Kartli.
+- [Kakheti](https://reptiles.ge/regions/kakheti): Atlas records for Kakheti.
+- [Tbilisi](https://reptiles.ge/regions/tbilisi): Atlas records for Tbilisi.
+
+## News
+
+Editorial pieces with cited sources. The species profile remains the atlas record.
+
+- [News](https://reptiles.ge/news): Index of published articles.
+- [Uzzell’s lizard in Armenia](https://reptiles.ge/news/darevskia-uzzelli-armenia-2026): Field/taxonomy note related to Darevskia.
+- [Dolphin strandings](https://reptiles.ge/news/georgia-dolphin-strandings-2026): Cited stranding report (not a mammal-atlas checklist).
+- [Viper hybrid in the Borjomi valley](https://reptiles.ge/news/vipera-pontica-hybrid-georgia-2026): Cited hybrid record.
+- [Batumi raptor count](https://reptiles.ge/news/batumi-19300-raptors-2026): Cited one-day raptor count.
+
+## Snake species
+
+Published snake profiles. English/Russian/Turkish slugs use the catalog id (`/en/snakes/{id}`). `dolichophis-caspius` is unpublished and is omitted.
+
+- [Vipera dinniki](https://reptiles.ge/gvelebi/dinikis-gvelgesla): Dinnik’s viper. Moderate. Checklist candidate.
+- [Macrovipera lebetinus](https://reptiles.ge/gvelebi/giurza): Levantine viper (გიურზა). High. Catalog id `macrovipera-lebetina`.
+- [Vipera kaznakovi](https://reptiles.ge/gvelebi/kavkasiuri-gvelgesla): Caucasus viper. Moderate. Checklist candidate.
+- [Vipera transcaucasiana](https://reptiles.ge/gvelebi/tsxvirrkosani-gvelgesla): Long-nosed viper profile (High). Catalog id `vipera-transcaucasiana`.
+- [Vipera darevskii](https://reptiles.ge/gvelebi/darevskis-gvelgesla): Darevsky’s viper. Moderate.
+- [Vipera renardi](https://reptiles.ge/gvelebi/velis-gvelgesla): Steppe viper. Moderate.
+- [Coronella austriaca](https://reptiles.ge/gvelebi/spilendza): Smooth snake. Harmless.
+- [Elaphe urartica](https://reptiles.ge/gvelebi/urartus-mtsuravi): Urartian ratsnake. Harmless.
+- [Elaphe dione](https://reptiles.ge/gvelebi/saxeebiani-mtsuravi): Dione ratsnake. Harmless.
+- [Natrix tessellata](https://reptiles.ge/gvelebi/tsqlis-ankara): Dice snake. Harmless.
+- [Natrix natrix](https://reptiles.ge/gvelebi/chveulebrivi-ankara): Grass snake. Harmless.
+- [Dolichophis schmidti](https://reptiles.ge/gvelebi/tsitelmutsela-mtsuravi): Red-bellied racer. Harmless. Checklist candidate.
+- [Platyceps najadum](https://reptiles.ge/gvelebi/tsengosferi-mtsuravi): Dahl’s whip snake. Harmless.
+- [Telescopus fallax](https://reptiles.ge/gvelebi/katistvala): European cat snake. Harmless.
+- [Xerotyphlops vermicularis](https://reptiles.ge/gvelebi/gvelbrutsa): Eurasian blind snake. Harmless.
+- [Eryx jaculus](https://reptiles.ge/gvelebi/dasavluri-maxrchobela): Javelin sand boa. Harmless.
+- [Zamenis longissimus](https://reptiles.ge/gvelebi/eskulapis-mtsuravi): Aesculapian snake. Harmless.
+- [Zamenis hohenackeri](https://reptiles.ge/gvelebi/amierkavkasiuri-mtsuravi): Transcaucasian ratsnake. Harmless.
+- [Hemorrhois ravergieri](https://reptiles.ge/gvelebi/nairferi-mtsuravi): Spotted whip snake. Harmless.
+- [Eirenis modestus](https://reptiles.ge/gvelebi/tsqnari-eirenisi): Dwarf racer. Harmless.
+- [Eirenis collaris](https://reptiles.ge/gvelebi/saqeloiani-eirenisi): Collared dwarf racer. Harmless.
+- [Malpolon insignitus](https://reptiles.ge/gvelebi/chveulebrivi-xvlikichamia-gveli): Eastern Montpellier snake. Moderate, rear-fanged. Not გიურზა.
+
+## Lizard species
+
+Sixteen Darevskia species are separate pages. Colour is not identification.
+
+- [Pseudopus apodus](https://reptiles.ge/xvlikebi/gvelxokera): European glass lizard. Harmless. Not a snake.
+- [Tenuidactylus caspius](https://reptiles.ge/xvlikebi/kaspiuri-gekoni): Caspian gecko. Harmless.
+- [Anguis colchica](https://reptiles.ge/xvlikebi/boxmecha): Eastern slow worm. Harmless. Checklist candidate.
+- [Paralaudakia caucasia](https://reptiles.ge/xvlikebi/jojo): Caucasian agama. Harmless. Catalog id `paralaudakia-caucasia`.
+- [Eumeces schneiderii](https://reptiles.ge/xvlikebi/grdzelfexa-stsinki): Schneider’s skink. Harmless.
+- [Ablepharus pannonicus](https://reptiles.ge/xvlikebi/shishveltvala-stsinki): Asian snake-eyed skink. Harmless.
+- [Eremias velox](https://reptiles.ge/xvlikebi/mardi-fsveni): Rapid racerunner. Harmless.
+- [Eremias arguta](https://reptiles.ge/xvlikebi/feradi-fsveni): Steppe-runner. Harmless.
+- [Ophisops elegans](https://reptiles.ge/xvlikebi/koxta-gveltava): Snake-eyed lizard. Harmless.
+- [Lacerta agilis](https://reptiles.ge/xvlikebi/mardi-xvliki): Sand lizard. Harmless. Checklist candidate.
+- [Lacerta strigata](https://reptiles.ge/xvlikebi/zoliani-xvliki): Striped lizard. Harmless.
+- [Lacerta media](https://reptiles.ge/xvlikebi/sashualo-xvliki): Medium lizard. Harmless. Checklist candidate.
+- [Phoenicolacerta laevis](https://reptiles.ge/xvlikebi/libanuri-xvliki): Lebanon lizard. Harmless. Introduced in the checklist.
+- [Darevskia adjarica](https://reptiles.ge/xvlikebi/acharuli-kldis-xvliki): Adjara rock lizard. Checklist candidate.
+- [Darevskia alpina](https://reptiles.ge/xvlikebi/afxazetis-kldis-xvliki): Alpine rock lizard. Checklist candidate.
+- [Darevskia armeniaca](https://reptiles.ge/xvlikebi/somxuri-kldis-xvliki): Armenian rock lizard.
+- [Darevskia brauneri](https://reptiles.ge/xvlikebi/brauneris-kldis-xvliki): Brauner’s rock lizard. Checklist candidate.
+- [Darevskia caucasica](https://reptiles.ge/xvlikebi/kavkasionis-xvliki): Caucasian rock lizard. Checklist candidate.
+- [Darevskia clarkorum](https://reptiles.ge/xvlikebi/turkuli-xvliki): Clark’s lizard.
+- [Darevskia daghestanica](https://reptiles.ge/xvlikebi/daghestnuri-xvliki): Daghestan lizard.
+- [Darevskia dahli](https://reptiles.ge/xvlikebi/dalis-xvliki): Dahl’s lizard.
+- [Darevskia derjugini](https://reptiles.ge/xvlikebi/artvinis-xvliki): Derjugin’s lizard.
+- [Darevskia mixta](https://reptiles.ge/xvlikebi/kolxuri-kldis-xvliki): Mixed rock lizard.
+- [Darevskia portschinskii](https://reptiles.ge/xvlikebi/mtkvris-xvliki): Portschinsky’s lizard.
+- [Darevskia praticola](https://reptiles.ge/xvlikebi/mdelos-xvliki): Meadow lizard.
+- [Darevskia pontica](https://reptiles.ge/xvlikebi/kolxuri-mdelos-xvliki): Pontic meadow lizard. Checklist candidate.
+- [Darevskia obscura](https://reptiles.ge/xvlikebi/mesxuri-kldis-xvliki): Meskhetian rock lizard. Checklist candidate.
+- [Darevskia raddei](https://reptiles.ge/xvlikebi/rades-xvliki): Radde’s lizard. Checklist candidate.
+- [Darevskia valentini](https://reptiles.ge/xvlikebi/valentinis-xvliki): Valentin’s lizard.
+
+## Turtle species
+
+- [Testudo graeca](https://reptiles.ge/kuebi/xmeltashuazghvetis-ku): Spur-thighed tortoise. Harmless.
+- [Emys orbicularis](https://reptiles.ge/kuebi/chaobis-ku): European pond turtle. Harmless.
+- [Trachemys scripta](https://reptiles.ge/kuebi/tsitelqura-ku): Red-eared slider. Harmless. Introduced in the checklist.
+- [Mauremys caspica](https://reptiles.ge/kuebi/kaspiuri-ku): Caspian turtle. Harmless.
+
+## Amphibian species
+
+- [Mertensiella caucasica](https://reptiles.ge/amfibiebi/kavkasiuri-salamandra): Caucasian salamander.
+- [Lissotriton lantzi](https://reptiles.ge/amfibiebi/kavkasiuri-chveulebrivi-tritoni): Lantz’s newt. Checklist candidate.
+- [Ommatotriton ophryticus](https://reptiles.ge/amfibiebi/kavkasiuri-tritoni): Northern banded newt.
+- [Triturus karelinii](https://reptiles.ge/amfibiebi/karelinis-savartsxliani-tritoni): Karelin’s crested newt.
+- [Pelobates syriacus](https://reptiles.ge/amfibiebi/siriuli-mqvari): Eastern spadefoot.
+- [Pelodytes caucasicus](https://reptiles.ge/amfibiebi/kavkasiuri-jvriana): Caucasian parsley frog.
+- [Bufotes viridis](https://reptiles.ge/amfibiebi/mtsvane-gombesho): Green toad.
+- [Bufo verrucosissimus](https://reptiles.ge/amfibiebi/kavkasiuri-gombesho): Caucasian toad.
+- [Hyla orientalis](https://reptiles.ge/amfibiebi/aghmosavluri-vasaka): Eastern tree frog. Checklist candidate.
+- [Hyla savignyi](https://reptiles.ge/amfibiebi/mtsireaziuri-vasaka): Savigny’s tree frog.
+- [Rana macrocnemis](https://reptiles.ge/amfibiebi/mtsireaziuri-baqaqi): Long-legged wood frog.
+- [Pelophylax ridibundus](https://reptiles.ge/amfibiebi/tboris-baqaqi): Marsh frog.
+
+## Bird species
+
+Published bird profiles only. Not a complete national avifauna list.
+
+- [Emberiza citrinella](https://reptiles.ge/prinvelebi/chveulebrivi-grata): Yellowhammer.
+- [Picus viridis](https://reptiles.ge/prinvelebi/mtsvane-kodala): Green woodpecker.
+- [Dendrocopos major](https://reptiles.ge/prinvelebi/didi-chreli-kodala): Great spotted woodpecker.
+- [Jynx torquilla](https://reptiles.ge/prinvelebi/maktsia): Eurasian wryneck.
+- [Cuculus canorus](https://reptiles.ge/prinvelebi/guguli): Common cuckoo.
+- [Upupa epops](https://reptiles.ge/prinvelebi/ofofi): Eurasian hoopoe.
+- [Apus apus](https://reptiles.ge/prinvelebi/namgala): Common swift.
+- [Strix aluco](https://reptiles.ge/prinvelebi/chveulebrivi-bu): Tawny owl.
+- [Otus scops](https://reptiles.ge/prinvelebi/chveulebrivi-tsqromi): Eurasian scops owl.
+- [Aegolius funereus](https://reptiles.ge/prinvelebi/bukioti): Boreal owl.
+- [Athene noctua](https://reptiles.ge/prinvelebi/choti): Little owl.
+- [Tyto alba](https://reptiles.ge/prinvelebi/bukhrintsa): Barn owl. Catalog id `tyto-alba`.
+- [Bubo bubo](https://reptiles.ge/prinvelebi/zarnasho): Eurasian eagle-owl.
+- [Ficedula hypoleuca](https://reptiles.ge/prinvelebi/chreli-mematlia): European pied flycatcher.
+- [Ficedula semitorquata](https://reptiles.ge/prinvelebi/naxevarsaqeloiani-mematlia): Semicollared flycatcher.
+- [Erithacus rubecula](https://reptiles.ge/prinvelebi/gultsitela): European robin.
+- [Luscinia megarhynchos](https://reptiles.ge/prinvelebi/bulbuli): Common nightingale.
+- [Buteo buteo](https://reptiles.ge/prinvelebi/chveulebrivi-kakacha): Common buzzard.
+- [Pernis apivorus](https://reptiles.ge/prinvelebi/bolokarkazi): European honey buzzard.
+- [Ciconia ciconia](https://reptiles.ge/prinvelebi/tetri-qarqati): White stork.
+- [Aquila chrysaetos](https://reptiles.ge/prinvelebi/mtis-artsivi): Golden eagle.
+- [Aegypius monachus](https://reptiles.ge/prinvelebi/svavi): Cinereous vulture.
+- [Gyps fulvus](https://reptiles.ge/prinvelebi/orbi): Griffon vulture.
+- [Milvus migrans](https://reptiles.ge/prinvelebi/shavi-dzera): Black kite.
+- [Accipiter nisus](https://reptiles.ge/prinvelebi/korisebri-mimino): Eurasian sparrowhawk.
+- [Accipiter gentilis](https://reptiles.ge/prinvelebi/kori): Northern goshawk.
+- [Falco peregrinus](https://reptiles.ge/prinvelebi/shavardeni): Peregrine falcon.
+- [Corvus corax](https://reptiles.ge/prinvelebi/qorani): Northern raven.
+- [Pica pica](https://reptiles.ge/prinvelebi/kachkachi): Eurasian magpie.
+- [Garrulus glandarius](https://reptiles.ge/prinvelebi/chxikvi): Eurasian jay.
+- [Anas platyrhynchos](https://reptiles.ge/prinvelebi/gareuli-ixvi): Mallard.
+- [Glareola pratincola](https://reptiles.ge/prinvelebi/mdelos-mertsxala): Collared pratincole.
+- [Larus fuscus](https://reptiles.ge/prinvelebi/frtashavi-tolia): Lesser black-backed gull.
+- [Phasianus colchicus](https://reptiles.ge/prinvelebi/xoxobi): Common pheasant.
+- [Coturnix coturnix](https://reptiles.ge/prinvelebi/mtsqeri): Common quail.
+- [Turdus merula](https://reptiles.ge/prinvelebi/shavi-shashvi): Common blackbird.
+- [Columba palumbus](https://reptiles.ge/prinvelebi/kedani): Common woodpigeon.
+- [Motacilla alba](https://reptiles.ge/prinvelebi/tetri-bolokankara): White wagtail.
+
+## Mammal species
+
+Published mammal profiles only. Not a complete national mammal list.
+
+- [Vulpes vulpes](https://reptiles.ge/dzuzumtsovrebi/mela): Red fox.
+- [Canis aureus](https://reptiles.ge/dzuzumtsovrebi/chveulebrivi-tura): Golden jackal.
+- [Canis lupus](https://reptiles.ge/dzuzumtsovrebi/ruxi-mgeli): Grey wolf.
+- [Mustela nivalis](https://reptiles.ge/dzuzumtsovrebi/dedofala): Least weasel.
+- [Lutra lutra](https://reptiles.ge/dzuzumtsovrebi/chveulebrivi-tsavi): Eurasian otter.
+- [Meles canescens](https://reptiles.ge/dzuzumtsovrebi/machvi): Southwest Asian badger.
+- [Sciurus anomalus](https://reptiles.ge/dzuzumtsovrebi/kavkasiuri-tsiqvi): Caucasian squirrel.
+- [Capreolus capreolus](https://reptiles.ge/dzuzumtsovrebi/evropuli-shveli): European roe deer.
+- [Ursus arctos](https://reptiles.ge/dzuzumtsovrebi/mura-datvi): Brown bear.
+- [Erinaceus concolor](https://reptiles.ge/dzuzumtsovrebi/evropuli-zgharbi): Southern white-breasted hedgehog.
+- [Sus scrofa](https://reptiles.ge/dzuzumtsovrebi/gareuli-ghori): Wild boar.
+- [Panthera pardus](https://reptiles.ge/dzuzumtsovrebi/kavkasiuri-jiki): Persian leopard.
+- [Lynx lynx](https://reptiles.ge/dzuzumtsovrebi/fotsxveri): Eurasian lynx.
+- [Procyon lotor](https://reptiles.ge/dzuzumtsovrebi/enoti): Raccoon.
+- [Capra aegagrus](https://reptiles.ge/dzuzumtsovrebi/niamori): Bezoar goat.
+
+## Spider species
+
+Published spider profiles only. Not a complete arachnofauna list.
+
+- [Argiope bruennichi](https://reptiles.ge/obobebi/argiopa): Wasp spider. Harmless.
+- [Argiope lobata](https://reptiles.ge/obobebi/lobebiani-argiopa): Lobed argiope. Harmless.
+- [Steatoda paykulliana](https://reptiles.ge/obobebi/tsru-qaraqurti): False black widow. Harmless.
+- [Latrodectus tredecimguttatus](https://reptiles.ge/obobebi/qaraqurti): Mediterranean black widow. High.
+
+## Secondary resources
+
+- [English](https://reptiles.ge/en): English homepage. Same catalog; English pathnames and scientific species slugs.
+- [Russian](https://reptiles.ge/ru): Russian homepage (`/ru/…` + English pathnames).
+- [Turkish](https://reptiles.ge/tr): Turkish homepage (`/tr/…` + English pathnames).
+- [Contact](https://reptiles.ge/contact): Corrections and questions.
+- [Quizzes](https://reptiles.ge/quiz): Quiz index. Turtle quiz is listed as coming soon (no URL).
+- [Which snake?](https://reptiles.ge/quiz/romeli-gvelia): Snake photo quiz. Practice, not field ID. No result URLs.
+- [Which lizard?](https://reptiles.ge/quiz/romeli-xvlikia): Lizard photo quiz. Practice, not field ID. No result URLs.
+- [Sitemap](https://reptiles.ge/sitemap.xml): Full indexable URL set, including locale alternates.
+- [Tarkhnishvili et al. 2026](https://doi.org/10.3897/caucasiana.5.e189214): Annotated checklist cited for amphibians and reptiles.
+- [Iankoshvili & Tarkhnishvili 2021](https://doi.org/10.1080/09397140.2021.1957208): Snake distribution paper cited on About and some snake profiles.
