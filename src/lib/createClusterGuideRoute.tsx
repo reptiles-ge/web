@@ -20,6 +20,7 @@ import { SnakeIdentifyPage } from "@/components/SnakeIdentifyPage";
 import { SnakeLargestPage } from "@/components/SnakeLargestPage";
 import { SnakeRangePage } from "@/components/SnakeRangePage";
 import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
+import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
 import { getCatalogSpecies } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
