@@ -651,8 +651,8 @@ const STATIC_PAGES: Array<
     keywords: ["ქვიზი", "ქვიზები", "quiz", "quizzes", "ამოცნობა"],
     rank: 3,
     subtitle: {
-      en: "A photo quiz of Georgia’s snakes",
-      ka: "ფოტო-ქვიზი საქართველოს გველებზე",
+      en: "Photo quizzes of Georgia’s snakes and lizards",
+      ka: "ფოტო-ქვიზები საქართველოს გველებსა და ხვლიკებზე",
     },
     suggested: true,
     title: { en: "Quizzes", ka: "ქვიზები" },
