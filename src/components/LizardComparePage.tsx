@@ -71,7 +71,7 @@ export async function LizardComparePage({
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {columns.map((item, index) => (
+            {columns.map((item) => (
               <div key={item.id}>
                 <CompareCard
                   locale={locale}

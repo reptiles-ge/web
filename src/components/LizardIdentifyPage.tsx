@@ -114,7 +114,7 @@ export async function LizardIdentifyPage({
         title={t("pairsTitle")}
       >
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {pairs.map((pair, index) => (
+          {pairs.map((pair) => (
             <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
                 a={pair.a}

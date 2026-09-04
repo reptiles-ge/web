@@ -224,7 +224,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
 
             {species.length > 0 ? (
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {species.map((item, index) => (
+                {species.map((item) => (
                   <div key={item.id}>
                     <PhotoSpeciesCard species={item} />
                   </div>
@@ -261,7 +261,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                 </p>
               </div>
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {venomous.map((item, index) => (
+                {venomous.map((item) => (
                   <div key={item.id}>
                     <PhotoSpeciesCard showDanger species={item} />
                   </div>
@@ -298,7 +298,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                 </AnchoredHeading>
               </div>
               <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {related.map((item, index) => {
+                {related.map((item) => {
                   const relatedContent = getRegionContent(item.id);
                   return (
                     <li key={item.id}>
