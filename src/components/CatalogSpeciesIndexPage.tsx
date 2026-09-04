@@ -1,7 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
-import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -13,19 +12,20 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
-
-export function BirdSpeciesIndexPage(props: ClusterGuideViewProps) {
-  return <CatalogSpeciesIndexPage {...props} messageKey="birdIndex" />;
-}
+import {
+  CLUSTER_GUIDES,
+  type ClusterGuideViewProps,
+} from "@/lib/clusterGuides";
 
 export async function CatalogSpeciesIndexPage({
   guideId,
   heroSrc,
-  messageKey,
   species,
-}: ClusterGuideViewProps & {
-  messageKey: "birdIndex" | "mammalIndex";
-}) {
+}: ClusterGuideViewProps) {
+  const messageKey = CLUSTER_GUIDES[guideId].messageKey;
+  if (messageKey !== "birdIndex" && messageKey !== "mammalIndex") {
+    return null;
+  }
   const t = await getTranslations(messageKey);
   const locale = (await getLocale()) as AppLocale;
   const familyCount = new Set(species.map((item) => item.family)).size;
@@ -84,6 +84,3 @@ export async function CatalogSpeciesIndexPage({
   );
 }
 
-export function MammalSpeciesIndexPage(props: ClusterGuideViewProps) {
-  return <CatalogSpeciesIndexPage {...props} messageKey="mammalIndex" />;
-}
