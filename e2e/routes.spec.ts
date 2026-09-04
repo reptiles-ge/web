@@ -31,6 +31,10 @@ test("giurza profile is indexable with Taxon JSON-LD", async ({ page }) => {
   expect(author["@type"]).toBe("Organization");
   expect(JSON.stringify(author)).not.toContain("Person");
   expect(article).not.toHaveProperty("reviewedBy");
+  expect(typeof article?.datePublished).toBe("string");
+  expect(String(article?.datePublished)).toMatch(/^\d{4}-\d{2}-\d{2}/);
+  expect(String(article?.datePublished)).not.toContain("Invalid");
+  expect(typeof article?.dateModified).toBe("string");
 });
 
 test("English species page advertises KA as x-default", async ({ page }) => {
@@ -102,7 +106,22 @@ test("404 is noindex", async ({ page }) => {
   expect(contents.every((value) => /noindex/i.test(value))).toBe(true);
 });
 
-test.describe("JS-disabled shells", () => {
+test("Darevskia guide is distinct from lizard identify", async ({ page }) => {
+  await page.goto("/xvlikebi/darevskia");
+  await expect(page.locator("h1")).toContainText("Darevskia");
+  await expect(page.locator("h1")).not.toHaveText("ეს რა ხვლიკია?");
+
+  await page.goto("/xvlikebi/identifikacia");
+  await expect(page.locator("h1")).toContainText("ეს რა ხვლიკია?");
+});
+
+test("Russian region page does not render English FAQ", async ({ page }) => {
+  await page.goto("/ru/regions/adjara");
+  await expect(page.locator("h1")).toBeVisible();
+  await expect(page.locator("body")).not.toContainText(
+    "What snakes live in Adjara",
+  );
+});
   test.use({ javaScriptEnabled: false });
 
   test("hub, species, about, and contact still render H1", async ({ page }) => {

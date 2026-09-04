@@ -24,3 +24,17 @@ describe("isSnakeSpecies", () => {
     );
   });
 });
+
+describe("Darevskia cluster", () => {
+  it("matches catalog Darevskia one by one", () => {
+    const darevskia = getCatalogSpecies().filter(isDarevskiaSpecies);
+    expect(darevskia.length).toBeGreaterThan(1);
+    expect(new Set(darevskia.map((item) => item.id)).size).toBe(
+      darevskia.length,
+    );
+    expect(CLUSTER_GUIDES["lizard-darevskia"].pathname).toBe(
+      "/lizards/darevskia",
+    );
+    expect(darevskia.every((item) => item.genus === "Darevskia")).toBe(true);
+  });
+});
