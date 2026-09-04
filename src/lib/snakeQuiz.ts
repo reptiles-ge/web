@@ -1,5 +1,5 @@
 import { type PhotoCredit, type Species } from "@/data/species";
-import { isSnakeSpecies } from "@/lib/clusterGuides";
+import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
@@ -61,6 +61,50 @@ const POOL_BY_DIFFICULTY: Record<QuizDifficulty, readonly string[]> = {
   easy: EASY_SNAKE_IDS,
   hard: HARD_SNAKE_IDS,
   medium: MEDIUM_SNAKE_IDS,
+};
+
+export const EASY_LIZARD_IDS = [
+  "ablepharus-pannonicus",
+  "anguis-colchica",
+  "eumeces-schneiderii",
+  "lacerta-agilis",
+  "lacerta-strigata",
+  "paralaudakia-caucasia",
+  "pseudopus-apodus",
+  "tenuidactylus-caspius",
+] as const;
+
+export const MEDIUM_LIZARD_IDS = [
+  "eremias-arguta",
+  "eremias-velox",
+  "lacerta-media",
+  "ophisops-elegans",
+  "phoenicolacerta-laevis",
+] as const;
+
+export const HARD_LIZARD_IDS = [
+  "darevskia-adjarica",
+  "darevskia-alpina",
+  "darevskia-armeniaca",
+  "darevskia-brauneri",
+  "darevskia-caucasica",
+  "darevskia-clarkorum",
+  "darevskia-daghestanica",
+  "darevskia-dahli",
+  "darevskia-derjugini",
+  "darevskia-mixta",
+  "darevskia-obscura",
+  "darevskia-pontica",
+  "darevskia-portschinskii",
+  "darevskia-praticola",
+  "darevskia-raddei",
+  "darevskia-valentini",
+] as const;
+
+const LIZARD_POOL_BY_DIFFICULTY: Record<QuizDifficulty, readonly string[]> = {
+  easy: EASY_LIZARD_IDS,
+  hard: HARD_LIZARD_IDS,
+  medium: MEDIUM_LIZARD_IDS,
 };
 
 export type SnakeQuizQuestion = {
@@ -157,11 +201,13 @@ export function generateSnakeQuiz(
     difficulty?: QuizDifficulty;
     length?: number;
     mode?: QuizMode;
+    pools?: Record<QuizDifficulty, readonly string[]>;
     rng?: () => number;
   },
 ): SnakeQuizQuestion[] {
   const rng = options?.rng ?? Math.random;
   const length = options?.length ?? QUIZ_LENGTH;
+  const difficultyPools = options?.pools ?? POOL_BY_DIFFICULTY;
   const byId = catalogById(pool);
   if (pool.length < QUIZ_OPTION_COUNT) return [];
 
