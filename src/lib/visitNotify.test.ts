@@ -75,6 +75,10 @@ describe("visitPageLabel", () => {
     expect(visitPageLabel("/gvelebi")).toBe("გველები");
     expect(visitPageLabel("/")).toBe("მთავარი");
   });
+
+  it("prefers a static guide over a species slug", () => {
+    expect(visitPageLabel("/gvelebi/saxeoebebi")).toBe("გველის სახეობები");
+  });
 });
 
 describe("visitLocaleFromPath", () => {

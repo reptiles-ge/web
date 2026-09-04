@@ -129,15 +129,19 @@ function matchPublicPath(publicPath: string, locale: AppLocale) {
       internal,
       pattern: localizedPattern(internal, locale),
     }))
-    .sort(
-      (a, b) => b.pattern.split("/").length - a.pattern.split("/").length,
-    );
+    .sort((a, b) => patternScore(b.pattern) - patternScore(a.pattern));
 
   for (const { internal, pattern } of entries) {
     const params = matchPattern(pattern, publicPath);
     if (params) return { internal, params };
   }
   return null;
+}
+
+function patternScore(pattern: string) {
+  const parts = pattern.split("/").filter(Boolean);
+  const staticCount = parts.filter((part) => !part.startsWith("[")).length;
+  return staticCount * 100 + parts.length;
 }
 
 function stripLocalePrefix(pathname: string, locale: AppLocale) {
