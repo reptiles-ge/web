@@ -33,6 +33,9 @@ function offsetFromParts(parts: Intl.DateTimeFormatPart[]): string {
   return `${match[1]}${hours}:${minutes}`;
 }
 
-function part(parts: Intl.DateTimeFormatPart[], type: Intl.DateTimeFormatPartTypes): string {
+function part(
+  parts: Intl.DateTimeFormatPart[],
+  type: Intl.DateTimeFormatPartTypes,
+): string {
   return parts.find((item) => item.type === type)?.value ?? "";
 }
