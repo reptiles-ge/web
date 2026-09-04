@@ -269,6 +269,7 @@
     "snakeRange": "Where snakes occur",
     "snakeLargest": "Largest snakes",
     "lizardIdentify": "Identify a lizard",
+    "darevskia": "Darevskia",
     "glassLizard": "Lizard or glass lizard",
     "turtleLand": "Land turtles",
     "turtleWater": "Freshwater turtles",
@@ -1019,6 +1020,12 @@
         "title": "What lizard is this?",
         "body": "Photo, size, colour, range. For Darevskia, colour is not enough.",
         "cta": "ID guide"
+      },
+      "lizardDarevskia": {
+        "eyebrow": "Rock lizards",
+        "title": "Darevskia one by one",
+        "body": "Colour is not identification. Each species opens its own profile.",
+        "cta": "Darevskia guide"
       },
       "glassLizard": {
         "eyebrow": "Compare",
@@ -1917,6 +1924,7 @@
     "darevskiaEyebrow": "Warning",
     "darevskiaTitle": "Darevskia — colour is not enough",
     "darevskiaBody": "Caucasian rock lizards sit close together in appearance. Profile and region beat guessing by colour. The list below opens profiles.",
+    "darevskiaCta": "Darevskia guide",
     "featuredEyebrow": "Two exceptions",
     "featuredTitle": "Agama and glass lizard stand apart",
     "featuredBody": "The agama is the only agamid in the checklist. The glass lizard is a large legless lizard — eyelids and ear openings.",

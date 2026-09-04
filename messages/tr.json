@@ -269,6 +269,7 @@
     "snakeRange": "Yılanlar nerede yaşar",
     "snakeLargest": "En büyük yılanlar",
     "lizardIdentify": "Kertenkeleyi tanı",
+    "darevskia": "Darevskia",
     "glassLizard": "Kertenkele mi cam kertenkele mi",
     "turtleLand": "Kara kaplumbağaları",
     "turtleWater": "Tatlısu kaplumbağaları",
@@ -1019,6 +1020,12 @@
         "title": "Bu hangi kertenkele?",
         "body": "Fotoğraf, boyut, renk, yayılış. Darevskia için renk yetmez.",
         "cta": "Tanıma rehberi"
+      },
+      "lizardDarevskia": {
+        "eyebrow": "Kaya kertenkeleleri",
+        "title": "Darevskia tek tek",
+        "body": "Renk tanıma değildir. Her tür kendi profilini açar.",
+        "cta": "Darevskia rehberi"
       },
       "glassLizard": {
         "eyebrow": "Karşılaştır",
@@ -1917,6 +1924,7 @@
     "darevskiaEyebrow": "Uyarı",
     "darevskiaTitle": "Darevskia — renk yetmez",
     "darevskiaBody": "Kafkas kaya kertenkeleleri görünüşte yakındır. Profil ve bölge, renge göre tahmin etmekten üstündür. Aşağıdaki liste profilleri açar.",
+    "darevskiaCta": "Darevskia rehberi",
     "featuredEyebrow": "İki istisna",
     "featuredTitle": "Agama ve cam kertenkele ayrı durur",
     "featuredBody": "Agama kontrol listesindeki tek agamiddir. Cam kertenkele büyük bacaksız bir kertenkeledir — göz kapakları ve kulak açıklıkları.",
