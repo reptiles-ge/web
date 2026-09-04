@@ -73,6 +73,13 @@ export async function LizardIdentifyPage({
         title={t("darevskiaTitle")}
       >
         <SpeciesGuideList locale={locale} source="guide" species={darevskia} />
+        <Link
+          className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+          href="/lizards/darevskia"
+        >
+          {t("darevskiaCta")}
+          <ArrowUpRight className="size-3.5" />
+        </Link>
       </ClusterContentSection>
 
       <ClusterContentSection
