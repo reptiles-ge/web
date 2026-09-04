@@ -95,6 +95,17 @@ export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProp
                   <ArrowUpRight className="size-4" />
                 </QuizCtaLink>
               ) : null}
+              {hubId === "lizards" ? (
+                <QuizCtaLink
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  href={quizHref("lizard", locale)}
+                  quizId="lizard"
+                  source="hub"
+                >
+                  {t("ctaQuiz")}
+                  <ArrowUpRight className="size-4" />
+                </QuizCtaLink>
+              ) : null}
               {hubId === "turtles" ? (
                 <Link
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:bg-white/10 hover:text-white"

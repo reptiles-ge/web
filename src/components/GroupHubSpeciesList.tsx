@@ -65,11 +65,17 @@ export async function GroupHubSpeciesList({
           ))}
         </div>
 
-        {hubId === "turtles" ? (
+        {hubId === "turtles" || hubId === "birds" || hubId === "mammals" ? (
           <div>
             <Link
               className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-              href="/turtles/saxeoebebi"
+              href={
+                hubId === "turtles"
+                  ? "/turtles/saxeoebebi"
+                  : hubId === "birds"
+                    ? "/birds/saxeoebebi"
+                    : "/mammals/saxeoebebi"
+              }
             >
               {t("speciesIndexCta")}
               <ArrowUpRight className="size-4" />
