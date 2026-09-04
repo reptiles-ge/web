@@ -14,6 +14,10 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 
+export function BirdSpeciesIndexPage(props: ClusterGuideViewProps) {
+  return <CatalogSpeciesIndexPage {...props} messageKey="birdIndex" />;
+}
+
 export async function CatalogSpeciesIndexPage({
   guideId,
   heroSrc,
@@ -78,10 +82,6 @@ export async function CatalogSpeciesIndexPage({
       </section>
     </ClusterPageFrame>
   );
-}
-
-export function BirdSpeciesIndexPage(props: ClusterGuideViewProps) {
-  return <CatalogSpeciesIndexPage {...props} messageKey="birdIndex" />;
 }
 
 export function MammalSpeciesIndexPage(props: ClusterGuideViewProps) {

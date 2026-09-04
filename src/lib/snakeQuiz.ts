@@ -195,6 +195,21 @@ export function buildQuizHint(species: Species) {
   return species.location;
 }
 
+export function generateLizardQuiz(
+  pool: SnakeQuizSpecies[],
+  options?: {
+    difficulty?: QuizDifficulty;
+    length?: number;
+    mode?: QuizMode;
+    rng?: () => number;
+  },
+) {
+  return generateSnakeQuiz(pool, {
+    ...options,
+    pools: LIZARD_POOL_BY_DIFFICULTY,
+  });
+}
+
 export function generateSnakeQuiz(
   pool: SnakeQuizSpecies[],
   options?: {
@@ -275,21 +290,6 @@ export function generateSnakeQuiz(
         },
       ];
     });
-}
-
-export function generateLizardQuiz(
-  pool: SnakeQuizSpecies[],
-  options?: {
-    difficulty?: QuizDifficulty;
-    length?: number;
-    mode?: QuizMode;
-    rng?: () => number;
-  },
-) {
-  return generateSnakeQuiz(pool, {
-    ...options,
-    pools: LIZARD_POOL_BY_DIFFICULTY,
-  });
 }
 
 export function getLizardQuizCatalog(species: Species[]): SnakeQuizSpecies[] {

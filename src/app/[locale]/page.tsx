@@ -93,18 +93,18 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
 
   const t = await getTranslations({ locale, namespace: "site" });
   const homeUrl = absoluteUrl(localePath(locale, "/"));
-  const speciesSearchUrl = absoluteUrl(localePath(locale, "/species"));
   const description = t("description");
   const stats = getAtlasStats();
   const org = organizationJsonLd({ description });
   const datasetId = `${homeUrl}#atlas`;
   const termsId = `${homeUrl}#atlas-terms`;
+  const searchUrlTemplate = `${absoluteUrl(localePath("ka", "/species"))}?q={search_term_string}`;
 
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
       org,
-      websiteJsonLd({ description }),
+      websiteJsonLd({ description, searchUrlTemplate }),
       {
         "@id": homeUrl,
         "@type": "WebPage",
@@ -113,14 +113,6 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         inLanguage: locale,
         isPartOf: { "@id": siteEntityId("website") },
         name: t("title"),
-        potentialAction: {
-          "@type": "SearchAction",
-          "query-input": "required name=search_term_string",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${speciesSearchUrl}?q={search_term_string}`,
-          },
-        },
         url: homeUrl,
       },
       {

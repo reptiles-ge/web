@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, type ReactNode, useContext } from "react";
 import { useTranslations } from "next-intl";
+import { createContext, type ReactNode, useContext } from "react";
 
 import type { QuizCopyNamespace } from "@/lib/quizzes";
 

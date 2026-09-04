@@ -1,6 +1,5 @@
 "use client";
 
-import { useQuizCopy } from "@/components/QuizCopyContext";
 import { type RefObject } from "react";
 
 import type {
@@ -9,6 +8,7 @@ import type {
   SnakeQuizSpecies,
 } from "@/lib/snakeQuiz";
 
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
 import { QuizResultOverlay } from "@/components/QuizResultOverlay";
 import { QuizRound } from "@/components/QuizRound";

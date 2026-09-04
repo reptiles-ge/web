@@ -458,8 +458,8 @@ export type HubClusterCard =
         | ClusterGuidePath;
       key:
         | "amphibianIndex"
-        | "birdsHub"
         | "birdIndex"
+        | "birdsHub"
         | "bite"
         | "frogs"
         | "frogsIndex"
