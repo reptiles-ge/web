@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { type RefObject } from "react";
 
 import type {
@@ -81,7 +81,7 @@ export function QuizStage({
   shareUrl,
   total,
 }: QuizStageProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
 
   return (
     <section

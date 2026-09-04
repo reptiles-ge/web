@@ -215,12 +215,12 @@ export function generateSnakeQuiz(
   const selected: Array<{ difficulty: QuizDifficulty; id: string }> = [];
 
   if (options?.difficulty) {
-    const ids = takeUnique(
-      idsForDifficulty(options.difficulty, pool),
-      length,
-      used,
-      rng,
-    );
+      const ids = takeUnique(
+        idsForDifficulty(options.difficulty, pool, difficultyPools),
+        length,
+        used,
+        rng,
+      );
     for (const id of ids) {
       selected.push({ difficulty: options.difficulty, id });
     }
@@ -228,7 +228,7 @@ export function generateSnakeQuiz(
     const mix = DEFAULT_QUIZ_MIX;
     (Object.keys(mix) as QuizDifficulty[]).forEach((difficulty) => {
       const ids = takeUnique(
-        idsForDifficulty(difficulty, pool),
+        idsForDifficulty(difficulty, pool, difficultyPools),
         mix[difficulty],
         used,
         rng,
@@ -277,6 +277,31 @@ export function generateSnakeQuiz(
     });
 }
 
+export function generateLizardQuiz(
+  pool: SnakeQuizSpecies[],
+  options?: {
+    difficulty?: QuizDifficulty;
+    length?: number;
+    mode?: QuizMode;
+    rng?: () => number;
+  },
+) {
+  return generateSnakeQuiz(pool, {
+    ...options,
+    pools: LIZARD_POOL_BY_DIFFICULTY,
+  });
+}
+
+export function getLizardQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
+  const catalog: SnakeQuizSpecies[] = [];
+  for (const item of species) {
+    if (isLizardSpecies(item) && Boolean(item.image)) {
+      catalog.push(toSnakeQuizSpecies(item));
+    }
+  }
+  return catalog;
+}
+
 export function getSnakeQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
   const catalog: SnakeQuizSpecies[] = [];
   for (const item of species) {
@@ -302,7 +327,7 @@ export function pickSnakeDistractors(
   const availableIds = new Set(available.map((item) => item.id));
   const related = new Set<string>();
   for (const item of getRelatedSpecies(correctId, 8)) {
-    if (isSnakeSpecies(item) && availableIds.has(item.id)) {
+    if (availableIds.has(item.id)) {
       related.add(item.id);
     }
   }
@@ -368,8 +393,9 @@ function catalogById(pool: SnakeQuizSpecies[]) {
 function idsForDifficulty(
   difficulty: QuizDifficulty,
   pool: SnakeQuizSpecies[],
+  pools: Record<QuizDifficulty, readonly string[]> = POOL_BY_DIFFICULTY,
 ) {
-  const preferred = POOL_BY_DIFFICULTY[difficulty];
+  const preferred = pools[difficulty];
   const fromPool = preferred.filter((id) =>
     pool.some((item) => item.id === id),
   );

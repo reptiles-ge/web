@@ -1,13 +1,13 @@
 "use client";
 
 import { ArrowRight, Lightbulb } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { type KeyboardEvent, type RefObject } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { QuizDifficulty, SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
-import { Link } from "@/i18n/navigation";
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -61,7 +61,7 @@ export function QuizRound({
   selectedId,
   total,
 }: QuizRoundProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
 
   function onRadioKeyDown(event: KeyboardEvent<HTMLDivElement>) {

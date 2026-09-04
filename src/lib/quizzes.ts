@@ -1,19 +1,21 @@
 import { type AppLocale, routing } from "@/i18n/routing";
 import { QUIZ_LENGTH } from "@/lib/snakeQuiz";
 
+export type QuizCopyNamespace = "lizardQuiz" | "snakeQuiz";
+
 export type QuizDefinition = {
   generator?: QuizGenerator;
   group: QuizGroup;
   heroSpeciesId: string;
   id: QuizId;
   messageKey: QuizMessageKey;
-  messageNamespace: "snakeQuiz";
+  messageNamespace: QuizCopyNamespace;
   ogImage: string;
   questions?: number;
   slugs?: Record<AppLocale, string>;
   status: QuizStatus;
 };
-export type QuizGenerator = "snake";
+export type QuizGenerator = "lizard" | "snake";
 export type QuizGroup = "lizard" | "snake" | "turtle";
 export type QuizHref = {
   params: { slug: string };
@@ -44,13 +46,21 @@ export const QUIZ_INDEX = [
     status: "live",
   },
   {
+    generator: "lizard",
     group: "lizard",
-    heroSpeciesId: "pseudopus-apodus",
+    heroSpeciesId: "paralaudakia-caucasia",
     id: "lizard",
     messageKey: "lizard",
-    messageNamespace: "snakeQuiz",
-    ogImage: "/images/guides/snake-quiz-og.jpg",
-    status: "soon",
+    messageNamespace: "lizardQuiz",
+    ogImage: "/images/home/groups/lizards.jpg",
+    questions: QUIZ_LENGTH,
+    slugs: {
+      en: "which-lizard",
+      ka: "romeli-xvlikia",
+      ru: "kakaya-yashcheritsa",
+      tr: "hangi-kertenkele",
+    },
+    status: "live",
   },
   {
     group: "turtle",

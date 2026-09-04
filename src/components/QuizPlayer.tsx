@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import {
   useCallback,
   useEffect,
@@ -10,10 +9,11 @@ import {
   useRef,
 } from "react";
 
-import { QuizStage } from "@/components/QuizStage";
+import { QuizCopyProvider, useQuizCopy } from "@/components/QuizCopyContext";
 import { trackEvent } from "@/lib/analytics";
 import { draftKey, type QuizDraft, useQuizDraft } from "@/lib/quizDraft";
 import {
+  generateLizardQuiz,
   generateSnakeQuiz,
   QUIZ_LENGTH,
   type QuizDifficulty,
@@ -35,9 +35,9 @@ type QuizAction =
   | { type: "advance" };
 
 type QuizPlayerProps = {
+  pool: SnakeQuizSpecies[];
   quizId: string;
   shareUrl: string;
-  snakes: SnakeQuizSpecies[];
 };
 
 type QuizSession = {
@@ -97,12 +97,12 @@ function quizCoverState({
   };
 }
 
-function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
-  const t = useTranslations("snakeQuiz");
+function QuizPlayerSession({ pool, quizId, shareUrl }: QuizPlayerProps) {
+  const t = useQuizCopy();
   const headingId = useId();
   const byId = useMemo(
-    () => new Map(snakes.map((item) => [item.id, item])),
-    [snakes],
+    () => new Map(pool.map((item) => [item.id, item])),
+    [pool],
   );
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const feedbackRef = useRef<HTMLParagraphElement>(null);
@@ -114,12 +114,14 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
     session;
   useQuizDraft(quizId, dispatch, session);
 
-  const introCover =
-    snakes.find((item) => item.id === "natrix-natrix") ?? snakes[0];
+  const introCoverId =
+    quizId === "lizard" ? "paralaudakia-caucasia" : "natrix-natrix";
+  const introCover = pool.find((item) => item.id === introCoverId) ?? pool[0];
 
   const startRound = useCallback(
     (reason: "restart" | "start") => {
-      const next = generateSnakeQuiz(snakes);
+      const next =
+        quizId === "lizard" ? generateLizardQuiz(pool) : generateSnakeQuiz(pool);
       dispatch({ questions: next, type: "start" });
       abandonSent.current = false;
       hintedQuestions.current = new Set();
@@ -129,7 +131,7 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
         quiz_id: quizId,
       });
     },
-    [snakes, quizId],
+    [pool, quizId],
   );
 
   useEffect(() => {
@@ -208,6 +210,9 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
     questions && index + 1 >= questions.length ? t("seeResult") : t("next");
 
   return (
+    <QuizCopyProvider
+      namespace={quizId === "lizard" ? "lizardQuiz" : "snakeQuiz"}
+    >
     <QuizStage
       answers={answers}
       byId={byId}
@@ -239,8 +244,8 @@ function QuizPlayerSession({ quizId, shareUrl, snakes }: QuizPlayerProps) {
       shareUrl={shareUrl}
       total={total}
     />
+    </QuizCopyProvider>
   );
-
 }
 
 function quizReducer(state: QuizSession, action: QuizAction): QuizSession {

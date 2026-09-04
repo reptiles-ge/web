@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useQuizCopy } from "@/components/QuizCopyContext";
 
 import { Link } from "@/i18n/navigation";
 
@@ -11,7 +11,7 @@ type QuizIntroOverlayProps = {
 };
 
 export function QuizBreadcrumbs() {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
   const tQuizzes = useTranslations("quizzes");
 
   return (
@@ -43,7 +43,7 @@ export function QuizIntroOverlay({
   headingId,
   onStart,
 }: QuizIntroOverlayProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
   const rules = [
     { body: t("rule1Body"), title: t("rule1Title") },
     { body: t("rule2Body"), title: t("rule2Title") },
