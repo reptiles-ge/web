@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { DarevskiaGuidePage } from "@/components/DarevskiaGuidePage";
 import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { LizardComparePage } from "@/components/LizardComparePage";
@@ -53,6 +54,7 @@ const CLUSTER_PAGES: Record<
   "amphibian-frogs-index": FrogSpeciesIndexPage,
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
+  "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
   "lizard-identify": LizardIdentifyPage,
   "lizard-index": LizardSpeciesIndexPage,
