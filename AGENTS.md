@@ -7,7 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # reptiles.ge — agent map
 
-Bilingual (KA canonical, EN secondary) atlas of animals of Georgia: [reptiles.ge](https://reptiles.ge). Herpetofauna is the deepest layer (Tarkhnishvili et al. 2026 checklist). Birds and mammals exist as hubs + profiles, without the same guide clusters.
+Bilingual (KA canonical, EN secondary; RU/TR also live) atlas of animals of Georgia: [reptiles.ge](https://reptiles.ge). Herpetofauna is the deepest layer (Tarkhnishvili et al. 2026 checklist). Birds and mammals exist as hubs + profiles, without the same guide clusters.
 
 This file is the project map for agents. Humans: see `README.md`.
 
@@ -16,7 +16,7 @@ This file is the project map for agents. Humans: see `README.md`.
 | Piece        | Detail                                                               |
 | ------------ | -------------------------------------------------------------------- |
 | App          | Next.js 16 App Router, React 19, TypeScript strict                   |
-| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `messages/en.json` |
+| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json` |
 | Style        | Tailwind 4, no CSS-in-JS                                             |
 | Alias        | `@/*` → `src/*`                                                      |
 | Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)              |
@@ -98,7 +98,7 @@ This is a public scientific atlas, not a blog.
 
 - **Do not invent.** No locality, region, measurement, IUCN/national status, venom effect, or endemic claim without a source already used on the site (see below).
 - **Regions:** add a species id to `regions.ts` only when Tarkhnishvili et al. 2026 (DOI `10.3897/caucasiana.5.e189214`) — or a profile that already cites a locality — names that administrative unit. “Georgia”, “Caucasus”, “Colchis”, habitat type, IUCN global range, or a neighbouring region is **not** enough.
-- **Candidate taxa:** keep the checklist note. Do not “confirm” a species Tarkhnishvili marks as candidate.
+- **Candidate taxa:** keep the checklist note. Status lives in `src/data/herpetofauna-checklist.ts` (`confirmed` \| `candidate` \| `introduced`) for amphibians and reptiles only. Do not “confirm” a species Tarkhnishvili marks as candidate. Birds, mammals, and spiders are out of scope for that map.
 - **Darevskia:** 16 species; colour is not ID. Do not collapse them.
 - **Medical:** bite / venom / yard pages are educational. Call **112**. Not first-aid protocol, not `MedicalWebPage` schema. `malpolon-insignitus` is Moderate / rear-fanged — not გიურზა.
 - **Photos:** CDN URLs are often generic. Do not mark Georgia-field-verified without evidence. Keep credit; placeholder is OK.
@@ -123,7 +123,8 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/gvelebi/didi-gvelebi`              | `/en/snakes/largest`               | Guide                                           |
 | `/gvelebi/gveli-ezoshi`              | `/en/snakes-in-the-yard`           | Guide                                           |
 | `/gvelebi/giurza` (etc.)             | `/en/snakes/macrovipera-lebetina`  | Species                                         |
-| `/xvlikebi` …                        | `/en/lizards` …                    | Hub + index + ID + glass-lizard compare         |
+| `/xvlikebi` …                        | `/en/lizards` …                    | Hub + index + ID + Darevskia + glass-lizard compare |
+| `/xvlikebi/darevskia`                | `/en/lizards/darevskia`            | Guide (colour is not ID)                            |
 | `/kuebi` …                           | `/en/turtles` …                    | Hub + index + land + freshwater + ID            |
 | `/amfibiebi` …                       | `/en/amphibians` …                 | Hub + index + frogs guide + frogs index + newts |
 | `/prinvelebi`                        | `/en/birds`                        | Hub + species only                              |
@@ -138,7 +139,7 @@ There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not
 
 `src/app/[locale]/[...rest]/page.tsx` is 404 `noindex`. Do not create thin duplicate URLs.
 
-New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + factory page → `messages` KA+EN → 301s in `next.config.ts` for any old/cross-locale slug.
+New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + factory page → messages in KA/EN/RU/TR → 301s in `next.config.ts` for any old/cross-locale slug.
 
 ## Quiz
 

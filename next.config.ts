@@ -280,7 +280,6 @@ const nextConfig: NextConfig = {
         ],
         ["/lizards/saxeoebebi", "/lizards/species"],
         ["/lizards/identifikacia", "/lizards/identify"],
-        ["/lizards/darevskia", "/lizards/darevskia"],
         [
           "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
           "/lizards/lizard-or-glass-lizard",
