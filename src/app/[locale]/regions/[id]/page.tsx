@@ -31,6 +31,7 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   siteConfig,
   siteEntityId,
   speciesPageUrl,
@@ -75,6 +76,8 @@ export async function generateMetadata({
     nameIn,
   });
   const path = regionHref(region.id);
+  const ogImageSrc = getRegionHeroImage(region.id);
+  const ogImage = openGraphJpeg(ogImageSrc, title);
 
   return {
     alternates: localeAlternates(locale, path),
@@ -96,6 +99,7 @@ export async function generateMetadata({
     ].filter((item): item is string => Boolean(item)),
     openGraph: {
       description,
+      images: [ogImage],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
@@ -110,6 +114,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       description,
+      images: [ogImageSrc],
       title,
     },
   };
