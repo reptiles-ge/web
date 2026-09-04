@@ -48,7 +48,7 @@ export function QuizResultOverlay({
   shareUrl,
   total,
 }: QuizResultOverlayProps) {
-  const t = useTranslations("snakeQuiz");
+  const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
   const percent = scorePercent(correctCount, total);
   const [copied, setCopied] = useState(false);
@@ -193,21 +193,25 @@ export function QuizResultOverlay({
       <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <Link
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
-          href="/snakes/shxamiani-gvelis-amocnoba"
+          href={
+            quizId === "lizard"
+              ? "/lizards/identifikacia"
+              : "/snakes/shxamiani-gvelis-amocnoba"
+          }
         >
           {t("ctaIdentify")}
           <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
         <Link
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
-          href="/venomous-snakes"
+          href={quizId === "lizard" ? "/lizards/darevskia" : "/venomous-snakes"}
         >
           {t("ctaVenomous")}
           <ArrowRight aria-hidden="true" className="size-4" />
         </Link>
         <Link
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/25 px-5 text-[14px] font-medium text-white transition-colors hover:border-white/50 hover:bg-white/10"
-          href="/snakes"
+          href={quizId === "lizard" ? "/lizards" : "/snakes"}
         >
           {t("discoverSnakes")}
           <ArrowRight aria-hidden="true" className="size-4" />
