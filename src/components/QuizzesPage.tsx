@@ -70,18 +70,22 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
             </p>
           </div>
 
-          <FeaturedQuizCard
-            copy={copy[featured.messageKey]}
-            item={featured}
-            liveLabel={t("live")}
-            locale={locale}
-            questionsLabel={
-              featured.questions
-                ? t("questions", { count: featured.questions })
-                : null
-            }
-            startLabel={t("start")}
-          />
+          {live.map((item, index) => (
+            <FeaturedQuizCard
+              copy={copy[item.messageKey]}
+              item={item}
+              key={item.id}
+              liveLabel={t("live")}
+              locale={locale}
+              priority={index === 0}
+              questionsLabel={
+                item.questions
+                  ? t("questions", { count: item.questions })
+                  : null
+              }
+              startLabel={t("start")}
+            />
+          ))}
 
           <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground sm:mt-10">
             {t("upcomingLine")}
@@ -126,6 +130,7 @@ function FeaturedQuizCard({
   item,
   liveLabel,
   locale,
+  priority,
   questionsLabel,
   startLabel,
 }: {
@@ -133,6 +138,7 @@ function FeaturedQuizCard({
   item: QuizCardModel;
   liveLabel: string;
   locale: AppLocale;
+  priority: boolean;
   questionsLabel: null | string;
   startLabel: string;
 }) {
