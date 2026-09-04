@@ -2,11 +2,15 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { QuizCopyNamespace } from "@/lib/quizzes";
 import type { SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
 import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
-import { SNAKE_LOOKALIKE_PAIRS } from "@/lib/clusterGuides";
+import {
+  LIZARD_LOOKALIKE_PAIRS,
+  SNAKE_LOOKALIKE_PAIRS,
+} from "@/lib/clusterGuides";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const LOOKALIKE_BODIES = [
@@ -19,27 +23,38 @@ const LOOKALIKE_BODIES = [
 ] as const;
 
 type QuizLandingProps = {
-  snakes: SnakeQuizSpecies[];
+  namespace: QuizCopyNamespace;
+  pool: SnakeQuizSpecies[];
+  quizId: string;
   species: Species[];
 };
 
-export async function QuizLanding({ snakes, species }: QuizLandingProps) {
-  const t = await getTranslations("snakeQuiz");
+export async function QuizLanding({
+  namespace,
+  pool,
+  quizId,
+  species,
+}: QuizLandingProps) {
+  const t = await getTranslations(namespace);
   const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
-  const pairs = SNAKE_LOOKALIKE_PAIRS.map((pair, index) => ({
-    a: byId.get(pair.a),
-    b: byId.get(pair.b),
-    bodyKey: LOOKALIKE_BODIES[index],
-  })).filter(
-    (
-      pair,
-    ): pair is {
-      a: Species;
-      b: Species;
-      bodyKey: (typeof LOOKALIKE_BODIES)[number];
-    } => Boolean(pair.a && pair.b && pair.bodyKey),
-  );
+  const lookalikePairs =
+    quizId === "lizard" ? LIZARD_LOOKALIKE_PAIRS : SNAKE_LOOKALIKE_PAIRS;
+  const pairs = lookalikePairs
+    .map((pair, index) => ({
+      a: byId.get(pair.a),
+      b: byId.get(pair.b),
+      bodyKey: LOOKALIKE_BODIES[index],
+    }))
+    .filter(
+      (
+        pair,
+      ): pair is {
+        a: Species;
+        b: Species;
+        bodyKey: (typeof LOOKALIKE_BODIES)[number];
+      } => Boolean(pair.a && pair.b && pair.bodyKey),
+    );
 
   return (
     <>
@@ -52,7 +67,7 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
             {t("noscriptBody")}
           </p>
           <ul className="mt-5 space-y-2 text-[15px]">
-            {snakes.map((item) => (
+            {pool.map((item) => (
               <li key={item.id}>
                 <Link
                   className="text-foreground underline-offset-4 hover:underline"
@@ -129,7 +144,11 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
             </p>
             <Link
               className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
-              href="/snakes/shxamiani-gvelis-amocnoba"
+              href={
+                quizId === "lizard"
+                  ? "/lizards/identifikacia"
+                  : "/snakes/shxamiani-gvelis-amocnoba"
+              }
             >
               {t("practiceGuideCta")}
             </Link>

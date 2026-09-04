@@ -28,7 +28,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   const t = await getTranslations("quizzes");
   const tShared = await getTranslations("groupHubShared");
   const locale = (await getLocale()) as AppLocale;
-  const featured = items.find((item) => item.status === "live") ?? items[0];
+  const live = items.filter((item) => item.status === "live");
   const how = [
     { body: t("how1Body"), title: t("how1Title") },
     { body: t("how2Body"), title: t("how2Title") },
@@ -36,7 +36,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
   ] as const;
   const copy = quizCopy(t);
 
-  if (!featured) return null;
+  if (live.length === 0) return null;
 
   return (
     <div className="min-h-screen bg-background">

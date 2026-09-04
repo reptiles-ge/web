@@ -20,7 +20,11 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import { getSnakeQuizCatalog, QUIZ_LENGTH } from "@/lib/snakeQuiz";
+import {
+  getLizardQuizCatalog,
+  getSnakeQuizCatalog,
+  QUIZ_LENGTH,
+} from "@/lib/snakeQuiz";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -117,7 +121,10 @@ export default async function QuizSlugRoute({ params }: Props) {
   const catalog = getCatalogSpecies().map((item) =>
     localizeSpecies(item, locale),
   );
-  const snakes = getSnakeQuizCatalog(catalog);
+  const pool =
+    quiz.generator === "lizard"
+      ? getLizardQuizCatalog(catalog)
+      : getSnakeQuizCatalog(catalog);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -178,8 +185,13 @@ export default async function QuizSlugRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <QuizPlayer quizId={quiz.id} shareUrl={url} snakes={snakes} />
-      <QuizLanding snakes={snakes} species={catalog} />
+      <QuizPlayer pool={pool} quizId={quiz.id} shareUrl={url} />
+      <QuizLanding
+        namespace={quiz.messageNamespace}
+        pool={pool}
+        quizId={quiz.id}
+        species={catalog}
+      />
     </>
   );
 }
