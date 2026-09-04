@@ -86,12 +86,35 @@ export function createVisitLimiter(windowMs: number) {
 
 export const visitLimiter = createVisitLimiter(60_000);
 
+function cityDisplay(city?: null | string) {
+  const value = sanitizeVisitCity(city);
+  if (!value) return undefined;
+  return CITY_KA[value.toLowerCase()] ?? value;
+}
+
+function countryDisplay(country?: null | string) {
+  const code = sanitizeVisitCountry(country);
+  if (!code) return undefined;
+  if (code === "GE") return georgiaPlaceName("ka");
+  try {
+    const name = new Intl.DisplayNames(["ka"], { type: "region" }).of(code);
+    return name ?? code;
+  } catch {
+    return code;
+  }
+}
+
+function deviceLine(userAgent?: null | string) {
+  const device = visitDeviceLabel(userAgent);
+  return device ? `მოწყობილობა: ${device}` : undefined;
+}
+
 export function formatVisitMessage(input: {
-  city?: string | null;
-  country?: string | null;
+  city?: null | string;
+  country?: null | string;
   path: string;
   referrer?: string;
-  userAgent?: string | null;
+  userAgent?: null | string;
 }) {
   const pathname = displayVisitPath(input.path);
   const locale = visitLocaleFromPath(pathname).toUpperCase();
@@ -111,6 +134,27 @@ export function formatVisitMessage(input: {
   return lines.join("\n");
 }
 
+function isOwnHost(host: string) {
+  const h = host.toLowerCase();
+  return h === "reptiles.ge" || h.endsWith(".reptiles.ge") || h === "localhost";
+}
+
+function namedSourceFromHost(host: string) {
+  for (const { match, name } of SOURCE_HOSTS) {
+    if (match.test(host)) return name;
+  }
+  return undefined;
+}
+
+function namedSourceFromToken(value: string) {
+  return SOURCE_TOKENS[value.trim().toLowerCase()];
+}
+
+function placeLine(country?: null | string, city?: null | string) {
+  const place = visitPlaceLabel(country, city);
+  return place ? `ადგილი: ${place}` : undefined;
+}
+
 export function readVisitPath(body: unknown) {
   if (!body || typeof body !== "object") return null;
   const record = body as Record<string, unknown>;
@@ -120,6 +164,33 @@ export function readVisitPath(body: unknown) {
     path,
     referrer: sanitizeVisitReferrer(record.referrer),
   };
+}
+
+function sanitizeUtmSource(value: string) {
+  const token = value.trim().slice(0, 40);
+  if (!/^[a-z0-9][a-z0-9._-]*$/i.test(token)) return undefined;
+  return token;
+}
+
+function sanitizeVisitCity(value?: null | string) {
+  if (!value) return undefined;
+  let city = value.trim();
+  try {
+    city = decodeURIComponent(city.replace(/\+/g, " "));
+  } catch {
+    return undefined;
+  }
+  city = city.trim();
+  if (!city || city.length > CITY_MAX) return undefined;
+  if (/[\u0000-\u001f\u007f]/.test(city)) return undefined;
+  return city;
+}
+
+function sanitizeVisitCountry(value?: null | string) {
+  if (!value) return undefined;
+  const code = value.trim().toUpperCase();
+  if (!/^[A-Z]{2}$/.test(code) || code === "XX") return undefined;
+  return code;
 }
 
 export function sanitizeVisitPath(value: unknown) {
@@ -146,6 +217,21 @@ export function sanitizeVisitReferrer(value: unknown) {
   }
 }
 
+function sourceLine(referrer?: string, path?: string) {
+  const source = visitReferrerSource(referrer, path);
+  return source ? `წყარო: ${source}` : undefined;
+}
+
+function visitBrowserName(ua: string) {
+  if (/Edg(?:e|A|iOS)?\//i.test(ua)) return "Edge";
+  if (/OPR\/|Opera/i.test(ua)) return "Opera";
+  if (/SamsungBrowser/i.test(ua)) return "Samsung";
+  if (/Firefox|FxiOS/i.test(ua)) return "Firefox";
+  if (/CriOS|Chrome|Chromium/i.test(ua)) return "Chrome";
+  if (/Safari/i.test(ua)) return "Safari";
+  return undefined;
+}
+
 export function visitClientIp(request: Request) {
   const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) {
@@ -155,6 +241,26 @@ export function visitClientIp(request: Request) {
   const real = request.headers.get("x-real-ip")?.trim();
   if (real) return real.slice(0, 64);
   return "unknown";
+}
+
+export function visitDeviceLabel(userAgent?: null | string) {
+  if (!userAgent) return undefined;
+  const ua = userAgent.slice(0, UA_MAX);
+  const device = visitDeviceName(ua);
+  const browser = visitBrowserName(ua);
+  if (device && browser) return `${device} · ${browser}`;
+  return device ?? browser;
+}
+
+function visitDeviceName(ua: string) {
+  if (/iPhone/i.test(ua)) return "iPhone";
+  if (/iPad/i.test(ua)) return "iPad";
+  if (/Android/i.test(ua)) return "Android";
+  if (/Macintosh|Mac OS X/i.test(ua)) return "Mac";
+  if (/Windows/i.test(ua)) return "Windows";
+  if (/CrOS/i.test(ua)) return "Chromebook";
+  if (/Linux/i.test(ua)) return "Linux";
+  return undefined;
 }
 
 export function visitGeo(request: Request) {
@@ -182,6 +288,13 @@ export function visitOriginAllowed(request: Request, originUrl: URL) {
   return request.headers.get("sec-fetch-site") === "same-origin";
 }
 
+export function visitPlaceLabel(country?: null | string, city?: null | string) {
+  const countryName = countryDisplay(country);
+  const cityName = cityDisplay(city);
+  if (countryName && cityName) return `${countryName}, ${cityName}`;
+  return countryName ?? cityName;
+}
+
 export function visitReferrerSource(referrer?: string, path?: string) {
   if (referrer) {
     try {
@@ -200,120 +313,4 @@ export function visitReferrerSource(referrer?: string, path?: string) {
   const utm = new URLSearchParams(query).get("utm_source")?.trim();
   if (!utm) return undefined;
   return namedSourceFromToken(utm) ?? sanitizeUtmSource(utm);
-}
-
-export function visitDeviceLabel(userAgent?: string | null) {
-  if (!userAgent) return undefined;
-  const ua = userAgent.slice(0, UA_MAX);
-  const device = visitDeviceName(ua);
-  const browser = visitBrowserName(ua);
-  if (device && browser) return `${device} · ${browser}`;
-  return device ?? browser;
-}
-
-export function visitPlaceLabel(
-  country?: string | null,
-  city?: string | null,
-) {
-  const countryName = countryDisplay(country);
-  const cityName = cityDisplay(city);
-  if (countryName && cityName) return `${countryName}, ${cityName}`;
-  return countryName ?? cityName;
-}
-
-function sourceLine(referrer?: string, path?: string) {
-  const source = visitReferrerSource(referrer, path);
-  return source ? `წყარო: ${source}` : undefined;
-}
-
-function placeLine(country?: string | null, city?: string | null) {
-  const place = visitPlaceLabel(country, city);
-  return place ? `ადგილი: ${place}` : undefined;
-}
-
-function deviceLine(userAgent?: string | null) {
-  const device = visitDeviceLabel(userAgent);
-  return device ? `მოწყობილობა: ${device}` : undefined;
-}
-
-function namedSourceFromHost(host: string) {
-  for (const { match, name } of SOURCE_HOSTS) {
-    if (match.test(host)) return name;
-  }
-  return undefined;
-}
-
-function namedSourceFromToken(value: string) {
-  return SOURCE_TOKENS[value.trim().toLowerCase()];
-}
-
-function sanitizeUtmSource(value: string) {
-  const token = value.trim().slice(0, 40);
-  if (!/^[a-z0-9][a-z0-9._-]*$/i.test(token)) return undefined;
-  return token;
-}
-
-function isOwnHost(host: string) {
-  const h = host.toLowerCase();
-  return h === "reptiles.ge" || h.endsWith(".reptiles.ge") || h === "localhost";
-}
-
-function visitBrowserName(ua: string) {
-  if (/Edg(?:e|A|iOS)?\//i.test(ua)) return "Edge";
-  if (/OPR\/|Opera/i.test(ua)) return "Opera";
-  if (/SamsungBrowser/i.test(ua)) return "Samsung";
-  if (/Firefox|FxiOS/i.test(ua)) return "Firefox";
-  if (/CriOS|Chrome|Chromium/i.test(ua)) return "Chrome";
-  if (/Safari/i.test(ua)) return "Safari";
-  return undefined;
-}
-
-function visitDeviceName(ua: string) {
-  if (/iPhone/i.test(ua)) return "iPhone";
-  if (/iPad/i.test(ua)) return "iPad";
-  if (/Android/i.test(ua)) return "Android";
-  if (/Macintosh|Mac OS X/i.test(ua)) return "Mac";
-  if (/Windows/i.test(ua)) return "Windows";
-  if (/CrOS/i.test(ua)) return "Chromebook";
-  if (/Linux/i.test(ua)) return "Linux";
-  return undefined;
-}
-
-function countryDisplay(country?: string | null) {
-  const code = sanitizeVisitCountry(country);
-  if (!code) return undefined;
-  if (code === "GE") return georgiaPlaceName("ka");
-  try {
-    const name = new Intl.DisplayNames(["ka"], { type: "region" }).of(code);
-    return name ?? code;
-  } catch {
-    return code;
-  }
-}
-
-function cityDisplay(city?: string | null) {
-  const value = sanitizeVisitCity(city);
-  if (!value) return undefined;
-  return CITY_KA[value.toLowerCase()] ?? value;
-}
-
-function sanitizeVisitCountry(value?: string | null) {
-  if (!value) return undefined;
-  const code = value.trim().toUpperCase();
-  if (!/^[A-Z]{2}$/.test(code) || code === "XX") return undefined;
-  return code;
-}
-
-function sanitizeVisitCity(value?: string | null) {
-  if (!value) return undefined;
-  let city = value.trim();
-  try {
-    city = decodeURIComponent(city.replace(/\+/g, " "));
-  } catch {
-    return undefined;
-  }
-  city = city.trim();
-  if (!city || city.length > CITY_MAX) return undefined;
-  if (/[\u0000-\u001f\u007f]/.test(city)) return undefined;
-  return city;
 }
