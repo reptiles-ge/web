@@ -106,7 +106,27 @@ test("404 is noindex", async ({ page }) => {
   expect(contents.every((value) => /noindex/i.test(value))).toBe(true);
 });
 
-test("Darevskia guide is distinct from lizard identify", async ({ page }) => {
+test("lizard quiz landing is indexable and play stays on the same URL", async ({
+  page,
+}) => {
+  await page.goto("/quiz/romeli-xvlikia");
+  const robots = await page
+    .locator('meta[name="robots"]')
+    .getAttribute("content");
+  expect(robots ?? "").not.toMatch(/noindex/i);
+  await expect(page.locator("h1")).toContainText("რომელი ხვლიკია?");
+  await expect(page.locator("h1")).not.toHaveText("ეს რა ხვლიკია?");
+  await page.getByRole("button", { name: "დაწყება" }).click();
+  await expect(page).toHaveURL(/\/quiz\/romeli-xvlikia\/?$/);
+  expect(page.url()).not.toMatch(/result/);
+});
+
+test("bird and mammal indexes are live catalog pages", async ({ page }) => {
+  await page.goto("/prinvelebi/saxeoebebi");
+  await expect(page.locator("h1")).toContainText("ფრინველების სახეობები");
+  await page.goto("/en/mammals/species");
+  await expect(page.locator("h1")).toContainText("Mammal species");
+});
   await page.goto("/xvlikebi/darevskia");
   await expect(page.locator("h1")).toContainText("Darevskia");
   await expect(page.locator("h1")).not.toHaveText("ეს რა ხვლიკია?");
