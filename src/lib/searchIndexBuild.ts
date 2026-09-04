@@ -299,6 +299,24 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       ka: "ტრიტონები და სალამანდრები საქართველოში",
     },
   },
+  "lizard-darevskia": {
+    icon: "identify",
+    keywords: [
+      "darevskia",
+      "კლდის ხვლიკი",
+      "rock lizard",
+      "скальная ящерица",
+      "kaya kertenkelesi",
+    ],
+    subtitle: {
+      en: "Colour is not identification",
+      ka: "ფერი ამოცნობა არ არის",
+    },
+    title: {
+      en: "Darevskia rock lizards of Georgia",
+      ka: "Darevskia — კლდის ხვლიკები საქართველოში",
+    },
+  },
   "lizard-glass": {
     icon: "identify",
     keywords: [
