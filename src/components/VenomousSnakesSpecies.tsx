@@ -54,7 +54,6 @@ export function VenomousSnakesSpecies({
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {giurza ? (
               <VenomousFeaturedCard
-                delay={40}
                 eyebrow={t("featuredEyebrow")}
                 locale={locale}
                 openLabel={t("openProfile")}
@@ -63,7 +62,6 @@ export function VenomousSnakesSpecies({
             ) : null}
             {kaznakovi ? (
               <VenomousFeaturedCard
-                delay={60}
                 eyebrow={t("featuredWestEyebrow")}
                 locale={locale}
                 openLabel={t("openProfile")}
@@ -111,13 +109,11 @@ export function VenomousSnakesSpecies({
 }
 
 function VenomousFeaturedCard({
-  delay,
   eyebrow,
   locale,
   openLabel,
   species,
 }: {
-  delay: number;
   eyebrow: string;
   locale: AppLocale;
   openLabel: string;
