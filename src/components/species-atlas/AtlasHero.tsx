@@ -2,7 +2,6 @@ import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -32,7 +31,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
       <div className="absolute inset-0 bg-[radial-gradient(95%_70%_at_50%_15%,transparent_20%,rgba(0,0,0,0.6)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-350 px-6 lg:px-10">
-        <Reveal>
+        <div>
           <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
               <li>
@@ -187,7 +186,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
               {t("stats.expandingNote")}
             </p>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -2,7 +2,6 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 
@@ -42,7 +41,7 @@ export async function AboutPage() {
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <Link
                 className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
                 href="/"
@@ -62,22 +61,22 @@ export async function AboutPage() {
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
                 {t("subtitle")}
               </p>
-            </Reveal>
+            </div>
           </div>
         </section>
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-              <Reveal>
+              <div>
                 <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                   {t("companyEyebrow")}
                 </p>
                 <h2 className="mt-4 font-display text-[clamp(1.85rem,3.5vw,2.75rem)] leading-[1.05] font-semibold text-foreground">
                   {t("companyTitle")}
                 </h2>
-              </Reveal>
-              <Reveal>
+              </div>
+              <div>
                 <div className="space-y-5 text-[15px] leading-[1.75] text-muted-foreground">
                   <p>{t("companyBody1")}</p>
                   <p>{t("companyBody2")}</p>
@@ -92,7 +91,7 @@ export async function AboutPage() {
                   </span>
                   <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </Link>
-              </Reveal>
+              </div>
             </div>
 
             <div className="mt-16 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-3 lg:mt-20">
@@ -121,7 +120,7 @@ export async function AboutPage() {
           id="methodology"
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("methodEyebrow")}
               </p>
@@ -131,7 +130,7 @@ export async function AboutPage() {
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                 {t("methodLead")}
               </p>
-            </Reveal>
+            </div>
 
             <div className="mt-12 grid gap-6 sm:grid-cols-3">
               <MethodCard
@@ -168,7 +167,7 @@ export async function AboutPage() {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("exploreEyebrow")}
               </p>
@@ -178,7 +177,7 @@ export async function AboutPage() {
               <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
                 {t("exploreBody")}
               </p>
-            </Reveal>
+            </div>
             <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {(
                 [
@@ -216,7 +215,7 @@ export async function AboutPage() {
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[860px] px-6 text-center lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("contributeEyebrow")}
               </p>
@@ -233,7 +232,7 @@ export async function AboutPage() {
                 {t("contributeCta")}
                 <ArrowUpRight className="size-3.5" />
               </Link>
-            </Reveal>
+            </div>
           </div>
         </section>
       </div>

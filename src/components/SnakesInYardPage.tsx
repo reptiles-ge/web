@@ -15,7 +15,6 @@ import {
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
 import { SnakesInYardHero } from "@/components/SnakesInYardHero";
 import { SnakesInYardSections } from "@/components/SnakesInYardSections";
 import { Link } from "@/i18n/navigation";
@@ -47,7 +46,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("appearBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -56,10 +55,10 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                 title={t("appearTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
+            </div>
 
             <div className="mt-12 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2">
-              <Reveal>
+              <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
                     <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
@@ -89,8 +88,8 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                     <ArrowUpRight className="size-3.5" />
                   </Link>
                 </div>
-              </Reveal>
-              <Reveal delay={60}>
+              </div>
+              <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
                     <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
@@ -113,14 +112,14 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                     </span>
                   </a>
                 </div>
-              </Reveal>
+              </div>
             </div>
           </div>
         </section>
 
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("relatedGuidesBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -129,7 +128,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                 title={t("relatedGuidesTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
+            </div>
             <RelatedGuideGrid cards={relatedGuides} locale={locale} />
           </div>
         </section>
@@ -159,7 +158,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("ctaBody")}
                 bodyClassName={CLUSTER_HERO_BODY}
@@ -183,7 +182,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                   {t("ctaVenomous")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
       </div>

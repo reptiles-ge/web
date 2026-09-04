@@ -6,7 +6,6 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -65,7 +64,7 @@ function SnakeBiteDangerVenom() {
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
+          <div>
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("dangerEyebrow")}
             </p>
@@ -85,8 +84,8 @@ function SnakeBiteDangerVenom() {
                 </li>
               ))}
             </ul>
-          </Reveal>
-          <Reveal delay={60}>
+          </div>
+          <div>
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("venomEyebrow")}
             </p>
@@ -116,7 +115,7 @@ function SnakeBiteDangerVenom() {
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
               {t("venomNote")}
             </p>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
@@ -132,7 +131,7 @@ function SnakeBiteDisclaimer() {
       id="content"
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
             {t("disclaimerEyebrow")}
           </p>
@@ -162,7 +161,7 @@ function SnakeBiteDisclaimer() {
           <p className="mt-5 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
             {t("disclaimerNote")}
           </p>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -175,7 +174,7 @@ function SnakeBiteDoDont() {
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
+          <div>
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("doEyebrow")}
             </p>
@@ -197,8 +196,8 @@ function SnakeBiteDoDont() {
                 </li>
               ))}
             </ol>
-          </Reveal>
-          <Reveal delay={60}>
+          </div>
+          <div>
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("dontEyebrow")}
             </p>
@@ -217,7 +216,7 @@ function SnakeBiteDoDont() {
                 </li>
               ))}
             </ol>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
@@ -234,7 +233,7 @@ function SnakeBiteSources() {
       id="sources"
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("sourcesEyebrow")}
           </p>
@@ -244,7 +243,7 @@ function SnakeBiteSources() {
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
             {t("sourcesIntro")}
           </p>
-        </Reveal>
+        </div>
 
         <p className="mt-10 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
           {t("sourcesMedicalLabel")}
@@ -313,7 +312,7 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("speciesEyebrow")}
           </p>
@@ -346,7 +345,7 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
               ),
             })}
           </p>
-        </Reveal>
+        </div>
         <SpeciesGuideList locale={locale} source="guide" species={species} />
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
@@ -382,7 +381,7 @@ function SnakeBiteSymptoms() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("symptomsEyebrow")}
           </p>
@@ -395,14 +394,14 @@ function SnakeBiteSymptoms() {
           <p className="mt-4 max-w-2xl rounded-[18px] border border-destructive/25 bg-destructive/5 px-5 py-4 text-[15px] leading-relaxed text-foreground">
             {t("symptomsUrgent")}
           </p>
-        </Reveal>
+        </div>
         <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
           {SYMPTOM_ITEMS.map((n, index) => (
-            <Reveal delay={Math.min(index * 40, 240)} key={n}>
+            <div key={n}>
               <li className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground">
                 {t(`symptom${n}`)}
               </li>
-            </Reveal>
+            </div>
           ))}
         </ul>
         <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
@@ -419,7 +418,7 @@ function SnakeBiteUnseen() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("unseenEyebrow")}
           </p>
@@ -441,7 +440,7 @@ function SnakeBiteUnseen() {
               ),
             })}
           </p>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

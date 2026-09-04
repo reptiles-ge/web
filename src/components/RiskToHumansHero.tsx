@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 
 import type { DangerLevel } from "@/data/species";
 
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
@@ -21,7 +20,7 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
     <>
       <section className="bg-background pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                 <li>
@@ -84,7 +83,7 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
                 );
               })}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

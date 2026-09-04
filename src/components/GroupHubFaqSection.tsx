@@ -12,7 +12,6 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -28,7 +27,7 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
     <section className="border-t border-border bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("faqIntro")}
               bodyClassName={CLUSTER_FAQ_BODY}
@@ -37,12 +36,12 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
               title={t("faqTitle")}
               titleClassName={CLUSTER_FAQ_TITLE}
             />
-          </Reveal>
+          </div>
           <div>
             {items.map((n, index) => {
               const isOpen = open === index;
               return (
-                <Reveal delay={index * 50} key={n}>
+                <div key={n}>
                   <div className="border-t border-border last:border-b">
                     <button
                       aria-expanded={isOpen}
@@ -93,7 +92,7 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
                       </div>
                     </div>
                   </div>
-                </Reveal>
+                </div>
               );
             })}
           </div>

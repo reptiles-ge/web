@@ -10,7 +10,6 @@ import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
@@ -68,7 +67,7 @@ export async function SnakeIdentifyPage({
         title={t("guideTitle")}
       />
 
-      <Reveal>
+      <div>
         <QuizPracticeCta
           body={t("quizCtaBody")}
           cta={t("quizCta")}
@@ -77,7 +76,7 @@ export async function SnakeIdentifyPage({
           source="other"
           title={t("quizCtaTitle")}
         />
-      </Reveal>
+      </div>
 
       <ClusterContentSection
         body={t("signsWarning")}
@@ -138,14 +137,14 @@ export async function SnakeIdentifyPage({
       >
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {pairs.map((pair, index) => (
-            <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
+            <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
                 a={pair.a}
                 b={pair.b}
                 locale={locale}
                 vs={t("vs")}
               />
-            </Reveal>
+            </div>
           ))}
         </div>
       </ClusterContentSection>

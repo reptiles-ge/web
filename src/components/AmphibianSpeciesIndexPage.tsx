@@ -12,7 +12,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { Link } from "@/i18n/navigation";
 import {
@@ -62,7 +61,7 @@ export async function AmphibianSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("frogsBody")}
               bodyClassName={CLUSTER_BODY}
@@ -88,7 +87,7 @@ export async function AmphibianSpeciesIndexPage({
                 </Link>
               </div>
             </ClusterSectionIntro>
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}
@@ -101,7 +100,7 @@ export async function AmphibianSpeciesIndexPage({
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("newtsBody")}
               bodyClassName={CLUSTER_BODY}
@@ -118,7 +117,7 @@ export async function AmphibianSpeciesIndexPage({
                 <ArrowUpRight className="size-3.5" />
               </Link>
             </ClusterSectionIntro>
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}

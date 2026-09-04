@@ -12,7 +12,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 
 export async function TurtleSpeciesIndexPage({
@@ -58,7 +57,7 @@ export async function TurtleSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("tableBody")}
               bodyClassName={CLUSTER_BODY}
@@ -67,7 +66,7 @@ export async function TurtleSpeciesIndexPage({
               title={t("tableTitle", { count: species.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}

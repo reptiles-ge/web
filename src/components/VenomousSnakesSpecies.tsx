@@ -12,7 +12,6 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
@@ -40,7 +39,7 @@ export function VenomousSnakesSpecies({
   return (
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="species">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <ClusterSectionIntro
             body={t("speciesBody")}
             bodyClassName={CLUSTER_BODY}
@@ -49,7 +48,7 @@ export function VenomousSnakesSpecies({
             title={t("speciesTitle", { count: speciesCount })}
             titleClassName={CLUSTER_TITLE_SECTION}
           />
-        </Reveal>
+        </div>
 
         {giurza || kaznakovi ? (
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -125,7 +124,7 @@ function VenomousFeaturedCard({
   species: Species;
 }) {
   return (
-    <Reveal delay={delay}>
+    <div>
       <Link
         className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
         href={speciesHref(species.id, locale)}
@@ -146,6 +145,6 @@ function VenomousFeaturedCard({
           <ArrowUpRight className="size-3.5" />
         </span>
       </Link>
-    </Reveal>
+    </div>
   );
 }

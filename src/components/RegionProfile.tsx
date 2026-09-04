@@ -10,7 +10,6 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
@@ -88,7 +87,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <nav
                 aria-label="Breadcrumb"
                 className="mb-4 flex flex-wrap items-center gap-2 text-[13px] text-white/45 sm:mb-6"
@@ -137,7 +136,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                   </span>
                 ) : null}
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
@@ -147,7 +146,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
             className="map-explorer-texture pointer-events-none absolute inset-0"
           />
           <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal className="mx-auto max-w-2xl text-center">
+            <div className="mx-auto max-w-2xl text-center">
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("rangeEyebrow")}
               </p>
@@ -159,7 +158,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
               >
                 {t("rangeTitle", { name })}
               </AnchoredHeading>
-            </Reveal>
+            </div>
             <div className="mt-12 lg:mt-14">
               <GeorgiaMap highlightedIds={[region.id]} interactive={false} />
             </div>
@@ -169,7 +168,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-              <Reveal>
+              <div>
                 <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("habitatsEyebrow")}
                 </p>
@@ -183,22 +182,17 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                 <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
                   {localizeRegionText(region.description, locale)}
                 </p>
-              </Reveal>
+              </div>
               <ul className="space-y-0 divide-y divide-border border-y border-border">
                 {content.habitats.map((habitat, index) => (
-                  <Reveal
-                    as="li"
-                    className="flex items-baseline justify-between gap-6 py-5"
-                    delay={index * 50}
-                    key={habitat.ka}
-                  >
+                  <li className="flex items-baseline justify-between gap-6 py-5" key={habitat.ka}>
                     <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
                       {localizeRegionText(habitat, locale)}
                     </span>
                     <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                  </Reveal>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -207,7 +201,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
 
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <div className="flex items-end justify-between gap-6">
                 <div>
                   <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
@@ -226,14 +220,14 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                   {t("speciesCount", { count: species.length })}
                 </p>
               </div>
-            </Reveal>
+            </div>
 
             {species.length > 0 ? (
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {species.map((item, index) => (
-                  <Reveal delay={index * 60} key={item.id}>
+                  <div key={item.id}>
                     <PhotoSpeciesCard species={item} />
-                  </Reveal>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -250,7 +244,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
         {venomous.length > 0 ? (
           <section className="bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
+              <div>
                 <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("venomousEyebrow")}
                 </p>
@@ -265,12 +259,12 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                 <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
                   {t("venomousBody")}
                 </p>
-              </Reveal>
+              </div>
               <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {venomous.map((item, index) => (
-                  <Reveal delay={index * 60} key={item.id}>
+                  <div key={item.id}>
                     <PhotoSpeciesCard showDanger species={item} />
-                  </Reveal>
+                  </div>
                 ))}
               </div>
             </div>
@@ -291,7 +285,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
         {related.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
+              <div>
                 <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                   {t("relatedEyebrow")}
                 </p>
@@ -302,13 +296,13 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                 >
                   {t("relatedTitle")}
                 </AnchoredHeading>
-              </Reveal>
+              </div>
               <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {related.map((item, index) => {
                   const relatedContent = getRegionContent(item.id);
                   return (
                     <li key={item.id}>
-                      <Reveal delay={index * 50}>
+                      <div>
                         <Link
                           className="group flex h-full flex-col border-b border-border py-6 transition-colors hover:border-primary/40"
                           href={regionHref(item.id)}
@@ -331,7 +325,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
                             })}
                           </p>
                         </Link>
-                      </Reveal>
+                      </div>
                     </li>
                   );
                 })}
@@ -411,7 +405,7 @@ function RegionFaqSection({
     <section className="bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <Reveal>
+          <div>
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("faqEyebrow")}
             </p>
@@ -425,12 +419,12 @@ function RegionFaqSection({
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("faqIntro", { name, nameIn })}
             </p>
-          </Reveal>
+          </div>
           <div>
             {items.map((item, index) => {
               const isOpen = open === index;
               return (
-                <Reveal delay={index * 60} key={item.question}>
+                <div key={item.question}>
                   <div className="border-t border-border last:border-b">
                     <button
                       aria-expanded={isOpen}
@@ -475,7 +469,7 @@ function RegionFaqSection({
                       </div>
                     </div>
                   </div>
-                </Reveal>
+                </div>
               );
             })}
           </div>

@@ -10,7 +10,6 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesSection } from "@/lib/clusterGuides";
@@ -35,7 +34,7 @@ export async function GroupHubSpeciesList({
       id="species"
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <ClusterSectionIntro
             body={t("speciesBody")}
             bodyClassName={CLUSTER_BODY}
@@ -44,7 +43,7 @@ export async function GroupHubSpeciesList({
             title={t("speciesTitle", { count: speciesCount })}
             titleClassName={CLUSTER_TITLE_SECTION}
           />
-        </Reveal>
+        </div>
 
         <div className="mt-14 space-y-16">
           {sections.map((section) => (
@@ -67,7 +66,7 @@ export async function GroupHubSpeciesList({
         </div>
 
         {hubId === "turtles" ? (
-          <Reveal delay={80}>
+          <div>
             <Link
               className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
               href="/turtles/saxeoebebi"
@@ -75,7 +74,7 @@ export async function GroupHubSpeciesList({
               {t("speciesIndexCta")}
               <ArrowUpRight className="size-4" />
             </Link>
-          </Reveal>
+          </div>
         ) : null}
       </div>
     </section>

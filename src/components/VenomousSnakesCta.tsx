@@ -10,7 +10,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 
 export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
@@ -27,7 +26,7 @@ export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
       <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-        <Reveal>
+        <div>
           <ClusterSectionIntro
             body={t("ctaBody")}
             bodyClassName={CLUSTER_HERO_BODY}
@@ -51,7 +50,7 @@ export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
               {t("ctaRegions")}
             </Link>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -12,7 +12,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 
@@ -57,7 +56,7 @@ export async function ClusterGuidePage({
         id="species"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("speciesBody")}
               bodyClassName={CLUSTER_BODY}
@@ -66,7 +65,7 @@ export async function ClusterGuidePage({
               title={t("speciesTitle", { count: species.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <SpeciesGuideList locale={locale} source="guide" species={species} />
         </div>
       </section>

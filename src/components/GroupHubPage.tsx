@@ -18,7 +18,6 @@ import { GroupHubFaqSection } from "@/components/GroupHubFaqSection";
 import { GroupHubHero } from "@/components/GroupHubHero";
 import { GroupHubSpeciesList } from "@/components/GroupHubSpeciesList";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { Link } from "@/i18n/navigation";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
@@ -46,20 +45,20 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-              <Reveal>
+              <div>
                 <ClusterSectionIntro
                   eyebrow={t("guideEyebrow")}
                   eyebrowClassName={CLUSTER_EYEBROW}
                   title={t("guideTitle")}
                   titleClassName={CLUSTER_TITLE_GUIDE}
                 />
-              </Reveal>
-              <Reveal delay={60}>
+              </div>
+              <div>
                 <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
                   <p>{t("guideP1")}</p>
                   <p>{t("guideP2")}</p>
                 </div>
-              </Reveal>
+              </div>
             </div>
 
             <RelatedGuideGrid
@@ -81,7 +80,7 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={tShared("relatedBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -90,10 +89,10 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
                 title={tShared("relatedTitle")}
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
-            </Reveal>
+            </div>
             <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {relatedHubs.map((hub, index) => (
-                <Reveal className="contents" delay={index * 50} key={hub.id}>
+                <div className="contents" key={hub.id}>
                   <Link
                     className="group flex h-full min-h-[160px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
                     href={hub.path}
@@ -106,7 +105,7 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
                       <ArrowUpRight className="size-4 opacity-50" />
                     </span>
                   </Link>
-                </Reveal>
+                </div>
               ))}
             </div>
           </div>
@@ -126,7 +125,7 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("ctaEyebrow")}
               </p>
@@ -160,7 +159,7 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
                   {tShared("ctaRegions")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
       </div>

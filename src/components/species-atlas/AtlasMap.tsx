@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 
 export function AtlasMap() {
@@ -16,7 +15,7 @@ export function AtlasMap() {
         className="map-explorer-texture pointer-events-none absolute inset-0"
       />
       <div className="relative mx-auto max-w-350 px-6 lg:px-10">
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-2xl text-center">
           <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("mapEyebrow")}
           </p>
@@ -26,7 +25,7 @@ export function AtlasMap() {
           <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
             {t("mapSubtitle")}
           </p>
-        </Reveal>
+        </div>
         <div className="mt-12 lg:mt-16">
           <GeorgiaMap mapContext="atlas" selectionMode="navigate" />
         </div>

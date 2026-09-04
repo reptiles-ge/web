@@ -12,7 +12,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
@@ -69,7 +68,7 @@ export async function SnakeSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("tableBody")}
               bodyClassName={CLUSTER_BODY}
@@ -78,7 +77,7 @@ export async function SnakeSpeciesIndexPage({
               title={t("tableTitle", { count: species.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable locale={locale} species={species} />
           </div>

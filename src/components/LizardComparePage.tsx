@@ -14,7 +14,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -60,7 +59,7 @@ export async function LizardComparePage({
         id="compare"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("tableBody")}
               bodyClassName={CLUSTER_BODY}
@@ -69,18 +68,18 @@ export async function LizardComparePage({
               title={t("tableTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {columns.map((item, index) => (
-              <Reveal delay={index * 50} key={item.id}>
+              <div key={item.id}>
                 <CompareCard
                   locale={locale}
                   role={t(`role.${roleKey(item.id)}`)}
                   size={getSpeciesSizeStat(item) ?? dash}
                   species={item}
                 />
-              </Reveal>
+              </div>
             ))}
           </div>
 
@@ -124,7 +123,7 @@ export async function LizardComparePage({
       {diceSnake ? (
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("alsoBody")}
                 bodyClassName={CLUSTER_BODY}
@@ -141,7 +140,7 @@ export async function LizardComparePage({
                   <ArrowUpRight className="size-4" />
                 </Link>
               </ClusterSectionIntro>
-            </Reveal>
+            </div>
           </div>
         </section>
       ) : null}

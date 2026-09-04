@@ -3,7 +3,6 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -14,11 +13,11 @@ export async function AtlasSeo() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-215 px-6 lg:px-10">
-        <Reveal>
+        <div>
           <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("seoEyebrow")}
           </p>
-        </Reveal>
+        </div>
 
         <article className="mt-8 space-y-12">
           <section>

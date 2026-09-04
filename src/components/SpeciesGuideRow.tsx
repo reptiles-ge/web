@@ -7,7 +7,6 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -29,14 +28,14 @@ export function SpeciesGuideList({
   return (
     <div className="mt-12 divide-y divide-border border-y border-border">
       {species.map((item, index) => (
-        <Reveal delay={Math.min(index * 40, 320)} key={item.id}>
+        <div key={item.id}>
           <SpeciesGuideRow
             index={index}
             locale={locale}
             source={source}
             species={item}
           />
-        </Reveal>
+        </div>
       ))}
     </div>
   );

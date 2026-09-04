@@ -13,7 +13,6 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { Reveal } from "@/components/Reveal";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getRegionsForSpecies,
@@ -82,7 +81,7 @@ export async function SnakeRangePage({
           className="map-explorer-texture pointer-events-none absolute inset-0"
         />
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl text-center">
             <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("mapEyebrow")}
             </p>
@@ -92,7 +91,7 @@ export async function SnakeRangePage({
             <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
               {t("mapBody")}
             </p>
-          </Reveal>
+          </div>
           <div className="mt-12 lg:mt-16">
             <GeorgiaMap
               highlightedIds={highlightedIds}
@@ -108,17 +107,17 @@ export async function SnakeRangePage({
         id="regions"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               eyebrow={t("listEyebrow")}
               eyebrowClassName={CLUSTER_EYEBROW}
               title={t("listTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <ul className="mt-14 divide-y divide-border border-y border-border">
             {regions.map((region, index) => (
-              <Reveal delay={Math.min(index * 25, 200)} key={region.id}>
+              <div key={region.id}>
                 <RegionSnakeRow
                   locale={locale}
                   pending={tShared("rangePending")}
@@ -127,7 +126,7 @@ export async function SnakeRangePage({
                     count: getRegionSnakeSpecies(region).length,
                   })}
                 />
-              </Reveal>
+              </div>
             ))}
           </ul>
         </div>

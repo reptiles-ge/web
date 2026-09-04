@@ -14,7 +14,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -59,7 +58,7 @@ export async function SnakeLargestPage({
         id="list"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("listBody")}
               bodyClassName={CLUSTER_BODY}
@@ -68,17 +67,17 @@ export async function SnakeLargestPage({
               title={t("listTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <ol className="mt-12 divide-y divide-border border-y border-border">
             {snakes.map((item, index) => (
-              <Reveal delay={Math.min(index * 40, 280)} key={item.id}>
+              <div key={item.id}>
                 <LargestRow
                   dash={t("emDash")}
                   index={index}
                   locale={locale}
                   species={item}
                 />
-              </Reveal>
+              </div>
             ))}
           </ol>
         </div>
@@ -88,7 +87,7 @@ export async function SnakeLargestPage({
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
-              <Reveal>
+              <div>
                 <ClusterSectionIntro
                   body={t("lizardBody")}
                   bodyClassName="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground"
@@ -108,8 +107,8 @@ export async function SnakeLargestPage({
                     <ArrowUpRight className="size-4" />
                   </Link>
                 </ClusterSectionIntro>
-              </Reveal>
-              <Reveal delay={60}>
+              </div>
+              <div>
                 <Link
                   className="relative block aspect-16/10 overflow-hidden rounded-[28px] bg-ink"
                   href={speciesHref(lizard.id, locale)}
@@ -125,7 +124,7 @@ export async function SnakeLargestPage({
                     src={lizard.image}
                   />
                 </Link>
-              </Reveal>
+              </div>
             </div>
           </div>
         </section>

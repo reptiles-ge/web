@@ -17,7 +17,6 @@ import {
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 import {
   CLUSTER_GUIDES,
@@ -80,7 +79,7 @@ export async function ClusterPageFrame({
           <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
@@ -144,7 +143,7 @@ export async function ClusterPageFrame({
                   {t("ctaParent")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
 
@@ -155,7 +154,7 @@ export async function ClusterPageFrame({
         {relatedGuides.length > 0 ? (
           <section className="border-t border-border bg-background py-20 lg:py-28">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-              <Reveal>
+              <div>
                 <ClusterSectionIntro
                   body={tShared("relatedGuidesBody")}
                   bodyClassName={CLUSTER_BODY}
@@ -164,7 +163,7 @@ export async function ClusterPageFrame({
                   title={tShared("relatedGuidesTitle")}
                   titleClassName={CLUSTER_TITLE_RELATED}
                 />
-              </Reveal>
+              </div>
               <RelatedGuideGrid cards={relatedGuides} locale={locale} />
             </div>
           </section>
@@ -191,7 +190,7 @@ export async function ClusterPageFrame({
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("ctaBody")}
                 bodyClassName={CLUSTER_HERO_BODY}
@@ -215,7 +214,7 @@ export async function ClusterPageFrame({
                   {tShared("ctaAllSpecies")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
       </div>

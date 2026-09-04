@@ -11,7 +11,6 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
-import { Reveal } from "@/components/Reveal";
 import { RiskLevelList } from "@/components/RiskLevelList";
 import { RiskToHumansHero } from "@/components/RiskToHumansHero";
 import { Link } from "@/i18n/navigation";
@@ -65,7 +64,7 @@ export async function RiskToHumansPage({
 
         <section className="border-t border-border bg-ink py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 body={t("ctaBody")}
                 bodyClassName={CLUSTER_HERO_BODY}
@@ -89,7 +88,7 @@ export async function RiskToHumansPage({
                   {t("ctaVenomous")}
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </section>
       </div>

@@ -9,7 +9,6 @@ import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import {
@@ -116,14 +115,14 @@ export async function LizardIdentifyPage({
       >
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           {pairs.map((pair, index) => (
-            <Reveal delay={index * 50} key={`${pair.a.id}-${pair.b.id}`}>
+            <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
                 a={pair.a}
                 b={pair.b}
                 locale={locale}
                 vs={t("vs")}
               />
-            </Reveal>
+            </div>
           ))}
         </div>
       </ClusterContentSection>

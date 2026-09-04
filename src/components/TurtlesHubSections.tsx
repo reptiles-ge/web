@@ -10,7 +10,6 @@ import {
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 
 const regionLinkClass = "text-foreground underline-offset-4 hover:underline";
@@ -23,15 +22,15 @@ export function TurtlesHubSections() {
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 eyebrow={t("rangeEyebrow")}
                 eyebrowClassName={CLUSTER_EYEBROW}
                 title={t("rangeTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
-            </Reveal>
-            <Reveal delay={60}>
+            </div>
+            <div>
               <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
                 <p>{t("rangeP1")}</p>
                 <p>
@@ -44,14 +43,14 @@ export function TurtlesHubSections() {
                   })}
                 </p>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("whereIntro")}
               bodyClassName={CLUSTER_BODY}
@@ -60,7 +59,7 @@ export function TurtlesHubSections() {
               title={t("whereTitle")}
               titleClassName={CLUSTER_TITLE_RELATED}
             />
-          </Reveal>
+          </div>
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
             {(
@@ -95,7 +94,7 @@ export function TurtlesHubSections() {
                 },
               ] as const
             ).map((item, index) => (
-              <Reveal className="contents" delay={index * 40} key={item.key}>
+              <div className="contents" key={item.key}>
                 <article className="flex h-full flex-col bg-card p-7 sm:p-8">
                   <h3 className="font-display text-[18px] font-semibold text-foreground sm:text-[20px]">
                     {t(`where.${item.key}.title`)}
@@ -123,7 +122,7 @@ export function TurtlesHubSections() {
                     ))}
                   </p>
                 </article>
-              </Reveal>
+              </div>
             ))}
           </div>
         </div>
@@ -132,24 +131,24 @@ export function TurtlesHubSections() {
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-20">
-            <Reveal>
+            <div>
               <ClusterSectionIntro
                 eyebrow={t("identifyEyebrow")}
                 eyebrowClassName={CLUSTER_EYEBROW}
                 title={t("identifyTitle")}
                 titleClassName={CLUSTER_TITLE_GUIDE}
               />
-            </Reveal>
-            <Reveal delay={60}>
+            </div>
+            <div>
               <p className="text-[15px] leading-relaxed text-muted-foreground">
                 {t("identifyBody")}
               </p>
-            </Reveal>
+            </div>
           </div>
 
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {([1, 2, 3, 4] as const).map((n, index) => (
-              <Reveal delay={index * 40} key={n}>
+              <div key={n}>
                 <li className="border-t border-border pt-4">
                   <p className="text-[12px] tracking-[0.18em] text-muted-foreground">
                     {String(n).padStart(2, "0")}
@@ -161,11 +160,11 @@ export function TurtlesHubSections() {
                     {t(`identifyPoint${n}Body`)}
                   </p>
                 </li>
-              </Reveal>
+              </div>
             ))}
           </ul>
 
-          <Reveal delay={120}>
+          <div>
             <Link
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[14px] font-medium text-ink-foreground transition-opacity hover:opacity-90"
               href="/turtles/identifikacia"
@@ -173,14 +172,14 @@ export function TurtlesHubSections() {
               {t("identifyCta")}
               <ArrowRight className="size-4" />
             </Link>
-          </Reveal>
+          </div>
         </div>
       </section>
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 lg:grid-cols-2">
-            <Reveal className="contents">
+            <div className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
                   <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
@@ -201,8 +200,8 @@ export function TurtlesHubSections() {
                   <ArrowUpRight className="size-4" />
                 </Link>
               </div>
-            </Reveal>
-            <Reveal className="contents" delay={60}>
+            </div>
+            <div className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
                   <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
@@ -223,7 +222,7 @@ export function TurtlesHubSections() {
                   <ArrowUpRight className="size-4" />
                 </Link>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

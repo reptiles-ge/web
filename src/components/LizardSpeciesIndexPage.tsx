@@ -11,7 +11,6 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
-import { Reveal } from "@/components/Reveal";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import {
@@ -70,7 +69,7 @@ export async function LizardSpeciesIndexPage({
         id="index"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("featuredBody")}
               bodyClassName={CLUSTER_BODY}
@@ -79,14 +78,14 @@ export async function LizardSpeciesIndexPage({
               title={t("featuredTitle")}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <SpeciesGuideList locale={locale} source="guide" species={featured} />
         </div>
       </section>
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("darevskiaBody")}
               bodyClassName={CLUSTER_BODY}
@@ -95,7 +94,7 @@ export async function LizardSpeciesIndexPage({
               title={t("darevskiaTitle", { count: darevskia.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}
@@ -109,7 +108,7 @@ export async function LizardSpeciesIndexPage({
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Reveal>
+          <div>
             <ClusterSectionIntro
               body={t("otherBody")}
               bodyClassName={CLUSTER_BODY}
@@ -118,7 +117,7 @@ export async function LizardSpeciesIndexPage({
               title={t("otherTitle", { count: other.length })}
               titleClassName={CLUSTER_TITLE_SECTION}
             />
-          </Reveal>
+          </div>
           <div className="mt-10">
             <SpeciesIndexTable
               locale={locale}
