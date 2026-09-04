@@ -130,14 +130,15 @@ export function formatVisitMessage(input: {
   referrer?: string;
   userAgent?: null | string;
 }) {
-  const pathname = displayVisitPath(input.path);
+  const cleaned = sanitizeVisitPath(input.path) ?? displayVisitPath(input.path);
+  const pathname = displayVisitPath(cleaned);
   const locale = visitLocaleFromPath(pathname).toUpperCase();
-  const page = visitPageLabel(input.path);
+  const page = visitPageLabel(cleaned);
   const lines = [`ახალი ვიზიტი · ${locale}`, ""];
   if (page) lines.push(`გვერდი: ${page}`);
   lines.push(`URL: ${pathname}`);
   const extra = [
-    sourceLine(input.referrer, input.path),
+    sourceLine(input.referrer, cleaned),
     placeLine(input.country, input.city),
     deviceLine(input.userAgent),
   ].filter((line): line is string => Boolean(line));
@@ -279,6 +280,11 @@ function isOwnHost(host: string) {
   return h === "reptiles.ge" || h.endsWith(".reptiles.ge") || h === "localhost";
 }
 
+function isTrackingQuery(key: string) {
+  const name = key.toLowerCase();
+  return TRACKING_QUERY.has(name) || name.endsWith("clid");
+}
+
 function namedSourceFromHost(host: string) {
   for (const { match, name } of SOURCE_HOSTS) {
     if (match.test(host)) return name;
@@ -320,11 +326,6 @@ function sanitizeVisitCountry(value?: null | string) {
   const code = value.trim().toUpperCase();
   if (!/^[A-Z]{2}$/.test(code) || code === "XX") return undefined;
   return code;
-}
-
-function isTrackingQuery(key: string) {
-  const name = key.toLowerCase();
-  return TRACKING_QUERY.has(name) || name.endsWith("clid");
 }
 
 function sourceLine(referrer?: string, path?: string) {

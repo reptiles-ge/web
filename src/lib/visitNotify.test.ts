@@ -153,6 +153,7 @@ describe("formatVisitMessage", () => {
       [
         "ახალი ვიზიტი · KA",
         "",
+        "გვერდი: მწვანე გომბეშო",
         "URL: /amfibiebi/mtsvane-gombesho",
         "",
         "წყარო: Facebook",
