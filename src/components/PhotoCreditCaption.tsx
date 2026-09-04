@@ -106,19 +106,19 @@ function LightboxCredit({
     >
       {photographer ? (
         <p>
-          <span className="text-white/35">{photoCredit} </span>
+          <span className="text-white/50">{photoCredit} </span>
           {photographer}
         </p>
       ) : null}
       {credit?.location ? (
         <p>
-          <span className="text-white/35">{photoLocation} </span>
+          <span className="text-white/50">{photoLocation} </span>
           <span>{credit.location}</span>
         </p>
       ) : null}
       {dateLabel && credit?.date ? (
         <p>
-          <span className="text-white/35">{photoDate} </span>
+          <span className="text-white/50">{photoDate} </span>
           <time dateTime={credit.date}>{dateLabel}</time>
         </p>
       ) : null}

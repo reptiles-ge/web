@@ -74,7 +74,7 @@ export async function SpeciesProfileBody({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+            className="mt-5 max-w-2xl font-display text-display-title"
             id={SPECIES_SECTION_IDS.overview}
             slugSource={`${t("whoIs")} ${species.commonName}`}
           >
@@ -156,7 +156,7 @@ export async function SpeciesProfileBody({
             <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
               {t("guidesEyebrow")}
             </p>
-            <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.45rem,2.6vw,1.9rem)] leading-tight font-semibold">
+            <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
               {t("guidesTitle")}
             </h2>
             <RelatedGuideGrid
@@ -209,7 +209,7 @@ async function SpeciesProfileBiology({
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+          className="mt-5 max-w-2xl font-display text-display-title"
           id={SPECIES_SECTION_IDS.biology}
         >
           {t("biologyTitle")}

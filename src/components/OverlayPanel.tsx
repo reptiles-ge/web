@@ -128,7 +128,7 @@ export function OverlayPanel({
           <m.div
             animate={{ opacity: 1, scale: 1, y: 0 }}
             className={cn(
-              "absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-[22px] border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block",
+              "absolute top-full right-0 z-50 mt-3 hidden origin-top overflow-hidden rounded-card border border-border/70 bg-card/95 shadow-[0_24px_60px_rgba(14,20,17,0.16)] backdrop-blur-2xl md:block",
               desktopClassName,
             )}
             exit={{ opacity: 0, scale: 0.98, y: -4 }}

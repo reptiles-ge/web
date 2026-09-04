@@ -29,7 +29,7 @@ export async function ContentAttribution({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <aside
           aria-labelledby={headingId}
-          className="max-w-xl rounded-[20px] border border-border/90 bg-card p-5 sm:p-6"
+          className="max-w-xl rounded-card border border-border/90 bg-card p-5 sm:p-6"
           itemID={siteEntityId("organization")}
           itemScope
           itemType="https://schema.org/Organization"

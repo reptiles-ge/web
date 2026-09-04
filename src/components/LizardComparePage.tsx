@@ -161,7 +161,7 @@ function CompareCard({
 }) {
   return (
     <Link
-      className="group block overflow-hidden rounded-[24px] border border-border bg-card"
+      className="group block overflow-hidden rounded-card border border-border bg-card"
       href={speciesHref(species.id, locale)}
     >
       <span className="relative block aspect-5/4 bg-ink">

@@ -99,7 +99,7 @@ export function SpeciesGuideRow({
         })
       }
     >
-      <div className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
+      <div className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-card">
         <CoverImage
           alt={speciesImageAlt(
             species.commonName,
@@ -180,7 +180,7 @@ function SpeciesGuideRowCopy({
             </span>
           ) : null}
         </div>
-        <h3 className="mt-2 font-display text-[clamp(1.35rem,2.5vw,1.85rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+        <h3 className="mt-2 font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
           {species.commonName}
         </h3>
         <p className="mt-1 text-[13px] tracking-wide text-muted-foreground italic">

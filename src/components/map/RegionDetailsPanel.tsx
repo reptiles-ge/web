@@ -137,7 +137,7 @@ function PanelContent({ locale, onClose, region, species }: PanelContentProps) {
             {t("regionLabel")}
           </p>
           <h2
-            className="mt-2 font-display text-[clamp(1.55rem,3vw,2rem)] leading-tight font-semibold text-foreground"
+            className="mt-2 font-display text-display-card font-semibold text-foreground"
             id="region-panel-title"
           >
             {localizeRegionText(region.name, locale)}
@@ -212,7 +212,7 @@ function PanelContent({ locale, onClose, region, species }: PanelContentProps) {
         ) : (
           <m.div
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 flex flex-col items-center rounded-[24px] border border-dashed border-border bg-secondary/40 px-6 py-12 text-center"
+            className="mt-6 flex flex-col items-center rounded-card border border-dashed border-border bg-secondary/40 px-6 py-12 text-center"
             initial={{ opacity: 0, y: 10 }}
             key={`${region.id}-empty`}
             transition={{ delay: 0.1, duration: 0.35 }}

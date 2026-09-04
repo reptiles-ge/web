@@ -21,7 +21,7 @@ export function AtlasRecent({ species }: { species: Species[] }) {
           <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
             {t("recentEyebrow")}
           </p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-4 font-display text-display-title font-semibold">
             {t("recentTitle")}
           </h2>
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
@@ -48,7 +48,7 @@ function RecentSpeciesRow({ species }: { species: Species }) {
 
   return (
     <Link
-      className="group flex items-center gap-4 rounded-[22px] border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
+      className="group flex items-center gap-4 rounded-card border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
       href={speciesHref(species.id, locale)}
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">

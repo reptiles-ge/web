@@ -91,7 +91,7 @@ export function SpeciesGallery({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+            className="mt-5 font-display text-display-title"
             id={SPECIES_SECTION_IDS.gallery}
             slugSource={`${name} ${t("galleryTitle")}`}
           >
@@ -119,7 +119,7 @@ export function SpeciesGallery({
               return (
                 <figure
                   className={cn(
-                    "group relative overflow-hidden rounded-[24px] bg-ink",
+                    "group relative overflow-hidden rounded-card bg-ink",
                     featured
                       ? "col-span-2 aspect-16/10 md:col-span-3"
                       : "aspect-4/5",
@@ -274,7 +274,7 @@ export function SpeciesGallery({
                   speciesId={speciesId}
                   variant="lightbox"
                 />
-                <p className="text-[12px] tracking-[0.2em] text-white/35">
+                <p className="text-[12px] tracking-[0.2em] text-white/50">
                   {(active ?? 0) + 1} / {photos.length}
                 </p>
               </div>

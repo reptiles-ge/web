@@ -211,7 +211,7 @@ export function QuizRound({
           aria-live="polite"
         >
           {revealed ? (
-            <div className="mt-2.5 rounded-[20px] border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:rounded-[24px] sm:p-6">
+            <div className="mt-2.5 rounded-card border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:rounded-card sm:p-6">
               <p
                 className="font-display text-[1.1rem] font-semibold text-white outline-none sm:text-[1.45rem]"
                 ref={feedbackRef}

@@ -23,7 +23,7 @@ export async function AtlasAbout({ locale, stats }: AtlasAboutProps) {
             <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("aboutEyebrow")}
             </p>
-            <h2 className="mt-4 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-4 font-display text-display-title font-semibold">
               {t("aboutTitle")}
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -67,7 +67,7 @@ function TrustCard({
   title: string;
 }) {
   return (
-    <div className="rounded-[24px] border border-border/80 bg-card px-5 py-6 sm:px-6">
+    <div className="rounded-card border border-border/80 bg-card px-5 py-6 sm:px-6">
       <h3 className="font-display text-[1.15rem] font-semibold text-foreground">
         {title}
       </h3>

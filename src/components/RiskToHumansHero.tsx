@@ -49,7 +49,7 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
               </ol>
             </nav>
 
-            <h1 className="text-balance-tight max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-foreground">
+            <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-foreground">
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
@@ -95,7 +95,7 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
               href={`#${DANGER_LEVEL_HASH[level]}`}
               key={level}
             >
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+              <p className="font-display text-display-stat font-semibold text-foreground">
                 {countByLevel[level]}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground transition-colors group-hover:text-foreground">

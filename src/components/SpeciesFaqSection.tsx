@@ -39,7 +39,7 @@ export function SpeciesFaqSection({
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              className="mt-5 font-display text-display-title"
               id={SPECIES_SECTION_IDS.faq}
             >
               {t("faqTitle")}

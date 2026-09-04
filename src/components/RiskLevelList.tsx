@@ -117,7 +117,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                   />
                   {tDanger(level)}
                 </span>
-                <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+                <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
                   {t(`${level}Title`)}
                 </h2>
                 <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -139,7 +139,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
               </ol>
 
               <div className="mt-14">
-                <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
+                <h3 className="font-display text-display-card font-semibold">
                   {level === "Harmless"
                     ? t("HarmlessSpeciesTitle")
                     : t("speciesTitle", { count: species.length })}
@@ -192,7 +192,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
             <div>
               <ClusterPathCard
                 body={t("venomousBody")}

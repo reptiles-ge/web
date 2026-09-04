@@ -64,7 +64,7 @@ export function QuizPracticeCta({
   return (
     <section className={className}>
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex flex-col gap-5 rounded-[28px] border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-6">
+        <div className="flex flex-col gap-5 rounded-media border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-6">
           <div className="max-w-xl">
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {eyebrow}

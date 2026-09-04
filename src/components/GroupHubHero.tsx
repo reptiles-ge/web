@@ -61,10 +61,10 @@ export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProp
               ]}
             />
 
-            <p className="font-display text-[clamp(1.15rem,2.4vw,1.65rem)] font-semibold tracking-tight text-white/90">
+            <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
               Reptiles
             </p>
-            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2.1rem,6vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
+            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
@@ -118,7 +118,7 @@ export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProp
             )}
           >
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+              <p className="font-display text-display-stat font-semibold text-foreground">
                 {species.length}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -126,7 +126,7 @@ export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProp
               </p>
             </div>
             <div>
-              <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+              <p className="font-display text-display-stat font-semibold text-foreground">
                 {familyCount}
               </p>
               <p className="mt-2 text-[13px] text-muted-foreground">
@@ -135,7 +135,7 @@ export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProp
             </div>
             {extraItems ? null : (
               <div>
-                <p className="font-display text-[clamp(2rem,4vw,2.75rem)] leading-none font-semibold text-foreground">
+                <p className="font-display text-display-stat font-semibold text-foreground">
                   {hubId === "snakes" ? venomousCount : t("statExtraValue")}
                 </p>
                 <p className="mt-2 text-[13px] text-muted-foreground">

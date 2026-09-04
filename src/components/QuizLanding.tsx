@@ -91,7 +91,7 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {pairs.map((pair) => (
               <li
-                className="rounded-[24px] border border-border bg-card p-5 sm:p-6"
+                className="rounded-card border border-border bg-card p-5 sm:p-6"
                 key={`${pair.a.id}-${pair.b.id}`}
               >
                 <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export async function QuizLanding({ snakes, species }: QuizLandingProps) {
             ))}
           </ul>
 
-          <div className="mt-14 max-w-3xl rounded-[24px] border border-border bg-card p-6 sm:p-8">
+          <div className="mt-14 max-w-3xl rounded-card border border-border bg-card p-6 sm:p-8">
             <h3 className="font-display text-[1.35rem] font-semibold">
               {t("practiceGuideTitle")}
             </h3>

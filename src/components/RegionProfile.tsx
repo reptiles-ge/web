@@ -119,7 +119,7 @@ function PhotoSpeciesCard({
   const locale = useLocale() as AppLocale;
   return (
     <Link
-      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
+      className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
       href={speciesHref(species.id, locale)}
       onClick={() =>
         trackSpeciesClick({
@@ -182,7 +182,7 @@ function RegionFaqSection({
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+              className="mt-5 font-display text-display-title"
               id={REGION_SECTION_IDS.faq}
             >
               {t("faqTitle")}
@@ -270,7 +270,7 @@ function RegionProfileHabitats({
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold"
+              className="mt-5 font-display text-display-title font-semibold"
               id={REGION_SECTION_IDS.habitats}
             >
               {t("habitatsTitle")}
@@ -362,7 +362,7 @@ function RegionProfileHero({
         <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
           {t("regionEyebrow")}
         </p>
-        <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(1.85rem,5vw,4.2rem)] leading-[1.08] font-semibold text-white sm:mt-4">
+        <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
           {t("regionTitle", { name, nameIn })}
         </h1>
         {overview ? (
@@ -413,7 +413,7 @@ function RegionProfileRange({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
+            className="mt-5 font-display text-display-title font-semibold"
             id={REGION_SECTION_IDS.range}
             slugSource={t("rangeTitle", { name })}
           >
@@ -440,7 +440,7 @@ function RegionProfileRelated({ related }: { related: Region[] }) {
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05] font-semibold"
+          className="mt-4 font-display text-display-title font-semibold"
           id={REGION_SECTION_IDS.related}
         >
           {t("relatedTitle")}
@@ -499,7 +499,7 @@ function RegionProfileSpecies({
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-4 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
+              className="mt-4 font-display text-display-title font-semibold"
               id={REGION_SECTION_IDS.species}
               slugSource={t("speciesTitle", { name, nameIn })}
             >
@@ -548,7 +548,7 @@ function RegionProfileVenomous({
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold"
+          className="mt-5 max-w-2xl font-display text-display-title font-semibold"
           id={REGION_SECTION_IDS.venomous}
           slugSource={t("venomousTitle", { name, nameIn })}
         >

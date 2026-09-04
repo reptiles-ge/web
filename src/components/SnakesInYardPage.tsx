@@ -57,14 +57,14 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
               />
             </div>
 
-            <div className="mt-12 grid gap-px overflow-hidden rounded-[28px] bg-border/80 sm:grid-cols-2">
+            <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border/80 sm:grid-cols-2">
               <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
                     <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                       {t("contactBiteEyebrow")}
                     </p>
-                    <h3 className="mt-4 font-display text-[clamp(1.25rem,2.2vw,1.55rem)] font-semibold text-foreground">
+                    <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
                       {t("contactBiteTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -95,7 +95,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                     <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
                       {t("contactAgencyEyebrow")}
                     </p>
-                    <h3 className="mt-4 font-display text-[clamp(1.25rem,2.2vw,1.55rem)] font-semibold text-foreground">
+                    <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
                       {t("contactAgencyTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
@@ -165,7 +165,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                 eyebrow={t("ctaEyebrow")}
                 eyebrowClassName={CLUSTER_HERO_EYEBROW}
                 title={t("ctaTitle")}
-                titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.2rem)] font-semibold leading-[1.05] text-white"
+                titleClassName="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white"
               />
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link

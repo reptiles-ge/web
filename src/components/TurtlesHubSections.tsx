@@ -61,7 +61,7 @@ export function TurtlesHubSections() {
             />
           </div>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
             {(
               [
                 {
@@ -178,14 +178,14 @@ export function TurtlesHubSections() {
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 lg:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-card bg-border/80 lg:grid-cols-2">
             <div className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
                   <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("landEyebrow")}
                   </p>
-                  <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
+                  <h2 className="mt-5 font-display text-display-title font-semibold">
                     {t("landTitle")}
                   </h2>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
@@ -207,7 +207,7 @@ export function TurtlesHubSections() {
                   <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                     {t("waterEyebrow")}
                   </p>
-                  <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
+                  <h2 className="mt-5 font-display text-display-title font-semibold">
                     {t("waterTitle")}
                   </h2>
                   <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">

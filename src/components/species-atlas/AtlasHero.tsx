@@ -49,7 +49,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
           <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
             {t("eyebrow")}
           </p>
-          <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-[clamp(2rem,5.8vw,4.6rem)] leading-[1.05] font-semibold text-white sm:mt-4">
+          <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
             {t("title")}
           </h1>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
@@ -74,7 +74,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
               </div>
             </div>
 
-            <p className="mt-5 text-[11px] font-medium tracking-[0.28em] text-white/40 uppercase">
+            <p className="mt-5 text-[11px] font-medium tracking-[0.28em] text-white/50 uppercase">
               {t("stats.pathwaysLabel")}
             </p>
 
@@ -164,10 +164,10 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
                 />
               ) : null}
               <Link
-                className="group flex min-w-42 flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
+                className="group flex min-w-42 flex-1 flex-col items-start rounded-card border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
                 href="/regions"
               >
-                <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
+                <span className="text-[10px] font-medium tracking-[0.22em] text-white/50 uppercase">
                   {t("stats.pathwayPlace")}
                 </span>
                 <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">
@@ -182,7 +182,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
               </Link>
             </div>
 
-            <p className="mt-5 max-w-xl text-[13px] leading-relaxed text-white/40">
+            <p className="mt-5 max-w-xl text-[13px] leading-relaxed text-white/50">
               {t("stats.expandingNote")}
             </p>
           </div>
@@ -216,11 +216,11 @@ function HeroPathway({
   title: string;
 }) {
   const className =
-    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-[22px] border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
+    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-card border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
   const style = { animationDelay: `${delay}ms` };
   const content = (
     <>
-      <span className="text-[10px] font-medium tracking-[0.22em] text-white/40 uppercase">
+      <span className="text-[10px] font-medium tracking-[0.22em] text-white/50 uppercase">
         {eyebrow}
       </span>
       <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">

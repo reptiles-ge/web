@@ -110,7 +110,7 @@ export async function SnakeLargestPage({
               </div>
               <div>
                 <Link
-                  className="relative block aspect-16/10 overflow-hidden rounded-[28px] bg-ink"
+                  className="relative block aspect-16/10 overflow-hidden rounded-media bg-ink"
                   href={speciesHref(lizard.id, locale)}
                 >
                   <CoverImage
@@ -151,7 +151,7 @@ function LargestRow({
         className="group grid gap-5 py-7 sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 lg:grid-cols-[9rem_1fr_auto]"
         href={speciesHref(species.id, locale)}
       >
-        <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-[22px]">
+        <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square sm:rounded-card">
           <CoverImage
             alt={speciesImageAlt(
               species.commonName,
@@ -167,7 +167,7 @@ function LargestRow({
           <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </span>
-          <span className="mt-2 block font-display text-[clamp(1.35rem,2.5vw,1.85rem)] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
+          <span className="mt-2 block font-display text-display-card font-semibold text-foreground transition-colors group-hover:text-primary">
             {species.commonName}
           </span>
           <span className="mt-1 block text-[13px] text-muted-foreground italic">

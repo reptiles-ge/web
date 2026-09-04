@@ -116,7 +116,7 @@ export async function NewsArticlePage({
               {category ? <span aria-hidden="true"> · </span> : null}
               <time dateTime={article.publishedAt}>{dateLabel}</time>
             </p>
-            <h1 className="text-balance-tight mt-5 font-display text-[clamp(1.95rem,4.8vw,3.35rem)] leading-[1.08] font-semibold text-foreground">
+            <h1 className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground">
               {copy.title}
             </h1>
             <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
@@ -145,7 +145,7 @@ export async function NewsArticlePage({
                 <AnchoredHeading
                   anchorLabel={t("anchorLink")}
                   as="h2"
-                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground"
+                  className="font-display text-display-card font-semibold text-foreground"
                   slugSource={section.heading}
                 >
                   {section.heading}
@@ -182,13 +182,13 @@ export async function NewsArticlePage({
                 <AnchoredHeading
                   anchorLabel={t("anchorLink")}
                   as="h2"
-                  className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground"
+                  className="font-display text-display-card font-semibold text-foreground"
                   id="sources"
                 >
                   {t("sourceHeading")}
                 </AnchoredHeading>
                 <a
-                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-[clamp(1.35rem,2.2vw,1.7rem)] leading-snug font-semibold text-foreground transition-colors hover:text-primary"
+                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-display-card font-semibold text-foreground transition-colors hover:text-primary"
                   href={primarySource.url}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -227,7 +227,7 @@ export async function NewsArticlePage({
 
           {hasRelated ? (
             <section className="mt-16 border-t border-border pt-10 sm:mt-20">
-              <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.8rem)] leading-[1.15] font-semibold text-foreground">
+              <h2 className="font-display text-display-card font-semibold text-foreground">
                 {t("relatedHeading")}
               </h2>
               <ul className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -335,8 +335,8 @@ function NewsFigure({
           alt={visual.alt}
           className={
             compact
-              ? "h-auto w-full rounded-[20px] bg-surface"
-              : "h-auto w-full rounded-[24px] bg-surface"
+              ? "h-auto w-full rounded-card bg-surface"
+              : "h-auto w-full rounded-card bg-surface"
           }
           fill={false}
           priority={priority}
@@ -347,8 +347,8 @@ function NewsFigure({
         <div
           className={
             compact
-              ? "relative aspect-16/10 overflow-hidden rounded-[20px] bg-surface"
-              : "relative aspect-16/10 overflow-hidden rounded-[24px] bg-surface sm:aspect-2/1"
+              ? "relative aspect-16/10 overflow-hidden rounded-card bg-surface"
+              : "relative aspect-16/10 overflow-hidden rounded-card bg-surface sm:aspect-2/1"
           }
         >
           <CoverImage

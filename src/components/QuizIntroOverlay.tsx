@@ -67,13 +67,13 @@ export function QuizIntroOverlay({
           {t("startLead")}
         </p>
 
-        <ul className="mt-5 grid gap-px overflow-hidden rounded-[24px] border border-white/12 bg-white/10 sm:mt-10 sm:grid-cols-3">
+        <ul className="mt-5 grid gap-px overflow-hidden rounded-card border border-white/12 bg-white/10 sm:mt-10 sm:grid-cols-3">
           {rules.map((rule, index) => (
             <li
               className="bg-black/40 px-4 py-3.5 backdrop-blur-xl sm:p-6"
               key={rule.title}
             >
-              <span className="font-display text-[12px] tracking-[0.22em] text-white/40">
+              <span className="font-display text-[12px] tracking-[0.22em] text-white/50">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="mt-2 font-display text-[16px] font-semibold text-white sm:mt-3 sm:text-[18px]">

@@ -51,7 +51,7 @@ export function SpeciesRangeMap({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="text-balance-tight mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold text-foreground"
+            className="text-balance-tight mt-5 font-display text-display-title font-semibold text-foreground"
             id={SPECIES_SECTION_IDS.range}
             slugSource={t("rangeTitle", { name: speciesName })}
           >

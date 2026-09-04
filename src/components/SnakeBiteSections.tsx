@@ -68,7 +68,7 @@ function SnakeBiteDangerVenom() {
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("dangerEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-5 font-display text-display-title font-semibold">
               {t("dangerTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -89,7 +89,7 @@ function SnakeBiteDangerVenom() {
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("venomEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-5 font-display text-display-title font-semibold">
               {t("venomTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -135,7 +135,7 @@ function SnakeBiteDisclaimer() {
           <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
             {t("disclaimerEyebrow")}
           </p>
-          <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
             {t("disclaimerTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -178,7 +178,7 @@ function SnakeBiteDoDont() {
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("doEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-5 font-display text-display-title font-semibold">
               {t("doTitle")}
             </h2>
             <ol className="mt-8 divide-y divide-border border-y border-border">
@@ -201,7 +201,7 @@ function SnakeBiteDoDont() {
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
               {t("dontEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-5 font-display text-display-title font-semibold">
               {t("dontTitle")}
             </h2>
             <ol className="mt-8 divide-y divide-border border-y border-border">
@@ -237,7 +237,7 @@ function SnakeBiteSources() {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("sourcesEyebrow")}
           </p>
-          <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
             {t("sourcesTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -287,7 +287,7 @@ function SnakeBiteSources() {
           ))}
         </ul>
 
-        <aside className="mt-12 max-w-3xl rounded-[20px] border border-border bg-surface p-6 sm:p-7">
+        <aside className="mt-12 max-w-3xl rounded-card border border-border bg-surface p-6 sm:p-7">
           <p className="text-[13px] font-medium text-foreground">
             {t("editorialUpdated", {
               date: formatContentDate(EDITORIAL_UPDATED, locale),
@@ -316,7 +316,7 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("speciesEyebrow")}
           </p>
-          <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
             {t("speciesTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -385,7 +385,7 @@ function SnakeBiteSymptoms() {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("symptomsEyebrow")}
           </p>
-          <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
             {t("symptomsTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -395,7 +395,7 @@ function SnakeBiteSymptoms() {
             {t("symptomsUrgent")}
           </p>
         </div>
-        <ul className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+        <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
           {SYMPTOM_ITEMS.map((n) => (
             <div key={n}>
               <li className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground">
@@ -422,7 +422,7 @@ function SnakeBiteUnseen() {
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("unseenEyebrow")}
           </p>
-          <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.6rem)] leading-[1.05] font-semibold">
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
             {t("unseenTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">

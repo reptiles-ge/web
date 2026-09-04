@@ -41,13 +41,13 @@ export function SpeciesProfileFacts({
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05]"
+          className="mt-5 max-w-2xl font-display text-display-title"
           id={SPECIES_SECTION_IDS.atAGlance}
         >
           {t("atAGlanceTitle")}
         </AnchoredHeading>
         {displayStats.length > 0 ? (
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] bg-border md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-media bg-border md:grid-cols-3">
             {displayStats.map((stat) => (
               <div className="bg-background p-6 lg:p-8" key={stat.label}>
                 <p className="text-[10px] tracking-[0.22em] text-muted-foreground">

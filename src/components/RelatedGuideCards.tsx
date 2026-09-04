@@ -118,7 +118,7 @@ export function RelatedGuideGrid({
     <div
       className={cn(
         className,
-        "grid gap-px overflow-hidden rounded-[24px] bg-border/80",
+        "grid gap-px overflow-hidden rounded-card bg-border/80",
         columns,
       )}
     >

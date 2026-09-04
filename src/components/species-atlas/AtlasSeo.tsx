@@ -21,7 +21,7 @@ export async function AtlasSeo() {
 
         <article className="mt-8 space-y-12">
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.reptilesTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
@@ -31,7 +31,7 @@ export async function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.amphibiansTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -49,7 +49,7 @@ export async function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.birdsTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -67,7 +67,7 @@ export async function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.mammalsTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -85,7 +85,7 @@ export async function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.spidersTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-1.75 text-muted-foreground">
@@ -103,7 +103,7 @@ export async function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.venomousTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">
@@ -154,7 +154,7 @@ export async function AtlasSeo() {
           </section>
 
           <section>
-            <h2 className="font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+            <h2 className="font-display text-display-title font-semibold text-foreground">
               {t("seo.regionsTitle")}
             </h2>
             <div className="mt-5 space-y-4 text-[15px] leading-1.75 text-muted-foreground">

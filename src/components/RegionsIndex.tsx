@@ -55,7 +55,7 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
-              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-[clamp(1.95rem,5.5vw,4.5rem)] leading-[1.08] font-semibold text-white sm:mt-4">
+              <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-hero font-semibold text-white sm:mt-4">
                 {t("title")}
               </h1>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
@@ -86,7 +86,7 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("mapEyebrow")}
               </p>
-              <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold text-foreground">
+              <h2 className="mt-5 font-display text-display-title font-semibold text-foreground">
                 {t("mapTitle")}
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
@@ -108,7 +108,7 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("clusterEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
                 {t("clusterTitle")}
               </h2>
               <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -154,7 +154,7 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("directoryEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+              <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
                 {t("directoryTitle")}
               </h2>
             </div>
@@ -177,7 +177,7 @@ export function RegionsIndex() {
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
                 {t("seo.eyebrow")}
               </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.6rem,3vw,2.25rem)] leading-tight font-semibold text-foreground">
+              <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold text-foreground">
                 {t("seo.title")}
               </h2>
               <div className="mt-5 max-w-3xl space-y-4 text-[15px] leading-[1.75] text-muted-foreground">

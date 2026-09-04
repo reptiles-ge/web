@@ -40,7 +40,7 @@ export function SpeciesProfileRelated({
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-4 font-display text-[clamp(1.6rem,3vw,2.4rem)] leading-[1.05]"
+              className="mt-4 font-display text-display-title"
               id={SPECIES_SECTION_IDS.related}
             >
               {t("relatedTitle")}
@@ -92,7 +92,7 @@ function SpeciesProfileRelatedCard({
 
   return (
     <Link
-      className="group relative block aspect-4/5 overflow-hidden rounded-[28px] bg-ink"
+      className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
       href={speciesHref(item.id, locale)}
       onClick={() =>
         trackSpeciesClick({

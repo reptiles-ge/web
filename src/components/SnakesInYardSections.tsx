@@ -39,7 +39,7 @@ function SnakesInYardActions() {
             eyebrow={t("actionsEyebrow")}
             eyebrowClassName={CLUSTER_EYEBROW}
             title={t("actionsTitle")}
-            titleClassName="mt-5 max-w-3xl font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.05]"
+            titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
           />
         </div>
 
@@ -121,7 +121,7 @@ function SnakesInYardWhy({ coverSrc }: { coverSrc: string }) {
             title={t("whyTitle")}
             titleClassName="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-semibold leading-[1.05]"
           />
-          <div className="mt-10 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+          <div className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
             <div className="bg-card p-7 sm:p-8">
               <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
                 01
@@ -147,7 +147,7 @@ function SnakesInYardWhy({ coverSrc }: { coverSrc: string }) {
           </div>
         </div>
         <div>
-          <figure className="relative aspect-4/5 overflow-hidden rounded-[28px] bg-ink sm:aspect-5/6">
+          <figure className="relative aspect-4/5 overflow-hidden rounded-media bg-ink sm:aspect-5/6">
             <CoverImage
               alt={t("coverImageAlt")}
               className="object-cover"

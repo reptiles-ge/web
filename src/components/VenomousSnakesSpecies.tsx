@@ -73,7 +73,7 @@ export function VenomousSnakesSpecies({
 
         <div className="mt-14 space-y-16">
           <div>
-            <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
+            <h3 className="font-display text-display-card font-semibold">
               {t("vipersTitle")}
             </h3>
             <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -89,7 +89,7 @@ export function VenomousSnakesSpecies({
           </div>
           {rearFanged.length > 0 ? (
             <div>
-              <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
+              <h3 className="font-display text-display-card font-semibold">
                 {t("rearFangedTitle")}
               </h3>
               <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
@@ -122,7 +122,7 @@ function VenomousFeaturedCard({
   return (
     <div>
       <Link
-        className="flex h-full flex-wrap items-center justify-between gap-4 rounded-[24px] border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
+        className="flex h-full flex-wrap items-center justify-between gap-4 rounded-card border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
         href={speciesHref(species.id, locale)}
       >
         <div>

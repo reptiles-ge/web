@@ -98,7 +98,7 @@ export function VenomousSnakesGuides({
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div className="grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2">
+          <div className="grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
             <div>
               <ClusterPathCard
                 body={t("idBody")}

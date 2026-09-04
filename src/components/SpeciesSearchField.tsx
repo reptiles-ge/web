@@ -143,7 +143,7 @@ export function SpeciesSearchTrigger({
   const iconButtonClass = chromeIconButtonClass(variant);
   const iconClass = isDark ? "text-white/55" : "text-muted-foreground";
   const inputClass = isDark
-    ? "placeholder:text-white/40"
+    ? "placeholder:text-white/50"
     : "placeholder:text-muted-foreground/70";
   const kbdClass = isDark
     ? "border-white/18 bg-white/8 text-white/45"

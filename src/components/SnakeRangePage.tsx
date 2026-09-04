@@ -85,7 +85,7 @@ export async function SnakeRangePage({
             <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
               {t("mapEyebrow")}
             </p>
-            <h2 className="mt-5 font-display text-[clamp(1.8rem,3.5vw,2.8rem)] leading-[1.05] font-semibold">
+            <h2 className="mt-5 font-display text-display-title font-semibold">
               {t("mapTitle")}
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-[15px] leading-relaxed text-muted-foreground">

@@ -90,7 +90,7 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
                 titleClassName={CLUSTER_TITLE_RELATED}
               />
             </div>
-            <div className="mt-12 grid gap-px overflow-hidden rounded-[24px] bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
               {relatedHubs.map((hub, index) => (
                 <div className="contents" key={hub.id}>
                   <Link
@@ -129,7 +129,7 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
               <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
                 {t("ctaEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3.4rem)] leading-[1.05] font-semibold text-white">
+              <h2 className="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white">
                 {t("ctaTitle")}
               </h2>
               <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">

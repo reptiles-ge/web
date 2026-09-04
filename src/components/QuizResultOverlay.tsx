@@ -99,7 +99,7 @@ export function QuizResultOverlay({
         id={headingId}
       >
         {correctCount}
-        <span className="text-white/35"> / {total}</span>
+        <span className="text-white/50"> / {total}</span>
       </h2>
       <p className="mt-2 text-[15px] text-white/55">
         {t("percentLabel", { percent })}
@@ -141,7 +141,7 @@ export function QuizResultOverlay({
           return (
             <li className="min-w-0" key={`${item.correctId}-${questionIndex}`}>
               <Link
-                className="flex min-w-0 items-center gap-2.5 rounded-[20px] border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
+                className="flex min-w-0 items-center gap-2.5 rounded-card border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
                 href={speciesHref(item.correctId, locale)}
                 onClick={() =>
                   trackSpeciesClick({

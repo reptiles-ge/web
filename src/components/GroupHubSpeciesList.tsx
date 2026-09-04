@@ -48,7 +48,7 @@ export async function GroupHubSpeciesList({
         <div className="mt-14 space-y-16">
           {sections.map((section) => (
             <div key={section.key}>
-              <h3 className="font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-tight font-semibold">
+              <h3 className="font-display text-display-card font-semibold">
                 {t(`section.${section.key}.title` as "speciesTitle", {
                   count: section.items.length,
                 })}

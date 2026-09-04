@@ -17,7 +17,7 @@ type LookalikePairProps = {
 
 export function LookalikePair({ a, b, locale, vs }: LookalikePairProps) {
   return (
-    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-[24px] border border-border bg-card p-4 sm:gap-5 sm:p-5">
+    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-card border border-border bg-card p-4 sm:gap-5 sm:p-5">
       <LookalikeSide locale={locale} species={a} />
       <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
         {vs}

@@ -262,7 +262,7 @@ function ComingSoonPanel({
       : t("emptyTitle");
 
   return (
-    <div className="mt-12 rounded-[28px] border border-border bg-card px-6 py-14 text-center sm:px-10">
+    <div className="mt-12 rounded-media border border-border bg-card px-6 py-14 text-center sm:px-10">
       <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
         {t("emptyEyebrow")}
       </p>

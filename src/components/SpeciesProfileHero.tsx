@@ -95,7 +95,7 @@ export async function SpeciesProfileHero({
             ))}
           </ol>
         </nav>
-        <h1 className="text-balance-tight max-w-4xl font-display text-[clamp(1.85rem,5vw,4.5rem)] leading-[1.08] font-semibold text-white">
+        <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white">
           {species.commonName}
         </h1>
         <p className="mt-3 font-display text-[15px] tracking-wide text-white/55 italic sm:text-[17px]">
