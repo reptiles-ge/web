@@ -127,6 +127,8 @@ test("bird and mammal indexes are live catalog pages", async ({ page }) => {
   await page.goto("/en/mammals/species");
   await expect(page.locator("h1")).toContainText("Mammal species");
 });
+
+test("Darevskia guide is distinct from lizard identify", async ({ page }) => {
   await page.goto("/xvlikebi/darevskia");
   await expect(page.locator("h1")).toContainText("Darevskia");
   await expect(page.locator("h1")).not.toHaveText("ეს რა ხვლიკია?");
