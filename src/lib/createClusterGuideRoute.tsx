@@ -6,6 +6,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
+import {
+  BirdSpeciesIndexPage,
+  MammalSpeciesIndexPage,
+} from "@/components/CatalogSpeciesIndexPage";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DarevskiaGuidePage } from "@/components/DarevskiaGuidePage";
@@ -54,10 +58,12 @@ const CLUSTER_PAGES: Record<
   "amphibian-frogs-index": FrogSpeciesIndexPage,
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
+  "bird-index": BirdSpeciesIndexPage,
   "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
   "lizard-identify": LizardIdentifyPage,
   "lizard-index": LizardSpeciesIndexPage,
+  "mammal-index": MammalSpeciesIndexPage,
   "snake-bite": SnakeBitePage,
   "snake-identify": SnakeIdentifyPage,
   "snake-index": SnakeSpeciesIndexPage,
