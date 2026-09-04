@@ -426,6 +426,7 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "otus-scops": ["strix-aluco", "athene-noctua"],
+  "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
   "paralaudakia-caucasia": [
     "tenuidactylus-caspius",
     "darevskia-portschinskii",
