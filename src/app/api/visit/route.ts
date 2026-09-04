@@ -6,6 +6,7 @@ import {
   readVisitPath,
   VISIT_COOKIE,
   visitClientIp,
+  visitGeo,
   visitLimiter,
   visitOriginAllowed,
 } from "@/lib/visitNotify";
@@ -48,9 +49,14 @@ export async function POST(request: NextRequest) {
     return empty();
   }
 
+  const geo = visitGeo(request);
   const sent = await sendTelegramMessage({
     chatId,
-    text: formatVisitMessage(visit),
+    text: formatVisitMessage({
+      ...visit,
+      ...geo,
+      userAgent: request.headers.get("user-agent"),
+    }),
     token,
   });
   if (!sent) {
