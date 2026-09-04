@@ -13,7 +13,6 @@ import {
   newsDateTime,
 } from "@/lib/news";
 import { liveQuizzes } from "@/lib/quizzes";
-import { speciesPageImageUrls } from "@/lib/sitemapImages";
 import {
   absoluteUrl,
   localeAlternates,
@@ -23,6 +22,7 @@ import {
   speciesAlternates,
   speciesPageUrl,
 } from "@/lib/site";
+import { speciesPageImageUrls } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
