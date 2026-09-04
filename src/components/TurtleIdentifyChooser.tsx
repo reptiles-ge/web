@@ -36,9 +36,8 @@ export function TurtleIdentifyChooser({
         title={t("chooserTitle")}
       >
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-          {turtles.map((item, index) => (
+          {turtles.map((item) => (
             <TurtleChooserCard
-              index={index}
               item={item}
               key={item.id}
               locale={locale}
@@ -97,11 +96,9 @@ export function TurtleIdentifyChooser({
 }
 
 function TurtleChooserCard({
-  index,
   item,
   locale,
 }: {
-  index: number;
   item: Species;
   locale: AppLocale;
 }) {
