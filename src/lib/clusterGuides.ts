@@ -105,6 +105,7 @@ export type ClusterGuideId =
   | "amphibian-frogs-index"
   | "amphibian-index"
   | "amphibian-newts"
+  | "lizard-darevskia"
   | "lizard-glass"
   | "lizard-identify"
   | "lizard-index"
@@ -124,6 +125,7 @@ export type ClusterGuidePath =
   | "/amphibians/saxeoebebi"
   | "/amphibians/tritoni-salamandra"
   | "/birds"
+  | "/lizards/darevskia"
   | "/lizards/identifikacia"
   | "/lizards/saxeoebebi"
   | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
@@ -145,6 +147,7 @@ export type ClusterMessageKey =
   | "amphibianIndex"
   | "amphibianNewts"
   | "lizardCompare"
+  | "lizardDarevskia"
   | "lizardIdentify"
   | "lizardIndex"
   | "snakeBite"
@@ -238,6 +241,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "amphibianNewts",
     parentHub: "amphibians",
     pathname: "/amphibians/tritoni-salamandra",
+    primaryCta: "hash",
+    schema: "collection",
+  },
+  "lizard-darevskia": {
+    faqCount: 4,
+    heroSpeciesId: "darevskia-derjugini",
+    id: "lizard-darevskia",
+    matches: isDarevskiaSpecies,
+    messageKey: "lizardDarevskia",
+    parentHub: "lizards",
+    pathname: "/lizards/darevskia",
     primaryCta: "hash",
     schema: "collection",
   },
@@ -416,6 +430,7 @@ export type HubClusterCard =
         | "identify"
         | "index"
         | "largest"
+        | "lizardDarevskia"
         | "lizardIdentify"
         | "lizardIndex"
         | "lizardsHub"
