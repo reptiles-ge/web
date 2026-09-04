@@ -8,6 +8,7 @@ import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { pictureSources } from "@/data/optimizedImages";
 import { resolvePhotoCredit, type Species } from "@/data/species";
 import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,

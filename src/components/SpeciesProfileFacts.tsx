@@ -29,7 +29,7 @@ export function SpeciesProfileFacts({
 }: SpeciesProfileFactsProps) {
   const t = useTranslations("profile");
 
-  if (displayStats.length === 0) {
+  if (displayStats.length === 0 && !checklistNote) {
     return null;
   }
 
