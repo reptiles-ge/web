@@ -837,7 +837,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
   } else if (group === "bird") {
     links.push({ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" });
   } else if (group === "mammal") {
-    links.push({ href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" });
+    links.push({
+      href: "/mammals/saxeoebebi",
+      key: "mammalIndex",
+      kind: "page",
+    });
   } else if (group === "spider") {
     links.push({ href: "/spiders", key: "spidersHub", kind: "page" });
   } else {

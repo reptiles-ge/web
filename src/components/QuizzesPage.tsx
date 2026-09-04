@@ -71,22 +71,22 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
           </div>
 
           <div className="mt-10 space-y-4 sm:mt-14 sm:space-y-5">
-          {live.map((item, index) => (
-            <FeaturedQuizCard
-              copy={copy[item.messageKey]}
-              item={item}
-              key={item.id}
-              liveLabel={t("live")}
-              locale={locale}
-              priority={index === 0}
-              questionsLabel={
-                item.questions
-                  ? t("questions", { count: item.questions })
-                  : null
-              }
-              startLabel={t("start")}
-            />
-          ))}
+            {live.map((item, index) => (
+              <FeaturedQuizCard
+                copy={copy[item.messageKey]}
+                item={item}
+                key={item.id}
+                liveLabel={t("live")}
+                locale={locale}
+                priority={index === 0}
+                questionsLabel={
+                  item.questions
+                    ? t("questions", { count: item.questions })
+                    : null
+                }
+                startLabel={t("start")}
+              />
+            ))}
           </div>
 
           <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground sm:mt-10">

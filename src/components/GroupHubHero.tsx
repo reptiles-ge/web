@@ -19,7 +19,11 @@ type GroupHubHeroProps = {
   species: Species[];
 };
 
-export async function GroupHubHero({ heroSrc, hubId, species }: GroupHubHeroProps) {
+export async function GroupHubHero({
+  heroSrc,
+  hubId,
+  species,
+}: GroupHubHeroProps) {
   const [t, tShared, tSnakes, locale] = await Promise.all([
     getTranslations(hubId),
     getTranslations("groupHubShared"),

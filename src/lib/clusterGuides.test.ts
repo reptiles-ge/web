@@ -48,17 +48,15 @@ describe("Darevskia cluster", () => {
 describe("bird and mammal indexes", () => {
   it("lists published birds and mammals on dedicated index paths", () => {
     expect(CLUSTER_GUIDES["bird-index"].pathname).toBe("/birds/saxeoebebi");
-    expect(CLUSTER_GUIDES["mammal-index"].pathname).toBe(
-      "/mammals/saxeoebebi",
-    );
+    expect(CLUSTER_GUIDES["mammal-index"].pathname).toBe("/mammals/saxeoebebi");
     const catalog = getCatalogSpecies();
     const birds = catalog.filter(isBirdSpecies);
     const mammals = catalog.filter(isMammalSpecies);
     expect(birds.length).toBeGreaterThan(0);
     expect(mammals.length).toBeGreaterThan(0);
-    expect(birds.every((item) => CLUSTER_GUIDES["bird-index"].matches(item))).toBe(
-      true,
-    );
+    expect(
+      birds.every((item) => CLUSTER_GUIDES["bird-index"].matches(item)),
+    ).toBe(true);
     expect(
       mammals.every((item) => CLUSTER_GUIDES["mammal-index"].matches(item)),
     ).toBe(true);

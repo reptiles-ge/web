@@ -28,7 +28,7 @@ type Answered = {
 };
 
 type QuizAction =
-  | { correct: boolean; optionId: string; type: "select"; }
+  | { correct: boolean; optionId: string; type: "select" }
   | { draft: QuizDraft; type: "restore" }
   | { open: boolean; type: "setHintOpen" }
   | { questions: SnakeQuizQuestion[]; type: "start" }
@@ -80,7 +80,9 @@ function quizCoverState({
   questions: null | SnakeQuizQuestion[];
 }) {
   const coverSpecies = playing
-    ? (question ? (byId.get(question.correctId) ?? introCover) : introCover)
+    ? question
+      ? (byId.get(question.correctId) ?? introCover)
+      : introCover
     : introCover;
   return {
     coverKey: !playing
@@ -121,7 +123,9 @@ function QuizPlayerSession({ pool, quizId, shareUrl }: QuizPlayerProps) {
   const startRound = useCallback(
     (reason: "restart" | "start") => {
       const next =
-        quizId === "lizard" ? generateLizardQuiz(pool) : generateSnakeQuiz(pool);
+        quizId === "lizard"
+          ? generateLizardQuiz(pool)
+          : generateSnakeQuiz(pool);
       dispatch({ questions: next, type: "start" });
       abandonSent.current = false;
       hintedQuestions.current = new Set();
@@ -213,37 +217,37 @@ function QuizPlayerSession({ pool, quizId, shareUrl }: QuizPlayerProps) {
     <QuizCopyProvider
       namespace={quizId === "lizard" ? "lizardQuiz" : "snakeQuiz"}
     >
-    <QuizStage
-      answers={answers}
-      byId={byId}
-      complete={complete}
-      correctCount={correctCount}
-      correctSpecies={correctSpecies}
-      coverKey={cover.coverKey}
-      coverMobileSrc={cover.coverMobileSrc}
-      coverSrc={cover.coverSrc}
-      feedbackRef={feedbackRef}
-      headingId={headingId}
-      hintedQuestions={hintedQuestions}
-      hintOpen={hintOpen}
-      index={index}
-      nextLabel={nextLabel}
-      nextQuestion={nextQuestion}
-      onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
-      onNext={onNext}
-      onRestart={() => startRound("restart")}
-      onSelect={onSelect}
-      onStart={() => startRound("start")}
-      optionRefs={optionRefs}
-      playing={playing}
-      question={question}
-      questions={questions}
-      quizId={quizId}
-      revealed={revealed}
-      selectedId={selectedId}
-      shareUrl={shareUrl}
-      total={total}
-    />
+      <QuizStage
+        answers={answers}
+        byId={byId}
+        complete={complete}
+        correctCount={correctCount}
+        correctSpecies={correctSpecies}
+        coverKey={cover.coverKey}
+        coverMobileSrc={cover.coverMobileSrc}
+        coverSrc={cover.coverSrc}
+        feedbackRef={feedbackRef}
+        headingId={headingId}
+        hintedQuestions={hintedQuestions}
+        hintOpen={hintOpen}
+        index={index}
+        nextLabel={nextLabel}
+        nextQuestion={nextQuestion}
+        onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
+        onNext={onNext}
+        onRestart={() => startRound("restart")}
+        onSelect={onSelect}
+        onStart={() => startRound("start")}
+        optionRefs={optionRefs}
+        playing={playing}
+        question={question}
+        questions={questions}
+        quizId={quizId}
+        revealed={revealed}
+        selectedId={selectedId}
+        shareUrl={shareUrl}
+        total={total}
+      />
     </QuizCopyProvider>
   );
 }

@@ -5,7 +5,11 @@ import { useLocale } from "next-intl";
 import { type KeyboardEvent, type RefObject } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
-import type { QuizDifficulty, SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
+import type {
+  QuizDifficulty,
+  SnakeQuizQuestion,
+  SnakeQuizSpecies,
+} from "@/lib/snakeQuiz";
 
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
@@ -218,7 +222,9 @@ export function QuizRound({
                 ref={feedbackRef}
                 tabIndex={-1}
               >
-                {selectedId === question.correctId ? t("correct") : t("incorrect")}
+                {selectedId === question.correctId
+                  ? t("correct")
+                  : t("incorrect")}
               </p>
               <p className="mt-1.5 text-[13px] leading-relaxed text-white/75 sm:mt-2 sm:text-[15px]">
                 {t("revealLead", {

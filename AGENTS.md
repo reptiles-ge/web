@@ -13,15 +13,15 @@ This file is the project map for agents. Humans: see `README.md`.
 
 ## Stack
 
-| Piece        | Detail                                                               |
-| ------------ | -------------------------------------------------------------------- |
-| App          | Next.js 16 App Router, React 19, TypeScript strict                   |
+| Piece        | Detail                                                                            |
+| ------------ | --------------------------------------------------------------------------------- |
+| App          | Next.js 16 App Router, React 19, TypeScript strict                                |
 | i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json` |
-| Style        | Tailwind 4, no CSS-in-JS                                             |
-| Alias        | `@/*` → `src/*`                                                      |
-| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)              |
-| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)               |
-| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`       |
+| Style        | Tailwind 4, no CSS-in-JS                                                          |
+| Alias        | `@/*` → `src/*`                                                                   |
+| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                           |
+| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)                            |
+| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`                    |
 
 Do not add code comments. Do not invent UI copy in one locale only.
 
@@ -110,30 +110,30 @@ Sources we trust: Tarkhnishvili et al. 2026; Iankoshvili & Tarkhnishvili 2021 (w
 
 KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `proxy.ts`. Folder under `src/app/[locale]/` matches the **internal** pathname.
 
-| KA                                   | EN                                 | Kind                                            |
-| ------------------------------------ | ---------------------------------- | ----------------------------------------------- |
-| `/`                                  | `/en`                              | Home                                            |
-| `/species`                           | `/en/species`                      | Atlas                                           |
-| `/gvelebi`                           | `/en/snakes`                       | Hub                                             |
-| `/gvelebi/saxeoebebi`                | `/en/snakes/species`               | Index                                           |
-| `/gvelebi/shxamiani-gvelebi`         | `/en/venomous-snakes`              | Guide                                           |
-| `/gvelebi/shxamiani-gvelis-amocnoba` | `/en/snakes/identify-venomous`     | Guide                                           |
-| `/gvelebi/gvelis-nakbeni`            | `/en/snakes/bite`                  | Guide (educational)                             |
-| `/gvelebi/gavrtseleba`               | `/en/snakes/range`                 | Guide                                           |
-| `/gvelebi/didi-gvelebi`              | `/en/snakes/largest`               | Guide                                           |
-| `/gvelebi/gveli-ezoshi`              | `/en/snakes-in-the-yard`           | Guide                                           |
-| `/gvelebi/giurza` (etc.)             | `/en/snakes/macrovipera-lebetina`  | Species                                         |
-| `/xvlikebi` …                        | `/en/lizards` …                    | Hub + index + ID + Darevskia + glass-lizard compare |
-| `/xvlikebi/darevskia`                | `/en/lizards/darevskia`            | Guide (colour is not ID)                            |
-| `/kuebi` …                           | `/en/turtles` …                    | Hub + index + land + freshwater + ID            |
-| `/amfibiebi` …                       | `/en/amphibians` …                 | Hub + index + frogs guide + frogs index + newts |
-| `/prinvelebi`, `/prinvelebi/saxeoebebi` | `/en/birds`, `/en/birds/species` | Hub + published-profile index                   |
-| `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi` | `/en/mammals`, `/en/mammals/species` | Hub + published-profile index               |
-| `/regions`, `/regions/{id}`          | same                               | 12 regions                                      |
-| `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes |
-| `/riskis-doneebi`                    | `/en/risk-to-humans`               | Risk legend                                     |
-| `/about`, `/contact`                 | `/en/about`, `/en/contact`         | Site                                            |
-| `/news`, `/news/{slug}`              | `/en/news`, `/en/news/{slug}`      | News                                            |
+| KA                                                     | EN                                                          | Kind                                                |
+| ------------------------------------------------------ | ----------------------------------------------------------- | --------------------------------------------------- |
+| `/`                                                    | `/en`                                                       | Home                                                |
+| `/species`                                             | `/en/species`                                               | Atlas                                               |
+| `/gvelebi`                                             | `/en/snakes`                                                | Hub                                                 |
+| `/gvelebi/saxeoebebi`                                  | `/en/snakes/species`                                        | Index                                               |
+| `/gvelebi/shxamiani-gvelebi`                           | `/en/venomous-snakes`                                       | Guide                                               |
+| `/gvelebi/shxamiani-gvelis-amocnoba`                   | `/en/snakes/identify-venomous`                              | Guide                                               |
+| `/gvelebi/gvelis-nakbeni`                              | `/en/snakes/bite`                                           | Guide (educational)                                 |
+| `/gvelebi/gavrtseleba`                                 | `/en/snakes/range`                                          | Guide                                               |
+| `/gvelebi/didi-gvelebi`                                | `/en/snakes/largest`                                        | Guide                                               |
+| `/gvelebi/gveli-ezoshi`                                | `/en/snakes-in-the-yard`                                    | Guide                                               |
+| `/gvelebi/giurza` (etc.)                               | `/en/snakes/macrovipera-lebetina`                           | Species                                             |
+| `/xvlikebi` …                                          | `/en/lizards` …                                             | Hub + index + ID + Darevskia + glass-lizard compare |
+| `/xvlikebi/darevskia`                                  | `/en/lizards/darevskia`                                     | Guide (colour is not ID)                            |
+| `/kuebi` …                                             | `/en/turtles` …                                             | Hub + index + land + freshwater + ID                |
+| `/amfibiebi` …                                         | `/en/amphibians` …                                          | Hub + index + frogs guide + frogs index + newts     |
+| `/prinvelebi`, `/prinvelebi/saxeoebebi`                | `/en/birds`, `/en/birds/species`                            | Hub + published-profile index                       |
+| `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi`        | `/en/mammals`, `/en/mammals/species`                        | Hub + published-profile index                       |
+| `/regions`, `/regions/{id}`                            | same                                                        | 12 regions                                          |
+| `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes                              |
+| `/riskis-doneebi`                                      | `/en/risk-to-humans`                                        | Risk legend                                         |
+| `/about`, `/contact`                                   | `/en/about`, `/en/contact`                                  | Site                                                |
+| `/news`, `/news/{slug}`                                | `/en/news`, `/en/news/{slug}`                               | News                                                |
 
 There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not standalone Red List guides.
 

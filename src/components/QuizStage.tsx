@@ -137,11 +137,7 @@ export function QuizStage({
   );
 }
 
-function stagePadClass(
-  playing: boolean,
-  complete: boolean,
-  revealed: boolean,
-) {
+function stagePadClass(playing: boolean, complete: boolean, revealed: boolean) {
   if (!playing || complete) {
     return "pb-[max(1.25rem,env(safe-area-inset-bottom))]";
   }

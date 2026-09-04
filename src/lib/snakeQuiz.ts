@@ -215,12 +215,12 @@ export function generateSnakeQuiz(
   const selected: Array<{ difficulty: QuizDifficulty; id: string }> = [];
 
   if (options?.difficulty) {
-      const ids = takeUnique(
-        idsForDifficulty(options.difficulty, pool, difficultyPools),
-        length,
-        used,
-        rng,
-      );
+    const ids = takeUnique(
+      idsForDifficulty(options.difficulty, pool, difficultyPools),
+      length,
+      used,
+      rng,
+    );
     for (const id of ids) {
       selected.push({ difficulty: options.difficulty, id });
     }
