@@ -30,10 +30,10 @@ describe("siteTime", () => {
 
 describe("formatContentDate", () => {
   it("formats a full date in each live locale", () => {
-    expect(formatContentDate("2026-09-04", "en")).toMatch(/September/);
-    expect(formatContentDate("2026-09-04", "ka")).toMatch(/სექტემბერი/);
-    expect(formatContentDate("2026-09-04", "ru")).toMatch(/сентября/);
-    expect(formatContentDate("2026-09-04", "tr")).toMatch(/Eylül/);
+    expect(formatContentDate("2026-09-04", "en")).toBe("4 September 2026");
+    expect(formatContentDate("2026-09-04", "ka")).toBe("4 სექტემბერი 2026");
+    expect(formatContentDate("2026-09-04", "ru")).toBe("4 сентября 2026");
+    expect(formatContentDate("2026-09-04", "tr")).toBe("4 Eylül 2026");
   });
 });
 
@@ -43,7 +43,8 @@ describe("formatPhotoDate", () => {
   });
 
   it("formats year-month credits", () => {
-    expect(formatPhotoDate("2024-06", "en")).toMatch(/June/);
-    expect(formatPhotoDate("2024-06", "ka")).toMatch(/ივნისი/);
+    expect(formatPhotoDate("2024-06", "en")).toBe("June 2024");
+    expect(formatPhotoDate("2024-06", "ka")).toBe("ივნისი 2024");
+    expect(formatPhotoDate("2024-06", "ru")).toBe("июнь 2024");
   });
 });
