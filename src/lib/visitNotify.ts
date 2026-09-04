@@ -51,6 +51,8 @@ const SOURCE_TOKENS: Record<string, string> = {
   youtube: "YouTube",
 };
 
+const COUNTRY_NAMES = new Intl.DisplayNames(["ka"], { type: "region" });
+
 const CITY_KA: Record<string, string> = {
   akhaltsikhe: "ახალციხე",
   batumi: "ბათუმი",
@@ -228,12 +230,7 @@ function countryDisplay(country?: null | string) {
   const code = sanitizeVisitCountry(country);
   if (!code) return undefined;
   if (code === "GE") return georgiaPlaceName("ka");
-  try {
-    const name = new Intl.DisplayNames(["ka"], { type: "region" }).of(code);
-    return name ?? code;
-  } catch {
-    return code;
-  }
+  return COUNTRY_NAMES.of(code) ?? code;
 }
 
 function deviceLine(userAgent?: null | string) {
