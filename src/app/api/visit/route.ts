@@ -3,19 +3,24 @@ import { type NextRequest, NextResponse } from "next/server";
 
 import {
   formatVisitMessage,
+  isVisitBlocked,
+  readVisitExpiresAt,
   readVisitPath,
   VISIT_COOKIE,
+  VISIT_WINDOW_MS,
   visitClientIp,
+  visitExpiresAt,
   visitGeo,
   visitLimiter,
   visitOriginAllowed,
+  writeVisitSeenValue,
 } from "@/lib/visitNotify";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
-const cookieMaxAge = 60 * 60 * 24 * 365;
+const cookieMaxAge = VISIT_WINDOW_MS / 1000;
 
 export async function POST(request: NextRequest) {
   if (!visitOriginAllowed(request, request.nextUrl)) {
@@ -23,7 +28,7 @@ export async function POST(request: NextRequest) {
   }
 
   const jar = await cookies();
-  if (jar.get(VISIT_COOKIE)?.value === "1") {
+  if (isVisitBlocked(jar.get(VISIT_COOKIE)?.value)) {
     return empty();
   }
 
@@ -73,7 +78,10 @@ function empty() {
 
 async function markNotified() {
   const jar = await cookies();
-  jar.set(VISIT_COOKIE, "1", {
+  const value = writeVisitSeenValue();
+  const expiresAt = readVisitExpiresAt(value) ?? visitExpiresAt();
+  jar.set(VISIT_COOKIE, value, {
+    expires: new Date(expiresAt),
     httpOnly: true,
     maxAge: cookieMaxAge,
     path: "/",

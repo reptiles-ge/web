@@ -3,15 +3,20 @@ import { describe, expect, it } from "vitest";
 import {
   createVisitLimiter,
   formatVisitMessage,
+  isVisitBlocked,
+  readVisitExpiresAt,
   readVisitPath,
   sanitizeVisitPath,
   sanitizeVisitReferrer,
+  VISIT_WINDOW_MS,
   visitClientIp,
   visitDeviceLabel,
+  visitExpiresAt,
   visitGeo,
   visitOriginAllowed,
   visitPlaceLabel,
   visitReferrerSource,
+  writeVisitSeenValue,
 } from "@/lib/visitNotify";
 import { visitLocaleFromPath, visitPageLabel } from "@/lib/visitPageLabel";
 
@@ -238,6 +243,23 @@ describe("createVisitLimiter", () => {
     expect(limiter.take("1.1.1.1", 10_500)).toBe(false);
     expect(limiter.take("1.1.1.1", 11_000)).toBe(true);
     expect(limiter.take("8.8.8.8", 11_000)).toBe(true);
+  });
+});
+
+describe("visit seen window", () => {
+  it("blocks until expiresAt and allows after 24 hours", () => {
+    const now = 1_700_000_000_000;
+    const value = writeVisitSeenValue(now);
+    expect(readVisitExpiresAt(value)).toBe(now + VISIT_WINDOW_MS);
+    expect(isVisitBlocked(value, now)).toBe(true);
+    expect(isVisitBlocked(value, now + VISIT_WINDOW_MS - 1)).toBe(true);
+    expect(isVisitBlocked(value, now + VISIT_WINDOW_MS)).toBe(false);
+    expect(visitExpiresAt(now) - now).toBe(VISIT_WINDOW_MS);
+  });
+
+  it("does not treat the legacy flag as blocked", () => {
+    expect(isVisitBlocked("1")).toBe(false);
+    expect(isVisitBlocked(undefined)).toBe(false);
   });
 });
 

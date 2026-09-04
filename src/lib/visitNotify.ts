@@ -7,6 +7,7 @@ import {
 
 export const VISIT_COOKIE = "rp_v";
 export const VISIT_STORAGE_KEY = "reptiles-visit";
+export const VISIT_WINDOW_MS = 86_400_000;
 
 const PATH_MAX = 200;
 const PATH_RAW_MAX = 1_500;
@@ -121,7 +122,7 @@ export function createVisitLimiter(windowMs: number) {
   };
 }
 
-export const visitLimiter = createVisitLimiter(60_000);
+export const visitLimiter = createVisitLimiter(VISIT_WINDOW_MS);
 
 export function formatVisitMessage(input: {
   city?: null | string;
@@ -147,6 +148,25 @@ export function formatVisitMessage(input: {
     lines.push(...extra);
   }
   return lines.join("\n");
+}
+
+export function isVisitBlocked(value: null | string | undefined, now = Date.now()) {
+  const expiresAt = readVisitExpiresAt(value);
+  return expiresAt !== null && expiresAt > now;
+}
+
+export function readVisitExpiresAt(value: null | string | undefined) {
+  if (!value || value === "1") return null;
+  try {
+    const parsed = JSON.parse(value) as { expiresAt?: unknown };
+    if (typeof parsed.expiresAt === "number" && Number.isFinite(parsed.expiresAt)) {
+      return parsed.expiresAt;
+    }
+  } catch {
+    const asNumber = Number(value);
+    if (Number.isFinite(asNumber) && asNumber > 0) return asNumber;
+  }
+  return null;
 }
 
 export function readVisitPath(body: unknown) {
@@ -206,6 +226,10 @@ export function visitDeviceLabel(userAgent?: null | string) {
   return device ?? browser;
 }
 
+export function visitExpiresAt(now = Date.now()) {
+  return now + VISIT_WINDOW_MS;
+}
+
 export function visitGeo(request: Request) {
   const country =
     request.headers.get("x-vercel-ip-country") ??
@@ -255,6 +279,10 @@ export function visitReferrerSource(referrer?: string, path?: string) {
   const utm = new URLSearchParams(query).get("utm_source")?.trim();
   if (!utm) return undefined;
   return namedSourceFromToken(utm) ?? sanitizeUtmSource(utm);
+}
+
+export function writeVisitSeenValue(now = Date.now()) {
+  return JSON.stringify({ expiresAt: visitExpiresAt(now) });
 }
 
 function cityDisplay(city?: null | string) {
