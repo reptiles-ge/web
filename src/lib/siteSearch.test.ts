@@ -30,3 +30,15 @@ describe("search scoring", () => {
     expect(hits.some((item) => item.id === "macrovipera-lebetina")).toBe(true);
   });
 });
+
+describe("search scoring (ru)", () => {
+  const index = getSearchIndex("ru");
+
+  it("finds Macrovipera by Russian vernacular", () => {
+    const { groups } = searchIndex(index, "гюрза", "all");
+    const hits = flattenGroups(groups).filter(
+      (item) => item.kind === "species",
+    );
+    expect(hits.some((item) => item.id === "macrovipera-lebetina")).toBe(true);
+  });
+});

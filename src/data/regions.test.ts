@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import { regions } from "@/data/regions";
+import { getRegionContent } from "@/data/regionContent";
+import { localizeRegionTextIfPresent } from "@/data/regions";
 import { getCatalogSpecies, unpublishedSpeciesIds } from "@/data/species";
 
 describe("region speciesIds", () => {

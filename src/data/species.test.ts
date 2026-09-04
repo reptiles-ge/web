@@ -15,4 +15,12 @@ describe("catalog publish", () => {
       "macrovipera-lebetina",
     );
   });
+
+  it("keeps a stable publishedAt on compiled species", () => {
+    const giurza = getSpeciesById("macrovipera-lebetina");
+    expect(giurza?.publishedAt).toMatch(/^\d{4}-\d{2}-\d{2}/);
+    expect(giurza?.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}/);
+    expect(giurza!.publishedAt <= giurza!.updatedAt).toBe(true);
+    expect(giurza?.publishedAt).not.toContain("Invalid");
+  });
 });
