@@ -1,8 +1,9 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useQuizCopy } from "@/components/QuizCopyContext";
+import { useTranslations } from "next-intl";
 
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
 
 type QuizIntroOverlayProps = {

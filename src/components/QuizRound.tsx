@@ -8,6 +8,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { QuizDifficulty, SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
 import { useQuizCopy } from "@/components/QuizCopyContext";
+import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHref } from "@/lib/speciesRoutes";

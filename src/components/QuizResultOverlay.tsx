@@ -1,12 +1,13 @@
 "use client";
 
 import { ArrowRight, Check, RotateCcw, Share2 } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizBreadcrumbs } from "@/components/QuizIntroOverlay";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
