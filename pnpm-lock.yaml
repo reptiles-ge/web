@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@date-fns/tz':
-        specifier: ^1.5.0
-        version: 1.5.0
       '@next/third-parties':
         specifier: ^16.2.12
         version: 16.2.12(next@16.2.12(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@playwright/test@1.55.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
@@ -20,9 +17,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      date-fns:
-        specifier: ^4.4.0
-        version: 4.4.0
       framer-motion:
         specifier: ^12.43.0
         version: 12.43.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -214,9 +208,6 @@ packages:
   '@babel/types@7.29.8':
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
-
-  '@date-fns/tz@1.5.0':
-    resolution: {integrity: sha512-lwYN/vDPeNRULcepoE/LO2Pgx+7/RV+S9ARfbc9lr2DtGkOD7pAiruHvbR1RX3Qyf6ja47EWJDMsNK5vK08DJg==}
 
   '@discoveryjs/json-ext@0.5.7':
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -2583,9 +2574,6 @@ packages:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
 
-  date-fns@4.4.0:
-    resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
-
   debounce-fn@6.0.0:
     resolution: {integrity: sha512-rBMW+F2TXryBwB54Q0d8drNEI+TfoS9JpNTAoVpukbWEhjXQq4rySFYLaqXMFXwdv61Zb2OHtj5bviSoimqxRQ==}
     engines: {node: '>=18'}
@@ -4596,8 +4584,6 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@date-fns/tz@1.5.0': {}
-
   '@discoveryjs/json-ext@0.5.7': {}
 
   '@emnapi/core@1.10.0':
@@ -6355,8 +6341,6 @@ snapshots:
       call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
-
-  date-fns@4.4.0: {}
 
   debounce-fn@6.0.0:
     dependencies:
