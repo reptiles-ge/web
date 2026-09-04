@@ -3,10 +3,6 @@ import type { ReactNode } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
-import {
-  CLUSTER_GUIDES,
-  type ClusterGuideViewProps,
-} from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -18,6 +14,10 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import {
+  CLUSTER_GUIDES,
+  type ClusterGuideViewProps,
+} from "@/lib/clusterGuides";
 
 export async function CatalogSpeciesIndexPage({
   guideId,
