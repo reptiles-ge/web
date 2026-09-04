@@ -44,7 +44,7 @@ function SnakesInYardActions() {
         </div>
 
         <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
-          {ACTION_KEYS.map((n, index) => (
+          {ACTION_KEYS.map((n) => (
             <li className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]" key={n}>
               <span className="font-display text-[clamp(2rem,3vw,2.5rem)] leading-none font-semibold text-primary/80">
                 {String(n).padStart(2, "0")}
@@ -86,7 +86,7 @@ function SnakesInYardMyths() {
             />
           </div>
           <ul className="divide-y divide-border border-y border-border">
-            {MYTH_KEYS.map((n, index) => (
+            {MYTH_KEYS.map((n) => (
               <li className="flex items-start gap-4 py-5 sm:gap-5 sm:py-6" key={n}>
                 <span
                   aria-hidden

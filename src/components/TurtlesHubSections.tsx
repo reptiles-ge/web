@@ -93,7 +93,7 @@ export function TurtlesHubSections() {
                   ] as const,
                 },
               ] as const
-            ).map((item, index) => (
+            ).map((item) => (
               <div className="contents" key={item.key}>
                 <article className="flex h-full flex-col bg-card p-7 sm:p-8">
                   <h3 className="font-display text-[18px] font-semibold text-foreground sm:text-[20px]">
@@ -147,7 +147,7 @@ export function TurtlesHubSections() {
           </div>
 
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {([1, 2, 3, 4] as const).map((n, index) => (
+            {([1, 2, 3, 4] as const).map((n) => (
               <div key={n}>
                 <li className="border-t border-border pt-4">
                   <p className="text-[12px] tracking-[0.18em] text-muted-foreground">

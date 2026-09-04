@@ -50,7 +50,7 @@ export function VenomousSnakesGuides({
               </ClusterSectionIntro>
             </div>
             <ol className="space-y-0 divide-y divide-border border-y border-border">
-              {([1, 2, 3, 4] as const).map((n, index) => (
+              {([1, 2, 3, 4] as const).map((n) => (
                 <li className="flex items-start gap-5 py-6" key={n}>
                   <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
                     {String(n).padStart(2, "0")}
