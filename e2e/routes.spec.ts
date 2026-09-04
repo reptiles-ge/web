@@ -119,9 +119,11 @@ test("Russian region page does not render English FAQ", async ({ page }) => {
   await page.goto("/ru/regions/adjara");
   await expect(page.locator("h1")).toBeVisible();
   await expect(page.locator("body")).not.toContainText(
-    "What snakes live in Adjara",
+    "Which snakes occur in Adjara?",
   );
 });
+
+test.describe("JS-disabled shells", () => {
   test.use({ javaScriptEnabled: false });
 
   test("hub, species, about, and contact still render H1", async ({ page }) => {
