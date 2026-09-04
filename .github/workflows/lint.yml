@@ -43,32 +43,6 @@ jobs:
 
   e2e:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.34.5
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-
-      - run: pnpm species:compile
-
-      - run: pnpm search:compile
-
-      - run: pnpm build
-
-      - run: pnpm exec playwright install --with-deps chromium
-
-      - run: pnpm test:e2e
-
-  lighthouse:
-    runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
@@ -84,17 +58,13 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm species:compile
-
-      - run: pnpm search:compile
-
       - run: pnpm build
 
-      - name: Start production server
-        run: pnpm start --hostname 127.0.0.1 --port 3000 &
+      - run: pnpm exec playwright install --with-deps chromium
 
-      - name: Wait for server
+      - name: Start production server
         run: |
+          nohup pnpm start --hostname 127.0.0.1 --port 3000 > /tmp/next-start.log 2>&1 &
           for i in $(seq 1 60); do
             if curl -sf -o /dev/null http://127.0.0.1:3000/; then
               exit 0
@@ -102,7 +72,12 @@ jobs:
             sleep 2
           done
           echo "server did not become ready"
+          cat /tmp/next-start.log
           exit 1
+
+      - run: pnpm test:e2e
+        env:
+          PW_REUSE_SERVER: "1"
 
       - uses: treosh/lighthouse-ci-action@v12
         with:
