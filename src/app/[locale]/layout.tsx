@@ -14,6 +14,7 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
+import { VisitPing } from "@/components/VisitPing";
 import { routing } from "@/i18n/routing";
 
 type Props = {
@@ -40,6 +41,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <SkipLink label={t("skipToContent")} />
       <ScrollToTop />
       <AnalyticsPageContext />
+      <VisitPing />
       <Navbar />
       <main id="main" tabIndex={-1}>
         {children}
