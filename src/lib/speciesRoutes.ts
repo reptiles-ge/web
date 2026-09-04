@@ -426,7 +426,6 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "otus-scops": ["strix-aluco", "athene-noctua"],
-  "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
   "paralaudakia-caucasia": [
     "tenuidactylus-caspius",
     "darevskia-portschinskii",
@@ -460,6 +459,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "falco-peregrinus",
   ],
   "phasianus-colchicus": ["coturnix-coturnix"],
+  "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
   "pica-pica": ["corvus-corax", "garrulus-glandarius"],
   "platyceps-najadum": [
     "hemorrhois-ravergieri",
