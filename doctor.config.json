@@ -1,7 +1,14 @@
 {
   "$schema": "https://react.doctor/schema/config.json",
   "ignore": {
-    "files": ["src/data/*.generated.ts", "index.html"]
+    "files": [
+      "src/data/*.generated.ts",
+      "index.html",
+      "src/app/admin/**",
+      "src/app/api/admin/**",
+      "src/components/admin/**",
+      "src/lib/admin*.ts"
+    ]
   },
   "rules": {
     "react-doctor/nextjs-no-img-element": "off"

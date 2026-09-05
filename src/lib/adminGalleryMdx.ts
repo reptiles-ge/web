@@ -8,7 +8,10 @@ import {
   unpublishedSpeciesIds,
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
+import { type CoverTarget } from "@/lib/adminCover";
 import { CDN_BASE } from "@/lib/site";
+
+export type { CoverTarget };
 
 const CONTENT_ROOT = path.join(process.cwd(), "src/content/species");
 const SPECIES_ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -190,6 +193,7 @@ export function readAdminSpeciesGallery(id: string): {
   gallery: GalleryImage[];
   group: AnimalGroup | null;
   image: string;
+  mobileImage: string;
   scientificName: string;
   unpublished: boolean;
 } {
@@ -204,10 +208,222 @@ export function readAdminSpeciesGallery(id: string): {
     gallery,
     group: speciesAtlasMeta[id]?.group ?? null,
     image: typeof data.image === "string" ? data.image : "",
+    mobileImage: typeof data.mobileImage === "string" ? data.mobileImage : "",
     scientificName:
       typeof data.scientificName === "string" ? data.scientificName : "",
     unpublished: unpublishedSpeciesIds.has(id),
   };
+}
+
+export function reorderGalleryInMdx(
+  raw: string,
+  orderedSrcs: string[],
+): string {
+  const gallery = normalizeGallery(matter(raw).data.gallery);
+  if (gallery.length < 2) {
+    throw new Error("Need at least two photos to reorder");
+  }
+  assertGalleryPermutation(
+    gallery.map((item) => item.src),
+    orderedSrcs,
+  );
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const range = findGalleryRange(lines);
+  if (!range) {
+    throw new Error("Gallery block not found");
+  }
+
+  const body = lines.slice(range.start + 1, range.end);
+  let trailing = 0;
+  for (let i = body.length - 1; i >= 0; i -= 1) {
+    if (body[i].trim() !== "") break;
+    trailing += 1;
+  }
+  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
+  const items = splitGalleryItems(body);
+  if (items.length !== gallery.length) {
+    throw new Error("Could not parse gallery items");
+  }
+
+  const bySrc = new Map<string, string[]>();
+  for (const item of items) {
+    const src = galleryItemSrc(item);
+    if (!src) {
+      throw new Error("Gallery item is missing src");
+    }
+    if (bySrc.has(src)) {
+      throw new Error(`Gallery has duplicate src: ${src}`);
+    }
+    bySrc.set(src, item);
+  }
+
+  const nextItems = orderedSrcs.map((src) => {
+    const item = bySrc.get(src);
+    if (!item) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+    return item;
+  });
+
+  const nextLines = [
+    ...lines.slice(0, range.start + 1),
+    ...nextItems.flat(),
+    ...trailingLines,
+    ...lines.slice(range.end),
+  ];
+  const next = nextLines.join(newline);
+  const check = normalizeGallery(matter(next).data.gallery).map(
+    (item) => item.src,
+  );
+  if (check.join("\0") !== orderedSrcs.join("\0")) {
+    throw new Error("Failed to reorder gallery");
+  }
+  return next;
+}
+
+export function reorderGalleryInSpecies(
+  id: string,
+  orderedSrcs: string[],
+  repoRoot = process.cwd(),
+) {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  fs.writeFileSync(
+    kaPath,
+    reorderGalleryInMdx(fs.readFileSync(kaPath, "utf8"), orderedSrcs),
+    "utf8",
+  );
+}
+
+export function setCoverInMdx(
+  raw: string,
+  target: CoverTarget,
+  item: GalleryImage,
+  insertMissing = true,
+): string {
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  let lines = raw.split(/\r?\n/);
+  if (target === "desktop" || target === "both") {
+    lines = setCoverField(lines, "image", "imageCredit", item, insertMissing);
+  }
+  if (target === "mobile" || target === "both") {
+    lines = setCoverField(
+      lines,
+      "mobileImage",
+      "mobileImageCredit",
+      item,
+      insertMissing,
+    );
+  }
+  const next = lines.join(newline);
+  const data = matter(next).data as {
+    image?: unknown;
+    imageCredit?: unknown;
+    mobileImage?: unknown;
+    mobileImageCredit?: unknown;
+  };
+  if (target === "desktop" || target === "both") {
+    if (insertMissing || typeof data.image === "string") {
+      if (data.image !== item.src) {
+        throw new Error("Failed to set desktop cover");
+      }
+      if (!creditsEqual(item.credit, normalizeCredit(data.imageCredit))) {
+        throw new Error("Failed to set desktop cover credit");
+      }
+    }
+  }
+  if (target === "mobile" || target === "both") {
+    if (insertMissing || typeof data.mobileImage === "string") {
+      if (data.mobileImage !== item.src) {
+        throw new Error("Failed to set mobile cover");
+      }
+      if (!creditsEqual(item.credit, normalizeCredit(data.mobileImageCredit))) {
+        throw new Error("Failed to set mobile cover credit");
+      }
+    }
+  }
+  return next;
+}
+
+export function setCoverInSpecies(
+  id: string,
+  target: CoverTarget,
+  src: string,
+  repoRoot = process.cwd(),
+) {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const dir = path.join(repoRoot, "src/content/species", id);
+  const kaPath = path.join(dir, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  const kaRaw = fs.readFileSync(kaPath, "utf8");
+  const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
+    (item) => item.src === src,
+  );
+  if (!kaItem) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+  fs.writeFileSync(kaPath, setCoverInMdx(kaRaw, target, kaItem), "utf8");
+
+  for (const locale of OVERLAY_LOCALES) {
+    const filePath = path.join(dir, `${locale}.mdx`);
+    if (!fs.existsSync(filePath)) continue;
+    const raw = fs.readFileSync(filePath, "utf8");
+    const parsed = matter(raw);
+    const overlay = normalizeGallery(parsed.data.gallery).find(
+      (item) => item.src === src,
+    );
+    const item: GalleryImage = overlay?.credit
+      ? { credit: overlay.credit, src }
+      : { src };
+    const hasKeys = coverKeysPresent(
+      parsed.data as Record<string, unknown>,
+      target,
+    );
+    if (!hasKeys) continue;
+    fs.writeFileSync(filePath, setCoverInMdx(raw, target, item, false), "utf8");
+  }
+}
+
+function assertGalleryPermutation(current: string[], next: string[]) {
+  if (next.length !== current.length) {
+    throw new Error("Gallery order must include every photo once");
+  }
+  if (new Set(next).size !== next.length) {
+    throw new Error("Gallery order has duplicate src");
+  }
+  const have = new Set(current);
+  for (const src of next) {
+    if (!src || !have.has(src)) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+  }
+}
+
+function coverKeysPresent(data: Record<string, unknown>, target: CoverTarget) {
+  if (
+    (target === "desktop" || target === "both") &&
+    (typeof data.image === "string" || data.imageCredit)
+  ) {
+    return true;
+  }
+  if (
+    (target === "mobile" || target === "both") &&
+    (typeof data.mobileImage === "string" || data.mobileImageCredit)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 function creditEntries(credit: PhotoCredit): Array<[string, string]> {
@@ -237,6 +453,82 @@ function findGalleryRange(
     end += 1;
   }
   return { end, start };
+}
+
+function findTopLevelRange(
+  lines: string[],
+  key: string,
+): null | { end: number; start: number } {
+  const start = lines.findIndex((line) => isExactTopLevelKey(line, key));
+  if (start === -1) return null;
+  let end = start + 1;
+  while (end < lines.length) {
+    const line = lines[end];
+    if (line.trim() === "") {
+      end += 1;
+      continue;
+    }
+    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
+    end += 1;
+  }
+  return { end, start };
+}
+
+function formatCreditBlock(key: string, credit?: PhotoCredit): string[] {
+  const fields = credit ? creditEntries(credit) : [];
+  if (fields.length === 0) return [];
+  const lines = [`${key}:`];
+  for (const [field, value] of fields) {
+    lines.push(
+      field === "url"
+        ? `  url: ${JSON.stringify(value)}`
+        : `  ${field}: ${yamlScalar(value)}`,
+    );
+  }
+  return lines;
+}
+
+function galleryItemSrc(lines: string[]): null | string {
+  for (const line of lines) {
+    const match = line.match(/^\s+-?\s*src:\s*(.*)$/);
+    if (!match) continue;
+    const raw = match[1].trim();
+    if (!raw) return null;
+    if (
+      (raw.startsWith('"') && raw.endsWith('"')) ||
+      (raw.startsWith("'") && raw.endsWith("'"))
+    ) {
+      return raw.slice(1, -1);
+    }
+    return raw;
+  }
+  return null;
+}
+
+function insertCoverFields(
+  lines: string[],
+  afterKeys: string[],
+  nextLines: string[],
+) {
+  if (nextLines.length === 0) return lines;
+  for (const key of afterKeys) {
+    const after = findTopLevelRange(lines, key);
+    if (!after) continue;
+    const copy = [...lines];
+    copy.splice(after.end, 0, ...nextLines);
+    return copy;
+  }
+  const gallery = lines.findIndex((line) => /^gallery:/.test(line));
+  const commonName = lines.findIndex((line) => /^commonName:/.test(line));
+  const insertAt =
+    gallery !== -1 ? gallery : commonName !== -1 ? commonName : lines.length;
+  const copy = [...lines];
+  copy.splice(insertAt, 0, ...nextLines);
+  return copy;
+}
+
+function isExactTopLevelKey(line: string, key: string) {
+  return new RegExp(`^${key}:(?:\\s|$)`).test(line);
 }
 
 function mdxPath(id: string, locale: string) {
@@ -274,6 +566,65 @@ function normalizeGallery(value: unknown): GalleryImage[] {
     out.push(credit ? { credit, src } : { src });
   }
   return out;
+}
+
+function setCoverField(
+  lines: string[],
+  srcKey: string,
+  creditKey: string,
+  item: GalleryImage,
+  insertMissing: boolean,
+) {
+  const srcLine = `${srcKey}: ${JSON.stringify(item.src)}`;
+  const creditLines = formatCreditBlock(creditKey, item.credit);
+  const srcRange = findTopLevelRange(lines, srcKey);
+  let next = [...lines];
+
+  if (srcRange) {
+    next.splice(srcRange.start, srcRange.end - srcRange.start, srcLine);
+  } else if (insertMissing) {
+    next = insertCoverFields(
+      next,
+      srcKey === "mobileImage" ? ["imageCredit", "image"] : [],
+      [srcLine],
+    );
+  } else {
+    return lines;
+  }
+
+  const creditRange = findTopLevelRange(next, creditKey);
+  if (creditRange) {
+    next.splice(
+      creditRange.start,
+      creditRange.end - creditRange.start,
+      ...creditLines,
+    );
+    return next;
+  }
+  if (creditLines.length === 0) return next;
+  if (insertMissing || srcRange) {
+    return insertCoverFields(next, [srcKey], creditLines);
+  }
+  return next;
+}
+
+function splitGalleryItems(lines: string[]): string[][] {
+  const items: string[][] = [];
+  let current: null | string[] = null;
+  for (const line of lines) {
+    if (line.trim() === "") continue;
+    if (/^  - /.test(line)) {
+      if (current) items.push(current);
+      current = [line];
+      continue;
+    }
+    if (!current) {
+      throw new Error("Could not parse gallery items");
+    }
+    current.push(line);
+  }
+  if (current) items.push(current);
+  return items;
 }
 
 function yamlScalar(value: string): string {

@@ -7,7 +7,10 @@ import type { GalleryImage } from "@/data/speciesTypes";
 
 import {
   appendGalleryItemToSpecies,
+  type CoverTarget,
   isSpeciesContentId,
+  reorderGalleryInSpecies,
+  setCoverInSpecies,
 } from "@/lib/adminGalleryMdx";
 import {
   applyOptimizeCatalog,
@@ -17,6 +20,71 @@ import {
 const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/main";
 const BASE_BRANCH = "main";
+
+export async function openCoverPullRequest(input: {
+  id: string;
+  src: string;
+  target: CoverTarget;
+}): Promise<string> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+
+  const label =
+    input.target === "both"
+      ? "desktop and mobile cover"
+      : input.target === "desktop"
+        ? "desktop cover"
+        : "mobile cover";
+
+  return withPhotoPullRequest({
+    apply: (worktree) => {
+      setCoverInSpecies(input.id, input.target, input.src, worktree);
+    },
+    commitBody: "Cover photo updated from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- Set ${label} for \`${input.id}\` from local admin`,
+      "- Updates KA `image` / `mobileImage` (and overlay credits when those keys exist)",
+      "",
+      "## Test plan",
+      "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
+    ].join("\n"),
+    title: `Set ${label} for ${input.id}`,
+  });
+}
+
+export async function openGalleryReorderPullRequest(input: {
+  id: string;
+  orderedSrcs: string[];
+}): Promise<string> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+  if (input.orderedSrcs.length < 2) {
+    throw new Error("Need at least two photos to reorder");
+  }
+
+  return withPhotoPullRequest({
+    apply: (worktree) => {
+      reorderGalleryInSpecies(input.id, input.orderedSrcs, worktree);
+    },
+    commitBody: "Gallery order updated from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- Reorder gallery for \`${input.id}\` from local admin`,
+      "- KA `gallery` YAML order only; overlay locales still match credits by `src`",
+      "",
+      "## Test plan",
+      "- [ ] Species profile gallery shows photos in the new order",
+    ].join("\n"),
+    title: `Reorder gallery for ${input.id}`,
+  });
+}
 
 export async function openPhotoPullRequest(input: {
   catalog?: OptimizeCatalogUpdate[];
@@ -33,84 +101,35 @@ export async function openPhotoPullRequest(input: {
     throw new Error("No gallery changes to open a pull request for");
   }
 
-  const rel = speciesMdxRel(input.id);
-  const existing = findOpenPhotoPullRequest(input.id);
-  const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
-  const worktree = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-photos-"));
-  let addedWorktree = false;
-  let pushed = false;
+  const catalog = input.catalog ?? [];
+  const noun = input.items.length === 1 ? "photo" : "photos";
+  const catalogFiles =
+    catalog.length > 0
+      ? [
+          "src/data/image-manifest.json",
+          ...(catalog.some((item) => item.asset)
+            ? ["src/data/optimizedImages.generated.ts"]
+            : []),
+        ]
+      : [];
 
-  try {
-    try {
-      run("git", ["fetch", "origin", BASE_BRANCH], REPO_ROOT);
-    } catch {
-      run("git", ["rev-parse", "--verify", BASE_REF], REPO_ROOT);
-    }
-
-    if (existing) {
-      run("git", ["fetch", "origin", existing.branch], REPO_ROOT);
-      run(
-        "git",
-        [
-          "worktree",
-          "add",
-          "-B",
-          existing.branch,
+  return withPhotoPullRequest({
+    apply: async (worktree) => {
+      for (const item of input.items) {
+        appendGalleryItemToSpecies(
+          input.id,
+          item.ka,
+          item.overlays ?? {},
           worktree,
-          `origin/${existing.branch}`,
-        ],
-        REPO_ROOT,
-      );
-    } else {
-      run(
-        "git",
-        ["worktree", "add", "-b", branch, worktree, BASE_REF],
-        REPO_ROOT,
-      );
-    }
-    addedWorktree = true;
-
-    for (const item of input.items) {
-      appendGalleryItemToSpecies(
-        input.id,
-        item.ka,
-        item.overlays ?? {},
-        worktree,
-      );
-    }
-    const catalog = input.catalog ?? [];
-    await applyOptimizeCatalog(worktree, catalog);
-    const catalogFiles =
-      catalog.length > 0
-        ? [
-            "src/data/image-manifest.json",
-            ...(catalog.some((item) => item.asset)
-              ? ["src/data/optimizedImages.generated.ts"]
-              : []),
-          ]
-        : [];
-    const mdxFiles = rel.filter((file) =>
-      fs.existsSync(path.join(worktree, file)),
-    );
-    run("git", ["add", "--", ...mdxFiles, ...catalogFiles], worktree);
-
-    if (!hasStagedChanges(worktree)) {
-      throw new Error("No gallery changes to open a pull request for");
-    }
-
-    const noun = input.items.length === 1 ? "photo" : "photos";
-    const title = `Add gallery ${noun} for ${input.id}`;
-    const commitBody =
-      "Uploaded from the local admin. Originals and AVIF/WebP derivatives are already on the CDN.";
-    run("git", ["commit", "-m", title, "-m", commitBody], worktree);
-    run(
-      "git",
-      ["push", "-u", "origin", `refs/heads/${branch}:refs/heads/${branch}`],
-      worktree,
-    );
-    pushed = true;
-
-    const prBody = [
+        );
+      }
+      await applyOptimizeCatalog(worktree, catalog);
+    },
+    commitBody:
+      "Uploaded from the local admin. Originals and AVIF/WebP derivatives are already on the CDN.",
+    extraFiles: catalogFiles,
+    id: input.id,
+    prBody: [
       "## Summary",
       `- Gallery ${noun} for \`${input.id}\` from local admin`,
       "- Originals and AVIF/WebP derivatives (400/800/1200/max) are on `cdn.reptiles.ge`",
@@ -119,58 +138,9 @@ export async function openPhotoPullRequest(input: {
       "## Test plan",
       "- [ ] Species profile gallery shows the new photo(s) in every locale",
       "- [ ] Network panel loads `.avif` (or `.webp`) derivatives, not only the JPEG original",
-    ].join("\n");
-
-    const repo = githubRepoName(worktree);
-    if (existing) {
-      try {
-        run("gh", ["pr", "edit", existing.url, "--body", prBody], worktree);
-      } catch {
-        return existing.url;
-      }
-      return existing.url;
-    }
-
-    let lastError = "Could not open pull request";
-    for (let attempt = 1; attempt <= 4; attempt += 1) {
-      try {
-        return createPullRequest({
-          body: prBody,
-          branch,
-          cwd: worktree,
-          repo,
-          title,
-        });
-      } catch (error) {
-        lastError = error instanceof Error ? error.message : lastError;
-        if (attempt === 4) break;
-        execFileSync("sleep", [String(attempt)], { stdio: "ignore" });
-      }
-    }
-    throw new Error(lastError);
-  } finally {
-    if (addedWorktree) {
-      try {
-        run("git", ["worktree", "remove", "--force", worktree], REPO_ROOT);
-      } catch {
-        fs.rmSync(worktree, { force: true, recursive: true });
-        try {
-          run("git", ["worktree", "prune"], REPO_ROOT);
-        } catch {
-          fs.rmSync(worktree, { force: true, recursive: true });
-        }
-      }
-    } else {
-      fs.rmSync(worktree, { force: true, recursive: true });
-    }
-    if (pushed) {
-      try {
-        run("git", ["branch", "-D", branch], REPO_ROOT);
-      } catch {
-        fs.rmSync(worktree, { force: true, recursive: true });
-      }
-    }
-  }
+    ].join("\n"),
+    title: `Add gallery ${noun} for ${input.id}`,
+  });
 }
 
 function createPullRequest(input: {
@@ -302,4 +272,130 @@ function stamp() {
     `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-` +
     `${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`
   );
+}
+
+async function withPhotoPullRequest(input: {
+  apply: (worktree: string) => Promise<void> | void;
+  commitBody: string;
+  editExistingBody?: boolean;
+  extraFiles?: string[];
+  id: string;
+  prBody: string;
+  title: string;
+}): Promise<string> {
+  const rel = speciesMdxRel(input.id);
+  const existing = findOpenPhotoPullRequest(input.id);
+  const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
+  const worktree = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-photos-"));
+  let addedWorktree = false;
+  let pushed = false;
+
+  try {
+    try {
+      run("git", ["fetch", "origin", BASE_BRANCH], REPO_ROOT);
+    } catch {
+      run("git", ["rev-parse", "--verify", BASE_REF], REPO_ROOT);
+    }
+
+    if (existing) {
+      run("git", ["fetch", "origin", existing.branch], REPO_ROOT);
+      run(
+        "git",
+        [
+          "worktree",
+          "add",
+          "-B",
+          existing.branch,
+          worktree,
+          `origin/${existing.branch}`,
+        ],
+        REPO_ROOT,
+      );
+    } else {
+      run(
+        "git",
+        ["worktree", "add", "-b", branch, worktree, BASE_REF],
+        REPO_ROOT,
+      );
+    }
+    addedWorktree = true;
+
+    await input.apply(worktree);
+    const mdxFiles = rel.filter((file) =>
+      fs.existsSync(path.join(worktree, file)),
+    );
+    run(
+      "git",
+      ["add", "--", ...mdxFiles, ...(input.extraFiles ?? [])],
+      worktree,
+    );
+
+    if (!hasStagedChanges(worktree)) {
+      throw new Error("No gallery changes to open a pull request for");
+    }
+
+    run("git", ["commit", "-m", input.title, "-m", input.commitBody], worktree);
+    run(
+      "git",
+      ["push", "-u", "origin", `refs/heads/${branch}:refs/heads/${branch}`],
+      worktree,
+    );
+    pushed = true;
+
+    const repo = githubRepoName(worktree);
+    if (existing) {
+      if (input.editExistingBody !== false) {
+        try {
+          run(
+            "gh",
+            ["pr", "edit", existing.url, "--body", input.prBody],
+            worktree,
+          );
+        } catch {
+          return existing.url;
+        }
+      }
+      return existing.url;
+    }
+
+    let lastError = "Could not open pull request";
+    for (let attempt = 1; attempt <= 4; attempt += 1) {
+      try {
+        return createPullRequest({
+          body: input.prBody,
+          branch,
+          cwd: worktree,
+          repo,
+          title: input.title,
+        });
+      } catch (error) {
+        lastError = error instanceof Error ? error.message : lastError;
+        if (attempt === 4) break;
+        execFileSync("sleep", [String(attempt)], { stdio: "ignore" });
+      }
+    }
+    throw new Error(lastError);
+  } finally {
+    if (addedWorktree) {
+      try {
+        run("git", ["worktree", "remove", "--force", worktree], REPO_ROOT);
+      } catch {
+        fs.rmSync(worktree, { force: true, recursive: true });
+        try {
+          run("git", ["worktree", "prune"], REPO_ROOT);
+        } catch {
+          fs.rmSync(worktree, { force: true, recursive: true });
+        }
+      }
+    } else {
+      fs.rmSync(worktree, { force: true, recursive: true });
+    }
+    if (pushed) {
+      try {
+        run("git", ["branch", "-D", branch], REPO_ROOT);
+      } catch {
+        fs.rmSync(worktree, { force: true, recursive: true });
+      }
+    }
+  }
 }
