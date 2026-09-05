@@ -29659,6 +29659,59 @@
       ],
       "updatedAt": "2026-08-28T21:44:19.358Z"
     },
+    "latrodectus-tredecimguttatus-1.jpg": {
+      "sourceHash": "ecde5ece5769ba40d21194706e0297e9671eafb1ebdc340a79591917e8cda60e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "latrodectus-tredecimguttatus-1.jpg",
+      "originalSize": 269150,
+      "width": 1024,
+      "height": 1034,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 404,
+          "byteSize": 30699
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 404,
+          "byteSize": 49634
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 808,
+          "byteSize": 97020
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 808,
+          "byteSize": 157512
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1034,
+          "byteSize": 158330
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1034,
+          "byteSize": 222192
+        }
+      ],
+      "updatedAt": "2026-09-05T16:44:01.383Z"
+    },
     "latrodectus-tredecimguttatus-ioane-1.jpg": {
       "sourceHash": "60a002b8c6d6ada2629c07927707dd5871e361aec37f0901018c5eaea664158e",
       "configFingerprint": "a895f8e025dcc7fa",
