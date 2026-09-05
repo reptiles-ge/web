@@ -18424,6 +18424,73 @@
       ],
       "updatedAt": "2026-08-28T21:42:34.066Z"
     },
+    "hyla-savignyi-1.jpg": {
+      "sourceHash": "23c48a3041e274657d44b7ac3bd9b3c3a2d763e4ecee0c3fd6c182cdcf5ae51d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "hyla-savignyi-1.jpg",
+      "originalSize": 142027,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5620
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7348
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 15764
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 21656
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 29159
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 40766
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 70974
+        },
+        {
+          "key": "optimized/hyla-savignyi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 95422
+        }
+      ],
+      "updatedAt": "2026-09-05T15:37:53.656Z"
+    },
     "hyla-savignyi-2.jpg": {
       "sourceHash": "cff19d99af1b343b1dcd32cc21bf11b94c1db07bd591c59faac5004d44ea669f",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -18557,6 +18624,59 @@
         }
       ],
       "updatedAt": "2026-08-28T21:42:39.584Z"
+    },
+    "hyla-savignyi-4.jpg": {
+      "sourceHash": "6c7e275a40ba21e51e7b27fa191762627a9103395a7613a33cb036fa97e76bc7",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "hyla-savignyi-4.jpg",
+      "originalSize": 147921,
+      "width": 1080,
+      "height": 1468,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 544,
+          "byteSize": 18113
+        },
+        {
+          "key": "optimized/hyla-savignyi-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 544,
+          "byteSize": 25766
+        },
+        {
+          "key": "optimized/hyla-savignyi-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1087,
+          "byteSize": 47345
+        },
+        {
+          "key": "optimized/hyla-savignyi-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1087,
+          "byteSize": 68910
+        },
+        {
+          "key": "optimized/hyla-savignyi-4-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1468,
+          "byteSize": 72820
+        },
+        {
+          "key": "optimized/hyla-savignyi-4-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1468,
+          "byteSize": 104084
+        }
+      ],
+      "updatedAt": "2026-09-05T15:38:13.999Z"
     },
     "hyla-savignyi-mobile.jpg": {
       "sourceHash": "963a1d9314feb0c40815715adc06c5de72fb5b0d76c10f45f06cb262d8dbaa0d",
