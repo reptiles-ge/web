@@ -315,7 +315,7 @@ function ConflictMyths({ config }: { config: ConflictGuideConfig }) {
                   {t(`myth${n}False`)}
                 </p>
                 <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                  {t(`myth${n}True`)}
+                  <PhoneLinkedText>{t(`myth${n}True`)}</PhoneLinkedText>
                 </p>
               </li>
             ))}
@@ -340,10 +340,10 @@ function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
             {t("summaryEyebrow")}
           </p>
           <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
-            {t("summaryTitle")}
+            <PhoneLinkedText>{t("summaryTitle")}</PhoneLinkedText>
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("summaryLead")}
+            <PhoneLinkedText>{t("summaryLead")}</PhoneLinkedText>
           </p>
           <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
             {SUMMARY_ITEMS.map((n) => (
@@ -351,7 +351,7 @@ function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
                 className="py-4 text-[15px] leading-relaxed text-foreground"
                 key={n}
               >
-                {t(`summary${n}`)}
+                <PhoneLinkedText>{t(`summary${n}`)}</PhoneLinkedText>
               </li>
             ))}
           </ul>
@@ -384,7 +384,7 @@ function ConflictWhy({ config }: { config: ConflictGuideConfig }) {
               {t("why1Title")}
             </h3>
             <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-              {t("why1Body")}
+              <PhoneLinkedText>{t("why1Body")}</PhoneLinkedText>
             </p>
           </div>
           <div className="bg-card p-7 sm:p-8">
@@ -395,7 +395,7 @@ function ConflictWhy({ config }: { config: ConflictGuideConfig }) {
               {t("why2Title")}
             </h3>
             <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-              {t("why2Body")}
+              <PhoneLinkedText>{t("why2Body")}</PhoneLinkedText>
             </p>
           </div>
         </div>

@@ -12,6 +12,7 @@ import {
   CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -78,7 +79,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                         {t(`scale${level}Title`)}
                       </p>
                       <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                        {t(`scale${level}Body`)}
+                        <PhoneLinkedText>{t(`scale${level}Body`)}</PhoneLinkedText>
                       </p>
                     </div>
                   </li>
@@ -118,10 +119,10 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                   {tDanger(level)}
                 </span>
                 <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-                  {t(`${level}Title`)}
+                  <PhoneLinkedText>{t(`${level}Title`)}</PhoneLinkedText>
                 </h2>
                 <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t(`${level}Lead`)}
+                  <PhoneLinkedText>{t(`${level}Lead`)}</PhoneLinkedText>
                 </p>
               </div>
 
