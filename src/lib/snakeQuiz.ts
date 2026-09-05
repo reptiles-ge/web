@@ -1,10 +1,10 @@
 import { type Species } from "@/data/species";
 import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
+import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
 import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
-import { type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 
 export {
   DEFAULT_QUIZ_MIX,
@@ -19,12 +19,12 @@ export {
   pickSnakeDistractors,
   QUIZ_LENGTH,
   QUIZ_OPTION_COUNT,
-  SCORE_BANDS,
-  scoreMessageKey,
-  scorePercent,
   type QuizDifficulty,
   type QuizMode,
+  SCORE_BANDS,
   type ScoreMessageKey,
+  scoreMessageKey,
+  scorePercent,
   type SnakeQuizQuestion,
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuizEngine";
