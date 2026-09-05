@@ -280,7 +280,11 @@ export function QuizRound({
           </button>
           <Link
             className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
-            href={speciesHref(question.correctId, locale)}
+            href={speciesHrefFromIndex(
+              switchIndex,
+              question.correctId,
+              locale,
+            )}
             onClick={() =>
               trackSpeciesClick({
                 position: index + 1,

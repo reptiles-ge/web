@@ -7,18 +7,19 @@ import { useState } from "react";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizBreadcrumbs } from "@/components/QuizIntroOverlay";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import {
   scoreMessageKey,
   scorePercent,
   type SnakeQuizQuestion,
   type SnakeQuizSpecies,
-} from "@/lib/snakeQuiz";
-import { speciesHref } from "@/lib/speciesRoutes";
+} from "@/lib/snakeQuizEngine";
 
 type Answered = {
   correct: boolean;
@@ -50,6 +51,7 @@ export function QuizResultOverlay({
 }: QuizResultOverlayProps) {
   const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
+  const switchIndex = useLocaleSwitchIndex();
   const percent = scorePercent(correctCount, total);
   const [copied, setCopied] = useState(false);
 
@@ -143,7 +145,7 @@ export function QuizResultOverlay({
             <li className="min-w-0" key={`${item.correctId}-${questionIndex}`}>
               <Link
                 className="flex min-w-0 items-center gap-2.5 rounded-card border border-white/12 bg-black/45 p-2 backdrop-blur-md transition-colors hover:border-white/30 hover:bg-black/60 sm:gap-3 sm:p-2.5"
-                href={speciesHref(item.correctId, locale)}
+                href={speciesHrefFromIndex(switchIndex, item.correctId, locale)}
                 onClick={() =>
                   trackSpeciesClick({
                     position: questionIndex + 1,
