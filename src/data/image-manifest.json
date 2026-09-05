@@ -294,6 +294,73 @@
       ],
       "updatedAt": "2026-09-05T16:15:22.958Z"
     },
+    "accipiter-gentilis-3.jpg": {
+      "sourceHash": "665a3a8e1cd4b620dab93bd8d0397558b2a5d7a3b7de6cde8618ea1220159598",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "accipiter-gentilis-3.jpg",
+      "originalSize": 195465,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-gentilis-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9117
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11128
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27770
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35290
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48846
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62692
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 107654
+        },
+        {
+          "key": "optimized/accipiter-gentilis-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 130316
+        }
+      ],
+      "updatedAt": "2026-09-05T16:17:19.182Z"
+    },
     "accipiter-nisus-knoch-flight.jpg": {
       "sourceHash": "c51543106d1bce8eb04934f27d5a47ad1d83c657abc8255fd7365b7c340efc6f",
       "configFingerprint": "a895f8e025dcc7fa",
