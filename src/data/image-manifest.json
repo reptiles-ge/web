@@ -44193,6 +44193,73 @@
       ],
       "updatedAt": "2026-08-28T22:00:14.506Z"
     },
+    "vipera-darevskii-giorgi-1.jpg": {
+      "sourceHash": "602b5a46c931d76a6f3f4cd29e9a8651fd66a702a81bb00f08eb3e6092995f36",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-giorgi-1.jpg",
+      "originalSize": 590473,
+      "width": 2048,
+      "height": 1313,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 256,
+          "byteSize": 23815
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 256,
+          "byteSize": 39952
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 513,
+          "byteSize": 81426
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 513,
+          "byteSize": 135226
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 769,
+          "byteSize": 148493
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 769,
+          "byteSize": 252694
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1313,
+          "byteSize": 327381
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1313,
+          "byteSize": 494778
+        }
+      ],
+      "updatedAt": "2026-09-05T15:54:37.063Z"
+    },
     "vipera-darevskii-guram-1.jpg": {
       "sourceHash": "c80d7cda6f8d121a45e22cf182d671ecd30246ac2dffa0df8302742784ef91df",
       "configFingerprint": "a895f8e025dcc7fa",
