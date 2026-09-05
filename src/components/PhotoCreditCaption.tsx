@@ -5,7 +5,7 @@ import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { hasPhotoCredit, type PhotoCredit } from "@/data/species";
+import { type PhotoCredit } from "@/data/species";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
@@ -30,12 +30,17 @@ export function PhotoCreditCaption({
   const georgiaField = isGeorgiaFieldPhoto(photoConfidence, credit);
 
   if (variant === "hero") return null;
-  if (!hasPhotoCredit(credit) && !georgiaField) return null;
 
   const dateLabel = credit?.date ? formatPhotoDate(credit.date, locale) : null;
-  const photographer = credit ? (
-    <PhotoCreditName credit={credit} speciesId={speciesId} />
-  ) : null;
+  const photographerName = credit?.photographer?.trim();
+  const photographer =
+    credit && photographerName ? (
+      <PhotoCreditName credit={credit} speciesId={speciesId} />
+    ) : null;
+
+  if (!photographerName && !credit?.location && !dateLabel && !georgiaField) {
+    return null;
+  }
 
   if (variant === "lightbox") {
     return (
@@ -134,8 +139,9 @@ function PhotoCreditName({
   credit: PhotoCredit;
   speciesId?: string;
 }) {
-  if (!credit.photographer) return null;
-  if (!credit.url) return <span>{credit.photographer}</span>;
+  const name = credit.photographer?.trim();
+  if (!name) return null;
+  if (!credit.url) return <span>{name}</span>;
   return (
     <a
       className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
@@ -152,7 +158,7 @@ function PhotoCreditName({
       rel="noopener noreferrer"
       target="_blank"
     >
-      {credit.photographer}
+      {name}
     </a>
   );
 }
