@@ -246,7 +246,11 @@ export function QuizRound({
                 </button>
                 <Link
                   className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
-                  href={speciesHref(question.correctId, locale)}
+                  href={speciesHrefFromIndex(
+                    switchIndex,
+                    question.correctId,
+                    locale,
+                  )}
                   onClick={() =>
                     trackSpeciesClick({
                       position: index + 1,
