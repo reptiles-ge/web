@@ -17835,6 +17835,73 @@
       ],
       "updatedAt": "2026-08-29T07:22:20.299Z"
     },
+    "hemorrhois-ravergieri-1.jpg": {
+      "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "hemorrhois-ravergieri-1.jpg",
+      "originalSize": 209062,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17211
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28668
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45494
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 75690
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76680
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 128278
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 105945
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 162810
+        }
+      ],
+      "updatedAt": "2026-09-05T15:44:49.954Z"
+    },
     "hemorrhois-ravergieri-2.jpg": {
       "sourceHash": "3fe876996c8a9e89c6ccb7e0babfb33522bd978e106918f1a02a18dcfbe4affa",
       "configFingerprint": "a895f8e025dcc7fa",
