@@ -1360,6 +1360,73 @@
       ],
       "updatedAt": "2026-08-29T07:20:45.931Z"
     },
+    "argiope-bruennichi-anamarija-1.jpg": {
+      "sourceHash": "8105e8a7052c82fdff29d8a2efb645190bacd82199880d425b48a782bdb281fe",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-bruennichi-anamarija-1.jpg",
+      "originalSize": 380914,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17284
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 26646
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 78801
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 102178
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 151544
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 193116
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 229629
+        },
+        {
+          "key": "optimized/argiope-bruennichi-anamarija-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 266264
+        }
+      ],
+      "updatedAt": "2026-09-05T10:39:48.252Z"
+    },
     "argiope-bruennichi-nika-1.jpg": {
       "sourceHash": "6187cf68f1ed56852d0fdffdab73fe4fad4e04fd9ed4c527dd3baa411bc661c1",
       "configFingerprint": "a895f8e025dcc7fa",

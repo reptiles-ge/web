@@ -256,6 +256,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/argiope-bruennichi-anamarija-1.jpg": {
+    "path": "argiope-bruennichi-anamarija-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [400, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-bruennichi-nika-1.jpg": {
     "path": "argiope-bruennichi-nika-1",
     "width": 2048,
