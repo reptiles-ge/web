@@ -354,6 +354,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/argiope-lobata-2.jpg": {
+    "path": "argiope-lobata-2",
+    "width": 1080,
+    "height": 1080,
+    "widths": [400, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-lobata-ioane-1.jpg": {
     "path": "argiope-lobata-ioane-1",
     "width": 1080,
