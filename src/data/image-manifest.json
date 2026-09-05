@@ -13104,6 +13104,73 @@
       ],
       "updatedAt": "2026-08-28T21:38:12.547Z"
     },
+    "elaphe-dione-kaxaber-1.jpg": {
+      "sourceHash": "9e9b8db41d0f58019c5f06ae3e3498327a655f9ddf3dd16e0ffe7ddc0e9b6b78",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "elaphe-dione-kaxaber-1.jpg",
+      "originalSize": 492864,
+      "width": 2048,
+      "height": 1292,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 252,
+          "byteSize": 22721
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 252,
+          "byteSize": 40464
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 505,
+          "byteSize": 70575
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 505,
+          "byteSize": 122380
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 121181
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 206060
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1292,
+          "byteSize": 282897
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1292,
+          "byteSize": 391698
+        }
+      ],
+      "updatedAt": "2026-09-05T12:29:42.141Z"
+    },
     "elaphe-dione-mobile.jpg": {
       "sourceHash": "b1f5325dceb260af93e55122e6fe9f6153bc9bbd4931f3aa432e2be44cbbd51e",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -13170,6 +13237,207 @@
         }
       ],
       "updatedAt": "2026-08-28T21:38:11.100Z"
+    },
+    "elaphe-dione-nika-1.jpg": {
+      "sourceHash": "6aee6750d875e68886ccd5d9595ca9c0e85d15ee1ac6da7a2ddfd3078d940ab6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "elaphe-dione-nika-1.jpg",
+      "originalSize": 315561,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 16759
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 25616
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 48563
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 73486
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 82318
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 123588
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 171139
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 223868
+        }
+      ],
+      "updatedAt": "2026-09-05T12:27:49.250Z"
+    },
+    "elaphe-dione-nika-2.jpg": {
+      "sourceHash": "a66bb34ce923b1f0c467e64298e6d8f88710f7422954568c9d3b3b714976c3b0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "elaphe-dione-nika-2.jpg",
+      "originalSize": 842331,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-nika-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 30370
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 45854
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 118160
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 176084
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 227826
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 358514
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 458422
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 733440
+        }
+      ],
+      "updatedAt": "2026-09-05T12:28:29.295Z"
+    },
+    "elaphe-dione-nika-3.jpg": {
+      "sourceHash": "da144ee367065700de5a4e2781bc6f3b9f49571dc2b73dbac83cb25b1b6695d4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "elaphe-dione-nika-3.jpg",
+      "originalSize": 238126,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-nika-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 12411
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18432
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 34468
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 51014
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 58496
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 84010
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 127142
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 161130
+        }
+      ],
+      "updatedAt": "2026-09-05T12:32:26.286Z"
     },
     "elaphe-urartica-2.webp": {
       "sourceHash": "106fa6dd5b81da4609a4faf8c601f722ae7b5b02e249261ced685a6b1d639e58",
