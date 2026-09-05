@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { pictureSources } from "@/data/optimizedImages";
-import { type GalleryImage, hasPhotoCredit } from "@/data/species";
+import { type GalleryImage, hasPhotoCredit } from "@/data/speciesMedia";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";

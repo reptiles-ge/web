@@ -9,6 +9,7 @@ import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
 import { pictureSources } from "@/data/optimizedImages";
 import { resolvePhotoCredit, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getRegionsForSpecies } from "@/data/mapRegions";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
@@ -109,6 +110,7 @@ export async function SpeciesProfile({
           galleryCount={gallery.length}
           group={group}
           hasIdentification={showIdentification}
+          hasRange={getRegionsForSpecies(species.id).length > 0}
           scientificName={species.scientificName}
           speciesId={species.id}
         />
