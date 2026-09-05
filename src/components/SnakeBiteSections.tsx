@@ -301,10 +301,10 @@ function SnakeBiteSources() {
             })}
           </p>
           <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-            {t("editorialBody")}
+            <PhoneLinkedText>{t("editorialBody")}</PhoneLinkedText>
           </p>
           <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-            {t("editorialDisclaimer")}
+            <PhoneLinkedText>{t("editorialDisclaimer")}</PhoneLinkedText>
           </p>
         </aside>
       </div>
@@ -327,30 +327,32 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
             {t("speciesTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t.rich("speciesBody", {
-              count: species.length,
-              index: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href="/snakes/saxeoebebi"
-                >
-                  {chunks}
-                </Link>
-              ),
-              range: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href="/snakes/gavrtseleba"
-                >
-                  {chunks}
-                </Link>
-              ),
-              venomous: (chunks) => (
-                <Link className={inlineLinkClassName} href="/venomous-snakes">
-                  {chunks}
-                </Link>
-              ),
-            })}
+            <PhoneLinkedText>
+              {t.rich("speciesBody", {
+                count: species.length,
+                index: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href="/snakes/saxeoebebi"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+                range: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href="/snakes/gavrtseleba"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+                venomous: (chunks) => (
+                  <Link className={inlineLinkClassName} href="/venomous-snakes">
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </PhoneLinkedText>
           </p>
         </div>
         <SpeciesGuideList locale={locale} source="guide" species={species} />
@@ -396,10 +398,10 @@ function SnakeBiteSymptoms() {
             {t("symptomsTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("symptomsIntro")}
+            <PhoneLinkedText>{t("symptomsIntro")}</PhoneLinkedText>
           </p>
           <p className="mt-4 max-w-2xl rounded-[18px] border border-destructive/25 bg-destructive/5 px-5 py-4 text-[15px] leading-relaxed text-foreground">
-            {t("symptomsUrgent")}
+            <PhoneLinkedText>{t("symptomsUrgent")}</PhoneLinkedText>
           </p>
         </div>
         <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
@@ -412,7 +414,7 @@ function SnakeBiteSymptoms() {
           ))}
         </ul>
         <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
-          {t("symptomsNote")}
+          <PhoneLinkedText>{t("symptomsNote")}</PhoneLinkedText>
         </p>
       </div>
     </section>
@@ -433,19 +435,21 @@ function SnakeBiteUnseen() {
             {t("unseenTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("unseenBody")}
+            <PhoneLinkedText>{t("unseenBody")}</PhoneLinkedText>
           </p>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t.rich("unseenId", {
-              identify: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href="/snakes/shxamiani-gvelis-amocnoba"
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
+            <PhoneLinkedText>
+              {t.rich("unseenId", {
+                identify: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href="/snakes/shxamiani-gvelis-amocnoba"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </PhoneLinkedText>
           </p>
         </div>
       </div>
