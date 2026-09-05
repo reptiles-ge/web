@@ -558,15 +558,20 @@ export type HubClusterCard =
         | "index"
         | "largest"
         | "lizardDarevskia"
+        | "lizardHouse"
         | "lizardIdentify"
         | "lizardIndex"
         | "lizardQuiz"
         | "lizardsHub"
+        | "jackalYard"
+        | "bearEncounter"
         | "mammalIndex"
         | "mammalsHub"
         | "newts"
         | "range"
         | "snakesHub"
+        | "spiderBite"
+        | "spiderVenomous"
         | "spidersHub"
         | "turtleIdentify"
         | "turtleIndex"
@@ -599,6 +604,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
     { id: "lizard", key: "lizardQuiz", kind: "quiz" },
     { href: "/lizards/identifikacia", key: "lizardIdentify", kind: "page" },
+    { href: "/lizards/xvliki-saxlshi", key: "lizardHouse", kind: "page" },
     { href: "/lizards/darevskia", key: "lizardDarevskia", kind: "page" },
     {
       href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
@@ -608,7 +614,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { id: "paralaudakia-caucasia", key: "jojo", kind: "species" },
     { id: "pseudopus-apodus", key: "gvelxokera", kind: "species" },
   ],
-  mammals: [{ href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" }],
+  mammals: [
+    { href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" },
+    { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
+    { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
+  ],
   snakes: [
     { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },
@@ -624,7 +634,14 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/snakes-in-the-yard", key: "yard", kind: "page" },
     { id: "macrovipera-lebetina", key: "giurza", kind: "species" },
   ],
-  spiders: [],
+  spiders: [
+    {
+      href: "/spiders/shxamiani-obobebi",
+      key: "spiderVenomous",
+      kind: "page",
+    },
+    { href: "/spiders/obobis-nakbeni", key: "spiderBite", kind: "page" },
+  ],
   turtles: [
     { href: "/turtles/saxeoebebi", key: "turtleIndex", kind: "page" },
     { href: "/turtles/identifikacia", key: "turtleIdentify", kind: "page" },
@@ -760,6 +777,8 @@ export function splitHubSpecies(
   ].filter((section) => section.items.length > 0);
 }
 
+const houseLizardIdSet = new Set<string>(HOUSE_LIZARD_IDS);
+const yardCanidIdSet = new Set<string>(YARD_CANID_IDS);
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
 const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
@@ -893,6 +912,13 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "lizardIdentify",
       kind: "page",
     });
+    if (houseLizardIdSet.has(id)) {
+      links.push({
+        href: "/lizards/xvliki-saxlshi",
+        key: "lizardHouse",
+        kind: "page",
+      });
+    }
     if (glassCompareIdSet.has(id)) {
       links.push({
         href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
@@ -932,8 +958,34 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "mammalIndex",
       kind: "page",
     });
+    if (yardCanidIdSet.has(id)) {
+      links.push({
+        href: "/mammals/tura-ezoshi",
+        key: "jackalYard",
+        kind: "page",
+      });
+    }
+    if (id === "ursus-arctos") {
+      links.push({
+        href: "/mammals/datvi-shekhvedra",
+        key: "bearEncounter",
+        kind: "page",
+      });
+    }
   } else if (group === "spider") {
     links.push({ href: "/spiders", key: "spidersHub", kind: "page" });
+    links.push({
+      href: "/spiders/shxamiani-obobebi",
+      key: "spiderVenomous",
+      kind: "page",
+    });
+    if (isVenomousDanger(species.danger)) {
+      links.push({
+        href: "/spiders/obobis-nakbeni",
+        key: "spiderBite",
+        kind: "page",
+      });
+    }
   } else {
     links.push({
       href: "/amphibians/saxeoebebi",
