@@ -353,6 +353,32 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       ka: "ხვლიკი, გველხოკერა თუ გველი?",
     },
   },
+  "lizard-house": {
+    icon: "yard",
+    keywords: [
+      "ხვლიკი სახლში",
+      "გეკონი",
+      "gecko",
+      "ჯოჯო",
+      "lizard in the house",
+      "ящерица в доме",
+      "evde kertenkele",
+    ],
+    rank: 6,
+    subtitle: {
+      en: "Harmless — how to get it out without killing it",
+      ka: "უვნებელია — როგორ გაიყვანო მოკვლის გარეშე",
+      ru: "Безопасна — как вывести, не убивая",
+      tr: "Zararsız — öldürmeden nasıl çıkarılır",
+    },
+    suggested: true,
+    title: {
+      en: "A lizard in the house — what should you do?",
+      ka: "ხვლიკი სახლში — რა უნდა გავაკეთოთ?",
+      ru: "Ящерица в доме — что делать?",
+      tr: "Evde kertenkele — ne yapmalıyım?",
+    },
+  },
   "lizard-identify": {
     icon: "identify",
     keywords: ["ამოცნობა", "identify", "რა ხვლიკია", "what lizard"],

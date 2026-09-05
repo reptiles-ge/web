@@ -979,13 +979,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "spiderVenomous",
       kind: "page",
     });
-    if (isVenomousDanger(species.danger)) {
-      links.push({
-        href: "/spiders/obobis-nakbeni",
-        key: "spiderBite",
-        kind: "page",
-      });
-    }
+    links.push({
+      href: "/spiders/obobis-nakbeni",
+      key: "spiderBite",
+      kind: "page",
+    });
   } else {
     links.push({
       href: "/amphibians/saxeoebebi",
