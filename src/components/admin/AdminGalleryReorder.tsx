@@ -161,6 +161,23 @@ export function AdminGalleryReorder({
   );
 }
 
+function CoverBadge({ role }: { role: AdminCoverRole }) {
+  const Icon = role === "mobile" ? Smartphone : Monitor;
+  const label =
+    role === "cover" ? "ყდა" : role === "desktop" ? "დესკტოპი" : "მობილური";
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-sm",
+        role === "mobile" ? "bg-primary text-white" : "bg-gold text-white",
+      )}
+    >
+      <Icon aria-hidden className="size-3" />
+      {label}
+    </span>
+  );
+}
+
 function CoverSelect({
   disabled,
   onChange,
@@ -191,22 +208,5 @@ function CoverSelect({
         <option value="both">ორივეს ყდა</option>
       </select>
     </label>
-  );
-}
-
-function CoverBadge({ role }: { role: AdminCoverRole }) {
-  const Icon = role === "mobile" ? Smartphone : Monitor;
-  const label =
-    role === "cover" ? "ყდა" : role === "desktop" ? "დესკტოპი" : "მობილური";
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide shadow-sm",
-        role === "mobile" ? "bg-primary text-white" : "bg-gold text-white",
-      )}
-    >
-      <Icon aria-hidden className="size-3" />
-      {label}
-    </span>
   );
 }
