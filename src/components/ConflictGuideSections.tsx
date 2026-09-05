@@ -4,7 +4,9 @@ import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
-import type { AppLocale, AppPathnames } from "@/i18n/routing";
+import type { AppLocale } from "@/i18n/routing";
+
+import type { ClusterGuidePath } from "@/lib/clusterGuides";
 
 import {
   CLUSTER_BODY,
@@ -18,15 +20,23 @@ import { Link } from "@/i18n/navigation";
 
 type ConflictNamespace = "mammalJackalYard" | "lizardHouse";
 
+type ConflictLinkHref = ClusterGuidePath | "/lizards";
+
+type ConflictLinkKey = "linkIndex" | "linkHub" | "linkIdentify";
+
 type ConflictGuideConfig = {
   actionCount: 4;
   agencyPhone?: { display: string; tel: string };
-  extraLinks: readonly { href: AppPathnames; key: string }[];
+  extraLinks: readonly { href: ConflictLinkHref; key: ConflictLinkKey }[];
   mythCount: 4;
   namespace: ConflictNamespace;
   show112: boolean;
   summaryCount: 4;
 };
+
+const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
+const ACTION_STEPS = [1, 2, 3, 4] as const;
+const MYTH_ITEMS = [1, 2, 3, 4] as const;
 
 export const JACKAL_YARD_CONFIG: ConflictGuideConfig = {
   actionCount: 4,
@@ -74,10 +84,6 @@ export function ConflictGuideSections({
 
 function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
   const t = useTranslations(config.namespace);
-  const items = Array.from(
-    { length: config.summaryCount },
-    (_, index) => index + 1,
-  );
 
   return (
     <section
@@ -96,7 +102,7 @@ function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
             {t("summaryLead")}
           </p>
           <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-            {items.map((n) => (
+            {SUMMARY_ITEMS.map((n) => (
               <li
                 className="py-4 text-[15px] leading-relaxed text-foreground"
                 key={n}
@@ -156,10 +162,6 @@ function ConflictWhy({ config }: { config: ConflictGuideConfig }) {
 
 function ConflictActions({ config }: { config: ConflictGuideConfig }) {
   const t = useTranslations(config.namespace);
-  const steps = Array.from(
-    { length: config.actionCount },
-    (_, index) => index + 1,
-  );
 
   return (
     <section
@@ -176,7 +178,7 @@ function ConflictActions({ config }: { config: ConflictGuideConfig }) {
           titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
         />
         <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
-          {steps.map((n) => (
+          {ACTION_STEPS.map((n) => (
             <li
               className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
               key={n}
@@ -239,7 +241,7 @@ function ConflictIdentify({
               href={link.href}
               key={link.key}
             >
-              {t(link.key)}
+              {t(link.key as "linkHub")}
               <ArrowUpRight className="size-4" />
             </Link>
           ))}
@@ -251,7 +253,6 @@ function ConflictIdentify({
 
 function ConflictMyths({ config }: { config: ConflictGuideConfig }) {
   const t = useTranslations(config.namespace);
-  const myths = Array.from({ length: config.mythCount }, (_, index) => index + 1);
 
   return (
     <section
@@ -271,7 +272,7 @@ function ConflictMyths({ config }: { config: ConflictGuideConfig }) {
             />
           </div>
           <ul className="divide-y divide-border border-y border-border">
-            {myths.map((n) => (
+            {MYTH_ITEMS.map((n) => (
               <li className="py-5 sm:py-6" key={n}>
                 <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                   {t(`myth${n}False`)}

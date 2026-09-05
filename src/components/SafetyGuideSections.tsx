@@ -305,10 +305,6 @@ function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
 
 function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
   const t = useTranslations(config.namespace);
-  const items = Array.from(
-    { length: config.dangerCount },
-    (_, index) => index + 1,
-  );
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
@@ -325,7 +321,7 @@ function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
               {t("dangerIntro")}
             </p>
             <ul className="mt-8 divide-y divide-border border-y border-border">
-              {items.map((n) => (
+              {DANGER_ITEMS.map((n) => (
                 <li
                   className="py-4 text-[15px] leading-relaxed text-foreground"
                   key={n}
@@ -373,7 +369,8 @@ function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
 }
 
 function SafetyUnseen({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
+  const t = useTranslations("spiderBite");
+  if (config.namespace !== "spiderBite") return null;
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -448,7 +445,7 @@ function SafetySpecies({
               href={link.href}
               key={link.key}
             >
-              {t(link.key)}
+              {t(link.key as "linkHub")}
               <ArrowUpRight className="size-4" />
             </Link>
           ))}
@@ -461,14 +458,6 @@ function SafetySpecies({
 function SafetySources({ config }: { config: SafetyGuideConfig }) {
   const t = useTranslations(config.namespace);
   const locale = useLocale() as AppLocale;
-  const external = Array.from(
-    { length: config.externalCount },
-    (_, index) => index + 1,
-  );
-  const site = Array.from(
-    { length: config.siteSourceCount },
-    (_, index) => index + 1,
-  );
 
   return (
     <section
@@ -492,7 +481,7 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
           {t("sourcesExternalLabel")}
         </p>
         <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
-          {external.map((n) => (
+          {EXTERNAL_SOURCES.map((n) => (
             <li className="py-6" key={n}>
               <a
                 className="group inline-flex items-start gap-2"
@@ -518,7 +507,7 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
           {t("sourcesSiteLabel")}
         </p>
         <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
-          {site.map((n) => (
+          {SITE_SOURCES.map((n) => (
             <li className="py-6" key={n}>
               <p className="font-display text-[17px] font-medium">
                 {t(`sourceSite${n}Title`)}
