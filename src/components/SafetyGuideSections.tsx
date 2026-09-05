@@ -241,35 +241,37 @@ function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
-            {t("disclaimerEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
-            {t("disclaimerTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("disclaimerBody")}
-          </p>
-          <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-            {SUMMARY_ITEMS.map((n) => (
-              <li
-                className="py-4 text-[15px] leading-relaxed text-foreground"
-                key={n}
-              >
-                {t(`summary${n}`)}
-              </li>
-            ))}
-          </ul>
-          <a
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white dark:text-ink"
-            href="tel:112"
-          >
-            {t("call112")}
-            <span className="font-display tracking-wide">112</span>
-          </a>
-          <p className="mt-5 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
-            {t("disclaimerNote")}
-          </p>
+          <PhoneLinkedText>
+            <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
+              {t("disclaimerEyebrow")}
+            </p>
+            <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
+              {t("disclaimerTitle")}
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+              {t("disclaimerBody")}
+            </p>
+            <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
+              {SUMMARY_ITEMS.map((n) => (
+                <li
+                  className="py-4 text-[15px] leading-relaxed text-foreground"
+                  key={n}
+                >
+                  {t(`summary${n}`)}
+                </li>
+              ))}
+            </ul>
+            <a
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white dark:text-ink"
+              href="tel:112"
+            >
+              {t("call112")}
+              <span className="font-display tracking-wide">112</span>
+            </a>
+            <p className="mt-5 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
+              {t("disclaimerNote")}
+            </p>
+          </PhoneLinkedText>
         </div>
       </div>
     </section>
@@ -282,51 +284,53 @@ function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("doEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("doTitle")}
-            </h2>
-            <ol className="mt-8 divide-y divide-border border-y border-border">
-              {DO_STEPS.map((n) => (
-                <li className="py-5" key={n}>
-                  <h3 className="font-display text-[17px] font-medium text-foreground">
-                    <span className="mr-2 text-muted-foreground">
-                      {String(n).padStart(2, "0")}
-                    </span>
-                    {t(`do${n}Title`)}
-                  </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                    {t(`do${n}Body`)}
-                  </p>
-                </li>
-              ))}
-            </ol>
+        <PhoneLinkedText>
+          <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+                {t("doEyebrow")}
+              </p>
+              <h2 className="mt-5 font-display text-display-title font-semibold">
+                {t("doTitle")}
+              </h2>
+              <ol className="mt-8 divide-y divide-border border-y border-border">
+                {DO_STEPS.map((n) => (
+                  <li className="py-5" key={n}>
+                    <h3 className="font-display text-[17px] font-medium text-foreground">
+                      <span className="mr-2 text-muted-foreground">
+                        {String(n).padStart(2, "0")}
+                      </span>
+                      {t(`do${n}Title`)}
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                      {t(`do${n}Body`)}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+                {t("dontEyebrow")}
+              </p>
+              <h2 className="mt-5 font-display text-display-title font-semibold">
+                {t("dontTitle")}
+              </h2>
+              <ol className="mt-8 divide-y divide-border border-y border-border">
+                {DONT_STEPS.map((n) => (
+                  <li className="py-5" key={n}>
+                    <h3 className="font-display text-[17px] font-medium text-foreground">
+                      {t(`dont${n}Title`)}
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                      {t(`dont${n}Body`)}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("dontEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("dontTitle")}
-            </h2>
-            <ol className="mt-8 divide-y divide-border border-y border-border">
-              {DONT_STEPS.map((n) => (
-                <li className="py-5" key={n}>
-                  <h3 className="font-display text-[17px] font-medium text-foreground">
-                    {t(`dont${n}Title`)}
-                  </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                    {t(`dont${n}Body`)}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
+        </PhoneLinkedText>
       </div>
     </section>
   );
@@ -350,7 +354,7 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
             {t("sourcesTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("sourcesIntro")}
+            <PhoneLinkedText>{t("sourcesIntro")}</PhoneLinkedText>
           </p>
         </div>
 
@@ -390,7 +394,7 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
                 {t(`sourceSite${n}Title`)}
               </p>
               <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                {t(`sourceSite${n}Body`)}
+                <PhoneLinkedText>{t(`sourceSite${n}Body`)}</PhoneLinkedText>
               </p>
             </li>
           ))}
@@ -403,10 +407,10 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
             })}
           </p>
           <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-            {t("editorialBody")}
+            <PhoneLinkedText>{t("editorialBody")}</PhoneLinkedText>
           </p>
           <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-            {t("editorialDisclaimer")}
+            <PhoneLinkedText>{t("editorialDisclaimer")}</PhoneLinkedText>
           </p>
         </aside>
       </div>
@@ -435,17 +439,19 @@ function SafetySpecies({
             {t("speciesTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t.rich("speciesBody", {
-              count: species.length,
-              index: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href={config.speciesIndexHref}
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
+            <PhoneLinkedText>
+              {t.rich("speciesBody", {
+                count: species.length,
+                index: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href={config.speciesIndexHref}
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </PhoneLinkedText>
           </p>
         </div>
         <SpeciesGuideList locale={locale} source="guide" species={species} />
@@ -481,10 +487,10 @@ function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
             {t("symptomsTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("symptomsIntro")}
+            <PhoneLinkedText>{t("symptomsIntro")}</PhoneLinkedText>
           </p>
           <p className="mt-4 max-w-2xl rounded-[18px] border border-destructive/25 bg-destructive/5 px-5 py-4 text-[15px] leading-relaxed text-foreground">
-            {t("symptomsUrgent")}
+            <PhoneLinkedText>{t("symptomsUrgent")}</PhoneLinkedText>
           </p>
         </div>
         <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
@@ -498,7 +504,7 @@ function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
           ))}
         </ul>
         <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
-          {t("symptomsNote")}
+          <PhoneLinkedText>{t("symptomsNote")}</PhoneLinkedText>
         </p>
       </div>
     </section>
@@ -520,19 +526,21 @@ function SafetyUnseen({ config }: { config: SafetyGuideConfig }) {
             {t("unseenTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("unseenBody")}
+            <PhoneLinkedText>{t("unseenBody")}</PhoneLinkedText>
           </p>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t.rich("unseenId", {
-              venomous: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href="/spiders/shxamiani-obobebi"
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
+            <PhoneLinkedText>
+              {t.rich("unseenId", {
+                venomous: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href="/spiders/shxamiani-obobebi"
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </PhoneLinkedText>
           </p>
         </div>
       </div>
