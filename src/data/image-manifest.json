@@ -2133,6 +2133,59 @@
       ],
       "updatedAt": "2026-09-05T10:40:41.875Z"
     },
+    "argiope-lobata-ioane-1.jpg": {
+      "sourceHash": "9f31cbac07e72a15529dcc3ea76e8f98b591529c0b5c8ff690757601182a7042",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-lobata-ioane-1.jpg",
+      "originalSize": 125456,
+      "width": 1080,
+      "height": 1434,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-lobata-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 15482
+        },
+        {
+          "key": "optimized/argiope-lobata-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 20406
+        },
+        {
+          "key": "optimized/argiope-lobata-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 41475
+        },
+        {
+          "key": "optimized/argiope-lobata-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 55374
+        },
+        {
+          "key": "optimized/argiope-lobata-ioane-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 66434
+        },
+        {
+          "key": "optimized/argiope-lobata-ioane-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 79508
+        }
+      ],
+      "updatedAt": "2026-09-05T16:36:09.903Z"
+    },
     "argiope-lobata-zakro-1.jpg": {
       "sourceHash": "1de1d458ad5db1c3631f562aebeff5b7f658ba13fbd56a408b06f2266ca1f4d5",
       "configFingerprint": "a895f8e025dcc7fa",
