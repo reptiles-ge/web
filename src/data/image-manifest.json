@@ -47525,6 +47525,73 @@
       ],
       "updatedAt": "2026-09-05T11:48:21.434Z"
     },
+    "xerotyphlops-vermicularis-natalia-2.jpg": {
+      "sourceHash": "b2b95e394d919f66359fa6687f0e81cc3b24d96d4062b12f3e4ccb6199ced967",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "xerotyphlops-vermicularis-natalia-2.jpg",
+      "originalSize": 905658,
+      "width": 1888,
+      "height": 1283,
+      "derivatives": [
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 30769
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 49674
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 544,
+          "byteSize": 130995
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 544,
+          "byteSize": 202854
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 279062
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 432826
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-1888.avif",
+          "format": "avif",
+          "width": 1888,
+          "height": 1283,
+          "byteSize": 550292
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-natalia-2-1888.webp",
+          "format": "webp",
+          "width": 1888,
+          "height": 1283,
+          "byteSize": 896986
+        }
+      ],
+      "updatedAt": "2026-09-05T11:51:41.233Z"
+    },
     "xerotyphlops-vermicularis-vaso-1.jpg": {
       "sourceHash": "aba2fdf16e3fcbb3ade2483a151f1ebdef7d472993009909415adc0fde8c3d65",
       "configFingerprint": "a895f8e025dcc7fa",
