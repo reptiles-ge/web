@@ -18,8 +18,8 @@ import { CoverImage } from "@/components/CoverImage";
 import { GuideNumberedSteps } from "@/components/GuideShared";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
 const ACTION_STEPS = [1, 2, 3, 4] as const;
@@ -162,7 +162,7 @@ function ConflictContact({
           {photo ? (
             <Link
               className="group relative block h-full min-h-[260px] overflow-hidden bg-ink"
-              href={speciesHref(photo.id, locale)}
+              href={useSpeciesHref(photo.id, locale)}
             >
               <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]">
                 <CoverImage
