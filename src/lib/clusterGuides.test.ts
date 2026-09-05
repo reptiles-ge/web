@@ -49,6 +49,21 @@ describe("bird and mammal indexes", () => {
   it("lists published birds and mammals on dedicated index paths", () => {
     expect(CLUSTER_GUIDES["bird-index"].pathname).toBe("/birds/saxeoebebi");
     expect(CLUSTER_GUIDES["mammal-index"].pathname).toBe("/mammals/saxeoebebi");
+    expect(CLUSTER_GUIDES["mammal-jackal-yard"].pathname).toBe(
+      "/mammals/tura-ezoshi",
+    );
+    expect(CLUSTER_GUIDES["mammal-bear"].pathname).toBe(
+      "/mammals/datvi-shekhvedra",
+    );
+    expect(CLUSTER_GUIDES["spider-venomous"].pathname).toBe(
+      "/spiders/shxamiani-obobebi",
+    );
+    expect(CLUSTER_GUIDES["spider-bite"].pathname).toBe(
+      "/spiders/obobis-nakbeni",
+    );
+    expect(CLUSTER_GUIDES["lizard-house"].pathname).toBe(
+      "/lizards/xvliki-saxlshi",
+    );
     const catalog = getCatalogSpecies();
     const birds = catalog.filter(isBirdSpecies);
     const mammals = catalog.filter(isMammalSpecies);
