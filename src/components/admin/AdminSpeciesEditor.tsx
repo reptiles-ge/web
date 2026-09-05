@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
@@ -16,16 +16,19 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
-  const [photos, setPhotos] = useState(gallery);
+  const [photos, setPhotos] = useState(() => gallery);
   const [savedSrcs, setSavedSrcs] = useState(() =>
     gallery.map((item) => item.src),
   );
+  const busyRef = useRef(false);
   const dirty =
     photos.map((item) => item.src).join("\0") !== savedSrcs.join("\0");
   const saving = busy !== "idle";
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (busyRef.current) return;
+    busyRef.current = true;
     const form = event.currentTarget;
     setBusy("upload");
     setError(null);
@@ -79,12 +82,14 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
         caught instanceof Error ? caught.message : "ატვირთვა ვერ მოხერხდა",
       );
     } finally {
+      busyRef.current = false;
       setBusy("idle");
     }
   }
 
   async function onSaveOrder() {
-    if (!dirty || photos.length < 2) return;
+    if (busyRef.current || !dirty || photos.length < 2) return;
+    busyRef.current = true;
     setBusy("reorder");
     setError(null);
     setOk(null);
@@ -114,6 +119,7 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "რიგი ვერ შეინახა");
     } finally {
+      busyRef.current = false;
       setBusy("idle");
     }
   }

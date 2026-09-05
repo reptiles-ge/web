@@ -42,7 +42,7 @@ export default async function AdminSpeciesPage({ params }: Props) {
         {species.unpublished ? " · unpublished" : ""}
       </p>
       <div className="mt-10">
-        <AdminSpeciesEditor gallery={species.gallery} id={id} />
+        <AdminSpeciesEditor gallery={species.gallery} id={id} key={id} />
       </div>
     </main>
   );
