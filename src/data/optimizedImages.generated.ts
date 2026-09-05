@@ -179,6 +179,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/aegypius-monachus-aleksandre-1.jpg": {
+    "path": "aegypius-monachus-aleksandre-1",
+    "width": 1024,
+    "height": 767,
+    "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/aegypius-monachus-giorgi-1.jpg": {
     "path": "aegypius-monachus-giorgi-1",
     "width": 2048,
