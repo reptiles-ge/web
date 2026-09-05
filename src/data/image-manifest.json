@@ -534,6 +534,73 @@
       ],
       "updatedAt": "2026-09-05T12:13:36.233Z"
     },
+    "aegypius-monachus-giorgi-1.jpg": {
+      "sourceHash": "29da15cb0f329cc74eba775453a27e91d722126a6c20a26c95873102e391ae2d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-giorgi-1.jpg",
+      "originalSize": 275514,
+      "width": 2048,
+      "height": 1270,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 248,
+          "byteSize": 13164
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 248,
+          "byteSize": 19376
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 496,
+          "byteSize": 37324
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 496,
+          "byteSize": 54104
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 744,
+          "byteSize": 65353
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 744,
+          "byteSize": 93502
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1270,
+          "byteSize": 158739
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1270,
+          "byteSize": 197100
+        }
+      ],
+      "updatedAt": "2026-09-05T12:14:32.736Z"
+    },
     "anguis-colchica-2.jpg": {
       "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
       "configFingerprint": "a895f8e025dcc7fa",
