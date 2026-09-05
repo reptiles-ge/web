@@ -31375,6 +31375,59 @@
       ],
       "updatedAt": "2026-08-28T21:45:44.990Z"
     },
+    "malpolon-insignitus-ioane-1.jpg": {
+      "sourceHash": "75cb25c6bad3626296caa92cc11c1b26f580f17b7a14786a95f2cd50f4eb2116",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "malpolon-insignitus-ioane-1.jpg",
+      "originalSize": 117122,
+      "width": 1080,
+      "height": 1434,
+      "derivatives": [
+        {
+          "key": "optimized/malpolon-insignitus-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 14148
+        },
+        {
+          "key": "optimized/malpolon-insignitus-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 19016
+        },
+        {
+          "key": "optimized/malpolon-insignitus-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 36289
+        },
+        {
+          "key": "optimized/malpolon-insignitus-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 49896
+        },
+        {
+          "key": "optimized/malpolon-insignitus-ioane-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 57332
+        },
+        {
+          "key": "optimized/malpolon-insignitus-ioane-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 73352
+        }
+      ],
+      "updatedAt": "2026-09-05T15:50:46.470Z"
+    },
     "malpolon-insignitus-mobile.jpg": {
       "sourceHash": "b94ba0e0717d801a027c9e4db5742afe636d3729b35c622c332c49c604e31f60",
       "configFingerprint": "a895f8e025dcc7fa",
