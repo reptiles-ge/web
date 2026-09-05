@@ -16,6 +16,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
 import { VisitPing } from "@/components/VisitPing";
 import { routing } from "@/i18n/routing";
+import { getFooterData } from "@/lib/footerData";
 
 type Props = {
   children: ReactNode;
@@ -35,6 +36,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations("nav");
+  const footerData = getFooterData(locale);
 
   return (
     <NextIntlClientProvider messages={messages}>
@@ -46,7 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <main id="main" tabIndex={-1}>
         {children}
       </main>
-      <Footer />
+      <Footer {...footerData} />
       <SpeedInsights />
     </NextIntlClientProvider>
   );
