@@ -7,8 +7,10 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
-import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import {
+  useLocaleSwitchIndex,
+  useSpeciesHref,
+} from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";

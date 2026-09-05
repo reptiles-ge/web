@@ -8,12 +8,12 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 type AtlasSpeciesCardProps = {
   eager?: boolean;
