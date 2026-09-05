@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp, GripVertical } from "lucide-react";
-import { useRef, useState } from "react";
+import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 
 type Props = {
   disabled?: boolean;
-  onReorder: (next: (current: GalleryImage[]) => GalleryImage[]) => void;
+  onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
   photos: GalleryImage[];
 };
 
