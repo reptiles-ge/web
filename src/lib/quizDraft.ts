@@ -2,7 +2,7 @@
 
 import { type Dispatch, useEffect, useRef, useState } from "react";
 
-import type { SnakeQuizQuestion } from "@/lib/snakeQuiz";
+import type { SnakeQuizQuestion } from "@/lib/snakeQuizEngine";
 
 export type QuizDraft = {
   answers: Answered[];

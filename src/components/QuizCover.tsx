@@ -1,6 +1,6 @@
 "use client";
 
-import type { SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuiz";
+import type { SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 
 import { QuizCoverPicture } from "@/components/QuizCoverPicture";
 import { QuizCoverPreload } from "@/components/QuizCoverPreload";
