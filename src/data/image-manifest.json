@@ -2133,6 +2133,112 @@
       ],
       "updatedAt": "2026-09-05T10:40:41.875Z"
     },
+    "argiope-bruennichi-vel-1.jpg": {
+      "sourceHash": "76d227dae9d08e5d07dabe4b14e2dbd234dcf432de70251a6230177e20708448",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-bruennichi-vel-1.jpg",
+      "originalSize": 106028,
+      "width": 931,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-vel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 880,
+          "byteSize": 23076
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 880,
+          "byteSize": 29224
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1760,
+          "byteSize": 59211
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1760,
+          "byteSize": 68854
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vel-1-931.avif",
+          "format": "avif",
+          "width": 931,
+          "height": 2048,
+          "byteSize": 66607
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vel-1-931.webp",
+          "format": "webp",
+          "width": 931,
+          "height": 2048,
+          "byteSize": 81390
+        }
+      ],
+      "updatedAt": "2026-09-05T19:17:57.279Z"
+    },
+    "argiope-bruennichi-velur-1.jpg": {
+      "sourceHash": "6893dccaaf95894574f891c0036b1c7363b49c5398281025ac606cfdd4e0cc07",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-bruennichi-velur-1.jpg",
+      "originalSize": 136707,
+      "width": 932,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-velur-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 879,
+          "byteSize": 30895
+        },
+        {
+          "key": "optimized/argiope-bruennichi-velur-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 879,
+          "byteSize": 38896
+        },
+        {
+          "key": "optimized/argiope-bruennichi-velur-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1758,
+          "byteSize": 74639
+        },
+        {
+          "key": "optimized/argiope-bruennichi-velur-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1758,
+          "byteSize": 92042
+        },
+        {
+          "key": "optimized/argiope-bruennichi-velur-1-932.avif",
+          "format": "avif",
+          "width": 932,
+          "height": 2048,
+          "byteSize": 86511
+        },
+        {
+          "key": "optimized/argiope-bruennichi-velur-1-932.webp",
+          "format": "webp",
+          "width": 932,
+          "height": 2048,
+          "byteSize": 108976
+        }
+      ],
+      "updatedAt": "2026-09-05T19:17:32.318Z"
+    },
     "argiope-lobata-1.jpg": {
       "sourceHash": "83c171148c5299bd8d292b9cc2be696d1aaa064cb165b90cab7f24bfd28c2b99",
       "configFingerprint": "a895f8e025dcc7fa",

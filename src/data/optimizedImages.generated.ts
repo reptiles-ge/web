@@ -347,6 +347,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/argiope-bruennichi-vel-1.jpg": {
+    "path": "argiope-bruennichi-vel-1",
+    "width": 931,
+    "height": 2048,
+    "widths": [400, 800, 931],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/argiope-bruennichi-velur-1.jpg": {
+    "path": "argiope-bruennichi-velur-1",
+    "width": 932,
+    "height": 2048,
+    "widths": [400, 800, 932],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-lobata-1.jpg": {
     "path": "argiope-lobata-1",
     "width": 1080,
