@@ -1494,6 +1494,73 @@
       ],
       "updatedAt": "2026-09-05T10:38:19.663Z"
     },
+    "argiope-bruennichi-ramo-1.jpg": {
+      "sourceHash": "641604807d11d11f5b7a359ede0cac6bedc944cb695af8364436722de2727b57",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-bruennichi-ramo-1.jpg",
+      "originalSize": 169268,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 14003
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 14940
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 34806
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 36560
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 58802
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 62162
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 92813
+        },
+        {
+          "key": "optimized/argiope-bruennichi-ramo-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 93270
+        }
+      ],
+      "updatedAt": "2026-09-05T10:40:41.875Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",
