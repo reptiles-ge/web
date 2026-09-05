@@ -3476,6 +3476,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/malpolon-insignitus-1.jpg": {
+    "path": "malpolon-insignitus-1",
+    "width": 2048,
+    "height": 1302,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg": {
     "path": "malpolon-insignitus-2",
     "width": 2048,
