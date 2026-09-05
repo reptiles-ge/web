@@ -665,6 +665,73 @@
       ],
       "updatedAt": "2026-09-05T12:15:40.166Z"
     },
+    "aegypius-monachus-5.jpg": {
+      "sourceHash": "0bb39415d506b2fe2852cd6368bea92f9c551df8a2ea9843db3bef0bf940f652",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-5.jpg",
+      "originalSize": 208770,
+      "width": 1617,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15032
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20000
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44794
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 61076
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 77960
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 107228
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1617.avif",
+          "format": "avif",
+          "width": 1617,
+          "height": 1080,
+          "byteSize": 125589
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1617.webp",
+          "format": "webp",
+          "width": 1617,
+          "height": 1080,
+          "byteSize": 152126
+        }
+      ],
+      "updatedAt": "2026-09-05T12:17:46.507Z"
+    },
     "aegypius-monachus-aleksandre-1.jpg": {
       "sourceHash": "f4992e128229a9bc6eca457415b225ee0b8cc2b3bec8dcc9cce11ad78721fe61",
       "configFingerprint": "a895f8e025dcc7fa",
