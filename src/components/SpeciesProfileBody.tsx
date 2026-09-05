@@ -18,6 +18,7 @@ import { SpeciesSources } from "@/components/SpeciesSources";
 import { type HubClusterCard, isSnakeSpecies } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate } from "@/lib/formatDate";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type BiologyBlockItem = {
@@ -81,7 +82,7 @@ export async function SpeciesProfileBody({
             {t("whoIs")} {species.commonName}
           </AnchoredHeading>
           <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-            {species.overview}
+            <PhoneLinkedText>{species.overview}</PhoneLinkedText>
           </p>
           <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
             {t("lastUpdated")}{" "}

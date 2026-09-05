@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import type { DangerLevel, SpeciesStat } from "@/data/species";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { isPlaceholderBody } from "@/lib/speciesContent";
@@ -76,7 +77,7 @@ export function SpeciesProfileFacts({
               {t("interaction")}
             </span>
             {": "}
-            {interaction}
+            <PhoneLinkedText>{interaction}</PhoneLinkedText>
           </p>
         ) : null}
       </div>

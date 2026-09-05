@@ -7,6 +7,7 @@ import { useState } from "react";
 import type { SpeciesFaq } from "@/data/species";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { type PageType, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -97,7 +98,7 @@ export function SpeciesFaqSection({
                   >
                     <div className="overflow-hidden">
                       <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                        {item.answer}
+                        <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                       </p>
                     </div>
                   </div>

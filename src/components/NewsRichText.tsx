@@ -1,6 +1,7 @@
 import type { NewsMark } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
@@ -36,7 +37,7 @@ function newsMarkKey(mark: NewsMark, index: number) {
 }
 
 function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
-  if (typeof mark === "string") return mark;
+  if (typeof mark === "string") return <PhoneLinkedText>{mark}</PhoneLinkedText>;
 
   if (mark.type === "sci") {
     return <i>{mark.name}</i>;

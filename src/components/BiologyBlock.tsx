@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
 type BiologyBlockProps = {
@@ -38,7 +39,7 @@ export function BiologyBlock({ body, headingId, title }: BiologyBlockProps) {
           !open && needsExpand ? "line-clamp-3" : "",
         )}
       >
-        {body}
+        <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
       {needsExpand ? (
         <button

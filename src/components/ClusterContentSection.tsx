@@ -8,6 +8,7 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
 type ClusterContentSectionProps = {
@@ -47,7 +48,7 @@ export function ClusterContentSection({
             titleClassName={CLUSTER_TITLE_SECTION}
           />
         </div>
-        {children}
+        {children ? <PhoneLinkedText>{children}</PhoneLinkedText> : null}
       </div>
     </section>
   );

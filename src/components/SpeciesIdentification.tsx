@@ -10,6 +10,7 @@ import {
   getSpeciesById,
   type SpeciesIdentification as Identification,
 } from "@/data/species";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
@@ -85,7 +86,11 @@ function IdentificationRichText({ text }: { text: string }) {
             ? `t:${part.value}`
             : `s:${part.id}:${part.label}`;
         if (part.type === "text") {
-          return <Fragment key={key}>{part.value}</Fragment>;
+          return (
+            <Fragment key={key}>
+              <PhoneLinkedText>{part.value}</PhoneLinkedText>
+            </Fragment>
+          );
         }
 
         const target = getSpeciesById(part.id);

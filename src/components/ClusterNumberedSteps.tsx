@@ -1,6 +1,8 @@
 "use client";
 
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+
 type ClusterNumberedStep = {
   body: string;
   title: string;
@@ -21,10 +23,10 @@ export function ClusterNumberedSteps({
             </span>
             <div>
               <h3 className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
-                {step.title}
+                <PhoneLinkedText>{step.title}</PhoneLinkedText>
               </h3>
               <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {step.body}
+                <PhoneLinkedText>{step.body}</PhoneLinkedText>
               </p>
             </div>
           </li>

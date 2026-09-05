@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
   CLUSTER_EYEBROW,
   CLUSTER_TITLE_GUIDE,
@@ -31,7 +32,7 @@ export function ClusterGuideLead({
           </div>
           <div>
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              {body}
+              <PhoneLinkedText>{body}</PhoneLinkedText>
             </div>
           </div>
         </div>

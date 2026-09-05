@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+
 export const CLUSTER_EYEBROW =
   "text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground";
 export const CLUSTER_TITLE_GUIDE =
@@ -29,7 +31,7 @@ export function ClusterSectionIntro({
   title,
   titleClassName,
 }: {
-  body?: string;
+  body?: ReactNode;
   bodyClassName?: string;
   children?: ReactNode;
   eyebrow: string;
@@ -40,11 +42,15 @@ export function ClusterSectionIntro({
   return (
     <>
       <p className={eyebrowClassName}>{eyebrow}</p>
-      <h2 className={titleClassName}>{title}</h2>
+      <h2 className={titleClassName}>
+        <PhoneLinkedText>{title}</PhoneLinkedText>
+      </h2>
       {body != null && bodyClassName ? (
-        <p className={bodyClassName}>{body}</p>
+        <p className={bodyClassName}>
+          <PhoneLinkedText>{body}</PhoneLinkedText>
+        </p>
       ) : null}
-      {children}
+      {children ? <PhoneLinkedText>{children}</PhoneLinkedText> : null}
     </>
   );
 }
