@@ -70,10 +70,6 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
   },
-  "streptopelia-turtur": {
-    en: "European turtle dove (Streptopelia turtur) | Migratory dove in Georgia",
-    ka: "გვრიტი (Streptopelia turtur) | გადამფრენი მტრედი საქართველოში",
-  },
   "dolichophis-schmidti": {
     en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
@@ -121,6 +117,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "steatoda-paykulliana": {
     en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
     ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
+  },
+  "streptopelia-turtur": {
+    en: "European turtle dove (Streptopelia turtur) | Migratory dove in Georgia",
+    ka: "გვრიტი (Streptopelia turtur) | გადამფრენი მტრედი საქართველოში",
   },
   "vipera-kaznakovi": {
     en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",

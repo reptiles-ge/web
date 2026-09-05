@@ -400,23 +400,6 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       ka: "საქართველოს ხვლიკების სახეობები",
     },
   },
-  "mammal-index": {
-    icon: "atlas",
-    keywords: [
-      "ძუძუმწოვრების სახეობები",
-      "mammal species",
-      "териофауна",
-      "memeli türleri",
-    ],
-    subtitle: {
-      en: "Published mammal profiles — not a full national list",
-      ka: "გამოქვეყნებული პროფილები — არა სრული ეროვნული სია",
-    },
-    title: {
-      en: "Mammal species of Georgia",
-      ka: "საქართველოს ძუძუმწოვრების სახეობები",
-    },
-  },
   "mammal-bear": {
     icon: "safety",
     keywords: [
@@ -442,6 +425,23 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       ka: "რა ვქნა თუ დათვი შემხვდა",
       ru: "Если встретил медведя в Грузии",
       tr: "Gürcistan’da ayı ile karşılaşırsam",
+    },
+  },
+  "mammal-index": {
+    icon: "atlas",
+    keywords: [
+      "ძუძუმწოვრების სახეობები",
+      "mammal species",
+      "териофауна",
+      "memeli türleri",
+    ],
+    subtitle: {
+      en: "Published mammal profiles — not a full national list",
+      ka: "გამოქვეყნებული პროფილები — არა სრული ეროვნული სია",
+    },
+    title: {
+      en: "Mammal species of Georgia",
+      ka: "საქართველოს ძუძუმწოვრების სახეობები",
     },
   },
   "mammal-jackal-yard": {
