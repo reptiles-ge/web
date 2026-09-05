@@ -5261,6 +5261,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-renardi-1.jpg": {
+    "path": "vipera-renardi-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [400, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-renardi-2.jpg": {
     "path": "vipera-renardi-2",
     "width": 2400,
@@ -5302,6 +5309,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1600,
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-8.jpg": {
+    "path": "vipera-renardi-8",
+    "width": 2048,
+    "height": 1536,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-giorgi-1.jpg": {
+    "path": "vipera-renardi-giorgi-1",
+    "width": 2048,
+    "height": 1369,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-renardi-giorgi-2.jpg": {
+    "path": "vipera-renardi-giorgi-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-renardi-mobile.webp": {
     "path": "vipera-renardi-mobile",

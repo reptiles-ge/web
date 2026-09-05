@@ -46777,6 +46777,73 @@
       ],
       "updatedAt": "2026-08-28T22:01:02.789Z"
     },
+    "vipera-renardi-1.jpg": {
+      "sourceHash": "954659b03961c286d74f0739cc71a38669c912ed6872d132227c34d1d541faee",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-1.jpg",
+      "originalSize": 166483,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13529
+        },
+        {
+          "key": "optimized/vipera-renardi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20790
+        },
+        {
+          "key": "optimized/vipera-renardi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37182
+        },
+        {
+          "key": "optimized/vipera-renardi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57592
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62515
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 98796
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 83861
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 124600
+        }
+      ],
+      "updatedAt": "2026-09-05T16:09:16.732Z"
+    },
     "vipera-renardi-2.jpg": {
       "sourceHash": "71ff86bf84ac4db006e32ef767176642fc5cc635f17f40d32d89547f9d32415a",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -47178,6 +47245,207 @@
         }
       ],
       "updatedAt": "2026-08-28T22:01:25.236Z"
+    },
+    "vipera-renardi-8.jpg": {
+      "sourceHash": "91f0adebfd5ddf29111c679482da1061010f92c8c0f4aeaca08b61cf22f81159",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-8.jpg",
+      "originalSize": 373998,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-8-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17754
+        },
+        {
+          "key": "optimized/vipera-renardi-8-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25860
+        },
+        {
+          "key": "optimized/vipera-renardi-8-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 51132
+        },
+        {
+          "key": "optimized/vipera-renardi-8-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74304
+        },
+        {
+          "key": "optimized/vipera-renardi-8-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 90636
+        },
+        {
+          "key": "optimized/vipera-renardi-8-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 133162
+        },
+        {
+          "key": "optimized/vipera-renardi-8-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 202445
+        },
+        {
+          "key": "optimized/vipera-renardi-8-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 271338
+        }
+      ],
+      "updatedAt": "2026-09-05T16:10:04.560Z"
+    },
+    "vipera-renardi-giorgi-1.jpg": {
+      "sourceHash": "cb2d4851ad82c79d2d9f9852089fc6f88862fe3294ee5fc3da481afa5d52e96d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-giorgi-1.jpg",
+      "originalSize": 332440,
+      "width": 2048,
+      "height": 1369,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12186
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17808
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 535,
+          "byteSize": 41096
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 535,
+          "byteSize": 62392
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 79975
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 112750
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1369,
+          "byteSize": 187239
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1369,
+          "byteSize": 236888
+        }
+      ],
+      "updatedAt": "2026-09-05T16:08:00.878Z"
+    },
+    "vipera-renardi-giorgi-2.jpg": {
+      "sourceHash": "9e25955a730600f6367777f9d3f489e079bc61a2de552e97747704f0b46ad803",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-giorgi-2.jpg",
+      "originalSize": 171045,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7612
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9830
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 19284
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25808
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 34288
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 45696
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 85878
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 105090
+        }
+      ],
+      "updatedAt": "2026-09-05T16:10:55.079Z"
     },
     "vipera-renardi-mobile.webp": {
       "sourceHash": "e4470cd22306b3b841282d924d271f1100922e2f76031804da32877249aeb80e",
