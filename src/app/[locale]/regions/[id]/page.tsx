@@ -15,6 +15,7 @@ import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
   getRegionSpecies,
+  getRegionVenomousSpecies,
   localizeRegionText,
   localizeRegionTextIfPresent,
   regions,
@@ -150,6 +151,9 @@ export default async function RegionPage({ params }: PageProps) {
   const species = getRegionSpecies(region).map((item) =>
     localizeSpecies(item, locale),
   );
+  const venomous = getRegionVenomousSpecies(region).map((item) =>
+    localizeSpecies(item, locale),
+  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -230,13 +234,6 @@ export default async function RegionPage({ params }: PageProps) {
         }
       : null;
 
-  const species = getRegionSpecies(region).map((item) =>
-    localizeSpecies(item, locale),
-  );
-  const venomous = getRegionVenomousSpecies(region).map((item) =>
-    localizeSpecies(item, locale),
-  );
-
   return (
     <>
       <CoverImagePreload sizes="100vw" src={getRegionHeroImage(region.id)} />
@@ -247,7 +244,12 @@ export default async function RegionPage({ params }: PageProps) {
             : [jsonLd, breadcrumbJsonLd]
         }
       />
-      <RegionProfile attribution={<ContentAttribution />} region={region} />
+      <RegionProfile
+        attribution={<ContentAttribution />}
+        region={region}
+        species={species}
+        venomous={venomous}
+      />
       <NewsRelatedBlock
         articles={getPublishedNewsForRegion(region.id)}
         locale={locale}

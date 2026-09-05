@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 
-import { getRegionsForSpecies } from "@/data/regions";
-import { type AnimalGroup } from "@/data/speciesAtlas";
+import { getRegionsForSpecies } from "@/data/mapRegions";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
 import { trackEvent } from "@/lib/analytics";
 
 export function SpeciesViewTracker({
