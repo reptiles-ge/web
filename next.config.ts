@@ -33,9 +33,9 @@ const nextConfig: NextConfig = {
         key: "Content-Security-Policy",
         value: [
           "default-src 'self'",
-          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://va.vercel-scripts.com https://counter.top.ge",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://va.vercel-scripts.com",
           "style-src 'self' 'unsafe-inline'",
-          "img-src 'self' data: blob: https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.google.ge https://counter.top.ge",
+          "img-src 'self' data: blob: https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://*.google.com https://*.google.ge",
           "font-src 'self' data:",
           "connect-src 'self' https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
           "frame-src https://www.googletagmanager.com",
