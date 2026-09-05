@@ -435,6 +435,26 @@ function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   return entries;
 }
 
+function findGalleryRange(
+  lines: string[],
+): null | { end: number; start: number } {
+  const start = lines.findIndex((line) =>
+    /^gallery:\s*(?:\[\])?\s*$/.test(line),
+  );
+  if (start === -1) return null;
+  let end = start + 1;
+  while (end < lines.length) {
+    const line = lines[end];
+    if (line.trim() === "") {
+      end += 1;
+      continue;
+    }
+    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
+    end += 1;
+  }
+  return { end, start };
+}
+
 function findTopLevelRange(
   lines: string[],
   key: string,
@@ -468,6 +488,23 @@ function formatCreditBlock(key: string, credit?: PhotoCredit): string[] {
   return lines;
 }
 
+function galleryItemSrc(lines: string[]): null | string {
+  for (const line of lines) {
+    const match = line.match(/^\s+-?\s*src:\s*(.*)$/);
+    if (!match) continue;
+    const raw = match[1].trim();
+    if (!raw) return null;
+    if (
+      (raw.startsWith('"') && raw.endsWith('"')) ||
+      (raw.startsWith("'") && raw.endsWith("'"))
+    ) {
+      return raw.slice(1, -1);
+    }
+    return raw;
+  }
+  return null;
+}
+
 function insertCoverFields(
   lines: string[],
   afterKeys: string[],
@@ -492,6 +529,43 @@ function insertCoverFields(
 
 function isExactTopLevelKey(line: string, key: string) {
   return new RegExp(`^${key}:(?:\\s|$)`).test(line);
+}
+
+function mdxPath(id: string, locale: string) {
+  return path.join(speciesContentDir(id), `${locale}.mdx`);
+}
+
+function normalizeCredit(value: unknown): PhotoCredit | undefined {
+  if (!value || typeof value !== "object") return undefined;
+  const record = value as Record<string, unknown>;
+  const credit: PhotoCredit = {};
+  if (typeof record.photographer === "string" && record.photographer.trim()) {
+    credit.photographer = record.photographer.trim();
+  }
+  if (typeof record.url === "string" && record.url.trim()) {
+    credit.url = record.url.trim();
+  }
+  if (typeof record.location === "string" && record.location.trim()) {
+    credit.location = record.location.trim();
+  }
+  if (typeof record.date === "string" && record.date.trim()) {
+    credit.date = record.date.trim();
+  }
+  return Object.keys(credit).length > 0 ? credit : undefined;
+}
+
+function normalizeGallery(value: unknown): GalleryImage[] {
+  if (!Array.isArray(value)) return [];
+  const out: GalleryImage[] = [];
+  for (const item of value) {
+    if (!item || typeof item !== "object" || !("src" in item)) continue;
+    const src = (item as { src?: unknown }).src;
+    if (typeof src !== "string" || !src) continue;
+    const creditRaw = (item as { credit?: unknown }).credit;
+    const credit = normalizeCredit(creditRaw);
+    out.push(credit ? { credit, src } : { src });
+  }
+  return out;
 }
 
 function setCoverField(
@@ -532,80 +606,6 @@ function setCoverField(
     return insertCoverFields(next, [srcKey], creditLines);
   }
   return next;
-}
-
-function findGalleryRange(
-  lines: string[],
-): null | { end: number; start: number } {
-  const start = lines.findIndex((line) =>
-    /^gallery:\s*(?:\[\])?\s*$/.test(line),
-  );
-  if (start === -1) return null;
-  let end = start + 1;
-  while (end < lines.length) {
-    const line = lines[end];
-    if (line.trim() === "") {
-      end += 1;
-      continue;
-    }
-    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
-    end += 1;
-  }
-  return { end, start };
-}
-
-function galleryItemSrc(lines: string[]): null | string {
-  for (const line of lines) {
-    const match = line.match(/^\s+-?\s*src:\s*(.*)$/);
-    if (!match) continue;
-    const raw = match[1].trim();
-    if (!raw) return null;
-    if (
-      (raw.startsWith('"') && raw.endsWith('"')) ||
-      (raw.startsWith("'") && raw.endsWith("'"))
-    ) {
-      return raw.slice(1, -1);
-    }
-    return raw;
-  }
-  return null;
-}
-
-function mdxPath(id: string, locale: string) {
-  return path.join(speciesContentDir(id), `${locale}.mdx`);
-}
-
-function normalizeCredit(value: unknown): PhotoCredit | undefined {
-  if (!value || typeof value !== "object") return undefined;
-  const record = value as Record<string, unknown>;
-  const credit: PhotoCredit = {};
-  if (typeof record.photographer === "string" && record.photographer.trim()) {
-    credit.photographer = record.photographer.trim();
-  }
-  if (typeof record.url === "string" && record.url.trim()) {
-    credit.url = record.url.trim();
-  }
-  if (typeof record.location === "string" && record.location.trim()) {
-    credit.location = record.location.trim();
-  }
-  if (typeof record.date === "string" && record.date.trim()) {
-    credit.date = record.date.trim();
-  }
-  return Object.keys(credit).length > 0 ? credit : undefined;
-}
-
-function normalizeGallery(value: unknown): GalleryImage[] {
-  if (!Array.isArray(value)) return [];
-  const out: GalleryImage[] = [];
-  for (const item of value) {
-    if (!item || typeof item !== "object" || !("src" in item)) continue;
-    const src = (item as { src?: unknown }).src;
-    if (typeof src !== "string" || !src) continue;
-    const creditRaw = (item as { credit?: unknown }).credit;
-    const credit = normalizeCredit(creditRaw);
-    out.push(credit ? { credit, src } : { src });
-  }
-  return out;
 }
 
 function splitGalleryItems(lines: string[]): string[][] {

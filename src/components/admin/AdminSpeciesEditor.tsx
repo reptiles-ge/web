@@ -42,14 +42,19 @@ export function AdminSpeciesEditor({
   const [savedSrcs, setSavedSrcs] = useState(() =>
     gallery.map((item) => item.src),
   );
-  const [coverImage, setCoverImage] = useState(image);
-  const [coverMobileImage, setCoverMobileImage] = useState(mobileImage);
+  const [coverOverride, setCoverOverride] = useState<null | {
+    desktop: string;
+    mobile: string;
+  }>(null);
+  const [preview, setPreview] = useState<AdminCoverPreviewState | null>(null);
   const busyRef = useRef(false);
   const dirty =
     photos.map((item) => item.src).join("\0") !== savedSrcs.join("\0");
   const saving = busy !== "idle";
-  const covers = resolveAdminCovers(coverImage, coverMobileImage);
-  const [preview, setPreview] = useState<AdminCoverPreviewState | null>(null);
+  const covers = resolveAdminCovers(
+    coverOverride?.desktop ?? image,
+    coverOverride?.mobile ?? mobileImage,
+  );
 
   async function onSetCover(src: string, target: CoverTarget) {
     if (busyRef.current) return;
@@ -70,12 +75,17 @@ export function AdminSpeciesEditor({
       if (!response.ok) {
         throw new Error(payload.error ?? "ყდა ვერ შეინახა");
       }
-      if (target === "desktop" || target === "both") {
-        setCoverImage(src);
-      }
-      if (target === "mobile" || target === "both") {
-        setCoverMobileImage(src);
-      }
+      setCoverOverride((current) => {
+        let desktop = current?.desktop ?? image;
+        let mobile = current?.mobile ?? mobileImage;
+        if (target === "desktop" || target === "both") {
+          desktop = src;
+        }
+        if (target === "mobile" || target === "both") {
+          mobile = src;
+        }
+        return { desktop, mobile };
+      });
       if (payload.pullRequestUrl) {
         setPullRequestUrl(payload.pullRequestUrl);
         setOk("ყდა PR-შია. Merge შენზეა.");

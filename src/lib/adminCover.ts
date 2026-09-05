@@ -1,13 +1,13 @@
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export type AdminCoverRole = "cover" | "desktop" | "mobile";
-export type CoverTarget = "both" | "desktop" | "mobile";
-
 export type AdminCovers = {
   desktopSrc: string;
   mobileSrc: string;
   split: boolean;
 };
+
+export type CoverTarget = "both" | "desktop" | "mobile";
 
 export function adminCoverRoles(
   src: string,

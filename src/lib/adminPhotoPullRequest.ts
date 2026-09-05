@@ -21,36 +21,6 @@ const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/main";
 const BASE_BRANCH = "main";
 
-export async function openGalleryReorderPullRequest(input: {
-  id: string;
-  orderedSrcs: string[];
-}): Promise<string> {
-  if (!isSpeciesContentId(input.id)) {
-    throw new Error("Invalid species id");
-  }
-  if (input.orderedSrcs.length < 2) {
-    throw new Error("Need at least two photos to reorder");
-  }
-
-  return withPhotoPullRequest({
-    apply: (worktree) => {
-      reorderGalleryInSpecies(input.id, input.orderedSrcs, worktree);
-    },
-    commitBody: "Gallery order updated from the local admin.",
-    editExistingBody: false,
-    id: input.id,
-    prBody: [
-      "## Summary",
-      `- Reorder gallery for \`${input.id}\` from local admin`,
-      "- KA `gallery` YAML order only; overlay locales still match credits by `src`",
-      "",
-      "## Test plan",
-      "- [ ] Species profile gallery shows photos in the new order",
-    ].join("\n"),
-    title: `Reorder gallery for ${input.id}`,
-  });
-}
-
 export async function openCoverPullRequest(input: {
   id: string;
   src: string;
@@ -83,6 +53,36 @@ export async function openCoverPullRequest(input: {
       "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
     ].join("\n"),
     title: `Set ${label} for ${input.id}`,
+  });
+}
+
+export async function openGalleryReorderPullRequest(input: {
+  id: string;
+  orderedSrcs: string[];
+}): Promise<string> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+  if (input.orderedSrcs.length < 2) {
+    throw new Error("Need at least two photos to reorder");
+  }
+
+  return withPhotoPullRequest({
+    apply: (worktree) => {
+      reorderGalleryInSpecies(input.id, input.orderedSrcs, worktree);
+    },
+    commitBody: "Gallery order updated from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- Reorder gallery for \`${input.id}\` from local admin`,
+      "- KA `gallery` YAML order only; overlay locales still match credits by `src`",
+      "",
+      "## Test plan",
+      "- [ ] Species profile gallery shows photos in the new order",
+    ].join("\n"),
+    title: `Reorder gallery for ${input.id}`,
   });
 }
 
