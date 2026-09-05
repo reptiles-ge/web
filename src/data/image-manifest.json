@@ -2133,6 +2133,59 @@
       ],
       "updatedAt": "2026-09-05T10:40:41.875Z"
     },
+    "argiope-lobata-zakro-1.jpg": {
+      "sourceHash": "1de1d458ad5db1c3631f562aebeff5b7f658ba13fbd56a408b06f2266ca1f4d5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-lobata-zakro-1.jpg",
+      "originalSize": 55383,
+      "width": 960,
+      "height": 640,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-lobata-zakro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11546
+        },
+        {
+          "key": "optimized/argiope-lobata-zakro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14528
+        },
+        {
+          "key": "optimized/argiope-lobata-zakro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28642
+        },
+        {
+          "key": "optimized/argiope-lobata-zakro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35070
+        },
+        {
+          "key": "optimized/argiope-lobata-zakro-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "byteSize": 35222
+        },
+        {
+          "key": "optimized/argiope-lobata-zakro-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "byteSize": 42188
+        }
+      ],
+      "updatedAt": "2026-09-05T16:35:26.909Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -347,6 +347,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/argiope-lobata-zakro-1.jpg": {
+    "path": "argiope-lobata-zakro-1",
+    "width": 960,
+    "height": 640,
+    "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-2.jpg": {
     "path": "bufo-verrucosissimus-2",
     "width": 1536,
