@@ -7,6 +7,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizCtaLink } from "@/components/QuizPracticeCta";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
@@ -72,7 +73,7 @@ export async function GroupHubHero({
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
-              {t("subtitle")}
+              <PhoneLinkedText>{t("subtitle")}</PhoneLinkedText>
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
               <a

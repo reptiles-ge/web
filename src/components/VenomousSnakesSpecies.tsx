@@ -12,6 +12,7 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
@@ -77,13 +78,15 @@ export function VenomousSnakesSpecies({
               {t("vipersTitle")}
             </h3>
             <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t.rich("vipersBody", {
-                kaznakovi: (chunks) => (
-                  <SpeciesInlineLink id="vipera-kaznakovi">
-                    {chunks}
-                  </SpeciesInlineLink>
-                ),
-              })}
+              <PhoneLinkedText>
+                {t.rich("vipersBody", {
+                  kaznakovi: (chunks) => (
+                    <SpeciesInlineLink id="vipera-kaznakovi">
+                      {chunks}
+                    </SpeciesInlineLink>
+                  ),
+                })}
+              </PhoneLinkedText>
             </p>
             <SpeciesGuideList locale={locale} source="guide" species={vipers} />
           </div>
@@ -93,7 +96,7 @@ export function VenomousSnakesSpecies({
                 {t("rearFangedTitle")}
               </h3>
               <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                {t("rearFangedBody")}
+                <PhoneLinkedText>{t("rearFangedBody")}</PhoneLinkedText>
               </p>
               <SpeciesGuideList
                 locale={locale}

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { CoverImage } from "@/components/CoverImage";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 
 export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
@@ -42,7 +43,7 @@ export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
             {t("title")}
           </h1>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
-            {t("subtitle")}
+            <PhoneLinkedText>{t("subtitle")}</PhoneLinkedText>
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
             <a

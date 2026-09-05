@@ -11,6 +11,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
@@ -235,7 +236,7 @@ function RegionFaqSection({
                     >
                       <div className="overflow-hidden">
                         <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                          {item.answer}
+                          <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                         </p>
                       </div>
                     </div>

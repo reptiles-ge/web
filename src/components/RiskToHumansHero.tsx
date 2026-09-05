@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 
 import type { DangerLevel } from "@/data/species";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
@@ -53,7 +54,7 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
               {t("title")}
             </h1>
             <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:mt-6 sm:text-[16px]">
-              {t("subtitle")}
+              <PhoneLinkedText>{t("subtitle")}</PhoneLinkedText>
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
               {DANGER_LEVEL_ORDER.map((level) => {
