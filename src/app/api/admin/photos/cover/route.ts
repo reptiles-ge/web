@@ -40,7 +40,8 @@ export async function POST(request: Request) {
     const pullRequestUrl = await openCoverPullRequest({ id, src, target });
     return Response.json({ pullRequestUrl });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Cover update failed";
+    const message =
+      error instanceof Error ? error.message : "Cover update failed";
     return Response.json({ error: message }, { status: 400 });
   }
 }

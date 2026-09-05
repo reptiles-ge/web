@@ -9,7 +9,11 @@ import {
   type AdminCoverPreviewState,
 } from "@/components/admin/AdminCoverPreview";
 import { AdminGalleryReorder } from "@/components/admin/AdminGalleryReorder";
-import { type AdminCovers, type CoverTarget, resolveAdminCovers } from "@/lib/adminCover";
+import {
+  type AdminCovers,
+  type CoverTarget,
+  resolveAdminCovers,
+} from "@/lib/adminCover";
 
 type Props = {
   commonName: string;
@@ -364,6 +368,9 @@ function AdminGalleryPanel({
           {busy === "reorder" ? "ინახება…" : "რიგის შენახვა"}
         </button>
       ) : null}
+      {busy === "cover" ? (
+        <p className="mt-4 text-[13px] text-primary">ყდა ინახება…</p>
+      ) : null}
     </section>
   );
 }
@@ -376,10 +383,10 @@ function GalleryHelp({
   photos: GalleryImage[];
 }) {
   const coverHint = covers.split
-      ? "დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი რომელია. ტაბლეტი მობილურის ყდას იყენებს. მენიუდან ყდად დაყენება ან თვალის ღილაკით სცადე."
-      : covers.desktopSrc
-        ? "მენიუდან დაყენე დესკტოპის, მობილურის ან ორივეს ყდა. თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა და მობილურზე."
-        : "მენიუდან დაყენე ყდა. თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.";
+    ? "დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი რომელია. ტაბლეტი მობილურის ყდას იყენებს. მენიუდან ყდად დაყენება ან თვალის ღილაკით სცადე."
+    : covers.desktopSrc
+      ? "მენიუდან დაყენე დესკტოპის, მობილურის ან ორივეს ყდა. თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა და მობილურზე."
+      : "მენიუდან დაყენე ყდა. თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.";
   const mobileMissing =
     covers.split && !photos.some((item) => item.src === covers.mobileSrc);
 
@@ -388,6 +395,11 @@ function GalleryHelp({
       <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
         {coverHint}
       </p>
+      {photos.length > 0 ? (
+        <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+          ყდად დაყენება ხსნის PR-ს — ლოკალური ბრენჩი არ იცვლება.
+        </p>
+      ) : null}
       {mobileMissing ? (
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
           მობილური ყდა გალერეის სიაში არ არის — პრევიუში მაინც ნახავ.
@@ -396,8 +408,7 @@ function GalleryHelp({
       {photos.length > 1 ? (
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
           გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
-          image / mobileImage. ყდაც და რიგიც PR-ში იწერება — ლოკალური ბრენჩი არ
-          იცვლება.
+          image / mobileImage.
         </p>
       ) : null}
     </>
