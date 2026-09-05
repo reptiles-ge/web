@@ -340,6 +340,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 687],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufotes-viridis-armen-2.jpg": {
+    "path": "bufotes-viridis-armen-2",
+    "width": 1464,
+    "height": 960,
+    "widths": [400, 800, 1200, 1464],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufotes-viridis-ioane-1.jpg": {
     "path": "bufotes-viridis-ioane-1",
     "width": 1024,
@@ -354,6 +361,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufotes-viridis-ioane-3.jpg": {
+    "path": "bufotes-viridis-ioane-3",
+    "width": 1542,
+    "height": 2048,
+    "widths": [400, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufotes-viridis-lasha-1.jpg": {
     "path": "bufotes-viridis-lasha-1",
     "width": 1024,
@@ -366,6 +380,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 766,
     "height": 1024,
     "widths": [400, 766],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufotes-viridis-zauri-1.jpg": {
+    "path": "bufotes-viridis-zauri-1",
+    "width": 1344,
+    "height": 960,
+    "widths": [400, 800, 1200, 1344],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/bufotes-viridis.jpg": {

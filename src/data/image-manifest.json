@@ -2080,6 +2080,73 @@
       ],
       "updatedAt": "2026-08-28T21:29:03.435Z"
     },
+    "bufotes-viridis-armen-2.jpg": {
+      "sourceHash": "359a96a200faf8244d4c950df849301bf35e36cc3fdf57d8986760a7638fc2e9",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "bufotes-viridis-armen-2.jpg",
+      "originalSize": 207145,
+      "width": 1464,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 16803
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 25502
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 525,
+          "byteSize": 47871
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 525,
+          "byteSize": 70970
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 787,
+          "byteSize": 84818
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 787,
+          "byteSize": 124332
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1464.avif",
+          "format": "avif",
+          "width": 1464,
+          "height": 960,
+          "byteSize": 120921
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1464.webp",
+          "format": "webp",
+          "width": 1464,
+          "height": 960,
+          "byteSize": 162090
+        }
+      ],
+      "updatedAt": "2026-09-05T11:30:12.425Z"
+    },
     "bufotes-viridis-ioane-1.jpg": {
       "sourceHash": "82e5ee74ca35af03d3f3dd068cf1082306aa1b8285374e49db7a54088faa5f41",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -2186,6 +2253,73 @@
       ],
       "updatedAt": "2026-08-28T21:29:05.389Z"
     },
+    "bufotes-viridis-ioane-3.jpg": {
+      "sourceHash": "34c0e53dee87dc64d1a561d7d1a885d9be2d428e41a569fce91a304b5804ffbb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "bufotes-viridis-ioane-3.jpg",
+      "originalSize": 449366,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 31224
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 47994
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 90760
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 139154
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 160796
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 247724
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 239136
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 338468
+        }
+      ],
+      "updatedAt": "2026-09-05T11:30:55.146Z"
+    },
     "bufotes-viridis-lasha-1.jpg": {
       "sourceHash": "1407208719ce7046733b06b57159d56d5fb817bf60d8d22ceda656b0dc9cf5ca",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -2277,6 +2411,73 @@
         }
       ],
       "updatedAt": "2026-08-28T21:29:07.486Z"
+    },
+    "bufotes-viridis-zauri-1.jpg": {
+      "sourceHash": "1b2af3e62b8c3cb5f5daa5cb704062aab5c5aa6485b44c0b541231a71423b274",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "bufotes-viridis-zauri-1.jpg",
+      "originalSize": 177255,
+      "width": 1344,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 17474
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 27582
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 44993
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 70276
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 76216
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 119294
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1344.avif",
+          "format": "avif",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 94502
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1344.webp",
+          "format": "webp",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 133554
+        }
+      ],
+      "updatedAt": "2026-09-05T11:31:32.568Z"
     },
     "bufotes-viridis.jpg": {
       "sourceHash": "cb1013a41ba7ccfc10535f4bff96c65a756b66c1cd11ace6cc7d58fff9b68d8b",
