@@ -44631,6 +44631,126 @@
       ],
       "updatedAt": "2026-08-28T21:59:43.682Z"
     },
+    "turdus-merula-velur-1.jpg": {
+      "sourceHash": "7bd366da1b730af2be1a4a3de20d6a24eb62e0282e1c91537b8859058b1bbb0f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "turdus-merula-velur-1.jpg",
+      "originalSize": 300211,
+      "width": 1435,
+      "height": 1003,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-velur-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 279,
+          "byteSize": 23066
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 279,
+          "byteSize": 37852
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 559,
+          "byteSize": 66559
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 559,
+          "byteSize": 106320
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 839,
+          "byteSize": 120051
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 839,
+          "byteSize": 190642
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-1435.avif",
+          "format": "avif",
+          "width": 1435,
+          "height": 1003,
+          "byteSize": 171635
+        },
+        {
+          "key": "optimized/turdus-merula-velur-1-1435.webp",
+          "format": "webp",
+          "width": 1435,
+          "height": 1003,
+          "byteSize": 246896
+        }
+      ],
+      "updatedAt": "2026-09-05T19:27:15.041Z"
+    },
+    "turdus-merula-velur-2.jpg": {
+      "sourceHash": "ba6f4e0647e3e2f0b3c87ccf5a890cdb2207e9c7b2c35bcadf5563e8544f2ba6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "turdus-merula-velur-2.jpg",
+      "originalSize": 171138,
+      "width": 844,
+      "height": 1824,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-velur-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 864,
+          "byteSize": 28651
+        },
+        {
+          "key": "optimized/turdus-merula-velur-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 864,
+          "byteSize": 40794
+        },
+        {
+          "key": "optimized/turdus-merula-velur-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1729,
+          "byteSize": 77577
+        },
+        {
+          "key": "optimized/turdus-merula-velur-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1729,
+          "byteSize": 102568
+        },
+        {
+          "key": "optimized/turdus-merula-velur-2-844.avif",
+          "format": "avif",
+          "width": 844,
+          "height": 1824,
+          "byteSize": 95850
+        },
+        {
+          "key": "optimized/turdus-merula-velur-2-844.webp",
+          "format": "webp",
+          "width": 844,
+          "height": 1824,
+          "byteSize": 111600
+        }
+      ],
+      "updatedAt": "2026-09-05T19:29:12.899Z"
+    },
     "ursus-arctos-cub-1.jpg": {
       "sourceHash": "9cad7c0a6a0b90d43923cdc15861d9550b8d8f6acfcf04b05a0f2b52a4ab19cd",
       "configFingerprint": "a895f8e025dcc7fa",
