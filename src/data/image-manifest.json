@@ -47430,6 +47430,112 @@
       ],
       "updatedAt": "2026-08-28T22:02:16.274Z"
     },
+    "zamenis-hohenackeri-ioane-1.jpg": {
+      "sourceHash": "3f9d62cdbc0491285d74c37585e86a0792f04fbc9dcc429cebf43b67376caf30",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "zamenis-hohenackeri-ioane-1.jpg",
+      "originalSize": 114216,
+      "width": 1080,
+      "height": 1434,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 13610
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 17548
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 36859
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 49612
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 60073
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 76790
+        }
+      ],
+      "updatedAt": "2026-09-05T11:17:45.517Z"
+    },
+    "zamenis-hohenackeri-ioane-2.jpg": {
+      "sourceHash": "6cc96a6e65adc05ae9f8fb1095727d8977d0e3b134edcd80fe1712b1224c7ce5",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "zamenis-hohenackeri-ioane-2.jpg",
+      "originalSize": 368830,
+      "width": 1080,
+      "height": 1434,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 45911
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 70266
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 134733
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1062,
+          "byteSize": 203454
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-2-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 217850
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-ioane-2-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1434,
+          "byteSize": 293578
+        }
+      ],
+      "updatedAt": "2026-09-05T11:18:25.162Z"
+    },
     "zamenis-hohenackeri-mobile.jpg": {
       "sourceHash": "076651c6a25bed49be0723f7cb2c3da8ab2262d599e1a05e4897fcf619f30398",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -47496,6 +47602,73 @@
         }
       ],
       "updatedAt": "2026-08-28T22:02:17.183Z"
+    },
+    "zamenis-hohenackeri-zauri-1.jpg": {
+      "sourceHash": "c6cd4f80f6d23bfc6f1dbfe06da3441f342ba52ee50c9aed7c5343d6613cb564",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "zamenis-hohenackeri-zauri-1.jpg",
+      "originalSize": 245161,
+      "width": 1343,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 21543
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 34874
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 572,
+          "byteSize": 60486
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 572,
+          "byteSize": 97304
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 858,
+          "byteSize": 103878
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 858,
+          "byteSize": 164054
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-1343.avif",
+          "format": "avif",
+          "width": 1343,
+          "height": 960,
+          "byteSize": 131992
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-zauri-1-1343.webp",
+          "format": "webp",
+          "width": 1343,
+          "height": 960,
+          "byteSize": 186938
+        }
+      ],
+      "updatedAt": "2026-09-05T11:19:45.757Z"
     },
     "zamenis-hohenackeri.jpg": {
       "sourceHash": "2f2cf64698186c4ac9444e92ff6cc4675cd7bcdc79bd794f5cba2c29405d1bd6",

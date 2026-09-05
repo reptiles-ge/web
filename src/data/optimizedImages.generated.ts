@@ -5338,12 +5338,33 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-1.jpg": {
+    "path": "zamenis-hohenackeri-ioane-1",
+    "width": 1080,
+    "height": 1434,
+    "widths": [400, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-2.jpg": {
+    "path": "zamenis-hohenackeri-ioane-2",
+    "width": 1080,
+    "height": 1434,
+    "widths": [400, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-mobile.jpg": {
     "path": "zamenis-hohenackeri-mobile",
     "width": 1280,
     "height": 960,
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-zauri-1.jpg": {
+    "path": "zamenis-hohenackeri-zauri-1",
+    "width": 1343,
+    "height": 960,
+    "widths": [400, 800, 1200, 1343],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/zamenis-hohenackeri.jpg": {
     "path": "zamenis-hohenackeri",
