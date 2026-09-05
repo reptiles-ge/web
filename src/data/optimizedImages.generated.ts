@@ -340,6 +340,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 687],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufotes-viridis-armen-2.jpg": {
+    "path": "bufotes-viridis-armen-2",
+    "width": 1464,
+    "height": 960,
+    "widths": [400, 800, 1200, 1464],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufotes-viridis-ioane-1.jpg": {
     "path": "bufotes-viridis-ioane-1",
     "width": 1024,

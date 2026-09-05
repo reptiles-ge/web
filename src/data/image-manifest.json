@@ -2080,6 +2080,73 @@
       ],
       "updatedAt": "2026-08-28T21:29:03.435Z"
     },
+    "bufotes-viridis-armen-2.jpg": {
+      "sourceHash": "359a96a200faf8244d4c950df849301bf35e36cc3fdf57d8986760a7638fc2e9",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "bufotes-viridis-armen-2.jpg",
+      "originalSize": 207145,
+      "width": 1464,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 16803
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 25502
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 525,
+          "byteSize": 47871
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 525,
+          "byteSize": 70970
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 787,
+          "byteSize": 84818
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 787,
+          "byteSize": 124332
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1464.avif",
+          "format": "avif",
+          "width": 1464,
+          "height": 960,
+          "byteSize": 120921
+        },
+        {
+          "key": "optimized/bufotes-viridis-armen-2-1464.webp",
+          "format": "webp",
+          "width": 1464,
+          "height": 960,
+          "byteSize": 162090
+        }
+      ],
+      "updatedAt": "2026-09-05T11:30:12.425Z"
+    },
     "bufotes-viridis-ioane-1.jpg": {
       "sourceHash": "82e5ee74ca35af03d3f3dd068cf1082306aa1b8285374e49db7a54088faa5f41",
       "configFingerprint": "a895f8e025dcc7fa",
