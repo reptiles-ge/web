@@ -5324,6 +5324,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-lasha-1.jpg": {
+    "path": "xerotyphlops-vermicularis-lasha-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/xerotyphlops-vermicularis-mobile.jpg": {
     "path": "xerotyphlops-vermicularis-mobile",
     "width": 1025,

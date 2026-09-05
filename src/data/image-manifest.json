@@ -47338,6 +47338,73 @@
       ],
       "updatedAt": "2026-08-28T22:02:20.012Z"
     },
+    "xerotyphlops-vermicularis-lasha-1.jpg": {
+      "sourceHash": "eb88f258a789548545edb481c2af8a0bb75ddb6b06b25cf339136c31b8ab77e0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "xerotyphlops-vermicularis-lasha-1.jpg",
+      "originalSize": 407094,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17776
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27952
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 59262
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 94186
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 111206
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 172046
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 236173
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-lasha-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 324678
+        }
+      ],
+      "updatedAt": "2026-09-05T11:43:13.231Z"
+    },
     "xerotyphlops-vermicularis-mobile.jpg": {
       "sourceHash": "b34f3e89c1a2a4683a00b90200ee58aa830cc1d8b1e3a5c00c442dba7e8a891f",
       "configFingerprint": "a895f8e025dcc7fa",
