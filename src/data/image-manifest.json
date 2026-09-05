@@ -41731,6 +41731,59 @@
       ],
       "updatedAt": "2026-09-05T16:31:53.189Z"
     },
+    "steatoda-paykulliana-2.jpg": {
+      "sourceHash": "a1393205e0803bcb9bd75234e8f29e1b203d11c9bfa776e0ddf21fcc8256ef21",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "steatoda-paykulliana-2.jpg",
+      "originalSize": 130836,
+      "width": 960,
+      "height": 1285,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 535,
+          "byteSize": 16529
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 535,
+          "byteSize": 23322
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1071,
+          "byteSize": 51002
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1071,
+          "byteSize": 66168
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 1285,
+          "byteSize": 80050
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 1285,
+          "byteSize": 86952
+        }
+      ],
+      "updatedAt": "2026-09-05T16:32:21.537Z"
+    },
     "strix-aluco-gaebler-1.jpg": {
       "sourceHash": "64a5c2f5c11d744eafd72f8d8d995c692d2ccedc575945f36fc5bffe7f0a7077",
       "configFingerprint": "a895f8e025dcc7fa",

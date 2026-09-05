@@ -4694,6 +4694,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/steatoda-paykulliana-2.jpg": {
+    "path": "steatoda-paykulliana-2",
+    "width": 960,
+    "height": 1285,
+    "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg": {
     "path": "strix-aluco-gaebler-1",
     "width": 1654,
