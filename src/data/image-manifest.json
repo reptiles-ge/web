@@ -43777,6 +43777,73 @@
       ],
       "updatedAt": "2026-09-05T11:05:26.085Z"
     },
+    "vipera-dinniki-anano-2.jpg": {
+      "sourceHash": "9aec405981c881bf67a755971ac813099709007d96d5e05ce7adb83268e0d0f6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-anano-2.jpg",
+      "originalSize": 290299,
+      "width": 1653,
+      "height": 1043,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-anano-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 252,
+          "byteSize": 18061
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 252,
+          "byteSize": 27410
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 505,
+          "byteSize": 51977
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 505,
+          "byteSize": 79922
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 95405
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 146500
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1653.avif",
+          "format": "avif",
+          "width": 1653,
+          "height": 1043,
+          "byteSize": 167876
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1653.webp",
+          "format": "webp",
+          "width": 1653,
+          "height": 1043,
+          "byteSize": 233042
+        }
+      ],
+      "updatedAt": "2026-09-05T11:06:15.341Z"
+    },
     "vipera-dinniki-qazbegis-1.jpg": {
       "sourceHash": "bc3538fd7c65aff8ede9ae634a35652bd360f1870ed83935c22292f32e8578cf",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -4918,6 +4918,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-dinniki-anano-2.jpg": {
+    "path": "vipera-dinniki-anano-2",
+    "width": 1653,
+    "height": 1043,
+    "widths": [400, 800, 1200, 1653],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-dinniki-qazbegis-1.jpg": {
     "path": "vipera-dinniki-qazbegis-1",
     "width": 2048,
