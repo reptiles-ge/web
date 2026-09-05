@@ -606,21 +606,11 @@ export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
   return kaSlugById[id] ?? id;
 }
 
-export function legacySpeciesStaticParams() {
-  const seen = new Set<string>();
-  const params: Array<{ id: string; locale: AppLocale }> = [];
-  for (const locale of routing.locales) {
-    for (const item of getCatalogSpecies()) {
-      const keys = new Set([getSpeciesPublicSlug(item.id, "ka"), item.id]);
-      for (const id of keys) {
-        const token = `${locale}:${id}`;
-        if (seen.has(token)) continue;
-        seen.add(token);
-        params.push({ id, locale });
-      }
-    }
-  }
-  return params;
+export function legacySpeciesStaticParams(): Array<{
+  id: string;
+  locale: AppLocale;
+}> {
+  return [];
 }
 
 export function regionHref(id: string) {
@@ -673,15 +663,11 @@ export function speciesStaticParams(hubId: GroupHubId) {
   const params: Array<{ locale: AppLocale; slug: string }> = [];
   for (const item of getCatalogSpecies()) {
     if (getSpeciesHubId(item.id) !== hubId) continue;
-    const slugs = new Set([
-      getSpeciesPublicSlug(item.id, "en"),
-      getSpeciesPublicSlug(item.id, "ka"),
-      ...(KA_SLUG_ALIASES[item.id] ?? []),
-    ]);
     for (const locale of routing.locales) {
-      for (const slug of slugs) {
-        params.push({ locale, slug });
-      }
+      params.push({
+        locale,
+        slug: getSpeciesPublicSlug(item.id, locale),
+      });
     }
   }
   return params;
