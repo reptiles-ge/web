@@ -130,10 +130,10 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                 {([1, 2, 3] as const).map((n) => (
                   <li className="py-5" key={n}>
                     <p className="font-display text-[17px] font-medium text-foreground">
-                      {t(`${level}Point${n}Title`)}
+                      <PhoneLinkedText>{t(`${level}Point${n}Title`)}</PhoneLinkedText>
                     </p>
                     <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`${level}Point${n}Body`)}
+                      <PhoneLinkedText>{t(`${level}Point${n}Body`)}</PhoneLinkedText>
                     </p>
                   </li>
                 ))}
@@ -146,7 +146,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                     : t("speciesTitle", { count: species.length })}
                 </h3>
                 <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t(`${level}SpeciesBody`)}
+                  <PhoneLinkedText>{t(`${level}SpeciesBody`)}</PhoneLinkedText>
                 </p>
                 {species.length > 0 ? (
                   <SpeciesGuideList
