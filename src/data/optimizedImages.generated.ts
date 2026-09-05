@@ -1572,6 +1572,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/elaphe-dione-nika-1.jpg": {
+    "path": "elaphe-dione-nika-1",
+    "width": 2048,
+    "height": 1152,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/elaphe-urartica-2.webp": {
     "path": "elaphe-urartica-2",
     "width": 2400,

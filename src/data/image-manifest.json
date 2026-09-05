@@ -13171,6 +13171,73 @@
       ],
       "updatedAt": "2026-08-28T21:38:11.100Z"
     },
+    "elaphe-dione-nika-1.jpg": {
+      "sourceHash": "6aee6750d875e68886ccd5d9595ca9c0e85d15ee1ac6da7a2ddfd3078d940ab6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "elaphe-dione-nika-1.jpg",
+      "originalSize": 315561,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 16759
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 25616
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 48563
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 73486
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 82318
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 123588
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 171139
+        },
+        {
+          "key": "optimized/elaphe-dione-nika-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 223868
+        }
+      ],
+      "updatedAt": "2026-09-05T12:27:49.250Z"
+    },
     "elaphe-urartica-2.webp": {
       "sourceHash": "106fa6dd5b81da4609a4faf8c601f722ae7b5b02e249261ced685a6b1d639e58",
       "configFingerprint": "a895f8e025dcc7fa",
