@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode } from "react";
 
@@ -9,6 +10,7 @@ import { type PhotoCredit } from "@/data/species";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
+import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 
 type PhotoCreditCaptionProps = {
   className?: string;
@@ -141,25 +143,31 @@ function PhotoCreditName({
 }) {
   const name = credit.photographer?.trim();
   if (!name) return null;
-  if (!credit.url) return <span>{name}</span>;
+  const source = photoCreditSourceLabel(credit.url);
+  if (!credit.url || !source) return <span>{name}</span>;
   return (
-    <a
-      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
-      href={credit.url}
-      onClick={(event) => {
-        event.stopPropagation();
-        if (speciesId) {
-          trackEvent("source_click", {
-            link_type: "photo_credit",
-            species_id: speciesId,
-          });
-        }
-      }}
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      {name}
-    </a>
+    <>
+      <span>{name}</span>
+      {" · "}
+      <a
+        className="inline-flex items-center gap-0.5 underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+        href={credit.url}
+        onClick={(event) => {
+          event.stopPropagation();
+          if (speciesId) {
+            trackEvent("source_click", {
+              link_type: "photo_credit",
+              species_id: speciesId,
+            });
+          }
+        }}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {source}
+        <ArrowUpRight aria-hidden="true" className="size-[0.85em]" />
+      </a>
+    </>
   );
 }
 
