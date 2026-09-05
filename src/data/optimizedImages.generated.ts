@@ -5261,6 +5261,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-renardi-1.jpg": {
+    "path": "vipera-renardi-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [400, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-renardi-2.jpg": {
     "path": "vipera-renardi-2",
     "width": 2400,

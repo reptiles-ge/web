@@ -46777,6 +46777,73 @@
       ],
       "updatedAt": "2026-08-28T22:01:02.789Z"
     },
+    "vipera-renardi-1.jpg": {
+      "sourceHash": "954659b03961c286d74f0739cc71a38669c912ed6872d132227c34d1d541faee",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-1.jpg",
+      "originalSize": 166483,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13529
+        },
+        {
+          "key": "optimized/vipera-renardi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20790
+        },
+        {
+          "key": "optimized/vipera-renardi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37182
+        },
+        {
+          "key": "optimized/vipera-renardi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57592
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62515
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 98796
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 83861
+        },
+        {
+          "key": "optimized/vipera-renardi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 124600
+        }
+      ],
+      "updatedAt": "2026-09-05T16:09:16.732Z"
+    },
     "vipera-renardi-2.jpg": {
       "sourceHash": "71ff86bf84ac4db006e32ef767176642fc5cc635f17f40d32d89547f9d32415a",
       "configFingerprint": "a895f8e025dcc7fa",
