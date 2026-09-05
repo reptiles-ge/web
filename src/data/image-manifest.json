@@ -47458,6 +47458,59 @@
       ],
       "updatedAt": "2026-08-28T22:02:08.519Z"
     },
+    "xerotyphlops-vermicularis-vaso-1.jpg": {
+      "sourceHash": "aba2fdf16e3fcbb3ade2483a151f1ebdef7d472993009909415adc0fde8c3d65",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "xerotyphlops-vermicularis-vaso-1.jpg",
+      "originalSize": 114069,
+      "width": 1080,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/xerotyphlops-vermicularis-vaso-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 10453
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-vaso-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 13226
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-vaso-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 38476
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-vaso-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 47392
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-vaso-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1440,
+          "byteSize": 66808
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-vaso-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1440,
+          "byteSize": 75106
+        }
+      ],
+      "updatedAt": "2026-09-05T11:44:40.967Z"
+    },
     "xerotyphlops-vermicularis-zakro-1.jpg": {
       "sourceHash": "3cb77c503fbcc68ad73bded0f0deb75f80e382f396a68933deca6684b86492ab",
       "configFingerprint": "a895f8e025dcc7fa",
