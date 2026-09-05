@@ -1360,6 +1360,73 @@
       ],
       "updatedAt": "2026-08-29T07:20:45.931Z"
     },
+    "argiope-bruennichi-nika-1.jpg": {
+      "sourceHash": "6187cf68f1ed56852d0fdffdab73fe4fad4e04fd9ed4c527dd3baa411bc661c1",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "argiope-bruennichi-nika-1.jpg",
+      "originalSize": 243160,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15343
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 23078
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 43138
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 62352
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 75245
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 105514
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 152548
+        },
+        {
+          "key": "optimized/argiope-bruennichi-nika-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 194846
+        }
+      ],
+      "updatedAt": "2026-09-05T10:38:19.663Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",
