@@ -29659,6 +29659,59 @@
       ],
       "updatedAt": "2026-08-28T21:44:19.358Z"
     },
+    "latrodectus-tredecimguttatus-ioane-1.jpg": {
+      "sourceHash": "60a002b8c6d6ada2629c07927707dd5871e361aec37f0901018c5eaea664158e",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "latrodectus-tredecimguttatus-ioane-1.jpg",
+      "originalSize": 279416,
+      "width": 960,
+      "height": 1275,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 35902
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 55976
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 116846
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 189628
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-ioane-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 1275,
+          "byteSize": 162206
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-ioane-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 1275,
+          "byteSize": 246026
+        }
+      ],
+      "updatedAt": "2026-09-05T16:40:00.150Z"
+    },
     "lissotriton-lantzi-2.jpg": {
       "sourceHash": "f3b01ad9d28d14a5586a10fd8dd65029b405b3fafb1891e8087d956ad507e639",
       "configFingerprint": "a895f8e025dcc7fa",

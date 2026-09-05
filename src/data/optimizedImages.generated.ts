@@ -3287,6 +3287,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-ioane-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-ioane-1",
+    "width": 960,
+    "height": 1275,
+    "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lissotriton-lantzi-2.jpg": {
     "path": "lissotriton-lantzi-2",
     "width": 2048,
