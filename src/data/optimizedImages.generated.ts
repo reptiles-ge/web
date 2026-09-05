@@ -1565,6 +1565,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/elaphe-dione-kaxaber-1.jpg": {
+    "path": "elaphe-dione-kaxaber-1",
+    "width": 2048,
+    "height": 1292,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/elaphe-dione-mobile.jpg": {
     "path": "elaphe-dione-mobile",
     "width": 1800,

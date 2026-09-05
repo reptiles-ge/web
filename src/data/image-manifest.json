@@ -13104,6 +13104,73 @@
       ],
       "updatedAt": "2026-08-28T21:38:12.547Z"
     },
+    "elaphe-dione-kaxaber-1.jpg": {
+      "sourceHash": "9e9b8db41d0f58019c5f06ae3e3498327a655f9ddf3dd16e0ffe7ddc0e9b6b78",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "elaphe-dione-kaxaber-1.jpg",
+      "originalSize": 492864,
+      "width": 2048,
+      "height": 1292,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 252,
+          "byteSize": 22721
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 252,
+          "byteSize": 40464
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 505,
+          "byteSize": 70575
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 505,
+          "byteSize": 122380
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 121181
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 206060
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1292,
+          "byteSize": 282897
+        },
+        {
+          "key": "optimized/elaphe-dione-kaxaber-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1292,
+          "byteSize": 391698
+        }
+      ],
+      "updatedAt": "2026-09-05T12:29:42.141Z"
+    },
     "elaphe-dione-mobile.jpg": {
       "sourceHash": "b1f5325dceb260af93e55122e6fe9f6153bc9bbd4931f3aa432e2be44cbbd51e",
       "configFingerprint": "a895f8e025dcc7fa",
