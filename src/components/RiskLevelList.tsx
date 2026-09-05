@@ -12,6 +12,7 @@ import {
   CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -78,7 +79,9 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                         {t(`scale${level}Title`)}
                       </p>
                       <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                        {t(`scale${level}Body`)}
+                        <PhoneLinkedText>
+                          {t(`scale${level}Body`)}
+                        </PhoneLinkedText>
                       </p>
                     </div>
                   </li>
@@ -118,10 +121,10 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                   {tDanger(level)}
                 </span>
                 <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-                  {t(`${level}Title`)}
+                  <PhoneLinkedText>{t(`${level}Title`)}</PhoneLinkedText>
                 </h2>
                 <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t(`${level}Lead`)}
+                  <PhoneLinkedText>{t(`${level}Lead`)}</PhoneLinkedText>
                 </p>
               </div>
 
@@ -129,10 +132,14 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                 {([1, 2, 3] as const).map((n) => (
                   <li className="py-5" key={n}>
                     <p className="font-display text-[17px] font-medium text-foreground">
-                      {t(`${level}Point${n}Title`)}
+                      <PhoneLinkedText>
+                        {t(`${level}Point${n}Title`)}
+                      </PhoneLinkedText>
                     </p>
                     <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`${level}Point${n}Body`)}
+                      <PhoneLinkedText>
+                        {t(`${level}Point${n}Body`)}
+                      </PhoneLinkedText>
                     </p>
                   </li>
                 ))}
@@ -145,7 +152,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                     : t("speciesTitle", { count: species.length })}
                 </h3>
                 <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                  {t(`${level}SpeciesBody`)}
+                  <PhoneLinkedText>{t(`${level}SpeciesBody`)}</PhoneLinkedText>
                 </p>
                 {species.length > 0 ? (
                   <SpeciesGuideList
@@ -240,4 +247,3 @@ function levelTone(level: DangerLevel) {
       };
   }
 }
-

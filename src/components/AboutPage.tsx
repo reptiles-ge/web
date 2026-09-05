@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 
@@ -78,9 +79,15 @@ export async function AboutPage() {
               </div>
               <div>
                 <div className="space-y-5 text-[15px] leading-[1.75] text-muted-foreground">
-                  <p>{t("companyBody1")}</p>
-                  <p>{t("companyBody2")}</p>
-                  <p>{t("companyBody3")}</p>
+                  <p>
+                    <PhoneLinkedText>{t("companyBody1")}</PhoneLinkedText>
+                  </p>
+                  <p>
+                    <PhoneLinkedText>{t("companyBody2")}</PhoneLinkedText>
+                  </p>
+                  <p>
+                    <PhoneLinkedText>{t("companyBody3")}</PhoneLinkedText>
+                  </p>
                 </div>
                 <Link
                   className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium text-foreground transition-colors hover:text-primary"

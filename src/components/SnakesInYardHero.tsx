@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
   const t = useTranslations("snakesInYard");
@@ -26,14 +27,14 @@ export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <div>
-            <InkHeroBreadcrumb
-              crumbs={[
-                { href: "/", label: t("breadcrumbHome"), withBack: true },
-                { href: "/snakes", label: tSnakes("breadcrumbCurrent") },
-                { label: t("breadcrumbCurrent") },
-              ]}
-            />
+        <div>
+          <InkHeroBreadcrumb
+            crumbs={[
+              { href: "/", label: t("breadcrumbHome"), withBack: true },
+              { href: "/snakes", label: tSnakes("breadcrumbCurrent") },
+              { label: t("breadcrumbCurrent") },
+            ]}
+          />
 
           <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
             Reptiles
@@ -42,7 +43,7 @@ export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
             {t("title")}
           </h1>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
-            {t("subtitle")}
+            <PhoneLinkedText>{t("subtitle")}</PhoneLinkedText>
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
             <a

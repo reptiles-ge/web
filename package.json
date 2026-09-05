@@ -12,6 +12,7 @@
     "analyze": "pnpm run prebuild && ANALYZE=true pnpm exec next build --webpack",
     "start": "next start",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "typecheck": "tsc --noEmit",
     "doctor": "react-doctor -y --verbose",
     "doctor:changed": "react-doctor -y --verbose --scope changed",

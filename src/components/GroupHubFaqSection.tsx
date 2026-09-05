@@ -12,6 +12,7 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -86,7 +87,7 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
                           ) : hubId === "turtles" && n === 4 ? (
                             <TurtlesFaq4Answer />
                           ) : (
-                            t(`faq${n}A`)
+                            <PhoneLinkedText>{t(`faq${n}A`)}</PhoneLinkedText>
                           )}
                         </p>
                       </div>
@@ -117,28 +118,36 @@ function hubFaqIndices(
 function SnakesFaq5Answer() {
   const t = useTranslations("snakes");
 
-  return t.rich("faq5A", {
-    bite: (chunks) => (
-      <Link className={faqLinkClassName} href="/snakes/gvelis-nakbeni">
-        {chunks}
-      </Link>
-    ),
-    yard: (chunks) => (
-      <Link className={faqLinkClassName} href="/snakes-in-the-yard">
-        {chunks}
-      </Link>
-    ),
-  });
+  return (
+    <PhoneLinkedText>
+      {t.rich("faq5A", {
+        bite: (chunks) => (
+          <Link className={faqLinkClassName} href="/snakes/gvelis-nakbeni">
+            {chunks}
+          </Link>
+        ),
+        yard: (chunks) => (
+          <Link className={faqLinkClassName} href="/snakes-in-the-yard">
+            {chunks}
+          </Link>
+        ),
+      })}
+    </PhoneLinkedText>
+  );
 }
 
 function TurtlesFaq4Answer() {
   const t = useTranslations("turtles");
 
-  return t.rich("faq4A", {
-    identify: (chunks) => (
-      <Link className={faqLinkClassName} href="/turtles/identifikacia">
-        {chunks}
-      </Link>
-    ),
-  });
+  return (
+    <PhoneLinkedText>
+      {t.rich("faq4A", {
+        identify: (chunks) => (
+          <Link className={faqLinkClassName} href="/turtles/identifikacia">
+            {chunks}
+          </Link>
+        ),
+      })}
+    </PhoneLinkedText>
+  );
 }

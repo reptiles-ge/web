@@ -5,6 +5,7 @@ import {
   CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 type ClusterGuideLeadProps = {
   body: ReactNode;
@@ -31,7 +32,7 @@ export function ClusterGuideLead({
           </div>
           <div>
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              {body}
+              <PhoneLinkedText>{body}</PhoneLinkedText>
             </div>
           </div>
         </div>

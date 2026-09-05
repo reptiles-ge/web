@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 
 export function ErrorFallback({ reset }: { reset: () => void }) {
@@ -25,10 +26,10 @@ export function ErrorFallback({ reset }: { reset: () => void }) {
         {t("title")}
       </h1>
       <p className="mt-5 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-        {t("body")}
+        <PhoneLinkedText>{t("body")}</PhoneLinkedText>
       </p>
       <p className="mt-4 text-[14px] font-medium text-foreground">
-        {t("emergency")}
+        <PhoneLinkedText>{t("emergency")}</PhoneLinkedText>
       </p>
       <div className="mt-10 flex flex-wrap gap-3">
         <button

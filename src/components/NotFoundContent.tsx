@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
 import { NotFoundAnalytics } from "@/components/NotFoundAnalytics";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { images } from "@/data/species";
 import { Link } from "@/i18n/navigation";
 
@@ -52,7 +53,7 @@ export async function NotFoundContent() {
             {t("title")}
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/60 sm:mt-6 sm:text-[16px]">
-            {t("body")}
+            <PhoneLinkedText>{t("body")}</PhoneLinkedText>
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">

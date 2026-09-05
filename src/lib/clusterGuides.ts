@@ -87,8 +87,21 @@ const largeSnakeIdSet = new Set<string>(LARGE_SNAKE_IDS);
 const turtleLandIdSet = new Set<string>(TURTLE_LAND_IDS);
 const turtleWaterIdSet = new Set<string>(TURTLE_WATER_IDS);
 
+export const HOUSE_LIZARD_IDS = [
+  "tenuidactylus-caspius",
+  "paralaudakia-caucasia",
+] as const;
+
+export const YARD_CANID_IDS = [
+  "canis-aureus",
+  "vulpes-vulpes",
+  "canis-lupus",
+] as const;
+
+export const VENOMOUS_SPIDER_IDS = ["latrodectus-tredecimguttatus"] as const;
+
 export type ClusterGuideConfig = {
-  faqCount: 4 | 5 | 8 | 10;
+  faqCount: 4 | 5 | 6 | 8 | 10;
   heroImage?: string;
   heroSpeciesId: string;
   id: ClusterGuideId;
@@ -108,14 +121,19 @@ export type ClusterGuideId =
   | "bird-index"
   | "lizard-darevskia"
   | "lizard-glass"
+  | "lizard-house"
   | "lizard-identify"
   | "lizard-index"
+  | "mammal-bear"
   | "mammal-index"
+  | "mammal-jackal-yard"
   | "snake-bite"
   | "snake-identify"
   | "snake-index"
   | "snake-largest"
   | "snake-range"
+  | "spider-bite"
+  | "spider-venomous"
   | "turtle-identify"
   | "turtle-index"
   | "turtle-land"
@@ -131,15 +149,20 @@ export type ClusterGuidePath =
   | "/lizards/darevskia"
   | "/lizards/identifikacia"
   | "/lizards/saxeoebebi"
+  | "/lizards/xvliki-saxlshi"
   | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
   | "/mammals"
+  | "/mammals/datvi-shekhvedra"
   | "/mammals/saxeoebebi"
+  | "/mammals/tura-ezoshi"
   | "/snakes/didi-gvelebi"
   | "/snakes/gavrtseleba"
   | "/snakes/gvelis-nakbeni"
   | "/snakes/saxeoebebi"
   | "/snakes/shxamiani-gvelis-amocnoba"
   | "/spiders"
+  | "/spiders/obobis-nakbeni"
+  | "/spiders/shxamiani-obobebi"
   | "/turtles/identifikacia"
   | "/turtles/saxeoebebi"
   | "/turtles/tsqlis-kuebi"
@@ -153,14 +176,19 @@ export type ClusterMessageKey =
   | "birdIndex"
   | "lizardCompare"
   | "lizardDarevskia"
+  | "lizardHouse"
   | "lizardIdentify"
   | "lizardIndex"
+  | "mammalBear"
   | "mammalIndex"
+  | "mammalJackalYard"
   | "snakeBite"
   | "snakeIdentify"
   | "snakeIndex"
   | "snakeLargest"
   | "snakeRange"
+  | "spiderBite"
+  | "spiderVenomous"
   | "turtleIdentify"
   | "turtleIndex"
   | "turtleLand"
@@ -200,6 +228,10 @@ export function isNewtSpecies(id: string) {
 
 export function isSnakeSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "snake";
+}
+
+export function isSpiderSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "spider";
 }
 
 export function isTurtleSpecies(species: Species) {
@@ -292,6 +324,18 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     primaryCta: "hash",
     schema: "article",
   },
+  "lizard-house": {
+    faqCount: 6,
+    heroSpeciesId: "tenuidactylus-caspius",
+    id: "lizard-house",
+    matches: (species) =>
+      (HOUSE_LIZARD_IDS as readonly string[]).includes(species.id),
+    messageKey: "lizardHouse",
+    parentHub: "lizards",
+    pathname: "/lizards/xvliki-saxlshi",
+    primaryCta: "hash",
+    schema: "article",
+  },
   "lizard-identify": {
     faqCount: 4,
     heroSpeciesId: "paralaudakia-caucasia",
@@ -317,6 +361,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     primaryCta: "hash",
     schema: "collection",
   },
+  "mammal-bear": {
+    faqCount: 6,
+    heroSpeciesId: "ursus-arctos",
+    id: "mammal-bear",
+    matches: (species) => species.id === "ursus-arctos",
+    messageKey: "mammalBear",
+    parentHub: "mammals",
+    pathname: "/mammals/datvi-shekhvedra",
+    primaryCta: "tel",
+    schema: "article",
+  },
   "mammal-index": {
     faqCount: 4,
     heroSpeciesId: "vulpes-vulpes",
@@ -327,6 +382,18 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     pathname: "/mammals/saxeoebebi",
     primaryCta: "hash",
     schema: "collection",
+  },
+  "mammal-jackal-yard": {
+    faqCount: 6,
+    heroSpeciesId: "canis-aureus",
+    id: "mammal-jackal-yard",
+    matches: (species) =>
+      (YARD_CANID_IDS as readonly string[]).includes(species.id),
+    messageKey: "mammalJackalYard",
+    parentHub: "mammals",
+    pathname: "/mammals/tura-ezoshi",
+    primaryCta: "hash",
+    schema: "article",
   },
   "snake-bite": {
     faqCount: 8,
@@ -390,6 +457,29 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     pathname: "/snakes/gavrtseleba",
     primaryCta: "hash",
     schema: "article",
+  },
+  "spider-bite": {
+    faqCount: 8,
+    heroSpeciesId: "latrodectus-tredecimguttatus",
+    id: "spider-bite",
+    matches: (species) =>
+      (VENOMOUS_SPIDER_IDS as readonly string[]).includes(species.id),
+    messageKey: "spiderBite",
+    parentHub: "spiders",
+    pathname: "/spiders/obobis-nakbeni",
+    primaryCta: "tel",
+    schema: "article",
+  },
+  "spider-venomous": {
+    faqCount: 6,
+    heroSpeciesId: "latrodectus-tredecimguttatus",
+    id: "spider-venomous",
+    matches: isSpiderSpecies,
+    messageKey: "spiderVenomous",
+    parentHub: "spiders",
+    pathname: "/spiders/shxamiani-obobebi",
+    primaryCta: "hash",
+    schema: "collection",
   },
   "turtle-identify": {
     faqCount: 4,
@@ -458,6 +548,7 @@ export type HubClusterCard =
         | ClusterGuidePath;
       key:
         | "amphibianIndex"
+        | "bearEncounter"
         | "birdIndex"
         | "birdsHub"
         | "bite"
@@ -466,8 +557,10 @@ export type HubClusterCard =
         | "glassLizard"
         | "identify"
         | "index"
+        | "jackalYard"
         | "largest"
         | "lizardDarevskia"
+        | "lizardHouse"
         | "lizardIdentify"
         | "lizardIndex"
         | "lizardQuiz"
@@ -477,7 +570,9 @@ export type HubClusterCard =
         | "newts"
         | "range"
         | "snakesHub"
+        | "spiderBite"
         | "spidersHub"
+        | "spiderVenomous"
         | "turtleIdentify"
         | "turtleIndex"
         | "turtleLand"
@@ -509,6 +604,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
     { id: "lizard", key: "lizardQuiz", kind: "quiz" },
     { href: "/lizards/identifikacia", key: "lizardIdentify", kind: "page" },
+    { href: "/lizards/xvliki-saxlshi", key: "lizardHouse", kind: "page" },
     { href: "/lizards/darevskia", key: "lizardDarevskia", kind: "page" },
     {
       href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
@@ -518,7 +614,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { id: "paralaudakia-caucasia", key: "jojo", kind: "species" },
     { id: "pseudopus-apodus", key: "gvelxokera", kind: "species" },
   ],
-  mammals: [{ href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" }],
+  mammals: [
+    { href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" },
+    { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
+    { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
+  ],
   snakes: [
     { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },
@@ -534,7 +634,14 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/snakes-in-the-yard", key: "yard", kind: "page" },
     { id: "macrovipera-lebetina", key: "giurza", kind: "species" },
   ],
-  spiders: [],
+  spiders: [
+    {
+      href: "/spiders/shxamiani-obobebi",
+      key: "spiderVenomous",
+      kind: "page",
+    },
+    { href: "/spiders/obobis-nakbeni", key: "spiderBite", kind: "page" },
+  ],
   turtles: [
     { href: "/turtles/saxeoebebi", key: "turtleIndex", kind: "page" },
     { href: "/turtles/identifikacia", key: "turtleIdentify", kind: "page" },
@@ -670,6 +777,8 @@ export function splitHubSpecies(
   ].filter((section) => section.items.length > 0);
 }
 
+const houseLizardIdSet = new Set<string>(HOUSE_LIZARD_IDS);
+const yardCanidIdSet = new Set<string>(YARD_CANID_IDS);
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
 const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
@@ -803,6 +912,13 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "lizardIdentify",
       kind: "page",
     });
+    if (houseLizardIdSet.has(id)) {
+      links.push({
+        href: "/lizards/xvliki-saxlshi",
+        key: "lizardHouse",
+        kind: "page",
+      });
+    }
     if (glassCompareIdSet.has(id)) {
       links.push({
         href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
@@ -842,8 +958,32 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "mammalIndex",
       kind: "page",
     });
+    if (yardCanidIdSet.has(id)) {
+      links.push({
+        href: "/mammals/tura-ezoshi",
+        key: "jackalYard",
+        kind: "page",
+      });
+    }
+    if (id === "ursus-arctos") {
+      links.push({
+        href: "/mammals/datvi-shekhvedra",
+        key: "bearEncounter",
+        kind: "page",
+      });
+    }
   } else if (group === "spider") {
     links.push({ href: "/spiders", key: "spidersHub", kind: "page" });
+    links.push({
+      href: "/spiders/shxamiani-obobebi",
+      key: "spiderVenomous",
+      kind: "page",
+    });
+    links.push({
+      href: "/spiders/obobis-nakbeni",
+      key: "spiderBite",
+      kind: "page",
+    });
   } else {
     links.push({
       href: "/amphibians/saxeoebebi",

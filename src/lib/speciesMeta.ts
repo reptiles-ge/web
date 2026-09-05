@@ -118,6 +118,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
     ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
   },
+  "streptopelia-turtur": {
+    en: "European turtle dove (Streptopelia turtur) | Migratory dove in Georgia",
+    ka: "გვრიტი (Streptopelia turtur) | გადამფრენი მტრედი საქართველოში",
+  },
   "vipera-kaznakovi": {
     en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
     ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",

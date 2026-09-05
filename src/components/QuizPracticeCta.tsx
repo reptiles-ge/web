@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { type QuizCtaSource, trackEvent } from "@/lib/analytics";
 import { quizHref } from "@/lib/quizzes";
@@ -73,7 +74,7 @@ export function QuizPracticeCta({
               {title}
             </h2>
             <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-              {body}
+              <PhoneLinkedText>{body}</PhoneLinkedText>
             </p>
           </div>
           <QuizCtaLink

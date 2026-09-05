@@ -7,6 +7,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
@@ -81,7 +82,7 @@ export async function SpeciesProfileBody({
             {t("whoIs")} {species.commonName}
           </AnchoredHeading>
           <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-            {species.overview}
+            <PhoneLinkedText>{species.overview}</PhoneLinkedText>
           </p>
           <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
             {t("lastUpdated")}{" "}

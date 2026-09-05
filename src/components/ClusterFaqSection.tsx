@@ -9,6 +9,7 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
 type ClusterFaqItem = {
@@ -86,7 +87,7 @@ export function ClusterFaqSection({
                     >
                       <div className="overflow-hidden">
                         <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                          {item.answer}
+                          <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                         </p>
                       </div>
                     </div>

@@ -13,13 +13,18 @@ import { DarevskiaGuidePage } from "@/components/DarevskiaGuidePage";
 import { FrogSpeciesIndexPage } from "@/components/FrogSpeciesIndexPage";
 import { JsonLd } from "@/components/JsonLd";
 import { LizardComparePage } from "@/components/LizardComparePage";
+import { LizardHousePage } from "@/components/LizardHousePage";
 import { LizardIdentifyPage } from "@/components/LizardIdentifyPage";
 import { LizardSpeciesIndexPage } from "@/components/LizardSpeciesIndexPage";
+import { MammalBearPage } from "@/components/MammalBearPage";
+import { MammalJackalYardPage } from "@/components/MammalJackalYardPage";
 import { SnakeBitePage } from "@/components/SnakeBitePage";
 import { SnakeIdentifyPage } from "@/components/SnakeIdentifyPage";
 import { SnakeLargestPage } from "@/components/SnakeLargestPage";
 import { SnakeRangePage } from "@/components/SnakeRangePage";
 import { SnakeSpeciesIndexPage } from "@/components/SnakeSpeciesIndexPage";
+import { SpiderBitePage } from "@/components/SpiderBitePage";
+import { SpiderVenomousPage } from "@/components/SpiderVenomousPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
 import { getCatalogSpecies } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
@@ -57,14 +62,19 @@ const CLUSTER_PAGES: Record<
   "bird-index": CatalogSpeciesIndexPage,
   "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
+  "lizard-house": LizardHousePage,
   "lizard-identify": LizardIdentifyPage,
   "lizard-index": LizardSpeciesIndexPage,
+  "mammal-bear": MammalBearPage,
   "mammal-index": CatalogSpeciesIndexPage,
+  "mammal-jackal-yard": MammalJackalYardPage,
   "snake-bite": SnakeBitePage,
   "snake-identify": SnakeIdentifyPage,
   "snake-index": SnakeSpeciesIndexPage,
   "snake-largest": SnakeLargestPage,
   "snake-range": SnakeRangePage,
+  "spider-bite": SpiderBitePage,
+  "spider-venomous": SpiderVenomousPage,
   "turtle-identify": TurtleIdentifyPage,
   "turtle-index": CatalogSpeciesIndexPage,
   "turtle-land": ClusterGuidePage,

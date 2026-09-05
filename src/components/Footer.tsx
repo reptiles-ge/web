@@ -35,6 +35,20 @@ const guideLinks = [
   },
   { href: "/snakes/gvelis-nakbeni" as const, labelKey: "snakeBite" as const },
   { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
+  {
+    href: "/spiders/shxamiani-obobebi" as const,
+    labelKey: "spiderVenomous" as const,
+  },
+  { href: "/spiders/obobis-nakbeni" as const, labelKey: "spiderBite" as const },
+  {
+    href: "/mammals/tura-ezoshi" as const,
+    labelKey: "jackalYard" as const,
+  },
+  {
+    href: "/mammals/datvi-shekhvedra" as const,
+    labelKey: "bearEncounter" as const,
+  },
+  { href: "/lizards/xvliki-saxlshi" as const, labelKey: "lizardHouse" as const },
   { href: "/risk-to-humans" as const, labelKey: "riskLevels" as const },
 ];
 

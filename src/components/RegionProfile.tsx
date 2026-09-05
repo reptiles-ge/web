@@ -11,6 +11,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
@@ -82,11 +83,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
           description={region.description}
           habitats={content.habitats}
         />
-        <RegionProfileSpecies
-          name={name}
-          nameIn={nameIn}
-          species={species}
-        />
+        <RegionProfileSpecies name={name} nameIn={nameIn} species={species} />
         {venomous.length > 0 ? (
           <RegionProfileVenomous
             name={name}
@@ -235,7 +232,7 @@ function RegionFaqSection({
                     >
                       <div className="overflow-hidden">
                         <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                          {item.answer}
+                          <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                         </p>
                       </div>
                     </div>
@@ -519,7 +516,9 @@ function RegionProfileSpecies({
             ))}
           </div>
         ) : (
-          <p className="mt-10 text-[14px] text-muted-foreground">{t("empty")}</p>
+          <p className="mt-10 text-[14px] text-muted-foreground">
+            {t("empty")}
+          </p>
         )}
         <p className="mt-10 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
           {t("dataGapBody")}

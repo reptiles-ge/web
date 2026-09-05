@@ -8,6 +8,7 @@ import {
   VISIT_STORAGE_KEY,
   writeVisitSeenValue,
 } from "@/lib/visitNotify";
+import { postVisitPing } from "@/lib/visitPingClient";
 
 let inFlight = false;
 
@@ -26,13 +27,7 @@ export function VisitPing() {
       ) ?? window.location.pathname;
     const referrer = document.referrer || undefined;
 
-    void fetch("/api/visit", {
-      body: JSON.stringify({ path, referrer }),
-      credentials: "same-origin",
-      headers: { "content-type": "application/json" },
-      keepalive: true,
-      method: "POST",
-    })
+    void postVisitPing({ path, referrer })
       .then((response) => {
         if (response.status === 204) return;
         clearSeen();

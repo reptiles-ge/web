@@ -35,15 +35,27 @@ export const pathnames = {
     "/lizards/identify",
   ),
   "/lizards/saxeoebebi": kaLatin("/xvlikebi/saxeoebebi", "/lizards/species"),
+  "/lizards/xvliki-saxlshi": kaLatin(
+    "/xvlikebi/xvliki-saxlshi",
+    "/lizards/in-the-house",
+  ),
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba": kaLatin(
     "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
     "/lizards/lizard-or-glass-lizard",
   ),
   "/mammals": kaLatin("/dzuzumtsovrebi", "/mammals"),
   "/mammals/[slug]": kaLatin("/dzuzumtsovrebi/[slug]", "/mammals/[slug]"),
+  "/mammals/datvi-shekhvedra": kaLatin(
+    "/dzuzumtsovrebi/datvi-shekhvedra",
+    "/mammals/bear-encounter",
+  ),
   "/mammals/saxeoebebi": kaLatin(
     "/dzuzumtsovrebi/saxeoebebi",
     "/mammals/species",
+  ),
+  "/mammals/tura-ezoshi": kaLatin(
+    "/dzuzumtsovrebi/tura-ezoshi",
+    "/mammals/jackal-in-the-yard",
   ),
   "/news": "/news",
   "/news/[slug]": "/news/[slug]",
@@ -70,6 +82,14 @@ export const pathnames = {
   "/species/[id]": "/species/[id]",
   "/spiders": kaLatin("/obobebi", "/spiders"),
   "/spiders/[slug]": kaLatin("/obobebi/[slug]", "/spiders/[slug]"),
+  "/spiders/obobis-nakbeni": kaLatin(
+    "/obobebi/obobis-nakbeni",
+    "/spiders/bite",
+  ),
+  "/spiders/shxamiani-obobebi": kaLatin(
+    "/obobebi/shxamiani-obobebi",
+    "/spiders/venomous",
+  ),
   "/turtles": kaLatin("/kuebi", "/turtles"),
   "/turtles/[slug]": kaLatin("/kuebi/[slug]", "/turtles/[slug]"),
   "/turtles/identifikacia": kaLatin(

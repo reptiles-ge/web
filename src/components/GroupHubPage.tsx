@@ -17,6 +17,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { GroupHubFaqSection } from "@/components/GroupHubFaqSection";
 import { GroupHubHero } from "@/components/GroupHubHero";
 import { GroupHubSpeciesList } from "@/components/GroupHubSpeciesList";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { Link } from "@/i18n/navigation";
@@ -29,7 +30,11 @@ type GroupHubPageProps = {
   species: Species[];
 };
 
-export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
+export async function GroupHubPage({
+  heroSrc,
+  hubId,
+  species,
+}: GroupHubPageProps) {
   const t = await getTranslations(hubId);
   const tShared = await getTranslations("groupHubShared");
   const locale = (await getLocale()) as AppLocale;
@@ -55,8 +60,12 @@ export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProp
               </div>
               <div>
                 <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-                  <p>{t("guideP1")}</p>
-                  <p>{t("guideP2")}</p>
+                  <p>
+                    <PhoneLinkedText>{t("guideP1")}</PhoneLinkedText>
+                  </p>
+                  <p>
+                    <PhoneLinkedText>{t("guideP2")}</PhoneLinkedText>
+                  </p>
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import type { QuizCopyNamespace } from "@/lib/quizzes";
 import type { SnakeQuizSpecies } from "@/lib/snakeQuiz";
 
 import { CoverImage } from "@/components/CoverImage";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import {
   LIZARD_LOOKALIKE_PAIRS,
@@ -90,11 +91,21 @@ export async function QuizLanding({
             {t("practiceTitle")}
           </h2>
           <div className="mt-8 max-w-3xl space-y-5 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-            <p>{t("practiceLead")}</p>
-            <p>{t("practiceP1")}</p>
-            <p>{t("practiceP2")}</p>
-            <p>{t("practiceP3")}</p>
-            <p>{t("practiceP4")}</p>
+            <p>
+              <PhoneLinkedText>{t("practiceLead")}</PhoneLinkedText>
+            </p>
+            <p>
+              <PhoneLinkedText>{t("practiceP1")}</PhoneLinkedText>
+            </p>
+            <p>
+              <PhoneLinkedText>{t("practiceP2")}</PhoneLinkedText>
+            </p>
+            <p>
+              <PhoneLinkedText>{t("practiceP3")}</PhoneLinkedText>
+            </p>
+            <p>
+              <PhoneLinkedText>{t("practiceP4")}</PhoneLinkedText>
+            </p>
           </div>
 
           <h3 className="mt-14 font-display text-display-card font-semibold">
@@ -129,7 +140,7 @@ export async function QuizLanding({
                   </Link>
                 </p>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">
-                  {t(pair.bodyKey)}
+                  <PhoneLinkedText>{t(pair.bodyKey)}</PhoneLinkedText>
                 </p>
               </li>
             ))}
@@ -140,7 +151,7 @@ export async function QuizLanding({
               {t("practiceGuideTitle")}
             </h3>
             <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-              {t("practiceGuideBody")}
+              <PhoneLinkedText>{t("practiceGuideBody")}</PhoneLinkedText>
             </p>
             <Link
               className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"

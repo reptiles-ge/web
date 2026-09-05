@@ -6,6 +6,7 @@ import { Fragment } from "react";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
   getSpeciesById,
   type SpeciesIdentification as Identification,
@@ -85,7 +86,11 @@ function IdentificationRichText({ text }: { text: string }) {
             ? `t:${part.value}`
             : `s:${part.id}:${part.label}`;
         if (part.type === "text") {
-          return <Fragment key={key}>{part.value}</Fragment>;
+          return (
+            <Fragment key={key}>
+              <PhoneLinkedText>{part.value}</PhoneLinkedText>
+            </Fragment>
+          );
         }
 
         const target = getSpeciesById(part.id);
