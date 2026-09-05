@@ -47179,6 +47179,73 @@
       ],
       "updatedAt": "2026-08-28T22:01:25.236Z"
     },
+    "vipera-renardi-giorgi-1.jpg": {
+      "sourceHash": "cb2d4851ad82c79d2d9f9852089fc6f88862fe3294ee5fc3da481afa5d52e96d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-renardi-giorgi-1.jpg",
+      "originalSize": 332440,
+      "width": 2048,
+      "height": 1369,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12186
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17808
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 535,
+          "byteSize": 41096
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 535,
+          "byteSize": 62392
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 79975
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 112750
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1369,
+          "byteSize": 187239
+        },
+        {
+          "key": "optimized/vipera-renardi-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1369,
+          "byteSize": 236888
+        }
+      ],
+      "updatedAt": "2026-09-05T16:08:00.878Z"
+    },
     "vipera-renardi-mobile.webp": {
       "sourceHash": "e4470cd22306b3b841282d924d271f1100922e2f76031804da32877249aeb80e",
       "configFingerprint": "a895f8e025dcc7fa",
