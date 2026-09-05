@@ -1,8 +1,27 @@
 "use client";
 
+import { Globe } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { useCallback, useId, useRef, useState } from "react";
+
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { pushPageContext, trackEvent } from "@/lib/analytics";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+  chromeShellClass,
+} from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
+import {
+  quizHrefFromIndex,
+  resolvePageContextFromIndex,
+  resolveSpeciesIdFromIndex,
+  speciesHrefFromIndex,
+  type LocaleSwitchIndex,
+} from "@/lib/localeSwitch";
 
 const STATIC_LOCALE_PATHS = [
   "/",
@@ -60,25 +79,6 @@ type LocaleOptionsProps = {
   onSelect: (code: AppLocale) => void;
   title: string;
 };
-import { Globe } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-import { useCallback, useId, useRef, useState } from "react";
-
-import { pushPageContext, trackEvent } from "@/lib/analytics";
-import {
-  chromeIconButtonBase,
-  chromeIconButtonClass,
-  chromeShellClass,
-} from "@/lib/chromeStyles";
-import { cn } from "@/lib/cn";
-import {
-  quizHrefFromIndex,
-  resolvePageContextFromIndex,
-  resolveSpeciesIdFromIndex,
-  speciesHrefFromIndex,
-  type LocaleSwitchIndex,
-} from "@/lib/localeSwitch";
 
 type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
 
