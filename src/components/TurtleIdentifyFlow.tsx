@@ -213,7 +213,7 @@ function SpeciesResult({
     <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:p-6">
       <Link
         className="relative block aspect-5/4 w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
-        href={speciesHref(species.id, locale)}
+        href={useSpeciesHref(species.id, locale)}
       >
         <CoverImage
           alt={`${species.commonName} (${species.scientificName})`}
