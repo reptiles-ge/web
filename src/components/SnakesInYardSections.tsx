@@ -9,6 +9,7 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 const ACTION_KEYS = [1, 2, 3] as const;
 const MYTH_KEYS = [1, 2, 3, 4] as const;
@@ -54,7 +55,7 @@ function SnakesInYardActions() {
                   {t(`action${n}Title`)}
                 </h3>
                 <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                  {t(`action${n}Body`)}
+                  <PhoneLinkedText>{t(`action${n}Body`)}</PhoneLinkedText>
                 </p>
               </div>
             </li>

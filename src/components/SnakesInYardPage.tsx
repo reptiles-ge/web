@@ -14,11 +14,17 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SnakesInYardHero } from "@/components/SnakesInYardHero";
 import { SnakesInYardSections } from "@/components/SnakesInYardSections";
 import { Link } from "@/i18n/navigation";
 import { getHubPageRelatedGuides } from "@/lib/clusterGuides";
+import {
+  AGENCY_PHONE_DISPLAY,
+  AGENCY_PHONE_TEL,
+  EMERGENCY_PHONE,
+} from "@/lib/phoneLinks";
 
 type SnakesInYardPageProps = {
   coverSrc: string;
@@ -26,9 +32,6 @@ type SnakesInYardPageProps = {
 };
 
 const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
-const AGENCY_PHONE = "0322721600";
-const AGENCY_PHONE_DISPLAY = "032 272 16 00";
-const EMERGENCY_PHONE = "112";
 
 export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
   const t = await getTranslations("snakesInYard");
@@ -68,7 +71,7 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                       {t("contactBiteTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                      {t("contactBiteBody")}
+                      <PhoneLinkedText>{t("contactBiteBody")}</PhoneLinkedText>
                     </p>
                   </div>
                   <a
@@ -99,12 +102,12 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                       {t("contactAgencyTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                      {t("contactAgencyBody")}
+                      <PhoneLinkedText>{t("contactAgencyBody")}</PhoneLinkedText>
                     </p>
                   </div>
                   <a
                     className="mt-8 inline-flex items-center gap-2 self-start rounded-full border border-border bg-background px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                    href={`tel:${AGENCY_PHONE}`}
+                    href={`tel:${AGENCY_PHONE_TEL}`}
                   >
                     {t("contactAgencyCta")}
                     <span className="font-display tracking-wide">

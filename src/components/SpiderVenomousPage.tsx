@@ -8,6 +8,7 @@ import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -43,10 +44,10 @@ export async function SpiderVenomousPage({
             {t("summaryEyebrow")}
           </p>
           <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
-            {t("summaryTitle")}
+            <PhoneLinkedText>{t("summaryTitle")}</PhoneLinkedText>
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("summaryLead")}
+            <PhoneLinkedText>{t("summaryLead")}</PhoneLinkedText>
           </p>
           <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
             {SUMMARY.map((n) => (
@@ -54,7 +55,7 @@ export async function SpiderVenomousPage({
                 className="py-4 text-[15px] leading-relaxed text-foreground"
                 key={n}
               >
-                {t(`summary${n}`)}
+                <PhoneLinkedText>{t(`summary${n}`)}</PhoneLinkedText>
               </li>
             ))}
           </ul>
