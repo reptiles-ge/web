@@ -29712,6 +29712,73 @@
       ],
       "updatedAt": "2026-09-05T16:40:00.150Z"
     },
+    "latrodectus-tredecimguttatus-zakro-1.jpg": {
+      "sourceHash": "f4547f3a798eb58d1ffac28713a4bfd6d588378068ad16099f26d4730823f465",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "latrodectus-tredecimguttatus-zakro-1.jpg",
+      "originalSize": 453846,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22509
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35710
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63590
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 100146
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 110190
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 163868
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 254756
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-zakro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 318574
+        }
+      ],
+      "updatedAt": "2026-09-05T16:42:44.071Z"
+    },
     "lissotriton-lantzi-2.jpg": {
       "sourceHash": "f3b01ad9d28d14a5586a10fd8dd65029b405b3fafb1891e8087d956ad507e639",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -3294,6 +3294,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-zakro-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-zakro-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lissotriton-lantzi-2.jpg": {
     "path": "lissotriton-lantzi-2",
     "width": 2048,
