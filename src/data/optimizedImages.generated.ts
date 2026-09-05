@@ -4953,6 +4953,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/vipera-darevskii-1.jpg": {
+    "path": "vipera-darevskii-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-darevskii-2.jpg": {
     "path": "vipera-darevskii-2",
     "width": 1600,
@@ -4973,6 +4980,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1561,
     "widths": [400, 800, 1200, 1838],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-5.jpg": {
+    "path": "vipera-darevskii-5",
+    "width": 2048,
+    "height": 1365,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-giorgi-1.jpg": {
+    "path": "vipera-darevskii-giorgi-1",
+    "width": 2048,
+    "height": 1313,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-darevskii-guram-1.jpg": {
     "path": "vipera-darevskii-guram-1",

@@ -44112,6 +44112,73 @@
       ],
       "updatedAt": "2026-08-28T22:00:00.126Z"
     },
+    "vipera-darevskii-1.jpg": {
+      "sourceHash": "4ad85dc3107990f4528e7ad3895641244ddc93ac735d221451533dbe68cef638",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-1.jpg",
+      "originalSize": 444097,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16855
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25726
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55618
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 86694
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 105593
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 163800
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 241697
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 347052
+        }
+      ],
+      "updatedAt": "2026-09-05T15:55:23.444Z"
+    },
     "vipera-darevskii-2.jpg": {
       "sourceHash": "fcb0a903a55946716e6d06fa7609c6ec955dd36b54ec5bee341b0b5263b62c18",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -44312,6 +44379,140 @@
         }
       ],
       "updatedAt": "2026-08-28T22:00:14.506Z"
+    },
+    "vipera-darevskii-5.jpg": {
+      "sourceHash": "0c57caba6f6f0aa1099d8859bf8d7b02817f1a511816525d6faa6e3b950b619b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-5.jpg",
+      "originalSize": 379534,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17062
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27534
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51440
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 82594
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88870
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 142026
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 186395
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 275096
+        }
+      ],
+      "updatedAt": "2026-09-05T15:56:37.199Z"
+    },
+    "vipera-darevskii-giorgi-1.jpg": {
+      "sourceHash": "602b5a46c931d76a6f3f4cd29e9a8651fd66a702a81bb00f08eb3e6092995f36",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-giorgi-1.jpg",
+      "originalSize": 590473,
+      "width": 2048,
+      "height": 1313,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 256,
+          "byteSize": 23815
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 256,
+          "byteSize": 39952
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 513,
+          "byteSize": 81426
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 513,
+          "byteSize": 135226
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 769,
+          "byteSize": 148493
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 769,
+          "byteSize": 252694
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1313,
+          "byteSize": 327381
+        },
+        {
+          "key": "optimized/vipera-darevskii-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1313,
+          "byteSize": 494778
+        }
+      ],
+      "updatedAt": "2026-09-05T15:54:37.063Z"
     },
     "vipera-darevskii-guram-1.jpg": {
       "sourceHash": "c80d7cda6f8d121a45e22cf182d671ecd30246ac2dffa0df8302742784ef91df",
