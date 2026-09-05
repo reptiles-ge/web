@@ -7,6 +7,7 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuidePath } from "@/lib/clusterGuides";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -178,7 +179,7 @@ function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
               {t("dangerTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {t("dangerIntro")}
+              <PhoneLinkedText>{t("dangerIntro")}</PhoneLinkedText>
             </p>
             <ul className="mt-8 divide-y divide-border border-y border-border">
               {DANGER_ITEMS.map((n) => (
@@ -186,7 +187,7 @@ function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
                   className="py-4 text-[15px] leading-relaxed text-foreground"
                   key={n}
                 >
-                  {t(`danger${n}`)}
+                  <PhoneLinkedText>{t(`danger${n}`)}</PhoneLinkedText>
                 </li>
               ))}
             </ul>
