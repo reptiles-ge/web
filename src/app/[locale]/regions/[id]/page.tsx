@@ -230,6 +230,13 @@ export default async function RegionPage({ params }: PageProps) {
         }
       : null;
 
+  const species = getRegionSpecies(region).map((item) =>
+    localizeSpecies(item, locale),
+  );
+  const venomous = getRegionVenomousSpecies(region).map((item) =>
+    localizeSpecies(item, locale),
+  );
+
   return (
     <>
       <CoverImagePreload sizes="100vw" src={getRegionHeroImage(region.id)} />
