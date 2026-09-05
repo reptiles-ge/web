@@ -4036,6 +4036,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/ophisops-elegans-ksenia-1.jpg": {
+    "path": "ophisops-elegans-ksenia-1",
+    "width": 1280,
+    "height": 960,
+    "widths": [400, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ophisops-elegans.jpg": {
     "path": "ophisops-elegans",
     "width": 2048,

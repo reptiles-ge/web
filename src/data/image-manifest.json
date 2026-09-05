@@ -35937,6 +35937,73 @@
       ],
       "updatedAt": "2026-09-05T16:19:16.970Z"
     },
+    "ophisops-elegans-ksenia-1.jpg": {
+      "sourceHash": "c308bc0c7ff87119c20a32fc508edf305bc51097eeccc16de90ba4a73dc15d68",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ophisops-elegans-ksenia-1.jpg",
+      "originalSize": 180773,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19078
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27956
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 52220
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74180
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 89630
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 122838
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 106522
+        },
+        {
+          "key": "optimized/ophisops-elegans-ksenia-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 130724
+        }
+      ],
+      "updatedAt": "2026-09-05T16:20:58.535Z"
+    },
     "ophisops-elegans.jpg": {
       "sourceHash": "e9693eae3448db4cc5727713a38534bf8c623f3a1c5463173c0ea21819a1e9e6",
       "configFingerprint": "a895f8e025dcc7fa",
