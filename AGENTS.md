@@ -71,8 +71,8 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Catalog
 
-- **126** MDX folders, **125** featured IDs, **124** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub. `streptopelia-turtur` has MDX but is not in `featuredSpeciesIds`.
-- Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 38 birds, 15 mammals, 4 spiders.
+- **126** MDX folders, **126** featured IDs, **125** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub.
+- Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 39 birds, 15 mammals, 4 spiders.
 - SSOT for live pages, quiz, atlas, search: `getCatalogSpecies()` — never a parallel species list.
 - Atlas group + habitat tags: `speciesAtlasMeta` in `src/data/speciesAtlas.ts`. Adding a species without this entry will break grouping.
 - `vipera-ammodytes` is not a taxon here; 301 → `vipera-transcaucasiana`.

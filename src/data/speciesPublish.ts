@@ -104,6 +104,7 @@ export const featuredSpeciesIds = [
   "coturnix-coturnix",
   "turdus-merula",
   "columba-palumbus",
+  "streptopelia-turtur",
   "motacilla-alba",
   "vulpes-vulpes",
   "canis-aureus",

@@ -215,18 +215,20 @@ function ConflictContact({
           )}
           {photo ? (
             <Link
-              className="group relative block h-full min-h-[260px] bg-ink"
+              className="group relative block h-full min-h-[260px] overflow-hidden bg-ink"
               href={speciesHref(photo.id, locale)}
             >
-              <CoverImage
-                alt={t("heroImageAlt")}
-                className="object-cover object-[50%_55%] transition-transform duration-700 group-hover:scale-[1.03]"
-                sizes="(max-width: 640px) 100vw, 50vw"
-                src={photo.mobileImage ?? photo.image}
-              />
-              <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 font-display text-[15px] font-medium text-white">
-                {photo.commonName}
-              </span>
+              <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]">
+                <CoverImage
+                  alt={t("heroImageAlt")}
+                  className="object-cover object-[50%_55%]"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  src={photo.mobileImage ?? photo.image}
+                />
+                <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 font-display text-[15px] font-medium text-white">
+                  {photo.commonName}
+                </span>
+              </div>
             </Link>
           ) : null}
         </div>

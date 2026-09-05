@@ -70,6 +70,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
   },
+  "streptopelia-turtur": {
+    en: "European turtle dove (Streptopelia turtur) | Migratory dove in Georgia",
+    ka: "გვრიტი (Streptopelia turtur) | გადამფრენი მტრედი საქართველოში",
+  },
   "dolichophis-schmidti": {
     en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
