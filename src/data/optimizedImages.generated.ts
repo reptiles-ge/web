@@ -4904,6 +4904,76 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-dinniki-aleksi-1.jpg": {
+    "path": "vipera-dinniki-aleksi-1",
+    "width": 1315,
+    "height": 1799,
+    "widths": [400, 800, 1200, 1315],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-anano-1.jpg": {
+    "path": "vipera-dinniki-anano-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-anano-2.jpg": {
+    "path": "vipera-dinniki-anano-2",
+    "width": 1653,
+    "height": 1043,
+    "widths": [400, 800, 1200, 1653],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-bichiko-1.jpg": {
+    "path": "vipera-dinniki-bichiko-1",
+    "width": 1080,
+    "height": 720,
+    "widths": [400, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-giorgi-1.jpg": {
+    "path": "vipera-dinniki-giorgi-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-giorgi-2.jpg": {
+    "path": "vipera-dinniki-giorgi-2",
+    "width": 718,
+    "height": 960,
+    "widths": [400, 718],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-qazbegis-1.jpg": {
+    "path": "vipera-dinniki-qazbegis-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-saba-1.jpg": {
+    "path": "vipera-dinniki-saba-1",
+    "width": 1152,
+    "height": 2048,
+    "widths": [400, 800, 1152],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-sandro-1.jpg": {
+    "path": "vipera-dinniki-sandro-1",
+    "width": 2048,
+    "height": 1805,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-sandro-2.jpg": {
+    "path": "vipera-dinniki-sandro-2",
+    "width": 2048,
+    "height": 1805,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg": {
     "path": "vipera-dinniki-truso-2",
     "width": 631,

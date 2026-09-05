@@ -43643,6 +43643,620 @@
       ],
       "updatedAt": "2026-08-28T22:00:30.372Z"
     },
+    "vipera-dinniki-aleksi-1.jpg": {
+      "sourceHash": "bb85499315862a8d723000a35a3b096271de1f22879728ebf2b7a273b6212611",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-aleksi-1.jpg",
+      "originalSize": 767758,
+      "width": 1315,
+      "height": 1799,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 547,
+          "byteSize": 63724
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 547,
+          "byteSize": 95892
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1094,
+          "byteSize": 218170
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1094,
+          "byteSize": 362628
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1642,
+          "byteSize": 388849
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1642,
+          "byteSize": 686886
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1315.avif",
+          "format": "avif",
+          "width": 1315,
+          "height": 1799,
+          "byteSize": 469414
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1315.webp",
+          "format": "webp",
+          "width": 1315,
+          "height": 1799,
+          "byteSize": 767924
+        }
+      ],
+      "updatedAt": "2026-09-05T10:43:34.745Z"
+    },
+    "vipera-dinniki-anano-1.jpg": {
+      "sourceHash": "71f5432ef73ce9cd8dc2bef8fbb38dae43150c41163ad28aba40da92ec83ec8a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-anano-1.jpg",
+      "originalSize": 403759,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-anano-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17507
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25240
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54776
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 80732
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 102170
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 149996
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 242599
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 315880
+        }
+      ],
+      "updatedAt": "2026-09-05T11:05:26.085Z"
+    },
+    "vipera-dinniki-anano-2.jpg": {
+      "sourceHash": "9aec405981c881bf67a755971ac813099709007d96d5e05ce7adb83268e0d0f6",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-anano-2.jpg",
+      "originalSize": 290299,
+      "width": 1653,
+      "height": 1043,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-anano-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 252,
+          "byteSize": 18061
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 252,
+          "byteSize": 27410
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 505,
+          "byteSize": 51977
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 505,
+          "byteSize": 79922
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 95405
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 146500
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1653.avif",
+          "format": "avif",
+          "width": 1653,
+          "height": 1043,
+          "byteSize": 167876
+        },
+        {
+          "key": "optimized/vipera-dinniki-anano-2-1653.webp",
+          "format": "webp",
+          "width": 1653,
+          "height": 1043,
+          "byteSize": 233042
+        }
+      ],
+      "updatedAt": "2026-09-05T11:06:15.341Z"
+    },
+    "vipera-dinniki-bichiko-1.jpg": {
+      "sourceHash": "c85e8046316aa5828f292c09bfc4ff4a3efba58a7d6cbff6cd46308c0f2900e8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-bichiko-1.jpg",
+      "originalSize": 160139,
+      "width": 1080,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-bichiko-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23641
+        },
+        {
+          "key": "optimized/vipera-dinniki-bichiko-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 37436
+        },
+        {
+          "key": "optimized/vipera-dinniki-bichiko-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66298
+        },
+        {
+          "key": "optimized/vipera-dinniki-bichiko-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 105862
+        },
+        {
+          "key": "optimized/vipera-dinniki-bichiko-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 720,
+          "byteSize": 98934
+        },
+        {
+          "key": "optimized/vipera-dinniki-bichiko-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 720,
+          "byteSize": 144198
+        }
+      ],
+      "updatedAt": "2026-09-05T11:10:04.768Z"
+    },
+    "vipera-dinniki-giorgi-1.jpg": {
+      "sourceHash": "a852a1454957a0fa029fbfb7e959128a6fcb687fb7dc3eea5e5e43fd88055a5b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-giorgi-1.jpg",
+      "originalSize": 473931,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21929
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35664
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 67584
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 108200
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 117789
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 180912
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 270832
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 350690
+        }
+      ],
+      "updatedAt": "2026-09-05T11:07:45.468Z"
+    },
+    "vipera-dinniki-giorgi-2.jpg": {
+      "sourceHash": "05a0e7a532691315236510bffa1e3873ec7a5d60ba01b5ca4731face23b4ac2f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-giorgi-2.jpg",
+      "originalSize": 232870,
+      "width": 718,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 535,
+          "byteSize": 59122
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 535,
+          "byteSize": 97040
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-718.avif",
+          "format": "avif",
+          "width": 718,
+          "height": 960,
+          "byteSize": 132889
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-718.webp",
+          "format": "webp",
+          "width": 718,
+          "height": 960,
+          "byteSize": 213008
+        }
+      ],
+      "updatedAt": "2026-09-05T11:11:22.253Z"
+    },
+    "vipera-dinniki-qazbegis-1.jpg": {
+      "sourceHash": "bc3538fd7c65aff8ede9ae634a35652bd360f1870ed83935c22292f32e8578cf",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-qazbegis-1.jpg",
+      "originalSize": 656415,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22611
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31004
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88816
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 124636
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 180101
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 254284
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 438066
+        },
+        {
+          "key": "optimized/vipera-dinniki-qazbegis-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 551272
+        }
+      ],
+      "updatedAt": "2026-09-05T11:03:45.591Z"
+    },
+    "vipera-dinniki-saba-1.jpg": {
+      "sourceHash": "880c9fae6cc1f7118d45391c264ba62c0fff7fb970332e9707f5578369cea938",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-saba-1.jpg",
+      "originalSize": 740919,
+      "width": 1152,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-saba-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 82403
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 127672
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 232202
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 385874
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-1152.avif",
+          "format": "avif",
+          "width": 1152,
+          "height": 2048,
+          "byteSize": 394102
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-1152.webp",
+          "format": "webp",
+          "width": 1152,
+          "height": 2048,
+          "byteSize": 623212
+        }
+      ],
+      "updatedAt": "2026-09-05T11:09:21.773Z"
+    },
+    "vipera-dinniki-sandro-1.jpg": {
+      "sourceHash": "8e3667e96d91961523a3b8fc46105890a6cbd70e3aea6c4732f7eb237cda3af3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-sandro-1.jpg",
+      "originalSize": 472152,
+      "width": 2048,
+      "height": 1805,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 352,
+          "byteSize": 21408
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 352,
+          "byteSize": 32574
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 705,
+          "byteSize": 73660
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 705,
+          "byteSize": 105444
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1058,
+          "byteSize": 132943
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1058,
+          "byteSize": 186460
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1805,
+          "byteSize": 280655
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1805,
+          "byteSize": 339114
+        }
+      ],
+      "updatedAt": "2026-09-05T10:53:49.759Z"
+    },
+    "vipera-dinniki-sandro-2.jpg": {
+      "sourceHash": "8e3667e96d91961523a3b8fc46105890a6cbd70e3aea6c4732f7eb237cda3af3",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-sandro-2.jpg",
+      "originalSize": 472152,
+      "width": 2048,
+      "height": 1805,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 352,
+          "byteSize": 21408
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 352,
+          "byteSize": 32574
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 705,
+          "byteSize": 73660
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 705,
+          "byteSize": 105444
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1058,
+          "byteSize": 132943
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1058,
+          "byteSize": 186460
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1805,
+          "byteSize": 280655
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1805,
+          "byteSize": 339114
+        }
+      ],
+      "updatedAt": "2026-09-05T11:01:37.750Z"
+    },
     "vipera-dinniki-truso-2.jpg": {
       "sourceHash": "876f79c0a81214fe88d59481a025ace8e549d5dec108a1e763e2a22097fa7023",
       "configFingerprint": "a895f8e025dcc7fa",
