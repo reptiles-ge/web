@@ -210,6 +210,108 @@ export function readAdminSpeciesGallery(id: string): {
   };
 }
 
+export function reorderGalleryInMdx(
+  raw: string,
+  orderedSrcs: string[],
+): string {
+  const gallery = normalizeGallery(matter(raw).data.gallery);
+  if (gallery.length < 2) {
+    throw new Error("Need at least two photos to reorder");
+  }
+  assertGalleryPermutation(
+    gallery.map((item) => item.src),
+    orderedSrcs,
+  );
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const range = findGalleryRange(lines);
+  if (!range) {
+    throw new Error("Gallery block not found");
+  }
+
+  const body = lines.slice(range.start + 1, range.end);
+  let trailing = 0;
+  for (let i = body.length - 1; i >= 0; i -= 1) {
+    if (body[i].trim() !== "") break;
+    trailing += 1;
+  }
+  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
+  const items = splitGalleryItems(body);
+  if (items.length !== gallery.length) {
+    throw new Error("Could not parse gallery items");
+  }
+
+  const bySrc = new Map<string, string[]>();
+  for (const item of items) {
+    const src = galleryItemSrc(item);
+    if (!src) {
+      throw new Error("Gallery item is missing src");
+    }
+    if (bySrc.has(src)) {
+      throw new Error(`Gallery has duplicate src: ${src}`);
+    }
+    bySrc.set(src, item);
+  }
+
+  const nextItems = orderedSrcs.map((src) => {
+    const item = bySrc.get(src);
+    if (!item) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+    return item;
+  });
+
+  const nextLines = [
+    ...lines.slice(0, range.start + 1),
+    ...nextItems.flat(),
+    ...trailingLines,
+    ...lines.slice(range.end),
+  ];
+  const next = nextLines.join(newline);
+  const check = normalizeGallery(matter(next).data.gallery).map(
+    (item) => item.src,
+  );
+  if (check.join("\0") !== orderedSrcs.join("\0")) {
+    throw new Error("Failed to reorder gallery");
+  }
+  return next;
+}
+
+export function reorderGalleryInSpecies(
+  id: string,
+  orderedSrcs: string[],
+  repoRoot = process.cwd(),
+) {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  fs.writeFileSync(
+    kaPath,
+    reorderGalleryInMdx(fs.readFileSync(kaPath, "utf8"), orderedSrcs),
+    "utf8",
+  );
+}
+
+function assertGalleryPermutation(current: string[], next: string[]) {
+  if (next.length !== current.length) {
+    throw new Error("Gallery order must include every photo once");
+  }
+  if (new Set(next).size !== next.length) {
+    throw new Error("Gallery order has duplicate src");
+  }
+  const have = new Set(current);
+  for (const src of next) {
+    if (!src || !have.has(src)) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+  }
+}
+
 function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   const entries: Array<[string, string]> = [];
   if (credit.photographer) entries.push(["photographer", credit.photographer]);
@@ -237,6 +339,23 @@ function findGalleryRange(
     end += 1;
   }
   return { end, start };
+}
+
+function galleryItemSrc(lines: string[]): null | string {
+  for (const line of lines) {
+    const match = line.match(/^\s+-?\s*src:\s*(.*)$/);
+    if (!match) continue;
+    const raw = match[1].trim();
+    if (!raw) return null;
+    if (
+      (raw.startsWith('"') && raw.endsWith('"')) ||
+      (raw.startsWith("'") && raw.endsWith("'"))
+    ) {
+      return raw.slice(1, -1);
+    }
+    return raw;
+  }
+  return null;
 }
 
 function mdxPath(id: string, locale: string) {
@@ -274,6 +393,25 @@ function normalizeGallery(value: unknown): GalleryImage[] {
     out.push(credit ? { credit, src } : { src });
   }
   return out;
+}
+
+function splitGalleryItems(lines: string[]): string[][] {
+  const items: string[][] = [];
+  let current: null | string[] = null;
+  for (const line of lines) {
+    if (line.trim() === "") continue;
+    if (/^  - /.test(line)) {
+      if (current) items.push(current);
+      current = [line];
+      continue;
+    }
+    if (!current) {
+      throw new Error("Could not parse gallery items");
+    }
+    current.push(line);
+  }
+  if (current) items.push(current);
+  return items;
 }
 
 function yamlScalar(value: string): string {

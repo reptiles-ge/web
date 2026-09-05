@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
-import { CoverImage } from "@/components/CoverImage";
+import { AdminGalleryReorder } from "@/components/admin/AdminGalleryReorder";
 
 type Props = {
   gallery: GalleryImage[];
@@ -12,17 +12,22 @@ type Props = {
 };
 
 export function AdminSpeciesEditor({ gallery, id }: Props) {
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusy] = useState<"idle" | "reorder" | "upload">("idle");
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
-  const [pending, setPending] = useState<GalleryImage[]>([]);
-  const photos = [...gallery, ...pending];
+  const [photos, setPhotos] = useState(gallery);
+  const [savedSrcs, setSavedSrcs] = useState(() =>
+    gallery.map((item) => item.src),
+  );
+  const dirty =
+    photos.map((item) => item.src).join("\0") !== savedSrcs.join("\0");
+  const saving = busy !== "idle";
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    setBusy(true);
+    setBusy("upload");
     setError(null);
     setOk(null);
     setPullRequestUrl(null);
@@ -45,7 +50,11 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
       const added = payload.added ?? [];
       const count = added.length;
       if (added.length) {
-        setPending((current) => [...current, ...added]);
+        setPhotos((current) => [...current, ...added]);
+        setSavedSrcs((current) => [
+          ...current,
+          ...added.map((item) => item.src),
+        ]);
       }
       if (payload.pullRequestUrl) {
         setPullRequestUrl(payload.pullRequestUrl);
@@ -70,7 +79,42 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
         caught instanceof Error ? caught.message : "ატვირთვა ვერ მოხერხდა",
       );
     } finally {
-      setBusy(false);
+      setBusy("idle");
+    }
+  }
+
+  async function onSaveOrder() {
+    if (!dirty || photos.length < 2) return;
+    setBusy("reorder");
+    setError(null);
+    setOk(null);
+    try {
+      const response = await fetch("/api/admin/photos/reorder", {
+        body: JSON.stringify({
+          id,
+          srcs: photos.map((item) => item.src),
+        }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const payload = (await response.json()) as {
+        error?: string;
+        pullRequestUrl?: string;
+      };
+      if (!response.ok) {
+        throw new Error(payload.error ?? "რიგი ვერ შეინახა");
+      }
+      setSavedSrcs(photos.map((item) => item.src));
+      if (payload.pullRequestUrl) {
+        setPullRequestUrl(payload.pullRequestUrl);
+        setOk("რიგი PR-შია. Merge შენზეა.");
+      } else {
+        setOk("რიგი PR-შია.");
+      }
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "რიგი ვერ შეინახა");
+    } finally {
+      setBusy("idle");
     }
   }
 
@@ -78,30 +122,32 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <section>
         <h2 className="font-display text-lg font-medium">გალერეა</h2>
-        {gallery.length + pending.length === 0 ? (
+        {photos.length > 1 ? (
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
+            image / mobileImage. შენახვა ხსნის PR-ს — ლოკალური ბრენჩი არ
+            იცვლება.
+          </p>
+        ) : null}
+        {photos.length === 0 ? (
           <p className="mt-4 text-[14px] text-muted-foreground">ცარიელია</p>
         ) : (
-          <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {photos.map((item) => (
-              <li
-                className="overflow-hidden rounded-lg border border-border bg-card"
-                key={item.src}
-              >
-                <div className="media-placeholder relative aspect-4/3 w-full">
-                  <CoverImage
-                    alt=""
-                    className="object-cover"
-                    sizes="(max-width: 640px) 50vw, 33vw"
-                    src={item.src}
-                  />
-                </div>
-                <p className="truncate px-2.5 py-2 text-[11px] text-muted-foreground">
-                  {item.credit?.photographer ?? item.src.split("/").at(-1)}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <AdminGalleryReorder
+            disabled={saving}
+            onReorder={setPhotos}
+            photos={photos}
+          />
         )}
+        {photos.length > 1 ? (
+          <button
+            className="mt-4 h-11 rounded-lg bg-foreground px-4 text-[14px] font-medium text-background disabled:opacity-50"
+            disabled={saving || !dirty}
+            onClick={() => void onSaveOrder()}
+            type="button"
+          >
+            {busy === "reorder" ? "ინახება…" : "რიგის შენახვა"}
+          </button>
+        ) : null}
       </section>
 
       <form
@@ -177,10 +223,10 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
         ) : null}
         <button
           className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
-          disabled={busy}
+          disabled={saving}
           type="submit"
         >
-          {busy ? "იტვირთება…" : "ატვირთვა"}
+          {busy === "upload" ? "იტვირთება…" : "ატვირთვა"}
         </button>
       </form>
     </div>
