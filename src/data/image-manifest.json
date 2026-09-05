@@ -467,6 +467,73 @@
       ],
       "updatedAt": "2026-08-28T21:28:42.173Z"
     },
+    "aegypius-monachus-1.jpg": {
+      "sourceHash": "b7d622060b37f0ce1aaacfbeb0ea420ff692a9205798ca9e841970795dd5d62d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-1.jpg",
+      "originalSize": 315551,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12389
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18198
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 35243
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51064
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63703
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90334
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 183635
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 214728
+        }
+      ],
+      "updatedAt": "2026-09-05T12:13:36.233Z"
+    },
     "anguis-colchica-2.jpg": {
       "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
       "configFingerprint": "a895f8e025dcc7fa",
