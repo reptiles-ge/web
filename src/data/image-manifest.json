@@ -35884,6 +35884,59 @@
       ],
       "updatedAt": "2026-08-28T21:55:26.180Z"
     },
+    "ophisops-elegans-1.jpg": {
+      "sourceHash": "e37fb8ef97dd9e01e2c46202bb9b5d2cee6c9cd6fe2661d9ff8ea5bb699b6aa0",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ophisops-elegans-1.jpg",
+      "originalSize": 86109,
+      "width": 1080,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/ophisops-elegans-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 11109
+        },
+        {
+          "key": "optimized/ophisops-elegans-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 15432
+        },
+        {
+          "key": "optimized/ophisops-elegans-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 27801
+        },
+        {
+          "key": "optimized/ophisops-elegans-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 37810
+        },
+        {
+          "key": "optimized/ophisops-elegans-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1080,
+          "byteSize": 44550
+        },
+        {
+          "key": "optimized/ophisops-elegans-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1080,
+          "byteSize": 56952
+        }
+      ],
+      "updatedAt": "2026-09-05T16:19:16.970Z"
+    },
     "ophisops-elegans.jpg": {
       "sourceHash": "e9693eae3448db4cc5727713a38534bf8c623f3a1c5463173c0ea21819a1e9e6",
       "configFingerprint": "a895f8e025dcc7fa",
