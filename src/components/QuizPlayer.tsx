@@ -21,7 +21,7 @@ import {
   scorePercent,
   type SnakeQuizQuestion,
   type SnakeQuizSpecies,
-} from "@/lib/snakeQuiz";
+} from "@/lib/snakeQuizEngine";
 
 type Answered = {
   correct: boolean;

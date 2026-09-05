@@ -9,13 +9,14 @@ import type {
   QuizDifficulty,
   SnakeQuizQuestion,
   SnakeQuizSpecies,
-} from "@/lib/snakeQuiz";
+} from "@/lib/snakeQuizEngine";
 
 import { useQuizCopy } from "@/components/QuizCopyContext";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 
 const OPTION_MARKS: Record<
   AppLocale,
@@ -68,6 +69,7 @@ export function QuizRound({
 }: QuizRoundProps) {
   const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
+  const switchIndex = useLocaleSwitchIndex();
 
   function onRadioKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (revealed) return;
