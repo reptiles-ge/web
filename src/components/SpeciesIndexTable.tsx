@@ -7,18 +7,19 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import {
   getSpeciesActivityStat,
   getSpeciesHabitatStat,
   getSpeciesSizeStat,
 } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 type DangerFilter = "all" | "harmless" | "venomous";
 
@@ -35,6 +36,7 @@ export function SpeciesIndexTable({
 }) {
   const t = useTranslations("speciesIndex");
   const tShared = useTranslations("groupHubShared");
+  const switchIndex = useLocaleSwitchIndex();
   const [danger, setDanger] = useState<DangerFilter>("all");
   const [family, setFamily] = useState("all");
 
@@ -205,7 +207,7 @@ export function SpeciesIndexTable({
               </thead>
               <tbody>
                 {filtered.map((item, rowIndex) => {
-                  const href = speciesHref(item.id, locale);
+                  const href = speciesHrefFromIndex(switchIndex, item.id, locale);
                   const range = formatRange(
                     item.id,
                     locale,
