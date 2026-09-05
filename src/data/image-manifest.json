@@ -18089,6 +18089,59 @@
       ],
       "updatedAt": "2026-08-28T21:42:05.260Z"
     },
+    "hemorrhois-ravergieri-rust-1.jpg": {
+      "sourceHash": "844980fe3aabe07ffcd90d0768087702475637a74e01fa17819adc24ee9c691a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "hemorrhois-ravergieri-rust-1.jpg",
+      "originalSize": 785609,
+      "width": 1152,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-rust-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 78200
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-rust-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 118244
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-rust-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 271041
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-rust-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 445504
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-rust-1-1152.avif",
+          "format": "avif",
+          "width": 1152,
+          "height": 2048,
+          "byteSize": 462522
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-rust-1-1152.webp",
+          "format": "webp",
+          "width": 1152,
+          "height": 2048,
+          "byteSize": 773966
+        }
+      ],
+      "updatedAt": "2026-09-05T15:45:46.555Z"
+    },
     "hemorrhois-ravergieri.jpg": {
       "sourceHash": "5fc6cb14f25ee3c8851be6a0dcebeb27e69b1e27afd54d8e7277fe5925107d38",
       "configFingerprint": "a895f8e025dcc7fa",
