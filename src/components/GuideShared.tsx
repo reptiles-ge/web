@@ -11,17 +11,17 @@ export type GuideStepItem = {
 export function GuideDoDontSection({
   doEyebrow,
   doItems,
-  doTitle,
   dontEyebrow,
   dontItems,
   dontTitle,
+  doTitle,
 }: {
   doEyebrow: string;
   doItems: readonly GuideStepItem[];
-  doTitle: string;
   dontEyebrow: string;
   dontItems: readonly GuideStepItem[];
   dontTitle: string;
+  doTitle: string;
 }) {
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">

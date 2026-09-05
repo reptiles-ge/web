@@ -10,7 +10,6 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { GuideNumberedSteps } from "@/components/GuideShared";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 const ACTION_KEYS = [1, 2, 3] as const;
 const MYTH_KEYS = [1, 2, 3, 4] as const;

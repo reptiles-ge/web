@@ -162,7 +162,6 @@ function SnakeBiteDoDont() {
         id: n,
         title: t(`do${n}Title`),
       }))}
-      doTitle={t("doTitle")}
       dontEyebrow={t("dontEyebrow")}
       dontItems={DONT_STEPS.map((n) => ({
         body: t(`dont${n}Body`),
@@ -170,6 +169,7 @@ function SnakeBiteDoDont() {
         title: t(`dont${n}Title`),
       }))}
       dontTitle={t("dontTitle")}
+      doTitle={t("doTitle")}
     />
   );
 }
