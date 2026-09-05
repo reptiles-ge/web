@@ -6,6 +6,14 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
+import {
+  GuideDoDontSection,
+  GuideEditorialNote,
+  GuideFactColumn,
+  GuideFactList,
+  GuideSymptomsLead,
+  GuideTwoColumnSurface,
+} from "@/components/GuideShared";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
@@ -62,66 +70,43 @@ function SnakeBiteDangerVenom() {
   const t = useTranslations("snakeBite");
 
   return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("dangerEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("dangerTitle")}
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              <PhoneLinkedText>{t("dangerIntro")}</PhoneLinkedText>
-            </p>
-            <ul className="mt-8 divide-y divide-border border-y border-border">
-              {DANGER_ITEMS.map((n) => (
-                <li
-                  className="py-4 text-[15px] leading-relaxed text-foreground"
-                  key={n}
-                >
-                  <PhoneLinkedText>{t(`danger${n}`)}</PhoneLinkedText>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("venomEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("venomTitle")}
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              <PhoneLinkedText>
-                {t.rich("venomBody", {
-                  identify: (chunks) => (
-                    <Link
-                      className={inlineLinkClassName}
-                      href="/snakes/shxamiani-gvelis-amocnoba"
-                    >
-                      {chunks}
-                    </Link>
-                  ),
-                  venomous: (chunks) => (
-                    <Link
-                      className={inlineLinkClassName}
-                      href="/venomous-snakes"
-                    >
-                      {chunks}
-                    </Link>
-                  ),
-                })}
-              </PhoneLinkedText>
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              <PhoneLinkedText>{t("venomNote")}</PhoneLinkedText>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <GuideTwoColumnSurface>
+      <GuideFactColumn
+        eyebrow={t("dangerEyebrow")}
+        intro={t("dangerIntro")}
+        title={t("dangerTitle")}
+      >
+        <GuideFactList
+          items={DANGER_ITEMS.map((n) => ({
+            id: n,
+            text: t(`danger${n}`),
+          }))}
+        />
+      </GuideFactColumn>
+      <GuideFactColumn
+        eyebrow={t("venomEyebrow")}
+        intro={t.rich("venomBody", {
+          identify: (chunks) => (
+            <Link
+              className={inlineLinkClassName}
+              href="/snakes/shxamiani-gvelis-amocnoba"
+            >
+              {chunks}
+            </Link>
+          ),
+          venomous: (chunks) => (
+            <Link className={inlineLinkClassName} href="/venomous-snakes">
+              {chunks}
+            </Link>
+          ),
+        })}
+        title={t("venomTitle")}
+      >
+        <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+          <PhoneLinkedText>{t("venomNote")}</PhoneLinkedText>
+        </p>
+      </GuideFactColumn>
+    </GuideTwoColumnSurface>
   );
 }
 
@@ -173,57 +158,22 @@ function SnakeBiteDoDont() {
   const t = useTranslations("snakeBite");
 
   return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <PhoneLinkedText>
-          <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-                {t("doEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-display-title font-semibold">
-                {t("doTitle")}
-              </h2>
-              <ol className="mt-8 divide-y divide-border border-y border-border">
-                {DO_STEPS.map((n) => (
-                  <li className="py-5" key={n}>
-                    <h3 className="font-display text-[17px] font-medium text-foreground">
-                      <span className="mr-2 text-muted-foreground">
-                        {String(n).padStart(2, "0")}
-                      </span>
-                      {t(`do${n}Title`)}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`do${n}Body`)}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <div>
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-                {t("dontEyebrow")}
-              </p>
-              <h2 className="mt-5 font-display text-display-title font-semibold">
-                {t("dontTitle")}
-              </h2>
-              <ol className="mt-8 divide-y divide-border border-y border-border">
-                {DONT_STEPS.map((n) => (
-                  <li className="py-5" key={n}>
-                    <h3 className="font-display text-[17px] font-medium text-foreground">
-                      {t(`dont${n}Title`)}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      {t(`dont${n}Body`)}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </PhoneLinkedText>
-      </div>
-    </section>
+    <GuideDoDontSection
+      doEyebrow={t("doEyebrow")}
+      doItems={DO_STEPS.map((n) => ({
+        body: t(`do${n}Body`),
+        id: n,
+        title: t(`do${n}Title`),
+      }))}
+      doTitle={t("doTitle")}
+      dontEyebrow={t("dontEyebrow")}
+      dontItems={DONT_STEPS.map((n) => ({
+        body: t(`dont${n}Body`),
+        id: n,
+        title: t(`dont${n}Title`),
+      }))}
+      dontTitle={t("dontTitle")}
+    />
   );
 }
 
@@ -291,19 +241,13 @@ function SnakeBiteSources() {
           ))}
         </ul>
 
-        <aside className="mt-12 max-w-3xl rounded-card border border-border bg-surface p-6 sm:p-7">
-          <p className="text-[13px] font-medium text-foreground">
-            {t("editorialUpdated", {
-              date: formatContentDate(EDITORIAL_UPDATED, locale),
-            })}
-          </p>
-          <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-            <PhoneLinkedText>{t("editorialBody")}</PhoneLinkedText>
-          </p>
-          <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-            <PhoneLinkedText>{t("editorialDisclaimer")}</PhoneLinkedText>
-          </p>
-        </aside>
+        <GuideEditorialNote
+          body={t("editorialBody")}
+          disclaimer={t("editorialDisclaimer")}
+          updated={t("editorialUpdated", {
+            date: formatContentDate(EDITORIAL_UPDATED, locale),
+          })}
+        />
       </div>
     </section>
   );
@@ -387,20 +331,12 @@ function SnakeBiteSymptoms() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-            {t("symptomsEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-            {t("symptomsTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            <PhoneLinkedText>{t("symptomsIntro")}</PhoneLinkedText>
-          </p>
-          <p className="mt-4 max-w-2xl rounded-[18px] border border-destructive/25 bg-destructive/5 px-5 py-4 text-[15px] leading-relaxed text-foreground">
-            <PhoneLinkedText>{t("symptomsUrgent")}</PhoneLinkedText>
-          </p>
-        </div>
+        <GuideSymptomsLead
+          eyebrow={t("symptomsEyebrow")}
+          intro={t("symptomsIntro")}
+          title={t("symptomsTitle")}
+          urgent={t("symptomsUrgent")}
+        />
         <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
           {SYMPTOM_ITEMS.map((n) => (
             <div key={n}>

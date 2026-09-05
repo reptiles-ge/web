@@ -1,10 +1,8 @@
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  BEAR_ENCOUNTER_CONFIG,
-  SafetyGuideSections,
-} from "@/components/SafetyGuideSections";
+import { BEAR_ENCOUNTER_CONFIG } from "@/components/safetyGuideConfig";
+import { SafetyGuideSections } from "@/components/SafetyGuideSections";
 
 export async function MammalBearPage({
   guideId,

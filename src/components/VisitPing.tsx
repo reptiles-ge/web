@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 
+import { postVisitPing } from "@/lib/visitPingClient";
 import {
   isVisitBlocked,
   sanitizeVisitPath,
@@ -26,13 +27,7 @@ export function VisitPing() {
       ) ?? window.location.pathname;
     const referrer = document.referrer || undefined;
 
-    void fetch("/api/visit", {
-      body: JSON.stringify({ path, referrer }),
-      credentials: "same-origin",
-      headers: { "content-type": "application/json" },
-      keepalive: true,
-      method: "POST",
-    })
+    void postVisitPing({ path, referrer })
       .then((response) => {
         if (response.status === 204) return;
         clearSeen();

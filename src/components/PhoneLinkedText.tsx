@@ -41,15 +41,19 @@ function renderPhoneLinkedString(text: string): ReactNode {
   const parts = splitPhoneLinks(text);
   if (parts.length === 1 && parts[0].type === "text") return text;
 
-  return parts.map((part, index) => {
+  let cursor = 0;
+  return parts.map((part) => {
+    const at = cursor;
     if (part.type === "text") {
-      return <Fragment key={`t${index}`}>{part.value}</Fragment>;
+      cursor += part.value.length;
+      return <Fragment key={`t:${at}`}>{part.value}</Fragment>;
     }
+    cursor += part.display.length;
     return (
       <a
         className={PHONE_LINK_CLASS_NAME}
         href={`tel:${part.tel}`}
-        key={`p${index}`}
+        key={`p:${at}:${part.tel}`}
       >
         {part.display}
       </a>

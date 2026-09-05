@@ -1,10 +1,8 @@
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  SPIDER_BITE_CONFIG,
-  SafetyGuideSections,
-} from "@/components/SafetyGuideSections";
+import { SPIDER_BITE_CONFIG } from "@/components/safetyGuideConfig";
+import { SafetyGuideSections } from "@/components/SafetyGuideSections";
 
 export async function SpiderBitePage({
   guideId,

@@ -9,6 +9,7 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
+import { GuideNumberedSteps } from "@/components/GuideShared";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 const ACTION_KEYS = [1, 2, 3] as const;
@@ -41,26 +42,13 @@ function SnakesInYardActions() {
           />
         </div>
 
-        <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
-          {ACTION_KEYS.map((n) => (
-            <li
-              className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
-              key={n}
-            >
-              <span className="font-display text-display-stat font-semibold text-primary/80">
-                {String(n).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-display text-display-card font-semibold text-foreground">
-                  {t(`action${n}Title`)}
-                </h3>
-                <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                  <PhoneLinkedText>{t(`action${n}Body`)}</PhoneLinkedText>
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <GuideNumberedSteps
+          items={ACTION_KEYS.map((n) => ({
+            body: t(`action${n}Body`),
+            id: n,
+            title: t(`action${n}Title`),
+          }))}
+        />
       </div>
     </section>
   );

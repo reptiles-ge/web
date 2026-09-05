@@ -1,10 +1,8 @@
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  ConflictGuideSections,
-  JACKAL_YARD_CONFIG,
-} from "@/components/ConflictGuideSections";
+import { JACKAL_YARD_CONFIG } from "@/components/conflictGuideConfig";
+import { ConflictGuideSections } from "@/components/ConflictGuideSections";
 
 export async function MammalJackalYardPage({
   guideId,

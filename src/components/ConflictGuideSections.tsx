@@ -3,9 +3,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
+import type { ConflictGuideConfig } from "@/components/conflictGuideConfig";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
-import type { ClusterGuidePath } from "@/lib/clusterGuides";
 
 import {
   CLUSTER_BODY,
@@ -15,58 +15,15 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
+import { GuideNumberedSteps } from "@/components/GuideShared";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
-import { AGENCY_PHONE_DISPLAY, AGENCY_PHONE_TEL } from "@/lib/phoneLinks";
 import { speciesHref } from "@/lib/speciesRoutes";
-
-type ConflictGuideConfig = {
-  actionCount: 4;
-  agencyPhone?: { display: string; tel: string };
-  contactSpeciesId?: string;
-  extraLinks: readonly { href: ConflictLinkHref; key: ConflictLinkKey }[];
-  mythCount: 4;
-  namespace: ConflictNamespace;
-  show112: boolean;
-  summaryCount: 4;
-};
-
-type ConflictLinkHref = "/lizards" | ClusterGuidePath;
-
-type ConflictLinkKey = "linkHub" | "linkIdentify" | "linkIndex";
-
-type ConflictNamespace = "lizardHouse" | "mammalJackalYard";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
 const ACTION_STEPS = [1, 2, 3, 4] as const;
 const MYTH_ITEMS = [1, 2, 3, 4] as const;
-
-export const JACKAL_YARD_CONFIG: ConflictGuideConfig = {
-  actionCount: 4,
-  extraLinks: [
-    { href: "/mammals/saxeoebebi", key: "linkIndex" },
-    { href: "/mammals", key: "linkHub" },
-  ],
-  mythCount: 4,
-  namespace: "mammalJackalYard",
-  show112: true,
-  summaryCount: 4,
-};
-
-export const LIZARD_HOUSE_CONFIG: ConflictGuideConfig = {
-  actionCount: 4,
-  agencyPhone: { display: AGENCY_PHONE_DISPLAY, tel: AGENCY_PHONE_TEL },
-  contactSpeciesId: "tenuidactylus-caspius",
-  extraLinks: [
-    { href: "/lizards/identifikacia", key: "linkIdentify" },
-    { href: "/lizards", key: "linkHub" },
-  ],
-  mythCount: 4,
-  namespace: "lizardHouse",
-  show112: false,
-  summaryCount: 4,
-};
 
 export function ConflictGuideSections({
   config,
@@ -104,26 +61,13 @@ function ConflictActions({ config }: { config: ConflictGuideConfig }) {
           title={t("actionsTitle")}
           titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
         />
-        <ol className="mt-14 space-y-0 divide-y divide-border border-y border-border">
-          {ACTION_STEPS.map((n) => (
-            <li
-              className="grid gap-6 py-8 sm:grid-cols-[5.5rem_1fr] sm:gap-10 sm:py-10 lg:grid-cols-[7rem_1fr]"
-              key={n}
-            >
-              <span className="font-display text-display-stat font-semibold text-primary/80">
-                {String(n).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-display text-display-card font-semibold text-foreground">
-                  {t(`action${n}Title`)}
-                </h3>
-                <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                  <PhoneLinkedText>{t(`action${n}Body`)}</PhoneLinkedText>
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <GuideNumberedSteps
+          items={ACTION_STEPS.map((n) => ({
+            body: t(`action${n}Body`),
+            id: n,
+            title: t(`action${n}Title`),
+          }))}
+        />
       </div>
     </section>
   );
