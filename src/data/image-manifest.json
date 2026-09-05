@@ -43964,6 +43964,45 @@
       ],
       "updatedAt": "2026-09-05T11:07:45.468Z"
     },
+    "vipera-dinniki-giorgi-2.jpg": {
+      "sourceHash": "05a0e7a532691315236510bffa1e3873ec7a5d60ba01b5ca4731face23b4ac2f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-giorgi-2.jpg",
+      "originalSize": 232870,
+      "width": 718,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 535,
+          "byteSize": 59122
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 535,
+          "byteSize": 97040
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-718.avif",
+          "format": "avif",
+          "width": 718,
+          "height": 960,
+          "byteSize": 132889
+        },
+        {
+          "key": "optimized/vipera-dinniki-giorgi-2-718.webp",
+          "format": "webp",
+          "width": 718,
+          "height": 960,
+          "byteSize": 213008
+        }
+      ],
+      "updatedAt": "2026-09-05T11:11:22.253Z"
+    },
     "vipera-dinniki-qazbegis-1.jpg": {
       "sourceHash": "bc3538fd7c65aff8ede9ae634a35652bd360f1870ed83935c22292f32e8578cf",
       "configFingerprint": "a895f8e025dcc7fa",
