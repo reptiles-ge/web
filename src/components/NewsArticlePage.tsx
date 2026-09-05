@@ -31,6 +31,7 @@ import {
   newsCategoryHub,
   type NewsVisual,
 } from "@/lib/newsVisual";
+import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
@@ -388,25 +389,29 @@ function NewsFigureCredit({
   photoCreditLabel: string;
   photographer: string | undefined;
 }) {
+  const sourceLabel = photoCreditSourceLabel(credit?.url);
   if (!hasPhotoCredit(credit) || creditMeta.length === 0) return null;
   return (
     <>
       {" "}
       {photographer ? (
-        credit.url ? (
-          <a
-            className="text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-            href={credit.url}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {photoCreditLabel} {photographer}
-          </a>
-        ) : (
-          <span>
-            {photoCreditLabel} {photographer}
-          </span>
-        )
+        <span>
+          {photoCreditLabel} {photographer}
+          {sourceLabel && credit.url ? (
+            <>
+              {" · "}
+              <a
+                className="inline-flex items-center gap-0.5 text-foreground/80 underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+                href={credit.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {sourceLabel}
+                <ArrowUpRight aria-hidden="true" className="size-[0.85em]" />
+              </a>
+            </>
+          ) : null}
+        </span>
       ) : null}
       {credit.location || dateLabel ? (
         <span>
