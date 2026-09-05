@@ -5016,6 +5016,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/turdus-merula-velur-1.jpg": {
+    "path": "turdus-merula-velur-1",
+    "width": 1435,
+    "height": 1003,
+    "widths": [400, 800, 1200, 1435],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ursus-arctos-cub-1.jpg": {
     "path": "ursus-arctos-cub-1",
     "width": 1280,
