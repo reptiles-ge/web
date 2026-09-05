@@ -5,26 +5,26 @@ import { useLocale, useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { ClusterGuidePath } from "@/lib/clusterGuides";
 
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
-import type { ClusterGuidePath } from "@/lib/clusterGuides";
 import { formatContentDate } from "@/lib/formatDate";
-
-type SafetyNamespace = "spiderBite" | "mammalBear";
-
-type SafetyLinkHref = ClusterGuidePath | "/lizards" | "/risk-to-humans";
-
-type SafetyLinkKey =
-  | "linkVenomous"
-  | "linkHub"
-  | "linkRisk"
-  | "linkIndex";
 
 type SafetyLink = {
   href: SafetyLinkHref;
   key: SafetyLinkKey;
 };
+
+type SafetyLinkHref = "/lizards" | "/risk-to-humans" | ClusterGuidePath;
+
+type SafetyLinkKey =
+  | "linkHub"
+  | "linkIndex"
+  | "linkRisk"
+  | "linkVenomous";
+
+type SafetyNamespace = "mammalBear" | "spiderBite";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
 const DO_STEPS = [1, 2, 3, 4, 5] as const;
@@ -38,9 +38,9 @@ type SafetyGuideConfig = {
   dangerCount: 4;
   doCount: 5 | 6;
   dontCount: 5 | 6;
-  extraLinks: readonly SafetyLink[];
-  externalHrefs: Record<AppLocale, Record<number, string>>;
   externalCount: 3 | 4;
+  externalHrefs: Record<AppLocale, Record<number, string>>;
+  extraLinks: readonly SafetyLink[];
   namespace: SafetyNamespace;
   showSymptoms: boolean;
   showUnseen: boolean;
@@ -59,11 +59,6 @@ export const SPIDER_BITE_CONFIG: SafetyGuideConfig = {
   dangerCount: 4,
   doCount: 5,
   dontCount: 5,
-  extraLinks: [
-    { href: "/spiders/shxamiani-obobebi", key: "linkVenomous" },
-    { href: "/spiders", key: "linkHub" },
-    { href: "/risk-to-humans", key: "linkRisk" },
-  ],
   externalCount: 4,
   externalHrefs: {
     en: {
@@ -91,6 +86,11 @@ export const SPIDER_BITE_CONFIG: SafetyGuideConfig = {
       4: "https://doi.org/10.1016/j.toxicon.2013.07.020",
     },
   },
+  extraLinks: [
+    { href: "/spiders/shxamiani-obobebi", key: "linkVenomous" },
+    { href: "/spiders", key: "linkHub" },
+    { href: "/risk-to-humans", key: "linkRisk" },
+  ],
   namespace: "spiderBite",
   showSymptoms: true,
   showUnseen: true,
@@ -104,10 +104,6 @@ export const BEAR_ENCOUNTER_CONFIG: SafetyGuideConfig = {
   dangerCount: 4,
   doCount: 5,
   dontCount: 5,
-  extraLinks: [
-    { href: "/mammals", key: "linkHub" },
-    { href: "/mammals/saxeoebebi", key: "linkIndex" },
-  ],
   externalCount: 4,
   externalHrefs: {
     en: {
@@ -135,6 +131,10 @@ export const BEAR_ENCOUNTER_CONFIG: SafetyGuideConfig = {
       4: "https://matsne.gov.ge/ka/document/view/2256983/0",
     },
   },
+  extraLinks: [
+    { href: "/mammals", key: "linkHub" },
+    { href: "/mammals/saxeoebebi", key: "linkIndex" },
+  ],
   namespace: "mammalBear",
   showSymptoms: false,
   showUnseen: false,
@@ -160,6 +160,71 @@ export function SafetyGuideSections({
       <SafetySpecies config={config} species={species} />
       <SafetySources config={config} />
     </>
+  );
+}
+
+function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
+  const t = useTranslations(config.namespace);
+
+  return (
+    <section className="border-t border-border bg-surface py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              {t("dangerEyebrow")}
+            </p>
+            <h2 className="mt-5 font-display text-display-title font-semibold">
+              {t("dangerTitle")}
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+              {t("dangerIntro")}
+            </p>
+            <ul className="mt-8 divide-y divide-border border-y border-border">
+              {DANGER_ITEMS.map((n) => (
+                <li
+                  className="py-4 text-[15px] leading-relaxed text-foreground"
+                  key={n}
+                >
+                  {t(`danger${n}`)}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              {t("contextEyebrow")}
+            </p>
+            <h2 className="mt-5 font-display text-display-title font-semibold">
+              {t("contextTitle")}
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+              {config.namespace === "spiderBite"
+                ? t.rich("contextBody", {
+                    venomous: (chunks) => (
+                      <Link
+                        className={inlineLinkClassName}
+                        href="/spiders/shxamiani-obobebi"
+                      >
+                        {chunks}
+                      </Link>
+                    ),
+                  })
+                : t.rich("contextBody", {
+                    mammals: (chunks) => (
+                      <Link className={inlineLinkClassName} href="/mammals">
+                        {chunks}
+                      </Link>
+                    ),
+                  })}
+            </p>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+              {t("contextNote")}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -264,197 +329,6 @@ function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
   );
 }
 
-function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations("spiderBite");
-  if (config.namespace !== "spiderBite") return null;
-
-  return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-            {t("symptomsEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-            {t("symptomsTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("symptomsIntro")}
-          </p>
-          <p className="mt-4 max-w-2xl rounded-[18px] border border-destructive/25 bg-destructive/5 px-5 py-4 text-[15px] leading-relaxed text-foreground">
-            {t("symptomsUrgent")}
-          </p>
-        </div>
-        <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
-          {SYMPTOM_ITEMS.map((n) => (
-            <li
-              className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground"
-              key={n}
-            >
-              {t(`symptom${n}`)}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
-          {t("symptomsNote")}
-        </p>
-      </div>
-    </section>
-  );
-}
-
-function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
-
-  return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("dangerEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("dangerTitle")}
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {t("dangerIntro")}
-            </p>
-            <ul className="mt-8 divide-y divide-border border-y border-border">
-              {DANGER_ITEMS.map((n) => (
-                <li
-                  className="py-4 text-[15px] leading-relaxed text-foreground"
-                  key={n}
-                >
-                  {t(`danger${n}`)}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("contextEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("contextTitle")}
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {config.namespace === "spiderBite"
-                ? t.rich("contextBody", {
-                    venomous: (chunks) => (
-                      <Link
-                        className={inlineLinkClassName}
-                        href="/spiders/shxamiani-obobebi"
-                      >
-                        {chunks}
-                      </Link>
-                    ),
-                  })
-                : t.rich("contextBody", {
-                    mammals: (chunks) => (
-                      <Link className={inlineLinkClassName} href="/mammals">
-                        {chunks}
-                      </Link>
-                    ),
-                  })}
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              {t("contextNote")}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SafetyUnseen({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations("spiderBite");
-  if (config.namespace !== "spiderBite") return null;
-
-  return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-            {t("unseenEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-            {t("unseenTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("unseenBody")}
-          </p>
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t.rich("unseenId", {
-              venomous: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href="/spiders/shxamiani-obobebi"
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function SafetySpecies({
-  config,
-  species,
-}: {
-  config: SafetyGuideConfig;
-  species: Species[];
-}) {
-  const t = useTranslations(config.namespace);
-  const locale = useLocale() as AppLocale;
-
-  return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-            {t("speciesEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-            {t("speciesTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t.rich("speciesBody", {
-              count: species.length,
-              index: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href={config.speciesIndexHref}
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
-          </p>
-        </div>
-        <SpeciesGuideList locale={locale} source="guide" species={species} />
-        <div className="mt-10 flex flex-wrap gap-3">
-          {config.extraLinks.map((link) => (
-            <Link
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
-              href={link.href}
-              key={link.key}
-            >
-              {t(link.key as "linkHub")}
-              <ArrowUpRight className="size-4" />
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function SafetySources({ config }: { config: SafetyGuideConfig }) {
   const t = useTranslations(config.namespace);
   const locale = useLocale() as AppLocale;
@@ -532,6 +406,132 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
             {t("editorialDisclaimer")}
           </p>
         </aside>
+      </div>
+    </section>
+  );
+}
+
+function SafetySpecies({
+  config,
+  species,
+}: {
+  config: SafetyGuideConfig;
+  species: Species[];
+}) {
+  const t = useTranslations(config.namespace);
+  const locale = useLocale() as AppLocale;
+
+  return (
+    <section className="border-t border-border bg-surface py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            {t("speciesEyebrow")}
+          </p>
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
+            {t("speciesTitle")}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t.rich("speciesBody", {
+              count: species.length,
+              index: (chunks) => (
+                <Link
+                  className={inlineLinkClassName}
+                  href={config.speciesIndexHref}
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </p>
+        </div>
+        <SpeciesGuideList locale={locale} source="guide" species={species} />
+        <div className="mt-10 flex flex-wrap gap-3">
+          {config.extraLinks.map((link) => (
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+              href={link.href}
+              key={link.key}
+            >
+              {t(link.key as "linkHub")}
+              <ArrowUpRight className="size-4" />
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
+  const t = useTranslations("spiderBite");
+  if (config.namespace !== "spiderBite") return null;
+
+  return (
+    <section className="border-t border-border bg-background py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            {t("symptomsEyebrow")}
+          </p>
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
+            {t("symptomsTitle")}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t("symptomsIntro")}
+          </p>
+          <p className="mt-4 max-w-2xl rounded-[18px] border border-destructive/25 bg-destructive/5 px-5 py-4 text-[15px] leading-relaxed text-foreground">
+            {t("symptomsUrgent")}
+          </p>
+        </div>
+        <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
+          {SYMPTOM_ITEMS.map((n) => (
+            <li
+              className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground"
+              key={n}
+            >
+              {t(`symptom${n}`)}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
+          {t("symptomsNote")}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function SafetyUnseen({ config }: { config: SafetyGuideConfig }) {
+  const t = useTranslations("spiderBite");
+  if (config.namespace !== "spiderBite") return null;
+
+  return (
+    <section className="border-t border-border bg-background py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            {t("unseenEyebrow")}
+          </p>
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
+            {t("unseenTitle")}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t("unseenBody")}
+          </p>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t.rich("unseenId", {
+              venomous: (chunks) => (
+                <Link
+                  className={inlineLinkClassName}
+                  href="/spiders/shxamiani-obobebi"
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </p>
+        </div>
       </div>
     </section>
   );

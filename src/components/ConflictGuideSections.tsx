@@ -5,16 +5,17 @@ import { useLocale, useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
-
-import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
-import { Link } from "@/i18n/navigation";
 import type { ClusterGuidePath } from "@/lib/clusterGuides";
 
-type ConflictNamespace = "mammalJackalYard" | "lizardHouse";
-
-type ConflictLinkHref = ClusterGuidePath | "/lizards";
-
-type ConflictLinkKey = "linkIndex" | "linkHub" | "linkIdentify";
+import {
+  CLUSTER_BODY,
+  CLUSTER_EYEBROW,
+  CLUSTER_TITLE_GUIDE,
+  CLUSTER_TITLE_RELATED,
+  ClusterSectionIntro,
+} from "@/components/ClusterSectionIntro";
+import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { Link } from "@/i18n/navigation";
 
 type ConflictGuideConfig = {
   actionCount: 4;
@@ -25,6 +26,12 @@ type ConflictGuideConfig = {
   show112: boolean;
   summaryCount: 4;
 };
+
+type ConflictLinkHref = "/lizards" | ClusterGuidePath;
+
+type ConflictLinkKey = "linkHub" | "linkIdentify" | "linkIndex";
+
+type ConflictNamespace = "lizardHouse" | "mammalJackalYard";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
 const ACTION_STEPS = [1, 2, 3, 4] as const;
@@ -74,84 +81,6 @@ export function ConflictGuideSections({
   );
 }
 
-function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
-  const t = useTranslations(config.namespace);
-
-  return (
-    <section
-      className="scroll-mt-28 bg-background py-20 lg:py-28"
-      id="content"
-    >
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-            {t("summaryEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
-            {t("summaryTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("summaryLead")}
-          </p>
-          <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-            {SUMMARY_ITEMS.map((n) => (
-              <li
-                className="py-4 text-[15px] leading-relaxed text-foreground"
-                key={n}
-              >
-                {t(`summary${n}`)}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ConflictWhy({ config }: { config: ConflictGuideConfig }) {
-  const t = useTranslations(config.namespace);
-
-  return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <ClusterSectionIntro
-          body={t("whyLead")}
-          bodyClassName={CLUSTER_BODY}
-          eyebrow={t("whyEyebrow")}
-          eyebrowClassName={CLUSTER_EYEBROW}
-          title={t("whyTitle")}
-          titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
-        />
-        <div className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
-          <div className="bg-card p-7 sm:p-8">
-            <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
-              01
-            </p>
-            <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
-              {t("why1Title")}
-            </h3>
-            <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-              {t("why1Body")}
-            </p>
-          </div>
-          <div className="bg-card p-7 sm:p-8">
-            <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
-              02
-            </p>
-            <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
-              {t("why2Title")}
-            </h3>
-            <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
-              {t("why2Body")}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ConflictActions({ config }: { config: ConflictGuideConfig }) {
   const t = useTranslations(config.namespace);
 
@@ -189,6 +118,88 @@ function ConflictActions({ config }: { config: ConflictGuideConfig }) {
             </li>
           ))}
         </ol>
+      </div>
+    </section>
+  );
+}
+
+function ConflictContact({ config }: { config: ConflictGuideConfig }) {
+  const t = useTranslations(config.namespace);
+  if (!config.show112 && !config.agencyPhone) return null;
+
+  return (
+    <section className="border-t border-border bg-surface py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <ClusterSectionIntro
+          body={t("contactBody")}
+          bodyClassName={CLUSTER_BODY}
+          eyebrow={t("contactEyebrow")}
+          eyebrowClassName={CLUSTER_EYEBROW}
+          title={t("contactTitle")}
+          titleClassName={CLUSTER_TITLE_RELATED}
+        />
+        <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border/80 sm:grid-cols-2">
+          {config.show112 ? (
+            <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
+              <div>
+                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                  {t("contactBiteEyebrow")}
+                </p>
+                <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
+                  {t("contactBiteTitle")}
+                </h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
+                  {t("contactBiteBody")}
+                </p>
+              </div>
+              <a
+                className="mt-8 inline-flex items-center gap-2 self-start rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+                href="tel:112"
+              >
+                {t("contactBiteCta")}
+                <span className="font-display tracking-wide">112</span>
+              </a>
+            </div>
+          ) : null}
+          {config.agencyPhone ? (
+            <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
+              <div>
+                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                  {t("contactAgencyEyebrow")}
+                </p>
+                <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
+                  {t("contactAgencyTitle")}
+                </h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
+                  {t("contactAgencyBody")}
+                </p>
+              </div>
+              <a
+                className="mt-8 inline-flex items-center gap-2 self-start rounded-full border border-border bg-background px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                href={`tel:${config.agencyPhone.tel}`}
+              >
+                {t("contactAgencyCta")}
+                <span className="font-display tracking-wide">
+                  {config.agencyPhone.display}
+                </span>
+              </a>
+            </div>
+          ) : (
+            <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
+              <div>
+                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                  {t("contactHelpEyebrow")}
+                </p>
+                <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
+                  {t("contactHelpTitle")}
+                </h3>
+                <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
+                  {t("contactHelpBody")}
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
@@ -281,82 +292,78 @@ function ConflictMyths({ config }: { config: ConflictGuideConfig }) {
   );
 }
 
-function ConflictContact({ config }: { config: ConflictGuideConfig }) {
+function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
   const t = useTranslations(config.namespace);
-  if (!config.show112 && !config.agencyPhone) return null;
+
+  return (
+    <section
+      className="scroll-mt-28 bg-background py-20 lg:py-28"
+      id="content"
+    >
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            {t("summaryEyebrow")}
+          </p>
+          <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
+            {t("summaryTitle")}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            {t("summaryLead")}
+          </p>
+          <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
+            {SUMMARY_ITEMS.map((n) => (
+              <li
+                className="py-4 text-[15px] leading-relaxed text-foreground"
+                key={n}
+              >
+                {t(`summary${n}`)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ConflictWhy({ config }: { config: ConflictGuideConfig }) {
+  const t = useTranslations(config.namespace);
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <ClusterSectionIntro
-          body={t("contactBody")}
+          body={t("whyLead")}
           bodyClassName={CLUSTER_BODY}
-          eyebrow={t("contactEyebrow")}
+          eyebrow={t("whyEyebrow")}
           eyebrowClassName={CLUSTER_EYEBROW}
-          title={t("contactTitle")}
-          titleClassName={CLUSTER_TITLE_RELATED}
+          title={t("whyTitle")}
+          titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
         />
-        <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border/80 sm:grid-cols-2">
-          {config.show112 ? (
-            <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
-              <div>
-                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
-                  {t("contactBiteEyebrow")}
-                </p>
-                <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
-                  {t("contactBiteTitle")}
-                </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                  {t("contactBiteBody")}
-                </p>
-              </div>
-              <a
-                className="mt-8 inline-flex items-center gap-2 self-start rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
-                href="tel:112"
-              >
-                {t("contactBiteCta")}
-                <span className="font-display tracking-wide">112</span>
-              </a>
-            </div>
-          ) : null}
-          {config.agencyPhone ? (
-            <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
-              <div>
-                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
-                  {t("contactAgencyEyebrow")}
-                </p>
-                <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
-                  {t("contactAgencyTitle")}
-                </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                  {t("contactAgencyBody")}
-                </p>
-              </div>
-              <a
-                className="mt-8 inline-flex items-center gap-2 self-start rounded-full border border-border bg-background px-5 py-3 text-[14px] font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-                href={`tel:${config.agencyPhone.tel}`}
-              >
-                {t("contactAgencyCta")}
-                <span className="font-display tracking-wide">
-                  {config.agencyPhone.display}
-                </span>
-              </a>
-            </div>
-          ) : (
-            <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
-              <div>
-                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
-                  {t("contactHelpEyebrow")}
-                </p>
-                <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
-                  {t("contactHelpTitle")}
-                </h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                  {t("contactHelpBody")}
-                </p>
-              </div>
-            </div>
-          )}
+        <div className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
+          <div className="bg-card p-7 sm:p-8">
+            <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
+              01
+            </p>
+            <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
+              {t("why1Title")}
+            </h3>
+            <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+              {t("why1Body")}
+            </p>
+          </div>
+          <div className="bg-card p-7 sm:p-8">
+            <p className="font-display text-[13px] font-medium tracking-[0.18em] text-primary">
+              02
+            </p>
+            <h3 className="mt-4 font-display text-[1.25rem] font-semibold text-foreground">
+              {t("why2Title")}
+            </h3>
+            <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground">
+              {t("why2Body")}
+            </p>
+          </div>
         </div>
       </div>
     </section>
