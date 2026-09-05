@@ -6,17 +6,9 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
-import type { ClusterGuidePath } from "@/lib/clusterGuides";
-
-import {
-  CLUSTER_BODY,
-  CLUSTER_EYEBROW,
-  CLUSTER_TITLE_GUIDE,
-  CLUSTER_TITLE_RELATED,
-  ClusterSectionIntro,
-} from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
+import type { ClusterGuidePath } from "@/lib/clusterGuides";
 
 type ConflictNamespace = "mammalJackalYard" | "lizardHouse";
 
