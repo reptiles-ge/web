@@ -9,12 +9,12 @@ export type GuideStepItem = {
 };
 
 export function GuideDoDontSection({
-  doItems,
-  dontItems,
-  dontEyebrow,
-  dontTitle,
   doEyebrow,
+  doItems,
   doTitle,
+  dontEyebrow,
+  dontItems,
+  dontTitle,
 }: {
   doEyebrow: string;
   doItems: readonly GuideStepItem[];

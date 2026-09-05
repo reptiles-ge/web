@@ -2,13 +2,13 @@
 
 import { useEffect } from "react";
 
-import { postVisitPing } from "@/lib/visitPingClient";
 import {
   isVisitBlocked,
   sanitizeVisitPath,
   VISIT_STORAGE_KEY,
   writeVisitSeenValue,
 } from "@/lib/visitNotify";
+import { postVisitPing } from "@/lib/visitPingClient";
 
 let inFlight = false;
 

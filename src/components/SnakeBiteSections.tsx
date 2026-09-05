@@ -100,12 +100,9 @@ function SnakeBiteDangerVenom() {
             </Link>
           ),
         })}
+        note={t("venomNote")}
         title={t("venomTitle")}
-      >
-        <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-          <PhoneLinkedText>{t("venomNote")}</PhoneLinkedText>
-        </p>
-      </GuideFactColumn>
+      />
     </GuideTwoColumnSurface>
   );
 }
