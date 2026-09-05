@@ -41,6 +41,7 @@ export type AdminPhotoCreditInput = {
   locationEn?: string;
   photographer?: string;
   photographerEn?: string;
+  url?: string;
 };
 
 type SharpFn = (input: Buffer) => SharpInstance;
@@ -130,6 +131,29 @@ export async function addSpeciesPhotos(input: {
   }
 }
 
+export function creditFromInput(
+  input: AdminPhotoCreditInput,
+  locale: "en" | "ka",
+): PhotoCredit | undefined {
+  const photographer =
+    locale === "en"
+      ? input.photographerEn?.trim() || input.photographer?.trim()
+      : input.photographer?.trim();
+  const location =
+    locale === "en"
+      ? input.locationEn?.trim() || input.location?.trim()
+      : input.location?.trim();
+  const date = input.date?.trim();
+  const url = photoCreditUrl(input.url);
+  const credit: PhotoCredit = {
+    ...(photographer ? { photographer } : {}),
+    ...(url ? { url } : {}),
+    ...(location ? { location } : {}),
+    ...(date ? { date } : {}),
+  };
+  return Object.keys(credit).length > 0 ? credit : undefined;
+}
+
 async function allocateUploadKeys(
   storage: BunnyStorageAdapter,
   used: Set<string>,
@@ -181,27 +205,6 @@ function createStorage() {
   });
 }
 
-function creditFromInput(
-  input: AdminPhotoCreditInput,
-  locale: "en" | "ka",
-): PhotoCredit | undefined {
-  const photographer =
-    locale === "en"
-      ? input.photographerEn?.trim() || input.photographer?.trim()
-      : input.photographer?.trim();
-  const location =
-    locale === "en"
-      ? input.locationEn?.trim() || input.location?.trim()
-      : input.location?.trim();
-  const date = input.date?.trim();
-  const credit: PhotoCredit = {
-    ...(photographer ? { photographer } : {}),
-    ...(location ? { location } : {}),
-    ...(date ? { date } : {}),
-  };
-  return Object.keys(credit).length > 0 ? credit : undefined;
-}
-
 function loadSharp(): SharpFn {
   const require = createRequire(
     path.join(
@@ -229,6 +232,21 @@ async function nextStorageKey(
     n += 1;
   }
   throw new Error("Could not allocate a free CDN filename");
+}
+
+function photoCreditUrl(value: string | undefined): string | undefined {
+  const url = value?.trim();
+  if (!url) return undefined;
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    throw new Error("ავტორის URL არასწორია");
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+    throw new Error("ავტორის URL უნდა იყოს http ან https");
+  }
+  return url;
 }
 
 function photographerSlug(photographer: string | undefined) {
