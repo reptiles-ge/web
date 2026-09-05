@@ -5338,6 +5338,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-1.jpg": {
+    "path": "zamenis-hohenackeri-ioane-1",
+    "width": 1080,
+    "height": 1434,
+    "widths": [400, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-mobile.jpg": {
     "path": "zamenis-hohenackeri-mobile",
     "width": 1280,
