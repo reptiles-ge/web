@@ -4,18 +4,35 @@ import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
-import type { AppLocale, AppPathnames } from "@/i18n/routing";
+import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
+import type { ClusterGuidePath } from "@/lib/clusterGuides";
 import { formatContentDate } from "@/lib/formatDate";
 
 type SafetyNamespace = "spiderBite" | "mammalBear";
 
+type SafetyLinkHref = ClusterGuidePath | "/lizards" | "/risk-to-humans";
+
+type SafetyLinkKey =
+  | "linkVenomous"
+  | "linkHub"
+  | "linkRisk"
+  | "linkIndex";
+
 type SafetyLink = {
-  href: AppPathnames;
-  key: string;
+  href: SafetyLinkHref;
+  key: SafetyLinkKey;
 };
+
+const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
+const DO_STEPS = [1, 2, 3, 4, 5] as const;
+const DONT_STEPS = [1, 2, 3, 4, 5] as const;
+const SYMPTOM_ITEMS = [1, 2, 3, 4, 5, 6] as const;
+const DANGER_ITEMS = [1, 2, 3, 4] as const;
+const EXTERNAL_SOURCES = [1, 2, 3, 4] as const;
+const SITE_SOURCES = [1, 2] as const;
 
 type SafetyGuideConfig = {
   dangerCount: 4;
@@ -28,7 +45,7 @@ type SafetyGuideConfig = {
   showSymptoms: boolean;
   showUnseen: boolean;
   siteSourceCount: 2;
-  speciesIndexHref: AppPathnames;
+  speciesIndexHref: SafetyLinkHref;
   summaryCount: 4;
   symptomCount?: 6;
 };
@@ -148,10 +165,6 @@ export function SafetyGuideSections({
 
 function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
   const t = useTranslations(config.namespace);
-  const summary = Array.from(
-    { length: config.summaryCount },
-    (_, index) => index + 1,
-  );
 
   return (
     <section
@@ -170,7 +183,7 @@ function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
             {t("disclaimerBody")}
           </p>
           <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-            {summary.map((n) => (
+            {SUMMARY_ITEMS.map((n) => (
               <li
                 className="py-4 text-[15px] leading-relaxed text-foreground"
                 key={n}
@@ -197,11 +210,6 @@ function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
 
 function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
   const t = useTranslations(config.namespace);
-  const doSteps = Array.from({ length: config.doCount }, (_, index) => index + 1);
-  const dontSteps = Array.from(
-    { length: config.dontCount },
-    (_, index) => index + 1,
-  );
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
@@ -215,7 +223,7 @@ function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
               {t("doTitle")}
             </h2>
             <ol className="mt-8 divide-y divide-border border-y border-border">
-              {doSteps.map((n) => (
+              {DO_STEPS.map((n) => (
                 <li className="py-5" key={n}>
                   <h3 className="font-display text-[17px] font-medium text-foreground">
                     <span className="mr-2 text-muted-foreground">
@@ -238,7 +246,7 @@ function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
               {t("dontTitle")}
             </h2>
             <ol className="mt-8 divide-y divide-border border-y border-border">
-              {dontSteps.map((n) => (
+              {DONT_STEPS.map((n) => (
                 <li className="py-5" key={n}>
                   <h3 className="font-display text-[17px] font-medium text-foreground">
                     {t(`dont${n}Title`)}
@@ -257,9 +265,8 @@ function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
 }
 
 function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
-  const count = config.symptomCount ?? 6;
-  const items = Array.from({ length: count }, (_, index) => index + 1);
+  const t = useTranslations("spiderBite");
+  if (config.namespace !== "spiderBite") return null;
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -279,12 +286,13 @@ function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
           </p>
         </div>
         <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2">
-          {items.map((n) => (
-            <div key={n}>
-              <li className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground">
-                {t(`symptom${n}`)}
-              </li>
-            </div>
+          {SYMPTOM_ITEMS.map((n) => (
+            <li
+              className="bg-card px-6 py-5 text-[15px] leading-relaxed text-foreground"
+              key={n}
+            >
+              {t(`symptom${n}`)}
+            </li>
           ))}
         </ul>
         <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
