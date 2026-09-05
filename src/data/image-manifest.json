@@ -43643,6 +43643,73 @@
       ],
       "updatedAt": "2026-08-28T22:00:30.372Z"
     },
+    "vipera-dinniki-aleksi-1.jpg": {
+      "sourceHash": "bb85499315862a8d723000a35a3b096271de1f22879728ebf2b7a273b6212611",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-aleksi-1.jpg",
+      "originalSize": 767758,
+      "width": 1315,
+      "height": 1799,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 547,
+          "byteSize": 63724
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 547,
+          "byteSize": 95892
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1094,
+          "byteSize": 218170
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1094,
+          "byteSize": 362628
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1642,
+          "byteSize": 388849
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1642,
+          "byteSize": 686886
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1315.avif",
+          "format": "avif",
+          "width": 1315,
+          "height": 1799,
+          "byteSize": 469414
+        },
+        {
+          "key": "optimized/vipera-dinniki-aleksi-1-1315.webp",
+          "format": "webp",
+          "width": 1315,
+          "height": 1799,
+          "byteSize": 767924
+        }
+      ],
+      "updatedAt": "2026-09-05T10:43:34.745Z"
+    },
     "vipera-dinniki-truso-2.jpg": {
       "sourceHash": "876f79c0a81214fe88d59481a025ace8e549d5dec108a1e763e2a22097fa7023",
       "configFingerprint": "a895f8e025dcc7fa",
