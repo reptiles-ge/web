@@ -467,6 +467,391 @@
       ],
       "updatedAt": "2026-08-28T21:28:42.173Z"
     },
+    "aegypius-monachus-1.jpg": {
+      "sourceHash": "b7d622060b37f0ce1aaacfbeb0ea420ff692a9205798ca9e841970795dd5d62d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-1.jpg",
+      "originalSize": 315551,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12389
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18198
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 35243
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51064
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63703
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90334
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 183635
+        },
+        {
+          "key": "optimized/aegypius-monachus-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 214728
+        }
+      ],
+      "updatedAt": "2026-09-05T12:13:36.233Z"
+    },
+    "aegypius-monachus-2.jpg": {
+      "sourceHash": "7b1f1da523e3b44cebb0746110256e8e908896e99539c68d35a8648c2b4d27fd",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-2.jpg",
+      "originalSize": 53586,
+      "width": 750,
+      "height": 500,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10275
+        },
+        {
+          "key": "optimized/aegypius-monachus-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13822
+        },
+        {
+          "key": "optimized/aegypius-monachus-2-750.avif",
+          "format": "avif",
+          "width": 750,
+          "height": 500,
+          "byteSize": 35160
+        },
+        {
+          "key": "optimized/aegypius-monachus-2-750.webp",
+          "format": "webp",
+          "width": 750,
+          "height": 500,
+          "byteSize": 42242
+        }
+      ],
+      "updatedAt": "2026-09-05T12:14:59.516Z"
+    },
+    "aegypius-monachus-3.jpg": {
+      "sourceHash": "4905c6390b799dbd326b40c7b8b1180c10a19afd648b07d0a1d1f1ecc9510c6f",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-3.jpg",
+      "originalSize": 82198,
+      "width": 750,
+      "height": 750,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 16021
+        },
+        {
+          "key": "optimized/aegypius-monachus-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 21594
+        },
+        {
+          "key": "optimized/aegypius-monachus-3-750.avif",
+          "format": "avif",
+          "width": 750,
+          "height": 750,
+          "byteSize": 52611
+        },
+        {
+          "key": "optimized/aegypius-monachus-3-750.webp",
+          "format": "webp",
+          "width": 750,
+          "height": 750,
+          "byteSize": 63350
+        }
+      ],
+      "updatedAt": "2026-09-05T12:15:21.526Z"
+    },
+    "aegypius-monachus-4.jpg": {
+      "sourceHash": "35a9966f569cc137f37d81466e3d72c5ffada7262d98152d72cb871c7a30c937",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-4.jpg",
+      "originalSize": 178614,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18966
+        },
+        {
+          "key": "optimized/aegypius-monachus-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 29234
+        },
+        {
+          "key": "optimized/aegypius-monachus-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57282
+        },
+        {
+          "key": "optimized/aegypius-monachus-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 80634
+        },
+        {
+          "key": "optimized/aegypius-monachus-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 112886
+        },
+        {
+          "key": "optimized/aegypius-monachus-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 142280
+        }
+      ],
+      "updatedAt": "2026-09-05T12:15:40.166Z"
+    },
+    "aegypius-monachus-5.jpg": {
+      "sourceHash": "0bb39415d506b2fe2852cd6368bea92f9c551df8a2ea9843db3bef0bf940f652",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-5.jpg",
+      "originalSize": 208770,
+      "width": 1617,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15032
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20000
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44794
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 61076
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 77960
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 107228
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1617.avif",
+          "format": "avif",
+          "width": 1617,
+          "height": 1080,
+          "byteSize": 125589
+        },
+        {
+          "key": "optimized/aegypius-monachus-5-1617.webp",
+          "format": "webp",
+          "width": 1617,
+          "height": 1080,
+          "byteSize": 152126
+        }
+      ],
+      "updatedAt": "2026-09-05T12:17:46.507Z"
+    },
+    "aegypius-monachus-aleksandre-1.jpg": {
+      "sourceHash": "f4992e128229a9bc6eca457415b225ee0b8cc2b3bec8dcc9cce11ad78721fe61",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-aleksandre-1.jpg",
+      "originalSize": 72395,
+      "width": 1024,
+      "height": 767,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 5654
+        },
+        {
+          "key": "optimized/aegypius-monachus-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6320
+        },
+        {
+          "key": "optimized/aegypius-monachus-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 599,
+          "byteSize": 26580
+        },
+        {
+          "key": "optimized/aegypius-monachus-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 599,
+          "byteSize": 29082
+        },
+        {
+          "key": "optimized/aegypius-monachus-aleksandre-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 767,
+          "byteSize": 47451
+        },
+        {
+          "key": "optimized/aegypius-monachus-aleksandre-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 767,
+          "byteSize": 49586
+        }
+      ],
+      "updatedAt": "2026-09-05T12:17:17.416Z"
+    },
+    "aegypius-monachus-giorgi-1.jpg": {
+      "sourceHash": "29da15cb0f329cc74eba775453a27e91d722126a6c20a26c95873102e391ae2d",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-giorgi-1.jpg",
+      "originalSize": 275514,
+      "width": 2048,
+      "height": 1270,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 248,
+          "byteSize": 13164
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 248,
+          "byteSize": 19376
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 496,
+          "byteSize": 37324
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 496,
+          "byteSize": 54104
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 744,
+          "byteSize": 65353
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 744,
+          "byteSize": 93502
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1270,
+          "byteSize": 158739
+        },
+        {
+          "key": "optimized/aegypius-monachus-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1270,
+          "byteSize": 197100
+        }
+      ],
+      "updatedAt": "2026-09-05T12:14:32.736Z"
+    },
     "anguis-colchica-2.jpg": {
       "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
       "configFingerprint": "a895f8e025dcc7fa",

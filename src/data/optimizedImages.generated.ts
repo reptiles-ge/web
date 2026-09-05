@@ -151,6 +151,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/aegypius-monachus-1.jpg": {
+    "path": "aegypius-monachus-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aegypius-monachus-2.jpg": {
+    "path": "aegypius-monachus-2",
+    "width": 750,
+    "height": 500,
+    "widths": [400, 750],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aegypius-monachus-3.jpg": {
+    "path": "aegypius-monachus-3",
+    "width": 750,
+    "height": 750,
+    "widths": [400, 750],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aegypius-monachus-4.jpg": {
+    "path": "aegypius-monachus-4",
+    "width": 1200,
+    "height": 800,
+    "widths": [400, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aegypius-monachus-5.jpg": {
+    "path": "aegypius-monachus-5",
+    "width": 1617,
+    "height": 1080,
+    "widths": [400, 800, 1200, 1617],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aegypius-monachus-aleksandre-1.jpg": {
+    "path": "aegypius-monachus-aleksandre-1",
+    "width": 1024,
+    "height": 767,
+    "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aegypius-monachus-giorgi-1.jpg": {
+    "path": "aegypius-monachus-giorgi-1",
+    "width": 2048,
+    "height": 1270,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/anguis-colchica-2.jpg": {
     "path": "anguis-colchica-2",
     "width": 1200,
