@@ -5324,11 +5324,39 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-lasha-1.jpg": {
+    "path": "xerotyphlops-vermicularis-lasha-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/xerotyphlops-vermicularis-mobile.jpg": {
     "path": "xerotyphlops-vermicularis-mobile",
     "width": 1025,
     "height": 1367,
     "widths": [400, 800, 1025],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-natalia-1.jpg": {
+    "path": "xerotyphlops-vermicularis-natalia-1",
+    "width": 1497,
+    "height": 960,
+    "widths": [400, 800, 1200, 1497],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-natalia-2.jpg": {
+    "path": "xerotyphlops-vermicularis-natalia-2",
+    "width": 1888,
+    "height": 1283,
+    "widths": [400, 800, 1200, 1888],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-vaso-1.jpg": {
+    "path": "xerotyphlops-vermicularis-vaso-1",
+    "width": 1080,
+    "height": 1440,
+    "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/xerotyphlops-vermicularis-zakro-1.jpg": {
@@ -5385,6 +5413,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1343,
     "height": 960,
     "widths": [400, 800, 1200, 1343],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-zauri-2.jpg": {
+    "path": "zamenis-hohenackeri-zauri-2",
+    "width": 1670,
+    "height": 1193,
+    "widths": [400, 800, 1200, 1670],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/zamenis-hohenackeri.jpg": {
