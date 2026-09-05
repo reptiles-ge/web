@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 import {
   appendGalleryItemToMdx,
   reorderGalleryInMdx,
+  setCoverInMdx,
 } from "@/lib/adminGalleryMdx";
 
 const FIXTURE = `---
@@ -117,5 +118,135 @@ describe("reorderGalleryInMdx", () => {
       src: string;
     }>;
     expect(gallery[0]?.credit?.photographer).toBe("ნიკა");
+  });
+});
+
+const COVER_FIXTURE = `---
+id: test-species
+image: "https://cdn.reptiles.ge/old.jpg"
+imageCredit:
+  photographer: ძველი
+mobileImage: "https://cdn.reptiles.ge/old-m.jpg"
+mobileImageCredit:
+  photographer: მობილური
+gallery:
+  - src: "https://cdn.reptiles.ge/a.jpg"
+    credit:
+      photographer: ანა
+  - src: "https://cdn.reptiles.ge/b.jpg"
+    credit:
+      photographer: ბექა
+      location: ყვარელი
+  - src: "https://cdn.reptiles.ge/c.jpg"
+commonName: ტესტი
+---
+
+ტექსტი
+`;
+
+describe("setCoverInMdx", () => {
+  it("sets desktop cover and credit without touching mobile", () => {
+    const next = setCoverInMdx(COVER_FIXTURE, "desktop", {
+      credit: { photographer: "ანა" },
+      src: "https://cdn.reptiles.ge/a.jpg",
+    });
+    const data = matter(next).data as {
+      image: string;
+      imageCredit: { photographer: string };
+      mobileImage: string;
+      mobileImageCredit: { photographer: string };
+    };
+    expect(data.image).toBe("https://cdn.reptiles.ge/a.jpg");
+    expect(data.imageCredit.photographer).toBe("ანა");
+    expect(data.mobileImage).toBe("https://cdn.reptiles.ge/old-m.jpg");
+    expect(data.mobileImageCredit.photographer).toBe("მობილური");
+  });
+
+  it("sets the same photo as both covers", () => {
+    const next = setCoverInMdx(COVER_FIXTURE, "both", {
+      credit: { location: "ყვარელი", photographer: "ბექა" },
+      src: "https://cdn.reptiles.ge/b.jpg",
+    });
+    const data = matter(next).data as {
+      image: string;
+      imageCredit: { location: string; photographer: string };
+      mobileImage: string;
+      mobileImageCredit: { location: string; photographer: string };
+    };
+    expect(data.image).toBe("https://cdn.reptiles.ge/b.jpg");
+    expect(data.mobileImage).toBe("https://cdn.reptiles.ge/b.jpg");
+    expect(data.imageCredit).toEqual({
+      location: "ყვარელი",
+      photographer: "ბექა",
+    });
+    expect(data.mobileImageCredit).toEqual(data.imageCredit);
+  });
+
+  it("removes cover credit when the gallery item has none", () => {
+    const next = setCoverInMdx(COVER_FIXTURE, "desktop", {
+      src: "https://cdn.reptiles.ge/c.jpg",
+    });
+    const data = matter(next).data as {
+      image: string;
+      imageCredit?: { photographer?: string };
+    };
+    expect(data.image).toBe("https://cdn.reptiles.ge/c.jpg");
+    expect(data.imageCredit).toBeUndefined();
+  });
+
+  it("does not invent overlay cover keys", () => {
+    const overlay = `---
+id: test-species
+image: "https://cdn.reptiles.ge/old.jpg"
+imageCredit:
+  photographer: Old
+commonName: Test
+---
+
+text
+`;
+    const next = setCoverInMdx(
+      overlay,
+      "both",
+      {
+        credit: { photographer: "ანა" },
+        src: "https://cdn.reptiles.ge/a.jpg",
+      },
+      false,
+    );
+    const data = matter(next).data as {
+      image: string;
+      imageCredit: { photographer: string };
+      mobileImage?: string;
+    };
+    expect(data.image).toBe("https://cdn.reptiles.ge/a.jpg");
+    expect(data.imageCredit.photographer).toBe("ანა");
+    expect(data.mobileImage).toBeUndefined();
+  });
+
+  it("sets a gallery photo as the cover on a real KA profile", () => {
+    const raw = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/content/species/paralaudakia-caucasia/ka.mdx",
+      ),
+      "utf8",
+    );
+    const next = setCoverInMdx(raw, "desktop", {
+      credit: { date: "2026-08-22", photographer: "ზაქრო სონგულაშვილი" },
+      src: "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg",
+    });
+    const data = matter(next).data as {
+      image: string;
+      imageCredit: { photographer: string };
+      mobileImage: string;
+    };
+    expect(data.image).toBe(
+      "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg",
+    );
+    expect(data.imageCredit.photographer).toBe("ზაქრო სონგულაშვილი");
+    expect(data.mobileImage).toBe(
+      "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg",
+    );
   });
 });

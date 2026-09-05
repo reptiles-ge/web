@@ -8,7 +8,10 @@ import {
   unpublishedSpeciesIds,
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
+import { type CoverTarget } from "@/lib/adminCover";
 import { CDN_BASE } from "@/lib/site";
+
+export type { CoverTarget };
 
 const CONTENT_ROOT = path.join(process.cwd(), "src/content/species");
 const SPECIES_ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -299,8 +302,6 @@ export function reorderGalleryInSpecies(
   );
 }
 
-export type CoverTarget = "both" | "desktop" | "mobile";
-
 export function setCoverInMdx(
   raw: string,
   target: CoverTarget,
@@ -384,16 +385,15 @@ export function setCoverInSpecies(
     const overlay = normalizeGallery(parsed.data.gallery).find(
       (item) => item.src === src,
     );
-    const item: GalleryImage = overlay
-      ? { src, ...(overlay.credit ? { credit: overlay.credit } : {}) }
-      : kaItem;
-    const hasKeys = coverKeysPresent(parsed.data, target);
-    if (!hasKeys && !overlay) continue;
-    fs.writeFileSync(
-      filePath,
-      setCoverInMdx(raw, target, item, hasKeys),
-      "utf8",
+    const item: GalleryImage = overlay?.credit
+      ? { credit: overlay.credit, src }
+      : { src };
+    const hasKeys = coverKeysPresent(
+      parsed.data as Record<string, unknown>,
+      target,
     );
+    if (!hasKeys) continue;
+    fs.writeFileSync(filePath, setCoverInMdx(raw, target, item, false), "utf8");
   }
 }
 
@@ -412,6 +412,22 @@ function assertGalleryPermutation(current: string[], next: string[]) {
   }
 }
 
+function coverKeysPresent(data: Record<string, unknown>, target: CoverTarget) {
+  if (
+    (target === "desktop" || target === "both") &&
+    (typeof data.image === "string" || data.imageCredit)
+  ) {
+    return true;
+  }
+  if (
+    (target === "mobile" || target === "both") &&
+    (typeof data.mobileImage === "string" || data.mobileImageCredit)
+  ) {
+    return true;
+  }
+  return false;
+}
+
 function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   const entries: Array<[string, string]> = [];
   if (credit.photographer) entries.push(["photographer", credit.photographer]);
@@ -419,6 +435,105 @@ function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   if (credit.location) entries.push(["location", credit.location]);
   if (credit.date) entries.push(["date", credit.date]);
   return entries;
+}
+
+function findTopLevelRange(
+  lines: string[],
+  key: string,
+): null | { end: number; start: number } {
+  const start = lines.findIndex((line) => isExactTopLevelKey(line, key));
+  if (start === -1) return null;
+  let end = start + 1;
+  while (end < lines.length) {
+    const line = lines[end];
+    if (line.trim() === "") {
+      end += 1;
+      continue;
+    }
+    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
+    end += 1;
+  }
+  return { end, start };
+}
+
+function formatCreditBlock(key: string, credit?: PhotoCredit): string[] {
+  const fields = credit ? creditEntries(credit) : [];
+  if (fields.length === 0) return [];
+  const lines = [`${key}:`];
+  for (const [field, value] of fields) {
+    lines.push(
+      field === "url"
+        ? `  url: ${JSON.stringify(value)}`
+        : `  ${field}: ${yamlScalar(value)}`,
+    );
+  }
+  return lines;
+}
+
+function insertCoverFields(
+  lines: string[],
+  afterKeys: string[],
+  nextLines: string[],
+) {
+  if (nextLines.length === 0) return lines;
+  for (const key of afterKeys) {
+    const after = findTopLevelRange(lines, key);
+    if (!after) continue;
+    const copy = [...lines];
+    copy.splice(after.end, 0, ...nextLines);
+    return copy;
+  }
+  const gallery = lines.findIndex((line) => /^gallery:/.test(line));
+  const commonName = lines.findIndex((line) => /^commonName:/.test(line));
+  const insertAt =
+    gallery !== -1 ? gallery : commonName !== -1 ? commonName : lines.length;
+  const copy = [...lines];
+  copy.splice(insertAt, 0, ...nextLines);
+  return copy;
+}
+
+function isExactTopLevelKey(line: string, key: string) {
+  return new RegExp(`^${key}:(?:\\s|$)`).test(line);
+}
+
+function setCoverField(
+  lines: string[],
+  srcKey: string,
+  creditKey: string,
+  item: GalleryImage,
+  insertMissing: boolean,
+) {
+  const srcLine = `${srcKey}: ${JSON.stringify(item.src)}`;
+  const creditLines = formatCreditBlock(creditKey, item.credit);
+  const srcRange = findTopLevelRange(lines, srcKey);
+  let next = [...lines];
+
+  if (srcRange) {
+    next.splice(srcRange.start, srcRange.end - srcRange.start, srcLine);
+  } else if (insertMissing) {
+    next = insertCoverFields(
+      next,
+      srcKey === "mobileImage" ? ["imageCredit", "image"] : [],
+      [srcLine],
+    );
+  } else {
+    return lines;
+  }
+
+  const creditRange = findTopLevelRange(next, creditKey);
+  if (creditRange) {
+    next.splice(
+      creditRange.start,
+      creditRange.end - creditRange.start,
+      ...creditLines,
+    );
+    return next;
+  }
+  if (creditLines.length === 0) return next;
+  if (insertMissing || srcRange) {
+    return insertCoverFields(next, [srcKey], creditLines);
+  }
+  return next;
 }
 
 function findGalleryRange(

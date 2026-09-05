@@ -7,8 +7,10 @@ import type { GalleryImage } from "@/data/speciesTypes";
 
 import {
   appendGalleryItemToSpecies,
+  type CoverTarget,
   isSpeciesContentId,
   reorderGalleryInSpecies,
+  setCoverInSpecies,
 } from "@/lib/adminGalleryMdx";
 import {
   applyOptimizeCatalog,
@@ -46,6 +48,41 @@ export async function openGalleryReorderPullRequest(input: {
       "- [ ] Species profile gallery shows photos in the new order",
     ].join("\n"),
     title: `Reorder gallery for ${input.id}`,
+  });
+}
+
+export async function openCoverPullRequest(input: {
+  id: string;
+  src: string;
+  target: CoverTarget;
+}): Promise<string> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+
+  const label =
+    input.target === "both"
+      ? "desktop and mobile cover"
+      : input.target === "desktop"
+        ? "desktop cover"
+        : "mobile cover";
+
+  return withPhotoPullRequest({
+    apply: (worktree) => {
+      setCoverInSpecies(input.id, input.target, input.src, worktree);
+    },
+    commitBody: "Cover photo updated from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- Set ${label} for \`${input.id}\` from local admin`,
+      "- Updates KA `image` / `mobileImage` (and overlay credits when those keys exist)",
+      "",
+      "## Test plan",
+      "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
+    ].join("\n"),
+    title: `Set ${label} for ${input.id}`,
   });
 }
 

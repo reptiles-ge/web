@@ -17,6 +17,7 @@ import {
   type AdminCoverRole,
   adminCoverRoles,
   type AdminCovers,
+  type CoverTarget,
 } from "@/lib/adminCover";
 import { cn } from "@/lib/cn";
 
@@ -25,6 +26,7 @@ type Props = {
   disabled?: boolean;
   onPreview: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
+  onSetCover: (src: string, target: CoverTarget) => void;
   photos: GalleryImage[];
 };
 
@@ -33,6 +35,7 @@ export function AdminGalleryReorder({
   disabled,
   onPreview,
   onReorder,
+  onSetCover,
   photos,
 }: Props) {
   const dragFrom = useRef<null | number>(null);
@@ -118,37 +121,76 @@ export function AdminGalleryReorder({
                 <AdminCoverPreviewButton onClick={() => onPreview(item.src)} />
               </span>
             </div>
-            <div className="flex items-center gap-1 px-2 py-1.5">
-              <p className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">
-                {item.credit?.photographer ?? item.src.split("/").at(-1)}
-              </p>
-              {sortable ? (
-                <span className="flex shrink-0">
-                  <button
-                    className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30"
-                    disabled={disabled || index === 0}
-                    onClick={() => move(index, index - 1)}
-                    type="button"
-                  >
-                    <ChevronUp aria-hidden className="size-4" />
-                    <span className="sr-only">ზემოთ</span>
-                  </button>
-                  <button
-                    className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30"
-                    disabled={disabled || index === photos.length - 1}
-                    onClick={() => move(index, index + 1)}
-                    type="button"
-                  >
-                    <ChevronDown aria-hidden className="size-4" />
-                    <span className="sr-only">ქვემოთ</span>
-                  </button>
-                </span>
-              ) : null}
+            <div className="px-2 py-1.5">
+              <div className="flex items-center gap-1">
+                <p className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">
+                  {item.credit?.photographer ?? item.src.split("/").at(-1)}
+                </p>
+                {sortable ? (
+                  <span className="flex shrink-0">
+                    <button
+                      className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30"
+                      disabled={disabled || index === 0}
+                      onClick={() => move(index, index - 1)}
+                      type="button"
+                    >
+                      <ChevronUp aria-hidden className="size-4" />
+                      <span className="sr-only">ზემოთ</span>
+                    </button>
+                    <button
+                      className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30"
+                      disabled={disabled || index === photos.length - 1}
+                      onClick={() => move(index, index + 1)}
+                      type="button"
+                    >
+                      <ChevronDown aria-hidden className="size-4" />
+                      <span className="sr-only">ქვემოთ</span>
+                    </button>
+                  </span>
+                ) : null}
+              </div>
+              <CoverSelect
+                disabled={disabled}
+                onChange={(target) => onSetCover(item.src, target)}
+              />
             </div>
           </li>
         );
       })}
     </ul>
+  );
+}
+
+function CoverSelect({
+  disabled,
+  onChange,
+}: {
+  disabled?: boolean;
+  onChange: (target: CoverTarget) => void;
+}) {
+  return (
+    <label className="mt-1.5 block">
+      <span className="sr-only">ყდად დაყენება</span>
+      <select
+        className="h-8 w-full rounded-md border border-border bg-background px-2 text-[11px] text-foreground outline-none disabled:opacity-40"
+        defaultValue=""
+        disabled={disabled}
+        onChange={(event) => {
+          const value = event.target.value;
+          event.target.value = "";
+          if (value === "both" || value === "desktop" || value === "mobile") {
+            onChange(value);
+          }
+        }}
+      >
+        <option disabled value="">
+          ყდად დაყენება
+        </option>
+        <option value="desktop">დესკტოპის ყდა</option>
+        <option value="mobile">მობილურის ყდა</option>
+        <option value="both">ორივეს ყდა</option>
+      </select>
+    </label>
   );
 }
 

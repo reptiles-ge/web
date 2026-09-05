@@ -1,6 +1,7 @@
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export type AdminCoverRole = "cover" | "desktop" | "mobile";
+export type CoverTarget = "both" | "desktop" | "mobile";
 
 export type AdminCovers = {
   desktopSrc: string;

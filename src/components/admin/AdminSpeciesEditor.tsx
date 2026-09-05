@@ -9,7 +9,7 @@ import {
   type AdminCoverPreviewState,
 } from "@/components/admin/AdminCoverPreview";
 import { AdminGalleryReorder } from "@/components/admin/AdminGalleryReorder";
-import { type AdminCovers, resolveAdminCovers } from "@/lib/adminCover";
+import { type AdminCovers, type CoverTarget, resolveAdminCovers } from "@/lib/adminCover";
 
 type Props = {
   commonName: string;
@@ -28,7 +28,9 @@ export function AdminSpeciesEditor({
   mobileImage,
   scientificName,
 }: Props) {
-  const [busy, setBusy] = useState<"idle" | "reorder" | "upload">("idle");
+  const [busy, setBusy] = useState<"cover" | "idle" | "reorder" | "upload">(
+    "idle",
+  );
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
@@ -36,12 +38,53 @@ export function AdminSpeciesEditor({
   const [savedSrcs, setSavedSrcs] = useState(() =>
     gallery.map((item) => item.src),
   );
+  const [coverImage, setCoverImage] = useState(image);
+  const [coverMobileImage, setCoverMobileImage] = useState(mobileImage);
   const busyRef = useRef(false);
   const dirty =
     photos.map((item) => item.src).join("\0") !== savedSrcs.join("\0");
   const saving = busy !== "idle";
-  const covers = resolveAdminCovers(image, mobileImage);
+  const covers = resolveAdminCovers(coverImage, coverMobileImage);
   const [preview, setPreview] = useState<AdminCoverPreviewState | null>(null);
+
+  async function onSetCover(src: string, target: CoverTarget) {
+    if (busyRef.current) return;
+    busyRef.current = true;
+    setBusy("cover");
+    setError(null);
+    setOk(null);
+    try {
+      const response = await fetch("/api/admin/photos/cover", {
+        body: JSON.stringify({ id, src, target }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const payload = (await response.json()) as {
+        error?: string;
+        pullRequestUrl?: string;
+      };
+      if (!response.ok) {
+        throw new Error(payload.error ?? "ყდა ვერ შეინახა");
+      }
+      if (target === "desktop" || target === "both") {
+        setCoverImage(src);
+      }
+      if (target === "mobile" || target === "both") {
+        setCoverMobileImage(src);
+      }
+      if (payload.pullRequestUrl) {
+        setPullRequestUrl(payload.pullRequestUrl);
+        setOk("ყდა PR-შია. Merge შენზეა.");
+      } else {
+        setOk("ყდა PR-შია.");
+      }
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "ყდა ვერ შეინახა");
+    } finally {
+      busyRef.current = false;
+      setBusy("idle");
+    }
+  }
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -153,6 +196,7 @@ export function AdminSpeciesEditor({
         onReorder={setPhotos}
         onSaveOrder={() => void onSaveOrder()}
         onSelectLive={() => setPreview({ type: "live" })}
+        onSetCover={(src, target) => void onSetCover(src, target)}
         photos={photos}
         preview={preview}
         saving={saving}
@@ -252,13 +296,14 @@ function AdminGalleryPanel({
   onReorder,
   onSaveOrder,
   onSelectLive,
+  onSetCover,
   photos,
   preview,
   saving,
   scientificName,
   setPreview,
 }: {
-  busy: "idle" | "reorder" | "upload";
+  busy: "cover" | "idle" | "reorder" | "upload";
   commonName: string;
   covers: AdminCovers;
   dirty: boolean;
@@ -266,6 +311,7 @@ function AdminGalleryPanel({
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
   onSaveOrder: () => void;
   onSelectLive: () => void;
+  onSetCover: (src: string, target: CoverTarget) => void;
   photos: GalleryImage[];
   preview: AdminCoverPreviewState | null;
   saving: boolean;
@@ -295,6 +341,7 @@ function AdminGalleryPanel({
           disabled={saving}
           onPreview={onPreview}
           onReorder={onReorder}
+          onSetCover={onSetCover}
           photos={photos}
         />
       )}
@@ -329,10 +376,10 @@ function GalleryHelp({
   photos: GalleryImage[];
 }) {
   const coverHint = covers.split
-    ? "დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი რომელია. ტაბლეტი მობილურის ყდას იყენებს. თვალის ღილაკით ნებისმიერ ფოტოს ყდად სცადე."
-    : covers.desktopSrc
-      ? "თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა და მობილურზე."
-      : "თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.";
+      ? "დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი რომელია. ტაბლეტი მობილურის ყდას იყენებს. მენიუდან ყდად დაყენება ან თვალის ღილაკით სცადე."
+      : covers.desktopSrc
+        ? "მენიუდან დაყენე დესკტოპის, მობილურის ან ორივეს ყდა. თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა და მობილურზე."
+        : "მენიუდან დაყენე ყდა. თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.";
   const mobileMissing =
     covers.split && !photos.some((item) => item.src === covers.mobileSrc);
 
@@ -349,7 +396,8 @@ function GalleryHelp({
       {photos.length > 1 ? (
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
           გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
-          image / mobileImage. შენახვა ხსნის PR-ს — ლოკალური ბრენჩი არ იცვლება.
+          image / mobileImage. ყდაც და რიგიც PR-ში იწერება — ლოკალური ბრენჩი არ
+          იცვლება.
         </p>
       ) : null}
     </>
