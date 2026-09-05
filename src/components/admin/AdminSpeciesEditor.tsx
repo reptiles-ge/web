@@ -4,14 +4,30 @@ import { useRef, useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
+import {
+  AdminCoverPreview,
+  type AdminCoverPreviewState,
+} from "@/components/admin/AdminCoverPreview";
 import { AdminGalleryReorder } from "@/components/admin/AdminGalleryReorder";
+import { resolveAdminCovers } from "@/lib/adminCover";
 
 type Props = {
+  commonName: string;
   gallery: GalleryImage[];
   id: string;
+  image: string;
+  mobileImage: string;
+  scientificName: string;
 };
 
-export function AdminSpeciesEditor({ gallery, id }: Props) {
+export function AdminSpeciesEditor({
+  commonName,
+  gallery,
+  id,
+  image,
+  mobileImage,
+  scientificName,
+}: Props) {
   const [busy, setBusy] = useState<"idle" | "reorder" | "upload">("idle");
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
@@ -24,6 +40,8 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
   const dirty =
     photos.map((item) => item.src).join("\0") !== savedSrcs.join("\0");
   const saving = busy !== "idle";
+  const covers = resolveAdminCovers(image, mobileImage);
+  const [preview, setPreview] = useState<AdminCoverPreviewState | null>(null);
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -127,7 +145,40 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <section>
-        <h2 className="font-display text-lg font-medium">გალერეა</h2>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h2 className="font-display text-lg font-medium">გალერეა</h2>
+          {covers.desktopSrc ? (
+            <button
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-[12px] font-medium hover:bg-secondary"
+              onClick={() => setPreview({ type: "live" })}
+              type="button"
+            >
+              ახლანდელი ყდა
+            </button>
+          ) : null}
+        </div>
+        {covers.split ? (
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი
+            რომელია. ტაბლეტი მობილურის ყდას იყენებს. თვალის ღილაკით ნებისმიერ
+            ფოტოს ყდად სცადე.
+          </p>
+        ) : covers.desktopSrc ? (
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა
+            და მობილურზე.
+          </p>
+        ) : (
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.
+          </p>
+        )}
+        {covers.split &&
+        !photos.some((item) => item.src === covers.mobileSrc) ? (
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            მობილური ყდა გალერეის სიაში არ არის — პრევიუში მაინც ნახავ.
+          </p>
+        ) : null}
         {photos.length > 1 ? (
           <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
             გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
@@ -139,11 +190,22 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
           <p className="mt-4 text-[14px] text-muted-foreground">ცარიელია</p>
         ) : (
           <AdminGalleryReorder
+            covers={covers}
             disabled={saving}
+            onPreview={(src) => setPreview({ src, type: "photo" })}
             onReorder={setPhotos}
             photos={photos}
           />
         )}
+        <AdminCoverPreview
+          commonName={commonName}
+          covers={covers}
+          onClose={() => setPreview(null)}
+          onSelect={setPreview}
+          photos={photos}
+          preview={preview}
+          scientificName={scientificName}
+        />
         {photos.length > 1 ? (
           <button
             className="mt-4 h-11 rounded-lg bg-foreground px-4 text-[14px] font-medium text-background disabled:opacity-50"

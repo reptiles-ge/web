@@ -190,6 +190,7 @@ export function readAdminSpeciesGallery(id: string): {
   gallery: GalleryImage[];
   group: AnimalGroup | null;
   image: string;
+  mobileImage: string;
   scientificName: string;
   unpublished: boolean;
 } {
@@ -204,6 +205,7 @@ export function readAdminSpeciesGallery(id: string): {
     gallery,
     group: speciesAtlasMeta[id]?.group ?? null,
     image: typeof data.image === "string" ? data.image : "",
+    mobileImage: typeof data.mobileImage === "string" ? data.mobileImage : "",
     scientificName:
       typeof data.scientificName === "string" ? data.scientificName : "",
     unpublished: unpublishedSpeciesIds.has(id),
