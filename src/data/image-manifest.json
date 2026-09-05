@@ -241,6 +241,59 @@
       ],
       "updatedAt": "2026-09-05T16:14:54.442Z"
     },
+    "accipiter-gentilis-2.jpg": {
+      "sourceHash": "9df5a4ae4a5be4a46eaad01cebab48f629f634e54dc99b965ab125b0ba5a1a2a",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "accipiter-gentilis-2.jpg",
+      "originalSize": 176476,
+      "width": 1080,
+      "height": 1620,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-gentilis-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 20003
+        },
+        {
+          "key": "optimized/accipiter-gentilis-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 27404
+        },
+        {
+          "key": "optimized/accipiter-gentilis-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 56385
+        },
+        {
+          "key": "optimized/accipiter-gentilis-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 76080
+        },
+        {
+          "key": "optimized/accipiter-gentilis-2-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1620,
+          "byteSize": 95696
+        },
+        {
+          "key": "optimized/accipiter-gentilis-2-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1620,
+          "byteSize": 119828
+        }
+      ],
+      "updatedAt": "2026-09-05T16:15:22.958Z"
+    },
     "accipiter-nisus-knoch-flight.jpg": {
       "sourceHash": "c51543106d1bce8eb04934f27d5a47ad1d83c657abc8255fd7365b7c340efc6f",
       "configFingerprint": "a895f8e025dcc7fa",
