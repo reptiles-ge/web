@@ -4,8 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { CoverImage } from "@/components/CoverImage";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
   const t = useTranslations("snakesInYard");

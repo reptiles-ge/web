@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
   CLUSTER_EYEBROW,
   CLUSTER_TITLE_GUIDE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 type ClusterGuideLeadProps = {
   body: ReactNode;

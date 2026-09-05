@@ -16,6 +16,12 @@ export function PhoneLinkedText({ children }: { children: ReactNode }) {
   return <>{linkPhonesInNode(children)}</>;
 }
 
+function isSkippable(element: ReactElement): boolean {
+  if (element.type === "a" || element.type === "button") return true;
+  const props = element.props as { href?: unknown };
+  return props.href != null;
+}
+
 function linkPhonesInNode(node: ReactNode): ReactNode {
   if (node == null || typeof node === "boolean") return node;
   if (typeof node === "number") return node;
@@ -29,12 +35,6 @@ function linkPhonesInNode(node: ReactNode): ReactNode {
   const props = node.props as { children?: ReactNode };
   if (props.children == null) return node;
   return cloneElement(node, undefined, linkPhonesInNode(props.children));
-}
-
-function isSkippable(element: ReactElement): boolean {
-  if (element.type === "a" || element.type === "button") return true;
-  const props = element.props as { href?: unknown };
-  return props.href != null;
 }
 
 function renderPhoneLinkedString(text: string): ReactNode {
