@@ -43978,6 +43978,59 @@
       ],
       "updatedAt": "2026-09-05T11:03:45.591Z"
     },
+    "vipera-dinniki-saba-1.jpg": {
+      "sourceHash": "880c9fae6cc1f7118d45391c264ba62c0fff7fb970332e9707f5578369cea938",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-dinniki-saba-1.jpg",
+      "originalSize": 740919,
+      "width": 1152,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-saba-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 82403
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 127672
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 232202
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 385874
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-1152.avif",
+          "format": "avif",
+          "width": 1152,
+          "height": 2048,
+          "byteSize": 394102
+        },
+        {
+          "key": "optimized/vipera-dinniki-saba-1-1152.webp",
+          "format": "webp",
+          "width": 1152,
+          "height": 2048,
+          "byteSize": 623212
+        }
+      ],
+      "updatedAt": "2026-09-05T11:09:21.773Z"
+    },
     "vipera-dinniki-sandro-1.jpg": {
       "sourceHash": "8e3667e96d91961523a3b8fc46105890a6cbd70e3aea6c4732f7eb237cda3af3",
       "configFingerprint": "a895f8e025dcc7fa",
