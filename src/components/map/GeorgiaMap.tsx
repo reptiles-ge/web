@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import {
   type MouseEvent,
   useCallback,
@@ -10,15 +11,26 @@ import {
 } from "react";
 
 import { Region } from "@/components/map/Region";
-import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
 import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { MotionLazy } from "@/components/MotionLazy";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
-import { type Region as RegionData, regions } from "@/data/regions";
+import {
+  type Region as RegionData,
+  type RegionTooltipSpecies,
+  regions,
+} from "@/data/mapRegions";
 import { useRouter } from "@/i18n/navigation";
 import { type MapContext, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
-import { regionHref } from "@/lib/speciesRoutes";
+import { regionHref } from "@/lib/regionHref";
+
+const RegionDetailsPanel = dynamic(
+  () =>
+    import("@/components/map/RegionDetailsPanel").then(
+      (mod) => mod.RegionDetailsPanel,
+    ),
+  { ssr: false },
+);
 
 type GeorgiaMapProps = {
   className?: string;
@@ -26,9 +38,11 @@ type GeorgiaMapProps = {
   interactive?: boolean;
   mapContext?: MapContext;
   selectionMode?: "navigate" | "panel";
+  tooltipSpeciesByRegion?: Record<string, RegionTooltipSpecies[]>;
 };
 
 const EMPTY_HIGHLIGHTED_IDS: string[] = [];
+const EMPTY_TOOLTIP_SPECIES: Record<string, RegionTooltipSpecies[]> = {};
 
 export function GeorgiaMap({
   className,
@@ -36,6 +50,7 @@ export function GeorgiaMap({
   interactive = true,
   mapContext = "home",
   selectionMode = "panel",
+  tooltipSpeciesByRegion = EMPTY_TOOLTIP_SPECIES,
 }: GeorgiaMapProps) {
   const router = useRouter();
   const reactId = useId();
@@ -198,7 +213,15 @@ export function GeorgiaMap({
           </svg>
 
           {interactive ? (
-            <RegionTooltip position={tooltipPos} region={hoveredRegion} />
+            <RegionTooltip
+              position={tooltipPos}
+              region={hoveredRegion}
+              species={
+                hoveredRegion
+                  ? (tooltipSpeciesByRegion[hoveredRegion.id] ?? [])
+                  : []
+              }
+            />
           ) : null}
         </div>
 

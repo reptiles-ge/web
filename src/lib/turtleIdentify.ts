@@ -1,6 +1,6 @@
 import type { Species } from "@/data/species";
 
-import { getRegionsForSpecies, type Region } from "@/data/regions";
+import { getRegionsForSpecies, type Region } from "@/data/mapRegions";
 
 export const TURTLE_ORDER = [
   "testudo-graeca",

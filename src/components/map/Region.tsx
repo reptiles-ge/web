@@ -5,9 +5,9 @@ import type { KeyboardEvent } from "react";
 import { m } from "framer-motion";
 import { useLocale } from "next-intl";
 
-import type { Region as RegionData } from "@/data/regions";
+import type { Region as RegionData } from "@/data/mapRegions";
 
-import { localizeRegionText } from "@/data/regions";
+import { localizeRegionText } from "@/data/mapRegions";
 import { cn } from "@/lib/cn";
 
 type RegionProps = {

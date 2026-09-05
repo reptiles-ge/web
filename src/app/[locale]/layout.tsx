@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
+import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
@@ -42,16 +43,18 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <SkipLink label={t("skipToContent")} />
-      <ScrollToTop />
-      <AnalyticsPageContext switchIndex={switchIndex} />
-      <VisitPing />
-      <Navbar switchIndex={switchIndex} />
-      <main id="main" tabIndex={-1}>
-        {children}
-      </main>
-      <Footer {...footerData} />
-      <SpeedInsights />
+      <LocaleSwitchProvider index={switchIndex}>
+        <SkipLink label={t("skipToContent")} />
+        <ScrollToTop />
+        <AnalyticsPageContext switchIndex={switchIndex} />
+        <VisitPing />
+        <Navbar switchIndex={switchIndex} />
+        <main id="main" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer {...footerData} />
+        <SpeedInsights />
+      </LocaleSwitchProvider>
     </NextIntlClientProvider>
   );
 }

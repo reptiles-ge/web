@@ -9,20 +9,29 @@ import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { getRegionContent } from "@/data/regionContent";
 import {
-  getCatalogRegionStats,
   localizeRegionText,
   type Region,
+  type RegionTooltipSpecies,
   regions,
-} from "@/data/regions";
+} from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
-import { regionHref } from "@/lib/speciesRoutes";
+import { regionHref } from "@/lib/regionHref";
 
 const REGIONS_HERO = "https://cdn.reptiles.ge/regions-hero-1.jpg";
 
-export function RegionsIndex() {
+export function RegionsIndex({
+  stats,
+  tooltipSpeciesByRegion,
+}: {
+  stats: {
+    regionCount: number;
+    speciesCount: number;
+    venomousCount: number;
+  };
+  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+}) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("regions");
-  const stats = getCatalogRegionStats();
 
   return (
     <div className="min-h-screen bg-background">
@@ -94,7 +103,11 @@ export function RegionsIndex() {
               </p>
             </div>
             <div className="mt-12 lg:mt-16">
-              <GeorgiaMap mapContext="region_page" selectionMode="navigate" />
+              <GeorgiaMap
+                mapContext="region_page"
+                selectionMode="navigate"
+                tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+              />
             </div>
             <p className="mt-8 text-center text-[12px] tracking-wide text-muted-foreground">
               {t("mapHint")}

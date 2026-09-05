@@ -5,7 +5,7 @@ import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-import type { Region } from "@/data/regions";
+import type { Region } from "@/data/mapRegions";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -14,7 +14,7 @@ import { getRegionSpecies, localizeRegionText } from "@/data/regions";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { cycleTab } from "@/lib/focusTrap";
-import { regionHref } from "@/lib/speciesRoutes";
+import { regionHref } from "@/lib/regionHref";
 
 type PanelContentProps = {
   locale: AppLocale;

@@ -1,6 +1,6 @@
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
-import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 

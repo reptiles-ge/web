@@ -1,6 +1,9 @@
-import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
+import type { GalleryImage, Species, SpeciesStat } from "@/data/speciesTypes";
 
-import { type AnimalGroup, groupHasVenomConcept } from "@/data/speciesAtlas";
+import {
+  type AnimalGroup,
+  groupHasVenomConcept,
+} from "@/data/speciesAtlasMeta";
 
 const PLACEHOLDER_MEDIA = [
   "/images/species-placeholder.png",

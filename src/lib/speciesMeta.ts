@@ -1,8 +1,8 @@
-import type { DangerLevel, PhotoCredit } from "@/data/species";
-import type { AnimalGroup } from "@/data/speciesAtlas";
+import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { AppLocale } from "@/i18n/routing";
 
-import { isVenomousDanger } from "@/data/speciesAtlas";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 
 export function speciesFallbackDescriptionKey(
   group: AnimalGroup,

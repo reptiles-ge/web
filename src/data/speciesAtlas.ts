@@ -1,4 +1,4 @@
-import { getRegionsForSpecies, regions } from "@/data/regions";
+import { getRegionsForSpecies, regions } from "@/data/mapRegions";
 import {
   type DangerLevel,
   getCatalogSpecies,
@@ -9,6 +9,7 @@ import {
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
   type HabitatTag,
+  isVenomousDanger,
 } from "@/data/speciesAtlasMeta";
 
 export type AtlasDangerFilter = "all" | "harmless" | "venomous";
@@ -21,12 +22,9 @@ export type {
 export {
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
+  isVenomousDanger,
   speciesAtlasMeta,
 } from "@/data/speciesAtlasMeta";
-
-export function isVenomousDanger(danger?: DangerLevel) {
-  return danger === "High" || danger === "Moderate";
-}
 
 const venomousDangerOrder: Record<DangerLevel, number> = {
   Harmless: 2,

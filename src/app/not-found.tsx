@@ -8,6 +8,7 @@ import {
 } from "next-intl/server";
 import { cookies } from "next/headers";
 
+import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
 import { SkipLink } from "@/components/SkipLink";
@@ -31,11 +32,13 @@ export default async function RootNotFound() {
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <SkipLink label={t("skipToContent")} />
-      <Navbar switchIndex={switchIndex} />
-      <main id="main" tabIndex={-1}>
-        <NotFoundContent />
-      </main>
+      <LocaleSwitchProvider index={switchIndex}>
+        <SkipLink label={t("skipToContent")} />
+        <Navbar switchIndex={switchIndex} />
+        <main id="main" tabIndex={-1}>
+          <NotFoundContent />
+        </main>
+      </LocaleSwitchProvider>
     </NextIntlClientProvider>
   );
 }

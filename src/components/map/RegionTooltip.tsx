@@ -4,26 +4,27 @@ import { m } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 
-import type { Region } from "@/data/regions";
+import type {
+  Region,
+  RegionTooltipSpecies,
+} from "@/data/mapRegions";
 import type { AppLocale } from "@/i18n/routing";
 
-import { getRegionSpecies, localizeRegionText } from "@/data/regions";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { localizeRegionText } from "@/data/mapRegions";
 
 type RegionTooltipProps = {
   position: null | { x: number; y: number };
   region: null | Region;
+  species: RegionTooltipSpecies[];
 };
 
-export function RegionTooltip({ position, region }: RegionTooltipProps) {
+export function RegionTooltip({
+  position,
+  region,
+  species,
+}: RegionTooltipProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("map");
-
-  const species = region
-    ? getRegionSpecies(region)
-        .map((item) => localizeSpecies(item, locale))
-        .slice(0, 3)
-    : [];
 
   return (
     <AnimatePresence>

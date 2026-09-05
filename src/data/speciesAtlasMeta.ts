@@ -1,3 +1,5 @@
+import type { DangerLevel } from "./speciesTypes";
+
 export type AnimalGroup =
   "amphibian" | "bird" | "lizard" | "mammal" | "snake" | "spider" | "turtle";
 
@@ -536,4 +538,8 @@ export function groupHasVenomConcept(group: AnimalGroup) {
     group === "amphibian" ||
     group === "spider"
   );
+}
+
+export function isVenomousDanger(danger?: DangerLevel) {
+  return danger === "High" || danger === "Moderate";
 }

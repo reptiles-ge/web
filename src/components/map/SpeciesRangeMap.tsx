@@ -7,9 +7,9 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
-import { regionHref } from "@/lib/speciesRoutes";
+import { regionHref } from "@/lib/regionHref";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesRangeMapProps = {
