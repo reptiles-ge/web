@@ -299,6 +299,104 @@ export function reorderGalleryInSpecies(
   );
 }
 
+export type CoverTarget = "both" | "desktop" | "mobile";
+
+export function setCoverInMdx(
+  raw: string,
+  target: CoverTarget,
+  item: GalleryImage,
+  insertMissing = true,
+): string {
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  let lines = raw.split(/\r?\n/);
+  if (target === "desktop" || target === "both") {
+    lines = setCoverField(lines, "image", "imageCredit", item, insertMissing);
+  }
+  if (target === "mobile" || target === "both") {
+    lines = setCoverField(
+      lines,
+      "mobileImage",
+      "mobileImageCredit",
+      item,
+      insertMissing,
+    );
+  }
+  const next = lines.join(newline);
+  const data = matter(next).data as {
+    image?: unknown;
+    imageCredit?: unknown;
+    mobileImage?: unknown;
+    mobileImageCredit?: unknown;
+  };
+  if (target === "desktop" || target === "both") {
+    if (insertMissing || typeof data.image === "string") {
+      if (data.image !== item.src) {
+        throw new Error("Failed to set desktop cover");
+      }
+      if (!creditsEqual(item.credit, normalizeCredit(data.imageCredit))) {
+        throw new Error("Failed to set desktop cover credit");
+      }
+    }
+  }
+  if (target === "mobile" || target === "both") {
+    if (insertMissing || typeof data.mobileImage === "string") {
+      if (data.mobileImage !== item.src) {
+        throw new Error("Failed to set mobile cover");
+      }
+      if (
+        !creditsEqual(item.credit, normalizeCredit(data.mobileImageCredit))
+      ) {
+        throw new Error("Failed to set mobile cover credit");
+      }
+    }
+  }
+  return next;
+}
+
+export function setCoverInSpecies(
+  id: string,
+  target: CoverTarget,
+  src: string,
+  repoRoot = process.cwd(),
+) {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const dir = path.join(repoRoot, "src/content/species", id);
+  const kaPath = path.join(dir, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  const kaRaw = fs.readFileSync(kaPath, "utf8");
+  const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
+    (item) => item.src === src,
+  );
+  if (!kaItem) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+  fs.writeFileSync(kaPath, setCoverInMdx(kaRaw, target, kaItem), "utf8");
+
+  for (const locale of OVERLAY_LOCALES) {
+    const filePath = path.join(dir, `${locale}.mdx`);
+    if (!fs.existsSync(filePath)) continue;
+    const raw = fs.readFileSync(filePath, "utf8");
+    const parsed = matter(raw);
+    const overlay = normalizeGallery(parsed.data.gallery).find(
+      (item) => item.src === src,
+    );
+    const item: GalleryImage = overlay
+      ? { src, ...(overlay.credit ? { credit: overlay.credit } : {}) }
+      : kaItem;
+    const hasKeys = coverKeysPresent(parsed.data, target);
+    if (!hasKeys && !overlay) continue;
+    fs.writeFileSync(
+      filePath,
+      setCoverInMdx(raw, target, item, hasKeys),
+      "utf8",
+    );
+  }
+}
+
 function assertGalleryPermutation(current: string[], next: string[]) {
   if (next.length !== current.length) {
     throw new Error("Gallery order must include every photo once");
