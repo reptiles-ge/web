@@ -5359,6 +5359,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-zauri-1.jpg": {
+    "path": "zamenis-hohenackeri-zauri-1",
+    "width": 1343,
+    "height": 960,
+    "widths": [400, 800, 1200, 1343],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri.jpg": {
     "path": "zamenis-hohenackeri",
     "width": 2048,
