@@ -5,11 +5,11 @@ import { useLocale, useTranslations } from "next-intl";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { type Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 export function AtlasRecent({ species }: { species: Species[] }) {
   const t = useTranslations("speciesAtlas");
@@ -49,7 +49,7 @@ function RecentSpeciesRow({ species }: { species: Species }) {
   return (
     <Link
       className="group flex items-center gap-4 rounded-card border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
-      href={speciesHref(species.id, locale)}
+      href={useSpeciesHref(species.id, locale)}
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">
         {(species.mobileImage || species.image) &&

@@ -54,7 +54,7 @@ export function AtlasSpeciesCard({
       <Link
         aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
         className="absolute inset-0 z-10"
-        href={speciesHref(species.id, locale)}
+        href={useSpeciesHref(species.id, locale)}
         onClick={() =>
           trackSpeciesClick({
             group: meta.group,

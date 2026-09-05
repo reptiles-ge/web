@@ -7,7 +7,7 @@ import { Drawer } from "vaul";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { localizeRegionText, regions } from "@/data/regions";
+import { localizeRegionText, regions } from "@/data/mapRegions";
 import {
   type AnimalGroup,
   type AtlasFilters,
