@@ -3287,6 +3287,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-1",
+    "width": 1024,
+    "height": 1034,
+    "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-ioane-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-ioane-1",
+    "width": 960,
+    "height": 1275,
+    "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-zakro-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-zakro-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lissotriton-lantzi-2.jpg": {
     "path": "lissotriton-lantzi-2",
     "width": 2048,
