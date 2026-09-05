@@ -7,6 +7,7 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
@@ -313,7 +314,7 @@ function IndexCard({
   venomousNo: string;
   venomousYes: string;
 }) {
-  const href = speciesHref(species.id, locale);
+  const href = useSpeciesHref(species.id, locale);
   const range = formatRange(species.id, locale, rangePending);
   const size = getSpeciesSizeStat(species) ?? dash;
   const habitat = getSpeciesHabitatStat(species) ?? dash;
