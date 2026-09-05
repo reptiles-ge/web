@@ -519,6 +519,15 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
 };
 
+export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
+  return (
+    speciesAtlasMeta[id] ?? {
+      group: "snake",
+      habitats: ["forest"],
+    }
+  );
+}
+
 export function groupHasVenomConcept(group: AnimalGroup) {
   return (
     group === "snake" ||

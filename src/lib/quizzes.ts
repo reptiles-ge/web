@@ -1,5 +1,4 @@
 import { type AppLocale, routing } from "@/i18n/routing";
-import { QUIZ_LENGTH } from "@/lib/snakeQuiz";
 
 export type QuizCopyNamespace = "lizardQuiz" | "snakeQuiz";
 
@@ -36,7 +35,7 @@ export const QUIZ_INDEX = [
     messageKey: "snake",
     messageNamespace: "snakeQuiz",
     ogImage: "/images/guides/snake-quiz-og.jpg",
-    questions: QUIZ_LENGTH,
+    questions: 10,
     slugs: {
       en: "which-snake",
       ka: "romeli-gvelia",
@@ -53,7 +52,7 @@ export const QUIZ_INDEX = [
     messageKey: "lizard",
     messageNamespace: "lizardQuiz",
     ogImage: "/images/home/groups/lizards.jpg",
-    questions: QUIZ_LENGTH,
+    questions: 10,
     slugs: {
       en: "which-lizard",
       ka: "romeli-xvlikia",

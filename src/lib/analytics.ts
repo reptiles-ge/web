@@ -1,4 +1,7 @@
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import {
+  type AnimalGroup,
+  getSpeciesAtlasMeta,
+} from "@/data/speciesAtlasMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 
 export type AnalyticsValue = boolean | number | string;
@@ -99,7 +102,8 @@ export function trackSpeciesClick(params: {
   source: SpeciesClickSource;
   species_id: string;
 }) {
-  const group = params.group ?? getSpeciesAtlasMeta(params.species_id).group;
+  const group =
+    params.group ?? getSpeciesAtlasMeta(params.species_id).group;
   trackEvent("species_click", {
     group,
     position: params.position,

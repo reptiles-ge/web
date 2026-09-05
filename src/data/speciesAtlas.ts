@@ -6,6 +6,7 @@ import {
 } from "@/data/species";
 import {
   type AnimalGroup,
+  getSpeciesAtlasMeta,
   groupHasVenomConcept,
   type HabitatTag,
   type SpeciesAtlasMeta,
@@ -20,18 +21,10 @@ export type {
   SpeciesAtlasMeta,
 } from "@/data/speciesAtlasMeta";
 export {
+  getSpeciesAtlasMeta,
   groupHasVenomConcept,
   speciesAtlasMeta,
 } from "@/data/speciesAtlasMeta";
-
-export function getSpeciesAtlasMeta(id: string): SpeciesAtlasMeta {
-  return (
-    speciesAtlasMeta[id] ?? {
-      group: "snake",
-      habitats: ["forest"],
-    }
-  );
-}
 
 export function isVenomousDanger(danger?: DangerLevel) {
   return danger === "High" || danger === "Moderate";

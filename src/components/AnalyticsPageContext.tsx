@@ -8,9 +8,16 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { usePathname } from "@/i18n/navigation";
 import { pushPageContext } from "@/lib/analytics";
-import { resolvePageContext } from "@/lib/pageContext";
+import {
+  resolvePageContextFromIndex,
+  type LocaleSwitchIndex,
+} from "@/lib/localeSwitch";
 
-export function AnalyticsPageContext() {
+export function AnalyticsPageContext({
+  switchIndex,
+}: {
+  switchIndex: LocaleSwitchIndex;
+}) {
   const pathname = usePathname();
   const locale = useLocale() as AppLocale;
   const params = useParams();
@@ -19,14 +26,17 @@ export function AnalyticsPageContext() {
   const id = typeof params.id === "string" ? params.id : undefined;
 
   useEffect(() => {
-    const context = resolvePageContext(pathname, locale, { id, slug });
+    const context = resolvePageContextFromIndex(switchIndex, pathname, locale, {
+      id,
+      slug,
+    });
     pushPageContext({
       entity_id: context.entity_id,
       group: context.group,
       language: locale,
       page_type: context.page_type,
     });
-  }, [pathname, locale, slug, id]);
+  }, [pathname, locale, slug, id, switchIndex]);
 
   return null;
 }

@@ -17,6 +17,7 @@ import { SkipLink } from "@/components/SkipLink";
 import { VisitPing } from "@/components/VisitPing";
 import { routing } from "@/i18n/routing";
 import { getFooterData } from "@/lib/footerData";
+import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 type Props = {
   children: ReactNode;
@@ -37,14 +38,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
   const t = await getTranslations("nav");
   const footerData = getFooterData(locale);
+  const switchIndex = getLocaleSwitchIndex();
 
   return (
     <NextIntlClientProvider messages={messages}>
       <SkipLink label={t("skipToContent")} />
       <ScrollToTop />
-      <AnalyticsPageContext />
+      <AnalyticsPageContext switchIndex={switchIndex} />
       <VisitPing />
-      <Navbar />
+      <Navbar switchIndex={switchIndex} />
       <main id="main" tabIndex={-1}>
         {children}
       </main>

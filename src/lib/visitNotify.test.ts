@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 
+import { formatVisitMessage } from "@/lib/visitMessage";
 import {
   createVisitLimiter,
-  formatVisitMessage,
   isVisitBlocked,
   readVisitExpiresAt,
   readVisitPath,

@@ -12,6 +12,7 @@ import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
 import { SkipLink } from "@/components/SkipLink";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 export const metadata: Metadata = {
   robots: {
@@ -26,11 +27,12 @@ export default async function RootNotFound() {
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations("nav");
+  const switchIndex = getLocaleSwitchIndex();
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <SkipLink label={t("skipToContent")} />
-      <Navbar />
+      <Navbar switchIndex={switchIndex} />
       <main id="main" tabIndex={-1}>
         <NotFoundContent />
       </main>

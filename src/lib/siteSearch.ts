@@ -1,7 +1,17 @@
 import type { AppPathnames } from "@/i18n/routing";
+import type { QuizHref } from "@/lib/quizzes";
 
-import { type QuizHref } from "@/lib/quizzes";
-import { type SpeciesHref } from "@/lib/speciesRoutes";
+type SpeciesHref = {
+  params: { slug: string };
+  pathname:
+    | "/amphibians/[slug]"
+    | "/birds/[slug]"
+    | "/lizards/[slug]"
+    | "/mammals/[slug]"
+    | "/snakes/[slug]"
+    | "/spiders/[slug]"
+    | "/turtles/[slug]";
+};
 
 export type RecentRef = { id: string; kind: SearchKind };
 export type ScoredDocument = SearchDocument & { score: number };
