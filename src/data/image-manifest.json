@@ -43992,6 +43992,73 @@
       ],
       "updatedAt": "2026-08-28T22:00:00.126Z"
     },
+    "vipera-darevskii-1.jpg": {
+      "sourceHash": "4ad85dc3107990f4528e7ad3895641244ddc93ac735d221451533dbe68cef638",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-1.jpg",
+      "originalSize": 444097,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16855
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25726
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55618
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 86694
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 105593
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 163800
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 241697
+        },
+        {
+          "key": "optimized/vipera-darevskii-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 347052
+        }
+      ],
+      "updatedAt": "2026-09-05T15:55:23.444Z"
+    },
     "vipera-darevskii-2.jpg": {
       "sourceHash": "fcb0a903a55946716e6d06fa7609c6ec955dd36b54ec5bee341b0b5263b62c18",
       "configFingerprint": "a895f8e025dcc7fa",
