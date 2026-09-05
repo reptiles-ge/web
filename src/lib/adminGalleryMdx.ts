@@ -344,9 +344,7 @@ export function setCoverInMdx(
       if (data.mobileImage !== item.src) {
         throw new Error("Failed to set mobile cover");
       }
-      if (
-        !creditsEqual(item.credit, normalizeCredit(data.mobileImageCredit))
-      ) {
+      if (!creditsEqual(item.credit, normalizeCredit(data.mobileImageCredit))) {
         throw new Error("Failed to set mobile cover credit");
       }
     }

@@ -2,10 +2,7 @@ import {
   isLocalAdminEnabled,
   localAdminForbiddenResponse,
 } from "@/lib/adminAccess";
-import {
-  type CoverTarget,
-  isSpeciesContentId,
-} from "@/lib/adminGalleryMdx";
+import { type CoverTarget, isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { openCoverPullRequest } from "@/lib/adminPhotoPullRequest";
 
 export const runtime = "nodejs";
