@@ -14,12 +14,15 @@ import {
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { CoverImage } from "@/components/CoverImage";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 type ConflictGuideConfig = {
   actionCount: 4;
   agencyPhone?: { display: string; tel: string };
+  contactSpeciesId?: string;
   extraLinks: readonly { href: ConflictLinkHref; key: ConflictLinkKey }[];
   mythCount: 4;
   namespace: ConflictNamespace;
@@ -52,6 +55,7 @@ export const JACKAL_YARD_CONFIG: ConflictGuideConfig = {
 export const LIZARD_HOUSE_CONFIG: ConflictGuideConfig = {
   actionCount: 4,
   agencyPhone: { display: "032 272 16 00", tel: "0322721600" },
+  contactSpeciesId: "tenuidactylus-caspius",
   extraLinks: [
     { href: "/lizards/identifikacia", key: "linkIdentify" },
     { href: "/lizards", key: "linkHub" },
@@ -76,7 +80,7 @@ export function ConflictGuideSections({
       <ConflictActions config={config} />
       <ConflictIdentify config={config} species={species} />
       <ConflictMyths config={config} />
-      <ConflictContact config={config} />
+      <ConflictContact config={config} species={species} />
     </>
   );
 }
@@ -123,8 +127,18 @@ function ConflictActions({ config }: { config: ConflictGuideConfig }) {
   );
 }
 
-function ConflictContact({ config }: { config: ConflictGuideConfig }) {
+function ConflictContact({
+  config,
+  species,
+}: {
+  config: ConflictGuideConfig;
+  species: Species[];
+}) {
   const t = useTranslations(config.namespace);
+  const locale = useLocale() as AppLocale;
+  const photo = config.contactSpeciesId
+    ? species.find((item) => item.id === config.contactSpeciesId)
+    : undefined;
   if (!config.show112 && !config.agencyPhone) return null;
 
   return (
@@ -199,6 +213,22 @@ function ConflictContact({ config }: { config: ConflictGuideConfig }) {
               </div>
             </div>
           )}
+          {photo ? (
+            <Link
+              className="group relative block h-full min-h-[260px] bg-ink"
+              href={speciesHref(photo.id, locale)}
+            >
+              <CoverImage
+                alt={t("heroImageAlt")}
+                className="object-cover object-[50%_55%] transition-transform duration-700 group-hover:scale-[1.03]"
+                sizes="(max-width: 640px) 100vw, 50vw"
+                src={photo.mobileImage ?? photo.image}
+              />
+              <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/75 to-transparent px-6 pt-16 pb-5 font-display text-[15px] font-medium text-white">
+                {photo.commonName}
+              </span>
+            </Link>
+          ) : null}
         </div>
       </div>
     </section>
