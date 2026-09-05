@@ -31,42 +31,60 @@ import {
 } from "./speciesFrontmatter";
 
 const contentRoot = path.join(process.cwd(), "src/content/species");
+const contentRootRel = "src/content/species";
 const outFile = path.join(process.cwd(), "src/data/species.generated.ts");
+const GIT_COMMITTER_DATE = /^\d{4}-\d{2}-\d{2}T/;
+
+function toRepoPath(filePath: string) {
+  return path.relative(process.cwd(), filePath).split(path.sep).join("/");
+}
+
+function loadGitFileDates(rootRel: string) {
+  const firstByPath = new Map<string, string>();
+  const lastByPath = new Map<string, string>();
+  try {
+    const out = execFileSync(
+      "git",
+      ["log", "--name-only", "--pretty=format:%cI", "--", rootRel],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+    );
+    let date: null | string = null;
+    for (const rawLine of out.split("\n")) {
+      const line = rawLine.trim();
+      if (!line) continue;
+      if (GIT_COMMITTER_DATE.test(line)) {
+        date = parseToSiteDateTime(line);
+        continue;
+      }
+      if (!date) continue;
+      if (!lastByPath.has(line)) lastByPath.set(line, date);
+      firstByPath.set(line, date);
+    }
+  } catch {
+    return { firstByPath, lastByPath };
+  }
+  return { firstByPath, lastByPath };
+}
+
+const gitFileDates = loadGitFileDates(contentRootRel);
 
 function getGitFirstCommitDate(filePaths: string[]): string | null {
   let oldest: string | null = null;
   for (const filePath of filePaths) {
     if (!fs.existsSync(filePath)) continue;
-    try {
-      const out = execFileSync(
-        "git",
-        ["log", "--follow", "--format=%cI", "--reverse", "--", filePath],
-        { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
-      );
-      const first = out
-        .split("\n")
-        .map((line) => line.trim())
-        .find(Boolean);
-      const parsed = first ? parseToSiteDateTime(first) : null;
-      if (parsed && (!oldest || parsed < oldest)) oldest = parsed;
-    } catch {
-      continue;
-    }
+    const parsed = gitFileDates.firstByPath.get(toRepoPath(filePath));
+    if (parsed && (!oldest || parsed < oldest)) oldest = parsed;
   }
   return oldest;
 }
 
 function getGitLastCommitDate(filePaths: string[]): string | null {
-  try {
-    const out = execFileSync(
-      "git",
-      ["log", "-1", "--format=%cI", "--", ...filePaths],
-      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
-    ).trim();
-    return out ? parseToSiteDateTime(out) : null;
-  } catch {
-    return null;
+  let latest: string | null = null;
+  for (const filePath of filePaths) {
+    const parsed = gitFileDates.lastByPath.get(toRepoPath(filePath));
+    if (parsed && (!latest || parsed > latest)) latest = parsed;
   }
+  return latest;
 }
 
 function getMtimeDate(filePaths: string[]): string | null {
