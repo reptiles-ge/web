@@ -2412,6 +2412,73 @@
       ],
       "updatedAt": "2026-08-28T21:29:07.486Z"
     },
+    "bufotes-viridis-zauri-1.jpg": {
+      "sourceHash": "1b2af3e62b8c3cb5f5daa5cb704062aab5c5aa6485b44c0b541231a71423b274",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "bufotes-viridis-zauri-1.jpg",
+      "originalSize": 177255,
+      "width": 1344,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 17474
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 27582
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 44993
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 70276
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 76216
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 119294
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1344.avif",
+          "format": "avif",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 94502
+        },
+        {
+          "key": "optimized/bufotes-viridis-zauri-1-1344.webp",
+          "format": "webp",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 133554
+        }
+      ],
+      "updatedAt": "2026-09-05T11:31:32.568Z"
+    },
     "bufotes-viridis.jpg": {
       "sourceHash": "cb1013a41ba7ccfc10535f4bff96c65a756b66c1cd11ace6cc7d58fff9b68d8b",
       "configFingerprint": "a895f8e025dcc7fa",
