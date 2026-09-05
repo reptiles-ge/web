@@ -214,7 +214,6 @@
         "src/components/SpeciesVoicePlayer.tsx",
         "src/components/ThemeProvider.tsx",
         "src/components/ThemeToggle.tsx",
-        "src/components/TopGeCounter.tsx",
         "src/components/TurtleIdentifyPage.tsx",
         "src/components/TurtleSpeciesIndexPage.tsx",
         "src/components/TurtlesHubSections.tsx",
