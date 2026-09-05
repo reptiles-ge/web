@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -132,35 +133,37 @@ function SnakeBiteDisclaimer() {
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
-            {t("disclaimerEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
-            {t("disclaimerTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("disclaimerBody")}
-          </p>
-          <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-            {([1, 2, 3, 4] as const).map((n) => (
-              <li
-                className="py-4 text-[15px] leading-relaxed text-foreground"
-                key={n}
-              >
-                {t(`summary${n}`)}
-              </li>
-            ))}
-          </ul>
-          <a
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white dark:text-ink"
-            href="tel:112"
-          >
-            {t("call112")}
-            <span className="font-display tracking-wide">112</span>
-          </a>
-          <p className="mt-5 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
-            {t("disclaimerNote")}
-          </p>
+          <PhoneLinkedText>
+            <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
+              {t("disclaimerEyebrow")}
+            </p>
+            <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
+              {t("disclaimerTitle")}
+            </h2>
+            <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+              {t("disclaimerBody")}
+            </p>
+            <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
+              {([1, 2, 3, 4] as const).map((n) => (
+                <li
+                  className="py-4 text-[15px] leading-relaxed text-foreground"
+                  key={n}
+                >
+                  {t(`summary${n}`)}
+                </li>
+              ))}
+            </ul>
+            <a
+              className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white dark:text-ink"
+              href="tel:112"
+            >
+              {t("call112")}
+              <span className="font-display tracking-wide">112</span>
+            </a>
+            <p className="mt-5 max-w-2xl text-[13px] leading-relaxed text-muted-foreground">
+              {t("disclaimerNote")}
+            </p>
+          </PhoneLinkedText>
         </div>
       </div>
     </section>

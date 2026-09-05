@@ -6,11 +6,11 @@ import { Fragment } from "react";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
   getSpeciesById,
   type SpeciesIdentification as Identification,
 } from "@/data/species";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";

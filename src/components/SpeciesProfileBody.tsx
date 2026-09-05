@@ -7,6 +7,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
@@ -18,7 +19,6 @@ import { SpeciesSources } from "@/components/SpeciesSources";
 import { type HubClusterCard, isSnakeSpecies } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate } from "@/lib/formatDate";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type BiologyBlockItem = {

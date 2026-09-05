@@ -1,6 +1,5 @@
 "use client";
 
-
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 type ClusterNumberedStep = {
