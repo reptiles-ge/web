@@ -2253,6 +2253,73 @@
       ],
       "updatedAt": "2026-08-28T21:29:05.389Z"
     },
+    "bufotes-viridis-ioane-3.jpg": {
+      "sourceHash": "34c0e53dee87dc64d1a561d7d1a885d9be2d428e41a569fce91a304b5804ffbb",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "bufotes-viridis-ioane-3.jpg",
+      "originalSize": 449366,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 31224
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 47994
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 90760
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 139154
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 160796
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 247724
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 239136
+        },
+        {
+          "key": "optimized/bufotes-viridis-ioane-3-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 338468
+        }
+      ],
+      "updatedAt": "2026-09-05T11:30:55.146Z"
+    },
     "bufotes-viridis-lasha-1.jpg": {
       "sourceHash": "1407208719ce7046733b06b57159d56d5fb817bf60d8d22ceda656b0dc9cf5ca",
       "configFingerprint": "a895f8e025dcc7fa",
