@@ -15,9 +15,10 @@ import {
   HABITAT_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
-import { localizeRegionText, regions } from "@/data/regions";
+import { localizeRegionText, regions } from "@/data/mapRegions";
 import { type Species } from "@/data/species";
-import { type AnimalGroup, type AtlasFilters } from "@/data/speciesAtlas";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { type AtlasFilters } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
