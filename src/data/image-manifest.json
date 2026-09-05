@@ -35937,6 +35937,59 @@
       ],
       "updatedAt": "2026-09-05T16:19:16.970Z"
     },
+    "ophisops-elegans-kaxaber-1.jpg": {
+      "sourceHash": "2570a142b278b3ed3d678674fceb23c782fbc40334d74c37cf1a16329a73ddb4",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "ophisops-elegans-kaxaber-1.jpg",
+      "originalSize": 234079,
+      "width": 859,
+      "height": 863,
+      "derivatives": [
+        {
+          "key": "optimized/ophisops-elegans-kaxaber-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 402,
+          "byteSize": 46226
+        },
+        {
+          "key": "optimized/ophisops-elegans-kaxaber-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 402,
+          "byteSize": 72824
+        },
+        {
+          "key": "optimized/ophisops-elegans-kaxaber-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 804,
+          "byteSize": 116430
+        },
+        {
+          "key": "optimized/ophisops-elegans-kaxaber-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 804,
+          "byteSize": 210926
+        },
+        {
+          "key": "optimized/ophisops-elegans-kaxaber-1-859.avif",
+          "format": "avif",
+          "width": 859,
+          "height": 863,
+          "byteSize": 135029
+        },
+        {
+          "key": "optimized/ophisops-elegans-kaxaber-1-859.webp",
+          "format": "webp",
+          "width": 859,
+          "height": 863,
+          "byteSize": 220058
+        }
+      ],
+      "updatedAt": "2026-09-05T16:21:51.546Z"
+    },
     "ophisops-elegans-ksenia-1.jpg": {
       "sourceHash": "c308bc0c7ff87119c20a32fc508edf305bc51097eeccc16de90ba4a73dc15d68",
       "configFingerprint": "a895f8e025dcc7fa",
