@@ -73,7 +73,7 @@ function SnakeBiteDangerVenom() {
               {t("dangerTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {t("dangerIntro")}
+              <PhoneLinkedText>{t("dangerIntro")}</PhoneLinkedText>
             </p>
             <ul className="mt-8 divide-y divide-border border-y border-border">
               {DANGER_ITEMS.map((n) => (
@@ -81,7 +81,7 @@ function SnakeBiteDangerVenom() {
                   className="py-4 text-[15px] leading-relaxed text-foreground"
                   key={n}
                 >
-                  {t(`danger${n}`)}
+                  <PhoneLinkedText>{t(`danger${n}`)}</PhoneLinkedText>
                 </li>
               ))}
             </ul>
@@ -94,27 +94,29 @@ function SnakeBiteDangerVenom() {
               {t("venomTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {t.rich("venomBody", {
-                identify: (chunks) => (
-                  <Link
-                    className={inlineLinkClassName}
-                    href="/snakes/shxamiani-gvelis-amocnoba"
-                  >
-                    {chunks}
-                  </Link>
-                ),
-                venomous: (chunks) => (
-                  <Link
-                    className={inlineLinkClassName}
-                    href="/venomous-snakes"
-                  >
-                    {chunks}
-                  </Link>
-                ),
-              })}
+              <PhoneLinkedText>
+                {t.rich("venomBody", {
+                  identify: (chunks) => (
+                    <Link
+                      className={inlineLinkClassName}
+                      href="/snakes/shxamiani-gvelis-amocnoba"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                  venomous: (chunks) => (
+                    <Link
+                      className={inlineLinkClassName}
+                      href="/venomous-snakes"
+                    >
+                      {chunks}
+                    </Link>
+                  ),
+                })}
+              </PhoneLinkedText>
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              {t("venomNote")}
+              <PhoneLinkedText>{t("venomNote")}</PhoneLinkedText>
             </p>
           </div>
         </div>
@@ -176,51 +178,53 @@ function SnakeBiteDoDont() {
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("doEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("doTitle")}
-            </h2>
-            <ol className="mt-8 divide-y divide-border border-y border-border">
-              {DO_STEPS.map((n) => (
-                <li className="py-5" key={n}>
-                  <h3 className="font-display text-[17px] font-medium text-foreground">
-                    <span className="mr-2 text-muted-foreground">
-                      {String(n).padStart(2, "0")}
-                    </span>
-                    {t(`do${n}Title`)}
-                  </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                    {t(`do${n}Body`)}
-                  </p>
-                </li>
-              ))}
-            </ol>
+        <PhoneLinkedText>
+          <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+                {t("doEyebrow")}
+              </p>
+              <h2 className="mt-5 font-display text-display-title font-semibold">
+                {t("doTitle")}
+              </h2>
+              <ol className="mt-8 divide-y divide-border border-y border-border">
+                {DO_STEPS.map((n) => (
+                  <li className="py-5" key={n}>
+                    <h3 className="font-display text-[17px] font-medium text-foreground">
+                      <span className="mr-2 text-muted-foreground">
+                        {String(n).padStart(2, "0")}
+                      </span>
+                      {t(`do${n}Title`)}
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                      {t(`do${n}Body`)}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+                {t("dontEyebrow")}
+              </p>
+              <h2 className="mt-5 font-display text-display-title font-semibold">
+                {t("dontTitle")}
+              </h2>
+              <ol className="mt-8 divide-y divide-border border-y border-border">
+                {DONT_STEPS.map((n) => (
+                  <li className="py-5" key={n}>
+                    <h3 className="font-display text-[17px] font-medium text-foreground">
+                      {t(`dont${n}Title`)}
+                    </h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                      {t(`dont${n}Body`)}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("dontEyebrow")}
-            </p>
-            <h2 className="mt-5 font-display text-display-title font-semibold">
-              {t("dontTitle")}
-            </h2>
-            <ol className="mt-8 divide-y divide-border border-y border-border">
-              {DONT_STEPS.map((n) => (
-                <li className="py-5" key={n}>
-                  <h3 className="font-display text-[17px] font-medium text-foreground">
-                    {t(`dont${n}Title`)}
-                  </h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                    {t(`dont${n}Body`)}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
+        </PhoneLinkedText>
       </div>
     </section>
   );
@@ -244,7 +248,7 @@ function SnakeBiteSources() {
             {t("sourcesTitle")}
           </h2>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            {t("sourcesIntro")}
+            <PhoneLinkedText>{t("sourcesIntro")}</PhoneLinkedText>
           </p>
         </div>
 
@@ -284,7 +288,7 @@ function SnakeBiteSources() {
                 {t(`sourceSite${n}Title`)}
               </p>
               <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                {t(`sourceSite${n}Body`)}
+                <PhoneLinkedText>{t(`sourceSite${n}Body`)}</PhoneLinkedText>
               </p>
             </li>
           ))}
