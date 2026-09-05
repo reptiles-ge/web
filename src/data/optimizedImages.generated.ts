@@ -4687,6 +4687,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 775],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/steatoda-paykulliana-1.jpg": {
+    "path": "steatoda-paykulliana-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [400, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/steatoda-paykulliana-2.jpg": {
+    "path": "steatoda-paykulliana-2",
+    "width": 960,
+    "height": 1285,
+    "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/steatoda-paykulliana-3.jpg": {
+    "path": "steatoda-paykulliana-3",
+    "width": 960,
+    "height": 1280,
+    "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/steatoda-paykulliana-ben-1.jpg": {
+    "path": "steatoda-paykulliana-ben-1",
+    "width": 1280,
+    "height": 960,
+    "widths": [400, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg": {
     "path": "strix-aluco-gaebler-1",
     "width": 1654,

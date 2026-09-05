@@ -41664,6 +41664,246 @@
       ],
       "updatedAt": "2026-08-28T21:58:23.414Z"
     },
+    "steatoda-paykulliana-1.jpg": {
+      "sourceHash": "fe1533fac8212097576a642a74d8b5cf0ffcbb65bd94a5783b26174f6f6a6950",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "steatoda-paykulliana-1.jpg",
+      "originalSize": 425251,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 37981
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 61100
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 102753
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 163738
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 166609
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 258526
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 242011
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 325956
+        }
+      ],
+      "updatedAt": "2026-09-05T16:31:53.189Z"
+    },
+    "steatoda-paykulliana-2.jpg": {
+      "sourceHash": "a1393205e0803bcb9bd75234e8f29e1b203d11c9bfa776e0ddf21fcc8256ef21",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "steatoda-paykulliana-2.jpg",
+      "originalSize": 130836,
+      "width": 960,
+      "height": 1285,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 535,
+          "byteSize": 16529
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 535,
+          "byteSize": 23322
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1071,
+          "byteSize": 51002
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1071,
+          "byteSize": 66168
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 1285,
+          "byteSize": 80050
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-2-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 1285,
+          "byteSize": 86952
+        }
+      ],
+      "updatedAt": "2026-09-05T16:32:21.537Z"
+    },
+    "steatoda-paykulliana-3.jpg": {
+      "sourceHash": "2d28770425e204f3c77f55dc0b64d91fee593e692e77d5c186597a8ab108d2d8",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "steatoda-paykulliana-3.jpg",
+      "originalSize": 248281,
+      "width": 960,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 35824
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 59310
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 108084
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 163158
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-3-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 1280,
+          "byteSize": 153092
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-3-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 1280,
+          "byteSize": 203436
+        }
+      ],
+      "updatedAt": "2026-09-05T16:32:49.039Z"
+    },
+    "steatoda-paykulliana-ben-1.jpg": {
+      "sourceHash": "0ee75f4f4dfbf1c1ebce8799917513f63422de78fd4a05066fed410f08fe4e7c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "steatoda-paykulliana-ben-1.jpg",
+      "originalSize": 122152,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9030
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13020
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29223
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 40858
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 56618
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 77514
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 67125
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-ben-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 86844
+        }
+      ],
+      "updatedAt": "2026-09-05T16:33:27.207Z"
+    },
     "strix-aluco-gaebler-1.jpg": {
       "sourceHash": "64a5c2f5c11d744eafd72f8d8d995c692d2ccedc575945f36fc5bffe7f0a7077",
       "configFingerprint": "a895f8e025dcc7fa",
