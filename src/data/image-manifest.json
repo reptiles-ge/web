@@ -534,6 +534,45 @@
       ],
       "updatedAt": "2026-09-05T12:13:36.233Z"
     },
+    "aegypius-monachus-2.jpg": {
+      "sourceHash": "7b1f1da523e3b44cebb0746110256e8e908896e99539c68d35a8648c2b4d27fd",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "aegypius-monachus-2.jpg",
+      "originalSize": 53586,
+      "width": 750,
+      "height": 500,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10275
+        },
+        {
+          "key": "optimized/aegypius-monachus-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13822
+        },
+        {
+          "key": "optimized/aegypius-monachus-2-750.avif",
+          "format": "avif",
+          "width": 750,
+          "height": 500,
+          "byteSize": 35160
+        },
+        {
+          "key": "optimized/aegypius-monachus-2-750.webp",
+          "format": "webp",
+          "width": 750,
+          "height": 500,
+          "byteSize": 42242
+        }
+      ],
+      "updatedAt": "2026-09-05T12:14:59.516Z"
+    },
     "aegypius-monachus-giorgi-1.jpg": {
       "sourceHash": "29da15cb0f329cc74eba775453a27e91d722126a6c20a26c95873102e391ae2d",
       "configFingerprint": "a895f8e025dcc7fa",
