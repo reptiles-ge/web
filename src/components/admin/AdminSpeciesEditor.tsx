@@ -201,7 +201,7 @@ export function AdminSpeciesEditor({
           commonName={commonName}
           covers={covers}
           onClose={() => setPreview(null)}
-          onSelect={setPreview}
+          onSelect={(next) => setPreview(next)}
           photos={photos}
           preview={preview}
           scientificName={scientificName}

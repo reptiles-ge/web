@@ -11,8 +11,8 @@ import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
-import { CoverImage } from "@/components/CoverImage";
 import { AdminCoverPreviewButton } from "@/components/admin/AdminCoverPreview";
+import { CoverImage } from "@/components/CoverImage";
 import {
   type AdminCoverRole,
   adminCoverRoles,
@@ -115,10 +115,7 @@ export function AdminGalleryReorder({
                 </span>
               ) : null}
               <span className="absolute right-2 bottom-2">
-                <AdminCoverPreviewButton
-                  disabled={disabled}
-                  onClick={() => onPreview(item.src)}
-                />
+                <AdminCoverPreviewButton onClick={() => onPreview(item.src)} />
               </span>
             </div>
             <div className="flex items-center gap-1 px-2 py-1.5">

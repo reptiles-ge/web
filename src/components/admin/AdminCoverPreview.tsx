@@ -11,8 +11,7 @@ import { adminCoverRoles } from "@/lib/adminCover";
 import { cn } from "@/lib/cn";
 
 export type AdminCoverPreviewState =
-  | { src: string; type: "photo" }
-  | { type: "live" };
+  { src: string; type: "photo" } | { type: "live" };
 
 type Props = {
   commonName: string;
