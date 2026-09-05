@@ -254,6 +254,14 @@ export function AdminSpeciesEditor({
           />
         </label>
         <label className="mt-3 block text-[12px] text-muted-foreground">
+          ავტორის URL
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="url"
+            type="url"
+          />
+        </label>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
           ადგილი
           <input
             className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"

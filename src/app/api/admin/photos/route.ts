@@ -42,6 +42,7 @@ export async function POST(request: Request) {
         locationEn: textField(form, "locationEn"),
         photographer: textField(form, "photographer"),
         photographerEn: textField(form, "photographerEn"),
+        url: textField(form, "url"),
       },
       files: await Promise.all(
         uploads.map(async (file) => ({
