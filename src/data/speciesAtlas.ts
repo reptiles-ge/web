@@ -9,8 +9,6 @@ import {
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
   type HabitatTag,
-  type SpeciesAtlasMeta,
-  speciesAtlasMeta,
 } from "@/data/speciesAtlasMeta";
 
 export type AtlasDangerFilter = "all" | "harmless" | "venomous";
