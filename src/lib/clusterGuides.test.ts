@@ -7,6 +7,7 @@ import {
   isDarevskiaSpecies,
   isMammalSpecies,
   isSnakeSpecies,
+  VENOMOUS_SPIDER_IDS,
 } from "@/lib/clusterGuides";
 
 describe("isSnakeSpecies", () => {
@@ -75,5 +76,11 @@ describe("bird and mammal indexes", () => {
     expect(
       mammals.every((item) => CLUSTER_GUIDES["mammal-index"].matches(item)),
     ).toBe(true);
+    const venomousSpiders = catalog.filter((item) =>
+      CLUSTER_GUIDES["spider-bite"].matches(item),
+    );
+    expect(new Set(venomousSpiders.map((item) => item.id))).toEqual(
+      new Set(VENOMOUS_SPIDER_IDS),
+    );
   });
 });

@@ -463,7 +463,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     heroSpeciesId: "latrodectus-tredecimguttatus",
     id: "spider-bite",
     matches: (species) =>
-      isSpiderSpecies(species) && isVenomousDanger(species.danger),
+      (VENOMOUS_SPIDER_IDS as readonly string[]).includes(species.id),
     messageKey: "spiderBite",
     parentHub: "spiders",
     pathname: "/spiders/obobis-nakbeni",
