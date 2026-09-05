@@ -2153,6 +2153,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/hyla-savignyi-1.jpg": {
+    "path": "hyla-savignyi-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hyla-savignyi-2.jpg": {
     "path": "hyla-savignyi-2",
     "width": 1381,
