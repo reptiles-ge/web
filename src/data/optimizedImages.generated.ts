@@ -2090,6 +2090,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/hemorrhois-ravergieri-1.jpg": {
+    "path": "hemorrhois-ravergieri-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [400, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-2.jpg": {
     "path": "hemorrhois-ravergieri-2",
     "width": 1790,
@@ -2104,12 +2111,26 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/hemorrhois-ravergieri-4.jpg": {
+    "path": "hemorrhois-ravergieri-4",
+    "width": 1899,
+    "height": 1424,
+    "widths": [400, 800, 1200, 1899],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-mobile.jpg": {
     "path": "hemorrhois-ravergieri-mobile",
     "width": 1200,
     "height": 1600,
     "widths": [400, 800, 1200],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/hemorrhois-ravergieri-rust-1.jpg": {
+    "path": "hemorrhois-ravergieri-rust-1",
+    "width": 1152,
+    "height": 2048,
+    "widths": [400, 800, 1152],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri.jpg": {
     "path": "hemorrhois-ravergieri",
