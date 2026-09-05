@@ -15,8 +15,10 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
+import { AGENCY_PHONE_DISPLAY, AGENCY_PHONE_TEL } from "@/lib/phoneLinks";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 type ConflictGuideConfig = {
@@ -54,7 +56,7 @@ export const JACKAL_YARD_CONFIG: ConflictGuideConfig = {
 
 export const LIZARD_HOUSE_CONFIG: ConflictGuideConfig = {
   actionCount: 4,
-  agencyPhone: { display: "032 272 16 00", tel: "0322721600" },
+  agencyPhone: { display: AGENCY_PHONE_DISPLAY, tel: AGENCY_PHONE_TEL },
   contactSpeciesId: "tenuidactylus-caspius",
   extraLinks: [
     { href: "/lizards/identifikacia", key: "linkIdentify" },
@@ -116,7 +118,7 @@ function ConflictActions({ config }: { config: ConflictGuideConfig }) {
                   {t(`action${n}Title`)}
                 </h3>
                 <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                  {t(`action${n}Body`)}
+                  <PhoneLinkedText>{t(`action${n}Body`)}</PhoneLinkedText>
                 </p>
               </div>
             </li>
@@ -163,7 +165,7 @@ function ConflictContact({
                   {t("contactBiteTitle")}
                 </h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                  {t("contactBiteBody")}
+                  <PhoneLinkedText>{t("contactBiteBody")}</PhoneLinkedText>
                 </p>
               </div>
               <a
@@ -185,7 +187,7 @@ function ConflictContact({
                   {t("contactAgencyTitle")}
                 </h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                  {t("contactAgencyBody")}
+                  <PhoneLinkedText>{t("contactAgencyBody")}</PhoneLinkedText>
                 </p>
               </div>
               <a
@@ -264,7 +266,7 @@ function ConflictIdentify({
               className="py-4 text-[15px] leading-relaxed text-foreground"
               key={n}
             >
-              {t(`identify${n}`)}
+              <PhoneLinkedText>{t(`identify${n}`)}</PhoneLinkedText>
             </li>
           ))}
         </ul>
