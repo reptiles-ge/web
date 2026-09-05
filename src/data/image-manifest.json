@@ -44260,6 +44260,73 @@
       ],
       "updatedAt": "2026-08-28T22:00:14.506Z"
     },
+    "vipera-darevskii-5.jpg": {
+      "sourceHash": "0c57caba6f6f0aa1099d8859bf8d7b02817f1a511816525d6faa6e3b950b619b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "vipera-darevskii-5.jpg",
+      "originalSize": 379534,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17062
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27534
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51440
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 82594
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88870
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 142026
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 186395
+        },
+        {
+          "key": "optimized/vipera-darevskii-5-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 275096
+        }
+      ],
+      "updatedAt": "2026-09-05T15:56:37.199Z"
+    },
     "vipera-darevskii-giorgi-1.jpg": {
       "sourceHash": "602b5a46c931d76a6f3f4cd29e9a8651fd66a702a81bb00f08eb3e6092995f36",
       "configFingerprint": "a895f8e025dcc7fa",
