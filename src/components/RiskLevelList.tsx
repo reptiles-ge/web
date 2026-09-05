@@ -79,7 +79,9 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                         {t(`scale${level}Title`)}
                       </p>
                       <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                        <PhoneLinkedText>{t(`scale${level}Body`)}</PhoneLinkedText>
+                        <PhoneLinkedText>
+                          {t(`scale${level}Body`)}
+                        </PhoneLinkedText>
                       </p>
                     </div>
                   </li>
@@ -130,10 +132,14 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
                 {([1, 2, 3] as const).map((n) => (
                   <li className="py-5" key={n}>
                     <p className="font-display text-[17px] font-medium text-foreground">
-                      <PhoneLinkedText>{t(`${level}Point${n}Title`)}</PhoneLinkedText>
+                      <PhoneLinkedText>
+                        {t(`${level}Point${n}Title`)}
+                      </PhoneLinkedText>
                     </p>
                     <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-                      <PhoneLinkedText>{t(`${level}Point${n}Body`)}</PhoneLinkedText>
+                      <PhoneLinkedText>
+                        {t(`${level}Point${n}Body`)}
+                      </PhoneLinkedText>
                     </p>
                   </li>
                 ))}
@@ -241,4 +247,3 @@ function levelTone(level: DangerLevel) {
       };
   }
 }
-

@@ -30,7 +30,11 @@ type GroupHubPageProps = {
   species: Species[];
 };
 
-export async function GroupHubPage({ heroSrc, hubId, species }: GroupHubPageProps) {
+export async function GroupHubPage({
+  heroSrc,
+  hubId,
+  species,
+}: GroupHubPageProps) {
   const t = await getTranslations(hubId);
   const tShared = await getTranslations("groupHubShared");
   const locale = (await getLocale()) as AppLocale;

@@ -37,7 +37,8 @@ function newsMarkKey(mark: NewsMark, index: number) {
 }
 
 function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
-  if (typeof mark === "string") return <PhoneLinkedText>{mark}</PhoneLinkedText>;
+  if (typeof mark === "string")
+    return <PhoneLinkedText>{mark}</PhoneLinkedText>;
 
   if (mark.type === "sci") {
     return <i>{mark.name}</i>;

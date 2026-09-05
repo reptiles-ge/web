@@ -330,10 +330,7 @@ function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
   const t = useTranslations(config.namespace);
 
   return (
-    <section
-      className="scroll-mt-28 bg-background py-20 lg:py-28"
-      id="content"
-    >
+    <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="content">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
           <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">

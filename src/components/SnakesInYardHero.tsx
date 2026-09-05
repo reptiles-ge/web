@@ -27,14 +27,14 @@ export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_25%,transparent_25%,rgba(0,0,0,0.58)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <div>
-            <InkHeroBreadcrumb
-              crumbs={[
-                { href: "/", label: t("breadcrumbHome"), withBack: true },
-                { href: "/snakes", label: tSnakes("breadcrumbCurrent") },
-                { label: t("breadcrumbCurrent") },
-              ]}
-            />
+        <div>
+          <InkHeroBreadcrumb
+            crumbs={[
+              { href: "/", label: t("breadcrumbHome"), withBack: true },
+              { href: "/snakes", label: tSnakes("breadcrumbCurrent") },
+              { label: t("breadcrumbCurrent") },
+            ]}
+          />
 
           <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
             Reptiles

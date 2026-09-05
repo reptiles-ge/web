@@ -129,10 +129,7 @@ function SnakeBiteDisclaimer() {
   const t = useTranslations("snakeBite");
 
   return (
-    <section
-      className="scroll-mt-28 bg-background py-20 lg:py-28"
-      id="content"
-    >
+    <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="content">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
           <PhoneLinkedText>

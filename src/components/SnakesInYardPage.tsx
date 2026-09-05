@@ -33,7 +33,10 @@ type SnakesInYardPageProps = {
 
 const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
 
-export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPageProps) {
+export async function SnakesInYardPage({
+  coverSrc,
+  heroSrc,
+}: SnakesInYardPageProps) {
   const t = await getTranslations("snakesInYard");
   const locale = (await getLocale()) as AppLocale;
   const relatedGuides = getHubPageRelatedGuides(
@@ -102,7 +105,9 @@ export async function SnakesInYardPage({ coverSrc, heroSrc }: SnakesInYardPagePr
                       {t("contactAgencyTitle")}
                     </h3>
                     <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
-                      <PhoneLinkedText>{t("contactAgencyBody")}</PhoneLinkedText>
+                      <PhoneLinkedText>
+                        {t("contactAgencyBody")}
+                      </PhoneLinkedText>
                     </p>
                   </div>
                   <a

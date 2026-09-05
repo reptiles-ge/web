@@ -19,11 +19,7 @@ type SafetyLink = {
 
 type SafetyLinkHref = "/lizards" | "/risk-to-humans" | ClusterGuidePath;
 
-type SafetyLinkKey =
-  | "linkHub"
-  | "linkIndex"
-  | "linkRisk"
-  | "linkVenomous";
+type SafetyLinkKey = "linkHub" | "linkIndex" | "linkRisk" | "linkVenomous";
 
 type SafetyNamespace = "mammalBear" | "spiderBite";
 
@@ -235,10 +231,7 @@ function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
   const t = useTranslations(config.namespace);
 
   return (
-    <section
-      className="scroll-mt-28 bg-background py-20 lg:py-28"
-      id="content"
-    >
+    <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="content">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
           <PhoneLinkedText>

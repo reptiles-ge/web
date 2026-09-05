@@ -83,11 +83,7 @@ export function RegionProfile({ attribution, region }: RegionProfileProps) {
           description={region.description}
           habitats={content.habitats}
         />
-        <RegionProfileSpecies
-          name={name}
-          nameIn={nameIn}
-          species={species}
-        />
+        <RegionProfileSpecies name={name} nameIn={nameIn} species={species} />
         {venomous.length > 0 ? (
           <RegionProfileVenomous
             name={name}
@@ -520,7 +516,9 @@ function RegionProfileSpecies({
             ))}
           </div>
         ) : (
-          <p className="mt-10 text-[14px] text-muted-foreground">{t("empty")}</p>
+          <p className="mt-10 text-[14px] text-muted-foreground">
+            {t("empty")}
+          </p>
         )}
         <p className="mt-10 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
           {t("dataGapBody")}
