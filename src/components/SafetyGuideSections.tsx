@@ -200,27 +200,29 @@ function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
               {t("contextTitle")}
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              {config.namespace === "spiderBite"
-                ? t.rich("contextBody", {
-                    venomous: (chunks) => (
-                      <Link
-                        className={inlineLinkClassName}
-                        href="/spiders/shxamiani-obobebi"
-                      >
-                        {chunks}
-                      </Link>
-                    ),
-                  })
-                : t.rich("contextBody", {
-                    mammals: (chunks) => (
-                      <Link className={inlineLinkClassName} href="/mammals">
-                        {chunks}
-                      </Link>
-                    ),
-                  })}
+              <PhoneLinkedText>
+                {config.namespace === "spiderBite"
+                  ? t.rich("contextBody", {
+                      venomous: (chunks) => (
+                        <Link
+                          className={inlineLinkClassName}
+                          href="/spiders/shxamiani-obobebi"
+                        >
+                          {chunks}
+                        </Link>
+                      ),
+                    })
+                  : t.rich("contextBody", {
+                      mammals: (chunks) => (
+                        <Link className={inlineLinkClassName} href="/mammals">
+                          {chunks}
+                        </Link>
+                      ),
+                    })}
+              </PhoneLinkedText>
             </p>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              {t("contextNote")}
+              <PhoneLinkedText>{t("contextNote")}</PhoneLinkedText>
             </p>
           </div>
         </div>
