@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
+
+import { CoverImage } from "@/components/CoverImage";
 
 type Props = {
   gallery: GalleryImage[];
@@ -87,10 +88,9 @@ export function AdminSpeciesEditor({ gallery, id }: Props) {
                 key={item.src}
               >
                 <div className="media-placeholder relative aspect-4/3 w-full">
-                  <Image
+                  <CoverImage
                     alt=""
                     className="object-cover"
-                    fill
                     sizes="(max-width: 640px) 50vw, 33vw"
                     src={item.src}
                   />

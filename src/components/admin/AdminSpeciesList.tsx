@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AdminSpeciesSummary } from "@/lib/adminGalleryMdx";
 
+import { CoverImage } from "@/components/CoverImage";
 import { cn } from "@/lib/cn";
 
 const GROUP_LABEL: Record<AnimalGroup, string> = {
@@ -94,10 +94,9 @@ export function AdminSpeciesList({
             >
               <span className="media-placeholder relative size-12 shrink-0 overflow-hidden rounded-md bg-secondary">
                 {item.image ? (
-                  <Image
+                  <CoverImage
                     alt=""
                     className="object-cover"
-                    fill
                     sizes="48px"
                     src={item.image}
                   />
