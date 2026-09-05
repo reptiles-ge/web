@@ -8,11 +8,11 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesHref } from "@/lib/speciesRoutes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesProfileRelatedProps = {
@@ -93,7 +93,7 @@ function SpeciesProfileRelatedCard({
   return (
     <Link
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
-      href={speciesHref(item.id, locale)}
+      href={useSpeciesHref(item.id, locale)}
       onClick={() =>
         trackSpeciesClick({
           position,
