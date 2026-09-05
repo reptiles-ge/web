@@ -377,12 +377,17 @@ function previewFrames(
 }
 
 function previewStrip(photos: GalleryImage[], covers: AdminCovers) {
+  const seen = new Set<string>();
   const srcs: string[] = [];
   for (const item of photos) {
-    if (item.src && !srcs.includes(item.src)) srcs.push(item.src);
+    if (!item.src || seen.has(item.src)) continue;
+    seen.add(item.src);
+    srcs.push(item.src);
   }
   for (const src of [covers.desktopSrc, covers.mobileSrc]) {
-    if (src && !srcs.includes(src)) srcs.push(src);
+    if (!src || seen.has(src)) continue;
+    seen.add(src);
+    srcs.push(src);
   }
   return srcs;
 }

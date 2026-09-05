@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
@@ -9,7 +9,7 @@ import {
   type AdminCoverPreviewState,
 } from "@/components/admin/AdminCoverPreview";
 import { AdminGalleryReorder } from "@/components/admin/AdminGalleryReorder";
-import { resolveAdminCovers } from "@/lib/adminCover";
+import { type AdminCovers, resolveAdminCovers } from "@/lib/adminCover";
 
 type Props = {
   commonName: string;
@@ -144,79 +144,21 @@ export function AdminSpeciesEditor({
 
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
-      <section>
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <h2 className="font-display text-lg font-medium">გალერეა</h2>
-          {covers.desktopSrc ? (
-            <button
-              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-[12px] font-medium hover:bg-secondary"
-              onClick={() => setPreview({ type: "live" })}
-              type="button"
-            >
-              ახლანდელი ყდა
-            </button>
-          ) : null}
-        </div>
-        {covers.split ? (
-          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-            დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი
-            რომელია. ტაბლეტი მობილურის ყდას იყენებს. თვალის ღილაკით ნებისმიერ
-            ფოტოს ყდად სცადე.
-          </p>
-        ) : covers.desktopSrc ? (
-          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-            თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა
-            და მობილურზე.
-          </p>
-        ) : (
-          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-            თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.
-          </p>
-        )}
-        {covers.split &&
-        !photos.some((item) => item.src === covers.mobileSrc) ? (
-          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-            მობილური ყდა გალერეის სიაში არ არის — პრევიუში მაინც ნახავ.
-          </p>
-        ) : null}
-        {photos.length > 1 ? (
-          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-            გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
-            image / mobileImage. შენახვა ხსნის PR-ს — ლოკალური ბრენჩი არ
-            იცვლება.
-          </p>
-        ) : null}
-        {photos.length === 0 ? (
-          <p className="mt-4 text-[14px] text-muted-foreground">ცარიელია</p>
-        ) : (
-          <AdminGalleryReorder
-            covers={covers}
-            disabled={saving}
-            onPreview={(src) => setPreview({ src, type: "photo" })}
-            onReorder={setPhotos}
-            photos={photos}
-          />
-        )}
-        <AdminCoverPreview
-          commonName={commonName}
-          covers={covers}
-          onClose={() => setPreview(null)}
-          onSelect={(next) => setPreview(next)}
-          photos={photos}
-          preview={preview}
-          scientificName={scientificName}
-        />
-        {photos.length > 1 ? (
-          <button
-            className="mt-4 h-11 rounded-lg bg-foreground px-4 text-[14px] font-medium text-background disabled:opacity-50"
-            disabled={saving || !dirty}
-            onClick={() => void onSaveOrder()}
-            type="button"
-          >
-            {busy === "reorder" ? "ინახება…" : "რიგის შენახვა"}
-          </button>
-        ) : null}
-      </section>
+      <AdminGalleryPanel
+        busy={busy}
+        commonName={commonName}
+        covers={covers}
+        dirty={dirty}
+        onPreview={(src) => setPreview({ src, type: "photo" })}
+        onReorder={setPhotos}
+        onSaveOrder={() => void onSaveOrder()}
+        onSelectLive={() => setPreview({ type: "live" })}
+        photos={photos}
+        preview={preview}
+        saving={saving}
+        scientificName={scientificName}
+        setPreview={setPreview}
+      />
 
       <form
         className="rounded-xl border border-border bg-card p-5"
@@ -298,5 +240,118 @@ export function AdminSpeciesEditor({
         </button>
       </form>
     </div>
+  );
+}
+
+function AdminGalleryPanel({
+  busy,
+  commonName,
+  covers,
+  dirty,
+  onPreview,
+  onReorder,
+  onSaveOrder,
+  onSelectLive,
+  photos,
+  preview,
+  saving,
+  scientificName,
+  setPreview,
+}: {
+  busy: "idle" | "reorder" | "upload";
+  commonName: string;
+  covers: AdminCovers;
+  dirty: boolean;
+  onPreview: (src: string) => void;
+  onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
+  onSaveOrder: () => void;
+  onSelectLive: () => void;
+  photos: GalleryImage[];
+  preview: AdminCoverPreviewState | null;
+  saving: boolean;
+  scientificName: string;
+  setPreview: Dispatch<SetStateAction<AdminCoverPreviewState | null>>;
+}) {
+  return (
+    <section>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <h2 className="font-display text-lg font-medium">გალერეა</h2>
+        {covers.desktopSrc ? (
+          <button
+            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-[12px] font-medium hover:bg-secondary"
+            onClick={onSelectLive}
+            type="button"
+          >
+            ახლანდელი ყდა
+          </button>
+        ) : null}
+      </div>
+      <GalleryHelp covers={covers} photos={photos} />
+      {photos.length === 0 ? (
+        <p className="mt-4 text-[14px] text-muted-foreground">ცარიელია</p>
+      ) : (
+        <AdminGalleryReorder
+          covers={covers}
+          disabled={saving}
+          onPreview={onPreview}
+          onReorder={onReorder}
+          photos={photos}
+        />
+      )}
+      <AdminCoverPreview
+        commonName={commonName}
+        covers={covers}
+        onClose={() => setPreview(null)}
+        onSelect={(next) => setPreview(next)}
+        photos={photos}
+        preview={preview}
+        scientificName={scientificName}
+      />
+      {photos.length > 1 ? (
+        <button
+          className="mt-4 h-11 rounded-lg bg-foreground px-4 text-[14px] font-medium text-background disabled:opacity-50"
+          disabled={saving || !dirty}
+          onClick={onSaveOrder}
+          type="button"
+        >
+          {busy === "reorder" ? "ინახება…" : "რიგის შენახვა"}
+        </button>
+      ) : null}
+    </section>
+  );
+}
+
+function GalleryHelp({
+  covers,
+  photos,
+}: {
+  covers: AdminCovers;
+  photos: GalleryImage[];
+}) {
+  const coverHint = covers.split
+    ? "დესკტოპისა და მობილურის ყდა განსხვავებულია — ბარათზე ეწერება, რომელი რომელია. ტაბლეტი მობილურის ყდას იყენებს. თვალის ღილაკით ნებისმიერ ფოტოს ყდად სცადე."
+    : covers.desktopSrc
+      ? "თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად დესკტოპზე, ტაბლეტსა და მობილურზე."
+      : "თვალის ღილაკით ნახე, როგორ გამოჩნდება ფოტო ყდად.";
+  const mobileMissing =
+    covers.split && !photos.some((item) => item.src === covers.mobileSrc);
+
+  return (
+    <>
+      <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+        {coverHint}
+      </p>
+      {mobileMissing ? (
+        <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+          მობილური ყდა გალერეის სიაში არ არის — პრევიუში მაინც ნახავ.
+        </p>
+      ) : null}
+      {photos.length > 1 ? (
+        <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+          გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
+          image / mobileImage. შენახვა ხსნის PR-ს — ლოკალური ბრენჩი არ იცვლება.
+        </p>
+      ) : null}
+    </>
   );
 }
