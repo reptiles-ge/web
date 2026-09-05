@@ -4925,6 +4925,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1653],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-dinniki-bichiko-1.jpg": {
+    "path": "vipera-dinniki-bichiko-1",
+    "width": 1080,
+    "height": 720,
+    "widths": [400, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-dinniki-giorgi-1.jpg": {
     "path": "vipera-dinniki-giorgi-1",
     "width": 2048,
