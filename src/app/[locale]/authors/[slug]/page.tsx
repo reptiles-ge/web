@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { AuthorPage } from "@/components/AuthorPage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
-import { creditAuthorName } from "@/data/creditAuthors";
+import { creditAuthorBio, creditAuthorName } from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -52,6 +52,7 @@ export default async function AuthorRoute({ params }: Props) {
   });
   const photos = getCreditAuthorPhotos(author);
   const name = creditAuthorName(author, locale);
+  const bio = creditAuthorBio(author, locale);
   const url = creditAuthorUrl(locale, author.slug);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
 
@@ -94,7 +95,7 @@ export default async function AuthorRoute({ params }: Props) {
         ];
       }),
     ],
-    description: t("metaDescription", {
+    description: bio ?? t("metaDescription", {
       count: photos.length,
       name,
       species: speciesIds.length,
