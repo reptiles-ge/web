@@ -177,6 +177,15 @@ export function LanguageSwitcher({
       return;
     }
 
+    if (pathname === "/authors/[slug]" && slug) {
+      router.replace(
+        { params: { slug }, pathname: "/authors/[slug]" },
+        { locale: code },
+      );
+      close();
+      return;
+    }
+
     if (pathname === "/species/[id]" && id) {
       const speciesId = resolveSpeciesIdFromIndex(switchIndex, id);
       if (speciesId) {

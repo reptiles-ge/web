@@ -13,6 +13,7 @@ export function QuizPracticeCta({
   cta,
   eyebrow,
   locale,
+  quizId = "snake",
   source = "other",
   speciesId,
   title,
@@ -22,6 +23,7 @@ export function QuizPracticeCta({
   cta: string;
   eyebrow: string;
   locale: AppLocale;
+  quizId?: "lizard" | "snake";
   source?: QuizCtaSource;
   speciesId?: string;
   title: string;
@@ -43,8 +45,8 @@ export function QuizPracticeCta({
           </div>
           <QuizCtaLink
             className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
-            href={quizHref("snake", locale)}
-            quizId="snake"
+            href={quizHref(quizId, locale)}
+            quizId={quizId}
             source={source}
             speciesId={speciesId}
           >

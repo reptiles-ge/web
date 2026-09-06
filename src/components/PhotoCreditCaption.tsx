@@ -6,7 +6,13 @@ import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import {
+  creditAuthorHref,
+  creditAuthorName,
+  getPublishedCreditAuthorByName,
+} from "@/data/creditAuthors";
 import { type PhotoCredit } from "@/data/speciesTypes";
+import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
@@ -141,13 +147,27 @@ function PhotoCreditName({
   credit: PhotoCredit;
   speciesId?: string;
 }) {
-  const name = credit.photographer?.trim();
-  if (!name) return null;
+  const locale = useLocale() as AppLocale;
+  const raw = credit.photographer?.trim();
+  if (!raw) return null;
+  const author = getPublishedCreditAuthorByName(raw);
+  const name = author ? creditAuthorName(author, locale) : raw;
+  const label = author ? (
+    <Link
+      className="inline-flex min-h-6 items-center underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+      href={creditAuthorHref(author.slug)}
+      onClick={(event) => event.stopPropagation()}
+    >
+      {name}
+    </Link>
+  ) : (
+    <span>{name}</span>
+  );
   const source = photoCreditSourceLabel(credit.url);
-  if (!credit.url || !source) return <span>{name}</span>;
+  if (!credit.url || !source) return label;
   return (
     <>
-      <span>{name}</span>
+      {label}
       {" · "}
       <a
         className="inline-flex items-center gap-0.5 underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"

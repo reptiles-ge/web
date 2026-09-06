@@ -1,11 +1,17 @@
 import type { MetadataRoute } from "next";
 
+import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getPublishedNewsArticles, newsLatestModified } from "@/data/news";
 import { getRegionSpecies, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
+import {
+  creditAuthorAlternates,
+  creditAuthorUrl,
+  getCreditAuthorPhotos,
+} from "@/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
   newsArticleAlternates,
@@ -22,7 +28,10 @@ import {
   speciesAlternates,
   speciesPageUrl,
 } from "@/lib/site";
-import { speciesPageImageUrls } from "@/lib/sitemapImages";
+import {
+  creditAuthorPageImageUrls,
+  speciesPageImageUrls,
+} from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
@@ -90,6 +99,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: { languages },
         lastModified: toLastModified(item.updatedAt),
         url: speciesPageUrl(locale, item.id),
+        ...(images.length > 0 ? { images } : {}),
+      });
+    }
+
+    for (const author of getPublishedCreditAuthors()) {
+      const photos = getCreditAuthorPhotos(author);
+      const { languages } = creditAuthorAlternates(locale, author.slug);
+      const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
+      push({
+        alternates: { languages },
+        lastModified: maxUpdatedAt(photos.map((photo) => photo.updatedAt)),
+        url: creditAuthorUrl(locale, author.slug),
         ...(images.length > 0 ? { images } : {}),
       });
     }

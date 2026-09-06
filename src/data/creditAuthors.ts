@@ -1,0 +1,112 @@
+import type { AppLocale } from "@/i18n/routing";
+
+import { pickLocalized } from "@/i18n/localeMeta";
+
+export type CreditAuthor = {
+  aliases: string[];
+  bio?: {
+    en: string;
+    ka: string;
+    ru?: string;
+    tr?: string;
+  };
+  id: string;
+  links?: {
+    facebook?: string;
+    instagram?: string;
+  };
+  name: {
+    en: string;
+    ka: string;
+    ru?: string;
+    tr?: string;
+  };
+  portraitSrc: string;
+  published: boolean;
+  slug: string;
+};
+
+export const CREDIT_AUTHORS: CreditAuthor[] = [
+  {
+    aliases: [
+      "Alexandre Khakhva",
+      "Sandro Khakhva",
+      "ალექსანდრე ხახვა",
+      "სანდრო ხახვა",
+    ],
+    bio: {
+      en: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara. He studies reptiles and works with them.",
+      ka: "სანდრო (ალექსანდრე) ხახვა ახალგაზრდა ქართველი მკვლევარია აჭარიდან — ქვეწარმავლების მკვლევარი და მომთვინიერებელი.",
+      ru: "Сандро (Александр) Хахва — молодой грузинский исследователь из Аджарии. Изучает рептилий и работает с ними.",
+      tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır. Sürüngenleri inceler ve onlarla çalışır.",
+    },
+    id: "sandro-khakhva",
+    links: {
+      facebook: "https://www.facebook.com/sandro.khakhva.9",
+      instagram: "https://www.instagram.com/wildtrail.geo",
+    },
+    name: {
+      en: "Sandro Khakhva",
+      ka: "სანდრო ხახვა",
+      ru: "Сандро Хахва",
+      tr: "Sandro Khakhva",
+    },
+    portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
+    published: true,
+    slug: "sandro-khakhva",
+  },
+];
+
+const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
+const byAlias = new Map<string, CreditAuthor>();
+for (const author of CREDIT_AUTHORS) {
+  for (const alias of author.aliases) {
+    byAlias.set(alias, author);
+  }
+}
+
+export function creditAuthorBio(author: CreditAuthor, locale: AppLocale) {
+  if (!author.bio) return undefined;
+  return pickLocalized(author.bio, locale);
+}
+
+export function creditAuthorHref(slug: string) {
+  return {
+    params: { slug },
+    pathname: "/authors/[slug]" as const,
+  };
+}
+
+export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {
+  return pickLocalized(author.name, locale);
+}
+
+export function creditAuthorSameAs(author: CreditAuthor) {
+  return [author.links?.facebook, author.links?.instagram].filter(
+    (href): href is string => Boolean(href),
+  );
+}
+
+export function getCreditAuthorByName(name: string) {
+  const trimmed = name.trim();
+  if (!trimmed) return undefined;
+  return byAlias.get(trimmed);
+}
+
+export function getCreditAuthorBySlug(slug: string) {
+  return bySlug.get(slug);
+}
+
+export function getPublishedCreditAuthorByName(name: string) {
+  const author = getCreditAuthorByName(name);
+  return author?.published ? author : undefined;
+}
+
+export function getPublishedCreditAuthorBySlug(slug: string) {
+  const author = getCreditAuthorBySlug(slug);
+  return author?.published ? author : undefined;
+}
+
+export function getPublishedCreditAuthors() {
+  return CREDIT_AUTHORS.filter((author) => author.published);
+}

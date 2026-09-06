@@ -438,6 +438,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg": {
+    "path": "authors/sandro-khakhva",
+    "width": 1011,
+    "height": 996,
+    "widths": [320, 400, 640, 800, 1011],
+    "formats": ["avif"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-2.jpg": {
     "path": "bufo-verrucosissimus-2",
     "width": 1536,

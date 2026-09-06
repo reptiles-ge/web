@@ -2451,6 +2451,87 @@
       ],
       "updatedAt": "2026-09-05T16:35:26.909Z"
     },
+    "authors/sandro-khakhva.jpg": {
+      "sourceHash": "6591e4f8af7ff4460628da5e2dfd6c627f571bcba189e474b8c00ec4388373bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/sandro-khakhva.jpg",
+      "originalSize": 184355,
+      "width": 1011,
+      "height": 996,
+      "derivatives": [
+        {
+          "key": "optimized/authors/sandro-khakhva-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 316,
+          "byteSize": 6426
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 316,
+          "byteSize": 7060
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 394,
+          "byteSize": 8995
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 394,
+          "byteSize": 10474
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 631,
+          "byteSize": 31639
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 631,
+          "byteSize": 51936
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 788,
+          "byteSize": 73164
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 788,
+          "byteSize": 113032
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-1011.avif",
+          "format": "avif",
+          "width": 1011,
+          "height": 996,
+          "byteSize": 138734
+        },
+        {
+          "key": "optimized/authors/sandro-khakhva-1011.webp",
+          "format": "webp",
+          "width": 1011,
+          "height": 996,
+          "byteSize": 230226
+        }
+      ],
+      "updatedAt": "2026-09-06T12:26:16.344Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",

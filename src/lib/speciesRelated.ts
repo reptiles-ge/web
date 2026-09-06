@@ -11,6 +11,15 @@ import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 const viperClusterIds = new Set<string>(VENOMOUS_VIPER_IDS);
 const racerClusterIds = new Set<string>(RACER_CLUSTER_IDS);
 
+export function getLookalikeSpecies(id: string): Species[] {
+  const items: Species[] = [];
+  for (const lookalikeId of getSpeciesLookalikes(id)) {
+    const item = getSpeciesById(lookalikeId);
+    if (item) items.push(item);
+  }
+  return items;
+}
+
 export function getRelatedSpecies(id: string, limit = 4): Species[] {
   const base = getSpeciesById(id);
   if (!base) return [];

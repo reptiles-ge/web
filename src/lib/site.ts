@@ -28,12 +28,19 @@ export function absoluteUrl(path = "/") {
 
 export function getSiteUrl() {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
+  const production =
+    process.env.VERCEL_ENV === "production" ||
+    process.env.NODE_ENV === "production";
 
   if (fromEnv) {
     const withProtocol = fromEnv.startsWith("http")
       ? fromEnv
       : `https://${fromEnv}`;
-    return withProtocol.replace(/\/$/, "");
+    const cleaned = withProtocol.replace(/\/$/, "");
+    if (production && isLocalhostOrigin(cleaned)) {
+      return "https://reptiles.ge";
+    }
+    return cleaned;
   }
 
   if (process.env.NODE_ENV === "development") {
@@ -204,6 +211,19 @@ export function websiteJsonLd(options: {
         }
       : {}),
   };
+}
+
+function isLocalhostOrigin(url: string) {
+  try {
+    const { hostname } = new URL(url);
+    return (
+      hostname === "localhost" ||
+      hostname === "127.0.0.1" ||
+      hostname === "[::1]"
+    );
+  } catch {
+    return false;
+  }
 }
 
 function isPlaceholderOgSrc(src: string) {

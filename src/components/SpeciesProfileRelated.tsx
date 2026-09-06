@@ -16,17 +16,20 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 type SpeciesProfileRelatedProps = {
   locale: AppLocale;
   related: Species[];
+  variant?: "lookalikes" | "related";
 };
 
 export async function SpeciesProfileRelated({
   locale,
   related,
+  variant = "related",
 }: SpeciesProfileRelatedProps) {
   if (related.length === 0) {
     return null;
   }
 
   const t = await getTranslations("profile");
+  const lookalikes = variant === "lookalikes";
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -34,23 +37,29 @@ export async function SpeciesProfileRelated({
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
-              {t("related")}
+              {lookalikes ? t("lookalikes") : t("related")}
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
               className="mt-4 font-display text-display-title"
-              id={SPECIES_SECTION_IDS.related}
+              id={
+                lookalikes
+                  ? SPECIES_SECTION_IDS.lookalikes
+                  : SPECIES_SECTION_IDS.related
+              }
             >
-              {t("relatedTitle")}
+              {lookalikes ? t("lookalikesTitle") : t("relatedTitle")}
             </AnchoredHeading>
           </div>
-          <Link
-            className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
-            href="/species"
-          >
-            {t("allSpecies")}
-            <ArrowUpRight className="size-3.5" />
-          </Link>
+          {lookalikes ? null : (
+            <Link
+              className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
+              href="/species"
+            >
+              {t("allSpecies")}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
+          )}
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((item, relatedIndex) => (
@@ -59,6 +68,7 @@ export async function SpeciesProfileRelated({
               key={item.id}
               locale={locale}
               position={relatedIndex + 1}
+              source={lookalikes ? "lookalike" : "related"}
             />
           ))}
         </div>
@@ -81,10 +91,12 @@ function SpeciesProfileRelatedCard({
   item,
   locale,
   position,
+  source,
 }: {
   item: Species;
   locale: AppLocale;
   position: number;
+  source: "lookalike" | "related";
 }) {
   const cover = relatedCoverSrc(item);
 
@@ -93,7 +105,7 @@ function SpeciesProfileRelatedCard({
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
       locale={locale}
       position={position}
-      source="related"
+      source={source}
       speciesId={item.id}
     >
       {cover ? (

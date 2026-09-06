@@ -1,3 +1,6 @@
+export const AUTHOR_PORTRAIT_SIZES =
+  "(max-width: 639px) 112px, (max-width: 1023px) 144px, 160px";
+
 export const GALLERY_LIGHTBOX_SIZES = "(max-width: 1196px) 92vw, 1100px";
 
 export const RELATED_CARD_SIZES =

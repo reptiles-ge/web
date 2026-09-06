@@ -13,8 +13,10 @@ import {
 } from "react";
 
 import type { PhotoCredit } from "@/data/speciesTypes";
+import type { SpeciesHref } from "@/lib/speciesRoutes";
 
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
+import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { GALLERY_LIGHTBOX_SIZES } from "@/lib/imageSizes";
 
@@ -25,6 +27,10 @@ export type GallerySlide = {
   photoConfidence?: PhotoCredit["photoConfidence"];
   sources: GallerySource[];
   src: string;
+  subject?: {
+    href: SpeciesHref;
+    name: string;
+  };
   width?: number;
 };
 
@@ -85,7 +91,7 @@ export function SpeciesGalleryLightbox({
   nextLabel: string;
   prevLabel: string;
   slides: GallerySlide[];
-  speciesId: string;
+  speciesId?: string;
 }) {
   const [active, setActive] = useState<null | number>(null);
   const opened = useRef(false);
@@ -137,7 +143,7 @@ export function SpeciesGalleryLightbox({
         trackEvent("gallery_open", {
           image_count: slides.length,
           image_index: index,
-          species_id: speciesId,
+          ...(speciesId ? { species_id: speciesId } : {}),
         });
       }
       setActive(index);
@@ -245,8 +251,25 @@ export function SpeciesGalleryLightbox({
                 </picture>
               </div>
               <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
+                {activeSlide.subject ? (
+                  <p className="text-center text-[13px] leading-snug tracking-[0.02em] text-white/80">
+                    <Link
+                      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+                      href={activeSlide.subject.href}
+                    >
+                      {activeSlide.subject.name}
+                    </Link>
+                  </p>
+                ) : null}
                 <PhotoCreditCaption
-                  credit={activeSlide.credit}
+                  credit={
+                    activeSlide.subject
+                      ? {
+                          date: activeSlide.credit?.date,
+                          location: activeSlide.credit?.location,
+                        }
+                      : activeSlide.credit
+                  }
                   photoConfidence={activeSlide.photoConfidence}
                   speciesId={speciesId}
                   variant="lightbox"

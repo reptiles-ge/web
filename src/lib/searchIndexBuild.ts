@@ -1,6 +1,10 @@
 import type { AppLocale } from "@/i18n/routing";
 
 import {
+  creditAuthorHref,
+  getPublishedCreditAuthors,
+} from "@/data/creditAuthors";
+import {
   getPublishedNewsArticles,
   newsLocalizedDek,
   newsLocalizedTitle,
@@ -948,6 +952,49 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     toSpeciesDocument(locale, item),
   );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
+  const authorDocs = getPublishedCreditAuthors().map((author) => {
+    return {
+      href: creditAuthorHref(author.slug),
+      icon: "info" as const,
+      id: `author:${author.id}`,
+      image: author.portraitSrc,
+      key: `author:${author.id}`,
+      kind: "page" as const,
+      scoreTitles: [author.name.ka, author.name.en],
+      searchText: blob([
+        author.name.ka,
+        author.name.en,
+        author.name.ru,
+        author.name.tr,
+        author.bio?.ka,
+        author.bio?.en,
+        author.bio?.ru,
+        author.bio?.tr,
+        ...author.aliases,
+        author.links?.facebook,
+        author.links?.instagram,
+        "ჰერპეტოლოგი",
+        "herpetologist",
+        "герпетолог",
+        "herpetolog",
+        "ფოტოგრაფი",
+        "photographer",
+        "фотограф",
+        "fotoğrafçı",
+        author.slug,
+      ]),
+      subtitle: pickLocale(
+        {
+          en: "Photographs in the atlas",
+          ka: "ფოტოები ატლასში",
+          ru: "Фотографии в атласе",
+          tr: "Atlastaki fotoğraflar",
+        },
+        locale,
+      ),
+      title: pickLocalized(author.name, locale),
+    };
+  });
   const newsDocs = getPublishedNewsArticles().map((article) => {
     const title = newsLocalizedTitle(article, locale);
     const dek = newsLocalizedDek(article, locale);
@@ -964,7 +1011,7 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     };
   });
 
-  return [...pages, ...species, ...regionDocs, ...newsDocs];
+  return [...pages, ...species, ...regionDocs, ...authorDocs, ...newsDocs];
 }
 
 function blob(parts: Array<string | undefined>) {

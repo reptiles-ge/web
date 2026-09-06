@@ -1,6 +1,11 @@
 import type { GalleryImage, PhotoCredit, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
+import {
+  creditAuthorName,
+  getPublishedCreditAuthorByName,
+} from "@/data/creditAuthors";
+import { creditAuthorUrl } from "@/lib/creditAuthors";
 import { absoluteImageUrl } from "@/lib/site";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 
@@ -23,7 +28,7 @@ export function galleryImageObject(
     credit,
   );
   const format = encodingFormat(photo.src);
-  const creator = credit ? personNode(credit) : undefined;
+  const creator = credit ? personNode(credit, locale) : undefined;
 
   return {
     "@type": "ImageObject",
@@ -74,11 +79,16 @@ function encodingFormat(src: string) {
   return undefined;
 }
 
-function personNode(credit: PhotoCredit) {
+function personNode(credit: PhotoCredit, locale: AppLocale) {
   if (!credit.photographer) return undefined;
+  const author = getPublishedCreditAuthorByName(credit.photographer);
   return {
     "@type": "Person",
-    name: credit.photographer,
-    ...(credit.url ? { url: credit.url } : {}),
+    name: author ? creditAuthorName(author, locale) : credit.photographer,
+    ...(author
+      ? { url: creditAuthorUrl(locale, author.slug) }
+      : credit.url
+        ? { url: credit.url }
+        : {}),
   };
 }
