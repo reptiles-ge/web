@@ -34,6 +34,7 @@ export type SpeciesClickSource =
   | "carousel"
   | "footer"
   | "guide"
+  | "home_contributors"
   | "home_featured"
   | "home_fresh"
   | "home_safety"

@@ -8,6 +8,8 @@ import {
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
+  getHomeContributorCards,
+  pickCreditAuthorPreviewPhotos,
 } from "@/lib/creditAuthors";
 
 describe("credit authors", () => {
@@ -90,5 +92,39 @@ describe("credit authors", () => {
     expect(
       getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)),
     ).toEqual(expect.arrayContaining(["snakes", "amphibians"]));
+  });
+
+  it("builds homepage contributor cards from published author pages", () => {
+    const cards = getHomeContributorCards();
+    expect(cards.map((card) => card.author.slug)).toEqual([
+      "sandro-khakhva",
+      "zauri-khachidze",
+    ]);
+    for (const card of cards) {
+      expect(card.photoCount).toBeGreaterThanOrEqual(20);
+      expect(card.speciesCount).toBeGreaterThan(0);
+      expect(card.preview).toHaveLength(4);
+      const species = new Set(card.preview.map((photo) => photo.speciesId));
+      expect(species.size).toBe(4);
+    }
+  });
+
+  it("prefers distinct species for homepage mosaics", () => {
+    expect(
+      pickCreditAuthorPreviewPhotos(
+        [
+          { speciesId: "a", src: "https://cdn.reptiles.ge/a1.jpg", updatedAt: "" },
+          { speciesId: "a", src: "https://cdn.reptiles.ge/a2.jpg", updatedAt: "" },
+          { speciesId: "b", src: "/images/species-placeholder.png", updatedAt: "" },
+          { speciesId: "b", src: "https://cdn.reptiles.ge/b1.jpg", updatedAt: "" },
+          { speciesId: "c", src: "https://cdn.reptiles.ge/c1.jpg", updatedAt: "" },
+        ],
+        3,
+      ).map((photo) => photo.src),
+    ).toEqual([
+      "https://cdn.reptiles.ge/a1.jpg",
+      "https://cdn.reptiles.ge/b1.jpg",
+      "https://cdn.reptiles.ge/c1.jpg",
+    ]);
   });
 });

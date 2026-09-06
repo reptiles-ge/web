@@ -196,6 +196,11 @@
         "body": "Gürcistan yılanları fotoğraf quizi — dört seçenek, hesap yok."
       }
     },
+    "contributors": {
+      "eyebrow": "Fotoğrafçılar",
+      "title": "Atlas fotoğraflarını kim çekiyor",
+      "subtitle": "Tür profillerinde fotoğrafı olan saha katkıçıları — her birinin burada kendi sayfası var."
+    },
     "safety": {
       "eyebrow": "Güvenlik",
       "bite": "Yılan ısırığı"

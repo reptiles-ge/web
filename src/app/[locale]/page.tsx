@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 
 import { FinalCTA } from "@/components/FinalCTA";
 import { Hero } from "@/components/Hero";
+import { HomeContributors } from "@/components/home/HomeContributors";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
 import { HomeField } from "@/components/home/HomeField";
 import { HomeFresh } from "@/components/home/HomeFresh";
@@ -183,6 +184,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         />
         <HomeFresh />
         <HomeField />
+        <HomeContributors />
         <HomeSeo />
         <FinalCTA />
       </div>
