@@ -32437,6 +32437,101 @@
       ],
       "updatedAt": "2026-09-06T09:46:53.529Z"
     },
+    "macrovipera-lebetina-laura-1.jpg": {
+      "sourceHash": "0f36da229366f3203d4a7ffb13d29c46601a810321f87ab5d2b306dfd83d080e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-laura-1.jpg",
+      "originalSize": 546519,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14754
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22066
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23390
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35652
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 55537
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 86574
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81237
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 126390
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 158497
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 250630
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 263400
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 380358
+        }
+      ],
+      "updatedAt": "2026-09-06T15:00:24.078Z"
+    },
     "macrovipera-lebetina-nika-1.jpg": {
       "sourceHash": "2e86ac2251e79235148e654f01c4899042e312ff37f4a9154cdebc85ed29bf6f",
       "configFingerprint": "409788ee46c653d8",

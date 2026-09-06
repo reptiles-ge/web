@@ -3532,6 +3532,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 771],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg": {
+    "path": "macrovipera-lebetina-laura-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg": {
     "path": "macrovipera-lebetina-nika-1",
     "width": 1024,
