@@ -15,7 +15,6 @@ export {
   type Species,
   type SpeciesAudio,
   type SpeciesFaq,
-  type SpeciesIdentification,
   type SpeciesSource,
   type SpeciesStat,
 } from "./speciesTypes";

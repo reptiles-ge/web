@@ -10,11 +10,7 @@ import {
   isVenomousDanger,
 } from "@/data/speciesAtlasMeta";
 
-export type {
-  AnimalGroup,
-  HabitatTag,
-  SpeciesAtlasMeta,
-} from "@/data/speciesAtlasMeta";
+export type { AnimalGroup } from "@/data/speciesAtlasMeta";
 export {
   getSpeciesAtlasMeta,
   groupHasVenomConcept,

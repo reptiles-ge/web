@@ -6,7 +6,6 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import {
   getRegionById,
   getRegionsForSpecies,
-  hasLocalizedText,
   type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
@@ -18,13 +17,11 @@ import {
 export {
   getRegionById,
   getRegionsForSpecies,
-  hasLocalizedText,
   type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
   type Region,
   regions,
-  type RegionTooltipSpecies,
 };
 
 export function getCatalogRegionStats() {

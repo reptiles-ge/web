@@ -1,8 +1,7 @@
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
+import { type GroupHubId } from "@/lib/groupHubs";
 
 export const FROG_SPECIES_IDS = [
   "pelobates-syriacus",
@@ -782,41 +781,6 @@ const yardCanidIdSet = new Set<string>(YARD_CANID_IDS);
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
 const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
-const PAGE_CARD_IMAGES: Partial<
-  Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
-> = {
-  "/snakes-in-the-yard": "/images/guides/snakes-in-the-yard-cover.jpg",
-  "/venomous-snakes": "/images/guides/identify-venomous-cover.png",
-};
-
-export function getHubClusterCardImage(card: HubClusterCard) {
-  if (card.kind === "species") {
-    return speciesCardImage(card.id);
-  }
-
-  if (card.kind === "quiz") {
-    return card.id === "lizard"
-      ? "/images/home/groups/lizards.jpg"
-      : "/images/guides/snake-quiz-og.jpg";
-  }
-
-  const override = PAGE_CARD_IMAGES[card.href];
-  if (override) return override;
-
-  const guide = CLUSTER_GUIDE_LIST.find(
-    (entry) => entry.pathname === card.href,
-  );
-  if (guide) {
-    if (guide.heroImage) return guide.heroImage;
-    return speciesCardImage(guide.heroSpeciesId);
-  }
-
-  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
-  if (hub) return speciesCardImage(hub.heroSpeciesId);
-
-  return undefined;
-}
-
 export function getHubPageRelatedGuides(
   hubId: GroupHubId,
   excludeHref: Extract<HubClusterCard, { kind: "page" }>["href"],
@@ -1015,11 +979,4 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       return true;
     })
     .slice(0, 4);
-}
-
-function speciesCardImage(id: string) {
-  const item = getSpeciesById(id);
-  const src = item?.image;
-  if (!src || isPlaceholderMedia(src)) return undefined;
-  return src;
 }

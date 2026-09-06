@@ -6,28 +6,7 @@ import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getRelatedSpecies } from "@/lib/speciesRelated";
 import { getSpeciesLookalikes } from "@/lib/speciesRoutes";
 
-export {
-  DEFAULT_QUIZ_MIX,
-  EASY_LIZARD_IDS,
-  EASY_SNAKE_IDS,
-  generateLizardQuiz,
-  generateSnakeQuiz,
-  HARD_LIZARD_IDS,
-  HARD_SNAKE_IDS,
-  MEDIUM_LIZARD_IDS,
-  MEDIUM_SNAKE_IDS,
-  pickSnakeDistractors,
-  QUIZ_LENGTH,
-  QUIZ_OPTION_COUNT,
-  type QuizDifficulty,
-  type QuizMode,
-  SCORE_BANDS,
-  type ScoreMessageKey,
-  scoreMessageKey,
-  scorePercent,
-  type SnakeQuizQuestion,
-  type SnakeQuizSpecies,
-} from "@/lib/snakeQuizEngine";
+export { QUIZ_LENGTH, type SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 
 const QUIZ_IMAGE_OVERRIDES: Record<string, string> = {
   "vipera-kaznakovi": "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
