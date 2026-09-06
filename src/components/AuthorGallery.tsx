@@ -30,8 +30,8 @@ export async function AuthorGallery({
   locale: AppLocale;
   photos: CreditAuthorPhoto[];
 }) {
-  const t = await getTranslations("author");
   if (photos.length === 0) return null;
+  const t = await getTranslations("author");
 
   const featuredSizes = galleryFeaturedSizes();
   const thumbSizes = galleryThumbSizes(photos.length);
