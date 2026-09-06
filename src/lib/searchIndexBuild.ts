@@ -1,8 +1,8 @@
 import type { AppLocale } from "@/i18n/routing";
 
 import {
-  type CreditAuthorRole,
   creditAuthorHref,
+  type CreditAuthorRole,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
 import {

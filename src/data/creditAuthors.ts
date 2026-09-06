@@ -2,8 +2,6 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { pickLocalized } from "@/i18n/localeMeta";
 
-export type CreditAuthorRole = "herpetologist" | "ranger";
-
 export type CreditAuthor = {
   aliases: string[];
   bio?: {
@@ -29,6 +27,8 @@ export type CreditAuthor = {
   role: CreditAuthorRole;
   slug: string;
 };
+
+export type CreditAuthorRole = "herpetologist" | "ranger";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
