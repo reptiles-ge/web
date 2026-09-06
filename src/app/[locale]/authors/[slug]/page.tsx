@@ -104,6 +104,7 @@ export default async function AuthorRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
       "@type": "Person",
+      description: bio,
       image: author.portraitSrc,
       name,
       url,
