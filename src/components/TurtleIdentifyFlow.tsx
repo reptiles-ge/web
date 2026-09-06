@@ -8,8 +8,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 type TurtleIdentifyFlowProps = {
   emys?: Species;
@@ -213,7 +213,7 @@ function SpeciesResult({
     <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:p-6">
       <Link
         className="relative block aspect-5/4 w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
-        href={speciesHref(species.id, locale)}
+        href={useSpeciesHref(species.id, locale)}
       >
         <CoverImage
           alt={`${species.commonName} (${species.scientificName})`}
@@ -234,7 +234,7 @@ function SpeciesResult({
         </p>
         <Link
           className="mt-4 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
-          href={speciesHref(species.id, locale)}
+          href={useSpeciesHref(species.id, locale)}
         >
           {profileLabel}
           <ArrowUpRight className="size-3.5" />

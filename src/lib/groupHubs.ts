@@ -1,4 +1,4 @@
-import type { AnimalGroup } from "@/data/speciesAtlas";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 
 export type GroupHubConfig = {
   group: AnimalGroup;

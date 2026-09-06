@@ -1,5 +1,5 @@
-import { regions } from "@/data/regions";
-import { type AnimalGroup, type HabitatTag } from "@/data/speciesAtlas";
+import { regions } from "@/data/mapRegions";
+import { type AnimalGroup, type HabitatTag } from "@/data/speciesAtlasMeta";
 
 export const GROUP_OPTIONS = [
   "all",

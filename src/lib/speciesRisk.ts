@@ -1,10 +1,10 @@
-import type { DangerLevel, Species } from "@/data/species";
+import type { DangerLevel, Species } from "@/data/speciesTypes";
 
 import {
   type AnimalGroup,
   getSpeciesAtlasMeta,
   groupHasVenomConcept,
-} from "@/data/speciesAtlas";
+} from "@/data/speciesAtlasMeta";
 
 export type SpeciesRiskChip = {
   kind: "danger";
@@ -12,7 +12,7 @@ export type SpeciesRiskChip = {
 };
 
 export function getSpeciesRiskChip(
-  species: Species,
+  species: Pick<Species, "danger" | "id">,
   group: AnimalGroup = getSpeciesAtlasMeta(species.id).group,
 ): null | SpeciesRiskChip {
   if (usesDangerScale(group) && species.danger) {

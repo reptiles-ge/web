@@ -1,13 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AtlasStats } from "@/data/speciesAtlas";
+
 import { CoverImage } from "@/components/CoverImage";
-import { images } from "@/data/species";
-import { getAtlasStats } from "@/data/speciesAtlas";
+import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
 type AtlasHeroProps = {
-  stats: ReturnType<typeof getAtlasStats>;
+  stats: AtlasStats;
 };
 
 export async function AtlasHero({ stats }: AtlasHeroProps) {

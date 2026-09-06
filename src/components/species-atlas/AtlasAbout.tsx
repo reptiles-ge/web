@@ -1,15 +1,15 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AtlasStats } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 
-import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 
 type AtlasAboutProps = {
   locale: AppLocale;
-  stats: ReturnType<typeof getAtlasStats>;
+  stats: AtlasStats;
 };
 
 export async function AtlasAbout({ locale, stats }: AtlasAboutProps) {

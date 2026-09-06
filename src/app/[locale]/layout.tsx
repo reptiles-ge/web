@@ -11,11 +11,14 @@ import { notFound } from "next/navigation";
 
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
+import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
 import { VisitPing } from "@/components/VisitPing";
 import { routing } from "@/i18n/routing";
+import { getFooterData } from "@/lib/footerData";
+import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 type Props = {
   children: ReactNode;
@@ -35,19 +38,23 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const t = await getTranslations("nav");
+  const footerData = getFooterData(locale);
+  const switchIndex = getLocaleSwitchIndex();
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <SkipLink label={t("skipToContent")} />
-      <ScrollToTop />
-      <AnalyticsPageContext />
-      <VisitPing />
-      <Navbar />
-      <main id="main" tabIndex={-1}>
-        {children}
-      </main>
-      <Footer />
-      <SpeedInsights />
+      <LocaleSwitchProvider index={switchIndex}>
+        <SkipLink label={t("skipToContent")} />
+        <ScrollToTop />
+        <AnalyticsPageContext switchIndex={switchIndex} />
+        <VisitPing />
+        <Navbar switchIndex={switchIndex} />
+        <main id="main" tabIndex={-1}>
+          {children}
+        </main>
+        <Footer {...footerData} />
+        <SpeedInsights />
+      </LocaleSwitchProvider>
     </NextIntlClientProvider>
   );
 }

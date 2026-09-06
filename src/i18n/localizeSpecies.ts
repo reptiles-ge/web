@@ -1,10 +1,11 @@
 import type { SpeciesTranslation } from "@/data/speciesTypes";
+import type { Species } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { mergeGallery, overlayPhotoCredit, type Species } from "@/data/species";
 import { speciesEn } from "@/data/species-en";
 import { speciesRu } from "@/data/species-ru";
 import { speciesTr } from "@/data/species-tr";
+import { mergeGallery, overlayPhotoCredit } from "@/data/speciesMedia";
 
 const TRANSLATIONS: Record<
   Exclude<AppLocale, "ka">,

@@ -4,9 +4,9 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 type LookalikePairProps = {
   a: Species;
@@ -35,7 +35,7 @@ function LookalikeSide({
   species: Species;
 }) {
   return (
-    <Link className="group min-w-0" href={speciesHref(species.id, locale)}>
+    <Link className="group min-w-0" href={useSpeciesHref(species.id, locale)}>
       <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
         <CoverImage
           alt={speciesImageAlt(

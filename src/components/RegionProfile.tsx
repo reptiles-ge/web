@@ -10,26 +10,24 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { getRegionContent } from "@/data/regionContent";
-import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
-  getRegionSpecies,
-  getRegionVenomousSpecies,
   type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
   type Region,
-} from "@/data/regions";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+} from "@/data/mapRegions";
+import { getRegionContent } from "@/data/regionContent";
+import { getRegionHeroImage } from "@/data/regionImages";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { regionHref } from "@/lib/regionHref";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 
 type RegionFaqItem = {
@@ -40,22 +38,22 @@ type RegionFaqItem = {
 type RegionProfileProps = {
   attribution?: ReactNode;
   region: Region;
+  species: Species[];
+  venomous: Species[];
 };
 
-export function RegionProfile({ attribution, region }: RegionProfileProps) {
+export function RegionProfile({
+  attribution,
+  region,
+  species,
+  venomous,
+}: RegionProfileProps) {
   const locale = useLocale() as AppLocale;
   const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
   const overview = localizeRegionTextIfPresent(content.overview, locale);
   const biome = localizeRegionTextIfPresent(content.biome, locale);
-
-  const species = getRegionSpecies(region).map((item) =>
-    localizeSpecies(item, locale),
-  );
-  const venomous = getRegionVenomousSpecies(region).map((item) =>
-    localizeSpecies(item, locale),
-  );
   const related = content.relatedIds
     .map((id) => getRegionById(id))
     .filter((item): item is Region => Boolean(item));
@@ -117,7 +115,7 @@ function PhotoSpeciesCard({
   return (
     <Link
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
-      href={speciesHref(species.id, locale)}
+      href={useSpeciesHref(species.id, locale)}
       onClick={() =>
         trackSpeciesClick({
           source: "region",

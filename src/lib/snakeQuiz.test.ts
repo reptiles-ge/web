@@ -3,10 +3,10 @@ import { describe, expect, it } from "vitest";
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { isDarevskiaSpecies } from "@/lib/clusterGuides";
 import {
-  generateLizardQuiz,
   getLizardQuizCatalog,
   getSnakeQuizCatalog,
 } from "@/lib/snakeQuiz";
+import { generateLizardQuiz } from "@/lib/snakeQuizEngine";
 
 describe("quiz catalogs", () => {
   it("keeps the glass lizard out of the snake pool and in the lizard pool", () => {

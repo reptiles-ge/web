@@ -7,14 +7,15 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 export function SpeciesGuideList({
   locale,
@@ -54,6 +55,7 @@ export function SpeciesGuideRow({
 }) {
   const tShared = useTranslations("groupHubShared");
   const tDanger = useTranslations("danger");
+  const switchIndex = useLocaleSwitchIndex();
   const regions = getRegionsForSpecies(species.id)
     .map((region) => localizeRegionText(region.name, locale))
     .slice(0, 3);
@@ -90,7 +92,7 @@ export function SpeciesGuideRow({
   return (
     <Link
       className="group grid gap-5 py-7 transition-colors sm:grid-cols-[7.5rem_1fr_auto] sm:items-center sm:gap-8 sm:py-8 lg:grid-cols-[9rem_1fr_auto] lg:gap-10"
-      href={speciesHref(species.id, locale)}
+      href={speciesHrefFromIndex(switchIndex, species.id, locale)}
       onClick={() =>
         trackSpeciesClick({
           position: index + 1,

@@ -6,7 +6,7 @@ import type {
   QuizDifficulty,
   SnakeQuizQuestion,
   SnakeQuizSpecies,
-} from "@/lib/snakeQuiz";
+} from "@/lib/snakeQuizEngine";
 
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizCover } from "@/components/QuizCover";

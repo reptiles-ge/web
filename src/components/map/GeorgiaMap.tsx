@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import {
   type MouseEvent,
   useCallback,
@@ -9,16 +10,29 @@ import {
   useState,
 } from "react";
 
+import type { SpeciesListItem } from "@/data/speciesListItem";
+
 import { Region } from "@/components/map/Region";
-import { RegionDetailsPanel } from "@/components/map/RegionDetailsPanel";
 import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { MotionLazy } from "@/components/MotionLazy";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
-import { type Region as RegionData, regions } from "@/data/regions";
+import {
+  type Region as RegionData,
+  regions,
+  type RegionTooltipSpecies,
+} from "@/data/mapRegions";
 import { useRouter } from "@/i18n/navigation";
 import { type MapContext, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
-import { regionHref } from "@/lib/speciesRoutes";
+import { regionHref } from "@/lib/regionHref";
+
+const RegionDetailsPanel = dynamic(
+  () =>
+    import("@/components/map/RegionDetailsPanel").then(
+      (mod) => mod.RegionDetailsPanel,
+    ),
+  { ssr: false },
+);
 
 type GeorgiaMapProps = {
   className?: string;
@@ -26,16 +40,22 @@ type GeorgiaMapProps = {
   interactive?: boolean;
   mapContext?: MapContext;
   selectionMode?: "navigate" | "panel";
+  speciesByRegion?: Record<string, SpeciesListItem[]>;
+  tooltipSpeciesByRegion?: Record<string, RegionTooltipSpecies[]>;
 };
 
 const EMPTY_HIGHLIGHTED_IDS: string[] = [];
+const EMPTY_TOOLTIP_SPECIES: Record<string, RegionTooltipSpecies[]> = {};
+const EMPTY_SPECIES_BY_REGION: Record<string, SpeciesListItem[]> = {};
 
 export function GeorgiaMap({
   className,
   highlightedIds = EMPTY_HIGHLIGHTED_IDS,
   interactive = true,
   mapContext = "home",
-  selectionMode = "panel",
+  selectionMode = "navigate",
+  speciesByRegion = EMPTY_SPECIES_BY_REGION,
+  tooltipSpeciesByRegion = EMPTY_TOOLTIP_SPECIES,
 }: GeorgiaMapProps) {
   const router = useRouter();
   const reactId = useId();
@@ -198,14 +218,49 @@ export function GeorgiaMap({
           </svg>
 
           {interactive ? (
-            <RegionTooltip position={tooltipPos} region={hoveredRegion} />
+            <RegionTooltip
+              position={tooltipPos}
+              region={hoveredRegion}
+              species={
+                hoveredRegion
+                  ? (tooltipSpeciesByRegion[hoveredRegion.id] ?? [])
+                  : []
+              }
+            />
           ) : null}
         </div>
 
         {usePanel ? (
-          <RegionDetailsPanel onClose={handleClose} region={selectedRegion} />
+          <LazyRegionDetailsPanel
+            onClose={handleClose}
+            region={selectedRegion}
+            species={
+              selectedRegion
+                ? (speciesByRegion[selectedRegion.id] ?? [])
+                : []
+            }
+          />
         ) : null}
       </>
     </MotionLazy>
+  );
+}
+
+function LazyRegionDetailsPanel({
+  onClose,
+  region,
+  species,
+}: {
+  onClose: () => void;
+  region: null | RegionData;
+  species: SpeciesListItem[];
+}) {
+  const [ready, setReady] = useState(false);
+  if (region && !ready) {
+    setReady(true);
+  }
+  if (!ready) return null;
+  return (
+    <RegionDetailsPanel onClose={onClose} region={region} species={species} />
   );
 }

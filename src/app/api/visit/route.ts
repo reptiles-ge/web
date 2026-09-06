@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { type NextRequest, NextResponse } from "next/server";
 
+import { formatVisitMessage } from "@/lib/visitMessage";
 import {
-  formatVisitMessage,
   isVisitBlocked,
   readVisitExpiresAt,
   readVisitPath,

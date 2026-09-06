@@ -3,10 +3,11 @@
 import type { ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { LocaleSpeciesHref } from "@/lib/localeSwitch";
 
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { type SpeciesClickSource, trackSpeciesClick } from "@/lib/analytics";
-import { speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
 
 type TrackedSpeciesLinkProps = {
   "aria-label"?: string;
@@ -27,7 +28,7 @@ export function TrackedSpeciesLink({
   source,
   speciesId,
 }: TrackedSpeciesLinkProps) {
-  const href: SpeciesHref = speciesHref(speciesId, locale);
+  const href: LocaleSpeciesHref = useSpeciesHref(speciesId, locale);
 
   return (
     <Link

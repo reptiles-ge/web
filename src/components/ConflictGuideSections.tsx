@@ -16,10 +16,11 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
 import { GuideNumberedSteps } from "@/components/GuideShared";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
 const ACTION_STEPS = [1, 2, 3, 4] as const;
@@ -82,6 +83,7 @@ function ConflictContact({
 }) {
   const t = useTranslations(config.namespace);
   const locale = useLocale() as AppLocale;
+  const switchIndex = useLocaleSwitchIndex();
   const photo = config.contactSpeciesId
     ? species.find((item) => item.id === config.contactSpeciesId)
     : undefined;
@@ -162,7 +164,7 @@ function ConflictContact({
           {photo ? (
             <Link
               className="group relative block h-full min-h-[260px] overflow-hidden bg-ink"
-              href={speciesHref(photo.id, locale)}
+              href={speciesHrefFromIndex(switchIndex, photo.id, locale)}
             >
               <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]">
                 <CoverImage

@@ -9,13 +9,14 @@ import type {
   QuizDifficulty,
   SnakeQuizQuestion,
   SnakeQuizSpecies,
-} from "@/lib/snakeQuiz";
+} from "@/lib/snakeQuizEngine";
 
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 
 const OPTION_MARKS: Record<
   AppLocale,
@@ -68,6 +69,7 @@ export function QuizRound({
 }: QuizRoundProps) {
   const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
+  const switchIndex = useLocaleSwitchIndex();
 
   function onRadioKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (revealed) return;
@@ -244,7 +246,11 @@ export function QuizRound({
                 </button>
                 <Link
                   className="inline-flex items-center gap-1.5 text-[13px] font-medium text-white/80 transition-colors hover:text-white"
-                  href={speciesHref(question.correctId, locale)}
+                  href={speciesHrefFromIndex(
+                    switchIndex,
+                    question.correctId,
+                    locale,
+                  )}
                   onClick={() =>
                     trackSpeciesClick({
                       position: index + 1,
@@ -274,7 +280,11 @@ export function QuizRound({
           </button>
           <Link
             className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
-            href={speciesHref(question.correctId, locale)}
+            href={speciesHrefFromIndex(
+              switchIndex,
+              question.correctId,
+              locale,
+            )}
             onClick={() =>
               trackSpeciesClick({
                 position: index + 1,

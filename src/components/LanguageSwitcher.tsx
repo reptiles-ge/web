@@ -1,8 +1,27 @@
 "use client";
 
+import { Globe } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { useCallback, useId, useRef, useState } from "react";
+
 import { OverlayPanel } from "@/components/OverlayPanel";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { pushPageContext, trackEvent } from "@/lib/analytics";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+  chromeShellClass,
+} from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
+import {
+  type LocaleSwitchIndex,
+  quizHrefFromIndex,
+  resolvePageContextFromIndex,
+  resolveSpeciesIdFromIndex,
+  speciesHrefFromIndex,
+} from "@/lib/localeSwitch";
 
 const STATIC_LOCALE_PATHS = [
   "/",
@@ -29,6 +48,7 @@ const STATIC_LOCALE_PATHS = [
   "/snakes/didi-gvelebi",
   "/lizards/saxeoebebi",
   "/lizards/identifikacia",
+  "/lizards/darevskia",
   "/lizards/xvliki-saxlshi",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
   "/turtles/saxeoebebi",
@@ -48,6 +68,7 @@ const STATIC_LOCALE_PATHS = [
 ] as const;
 
 type LanguageSwitcherProps = {
+  switchIndex: LocaleSwitchIndex;
   variant?: "dark" | "light";
 };
 
@@ -58,31 +79,13 @@ type LocaleOptionsProps = {
   onSelect: (code: AppLocale) => void;
   title: string;
 };
-import { Globe } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-import { useCallback, useId, useRef, useState } from "react";
-
-import { pushPageContext, trackEvent } from "@/lib/analytics";
-import {
-  chromeIconButtonBase,
-  chromeIconButtonClass,
-  chromeShellClass,
-} from "@/lib/chromeStyles";
-import { cn } from "@/lib/cn";
-import { newsArticleHref } from "@/lib/news";
-import { resolvePageContext } from "@/lib/pageContext";
-import { quizHref, resolveQuizBySlug } from "@/lib/quizzes";
-import {
-  regionHref,
-  resolveSpecies,
-  resolveSpeciesInHub,
-  speciesHref,
-} from "@/lib/speciesRoutes";
 
 type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
 
-export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
+export function LanguageSwitcher({
+  switchIndex,
+  variant = "light",
+}: LanguageSwitcherProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("language");
   const router = useRouter();
@@ -106,7 +109,10 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     const slug = typeof params.slug === "string" ? params.slug : undefined;
     const id = typeof params.id === "string" ? params.id : undefined;
     if (code !== locale) {
-      const context = resolvePageContext(pathname, locale, { id, slug });
+      const context = resolvePageContextFromIndex(switchIndex, pathname, locale, {
+        id,
+        slug,
+      });
       trackEvent("language_change", {
         entity_id: context.entity_id,
         language: code,
@@ -133,39 +139,50 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     ).find((item) => pathname === `/${item}/[slug]`);
 
     if (hub && slug) {
-      const species = resolveSpeciesInHub(hub, slug);
-      if (species) {
-        router.replace(speciesHref(species.id, code), { locale: code });
+      const speciesId = resolveSpeciesIdFromIndex(switchIndex, slug);
+      if (speciesId && switchIndex.hubById[speciesId] === hub) {
+        router.replace(speciesHrefFromIndex(switchIndex, speciesId, code), {
+          locale: code,
+        });
         close();
         return;
       }
     }
 
     if (pathname === "/quiz/[slug]" && slug) {
-      const quiz = resolveQuizBySlug(locale, slug);
+      const quiz = switchIndex.quizzes.find(
+        (item) => item.slugs[locale] === slug,
+      );
       if (quiz) {
-        router.replace(quizHref(quiz.id, code), { locale: code });
+        router.replace(quizHrefFromIndex(switchIndex, quiz.id, code), {
+          locale: code,
+        });
         close();
         return;
       }
     }
 
     if (pathname === "/regions/[id]" && id) {
-      router.replace(regionHref(id), { locale: code });
+      router.replace({ params: { id }, pathname: "/regions/[id]" }, { locale: code });
       close();
       return;
     }
 
     if (pathname === "/news/[slug]" && slug) {
-      router.replace(newsArticleHref(slug), { locale: code });
+      router.replace(
+        { params: { slug }, pathname: "/news/[slug]" },
+        { locale: code },
+      );
       close();
       return;
     }
 
     if (pathname === "/species/[id]" && id) {
-      const species = resolveSpecies(id);
-      if (species) {
-        router.replace(speciesHref(species.id, code), { locale: code });
+      const speciesId = resolveSpeciesIdFromIndex(switchIndex, id);
+      if (speciesId) {
+        router.replace(speciesHrefFromIndex(switchIndex, speciesId, code), {
+          locale: code,
+        });
         close();
         return;
       }

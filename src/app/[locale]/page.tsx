@@ -14,6 +14,7 @@ import { HomeGroups } from "@/components/home/HomeGroups";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
+import { getRegionTooltipPreviews } from "@/data/regions";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   allRightsReservedLabel,
@@ -177,7 +178,9 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <Hero />
         <HomeGroups />
         <HomeFeatured />
-        <MapExplorer />
+        <MapExplorer
+          tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+        />
         <HomeFresh />
         <HomeField />
         <HomeSeo />

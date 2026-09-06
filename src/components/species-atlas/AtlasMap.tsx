@@ -2,10 +2,16 @@
 
 import { useTranslations } from "next-intl";
 
+import type { RegionTooltipSpecies } from "@/data/mapRegions";
+
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Link } from "@/i18n/navigation";
 
-export function AtlasMap() {
+export function AtlasMap({
+  tooltipSpeciesByRegion,
+}: {
+  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+}) {
   const t = useTranslations("speciesAtlas");
 
   return (
@@ -27,7 +33,11 @@ export function AtlasMap() {
           </p>
         </div>
         <div className="mt-12 lg:mt-16">
-          <GeorgiaMap mapContext="atlas" selectionMode="navigate" />
+          <GeorgiaMap
+            mapContext="atlas"
+            selectionMode="navigate"
+            tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+          />
         </div>
         <div className="mt-10 flex justify-center">
           <Link

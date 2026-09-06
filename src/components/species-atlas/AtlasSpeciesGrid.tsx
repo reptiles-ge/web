@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-import type { Species } from "@/data/species";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AtlasSpeciesCard } from "@/components/species-atlas/AtlasSpeciesCard";
@@ -14,7 +14,7 @@ import {
 
 type AtlasSpeciesGridProps = {
   locale: AppLocale;
-  species: Species[];
+  species: SpeciesListItem[];
 };
 
 export function AtlasSpeciesGrid({ locale, species }: AtlasSpeciesGridProps) {

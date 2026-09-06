@@ -2,20 +2,21 @@
 
 import { useEffect } from "react";
 
-import { getRegionsForSpecies } from "@/data/regions";
-import { type AnimalGroup } from "@/data/speciesAtlas";
+import { type AnimalGroup } from "@/data/speciesAtlasMeta";
 import { trackEvent } from "@/lib/analytics";
 
 export function SpeciesViewTracker({
   galleryCount,
   group,
   hasIdentification,
+  hasRange,
   scientificName,
   speciesId,
 }: {
   galleryCount: number;
   group: AnimalGroup;
   hasIdentification: boolean;
+  hasRange: boolean;
   scientificName: string;
   speciesId: string;
 }) {
@@ -24,12 +25,19 @@ export function SpeciesViewTracker({
       group,
       has_gallery: galleryCount > 0,
       has_identification: hasIdentification,
-      has_range: getRegionsForSpecies(speciesId).length > 0,
+      has_range: hasRange,
       page_type: "species",
       scientific_name: scientificName,
       species_id: speciesId,
     });
-  }, [galleryCount, group, hasIdentification, scientificName, speciesId]);
+  }, [
+    galleryCount,
+    group,
+    hasIdentification,
+    hasRange,
+    scientificName,
+    speciesId,
+  ]);
 
   return null;
 }

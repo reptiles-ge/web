@@ -8,9 +8,11 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
-import { localizeRegionText, type Region } from "@/data/regions";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import { localizeRegionText, type Region } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
-import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
+import { regionHref } from "@/lib/regionHref";
 import { TURTLE_META, type TurtleId } from "@/lib/turtleIdentify";
 
 type TurtleIdentifyChooserProps = {
@@ -103,6 +105,7 @@ function TurtleChooserCard({
   locale: AppLocale;
 }) {
   const t = useTranslations("turtleIdentify");
+  const switchIndex = useLocaleSwitchIndex();
   const meta = TURTLE_META[item.id as TurtleId];
   if (!meta) {
     return null;
@@ -115,7 +118,7 @@ function TurtleChooserCard({
   return (
     <div>
       <article className="flex h-full flex-col">
-        <Link className="group block" href={speciesHref(item.id, locale)}>
+        <Link className="group block" href={speciesHrefFromIndex(switchIndex, item.id, locale)}>
           <figure>
             <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
               <CoverImage
@@ -143,7 +146,7 @@ function TurtleChooserCard({
         </p>
         <Link
           className="mt-5 inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
-          href={speciesHref(item.id, locale)}
+          href={speciesHrefFromIndex(switchIndex, item.id, locale)}
         >
           {t("viewProfile")}
           <ArrowUpRight className="size-3.5" />

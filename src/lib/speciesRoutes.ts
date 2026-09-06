@@ -4,7 +4,7 @@ import {
   isPublishedSpeciesId,
   type Species,
 } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   ANIMAL_GROUP_TO_HUB,
@@ -613,9 +613,7 @@ export function legacySpeciesStaticParams(): Array<{
   return [];
 }
 
-export function regionHref(id: string) {
-  return { params: { id }, pathname: "/regions/[id]" as const };
-}
+export { regionHref } from "@/lib/regionHref";
 
 export function resolveSpecies(param: string): Species | undefined {
   const id = resolveSpeciesId(param);

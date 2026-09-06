@@ -8,8 +8,12 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { CoverImage } from "@/components/CoverImage";
+import {
+  useLocaleSwitchIndex,
+  useSpeciesHref,
+} from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { TURTLE_ORDER } from "@/lib/turtleIdentify";
 
 const MATRIX_ROWS = [
@@ -44,6 +48,7 @@ export function TurtleIdentifyMatrix({
   turtles,
 }: TurtleIdentifyMatrixProps) {
   const t = useTranslations("turtleIdentify");
+  const switchIndex = useLocaleSwitchIndex();
 
   return (
     <>
@@ -113,7 +118,7 @@ export function TurtleIdentifyMatrix({
           {emys ? (
             <Link
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-              href={speciesHref(emys.id, locale)}
+              href={speciesHrefFromIndex(switchIndex, emys.id, locale)}
             >
               {emys.commonName}
               <ArrowUpRight className="size-3.5" />
@@ -122,7 +127,7 @@ export function TurtleIdentifyMatrix({
           {mauremys ? (
             <Link
               className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-              href={speciesHref(mauremys.id, locale)}
+              href={speciesHrefFromIndex(switchIndex, mauremys.id, locale)}
             >
               {mauremys.commonName}
               <ArrowUpRight className="size-3.5" />
@@ -146,7 +151,7 @@ export function TurtleIdentifyMatrix({
                   <th className="py-4 pr-3 font-medium" key={item.id}>
                     <Link
                       className="text-foreground underline-offset-4 hover:underline"
-                      href={speciesHref(item.id, locale)}
+                      href={speciesHrefFromIndex(switchIndex, item.id, locale)}
                     >
                       {item.commonName}
                     </Link>
@@ -196,7 +201,7 @@ function ComparePhoto({
     <figure>
       <Link
         className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink"
-        href={speciesHref(species.id, locale)}
+        href={useSpeciesHref(species.id, locale)}
       >
         <CoverImage
           alt={alt}

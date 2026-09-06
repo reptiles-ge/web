@@ -3,23 +3,23 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/regions";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { speciesImageAlt } from "@/lib/speciesMeta";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 type AtlasSpeciesCardProps = {
   eager?: boolean;
   index?: number;
   locale: AppLocale;
-  species: Species;
+  species: SpeciesListItem;
 };
 
 export function AtlasSpeciesCard({
@@ -54,7 +54,7 @@ export function AtlasSpeciesCard({
       <Link
         aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
         className="absolute inset-0 z-10"
-        href={speciesHref(species.id, locale)}
+        href={useSpeciesHref(species.id, locale)}
         onClick={() =>
           trackSpeciesClick({
             group: meta.group,

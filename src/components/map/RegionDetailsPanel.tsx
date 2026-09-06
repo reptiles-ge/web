@@ -5,32 +5,32 @@ import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-import type { Region } from "@/data/regions";
-import type { Species } from "@/data/species";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesCard } from "@/components/map/SpeciesCard";
-import { getRegionSpecies, localizeRegionText } from "@/data/regions";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { localizeRegionText, type Region } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
 import { cycleTab } from "@/lib/focusTrap";
-import { regionHref } from "@/lib/speciesRoutes";
+import { regionHref } from "@/lib/regionHref";
 
 type PanelContentProps = {
   locale: AppLocale;
   onClose: () => void;
   region: Region;
-  species: Species[];
+  species: SpeciesListItem[];
 };
 
 type RegionDetailsPanelProps = {
   onClose: () => void;
   region: null | Region;
+  species: SpeciesListItem[];
 };
 
 export function RegionDetailsPanel({
   onClose,
   region,
+  species,
 }: RegionDetailsPanelProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("map");
@@ -79,10 +79,6 @@ export function RegionDetailsPanel({
       openerRef.current?.focus();
     };
   }, [open]);
-
-  const species = region
-    ? getRegionSpecies(region).map((item) => localizeSpecies(item, locale))
-    : [];
 
   return (
     <AnimatePresence>

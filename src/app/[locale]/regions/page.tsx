@@ -6,7 +6,12 @@ import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/JsonLd";
 import { RegionsIndex } from "@/components/RegionsIndex";
-import { localizeRegionText, regions } from "@/data/regions";
+import {
+  getCatalogRegionStats,
+  getRegionTooltipPreviews,
+  localizeRegionText,
+  regions,
+} from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
@@ -100,7 +105,10 @@ export default async function RegionsPage({ params }: Props) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <RegionsIndex />
+      <RegionsIndex
+        stats={getCatalogRegionStats()}
+        tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+      />
     </>
   );
 }

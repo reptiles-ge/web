@@ -6,7 +6,7 @@ import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { type PhotoCredit } from "@/data/species";
+import { type PhotoCredit } from "@/data/speciesTypes";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";

@@ -3,10 +3,16 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import type { RegionTooltipSpecies } from "@/data/mapRegions";
+
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Link } from "@/i18n/navigation";
 
-export function MapExplorer() {
+export function MapExplorer({
+  tooltipSpeciesByRegion,
+}: {
+  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+}) {
   const t = useTranslations("map");
 
   return (
@@ -39,7 +45,11 @@ export function MapExplorer() {
         </div>
 
         <div className="mt-10 lg:mt-14">
-          <GeorgiaMap mapContext="home" selectionMode="navigate" />
+          <GeorgiaMap
+            mapContext="home"
+            selectionMode="navigate"
+            tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+          />
         </div>
 
         <p className="mt-6 text-center text-[12px] tracking-wide text-muted-foreground">

@@ -20,7 +20,8 @@ import {
 } from "@/data/news";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
-import { getSpeciesById, hasPhotoCredit } from "@/data/species";
+import { getSpeciesById } from "@/data/species";
+import { hasPhotoCredit } from "@/data/speciesMedia";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";

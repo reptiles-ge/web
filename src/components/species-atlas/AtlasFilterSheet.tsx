@@ -7,13 +7,15 @@ import { Drawer } from "vaul";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { localizeRegionText, regions } from "@/data/regions";
 import {
-  type AnimalGroup,
   type AtlasFilters,
   defaultAtlasFilters,
+} from "@/data/atlasFilters";
+import { localizeRegionText, regions } from "@/data/mapRegions";
+import {
+  type AnimalGroup,
   type HabitatTag,
-} from "@/data/speciesAtlas";
+} from "@/data/speciesAtlasMeta";
 import { cn } from "@/lib/cn";
 
 const GROUP_OPTIONS: Array<"all" | AnimalGroup> = [

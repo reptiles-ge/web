@@ -1,5 +1,5 @@
 import type { RegionPathId } from "@/data/georgia-paths";
-import type { LocalizedText } from "@/data/regions";
+import type { LocalizedText } from "@/data/mapRegions";
 
 export type RegionContent = {
   biome: LocalizedText;

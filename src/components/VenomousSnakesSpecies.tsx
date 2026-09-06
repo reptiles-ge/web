@@ -12,11 +12,11 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
-import { speciesHref } from "@/lib/speciesRoutes";
 
 type VenomousSnakesSpeciesProps = {
   giurza?: Species;
@@ -126,7 +126,7 @@ function VenomousFeaturedCard({
     <div>
       <Link
         className="flex h-full flex-wrap items-center justify-between gap-4 rounded-card border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
-        href={speciesHref(species.id, locale)}
+        href={useSpeciesHref(species.id, locale)}
       >
         <div>
           <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">

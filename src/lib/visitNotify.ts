@@ -1,9 +1,4 @@
 import { georgiaPlaceName } from "@/i18n/localeMeta";
-import {
-  displayVisitPath,
-  visitLocaleFromPath,
-  visitPageLabel,
-} from "@/lib/visitPageLabel";
 
 export const VISIT_COOKIE = "rp_v";
 export const VISIT_STORAGE_KEY = "reptiles-visit";
@@ -123,32 +118,6 @@ export function createVisitLimiter(windowMs: number) {
 }
 
 export const visitLimiter = createVisitLimiter(VISIT_WINDOW_MS);
-
-export function formatVisitMessage(input: {
-  city?: null | string;
-  country?: null | string;
-  path: string;
-  referrer?: string;
-  userAgent?: null | string;
-}) {
-  const cleaned = sanitizeVisitPath(input.path) ?? displayVisitPath(input.path);
-  const pathname = displayVisitPath(cleaned);
-  const locale = visitLocaleFromPath(pathname).toUpperCase();
-  const page = visitPageLabel(cleaned);
-  const lines = [`ახალი ვიზიტი · ${locale}`, ""];
-  if (page) lines.push(`გვერდი: ${page}`);
-  lines.push(`URL: ${pathname}`);
-  const extra = [
-    sourceLine(input.referrer, cleaned),
-    placeLine(input.country, input.city),
-    deviceLine(input.userAgent),
-  ].filter((line): line is string => Boolean(line));
-  if (extra.length) {
-    lines.push("");
-    lines.push(...extra);
-  }
-  return lines.join("\n");
-}
 
 export function isVisitBlocked(value: null | string | undefined, now = Date.now()) {
   const expiresAt = readVisitExpiresAt(value);
@@ -298,11 +267,6 @@ function countryDisplay(country?: null | string) {
   return COUNTRY_NAMES.of(code) ?? code;
 }
 
-function deviceLine(userAgent?: null | string) {
-  const device = visitDeviceLabel(userAgent);
-  return device ? `მოწყობილობა: ${device}` : undefined;
-}
-
 function isOwnHost(host: string) {
   const h = host.toLowerCase();
   return h === "reptiles.ge" || h.endsWith(".reptiles.ge") || h === "localhost";
@@ -322,11 +286,6 @@ function namedSourceFromHost(host: string) {
 
 function namedSourceFromToken(value: string) {
   return SOURCE_TOKENS[value.trim().toLowerCase()];
-}
-
-function placeLine(country?: null | string, city?: null | string) {
-  const place = visitPlaceLabel(country, city);
-  return place ? `ადგილი: ${place}` : undefined;
 }
 
 function sanitizeUtmSource(value: string) {
@@ -354,11 +313,6 @@ function sanitizeVisitCountry(value?: null | string) {
   const code = value.trim().toUpperCase();
   if (!/^[A-Z]{2}$/.test(code) || code === "XX") return undefined;
   return code;
-}
-
-function sourceLine(referrer?: string, path?: string) {
-  const source = visitReferrerSource(referrer, path);
-  return source ? `წყარო: ${source}` : undefined;
 }
 
 function stripVisitTracking(path: string) {

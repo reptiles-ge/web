@@ -16,6 +16,7 @@ import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getRegionsForSpecies,
+  getRegionTooltipPreviews,
   localizeRegionText,
   type Region,
   regions,
@@ -97,6 +98,7 @@ export async function SnakeRangePage({
               highlightedIds={highlightedIds}
               mapContext="guide"
               selectionMode="navigate"
+              tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
             />
           </div>
         </div>

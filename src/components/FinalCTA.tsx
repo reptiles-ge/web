@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
-import { images } from "@/data/species";
+import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
 export async function FinalCTA() {

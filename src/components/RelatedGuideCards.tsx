@@ -5,17 +5,35 @@ import { useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { CoverImage } from "@/components/CoverImage";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
-import {
-  getHubClusterCardImage,
-  type HubClusterCard,
-} from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
+import { GROUP_HUB_LIST } from "@/lib/groupHubs";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { quizHref } from "@/lib/quizzes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
+
+const PAGE_CARD_IMAGES: Partial<
+  Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
+> = {
+  "/snakes-in-the-yard": "/images/guides/snakes-in-the-yard-cover.jpg",
+  "/venomous-snakes": "/images/guides/identify-venomous-cover.png",
+};
+
+const GUIDE_HERO_IMAGES: Partial<
+  Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
+> = {
+  "/snakes/didi-gvelebi": "/images/guides/largest-snakes-cover.png",
+  "/snakes/gavrtseleba": "/images/guides/snake-range-cover.png",
+  "/snakes/gvelis-nakbeni": "/images/guides/snake-bite-cover.png",
+  "/snakes/saxeoebebi": "/images/guides/snake-species-cover.png",
+  "/snakes/shxamiani-gvelis-amocnoba":
+    "/images/guides/identify-venomous-cover.png",
+};
 
 export function RelatedGuideCard({
   card,
@@ -29,6 +47,7 @@ export function RelatedGuideCard({
   species?: Species[];
 }) {
   const t = useTranslations("groupHubShared");
+  const switchIndex = useLocaleSwitchIndex();
   const item =
     card.kind === "species"
       ? species.find((entry) => entry.id === card.id)
@@ -38,7 +57,7 @@ export function RelatedGuideCard({
       ? card.href
       : card.kind === "quiz"
         ? quizHref(card.id, locale)
-        : speciesHref(card.id, locale);
+        : speciesHrefFromIndex(switchIndex, card.id, locale);
   const title =
     card.kind === "species" && item
       ? speciesSeoAnchor(item.commonName, item.scientificName)
@@ -47,7 +66,7 @@ export function RelatedGuideCard({
     card.kind === "species" && item
       ? t("openProfile")
       : t(`cluster.${card.key}.cta`);
-  const imageSrc = getHubClusterCardImage(card);
+  const imageSrc = featured ? hubClusterCardImage(card, species) : undefined;
 
   const copy = (
     <>
@@ -134,4 +153,31 @@ export function RelatedGuideGrid({
       ))}
     </div>
   );
+}
+
+function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
+  if (card.kind === "species") {
+    return speciesCardImage(card.id, species);
+  }
+
+  if (card.kind === "quiz") {
+    return card.id === "lizard"
+      ? "/images/home/groups/lizards.jpg"
+      : "/images/guides/snake-quiz-og.jpg";
+  }
+
+  const override = PAGE_CARD_IMAGES[card.href] ?? GUIDE_HERO_IMAGES[card.href];
+  if (override) return override;
+
+  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
+  if (hub) return speciesCardImage(hub.heroSpeciesId, species);
+
+  return undefined;
+}
+
+function speciesCardImage(id: string, species: Species[]) {
+  const item = species.find((entry) => entry.id === id);
+  const src = item?.image;
+  if (!src || isPlaceholderMedia(src)) return undefined;
+  return src;
 }

@@ -2,17 +2,35 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
-
-import type { AppLocale } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 import { Logo } from "@/components/Logo";
-import { localizeRegionText, regions } from "@/data/regions";
-import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link, usePathname } from "@/i18n/navigation";
-import { regionHref, speciesHref } from "@/lib/speciesRoutes";
+
+type FooterProps = {
+  regions: Array<{
+    href: { params: { id: string }; pathname: "/regions/[id]" };
+    id: string;
+    name: string;
+  }>;
+  venomous: Array<{
+    commonName: string;
+    href: {
+      params: { slug: string };
+      pathname:
+        | "/amphibians/[slug]"
+        | "/birds/[slug]"
+        | "/lizards/[slug]"
+        | "/mammals/[slug]"
+        | "/snakes/[slug]"
+        | "/spiders/[slug]"
+        | "/turtles/[slug]";
+    };
+    id: string;
+    scientificName: string;
+  }>;
+};
 
 const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
@@ -57,16 +75,10 @@ const companyLinks = [
   { href: "/contact" as const, labelKey: "contact" as const },
 ];
 
-export function Footer() {
+export function Footer({ regions, venomous }: FooterProps) {
   const t = useTranslations("footer");
-  const locale = useLocale() as AppLocale;
   const pathname = usePathname();
   const [hidden, setHidden] = useState(() => shouldHideFooter(pathname));
-  const venomous = useMemo(
-    () =>
-      getVenomousCatalogSpecies().map((item) => localizeSpecies(item, locale)),
-    [locale],
-  );
 
   useEffect(() => {
     if (shouldHideFooter(pathname)) {
@@ -176,7 +188,7 @@ export function Footer() {
                 <li className="mb-3 break-inside-avoid" key={item.id}>
                   <Link
                     className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                    href={speciesHref(item.id, locale)}
+                    href={item.href}
                   >
                     <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
                       {item.commonName}
@@ -207,9 +219,9 @@ export function Footer() {
                 <li className="mb-2.5 break-inside-avoid" key={region.id}>
                   <Link
                     className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                    href={regionHref(region.id)}
+                    href={region.href}
                   >
-                    {localizeRegionText(region.name, locale)}
+                    {region.name}
                   </Link>
                 </li>
               ))}

@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 import { Shield } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { DangerLevel, Species } from "@/data/species";
+import type { DangerLevel, Species } from "@/data/speciesTypes";
 
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
@@ -107,7 +107,7 @@ export function SpeciesRiskChip({
   variant = "hero",
 }: {
   linked?: boolean;
-  species: Species;
+  species: Pick<Species, "danger" | "id">;
   variant?: "card" | "hero";
 }) {
   const group = getSpeciesAtlasMeta(species.id).group;

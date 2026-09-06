@@ -6,15 +6,13 @@ import { Fragment } from "react";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import {
-  getSpeciesById,
-  type SpeciesIdentification as Identification,
-} from "@/data/species";
+import { type SpeciesIdentification as Identification } from "@/data/speciesTypes";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
+import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
-import { speciesHref } from "@/lib/speciesRoutes";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesIdentificationProps = {
@@ -76,6 +74,7 @@ export function SpeciesIdentification({
 
 function IdentificationRichText({ text }: { text: string }) {
   const locale = useLocale() as AppLocale;
+  const switchIndex = useLocaleSwitchIndex();
   const parts = splitSpeciesInlineLinks(text);
 
   return (
@@ -93,7 +92,7 @@ function IdentificationRichText({ text }: { text: string }) {
           );
         }
 
-        const target = getSpeciesById(part.id);
+        const target = switchIndex.hubById[part.id];
         if (!target) {
           return <Fragment key={key}>{part.label}</Fragment>;
         }
@@ -101,7 +100,7 @@ function IdentificationRichText({ text }: { text: string }) {
         return (
           <Link
             className={inlineSpeciesLinkClassName}
-            href={speciesHref(part.id, locale)}
+            href={speciesHrefFromIndex(switchIndex, part.id, locale)}
             key={key}
             onClick={() =>
               trackSpeciesClick({
