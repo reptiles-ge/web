@@ -6,12 +6,12 @@ import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { type PhotoCredit } from "@/data/speciesTypes";
 import {
   creditAuthorHref,
   creditAuthorName,
   getPublishedCreditAuthorByName,
 } from "@/data/creditAuthors";
+import { type PhotoCredit } from "@/data/speciesTypes";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -154,7 +154,7 @@ function PhotoCreditName({
   const name = author ? creditAuthorName(author, locale) : raw;
   const label = author ? (
     <Link
-      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+      className="inline-flex min-h-6 items-center underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
       href={creditAuthorHref(author.slug)}
       onClick={(event) => event.stopPropagation()}
     >

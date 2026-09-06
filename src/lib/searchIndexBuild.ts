@@ -1,5 +1,6 @@
 import type { AppLocale } from "@/i18n/routing";
 
+import { creditAuthorHref, getPublishedCreditAuthors } from "@/data/creditAuthors";
 import {
   getPublishedNewsArticles,
   newsLocalizedDek,
@@ -24,7 +25,6 @@ import {
   groupHasVenomConcept,
   isVenomousDanger,
 } from "@/data/speciesAtlas";
-import { creditAuthorHref, getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { pickLocalized } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import {

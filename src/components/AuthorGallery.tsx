@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
-import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 import type { AppLocale } from "@/i18n/routing";
+import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import {
   GalleryOpenButton,
@@ -13,8 +13,8 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { getSpeciesById } from "@/data/species";
-import { Link } from "@/i18n/navigation";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import {
   GALLERY_LIGHTBOX_SIZES,

@@ -1,17 +1,17 @@
 import type { MetadataRoute } from "next";
 
+import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getPublishedNewsArticles, newsLatestModified } from "@/data/news";
 import { getRegionSpecies, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
   creditAuthorAlternates,
   creditAuthorUrl,
   getCreditAuthorPhotos,
 } from "@/lib/creditAuthors";
-import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
   newsArticleAlternates,

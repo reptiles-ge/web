@@ -1,16 +1,16 @@
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
-import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 import type { AppLocale } from "@/i18n/routing";
+import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import { AuthorGallery } from "@/components/AuthorGallery";
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
-import { getSpeciesById } from "@/data/species";
 import { creditAuthorName } from "@/data/creditAuthors";
-import { Link } from "@/i18n/navigation";
+import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { Link } from "@/i18n/navigation";
 import { getCreditAuthorSpeciesIds } from "@/lib/creditAuthors";
 import { speciesHref } from "@/lib/speciesRoutes";
 

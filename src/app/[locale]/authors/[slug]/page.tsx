@@ -34,8 +34,95 @@ type Props = {
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return creditAuthorStaticParams();
+export default async function AuthorRoute({ params }: Props) {
+  const { locale: localeParam, slug } = await params;
+  if (!hasLocale(routing.locales, localeParam)) {
+    notFound();
+  }
+
+  const locale = localeParam as AppLocale;
+  setRequestLocale(locale);
+
+  const author = resolvePublishedCreditAuthor(slug);
+  if (!author) notFound();
+
+  const t = await getTranslations({ locale, namespace: "author" });
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
+  const photos = getCreditAuthorPhotos(author);
+  const name = creditAuthorName(author, locale);
+  const url = creditAuthorUrl(locale, author.slug);
+  const heroSrc = photos.some((photo) => photo.src === author.heroSrc)
+    ? author.heroSrc
+    : (photos[0]?.src ?? author.heroSrc);
+  const speciesIds = getCreditAuthorSpeciesIds(photos);
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        item: absoluteUrl(localePath(locale, "/")),
+        name: tShared("breadcrumbHome"),
+        position: 1,
+      },
+      {
+        "@type": "ListItem",
+        item: url,
+        name,
+        position: 2,
+      },
+    ],
+  };
+
+  const pageLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    about: [
+      {
+        "@type": "Place",
+        name: georgiaPlaceName(locale),
+      },
+      ...speciesIds.flatMap((id) => {
+        const species = getSpeciesById(id);
+        if (!species) return [];
+        return [
+          {
+            "@type": "Taxon" as const,
+            name: species.scientificName,
+            taxonRank: "Species",
+          },
+        ];
+      }),
+    ],
+    description: t("metaDescription", {
+      count: photos.length,
+      name,
+      species: speciesIds.length,
+    }),
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
+    mainEntity: {
+      "@type": "Person",
+      image: heroSrc,
+      name,
+      url,
+    },
+    name,
+    url,
+  };
+
+  return (
+    <>
+      <CoverImagePreload sizes="100vw" src={heroSrc} />
+      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={pageLd} />
+      <AuthorPage author={author} locale={locale} photos={photos} />
+    </>
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -99,93 +186,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function AuthorRoute({ params }: Props) {
-  const { locale: localeParam, slug } = await params;
-  if (!hasLocale(routing.locales, localeParam)) {
-    notFound();
-  }
-
-  const locale = localeParam as AppLocale;
-  setRequestLocale(locale);
-
-  const author = resolvePublishedCreditAuthor(slug);
-  if (!author) notFound();
-
-  const t = await getTranslations({ locale, namespace: "author" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const photos = getCreditAuthorPhotos(author);
-  const name = creditAuthorName(author, locale);
-  const url = creditAuthorUrl(locale, author.slug);
-  const heroSrc = photos.some((photo) => photo.src === author.heroSrc)
-    ? author.heroSrc
-    : (photos[0]?.src ?? author.heroSrc);
-  const speciesIds = getCreditAuthorSpeciesIds(photos);
-
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: tShared("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name,
-        position: 2,
-      },
-    ],
-  };
-
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    description: t("metaDescription", {
-      count: photos.length,
-      name,
-      species: speciesIds.length,
-    }),
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: {
-      "@type": "Person",
-      image: heroSrc,
-      name,
-      url,
-    },
-    name,
-    about: [
-      {
-        "@type": "Place",
-        name: georgiaPlaceName(locale),
-      },
-      ...speciesIds.flatMap((id) => {
-        const species = getSpeciesById(id);
-        if (!species) return [];
-        return [
-          {
-            "@type": "Taxon" as const,
-            name: species.scientificName,
-            taxonRank: "Species",
-          },
-        ];
-      }),
-    ],
-    url,
-  };
-
-  return (
-    <>
-      <CoverImagePreload sizes="100vw" src={heroSrc} />
-      <JsonLd data={breadcrumbLd} />
-      <JsonLd data={pageLd} />
-      <AuthorPage author={author} locale={locale} photos={photos} />
-    </>
-  );
+export function generateStaticParams() {
+  return creditAuthorStaticParams();
 }

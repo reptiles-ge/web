@@ -1,5 +1,5 @@
-import { getPublishedNewsArticleBySlug, newsLocalizedTitle } from "@/data/news";
 import { getPublishedCreditAuthorBySlug } from "@/data/creditAuthors";
+import { getPublishedNewsArticleBySlug, newsLocalizedTitle } from "@/data/news";
 import { getRegionById } from "@/data/regions";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, type AppPathnames } from "@/i18n/routing";

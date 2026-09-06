@@ -1,7 +1,7 @@
 import type { CreditAuthor } from "@/data/creditAuthors";
+import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
-import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 
 import {
   getPublishedCreditAuthorBySlug,
@@ -9,8 +9,8 @@ import {
 } from "@/data/creditAuthors";
 import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { routing } from "@/i18n/routing";
 import { getPathname } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { absoluteUrl, localeAlternates, ogImageUrlFromSrc } from "@/lib/site";
 
 export type CreditAuthorPhoto = {
