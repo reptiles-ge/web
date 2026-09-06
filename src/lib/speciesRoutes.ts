@@ -4,14 +4,14 @@ import {
   isPublishedSpeciesId,
   type Species,
 } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { type GroupHubId } from "@/lib/groupHubs";
 import {
-  ANIMAL_GROUP_TO_HUB,
-  type GroupHubId,
-  RESERVED_HUB_SLUGS,
-} from "@/lib/groupHubs";
-import { kaToSlug } from "@/lib/slugify";
+  getSpeciesHubId,
+  getSpeciesPublicSlug,
+  resolveSpeciesId,
+  resolveSpeciesIdInHub,
+} from "@/lib/speciesSlugTable";
 
 export type SpeciesHref = {
   params: { slug: string };
@@ -25,194 +25,7 @@ export type SpeciesHref = {
     | "/turtles/[slug]";
 };
 
-const KA_SLUG_OVERRIDES: Record<string, string> = {
-  "macrovipera-lebetina": "giurza",
-  "paralaudakia-caucasia": "jojo",
-  "pseudopus-apodus": "gvelxokera",
-  "tyto-alba": "bukhrintsa",
-};
-
-const KA_SLUG_ALIASES: Record<string, string[]> = {
-  "accipiter-gentilis": [
-    "didi-kori",
-    "goshawk",
-    "northern-goshawk",
-    "eurasian-goshawk",
-    "astur-gentilis",
-  ],
-  "accipiter-nisus": ["mimino", "korisebri-mimino"],
-  "aegolius-funereus": [
-    "bukioti",
-    "mikoti",
-    "omidi",
-    "boreal-owl",
-    "tengmalms-owl",
-  ],
-  "aegypius-monachus": ["cinereous-vulture", "black-vulture", "shavi-svavi"],
-  "anas-platyrhynchos": ["gareuli-ikhvi", "ikhvi", "mallard"],
-  "apus-apus": ["chveulebrivi-namgala", "namgala"],
-  "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
-  "argiope-bruennichi": [
-    "argiopa",
-    "brunnikis-argiopa",
-    "wasp-spider",
-    "wasp-spider-argiope",
-    "bzikebri-oboba",
-  ],
-  "argiope-lobata": [
-    "argiope-lobata",
-    "lobebiani-argiopa",
-    "lobed-argiope",
-    "black-lobed-argiope",
-    "loblu-orumcek",
-  ],
-  "athene-noctua": ["choti", "little-owl", "buknacho"],
-  "bubo-bubo": [
-    "chveulebrivi-zarnasho",
-    "eagle-owl",
-    "eurasian-eagle-owl",
-    "filin",
-    "puhu",
-  ],
-  "buteo-buteo": ["kakacha", "chveulebrivi-arwivi"],
-  "canis-aureus": ["tura"],
-  "canis-lupus": ["mgeli"],
-  "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
-  "capreolus-capreolus": ["shveli"],
-  "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
-  "columba-palumbus": [
-    "kedani",
-    "tqis-mtredi",
-    "woodpigeon",
-    "common-woodpigeon",
-    "wood-pigeon",
-  ],
-  "corvus-corax": ["qorani", "northern-raven", "common-raven", "raven"],
-  "coturnix-coturnix": ["mtsqeri", "mwyeri"],
-  "dendrocopos-major": [
-    "chreli-kodala",
-    "didi-kodala",
-    "great-spotted-woodpecker",
-  ],
-  "erinaceus-concolor": [
-    "evropuli-zgarbi",
-    "tetrmkerda-zgharbi",
-    "aghmosavletevropuli-zgharbi",
-  ],
-  "erithacus-rubecula": ["gultitela", "bultsitela", "european-robin", "robin"],
-  "falco-peregrinus": [
-    "shavardeni",
-    "chveulebrivi-shavardeni",
-    "peregrine",
-    "peregrine-falcon",
-  ],
-  "ficedula-hypoleuca": ["chreli-buzicheria"],
-  "ficedula-semitorquata": [
-    "naxevartetqela-mematlia",
-    "naxevartetqela-buzicheria",
-  ],
-  "garrulus-glandarius": ["japara", "chxikvi"],
-  "glareola-pratincola": [
-    "mertsxala",
-    "mdelos-mertsxala",
-    "zhghalfrtiana-mertsxala",
-    "mertskhala",
-    "mdelos-mertskhala",
-    "collared-pratincole",
-  ],
-  "gyps-fulvus": [
-    "orbi",
-    "tetrtava-orbi",
-    "chveulebrivi-orbi",
-    "griffon",
-    "eurasian-griffon",
-  ],
-  "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
-  "larus-fuscus": [
-    "shavzurga-tolia",
-    "lesser-black-backed-gull",
-    "baltic-gull",
-    "heuglini",
-    "klusha",
-  ],
-  "latrodectus-tredecimguttatus": [
-    "shavi-qvrivi",
-    "qaraqurti",
-    "karakurt",
-    "latrodectus-mactans",
-    "black-widow",
-    "european-black-widow",
-    "mediterranean-black-widow",
-  ],
-  "luscinia-megarhynchos": [
-    "samxretuli-bulbuli",
-    "samhruli-bulbuli",
-    "iadoni",
-    "nightingale",
-    "common-nightingale",
-    "rufous-nightingale",
-  ],
-  "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
-  "lynx-lynx": ["fotsxveri", "lynx", "evraziuli-fotsxveri"],
-  "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
-  "milvus-migrans": [
-    "dzera",
-    "black-kite",
-    "eurasian-black-kite",
-    "milvus-korschun",
-  ],
-  "motacilla-alba": [
-    "tetri-bolokankara",
-    "tetri-boloqanqara",
-    "white-wagtail",
-    "pied-wagtail",
-  ],
-  "otus-scops": ["tsqromi", "wqromi", "scops-owl"],
-  "panthera-pardus": ["jiqi", "jiki", "leopardi", "kavkasiuri-jiqi"],
-  "pelodytes-caucasicus": ["kavkasiuri-jvarula"],
-  "pernis-apivorus": [
-    "kvernachamia",
-    "krazanachamia",
-    "irao",
-    "chveulebrivi-bolokarkazi",
-    "tsudkora",
-    "honey-buzzard",
-    "european-honey-buzzard",
-  ],
-  "phasianus-colchicus": [
-    "khokhobi",
-    "kolkhuri-khokhobi",
-    "common-pheasant",
-    "pheasant",
-  ],
-  "pica-pica": ["kachkachi", "eurasian-magpie", "common-magpie"],
-  "procyon-lotor": ["enoti", "chveulebrivi-enoti", "raccoon", "racoon"],
-  "sciurus-anomalus": ["sparsuli-tsiqvi"],
-  "steatoda-paykulliana": [
-    "tsru-qaraqurti",
-    "tsru-shavi-qvrivi",
-    "cru-qaraqurti",
-    "false-black-widow",
-    "false-widow",
-    "yalancı-karakurt",
-    "yalancı-kara-dul",
-    "lozhnyi-karakurt",
-  ],
-  "streptopelia-turtur": ["gvriti", "chveulebrivi-gvriti"],
-  "strix-aluco": ["tqis-bu", "ruxi-bu", "chveulebrivi-tqis-bu"],
-  "sus-scrofa": ["taxi", "gareuli-gori"],
-  "turdus-merula": ["shashvi", "shavi-shashvi"],
-  "tyto-alba": ["buxrintsa", "bukhrintsa", "barn-owl", "western-barn-owl"],
-  "upupa-epops": [
-    "hoopoe",
-    "eurasian-hoopoe",
-    "common-hoopoe",
-    "chveulebrivi-ofofi",
-    "udod",
-    "ibibik",
-  ],
-  "ursus-arctos": ["datvi", "mura-dathvi"],
-};
+export { regionHref } from "@/lib/regionHref";
 
 const LOOKALIKES: Record<string, string[]> = {
   "ablepharus-pannonicus": [
@@ -552,58 +365,8 @@ for (const [id, peers] of Object.entries(LOOKALIKES)) {
   }
 }
 
-function hubForSpeciesId(id: string): GroupHubId {
-  return ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(id).group];
-}
-
-function uniqueKaSlug(id: string, commonName: string, hub: GroupHubId) {
-  const reserved = new Set(RESERVED_HUB_SLUGS[hub]);
-  const takenSlugs = new Set(Object.values(kaSlugById));
-  const preferred = KA_SLUG_OVERRIDES[id] ?? kaToSlug(commonName) ?? id;
-  if (!preferred) return id;
-  if (!reserved.has(preferred) && !takenSlugs.has(preferred)) {
-    return preferred;
-  }
-  const epithet = id.split("-").at(-1) ?? id;
-  let candidate = `${preferred}-${epithet}`;
-  let n = 2;
-  while (reserved.has(candidate) || takenSlugs.has(candidate)) {
-    candidate = `${preferred}-${epithet}-${n}`;
-    n += 1;
-  }
-  return candidate;
-}
-
-const kaSlugById: Record<string, string> = {};
-const idByKaSlug: Record<string, string> = {};
-const idByAnySlug: Record<string, string> = {};
-
-for (const species of getCatalogSpecies()) {
-  const hub = hubForSpeciesId(species.id);
-  const slug = uniqueKaSlug(species.id, species.commonName, hub);
-  kaSlugById[species.id] = slug;
-  idByKaSlug[slug] = species.id;
-  idByAnySlug[species.id] = species.id;
-  idByAnySlug[slug] = species.id;
-}
-
-for (const [id, aliases] of Object.entries(KA_SLUG_ALIASES)) {
-  for (const slug of aliases) {
-    idByAnySlug[slug] = id;
-  }
-}
-
-export function getSpeciesHubId(id: string): GroupHubId {
-  return hubForSpeciesId(id);
-}
-
 export function getSpeciesLookalikes(id: string): string[] {
   return [...(lookalikeIndex[id] ?? [])].filter(isPublishedSpeciesId);
-}
-
-export function getSpeciesPublicSlug(id: string, locale: AppLocale) {
-  if (locale !== "ka") return id;
-  return kaSlugById[id] ?? id;
 }
 
 export function legacySpeciesStaticParams(): Array<{
@@ -613,7 +376,11 @@ export function legacySpeciesStaticParams(): Array<{
   return [];
 }
 
-export { regionHref } from "@/lib/regionHref";
+export {
+  getSpeciesHubId,
+  getSpeciesPublicSlug,
+  resolveSpeciesId,
+} from "@/lib/speciesSlugTable";
 
 export function resolveSpecies(param: string): Species | undefined {
   const id = resolveSpeciesId(param);
@@ -621,19 +388,13 @@ export function resolveSpecies(param: string): Species | undefined {
   return getSpeciesById(id);
 }
 
-export function resolveSpeciesId(param: string): string | undefined {
-  return idByAnySlug[param];
-}
-
 export function resolveSpeciesInHub(
   hubId: GroupHubId,
   slug: string,
 ): Species | undefined {
-  const species = resolveSpecies(slug);
-  if (!species) return undefined;
-  if (getSpeciesHubId(species.id) !== hubId) return undefined;
-  if (RESERVED_HUB_SLUGS[hubId].includes(slug)) return undefined;
-  return species;
+  const id = resolveSpeciesIdInHub(hubId, slug);
+  if (!id) return undefined;
+  return getSpeciesById(id);
 }
 
 export function speciesHref(id: string, locale: AppLocale): SpeciesHref {

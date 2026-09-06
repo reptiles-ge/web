@@ -8,9 +8,9 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
-  resolveSpecies,
-  resolveSpeciesInHub,
-} from "@/lib/speciesRoutes";
+  resolveSpeciesId,
+  resolveSpeciesIdInHub,
+} from "@/lib/speciesSlugTable";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -50,10 +50,10 @@ export default function proxy(request: NextRequest) {
     new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
   );
   if (legacy) {
-    const species = resolveSpecies(legacy[3]);
-    if (species) {
+    const id = resolveSpeciesId(legacy[3]);
+    if (id) {
       const locale = (legacy[2] ?? "ka") as AppLocale;
-      return redirectTo(request, speciesPath(locale, species.id));
+      return redirectTo(request, speciesPath(locale, id));
     }
   }
 
@@ -61,12 +61,12 @@ export default function proxy(request: NextRequest) {
     new RegExp(`^\\/(${HUB_SEGMENT})\\/([^/]+)$`),
   );
   if (unprefixedLatinHub) {
-    const species = resolveSpeciesInHub(
+    const id = resolveSpeciesIdInHub(
       unprefixedLatinHub[1] as GroupHubId,
       unprefixedLatinHub[2],
     );
-    if (species) {
-      const next = speciesPath("ka", species.id);
+    if (id) {
+      const next = speciesPath("ka", id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }
@@ -76,12 +76,12 @@ export default function proxy(request: NextRequest) {
   );
   if (prefixedKaHub && isPrefixedLocale(prefixedKaHub[1])) {
     const locale = prefixedKaHub[1] as PrefixedLocale;
-    const species = resolveSpeciesInHub(
+    const id = resolveSpeciesIdInHub(
       KA_PREFIX_TO_HUB[prefixedKaHub[2]],
       prefixedKaHub[3],
     );
-    if (species) {
-      const next = speciesPath(locale, species.id);
+    if (id) {
+      const next = speciesPath(locale, id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }
@@ -91,12 +91,12 @@ export default function proxy(request: NextRequest) {
   );
   if (prefixedHub && isPrefixedLocale(prefixedHub[1])) {
     const locale = prefixedHub[1] as PrefixedLocale;
-    const species = resolveSpeciesInHub(
+    const id = resolveSpeciesIdInHub(
       prefixedHub[2] as GroupHubId,
       prefixedHub[3],
     );
-    if (species) {
-      const next = speciesPath(locale, species.id);
+    if (id) {
+      const next = speciesPath(locale, id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }
@@ -105,9 +105,9 @@ export default function proxy(request: NextRequest) {
     new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
   );
   if (kaHub) {
-    const species = resolveSpeciesInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
-    if (species) {
-      const next = speciesPath("ka", species.id);
+    const id = resolveSpeciesIdInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
+    if (id) {
+      const next = speciesPath("ka", id);
       if (next !== pathname) return redirectTo(request, next);
     }
   }

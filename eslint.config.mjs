@@ -110,6 +110,51 @@ const eslintConfig = defineConfig([
   },
   eslintConfigPrettier,
   {
+    files: ["src/proxy.ts", "src/lib/speciesSlugTable.ts"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              allowTypeImports: true,
+              message:
+                "Edge slug lookup must not import the full species catalog.",
+              name: "@/data/species",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "Edge slug lookup must not import the generated catalog.",
+              name: "@/data/species.generated",
+            },
+            {
+              allowTypeImports: true,
+              message: "Edge slug lookup must not import locale overlays.",
+              name: "@/data/species-en",
+            },
+            {
+              allowTypeImports: true,
+              message: "Edge slug lookup must not import locale overlays.",
+              name: "@/data/species-ru",
+            },
+            {
+              allowTypeImports: true,
+              message: "Edge slug lookup must not import locale overlays.",
+              name: "@/data/species-tr",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "src/proxy.ts must import slug lookup from speciesSlugTable, not speciesRoutes.",
+              name: "@/lib/speciesRoutes",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: [
       "src/components/species-atlas/**/*.{ts,tsx}",
       "src/components/map/GeorgiaMap.tsx",
@@ -135,20 +180,17 @@ const eslintConfig = defineConfig([
             },
             {
               allowTypeImports: true,
-              message:
-                "Client atlas/map code must not import locale overlays.",
+              message: "Client atlas/map code must not import locale overlays.",
               name: "@/data/species-en",
             },
             {
               allowTypeImports: true,
-              message:
-                "Client atlas/map code must not import locale overlays.",
+              message: "Client atlas/map code must not import locale overlays.",
               name: "@/data/species-ru",
             },
             {
               allowTypeImports: true,
-              message:
-                "Client atlas/map code must not import locale overlays.",
+              message: "Client atlas/map code must not import locale overlays.",
               name: "@/data/species-tr",
             },
             {
@@ -181,6 +223,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
     "src/data/species.generated.ts",
+    "src/data/speciesSlugs.generated.ts",
     "src/data/georgia-paths.generated.ts",
     "src/data/optimizedImages.generated.ts",
     "scripts/**",
