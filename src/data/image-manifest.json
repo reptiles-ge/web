@@ -20139,6 +20139,196 @@
       ],
       "updatedAt": "2026-09-06T17:34:37.637Z"
     },
+    "gyps-fulvus-velur-11.jpg": {
+      "sourceHash": "4dcc96a34337b183e630ca3e4a0bff76a60ab695acee2f5cb24ca5f14109fc82",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gyps-fulvus-velur-11.jpg",
+      "originalSize": 86709,
+      "width": 1278,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/gyps-fulvus-velur-11-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 5708
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7970
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 7695
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11096
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 481,
+          "byteSize": 14891
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 481,
+          "byteSize": 21602
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 601,
+          "byteSize": 20015
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 601,
+          "byteSize": 28738
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 33679
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 48738
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-1278.avif",
+          "format": "avif",
+          "width": 1278,
+          "height": 960,
+          "byteSize": 37233
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-11-1278.webp",
+          "format": "webp",
+          "width": 1278,
+          "height": 960,
+          "byteSize": 52714
+        }
+      ],
+      "updatedAt": "2026-09-06T17:37:20.427Z"
+    },
+    "gyps-fulvus-velur-12.jpg": {
+      "sourceHash": "ddea7ae9138c68b0d01dae9941cd6f6c71fe411fe47c3bd46a46e5d6b40e5c45",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gyps-fulvus-velur-12.jpg",
+      "originalSize": 117298,
+      "width": 1454,
+      "height": 932,
+      "derivatives": [
+        {
+          "key": "optimized/gyps-fulvus-velur-12-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 205,
+          "byteSize": 5405
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 205,
+          "byteSize": 7708
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 256,
+          "byteSize": 7030
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 256,
+          "byteSize": 10460
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 410,
+          "byteSize": 14052
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 410,
+          "byteSize": 20860
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 513,
+          "byteSize": 19695
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 513,
+          "byteSize": 29434
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 769,
+          "byteSize": 37535
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 769,
+          "byteSize": 54058
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-1454.avif",
+          "format": "avif",
+          "width": 1454,
+          "height": 932,
+          "byteSize": 63458
+        },
+        {
+          "key": "optimized/gyps-fulvus-velur-12-1454.webp",
+          "format": "webp",
+          "width": 1454,
+          "height": 932,
+          "byteSize": 76714
+        }
+      ],
+      "updatedAt": "2026-09-06T17:37:20.608Z"
+    },
     "gyps-fulvus-velur-7.jpg": {
       "sourceHash": "d1964f80b42181784f1bbff1fe6177b0fa28b5864534db9ebaab573259b0e3cc",
       "configFingerprint": "409788ee46c653d8",
