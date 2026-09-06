@@ -20,6 +20,7 @@ import {
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
+import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
 import {
   species,
   speciesEn,
@@ -27,7 +28,7 @@ import {
   speciesTr,
 } from "../src/data/species.generated";
 import { images as siteImages } from "../src/data/speciesMedia";
-import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
+import { GROUP_HUB_ILLUSTRATIONS } from "../src/lib/groupHubs";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
