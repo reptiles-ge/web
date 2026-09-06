@@ -50733,6 +50733,101 @@
       ],
       "updatedAt": "2026-08-28T22:00:42.426Z"
     },
+    "vipera-kaznakovi-armen-1.jpg": {
+      "sourceHash": "97a36cb30477dab8aa0fe4e6d812b8ea3b48d4a2ff917549bfbba676b733eb51",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-armen-1.jpg",
+      "originalSize": 227726,
+      "width": 2400,
+      "height": 1513,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 202,
+          "byteSize": 4791
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 202,
+          "byteSize": 6494
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 252,
+          "byteSize": 6613
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 252,
+          "byteSize": 8876
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 403,
+          "byteSize": 12248
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 403,
+          "byteSize": 17182
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 504,
+          "byteSize": 16672
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 504,
+          "byteSize": 22886
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 29902
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 757,
+          "byteSize": 40414
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1513,
+          "byteSize": 76396
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-armen-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1513,
+          "byteSize": 92782
+        }
+      ],
+      "updatedAt": "2026-09-06T17:22:02.789Z"
+    },
     "vipera-kaznakovi-giorgi-1.jpg": {
       "sourceHash": "8de9e3a1023b5e15c5d1c5e3e62733357faa24e4187b8d0fbdcea210d02b978a",
       "configFingerprint": "a895f8e025dcc7fa",
