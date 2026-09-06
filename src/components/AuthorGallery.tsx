@@ -1,8 +1,8 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
+import type { AppLocale } from "@/i18n/routing";
 
-import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import {
   GalleryOpenButton,
   SpeciesGalleryLightbox,
@@ -14,7 +14,6 @@ import {
 } from "@/data/optimizedImages";
 import { getSpeciesById } from "@/data/species";
 import { Link } from "@/i18n/navigation";
-import { type AppLocale } from "@/i18n/routing";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { cn } from "@/lib/cn";
 import {
@@ -22,47 +21,39 @@ import {
   galleryFeaturedSizes,
   galleryThumbSizes,
 } from "@/lib/imageSizes";
-import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 export async function AuthorGallery({
-  authorName,
+  locale,
   photos,
 }: {
-  authorName: string;
+  locale: AppLocale;
   photos: CreditAuthorPhoto[];
 }) {
   const t = await getTranslations("author");
-  const locale = (await getLocale()) as AppLocale;
   if (photos.length === 0) return null;
 
   const featuredSizes = galleryFeaturedSizes();
   const thumbSizes = galleryThumbSizes(photos.length);
-  const slides = photos.map((photo) => {
+  const slides = photos.flatMap((photo) => {
     const species = getSpeciesById(photo.speciesId);
-    const localized = species ? localizeSpecies(species, locale) : undefined;
+    if (!species) return [];
+    const localized = localizeSpecies(species, locale);
     const entry = optimizedEntry(photo.src);
-    const name = localized?.commonName ?? photo.speciesId;
-    const scientificName = localized?.scientificName ?? "";
-    return {
-      alt: speciesPhotoAlt(
-        name,
-        scientificName,
-        localized?.location ?? "",
-        photo.credit,
-      ),
-      credit: photo.credit,
-      height: entry?.height,
-      href: speciesHref(photo.speciesId, locale),
-      name,
-      sources: pictureSources(photo.src, { sizes: GALLERY_LIGHTBOX_SIZES }),
-      src: optimizedImgSrc(photo.src, 1200),
-      subject: {
-        href: speciesHref(photo.speciesId, locale),
-        name,
+    const href = speciesHref(photo.speciesId, locale);
+    return [
+      {
+        alt: `${localized.commonName} (${localized.scientificName})`,
+        credit: photo.credit,
+        height: entry?.height,
+        href,
+        name: localized.commonName,
+        sources: pictureSources(photo.src, { sizes: GALLERY_LIGHTBOX_SIZES }),
+        src: optimizedImgSrc(photo.src, 1200),
+        subject: { href, name: localized.commonName },
+        width: entry?.width,
       },
-      width: entry?.width,
-    };
+    ];
   });
 
   return (
@@ -75,7 +66,7 @@ export async function AuthorGallery({
     >
       <div
         className={cn(
-          "mt-16 grid gap-3 sm:mt-20 sm:gap-4",
+          "mt-10 grid gap-3 sm:mt-12 sm:gap-4",
           photos.length === 1
             ? "grid-cols-1"
             : photos.length === 2
@@ -83,9 +74,9 @@ export async function AuthorGallery({
               : "grid-cols-2 md:grid-cols-3",
         )}
       >
-        {photos.map((photo, index) => {
-          const featured = photos.length >= 3 && index === 0;
-          const slide = slides[index];
+        {slides.map((slide, index) => {
+          const featured = slides.length >= 3 && index === 0;
+          const photo = photos[index];
           const entry = optimizedEntry(photo.src);
           const sizes = featured ? featuredSizes : thumbSizes;
           return (
@@ -108,37 +99,26 @@ export async function AuthorGallery({
                     className="absolute inset-0 size-full object-cover text-transparent"
                     decoding="async"
                     height={entry?.height}
-                    loading={index < 4 ? "eager" : "lazy"}
+                    loading={index < 3 ? "eager" : "lazy"}
                     sizes={sizes}
                     src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
                     width={entry?.width}
                   />
                 </picture>
-                <div className="absolute inset-0 bg-linear-to-t from-black/55 via-black/0 to-black/0" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
               </GalleryOpenButton>
-              <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 z-2 px-3 pt-10 pb-2.5 sm:px-4 sm:pb-3">
+              <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 z-2 px-3 pb-2.5 sm:px-4 sm:pb-3">
                 <Link
-                  className="pointer-events-auto font-display text-[13px] font-medium text-white/90 transition-colors hover:text-white sm:text-[14px]"
+                  className="pointer-events-auto font-display text-[13px] font-medium text-white/90 transition-colors hover:text-white"
                   href={slide.href}
                 >
                   {slide.name}
                 </Link>
-                <PhotoCreditCaption
-                  className="pointer-events-none static bg-transparent px-0 pt-0.5 pb-0 text-white/55 opacity-100 sm:opacity-100"
-                  credit={{
-                    date: photo.credit?.date,
-                    location: photo.credit?.location,
-                  }}
-                  variant="thumb"
-                />
               </figcaption>
             </figure>
           );
         })}
       </div>
-      <p className="sr-only">
-        {authorName} · {photos.length}
-      </p>
     </SpeciesGalleryLightbox>
   );
 }
