@@ -19773,6 +19773,87 @@
       ],
       "updatedAt": "2026-08-29T07:22:20.299Z"
     },
+    "gyps-fulvus-niko-1.jpg": {
+      "sourceHash": "6ea33e4e3b8f7a9ac096c1af620bd1ca874bb94f7545a364bd440f26d508f06c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gyps-fulvus-niko-1.jpg",
+      "originalSize": 21438,
+      "width": 1024,
+      "height": 691,
+      "derivatives": [
+        {
+          "key": "optimized/gyps-fulvus-niko-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 216,
+          "byteSize": 1802
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 216,
+          "byteSize": 1918
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 270,
+          "byteSize": 2440
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 270,
+          "byteSize": 2464
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 432,
+          "byteSize": 4320
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 432,
+          "byteSize": 4638
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 540,
+          "byteSize": 5902
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 540,
+          "byteSize": 6134
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 691,
+          "byteSize": 7912
+        },
+        {
+          "key": "optimized/gyps-fulvus-niko-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 691,
+          "byteSize": 8032
+        }
+      ],
+      "updatedAt": "2026-09-06T17:25:56.370Z"
+    },
     "gyps-fulvus-zura-1.jpg": {
       "sourceHash": "d64629b6d25e9fee2ab4965102cd07ee4701be120bac1e354c2e5d3c27bc779b",
       "configFingerprint": "409788ee46c653d8",
