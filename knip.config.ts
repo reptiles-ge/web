@@ -2,7 +2,6 @@ import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
   ignoreDependencies: [
-    "@next/third-parties",
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
     "eslint-plugin-react-hooks",
