@@ -2335,6 +2335,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gyps-fulvus-velur-10.jpg": {
+    "path": "gyps-fulvus-velur-10",
+    "width": 1367,
+    "height": 864,
+    "widths": [320, 400, 640, 800, 1200, 1367],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/gyps-fulvus-velur-7.jpg": {
     "path": "gyps-fulvus-velur-7",
     "width": 1493,
