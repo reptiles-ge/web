@@ -633,7 +633,10 @@
     }
   },
   "author": {
-    "kicker": "Герпетолог",
+    "roles": {
+      "herpetologist": "Герпетолог",
+      "ranger": "Рейнджер"
+    },
     "facebook": "Facebook",
     "instagram": "Instagram",
     "subtitle": "Фотографии в атласе животных Грузии.",

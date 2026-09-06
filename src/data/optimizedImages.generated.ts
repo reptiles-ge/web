@@ -8,49 +8,49 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "images/home/groups/amphibians",
     "width": 1800,
     "height": 1200,
-    "widths": [400, 800, 1200, 1800],
+    "widths": [320, 400, 640, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/birds.jpg": {
     "path": "images/home/groups/birds",
     "width": 900,
     "height": 900,
-    "widths": [400, 800, 900],
+    "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/lizards.jpg": {
     "path": "images/home/groups/lizards",
     "width": 1800,
     "height": 1200,
-    "widths": [400, 800, 1200, 1800],
+    "widths": [320, 400, 640, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/mammals.jpg": {
     "path": "images/home/groups/mammals",
     "width": 900,
     "height": 900,
-    "widths": [400, 800, 900],
+    "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/snakes.jpg": {
     "path": "images/home/groups/snakes",
     "width": 1800,
     "height": 1200,
-    "widths": [400, 800, 1200, 1800],
+    "widths": [320, 400, 640, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/spiders.jpg": {
     "path": "images/home/groups/spiders",
     "width": 900,
     "height": 900,
-    "widths": [400, 800, 900],
+    "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/turtles.jpg": {
     "path": "images/home/groups/turtles",
     "width": 1800,
     "height": 1200,
-    "widths": [400, 800, 1200, 1800],
+    "widths": [320, 400, 640, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
@@ -444,6 +444,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 996,
     "widths": [320, 400, 640, 800, 1011],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg": {
+    "path": "authors/zauri-khachidze",
+    "width": 480,
+    "height": 480,
+    "widths": [320, 400, 480],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-2.jpg": {
     "path": "bufo-verrucosissimus-2",

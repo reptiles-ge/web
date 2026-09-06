@@ -94,7 +94,7 @@ export async function AuthorPage({
             <div className="relative size-28 shrink-0 overflow-hidden rounded-full ring-1 ring-border sm:size-36 lg:size-40">
               <CoverImage
                 alt={t("portraitAlt", { name })}
-                className="object-cover object-[50%_18%]"
+                className={`object-cover ${author.portraitClass ?? "object-[50%_18%]"}`}
                 priority
                 sizes={AUTHOR_PORTRAIT_SIZES}
                 src={author.portraitSrc}
@@ -102,7 +102,7 @@ export async function AuthorPage({
             </div>
             <div className="min-w-0">
               <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
-                {t("kicker")}
+                {t(`roles.${author.role}`)}
               </p>
               <h1 className="mt-2 font-display text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
                 {name}

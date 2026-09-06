@@ -633,7 +633,10 @@
     }
   },
   "author": {
-    "kicker": "Herpetolog",
+    "roles": {
+      "herpetologist": "Herpetolog",
+      "ranger": "Ranger"
+    },
     "facebook": "Facebook",
     "instagram": "Instagram",
     "subtitle": "Gürcistan hayvanlar atlasındaki fotoğraflar.",
