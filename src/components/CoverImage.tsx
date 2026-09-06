@@ -50,6 +50,7 @@ export function CoverImage({
         fetchPriority={priority ? "high" : "auto"}
         height={entry?.height}
         loading={priority ? "eager" : "lazy"}
+        sizes={sizes}
         src={optimizedImgSrc(src)}
         width={entry?.width}
       />

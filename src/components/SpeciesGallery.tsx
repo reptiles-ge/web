@@ -171,6 +171,7 @@ export function SpeciesGallery({
                         decoding="async"
                         height={entry?.height}
                         loading="lazy"
+                        sizes={featured ? featuredSizes : thumbSizes}
                         src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
                         width={entry?.width}
                       />
