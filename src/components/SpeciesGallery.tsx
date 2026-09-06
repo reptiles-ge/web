@@ -279,6 +279,7 @@ export function SpeciesGallery({
                     decoding="async"
                     fetchPriority="high"
                     height={optimizedEntry(activePhoto.src)?.height}
+                    sizes={GALLERY_LIGHTBOX_SIZES}
                     src={optimizedImgSrc(activePhoto.src, 1200)}
                     width={optimizedEntry(activePhoto.src)?.width}
                   />
