@@ -73,12 +73,6 @@ export function pictureSources(
   }));
 }
 
-export function srcSetFirstUrl(srcSet: string) {
-  const token = srcSet.split(",")[0]?.trim();
-  if (!token) return undefined;
-  return token.split(/\s+/)[0];
-}
-
 export function srcSetPreloadUrl(srcSet: string) {
   const candidates = srcSet
     .split(",")

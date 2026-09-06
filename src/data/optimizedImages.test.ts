@@ -1,15 +1,15 @@
 import { describe, expect, it } from "vitest";
 
-import { optimizedImgSrc, srcSetFirstUrl, srcSetPreloadUrl } from "@/data/optimizedImages";
+import { optimizedImgSrc, srcSetPreloadUrl } from "@/data/optimizedImages";
 
 describe("optimized image helpers", () => {
-  it("picks the first srcset URL for preloads", () => {
+  it("picks an 800px candidate for LCP preloads", () => {
     expect(
-      srcSetFirstUrl(
-        "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-400.avif 400w, https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-800.avif 800w",
+      srcSetPreloadUrl(
+        "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-400.avif 400w, https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-800.avif 800w, https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-1024.avif 1024w",
       ),
     ).toBe(
-      "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-400.avif",
+      "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-800.avif",
     );
   });
 
