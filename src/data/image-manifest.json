@@ -107,6 +107,73 @@
       ],
       "updatedAt": "2026-08-28T21:28:33.666Z"
     },
+    "ablepharus-pannonicus-davit-1.jpg": {
+      "sourceHash": "ebb30bdca687e55e002f86b72cf4dd3a3dc3852d78cf2c1e2f810fd437a288c4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ablepharus-pannonicus-davit-1.jpg",
+      "originalSize": 28917,
+      "width": 734,
+      "height": 318,
+      "derivatives": [
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 139,
+          "byteSize": 3866
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 139,
+          "byteSize": 4950
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 173,
+          "byteSize": 5988
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 173,
+          "byteSize": 7312
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 277,
+          "byteSize": 12489
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 277,
+          "byteSize": 16556
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-734.avif",
+          "format": "avif",
+          "width": 734,
+          "height": 318,
+          "byteSize": 15844
+        },
+        {
+          "key": "optimized/ablepharus-pannonicus-davit-1-734.webp",
+          "format": "webp",
+          "width": 734,
+          "height": 318,
+          "byteSize": 19608
+        }
+      ],
+      "updatedAt": "2026-09-06T16:34:53.362Z"
+    },
     "ablepharus-pannonicus.jpg": {
       "sourceHash": "e8c862d72d8a33c3d87bda18b10f09a03808a424376e99c3ae7c2814383db2d6",
       "configFingerprint": "a895f8e025dcc7fa",
