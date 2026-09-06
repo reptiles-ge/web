@@ -33,12 +33,12 @@ export function optimizedEntry(
   return optimizedImages[src] ?? null;
 }
 
-export function optimizedImgSrc(src: string): string {
+export function optimizedImgSrc(src: string, minWidth = 1200): string {
   const entry = optimizedEntry(src);
   if (!entry) return src;
   const format = entry.formats.includes("webp") ? "webp" : entry.formats[0];
   const width =
-    entry.widths.find((item) => item >= 1200) ??
+    entry.widths.find((item) => item >= minWidth) ??
     entry.widths[entry.widths.length - 1];
   return `${optimizedBaseUrl}${entry.path}-${width}.${format}`;
 }
@@ -71,4 +71,10 @@ export function pictureSources(
       ...(options.media ? { media: options.media } : {}),
     },
   }));
+}
+
+export function srcSetFirstUrl(srcSet: string) {
+  const token = srcSet.split(",")[0]?.trim();
+  if (!token) return undefined;
+  return token.split(/\s+/)[0];
 }

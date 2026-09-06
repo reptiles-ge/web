@@ -9,6 +9,13 @@ import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
+import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
+import { Link } from "@/i18n/navigation";
+import { usesDangerScale } from "@/lib/speciesRisk";
+
+import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
+import { SpeciesRiskChip } from "@/components/SpeciesDanger";
+import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { Link } from "@/i18n/navigation";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
