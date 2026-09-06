@@ -13143,6 +13143,101 @@
       ],
       "updatedAt": "2026-08-28T21:37:33.866Z"
     },
+    "eirenis-modestus-armen-1.jpg": {
+      "sourceHash": "ea9bcc70cca03e5d24e70a48e180010a3e51f0bda128c40d182802dd9dc0010c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-armen-1.jpg",
+      "originalSize": 269229,
+      "width": 1440,
+      "height": 943,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 209,
+          "byteSize": 8744
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 209,
+          "byteSize": 12216
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 13074
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 18064
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 419,
+          "byteSize": 30733
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 419,
+          "byteSize": 41414
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 524,
+          "byteSize": 45113
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 524,
+          "byteSize": 60256
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 88399
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 118276
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 943,
+          "byteSize": 122162
+        },
+        {
+          "key": "optimized/eirenis-modestus-armen-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 943,
+          "byteSize": 146458
+        }
+      ],
+      "updatedAt": "2026-09-06T15:10:22.324Z"
+    },
     "eirenis-modestus-giorgi-1.jpg": {
       "sourceHash": "eb90a4c4c40510e2c3abc198d531d3f8e4f9406561d849c0b51bf3cd48b1f2c9",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -13195,6 +13290,277 @@
         }
       ],
       "updatedAt": "2026-08-28T21:37:36.330Z"
+    },
+    "eirenis-modestus-giorgi-2.jpg": {
+      "sourceHash": "9430a314259573f0c6aac76691143b4dca094e4f78cf7603832125e55bbecc5f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-giorgi-2.jpg",
+      "originalSize": 61429,
+      "width": 859,
+      "height": 602,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 224,
+          "byteSize": 6236
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 224,
+          "byteSize": 6964
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 280,
+          "byteSize": 8499
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 280,
+          "byteSize": 9806
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 449,
+          "byteSize": 16030
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 449,
+          "byteSize": 17992
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 561,
+          "byteSize": 20971
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 561,
+          "byteSize": 24496
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-859.avif",
+          "format": "avif",
+          "width": 859,
+          "height": 602,
+          "byteSize": 23346
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-859.webp",
+          "format": "webp",
+          "width": 859,
+          "height": 602,
+          "byteSize": 25986
+        }
+      ],
+      "updatedAt": "2026-09-06T15:09:29.701Z"
+    },
+    "eirenis-modestus-laura-1.jpg": {
+      "sourceHash": "daa8c081adb8499fadbaa80cc86f880fd7337e15362f78f4051f5cf35f31fb81",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-laura-1.jpg",
+      "originalSize": 373540,
+      "width": 1600,
+      "height": 1027,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 205,
+          "byteSize": 12433
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 205,
+          "byteSize": 19722
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 257,
+          "byteSize": 18399
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 257,
+          "byteSize": 28852
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 411,
+          "byteSize": 38530
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 411,
+          "byteSize": 60014
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 514,
+          "byteSize": 54274
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 514,
+          "byteSize": 84592
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 770,
+          "byteSize": 99083
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 770,
+          "byteSize": 148974
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1027,
+          "byteSize": 154019
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1027,
+          "byteSize": 215350
+        }
+      ],
+      "updatedAt": "2026-09-06T15:16:22.522Z"
+    },
+    "eirenis-modestus-mari-1.jpg": {
+      "sourceHash": "5b8a3b3d323c6ba549b0aa78f936dd04b98281063b152c73b41c5586521edc94",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-mari-1.jpg",
+      "originalSize": 290863,
+      "width": 1440,
+      "height": 1017,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-mari-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 226,
+          "byteSize": 9681
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 226,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 282,
+          "byteSize": 14092
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 282,
+          "byteSize": 19334
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 452,
+          "byteSize": 31869
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 452,
+          "byteSize": 44618
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 565,
+          "byteSize": 46623
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 565,
+          "byteSize": 65988
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 848,
+          "byteSize": 91144
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 848,
+          "byteSize": 131846
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1017,
+          "byteSize": 127227
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1017,
+          "byteSize": 173912
+        }
+      ],
+      "updatedAt": "2026-09-06T15:17:19.141Z"
     },
     "eirenis-modestus-mobile.jpg": {
       "sourceHash": "4101c2b6f23d3ebf056ff24ec993ba9252841a4d4a6deb86d811431b31ddf99d",
