@@ -69,6 +69,9 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Borjomi-Kharagauli Millî Parkı bekçisi ve yaban hayatı fotoğrafçısı. Yıllardır korunan alanda çalışmış; doğa koruma işinin yanında Gürcistan’ın yaban hayatı çeşitliliğini de belgelemiştir.",
     },
     id: "zauri-khachidze",
+    links: {
+      facebook: "https://www.facebook.com/zauri.xachidze/",
+    },
     name: {
       en: "Zauri Khachidze",
       ka: "ზაური ხაჩიძე",

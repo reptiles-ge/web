@@ -56,6 +56,9 @@ describe("credit authors", () => {
       "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
     );
     expect(author?.bio?.ka).toContain("ბორჯომ-ხარაგაულის");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/zauri.xachidze/",
+    });
     const photos = getCreditAuthorPhotos(author!);
     expect(photos.length).toBeGreaterThanOrEqual(20);
     expect(getCreditAuthorSpeciesIds(photos)).toEqual(
