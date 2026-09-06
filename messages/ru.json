@@ -642,6 +642,7 @@
   "author": {
     "roles": {
       "herpetologist": "Герпетолог",
+      "photographer": "Фотограф",
       "ranger": "Рейнджер"
     },
     "facebook": "Facebook",

@@ -169,6 +169,21 @@ test("Zakro Songulashvili contributor page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
+test("Nika Melikishvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/nika-melikishvili");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ნიკა მელიქიშვილი");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/nika-melikishvili\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
 test("contributor index is indexable and lists published authors", async ({
   page,
 }) => {
@@ -181,6 +196,9 @@ test("contributor index is indexable and lists published authors", async ({
   );
   await expect(
     page.getByRole("heading", { name: "ზაური ხაჩიძე" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "ნიკა მელიქიშვილი" }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "ზაქრო სონგულაშვილი" }),

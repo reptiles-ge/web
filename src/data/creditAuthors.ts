@@ -28,7 +28,7 @@ export type CreditAuthor = {
   slug: string;
 };
 
-export type CreditAuthorRole = "herpetologist" | "ranger";
+export type CreditAuthorRole = "herpetologist" | "photographer" | "ranger";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -153,6 +153,30 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     published: true,
     role: "herpetologist",
     slug: "zakro-songulashvili",
+  },
+  {
+    aliases: ["Nika Melikishvili", "ნიკა მელიქიშვილი"],
+    bio: {
+      en: "Nika Melikishvili is a nature photographer and an active nature conservationist whose work depicts Georgia’s wildlife.",
+      ka: "ნიკა მელიქიშვილი ბუნების ფოტოგრაფი და აქტიური ბუნების დამცველია, რომლის ნამუშევრები საქართველოს ველურ ბუნებას ასახავს.",
+      ru: "Ника Меликишвили — фотограф природы и активный защитник природы, чьи работы отражают дикую природу Грузии.",
+      tr: "Nika Melikishvili, çalışmaları Gürcistan’ın yaban hayatını yansıtan bir doğa fotoğrafçısı ve aktif doğa koruyucusudur.",
+    },
+    id: "nika-melikishvili",
+    links: {
+      facebook: "https://www.facebook.com/nika.melikishvili",
+    },
+    name: {
+      en: "Nika Melikishvili",
+      ka: "ნიკა მელიქიშვილი",
+      ru: "Ника Меликишвили",
+      tr: "Nika Melikishvili",
+    },
+    portraitClass: "object-[32%_42%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/nika-melikishvili.jpg",
+    published: true,
+    role: "photographer",
+    slug: "nika-melikishvili",
   },
 ];
 

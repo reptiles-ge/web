@@ -170,6 +170,37 @@ describe("credit authors", () => {
     );
   });
 
+  it("resolves Nika Melikishvili as a published photographer", () => {
+    expect(getPublishedCreditAuthorByName("ნიკა მელიქიშვილი")?.slug).toBe(
+      "nika-melikishvili",
+    );
+    expect(getPublishedCreditAuthorByName("Nika Melikishvili")?.slug).toBe(
+      "nika-melikishvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("nika-melikishvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("photographer");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/nika-melikishvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ბუნების ფოტოგრაფი");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/nika.melikishvili",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(10);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "eirenis-collaris",
+        "vulpes-vulpes",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "mammals"]),
+    );
+  });
+
   it("collects his atlas photos without duplicates", () => {
     const author = getPublishedCreditAuthorBySlug("sandro-khakhva");
     expect(author).toBeTruthy();
@@ -200,6 +231,7 @@ describe("credit authors", () => {
       "ioane-rostiashvili",
       "sandro-khakhva",
       "giorgi-iankoshvili",
+      "nika-melikishvili",
       "zakro-songulashvili",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
