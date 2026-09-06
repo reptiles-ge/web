@@ -1039,6 +1039,87 @@
       ],
       "updatedAt": "2026-09-05T12:14:32.736Z"
     },
+    "aegypius-monachus-nika-1.jpg": {
+      "sourceHash": "e6366de60a0699afbd294d8f58e451fd0b891fd13d82c4537bb333eb0e979ff9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aegypius-monachus-nika-1.jpg",
+      "originalSize": 298742,
+      "width": 1163,
+      "height": 902,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 248,
+          "byteSize": 12810
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 248,
+          "byteSize": 16792
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 310,
+          "byteSize": 20664
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 310,
+          "byteSize": 26374
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 496,
+          "byteSize": 55375
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 496,
+          "byteSize": 72456
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 620,
+          "byteSize": 89136
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 620,
+          "byteSize": 114716
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-1163.avif",
+          "format": "avif",
+          "width": 1163,
+          "height": 902,
+          "byteSize": 167564
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-1163.webp",
+          "format": "webp",
+          "width": 1163,
+          "height": 902,
+          "byteSize": 201346
+        }
+      ],
+      "updatedAt": "2026-09-06T16:30:54.425Z"
+    },
     "aegypius-monachus-zura-1.jpg": {
       "sourceHash": "e0c21760ca412546f0b942fb0d23df1c7d71d2a7f849af2c05ac52f5cf449013",
       "configFingerprint": "409788ee46c653d8",
