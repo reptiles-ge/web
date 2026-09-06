@@ -29,7 +29,10 @@ export async function AuthorIndexPage({
     <div className="min-h-screen bg-background">
       <header className="pt-30 pb-12 sm:pt-33 sm:pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <nav aria-label={tProfile("breadcrumbAria")} className="mb-8 sm:mb-10">
+          <nav
+            aria-label={tProfile("breadcrumbAria")}
+            className="mb-8 sm:mb-10"
+          >
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link
@@ -62,7 +65,9 @@ export async function AuthorIndexPage({
       <section className="pb-20 sm:pb-24 lg:pb-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           {cards.length === 0 ? (
-            <p className="text-[15px] text-muted-foreground">{t("index.empty")}</p>
+            <p className="text-[15px] text-muted-foreground">
+              {t("index.empty")}
+            </p>
           ) : (
             <ul className="grid gap-10 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-14 lg:gap-x-16">
               {cards.map((card) => {

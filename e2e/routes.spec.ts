@@ -188,9 +188,7 @@ test("photographer index is indexable and lists published authors", async ({
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
     .allTextContents();
-  expect(jsonLd.some((block) => block.includes('"CollectionPage"'))).toBe(
-    true,
-  );
+  expect(jsonLd.some((block) => block.includes('"CollectionPage"'))).toBe(true);
 });
 
 test("legacy photographer slugs 301 to fotografebi and photographers", async ({

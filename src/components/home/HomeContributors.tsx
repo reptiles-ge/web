@@ -169,10 +169,7 @@ function ContributorMosaic({
       )}
     >
       {slides.map((slide, index) => (
-        <li
-          className={mosaicItemClass(count, index)}
-          key={slide.photo.src}
-        >
+        <li className={mosaicItemClass(count, index)} key={slide.photo.src}>
           <TrackedSpeciesLink
             className="group relative block size-full overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
             locale={locale}
