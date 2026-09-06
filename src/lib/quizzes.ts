@@ -1,5 +1,7 @@
 import { type AppLocale, routing } from "@/i18n/routing";
 
+import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
+
 export type QuizCopyNamespace = "lizardQuiz" | "snakeQuiz";
 
 export type QuizDefinition = {
@@ -51,7 +53,7 @@ export const QUIZ_INDEX = [
     id: "lizard",
     messageKey: "lizard",
     messageNamespace: "lizardQuiz",
-    ogImage: "/images/home/groups/lizards.jpg",
+    ogImage: GROUP_HUB_ILLUSTRATIONS.lizards,
     questions: 10,
     slugs: {
       en: "which-lizard",

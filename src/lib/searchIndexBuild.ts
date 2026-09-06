@@ -32,7 +32,11 @@ import {
   isFrogSpecies,
   isNewtSpecies,
 } from "@/lib/clusterGuides";
-import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
+import {
+  GROUP_HUB_ILLUSTRATIONS,
+  GROUP_HUB_LIST,
+  type GroupHubId,
+} from "@/lib/groupHubs";
 import { newsArticleHref } from "@/lib/news";
 import { quizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
@@ -918,7 +922,7 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
       "lizard-quiz",
       quizHref("lizard", locale),
       LIZARD_QUIZ_COPY,
-      "/images/home/groups/lizards.jpg",
+      GROUP_HUB_ILLUSTRATIONS.lizards,
     ),
     ...GROUP_HUB_LIST.map((hub) =>
       toPageDocument(
