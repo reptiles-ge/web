@@ -197,10 +197,10 @@
       }
     },
     "contributors": {
-      "eyebrow": "Photographers",
+      "eyebrow": "Contributors",
       "title": "Whose photographs are in the atlas",
-      "subtitle": "Field photographers whose photos appear on species profiles — each has a page here.",
-      "seeAll": "See more photographers"
+      "subtitle": "Researchers and photographers whose photos appear on species profiles — each has a page here.",
+      "seeAll": "See more contributors"
     },
     "safety": {
       "eyebrow": "Safety",
