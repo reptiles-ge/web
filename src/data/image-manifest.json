@@ -53334,6 +53334,101 @@
       ],
       "updatedAt": "2026-09-06T17:10:31.389Z"
     },
+    "vulpes-vulpes-niko-2.jpg": {
+      "sourceHash": "c68f57d1d3c7a06e217050d6bdd6943d4be9abd0e0157be49c60d2d9aa198543",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vulpes-vulpes-niko-2.jpg",
+      "originalSize": 591811,
+      "width": 1440,
+      "height": 1027,
+      "derivatives": [
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 19285
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 30084
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 28641
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 45752
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 456,
+          "byteSize": 71143
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 456,
+          "byteSize": 112426
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 105666
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 171334
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 856,
+          "byteSize": 202300
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 856,
+          "byteSize": 334044
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1027,
+          "byteSize": 280236
+        },
+        {
+          "key": "optimized/vulpes-vulpes-niko-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1027,
+          "byteSize": 427142
+        }
+      ],
+      "updatedAt": "2026-09-06T17:11:35.675Z"
+    },
     "vulpes-vulpes-portrait-1.jpg": {
       "sourceHash": "7dbfa92dba579108b75f126c665a11364b489f23d6213e1cb2bd67236fef6a5a",
       "configFingerprint": "a895f8e025dcc7fa",
