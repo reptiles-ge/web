@@ -2335,6 +2335,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gyps-fulvus-velur-7.jpg": {
+    "path": "gyps-fulvus-velur-7",
+    "width": 1493,
+    "height": 1053,
+    "widths": [320, 400, 640, 800, 1200, 1493],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gyps-fulvus-velur-8.jpg": {
+    "path": "gyps-fulvus-velur-8",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gyps-fulvus-velur-9.jpg": {
+    "path": "gyps-fulvus-velur-9",
+    "width": 1544,
+    "height": 1018,
+    "widths": [320, 400, 640, 800, 1200, 1544],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/gyps-fulvus-zura-1.jpg": {
     "path": "gyps-fulvus-zura-1",
     "width": 417,
