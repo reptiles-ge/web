@@ -203,6 +203,7 @@ function SpeciesProfileHeroMedia({
         decoding="async"
         fetchPriority="high"
         height={primary?.height}
+        sizes="100vw"
         src={optimizedImgSrc(primarySrc, 800)}
         width={primary?.width}
       />
