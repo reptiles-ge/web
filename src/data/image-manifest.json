@@ -32007,6 +32007,101 @@
       ],
       "updatedAt": "2026-09-06T14:58:18.387Z"
     },
+    "macrovipera-lebetina-ar-1.jpg": {
+      "sourceHash": "83d8ac522cf90912a8cecc9d70d7415e75cec01477f499a8c959fb37a0bdbdc2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-ar-1.jpg",
+      "originalSize": 148630,
+      "width": 2048,
+      "height": 1304,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 204,
+          "byteSize": 3749
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 204,
+          "byteSize": 4170
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 255,
+          "byteSize": 5084
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 255,
+          "byteSize": 5692
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 408,
+          "byteSize": 9820
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 408,
+          "byteSize": 11544
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 509,
+          "byteSize": 13512
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 509,
+          "byteSize": 16508
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 764,
+          "byteSize": 24698
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 764,
+          "byteSize": 31102
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1304,
+          "byteSize": 54283
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-ar-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1304,
+          "byteSize": 63132
+        }
+      ],
+      "updatedAt": "2026-09-06T15:01:06.313Z"
+    },
     "macrovipera-lebetina-giorgi-1.jpg": {
       "sourceHash": "25cc63940e01e03f36961480c2543aaa4792271173285f098fdc5d2d540df213",
       "configFingerprint": "409788ee46c653d8",
