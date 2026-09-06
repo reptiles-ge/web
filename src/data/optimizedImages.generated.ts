@@ -158,6 +158,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 522],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/ablepharus-pannonicus-davit-1.jpg": {
+    "path": "ablepharus-pannonicus-davit-1",
+    "width": 734,
+    "height": 318,
+    "widths": [320, 400, 640, 734],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ablepharus-pannonicus.jpg": {
     "path": "ablepharus-pannonicus",
     "width": 1944,
