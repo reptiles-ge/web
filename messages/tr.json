@@ -197,10 +197,10 @@
       }
     },
     "contributors": {
-      "eyebrow": "Fotoğrafçılar",
+      "eyebrow": "Katkıda bulunanlar",
       "title": "Atlas’ta kimin fotoğrafları var",
-      "subtitle": "Tür profillerinde fotoğrafı görünen saha fotoğrafçıları — her birinin burada kendi sayfası var.",
-      "seeAll": "Daha fazla fotoğrafçı"
+      "subtitle": "Tür profillerinde fotoğrafı görünen araştırmacılar ve fotoğrafçılar — her birinin burada kendi sayfası var.",
+      "seeAll": "Daha fazla katkıda bulunan"
     },
     "safety": {
       "eyebrow": "Güvenlik",
@@ -662,13 +662,13 @@
     "nextQuizSnake": "Bu hangi yılan?",
     "nextQuizLizard": "Bu hangi kertenkele?",
     "index": {
-      "breadcrumb": "Fotoğrafçılar",
-      "h1": "Fotoğrafçılar",
-      "intro": "Tür profillerinde fotoğrafları yer alan saha fotoğrafçıları.",
-      "count": "Atlasta {count} fotoğrafçı",
-      "empty": "Henüz yayımlanmış fotoğrafçı sayfası yok.",
-      "metaTitle": "Fotoğrafçılar",
-      "metaDescription": "reptiles.ge’deki saha fotoğrafçıları — portreler, galeriler ve belgelledikleri türler."
+      "breadcrumb": "Katkıda bulunanlar",
+      "h1": "Katkıda bulunanlar",
+      "intro": "Tür profillerinde fotoğrafları yer alan araştırmacılar ve fotoğrafçılar.",
+      "count": "Atlasta {count} katkıda bulunan",
+      "empty": "Henüz yayımlanmış katkıda bulunan sayfası yok.",
+      "metaTitle": "Katkıda bulunanlar",
+      "metaDescription": "reptiles.ge’deki araştırmacılar ve fotoğrafçılar — portreler, galeriler ve belgelledikleri türler."
     }
   },
   "attribution": {

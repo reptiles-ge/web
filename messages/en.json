@@ -662,13 +662,13 @@
     "nextQuizSnake": "Which snake is it?",
     "nextQuizLizard": "Which lizard is it?",
     "index": {
-      "breadcrumb": "Photographers",
-      "h1": "Photographers",
-      "intro": "Field photographers whose photos appear on species profiles.",
-      "count": "{count} photographers in the atlas",
-      "empty": "No photographer pages are published yet.",
-      "metaTitle": "Photographers",
-      "metaDescription": "Field photographers on reptiles.ge — portraits, galleries, and the species they documented."
+      "breadcrumb": "Contributors",
+      "h1": "Contributors",
+      "intro": "Researchers and photographers whose photos appear on species profiles.",
+      "count": "{count} contributors in the atlas",
+      "empty": "No contributor pages are published yet.",
+      "metaTitle": "Contributors",
+      "metaDescription": "Researchers and photographers on reptiles.ge — portraits, galleries, and the species they documented."
     }
   },
   "attribution": {

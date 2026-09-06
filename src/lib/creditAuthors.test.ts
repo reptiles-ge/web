@@ -255,53 +255,68 @@ describe("credit authors", () => {
 
   it("301s legacy photographer prefixes to the live slugs", () => {
     expect(pathnames["/authors"]).toEqual({
-      en: "/photographers",
-      ka: "/fotografebi",
-      ru: "/photographers",
-      tr: "/photographers",
+      en: "/contributors",
+      ka: "/kontributorebi",
+      ru: "/contributors",
+      tr: "/contributors",
     });
     expect(pathnames["/authors/[slug]"]).toEqual({
-      en: "/photographers/[slug]",
-      ka: "/fotografebi/[slug]",
-      ru: "/photographers/[slug]",
-      tr: "/photographers/[slug]",
+      en: "/contributors/[slug]",
+      ka: "/kontributorebi/[slug]",
+      ru: "/contributors/[slug]",
+      tr: "/contributors/[slug]",
     });
     expect(legacyPhotographerRedirectPath("/avtorebi/sandro-khakhva")).toBe(
-      "/fotografebi/sandro-khakhva",
+      "/kontributorebi/sandro-khakhva",
     );
     expect(legacyPhotographerRedirectPath("/authors/zauri-khachidze")).toBe(
-      "/fotografebi/zauri-khachidze",
+      "/kontributorebi/zauri-khachidze",
     );
     expect(
       legacyPhotographerRedirectPath("/photographers/sandro-khakhva"),
-    ).toBe("/fotografebi/sandro-khakhva");
+    ).toBe("/kontributorebi/sandro-khakhva");
+    expect(legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva")).toBe(
+      "/kontributorebi/sandro-khakhva",
+    );
     expect(legacyPhotographerRedirectPath("/en/authors/sandro-khakhva")).toBe(
-      "/en/photographers/sandro-khakhva",
+      "/en/contributors/sandro-khakhva",
     );
     expect(legacyPhotographerRedirectPath("/ru/avtorebi/zauri-khachidze")).toBe(
-      "/ru/photographers/zauri-khachidze",
+      "/ru/contributors/zauri-khachidze",
     );
     expect(
       legacyPhotographerRedirectPath("/tr/fotografebi/sandro-khakhva"),
-    ).toBe("/tr/photographers/sandro-khakhva");
-    expect(legacyPhotographerRedirectPath("/photographers")).toBe(
-      "/fotografebi",
-    );
-    expect(legacyPhotographerRedirectPath("/authors")).toBe("/fotografebi");
-    expect(legacyPhotographerRedirectPath("/avtorebi")).toBe("/fotografebi");
-    expect(legacyPhotographerRedirectPath("/en/authors")).toBe(
-      "/en/photographers",
-    );
-    expect(legacyPhotographerRedirectPath("/en/fotografebi")).toBe(
-      "/en/photographers",
-    );
-    expect(legacyPhotographerRedirectPath("/fotografebi")).toBeNull();
-    expect(
-      legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva"),
-    ).toBeNull();
+    ).toBe("/tr/contributors/sandro-khakhva");
     expect(
       legacyPhotographerRedirectPath("/en/photographers/sandro-khakhva"),
+    ).toBe("/en/contributors/sandro-khakhva");
+    expect(legacyPhotographerRedirectPath("/photographers")).toBe(
+      "/kontributorebi",
+    );
+    expect(legacyPhotographerRedirectPath("/authors")).toBe("/kontributorebi");
+    expect(legacyPhotographerRedirectPath("/avtorebi")).toBe("/kontributorebi");
+    expect(legacyPhotographerRedirectPath("/fotografebi")).toBe(
+      "/kontributorebi",
+    );
+    expect(legacyPhotographerRedirectPath("/en/authors")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/en/fotografebi")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/en/photographers")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/en/kontributorebi")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/kontributorebi")).toBeNull();
+    expect(
+      legacyPhotographerRedirectPath("/kontributorebi/sandro-khakhva"),
     ).toBeNull();
-    expect(legacyPhotographerRedirectPath("/en/photographers")).toBeNull();
+    expect(
+      legacyPhotographerRedirectPath("/en/contributors/sandro-khakhva"),
+    ).toBeNull();
+    expect(legacyPhotographerRedirectPath("/en/contributors")).toBeNull();
   });
 });
