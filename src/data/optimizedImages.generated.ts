@@ -5261,6 +5261,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1000],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/vipera-darevskii-laura-1.jpg": {
+    "path": "vipera-darevskii-laura-1",
+    "width": 1600,
+    "height": 1034,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-laura-2.jpg": {
+    "path": "vipera-darevskii-laura-2",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-darevskii-laura-3.jpg": {
+    "path": "vipera-darevskii-laura-3",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-darevskii-tadevosyan-1.jpg": {
     "path": "vipera-darevskii-tadevosyan-1",
     "width": 1015,

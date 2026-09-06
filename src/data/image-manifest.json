@@ -47969,6 +47969,291 @@
       ],
       "updatedAt": "2026-08-28T22:00:12.609Z"
     },
+    "vipera-darevskii-laura-1.jpg": {
+      "sourceHash": "ad4d83ae5aabe8faf63c6f2f31934bb7f6674f95cfa199b345eed8bfb7d3edd4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-darevskii-laura-1.jpg",
+      "originalSize": 249798,
+      "width": 1600,
+      "height": 1034,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 206,
+          "byteSize": 9730
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 206,
+          "byteSize": 14562
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 259,
+          "byteSize": 14015
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 259,
+          "byteSize": 20336
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 414,
+          "byteSize": 26518
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 414,
+          "byteSize": 39020
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 517,
+          "byteSize": 36333
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 517,
+          "byteSize": 54360
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 776,
+          "byteSize": 60064
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 776,
+          "byteSize": 88616
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1034,
+          "byteSize": 88637
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1034,
+          "byteSize": 124816
+        }
+      ],
+      "updatedAt": "2026-09-06T16:25:19.083Z"
+    },
+    "vipera-darevskii-laura-2.jpg": {
+      "sourceHash": "767104e1910124b0ba1273e8926c0889df263b4fd9a5d9a4c0429c8e523b8d06",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-darevskii-laura-2.jpg",
+      "originalSize": 372759,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-laura-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13742
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22958
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20055
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 33572
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39571
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 66242
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54274
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 91648
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 93296
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 152906
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 140946
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 211774
+        }
+      ],
+      "updatedAt": "2026-09-06T16:25:18.576Z"
+    },
+    "vipera-darevskii-laura-3.jpg": {
+      "sourceHash": "7e7c16655fc9605187dbbe2d698e19c16635cd5d35e837a5c868b618c2b0b8fb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-darevskii-laura-3.jpg",
+      "originalSize": 152846,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-darevskii-laura-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5801
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8010
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7951
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10972
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 14720
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20386
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 19617
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27624
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 32560
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43940
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 47708
+        },
+        {
+          "key": "optimized/vipera-darevskii-laura-3-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 60198
+        }
+      ],
+      "updatedAt": "2026-09-06T16:25:20.439Z"
+    },
     "vipera-darevskii-mobile.jpg": {
       "sourceHash": "ceb64804e04b179ed06e04c3b77cec906f011528af65e06d46a6b61368c3a053",
       "configFingerprint": "a895f8e025dcc7fa",
