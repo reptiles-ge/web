@@ -10,9 +10,9 @@ import {
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   getHomeContributorCards,
-  legacyPhotographerRedirectPath,
   pickCreditAuthorPreviewPhotos,
 } from "@/lib/creditAuthors";
+import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
 
 describe("credit authors", () => {
   it("resolves Sandro Khakhva from both name spellings", () => {

@@ -5,7 +5,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { legacyPhotographerRedirectPath } from "@/lib/creditAuthors";
+import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
