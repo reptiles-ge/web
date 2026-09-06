@@ -115,7 +115,7 @@ export async function AuthorGallery({
               </div>
               <figcaption className="mt-3">
                 <Link
-                  className="font-display text-[14px] font-medium text-foreground/80 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-6 items-center font-display text-[14px] font-medium text-foreground/80 transition-colors hover:text-foreground"
                   href={slide.href}
                 >
                   {slide.name}

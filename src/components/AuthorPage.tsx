@@ -112,7 +112,7 @@ export async function AuthorPage({
                   return (
                     <li key={id}>
                       <Link
-                        className="text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                        className="inline-flex min-h-6 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
                         href={speciesHref(id, locale)}
                       >
                         {localized.commonName}
