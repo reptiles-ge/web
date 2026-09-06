@@ -6,6 +6,7 @@ import {
   GripVertical,
   Monitor,
   Smartphone,
+  Trash2,
 } from "lucide-react";
 import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 
@@ -25,6 +26,7 @@ type Props = {
   covers: AdminCovers;
   disabled?: boolean;
   onPreview: (src: string) => void;
+  onRemove: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
   onSetCover: (src: string, target: CoverTarget) => void;
   photos: GalleryImage[];
@@ -34,6 +36,7 @@ export function AdminGalleryReorder({
   covers,
   disabled,
   onPreview,
+  onRemove,
   onReorder,
   onSetCover,
   photos,
@@ -42,6 +45,7 @@ export function AdminGalleryReorder({
   const [draggingSrc, setDraggingSrc] = useState<null | string>(null);
   const sortable = photos.length > 1;
   const canDrag = sortable && !disabled;
+  const canRemove = photos.length > 1 && !disabled;
 
   function move(from: number, to: number) {
     if (from === to || from < 0 || to < 0) return;
@@ -153,6 +157,16 @@ export function AdminGalleryReorder({
                 disabled={disabled}
                 onChange={(target) => onSetCover(item.src, target)}
               />
+              <button
+                className="mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-md border border-border text-[11px] text-destructive hover:bg-secondary disabled:opacity-40"
+                disabled={!canRemove}
+                onClick={() => onRemove(item.src)}
+                title={photos.length === 1 ? "ბოლო ფოტო არ იშლება" : undefined}
+                type="button"
+              >
+                <Trash2 aria-hidden className="size-3.5" />
+                წაშლა
+              </button>
             </div>
           </li>
         );

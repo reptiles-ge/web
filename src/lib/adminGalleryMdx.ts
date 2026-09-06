@@ -215,6 +215,145 @@ export function readAdminSpeciesGallery(id: string): {
   };
 }
 
+export function removeGalleryItemFromMdx(raw: string, src: string): string {
+  const gallery = normalizeGallery(matter(raw).data.gallery);
+  const remaining = gallery.filter((item) => item.src !== src);
+  if (remaining.length === gallery.length) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const range = findGalleryRange(lines);
+  if (!range) {
+    throw new Error("Gallery block not found");
+  }
+
+  const body = lines.slice(range.start + 1, range.end);
+  let trailing = 0;
+  for (let i = body.length - 1; i >= 0; i -= 1) {
+    if (body[i].trim() !== "") break;
+    trailing += 1;
+  }
+  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
+  const items = splitGalleryItems(body);
+  if (items.length !== gallery.length) {
+    throw new Error("Could not parse gallery items");
+  }
+
+  const nextItems = items.filter((item) => galleryItemSrc(item) !== src);
+  if (nextItems.length === items.length) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+
+  const nextLines =
+    nextItems.length === 0
+      ? [
+          ...lines.slice(0, range.start),
+          "gallery: []",
+          ...trailingLines,
+          ...lines.slice(range.end),
+        ]
+      : [
+          ...lines.slice(0, range.start + 1),
+          ...nextItems.flat(),
+          ...trailingLines,
+          ...lines.slice(range.end),
+        ];
+  const next = nextLines.join(newline);
+  const check = normalizeGallery(matter(next).data.gallery);
+  if (
+    check.map((item) => item.src).join("\0") !==
+    remaining.map((item) => item.src).join("\0")
+  ) {
+    throw new Error("Failed to remove gallery item");
+  }
+  return next;
+}
+
+export function removeGalleryItemFromSpecies(
+  id: string,
+  src: string,
+  repoRoot = process.cwd(),
+): { coverReassigned: boolean; image: string; mobileImage: string } {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const dir = path.join(repoRoot, "src/content/species", id);
+  const kaPath = path.join(dir, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+
+  const kaRaw = fs.readFileSync(kaPath, "utf8");
+  const kaData = matter(kaRaw).data as {
+    gallery?: unknown;
+    image?: unknown;
+    mobileImage?: unknown;
+  };
+  const gallery = normalizeGallery(kaData.gallery);
+  if (!gallery.some((item) => item.src === src)) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+  const replacement = galleryReplacement(gallery, src);
+  if (!replacement) {
+    throw new Error("Cannot delete the last gallery photo");
+  }
+
+  const image = typeof kaData.image === "string" ? kaData.image : "";
+  const mobileImage =
+    typeof kaData.mobileImage === "string" ? kaData.mobileImage : "";
+  const coverTarget = coverTargetForSrc(image, mobileImage, src);
+
+  let nextKa = removeGalleryItemFromMdx(kaRaw, src);
+  if (coverTarget) {
+    nextKa = setCoverInMdx(nextKa, coverTarget, replacement);
+  }
+  fs.writeFileSync(kaPath, nextKa, "utf8");
+
+  for (const locale of OVERLAY_LOCALES) {
+    const filePath = path.join(dir, `${locale}.mdx`);
+    if (!fs.existsSync(filePath)) continue;
+    const raw = fs.readFileSync(filePath, "utf8");
+    const parsed = matter(raw);
+    const overlayGallery = normalizeGallery(parsed.data.gallery);
+    let next = overlayGallery.some((item) => item.src === src)
+      ? removeGalleryItemFromMdx(raw, src)
+      : raw;
+    const overlayData = parsed.data as Record<string, unknown>;
+    const overlayTarget = coverTargetForSrc(
+      typeof overlayData.image === "string" ? overlayData.image : "",
+      typeof overlayData.mobileImage === "string"
+        ? overlayData.mobileImage
+        : "",
+      src,
+    );
+    if (overlayTarget && coverKeysPresent(overlayData, overlayTarget)) {
+      const overlayReplacement = normalizeGallery(
+        matter(next).data.gallery,
+      ).find((item) => item.src === replacement.src);
+      const item: GalleryImage = overlayReplacement?.credit
+        ? { credit: overlayReplacement.credit, src: replacement.src }
+        : { src: replacement.src };
+      next = setCoverInMdx(next, overlayTarget, item, false);
+    }
+    if (next !== raw) {
+      fs.writeFileSync(filePath, next, "utf8");
+    }
+  }
+
+  const written = matter(fs.readFileSync(kaPath, "utf8")).data as {
+    image?: unknown;
+    mobileImage?: unknown;
+  };
+  return {
+    coverReassigned: Boolean(coverTarget),
+    image: typeof written.image === "string" ? written.image : "",
+    mobileImage:
+      typeof written.mobileImage === "string" ? written.mobileImage : "",
+  };
+}
+
 export function reorderGalleryInMdx(
   raw: string,
   orderedSrcs: string[],
@@ -426,6 +565,19 @@ function coverKeysPresent(data: Record<string, unknown>, target: CoverTarget) {
   return false;
 }
 
+function coverTargetForSrc(
+  image: string,
+  mobileImage: string,
+  src: string,
+): CoverTarget | null {
+  const desktop = image === src;
+  const mobile = mobileImage === src;
+  if (desktop && mobile) return "both";
+  if (desktop) return "desktop";
+  if (mobile) return "mobile";
+  return null;
+}
+
 function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   const entries: Array<[string, string]> = [];
   if (credit.photographer) entries.push(["photographer", credit.photographer]);
@@ -503,6 +655,19 @@ function galleryItemSrc(lines: string[]): null | string {
     return raw;
   }
   return null;
+}
+
+function galleryReplacement(
+  gallery: GalleryImage[],
+  src: string,
+): GalleryImage | null {
+  const remaining = gallery.filter((item) => item.src !== src);
+  if (remaining.length === 0) return null;
+  const index = gallery.findIndex((item) => item.src === src);
+  if (index < 0) return remaining[0] ?? null;
+  return (
+    remaining[Math.min(index, remaining.length - 1)] ?? remaining[0] ?? null
+  );
 }
 
 function insertCoverFields(

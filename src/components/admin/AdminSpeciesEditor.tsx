@@ -10,6 +10,7 @@ import {
 } from "@/components/admin/AdminCoverPreview";
 import { AdminGalleryReorder } from "@/components/admin/AdminGalleryReorder";
 import {
+  adminCoverRoles,
   type AdminCovers,
   type CoverTarget,
   resolveAdminCovers,
@@ -32,9 +33,9 @@ export function AdminSpeciesEditor({
   mobileImage,
   scientificName,
 }: Props) {
-  const [busy, setBusy] = useState<"cover" | "idle" | "reorder" | "upload">(
-    "idle",
-  );
+  const [busy, setBusy] = useState<
+    "cover" | "idle" | "remove" | "reorder" | "upload"
+  >("idle");
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
@@ -94,6 +95,59 @@ export function AdminSpeciesEditor({
       }
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "ყდა ვერ შეინახა");
+    } finally {
+      busyRef.current = false;
+      setBusy("idle");
+    }
+  }
+
+  async function onRemove(src: string) {
+    if (busyRef.current || photos.length < 2) return;
+    const roles = adminCoverRoles(src, covers);
+    const confirmed = window.confirm(
+      roles.length > 0
+        ? "ეს ყდის ფოტოა. გალერეიდან წაიშლება და ყდა სხვა ფოტოზე გადავა. გავაგრძელოთ?"
+        : "ფოტო გალერეიდან წაიშალოს?",
+    );
+    if (!confirmed) return;
+    busyRef.current = true;
+    setBusy("remove");
+    setError(null);
+    setOk(null);
+    try {
+      const response = await fetch("/api/admin/photos/remove", {
+        body: JSON.stringify({ id, src }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const payload = (await response.json()) as {
+        error?: string;
+        image?: string;
+        mobileImage?: string;
+        pullRequestUrl?: string;
+      };
+      if (!response.ok) {
+        throw new Error(payload.error ?? "ფოტო ვერ წაიშალა");
+      }
+      setPhotos((current) => current.filter((item) => item.src !== src));
+      setSavedSrcs((current) => current.filter((item) => item !== src));
+      if (typeof payload.image === "string") {
+        setCoverOverride({
+          desktop: payload.image,
+          mobile:
+            typeof payload.mobileImage === "string"
+              ? payload.mobileImage
+              : payload.image,
+        });
+      }
+      if (payload.pullRequestUrl) {
+        setPullRequestUrl(payload.pullRequestUrl);
+        setOk("ფოტო გალერეიდან PR-შია. Merge შენზეა.");
+      } else {
+        setOk("ფოტო გალერეიდან PR-შია.");
+      }
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "ფოტო ვერ წაიშალა");
     } finally {
       busyRef.current = false;
       setBusy("idle");
@@ -207,6 +261,7 @@ export function AdminSpeciesEditor({
         covers={covers}
         dirty={dirty}
         onPreview={(src) => setPreview({ src, type: "photo" })}
+        onRemove={(src) => void onRemove(src)}
         onReorder={setPhotos}
         onSaveOrder={() => void onSaveOrder()}
         onSelectLive={() => setPreview({ type: "live" })}
@@ -315,6 +370,7 @@ function AdminGalleryPanel({
   covers,
   dirty,
   onPreview,
+  onRemove,
   onReorder,
   onSaveOrder,
   onSelectLive,
@@ -325,11 +381,12 @@ function AdminGalleryPanel({
   scientificName,
   setPreview,
 }: {
-  busy: "cover" | "idle" | "reorder" | "upload";
+  busy: "cover" | "idle" | "remove" | "reorder" | "upload";
   commonName: string;
   covers: AdminCovers;
   dirty: boolean;
   onPreview: (src: string) => void;
+  onRemove: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
   onSaveOrder: () => void;
   onSelectLive: () => void;
@@ -362,6 +419,7 @@ function AdminGalleryPanel({
           covers={covers}
           disabled={saving}
           onPreview={onPreview}
+          onRemove={onRemove}
           onReorder={onReorder}
           onSetCover={onSetCover}
           photos={photos}
@@ -389,6 +447,9 @@ function AdminGalleryPanel({
       {busy === "cover" ? (
         <p className="mt-4 text-[13px] text-primary">ყდა ინახება…</p>
       ) : null}
+      {busy === "remove" ? (
+        <p className="mt-4 text-[13px] text-primary">იშლება…</p>
+      ) : null}
     </section>
   );
 }
@@ -415,7 +476,8 @@ function GalleryHelp({
       </p>
       {photos.length > 0 ? (
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-          ყდად დაყენება ხსნის PR-ს — ლოკალური ბრენჩი არ იცვლება.
+          ყდად დაყენება ან წაშლა ხსნის PR-ს — ლოკალური ბრენჩი არ იცვლება. წაშლა
+          გალერეიდან იშლება, ფაილი CDN-ზე რჩება.
         </p>
       ) : null}
       {mobileMissing ? (

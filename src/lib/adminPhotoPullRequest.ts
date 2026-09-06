@@ -9,6 +9,7 @@ import {
   appendGalleryItemToSpecies,
   type CoverTarget,
   isSpeciesContentId,
+  removeGalleryItemFromSpecies,
   reorderGalleryInSpecies,
   setCoverInSpecies,
 } from "@/lib/adminGalleryMdx";
@@ -141,6 +142,48 @@ export async function openPhotoPullRequest(input: {
     ].join("\n"),
     title: `Add gallery ${noun} for ${input.id}`,
   });
+}
+
+export async function openRemovePhotoPullRequest(input: {
+  id: string;
+  src: string;
+}): Promise<{ image: string; mobileImage: string; pullRequestUrl: string }> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+  if (!input.src.trim()) {
+    throw new Error("Invalid gallery src");
+  }
+
+  const filename = input.src.split("/").at(-1) || input.src;
+  let covers = { image: "", mobileImage: "" };
+
+  const pullRequestUrl = await withPhotoPullRequest({
+    apply: (worktree) => {
+      const result = removeGalleryItemFromSpecies(
+        input.id,
+        input.src,
+        worktree,
+      );
+      covers = { image: result.image, mobileImage: result.mobileImage };
+    },
+    commitBody: "Gallery photo removed from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- Remove \`${filename}\` from \`${input.id}\` gallery`,
+      "- KA `gallery` item and matching overlay credits by `src`",
+      "- If it was the cover, `image` / `mobileImage` move to another gallery photo",
+      "",
+      "## Test plan",
+      "- [ ] Species profile gallery no longer shows the removed photo",
+      "- [ ] Hero cover is not the removed photo",
+    ].join("\n"),
+    title: `Remove gallery photo from ${input.id}`,
+  });
+
+  return { ...covers, pullRequestUrl };
 }
 
 function createPullRequest(input: {
