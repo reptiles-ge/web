@@ -141,7 +141,10 @@ export function getHomeContributorCards() {
       speciesCount: getCreditAuthorSpeciesIds(photos).length,
     });
   }
-  return cards;
+  return cards.sort((a, b) => {
+    if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
+    return a.author.slug.localeCompare(b.author.slug);
+  });
 }
 
 export function pickCreditAuthorPreviewPhotos(

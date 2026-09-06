@@ -97,9 +97,12 @@ describe("credit authors", () => {
   it("builds homepage contributor cards from published author pages", () => {
     const cards = getHomeContributorCards();
     expect(cards.map((card) => card.author.slug)).toEqual([
-      "sandro-khakhva",
       "zauri-khachidze",
+      "sandro-khakhva",
     ]);
+    expect(cards.map((card) => card.photoCount)).toEqual(
+      [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),
+    );
     for (const card of cards) {
       expect(card.photoCount).toBeGreaterThanOrEqual(20);
       expect(card.speciesCount).toBeGreaterThan(0);
