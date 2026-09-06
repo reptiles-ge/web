@@ -54,7 +54,7 @@ const STATIC_TITLES: Partial<Record<AppPathnames, string>> = {
   "/": "მთავარი",
   "/about": ka.footer.about,
   "/amphibians": ka.footer.amphibians,
-  "/authors": ka.footer.photographers,
+  "/authors": ka.footer.contributors,
   "/birds": ka.footer.birds,
   "/contact": ka.footer.contact,
   "/lizards": ka.footer.lizards,
