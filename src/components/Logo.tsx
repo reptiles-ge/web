@@ -5,6 +5,7 @@ const LOGO_AVIF_SRCSET = "/images/logo-88.avif 88w, /images/logo-160.avif 160w";
 const LOGO_WEBP_SRCSET = "/images/logo-88.webp 88w, /images/logo-160.webp 160w";
 
 type LogoProps = {
+  alt?: string;
   className?: string;
   priority?: boolean;
   showWordmark?: boolean;
@@ -13,6 +14,7 @@ type LogoProps = {
 };
 
 export function Logo({
+  alt = "Reptiles",
   className = "",
   priority = false,
   showWordmark = false,
@@ -27,7 +29,7 @@ export function Logo({
         <source sizes={sizes} srcSet={LOGO_AVIF_SRCSET} type="image/avif" />
         <source sizes={sizes} srcSet={LOGO_WEBP_SRCSET} type="image/webp" />
         <img
-          alt="Reptiles"
+          alt={alt}
           className="shrink-0 object-contain"
           decoding="async"
           fetchPriority="auto"

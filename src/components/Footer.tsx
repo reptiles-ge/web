@@ -65,7 +65,10 @@ const guideLinks = [
     href: "/mammals/datvi-shekhvedra" as const,
     labelKey: "bearEncounter" as const,
   },
-  { href: "/lizards/xvliki-saxlshi" as const, labelKey: "lizardHouse" as const },
+  {
+    href: "/lizards/xvliki-saxlshi" as const,
+    labelKey: "lizardHouse" as const,
+  },
   { href: "/risk-to-humans" as const, labelKey: "riskLevels" as const },
 ];
 
@@ -101,7 +104,12 @@ export function Footer({ regions, venomous }: FooterProps) {
               className="inline-flex transition-opacity hover:opacity-90"
               href="/"
             >
-              <Logo showWordmark size={52} wordmarkClassName="text-[19px]" />
+              <Logo
+                alt=""
+                showWordmark
+                size={52}
+                wordmarkClassName="text-[19px]"
+              />
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("tagline")}
