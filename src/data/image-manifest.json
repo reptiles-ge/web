@@ -5097,6 +5097,101 @@
       ],
       "updatedAt": "2026-08-28T21:29:33.442Z"
     },
+    "canis-lupus-giorgi-1.jpg": {
+      "sourceHash": "5cd89c38eca81d794c54c39abfdfcfb949a79a406ff1037b2e7d024cf4ee286a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-lupus-giorgi-1.jpg",
+      "originalSize": 418711,
+      "width": 2002,
+      "height": 1323,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 8182
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 10190
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 12394
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 15418
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 423,
+          "byteSize": 30603
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 423,
+          "byteSize": 38688
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 529,
+          "byteSize": 46984
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 529,
+          "byteSize": 59860
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 793,
+          "byteSize": 90072
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 793,
+          "byteSize": 116462
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-2002.avif",
+          "format": "avif",
+          "width": 2002,
+          "height": 1323,
+          "byteSize": 192927
+        },
+        {
+          "key": "optimized/canis-lupus-giorgi-1-2002.webp",
+          "format": "webp",
+          "width": 2002,
+          "height": 1323,
+          "byteSize": 212684
+        }
+      ],
+      "updatedAt": "2026-09-06T16:56:04.628Z"
+    },
     "canis-lupus-innsbruck-1.jpg": {
       "sourceHash": "1230cdfaceb3277508ec60358cece42887d3e0fd4ef3442fc0e145469dc215a4",
       "configFingerprint": "a895f8e025dcc7fa",
