@@ -50828,6 +50828,87 @@
       ],
       "updatedAt": "2026-09-06T17:22:02.789Z"
     },
+    "vipera-kaznakovi-davit-1.jpg": {
+      "sourceHash": "c509fd315c7698ea4801e3ee2d041f1f5727ebf009c2536cf2b2439c76cad1cb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-davit-1.jpg",
+      "originalSize": 184921,
+      "width": 1126,
+      "height": 844,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13118
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18940
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19178
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26602
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 37907
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49964
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 51655
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66464
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-1126.avif",
+          "format": "avif",
+          "width": 1126,
+          "height": 844,
+          "byteSize": 80657
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-davit-1-1126.webp",
+          "format": "webp",
+          "width": 1126,
+          "height": 844,
+          "byteSize": 96556
+        }
+      ],
+      "updatedAt": "2026-09-06T17:22:44.337Z"
+    },
     "vipera-kaznakovi-giorgi-1.jpg": {
       "sourceHash": "8de9e3a1023b5e15c5d1c5e3e62733357faa24e4187b8d0fbdcea210d02b978a",
       "configFingerprint": "a895f8e025dcc7fa",
