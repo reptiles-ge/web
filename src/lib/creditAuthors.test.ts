@@ -195,6 +195,7 @@ describe("credit authors", () => {
       "ioane-rostiashvili",
       "sandro-khakhva",
       "giorgi-iankoshvili",
+      "zakro-songulashvili",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
       [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),

@@ -154,6 +154,21 @@ test("Giorgi Iankoshvili photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
+test("Zakro Songulashvili photographer page is indexable", async ({ page }) => {
+  const response = await page.goto("/fotografebi/zakro-songulashvili");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ზაქრო სონგულაშვილი");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/fotografebi\/zakro-songulashvili\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
 test("legacy photographer slugs 301 to fotografebi and photographers", async ({
   request,
 }) => {
