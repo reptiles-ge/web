@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
@@ -53,7 +52,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           {children}
         </main>
         <Footer {...footerData} />
-        <SpeedInsights />
       </LocaleSwitchProvider>
     </NextIntlClientProvider>
   );

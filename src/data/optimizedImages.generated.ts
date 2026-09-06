@@ -3473,7 +3473,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "macrovipera-lebetina-giorgi-1",
     "width": 1024,
     "height": 691,
-    "widths": [400, 800, 1024],
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-2.jpg": {
@@ -3487,28 +3487,28 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "macrovipera-lebetina-ioane-1",
     "width": 771,
     "height": 1024,
-    "widths": [400, 771],
+    "widths": [320, 400, 640, 771],
     "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-2.jpg": {
     "path": "macrovipera-lebetina-ioane-2",
     "width": 771,
     "height": 1024,
-    "widths": [400, 771],
+    "widths": [320, 400, 640, 771],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-3.jpg": {
     "path": "macrovipera-lebetina-ioane-3",
     "width": 771,
     "height": 1024,
-    "widths": [400, 771],
+    "widths": [320, 400, 640, 771],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg": {
     "path": "macrovipera-lebetina-nika-1",
     "width": 1024,
     "height": 682,
-    "widths": [400, 800, 1024],
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nika-2.jpg": {
@@ -3522,14 +3522,14 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "macrovipera-lebetina-nika-3",
     "width": 1224,
     "height": 816,
-    "widths": [400, 800, 1200, 1224],
+    "widths": [320, 400, 640, 800, 1200, 1224],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nika-4.jpg": {
     "path": "macrovipera-lebetina-nika-4",
     "width": 1024,
     "height": 682,
-    "widths": [400, 800, 1024],
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nino-1.jpg": {
@@ -3543,7 +3543,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "macrovipera-lebetina-nino-2",
     "width": 767,
     "height": 1024,
-    "widths": [400, 767],
+    "widths": [320, 400, 640, 767],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-shota-1.jpg": {
@@ -3564,21 +3564,21 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "macrovipera-lebetina-zakro-1",
     "width": 1024,
     "height": 682,
-    "widths": [400, 800, 1024],
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-2.jpg": {
     "path": "macrovipera-lebetina-zakro-2",
     "width": 1000,
     "height": 667,
-    "widths": [400, 800, 1000],
+    "widths": [320, 400, 640, 800, 1000],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina.webp": {
     "path": "macrovipera-lebetina",
     "width": 1200,
     "height": 798,
-    "widths": [400, 800, 1200],
+    "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/malpolon-insignitus-1.jpg": {

@@ -8,10 +8,19 @@ import type { GalleryImage } from "@/data/speciesTypes";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { pictureSources } from "@/data/optimizedImages";
+import {
+  optimizedEntry,
+  optimizedImgSrc,
+  pictureSources,
+} from "@/data/optimizedImages";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import {
+  GALLERY_LIGHTBOX_SIZES,
+  galleryFeaturedSizes,
+  galleryThumbSizes,
+} from "@/lib/imageSizes";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -78,6 +87,8 @@ export function SpeciesGallery({
   if (photos.length === 0) return null;
 
   const activePhoto = active !== null ? photos[active] : null;
+  const featuredSizes = galleryFeaturedSizes();
+  const thumbSizes = galleryThumbSizes(photos.length);
 
   return (
     <>
@@ -118,6 +129,7 @@ export function SpeciesGallery({
                 location,
                 photo.credit,
               );
+              const entry = optimizedEntry(photo.src);
               return (
                 <figure
                   className={cn(
@@ -149,9 +161,7 @@ export function SpeciesGallery({
                   >
                     <picture className="media-placeholder absolute inset-0 block size-full">
                       {pictureSources(photo.src, {
-                        sizes: featured
-                          ? "(max-width: 1480px) 100vw, 1400px"
-                          : "(max-width: 768px) 50vw, (max-width: 1480px) 33vw, 460px",
+                        sizes: featured ? featuredSizes : thumbSizes,
                       }).map((source) => (
                         <source key={source.key} {...source.props} />
                       ))}
@@ -159,8 +169,11 @@ export function SpeciesGallery({
                         alt={photoAlt}
                         className="absolute inset-0 size-full object-cover text-transparent"
                         decoding="async"
+                        height={entry?.height}
                         loading="lazy"
-                        src={photo.src}
+                        sizes={featured ? featuredSizes : thumbSizes}
+                        src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
+                        width={entry?.width}
                       />
                     </picture>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
@@ -251,7 +264,7 @@ export function SpeciesGallery({
               <div className="relative min-h-0 flex-1">
                 <picture>
                   {pictureSources(activePhoto.src, {
-                    sizes: "(max-width: 1196px) 92vw, 1100px",
+                    sizes: GALLERY_LIGHTBOX_SIZES,
                   }).map((source) => (
                     <source key={source.key} {...source.props} />
                   ))}
@@ -265,7 +278,10 @@ export function SpeciesGallery({
                     className="absolute inset-0 size-full object-contain text-transparent"
                     decoding="async"
                     fetchPriority="high"
-                    src={activePhoto.src}
+                    height={optimizedEntry(activePhoto.src)?.height}
+                    sizes={GALLERY_LIGHTBOX_SIZES}
+                    src={optimizedImgSrc(activePhoto.src, 1200)}
+                    width={optimizedEntry(activePhoto.src)?.width}
                   />
                 </picture>
               </div>

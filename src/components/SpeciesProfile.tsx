@@ -106,42 +106,40 @@ export async function SpeciesProfile({
 
   return (
     <div className="min-h-screen bg-background">
-      <div>
-        <SpeciesViewTracker
-          galleryCount={gallery.length}
-          group={group}
-          hasIdentification={showIdentification}
-          hasRange={getRegionsForSpecies(species.id).length > 0}
-          scientificName={species.scientificName}
-          speciesId={species.id}
-        />
-        <SpeciesProfileHero
-          breadcrumbs={breadcrumbs}
-          desktopHeroSrc={desktopHeroSrc}
-          group={group}
-          heroCredit={heroCredit}
-          heroDesktopSources={heroDesktopSources}
-          heroPrimarySources={heroPrimarySources}
-          imageAlt={imageAlt}
-          mobileHeroCredit={mobileHeroCredit}
-          mobileHeroSrc={mobileHeroSrc}
-          mobileImageAlt={mobileImageAlt}
-          species={species}
-        />
-        <SpeciesProfileBody
-          biologyBlocks={biologyBlocks}
-          checklistNote={checklistNote}
-          dangerValue={dangerValue}
-          displayStats={displayStats}
-          gallery={gallery}
-          guideLinks={guideLinks}
-          linkDangerStats={linkDangerStats}
-          locale={locale}
-          related={related}
-          showIdentification={showIdentification}
-          species={species}
-        />
-      </div>
+      <SpeciesViewTracker
+        galleryCount={gallery.length}
+        group={group}
+        hasIdentification={showIdentification}
+        hasRange={getRegionsForSpecies(species.id).length > 0}
+        scientificName={species.scientificName}
+        speciesId={species.id}
+      />
+      <SpeciesProfileHero
+        breadcrumbs={breadcrumbs}
+        desktopHeroSrc={desktopHeroSrc}
+        group={group}
+        heroCredit={heroCredit}
+        heroDesktopSources={heroDesktopSources}
+        heroPrimarySources={heroPrimarySources}
+        imageAlt={imageAlt}
+        mobileHeroCredit={mobileHeroCredit}
+        mobileHeroSrc={mobileHeroSrc}
+        mobileImageAlt={mobileImageAlt}
+        species={species}
+      />
+      <SpeciesProfileBody
+        biologyBlocks={biologyBlocks}
+        checklistNote={checklistNote}
+        dangerValue={dangerValue}
+        displayStats={displayStats}
+        gallery={gallery}
+        guideLinks={guideLinks}
+        linkDangerStats={linkDangerStats}
+        locale={locale}
+        related={related}
+        showIdentification={showIdentification}
+        species={species}
+      />
     </div>
   );
 }

@@ -14,7 +14,7 @@ import path from "node:path";
 import type { OptimizedImageEntry } from "@/data/optimizedImages";
 
 const MAX_WIDTH = 2400;
-const ADDITIONAL_WIDTHS = [400, 800, 1200];
+const ADDITIONAL_WIDTHS = [320, 400, 640, 800, 1200];
 const FORMATS = ["avif", "webp"] as const;
 const MANIFEST_KEY = "image-manifest.json";
 const GENERATED_REL = "src/data/optimizedImages.generated.ts";

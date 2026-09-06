@@ -45,8 +45,6 @@
     ]
   },
   "dependencies": {
-    "@next/third-parties": "^16.2.12",
-    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.43.0",
     "gray-matter": "^4.0.3",

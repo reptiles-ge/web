@@ -41,7 +41,7 @@ const OUT_FILE = path.join(
 const CHECKPOINT_INTERVAL = 25;
 
 const MAX_WIDTH = 2400;
-const ADDITIONAL_WIDTHS = [400, 800, 1200];
+const ADDITIONAL_WIDTHS = [320, 400, 640, 800, 1200];
 const FORMATS = ["avif", "webp"] as const;
 
 const PLACEHOLDER_MARKERS = [

@@ -33,12 +33,12 @@ export function optimizedEntry(
   return optimizedImages[src] ?? null;
 }
 
-export function optimizedImgSrc(src: string): string {
+export function optimizedImgSrc(src: string, minWidth = 1200): string {
   const entry = optimizedEntry(src);
   if (!entry) return src;
   const format = entry.formats.includes("webp") ? "webp" : entry.formats[0];
   const width =
-    entry.widths.find((item) => item >= 1200) ??
+    entry.widths.find((item) => item >= minWidth) ??
     entry.widths[entry.widths.length - 1];
   return `${optimizedBaseUrl}${entry.path}-${width}.${format}`;
 }
@@ -71,4 +71,25 @@ export function pictureSources(
       ...(options.media ? { media: options.media } : {}),
     },
   }));
+}
+
+export function srcSetPreloadUrl(srcSet: string) {
+  const candidates = srcSet
+    .split(",")
+    .map((part) => {
+      const [url, descriptor] = part.trim().split(/\s+/);
+      const width = descriptor?.endsWith("w")
+        ? Number(descriptor.slice(0, -1))
+        : 0;
+      return { url, width };
+    })
+    .filter((item): item is { url: string; width: number } =>
+      Boolean(item.url),
+    );
+
+  return (
+    candidates.find((item) => item.width >= 800)?.url ??
+    candidates[candidates.length - 1]?.url ??
+    candidates[0]?.url
+  );
 }

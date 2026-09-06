@@ -9,6 +9,7 @@ import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
+import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
@@ -177,6 +178,9 @@ function SpeciesProfileHeroMedia({
     );
   }
 
+  const primarySrc = mobileHeroSrc ?? desktopHeroSrc;
+  const primary = optimizedEntry(primarySrc);
+
   return (
     <picture className="media-placeholder absolute inset-0 block size-full">
       {mobileHeroSrc ? (
@@ -184,7 +188,10 @@ function SpeciesProfileHeroMedia({
           {heroDesktopSources.map((source) => (
             <source key={source.key} {...source.props} />
           ))}
-          <source media="(min-width: 1024px)" srcSet={desktopHeroSrc} />
+          <source
+            media="(min-width: 1024px)"
+            srcSet={optimizedImgSrc(desktopHeroSrc, 1200)}
+          />
         </>
       ) : null}
       {heroPrimarySources.map((source) => (
@@ -195,7 +202,11 @@ function SpeciesProfileHeroMedia({
         className="size-full object-cover text-transparent"
         decoding="async"
         fetchPriority="high"
-        src={mobileHeroSrc ?? desktopHeroSrc}
+        height={primary?.height}
+        loading="eager"
+        sizes="100vw"
+        src={optimizedImgSrc(primarySrc, 800)}
+        width={primary?.width}
       />
     </picture>
   );

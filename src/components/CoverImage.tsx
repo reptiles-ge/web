@@ -1,4 +1,8 @@
-import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
+import {
+  optimizedEntry,
+  optimizedImgSrc,
+  pictureSources,
+} from "@/data/optimizedImages";
 
 type CoverImageProps = {
   alt: string;
@@ -19,6 +23,8 @@ export function CoverImage({
   sizes,
   src,
 }: CoverImageProps) {
+  const entry = optimizedEntry(src);
+
   return (
     <picture
       className={
@@ -42,8 +48,11 @@ export function CoverImage({
         }
         decoding={priority ? "sync" : "async"}
         fetchPriority={priority ? "high" : "auto"}
+        height={entry?.height}
         loading={priority ? "eager" : "lazy"}
+        sizes={sizes}
         src={optimizedImgSrc(src)}
+        width={entry?.width}
       />
     </picture>
   );

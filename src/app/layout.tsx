@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { GoogleTagManager } from "@next/third-parties/google";
 import { getLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
 import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { preconnect, preload } from "react-dom";
+import { preconnect } from "react-dom";
 
+import { GoogleTagManager } from "@/components/GoogleTagManager";
 import { themeInitScript, ThemeProvider } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
@@ -115,14 +115,6 @@ export default async function RootLayout({ children }: Props) {
   const isProd = process.env.NODE_ENV === "production";
 
   preconnect(CDN_BASE);
-  preload("/images/image-placeholder.svg", {
-    as: "image",
-    fetchPriority: "high",
-  });
-  preload("/images/image-placeholder-dark.svg", {
-    as: "image",
-    fetchPriority: "high",
-  });
 
   return (
     <html
