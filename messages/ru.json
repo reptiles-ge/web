@@ -330,7 +330,9 @@
     "faqTitle": "Частые вопросы",
     "faqIntroBefore": "Краткие ответы на главные вопросы о ",
     "faqIntroAfter": ".",
-    "related": "Похожие виды",
+    "lookalikes": "Схожие виды",
+    "lookalikesTitle": "С какими видами можно спутать",
+    "related": "Связанные виды",
     "relatedTitle": "Родственные виды",
     "allSpecies": "Атлас видов",
     "guidesEyebrow": "Смежные гиды",
@@ -338,6 +340,8 @@
     "quizCtaEyebrow": "Квиз",
     "quizCtaTitle": "Дальше: какая это змея?",
     "quizCtaBody": "{name} есть в квизе по змеям Грузии. Десять полевых фото, четыре названия — тренировка глаза, не полевое определение.",
+    "quizCtaTitleLizard": "Дальше: какая это ящерица?",
+    "quizCtaBodyLizard": "{name} есть в квизе по ящерицам Грузии. Десять полевых фото, четыре названия — тренировка глаза, не полевое определение.",
     "quizCta": "Начать квиз",
     "guideLinkEyebrow": "Сравнить",
     "guideLinkTitle": "Ящерица, желтопузик или змея?",
@@ -643,7 +647,10 @@
     "notFound": "Автор не найден",
     "close": "Закрыть",
     "prevPhoto": "Предыдущее фото",
-    "nextPhoto": "Следующее фото"
+    "nextPhoto": "Следующее фото",
+    "next": "Дальше",
+    "nextQuizSnake": "Какая это змея?",
+    "nextQuizLizard": "Какая это ящерица?"
   },
   "attribution": {
     "heading": "Reptiles.ge",

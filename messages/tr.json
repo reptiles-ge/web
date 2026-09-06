@@ -330,7 +330,9 @@
     "faqTitle": "Sık sorulan sorular",
     "faqIntroBefore": "Hakkında en önemli soruların kısa yanıtları: ",
     "faqIntroAfter": ".",
-    "related": "Benzer türler",
+    "lookalikes": "Benzer türler",
+    "lookalikesTitle": "Hangileriyle karışabilir",
+    "related": "İlgili türler",
     "relatedTitle": "Yakın türler",
     "allSpecies": "Tür atlası",
     "guidesEyebrow": "İlgili rehberler",
@@ -338,6 +340,8 @@
     "quizCtaEyebrow": "Quiz",
     "quizCtaTitle": "Sırada: bu hangi yılan?",
     "quizCtaBody": "{name}, Gürcistan yılan quiziinde. On saha fotoğrafı, dört ad — göz alıştırması, saha tanısı değil.",
+    "quizCtaTitleLizard": "Sırada: bu hangi kertenkele?",
+    "quizCtaBodyLizard": "{name}, Gürcistan kertenkele quiziinde. On saha fotoğrafı, dört ad — göz alıştırması, saha tanısı değil.",
     "quizCta": "Quiz’e başla",
     "guideLinkEyebrow": "Karşılaştır",
     "guideLinkTitle": "Kertenkele, cam kertenkele yoksa yılan mı?",
@@ -643,7 +647,10 @@
     "notFound": "Yazar bulunamadı",
     "close": "Kapat",
     "prevPhoto": "Önceki fotoğraf",
-    "nextPhoto": "Sonraki fotoğraf"
+    "nextPhoto": "Sonraki fotoğraf",
+    "next": "Devam",
+    "nextQuizSnake": "Bu hangi yılan?",
+    "nextQuizLizard": "Bu hangi kertenkele?"
   },
   "attribution": {
     "heading": "Reptiles.ge",

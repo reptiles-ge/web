@@ -16,7 +16,11 @@ import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
 import { SpeciesSources } from "@/components/SpeciesSources";
-import { type HubClusterCard, isSnakeSpecies } from "@/lib/clusterGuides";
+import {
+  type HubClusterCard,
+  isLizardSpecies,
+  isSnakeSpecies,
+} from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate } from "@/lib/formatDate";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -36,6 +40,7 @@ type SpeciesProfileBodyProps = {
   guideLinks: HubClusterCard[];
   linkDangerStats: boolean;
   locale: AppLocale;
+  lookalikes: Species[];
   related: Species[];
   showIdentification: boolean;
   species: Species;
@@ -50,12 +55,14 @@ export async function SpeciesProfileBody({
   guideLinks,
   linkDangerStats,
   locale,
+  lookalikes,
   related,
   showIdentification,
   species,
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations("profile");
   const snake = isSnakeSpecies(species);
+  const lizard = isLizardSpecies(species);
 
   return (
     <>
@@ -116,6 +123,12 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
+      <SpeciesProfileRelated
+        locale={locale}
+        related={lookalikes}
+        variant="lookalikes"
+      />
+
       {snake ? (
         <QuizPracticeCta
           body={t("quizCtaBody", { name: species.commonName })}
@@ -123,9 +136,22 @@ export async function SpeciesProfileBody({
           cta={t("quizCta")}
           eyebrow={t("quizCtaEyebrow")}
           locale={locale}
+          quizId="snake"
           source="species"
           speciesId={species.id}
           title={t("quizCtaTitle")}
+        />
+      ) : lizard ? (
+        <QuizPracticeCta
+          body={t("quizCtaBodyLizard", { name: species.commonName })}
+          className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
+          cta={t("quizCta")}
+          eyebrow={t("quizCtaEyebrow")}
+          locale={locale}
+          quizId="lizard"
+          source="species"
+          speciesId={species.id}
+          title={t("quizCtaTitleLizard")}
         />
       ) : null}
 

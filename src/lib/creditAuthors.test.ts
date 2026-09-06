@@ -5,6 +5,7 @@ import {
   getPublishedCreditAuthorBySlug,
 } from "@/data/creditAuthors";
 import {
+  getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
 } from "@/lib/creditAuthors";
@@ -52,5 +53,8 @@ describe("credit authors", () => {
         "natrix-tessellata",
       ]),
     );
+    expect(
+      getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)),
+    ).toEqual(expect.arrayContaining(["snakes", "amphibians"]));
   });
 });

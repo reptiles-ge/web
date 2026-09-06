@@ -4,6 +4,7 @@ export const SPECIES_SECTION_IDS = {
   faq: "faq",
   gallery: "gallery",
   identification: "identification",
+  lookalikes: "lookalikes",
   overview: "overview",
   range: "range",
   related: "related",

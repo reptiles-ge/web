@@ -330,7 +330,9 @@
     "faqTitle": "Frequently asked questions",
     "faqIntroBefore": "Short answers to the most important questions about ",
     "faqIntroAfter": ".",
-    "related": "Similar species",
+    "lookalikes": "Similar species",
+    "lookalikesTitle": "Often confused with",
+    "related": "Related species",
     "relatedTitle": "Related species",
     "allSpecies": "Species atlas",
     "guidesEyebrow": "Related guides",
@@ -338,6 +340,8 @@
     "quizCtaEyebrow": "Quiz",
     "quizCtaTitle": "Next: which snake is it?",
     "quizCtaBody": "{name} is in the Georgia snake quiz. Ten field photos, four names — eye practice, not field ID.",
+    "quizCtaTitleLizard": "Next: which lizard is it?",
+    "quizCtaBodyLizard": "{name} is in the Georgia lizard quiz. Ten field photos, four names — eye practice, not field ID.",
     "quizCta": "Start the quiz",
     "guideLinkEyebrow": "Compare",
     "guideLinkTitle": "Lizard, glass lizard, or snake?",
@@ -643,7 +647,10 @@
     "notFound": "Author not found",
     "close": "Close",
     "prevPhoto": "Previous photo",
-    "nextPhoto": "Next photo"
+    "nextPhoto": "Next photo",
+    "next": "Continue",
+    "nextQuizSnake": "Which snake is it?",
+    "nextQuizLizard": "Which lizard is it?"
   },
   "attribution": {
     "heading": "Reptiles.ge",

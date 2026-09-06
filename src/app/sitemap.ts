@@ -28,7 +28,10 @@ import {
   speciesAlternates,
   speciesPageUrl,
 } from "@/lib/site";
-import { speciesPageImageUrls } from "@/lib/sitemapImages";
+import {
+  creditAuthorPageImageUrls,
+  speciesPageImageUrls,
+} from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
@@ -103,10 +106,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const author of getPublishedCreditAuthors()) {
       const photos = getCreditAuthorPhotos(author);
       const { languages } = creditAuthorAlternates(locale, author.slug);
+      const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
       push({
         alternates: { languages },
         lastModified: maxUpdatedAt(photos.map((photo) => photo.updatedAt)),
         url: creditAuthorUrl(locale, author.slug),
+        ...(images.length > 0 ? { images } : {}),
       });
     }
 

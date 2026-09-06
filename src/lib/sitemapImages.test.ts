@@ -2,7 +2,10 @@ import { describe, expect, it } from "vitest";
 
 import type { Species } from "@/data/species";
 
-import { speciesPageImageUrls } from "@/lib/sitemapImages";
+import {
+  creditAuthorPageImageUrls,
+  speciesPageImageUrls,
+} from "@/lib/sitemapImages";
 
 const base = {
   behavior: "",
@@ -50,5 +53,22 @@ describe("speciesPageImageUrls", () => {
         image: "/images/species-placeholder.png",
       } as Species),
     ).toEqual([]);
+  });
+});
+
+describe("creditAuthorPageImageUrls", () => {
+  it("leads with the portrait and caps unique photo srcs", () => {
+    expect(
+      creditAuthorPageImageUrls("https://cdn.reptiles.ge/authors/sandro.jpg", [
+        { src: "https://cdn.reptiles.ge/a.jpg" },
+        { src: "https://cdn.reptiles.ge/a.jpg" },
+        { src: "/images/species-placeholder.png" },
+        { src: "https://cdn.reptiles.ge/b.jpg" },
+      ]),
+    ).toEqual([
+      "https://cdn.reptiles.ge/authors/sandro.jpg",
+      "https://cdn.reptiles.ge/a.jpg",
+      "https://cdn.reptiles.ge/b.jpg",
+    ]);
   });
 });

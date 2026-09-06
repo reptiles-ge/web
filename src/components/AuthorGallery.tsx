@@ -43,7 +43,9 @@ export async function AuthorGallery({
     const href = speciesHref(photo.speciesId, locale);
     return [
       {
-        alt: `${localized.commonName} (${localized.scientificName})`,
+        alt: photo.credit?.location?.trim()
+          ? `${localized.commonName} (${localized.scientificName}) — ${photo.credit.location.trim()}`
+          : `${localized.commonName} (${localized.scientificName})`,
         credit: photo.credit,
         height: entry?.height,
         href,
@@ -98,7 +100,7 @@ export async function AuthorGallery({
                       ),
                     )}
                     <img
-                      alt=""
+                      alt={slide.alt}
                       className="absolute inset-0 size-full object-cover text-transparent"
                       decoding="async"
                       height={entry?.height}
@@ -115,7 +117,7 @@ export async function AuthorGallery({
               </div>
               <figcaption className="mt-3">
                 <Link
-                  className="inline-flex min-h-6 items-center font-display text-[14px] font-medium text-foreground/80 transition-colors hover:text-foreground"
+                  className="inline-flex min-h-11 items-center font-display text-[14px] font-medium text-foreground/80 transition-colors hover:text-foreground"
                   href={slide.href}
                 >
                   {slide.name}

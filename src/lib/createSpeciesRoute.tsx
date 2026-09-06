@@ -44,7 +44,7 @@ import {
   speciesPageMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
-import { getRelatedSpecies } from "@/lib/speciesRelated";
+import { getLookalikeSpecies, getRelatedSpecies } from "@/lib/speciesRelated";
 import {
   getSpeciesPublicSlug,
   resolveSpeciesInHub,
@@ -156,7 +156,15 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     }
 
     const item = localizeSpecies(raw, locale);
-    const related = getRelatedSpecies(raw.id);
+    const lookalikeSpecies = getLookalikeSpecies(raw.id);
+    const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
+    const lookalikes = lookalikeSpecies.map((entry) =>
+      localizeSpecies(entry, locale),
+    );
+    const related = getRelatedSpecies(raw.id, 8)
+      .filter((entry) => !lookalikeIds.has(entry.id))
+      .slice(0, 4)
+      .map((entry) => localizeSpecies(entry, locale));
     const tProfile = await getTranslations({ locale, namespace: "profile" });
     const tHubs = await getTranslations({
       locale,
@@ -309,7 +317,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           )}
         />
         <SpeciesProfile
-          related={related.map((item) => localizeSpecies(item, locale))}
+          lookalikes={lookalikes}
+          related={related}
           species={item}
         />
         <NewsRelatedBlock

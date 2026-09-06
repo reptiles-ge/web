@@ -41,6 +41,7 @@ export type SpeciesClickSource =
   | "hub"
   | "identification"
   | "index"
+  | "lookalike"
   | "map_panel"
   | "other"
   | "quiz_question"

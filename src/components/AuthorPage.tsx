@@ -11,8 +11,13 @@ import { creditAuthorBio, creditAuthorName } from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import { getCreditAuthorSpeciesIds } from "@/lib/creditAuthors";
+import {
+  getCreditAuthorHubIds,
+  getCreditAuthorSpeciesIds,
+} from "@/lib/creditAuthors";
+import { GROUP_HUBS } from "@/lib/groupHubs";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
+import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 export async function AuthorPage({
@@ -24,11 +29,15 @@ export async function AuthorPage({
   locale: AppLocale;
   photos: CreditAuthorPhoto[];
 }) {
-  const t = await getTranslations("author");
-  const tShared = await getTranslations("groupHubShared");
+  const [t, tShared, tProfile] = await Promise.all([
+    getTranslations("author"),
+    getTranslations("groupHubShared"),
+    getTranslations("profile"),
+  ]);
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
+  const hubs = getCreditAuthorHubIds(speciesIds);
   const socials = [
     author.links?.facebook
       ? {
@@ -61,13 +70,25 @@ export async function AuthorPage({
         style={{ paddingTop: "5.5rem" }}
       >
         <div className="mx-auto max-w-[1400px] px-6 pt-6 pb-10 lg:px-10 lg:pt-8 lg:pb-14">
-          <Link
-            className="inline-flex items-center gap-2 text-[13px] text-muted-foreground transition-colors hover:text-foreground"
-            href="/"
-          >
-            <ArrowLeft className="size-3.5" />
-            {tShared("breadcrumbHome")}
-          </Link>
+          <nav aria-label={tProfile("breadcrumbAria")}>
+            <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
+              <li>
+                <Link
+                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  href="/"
+                >
+                  <ArrowLeft className="size-3.5" />
+                  {tShared("breadcrumbHome")}
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-border">
+                /
+              </li>
+              <li aria-current="page" className="text-foreground/80">
+                {name}
+              </li>
+            </ol>
+          </nav>
 
           <div className="mt-8 flex items-center gap-5 sm:mt-10 sm:gap-8">
             <div className="relative size-28 shrink-0 overflow-hidden rounded-full ring-1 ring-border sm:size-36 lg:size-40">
@@ -124,16 +145,16 @@ export async function AuthorPage({
 
       <section className="bg-background py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <h2 className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
             {t("gallery")}
-          </p>
+          </h2>
           <AuthorGallery locale={locale} photos={photos} />
 
           {speciesIds.length > 0 ? (
             <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              <h2 className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
                 {t("speciesList")}
-              </p>
+              </h2>
               <ul className="mt-6 flex max-w-3xl flex-wrap gap-x-6 gap-y-3">
                 {speciesIds.map((id) => {
                   const species = getSpeciesById(id);
@@ -142,7 +163,7 @@ export async function AuthorPage({
                   return (
                     <li key={id}>
                       <Link
-                        className="inline-flex min-h-6 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                        className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
                         href={speciesHref(id, locale)}
                       >
                         {localized.commonName}
@@ -153,6 +174,52 @@ export async function AuthorPage({
               </ul>
             </div>
           ) : null}
+
+          <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
+            <h2 className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              {t("next")}
+            </h2>
+            <ul className="mt-6 flex max-w-3xl flex-wrap gap-x-6 gap-y-3">
+              <li>
+                <Link
+                  className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                  href="/species"
+                >
+                  {tProfile("allSpecies")}
+                </Link>
+              </li>
+              {hubs.map((hub) => (
+                <li key={hub}>
+                  <Link
+                    className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    href={GROUP_HUBS[hub].path}
+                  >
+                    {tShared(`hubs.${hub}`)}
+                  </Link>
+                </li>
+              ))}
+              {hubs.includes("snakes") ? (
+                <li>
+                  <Link
+                    className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    href={quizHref("snake", locale)}
+                  >
+                    {t("nextQuizSnake")}
+                  </Link>
+                </li>
+              ) : null}
+              {hubs.includes("lizards") ? (
+                <li>
+                  <Link
+                    className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
+                    href={quizHref("lizard", locale)}
+                  >
+                    {t("nextQuizLizard")}
+                  </Link>
+                </li>
+              ) : null}
+            </ul>
+          </div>
         </div>
       </section>
     </div>

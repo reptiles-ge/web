@@ -11,6 +11,7 @@ import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { ANIMAL_GROUP_TO_HUB, type GroupHubId } from "@/lib/groupHubs";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 
 export type CreditAuthorPhoto = {
@@ -103,6 +104,24 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
     ids.push(photo.speciesId);
   }
   return ids;
+}
+
+export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
+  const hubs: GroupHubId[] = [];
+  const seen = new Set<GroupHubId>();
+  const ranked = [...speciesIds].sort((a, b) => {
+    return (
+      GROUP_RANK[getSpeciesAtlasMeta(a).group] -
+      GROUP_RANK[getSpeciesAtlasMeta(b).group]
+    );
+  });
+  for (const id of ranked) {
+    const hub = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(id).group];
+    if (seen.has(hub)) continue;
+    seen.add(hub);
+    hubs.push(hub);
+  }
+  return hubs;
 }
 
 export function resolvePublishedCreditAuthor(slug: string) {

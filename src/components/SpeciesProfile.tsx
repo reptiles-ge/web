@@ -26,11 +26,13 @@ import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
 type SpeciesProfileProps = {
+  lookalikes: Species[];
   related: Species[];
   species: Species;
 };
 
 export async function SpeciesProfile({
+  lookalikes,
   related,
   species,
 }: SpeciesProfileProps) {
@@ -134,6 +136,7 @@ export async function SpeciesProfile({
         guideLinks={guideLinks}
         linkDangerStats={linkDangerStats}
         locale={locale}
+        lookalikes={lookalikes}
         related={related}
         showIdentification={showIdentification}
         species={species}
