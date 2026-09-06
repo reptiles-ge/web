@@ -25,6 +25,7 @@ import {
 import { SearchResultsList } from "@/components/SpeciesSearchResults";
 import { useRouter } from "@/i18n/navigation";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
+import { loadSearchDocuments } from "@/lib/loadSearchIndex";
 import {
   flattenGroups,
   readRecent,
@@ -61,6 +62,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     openSearch,
     pickSuggestion,
     query,
+    ready,
     rootRef,
     setActiveIndex,
     setOpen,
@@ -98,6 +100,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     onPickSuggestion: pickSuggestion,
     onSelect: goTo,
     query: trimmed,
+    ready,
     showRecent,
     suggestions,
     titles: groupTitles,
@@ -286,12 +289,24 @@ function useSpeciesSearch() {
   const lastSearchKey = useRef("");
   const queryEntry = useRef<"suggestion" | "type">("type");
   const indexLocale = useRef<AppLocale | null>(null);
+  const loadingLocale = useRef<AppLocale | null>(null);
+  const localeRef = useRef(locale);
+  localeRef.current = locale;
 
   const loadIndex = useCallback(async () => {
-    if (indexLocale.current === locale) return;
-    const { getSearchIndex } = await import("@/data/search-index.generated");
-    indexLocale.current = locale;
-    setIndex(getSearchIndex(locale));
+    if (indexLocale.current === locale || loadingLocale.current === locale) {
+      return;
+    }
+    loadingLocale.current = locale;
+    const requested = locale;
+    try {
+      const documents = await loadSearchDocuments(requested);
+      if (localeRef.current !== requested) return;
+      indexLocale.current = requested;
+      setIndex(documents);
+    } finally {
+      if (loadingLocale.current === requested) loadingLocale.current = null;
+    }
   }, [locale]);
   const searched = useMemo(
     () => searchIndex(index, deferredQuery, filter),
@@ -323,17 +338,15 @@ function useSpeciesSearch() {
     : [];
 
   useEffect(() => {
-    if (typeof window.requestIdleCallback === "function") {
-      const idle = window.requestIdleCallback(() => {
-        void loadIndex();
-      });
-      return () => window.cancelIdleCallback(idle);
-    }
-    const timeout = window.setTimeout(() => {
-      void loadIndex();
-    }, 1);
-    return () => window.clearTimeout(timeout);
-  }, [loadIndex]);
+    if (indexLocale.current === locale) return;
+    indexLocale.current = null;
+    setIndex([]);
+  }, [locale]);
+
+  useEffect(() => {
+    if (!open) return;
+    void loadIndex();
+  }, [loadIndex, open]);
 
   useEffect(() => {
     setRecent(resolveRecent(index, readRecent()));
@@ -504,6 +517,7 @@ function useSpeciesSearch() {
     openSearch,
     pickSuggestion,
     query,
+    ready: index.length > 0,
     rootRef,
     setActiveIndex,
     setOpen,

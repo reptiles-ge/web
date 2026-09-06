@@ -52,6 +52,7 @@ src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
 src/data/speciesSlugs.generated.ts gitignored (Edge slug table)
+src/data/search-index.{ka,en,ru,tr}.generated.ts gitignored
 src/content/news/{slug}.ts first-class news articles (all locales)
 src/data/news.ts           published news registry
 src/lib/                   routing, SEO, quiz, clusters, news
@@ -188,7 +189,7 @@ npm run species:compile
 
 ## Do not
 
-- Commit or hand-edit `src/data/species.generated.ts` or `src/data/speciesSlugs.generated.ts` (gitignored; `predev` / `prebuild` writes them).
+- Commit or hand-edit `src/data/species.generated.ts`, `src/data/speciesSlugs.generated.ts`, or `src/data/search-index.*.generated.ts` (gitignored; `predev` / `prebuild` writes them).
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
 - Ship one-locale copy or one-locale MDX.

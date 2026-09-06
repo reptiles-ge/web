@@ -110,6 +110,23 @@ const eslintConfig = defineConfig([
   },
   eslintConfigPrettier,
   {
+    files: ["src/components/SpeciesSearch.tsx"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              message:
+                "Navbar search must load one locale via loadSearchDocuments, not the combined search index.",
+              name: "@/data/search-index.generated",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ["src/proxy.ts", "src/lib/speciesSlugTable.ts"],
     rules: {
       "no-restricted-imports": [
@@ -224,6 +241,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     "src/data/species.generated.ts",
     "src/data/speciesSlugs.generated.ts",
+    "src/data/search-index.generated.ts",
+    "src/data/search-index.*.generated.ts",
     "src/data/georgia-paths.generated.ts",
     "src/data/optimizedImages.generated.ts",
     "scripts/**",
