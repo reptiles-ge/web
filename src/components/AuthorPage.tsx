@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
@@ -29,6 +29,16 @@ export async function AuthorPage({
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
+  const socials = [
+    author.links?.facebook
+      ? { href: author.links.facebook, key: "facebook" as const }
+      : null,
+    author.links?.instagram
+      ? { href: author.links.instagram, key: "instagram" as const }
+      : null,
+  ].filter((item): item is { href: string; key: "facebook" | "instagram" } =>
+    Boolean(item),
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,6 +88,23 @@ export async function AuthorPage({
           <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:mt-8">
             {bio ?? t("subtitle")}
           </p>
+          {socials.length > 0 ? (
+            <ul className="mt-6 flex flex-wrap gap-3">
+              {socials.map((item) => (
+                <li key={item.key}>
+                  <a
+                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                    href={item.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    {t(item.key)}
+                    <ArrowUpRight className="size-3.5 opacity-60" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </header>
 

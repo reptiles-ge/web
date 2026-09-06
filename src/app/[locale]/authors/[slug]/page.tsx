@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { AuthorPage } from "@/components/AuthorPage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
-import { creditAuthorBio, creditAuthorName } from "@/data/creditAuthors";
+import { creditAuthorBio, creditAuthorName, creditAuthorSameAs } from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -104,6 +104,7 @@ export default async function AuthorRoute({ params }: Props) {
       description: bio,
       image: author.portraitSrc,
       name,
+      sameAs: creditAuthorSameAs(author),
       url,
     },
     name,

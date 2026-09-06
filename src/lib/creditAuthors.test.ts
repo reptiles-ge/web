@@ -32,6 +32,10 @@ describe("credit authors", () => {
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.bio?.ka).toContain(
       "აჭარიდან",
     );
+    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toEqual({
+      facebook: "https://www.facebook.com/sandro.khakhva.9",
+      instagram: "https://www.instagram.com/wildtrail.geo",
+    });
   });
 
   it("collects his atlas photos without duplicates", () => {

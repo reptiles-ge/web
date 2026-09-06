@@ -971,6 +971,8 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
         author.bio?.ru,
         author.bio?.tr,
         ...author.aliases,
+        author.links?.facebook,
+        author.links?.instagram,
         "ჰერპეტოლოგი",
         "herpetologist",
         "герпетолог",

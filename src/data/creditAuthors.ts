@@ -11,6 +11,10 @@ export type CreditAuthor = {
     tr?: string;
   };
   id: string;
+  links?: {
+    facebook?: string;
+    instagram?: string;
+  };
   name: {
     en: string;
     ka: string;
@@ -37,6 +41,10 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır. Sürüngenleri inceler ve onlarla çalışır.",
     },
     id: "sandro-khakhva",
+    links: {
+      facebook: "https://www.facebook.com/sandro.khakhva.9",
+      instagram: "https://www.instagram.com/wildtrail.geo",
+    },
     name: {
       en: "Sandro Khakhva",
       ka: "სანდრო ხახვა",
@@ -71,6 +79,12 @@ export function creditAuthorHref(slug: string) {
 
 export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {
   return pickLocalized(author.name, locale);
+}
+
+export function creditAuthorSameAs(author: CreditAuthor) {
+  return [author.links?.facebook, author.links?.instagram].filter(
+    (href): href is string => Boolean(href),
+  );
 }
 
 export function getCreditAuthorByName(name: string) {
