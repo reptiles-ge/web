@@ -137,7 +137,7 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/riskis-doneebi`                                      | `/en/risk-to-humans`                                        | Risk legend                                         |
 | `/about`, `/contact`                                   | `/en/about`, `/en/contact`                                  | Site                                                |
 | `/news`, `/news/{slug}`                                | `/en/news`, `/en/news/{slug}`                               | News                                                |
-| `/avtorebi/sandro-khakhva`                             | `/en/authors/sandro-khakhva`                                | Published photographer page (no author index)       |
+| `/fotografebi/sandro-khakhva`                          | `/en/photographers/sandro-khakhva`                          | Published photographer page (no photographer index) |
 
 There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not standalone Red List guides.
 

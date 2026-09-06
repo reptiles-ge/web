@@ -94,13 +94,13 @@ test("quiz landing is indexable and play stays on the same URL", async ({
   expect(page.url()).not.toMatch(/result/);
 });
 
-test("Sandro Khakhva author page is indexable", async ({ page }) => {
-  const response = await page.goto("/avtorebi/sandro-khakhva");
+test("Sandro Khakhva photographer page is indexable", async ({ page }) => {
+  const response = await page.goto("/fotografebi/sandro-khakhva");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("სანდრო ხახვა");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/avtorebi\/sandro-khakhva\/?$/,
+    /\/fotografebi\/sandro-khakhva\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -109,19 +109,37 @@ test("Sandro Khakhva author page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("Zauri Khachidze author page is indexable", async ({ page }) => {
-  const response = await page.goto("/avtorebi/zauri-khachidze");
+test("Zauri Khachidze photographer page is indexable", async ({ page }) => {
+  const response = await page.goto("/fotografebi/zauri-khachidze");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("ზაური ხაჩიძე");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/avtorebi\/zauri-khachidze\/?$/,
+    /\/fotografebi\/zauri-khachidze\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
     .allTextContents();
   expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
+test("legacy photographer slugs 301 to fotografebi and photographers", async ({
+  request,
+}) => {
+  const ka = await request.get("/avtorebi/sandro-khakhva", {
+    maxRedirects: 0,
+  });
+  expect(ka.status()).toBe(301);
+  expect(locationPath(ka.headers())).toBe("/fotografebi/sandro-khakhva");
+
+  const latin = await request.get("/en/authors/zauri-khachidze", {
+    maxRedirects: 0,
+  });
+  expect(latin.status()).toBe(301);
+  expect(locationPath(latin.headers())).toBe(
+    "/en/photographers/zauri-khachidze",
+  );
 });
 
 test("404 is noindex", async ({ page }) => {

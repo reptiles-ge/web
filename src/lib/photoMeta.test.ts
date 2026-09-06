@@ -28,7 +28,7 @@ describe("galleryImageObject", () => {
     expect(data).toEqual(
       expect.objectContaining({
         creator: expect.objectContaining({
-          url: expect.stringMatching(/^https?:\/\//),
+          url: expect.stringMatching(/\/fotografebi\/sandro-khakhva\/?$/),
         }),
       }),
     );

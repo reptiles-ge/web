@@ -5,13 +5,13 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { legacyPhotographerRedirectPath } from "@/lib/creditAuthors";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
   resolveSpeciesId,
   resolveSpeciesIdInHub,
 } from "@/lib/speciesSlugTable";
-import { legacyPhotographerRedirectPath } from "@/lib/creditAuthors";
 
 const intlMiddleware = createMiddleware(routing);
 
