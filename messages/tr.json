@@ -628,6 +628,21 @@
       "venomous": "Gürcistan’da zehirli yılanlar"
     }
   },
+  "author": {
+    "kicker": "Fotoğrafçı",
+    "subtitle": "Gürcistan hayvanlar atlasındaki fotoğraflar.",
+    "statPhotos": "fotoğraf",
+    "statSpecies": "tür",
+    "gallery": "Galeri",
+    "speciesList": "Atlastaki türler",
+    "heroImageAlt": "{name}",
+    "metaTitle": "{name}",
+    "metaDescription": "{name}: Gürcistan hayvanlar atlasında {species} türe ait {count} fotoğraf.",
+    "notFound": "Yazar bulunamadı",
+    "close": "Kapat",
+    "prevPhoto": "Önceki fotoğraf",
+    "nextPhoto": "Sonraki fotoğraf"
+  },
   "attribution": {
     "heading": "Reptiles.ge",
     "subtitle": "Gürcistan hayvanları atlası",

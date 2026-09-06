@@ -37,6 +37,9 @@ import {
   GROUP_HUB_LIST,
   type GroupHubId,
 } from "@/lib/groupHubs";
+import { creditAuthorHref } from "@/data/creditAuthors";
+import { getPublishedCreditAuthors } from "@/data/creditAuthors";
+import { getCreditAuthorPhotos } from "@/lib/creditAuthors";
 import { newsArticleHref } from "@/lib/news";
 import { quizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
@@ -948,6 +951,38 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     toSpeciesDocument(locale, item),
   );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
+  const authorDocs = getPublishedCreditAuthors().map((author) => {
+    const photos = getCreditAuthorPhotos(author);
+    return {
+      href: creditAuthorHref(author.slug),
+      icon: "info" as const,
+      id: `author:${author.id}`,
+      image: author.heroSrc,
+      key: `author:${author.id}`,
+      kind: "page" as const,
+      scoreTitles: [author.name.ka, author.name.en],
+      searchText: blob([
+        author.name.ka,
+        author.name.en,
+        ...author.aliases,
+        "ფოტოგრაფი",
+        "photographer",
+        "фотограф",
+        "fotoğrafçı",
+        author.slug,
+      ]),
+      subtitle: pickLocale(
+        {
+          en: "Photographs in the atlas",
+          ka: "ფოტოები ატლასში",
+          ru: "Фотографии в атласе",
+          tr: "Atlastaki fotoğraflar",
+        },
+        locale,
+      ),
+      title: pickLocalized(author.name, locale),
+    };
+  });
   const newsDocs = getPublishedNewsArticles().map((article) => {
     const title = newsLocalizedTitle(article, locale);
     const dek = newsLocalizedDek(article, locale);
@@ -964,7 +999,7 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     };
   });
 
-  return [...pages, ...species, ...regionDocs, ...newsDocs];
+  return [...pages, ...species, ...regionDocs, ...authorDocs, ...newsDocs];
 }
 
 function blob(parts: Array<string | undefined>) {

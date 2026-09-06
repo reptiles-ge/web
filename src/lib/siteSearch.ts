@@ -31,6 +31,7 @@ export type SearchHref =
   | SearchPageHref
   | SpeciesHref
   | { params: { id: string }; pathname: "/regions/[id]" }
+  | { params: { slug: string }; pathname: "/authors/[slug]" }
   | { params: { slug: string }; pathname: "/news/[slug]" };
 
 export type SearchIcon =
@@ -50,6 +51,7 @@ export type SearchKind = "page" | "region" | "species";
 export type SearchPageHref = Exclude<
   AppPathnames,
   | "/amphibians/[slug]"
+  | "/authors/[slug]"
   | "/birds/[slug]"
   | "/lizards/[slug]"
   | "/mammals/[slug]"

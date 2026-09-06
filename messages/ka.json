@@ -628,6 +628,21 @@
       "venomous": "შხამიანი გველები საქართველოში"
     }
   },
+  "author": {
+    "kicker": "ფოტოგრაფი",
+    "subtitle": "ფოტოები საქართველოს ცხოველთა ატლასში.",
+    "statPhotos": "ფოტო",
+    "statSpecies": "სახეობა",
+    "gallery": "გალერეა",
+    "speciesList": "სახეობები ატლასში",
+    "heroImageAlt": "{name}",
+    "metaTitle": "{name}",
+    "metaDescription": "{name}-ის {count} ფოტო {species} სახეობაზე — საქართველოს ცხოველთა ატლასში.",
+    "notFound": "ავტორი ვერ მოიძებნა",
+    "close": "დახურვა",
+    "prevPhoto": "წინა ფოტო",
+    "nextPhoto": "შემდეგი ფოტო"
+  },
   "attribution": {
     "heading": "Reptiles.ge",
     "subtitle": "საქართველოს ცხოველთა ატლასი",

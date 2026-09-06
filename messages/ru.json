@@ -628,6 +628,21 @@
       "venomous": "Ядовитые змеи в Грузии"
     }
   },
+  "author": {
+    "kicker": "Фотограф",
+    "subtitle": "Фотографии в атласе животных Грузии.",
+    "statPhotos": "фото",
+    "statSpecies": "видов",
+    "gallery": "Галерея",
+    "speciesList": "Виды в атласе",
+    "heroImageAlt": "{name}",
+    "metaTitle": "{name}",
+    "metaDescription": "{count} фотографий {name} — {species} видов в атласе животных Грузии.",
+    "notFound": "Автор не найден",
+    "close": "Закрыть",
+    "prevPhoto": "Предыдущее фото",
+    "nextPhoto": "Следующее фото"
+  },
   "attribution": {
     "heading": "Reptiles.ge",
     "subtitle": "Атлас животных Грузии",

@@ -11,6 +11,7 @@ export type MapContext = "atlas" | "guide" | "home" | "region_page";
 export type PageType =
   | "about"
   | "atlas"
+  | "author"
   | "contact"
   | "guide"
   | "home"
@@ -29,6 +30,7 @@ export type QuizCtaSource = "hub" | "other" | "quiz_index" | "species";
 
 export type SpeciesClickSource =
   | "atlas"
+  | "author"
   | "carousel"
   | "footer"
   | "guide"

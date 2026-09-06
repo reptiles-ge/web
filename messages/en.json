@@ -628,6 +628,21 @@
       "venomous": "Venomous snakes in Georgia"
     }
   },
+  "author": {
+    "kicker": "Photographer",
+    "subtitle": "Photographs in the atlas of animals of Georgia.",
+    "statPhotos": "photos",
+    "statSpecies": "species",
+    "gallery": "Gallery",
+    "speciesList": "Species in the atlas",
+    "heroImageAlt": "{name}",
+    "metaTitle": "{name}",
+    "metaDescription": "{count} photographs of {species} species by {name}, in the atlas of animals of Georgia.",
+    "notFound": "Author not found",
+    "close": "Close",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo"
+  },
   "attribution": {
     "heading": "Reptiles.ge",
     "subtitle": "Atlas of animals of Georgia",
