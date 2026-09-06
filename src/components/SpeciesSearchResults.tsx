@@ -22,6 +22,7 @@ export function SearchResultsList({
   onPickSuggestion,
   onSelect,
   query,
+  ready = true,
   showRecent,
   suggestions,
   titles,
@@ -36,16 +37,18 @@ export function SearchResultsList({
   onPickSuggestion: (value: string) => void;
   onSelect: (item: SearchDocument) => void;
   query: string;
+  ready?: boolean;
   showRecent: boolean;
   suggestions: string[];
   titles: SearchGroupTitles;
 }) {
   let cursor = 0;
   const empty = groups.every((group) => group.items.length === 0);
+  const showEmpty = empty && (ready || query.length > 0);
 
   return (
     <div aria-label={listLabel} id={listId} role="listbox">
-      {empty ? (
+      {showEmpty ? (
         <EmptyState
           hint={emptyHint}
           onPick={onPickSuggestion}

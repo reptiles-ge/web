@@ -32,7 +32,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts` |
 | Catalog, publish, danger       | `src/data/species.ts`                                                     |
 | Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                |
-| Public URL / slug / lookalikes | `src/lib/speciesRoutes.ts`                                                |
+| Public URL / slug / lookalikes | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`, `src/lib/speciesRoutes.ts` |
 | Localized pathnames            | `src/i18n/pathnames.ts`                                                   |
 | Group hubs                     | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                 |
 | Cluster guides                 | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`         |
@@ -41,7 +41,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Checklist authority            | `src/data/herpetofauna-checklist.ts`                                      |
 | Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                              |
 | News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                |
-| 301 map                        | `next.config.ts` **and** `src/proxy.ts`                                   |
+| 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`) |
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                       |
 
 ## Architecture
@@ -51,6 +51,8 @@ src/app/[locale]/          routes (folder names = internal English pathnames)
 src/components/            pages + UI
 src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
+src/data/speciesSlugs.generated.ts gitignored (Edge slug table)
+src/data/search-index.{ka,en,ru,tr}.generated.ts gitignored
 src/content/news/{slug}.ts first-class news articles (all locales)
 src/data/news.ts           published news registry
 src/lib/                   routing, SEO, quiz, clusters, news
@@ -81,10 +83,10 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 ## Species content pipeline
 
 1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit.
-2. `npm run species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts`.
+2. `npm run species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts` and `src/data/speciesSlugs.generated.ts`.
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.
-5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesRoutes.ts`.
+5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
 6. Lookalikes: `LOOKALIKES` in `speciesRoutes.ts` (bidirectional). **Do not** add a lookalike YAML key to MDX — compile does not read it.
 7. Range map on a profile: only if the id is in some `regions[].speciesIds`. That is a data task, not MDX.
 
@@ -187,7 +189,7 @@ npm run species:compile
 
 ## Do not
 
-- Commit or hand-edit `src/data/species.generated.ts` (gitignored; `predev` / `prebuild` writes it).
+- Commit or hand-edit `src/data/species.generated.ts`, `src/data/speciesSlugs.generated.ts`, or `src/data/search-index.*.generated.ts` (gitignored; `predev` / `prebuild` writes them).
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
 - Ship one-locale copy or one-locale MDX.

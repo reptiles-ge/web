@@ -2,9 +2,19 @@
 
 import { CornerDownLeft } from "lucide-react";
 
-import { type SearchFilterLabels, SpeciesSearchFilterBar } from "@/components/SpeciesSearchFilterBar";
-import { type SearchGroupTitles, SearchResultsList } from "@/components/SpeciesSearchResults";
-import { type SearchDocument, type SearchFilter, type SearchGroup } from "@/lib/siteSearch";
+import {
+  type SearchFilterLabels,
+  SpeciesSearchFilterBar,
+} from "@/components/SpeciesSearchFilterBar";
+import {
+  type SearchGroupTitles,
+  SearchResultsList,
+} from "@/components/SpeciesSearchResults";
+import {
+  type SearchDocument,
+  type SearchFilter,
+  type SearchGroup,
+} from "@/lib/siteSearch";
 
 export function SearchDesktopPanel({
   activeIndex,
@@ -21,6 +31,7 @@ export function SearchDesktopPanel({
   onPickSuggestion,
   onSelect,
   query,
+  ready,
   selectLabel,
   showRecent,
   suggestions,
@@ -41,6 +52,7 @@ export function SearchDesktopPanel({
   onPickSuggestion: (value: string) => void;
   onSelect: (item: SearchDocument) => void;
   query: string;
+  ready?: boolean;
   selectLabel: string;
   showRecent: boolean;
   suggestions: string[];
@@ -68,6 +80,7 @@ export function SearchDesktopPanel({
           onPickSuggestion={onPickSuggestion}
           onSelect={onSelect}
           query={query}
+          ready={ready}
           showRecent={showRecent}
           suggestions={suggestions}
           titles={titles}

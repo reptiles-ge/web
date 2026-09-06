@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { getSearchIndex } from "@/data/search-index.generated";
+import { searchDocuments as kaIndex } from "@/data/search-index.ka.generated";
+import { searchDocuments as ruIndex } from "@/data/search-index.ru.generated";
 import { flattenGroups, searchIndex } from "@/lib/siteSearch";
 
 describe("search scoring", () => {
-  const index = getSearchIndex("ka");
+  const index = kaIndex;
 
   it("finds გიურზა by Georgian common name", () => {
     const { groups } = searchIndex(index, "გიურზა", "all");
@@ -32,7 +33,7 @@ describe("search scoring", () => {
 });
 
 describe("search scoring (ru)", () => {
-  const index = getSearchIndex("ru");
+  const index = ruIndex;
 
   it("finds Macrovipera by Russian vernacular", () => {
     const { groups } = searchIndex(index, "гюрза", "all");
