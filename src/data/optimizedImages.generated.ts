@@ -1621,6 +1621,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eirenis-modestus-armen-1.jpg": {
+    "path": "eirenis-modestus-armen-1",
+    "width": 1440,
+    "height": 943,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eirenis-modestus-giorgi-1.jpg": {
     "path": "eirenis-modestus-giorgi-1",
     "width": 1024,
