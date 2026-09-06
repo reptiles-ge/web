@@ -53024,6 +53024,101 @@
       ],
       "updatedAt": "2026-08-28T22:01:55.085Z"
     },
+    "vulpes-vulpes-giorgi-1.jpg": {
+      "sourceHash": "cc8fa9bff8ea03172adfdef0be6cb900e986c37519b921fe9813e17112636200",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vulpes-vulpes-giorgi-1.jpg",
+      "originalSize": 265468,
+      "width": 1803,
+      "height": 1182,
+      "derivatives": [
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 8528
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 10392
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 11396
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 14286
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 420,
+          "byteSize": 21275
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 420,
+          "byteSize": 26216
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 524,
+          "byteSize": 27336
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 524,
+          "byteSize": 35026
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 787,
+          "byteSize": 46990
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 787,
+          "byteSize": 62002
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-1803.avif",
+          "format": "avif",
+          "width": 1803,
+          "height": 1182,
+          "byteSize": 89854
+        },
+        {
+          "key": "optimized/vulpes-vulpes-giorgi-1-1803.webp",
+          "format": "webp",
+          "width": 1803,
+          "height": 1182,
+          "byteSize": 109070
+        }
+      ],
+      "updatedAt": "2026-09-06T17:09:55.301Z"
+    },
     "vulpes-vulpes-lours-1.jpg": {
       "sourceHash": "224a094c47bf1f6651574e5eb5bb20da4dad0f3f9e49c3e1faebb144d75d428b",
       "configFingerprint": "a895f8e025dcc7fa",
