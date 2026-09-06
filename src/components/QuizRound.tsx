@@ -11,8 +11,8 @@ import type {
   SnakeQuizSpecies,
 } from "@/lib/snakeQuizEngine";
 
-import { useQuizCopy } from "@/components/QuizCopyContext";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

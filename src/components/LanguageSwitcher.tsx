@@ -16,11 +16,11 @@ import {
 } from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
 import {
+  type LocaleSwitchIndex,
   quizHrefFromIndex,
   resolvePageContextFromIndex,
   resolveSpeciesIdFromIndex,
   speciesHrefFromIndex,
-  type LocaleSwitchIndex,
 } from "@/lib/localeSwitch";
 
 const STATIC_LOCALE_PATHS = [

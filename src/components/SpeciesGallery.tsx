@@ -4,10 +4,11 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
+import type { GalleryImage } from "@/data/speciesTypes";
+
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import { pictureSources } from "@/data/optimizedImages";
-import type { GalleryImage } from "@/data/speciesTypes";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

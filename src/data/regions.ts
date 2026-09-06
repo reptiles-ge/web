@@ -7,24 +7,24 @@ import {
   getRegionById,
   getRegionsForSpecies,
   hasLocalizedText,
+  type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
-  type LocalizedText,
   type Region,
-  type RegionTooltipSpecies,
   regions,
+  type RegionTooltipSpecies,
 } from "./mapRegions";
 
 export {
   getRegionById,
   getRegionsForSpecies,
   hasLocalizedText,
+  type LocalizedText,
   localizeRegionText,
   localizeRegionTextIfPresent,
-  type LocalizedText,
   type Region,
-  type RegionTooltipSpecies,
   regions,
+  type RegionTooltipSpecies,
 };
 
 export function getCatalogRegionStats() {

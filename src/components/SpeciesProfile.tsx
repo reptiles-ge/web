@@ -6,11 +6,11 @@ import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { getHerpetofaunaChecklistStatus } from "@/data/herpetofauna-checklist";
+import { getRegionsForSpecies } from "@/data/mapRegions";
 import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
-import { resolvePhotoCredit } from "@/data/speciesMedia";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { getRegionsForSpecies } from "@/data/mapRegions";
+import { resolvePhotoCredit } from "@/data/speciesMedia";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,

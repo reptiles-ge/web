@@ -129,16 +129,6 @@ export type SnakeQuizSpecies = {
   scientificName: string;
 };
 
-export function scoreMessageKey(percent: number): ScoreMessageKey {
-  const band = SCORE_BANDS.find((item) => percent >= item.minPercent);
-  return band?.messageKey ?? "scoreKeepGoing";
-}
-
-export function scorePercent(correct: number, total: number) {
-  if (total <= 0) return 0;
-  return Math.round((correct / total) * 100);
-}
-
 export function generateLizardQuiz(
   pool: SnakeQuizSpecies[],
   options?: {
@@ -271,6 +261,16 @@ export function pickSnakeDistractors(
   return shuffle(top, rng)
     .slice(0, count)
     .map((item) => item.id);
+}
+
+export function scoreMessageKey(percent: number): ScoreMessageKey {
+  const band = SCORE_BANDS.find((item) => percent >= item.minPercent);
+  return band?.messageKey ?? "scoreKeepGoing";
+}
+
+export function scorePercent(correct: number, total: number) {
+  if (total <= 0) return 0;
+  return Math.round((correct / total) * 100);
 }
 
 function catalogById(pool: SnakeQuizSpecies[]) {

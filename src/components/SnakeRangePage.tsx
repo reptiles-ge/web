@@ -15,8 +15,8 @@ import {
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { getRegionContent } from "@/data/regionContent";
 import {
-  getRegionTooltipPreviews,
   getRegionsForSpecies,
+  getRegionTooltipPreviews,
   localizeRegionText,
   type Region,
   regions,

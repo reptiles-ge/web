@@ -7,13 +7,13 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { getRegionContent } from "@/data/regionContent";
 import {
   localizeRegionText,
   type Region,
-  type RegionTooltipSpecies,
   regions,
+  type RegionTooltipSpecies,
 } from "@/data/mapRegions";
+import { getRegionContent } from "@/data/regionContent";
 import { Link } from "@/i18n/navigation";
 import { regionHref } from "@/lib/regionHref";
 

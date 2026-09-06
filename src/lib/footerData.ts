@@ -6,6 +6,11 @@ import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
+export type FooterData = {
+  regions: FooterRegionLink[];
+  venomous: FooterSpeciesLink[];
+};
+
 export type FooterRegionLink = {
   href: ReturnType<typeof regionHref>;
   id: string;
@@ -17,11 +22,6 @@ export type FooterSpeciesLink = {
   href: SpeciesHref;
   id: string;
   scientificName: string;
-};
-
-export type FooterData = {
-  regions: FooterRegionLink[];
-  venomous: FooterSpeciesLink[];
 };
 
 export function getFooterData(locale: AppLocale): FooterData {

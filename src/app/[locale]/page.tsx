@@ -14,8 +14,8 @@ import { HomeGroups } from "@/components/home/HomeGroups";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
-import { getAtlasStats } from "@/data/speciesAtlas";
 import { getRegionTooltipPreviews } from "@/data/regions";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   allRightsReservedLabel,
   atlasDatasetName,

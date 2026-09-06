@@ -2,18 +2,21 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { AppLocale } from "@/i18n/routing";
 import type { PageType } from "@/lib/analytics";
 
+export type LocaleSpeciesHref = {
+  params: { slug: string };
+  pathname:
+    | "/amphibians/[slug]"
+    | "/birds/[slug]"
+    | "/lizards/[slug]"
+    | "/mammals/[slug]"
+    | "/snakes/[slug]"
+    | "/spiders/[slug]"
+    | "/turtles/[slug]";
+};
+
 export type LocaleSwitchGuide = {
   group: AnimalGroup;
   id: string;
-};
-
-export type LocaleSwitchIndex = {
-  groupById: Record<string, AnimalGroup>;
-  guides: Record<string, LocaleSwitchGuide>;
-  hubById: Record<string, LocaleSwitchHubId>;
-  idBySlug: Record<string, string>;
-  kaSlugById: Record<string, string>;
-  quizzes: LocaleSwitchQuiz[];
 };
 
 export type LocaleSwitchHubId =
@@ -25,22 +28,19 @@ export type LocaleSwitchHubId =
   | "spiders"
   | "turtles";
 
+export type LocaleSwitchIndex = {
+  groupById: Record<string, AnimalGroup>;
+  guides: Record<string, LocaleSwitchGuide>;
+  hubById: Record<string, LocaleSwitchHubId>;
+  idBySlug: Record<string, string>;
+  kaSlugById: Record<string, string>;
+  quizzes: LocaleSwitchQuiz[];
+};
+
 export type LocaleSwitchQuiz = {
   group: "lizard" | "snake";
   id: "lizard" | "snake";
   slugs: Record<AppLocale, string>;
-};
-
-export type LocaleSpeciesHref = {
-  params: { slug: string };
-  pathname:
-    | "/amphibians/[slug]"
-    | "/birds/[slug]"
-    | "/lizards/[slug]"
-    | "/mammals/[slug]"
-    | "/snakes/[slug]"
-    | "/spiders/[slug]"
-    | "/turtles/[slug]";
 };
 
 export type ResolvedPageContext = {

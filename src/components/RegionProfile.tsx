@@ -14,8 +14,6 @@ import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { getRegionContent } from "@/data/regionContent";
-import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
   type LocalizedText,
@@ -23,6 +21,8 @@ import {
   localizeRegionTextIfPresent,
   type Region,
 } from "@/data/mapRegions";
+import { getRegionContent } from "@/data/regionContent";
+import { getRegionHeroImage } from "@/data/regionImages";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";

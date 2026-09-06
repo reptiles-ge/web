@@ -1,5 +1,5 @@
-import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
 import type { AnimalGroup } from "@/data/speciesAtlasMeta";
+import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";

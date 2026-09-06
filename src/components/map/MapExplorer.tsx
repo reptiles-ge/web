@@ -3,8 +3,9 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
+
+import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Link } from "@/i18n/navigation";
 
 export function MapExplorer({

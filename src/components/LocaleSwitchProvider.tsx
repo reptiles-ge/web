@@ -3,6 +3,7 @@
 import { createContext, type ReactNode, useContext } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
+
 import {
   type LocaleSpeciesHref,
   type LocaleSwitchIndex,

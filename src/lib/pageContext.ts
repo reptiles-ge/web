@@ -1,9 +1,9 @@
 import type { AppLocale } from "@/i18n/routing";
 
 import {
-  resolvePageContextFromIndex,
   type LocaleSwitchIndex,
   type ResolvedPageContext,
+  resolvePageContextFromIndex,
 } from "@/lib/localeSwitch";
 
 export type { ResolvedPageContext };

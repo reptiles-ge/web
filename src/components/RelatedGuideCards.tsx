@@ -5,17 +5,17 @@ import { useTranslations } from "next-intl";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { CoverImage } from "@/components/CoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
-import type { HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { quizHref } from "@/lib/quizzes";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 const PAGE_CARD_IMAGES: Partial<
   Record<Extract<HubClusterCard, { kind: "page" }>["href"], string>
@@ -34,33 +34,6 @@ const GUIDE_HERO_IMAGES: Partial<
   "/snakes/shxamiani-gvelis-amocnoba":
     "/images/guides/identify-venomous-cover.png",
 };
-
-function speciesCardImage(id: string, species: Species[]) {
-  const item = species.find((entry) => entry.id === id);
-  const src = item?.image;
-  if (!src || isPlaceholderMedia(src)) return undefined;
-  return src;
-}
-
-function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
-  if (card.kind === "species") {
-    return speciesCardImage(card.id, species);
-  }
-
-  if (card.kind === "quiz") {
-    return card.id === "lizard"
-      ? "/images/home/groups/lizards.jpg"
-      : "/images/guides/snake-quiz-og.jpg";
-  }
-
-  const override = PAGE_CARD_IMAGES[card.href] ?? GUIDE_HERO_IMAGES[card.href];
-  if (override) return override;
-
-  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
-  if (hub) return speciesCardImage(hub.heroSpeciesId, species);
-
-  return undefined;
-}
 
 export function RelatedGuideCard({
   card,
@@ -180,4 +153,31 @@ export function RelatedGuideGrid({
       ))}
     </div>
   );
+}
+
+function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
+  if (card.kind === "species") {
+    return speciesCardImage(card.id, species);
+  }
+
+  if (card.kind === "quiz") {
+    return card.id === "lizard"
+      ? "/images/home/groups/lizards.jpg"
+      : "/images/guides/snake-quiz-og.jpg";
+  }
+
+  const override = PAGE_CARD_IMAGES[card.href] ?? GUIDE_HERO_IMAGES[card.href];
+  if (override) return override;
+
+  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
+  if (hub) return speciesCardImage(hub.heroSpeciesId, species);
+
+  return undefined;
+}
+
+function speciesCardImage(id: string, species: Species[]) {
+  const item = species.find((entry) => entry.id === id);
+  const src = item?.image;
+  if (!src || isPlaceholderMedia(src)) return undefined;
+  return src;
 }

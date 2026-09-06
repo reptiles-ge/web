@@ -9,8 +9,8 @@ import type { AppLocale } from "@/i18n/routing";
 import { usePathname } from "@/i18n/navigation";
 import { pushPageContext } from "@/lib/analytics";
 import {
-  resolvePageContextFromIndex,
   type LocaleSwitchIndex,
+  resolvePageContextFromIndex,
 } from "@/lib/localeSwitch";
 
 export function AnalyticsPageContext({
