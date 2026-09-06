@@ -68,6 +68,11 @@ export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {
   return pickLocalized(author.name, locale);
 }
 
+export function creditAuthorBio(author: CreditAuthor, locale: AppLocale) {
+  if (!author.bio) return undefined;
+  return pickLocalized(author.bio, locale);
+}
+
 export function getCreditAuthorByName(name: string) {
   const trimmed = name.trim();
   if (!trimmed) return undefined;

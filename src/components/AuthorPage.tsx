@@ -7,7 +7,7 @@ import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import { AuthorGallery } from "@/components/AuthorGallery";
 import { CoverImage } from "@/components/CoverImage";
-import { creditAuthorName } from "@/data/creditAuthors";
+import { creditAuthorBio, creditAuthorName } from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
@@ -27,6 +27,7 @@ export async function AuthorPage({
   const t = await getTranslations("author");
   const tShared = await getTranslations("groupHubShared");
   const name = creditAuthorName(author, locale);
+  const bio = creditAuthorBio(author, locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
 
   return (
@@ -61,9 +62,6 @@ export async function AuthorPage({
               <h1 className="mt-2 font-display text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
                 {name}
               </h1>
-              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-                {t("subtitle")}
-              </p>
               <p className="mt-4 text-[13px] text-muted-foreground">
                 <span className="font-medium text-foreground">
                   {photos.length}
@@ -77,6 +75,9 @@ export async function AuthorPage({
               </p>
             </div>
           </div>
+          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:mt-8">
+            {bio ?? t("subtitle")}
+          </p>
         </div>
       </header>
 
