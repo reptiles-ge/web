@@ -2725,6 +2725,101 @@
       ],
       "updatedAt": "2026-09-06T16:41:00.410Z"
     },
+    "argiope-bruennichi-zauri-3.jpg": {
+      "sourceHash": "16ef74b8e59296c56d4d38cb962cbb9266616c5ced6e54116347603a3b19b65d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "argiope-bruennichi-zauri-3.jpg",
+      "originalSize": 149387,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4605
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6342
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5769
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8228
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 11547
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 15132
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 15640
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20498
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 28428
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 35482
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 85570
+        },
+        {
+          "key": "optimized/argiope-bruennichi-zauri-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 85750
+        }
+      ],
+      "updatedAt": "2026-09-06T16:41:42.789Z"
+    },
     "argiope-lobata-1.jpg": {
       "sourceHash": "83c171148c5299bd8d292b9cc2be696d1aaa064cb165b90cab7f24bfd28c2b99",
       "configFingerprint": "a895f8e025dcc7fa",
