@@ -515,6 +515,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1011],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg": {
+    "path": "authors/zakro-songulashvili",
+    "width": 446,
+    "height": 660,
+    "widths": [320, 400, 446],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg": {
     "path": "authors/zauri-khachidze",
     "width": 480,

@@ -140,6 +140,35 @@ describe("credit authors", () => {
     );
   });
 
+  it("resolves Zakro Songulashvili as a published herpetologist", () => {
+    expect(getPublishedCreditAuthorByName("ზაქრო სონგულაშვილი")?.slug).toBe(
+      "zakro-songulashvili",
+    );
+    expect(getPublishedCreditAuthorByName("Zakro Songulashvili")?.slug).toBe(
+      "zakro-songulashvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("zakro-songulashvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("herpetologist");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ნატურალისტი");
+    expect(author?.links).toBeUndefined();
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(10);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "argiope-lobata",
+        "bufotes-viridis",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "spiders", "amphibians"]),
+    );
+  });
+
   it("collects his atlas photos without duplicates", () => {
     const author = getPublishedCreditAuthorBySlug("sandro-khakhva");
     expect(author).toBeTruthy();

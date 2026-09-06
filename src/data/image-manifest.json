@@ -3328,6 +3328,59 @@
       ],
       "updatedAt": "2026-09-06T12:26:16.344Z"
     },
+    "authors/zakro-songulashvili.jpg": {
+      "sourceHash": "4357c539af87c13959ea002444e4e3c3aa59217c3a0bae0a571681a15b3dce31",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/zakro-songulashvili.jpg",
+      "originalSize": 116466,
+      "width": 446,
+      "height": 660,
+      "derivatives": [
+        {
+          "key": "optimized/authors/zakro-songulashvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 474,
+          "byteSize": 19683
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 474,
+          "byteSize": 29660
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 592,
+          "byteSize": 24820
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 592,
+          "byteSize": 37044
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-446.avif",
+          "format": "avif",
+          "width": 446,
+          "height": 660,
+          "byteSize": 28355
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-446.webp",
+          "format": "webp",
+          "width": 446,
+          "height": 660,
+          "byteSize": 42820
+        }
+      ],
+      "updatedAt": "2026-09-06T18:27:16.973Z"
+    },
     "authors/zauri-khachidze.jpg": {
       "sourceHash": "774fdd34b8d61a101f2c3d9fecc487e2e19cf49ffe7028bd108817660219824b",
       "configFingerprint": "409788ee46c653d8",
