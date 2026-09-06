@@ -438,6 +438,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 932],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/argiope-bruennichi-zauri-1.jpg": {
+    "path": "argiope-bruennichi-zauri-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/argiope-bruennichi-zauri-2.jpg": {
+    "path": "argiope-bruennichi-zauri-2",
+    "width": 1344,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1344],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-lobata-1.jpg": {
     "path": "argiope-lobata-1",
     "width": 1080,
