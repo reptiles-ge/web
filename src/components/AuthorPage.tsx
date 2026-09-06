@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
@@ -31,13 +31,27 @@ export async function AuthorPage({
   const speciesIds = getCreditAuthorSpeciesIds(photos);
   const socials = [
     author.links?.facebook
-      ? { href: author.links.facebook, key: "facebook" as const }
+      ? {
+          href: author.links.facebook,
+          Icon: FacebookGlyph,
+          key: "facebook" as const,
+        }
       : null,
     author.links?.instagram
-      ? { href: author.links.instagram, key: "instagram" as const }
+      ? {
+          href: author.links.instagram,
+          Icon: InstagramGlyph,
+          key: "instagram" as const,
+        }
       : null,
-  ].filter((item): item is { href: string; key: "facebook" | "instagram" } =>
-    Boolean(item),
+  ].filter(
+    (
+      item,
+    ): item is {
+      href: string;
+      Icon: typeof FacebookGlyph;
+      key: "facebook" | "instagram";
+    } => Boolean(item),
   );
 
   return (
@@ -89,17 +103,17 @@ export async function AuthorPage({
             {bio ?? t("subtitle")}
           </p>
           {socials.length > 0 ? (
-            <ul className="mt-6 flex flex-wrap gap-3">
+            <ul className="mt-5 flex items-center gap-2">
               {socials.map((item) => (
                 <li key={item.key}>
                   <a
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                    aria-label={t(item.key)}
+                    className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary"
                     href={item.href}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    {t(item.key)}
-                    <ArrowUpRight className="size-3.5 opacity-60" />
+                    <item.Icon className="size-4" />
                   </a>
                 </li>
               ))}
@@ -142,5 +156,49 @@ export async function AuthorPage({
         </div>
       </section>
     </div>
+  );
+}
+
+function FacebookGlyph({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
+
+function InstagramGlyph({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        height="20"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        width="20"
+        x="2"
+        y="2"
+      />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="17.5" cy="6.5" fill="currentColor" r="1" />
+    </svg>
   );
 }
