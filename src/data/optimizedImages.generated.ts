@@ -4,6 +4,55 @@ import type { OptimizedImageEntry } from "./optimizedImages";
 export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";
 
 export const optimizedImages: Record<string, OptimizedImageEntry> = {
+  "/images/home/groups/amphibians.jpg": {
+    "path": "images/home/groups/amphibians",
+    "width": 1800,
+    "height": 1200,
+    "widths": [400, 800, 1200, 1800],
+    "formats": ["avif", "webp"]
+  },
+  "/images/home/groups/birds.jpg": {
+    "path": "images/home/groups/birds",
+    "width": 900,
+    "height": 900,
+    "widths": [400, 800, 900],
+    "formats": ["avif", "webp"]
+  },
+  "/images/home/groups/lizards.jpg": {
+    "path": "images/home/groups/lizards",
+    "width": 1800,
+    "height": 1200,
+    "widths": [400, 800, 1200, 1800],
+    "formats": ["avif", "webp"]
+  },
+  "/images/home/groups/mammals.jpg": {
+    "path": "images/home/groups/mammals",
+    "width": 900,
+    "height": 900,
+    "widths": [400, 800, 900],
+    "formats": ["avif", "webp"]
+  },
+  "/images/home/groups/snakes.jpg": {
+    "path": "images/home/groups/snakes",
+    "width": 1800,
+    "height": 1200,
+    "widths": [400, 800, 1200, 1800],
+    "formats": ["avif", "webp"]
+  },
+  "/images/home/groups/spiders.jpg": {
+    "path": "images/home/groups/spiders",
+    "width": 900,
+    "height": 900,
+    "widths": [400, 800, 900],
+    "formats": ["avif", "webp"]
+  },
+  "/images/home/groups/turtles.jpg": {
+    "path": "images/home/groups/turtles",
+    "width": 1800,
+    "height": 1200,
+    "widths": [400, 800, 1200, 1800],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,
@@ -1635,13 +1684,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/elaphe-dione-mobile.jpg": {
-    "path": "elaphe-dione-mobile",
-    "width": 1800,
-    "height": 1200,
-    "widths": [400, 800, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/elaphe-dione-nika-1.jpg": {
     "path": "elaphe-dione-nika-1",
     "width": 2048,
@@ -2181,13 +2223,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1899],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/hemorrhois-ravergieri-mobile.jpg": {
-    "path": "hemorrhois-ravergieri-mobile",
-    "width": 1200,
-    "height": 1600,
-    "widths": [400, 800, 1200],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-rust-1.jpg": {
     "path": "hemorrhois-ravergieri-rust-1",
     "width": 1152,
@@ -2263,13 +2298,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1080,
     "height": 1468,
     "widths": [400, 800, 1080],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/hyla-savignyi-mobile.jpg": {
-    "path": "hyla-savignyi-mobile",
-    "width": 1500,
-    "height": 1000,
-    "widths": [400, 800, 1200, 1500],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/hyla-savignyi.jpg": {
@@ -3301,13 +3329,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-1.jpg": {
-    "path": "latrodectus-tredecimguttatus-1",
-    "width": 1024,
-    "height": 1034,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-ioane-1.jpg": {
     "path": "latrodectus-tredecimguttatus-ioane-1",
     "width": 960,
@@ -3586,13 +3607,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1080,
     "height": 1434,
     "widths": [400, 800, 1080],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/malpolon-insignitus-mobile.jpg": {
-    "path": "malpolon-insignitus-mobile",
-    "width": 2048,
-    "height": 2008,
-    "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/malpolon-insignitus.jpg": {
@@ -5149,13 +5163,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1000],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg": {
-    "path": "vipera-darevskii-mobile",
-    "width": 900,
-    "height": 1200,
-    "widths": [400, 800, 900],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/vipera-darevskii-tadevosyan-1.jpg": {
     "path": "vipera-darevskii-tadevosyan-1",
     "width": 1015,
@@ -5477,13 +5484,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1365,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-renardi-mobile.webp": {
-    "path": "vipera-renardi-mobile",
-    "width": 800,
-    "height": 533,
-    "widths": [400, 800],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/vipera-renardi.jpg": {
     "path": "vipera-renardi",

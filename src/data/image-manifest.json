@@ -19504,6 +19504,433 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/home/groups/amphibians.jpg": {
+      "sourceHash": "93be3de896c76e82e0182df5b4b1d97ac92bde9f93d1393be8fb2cc98e1cbc3b",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/amphibians.jpg",
+      "originalSize": 650910,
+      "width": 1800,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/amphibians-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19027
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27004
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66073
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 88506
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 124647
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 158582
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 224487
+        },
+        {
+          "key": "optimized/images/home/groups/amphibians-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 272276
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:46.445Z"
+    },
+    "images/home/groups/birds.jpg": {
+      "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/birds.jpg",
+      "originalSize": 298090,
+      "width": 900,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/birds-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 25236
+        },
+        {
+          "key": "optimized/images/home/groups/birds-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 37660
+        },
+        {
+          "key": "optimized/images/home/groups/birds-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 78170
+        },
+        {
+          "key": "optimized/images/home/groups/birds-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 107268
+        },
+        {
+          "key": "optimized/images/home/groups/birds-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 900,
+          "byteSize": 96151
+        },
+        {
+          "key": "optimized/images/home/groups/birds-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 900,
+          "byteSize": 131548
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:49.137Z"
+    },
+    "images/home/groups/lizards.jpg": {
+      "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/lizards.jpg",
+      "originalSize": 766395,
+      "width": 1800,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/lizards-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19735
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32050
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68489
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 106608
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 134893
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 192834
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 252520
+        },
+        {
+          "key": "optimized/images/home/groups/lizards-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 344598
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:47.999Z"
+    },
+    "images/home/groups/mammals.jpg": {
+      "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/mammals.jpg",
+      "originalSize": 349170,
+      "width": 900,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/mammals-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28983
+        },
+        {
+          "key": "optimized/images/home/groups/mammals-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 40958
+        },
+        {
+          "key": "optimized/images/home/groups/mammals-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 104616
+        },
+        {
+          "key": "optimized/images/home/groups/mammals-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 143478
+        },
+        {
+          "key": "optimized/images/home/groups/mammals-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 900,
+          "byteSize": 130678
+        },
+        {
+          "key": "optimized/images/home/groups/mammals-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 900,
+          "byteSize": 178278
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:44.363Z"
+    },
+    "images/home/groups/snakes.jpg": {
+      "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/snakes.jpg",
+      "originalSize": 606940,
+      "width": 1800,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/snakes-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15957
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22228
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56138
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 77082
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 108202
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 144170
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 195022
+        },
+        {
+          "key": "optimized/images/home/groups/snakes-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 249742
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:51.620Z"
+    },
+    "images/home/groups/spiders.jpg": {
+      "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/spiders.jpg",
+      "originalSize": 290009,
+      "width": 900,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/spiders-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 26887
+        },
+        {
+          "key": "optimized/images/home/groups/spiders-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 38252
+        },
+        {
+          "key": "optimized/images/home/groups/spiders-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 78732
+        },
+        {
+          "key": "optimized/images/home/groups/spiders-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 103696
+        },
+        {
+          "key": "optimized/images/home/groups/spiders-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 900,
+          "byteSize": 96247
+        },
+        {
+          "key": "optimized/images/home/groups/spiders-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 900,
+          "byteSize": 126958
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:55.881Z"
+    },
+    "images/home/groups/turtles.jpg": {
+      "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
+      "configFingerprint": "a895f8e025dcc7fa",
+      "originalKey": "images/home/groups/turtles.jpg",
+      "originalSize": 715913,
+      "width": 1800,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/turtles-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20216
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32150
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66194
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97466
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 125336
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 168810
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-1800.avif",
+          "format": "avif",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 233686
+        },
+        {
+          "key": "optimized/images/home/groups/turtles-1800.webp",
+          "format": "webp",
+          "width": 1800,
+          "height": 1200,
+          "byteSize": 298432
+        }
+      ],
+      "updatedAt": "2026-09-06T09:32:54.937Z"
+    },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
       "sourceHash": "aa43734d76421fa4eebcdd4912941e24db3a4343c15708f4596eee037465708d",
       "configFingerprint": "a895f8e025dcc7fa",
