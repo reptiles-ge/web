@@ -32141,6 +32141,101 @@
       ],
       "updatedAt": "2026-08-28T21:45:19.192Z"
     },
+    "macrovipera-lebetina-giorgi-3.jpg": {
+      "sourceHash": "538c2bb8726b2841fdb719a898d10a492e4b7877bc22e110facca1752d5af22e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-giorgi-3.jpg",
+      "originalSize": 726539,
+      "width": 1514,
+      "height": 997,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 18513
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 27258
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 29335
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 44668
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 421,
+          "byteSize": 83726
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 421,
+          "byteSize": 123214
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 527,
+          "byteSize": 130522
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 527,
+          "byteSize": 193632
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 790,
+          "byteSize": 259503
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 790,
+          "byteSize": 411074
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-1514.avif",
+          "format": "avif",
+          "width": 1514,
+          "height": 997,
+          "byteSize": 387524
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-giorgi-3-1514.webp",
+          "format": "webp",
+          "width": 1514,
+          "height": 997,
+          "byteSize": 598604
+        }
+      ],
+      "updatedAt": "2026-09-06T14:59:34.654Z"
+    },
     "macrovipera-lebetina-ioane-1.jpg": {
       "sourceHash": "f3742c18e6cd08050b142f85a7f3be91c3438835b33bd698c94ddbbfc5efdbd5",
       "configFingerprint": "409788ee46c653d8",
