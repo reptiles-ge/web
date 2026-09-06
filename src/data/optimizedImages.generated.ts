@@ -732,11 +732,25 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/canis-lupus-giorgi-1.jpg": {
+    "path": "canis-lupus-giorgi-1",
+    "width": 2002,
+    "height": 1323,
+    "widths": [320, 400, 640, 800, 1200, 2002],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/canis-lupus-innsbruck-1.jpg": {
     "path": "canis-lupus-innsbruck-1",
     "width": 1920,
     "height": 1280,
     "widths": [400, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/canis-lupus-nika-2.jpg": {
+    "path": "canis-lupus-nika-2",
+    "width": 1665,
+    "height": 1124,
+    "widths": [320, 400, 640, 800, 1200, 1665],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/canis-lupus-pescheray-1.jpg": {
