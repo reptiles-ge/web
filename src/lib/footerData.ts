@@ -31,13 +31,14 @@ export function getFooterData(locale: AppLocale): FooterData {
       id: region.id,
       name: localizeRegionText(region.name, locale),
     })),
-    venomous: getVenomousCatalogSpecies()
-      .map((item) => localizeSpecies(item, locale))
-      .map((item) => ({
-        commonName: item.commonName,
+    venomous: getVenomousCatalogSpecies().map((item) => {
+      const localized = localizeSpecies(item, locale);
+      return {
+        commonName: localized.commonName,
         href: speciesHref(item.id, locale),
         id: item.id,
-        scientificName: item.scientificName,
-      })),
+        scientificName: localized.scientificName,
+      };
+    }),
   };
 }
