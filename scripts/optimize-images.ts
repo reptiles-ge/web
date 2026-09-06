@@ -134,7 +134,17 @@ function parseArguments(argv: string[]): CliOptions {
     throw new Error("--concurrency requires a positive integer.");
   }
 
-  return { speciesIds, all, news, emitOnly, dryRun, force, limit, concurrency };
+  return {
+    speciesIds,
+    all,
+    news,
+    site,
+    emitOnly,
+    dryRun,
+    force,
+    limit,
+    concurrency,
+  };
 }
 
 function loadEnv() {
@@ -168,6 +178,7 @@ function collectSources(): Map<string, string> {
   };
 
   for (const src of Object.values(siteImages)) add(src);
+  for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
 
   for (const article of getAllNewsArticles()) {
     for (const photo of newsArticlePhotos(article)) add(photo.src);
@@ -186,7 +197,12 @@ function collectSources(): Map<string, string> {
   return byKey;
 }
 
-function collectTargets(ids: string[], all: boolean, news: boolean): Target[] {
+function collectTargets(
+  ids: string[],
+  all: boolean,
+  news: boolean,
+  site: boolean,
+): Target[] {
   const wanted = new Set(ids);
   const known = new Set(species.map((item) => item.id));
   for (const id of wanted) {
