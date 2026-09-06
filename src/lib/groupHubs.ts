@@ -71,6 +71,16 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
 
 export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
 
+export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
+  amphibians: "/images/home/groups/amphibians.jpg",
+  birds: "/images/home/groups/birds.jpg",
+  lizards: "/images/home/groups/lizards.jpg",
+  mammals: "/images/home/groups/mammals.jpg",
+  snakes: "/images/home/groups/snakes.jpg",
+  spiders: "/images/home/groups/spiders.jpg",
+  turtles: "/images/home/groups/turtles.jpg",
+};
+
 export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   amphibian: "amphibians",
   bird: "birds",

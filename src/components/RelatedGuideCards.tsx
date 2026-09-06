@@ -11,7 +11,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
-import { GROUP_HUB_LIST } from "@/lib/groupHubs";
+import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUB_LIST } from "@/lib/groupHubs";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { quizHref } from "@/lib/quizzes";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
@@ -162,7 +162,7 @@ function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
 
   if (card.kind === "quiz") {
     return card.id === "lizard"
-      ? "/images/home/groups/lizards.jpg"
+      ? GROUP_HUB_ILLUSTRATIONS.lizards
       : "/images/guides/snake-quiz-og.jpg";
   }
 

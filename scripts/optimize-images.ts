@@ -20,6 +20,7 @@ import {
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
+import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
 import {
   species,
   speciesEn,
@@ -27,7 +28,7 @@ import {
   speciesTr,
 } from "../src/data/species.generated";
 import { images as siteImages } from "../src/data/speciesMedia";
-import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
+import { GROUP_HUB_ILLUSTRATIONS } from "../src/lib/groupHubs";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -58,6 +59,7 @@ type CliOptions = {
   speciesIds: string[];
   all: boolean;
   news: boolean;
+  site: boolean;
   emitOnly: boolean;
   dryRun: boolean;
   force: boolean;
@@ -69,6 +71,7 @@ function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
   let all = false;
   let news = false;
+  let site = false;
   let emitOnly = false;
   let dryRun = false;
   let force = false;
@@ -89,6 +92,9 @@ function parseArguments(argv: string[]): CliOptions {
         break;
       case "--news":
         news = true;
+        break;
+      case "--site":
+        site = true;
         break;
       case "--emit-only":
         emitOnly = true;
@@ -112,13 +118,15 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, speciesIds.length > 0].filter(Boolean).length;
+  const scopes = [all, news, site, speciesIds.length > 0].filter(
+    Boolean,
+  ).length;
   if (scopes > 1) {
-    throw new Error("Pass only one of --all, --species, or --news.");
+    throw new Error("Pass only one of --all, --species, --news, or --site.");
   }
-  if (!all && !news && !emitOnly && speciesIds.length === 0) {
+  if (!all && !news && !site && !emitOnly && speciesIds.length === 0) {
     throw new Error(
-      "Pass --species <id> (comma-separated for several), --news for news photos, or --all for every image.",
+      "Pass --species <id> (comma-separated for several), --news for news photos, --site for homepage group photos, or --all for every image.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
@@ -128,7 +136,17 @@ function parseArguments(argv: string[]): CliOptions {
     throw new Error("--concurrency requires a positive integer.");
   }
 
-  return { speciesIds, all, news, emitOnly, dryRun, force, limit, concurrency };
+  return {
+    speciesIds,
+    all,
+    news,
+    site,
+    emitOnly,
+    dryRun,
+    force,
+    limit,
+    concurrency,
+  };
 }
 
 function loadEnv() {
@@ -162,6 +180,7 @@ function collectSources(): Map<string, string> {
   };
 
   for (const src of Object.values(siteImages)) add(src);
+  for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
 
   for (const article of getAllNewsArticles()) {
     for (const photo of newsArticlePhotos(article)) add(photo.src);
@@ -180,7 +199,12 @@ function collectSources(): Map<string, string> {
   return byKey;
 }
 
-function collectTargets(ids: string[], all: boolean, news: boolean): Target[] {
+function collectTargets(
+  ids: string[],
+  all: boolean,
+  news: boolean,
+  site: boolean,
+): Target[] {
   const wanted = new Set(ids);
   const known = new Set(species.map((item) => item.id));
   for (const id of wanted) {
@@ -197,6 +221,10 @@ function collectTargets(ids: string[], all: boolean, news: boolean): Target[] {
 
   if (all) {
     for (const src of Object.values(siteImages)) add(src);
+  }
+
+  if (all || site) {
+    for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
   }
 
   if (all || news) {
@@ -428,14 +456,14 @@ function formatGeneratedImages(
       const widths = `[${asset.widths.join(", ")}]`;
       const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
       return `  ${JSON.stringify(src)}: {
-    path: ${JSON.stringify(asset.path)},
-    width: ${asset.width},
-    height: ${asset.height},
-    widths: ${widths},
-    formats: ${formats},
-  },`;
+    "path": ${JSON.stringify(asset.path)},
+    "width": ${asset.width},
+    "height": ${asset.height},
+    "widths": ${widths},
+    "formats": ${formats}
+  }`;
     });
-  return `{\n${entries.join("\n")}\n}`;
+  return `{\n${entries.join(",\n")}\n}`;
 }
 
 async function generateDataFile(
@@ -511,6 +539,7 @@ async function run() {
     options.speciesIds,
     options.all,
     options.news,
+    options.site,
   );
   const coverKeys = collectCoverKeys(
     options.speciesIds,
@@ -537,7 +566,7 @@ async function run() {
       `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
-    `Scope: ${options.all ? "all" : options.news ? "news" : options.speciesIds.join(", ")}. ` +
+    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : options.speciesIds.join(", ")}. ` +
       `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 

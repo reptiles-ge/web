@@ -8,23 +8,17 @@ import { getSpeciesById } from "@/data/species";
 import { type AnimalGroup, getAtlasStats } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import {
+  GROUP_HUB_ILLUSTRATIONS,
+  GROUP_HUBS,
+  type GroupHubId,
+} from "@/lib/groupHubs";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
 const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
 const USE_GROUP_ILLUSTRATIONS = true;
-
-const GROUP_ILLUSTRATIONS: Record<GroupHubId, string> = {
-  amphibians: "/images/home/groups/amphibians.jpg",
-  birds: "/images/home/groups/birds.jpg",
-  lizards: "/images/home/groups/lizards.jpg",
-  mammals: "/images/home/groups/mammals.jpg",
-  snakes: "/images/home/groups/snakes.jpg",
-  spiders: "/images/home/groups/spiders.jpg",
-  turtles: "/images/home/groups/turtles.jpg",
-};
 
 export async function HomeGroups() {
   const locale = (await getLocale()) as AppLocale;
@@ -259,7 +253,7 @@ function hubVisual(
   if (USE_GROUP_ILLUSTRATIONS) {
     return {
       alt: illustrationAlt,
-      src: GROUP_ILLUSTRATIONS[hubId],
+      src: GROUP_HUB_ILLUSTRATIONS[hubId],
     };
   }
   return hubPhoto(hubId, locale);
