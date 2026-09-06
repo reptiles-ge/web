@@ -109,6 +109,35 @@ describe("credit authors", () => {
     );
   });
 
+  it("resolves Giorgi Iankoshvili as a published herpetologist", () => {
+    expect(getPublishedCreditAuthorByName("გიორგი იანქოშვილი")?.slug).toBe(
+      "giorgi-iankoshvili",
+    );
+    expect(getPublishedCreditAuthorByName("Giorgi Iankoshvili")?.slug).toBe(
+      "giorgi-iankoshvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("giorgi-iankoshvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("herpetologist");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ეკოლოგიის ინსტიტუტის");
+    expect(author?.links).toBeUndefined();
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(10);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "vipera-darevskii",
+        "mertensiella-caucasica",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "amphibians"]),
+    );
+  });
+
   it("collects his atlas photos without duplicates", () => {
     const author = getPublishedCreditAuthorBySlug("sandro-khakhva");
     expect(author).toBeTruthy();
@@ -134,12 +163,13 @@ describe("credit authors", () => {
       "zauri-khachidze",
       "ioane-rostiashvili",
       "sandro-khakhva",
+      "giorgi-iankoshvili",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
       [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),
     );
     for (const card of cards) {
-      expect(card.photoCount).toBeGreaterThanOrEqual(20);
+      expect(card.photoCount).toBeGreaterThanOrEqual(10);
       expect(card.speciesCount).toBeGreaterThan(0);
       expect(card.preview).toHaveLength(4);
       const species = new Set(card.preview.map((photo) => photo.speciesId));

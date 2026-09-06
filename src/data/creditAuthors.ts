@@ -109,6 +109,27 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "herpetologist",
     slug: "ioane-rostiashvili",
   },
+  {
+    aliases: ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"],
+    bio: {
+      en: "Giorgi Iankoshvili is a Georgian researcher-ecologist and herpetologist. He is currently a researcher at the Institute of Ecology at Ilia State University and a doctoral student at the same university.",
+      ka: "გიორგი იანქოშვილი ქართველი მკვლევარი-ეკოლოგი და ჰერპეტოლოგია. ამჟამად ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტის მკვლევარია და ამავე უნივერსიტეტის დოქტორანტი.",
+      ru: "Гиорги Ианкошвили — грузинский исследователь-эколог и герпетолог. Сейчас он исследователь Института экологии Государственного университета Ильи и докторант того же университета.",
+      tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
+    },
+    id: "giorgi-iankoshvili",
+    name: {
+      en: "Giorgi Iankoshvili",
+      ka: "გიორგი იანქოშვილი",
+      ru: "Гиорги Ианкошвили",
+      tr: "Giorgi Iankoshvili",
+    },
+    portraitClass: "object-[50%_22%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "giorgi-iankoshvili",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
