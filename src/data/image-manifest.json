@@ -53968,6 +53968,101 @@
       ],
       "updatedAt": "2026-08-28T22:02:20.012Z"
     },
+    "xerotyphlops-vermicularis-armen-1.jpg": {
+      "sourceHash": "ff03846f543910c98f632bed70148a21724c8ce7f7e7c13c6ae045abc029680f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "xerotyphlops-vermicularis-armen-1.jpg",
+      "originalSize": 1045728,
+      "width": 2400,
+      "height": 1564,
+      "derivatives": [
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 209,
+          "byteSize": 11984
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 209,
+          "byteSize": 16364
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 261,
+          "byteSize": 17516
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 261,
+          "byteSize": 24764
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 417,
+          "byteSize": 43775
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 417,
+          "byteSize": 61452
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 521,
+          "byteSize": 65911
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 521,
+          "byteSize": 93696
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 782,
+          "byteSize": 146409
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 782,
+          "byteSize": 209834
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1564,
+          "byteSize": 509123
+        },
+        {
+          "key": "optimized/xerotyphlops-vermicularis-armen-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1564,
+          "byteSize": 654258
+        }
+      ],
+      "updatedAt": "2026-09-06T17:18:55.512Z"
+    },
     "xerotyphlops-vermicularis-lasha-1.jpg": {
       "sourceHash": "eb88f258a789548545edb481c2af8a0bb75ddb6b06b25cf339136c31b8ab77e0",
       "configFingerprint": "a895f8e025dcc7fa",
