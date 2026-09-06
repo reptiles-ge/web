@@ -12,7 +12,7 @@ export type SpeciesRiskChip = {
 };
 
 export function getSpeciesRiskChip(
-  species: Species,
+  species: Pick<Species, "danger" | "id">,
   group: AnimalGroup = getSpeciesAtlasMeta(species.id).group,
 ): null | SpeciesRiskChip {
   if (usesDangerScale(group) && species.danger) {

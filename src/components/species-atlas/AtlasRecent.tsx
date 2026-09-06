@@ -6,12 +6,12 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
-import { type Species } from "@/data/species";
+import { type SpeciesListItem } from "@/data/speciesListItem";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 
-export function AtlasRecent({ species }: { species: Species[] }) {
+export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
   const t = useTranslations("speciesAtlas");
 
   return (
@@ -41,7 +41,7 @@ export function AtlasRecent({ species }: { species: Species[] }) {
   );
 }
 
-function RecentSpeciesRow({ species }: { species: Species }) {
+function RecentSpeciesRow({ species }: { species: SpeciesListItem }) {
   const t = useTranslations("speciesAtlas");
   const locale = useLocale() as AppLocale;
   const meta = getSpeciesAtlasMeta(species.id);

@@ -9,7 +9,7 @@ import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { getPublishedNewsForHub } from "@/data/news";
-import { images } from "@/data/species";
+import { images } from "@/data/speciesMedia";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";

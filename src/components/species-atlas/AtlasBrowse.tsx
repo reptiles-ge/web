@@ -16,15 +16,15 @@ import {
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
 import { localizeRegionText, regions } from "@/data/mapRegions";
-import { type Species } from "@/data/species";
+import { type AtlasFilters } from "@/data/atlasFilters";
+import { type SpeciesListItem } from "@/data/speciesListItem";
 import { type AnimalGroup } from "@/data/speciesAtlasMeta";
-import { type AtlasFilters } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
 type AtlasBrowseProps = {
   facetCount: number;
-  filtered: Species[];
+  filtered: SpeciesListItem[];
   filterOpen: boolean;
   filters: AtlasFilters;
   groupCounts: Record<"all" | AnimalGroup, number>;

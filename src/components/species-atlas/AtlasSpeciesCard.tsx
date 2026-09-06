@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
@@ -19,7 +19,7 @@ type AtlasSpeciesCardProps = {
   eager?: boolean;
   index?: number;
   locale: AppLocale;
-  species: Species;
+  species: SpeciesListItem;
 };
 
 export function AtlasSpeciesCard({

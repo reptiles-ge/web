@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
@@ -15,7 +15,7 @@ import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 
 type SpeciesCardProps = {
-  species: Species;
+  species: SpeciesListItem;
 };
 
 export function SpeciesCard({ species }: SpeciesCardProps) {
@@ -84,7 +84,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
   );
 }
 
-function safetyTone(level?: Species["danger"]) {
+function safetyTone(level?: SpeciesListItem["danger"]) {
   switch (level) {
     case "High":
       return {

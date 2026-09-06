@@ -3,7 +3,10 @@ import type { Species } from "./speciesTypes";
 import { species } from "./species.generated";
 import { featuredSpeciesIds, unpublishedSpeciesIds } from "./speciesPublish";
 
-export { featuredSpeciesIds, unpublishedSpeciesIds } from "./speciesPublish";
+export {
+  featuredSpeciesIds,
+  unpublishedSpeciesIds,
+} from "./speciesPublish";
 
 export {
   type DangerLevel,
@@ -16,14 +19,6 @@ export {
   type SpeciesSource,
   type SpeciesStat,
 } from "./speciesTypes";
-
-export {
-  hasPhotoCredit,
-  images,
-  mergeGallery,
-  overlayPhotoCredit,
-  resolvePhotoCredit,
-} from "./speciesMedia";
 
 export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
 

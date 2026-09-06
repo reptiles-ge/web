@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
-import { images } from "@/data/species";
+import { images } from "@/data/speciesMedia";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 

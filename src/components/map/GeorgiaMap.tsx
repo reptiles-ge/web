@@ -19,6 +19,7 @@ import {
   type RegionTooltipSpecies,
   regions,
 } from "@/data/mapRegions";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 import { useRouter } from "@/i18n/navigation";
 import { type MapContext, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -38,11 +39,13 @@ type GeorgiaMapProps = {
   interactive?: boolean;
   mapContext?: MapContext;
   selectionMode?: "navigate" | "panel";
+  speciesByRegion?: Record<string, SpeciesListItem[]>;
   tooltipSpeciesByRegion?: Record<string, RegionTooltipSpecies[]>;
 };
 
 const EMPTY_HIGHLIGHTED_IDS: string[] = [];
 const EMPTY_TOOLTIP_SPECIES: Record<string, RegionTooltipSpecies[]> = {};
+const EMPTY_SPECIES_BY_REGION: Record<string, SpeciesListItem[]> = {};
 
 export function GeorgiaMap({
   className,
@@ -50,6 +53,7 @@ export function GeorgiaMap({
   interactive = true,
   mapContext = "home",
   selectionMode = "navigate",
+  speciesByRegion = EMPTY_SPECIES_BY_REGION,
   tooltipSpeciesByRegion = EMPTY_TOOLTIP_SPECIES,
 }: GeorgiaMapProps) {
   const router = useRouter();
@@ -226,7 +230,15 @@ export function GeorgiaMap({
         </div>
 
         {usePanel ? (
-          <RegionDetailsPanel onClose={handleClose} region={selectedRegion} />
+          <RegionDetailsPanel
+            onClose={handleClose}
+            region={selectedRegion}
+            species={
+              selectedRegion
+                ? (speciesByRegion[selectedRegion.id] ?? [])
+                : []
+            }
+          />
         ) : null}
       </>
     </MotionLazy>

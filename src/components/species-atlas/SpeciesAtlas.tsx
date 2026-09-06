@@ -10,6 +10,8 @@ import {
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { RegionTooltipSpecies } from "@/data/mapRegions";
+import type { SpeciesListItem } from "@/data/speciesListItem";
 
 import { AtlasBrowse } from "@/components/species-atlas/AtlasBrowse";
 import { AtlasMap } from "@/components/species-atlas/AtlasMap";
@@ -20,20 +22,27 @@ import {
   REGION_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
-import { getCatalogSpecies } from "@/data/species";
 import {
   type AnimalGroup,
+  getSpeciesAtlasMeta,
+} from "@/data/speciesAtlasMeta";
+import {
   type AtlasFilters,
   countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
-  getRecentlyUpdatedSpecies,
-  getSpeciesAtlasMeta,
-} from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+} from "@/data/atlasFilters";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
-export function SpeciesAtlas() {
+export function SpeciesAtlas({
+  catalog,
+  recent,
+  tooltipSpeciesByRegion,
+}: {
+  catalog: SpeciesListItem[];
+  recent: SpeciesListItem[];
+  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+}) {
   const locale = useLocale() as AppLocale;
 
   const [group, setGroup] = useQueryState(
@@ -73,48 +82,6 @@ export function SpeciesAtlas() {
   const deferredQuery = useDeferredValue(filters.query);
   const skipAtlasFilter = useRef(true);
   const lastQuery = useRef(filters.query);
-
-  const catalog = useMemo(
-    () =>
-      getCatalogSpecies().map((item) => {
-        const localized = localizeSpecies(item, locale);
-        const ka = localizeSpecies(item, "ka");
-        const en = localizeSpecies(item, "en");
-        const ru = localizeSpecies(item, "ru");
-        const tr = localizeSpecies(item, "tr");
-        return {
-          ...localized,
-          searchText: [
-            localized.commonName,
-            ka.commonName,
-            en.commonName,
-            ru.commonName,
-            tr.commonName,
-            localized.scientificName,
-            localized.genus,
-            localized.family,
-            localized.location,
-            ka.location,
-            en.location,
-            ru.location,
-            tr.location,
-            localized.description,
-            ka.description,
-            en.description,
-            ru.description,
-            tr.description,
-          ]
-            .join(" ")
-            .toLowerCase(),
-        };
-      }),
-    [locale],
-  );
-  const recent = useMemo(
-    () =>
-      getRecentlyUpdatedSpecies(4).map((item) => localizeSpecies(item, locale)),
-    [locale],
-  );
 
   const activeFilters: AtlasFilters = useMemo(
     () => ({
@@ -295,7 +262,7 @@ export function SpeciesAtlas() {
         onResetFilters={resetFilters}
         onUpdateFilter={updateFilter}
       />
-      <AtlasMap />
+      <AtlasMap tooltipSpeciesByRegion={tooltipSpeciesByRegion} />
       <AtlasRecent species={recent} />
     </>
   );

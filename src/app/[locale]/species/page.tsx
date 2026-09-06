@@ -9,15 +9,16 @@ import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
 import { AtlasHero } from "@/components/species-atlas/AtlasHero";
 import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
 import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
+import { getSpeciesById } from "@/data/species";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import {
-  getAtlasStats,
   hasActiveAtlasFilters,
   parseAtlasFilters,
-} from "@/data/speciesAtlas";
+} from "@/data/atlasFilters";
+import { getRegionTooltipPreviews } from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";
 import {
   absoluteUrl,
   localeAlternates,
@@ -92,9 +93,9 @@ export default async function SpeciesIndexPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
   const url = absoluteUrl(localePath(locale, "/species"));
-  const catalog = getCatalogSpecies().map((item) =>
-    localizeSpecies(item, locale),
-  );
+  const catalog = getAtlasListItems(locale);
+  const recent = getAtlasRecentItems(locale);
+  const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
   const stats = getAtlasStats();
 
   const breadcrumbLd = {
@@ -146,7 +147,11 @@ export default async function SpeciesIndexPage({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={collectionLd} />
       <AtlasHero stats={stats} />
-      <SpeciesAtlas />
+      <SpeciesAtlas
+        catalog={catalog}
+        recent={recent}
+        tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+      />
       <AtlasSeo />
       <AtlasAbout locale={locale} stats={stats} />
     </div>

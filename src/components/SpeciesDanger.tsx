@@ -107,7 +107,7 @@ export function SpeciesRiskChip({
   variant = "hero",
 }: {
   linked?: boolean;
-  species: Species;
+  species: Pick<Species, "danger" | "id">;
   variant?: "card" | "hero";
 }) {
   const group = getSpeciesAtlasMeta(species.id).group;

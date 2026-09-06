@@ -1,17 +1,18 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
-import type { AppLocale } from "@/i18n/routing";
+import type { RegionTooltipSpecies } from "@/data/mapRegions";
 
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import { getRegionTooltipPreviews } from "@/data/regions";
 import { Link } from "@/i18n/navigation";
 
-export function AtlasMap() {
+export function AtlasMap({
+  tooltipSpeciesByRegion,
+}: {
+  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+}) {
   const t = useTranslations("speciesAtlas");
-  const locale = useLocale() as AppLocale;
-  const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
 
   return (
     <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
