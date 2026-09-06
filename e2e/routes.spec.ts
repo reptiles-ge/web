@@ -184,6 +184,21 @@ test("Nika Melikishvili contributor page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
+test("Close to wildlife contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/velur-bunebastan-axlos");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ველურ ბუნებასთან ახლოს");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/velur-bunebastan-axlos\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
 test("contributor index is indexable and lists published authors", async ({
   page,
 }) => {
@@ -199,6 +214,9 @@ test("contributor index is indexable and lists published authors", async ({
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "ნიკა მელიქიშვილი" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "ველურ ბუნებასთან ახლოს" }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "ზაქრო სონგულაშვილი" }),

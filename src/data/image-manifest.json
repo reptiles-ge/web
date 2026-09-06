@@ -3409,6 +3409,87 @@
       ],
       "updatedAt": "2026-09-06T12:26:16.344Z"
     },
+    "authors/velur-bunebastan-axlos.jpg": {
+      "sourceHash": "51b102ae4d443bd1207de4dcea5cbb71c98e87a32a3cd47f99579f8bb522474d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/velur-bunebastan-axlos.jpg",
+      "originalSize": 273115,
+      "width": 1024,
+      "height": 1008,
+      "derivatives": [
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 315,
+          "byteSize": 19597
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 315,
+          "byteSize": 31562
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 394,
+          "byteSize": 28054
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 394,
+          "byteSize": 43686
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 630,
+          "byteSize": 52104
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 630,
+          "byteSize": 81856
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 788,
+          "byteSize": 70504
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 788,
+          "byteSize": 106748
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1008,
+          "byteSize": 102370
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1008,
+          "byteSize": 144468
+        }
+      ],
+      "updatedAt": "2026-09-06T19:05:58.924Z"
+    },
     "authors/zakro-songulashvili.jpg": {
       "sourceHash": "4357c539af87c13959ea002444e4e3c3aa59217c3a0bae0a571681a15b3dce31",
       "configFingerprint": "409788ee46c653d8",

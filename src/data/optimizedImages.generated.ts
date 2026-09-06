@@ -522,6 +522,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1011],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg": {
+    "path": "authors/velur-bunebastan-axlos",
+    "width": 1024,
+    "height": 1008,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg": {
     "path": "authors/zakro-songulashvili",
     "width": 446,

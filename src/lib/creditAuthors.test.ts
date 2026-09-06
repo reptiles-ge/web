@@ -201,6 +201,37 @@ describe("credit authors", () => {
     );
   });
 
+  it("resolves Close to wildlife as a published photographer page", () => {
+    expect(getPublishedCreditAuthorByName("ველურ ბუნებასთან ახლოს")?.slug).toBe(
+      "velur-bunebastan-axlos",
+    );
+    expect(getPublishedCreditAuthorByName("Close to wildlife")?.slug).toBe(
+      "velur-bunebastan-axlos",
+    );
+    const author = getPublishedCreditAuthorBySlug("velur-bunebastan-axlos");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("photographer");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ქვეწარმავლებსა და ამფიბიებს");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/profile.php?id=61585670878935",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(8);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "gyps-fulvus",
+        "turdus-merula",
+        "argiope-bruennichi",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["birds", "spiders"]),
+    );
+  });
+
   it("collects his atlas photos without duplicates", () => {
     const author = getPublishedCreditAuthorBySlug("sandro-khakhva");
     expect(author).toBeTruthy();
@@ -233,6 +264,7 @@ describe("credit authors", () => {
       "giorgi-iankoshvili",
       "nika-melikishvili",
       "zakro-songulashvili",
+      "velur-bunebastan-axlos",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
       [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),

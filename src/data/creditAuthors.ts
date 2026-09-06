@@ -178,6 +178,30 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "photographer",
     slug: "nika-melikishvili",
   },
+  {
+    aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
+    bio: {
+      en: "A wildlife photographer who documents Georgia’s reptiles and amphibians in their natural habitat.",
+      ka: "ველური ბუნების ფოტოგრაფი, რომელიც საქართველოს ქვეწარმავლებსა და ამფიბიებს ბუნებრივ გარემოში ასახავს.",
+      ru: "Фотограф дикой природы, который снимает рептилий и амфибий Грузии в естественной среде.",
+      tr: "Gürcistan’ın sürüngenlerini ve amfibilerini doğal ortamlarında yansıtan bir yaban hayatı fotoğrafçısı.",
+    },
+    id: "velur-bunebastan-axlos",
+    links: {
+      facebook: "https://www.facebook.com/profile.php?id=61585670878935",
+    },
+    name: {
+      en: "Close to wildlife",
+      ka: "ველურ ბუნებასთან ახლოს",
+      ru: "Близко к дикой природе",
+      tr: "Close to wildlife",
+    },
+    portraitClass: "object-[52%_42%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg",
+    published: true,
+    role: "photographer",
+    slug: "velur-bunebastan-axlos",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
