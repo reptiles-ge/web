@@ -4,8 +4,10 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
   createContext,
   type ReactNode,
+  useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -128,25 +130,35 @@ export function SpeciesGalleryLightbox({
 
   const activeSlide = active !== null ? slides[active] : null;
 
+  const openAt = useCallback(
+    (index: number) => {
+      if (!opened.current) {
+        opened.current = true;
+        trackEvent("gallery_open", {
+          image_count: slides.length,
+          image_index: index,
+          species_id: speciesId,
+        });
+      }
+      setActive(index);
+    },
+    [slides.length, speciesId],
+  );
+
+  const registerTrigger = useCallback(
+    (index: number, node: HTMLButtonElement | null) => {
+      triggerRefs.current[index] = node;
+    },
+    [],
+  );
+
+  const galleryValue = useMemo(
+    () => ({ openAt, registerTrigger }),
+    [openAt, registerTrigger],
+  );
+
   return (
-    <GalleryContext.Provider
-      value={{
-        openAt: (index) => {
-          if (!opened.current) {
-            opened.current = true;
-            trackEvent("gallery_open", {
-              image_count: slides.length,
-              image_index: index,
-              species_id: speciesId,
-            });
-          }
-          setActive(index);
-        },
-        registerTrigger: (index, node) => {
-          triggerRefs.current[index] = node;
-        },
-      }}
-    >
+    <GalleryContext.Provider value={galleryValue}>
       {children}
       <dialog
         aria-label={galleryLabel}
