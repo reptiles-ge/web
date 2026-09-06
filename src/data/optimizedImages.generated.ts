@@ -1628,6 +1628,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eirenis-modestus-giorgi-2.jpg": {
+    "path": "eirenis-modestus-giorgi-2",
+    "width": 859,
+    "height": 602,
+    "widths": [320, 400, 640, 800, 859],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg": {
     "path": "eirenis-modestus-mobile",
     "width": 1920,

@@ -13196,6 +13196,87 @@
       ],
       "updatedAt": "2026-08-28T21:37:36.330Z"
     },
+    "eirenis-modestus-giorgi-2.jpg": {
+      "sourceHash": "9430a314259573f0c6aac76691143b4dca094e4f78cf7603832125e55bbecc5f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-giorgi-2.jpg",
+      "originalSize": 61429,
+      "width": 859,
+      "height": 602,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 224,
+          "byteSize": 6236
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 224,
+          "byteSize": 6964
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 280,
+          "byteSize": 8499
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 280,
+          "byteSize": 9806
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 449,
+          "byteSize": 16030
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 449,
+          "byteSize": 17992
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 561,
+          "byteSize": 20971
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 561,
+          "byteSize": 24496
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-859.avif",
+          "format": "avif",
+          "width": 859,
+          "height": 602,
+          "byteSize": 23346
+        },
+        {
+          "key": "optimized/eirenis-modestus-giorgi-2-859.webp",
+          "format": "webp",
+          "width": 859,
+          "height": 602,
+          "byteSize": 25986
+        }
+      ],
+      "updatedAt": "2026-09-06T15:09:29.701Z"
+    },
     "eirenis-modestus-mobile.jpg": {
       "sourceHash": "4101c2b6f23d3ebf056ff24ec993ba9252841a4d4a6deb86d811431b31ddf99d",
       "configFingerprint": "a895f8e025dcc7fa",
