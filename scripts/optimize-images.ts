@@ -59,6 +59,7 @@ type CliOptions = {
   speciesIds: string[];
   all: boolean;
   news: boolean;
+  site: boolean;
   emitOnly: boolean;
   dryRun: boolean;
   force: boolean;
@@ -70,6 +71,7 @@ function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
   let all = false;
   let news = false;
+  let site = false;
   let emitOnly = false;
   let dryRun = false;
   let force = false;
@@ -90,6 +92,9 @@ function parseArguments(argv: string[]): CliOptions {
         break;
       case "--news":
         news = true;
+        break;
+      case "--site":
+        site = true;
         break;
       case "--emit-only":
         emitOnly = true;
@@ -113,13 +118,13 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, speciesIds.length > 0].filter(Boolean).length;
+  const scopes = [all, news, site, speciesIds.length > 0].filter(Boolean).length;
   if (scopes > 1) {
-    throw new Error("Pass only one of --all, --species, or --news.");
+    throw new Error("Pass only one of --all, --species, --news, or --site.");
   }
-  if (!all && !news && !emitOnly && speciesIds.length === 0) {
+  if (!all && !news && !site && !emitOnly && speciesIds.length === 0) {
     throw new Error(
-      "Pass --species <id> (comma-separated for several), --news for news photos, or --all for every image.",
+      "Pass --species <id> (comma-separated for several), --news for news photos, --site for homepage group photos, or --all for every image.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
