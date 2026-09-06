@@ -45007,6 +45007,101 @@
       ],
       "updatedAt": "2026-08-28T21:59:13.440Z"
     },
+    "telescopus-fallax-giorgi-1.jpg": {
+      "sourceHash": "a77019e59dcc51501ef543bb666511211263beac2cfb44e7e98ea4ea01d39716",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "telescopus-fallax-giorgi-1.jpg",
+      "originalSize": 135516,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6912
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8606
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9518
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11558
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17403
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21740
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23182
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29604
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 38593
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 50180
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 49278
+        },
+        {
+          "key": "optimized/telescopus-fallax-giorgi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 59570
+        }
+      ],
+      "updatedAt": "2026-09-06T15:20:21.384Z"
+    },
     "telescopus-fallax-lasha-1.jpg": {
       "sourceHash": "9e4809f2b84042451c29a30b4c600e48201544656daf2cd6ad2173d4117f4ce1",
       "configFingerprint": "a895f8e025dcc7fa",
