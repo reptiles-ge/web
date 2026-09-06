@@ -961,6 +961,12 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
       searchText: blob([
         author.name.ka,
         author.name.en,
+        author.name.ru,
+        author.name.tr,
+        author.bio?.ka,
+        author.bio?.en,
+        author.bio?.ru,
+        author.bio?.tr,
         ...author.aliases,
         "ფოტოგრაფი",
         "photographer",

@@ -17,11 +17,20 @@ describe("credit authors", () => {
     expect(getPublishedCreditAuthorByName("Sandro Khakhva")?.slug).toBe(
       "sandro-khakhva",
     );
+    expect(getPublishedCreditAuthorByName("ალექსანდრე ხახვა")?.slug).toBe(
+      "sandro-khakhva",
+    );
+    expect(getPublishedCreditAuthorByName("Alexandre Khakhva")?.slug).toBe(
+      "sandro-khakhva",
+    );
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.published).toBe(
       true,
     );
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.portraitSrc).toBe(
       "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
+    );
+    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.bio?.ka).toContain(
+      "აჭარიდან",
     );
   });
 

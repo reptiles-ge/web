@@ -146,11 +146,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = creditAuthorName(author, locale);
   const photos = getCreditAuthorPhotos(author);
   const title = t("metaTitle", { name });
-  const description = t("metaDescription", {
-    count: photos.length,
-    name,
-    species: getCreditAuthorSpeciesIds(photos).length,
-  });
+  const description =
+    creditAuthorBio(author, locale) ??
+    t("metaDescription", {
+      count: photos.length,
+      name,
+      species: getCreditAuthorSpeciesIds(photos).length,
+    });
   const url = creditAuthorUrl(locale, author.slug);
 
   return {
