@@ -45,10 +45,6 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır — yeni başlayan herpetolog ve natüralist.",
     },
     id: "sandro-khakhva",
-    links: {
-      facebook: "https://www.facebook.com/sandro.khakhva.9",
-      instagram: "https://www.instagram.com/wildtrail.geo",
-    },
     name: {
       en: "Sandro Khakhva",
       ka: "სანდრო ხახვა",

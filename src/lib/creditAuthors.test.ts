@@ -38,10 +38,7 @@ describe("credit authors", () => {
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.bio?.ka).toContain(
       "დამწყები ჰერპეტოლოგი და ნატურალისტი",
     );
-    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toEqual({
-      facebook: "https://www.facebook.com/sandro.khakhva.9",
-      instagram: "https://www.instagram.com/wildtrail.geo",
-    });
+    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toBeUndefined();
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.role).toBe(
       "herpetologist",
     );
