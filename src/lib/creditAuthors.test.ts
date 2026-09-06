@@ -4,14 +4,14 @@ import {
   getPublishedCreditAuthorByName,
   getPublishedCreditAuthorBySlug,
 } from "@/data/creditAuthors";
-import {
-  getCreditAuthorHubIds,
+import { getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   getHomeContributorCards,
   legacyPhotographerRedirectPath,
   pickCreditAuthorPreviewPhotos,
 } from "@/lib/creditAuthors";
+import { pathnames } from "@/i18n/pathnames";
 
 describe("credit authors", () => {
   it("resolves Sandro Khakhva from both name spellings", () => {
