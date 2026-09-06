@@ -5828,6 +5828,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vulpes-vulpes-nika-2.jpg": {
+    "path": "vulpes-vulpes-nika-2",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vulpes-vulpes-niko-2.jpg": {
     "path": "vulpes-vulpes-niko-2",
     "width": 1440,
