@@ -11,7 +11,7 @@ import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { absoluteUrl, localeAlternates, ogImageUrlFromSrc } from "@/lib/site";
+import { absoluteUrl, localeAlternates } from "@/lib/site";
 
 export type CreditAuthorPhoto = {
   credit?: PhotoCredit;
@@ -35,10 +35,6 @@ export function creditAuthorAlternates(locale: AppLocale, slug: string) {
     params: { slug },
     pathname: "/authors/[slug]",
   });
-}
-
-export function creditAuthorOgImageUrl(src: string) {
-  return ogImageUrlFromSrc(src) ?? src;
 }
 
 export function creditAuthorStaticParams() {

@@ -20,6 +20,9 @@ describe("credit authors", () => {
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.published).toBe(
       true,
     );
+    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
+    );
   });
 
   it("collects his atlas photos without duplicates", () => {

@@ -954,7 +954,7 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
       href: creditAuthorHref(author.slug),
       icon: "info" as const,
       id: `author:${author.id}`,
-      image: author.heroSrc,
+      image: author.portraitSrc,
       key: `author:${author.id}`,
       kind: "page" as const,
       scoreTitles: [author.name.ka, author.name.en],

@@ -4,7 +4,6 @@ import { pickLocalized } from "@/i18n/localeMeta";
 
 export type CreditAuthor = {
   aliases: string[];
-  heroSrc: string;
   id: string;
   name: {
     en: string;
@@ -12,6 +11,7 @@ export type CreditAuthor = {
     ru?: string;
     tr?: string;
   };
+  portraitSrc: string;
   published: boolean;
   slug: string;
 };
@@ -19,12 +19,12 @@ export type CreditAuthor = {
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
     aliases: ["სანდრო ხახვა", "Sandro Khakhva"],
-    heroSrc: "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-1.jpg",
     id: "sandro-khakhva",
     name: {
       en: "Sandro Khakhva",
       ka: "სანდრო ხახვა",
     },
+    portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     published: true,
     slug: "sandro-khakhva",
   },

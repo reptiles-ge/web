@@ -20,6 +20,7 @@ import {
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
+import { CREDIT_AUTHORS } from "../src/data/creditAuthors";
 import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
 import {
   species,
@@ -181,6 +182,7 @@ function collectSources(): Map<string, string> {
 
   for (const src of Object.values(siteImages)) add(src);
   for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
+  for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
 
   for (const article of getAllNewsArticles()) {
     for (const photo of newsArticlePhotos(article)) add(photo.src);
@@ -225,6 +227,7 @@ function collectTargets(
 
   if (all || site) {
     for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
+    for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
   }
 
   if (all || news) {

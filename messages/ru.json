@@ -635,7 +635,7 @@
     "statSpecies": "видов",
     "gallery": "Галерея",
     "speciesList": "Виды в атласе",
-    "heroImageAlt": "{name}",
+    "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{count} фотографий {name} — {species} видов в атласе животных Грузии.",
     "notFound": "Автор не найден",

@@ -635,7 +635,7 @@
     "statSpecies": "სახეობა",
     "gallery": "გალერეა",
     "speciesList": "სახეობები ატლასში",
-    "heroImageAlt": "{name}",
+    "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{name}-ის {count} ფოტო {species} სახეობაზე — საქართველოს ცხოველთა ატლასში.",
     "notFound": "ავტორი ვერ მოიძებნა",

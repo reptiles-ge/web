@@ -13,17 +13,16 @@ import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
-  creditAuthorOgImageUrl,
   creditAuthorStaticParams,
   creditAuthorUrl,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
+import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import {
   absoluteUrl,
   localePath,
-  openGraphJpeg,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -54,9 +53,6 @@ export default async function AuthorRoute({ params }: Props) {
   const photos = getCreditAuthorPhotos(author);
   const name = creditAuthorName(author, locale);
   const url = creditAuthorUrl(locale, author.slug);
-  const heroSrc = photos.some((photo) => photo.src === author.heroSrc)
-    ? author.heroSrc
-    : (photos[0]?.src ?? author.heroSrc);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
 
   const breadcrumbLd = {
@@ -107,7 +103,7 @@ export default async function AuthorRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
       "@type": "Person",
-      image: heroSrc,
+      image: author.portraitSrc,
       name,
       url,
     },
@@ -117,7 +113,7 @@ export default async function AuthorRoute({ params }: Props) {
 
   return (
     <>
-      <CoverImagePreload sizes="100vw" src={heroSrc} />
+      <CoverImagePreload sizes={AUTHOR_PORTRAIT_SIZES} src={author.portraitSrc} />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <AuthorPage author={author} locale={locale} photos={photos} />
@@ -154,18 +150,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     species: getCreditAuthorSpeciesIds(photos).length,
   });
   const url = creditAuthorUrl(locale, author.slug);
-  const ogImage = creditAuthorOgImageUrl(
-    photos.some((photo) => photo.src === author.heroSrc)
-      ? author.heroSrc
-      : (photos[0]?.src ?? author.heroSrc),
-  );
 
   return {
     alternates: creditAuthorAlternates(locale, author.slug),
     description,
     openGraph: {
       description,
-      images: [openGraphJpeg(ogImage, title)],
+      images: [
+        {
+          alt: title,
+          type: "image/jpeg",
+          url: author.portraitSrc,
+        },
+      ],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
@@ -178,9 +175,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     title: { absolute: `${title} — ${siteConfig.name}` },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       description,
-      images: [ogImage],
+      images: [author.portraitSrc],
       title,
     },
   };

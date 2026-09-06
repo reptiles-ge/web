@@ -1,3 +1,4 @@
+import { ArrowLeft } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
@@ -6,12 +7,12 @@ import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import { AuthorGallery } from "@/components/AuthorGallery";
 import { CoverImage } from "@/components/CoverImage";
-import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { creditAuthorName } from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { getCreditAuthorSpeciesIds } from "@/lib/creditAuthors";
+import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 export async function AuthorPage({
@@ -27,70 +28,57 @@ export async function AuthorPage({
   const tShared = await getTranslations("groupHubShared");
   const name = creditAuthorName(author, locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
-  const heroSrc = photos.some((photo) => photo.src === author.heroSrc)
-    ? author.heroSrc
-    : (photos[0]?.src ?? author.heroSrc);
 
   return (
     <div className="min-h-screen bg-background">
-      <section
-        className="relative flex min-h-[78svh] w-full flex-col justify-end overflow-hidden bg-ink pb-12 sm:min-h-[82svh] sm:pb-16 lg:pb-20"
-        style={{ paddingTop: "7rem" }}
+      <header
+        className="border-b border-border"
+        style={{ paddingTop: "5.5rem" }}
       >
-        <CoverImage
-          alt={t("heroImageAlt", { name })}
-          className="object-cover object-[50%_40%]"
-          priority
-          sizes="100vw"
-          src={heroSrc}
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-black/55 via-black/20 to-black/80" />
+        <div className="mx-auto max-w-[1400px] px-6 pt-6 pb-10 lg:px-10 lg:pt-8 lg:pb-14">
+          <Link
+            className="inline-flex items-center gap-2 text-[13px] text-muted-foreground transition-colors hover:text-foreground"
+            href="/"
+          >
+            <ArrowLeft className="size-3.5" />
+            {tShared("breadcrumbHome")}
+          </Link>
 
-        <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <InkHeroBreadcrumb
-            crumbs={[
-              {
-                href: "/",
-                label: tShared("breadcrumbHome"),
-                withBack: true,
-              },
-              { label: name },
-            ]}
-          />
-          <p className="text-[11px] font-medium tracking-[0.32em] text-white/50 uppercase">
-            {t("kicker")}
-          </p>
-          <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-hero font-semibold text-white">
-            {name}
-          </h1>
-          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
-            {t("subtitle")}
-          </p>
-        </div>
-      </section>
-
-      <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-[1400px] px-6 py-10 lg:px-10 lg:py-12">
-          <div className="flex flex-wrap gap-10 sm:gap-16">
-            <p>
-              <span className="font-display text-display-stat font-semibold text-foreground">
-                {photos.length}
-              </span>
-              <span className="mt-2 block text-[13px] text-muted-foreground">
+          <div className="mt-8 flex items-center gap-5 sm:mt-10 sm:gap-8">
+            <div className="relative size-28 shrink-0 overflow-hidden rounded-full ring-1 ring-border sm:size-36 lg:size-40">
+              <CoverImage
+                alt={t("portraitAlt", { name })}
+                className="object-cover object-[50%_18%]"
+                priority
+                sizes={AUTHOR_PORTRAIT_SIZES}
+                src={author.portraitSrc}
+              />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+                {t("kicker")}
+              </p>
+              <h1 className="mt-2 font-display text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
+                {name}
+              </h1>
+              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+                {t("subtitle")}
+              </p>
+              <p className="mt-4 text-[13px] text-muted-foreground">
+                <span className="font-medium text-foreground">
+                  {photos.length}
+                </span>{" "}
                 {t("statPhotos")}
-              </span>
-            </p>
-            <p>
-              <span className="font-display text-display-stat font-semibold text-foreground">
-                {speciesIds.length}
-              </span>
-              <span className="mt-2 block text-[13px] text-muted-foreground">
+                <span className="mx-2 text-border">·</span>
+                <span className="font-medium text-foreground">
+                  {speciesIds.length}
+                </span>{" "}
                 {t("statSpecies")}
-              </span>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      </header>
 
       <section className="bg-background py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

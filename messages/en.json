@@ -635,7 +635,7 @@
     "statSpecies": "species",
     "gallery": "Gallery",
     "speciesList": "Species in the atlas",
-    "heroImageAlt": "{name}",
+    "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{count} photographs of {species} species by {name}, in the atlas of animals of Georgia.",
     "notFound": "Author not found",

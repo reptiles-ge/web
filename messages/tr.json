@@ -635,7 +635,7 @@
     "statSpecies": "tür",
     "gallery": "Galeri",
     "speciesList": "Atlastaki türler",
-    "heroImageAlt": "{name}",
+    "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{name}: Gürcistan hayvanlar atlasında {species} türe ait {count} fotoğraf.",
     "notFound": "Yazar bulunamadı",
