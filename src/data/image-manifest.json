@@ -3247,6 +3247,87 @@
       ],
       "updatedAt": "2026-09-06T17:50:38.329Z"
     },
+    "authors/nika-melikishvili.jpg": {
+      "sourceHash": "8813f2adaec6429dc81ad22c826b33881286564af69407bcc608be3df8895a74",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/nika-melikishvili.jpg",
+      "originalSize": 105888,
+      "width": 1024,
+      "height": 678,
+      "derivatives": [
+        {
+          "key": "optimized/authors/nika-melikishvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5042
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6312
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 6794
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 8264
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 12488
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 15802
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 17283
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 21384
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 28510
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 35950
+        }
+      ],
+      "updatedAt": "2026-09-06T18:59:21.348Z"
+    },
     "authors/sandro-khakhva.jpg": {
       "sourceHash": "6591e4f8af7ff4460628da5e2dfd6c627f571bcba189e474b8c00ec4388373bc",
       "configFingerprint": "409788ee46c653d8",

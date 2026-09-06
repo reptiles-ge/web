@@ -508,6 +508,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/authors/nika-melikishvili.jpg": {
+    "path": "authors/nika-melikishvili",
+    "width": 1024,
+    "height": 678,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg": {
     "path": "authors/sandro-khakhva",
     "width": 1011,
