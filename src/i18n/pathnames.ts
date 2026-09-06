@@ -7,6 +7,8 @@ function kaLatin<K extends `/${string}`, L extends `/${string}`>(
 
 export const pathnames = {
   "/": "/",
+  "/about": "/about",
+  "/authors/[slug]": kaLatin("/avtorebi/[slug]", "/authors/[slug]"),
   "/amphibians": kaLatin("/amfibiebi", "/amphibians"),
   "/amphibians/[slug]": kaLatin("/amfibiebi/[slug]", "/amphibians/[slug]"),
   "/amphibians/bayayi": kaLatin("/amfibiebi/bayayi", "/amphibians/frogs"),
