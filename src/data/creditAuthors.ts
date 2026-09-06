@@ -4,6 +4,12 @@ import { pickLocalized } from "@/i18n/localeMeta";
 
 export type CreditAuthor = {
   aliases: string[];
+  bio?: {
+    en: string;
+    ka: string;
+    ru?: string;
+    tr?: string;
+  };
   id: string;
   name: {
     en: string;
@@ -18,11 +24,24 @@ export type CreditAuthor = {
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
-    aliases: ["სანდრო ხახვა", "Sandro Khakhva"],
+    aliases: [
+      "Alexandre Khakhva",
+      "Sandro Khakhva",
+      "ალექსანდრე ხახვა",
+      "სანდრო ხახვა",
+    ],
+    bio: {
+      en: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara. He studies reptiles and works with them.",
+      ka: "სანდრო (ალექსანდრე) ხახვა ახალგაზრდა ქართველი მკვლევარია აჭარიდან — ქვეწარმავლების მკვლევარი და მომთვინიერებელი.",
+      ru: "Сандро (Александр) Хахва — молодой грузинский исследователь из Аджарии. Изучает рептилий и работает с ними.",
+      tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır. Sürüngenleri inceler ve onlarla çalışır.",
+    },
     id: "sandro-khakhva",
     name: {
       en: "Sandro Khakhva",
       ka: "სანდრო ხახვა",
+      ru: "Сандро Хахва",
+      tr: "Sandro Khakhva",
     },
     portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     published: true,
