@@ -2314,6 +2314,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gyps-fulvus-giorgi-1.jpg": {
+    "path": "gyps-fulvus-giorgi-1",
+    "width": 1714,
+    "height": 1166,
+    "widths": [320, 400, 640, 800, 1200, 1714],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gyps-fulvus-nika-1.jpg": {
+    "path": "gyps-fulvus-nika-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gyps-fulvus-niko-1.jpg": {
+    "path": "gyps-fulvus-niko-1",
+    "width": 1024,
+    "height": 691,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gyps-fulvus-zura-1.jpg": {
+    "path": "gyps-fulvus-zura-1",
+    "width": 417,
+    "height": 556,
+    "widths": [320, 400, 417],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-1.jpg": {
     "path": "hemorrhois-ravergieri-1",
     "width": 1440,
