@@ -3483,6 +3483,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-alisa-1.jpg": {
+    "path": "macrovipera-lebetina-alisa-1",
+    "width": 1440,
+    "height": 912,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-ar-1.jpg": {
+    "path": "macrovipera-lebetina-ar-1",
+    "width": 2048,
+    "height": 1304,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-armen-1.jpg": {
+    "path": "macrovipera-lebetina-armen-1",
+    "width": 2048,
+    "height": 1304,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-1.jpg": {
     "path": "macrovipera-lebetina-giorgi-1",
     "width": 1024,
@@ -3495,6 +3516,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 698,
     "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-3.jpg": {
+    "path": "macrovipera-lebetina-giorgi-3",
+    "width": 1514,
+    "height": 997,
+    "widths": [320, 400, 640, 800, 1200, 1514],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-1.jpg": {
@@ -3516,6 +3544,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [320, 400, 640, 771],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg": {
+    "path": "macrovipera-lebetina-laura-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg": {
