@@ -1,6 +1,6 @@
 import { preload } from "react-dom";
 
-import { pictureSources, srcSetFirstUrl } from "@/data/optimizedImages";
+import { pictureSources, srcSetPreloadUrl } from "@/data/optimizedImages";
 
 type CoverImagePreloadProps = {
   media?: string;
@@ -29,7 +29,7 @@ export function CoverImagePreload({
     return null;
   }
 
-  const href = srcSetFirstUrl(best.props.srcSet) ?? src;
+  const href = srcSetPreloadUrl(best.props.srcSet) ?? src;
 
   preload(href, {
     as: "image",

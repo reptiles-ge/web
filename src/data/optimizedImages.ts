@@ -78,3 +78,22 @@ export function srcSetFirstUrl(srcSet: string) {
   if (!token) return undefined;
   return token.split(/\s+/)[0];
 }
+
+export function srcSetPreloadUrl(srcSet: string) {
+  const candidates = srcSet
+    .split(",")
+    .map((part) => {
+      const [url, descriptor] = part.trim().split(/\s+/);
+      const width = descriptor?.endsWith("w")
+        ? Number(descriptor.slice(0, -1))
+        : 0;
+      return { url, width };
+    })
+    .filter((item): item is { url: string; width: number } => Boolean(item.url));
+
+  return (
+    candidates.find((item) => item.width >= 800)?.url ??
+    candidates[candidates.length - 1]?.url ??
+    candidates[0]?.url
+  );
+}

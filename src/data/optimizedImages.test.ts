@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { optimizedImgSrc, srcSetFirstUrl } from "@/data/optimizedImages";
+import { optimizedImgSrc, srcSetFirstUrl, srcSetPreloadUrl } from "@/data/optimizedImages";
 
 describe("optimized image helpers", () => {
   it("picks the first srcset URL for preloads", () => {
