@@ -19773,6 +19773,101 @@
       ],
       "updatedAt": "2026-08-29T07:22:20.299Z"
     },
+    "gyps-fulvus-nika-1.jpg": {
+      "sourceHash": "8e9dd2687eb608eae69132d02127b36d084e365799458693c0d2bff71b6f09b5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gyps-fulvus-nika-1.jpg",
+      "originalSize": 395978,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/gyps-fulvus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8766
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10422
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12740
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15026
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29069
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34412
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42910
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51850
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83987
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100448
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 186607
+        },
+        {
+          "key": "optimized/gyps-fulvus-nika-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 220944
+        }
+      ],
+      "updatedAt": "2026-09-06T17:26:42.230Z"
+    },
     "gyps-fulvus-niko-1.jpg": {
       "sourceHash": "6ea33e4e3b8f7a9ac096c1af620bd1ca874bb94f7545a364bd440f26d508f06c",
       "configFingerprint": "409788ee46c653d8",
