@@ -11,6 +11,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
+import { RELATED_CARD_SIZES } from "@/lib/imageSizes";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -110,7 +111,7 @@ function SpeciesProfileRelatedCard({
             item.location,
           )}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes={RELATED_CARD_SIZES}
           src={cover}
         />
       ) : (

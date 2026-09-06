@@ -13,12 +13,6 @@ import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
-import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { SpeciesRiskChip } from "@/components/SpeciesDanger";
-import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
-import { Link } from "@/i18n/navigation";
-import { usesDangerScale } from "@/lib/speciesRisk";
-
 type SpeciesProfileHeroProps = {
   breadcrumbs: SpeciesBreadcrumbCrumb[];
   desktopHeroSrc: null | string;
@@ -184,6 +178,9 @@ function SpeciesProfileHeroMedia({
     );
   }
 
+  const primarySrc = mobileHeroSrc ?? desktopHeroSrc;
+  const primary = optimizedEntry(primarySrc);
+
   return (
     <picture className="media-placeholder absolute inset-0 block size-full">
       {mobileHeroSrc ? (
@@ -202,7 +199,9 @@ function SpeciesProfileHeroMedia({
         className="size-full object-cover text-transparent"
         decoding="async"
         fetchPriority="high"
-        src={mobileHeroSrc ?? desktopHeroSrc}
+        height={primary?.height}
+        src={optimizedImgSrc(primarySrc, 800)}
+        width={primary?.width}
       />
     </picture>
   );

@@ -6,6 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
+import { LOOKALIKE_SIZES } from "@/lib/imageSizes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 type LookalikePairProps = {
@@ -44,7 +45,7 @@ function LookalikeSide({
             species.location,
           )}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-          sizes="(max-width: 1024px) 40vw, 280px"
+          sizes={LOOKALIKE_SIZES}
           src={species.mobileImage ?? species.image}
         />
       </span>
