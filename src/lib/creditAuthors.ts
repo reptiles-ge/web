@@ -14,6 +14,7 @@ import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { ANIMAL_GROUP_TO_HUB, type GroupHubId } from "@/lib/groupHubs";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
+import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export type CreditAuthorPhoto = {
   credit?: PhotoCredit;
@@ -31,6 +32,8 @@ const GROUP_RANK: Record<AnimalGroup, number> = {
   spider: 6,
   turtle: 3,
 };
+
+export const HOME_CONTRIBUTOR_PREVIEW_COUNT = 4;
 
 export function creditAuthorAlternates(locale: AppLocale, slug: string) {
   return localeAlternates(locale, {
@@ -123,6 +126,45 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
     ids.push(photo.speciesId);
   }
   return ids;
+}
+
+export function getHomeContributorCards() {
+  const cards = [];
+  for (const author of getPublishedCreditAuthors()) {
+    const photos = getCreditAuthorPhotos(author);
+    const preview = pickCreditAuthorPreviewPhotos(photos);
+    if (preview.length === 0) continue;
+    cards.push({
+      author,
+      photoCount: photos.length,
+      preview,
+      speciesCount: getCreditAuthorSpeciesIds(photos).length,
+    });
+  }
+  return cards.sort((a, b) => {
+    if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
+    return a.author.slug.localeCompare(b.author.slug);
+  });
+}
+
+export function pickCreditAuthorPreviewPhotos(
+  photos: CreditAuthorPhoto[],
+  limit = HOME_CONTRIBUTOR_PREVIEW_COUNT,
+) {
+  const unique: CreditAuthorPhoto[] = [];
+  const rest: CreditAuthorPhoto[] = [];
+  const seen = new Set<string>();
+  for (const photo of photos) {
+    if (!photo.src || isPlaceholderMedia(photo.src)) continue;
+    if (seen.has(photo.speciesId)) {
+      rest.push(photo);
+      continue;
+    }
+    seen.add(photo.speciesId);
+    unique.push(photo);
+    if (unique.length >= limit) return unique;
+  }
+  return [...unique, ...rest].slice(0, limit);
 }
 
 export function resolvePublishedCreditAuthor(slug: string) {

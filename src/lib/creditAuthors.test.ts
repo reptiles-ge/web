@@ -4,11 +4,15 @@ import {
   getPublishedCreditAuthorByName,
   getPublishedCreditAuthorBySlug,
 } from "@/data/creditAuthors";
+import { pathnames } from "@/i18n/pathnames";
 import {
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
+  getHomeContributorCards,
+  pickCreditAuthorPreviewPhotos,
 } from "@/lib/creditAuthors";
+import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
 
 describe("credit authors", () => {
   it("resolves Sandro Khakhva from both name spellings", () => {
@@ -90,5 +94,75 @@ describe("credit authors", () => {
     expect(
       getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)),
     ).toEqual(expect.arrayContaining(["snakes", "amphibians"]));
+  });
+
+  it("builds homepage contributor cards from published author pages", () => {
+    const cards = getHomeContributorCards();
+    expect(cards.map((card) => card.author.slug)).toEqual([
+      "zauri-khachidze",
+      "sandro-khakhva",
+    ]);
+    expect(cards.map((card) => card.photoCount)).toEqual(
+      [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),
+    );
+    for (const card of cards) {
+      expect(card.photoCount).toBeGreaterThanOrEqual(20);
+      expect(card.speciesCount).toBeGreaterThan(0);
+      expect(card.preview).toHaveLength(4);
+      const species = new Set(card.preview.map((photo) => photo.speciesId));
+      expect(species.size).toBe(4);
+    }
+  });
+
+  it("prefers distinct species for homepage mosaics", () => {
+    expect(
+      pickCreditAuthorPreviewPhotos(
+        [
+          { speciesId: "a", src: "https://cdn.reptiles.ge/a1.jpg", updatedAt: "" },
+          { speciesId: "a", src: "https://cdn.reptiles.ge/a2.jpg", updatedAt: "" },
+          { speciesId: "b", src: "/images/species-placeholder.png", updatedAt: "" },
+          { speciesId: "b", src: "https://cdn.reptiles.ge/b1.jpg", updatedAt: "" },
+          { speciesId: "c", src: "https://cdn.reptiles.ge/c1.jpg", updatedAt: "" },
+        ],
+        3,
+      ).map((photo) => photo.src),
+    ).toEqual([
+      "https://cdn.reptiles.ge/a1.jpg",
+      "https://cdn.reptiles.ge/b1.jpg",
+      "https://cdn.reptiles.ge/c1.jpg",
+    ]);
+  });
+
+  it("301s legacy photographer prefixes to the live slugs", () => {
+    expect(pathnames["/authors/[slug]"]).toEqual({
+      en: "/photographers/[slug]",
+      ka: "/fotografebi/[slug]",
+      ru: "/photographers/[slug]",
+      tr: "/photographers/[slug]",
+    });
+    expect(legacyPhotographerRedirectPath("/avtorebi/sandro-khakhva")).toBe(
+      "/fotografebi/sandro-khakhva",
+    );
+    expect(legacyPhotographerRedirectPath("/authors/zauri-khachidze")).toBe(
+      "/fotografebi/zauri-khachidze",
+    );
+    expect(legacyPhotographerRedirectPath("/photographers/sandro-khakhva")).toBe(
+      "/fotografebi/sandro-khakhva",
+    );
+    expect(
+      legacyPhotographerRedirectPath("/en/authors/sandro-khakhva"),
+    ).toBe("/en/photographers/sandro-khakhva");
+    expect(
+      legacyPhotographerRedirectPath("/ru/avtorebi/zauri-khachidze"),
+    ).toBe("/ru/photographers/zauri-khachidze");
+    expect(
+      legacyPhotographerRedirectPath("/tr/fotografebi/sandro-khakhva"),
+    ).toBe("/tr/photographers/sandro-khakhva");
+    expect(
+      legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva"),
+    ).toBeNull();
+    expect(
+      legacyPhotographerRedirectPath("/en/photographers/sandro-khakhva"),
+    ).toBeNull();
   });
 });

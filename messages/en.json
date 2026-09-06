@@ -196,6 +196,11 @@
         "body": "A photo quiz of Georgia’s snakes — four options, no account."
       }
     },
+    "contributors": {
+      "eyebrow": "Photographers",
+      "title": "Whose photographs are in the atlas",
+      "subtitle": "Field photographers whose photos appear on species profiles — each has a page here."
+    },
     "safety": {
       "eyebrow": "Safety",
       "bite": "Snakebite"

@@ -5,6 +5,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
@@ -45,6 +46,9 @@ export default function proxy(request: NextRequest) {
   if (pathname === "/ka" || pathname.startsWith("/ka/")) {
     return redirectTo(request, pathname.slice(3) || "/");
   }
+
+  const photographer = legacyPhotographerRedirectPath(pathname);
+  if (photographer) return redirectTo(request, photographer);
 
   const legacy = pathname.match(
     new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
