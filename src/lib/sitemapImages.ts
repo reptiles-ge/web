@@ -5,28 +5,6 @@ import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 const MAX_SITEMAP_IMAGES = 8;
 
-export function speciesPageImageUrls(species: Species): string[] {
-  const urls: string[] = [];
-  const seen = new Set<string>();
-
-  function push(src?: string) {
-    if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
-      return;
-    }
-    const url = absoluteImageUrl(src);
-    if (seen.has(url)) return;
-    seen.add(url);
-    urls.push(url);
-  }
-
-  push(species.image);
-  push(species.mobileImage);
-  for (const photo of species.gallery) {
-    push(photo.src);
-  }
-  return urls;
-}
-
 export function creditAuthorPageImageUrls(
   portraitSrc: string,
   photos: Array<{ src: string }>,
@@ -46,6 +24,28 @@ export function creditAuthorPageImageUrls(
 
   push(portraitSrc);
   for (const photo of photos) {
+    push(photo.src);
+  }
+  return urls;
+}
+
+export function speciesPageImageUrls(species: Species): string[] {
+  const urls: string[] = [];
+  const seen = new Set<string>();
+
+  function push(src?: string) {
+    if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
+      return;
+    }
+    const url = absoluteImageUrl(src);
+    if (seen.has(url)) return;
+    seen.add(url);
+    urls.push(url);
+  }
+
+  push(species.image);
+  push(species.mobileImage);
+  for (const photo of species.gallery) {
     push(photo.src);
   }
   return urls;

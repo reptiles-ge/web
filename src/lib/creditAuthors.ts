@@ -4,6 +4,7 @@ import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
+  creditAuthorHref,
   getPublishedCreditAuthorBySlug,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
@@ -51,10 +52,28 @@ export function creditAuthorStaticParams() {
 export function creditAuthorUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(
     getPathname({
-      href: { params: { slug }, pathname: "/authors/[slug]" },
+      href: creditAuthorHref(slug),
       locale,
     }),
   );
+}
+
+export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
+  const hubs: GroupHubId[] = [];
+  const seen = new Set<GroupHubId>();
+  const ranked = [...speciesIds].sort((a, b) => {
+    return (
+      GROUP_RANK[getSpeciesAtlasMeta(a).group] -
+      GROUP_RANK[getSpeciesAtlasMeta(b).group]
+    );
+  });
+  for (const id of ranked) {
+    const hub = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(id).group];
+    if (seen.has(hub)) continue;
+    seen.add(hub);
+    hubs.push(hub);
+  }
+  return hubs;
 }
 
 export function getCreditAuthorPhotos(
@@ -104,24 +123,6 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
     ids.push(photo.speciesId);
   }
   return ids;
-}
-
-export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
-  const hubs: GroupHubId[] = [];
-  const seen = new Set<GroupHubId>();
-  const ranked = [...speciesIds].sort((a, b) => {
-    return (
-      GROUP_RANK[getSpeciesAtlasMeta(a).group] -
-      GROUP_RANK[getSpeciesAtlasMeta(b).group]
-    );
-  });
-  for (const id of ranked) {
-    const hub = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(id).group];
-    if (seen.has(hub)) continue;
-    seen.add(hub);
-    hubs.push(hub);
-  }
-  return hubs;
 }
 
 export function resolvePublishedCreditAuthor(slug: string) {

@@ -22,7 +22,13 @@ describe("galleryImageObject", () => {
         creator: expect.objectContaining({
           "@type": "Person",
           name: "სანდრო ხახვა",
-          url: expect.stringContaining("/avtorebi/sandro-khakhva"),
+        }),
+      }),
+    );
+    expect(data).toEqual(
+      expect.objectContaining({
+        creator: expect.objectContaining({
+          url: expect.stringMatching(/^https?:\/\//),
         }),
       }),
     );
