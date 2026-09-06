@@ -39,10 +39,10 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       "სანდრო ხახვა",
     ],
     bio: {
-      en: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara. He studies reptiles and works with them.",
-      ka: "სანდრო (ალექსანდრე) ხახვა ახალგაზრდა ქართველი მკვლევარია აჭარიდან — ქვეწარმავლების მკვლევარი და მომთვინიერებელი.",
-      ru: "Сандро (Александр) Хахва — молодой грузинский исследователь из Аджарии. Изучает рептилий и работает с ними.",
-      tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır. Sürüngenleri inceler ve onlarla çalışır.",
+      en: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara — a beginning herpetologist and naturalist.",
+      ka: "სანდრო (ალექსანდრე) ხახვა ახალგაზრდა ქართველი მკვლევარია აჭარიდან — დამწყები ჰერპეტოლოგი და ნატურალისტი.",
+      ru: "Сандро (Александр) Хахва — молодой грузинский исследователь из Аджарии, начинающий герпетолог и натуралист.",
+      tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır — yeni başlayan herpetolog ve natüralist.",
     },
     id: "sandro-khakhva",
     links: {

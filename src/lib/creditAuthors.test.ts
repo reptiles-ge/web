@@ -36,7 +36,7 @@ describe("credit authors", () => {
       "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     );
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.bio?.ka).toContain(
-      "აჭარიდან",
+      "დამწყები ჰერპეტოლოგი და ნატურალისტი",
     );
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toEqual({
       facebook: "https://www.facebook.com/sandro.khakhva.9",
