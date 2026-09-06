@@ -94,13 +94,13 @@ test("quiz landing is indexable and play stays on the same URL", async ({
   expect(page.url()).not.toMatch(/result/);
 });
 
-test("Sandro Khakhva photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/sandro-khakhva");
+test("Sandro Khakhva contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/sandro-khakhva");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("სანდრო ხახვა");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/sandro-khakhva\/?$/,
+    /\/kontributorebi\/sandro-khakhva\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -109,13 +109,13 @@ test("Sandro Khakhva photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("Zauri Khachidze photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/zauri-khachidze");
+test("Zauri Khachidze contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/zauri-khachidze");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("ზაური ხაჩიძე");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/zauri-khachidze\/?$/,
+    /\/kontributorebi\/zauri-khachidze\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -124,22 +124,141 @@ test("Zauri Khachidze photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("legacy photographer slugs 301 to fotografebi and photographers", async ({
+test("Ioane Rostiashvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/ioane-rostiashvili");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("იოანე როსტიაშვილი");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/ioane-rostiashvili\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
+test("Giorgi Iankoshvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/giorgi-iankoshvili");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("გიორგი იანქოშვილი");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/giorgi-iankoshvili\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
+test("Zakro Songulashvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/zakro-songulashvili");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ზაქრო სონგულაშვილი");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/zakro-songulashvili\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
+test("Nika Melikishvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/nika-melikishvili");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ნიკა მელიქიშვილი");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/nika-melikishvili\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
+test("Close to wildlife contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/velur-bunebastan-axlos");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ველურ ბუნებასთან ახლოს");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/velur-bunebastan-axlos\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
+test("contributor index is indexable and lists published authors", async ({
+  page,
+}) => {
+  const response = await page.goto("/kontributorebi");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("კონტრიბუტორები");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/kontributorebi\/?$/,
+  );
+  await expect(
+    page.getByRole("heading", { name: "ზაური ხაჩიძე" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "ნიკა მელიქიშვილი" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "ველურ ბუნებასთან ახლოს" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "ზაქრო სონგულაშვილი" }),
+  ).toBeVisible();
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"CollectionPage"'))).toBe(true);
+});
+
+test("legacy photographer slugs 301 to kontributorebi and contributors", async ({
   request,
 }) => {
   const ka = await request.get("/avtorebi/sandro-khakhva", {
     maxRedirects: 0,
   });
   expect(ka.status()).toBe(301);
-  expect(locationPath(ka.headers())).toBe("/fotografebi/sandro-khakhva");
+  expect(locationPath(ka.headers())).toBe("/kontributorebi/sandro-khakhva");
 
   const latin = await request.get("/en/authors/zauri-khachidze", {
     maxRedirects: 0,
   });
   expect(latin.status()).toBe(301);
   expect(locationPath(latin.headers())).toBe(
-    "/en/photographers/zauri-khachidze",
+    "/en/contributors/zauri-khachidze",
   );
+
+  const kaIndex = await request.get("/photographers", { maxRedirects: 0 });
+  expect(kaIndex.status()).toBe(301);
+  expect(locationPath(kaIndex.headers())).toBe("/kontributorebi");
+
+  const enIndex = await request.get("/en/authors", { maxRedirects: 0 });
+  expect(enIndex.status()).toBe(301);
+  expect(locationPath(enIndex.headers())).toBe("/en/contributors");
+
+  const kaOld = await request.get("/fotografebi", { maxRedirects: 0 });
+  expect(kaOld.status()).toBe(301);
+  expect(locationPath(kaOld.headers())).toBe("/kontributorebi");
+
+  const enOld = await request.get("/en/photographers", { maxRedirects: 0 });
+  expect(enOld.status()).toBe(301);
+  expect(locationPath(enOld.headers())).toBe("/en/contributors");
 });
 
 test("404 is noindex", async ({ page }) => {

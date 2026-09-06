@@ -40,7 +40,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Regions + map IDs              | `src/data/regions.ts` — **never infer** `speciesIds`                      |
 | Checklist authority            | `src/data/herpetofauna-checklist.ts`                                      |
 | Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                              |
-| Photographers                  | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                   |
+| Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                   |
 | News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                |
 | 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`) |
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                       |
@@ -137,7 +137,8 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/riskis-doneebi`                                      | `/en/risk-to-humans`                                        | Risk legend                                         |
 | `/about`, `/contact`                                   | `/en/about`, `/en/contact`                                  | Site                                                |
 | `/news`, `/news/{slug}`                                | `/en/news`, `/en/news/{slug}`                               | News                                                |
-| `/fotografebi/sandro-khakhva`                          | `/en/photographers/sandro-khakhva`                          | Published photographer page (no photographer index) |
+| `/kontributorebi`                                      | `/en/contributors`                                          | Contributor index                                   |
+| `/kontributorebi/sandro-khakhva` (etc.)                | `/en/contributors/sandro-khakhva`                           | Contributor page                                    |
 
 There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not standalone Red List guides.
 

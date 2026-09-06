@@ -822,6 +822,38 @@ const STATIC_PAGES: Array<
     title: { en: "About", ka: "შესახებ" },
   },
   {
+    heroImage: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
+    href: "/authors",
+    icon: "info",
+    id: "contributors",
+    keywords: [
+      "კონტრიბუტორები",
+      "kontributorebi",
+      "contributors",
+      "контрибьюторы",
+      "katkıda bulunanlar",
+      "ფოტოგრაფები",
+      "fotografebi",
+      "photographers",
+      "фотографы",
+      "fotoğrafçılar",
+      "ავტორები",
+      "authors",
+    ],
+    subtitle: {
+      en: "Researchers and photographers in the atlas",
+      ka: "მკვლევრები და ფოტოგრაფები ატლასში",
+      ru: "Исследователи и фотографы в атласе",
+      tr: "Atlastaki araştırmacılar ve fotoğrafçılar",
+    },
+    title: {
+      en: "Contributors",
+      ka: "კონტრიბუტორები",
+      ru: "Контрибьюторы",
+      tr: "Katkıda bulunanlar",
+    },
+  },
+  {
     href: "/news",
     icon: "news",
     id: "news",
@@ -1027,6 +1059,9 @@ function coverFromSpecies(id?: string, fallback?: string) {
 function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
   if (role === "ranger") {
     return ["რეინჯერი", "ranger", "рейнджер", "bekçi"];
+  }
+  if (role === "photographer") {
+    return ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"];
   }
   return ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"];
 }

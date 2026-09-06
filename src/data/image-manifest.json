@@ -3099,6 +3099,235 @@
       ],
       "updatedAt": "2026-09-05T16:35:26.909Z"
     },
+    "authors/giorgi-iankoshvili.jpg": {
+      "sourceHash": "9293cfefb2f50d69de48b05398db754295b5bea000c048b332b30a6766c75b6d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/giorgi-iankoshvili.jpg",
+      "originalSize": 109779,
+      "width": 682,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 13444
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 17614
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 18210
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 23508
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 961,
+          "byteSize": 33601
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 961,
+          "byteSize": 40890
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-682.avif",
+          "format": "avif",
+          "width": 682,
+          "height": 1024,
+          "byteSize": 38110
+        },
+        {
+          "key": "optimized/authors/giorgi-iankoshvili-682.webp",
+          "format": "webp",
+          "width": 682,
+          "height": 1024,
+          "byteSize": 45882
+        }
+      ],
+      "updatedAt": "2026-09-06T18:12:41.407Z"
+    },
+    "authors/ioane-rostiashvili.jpg": {
+      "sourceHash": "f7ef5b55a7f1160b1ce6c4d1d351a2b65ff517346c60516e19f7e249cb28f343",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/ioane-rostiashvili.jpg",
+      "originalSize": 219118,
+      "width": 1024,
+      "height": 1021,
+      "derivatives": [
+        {
+          "key": "optimized/authors/ioane-rostiashvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 319,
+          "byteSize": 13922
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 319,
+          "byteSize": 20044
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 399,
+          "byteSize": 20063
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 399,
+          "byteSize": 28014
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 638,
+          "byteSize": 39540
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 638,
+          "byteSize": 53502
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 798,
+          "byteSize": 54152
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 798,
+          "byteSize": 70180
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1021,
+          "byteSize": 79010
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1021,
+          "byteSize": 98040
+        }
+      ],
+      "updatedAt": "2026-09-06T17:50:38.329Z"
+    },
+    "authors/nika-melikishvili.jpg": {
+      "sourceHash": "8813f2adaec6429dc81ad22c826b33881286564af69407bcc608be3df8895a74",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/nika-melikishvili.jpg",
+      "originalSize": 105888,
+      "width": 1024,
+      "height": 678,
+      "derivatives": [
+        {
+          "key": "optimized/authors/nika-melikishvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5042
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6312
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 6794
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 8264
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 12488
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 15802
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 17283
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 21384
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 28510
+        },
+        {
+          "key": "optimized/authors/nika-melikishvili-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 35950
+        }
+      ],
+      "updatedAt": "2026-09-06T18:59:21.348Z"
+    },
     "authors/sandro-khakhva.jpg": {
       "sourceHash": "6591e4f8af7ff4460628da5e2dfd6c627f571bcba189e474b8c00ec4388373bc",
       "configFingerprint": "409788ee46c653d8",
@@ -3179,6 +3408,140 @@
         }
       ],
       "updatedAt": "2026-09-06T12:26:16.344Z"
+    },
+    "authors/velur-bunebastan-axlos.jpg": {
+      "sourceHash": "51b102ae4d443bd1207de4dcea5cbb71c98e87a32a3cd47f99579f8bb522474d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/velur-bunebastan-axlos.jpg",
+      "originalSize": 273115,
+      "width": 1024,
+      "height": 1008,
+      "derivatives": [
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 315,
+          "byteSize": 19597
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 315,
+          "byteSize": 31562
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 394,
+          "byteSize": 28054
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 394,
+          "byteSize": 43686
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 630,
+          "byteSize": 52104
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 630,
+          "byteSize": 81856
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 788,
+          "byteSize": 70504
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 788,
+          "byteSize": 106748
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1008,
+          "byteSize": 102370
+        },
+        {
+          "key": "optimized/authors/velur-bunebastan-axlos-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1008,
+          "byteSize": 144468
+        }
+      ],
+      "updatedAt": "2026-09-06T19:05:58.924Z"
+    },
+    "authors/zakro-songulashvili.jpg": {
+      "sourceHash": "4357c539af87c13959ea002444e4e3c3aa59217c3a0bae0a571681a15b3dce31",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/zakro-songulashvili.jpg",
+      "originalSize": 116466,
+      "width": 446,
+      "height": 660,
+      "derivatives": [
+        {
+          "key": "optimized/authors/zakro-songulashvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 474,
+          "byteSize": 19683
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 474,
+          "byteSize": 29660
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 592,
+          "byteSize": 24820
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 592,
+          "byteSize": 37044
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-446.avif",
+          "format": "avif",
+          "width": 446,
+          "height": 660,
+          "byteSize": 28355
+        },
+        {
+          "key": "optimized/authors/zakro-songulashvili-446.webp",
+          "format": "webp",
+          "width": 446,
+          "height": 660,
+          "byteSize": 42820
+        }
+      ],
+      "updatedAt": "2026-09-06T18:27:16.973Z"
     },
     "authors/zauri-khachidze.jpg": {
       "sourceHash": "774fdd34b8d61a101f2c3d9fecc487e2e19cf49ffe7028bd108817660219824b",

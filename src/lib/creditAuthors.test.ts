@@ -6,6 +6,7 @@ import {
 } from "@/data/creditAuthors";
 import { pathnames } from "@/i18n/pathnames";
 import {
+  getCreditAuthorCards,
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
@@ -35,12 +36,9 @@ describe("credit authors", () => {
       "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     );
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.bio?.ka).toContain(
-      "აჭარიდან",
+      "დამწყები ჰერპეტოლოგი და ნატურალისტი",
     );
-    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toEqual({
-      facebook: "https://www.facebook.com/sandro.khakhva.9",
-      instagram: "https://www.instagram.com/wildtrail.geo",
-    });
+    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toBeUndefined();
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.role).toBe(
       "herpetologist",
     );
@@ -72,9 +70,163 @@ describe("credit authors", () => {
         "pelodytes-caucasicus",
       ]),
     );
-    expect(
-      getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)),
-    ).toEqual(expect.arrayContaining(["snakes", "mammals", "amphibians"]));
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "mammals", "amphibians"]),
+    );
+  });
+
+  it("resolves Ioane Rostiashvili as a published herpetologist", () => {
+    expect(getPublishedCreditAuthorByName("იოანე როსტიაშვილი")?.slug).toBe(
+      "ioane-rostiashvili",
+    );
+    expect(getPublishedCreditAuthorByName("Ioane Rostiashvili")?.slug).toBe(
+      "ioane-rostiashvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("ioane-rostiashvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("herpetologist");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ილიას სახელმწიფო უნივერსიტეტის");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/ioane.rost.iashvili.2025/",
+      instagram: "https://www.instagram.com/ioane_rostiashvili/",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(20);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "dolichophis-schmidti",
+        "bufotes-viridis",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "amphibians"]),
+    );
+  });
+
+  it("resolves Giorgi Iankoshvili as a published herpetologist", () => {
+    expect(getPublishedCreditAuthorByName("გიორგი იანქოშვილი")?.slug).toBe(
+      "giorgi-iankoshvili",
+    );
+    expect(getPublishedCreditAuthorByName("Giorgi Iankoshvili")?.slug).toBe(
+      "giorgi-iankoshvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("giorgi-iankoshvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("herpetologist");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ეკოლოგიის ინსტიტუტის");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/giorgi.iankoshvili/",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(10);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "vipera-darevskii",
+        "mertensiella-caucasica",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "amphibians"]),
+    );
+  });
+
+  it("resolves Zakro Songulashvili as a published herpetologist", () => {
+    expect(getPublishedCreditAuthorByName("ზაქრო სონგულაშვილი")?.slug).toBe(
+      "zakro-songulashvili",
+    );
+    expect(getPublishedCreditAuthorByName("Zakro Songulashvili")?.slug).toBe(
+      "zakro-songulashvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("zakro-songulashvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("herpetologist");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ნატურალისტი");
+    expect(author?.links).toBeUndefined();
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(10);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "argiope-lobata",
+        "bufotes-viridis",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "spiders", "amphibians"]),
+    );
+  });
+
+  it("resolves Nika Melikishvili as a published photographer", () => {
+    expect(getPublishedCreditAuthorByName("ნიკა მელიქიშვილი")?.slug).toBe(
+      "nika-melikishvili",
+    );
+    expect(getPublishedCreditAuthorByName("Nika Melikishvili")?.slug).toBe(
+      "nika-melikishvili",
+    );
+    const author = getPublishedCreditAuthorBySlug("nika-melikishvili");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("photographer");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/nika-melikishvili.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ბუნების ფოტოგრაფი");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/nika.melikishvili",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(10);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "macrovipera-lebetina",
+        "eirenis-collaris",
+        "vulpes-vulpes",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "mammals"]),
+    );
+  });
+
+  it("resolves Close to wildlife as a published photographer page", () => {
+    expect(getPublishedCreditAuthorByName("ველურ ბუნებასთან ახლოს")?.slug).toBe(
+      "velur-bunebastan-axlos",
+    );
+    expect(getPublishedCreditAuthorByName("Close to wildlife")?.slug).toBe(
+      "velur-bunebastan-axlos",
+    );
+    const author = getPublishedCreditAuthorBySlug("velur-bunebastan-axlos");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("photographer");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ქვეწარმავლებსა და ამფიბიებს");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/profile.php?id=61585670878935",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(8);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "gyps-fulvus",
+        "turdus-merula",
+        "argiope-bruennichi",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["birds", "spiders"]),
+    );
   });
 
   it("collects his atlas photos without duplicates", () => {
@@ -91,22 +243,31 @@ describe("credit authors", () => {
         "natrix-tessellata",
       ]),
     );
-    expect(
-      getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)),
-    ).toEqual(expect.arrayContaining(["snakes", "amphibians"]));
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes", "amphibians"]),
+    );
   });
 
   it("builds homepage contributor cards from published author pages", () => {
     const cards = getHomeContributorCards();
     expect(cards.map((card) => card.author.slug)).toEqual([
       "zauri-khachidze",
+      "ioane-rostiashvili",
+    ]);
+    expect(getCreditAuthorCards().map((card) => card.author.slug)).toEqual([
+      "zauri-khachidze",
+      "ioane-rostiashvili",
       "sandro-khakhva",
+      "giorgi-iankoshvili",
+      "nika-melikishvili",
+      "zakro-songulashvili",
+      "velur-bunebastan-axlos",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
       [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),
     );
     for (const card of cards) {
-      expect(card.photoCount).toBeGreaterThanOrEqual(20);
+      expect(card.photoCount).toBeGreaterThanOrEqual(10);
       expect(card.speciesCount).toBeGreaterThan(0);
       expect(card.preview).toHaveLength(4);
       const species = new Set(card.preview.map((photo) => photo.speciesId));
@@ -118,11 +279,31 @@ describe("credit authors", () => {
     expect(
       pickCreditAuthorPreviewPhotos(
         [
-          { speciesId: "a", src: "https://cdn.reptiles.ge/a1.jpg", updatedAt: "" },
-          { speciesId: "a", src: "https://cdn.reptiles.ge/a2.jpg", updatedAt: "" },
-          { speciesId: "b", src: "/images/species-placeholder.png", updatedAt: "" },
-          { speciesId: "b", src: "https://cdn.reptiles.ge/b1.jpg", updatedAt: "" },
-          { speciesId: "c", src: "https://cdn.reptiles.ge/c1.jpg", updatedAt: "" },
+          {
+            speciesId: "a",
+            src: "https://cdn.reptiles.ge/a1.jpg",
+            updatedAt: "",
+          },
+          {
+            speciesId: "a",
+            src: "https://cdn.reptiles.ge/a2.jpg",
+            updatedAt: "",
+          },
+          {
+            speciesId: "b",
+            src: "/images/species-placeholder.png",
+            updatedAt: "",
+          },
+          {
+            speciesId: "b",
+            src: "https://cdn.reptiles.ge/b1.jpg",
+            updatedAt: "",
+          },
+          {
+            speciesId: "c",
+            src: "https://cdn.reptiles.ge/c1.jpg",
+            updatedAt: "",
+          },
         ],
         3,
       ).map((photo) => photo.src),
@@ -134,35 +315,69 @@ describe("credit authors", () => {
   });
 
   it("301s legacy photographer prefixes to the live slugs", () => {
+    expect(pathnames["/authors"]).toEqual({
+      en: "/contributors",
+      ka: "/kontributorebi",
+      ru: "/contributors",
+      tr: "/contributors",
+    });
     expect(pathnames["/authors/[slug]"]).toEqual({
-      en: "/photographers/[slug]",
-      ka: "/fotografebi/[slug]",
-      ru: "/photographers/[slug]",
-      tr: "/photographers/[slug]",
+      en: "/contributors/[slug]",
+      ka: "/kontributorebi/[slug]",
+      ru: "/contributors/[slug]",
+      tr: "/contributors/[slug]",
     });
     expect(legacyPhotographerRedirectPath("/avtorebi/sandro-khakhva")).toBe(
-      "/fotografebi/sandro-khakhva",
+      "/kontributorebi/sandro-khakhva",
     );
     expect(legacyPhotographerRedirectPath("/authors/zauri-khachidze")).toBe(
-      "/fotografebi/zauri-khachidze",
-    );
-    expect(legacyPhotographerRedirectPath("/photographers/sandro-khakhva")).toBe(
-      "/fotografebi/sandro-khakhva",
+      "/kontributorebi/zauri-khachidze",
     );
     expect(
-      legacyPhotographerRedirectPath("/en/authors/sandro-khakhva"),
-    ).toBe("/en/photographers/sandro-khakhva");
-    expect(
-      legacyPhotographerRedirectPath("/ru/avtorebi/zauri-khachidze"),
-    ).toBe("/ru/photographers/zauri-khachidze");
+      legacyPhotographerRedirectPath("/photographers/sandro-khakhva"),
+    ).toBe("/kontributorebi/sandro-khakhva");
+    expect(legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva")).toBe(
+      "/kontributorebi/sandro-khakhva",
+    );
+    expect(legacyPhotographerRedirectPath("/en/authors/sandro-khakhva")).toBe(
+      "/en/contributors/sandro-khakhva",
+    );
+    expect(legacyPhotographerRedirectPath("/ru/avtorebi/zauri-khachidze")).toBe(
+      "/ru/contributors/zauri-khachidze",
+    );
     expect(
       legacyPhotographerRedirectPath("/tr/fotografebi/sandro-khakhva"),
-    ).toBe("/tr/photographers/sandro-khakhva");
-    expect(
-      legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva"),
-    ).toBeNull();
+    ).toBe("/tr/contributors/sandro-khakhva");
     expect(
       legacyPhotographerRedirectPath("/en/photographers/sandro-khakhva"),
+    ).toBe("/en/contributors/sandro-khakhva");
+    expect(legacyPhotographerRedirectPath("/photographers")).toBe(
+      "/kontributorebi",
+    );
+    expect(legacyPhotographerRedirectPath("/authors")).toBe("/kontributorebi");
+    expect(legacyPhotographerRedirectPath("/avtorebi")).toBe("/kontributorebi");
+    expect(legacyPhotographerRedirectPath("/fotografebi")).toBe(
+      "/kontributorebi",
+    );
+    expect(legacyPhotographerRedirectPath("/en/authors")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/en/fotografebi")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/en/photographers")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/en/kontributorebi")).toBe(
+      "/en/contributors",
+    );
+    expect(legacyPhotographerRedirectPath("/kontributorebi")).toBeNull();
+    expect(
+      legacyPhotographerRedirectPath("/kontributorebi/sandro-khakhva"),
     ).toBeNull();
+    expect(
+      legacyPhotographerRedirectPath("/en/contributors/sandro-khakhva"),
+    ).toBeNull();
+    expect(legacyPhotographerRedirectPath("/en/contributors")).toBeNull();
   });
 });

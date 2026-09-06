@@ -71,6 +71,7 @@ const guideLinks = [
 const companyLinks = [
   { href: "/about" as const, labelKey: "about" as const },
   { href: "/news" as const, labelKey: "news" as const },
+  { href: "/authors" as const, labelKey: "contributors" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
 ];
 

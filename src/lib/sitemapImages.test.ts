@@ -63,7 +63,9 @@ describe("speciesPageImageUrls", () => {
     } as Species);
 
     expect(urls).toEqual([
+      "https://cdn.reptiles.ge/hero.jpg",
       "https://cdn.reptiles.ge/sandro-1.jpg",
+      "https://cdn.reptiles.ge/nika.jpg",
       "https://cdn.reptiles.ge/zauri.jpg",
     ]);
   });

@@ -197,9 +197,10 @@
       }
     },
     "contributors": {
-      "eyebrow": "Fotoğrafçılar",
+      "eyebrow": "Katkıda bulunanlar",
       "title": "Atlas’ta kimin fotoğrafları var",
-      "subtitle": "Tür profillerinde fotoğrafı görünen saha fotoğrafçıları — her birinin burada kendi sayfası var."
+      "subtitle": "Tür profillerinde fotoğrafı görünen araştırmacılar ve fotoğrafçılar — her birinin burada kendi sayfası var.",
+      "seeAll": "Daha fazla katkıda bulunan"
     },
     "safety": {
       "eyebrow": "Güvenlik",
@@ -255,6 +256,7 @@
     "regions": "Bölgeler",
     "about": "Hakkında",
     "news": "Haberler",
+    "contributors": "Katkıda bulunanlar",
     "contact": "İletişim",
     "venomousTitle": "Zehirli türler",
     "venomousAll": "Güvenlik rehberi",
@@ -640,6 +642,7 @@
   "author": {
     "roles": {
       "herpetologist": "Herpetolog",
+      "photographer": "Fotoğrafçı",
       "ranger": "Ranger"
     },
     "facebook": "Facebook",
@@ -658,7 +661,16 @@
     "nextPhoto": "Sonraki fotoğraf",
     "next": "Devam",
     "nextQuizSnake": "Bu hangi yılan?",
-    "nextQuizLizard": "Bu hangi kertenkele?"
+    "nextQuizLizard": "Bu hangi kertenkele?",
+    "index": {
+      "breadcrumb": "Katkıda bulunanlar",
+      "h1": "Katkıda bulunanlar",
+      "intro": "Tür profillerinde fotoğrafları yer alan araştırmacılar ve fotoğrafçılar.",
+      "count": "Atlasta {count} katkıda bulunan",
+      "empty": "Henüz yayımlanmış katkıda bulunan sayfası yok.",
+      "metaTitle": "Katkıda bulunanlar",
+      "metaDescription": "reptiles.ge’deki araştırmacılar ve fotoğrafçılar — portreler, galeriler ve belgelledikleri türler."
+    }
   },
   "attribution": {
     "heading": "Reptiles.ge",

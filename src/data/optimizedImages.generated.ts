@@ -494,12 +494,47 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg": {
+    "path": "authors/giorgi-iankoshvili",
+    "width": 682,
+    "height": 1024,
+    "widths": [320, 400, 640, 682],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg": {
+    "path": "authors/ioane-rostiashvili",
+    "width": 1024,
+    "height": 1021,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/authors/nika-melikishvili.jpg": {
+    "path": "authors/nika-melikishvili",
+    "width": 1024,
+    "height": 678,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg": {
     "path": "authors/sandro-khakhva",
     "width": 1011,
     "height": 996,
     "widths": [320, 400, 640, 800, 1011],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg": {
+    "path": "authors/velur-bunebastan-axlos",
+    "width": 1024,
+    "height": 1008,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg": {
+    "path": "authors/zakro-songulashvili",
+    "width": 446,
+    "height": 660,
+    "widths": [320, 400, 446],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg": {
     "path": "authors/zauri-khachidze",

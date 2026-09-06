@@ -1,4 +1,3 @@
-import { ArrowLeft } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
@@ -7,7 +6,11 @@ import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import { AuthorGallery } from "@/components/AuthorGallery";
 import { CoverImage } from "@/components/CoverImage";
-import { creditAuthorBio, creditAuthorName } from "@/data/creditAuthors";
+import {
+  creditAuthorBio,
+  creditAuthorIndexHref,
+  creditAuthorName,
+} from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
@@ -74,11 +77,21 @@ export async function AuthorPage({
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link
-                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                  className="transition-colors hover:text-foreground"
                   href="/"
                 >
-                  <ArrowLeft className="size-3.5" />
                   {tShared("breadcrumbHome")}
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-border">
+                /
+              </li>
+              <li>
+                <Link
+                  className="transition-colors hover:text-foreground"
+                  href={creditAuthorIndexHref()}
+                >
+                  {t("index.breadcrumb")}
                 </Link>
               </li>
               <li aria-hidden="true" className="text-border">

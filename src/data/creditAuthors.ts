@@ -28,7 +28,7 @@ export type CreditAuthor = {
   slug: string;
 };
 
-export type CreditAuthorRole = "herpetologist" | "ranger";
+export type CreditAuthorRole = "herpetologist" | "photographer" | "ranger";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -39,16 +39,12 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       "სანდრო ხახვა",
     ],
     bio: {
-      en: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara. He studies reptiles and works with them.",
-      ka: "სანდრო (ალექსანდრე) ხახვა ახალგაზრდა ქართველი მკვლევარია აჭარიდან — ქვეწარმავლების მკვლევარი და მომთვინიერებელი.",
-      ru: "Сандро (Александр) Хахва — молодой грузинский исследователь из Аджарии. Изучает рептилий и работает с ними.",
-      tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır. Sürüngenleri inceler ve onlarla çalışır.",
+      en: "Sandro (Alexandre) Khakhva is a young Georgian researcher from Adjara — a beginning herpetologist and naturalist.",
+      ka: "სანდრო (ალექსანდრე) ხახვა ახალგაზრდა ქართველი მკვლევარია აჭარიდან — დამწყები ჰერპეტოლოგი და ნატურალისტი.",
+      ru: "Сандро (Александр) Хахва — молодой грузинский исследователь из Аджарии, начинающий герпетолог и натуралист.",
+      tr: "Sandro (Alexandre) Khakhva, Acara’dan genç bir Gürcü araştırmacıdır — yeni başlayan herpetolog ve natüralist.",
     },
     id: "sandro-khakhva",
-    links: {
-      facebook: "https://www.facebook.com/sandro.khakhva.9",
-      instagram: "https://www.instagram.com/wildtrail.geo",
-    },
     name: {
       en: "Sandro Khakhva",
       ka: "სანდრო ხახვა",
@@ -84,6 +80,124 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "ranger",
     slug: "zauri-khachidze",
   },
+  {
+    aliases: ["Ioane Rostiashvili", "იოანე როსტიაშვილი"],
+    bio: {
+      en: "Ioane Rostiashvili is a young researcher and a student at Ilia State University. He works as an amateur herpetologist (studying reptiles), an entomologist, and a wildlife photographer.",
+      ka: "იოანე როსტიაშვილი ახალგაზრდა მკვლევარია — ილიას სახელმწიფო უნივერსიტეტის სტუდენტი. საქმიანობს როგორც მოყვარული ჰერპეტოლოგი (ქვეწარმავლების მკვლევარი), ენტომოლოგი და ველური ბუნების ფოტოგრაფი.",
+      ru: "Иоане Ростиашвили — молодой исследователь, студент Государственного университета Ильи. Занимается любительской герпетологией (изучение пресмыкающихся), энтомологией и фотографией дикой природы.",
+      tr: "Ioane Rostiashvili genç bir araştırmacıdır — Ilia Devlet Üniversitesi öğrencisi. Amatör herpetolog (sürüngen araştırmacısı), entomolog ve yaban hayatı fotoğrafçısı olarak çalışır.",
+    },
+    id: "ioane-rostiashvili",
+    links: {
+      facebook: "https://www.facebook.com/ioane.rost.iashvili.2025/",
+      instagram: "https://www.instagram.com/ioane_rostiashvili/",
+    },
+    name: {
+      en: "Ioane Rostiashvili",
+      ka: "იოანე როსტიაშვილი",
+      ru: "Иоане Ростиашвили",
+      tr: "Ioane Rostiashvili",
+    },
+    portraitClass: "object-[50%_24%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "ioane-rostiashvili",
+  },
+  {
+    aliases: ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"],
+    bio: {
+      en: "Giorgi Iankoshvili is a Georgian researcher-ecologist and herpetologist. He is currently a researcher at the Institute of Ecology at Ilia State University and a doctoral student at the same university.",
+      ka: "გიორგი იანქოშვილი ქართველი მკვლევარი-ეკოლოგი და ჰერპეტოლოგია. ამჟამად ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტის მკვლევარია და ამავე უნივერსიტეტის დოქტორანტი.",
+      ru: "Гиорги Ианкошвили — грузинский исследователь-эколог и герпетолог. Сейчас он исследователь Института экологии Государственного университета Ильи и докторант того же университета.",
+      tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
+    },
+    id: "giorgi-iankoshvili",
+    links: {
+      facebook: "https://www.facebook.com/giorgi.iankoshvili/",
+    },
+    name: {
+      en: "Giorgi Iankoshvili",
+      ka: "გიორგი იანქოშვილი",
+      ru: "Гиорги Ианкошвили",
+      tr: "Giorgi Iankoshvili",
+    },
+    portraitClass: "object-[50%_22%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "giorgi-iankoshvili",
+  },
+  {
+    aliases: ["Zakro Songulashvili", "ზაქრო სონგულაშვილი"],
+    bio: {
+      en: "Zakro Songulashvili is a Georgian researcher, naturalist, and photographer who is actively engaged in studying and documenting biodiversity in Georgia, especially herpetofauna (amphibians/reptiles) and arthropods.",
+      ka: "ზაქრო სონგულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ქვეწარმავლებისა (ამფიბიები/რეპტილიები) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
+      ru: "Закро Сонгулашвили — грузинский исследователь, натуралист и фотограф, который активно занимается изучением и документированием биоразнообразия Грузии, особенно герпетофауны (амфибии/рептилии) и членистоногих.",
+      tr: "Zakro Songulashvili Gürcü araştırmacı, natüralist ve fotoğrafçıdır; Gürcistan’da biyoçeşitliliği, özellikle herpetofaunayı (amfibiler/sürüngenler) ve eklembacaklıları incelemek ve belgelemekle aktif olarak uğraşır.",
+    },
+    id: "zakro-songulashvili",
+    name: {
+      en: "Zakro Songulashvili",
+      ka: "ზაქრო სონგულაშვილი",
+      ru: "Закро Сонгулашвили",
+      tr: "Zakro Songulashvili",
+    },
+    portraitClass: "object-[50%_14%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "zakro-songulashvili",
+  },
+  {
+    aliases: ["Nika Melikishvili", "ნიკა მელიქიშვილი"],
+    bio: {
+      en: "Nika Melikishvili is a nature photographer and an active nature conservationist whose work depicts Georgia’s wildlife.",
+      ka: "ნიკა მელიქიშვილი ბუნების ფოტოგრაფი და აქტიური ბუნების დამცველია, რომლის ნამუშევრები საქართველოს ველურ ბუნებას ასახავს.",
+      ru: "Ника Меликишвили — фотограф природы и активный защитник природы, чьи работы отражают дикую природу Грузии.",
+      tr: "Nika Melikishvili, çalışmaları Gürcistan’ın yaban hayatını yansıtan bir doğa fotoğrafçısı ve aktif doğa koruyucusudur.",
+    },
+    id: "nika-melikishvili",
+    links: {
+      facebook: "https://www.facebook.com/nika.melikishvili",
+    },
+    name: {
+      en: "Nika Melikishvili",
+      ka: "ნიკა მელიქიშვილი",
+      ru: "Ника Меликишвили",
+      tr: "Nika Melikishvili",
+    },
+    portraitClass: "object-[32%_42%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/nika-melikishvili.jpg",
+    published: true,
+    role: "photographer",
+    slug: "nika-melikishvili",
+  },
+  {
+    aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
+    bio: {
+      en: "A wildlife photographer who documents Georgia’s reptiles and amphibians in their natural habitat.",
+      ka: "ველური ბუნების ფოტოგრაფი, რომელიც საქართველოს ქვეწარმავლებსა და ამფიბიებს ბუნებრივ გარემოში ასახავს.",
+      ru: "Фотограф дикой природы, который снимает рептилий и амфибий Грузии в естественной среде.",
+      tr: "Gürcistan’ın sürüngenlerini ve amfibilerini doğal ortamlarında yansıtan bir yaban hayatı fotoğrafçısı.",
+    },
+    id: "velur-bunebastan-axlos",
+    links: {
+      facebook: "https://www.facebook.com/profile.php?id=61585670878935",
+    },
+    name: {
+      en: "Close to wildlife",
+      ka: "ველურ ბუნებასთან ახლოს",
+      ru: "Близко к дикой природе",
+      tr: "Close to wildlife",
+    },
+    portraitClass: "object-[52%_42%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg",
+    published: true,
+    role: "photographer",
+    slug: "velur-bunebastan-axlos",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
@@ -104,6 +218,10 @@ export function creditAuthorHref(slug: string) {
     params: { slug },
     pathname: "/authors/[slug]" as const,
   };
+}
+
+export function creditAuthorIndexHref() {
+  return "/authors" as const;
 }
 
 export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -9,13 +9,17 @@ import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import {
   creditAuthorBio,
   creditAuthorHref,
+  creditAuthorIndexHref,
   creditAuthorName,
 } from "@/data/creditAuthors";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
-import { getHomeContributorCards } from "@/lib/creditAuthors";
+import {
+  getCreditAuthorCards,
+  HOME_CONTRIBUTOR_LIMIT,
+} from "@/lib/creditAuthors";
 import {
   HOME_CONTRIBUTOR_MOSAIC_SIZES,
   HOME_CONTRIBUTOR_PORTRAIT_SIZES,
@@ -23,8 +27,10 @@ import {
 
 export async function HomeContributors() {
   const locale = (await getLocale()) as AppLocale;
-  const cards = getHomeContributorCards();
-  if (cards.length === 0) return null;
+  const all = getCreditAuthorCards();
+  if (all.length === 0) return null;
+  const cards = all.slice(0, HOME_CONTRIBUTOR_LIMIT);
+  const hasMore = all.length > HOME_CONTRIBUTOR_LIMIT;
 
   const [t, tAuthor] = await Promise.all([
     getTranslations("home.contributors"),
@@ -106,6 +112,22 @@ export async function HomeContributors() {
             );
           })}
         </ul>
+        {hasMore ? (
+          <p className="mt-12 lg:mt-16">
+            <Link
+              className="group inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              href={creditAuthorIndexHref()}
+            >
+              <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
+                {t("seeAll")}
+              </span>
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4 text-muted-foreground group-hover:text-foreground motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5"
+              />
+            </Link>
+          </p>
+        ) : null}
       </div>
     </section>
   );
@@ -147,10 +169,7 @@ function ContributorMosaic({
       )}
     >
       {slides.map((slide, index) => (
-        <li
-          className={mosaicItemClass(count, index)}
-          key={slide.photo.src}
-        >
+        <li className={mosaicItemClass(count, index)} key={slide.photo.src}>
           <TrackedSpeciesLink
             className="group relative block size-full overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
             locale={locale}

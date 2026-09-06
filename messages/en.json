@@ -197,9 +197,10 @@
       }
     },
     "contributors": {
-      "eyebrow": "Photographers",
+      "eyebrow": "Contributors",
       "title": "Whose photographs are in the atlas",
-      "subtitle": "Field photographers whose photos appear on species profiles — each has a page here."
+      "subtitle": "Researchers and photographers whose photos appear on species profiles — each has a page here.",
+      "seeAll": "See more contributors"
     },
     "safety": {
       "eyebrow": "Safety",
@@ -255,6 +256,7 @@
     "regions": "Regions",
     "about": "About",
     "news": "News",
+    "contributors": "Contributors",
     "contact": "Contact",
     "venomousTitle": "Venomous species",
     "venomousAll": "Safety guide",
@@ -640,6 +642,7 @@
   "author": {
     "roles": {
       "herpetologist": "Herpetologist",
+      "photographer": "Photographer",
       "ranger": "Ranger"
     },
     "facebook": "Facebook",
@@ -658,7 +661,16 @@
     "nextPhoto": "Next photo",
     "next": "Continue",
     "nextQuizSnake": "Which snake is it?",
-    "nextQuizLizard": "Which lizard is it?"
+    "nextQuizLizard": "Which lizard is it?",
+    "index": {
+      "breadcrumb": "Contributors",
+      "h1": "Contributors",
+      "intro": "Researchers and photographers whose photos appear on species profiles.",
+      "count": "{count} contributors in the atlas",
+      "empty": "No contributor pages are published yet.",
+      "metaTitle": "Contributors",
+      "metaDescription": "Researchers and photographers on reptiles.ge — portraits, galleries, and the species they documented."
+    }
   },
   "attribution": {
     "heading": "Reptiles.ge",
