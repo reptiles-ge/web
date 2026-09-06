@@ -37,9 +37,7 @@ import {
   GROUP_HUB_LIST,
   type GroupHubId,
 } from "@/lib/groupHubs";
-import { creditAuthorHref } from "@/data/creditAuthors";
-import { getPublishedCreditAuthors } from "@/data/creditAuthors";
-import { getCreditAuthorPhotos } from "@/lib/creditAuthors";
+import { creditAuthorHref, getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { newsArticleHref } from "@/lib/news";
 import { quizHref } from "@/lib/quizzes";
 import { speciesAliasKeywords } from "@/lib/seoKeywords";
@@ -952,7 +950,6 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
   );
   const regionDocs = regions.map((region) => toRegionDocument(locale, region));
   const authorDocs = getPublishedCreditAuthors().map((author) => {
-    const photos = getCreditAuthorPhotos(author);
     return {
       href: creditAuthorHref(author.slug),
       icon: "info" as const,

@@ -4,7 +4,13 @@ import { getPublishedNewsArticles, newsLatestModified } from "@/data/news";
 import { getRegionSpecies, regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
+import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { type AppLocale, routing } from "@/i18n/routing";
+import {
+  creditAuthorAlternates,
+  creditAuthorUrl,
+  getCreditAuthorPhotos,
+} from "@/lib/creditAuthors";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
@@ -91,6 +97,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: toLastModified(item.updatedAt),
         url: speciesPageUrl(locale, item.id),
         ...(images.length > 0 ? { images } : {}),
+      });
+    }
+
+    for (const author of getPublishedCreditAuthors()) {
+      const photos = getCreditAuthorPhotos(author);
+      const { languages } = creditAuthorAlternates(locale, author.slug);
+      push({
+        alternates: { languages },
+        lastModified: maxUpdatedAt(photos.map((photo) => photo.updatedAt)),
+        url: creditAuthorUrl(locale, author.slug),
       });
     }
 
