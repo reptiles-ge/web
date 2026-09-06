@@ -45007,6 +45007,101 @@
       ],
       "updatedAt": "2026-08-28T21:59:13.440Z"
     },
+    "telescopus-fallax-armen-1.jpg": {
+      "sourceHash": "81207c1eef2fcae12a6a9d1238254efcce4c86fb595adf8069d35aa3699209f7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "telescopus-fallax-armen-1.jpg",
+      "originalSize": 898452,
+      "width": 2400,
+      "height": 1608,
+      "derivatives": [
+        {
+          "key": "optimized/telescopus-fallax-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 10685
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 15986
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 16302
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 23572
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 429,
+          "byteSize": 37982
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 429,
+          "byteSize": 57504
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 56505
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 86758
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 122426
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 189696
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1608,
+          "byteSize": 395772
+        },
+        {
+          "key": "optimized/telescopus-fallax-armen-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1608,
+          "byteSize": 604640
+        }
+      ],
+      "updatedAt": "2026-09-06T15:22:49.304Z"
+    },
     "telescopus-fallax-giorgi-1.jpg": {
       "sourceHash": "a77019e59dcc51501ef543bb666511211263beac2cfb44e7e98ea4ea01d39716",
       "configFingerprint": "409788ee46c653d8",
