@@ -94,13 +94,13 @@ test("quiz landing is indexable and play stays on the same URL", async ({
   expect(page.url()).not.toMatch(/result/);
 });
 
-test("Sandro Khakhva photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/sandro-khakhva");
+test("Sandro Khakhva contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/sandro-khakhva");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("სანდრო ხახვა");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/sandro-khakhva\/?$/,
+    /\/kontributorebi\/sandro-khakhva\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -109,13 +109,13 @@ test("Sandro Khakhva photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("Zauri Khachidze photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/zauri-khachidze");
+test("Zauri Khachidze contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/zauri-khachidze");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("ზაური ხაჩიძე");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/zauri-khachidze\/?$/,
+    /\/kontributorebi\/zauri-khachidze\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -124,13 +124,13 @@ test("Zauri Khachidze photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("Ioane Rostiashvili photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/ioane-rostiashvili");
+test("Ioane Rostiashvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/ioane-rostiashvili");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("იოანე როსტიაშვილი");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/ioane-rostiashvili\/?$/,
+    /\/kontributorebi\/ioane-rostiashvili\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -139,13 +139,13 @@ test("Ioane Rostiashvili photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("Giorgi Iankoshvili photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/giorgi-iankoshvili");
+test("Giorgi Iankoshvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/giorgi-iankoshvili");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("გიორგი იანქოშვილი");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/giorgi-iankoshvili\/?$/,
+    /\/kontributorebi\/giorgi-iankoshvili\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
@@ -154,13 +154,13 @@ test("Giorgi Iankoshvili photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("Zakro Songulashvili photographer page is indexable", async ({ page }) => {
-  const response = await page.goto("/fotografebi/zakro-songulashvili");
+test("Zakro Songulashvili contributor page is indexable", async ({ page }) => {
+  const response = await page.goto("/kontributorebi/zakro-songulashvili");
   expect(response?.status()).toBe(200);
   await expect(page.locator("h1")).toContainText("ზაქრო სონგულაშვილი");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/zakro-songulashvili\/?$/,
+    /\/kontributorebi\/zakro-songulashvili\/?$/,
   );
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
