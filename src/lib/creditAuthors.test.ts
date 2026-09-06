@@ -37,6 +37,37 @@ describe("credit authors", () => {
       facebook: "https://www.facebook.com/sandro.khakhva.9",
       instagram: "https://www.instagram.com/wildtrail.geo",
     });
+    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.role).toBe(
+      "herpetologist",
+    );
+  });
+
+  it("resolves Zauri Khachidze as a published ranger", () => {
+    expect(getPublishedCreditAuthorByName("ზაური ხაჩიძე")?.slug).toBe(
+      "zauri-khachidze",
+    );
+    expect(getPublishedCreditAuthorByName("Zauri Khachidze")?.slug).toBe(
+      "zauri-khachidze",
+    );
+    const author = getPublishedCreditAuthorBySlug("zauri-khachidze");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("ranger");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
+    );
+    expect(author?.bio?.ka).toContain("ბორჯომ-ხარაგაულის");
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(20);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "vipera-kaznakovi",
+        "ursus-arctos",
+        "pelodytes-caucasicus",
+      ]),
+    );
+    expect(
+      getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)),
+    ).toEqual(expect.arrayContaining(["snakes", "mammals", "amphibians"]));
   });
 
   it("collects his atlas photos without duplicates", () => {

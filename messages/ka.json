@@ -633,7 +633,10 @@
     }
   },
   "author": {
-    "kicker": "ჰერპეტოლოგი",
+    "roles": {
+      "herpetologist": "ჰერპეტოლოგი",
+      "ranger": "რეინჯერი"
+    },
     "facebook": "Facebook",
     "instagram": "Instagram",
     "subtitle": "ფოტოები საქართველოს ცხოველთა ატლასში.",

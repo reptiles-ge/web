@@ -109,6 +109,21 @@ test("Sandro Khakhva author page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
+test("Zauri Khachidze author page is indexable", async ({ page }) => {
+  const response = await page.goto("/avtorebi/zauri-khachidze");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ზაური ხაჩიძე");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/avtorebi\/zauri-khachidze\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
 test("404 is noindex", async ({ page }) => {
   const response = await page.goto("/this-path-is-not-on-the-map-xyz");
   expect(response?.status()).toBe(404);

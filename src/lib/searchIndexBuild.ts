@@ -1,6 +1,7 @@
 import type { AppLocale } from "@/i18n/routing";
 
 import {
+  type CreditAuthorRole,
   creditAuthorHref,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
@@ -973,10 +974,7 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
         ...author.aliases,
         author.links?.facebook,
         author.links?.instagram,
-        "ჰერპეტოლოგი",
-        "herpetologist",
-        "герпетолог",
-        "herpetolog",
+        ...creditAuthorRoleSearchTerms(author.role),
         "ფოტოგრაფი",
         "photographer",
         "фотограф",
@@ -1024,6 +1022,13 @@ function coverFromSpecies(id?: string, fallback?: string) {
   if (!id) return undefined;
   const species = getSpeciesById(id);
   return species?.mobileImage ?? species?.image;
+}
+
+function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
+  if (role === "ranger") {
+    return ["რეინჯერი", "ranger", "рейнджер", "bekçi"];
+  }
+  return ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"];
 }
 
 function hrefSearchText(href: SearchHref) {

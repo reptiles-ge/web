@@ -2,6 +2,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { pickLocalized } from "@/i18n/localeMeta";
 
+export type CreditAuthorRole = "herpetologist" | "ranger";
+
 export type CreditAuthor = {
   aliases: string[];
   bio?: {
@@ -21,8 +23,10 @@ export type CreditAuthor = {
     ru?: string;
     tr?: string;
   };
+  portraitClass?: string;
   portraitSrc: string;
   published: boolean;
+  role: CreditAuthorRole;
   slug: string;
 };
 
@@ -53,7 +57,29 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     },
     portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     published: true,
+    role: "herpetologist",
     slug: "sandro-khakhva",
+  },
+  {
+    aliases: ["Zauri Khachidze", "ზაური ხაჩიძე"],
+    bio: {
+      en: "Ranger at Borjomi-Kharagauli National Park and wildlife photographer. For years he has worked in the protected area, combining nature protection with documenting the diversity of Georgia’s wildlife.",
+      ka: "ბორჯომ-ხარაგაულის ეროვნული პარკის რეინჯერი და ველური ბუნების ფოტოგრაფი. იგი წლების განმავლობაში მუშაობდა დაცულ ტერიტორიაზე, სადაც ბუნების დაცვის საქმიანობასთან ერთად საქართველოს ველური ბუნების მრავალფეროვნებასაც აფიქსირებდა.",
+      ru: "Рейнджер Боржомско-Харагаульского национального парка и фотограф дикой природы. Годами работал на охраняемой территории, совмещая охрану природы с фиксацией разнообразия дикой природы Грузии.",
+      tr: "Borjomi-Kharagauli Millî Parkı bekçisi ve yaban hayatı fotoğrafçısı. Yıllardır korunan alanda çalışmış; doğa koruma işinin yanında Gürcistan’ın yaban hayatı çeşitliliğini de belgelemiştir.",
+    },
+    id: "zauri-khachidze",
+    name: {
+      en: "Zauri Khachidze",
+      ka: "ზაური ხაჩიძე",
+      ru: "Заури Хачидзе",
+      tr: "Zauri Khachidze",
+    },
+    portraitClass: "object-[50%_32%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
+    published: true,
+    role: "ranger",
+    slug: "zauri-khachidze",
   },
 ];
 

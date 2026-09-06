@@ -633,7 +633,10 @@
     }
   },
   "author": {
-    "kicker": "Herpetologist",
+    "roles": {
+      "herpetologist": "Herpetologist",
+      "ranger": "Ranger"
+    },
     "facebook": "Facebook",
     "instagram": "Instagram",
     "subtitle": "Photographs in the atlas of animals of Georgia.",
