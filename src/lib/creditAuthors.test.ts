@@ -123,7 +123,9 @@ describe("credit authors", () => {
       "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
     );
     expect(author?.bio?.ka).toContain("ეკოლოგიის ინსტიტუტის");
-    expect(author?.links).toBeUndefined();
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/giorgi.iankoshvili/",
+    });
     const photos = getCreditAuthorPhotos(author!);
     expect(photos.length).toBeGreaterThanOrEqual(10);
     expect(getCreditAuthorSpeciesIds(photos)).toEqual(

@@ -118,6 +118,9 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
     },
     id: "giorgi-iankoshvili",
+    links: {
+      facebook: "https://www.facebook.com/giorgi.iankoshvili/",
+    },
     name: {
       en: "Giorgi Iankoshvili",
       ka: "გიორგი იანქოშვილი",
