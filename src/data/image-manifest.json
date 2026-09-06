@@ -5164,6 +5164,101 @@
       ],
       "updatedAt": "2026-08-28T21:29:36.682Z"
     },
+    "canis-lupus-nika-2.jpg": {
+      "sourceHash": "e669be04eae4a59607f5591f9951e8a2bbe7f59db053675b5e6e15ec64a4b4c3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-lupus-nika-2.jpg",
+      "originalSize": 673814,
+      "width": 1665,
+      "height": 1124,
+      "derivatives": [
+        {
+          "key": "optimized/canis-lupus-nika-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 216,
+          "byteSize": 13994
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 216,
+          "byteSize": 19604
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 270,
+          "byteSize": 23164
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 270,
+          "byteSize": 31754
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 432,
+          "byteSize": 61998
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 432,
+          "byteSize": 87734
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 540,
+          "byteSize": 97123
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 540,
+          "byteSize": 140470
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 810,
+          "byteSize": 202834
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 810,
+          "byteSize": 308130
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-1665.avif",
+          "format": "avif",
+          "width": 1665,
+          "height": 1124,
+          "byteSize": 353964
+        },
+        {
+          "key": "optimized/canis-lupus-nika-2-1665.webp",
+          "format": "webp",
+          "width": 1665,
+          "height": 1124,
+          "byteSize": 502058
+        }
+      ],
+      "updatedAt": "2026-09-06T16:55:10.533Z"
+    },
     "canis-lupus-pescheray-1.jpg": {
       "sourceHash": "3f59360331d1542ef3da3d78d0dfbced8e52cf17f5191416a019c89a1c8f2060",
       "configFingerprint": "a895f8e025dcc7fa",

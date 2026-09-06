@@ -739,6 +739,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/canis-lupus-nika-2.jpg": {
+    "path": "canis-lupus-nika-2",
+    "width": 1665,
+    "height": 1124,
+    "widths": [320, 400, 640, 800, 1200, 1665],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/canis-lupus-pescheray-1.jpg": {
     "path": "canis-lupus-pescheray-1",
     "width": 2400,
