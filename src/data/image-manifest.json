@@ -1039,6 +1039,207 @@
       ],
       "updatedAt": "2026-09-05T12:14:32.736Z"
     },
+    "aegypius-monachus-nika-1.jpg": {
+      "sourceHash": "e6366de60a0699afbd294d8f58e451fd0b891fd13d82c4537bb333eb0e979ff9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aegypius-monachus-nika-1.jpg",
+      "originalSize": 298742,
+      "width": 1163,
+      "height": 902,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 248,
+          "byteSize": 12810
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 248,
+          "byteSize": 16792
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 310,
+          "byteSize": 20664
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 310,
+          "byteSize": 26374
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 496,
+          "byteSize": 55375
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 496,
+          "byteSize": 72456
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 620,
+          "byteSize": 89136
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 620,
+          "byteSize": 114716
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-1163.avif",
+          "format": "avif",
+          "width": 1163,
+          "height": 902,
+          "byteSize": 167564
+        },
+        {
+          "key": "optimized/aegypius-monachus-nika-1-1163.webp",
+          "format": "webp",
+          "width": 1163,
+          "height": 902,
+          "byteSize": 201346
+        }
+      ],
+      "updatedAt": "2026-09-06T16:30:54.425Z"
+    },
+    "aegypius-monachus-zura-1.jpg": {
+      "sourceHash": "e0c21760ca412546f0b942fb0d23df1c7d71d2a7f849af2c05ac52f5cf449013",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aegypius-monachus-zura-1.jpg",
+      "originalSize": 15798,
+      "width": 720,
+      "height": 472,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-zura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 2526
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 2544
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 3153
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 3344
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 420,
+          "byteSize": 5840
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 420,
+          "byteSize": 6360
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-720.avif",
+          "format": "avif",
+          "width": 720,
+          "height": 472,
+          "byteSize": 6600
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-1-720.webp",
+          "format": "webp",
+          "width": 720,
+          "height": 472,
+          "byteSize": 6936
+        }
+      ],
+      "updatedAt": "2026-09-06T16:27:46.161Z"
+    },
+    "aegypius-monachus-zura-2.jpg": {
+      "sourceHash": "1d7e29e27e493783b37f6774632ed615fa6ea02e8d9455cac6cafe19311ebecf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aegypius-monachus-zura-2.jpg",
+      "originalSize": 137164,
+      "width": 640,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/aegypius-monachus-zura-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20958
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 31084
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32547
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 47184
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73358
+        },
+        {
+          "key": "optimized/aegypius-monachus-zura-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 104296
+        }
+      ],
+      "updatedAt": "2026-09-06T16:27:45.771Z"
+    },
     "anguis-colchica-2.jpg": {
       "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
       "configFingerprint": "a895f8e025dcc7fa",
