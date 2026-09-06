@@ -2314,6 +2314,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gyps-fulvus-zura-1.jpg": {
+    "path": "gyps-fulvus-zura-1",
+    "width": 417,
+    "height": 556,
+    "widths": [320, 400, 417],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-1.jpg": {
     "path": "hemorrhois-ravergieri-1",
     "width": 1440,

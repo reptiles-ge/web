@@ -19773,6 +19773,59 @@
       ],
       "updatedAt": "2026-08-29T07:22:20.299Z"
     },
+    "gyps-fulvus-zura-1.jpg": {
+      "sourceHash": "d64629b6d25e9fee2ab4965102cd07ee4701be120bac1e354c2e5d3c27bc779b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gyps-fulvus-zura-1.jpg",
+      "originalSize": 50888,
+      "width": 417,
+      "height": 556,
+      "derivatives": [
+        {
+          "key": "optimized/gyps-fulvus-zura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 16566
+        },
+        {
+          "key": "optimized/gyps-fulvus-zura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 23146
+        },
+        {
+          "key": "optimized/gyps-fulvus-zura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 25414
+        },
+        {
+          "key": "optimized/gyps-fulvus-zura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 35916
+        },
+        {
+          "key": "optimized/gyps-fulvus-zura-1-417.avif",
+          "format": "avif",
+          "width": 417,
+          "height": 556,
+          "byteSize": 26441
+        },
+        {
+          "key": "optimized/gyps-fulvus-zura-1-417.webp",
+          "format": "webp",
+          "width": 417,
+          "height": 556,
+          "byteSize": 38584
+        }
+      ],
+      "updatedAt": "2026-09-06T17:24:53.083Z"
+    },
     "hemorrhois-ravergieri-1.jpg": {
       "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
       "configFingerprint": "a895f8e025dcc7fa",
