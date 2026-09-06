@@ -94,6 +94,21 @@ test("quiz landing is indexable and play stays on the same URL", async ({
   expect(page.url()).not.toMatch(/result/);
 });
 
+test("Sandro Khakhva author page is indexable", async ({ page }) => {
+  const response = await page.goto("/avtorebi/sandro-khakhva");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("სანდრო ხახვა");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/avtorebi\/sandro-khakhva\/?$/,
+  );
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+});
+
 test("404 is noindex", async ({ page }) => {
   const response = await page.goto("/this-path-is-not-on-the-map-xyz");
   expect(response?.status()).toBe(404);
