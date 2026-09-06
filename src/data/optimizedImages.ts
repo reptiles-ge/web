@@ -83,7 +83,9 @@ export function srcSetPreloadUrl(srcSet: string) {
         : 0;
       return { url, width };
     })
-    .filter((item): item is { url: string; width: number } => Boolean(item.url));
+    .filter((item): item is { url: string; width: number } =>
+      Boolean(item.url),
+    );
 
   return (
     candidates.find((item) => item.width >= 800)?.url ??
