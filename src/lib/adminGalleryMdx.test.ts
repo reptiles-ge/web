@@ -1,10 +1,13 @@
 import matter from "gray-matter";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
   appendGalleryItemToMdx,
+  removeGalleryItemFromMdx,
+  removeGalleryItemFromSpecies,
   reorderGalleryInMdx,
   setCoverInMdx,
 } from "@/lib/adminGalleryMdx";
@@ -267,5 +270,211 @@ text
     expect(data.mobileImage).toBe(
       "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg",
     );
+  });
+});
+
+describe("removeGalleryItemFromMdx", () => {
+  it("removes a middle item without dropping other credits", () => {
+    const next = removeGalleryItemFromMdx(
+      FIXTURE,
+      "https://cdn.reptiles.ge/b.jpg",
+    );
+    expect(gallerySrcs(next)).toEqual([
+      "https://cdn.reptiles.ge/a.jpg",
+      "https://cdn.reptiles.ge/c.jpg",
+    ]);
+    const gallery = matter(next).data.gallery as Array<{
+      credit?: { photographer?: string };
+      src: string;
+    }>;
+    expect(gallery[0]?.credit?.photographer).toBe("ანა");
+    expect(gallery[1]?.credit).toBeUndefined();
+    expect(next).toContain("commonName: ტესტი");
+  });
+
+  it("empties the last overlay item", () => {
+    const overlay = `---
+gallery:
+  - src: "https://cdn.reptiles.ge/a.jpg"
+    credit:
+      photographer: Ana
+commonName: Test
+---
+
+text
+`;
+    const next = removeGalleryItemFromMdx(
+      overlay,
+      "https://cdn.reptiles.ge/a.jpg",
+    );
+    expect(matter(next).data.gallery).toEqual([]);
+    expect(next).toContain("commonName: Test");
+  });
+
+  it("rejects an unknown src", () => {
+    expect(() =>
+      removeGalleryItemFromMdx(FIXTURE, "https://cdn.reptiles.ge/missing.jpg"),
+    ).toThrow(/Unknown gallery src/);
+  });
+
+  it("removes a photo from a real KA profile", () => {
+    const raw = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/content/species/paralaudakia-caucasia/ka.mdx",
+      ),
+      "utf8",
+    );
+    const original = matter(raw).data.gallery as Array<{
+      credit?: { photographer?: string };
+      src: string;
+    }>;
+    const removed = original[1];
+    if (!removed) throw new Error("Need a second gallery photo");
+    const next = removeGalleryItemFromMdx(raw, removed.src);
+    const gallery = matter(next).data.gallery as Array<{
+      credit?: { photographer?: string };
+      src: string;
+    }>;
+    expect(gallery.map((item) => item.src)).toEqual(
+      original
+        .filter((item) => item.src !== removed.src)
+        .map((item) => item.src),
+    );
+    for (const item of original) {
+      if (item.src === removed.src) continue;
+      const match = gallery.find((entry) => entry.src === item.src);
+      expect(match?.credit?.photographer).toBe(item.credit?.photographer);
+    }
+  });
+});
+
+describe("removeGalleryItemFromSpecies", () => {
+  it("removes overlay credits and reassigns the cover", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-remove-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, "ka.mdx"),
+        `---
+id: test-species
+image: "https://cdn.reptiles.ge/a.jpg"
+imageCredit:
+  photographer: ანა
+mobileImage: "https://cdn.reptiles.ge/a.jpg"
+mobileImageCredit:
+  photographer: ანა
+gallery:
+  - src: "https://cdn.reptiles.ge/a.jpg"
+    credit:
+      photographer: ანა
+  - src: "https://cdn.reptiles.ge/b.jpg"
+    credit:
+      photographer: ბექა
+      location: ყვარელი
+commonName: ტესტი
+---
+
+ტექსტი
+`,
+        "utf8",
+      );
+      fs.writeFileSync(
+        path.join(dir, "en.mdx"),
+        `---
+id: test-species
+image: "https://cdn.reptiles.ge/a.jpg"
+imageCredit:
+  photographer: Ana
+gallery:
+  - src: "https://cdn.reptiles.ge/a.jpg"
+    credit:
+      photographer: Ana
+  - src: "https://cdn.reptiles.ge/b.jpg"
+    credit:
+      photographer: Beka
+      location: Kvareli
+commonName: Test
+---
+
+text
+`,
+        "utf8",
+      );
+
+      const result = removeGalleryItemFromSpecies(
+        "test-species",
+        "https://cdn.reptiles.ge/a.jpg",
+        root,
+      );
+      expect(result.coverReassigned).toBe(true);
+      expect(result.image).toBe("https://cdn.reptiles.ge/b.jpg");
+      expect(result.mobileImage).toBe("https://cdn.reptiles.ge/b.jpg");
+
+      const ka = matter(fs.readFileSync(path.join(dir, "ka.mdx"), "utf8"))
+        .data as {
+        gallery: Array<{ credit?: { photographer?: string }; src: string }>;
+        image: string;
+        imageCredit: { photographer: string };
+        mobileImage: string;
+      };
+      expect(ka.gallery.map((item) => item.src)).toEqual([
+        "https://cdn.reptiles.ge/b.jpg",
+      ]);
+      expect(ka.gallery[0]?.credit?.photographer).toBe("ბექა");
+      expect(ka.image).toBe("https://cdn.reptiles.ge/b.jpg");
+      expect(ka.imageCredit.photographer).toBe("ბექა");
+      expect(ka.mobileImage).toBe("https://cdn.reptiles.ge/b.jpg");
+
+      const en = matter(fs.readFileSync(path.join(dir, "en.mdx"), "utf8"))
+        .data as {
+        gallery: Array<{ credit?: { photographer?: string }; src: string }>;
+        image: string;
+        imageCredit: { photographer: string };
+      };
+      expect(en.gallery.map((item) => item.src)).toEqual([
+        "https://cdn.reptiles.ge/b.jpg",
+      ]);
+      expect(en.gallery[0]?.credit?.photographer).toBe("Beka");
+      expect(en.image).toBe("https://cdn.reptiles.ge/b.jpg");
+      expect(en.imageCredit.photographer).toBe("Beka");
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("refuses the last gallery photo", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-remove-last-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, "ka.mdx"),
+        `---
+id: test-species
+gallery:
+  - src: "https://cdn.reptiles.ge/a.jpg"
+commonName: ტესტი
+---
+
+ტექსტი
+`,
+        "utf8",
+      );
+      expect(() =>
+        removeGalleryItemFromSpecies(
+          "test-species",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        ),
+      ).toThrow(/last gallery photo/);
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
   });
 });
