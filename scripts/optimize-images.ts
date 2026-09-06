@@ -221,6 +221,10 @@ function collectTargets(
     for (const src of Object.values(siteImages)) add(src);
   }
 
+  if (all || site) {
+    for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
+  }
+
   if (all || news) {
     for (const article of getAllNewsArticles()) {
       for (const photo of newsArticlePhotos(article)) add(photo.src);
@@ -450,14 +454,14 @@ function formatGeneratedImages(
       const widths = `[${asset.widths.join(", ")}]`;
       const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
       return `  ${JSON.stringify(src)}: {
-    path: ${JSON.stringify(asset.path)},
-    width: ${asset.width},
-    height: ${asset.height},
-    widths: ${widths},
-    formats: ${formats},
-  },`;
+    "path": ${JSON.stringify(asset.path)},
+    "width": ${asset.width},
+    "height": ${asset.height},
+    "widths": ${widths},
+    "formats": ${formats}
+  }`;
     });
-  return `{\n${entries.join("\n")}\n}`;
+  return `{\n${entries.join(",\n")}\n}`;
 }
 
 async function generateDataFile(
@@ -533,6 +537,7 @@ async function run() {
     options.speciesIds,
     options.all,
     options.news,
+    options.site,
   );
   const coverKeys = collectCoverKeys(
     options.speciesIds,
@@ -559,7 +564,7 @@ async function run() {
       `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
-    `Scope: ${options.all ? "all" : options.news ? "news" : options.speciesIds.join(", ")}. ` +
+    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : options.speciesIds.join(", ")}. ` +
       `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 
