@@ -13467,6 +13467,101 @@
       ],
       "updatedAt": "2026-09-06T15:16:22.522Z"
     },
+    "eirenis-modestus-mari-1.jpg": {
+      "sourceHash": "5b8a3b3d323c6ba549b0aa78f936dd04b98281063b152c73b41c5586521edc94",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-mari-1.jpg",
+      "originalSize": 290863,
+      "width": 1440,
+      "height": 1017,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-mari-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 226,
+          "byteSize": 9681
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 226,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 282,
+          "byteSize": 14092
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 282,
+          "byteSize": 19334
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 452,
+          "byteSize": 31869
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 452,
+          "byteSize": 44618
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 565,
+          "byteSize": 46623
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 565,
+          "byteSize": 65988
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 848,
+          "byteSize": 91144
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 848,
+          "byteSize": 131846
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1017,
+          "byteSize": 127227
+        },
+        {
+          "key": "optimized/eirenis-modestus-mari-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1017,
+          "byteSize": 173912
+        }
+      ],
+      "updatedAt": "2026-09-06T15:17:19.141Z"
+    },
     "eirenis-modestus-mobile.jpg": {
       "sourceHash": "4101c2b6f23d3ebf056ff24ec993ba9252841a4d4a6deb86d811431b31ddf99d",
       "configFingerprint": "a895f8e025dcc7fa",
