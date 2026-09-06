@@ -136,3 +136,8 @@ export function getPublishedCreditAuthorBySlug(slug: string) {
 export function getPublishedCreditAuthors() {
   return CREDIT_AUTHORS.filter((author) => author.published);
 }
+
+export function hasPublishedCreditAuthorPage(photographer?: string) {
+  if (!photographer) return false;
+  return Boolean(getPublishedCreditAuthorByName(photographer));
+}

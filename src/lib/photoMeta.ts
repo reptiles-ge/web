@@ -4,6 +4,7 @@ import type { AppLocale } from "@/i18n/routing";
 import {
   creditAuthorName,
   getPublishedCreditAuthorByName,
+  hasPublishedCreditAuthorPage,
 } from "@/data/creditAuthors";
 import { creditAuthorUrl } from "@/lib/creditAuthors";
 import { absoluteImageUrl } from "@/lib/site";
@@ -65,6 +66,7 @@ export function galleryImageObjects(
   const objects = [];
   for (const photo of photos) {
     if (!photo.src) continue;
+    if (!hasPublishedCreditAuthorPage(photo.credit?.photographer)) continue;
     objects.push(galleryImageObject(photo, species, locale));
   }
   return objects;
