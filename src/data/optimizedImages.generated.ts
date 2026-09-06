@@ -494,6 +494,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg": {
+    "path": "authors/ioane-rostiashvili",
+    "width": 1024,
+    "height": 1021,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg": {
     "path": "authors/sandro-khakhva",
     "width": 1011,

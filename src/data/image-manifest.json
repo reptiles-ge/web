@@ -3099,6 +3099,87 @@
       ],
       "updatedAt": "2026-09-05T16:35:26.909Z"
     },
+    "authors/ioane-rostiashvili.jpg": {
+      "sourceHash": "f7ef5b55a7f1160b1ce6c4d1d351a2b65ff517346c60516e19f7e249cb28f343",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/ioane-rostiashvili.jpg",
+      "originalSize": 219118,
+      "width": 1024,
+      "height": 1021,
+      "derivatives": [
+        {
+          "key": "optimized/authors/ioane-rostiashvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 319,
+          "byteSize": 13922
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 319,
+          "byteSize": 20044
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 399,
+          "byteSize": 20063
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 399,
+          "byteSize": 28014
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 638,
+          "byteSize": 39540
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 638,
+          "byteSize": 53502
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 798,
+          "byteSize": 54152
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 798,
+          "byteSize": 70180
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1021,
+          "byteSize": 79010
+        },
+        {
+          "key": "optimized/authors/ioane-rostiashvili-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1021,
+          "byteSize": 98040
+        }
+      ],
+      "updatedAt": "2026-09-06T17:50:38.329Z"
+    },
     "authors/sandro-khakhva.jpg": {
       "sourceHash": "6591e4f8af7ff4460628da5e2dfd6c627f571bcba189e474b8c00ec4388373bc",
       "configFingerprint": "409788ee46c653d8",

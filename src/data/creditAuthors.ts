@@ -84,6 +84,31 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "ranger",
     slug: "zauri-khachidze",
   },
+  {
+    aliases: ["Ioane Rostiashvili", "იოანე როსტიაშვილი"],
+    bio: {
+      en: "Ioane Rostiashvili is a young researcher and a student at Ilia State University. He works as an amateur herpetologist (studying reptiles), an entomologist, and a wildlife photographer.",
+      ka: "იოანე როსტიაშვილი ახალგაზრდა მკვლევარია — ილიას სახელმწიფო უნივერსიტეტის სტუდენტი. საქმიანობს როგორც მოყვარული ჰერპეტოლოგი (ქვეწარმავლების მკვლევარი), ენტომოლოგი და ველური ბუნების ფოტოგრაფი.",
+      ru: "Иоане Ростиашвили — молодой исследователь, студент Государственного университета Ильи. Занимается любительской герпетологией (изучение пресмыкающихся), энтомологией и фотографией дикой природы.",
+      tr: "Ioane Rostiashvili genç bir araştırmacıdır — Ilia Devlet Üniversitesi öğrencisi. Amatör herpetolog (sürüngen araştırmacısı), entomolog ve yaban hayatı fotoğrafçısı olarak çalışır.",
+    },
+    id: "ioane-rostiashvili",
+    links: {
+      facebook: "https://www.facebook.com/ioane.rost.iashvili.2025/",
+      instagram: "https://www.instagram.com/ioane_rostiashvili/",
+    },
+    name: {
+      en: "Ioane Rostiashvili",
+      ka: "იოანე როსტიაშვილი",
+      ru: "Иоане Ростиашвили",
+      tr: "Ioane Rostiashvili",
+    },
+    portraitClass: "object-[50%_24%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "ioane-rostiashvili",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
