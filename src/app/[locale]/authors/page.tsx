@@ -32,55 +32,6 @@ const orgLd = {
   ...organizationJsonLd(),
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale: localeParam } = await params;
-  if (!hasLocale(routing.locales, localeParam)) return {};
-
-  const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "author" });
-  const title = t("index.metaTitle");
-  const description = t("index.metaDescription");
-  const url = creditAuthorIndexUrl(locale);
-  const featured = getCreditAuthorCards()[0];
-
-  return {
-    alternates: creditAuthorIndexAlternates(locale),
-    description,
-    openGraph: {
-      description,
-      images: featured
-        ? [
-            {
-              alt: title,
-              type: "image/jpeg",
-              url: featured.author.portraitSrc,
-            },
-          ]
-        : undefined,
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "website",
-      url,
-    },
-    robots: {
-      follow: true,
-      index: true,
-    },
-    title,
-    twitter: {
-      card: "summary",
-      description,
-      images: featured ? [featured.author.portraitSrc] : undefined,
-      title,
-    },
-  };
-}
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export default async function AuthorIndexRoute({ params }: Props) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
@@ -144,4 +95,53 @@ export default async function AuthorIndexRoute({ params }: Props) {
       <AuthorIndexPage cards={cards} locale={locale} />
     </>
   );
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  if (!hasLocale(routing.locales, localeParam)) return {};
+
+  const locale = localeParam as AppLocale;
+  const t = await getTranslations({ locale, namespace: "author" });
+  const title = t("index.metaTitle");
+  const description = t("index.metaDescription");
+  const url = creditAuthorIndexUrl(locale);
+  const featured = getCreditAuthorCards()[0];
+
+  return {
+    alternates: creditAuthorIndexAlternates(locale),
+    description,
+    openGraph: {
+      description,
+      images: featured
+        ? [
+            {
+              alt: title,
+              type: "image/jpeg",
+              url: featured.author.portraitSrc,
+            },
+          ]
+        : undefined,
+      locale: openGraphLocale(locale),
+      siteName: siteConfig.name,
+      title,
+      type: "website",
+      url,
+    },
+    robots: {
+      follow: true,
+      index: true,
+    },
+    title,
+    twitter: {
+      card: "summary",
+      description,
+      images: featured ? [featured.author.portraitSrc] : undefined,
+      title,
+    },
+  };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }

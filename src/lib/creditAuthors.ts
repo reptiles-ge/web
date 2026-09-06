@@ -51,16 +51,6 @@ export function creditAuthorAlternates(locale: AppLocale, slug: string) {
   });
 }
 
-export function creditAuthorStaticParams() {
-  const params: Array<{ locale: AppLocale; slug: string }> = [];
-  for (const author of getPublishedCreditAuthors()) {
-    for (const locale of routing.locales) {
-      params.push({ locale, slug: author.slug });
-    }
-  }
-  return params;
-}
-
 export function creditAuthorIndexAlternates(locale: AppLocale) {
   return localeAlternates(locale, creditAuthorIndexHref());
 }
@@ -74,6 +64,16 @@ export function creditAuthorIndexUrl(locale: AppLocale) {
   );
 }
 
+export function creditAuthorStaticParams() {
+  const params: Array<{ locale: AppLocale; slug: string }> = [];
+  for (const author of getPublishedCreditAuthors()) {
+    for (const locale of routing.locales) {
+      params.push({ locale, slug: author.slug });
+    }
+  }
+  return params;
+}
+
 export function creditAuthorUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(
     getPathname({
@@ -81,6 +81,25 @@ export function creditAuthorUrl(locale: AppLocale, slug: string) {
       locale,
     }),
   );
+}
+
+export function getCreditAuthorCards(): CreditAuthorCard[] {
+  const cards = [];
+  for (const author of getPublishedCreditAuthors()) {
+    const photos = getCreditAuthorPhotos(author);
+    const preview = pickCreditAuthorPreviewPhotos(photos);
+    if (preview.length === 0) continue;
+    cards.push({
+      author,
+      photoCount: photos.length,
+      preview,
+      speciesCount: getCreditAuthorSpeciesIds(photos).length,
+    });
+  }
+  return cards.sort((a, b) => {
+    if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
+    return a.author.slug.localeCompare(b.author.slug);
+  });
 }
 
 export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
@@ -148,25 +167,6 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
     ids.push(photo.speciesId);
   }
   return ids;
-}
-
-export function getCreditAuthorCards(): CreditAuthorCard[] {
-  const cards = [];
-  for (const author of getPublishedCreditAuthors()) {
-    const photos = getCreditAuthorPhotos(author);
-    const preview = pickCreditAuthorPreviewPhotos(photos);
-    if (preview.length === 0) continue;
-    cards.push({
-      author,
-      photoCount: photos.length,
-      preview,
-      speciesCount: getCreditAuthorSpeciesIds(photos).length,
-    });
-  }
-  return cards.sort((a, b) => {
-    if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
-    return a.author.slug.localeCompare(b.author.slug);
-  });
 }
 
 export function getHomeContributorCards() {
