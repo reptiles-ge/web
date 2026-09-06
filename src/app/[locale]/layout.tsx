@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
+import { FooterGate } from "@/components/FooterGate";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -51,7 +52,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <main id="main" tabIndex={-1}>
           {children}
         </main>
-        <Footer {...footerData} />
+        <FooterGate>
+          <Footer {...footerData} />
+        </FooterGate>
       </LocaleSwitchProvider>
     </NextIntlClientProvider>
   );

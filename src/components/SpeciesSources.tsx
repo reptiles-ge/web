@@ -1,12 +1,10 @@
-"use client";
-
 import { ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { SpeciesSource } from "@/data/species";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { trackEvent } from "@/lib/analytics";
+import { SourceLink } from "@/components/SourceLink";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesSourcesProps = {
@@ -14,10 +12,13 @@ type SpeciesSourcesProps = {
   speciesId: string;
 };
 
-export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
-  const t = useTranslations("profile");
-
+export async function SpeciesSources({
+  sources,
+  speciesId,
+}: SpeciesSourcesProps) {
   if (sources.length === 0) return null;
+
+  const t = await getTranslations("profile");
 
   return (
     <section className="border-t border-border bg-background py-16 lg:py-20">
@@ -52,20 +53,9 @@ export function SpeciesSources({ sources, speciesId }: SpeciesSourcesProps) {
                 key={source.name}
               >
                 {source.url ? (
-                  <a
-                    className="transition-colors hover:text-primary"
-                    href={source.url}
-                    onClick={() =>
-                      trackEvent("source_click", {
-                        link_type: "source",
-                        species_id: speciesId,
-                      })
-                    }
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
+                  <SourceLink href={source.url} speciesId={speciesId}>
                     {source.name}
-                  </a>
+                  </SourceLink>
                 ) : (
                   <span>{source.name}</span>
                 )}

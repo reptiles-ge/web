@@ -1,20 +1,19 @@
-"use client";
-
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import {
+  GalleryOpenButton,
+  SpeciesGalleryLightbox,
+} from "@/components/SpeciesGalleryLightbox";
+import {
   optimizedEntry,
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
 import { hasPhotoCredit } from "@/data/speciesMedia";
-import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import {
   GALLERY_LIGHTBOX_SIZES,
@@ -33,7 +32,7 @@ type SpeciesGalleryProps = {
   tone?: "background" | "surface";
 };
 
-export function SpeciesGallery({
+export async function SpeciesGallery({
   images,
   location,
   name,
@@ -41,57 +40,35 @@ export function SpeciesGallery({
   speciesId,
   tone = "background",
 }: SpeciesGalleryProps) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
-  const [active, setActive] = useState<null | number>(null);
-  const opened = useRef(false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
-  const restoreIndex = useRef<null | number>(null);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (active === null) {
-      if (dialog.open) dialog.close();
-      return;
-    }
-    restoreIndex.current = active;
-    if (!dialog.open) dialog.showModal();
-    closeButtonRef.current?.focus();
-  }, [active]);
-
-  useEffect(() => {
-    if (active === null) return;
-
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "ArrowLeft") {
-        setActive((current) =>
-          current === null
-            ? null
-            : (current - 1 + photos.length) % photos.length,
-        );
-      }
-      if (event.key === "ArrowRight") {
-        setActive((current) =>
-          current === null ? null : (current + 1) % photos.length,
-        );
-      }
-    }
-
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [active, photos.length]);
 
   if (photos.length === 0) return null;
 
-  const activePhoto = active !== null ? photos[active] : null;
   const featuredSizes = galleryFeaturedSizes();
   const thumbSizes = galleryThumbSizes(photos.length);
+  const slides = photos.map((photo) => {
+    const entry = optimizedEntry(photo.src);
+    return {
+      alt: speciesPhotoAlt(name, scientificName, location, photo.credit),
+      credit: photo.credit,
+      height: entry?.height,
+      photoConfidence: photo.photoConfidence,
+      sources: pictureSources(photo.src, { sizes: GALLERY_LIGHTBOX_SIZES }),
+      src: optimizedImgSrc(photo.src, 1200),
+      width: entry?.width,
+    };
+  });
 
   return (
-    <>
+    <SpeciesGalleryLightbox
+      closeLabel={t("close")}
+      galleryLabel={t("gallery")}
+      nextLabel={t("nextPhoto")}
+      prevLabel={t("prevPhoto")}
+      slides={slides}
+      speciesId={speciesId}
+    >
       <section
         className={cn(
           "py-24 lg:py-32",
@@ -123,13 +100,9 @@ export function SpeciesGallery({
           >
             {photos.map((photo, index) => {
               const featured = photos.length >= 3 && index === 0;
-              const photoAlt = speciesPhotoAlt(
-                name,
-                scientificName,
-                location,
-                photo.credit,
-              );
+              const photoAlt = slides[index].alt;
               const entry = optimizedEntry(photo.src);
+              const sizes = featured ? featuredSizes : thumbSizes;
               return (
                 <figure
                   className={cn(
@@ -140,29 +113,9 @@ export function SpeciesGallery({
                   )}
                   key={photo.src}
                 >
-                  <button
-                    aria-label={photoAlt}
-                    className="absolute inset-0 w-full text-left focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:outline-none"
-                    onClick={() => {
-                      if (!opened.current) {
-                        opened.current = true;
-                        trackEvent("gallery_open", {
-                          image_count: photos.length,
-                          image_index: index,
-                          species_id: speciesId,
-                        });
-                      }
-                      setActive(index);
-                    }}
-                    ref={(node) => {
-                      triggerRefs.current[index] = node;
-                    }}
-                    type="button"
-                  >
+                  <GalleryOpenButton alt={photoAlt} index={index}>
                     <picture className="media-placeholder absolute inset-0 block size-full">
-                      {pictureSources(photo.src, {
-                        sizes: featured ? featuredSizes : thumbSizes,
-                      }).map((source) => (
+                      {pictureSources(photo.src, { sizes }).map((source) => (
                         <source key={source.key} {...source.props} />
                       ))}
                       <img
@@ -171,7 +124,7 @@ export function SpeciesGallery({
                         decoding="async"
                         height={entry?.height}
                         loading="lazy"
-                        sizes={featured ? featuredSizes : thumbSizes}
+                        sizes={sizes}
                         src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
                         width={entry?.width}
                       />
@@ -182,7 +135,7 @@ export function SpeciesGallery({
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     ) : null}
-                  </button>
+                  </GalleryOpenButton>
                   <PhotoCreditCaption
                     credit={photo.credit}
                     photoConfidence={photo.photoConfidence}
@@ -195,111 +148,6 @@ export function SpeciesGallery({
           </div>
         </div>
       </section>
-
-      <dialog
-        aria-label={t("gallery")}
-        className="fixed inset-0 z-100 m-0 hidden size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/92 open:flex"
-        onClose={() => {
-          setActive(null);
-          const index = restoreIndex.current;
-          if (index !== null) triggerRefs.current[index]?.focus();
-        }}
-        ref={dialogRef}
-      >
-        {activePhoto ? (
-          <>
-            <button
-              aria-label={t("close")}
-              className="absolute inset-0 bg-transparent"
-              onClick={() => dialogRef.current?.close()}
-              type="button"
-            />
-            <button
-              aria-label={t("close")}
-              className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
-              onClick={() => dialogRef.current?.close()}
-              ref={closeButtonRef}
-              type="button"
-            >
-              <X className="size-5" />
-            </button>
-
-            {photos.length > 1 && (
-              <>
-                <button
-                  aria-label={t("prevPhoto")}
-                  className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setActive((current) =>
-                      current === null
-                        ? null
-                        : (current - 1 + photos.length) % photos.length,
-                    );
-                  }}
-                  type="button"
-                >
-                  <ChevronLeft className="size-5" />
-                </button>
-                <button
-                  aria-label={t("nextPhoto")}
-                  className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    setActive((current) =>
-                      current === null ? null : (current + 1) % photos.length,
-                    );
-                  }}
-                  type="button"
-                >
-                  <ChevronRight className="size-5" />
-                </button>
-              </>
-            )}
-
-            <div
-              className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <div className="relative min-h-0 flex-1">
-                <picture>
-                  {pictureSources(activePhoto.src, {
-                    sizes: GALLERY_LIGHTBOX_SIZES,
-                  }).map((source) => (
-                    <source key={source.key} {...source.props} />
-                  ))}
-                  <img
-                    alt={speciesPhotoAlt(
-                      name,
-                      scientificName,
-                      location,
-                      activePhoto.credit,
-                    )}
-                    className="absolute inset-0 size-full object-contain text-transparent"
-                    decoding="async"
-                    fetchPriority="high"
-                    height={optimizedEntry(activePhoto.src)?.height}
-                    sizes={GALLERY_LIGHTBOX_SIZES}
-                    src={optimizedImgSrc(activePhoto.src, 1200)}
-                    width={optimizedEntry(activePhoto.src)?.width}
-                  />
-                </picture>
-              </div>
-              <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
-                <PhotoCreditCaption
-                  credit={activePhoto.credit}
-                  photoConfidence={activePhoto.photoConfidence}
-                  speciesId={speciesId}
-                  variant="lightbox"
-                />
-                <p className="text-[12px] tracking-[0.2em] text-white/50">
-                  {(active ?? 0) + 1} / {photos.length}
-                </p>
-              </div>
-            </div>
-          </>
-        ) : null}
-      </dialog>
-    </>
+    </SpeciesGalleryLightbox>
   );
 }

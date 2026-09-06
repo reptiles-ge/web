@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, SpeciesStat } from "@/data/species";
 
@@ -20,7 +18,7 @@ type SpeciesProfileFactsProps = {
   linkDangerStats: boolean;
 };
 
-export function SpeciesProfileFacts({
+export async function SpeciesProfileFacts({
   checklistNote,
   danger,
   dangerValue,
@@ -28,11 +26,11 @@ export function SpeciesProfileFacts({
   interaction,
   linkDangerStats,
 }: SpeciesProfileFactsProps) {
-  const t = useTranslations("profile");
-
   if (displayStats.length === 0 && !checklistNote) {
     return null;
   }
+
+  const t = await getTranslations("profile");
 
   return (
     <section className="bg-background py-20 lg:py-28">

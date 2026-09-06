@@ -9,7 +9,7 @@ import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
-import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
+import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
@@ -160,7 +160,7 @@ export async function SpeciesProfileBody({
             <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
               {t("guidesTitle")}
             </h2>
-            <RelatedGuideGrid
+            <RelatedGuideStaticGrid
               cards={guideLinks}
               className="mt-8"
               locale={locale}

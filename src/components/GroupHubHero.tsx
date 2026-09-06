@@ -8,7 +8,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { QuizCtaLink } from "@/components/QuizPracticeCta";
+import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
