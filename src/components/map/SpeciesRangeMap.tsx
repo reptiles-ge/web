@@ -1,12 +1,9 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
+import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
 import { regionHref } from "@/lib/regionHref";
@@ -17,22 +14,14 @@ type SpeciesRangeMapProps = {
   speciesName: string;
 };
 
-export function SpeciesRangeMap({
+export async function SpeciesRangeMap({
   speciesId,
   speciesName,
 }: SpeciesRangeMapProps) {
-  const locale = useLocale() as AppLocale;
-  const t = useTranslations("profile");
-
-  const rangeRegions = useMemo(
-    () => getRegionsForSpecies(speciesId),
-    [speciesId],
-  );
-
-  const highlightedIds = useMemo(
-    () => rangeRegions.map((region) => region.id),
-    [rangeRegions],
-  );
+  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations("profile");
+  const rangeRegions = getRegionsForSpecies(speciesId);
+  const highlightedIds = rangeRegions.map((region) => region.id);
 
   if (highlightedIds.length === 0) return null;
 
@@ -63,7 +52,7 @@ export function SpeciesRangeMap({
         </div>
 
         <div className="mt-14 lg:mt-16">
-          <GeorgiaMap highlightedIds={highlightedIds} interactive={false} />
+          <GeorgiaMapStatic highlightedIds={highlightedIds} />
         </div>
 
         <nav

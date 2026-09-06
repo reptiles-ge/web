@@ -14,7 +14,6 @@ import {
   ShieldAlert,
 } from "lucide-react";
 
-import { CoverImage } from "@/components/CoverImage";
 import { cn } from "@/lib/cn";
 import { type SearchDocument, type SearchIcon } from "@/lib/siteSearch";
 
@@ -74,12 +73,16 @@ export function ResultRow({
         </span>
       ) : (
         <span className="relative size-12 shrink-0 overflow-hidden rounded-[14px] bg-ink">
-          <CoverImage
-            alt=""
-            className="object-cover transition-transform duration-500 group-hover/item:scale-105"
-            sizes="48px"
-            src={item.image}
-          />
+          <picture>
+            <img
+              alt=""
+              className="size-full object-cover transition-transform duration-500 group-hover/item:scale-105"
+              decoding="async"
+              height={48}
+              src={item.image}
+              width={48}
+            />
+          </picture>
           {overlay ? (
             <span className="absolute right-0.5 bottom-0.5 flex size-4.5 items-center justify-center rounded-md bg-ink/70 text-white backdrop-blur-sm">
               <Icon aria-hidden="true" className="size-2.5" strokeWidth={2} />

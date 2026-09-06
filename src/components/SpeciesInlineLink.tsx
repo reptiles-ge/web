@@ -16,10 +16,12 @@ const inlineLinkClassName =
 
 export function SpeciesInlineLink({
   children,
+  className = inlineLinkClassName,
   id,
   source = "guide",
 }: {
   children: ReactNode;
+  className?: string;
   id: string;
   source?: SpeciesClickSource;
 }) {
@@ -29,7 +31,7 @@ export function SpeciesInlineLink({
 
   return (
     <Link
-      className={inlineLinkClassName}
+      className={className}
       href={speciesHrefFromIndex(switchIndex, id, locale)}
       onClick={() =>
         trackSpeciesClick({

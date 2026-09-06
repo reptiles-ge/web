@@ -5,7 +5,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
 
 import { CoverImage } from "@/components/CoverImage";
-import { QuizCtaLink } from "@/components/QuizPracticeCta";
+import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { Link } from "@/i18n/navigation";
 import { quizHref } from "@/lib/quizzes";
 

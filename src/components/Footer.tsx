@@ -1,12 +1,8 @@
-/* eslint-disable react-hooks/set-state-in-effect */
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/Logo";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 
 type FooterProps = {
   regions: Array<{
@@ -78,22 +74,8 @@ const companyLinks = [
   { href: "/contact" as const, labelKey: "contact" as const },
 ];
 
-export function Footer({ regions, venomous }: FooterProps) {
-  const t = useTranslations("footer");
-  const pathname = usePathname();
-  const [hidden, setHidden] = useState(() => shouldHideFooter(pathname));
-
-  useEffect(() => {
-    if (shouldHideFooter(pathname)) {
-      setHidden(true);
-      return;
-    }
-    setHidden(Boolean(document.querySelector("[data-hide-footer]")));
-  }, [pathname]);
-
-  if (hidden) {
-    return null;
-  }
+export async function Footer({ regions, venomous }: FooterProps) {
+  const t = await getTranslations("footer");
 
   return (
     <footer className="border-t border-border bg-background">
@@ -246,8 +228,4 @@ export function Footer({ regions, venomous }: FooterProps) {
       </div>
     </footer>
   );
-}
-
-function shouldHideFooter(pathname: string) {
-  return pathname === "/contact" || pathname.startsWith("/quiz/");
 }

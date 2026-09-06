@@ -1,16 +1,13 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
-import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
+import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { Link } from "@/i18n/navigation";
-import { trackSpeciesClick } from "@/lib/analytics";
 import { RELATED_CARD_SIZES } from "@/lib/imageSizes";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
@@ -21,15 +18,15 @@ type SpeciesProfileRelatedProps = {
   related: Species[];
 };
 
-export function SpeciesProfileRelated({
+export async function SpeciesProfileRelated({
   locale,
   related,
 }: SpeciesProfileRelatedProps) {
-  const t = useTranslations("profile");
-
   if (related.length === 0) {
     return null;
   }
+
+  const t = await getTranslations("profile");
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -92,16 +89,12 @@ function SpeciesProfileRelatedCard({
   const cover = relatedCoverSrc(item);
 
   return (
-    <Link
+    <TrackedSpeciesLink
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
-      href={useSpeciesHref(item.id, locale)}
-      onClick={() =>
-        trackSpeciesClick({
-          position,
-          source: "related",
-          species_id: item.id,
-        })
-      }
+      locale={locale}
+      position={position}
+      source="related"
+      speciesId={item.id}
     >
       {cover ? (
         <CoverImage
@@ -130,6 +123,6 @@ function SpeciesProfileRelatedCard({
         </h3>
         <p className="mt-2 text-[12px] text-white/50">{item.location}</p>
       </div>
-    </Link>
+    </TrackedSpeciesLink>
   );
 }

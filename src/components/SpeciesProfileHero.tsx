@@ -1,27 +1,25 @@
-import { MapPin } from "lucide-react";
+import { MapPin, Shield } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
-import type { PhotoCredit, Species } from "@/data/species";
+import type { DangerLevel, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
-import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
-import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
-import { usesDangerScale } from "@/lib/speciesRisk";
+import { cn } from "@/lib/cn";
+import { dangerPageHref } from "@/lib/dangerLevels";
+import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 
 type SpeciesProfileHeroProps = {
   breadcrumbs: SpeciesBreadcrumbCrumb[];
   desktopHeroSrc: null | string;
   group: AnimalGroup;
-  heroCredit?: PhotoCredit;
   heroDesktopSources: PictureSource[];
   heroPrimarySources: PictureSource[];
   imageAlt: string;
-  mobileHeroCredit?: PhotoCredit;
   mobileHeroSrc: null | string;
   mobileImageAlt: string;
   species: Species;
@@ -31,16 +29,25 @@ export async function SpeciesProfileHero({
   breadcrumbs,
   desktopHeroSrc,
   group,
-  heroCredit,
   heroDesktopSources,
   heroPrimarySources,
   imageAlt,
-  mobileHeroCredit,
   mobileHeroSrc,
   mobileImageAlt,
   species,
 }: SpeciesProfileHeroProps) {
-  const t = await getTranslations("profile");
+  const [t, tCard, tDanger] = await Promise.all([
+    getTranslations("profile"),
+    getTranslations("card"),
+    getTranslations("danger"),
+  ]);
+  const riskChip = getSpeciesRiskChip(species, group);
+  const dangerLabel = tCard("dangerLevel");
+  const dangerValue = riskChip ? tDanger(riskChip.level) : "";
+  const dangerAria =
+    riskChip && dangerValue
+      ? tDanger("linkAria", { label: dangerLabel, value: dangerValue })
+      : "";
 
   return (
     <section
@@ -59,30 +66,6 @@ export async function SpeciesProfileHero({
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
-      {heroCredit ? (
-        <div
-          className="pointer-events-none absolute right-6 z-5 hidden lg:right-10 lg:block"
-          style={{ top: "5.75rem" }}
-        >
-          <PhotoCreditCaption
-            credit={heroCredit}
-            speciesId={species.id}
-            variant="hero"
-          />
-        </div>
-      ) : null}
-      {mobileHeroCredit && mobileHeroSrc ? (
-        <div
-          className="pointer-events-none absolute right-6 z-5 lg:hidden"
-          style={{ top: "5.25rem" }}
-        >
-          <PhotoCreditCaption
-            credit={mobileHeroCredit}
-            speciesId={species.id}
-            variant="hero"
-          />
-        </div>
-      ) : null}
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
         <nav aria-label={t("breadcrumbAria")} className="mb-4 sm:mb-6">
           <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-white/55">
@@ -113,12 +96,75 @@ export async function SpeciesProfileHero({
           {species.audio ? (
             <SpeciesVoicePlayer audio={species.audio} speciesId={species.id} />
           ) : null}
-          {usesDangerScale(group) ? (
-            <SpeciesRiskChip linked species={species} variant="hero" />
+          {riskChip && dangerValue ? (
+            <SpeciesHeroRiskChip
+              ariaLabel={dangerAria}
+              label={dangerLabel}
+              level={riskChip.level}
+              linked={usesDangerScale(group)}
+              value={dangerValue}
+            />
           ) : null}
         </div>
       </div>
     </section>
+  );
+}
+
+function SpeciesHeroRiskChip({
+  ariaLabel,
+  label,
+  level,
+  linked,
+  value,
+}: {
+  ariaLabel: string;
+  label: string;
+  level: DangerLevel;
+  linked: boolean;
+  value: string;
+}) {
+  const tone =
+    level === "High"
+      ? { dot: "bg-destructive", valueHero: "text-[#f0a399]" }
+      : level === "Moderate"
+        ? { dot: "bg-gold", valueHero: "text-[#e0c078]" }
+        : { dot: "bg-primary", valueHero: "text-[#8fceae]" };
+
+  const chip = (
+    <span className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 backdrop-blur-md">
+      <Shield aria-hidden="true" className="size-3.5 text-white/45" />
+      <span className="text-[11px] tracking-[0.14em] text-white/45">
+        {label}
+      </span>
+      <span aria-hidden="true" className="h-3 w-px bg-white/15" />
+      <span
+        className={cn(
+          "inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide",
+          tone.valueHero,
+        )}
+      >
+        <span
+          aria-hidden="true"
+          className={cn("size-1.5 rounded-full", tone.dot)}
+        />
+        {value}
+      </span>
+    </span>
+  );
+
+  if (!linked) {
+    return chip;
+  }
+
+  return (
+    <Link
+      aria-label={ariaLabel}
+      className="inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-80 focus-visible:outline-2 focus-visible:outline-white/50"
+      href={dangerPageHref(level)}
+    >
+      {chip}
+    </Link>
   );
 }
 

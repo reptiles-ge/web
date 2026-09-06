@@ -1,17 +1,10 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Fragment } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
-
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { type SpeciesIdentification as Identification } from "@/data/speciesTypes";
-import { Link } from "@/i18n/navigation";
-import { trackSpeciesClick } from "@/lib/analytics";
-import { speciesHrefFromIndex } from "@/lib/localeSwitch";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -23,11 +16,11 @@ type SpeciesIdentificationProps = {
 const inlineSpeciesLinkClassName =
   "font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary";
 
-export function SpeciesIdentification({
+export async function SpeciesIdentification({
   identification,
   name,
 }: SpeciesIdentificationProps) {
-  const t = useTranslations("profile");
+  const t = await getTranslations("profile");
 
   return (
     <section className="bg-background py-20 lg:py-28">
@@ -73,8 +66,6 @@ export function SpeciesIdentification({
 }
 
 function IdentificationRichText({ text }: { text: string }) {
-  const locale = useLocale() as AppLocale;
-  const switchIndex = useLocaleSwitchIndex();
   const parts = splitSpeciesInlineLinks(text);
 
   return (
@@ -92,25 +83,15 @@ function IdentificationRichText({ text }: { text: string }) {
           );
         }
 
-        const target = switchIndex.hubById[part.id];
-        if (!target) {
-          return <Fragment key={key}>{part.label}</Fragment>;
-        }
-
         return (
-          <Link
+          <SpeciesInlineLink
             className={inlineSpeciesLinkClassName}
-            href={speciesHrefFromIndex(switchIndex, part.id, locale)}
+            id={part.id}
             key={key}
-            onClick={() =>
-              trackSpeciesClick({
-                source: "identification",
-                species_id: part.id,
-              })
-            }
+            source="identification"
           >
             {part.label}
-          </Link>
+          </SpeciesInlineLink>
         );
       })}
     </>

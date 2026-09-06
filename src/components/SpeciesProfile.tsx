@@ -118,11 +118,9 @@ export async function SpeciesProfile({
         breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
         group={group}
-        heroCredit={heroCredit}
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
         imageAlt={imageAlt}
-        mobileHeroCredit={mobileHeroCredit}
         mobileHeroSrc={mobileHeroSrc}
         mobileImageAlt={mobileImageAlt}
         species={species}
