@@ -28,24 +28,47 @@ const base = {
 } satisfies Partial<Species>;
 
 describe("speciesPageImageUrls", () => {
-  it("skips placeholders and dedupes identical srcs", () => {
+  it("includes only photos credited to a published author with a page", () => {
     const urls = speciesPageImageUrls({
       ...base,
       gallery: [
-        { src: "https://cdn.reptiles.ge/macrovipera-lebetina.jpg" },
-        { src: "/images/species-placeholder.png" },
-        { src: "https://cdn.reptiles.ge/gallery/giurza-2.jpg" },
+        {
+          credit: { photographer: "სანდრო ხახვა" },
+          src: "https://cdn.reptiles.ge/sandro-1.jpg",
+        },
+        {
+          credit: { photographer: "სანდრო ხახვა" },
+          src: "https://cdn.reptiles.ge/sandro-1.jpg",
+        },
+        {
+          credit: { photographer: "Charles J. Sharp" },
+          src: "https://cdn.reptiles.ge/commons.jpg",
+        },
+        {
+          credit: { photographer: "ნიკა მელიქიშვილი" },
+          src: "https://cdn.reptiles.ge/nika.jpg",
+        },
+        { src: "https://cdn.reptiles.ge/uncredited.jpg" },
+        {
+          credit: { photographer: "ზაური ხაჩიძე" },
+          src: "https://cdn.reptiles.ge/zauri.jpg",
+        },
+        {
+          credit: { photographer: "სანდრო ხახვა" },
+          src: "/images/species-placeholder.png",
+        },
       ],
-      image: "https://cdn.reptiles.ge/macrovipera-lebetina.jpg",
+      image: "https://cdn.reptiles.ge/hero.jpg",
+      imageCredit: { photographer: "ნიკა მელიქიშვილი" },
     } as Species);
 
     expect(urls).toEqual([
-      "https://cdn.reptiles.ge/macrovipera-lebetina.jpg",
-      "https://cdn.reptiles.ge/gallery/giurza-2.jpg",
+      "https://cdn.reptiles.ge/sandro-1.jpg",
+      "https://cdn.reptiles.ge/zauri.jpg",
     ]);
   });
 
-  it("returns an empty list when every photo is a placeholder", () => {
+  it("returns an empty list when no photo has a published author page", () => {
     expect(
       speciesPageImageUrls({
         ...base,
