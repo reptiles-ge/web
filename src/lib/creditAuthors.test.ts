@@ -9,6 +9,7 @@ import {
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   getHomeContributorCards,
+  legacyPhotographerRedirectPath,
   pickCreditAuthorPreviewPhotos,
 } from "@/lib/creditAuthors";
 
@@ -129,5 +130,32 @@ describe("credit authors", () => {
       "https://cdn.reptiles.ge/b1.jpg",
       "https://cdn.reptiles.ge/c1.jpg",
     ]);
+  });
+
+  it("301s legacy photographer prefixes to the live slugs", () => {
+    expect(legacyPhotographerRedirectPath("/avtorebi/sandro-khakhva")).toBe(
+      "/fotografebi/sandro-khakhva",
+    );
+    expect(legacyPhotographerRedirectPath("/authors/zauri-khachidze")).toBe(
+      "/fotografebi/zauri-khachidze",
+    );
+    expect(legacyPhotographerRedirectPath("/photographers/sandro-khakhva")).toBe(
+      "/fotografebi/sandro-khakhva",
+    );
+    expect(
+      legacyPhotographerRedirectPath("/en/authors/sandro-khakhva"),
+    ).toBe("/en/photographers/sandro-khakhva");
+    expect(
+      legacyPhotographerRedirectPath("/ru/avtorebi/zauri-khachidze"),
+    ).toBe("/ru/photographers/zauri-khachidze");
+    expect(
+      legacyPhotographerRedirectPath("/tr/fotografebi/sandro-khakhva"),
+    ).toBe("/tr/photographers/sandro-khakhva");
+    expect(
+      legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva"),
+    ).toBeNull();
+    expect(
+      legacyPhotographerRedirectPath("/en/photographers/sandro-khakhva"),
+    ).toBeNull();
   });
 });
