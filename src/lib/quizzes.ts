@@ -1,5 +1,4 @@
 import { type AppLocale, routing } from "@/i18n/routing";
-
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 
 export type QuizCopyNamespace = "lizardQuiz" | "snakeQuiz";

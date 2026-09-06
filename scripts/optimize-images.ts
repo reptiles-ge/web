@@ -118,7 +118,9 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, site, speciesIds.length > 0].filter(Boolean).length;
+  const scopes = [all, news, site, speciesIds.length > 0].filter(
+    Boolean,
+  ).length;
   if (scopes > 1) {
     throw new Error("Pass only one of --all, --species, --news, or --site.");
   }
