@@ -17,6 +17,7 @@ import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
+  creditAuthorIndexUrl,
   creditAuthorStaticParams,
   creditAuthorUrl,
   getCreditAuthorPhotos,
@@ -53,6 +54,7 @@ export default async function AuthorRoute({ params }: Props) {
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);
   const url = creditAuthorUrl(locale, author.slug);
+  const indexUrl = creditAuthorIndexUrl(locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
 
   const breadcrumbLd = {
@@ -67,9 +69,15 @@ export default async function AuthorRoute({ params }: Props) {
       },
       {
         "@type": "ListItem",
+        item: indexUrl,
+        name: t("index.breadcrumb"),
+        position: 2,
+      },
+      {
+        "@type": "ListItem",
         item: url,
         name,
-        position: 2,
+        position: 3,
       },
     ],
   };

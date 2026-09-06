@@ -12,6 +12,7 @@ export type PageType =
   | "about"
   | "atlas"
   | "author"
+  | "author_index"
   | "contact"
   | "guide"
   | "home"

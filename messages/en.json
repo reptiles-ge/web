@@ -199,7 +199,8 @@
     "contributors": {
       "eyebrow": "Photographers",
       "title": "Whose photographs are in the atlas",
-      "subtitle": "Field photographers whose photos appear on species profiles — each has a page here."
+      "subtitle": "Field photographers whose photos appear on species profiles — each has a page here.",
+      "seeAll": "See more photographers"
     },
     "safety": {
       "eyebrow": "Safety",
@@ -255,6 +256,7 @@
     "regions": "Regions",
     "about": "About",
     "news": "News",
+    "photographers": "Photographers",
     "contact": "Contact",
     "venomousTitle": "Venomous species",
     "venomousAll": "Safety guide",
@@ -658,7 +660,16 @@
     "nextPhoto": "Next photo",
     "next": "Continue",
     "nextQuizSnake": "Which snake is it?",
-    "nextQuizLizard": "Which lizard is it?"
+    "nextQuizLizard": "Which lizard is it?",
+    "index": {
+      "breadcrumb": "Photographers",
+      "h1": "Photographers",
+      "intro": "Field photographers whose photos appear on species profiles.",
+      "count": "{count} photographers in the atlas",
+      "empty": "No photographer pages are published yet.",
+      "metaTitle": "Photographers",
+      "metaDescription": "Field photographers on reptiles.ge — portraits, galleries, and the species they documented."
+    }
   },
   "attribution": {
     "heading": "Reptiles.ge",

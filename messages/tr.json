@@ -199,7 +199,8 @@
     "contributors": {
       "eyebrow": "Fotoğrafçılar",
       "title": "Atlas’ta kimin fotoğrafları var",
-      "subtitle": "Tür profillerinde fotoğrafı görünen saha fotoğrafçıları — her birinin burada kendi sayfası var."
+      "subtitle": "Tür profillerinde fotoğrafı görünen saha fotoğrafçıları — her birinin burada kendi sayfası var.",
+      "seeAll": "Daha fazla fotoğrafçı"
     },
     "safety": {
       "eyebrow": "Güvenlik",
@@ -255,6 +256,7 @@
     "regions": "Bölgeler",
     "about": "Hakkında",
     "news": "Haberler",
+    "photographers": "Fotoğrafçılar",
     "contact": "İletişim",
     "venomousTitle": "Zehirli türler",
     "venomousAll": "Güvenlik rehberi",
@@ -658,7 +660,16 @@
     "nextPhoto": "Sonraki fotoğraf",
     "next": "Devam",
     "nextQuizSnake": "Bu hangi yılan?",
-    "nextQuizLizard": "Bu hangi kertenkele?"
+    "nextQuizLizard": "Bu hangi kertenkele?",
+    "index": {
+      "breadcrumb": "Fotoğrafçılar",
+      "h1": "Fotoğrafçılar",
+      "intro": "Tür profillerinde fotoğrafları yer alan saha fotoğrafçıları.",
+      "count": "Atlasta {count} fotoğrafçı",
+      "empty": "Henüz yayımlanmış fotoğrafçı sayfası yok.",
+      "metaTitle": "Fotoğrafçılar",
+      "metaDescription": "reptiles.ge’deki saha fotoğrafçıları — portreler, galeriler ve belgelledikleri türler."
+    }
   },
   "attribution": {
     "heading": "Reptiles.ge",

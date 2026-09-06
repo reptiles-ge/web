@@ -169,6 +169,30 @@ test("Zakro Songulashvili photographer page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
+test("photographer index is indexable and lists published authors", async ({
+  page,
+}) => {
+  const response = await page.goto("/fotografebi");
+  expect(response?.status()).toBe(200);
+  await expect(page.locator("h1")).toContainText("ფოტოგრაფები");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    /\/fotografebi\/?$/,
+  );
+  await expect(
+    page.getByRole("heading", { name: "ზაური ხაჩიძე" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "ზაქრო სონგულაშვილი" }),
+  ).toBeVisible();
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  expect(jsonLd.some((block) => block.includes('"CollectionPage"'))).toBe(
+    true,
+  );
+});
+
 test("legacy photographer slugs 301 to fotografebi and photographers", async ({
   request,
 }) => {
@@ -185,6 +209,14 @@ test("legacy photographer slugs 301 to fotografebi and photographers", async ({
   expect(locationPath(latin.headers())).toBe(
     "/en/photographers/zauri-khachidze",
   );
+
+  const kaIndex = await request.get("/photographers", { maxRedirects: 0 });
+  expect(kaIndex.status()).toBe(301);
+  expect(locationPath(kaIndex.headers())).toBe("/fotografebi");
+
+  const enIndex = await request.get("/en/authors", { maxRedirects: 0 });
+  expect(enIndex.status()).toBe(301);
+  expect(locationPath(enIndex.headers())).toBe("/en/photographers");
 });
 
 test("404 is noindex", async ({ page }) => {

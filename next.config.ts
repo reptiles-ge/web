@@ -280,6 +280,21 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/fotografebi",
+        source: "/avtorebi",
+        statusCode: 301,
+      },
+      {
+        destination: "/fotografebi",
+        source: "/authors",
+        statusCode: 301,
+      },
+      {
+        destination: "/fotografebi",
+        source: "/photographers",
+        statusCode: 301,
+      },
+      {
         destination: "/quiz/romeli-gvelia",
         source: "/quiz/gvelis-identifikacia",
         statusCode: 301,
@@ -361,6 +376,9 @@ const nextConfig: NextConfig = {
         ["/avtorebi/:slug", "/photographers/:slug"],
         ["/authors/:slug", "/photographers/:slug"],
         ["/fotografebi/:slug", "/photographers/:slug"],
+        ["/avtorebi", "/photographers"],
+        ["/authors", "/photographers"],
+        ["/fotografebi", "/photographers"],
         ["/snakes/dolichophis-caspius", "/snakes", 302],
         ["/gvelebi/qvitelmutsela-mtsuravi", "/snakes", 302],
         ["/species/dolichophis-caspius", "/snakes", 302],

@@ -5,6 +5,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import {
   creditAuthorHref,
+  creditAuthorIndexHref,
   getPublishedCreditAuthorBySlug,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
@@ -33,7 +34,15 @@ const GROUP_RANK: Record<AnimalGroup, number> = {
   turtle: 3,
 };
 
+export const HOME_CONTRIBUTOR_LIMIT = 2;
 export const HOME_CONTRIBUTOR_PREVIEW_COUNT = 4;
+
+export type CreditAuthorCard = {
+  author: CreditAuthor;
+  photoCount: number;
+  preview: CreditAuthorPhoto[];
+  speciesCount: number;
+};
 
 export function creditAuthorAlternates(locale: AppLocale, slug: string) {
   return localeAlternates(locale, {
@@ -50,6 +59,19 @@ export function creditAuthorStaticParams() {
     }
   }
   return params;
+}
+
+export function creditAuthorIndexAlternates(locale: AppLocale) {
+  return localeAlternates(locale, creditAuthorIndexHref());
+}
+
+export function creditAuthorIndexUrl(locale: AppLocale) {
+  return absoluteUrl(
+    getPathname({
+      href: creditAuthorIndexHref(),
+      locale,
+    }),
+  );
 }
 
 export function creditAuthorUrl(locale: AppLocale, slug: string) {
@@ -128,7 +150,7 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
   return ids;
 }
 
-export function getHomeContributorCards() {
+export function getCreditAuthorCards(): CreditAuthorCard[] {
   const cards = [];
   for (const author of getPublishedCreditAuthors()) {
     const photos = getCreditAuthorPhotos(author);
@@ -145,6 +167,10 @@ export function getHomeContributorCards() {
     if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
     return a.author.slug.localeCompare(b.author.slug);
   });
+}
+
+export function getHomeContributorCards() {
+  return getCreditAuthorCards().slice(0, HOME_CONTRIBUTOR_LIMIT);
 }
 
 export function pickCreditAuthorPreviewPhotos(

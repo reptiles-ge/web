@@ -6,6 +6,7 @@ import {
 } from "@/data/creditAuthors";
 import { pathnames } from "@/i18n/pathnames";
 import {
+  getCreditAuthorCards,
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
@@ -193,6 +194,10 @@ describe("credit authors", () => {
     expect(cards.map((card) => card.author.slug)).toEqual([
       "zauri-khachidze",
       "ioane-rostiashvili",
+    ]);
+    expect(getCreditAuthorCards().map((card) => card.author.slug)).toEqual([
+      "zauri-khachidze",
+      "ioane-rostiashvili",
       "sandro-khakhva",
       "giorgi-iankoshvili",
       "zakro-songulashvili",
@@ -249,6 +254,12 @@ describe("credit authors", () => {
   });
 
   it("301s legacy photographer prefixes to the live slugs", () => {
+    expect(pathnames["/authors"]).toEqual({
+      en: "/photographers",
+      ka: "/fotografebi",
+      ru: "/photographers",
+      tr: "/photographers",
+    });
     expect(pathnames["/authors/[slug]"]).toEqual({
       en: "/photographers/[slug]",
       ka: "/fotografebi/[slug]",
@@ -273,11 +284,24 @@ describe("credit authors", () => {
     expect(
       legacyPhotographerRedirectPath("/tr/fotografebi/sandro-khakhva"),
     ).toBe("/tr/photographers/sandro-khakhva");
+    expect(legacyPhotographerRedirectPath("/photographers")).toBe(
+      "/fotografebi",
+    );
+    expect(legacyPhotographerRedirectPath("/authors")).toBe("/fotografebi");
+    expect(legacyPhotographerRedirectPath("/avtorebi")).toBe("/fotografebi");
+    expect(legacyPhotographerRedirectPath("/en/authors")).toBe(
+      "/en/photographers",
+    );
+    expect(legacyPhotographerRedirectPath("/en/fotografebi")).toBe(
+      "/en/photographers",
+    );
+    expect(legacyPhotographerRedirectPath("/fotografebi")).toBeNull();
     expect(
       legacyPhotographerRedirectPath("/fotografebi/sandro-khakhva"),
     ).toBeNull();
     expect(
       legacyPhotographerRedirectPath("/en/photographers/sandro-khakhva"),
     ).toBeNull();
+    expect(legacyPhotographerRedirectPath("/en/photographers")).toBeNull();
   });
 });

@@ -822,6 +822,33 @@ const STATIC_PAGES: Array<
     title: { en: "About", ka: "შესახებ" },
   },
   {
+    heroImage: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
+    href: "/authors",
+    icon: "info",
+    id: "photographers",
+    keywords: [
+      "ფოტოგრაფები",
+      "fotografebi",
+      "photographers",
+      "фотографы",
+      "fotoğrafçılar",
+      "ავტორები",
+      "authors",
+    ],
+    subtitle: {
+      en: "Field photographers in the atlas",
+      ka: "საველე ფოტოგრაფები ატლასში",
+      ru: "Полевые фотографы в атласе",
+      tr: "Atlastaki saha fotoğrafçıları",
+    },
+    title: {
+      en: "Photographers",
+      ka: "ფოტოგრაფები",
+      ru: "Фотографы",
+      tr: "Fotoğrafçılar",
+    },
+  },
+  {
     href: "/news",
     icon: "news",
     id: "news",

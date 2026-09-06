@@ -103,6 +103,9 @@ export function resolvePageContextFromIndex(
   if (pathname === "/about") {
     return { page_type: "about" };
   }
+  if (pathname === "/authors") {
+    return { page_type: "author_index" };
+  }
   if (pathname === "/authors/[slug]" && params.slug) {
     return { entity_id: params.slug, page_type: "author" };
   }

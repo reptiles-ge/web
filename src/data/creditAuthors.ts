@@ -176,6 +176,10 @@ export function creditAuthorHref(slug: string) {
   };
 }
 
+export function creditAuthorIndexHref() {
+  return "/authors" as const;
+}
+
 export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {
   return pickLocalized(author.name, locale);
 }
