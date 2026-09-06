@@ -26,7 +26,7 @@ import {
   speciesRu,
   speciesTr,
 } from "../src/data/species.generated";
-import { images as siteImages } from "../src/data/species";
+import { images as siteImages } from "../src/data/speciesMedia";
 import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
 
 const CDN_BASE = "https://cdn.reptiles.ge";

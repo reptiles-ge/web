@@ -6,8 +6,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
-import { type SpeciesListItem } from "@/data/speciesListItem";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { type SpeciesListItem } from "@/data/speciesListItem";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 

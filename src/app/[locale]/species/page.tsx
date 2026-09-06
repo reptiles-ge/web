@@ -9,13 +9,13 @@ import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
 import { AtlasHero } from "@/components/species-atlas/AtlasHero";
 import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
 import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
-import { getSpeciesById } from "@/data/species";
-import { getAtlasStats } from "@/data/speciesAtlas";
 import {
   hasActiveAtlasFilters,
   parseAtlasFilters,
 } from "@/data/atlasFilters";
 import { getRegionTooltipPreviews } from "@/data/regions";
+import { getSpeciesById } from "@/data/species";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";

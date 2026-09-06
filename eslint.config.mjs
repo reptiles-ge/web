@@ -109,6 +109,71 @@ const eslintConfig = defineConfig([
     },
   },
   eslintConfigPrettier,
+  {
+    files: [
+      "src/components/species-atlas/**/*.{ts,tsx}",
+      "src/components/map/GeorgiaMap.tsx",
+      "src/components/map/RegionDetailsPanel.tsx",
+      "src/components/map/SpeciesCard.tsx",
+    ],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              allowTypeImports: true,
+              message:
+                "Client atlas/map code must not import the full species catalog. Use SpeciesListItem props, atlasFilters, mapRegions, or speciesAtlasMeta.",
+              name: "@/data/species",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "Client atlas/map code must not import the generated catalog.",
+              name: "@/data/species.generated",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "Client atlas/map code must not import locale overlays.",
+              name: "@/data/species-en",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "Client atlas/map code must not import locale overlays.",
+              name: "@/data/species-ru",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "Client atlas/map code must not import locale overlays.",
+              name: "@/data/species-tr",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "localizeSpecies pulls the full catalog. Pass localized SpeciesListItem props from a Server Component.",
+              name: "@/i18n/localizeSpecies",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "@/data/regions imports the full catalog. Use mapRegions and pass species as props.",
+              name: "@/data/regions",
+            },
+            {
+              allowTypeImports: true,
+              message:
+                "@/data/speciesAtlas imports the full catalog. Use atlasFilters or speciesAtlasMeta.",
+              name: "@/data/speciesAtlas",
+            },
+          ],
+        },
+      ],
+    },
+  },
   globalIgnores([
     ".next/**",
     ".pnpm-store/**",

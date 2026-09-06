@@ -28,6 +28,21 @@ const venomousDangerOrder: Record<DangerLevel, number> = {
   Moderate: 1,
 };
 
+export type AtlasStats = {
+  amphibians: number;
+  birds: number;
+  lastUpdated: null | string;
+  lizards: number;
+  mammals: number;
+  photos: number;
+  regions: number;
+  snakes: number;
+  spiders: number;
+  total: number;
+  turtles: number;
+  venomous: number;
+};
+
 export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
   const urls = new Set<string>();
   for (const item of catalog) {
@@ -40,7 +55,9 @@ export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
   return urls.size;
 }
 
-export function getAtlasStats(catalog: Species[] = getCatalogSpecies()) {
+export function getAtlasStats(
+  catalog: Species[] = getCatalogSpecies(),
+): AtlasStats {
   const byGroup: Record<AnimalGroup, number> = {
     amphibian: 0,
     bird: 0,

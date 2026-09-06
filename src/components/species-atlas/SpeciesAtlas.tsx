@@ -9,9 +9,9 @@ import {
 } from "nuqs";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
 import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { AppLocale } from "@/i18n/routing";
 
 import { AtlasBrowse } from "@/components/species-atlas/AtlasBrowse";
 import { AtlasMap } from "@/components/species-atlas/AtlasMap";
@@ -23,15 +23,15 @@ import {
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
 import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-} from "@/data/speciesAtlasMeta";
-import {
   type AtlasFilters,
   countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
 } from "@/data/atlasFilters";
+import {
+  type AnimalGroup,
+  getSpeciesAtlasMeta,
+} from "@/data/speciesAtlasMeta";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
 export function SpeciesAtlas({

@@ -1,5 +1,6 @@
-import { getRegionsForSpecies, regions } from "@/data/mapRegions";
 import type { SpeciesListItem } from "@/data/speciesListItem";
+
+import { getRegionsForSpecies, regions } from "@/data/mapRegions";
 import {
   type AnimalGroup,
   getSpeciesAtlasMeta,

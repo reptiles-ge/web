@@ -1,7 +1,8 @@
-import { getCatalogSpecies } from "@/data/species";
-import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
 import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { Species } from "@/data/speciesTypes";
+
+import { getCatalogSpecies } from "@/data/species";
+import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 
@@ -16,6 +17,15 @@ export function getAtlasRecentItems(
   return getRecentlyUpdatedSpecies(limit).map((item) =>
     toAtlasListItem(item, locale),
   );
+}
+
+function atlasSearchText(item: Species) {
+  const parts: string[] = [item.scientificName, item.genus, item.family];
+  for (const locale of routing.locales) {
+    const localized = localizeSpecies(item, locale);
+    parts.push(localized.commonName, localized.location);
+  }
+  return parts.join(" ").toLowerCase();
 }
 
 function toAtlasListItem(item: Species, locale: AppLocale): SpeciesListItem {
@@ -34,13 +44,4 @@ function toAtlasListItem(item: Species, locale: AppLocale): SpeciesListItem {
     ...(item.danger ? { danger: item.danger } : {}),
     ...(item.mobileImage ? { mobileImage: item.mobileImage } : {}),
   };
-}
-
-function atlasSearchText(item: Species) {
-  const parts: string[] = [item.scientificName, item.genus, item.family];
-  for (const locale of routing.locales) {
-    const localized = localizeSpecies(item, locale);
-    parts.push(localized.commonName, localized.location);
-  }
-  return parts.join(" ").toLowerCase();
 }

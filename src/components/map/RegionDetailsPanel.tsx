@@ -5,11 +5,11 @@ import { ArrowUpRight, Leaf, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
-import { localizeRegionText, type Region } from "@/data/mapRegions";
 import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesCard } from "@/components/map/SpeciesCard";
+import { localizeRegionText, type Region } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
 import { cycleTab } from "@/lib/focusTrap";
 import { regionHref } from "@/lib/regionHref";

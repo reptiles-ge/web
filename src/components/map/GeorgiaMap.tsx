@@ -10,16 +10,17 @@ import {
   useState,
 } from "react";
 
+import type { SpeciesListItem } from "@/data/speciesListItem";
+
 import { Region } from "@/components/map/Region";
 import { RegionTooltip } from "@/components/map/RegionTooltip";
 import { MotionLazy } from "@/components/MotionLazy";
 import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
 import {
   type Region as RegionData,
-  type RegionTooltipSpecies,
   regions,
+  type RegionTooltipSpecies,
 } from "@/data/mapRegions";
-import type { SpeciesListItem } from "@/data/speciesListItem";
 import { useRouter } from "@/i18n/navigation";
 import { type MapContext, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -230,7 +231,7 @@ export function GeorgiaMap({
         </div>
 
         {usePanel ? (
-          <RegionDetailsPanel
+          <LazyRegionDetailsPanel
             onClose={handleClose}
             region={selectedRegion}
             species={
@@ -242,5 +243,24 @@ export function GeorgiaMap({
         ) : null}
       </>
     </MotionLazy>
+  );
+}
+
+function LazyRegionDetailsPanel({
+  onClose,
+  region,
+  species,
+}: {
+  onClose: () => void;
+  region: null | RegionData;
+  species: SpeciesListItem[];
+}) {
+  const [ready, setReady] = useState(false);
+  if (region && !ready) {
+    setReady(true);
+  }
+  if (!ready) return null;
+  return (
+    <RegionDetailsPanel onClose={onClose} region={region} species={species} />
   );
 }
