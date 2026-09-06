@@ -4,14 +4,15 @@ import {
   getPublishedCreditAuthorByName,
   getPublishedCreditAuthorBySlug,
 } from "@/data/creditAuthors";
-import { getCreditAuthorHubIds,
+import { pathnames } from "@/i18n/pathnames";
+import {
+  getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   getHomeContributorCards,
   legacyPhotographerRedirectPath,
   pickCreditAuthorPreviewPhotos,
 } from "@/lib/creditAuthors";
-import { pathnames } from "@/i18n/pathnames";
 
 describe("credit authors", () => {
   it("resolves Sandro Khakhva from both name spellings", () => {
@@ -133,6 +134,12 @@ describe("credit authors", () => {
   });
 
   it("301s legacy photographer prefixes to the live slugs", () => {
+    expect(pathnames["/authors/[slug]"]).toEqual({
+      en: "/photographers/[slug]",
+      ka: "/fotografebi/[slug]",
+      ru: "/photographers/[slug]",
+      tr: "/photographers/[slug]",
+    });
     expect(legacyPhotographerRedirectPath("/avtorebi/sandro-khakhva")).toBe(
       "/fotografebi/sandro-khakhva",
     );
