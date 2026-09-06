@@ -31912,6 +31912,101 @@
       ],
       "updatedAt": "2026-08-28T21:45:14.405Z"
     },
+    "macrovipera-lebetina-alisa-1.jpg": {
+      "sourceHash": "f62552b544d24f74627b013da4d4b746bbac1854ef3f24ebf80f6cd9eca864a0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-alisa-1.jpg",
+      "originalSize": 557915,
+      "width": 1440,
+      "height": 912,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 203,
+          "byteSize": 18487
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 203,
+          "byteSize": 29334
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 253,
+          "byteSize": 27908
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 253,
+          "byteSize": 44372
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 405,
+          "byteSize": 68339
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 405,
+          "byteSize": 108872
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 507,
+          "byteSize": 101559
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 507,
+          "byteSize": 162772
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 760,
+          "byteSize": 195065
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 760,
+          "byteSize": 320680
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 912,
+          "byteSize": 267490
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-alisa-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 912,
+          "byteSize": 406774
+        }
+      ],
+      "updatedAt": "2026-09-06T14:58:18.387Z"
+    },
     "macrovipera-lebetina-giorgi-1.jpg": {
       "sourceHash": "25cc63940e01e03f36961480c2543aaa4792271173285f098fdc5d2d540df213",
       "configFingerprint": "409788ee46c653d8",
