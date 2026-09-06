@@ -1,4 +1,5 @@
 import { getPublishedNewsArticleBySlug, newsLocalizedTitle } from "@/data/news";
+import { getPublishedCreditAuthorBySlug } from "@/data/creditAuthors";
 import { getRegionById } from "@/data/regions";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, type AppPathnames } from "@/i18n/routing";
@@ -169,6 +170,12 @@ function titleForMatch(
   }
   if (match.internal === "/regions/[id]" && match.params.id) {
     return getRegionById(match.params.id)?.name.ka;
+  }
+  if (match.internal === "/authors/[slug]" && match.params.slug) {
+    return (
+      getPublishedCreditAuthorBySlug(match.params.slug)?.name.ka ??
+      match.params.slug
+    );
   }
   if (match.internal === "/news/[slug]" && match.params.slug) {
     const article = getPublishedNewsArticleBySlug(match.params.slug);
