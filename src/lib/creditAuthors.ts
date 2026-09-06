@@ -56,12 +56,21 @@ export function creditAuthorUrl(locale: AppLocale, slug: string) {
   );
 }
 
-export function getCreditAuthorPhotos(author: CreditAuthor): CreditAuthorPhoto[] {
+export function getCreditAuthorPhotos(
+  author: CreditAuthor,
+): CreditAuthorPhoto[] {
   const aliases = new Set(author.aliases);
   const bySrc = new Map<string, CreditAuthorPhoto>();
 
   for (const species of getCatalogSpecies()) {
-    addPhoto(bySrc, aliases, species.id, species.updatedAt, species.image, species.imageCredit);
+    addPhoto(
+      bySrc,
+      aliases,
+      species.id,
+      species.updatedAt,
+      species.image,
+      species.imageCredit,
+    );
     addPhoto(
       bySrc,
       aliases,
@@ -71,7 +80,14 @@ export function getCreditAuthorPhotos(author: CreditAuthor): CreditAuthorPhoto[]
       species.mobileImageCredit,
     );
     for (const item of species.gallery) {
-      addPhoto(bySrc, aliases, species.id, species.updatedAt, item.src, item.credit);
+      addPhoto(
+        bySrc,
+        aliases,
+        species.id,
+        species.updatedAt,
+        item.src,
+        item.credit,
+      );
     }
   }
 
@@ -111,6 +127,7 @@ function compareAuthorPhotos(a: CreditAuthorPhoto, b: CreditAuthorPhoto) {
   const groupA = GROUP_RANK[getSpeciesAtlasMeta(a.speciesId).group];
   const groupB = GROUP_RANK[getSpeciesAtlasMeta(b.speciesId).group];
   if (groupA !== groupB) return groupA - groupB;
-  if (a.speciesId !== b.speciesId) return a.speciesId.localeCompare(b.speciesId);
+  if (a.speciesId !== b.speciesId)
+    return a.speciesId.localeCompare(b.speciesId);
   return a.src.localeCompare(b.src);
 }

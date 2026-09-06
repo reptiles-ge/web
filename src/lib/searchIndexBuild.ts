@@ -1,6 +1,9 @@
 import type { AppLocale } from "@/i18n/routing";
 
-import { creditAuthorHref, getPublishedCreditAuthors } from "@/data/creditAuthors";
+import {
+  creditAuthorHref,
+  getPublishedCreditAuthors,
+} from "@/data/creditAuthors";
 import {
   getPublishedNewsArticles,
   newsLocalizedDek,

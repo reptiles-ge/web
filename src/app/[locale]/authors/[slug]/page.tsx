@@ -20,12 +20,7 @@ import {
   resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
-import {
-  absoluteUrl,
-  localePath,
-  siteConfig,
-  siteEntityId,
-} from "@/lib/site";
+import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -95,11 +90,13 @@ export default async function AuthorRoute({ params }: Props) {
         ];
       }),
     ],
-    description: bio ?? t("metaDescription", {
-      count: photos.length,
-      name,
-      species: speciesIds.length,
-    }),
+    description:
+      bio ??
+      t("metaDescription", {
+        count: photos.length,
+        name,
+        species: speciesIds.length,
+      }),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {
@@ -115,7 +112,10 @@ export default async function AuthorRoute({ params }: Props) {
 
   return (
     <>
-      <CoverImagePreload sizes={AUTHOR_PORTRAIT_SIZES} src={author.portraitSrc} />
+      <CoverImagePreload
+        sizes={AUTHOR_PORTRAIT_SIZES}
+        src={author.portraitSrc}
+      />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <AuthorPage author={author} locale={locale} photos={photos} />
