@@ -1642,6 +1642,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 859],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eirenis-modestus-laura-1.jpg": {
+    "path": "eirenis-modestus-laura-1",
+    "width": 1600,
+    "height": 1027,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eirenis-modestus-mobile.jpg": {
     "path": "eirenis-modestus-mobile",
     "width": 1920,

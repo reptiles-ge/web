@@ -13372,6 +13372,101 @@
       ],
       "updatedAt": "2026-09-06T15:09:29.701Z"
     },
+    "eirenis-modestus-laura-1.jpg": {
+      "sourceHash": "daa8c081adb8499fadbaa80cc86f880fd7337e15362f78f4051f5cf35f31fb81",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-modestus-laura-1.jpg",
+      "originalSize": 373540,
+      "width": 1600,
+      "height": 1027,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-modestus-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 205,
+          "byteSize": 12433
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 205,
+          "byteSize": 19722
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 257,
+          "byteSize": 18399
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 257,
+          "byteSize": 28852
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 411,
+          "byteSize": 38530
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 411,
+          "byteSize": 60014
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 514,
+          "byteSize": 54274
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 514,
+          "byteSize": 84592
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 770,
+          "byteSize": 99083
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 770,
+          "byteSize": 148974
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1027,
+          "byteSize": 154019
+        },
+        {
+          "key": "optimized/eirenis-modestus-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1027,
+          "byteSize": 215350
+        }
+      ],
+      "updatedAt": "2026-09-06T15:16:22.522Z"
+    },
     "eirenis-modestus-mobile.jpg": {
       "sourceHash": "4101c2b6f23d3ebf056ff24ec993ba9252841a4d4a6deb86d811431b31ddf99d",
       "configFingerprint": "a895f8e025dcc7fa",
