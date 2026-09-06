@@ -2334,6 +2334,101 @@
       ],
       "updatedAt": "2026-09-05T10:40:41.875Z"
     },
+    "argiope-bruennichi-vasiko-1.jpg": {
+      "sourceHash": "de86abe65f9b61a195c601d7b35fa2cef7dfb73e2db10140f111b578059ba678",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "argiope-bruennichi-vasiko-1.jpg",
+      "originalSize": 704549,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7623
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9862
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10337
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12834
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 18207
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 22634
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 24179
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 30500
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 39660
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 50404
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 100841
+        },
+        {
+          "key": "optimized/argiope-bruennichi-vasiko-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 122562
+        }
+      ],
+      "updatedAt": "2026-09-06T16:39:13.065Z"
+    },
     "argiope-bruennichi-vel-1.jpg": {
       "sourceHash": "76d227dae9d08e5d07dabe4b14e2dbd234dcf432de70251a6230177e20708448",
       "configFingerprint": "a895f8e025dcc7fa",
