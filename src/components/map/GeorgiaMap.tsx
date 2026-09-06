@@ -49,7 +49,7 @@ export function GeorgiaMap({
   highlightedIds = EMPTY_HIGHLIGHTED_IDS,
   interactive = true,
   mapContext = "home",
-  selectionMode = "panel",
+  selectionMode = "navigate",
   tooltipSpeciesByRegion = EMPTY_TOOLTIP_SPECIES,
 }: GeorgiaMapProps) {
   const router = useRouter();
