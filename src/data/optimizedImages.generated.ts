@@ -424,6 +424,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/argiope-bruennichi-vasiko-1.jpg": {
+    "path": "argiope-bruennichi-vasiko-1",
+    "width": 2400,
+    "height": 1800,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-bruennichi-vel-1.jpg": {
     "path": "argiope-bruennichi-vel-1",
     "width": 931,
@@ -436,6 +443,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 932,
     "height": 2048,
     "widths": [400, 800, 932],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/argiope-bruennichi-zauri-1.jpg": {
+    "path": "argiope-bruennichi-zauri-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/argiope-bruennichi-zauri-2.jpg": {
+    "path": "argiope-bruennichi-zauri-2",
+    "width": 1344,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1344],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/argiope-bruennichi-zauri-3.jpg": {
+    "path": "argiope-bruennichi-zauri-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/argiope-lobata-1.jpg": {
