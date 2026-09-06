@@ -11,6 +11,7 @@ import {
   resolveSpeciesId,
   resolveSpeciesIdInHub,
 } from "@/lib/speciesSlugTable";
+import { legacyPhotographerRedirectPath } from "@/lib/creditAuthors";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -45,6 +46,9 @@ export default function proxy(request: NextRequest) {
   if (pathname === "/ka" || pathname.startsWith("/ka/")) {
     return redirectTo(request, pathname.slice(3) || "/");
   }
+
+  const photographer = legacyPhotographerRedirectPath(pathname);
+  if (photographer) return redirectTo(request, photographer);
 
   const legacy = pathname.match(
     new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
