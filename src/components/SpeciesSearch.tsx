@@ -291,7 +291,6 @@ function useSpeciesSearch() {
   const indexLocale = useRef<AppLocale | null>(null);
   const loadingLocale = useRef<AppLocale | null>(null);
   const localeRef = useRef(locale);
-  localeRef.current = locale;
 
   const loadIndex = useCallback(async () => {
     if (indexLocale.current === locale || loadingLocale.current === locale) {
@@ -338,6 +337,7 @@ function useSpeciesSearch() {
     : [];
 
   useEffect(() => {
+    localeRef.current = locale;
     if (indexLocale.current === locale) return;
     indexLocale.current = null;
     setIndex([]);
