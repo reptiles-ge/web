@@ -188,7 +188,10 @@ function SpeciesProfileHeroMedia({
           {heroDesktopSources.map((source) => (
             <source key={source.key} {...source.props} />
           ))}
-          <source media="(min-width: 1024px)" srcSet={desktopHeroSrc} />
+          <source
+            media="(min-width: 1024px)"
+            srcSet={optimizedImgSrc(desktopHeroSrc, 1200)}
+          />
         </>
       ) : null}
       {heroPrimarySources.map((source) => (
