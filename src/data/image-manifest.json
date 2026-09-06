@@ -19773,6 +19773,101 @@
       ],
       "updatedAt": "2026-08-29T07:22:20.299Z"
     },
+    "gyps-fulvus-giorgi-1.jpg": {
+      "sourceHash": "4728c984a4edfa057c3dbd1c158e3b8473593aa1fdfdd860b289e701cf28e4d4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gyps-fulvus-giorgi-1.jpg",
+      "originalSize": 487117,
+      "width": 1714,
+      "height": 1166,
+      "derivatives": [
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 218,
+          "byteSize": 12045
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 218,
+          "byteSize": 17028
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 17092
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 25218
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 435,
+          "byteSize": 37887
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 435,
+          "byteSize": 54420
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 544,
+          "byteSize": 54760
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 544,
+          "byteSize": 78296
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 816,
+          "byteSize": 114152
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 816,
+          "byteSize": 158338
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-1714.avif",
+          "format": "avif",
+          "width": 1714,
+          "height": 1166,
+          "byteSize": 235839
+        },
+        {
+          "key": "optimized/gyps-fulvus-giorgi-1-1714.webp",
+          "format": "webp",
+          "width": 1714,
+          "height": 1166,
+          "byteSize": 287152
+        }
+      ],
+      "updatedAt": "2026-09-06T17:27:20.890Z"
+    },
     "gyps-fulvus-nika-1.jpg": {
       "sourceHash": "8e9dd2687eb608eae69132d02127b36d084e365799458693c0d2bff71b6f09b5",
       "configFingerprint": "409788ee46c653d8",
