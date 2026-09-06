@@ -169,15 +169,15 @@ test("Zakro Songulashvili contributor page is indexable", async ({ page }) => {
   expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
 });
 
-test("photographer index is indexable and lists published authors", async ({
+test("contributor index is indexable and lists published authors", async ({
   page,
 }) => {
-  const response = await page.goto("/fotografebi");
+  const response = await page.goto("/kontributorebi");
   expect(response?.status()).toBe(200);
-  await expect(page.locator("h1")).toContainText("ფოტოგრაფები");
+  await expect(page.locator("h1")).toContainText("კონტრიბუტორები");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
-    /\/fotografebi\/?$/,
+    /\/kontributorebi\/?$/,
   );
   await expect(
     page.getByRole("heading", { name: "ზაური ხაჩიძე" }),
@@ -191,30 +191,38 @@ test("photographer index is indexable and lists published authors", async ({
   expect(jsonLd.some((block) => block.includes('"CollectionPage"'))).toBe(true);
 });
 
-test("legacy photographer slugs 301 to fotografebi and photographers", async ({
+test("legacy photographer slugs 301 to kontributorebi and contributors", async ({
   request,
 }) => {
   const ka = await request.get("/avtorebi/sandro-khakhva", {
     maxRedirects: 0,
   });
   expect(ka.status()).toBe(301);
-  expect(locationPath(ka.headers())).toBe("/fotografebi/sandro-khakhva");
+  expect(locationPath(ka.headers())).toBe("/kontributorebi/sandro-khakhva");
 
   const latin = await request.get("/en/authors/zauri-khachidze", {
     maxRedirects: 0,
   });
   expect(latin.status()).toBe(301);
   expect(locationPath(latin.headers())).toBe(
-    "/en/photographers/zauri-khachidze",
+    "/en/contributors/zauri-khachidze",
   );
 
   const kaIndex = await request.get("/photographers", { maxRedirects: 0 });
   expect(kaIndex.status()).toBe(301);
-  expect(locationPath(kaIndex.headers())).toBe("/fotografebi");
+  expect(locationPath(kaIndex.headers())).toBe("/kontributorebi");
 
   const enIndex = await request.get("/en/authors", { maxRedirects: 0 });
   expect(enIndex.status()).toBe(301);
-  expect(locationPath(enIndex.headers())).toBe("/en/photographers");
+  expect(locationPath(enIndex.headers())).toBe("/en/contributors");
+
+  const kaOld = await request.get("/fotografebi", { maxRedirects: 0 });
+  expect(kaOld.status()).toBe(301);
+  expect(locationPath(kaOld.headers())).toBe("/kontributorebi");
+
+  const enOld = await request.get("/en/photographers", { maxRedirects: 0 });
+  expect(enOld.status()).toBe(301);
+  expect(locationPath(enOld.headers())).toBe("/en/contributors");
 });
 
 test("404 is noindex", async ({ page }) => {
