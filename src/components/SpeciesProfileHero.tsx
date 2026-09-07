@@ -15,9 +15,9 @@ import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import {
+  speciesShareStatusKind,
   speciesShareText,
   speciesShareUrl,
-  speciesShareVenomous,
 } from "@/lib/speciesShareText";
 
 type SpeciesProfileHeroProps = {
@@ -50,14 +50,25 @@ export async function SpeciesProfileHero({
     getTranslations("danger"),
   ]);
   const riskChip = getSpeciesRiskChip(species, group);
+  const shareStatusKind = speciesShareStatusKind(
+    species.id,
+    group,
+    species.danger,
+  );
+  const shareStatus =
+    shareStatusKind === "venomous"
+      ? t("copyShareVenomous")
+      : shareStatusKind === "harmless"
+        ? t("copyShareHarmless")
+        : shareStatusKind === "rearFanged"
+          ? t("copyShareRearFanged")
+          : null;
   const shareText = speciesShareText({
     commonName: species.commonName,
     detailsLabel: t("copyShareDetails"),
-    harmlessStatus: t("copyShareHarmless"),
     scientificName: species.scientificName,
+    status: shareStatus,
     url: speciesShareUrl(locale, species.id),
-    venomous: speciesShareVenomous(group, species.danger),
-    venomousStatus: t("copyShareVenomous"),
   });
   const dangerLabel = tCard("dangerLevel");
   const dangerValue = riskChip ? tDanger(riskChip.level) : "";

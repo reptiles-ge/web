@@ -11,6 +11,23 @@ import { speciesHref } from "@/lib/speciesRoutes";
 
 const SHARE_ORIGIN = "https://reptiles.ge";
 
+const REAR_FANGED_SHARE_IDS = new Set(["telescopus-fallax"]);
+
+export type SpeciesShareStatusKind =
+  | "harmless"
+  | "rearFanged"
+  | "venomous";
+
+export function speciesShareStatusKind(
+  id: string,
+  group: AnimalGroup,
+  danger?: DangerLevel,
+): null | SpeciesShareStatusKind {
+  if (REAR_FANGED_SHARE_IDS.has(id)) return "rearFanged";
+  if (!groupHasVenomConcept(group) || !danger) return null;
+  return isVenomousDanger(danger) ? "venomous" : "harmless";
+}
+
 export function speciesShareVenomous(
   group: AnimalGroup,
   danger?: DangerLevel,
@@ -26,24 +43,17 @@ export function speciesShareUrl(locale: AppLocale, id: string) {
 export function speciesShareText({
   commonName,
   detailsLabel,
-  harmlessStatus,
   scientificName,
+  status,
   url,
-  venomous,
-  venomousStatus,
 }: {
   commonName: string;
   detailsLabel: string;
-  harmlessStatus: string;
   scientificName: string;
+  status?: null | string;
   url: string;
-  venomous: boolean | null;
-  venomousStatus: string;
 }) {
   const names = `${commonName} (${scientificName})`;
-  const heading =
-    venomous === null
-      ? names
-      : `${names} - ${venomous ? venomousStatus : harmlessStatus}`;
+  const heading = status ? `${names} - ${status}` : names;
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
 }

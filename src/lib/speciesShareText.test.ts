@@ -1,9 +1,41 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  speciesShareStatusKind,
   speciesShareText,
   speciesShareVenomous,
 } from "@/lib/speciesShareText";
+
+describe("speciesShareStatusKind", () => {
+  it("uses rear-fanged copy for the cat snake", () => {
+    expect(speciesShareStatusKind("telescopus-fallax", "snake", "Harmless")).toBe(
+      "rearFanged",
+    );
+  });
+
+  it("marks High and Moderate snakes as venomous", () => {
+    expect(speciesShareStatusKind("macrovipera-lebetina", "snake", "High")).toBe(
+      "venomous",
+    );
+    expect(
+      speciesShareStatusKind("malpolon-insignitus", "snake", "Moderate"),
+    ).toBe("venomous");
+  });
+
+  it("marks Harmless herpetofauna as non-venomous", () => {
+    expect(speciesShareStatusKind("natrix-tessellata", "snake", "Harmless")).toBe(
+      "harmless",
+    );
+    expect(
+      speciesShareStatusKind("paralaudakia-caucasia", "lizard", "Harmless"),
+    ).toBe("harmless");
+  });
+
+  it("does not invent venom status for birds or missing danger", () => {
+    expect(speciesShareStatusKind("accipiter-nisus", "bird", "Harmless")).toBeNull();
+    expect(speciesShareStatusKind("natrix-tessellata", "snake")).toBeNull();
+  });
+});
 
 describe("speciesShareVenomous", () => {
   it("marks High and Moderate snakes as venomous", () => {
@@ -28,11 +60,9 @@ describe("speciesShareText", () => {
       speciesShareText({
         commonName: "გიურზა",
         detailsLabel: "დეტალები",
-        harmlessStatus: "უშხამო სახეობაა.",
         scientificName: "Macrovipera lebetinus",
+        status: "შხამიანი სახეობაა.",
         url: "https://reptiles.ge/gvelebi/giurza",
-        venomous: true,
-        venomousStatus: "შხამიანი სახეობაა.",
       }),
     ).toBe(
       [
@@ -43,16 +73,33 @@ describe("speciesShareText", () => {
     );
   });
 
+  it("formats the cat snake with rear-fanged wording", () => {
+    expect(
+      speciesShareText({
+        commonName: "კატისთვალა",
+        detailsLabel: "დეტალები",
+        scientificName: "Telescopus fallax",
+        status:
+          "შხამიანი სახეობაა, მაგრამ ეშვები ხახის სიღრმეშია — ადამიანამდე შხამი ჩვეულებრივ ვერ აღწევს.",
+        url: "https://reptiles.ge/gvelebi/katistvala",
+      }),
+    ).toBe(
+      [
+        "კატისთვალა (Telescopus fallax) - შხამიანი სახეობაა, მაგრამ ეშვები ხახის სიღრმეშია — ადამიანამდე შხამი ჩვეულებრივ ვერ აღწევს.",
+        "",
+        "🔗 დეტალები: https://reptiles.ge/gvelebi/katistvala",
+      ].join("\n"),
+    );
+  });
+
   it("formats a non-venomous species card", () => {
     expect(
       speciesShareText({
         commonName: "წყლის გველი",
         detailsLabel: "დეტალები",
-        harmlessStatus: "უშხამო სახეობაა.",
         scientificName: "Natrix tessellata",
+        status: "უშხამო სახეობაა.",
         url: "https://reptiles.ge/gvelebi/wyis-gveli",
-        venomous: false,
-        venomousStatus: "შხამიანი სახეობაა.",
       }),
     ).toBe(
       [
@@ -68,11 +115,8 @@ describe("speciesShareText", () => {
       speciesShareText({
         commonName: "ჩვეულებრივი კაკაჩა",
         detailsLabel: "დეტალები",
-        harmlessStatus: "უშხამო სახეობაა.",
         scientificName: "Accipiter nisus",
         url: "https://reptiles.ge/prinvelebi/chveulebrivi-kakacha",
-        venomous: null,
-        venomousStatus: "შხამიანი სახეობაა.",
       }),
     ).toBe(
       [
