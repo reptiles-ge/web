@@ -1,8 +1,9 @@
 import { cn } from "@/lib/cn";
 
-const LOGO_SRC = "/images/logo-160.webp";
-const LOGO_AVIF_SRCSET = "/images/logo-88.avif 88w, /images/logo-160.avif 160w";
-const LOGO_WEBP_SRCSET = "/images/logo-88.webp 88w, /images/logo-160.webp 160w";
+export const LOGO_SRC = "/images/logo-160.webp";
+export const LOGO_AVIF_SRCSET = "/images/logo-88.avif 88w, /images/logo-160.avif 160w";
+export const LOGO_WEBP_SRCSET = "/images/logo-88.webp 88w, /images/logo-160.webp 160w";
+export const LOGO_NAV_SIZE = 44;
 
 type LogoProps = {
   alt?: string;
@@ -14,7 +15,7 @@ type LogoProps = {
 };
 
 export function Logo({
-  alt = "Reptiles",
+  alt,
   className = "",
   priority = false,
   showWordmark = false,
@@ -22,6 +23,7 @@ export function Logo({
   wordmarkClassName = "",
 }: LogoProps) {
   const sizes = `${size}px`;
+  const resolvedAlt = alt ?? (showWordmark ? "" : "Reptiles");
 
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
@@ -29,10 +31,10 @@ export function Logo({
         <source sizes={sizes} srcSet={LOGO_AVIF_SRCSET} type="image/avif" />
         <source sizes={sizes} srcSet={LOGO_WEBP_SRCSET} type="image/webp" />
         <img
-          alt={alt}
+          alt={resolvedAlt}
           className="shrink-0 object-contain"
-          decoding="async"
-          fetchPriority="auto"
+          decoding={priority ? "sync" : "async"}
+          fetchPriority={priority ? "high" : "auto"}
           height={size}
           loading={priority ? "eager" : "lazy"}
           sizes={sizes}
