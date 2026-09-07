@@ -198,6 +198,37 @@ describe("credit authors", () => {
     );
   });
 
+  it("resolves Saba Todua as a published herpetologist", () => {
+    expect(getPublishedCreditAuthorByName("საბა თოდუა")?.slug).toBe(
+      "saba-todua",
+    );
+    expect(getPublishedCreditAuthorByName("Saba Todua")?.slug).toBe(
+      "saba-todua",
+    );
+    const author = getPublishedCreditAuthorBySlug("saba-todua");
+    expect(author?.published).toBe(true);
+    expect(author?.role).toBe("herpetologist");
+    expect(author?.portraitSrc).toBe(
+      "https://cdn.reptiles.ge/authors/saba-todua.jpg",
+    );
+    expect(author?.bio?.ka).toContain("მოყვარული ჰერპეტოლოგი");
+    expect(author?.links).toEqual({
+      facebook: "https://www.facebook.com/todua.saba.54438",
+    });
+    const photos = getCreditAuthorPhotos(author!);
+    expect(photos.length).toBeGreaterThanOrEqual(3);
+    expect(getCreditAuthorSpeciesIds(photos)).toEqual(
+      expect.arrayContaining([
+        "vipera-kaznakovi",
+        "vipera-dinniki",
+        "vipera-transcaucasiana",
+      ]),
+    );
+    expect(getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos))).toEqual(
+      expect.arrayContaining(["snakes"]),
+    );
+  });
+
   it("resolves Close to wildlife as a published photographer page", () => {
     expect(getPublishedCreditAuthorByName("ველურ ბუნებასთან ახლოს")?.slug).toBe(
       "velur-bunebastan-axlos",
@@ -262,6 +293,7 @@ describe("credit authors", () => {
       "nika-melikishvili",
       "zakro-songulashvili",
       "velur-bunebastan-axlos",
+      "saba-todua",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
       [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),

@@ -175,6 +175,30 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "nika-melikishvili",
   },
   {
+    aliases: ["Saba Todua", "საბა თოდუა"],
+    bio: {
+      en: "Saba Todua is an ecology student at Ilia State University and an amateur herpetologist.",
+      ka: "საბა თოდუა ილიას სახელმწიფო უნივერსიტეტის სტუდენტი. მოყვარული ჰერპეტოლოგი.",
+      ru: "Саба Тодуа — студент-эколог Государственного университета Ильи и любитель-герпетолог.",
+      tr: "Saba Todua, Ilia Devlet Üniversitesi’nde ekoloji öğrencisi ve amatör herpetologdur.",
+    },
+    id: "saba-todua",
+    links: {
+      facebook: "https://www.facebook.com/todua.saba.54438",
+    },
+    name: {
+      en: "Saba Todua",
+      ka: "საბა თოდუა",
+      ru: "Саба Тодуа",
+      tr: "Saba Todua",
+    },
+    portraitClass: "object-[50%_28%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/saba-todua.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "saba-todua",
+  },
+  {
     aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
     bio: {
       en: "A wildlife photographer who documents Georgia’s reptiles and amphibians in their natural habitat.",

@@ -3328,6 +3328,87 @@
       ],
       "updatedAt": "2026-09-06T18:59:21.348Z"
     },
+    "authors/saba-todua.jpg": {
+      "sourceHash": "7bf6402bafbe1b81730054cb9eeef36f8177ba2bc24ea63e0ba9ae566e86881c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/saba-todua.jpg",
+      "originalSize": 185853,
+      "width": 1024,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/authors/saba-todua-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 14909
+        },
+        {
+          "key": "optimized/authors/saba-todua-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 20546
+        },
+        {
+          "key": "optimized/authors/saba-todua-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 20408
+        },
+        {
+          "key": "optimized/authors/saba-todua-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28012
+        },
+        {
+          "key": "optimized/authors/saba-todua-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 36470
+        },
+        {
+          "key": "optimized/authors/saba-todua-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 49894
+        },
+        {
+          "key": "optimized/authors/saba-todua-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 47996
+        },
+        {
+          "key": "optimized/authors/saba-todua-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 64504
+        },
+        {
+          "key": "optimized/authors/saba-todua-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1024,
+          "byteSize": 67047
+        },
+        {
+          "key": "optimized/authors/saba-todua-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "byteSize": 87028
+        }
+      ],
+      "updatedAt": "2026-09-07T09:22:39.632Z"
+    },
     "authors/sandro-khakhva.jpg": {
       "sourceHash": "6591e4f8af7ff4460628da5e2dfd6c627f571bcba189e474b8c00ec4388373bc",
       "configFingerprint": "409788ee46c653d8",

@@ -515,6 +515,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/authors/saba-todua.jpg": {
+    "path": "authors/saba-todua",
+    "width": 1024,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg": {
     "path": "authors/sandro-khakhva",
     "width": 1011,
