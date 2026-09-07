@@ -3518,6 +3518,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/lacerta-media-levan-1.jpg": {
+    "path": "lacerta-media-levan-1",
+    "width": 528,
+    "height": 960,
+    "widths": [320, 400, 528],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-media-zauri-1.jpg": {
+    "path": "lacerta-media-zauri-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-media-zauri-2.jpg": {
+    "path": "lacerta-media-zauri-2",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-media.jpg": {
     "path": "lacerta-media",
     "width": 858,
