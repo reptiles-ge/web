@@ -196,6 +196,11 @@ export function VenomousSnakesGuides({
                       {chunks}
                     </SpeciesInlineLink>
                   ),
+                  telescopus: (chunks) => (
+                    <SpeciesInlineLink id="telescopus-fallax">
+                      {chunks}
+                    </SpeciesInlineLink>
+                  ),
                 })}
                 bodyClassName={CLUSTER_BODY}
                 eyebrow={t("lookalikesEyebrow")}
