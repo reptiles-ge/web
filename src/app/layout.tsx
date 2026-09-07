@@ -27,7 +27,7 @@ const GTM_ID = "GTM-NM65ZMML";
 const FACEBOOK_APP_ID = "1033733009490487";
 
 const sora = Sora({
-  display: "swap",
+  display: "optional",
   preload: false,
   subsets: ["latin", "latin-ext"],
   variable: "--font-sora",
@@ -35,12 +35,13 @@ const sora = Sora({
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   display: "swap",
+  preload: true,
   subsets: ["georgian", "latin"],
   variable: "--font-noto-georgian",
 });
 
 const notoSans = Noto_Sans({
-  display: "swap",
+  display: "optional",
   preload: false,
   subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-noto-sans",
