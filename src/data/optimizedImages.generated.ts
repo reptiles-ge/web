@@ -5884,6 +5884,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/vipera-transcaucasiana-saba-1.jpg": {
+    "path": "vipera-transcaucasiana-saba-1",
+    "width": 1080,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-transcaucasiana-zauri-1.jpg": {
     "path": "vipera-transcaucasiana-zauri-1",
     "width": 1024,
