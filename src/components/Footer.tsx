@@ -224,9 +224,40 @@ export async function Footer({ regions, venomous }: FooterProps) {
           <span>
             © {new Date().getFullYear()} Reptiles. {t("rights")}
           </span>
-          <span className="tracking-wide">{t("forCurious")}</span>
+          <div className="flex items-center gap-4">
+            <a
+              aria-label={t("facebook")}
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              href="https://www.facebook.com/reptiles.ge/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <FacebookGlyph className="size-4" />
+            </a>
+            <span className="tracking-wide">{t("forCurious")}</span>
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FacebookGlyph({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
   );
 }
