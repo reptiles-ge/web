@@ -8,6 +8,12 @@ Use Georgian URLs below as canonical (`x-default`). Prefixed locales are `/en`, 
 
 Priority order: About (methods) → 2026 herpetofauna checklist article → species atlas → group hubs and indexes → species profiles → identification and safety guides → region pages (only taxa with an administrative-unit record in the atlas).
 
+## Machine-readable
+
+- [llms.txt](https://reptiles.ge/llms.txt): This index (navigation + scope).
+- [llms-full.txt](https://reptiles.ge/llms-full.txt): One-shot extractable corpus — methods, priority guides, news, and published species cards (Georgian canonical text, with EN profile URLs). Prefer for ingestion; prefer live profile URLs when quoting.
+- [Sitemap](https://reptiles.ge/sitemap.xml): Full indexable URL set, including locale alternates.
+
 ## Core
 
 - [Home](https://reptiles.ge/): Georgian homepage for the atlas.
