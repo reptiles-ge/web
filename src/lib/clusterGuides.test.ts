@@ -3,10 +3,12 @@ import { describe, expect, it } from "vitest";
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import {
   CLUSTER_GUIDES,
+  getRearFangedSpecies,
   isBirdSpecies,
   isDarevskiaSpecies,
   isMammalSpecies,
   isSnakeSpecies,
+  REAR_FANGED_SPECIES_IDS,
   VENOMOUS_SPIDER_IDS,
 } from "@/lib/clusterGuides";
 
@@ -29,6 +31,17 @@ describe("isSnakeSpecies", () => {
     expect(snakes.some((item) => item.id === "macrovipera-lebetina")).toBe(
       true,
     );
+  });
+});
+
+describe("rear-fanged cluster", () => {
+  it("lists Malpolon and the cat snake in fixed order", () => {
+    const rearFanged = getRearFangedSpecies(getCatalogSpecies());
+    expect(rearFanged.map((item) => item.id)).toEqual([
+      ...REAR_FANGED_SPECIES_IDS,
+    ]);
+    expect(rearFanged[0]?.danger).toBe("Moderate");
+    expect(rearFanged[1]?.danger).toBe("Harmless");
   });
 });
 
